@@ -36,4 +36,4 @@ This solution is built on the Azure managed services: [Traffic Manager](/en-us/s
 * [Application Performance Management with Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
 * [How to configure your App Service application to use Facebook login](https://docs.microsoft.com/api/Redirect/documentation/articles/app-service-mobile-how-to-configure-facebook-authentication/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

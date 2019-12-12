@@ -66,4 +66,4 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
 * [Azure Machine Learning Documentation](https://docs.microsoft.com/azure/machine-learning/)
 * [Power BI Embedded Documentation](https://docs.microsoft.com/azure/power-bi-embedded/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

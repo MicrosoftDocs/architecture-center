@@ -46,4 +46,4 @@ Quickly build and launch digital campaigns that automatically scale based on cus
 * [How to use Azure Cache for Redis](https://docs.microsoft.com/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache)
 * [Application Performance Management with Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-detect-triage-diagnose)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

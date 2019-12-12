@@ -69,4 +69,4 @@ ms.custom: acom-architecture, medical records management, medical records storag
 * [What is Operations Management Suite (OMS)?](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 * [Built-in roles for Azure role-based access control](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

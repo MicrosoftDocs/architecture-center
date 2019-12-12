@@ -46,4 +46,4 @@ Modern software is increasingly connected and distributed. The consistency of Az
 * [Azure Functions documentation](https://docs.microsoft.com/azure/azure-functions/)
 * [Azure Stack documentation](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-cloud-burst)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

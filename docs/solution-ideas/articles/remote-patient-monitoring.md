@@ -64,4 +64,4 @@ Predict and prevent future incidents by combining IoT and intelligence to optimi
 * [Azure Machine Learning Documentation](https://docs.microsoft.com/azure/machine-learning)
 * [Azure Monitor Documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

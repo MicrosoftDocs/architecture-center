@@ -30,4 +30,4 @@ This solution is built on the Azure managed services: [Azure SQL Database](/en-u
 * [Use Azure Content Delivery Network in Azure App Service](https://docs.microsoft.com/api/Redirect/documentation/articles/cdn-websites-with-cdn/)
 * [How to Use Azure Cache for Redis](https://docs.microsoft.com/api/Redirect/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

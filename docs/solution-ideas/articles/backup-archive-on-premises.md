@@ -24,4 +24,4 @@ This solution is built on the Azure managed services: [StorSimple](/en-us/servic
 * [Learning path for StorSimple](https://docs.microsoft.com/azure/storsimple/)
 * [Azure Blob Storage: Hot and cool storage tiers](https://docs.microsoft.com/api/Redirect/documentation/articles/storage-blob-storage-tiers/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

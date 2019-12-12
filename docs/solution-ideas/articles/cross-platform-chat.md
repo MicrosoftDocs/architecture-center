@@ -28,4 +28,4 @@ Accelerate development of reliable, high-performing chat applications.
 1. User logs into app with multi-factor authentication; if passed, SignalR endpoint and bearer token returned
 1. User connects to the SignalR Service with endpoint and token
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

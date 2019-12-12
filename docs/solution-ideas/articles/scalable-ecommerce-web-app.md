@@ -63,4 +63,4 @@ ms.custom: acom-architecture, architect scalable e-commerce web app, web apps, s
 * [Learn what can you do with Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)
 * [Application Performance Management with Application Insights](https://docs.microsoft.com/hazure/application-insights/app-insights-overview)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

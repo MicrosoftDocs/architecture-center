@@ -81,4 +81,4 @@ The first service bus effectively serves as an "Outbox" for IoT Hub and the seco
 ## Deploy to Azure
 * [Deploy to Azure](https://aka.ms/tryworkbench)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

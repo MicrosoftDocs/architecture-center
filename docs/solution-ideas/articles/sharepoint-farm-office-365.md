@@ -84,4 +84,4 @@ This solution provides a highly available deployment of SharePoint using a load 
 * [Active Directory Federation Services Documentation](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectfed-whatis/)
 * [Hybrid Workloads Documentation](https://docs.microsoft.com/sharepoint/hybrid/hybrid/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

@@ -66,4 +66,4 @@ Businesses and teams across industries have to spend time and money on design re
 * [Blob Storage documentation](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows)
 * [Azure Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

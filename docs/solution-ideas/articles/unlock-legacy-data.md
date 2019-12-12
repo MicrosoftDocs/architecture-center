@@ -40,4 +40,4 @@ Use Azure Stack to update and extend your legacy application data with the lates
 * [Virtual Network documentation](http://azure.microsoft.com/services/virtual-network/)
 * [VPN Gateway documentation](http://azure.microsoft.com/services/vpn-gateway/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]
