@@ -13,7 +13,8 @@ ms.custom: acom-architecture, chat, signalr service, interactive-diagram
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 Training of models using large datasets is a complex and resource intensive task. Use familiar tools such as TensorFlow and Kubeflow to simplify training of Machine Learning models. Your ML models will run in AKS clusters backed by GPU enabled VMs.
@@ -200,11 +201,16 @@ Training of models using large datasets is a complex and resource intensive task
 </div>
 
 ## Data Flow
-1. Package ML model into a container and publish to ACR
-1. Azure Blob storage hosts training data sets and trained model
-1. Use Kubeflow to deploy training job to AKS, distributed training job to AKS includes Parameter servers and Worker nodes
-1. Serve production model using Kubeflow, promoting a consistent environment across test, control and production
-1. AKS supports GPU enabled VM
-1. Developer can build features querying the model running in AKS cluster
+1. Package ML model into a container and publish to ACR
+
+1. Azure Blob storage hosts training data sets and trained model
+
+1. Use Kubeflow to deploy training job to AKS, distributed training job to AKS includes Parameter servers and Worker nodes
+
+1. Serve production model using Kubeflow, promoting a consistent environment across test, control and production
+
+1. AKS supports GPU enabled VM
+
+1. Developer can build features querying the model running in AKS cluster
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

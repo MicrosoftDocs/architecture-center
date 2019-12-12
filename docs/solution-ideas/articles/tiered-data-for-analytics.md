@@ -13,7 +13,8 @@ ms.custom: acom-architecture, application tier, data tier, tier architecture, ti
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 Easily tier data and applications on-premises and in Azure with architecture that supports greater efficiency in applications. Filter unnecessary data early in the process, easily bring cloud applications close to the data on-premises, and analyze large scale aggregate data from multiple locations in Azure for fleet-level insights.
@@ -149,13 +150,19 @@ Easily tier data and applications on-premises and in Azure with architecture tha
 </div>
 
 ## Data Flow
-1. Data flows into a storage account.
-1. Function on Azure Stack analyzes the data for anomalies or compliance.
-1. Locally-relevant insights are displayed on the Azure Stack app.
-1. Insights and anomalies are placed into a queue.
-1. The bulk of the data is placed into an archive storage account.
-1. Function sends data from queue to Azure Storage.
-1. Globally-relevant and compliant insights are available in the global app.
+1. Data flows into a storage account.
+
+1. Function on Azure Stack analyzes the data for anomalies or compliance.
+
+1. Locally-relevant insights are displayed on the Azure Stack app.
+
+1. Insights and anomalies are placed into a queue.
+
+1. The bulk of the data is placed into an archive storage account.
+
+1. Function sends data from queue to Azure Storage.
+
+1. Globally-relevant and compliant insights are available in the global app.
 
 ## Components
 * [Storage](https://azure.microsoft.com/services/storage/): Durable, highly available, and massively scalable cloud storage

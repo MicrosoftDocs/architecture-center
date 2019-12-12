@@ -13,7 +13,8 @@ ms.custom: acom-architecture, line of business app, lob app, lift and shift clou
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 This line-of-business application solution provides a mechanism for monitoring and responding to customer feedback. Easily connect multiple business systems to enable nimbler customer support.
@@ -124,10 +125,14 @@ The links to the right provide documentation on deploying and managing the Azure
 </div>
 
 ## Data Flow
-1. Customer submits feedback posted to a web endpoint.
-1. The feedback is posted to Microsoft Cognitive Services Text Analytics API to extract sentiment and keywords.
-1. The customer feedback creates a new case in Dynamics CRM or other CRM.
-1. The solution sends a text message to the customer, thanking them for the feedback.
-1. If the feedback sentiment scores lower than 0.3, the app posts this information to a customer service channel to respond.
+1. Customer submits feedback posted to a web endpoint.
+
+1. The feedback is posted to Microsoft Cognitive Services Text Analytics API to extract sentiment and keywords.
+
+1. The customer feedback creates a new case in Dynamics CRM or other CRM.
+
+1. The solution sends a text message to the customer, thanking them for the feedback.
+
+1. If the feedback sentiment scores lower than 0.3, the app posts this information to a customer service channel to respond.
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

@@ -13,7 +13,8 @@ ms.custom: acom-architecture, anomaly detection process, anomaly detection model
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 ## Architecture
@@ -152,12 +153,17 @@ ms.custom: acom-architecture, anomaly detection process, anomaly detection model
 </div>
 
 ## Data Flow
-1. Ingests data from the various stores that contain raw data to be monitored by Anomaly Detector.
-1. Aggregates, samples, and computes the raw data to generate the time series, or calls the Anomaly Detector API directly if the time series are already prepared and gets a response with the detection results.
-1. Queues the anomaly related meta data.
-1. Based on the anomaly related meta data, calls the customized alerting service.
-1. Stores the anomaly detection meta data.
-1. Visualizes the results of the time series anomaly detection.
+1. Ingests data from the various stores that contain raw data to be monitored by Anomaly Detector.
+
+1. Aggregates, samples, and computes the raw data to generate the time series, or calls the Anomaly Detector API directly if the time series are already prepared and gets a response with the detection results.
+
+1. Queues the anomaly related meta data.
+
+1. Based on the anomaly related meta data, calls the customized alerting service.
+
+1. Stores the anomaly detection meta data.
+
+1. Visualizes the results of the time series anomaly detection.
 
 ## Components
 * [Service Bus](https://azure.microsoft.com/services/service-bus/): Reliable cloud messaging as a service (MaaS) and simple hybrid integration

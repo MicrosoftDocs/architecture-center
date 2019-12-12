@@ -13,7 +13,8 @@ ms.custom: acom-architecture, artificial intelligence, solution architectures, A
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 Cortana Intelligence IT Anomaly Insights solution helps IT departments within large organizations quickly detect and fix issues based on underlying health metrics from IT infrastructure (CPU, Memory, etc.), services (Timeouts, SLA variations, Brownouts, etc.), and other key performance indicators (KPIs) (Order backlog, Login and Payment failures, etc.) in an automated and scalable manner. This solution also offers an easy to 'Try it Now' experience that can be tried with customized data to realize the value offered by the solution. The 'Deploy' experience allows to quickly get started with the solution on Azure by deploying the end to end solution components into your Azure subscription and providing full control for customization as needed.

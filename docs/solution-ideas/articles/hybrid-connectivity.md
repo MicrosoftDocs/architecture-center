@@ -13,7 +13,8 @@ ms.custom: acom-architecture, Hybrid Connection, Azure Hybrid Connection, Hybrid
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 Azure Stack enables you to deploy Azure services on-premises or in the cloud with a consistent application logic, development paradigm, and operations methodology. 
@@ -152,10 +153,13 @@ Note: This doesn't apply to Azure Stack deployments that are disconnected from t
 </div>
 
 ## Data Flow
-1. Deploy a virtual network in Azure and Azure Stack.
-1. Deploy a virtual network gateway in Azure and Azure Stack.
-1. Deploy virtual machines in each virtual network.
-1. Establish a VPN connection over the public internet between the network gateways.
+1. Deploy a virtual network in Azure and Azure Stack.
+
+1. Deploy a virtual network gateway in Azure and Azure Stack.
+
+1. Deploy virtual machines in each virtual network.
+
+1. Establish a VPN connection over the public internet between the network gateways.
 
 ## Components
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network/): Provision private networks, optionally connect to on-premises datacenters.

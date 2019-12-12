@@ -13,7 +13,8 @@ ms.custom: acom-architecture, ai at the edge, azure stack edge, edge ai, machine
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 With the Azure AI tools and cloud platform, the next generation of AI-enabled hybrid applications can run where your data lives. With Azure Stack, bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence, with no tool or process changes for local applications.
@@ -176,13 +177,19 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 </div>
 
 ## Data Flow
-1. Data scientists train a model using Azure Machine Learning workbench and an HDInsight cluster. The model is containerized and put into an Azure Container Registry.
-1. The model is deployed to a Kubernetes cluster on Azure Stack.
-1. End users provide data that’s scored against the model.
-1. Insights and anomalies from scoring are placed into a queue.
-1. A function sends compliant data and anomalies to Azure Storage.
-1. Globally relevant and compliant insights are available in the global app.
-1. Data from edge scoring is used to improve the model.
+1. Data scientists train a model using Azure Machine Learning workbench and an HDInsight cluster. The model is containerized and put into an Azure Container Registry.
+
+1. The model is deployed to a Kubernetes cluster on Azure Stack.
+
+1. End users provide data that’s scored against the model.
+
+1. Insights and anomalies from scoring are placed into a queue.
+
+1. A function sends compliant data and anomalies to Azure Storage.
+
+1. Globally relevant and compliant insights are available in the global app.
+
+1. Data from edge scoring is used to improve the model.
 
 ## Components
 * [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/): Easily build, deploy, and manage predictive analytics solutions
