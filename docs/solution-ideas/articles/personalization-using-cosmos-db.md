@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Generate personalized recommendations for customers in real time, using low-latency and tunable consistency settings for immediate insights
 ms.custom: acom-architecture, Cosmos DB
+titleSuffix: Azure Solution Ideas
 ---
 # Personalization using Cosmos DB
 
-Generate personalized recommendations for customers in real time, using low-latency and tunable consistency settings for immediate insights
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Generate personalized recommendations for customers in real time, using low-latency and tunable consistency settings for immediate insights
 
 ## Architecture
 
@@ -71,6 +79,5 @@ Generate personalized recommendations for customers in real time, using low-late
     <path d="M407.36 86.5v10.7l6.8-2.6v-5.8l-6.8-2.3zM423.16 86.5v10.7l6.8-2.6v-5.8l-6.8-2.3zM407.36 118.5l6.8-2.6v-5.8l-6.8-2.3v10.7zM423.16 118.5l6.8-2.6v-5.8l-6.8-2.3v10.7zM422.46 105.2l-6.7 2.5V97.1l6.7 2.3v5.8zM406.86 105.2l-6.7 2.5V97.1l6.7 2.3v5.8zM431.26 107.8l6.7-2.5v-5.8l-6.7-2.3v10.6z" fill="#9D71AD"/>
     <path d="M428.16 106.1v-7.4l1.4-.4v8.2l-1.4-.4zm-1.5-.4v-6.5l1.1-.3v7.1l-1.1-.3zm-1.3-.5v-5.8l.8-.3v6.3l-.8-.2zm-.2-6.4v7l5 1.9V97.1l-5 1.7z" fill="#804997"/>
 </svg>
-
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

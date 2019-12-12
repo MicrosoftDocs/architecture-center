@@ -4,26 +4,33 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Explore Big Compute solutions with Azure Batch. Use HPC cloud systems for cloud-native application and batch processing.
 ms.custom: acom-architecture, Hpc cloud hpc system, big compute solutions, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # HPC System and Big Compute Solutions
+
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
 Big compute and high performance computing (HPC) workloads are normally compute intensive and can be run in parallel, taking advantage of the scale and flexibility of the cloud. The workloads are often run asynchronously using batch processing, with compute resources required to run the work and job scheduling required to specify the work. Examples of Big Compute and HPC workloads include financial risk Monte Carlo simulations, image rendering, media transcoding, file processing, and engineering or scientific simulations.
 
 This solution implements a cloud-native application with Azure Batch, which provides compute resource allocation and management, application installation, resource auto-scaling, and job scheduling as a platform service. Batch also offers higher level workload accelerators specifically for running R in parallel, AI training, and rendering workloads.
 
-This solution is built on the Azure managed servicesâ€”Virtual Machines, Storage, and Batch. These services run in a high-availability environment, patched and supported, allowing you to focus on your solution.
-
+This solution is built on the Azure managed services—Virtual Machines, Storage, and Batch. These services run in a high-availability environment, patched and supported, allowing you to focus on your solution.
 
 The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
 
-[Batch documentation](https://docs.microsoft.com/en-us/azure/batch/)
+[Batch documentation](/azure/batch/)
 
-[Virtual Machines](/en-us/services/virtual-machines/)
+[Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
 
-[Azure Batch](/en-us/services/batch/)
+[Azure Batch](https://azure.microsoft.com/services/batch/)
 
-[Azure Blob Storage](/en-us/services/storage/)
-
+[Azure Blob Storage](https://azure.microsoft.com/services/storage/)
 
 ## Architecture
 
@@ -199,11 +206,11 @@ The links to the right provide documentation on deploying and managing the Azure
 1. Download output files.
 
 ## Components
-* [Storage Accounts](http://azure.microsoft.com/services/storage/): Massively scalable object storage for unstructured data.
-* [Batch](http://azure.microsoft.com/services/batch/): Cloud-scale job scheduling and compute management.
+* [Storage Accounts](https://azure.microsoft.com/services/storage/): Massively scalable object storage for unstructured data.
+* [Batch](https://azure.microsoft.com/services/batch/): Cloud-scale job scheduling and compute management.
 
 ## Next Steps
-* [Quickstart: Upload, download, and list blobs using the Azure portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-* [Quickstart: Run your first Batch job in the Azure portal](https://docs.microsoft.com/azure/batch/quick-create-portal)
+* [Quickstart: Upload, download, and list blobs using the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal)
+* [Quickstart: Run your first Batch job in the Azure portal](/azure/batch/quick-create-portal)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

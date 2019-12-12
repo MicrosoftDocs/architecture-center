@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Scale your databases elastically to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences.
 ms.custom: acom-architecture, mysql, use cases, azure, solutions
+titleSuffix: Azure Solution Ideas
 ---
 # Gaming using Azure Database for MySQL
 
-Scale your databases elastically to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Scale your databases elastically to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences.
 
 ## Architecture
 
@@ -80,6 +88,5 @@ Scale your databases elastically to accommodate unpredictable bursts of traffic 
     <path fill="#fcd116" d="M703.603 31.4h12.6V39h-12.6zM718.603 31.4h12.6V39h-12.6zM733.603 31.4h12.6V39h-12.6z"/>
     <path d="M701.7 0a2.043 2.043 0 00-1.9 1.9v38.8a2.043 2.043 0 001.9 1.9h2.1L743.4 0z" fill="#fff" opacity=".2" style="isolation:isolate"/>
 </svg>
-
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Explore how blockchain is used to digitize workflows and supply chains across organizations with the Blockchain Workflow Application from Microsoft Azure.
 ms.custom: acom-architecture, Blockchain Workflow, Blockchain Workflow Application, Azure Blockchain, Azure Blockchain Service, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # Blockchain Workflow Application
 
-Businesses use blockchain to digitize workflows they share with other organizations, such as moving physical assets across supply chains. The anatomy of blockchain apps is similar across use cases. Here, we use Azure Blockchain Service as the foundational managed blockchain network and build a consortium application that can ingest signals from relevant user interfaces and communicate ledger data to consuming apps across the consortium.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Businesses use blockchain to digitize workflows they share with other organizations, such as moving physical assets across supply chains. The anatomy of blockchain apps is similar across use cases. Here, we use Azure Blockchain Service as the foundational managed blockchain network and build a consortium application that can ingest signals from relevant user interfaces and communicate ledger data to consuming apps across the consortium.
 
 ## Architecture
 
@@ -292,31 +300,31 @@ Businesses use blockchain to digitize workflows they share with other organizati
 1. Information is analyzed and visualized using tools such as Power BI by connecting to off-chain database.
 
 ## Components
-* [Azure Blockchain Service](http://azure.microsoft.com/services/blockchain-service/): Build, govern, and expand consortium blockchain networks
-* [Service Bus](http://azure.microsoft.com/services/service-bus/): Connect across private and public cloud environments
-* [Azure IoT Central](http://azure.microsoft.com/services/iot-central/): Experience the simplicity of SaaS for IoT, with no cloud expertise required
+* [Azure Blockchain Service](https://azure.microsoft.com/services/blockchain-service/): Build, govern, and expand consortium blockchain networks
+* [Service Bus](https://azure.microsoft.com/services/service-bus/): Connect across private and public cloud environments
+* [Azure IoT Central](https://azure.microsoft.com/services/iot-central/): Experience the simplicity of SaaS for IoT, with no cloud expertise required
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
-* [Event Grid](http://azure.microsoft.com/services/event-grid/): Get reliable event delivery at massive scale
-* [Logic Apps](http://azure.microsoft.com/services/logic-apps/): Automate the access and use of data across clouds without writing code
-* [Azure SQL Database](http://azure.microsoft.com/services/sql-database/): Managed, intelligent SQL in the cloud
-* [Azure Active Directory](http://azure.microsoft.com/services/active-directory/): Synchronize on-premises directories and enable single sign-on
-* [Key Vault](http://azure.microsoft.com/services/key-vault/): Safeguard and maintain control of keys and other secrets
-* [App Service](http://azure.microsoft.com/services/app-service/): Quickly create powerful cloud apps for web and mobile
-* [Virtual Network](http://azure.microsoft.com/services/virtual-network/): Provision private networks, optionally connect to on-premises datacenters
-* [Power BI Embedded](http://azure.microsoft.com/services/power-bi-embedded/): Embed fully interactive, stunning data visualizations in your applications
+* [Event Grid](https://azure.microsoft.com/services/event-grid/): Get reliable event delivery at massive scale
+* [Logic Apps](https://azure.microsoft.com/services/logic-apps/): Automate the access and use of data across clouds without writing code
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): Managed, intelligent SQL in the cloud
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory/): Synchronize on-premises directories and enable single sign-on
+* [Key Vault](https://azure.microsoft.com/services/key-vault/): Safeguard and maintain control of keys and other secrets
+* [App Service](https://azure.microsoft.com/services/app-service/): Quickly create powerful cloud apps for web and mobile
+* [Virtual Network](https://azure.microsoft.com/services/virtual-network/): Provision private networks, optionally connect to on-premises datacenters
+* [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/): Embed fully interactive, stunning data visualizations in your applications
 
 ## Next Steps
-* [Azure Blockchain documentation](https://docs.microsoft.com/azure/blockchain/service)
-* [Service Bus documentation](https://docs.microsoft.com/azure/service-bus/)
-* [Azure IoT Central documentation](https://docs.microsoft.com/azure/iot-central/)
-* [Application Insights documentation](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-runtime-exceptions)
-* [Event Grid Documentation](https://docs.microsoft.com/azure/event-grid/)
-* [Logic Apps Documentation](https://docs.microsoft.com/azure/logic-apps/)
-* [Azure SQL Database Documentation](https://docs.microsoft.com/azure/sql-database/)
-* [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory/)
-* [Key Vault documentation](https://docs.microsoft.com/azure/key-vault/)
-* [App Service Documentation](https://docs.microsoft.com/azure/app-service/)
-* [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/)
-* [Power BI Documentation](https://docs.microsoft.com/azure/power-bi-embedded/)
+* [Azure Blockchain documentation](/azure/blockchain/service)
+* [Service Bus documentation](/azure/service-bus/)
+* [Azure IoT Central documentation](/azure/iot-central/)
+* [Application Insights documentation](/azure/azure-monitor/learn/tutorial-runtime-exceptions)
+* [Event Grid Documentation](/azure/event-grid/)
+* [Logic Apps Documentation](/azure/logic-apps/)
+* [Azure SQL Database Documentation](/azure/sql-database/)
+* [Azure Active Directory Documentation](/azure/active-directory/)
+* [Key Vault documentation](/azure/key-vault/)
+* [App Service Documentation](/azure/app-service/)
+* [Virtual Network Documentation](/azure/virtual-network/)
+* [Power BI Documentation](/azure/power-bi-embedded/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

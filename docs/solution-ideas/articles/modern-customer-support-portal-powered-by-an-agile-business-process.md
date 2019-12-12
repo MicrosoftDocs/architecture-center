@@ -4,25 +4,31 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: The solution demonstrates a business process for monitoring and responding to customer feedback. This architecture shows how to easily connect multiple business systems to enable a nimbler customer support.
 ms.custom: acom-architecture, line of business app, lob app, lift and shift cloud strategy, cloud migration, cloud innovation, lift and shift solution, lift and shift strategy, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # Lift and Shift and Innovate - LOB Apps
 
-This line-of-business application solution provides a mechanism for monitoring and responding to customer feedback. Easily connect multiple business systems to enable nimbler customer support.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+This line-of-business application solution provides a mechanism for monitoring and responding to customer feedback. Easily connect multiple business systems to enable nimbler customer support.
 
 The links to the right give you detailed technical guidance on navigating a particular area of the architecture.
 
-[Matching the architecture to your business needs](https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/build-for-business/)
+[Matching the architecture to your business needs](/azure/architecture/guide/design-principles/build-for-business/)
 
-[Managing identities in your applications](https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/)
-
+[Managing identities in your applications](/azure/architecture/multitenant-identity/)
 
 The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
 
-[Automate access and use of data across applications with Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/)
+[Automate access and use of data across applications with Logic Apps](/azure/logic-apps/)
 
-[Infuse intelligence into your apps with Cognitive Services](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=cognitive)
-
+[Infuse intelligence into your apps with Cognitive Services](/azure/#pivot=products&panel=cognitive)
 
 ## Architecture
 

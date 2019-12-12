@@ -4,13 +4,21 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: This architecture represents how to configure your infrastructure for development and testing of a standard PaaS-style system.
 ms.custom: acom-architecture
+titleSuffix: Azure Solution Ideas
 ---
 # Dev-Test deployment for testing PaaS solutions
 
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
+
 This architecture represents how to configure your infrastructure for development and testing of a standard PaaS-style system.
 
-This solution is built on the Azure managed services: [Azure DevOps](/en-us/services/devops/), [Azure SQL Database](/en-us/services/sql-database/), [Azure Cache for Redis](/en-us/services/cache/) and Application Insights. These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
-
+This solution is built on the Azure managed services: [Azure DevOps](https://azure.microsoft.com/services/devops/), [Azure SQL Database](https://azure.microsoft.com/services/sql-database/), [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) and Application Insights. These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 ## Architecture
 
@@ -240,23 +248,22 @@ This solution is built on the Azure managed services: [Azure DevOps](/en-us/serv
     </g>
 </svg>
 
-
 ## Components
-* [Azure DevOps](http://azure.microsoft.com/services/devops/) manage the development process.
-* The [Microsoft Release Management](https://www.visualstudio.comhttp://azure.microsoft.com/docs/release/getting-started/configure-agents) build and release agents deploy the Azure Resource Manager template and associated code to the various environments.
-* [Resource Groups](https://www.visualstudio.comhttp://azure.microsoft.com/docs/release/getting-started/configure-agents): AzureDevOps resource groups are used to define all the services required to deploy the solution into a dev-test or production environment.
-* [Web Apps](http://azure.microsoft.com/services/app-service/web/): A web app runs the website and is deployed to all environments. Staging slots are used to swap pre-production and production versions.
-* [Azure SQL Database](http://azure.microsoft.com/services/sql-database/) maintains data for the website. Copies are deployed in the dev, test, and production environments.
-* [Azure Cache for Redis](http://azure.microsoft.com/services/cache/) is used in each environment to improve performance of the website.
-* Application Insights: Application Insights monitors the web application during development and test runs, and then monitors the full production system when itâ€™s released.
+* [Azure DevOps](https://azure.microsoft.com/services/devops/) manage the development process.
+* The [Microsoft Release Management](https://www.visualstudio.com/docs/release/getting-started/configure-agents) build and release agents deploy the Azure Resource Manager template and associated code to the various environments.
+* [Resource Groups](https://www.visualstudio.com/docs/release/getting-started/configure-agents): AzureDevOps resource groups are used to define all the services required to deploy the solution into a dev-test or production environment.
+* [Web Apps](https://azure.microsoft.com/services/app-service/web/): A web app runs the website and is deployed to all environments. Staging slots are used to swap pre-production and production versions.
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) maintains data for the website. Copies are deployed in the dev, test, and production environments.
+* [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) is used in each environment to improve performance of the website.
+* Application Insights: Application Insights monitors the web application during development and test runs, and then monitors the full production system when it’s released.
 
 ## Next Steps
 * [Set up Azure DevOps](https://www.visualstudio.com/docs/setup-admin/get-started)
 * [Configure Microsoft Release Management agents](https://www.visualstudio.com/docs/release/getting-started/configure-agents)
 * [Deploy using Azure Resource Groups](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzureResourceGroupDeployment)
-* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](https://docs.microsoft.com/api/Redirect/documentation/articles/web-sites-dotnet-get-started/)
-* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](https://docs.microsoft.com/api/Redirect/documentation/articles/sql-database-get-started/)
-* [How to create a web app with Azure Cache for Redis](https://docs.microsoft.com/api/Redirect/documentation/articles/cache-web-app-howto/)
-* [Set up Application Insights for ASP.NET](https://docs.microsoft.com/api/Redirect/documentation/articles/app-insights-asp-net/)
+* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](/api/Redirect/documentation/articles/web-sites-dotnet-get-started/)
+* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/api/Redirect/documentation/articles/sql-database-get-started/)
+* [How to create a web app with Azure Cache for Redis](/api/Redirect/documentation/articles/cache-web-app-howto/)
+* [Set up Application Insights for ASP.NET](/api/Redirect/documentation/articles/app-insights-asp-net/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

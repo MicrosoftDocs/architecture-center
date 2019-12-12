@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Support in-depth queries over diverse product catalogs, traffic spikes, and rapidly changing inventory.
 ms.custom: acom-architecture, Cosmos DB
+titleSuffix: Azure Solution Ideas
 ---
 # Retail and e-commerce using Cosmos DB
 
-Support in-depth queries over diverse product catalogs, traffic spikes, and rapidly changing inventory.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Support in-depth queries over diverse product catalogs, traffic spikes, and rapidly changing inventory.
 
 ## Architecture
 
@@ -64,6 +72,5 @@ Support in-depth queries over diverse product catalogs, traffic spikes, and rapi
     <path d="M329.36 363.6l9.1 5.2-9.1 5.2v-10.4zM158.56 208.1h-65v1.5h65v-1.5z" fill="#959595"/>
     <path d="M157.06 203.6l9 5.2-9 5.2v-10.4z" fill="#959595"/>
 </svg>
-
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

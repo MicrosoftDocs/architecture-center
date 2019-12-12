@@ -4,49 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: This solution creates an intelligent interactive voice response (IVR) application that processes customer order requests for bicycles and bicycle accessories. Businesses with no existing IVR solution can easily get started automating requests, or, where existing human-operated systems exist, this solution can be extended to incorporate existing functionality and workflows.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery
+titleSuffix: Azure Solution Ideas
 ---
 # Interactive Voice Response Bot
 
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
+
 This solution creates an intelligent interactive voice response (IVR) application that processes customer order requests for bicycles and bicycle accessories. Businesses with no existing IVR solution can easily get started automating requests, or, where existing human-operated systems exist, this solution can be extended to incorporate existing functionality and workflows.
-
-
-## Description
-
-Estimated Daily Cost: [$11.08](https://azure.github.io/Azure-CloudIntelligence-SolutionAuthoringWorkspace/solution-prices)
-
-For more details on this solution, including source code and data customization, please fork or explore this project on [GitHub](https://github.com/Azure/cortana-intelligence-call-center-solution).
-
-Automated customer interaction is essential to a business of any size. In fact, [61%](https://www.talkdesk.com/blog/10-customer-services-statistics-for-call-center-supervisors/) of consumers prefer to communicate via speech, and most of them prefer self-service. Because customer satisfaction is a priority for all businesses, self-service is a critical facet of any customer-facing communications strategy.
-
-In an era when mobile phones are dominant and keypads are not always readily accessible, interactive voice response (IVR) systems provide an intuitive, simple, and convenient method for customers to convey their requests. This solution provides an intelligent and natural self-service experience that can be repurposed across all customer channels.
-
-The Cortana Intelligence Suite provides advanced analytics tools backed by Microsoft's Azure cloud platformsâ€”data ingestion, data storage, data processing and advanced analytics componentsâ€”all of the essential elements for building an automated IVR solution.
-
-This solution deploys a fully integrated service stack that manages speech requests via Skype and the [Microsoft Bot Framework](https://dev.botframework.com/).
-
-The target use case of this solution is for a fictitious company, Contoso LLC, which sells bicycles and bicycle equipment to its customers. Contoso currently processes new product orders and queries through human operators. This automated solution allows Contoso to seamlessly scale up to handle a large call volumes while maintaining zero wait times and freeing up staff to manage other tasks.
-
-The "Deploy" button on this page will launch a workflow that deploys an instance of this solution within an Azure subscription of your choosing. The solution includes multiple Azure services (described below) and provides a few short instructions after the deployment that will help you setup communications with your new bot.
-
-
-## AI and NLP Azure Services
-
-  * Bing Speech transcribes raw speech data into text form
-  * LUIS (Language Understanding Intelligent Service) identifies caller intent (place an order, find an order, etc.) and spoken entities (product categories, dates, times, etc.) from the transcribed text.
-  * Azure Cognitive Search matches and ranks products from the inventory against the caller's description, and applies advanced text analysis for common synonyms.
-  * Microsoft Bot Framework processes conversation results from the caller and manages the call workflow.
-
-
-
-
-## Supporting Azure Services
-
-  * Azure Web App hosts the core logic of the bot as a Node.js web app
-  * Cosmos DB stores shared session state for every conversation, allowing the web application to scale out in a stateless architecture.
-  * Azure SQL stores product inventory and order status
-
-
-
 
 ## Architecture
 
@@ -113,5 +83,35 @@ The "Deploy" button on this page will launch a workflow that deploys an instance
     <path d="M545.86 124.8a2.8 2.8 0 01.132-.839 3.059 3.059 0 01.377-.787 3.15 3.15 0 01.608-.667 2.923 2.923 0 01.823-.476 3.127 3.127 0 01-1.084-.978 2.314 2.314 0 01-.4-1.322 2.553 2.553 0 01.842-1.919 2.87 2.87 0 01.938-.561 3.349 3.349 0 011.172-.2 3.3 3.3 0 011.18.205 2.928 2.928 0 01.938.563 2.542 2.542 0 01.835 1.912 2.314 2.314 0 01-.4 1.322 3.163 3.163 0 01-1.068.978 2.905 2.905 0 01.813.476 3.209 3.209 0 01.6.667 3.059 3.059 0 01.377.787 2.8 2.8 0 01.132.839 3.119 3.119 0 01-.249 1.26 2.815 2.815 0 01-.7.978 3.224 3.224 0 01-1.077.634 4.024 4.024 0 01-1.381.227 3.968 3.968 0 01-1.369-.227 3.258 3.258 0 01-1.076-.634 2.81 2.81 0 01-.707-.978 3.072 3.072 0 01-.256-1.26zm1.3-.1a2.468 2.468 0 00.15.886 1.888 1.888 0 00.425.674 1.834 1.834 0 00.666.429 2.4 2.4 0 00.868.15 2.306 2.306 0 00.85-.153 1.99 1.99 0 00.67-.433 1.929 1.929 0 00.439-.674 2.347 2.347 0 00.158-.879 2.259 2.259 0 00-.15-.824 2.073 2.073 0 00-.429-.677 2.016 2.016 0 00-.667-.462 2.317 2.317 0 00-1.71-.011 1.99 1.99 0 00-.666.439 2.019 2.019 0 00-.443.674 2.239 2.239 0 00-.157.861zm.373-4.87a1.757 1.757 0 00.136.691 1.752 1.752 0 00.927.931 1.7 1.7 0 00.674.136 1.677 1.677 0 00.678-.14 1.763 1.763 0 00.553-.377 1.839 1.839 0 00.373-.557 1.693 1.693 0 00.14-.685 1.787 1.787 0 00-.136-.7 1.727 1.727 0 00-1.607-1.062 1.767 1.767 0 00-.707.139 1.715 1.715 0 00-.549.378 1.644 1.644 0 00-.355.56 1.9 1.9 0 00-.123.682z" fill="#303030"/>
 </svg>
 
+## Description
+
+Estimated Daily Cost: [$11.08](https://azure.github.io/Azure-CloudIntelligence-SolutionAuthoringWorkspace/solution-prices)
+
+For more details on this solution, including source code and data customization, please fork or explore this project on [GitHub](https://github.com/Azure/cortana-intelligence-call-center-solution).
+
+Automated customer interaction is essential to a business of any size. In fact, [61%](https://www.talkdesk.com/blog/10-customer-services-statistics-for-call-center-supervisors/) of consumers prefer to communicate via speech, and most of them prefer self-service. Because customer satisfaction is a priority for all businesses, self-service is a critical facet of any customer-facing communications strategy.
+
+In an era when mobile phones are dominant and keypads are not always readily accessible, interactive voice response (IVR) systems provide an intuitive, simple, and convenient method for customers to convey their requests. This solution provides an intelligent and natural self-service experience that can be repurposed across all customer channels.
+
+The Cortana Intelligence Suite provides advanced analytics tools backed by Microsoft's Azure cloud platforms—data ingestion, data storage, data processing and advanced analytics components—all of the essential elements for building an automated IVR solution.
+
+This solution deploys a fully integrated service stack that manages speech requests via Skype and the [Microsoft Bot Framework](https://dev.botframework.com/).
+
+The target use case of this solution is for a fictitious company, Contoso LLC, which sells bicycles and bicycle equipment to its customers. Contoso currently processes new product orders and queries through human operators. This automated solution allows Contoso to seamlessly scale up to handle a large call volumes while maintaining zero wait times and freeing up staff to manage other tasks.
+
+The "Deploy" button on this page will launch a workflow that deploys an instance of this solution within an Azure subscription of your choosing. The solution includes multiple Azure services (described below) and provides a few short instructions after the deployment that will help you setup communications with your new bot.
+
+## AI and NLP Azure Services
+
+  * Bing Speech transcribes raw speech data into text form
+  * LUIS (Language Understanding Intelligent Service) identifies caller intent (place an order, find an order, etc.) and spoken entities (product categories, dates, times, etc.) from the transcribed text.
+  * Azure Cognitive Search matches and ranks products from the inventory against the caller's description, and applies advanced text analysis for common synonyms.
+  * Microsoft Bot Framework processes conversation results from the caller and manages the call workflow.
+
+## Supporting Azure Services
+
+  * Azure Web App hosts the core logic of the bot as a Node.js web app
+  * Cosmos DB stores shared session state for every conversation, allowing the web application to scale out in a stateless architecture.
+  * Azure SQL stores product inventory and order status
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

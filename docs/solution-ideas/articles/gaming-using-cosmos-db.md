@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Elastically scale your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale.
 ms.custom: acom-architecture, Cosmos DB
+titleSuffix: Azure Solution Ideas
 ---
 # Gaming using Cosmos DB
 
-Elastically scale your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Elastically scale your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale.
 
 ## Architecture
 
@@ -55,6 +63,5 @@ Elastically scale your database to accommodate unpredictable bursts of traffic a
     <path d="M878.4 362v3.7l-8.8-7.4h33.8v-11.2c-.1-2.4-2-4.3-4.5-4.3h-25.6c-2.5 0-4.3 1.5-4.3 4.1v4.1h25.2v-3.8l8.8 7.5h-34V365c0 2.5 1.9 4.8 4.3 4.8h9.3l7.6 7.5.1-7.5h8.6c2.5.1 4.6-2 4.6-4.5v-3.4h-25v.1h-.1z" fill="#FF8C00"/>
     <path d="M873.3 369.9h6.7l3.9-7.8h-5.6v3.7l-8.7-7.5h16.1l1.9-3.6H869V365c0 2.5 1.8 4.8 4.3 4.9zM893.5 342.8h-20.2c-2.6 0-4.3 1.5-4.3 4.1v4.1h20.5l4-8.2z" fill="#FBA141"/>
 </svg>
-
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

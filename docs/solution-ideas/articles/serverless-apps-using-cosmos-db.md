@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Use Azure Functions and Azure Cosmos DB to build globally distributed, scalable serverless applications.
 ms.custom: acom-architecture, Cosmos DB
+titleSuffix: Azure Solution Ideas
 ---
 # Serverless apps using Cosmos DB
 
-Use Azure Functions and Azure Cosmos DB to build globally distributed, scalable serverless applications.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Use Azure Functions and Azure Cosmos DB to build globally distributed, scalable serverless applications.
 
 ## Architecture
 
@@ -51,6 +59,5 @@ Use Azure Functions and Azure Cosmos DB to build globally distributed, scalable 
     <path d="M166.11 215.1l-9-5.3v4.5h-63.5v1.5h63.5v4.5l9-5.2zM338.11 215.1l-9-5.3v4.5h-63.5v1.5h63.5v4.5l9-5.2zM637.109 215.1l-9-5.3v4.5h-112.4v1.5h112.4v4.5l9-5.2zM638.909 73.9l-10.1 2.7 3.2 3.2-116.8 116.7 1.1 1.1 116.7-116.8 3.2 3.2 2.7-10.1zM638.909 360.1l-2.7-10.1-3.2 3.2-116.7-116.8-1.1 1.1 116.8 116.7-3.2 3.2 10.1 2.7z" fill="#959595"/>
     <path d="M707.61 304.9c1.4.1 2.4 1.2 2.4 2.6-.1 1.4-1.2 2.4-2.6 2.4-1.4-.1-2.4-1.2-2.4-2.6.1-1.4 1.2-2.5 2.6-2.4zM717.309 304.9c1.4.1 2.4 1.2 2.4 2.6-.1 1.4-1.2 2.4-2.6 2.4-1.4-.1-2.4-1.2-2.4-2.6 0-1.4 1.2-2.5 2.6-2.4zM725.91 304.9c1.4.1 2.4 1.2 2.4 2.6-.1 1.4-1.2 2.4-2.6 2.4-1.4-.1-2.4-1.2-2.4-2.6.1-1.4 1.3-2.5 2.6-2.4zM734.61 304.9c1.4.1 2.4 1.2 2.4 2.6-.1 1.4-1.2 2.4-2.6 2.4-1.4-.1-2.4-1.2-2.4-2.6.1-1.4 1.2-2.5 2.6-2.4zM743.309 304.9c1.4.1 2.4 1.2 2.4 2.6-.1 1.4-1.2 2.4-2.6 2.4-1.4-.1-2.4-1.2-2.4-2.6 0-1.4 1.2-2.5 2.6-2.4z" fill="#969696"/>
 </svg>
-
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

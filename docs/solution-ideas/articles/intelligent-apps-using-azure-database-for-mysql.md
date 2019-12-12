@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.
 ms.custom: acom-architecture, mysql, use cases, azure, solutions
+titleSuffix: Azure Solution Ideas
 ---
 # Intelligent apps using Azure Database for MySQL
 
-Develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.
 
 ## Architecture
 
@@ -87,6 +95,5 @@ Develop sophisticated, transformational apps using state of the art machine lear
     <path d="M44.248 22.485c10.441 0 16.15-8.65 16.15-16.15q0-.369-.016-.734a11.543 11.543 0 002.831-2.939 11.319 11.319 0 01-3.26.894 5.7 5.7 0 002.5-3.14 11.384 11.384 0 01-3.6 1.378 5.681 5.681 0 00-9.68 5.176 16.118 16.118 0 01-11.7-5.931 5.681 5.681 0 001.757 7.578 5.634 5.634 0 01-2.571-.71v.072a5.678 5.678 0 004.554 5.564 5.667 5.667 0 01-2.564.1 5.682 5.682 0 005.3 3.942 11.387 11.387 0 01-7.05 2.43 11.529 11.529 0 01-1.354-.079 16.068 16.068 0 008.7 2.55" fill="#1da1f2"/>
     <path fill="#969696" d="M493.213 202.937h-17.75V48.729h1.5v152.708h16.25v1.5z"/>
 </svg>
-
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

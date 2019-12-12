@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Azure App Service is a fast and simple way to create web apps using Java, Node, PHP or ASP.NET, as well as support for custom language runtimes using Docker. A continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Azure app services allows you to deliver value faster to your customers.
 ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, is-deployable
+titleSuffix: Azure Solution Ideas
 ---
 # Java CI/CD using Jenkins and Azure Web Apps
 
-Azure App Service is a fast and simple way to create web apps using Java, Node, PHP or ASP.NET, as well as support for custom language runtimes using Docker. A continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Azure app services allows you to deliver value faster to your customers.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Azure App Service is a fast and simple way to create web apps using Java, Node, PHP or ASP.NET, as well as support for custom language runtimes using Docker. A continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Azure app services allows you to deliver value faster to your customers.
 
 ## Architecture
 
@@ -241,20 +249,20 @@ Azure App Service is a fast and simple way to create web apps using Java, Node, 
 1. Monitor application and make improvements
 
 ## Components
-* [Azure Web Apps](http://azure.microsoft.com/services/app-service/web/): Quickly create and deploy mission critical Web apps at scale
-* [Container Instances](http://azure.microsoft.com/services/container-instances/): Easily run containers on Azure without managing servers
-* [Azure Database for MySQL](http://azure.microsoft.com/services/mysql/): Managed MySQL database service for app developers
+* [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/): Quickly create and deploy mission critical Web apps at scale
+* [Container Instances](https://azure.microsoft.com/services/container-instances/): Easily run containers on Azure without managing servers
+* [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/): Managed MySQL database service for app developers
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
-* [Azure DevOps](http://azure.microsoft.com/services/devops/): Build and deploy multi-platform apps to get the most from Azure services
+* [Azure DevOps](https://azure.microsoft.com/services/devops/): Build and deploy multi-platform apps to get the most from Azure services
 
 ## Next Steps
-* [Set up continuous integration and deployment to Azure Web Apps with Jenkins](https://docs.microsoft.com/azure/jenkins/java-deploy-webapp-tutorial)
-* [Use the Azure Container Agents plug-in for Jenkins for dynamic build agents](https://docs.microsoft.com/azure/jenkins/azure-container-agents-plugin-run-container-as-an-agent)
-* [Build a Java and MySQL web app in Azure](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-java-mysql)
-* [Performance monitoring with Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-detect-triage-diagnose)
+* [Set up continuous integration and deployment to Azure Web Apps with Jenkins](/azure/jenkins/java-deploy-webapp-tutorial)
+* [Use the Azure Container Agents plug-in for Jenkins for dynamic build agents](/azure/jenkins/azure-container-agents-plugin-run-container-as-an-agent)
+* [Build a Java and MySQL web app in Azure](/azure/app-service/app-service-web-tutorial-java-mysql)
+* [Performance monitoring with Application Insights](/azure/application-insights/app-insights-detect-triage-diagnose)
 * [Get the Azure Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack)
 
 ## Deploy to Azure
-* [Deploy to Azure](/en-us/resources/templates/jenkins-cicd-webapp/)
+* [Deploy to Azure](https://azure.microsoft.com/resources/templates/jenkins-cicd-webapp/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

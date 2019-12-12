@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Follow a step-by-step flowchart to unlock and preserve legacy data from mainframe applications using Azure Stack.
 ms.custom: acom-architecture, data preservation, legacy data integration, legacy data, app modernization, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # Unlock Legacy Data with Azure Stack
 
-Use Azure Stack to update and extend your legacy application data with the latest cloud technology such as Azure web services, containers, serverless computing, and microservices architectures. This is a solution to create new applications while integrating and preserving legacy data in mainframe and core business process applications.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Use Azure Stack to update and extend your legacy application data with the latest cloud technology such as Azure web services, containers, serverless computing, and microservices architectures. This is a solution to create new applications while integrating and preserving legacy data in mainframe and core business process applications.
 
 ## Architecture
 
@@ -111,11 +119,11 @@ Use Azure Stack to update and extend your legacy application data with the lates
 1. Kubernetes cluster communicates with legacy system on corporate network.
 
 ## Components
-* [Virtual Network](http://azure.microsoft.com/services/virtual-network/): Provision private networks, optionally connect to on-premises datacenters
-* [VPN Gateway](http://azure.microsoft.com/services/vpn-gateway/): Establish secure, cross-premises connectivity
+* [Virtual Network](https://azure.microsoft.com/services/virtual-network/): Provision private networks, optionally connect to on-premises datacenters
+* [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/): Establish secure, cross-premises connectivity
 
 ## Next Steps
-* [Virtual Network documentation](http://azure.microsoft.com/services/virtual-network/)
-* [VPN Gateway documentation](http://azure.microsoft.com/services/vpn-gateway/)
+* [Virtual Network documentation](https://azure.microsoft.com/services/virtual-network/)
+* [VPN Gateway documentation](https://azure.microsoft.com/services/vpn-gateway/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

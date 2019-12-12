@@ -2,13 +2,21 @@
 title: Application integration using Event Grid
 author: adamboeglin
 ms.date: 12/12/2019
-description: Event Grid connects your app with other services. For example, create an application topic to send your appâ€™s event data to Event Grid and take advantage of its reliable delivery, advanced routing, and direct integration with Azure. Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code.
+description: Event Grid connects your app with other services. For example, create an application topic to send your app’s event data to Event Grid and take advantage of its reliable delivery, advanced routing, and direct integration with Azure. Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code.
 ms.custom: acom-architecture, event-grid, azure
+titleSuffix: Azure Solution Ideas
 ---
 # Application integration using Event Grid
 
-Event Grid connects your app with other services. For example, create an application topic to send your appâ€™s event data to Event Grid and take advantage of its reliable delivery, advanced routing, and direct integration with Azure. Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Event Grid connects your app with other services. For example, create an application topic to send your app’s event data to Event Grid and take advantage of its reliable delivery, advanced routing, and direct integration with Azure. Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code.
 
 ## Architecture
 
@@ -55,6 +63,5 @@ Event Grid connects your app with other services. For example, create an applica
     <path fill="#54B3DB" d="M10.063 13.938h19.062v-1.937H10.063zM10.063 18.875h19.062v-1.937H10.063zM10.063 24h19.062v-1.937H10.063zM10.063 28.875h19.062v-1.937H10.063zM10.062 33.938H20.75v-1.937H10.062z"/>
     <path fill="#969696" d="M22.046 74.723V70.75h-1.801v3.973h-4.723l5.236 7.066 5.235-7.066zM20.245 57.25h1.801v-4.5h-1.801zM20.245 63.25h1.801v-4.5h-1.801zM20.245 69.25h1.801v-4.5h-1.801zM99.291 104.131l-7.067-5.235v4.454h-4.079v1.801h4.079v4.215zM70.146 105.151h4.5v-1.801h-4.5zM76.146 105.151h4.5v-1.801h-4.5zM82.146 105.151h4.5v-1.801h-4.5z"/>
 </svg>
-
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

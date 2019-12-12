@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Quickly build and launch digital campaigns that automatically scale based on customer demand.
 ms.custom: acom-architecture, web applications, easy deploy, content delivery, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # Simple branded website
 
-Quickly build and launch digital campaigns that automatically scale based on customer demand. Start simple with the content management system that enables you to easily maintain the messaging on your website in real time, from a browser, with no coding required.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Quickly build and launch digital campaigns that automatically scale based on customer demand. Start simple with the content management system that enables you to easily maintain the messaging on your website in real time, from a browser, with no coding required.
 
 ## Architecture
 
@@ -109,17 +117,17 @@ Quickly build and launch digital campaigns that automatically scale based on cus
 1. Browser pulls static resources such as video from Azure Content Delivery Network to reduce load time.
 
 ## Components
-* [Web Apps](http://azure.microsoft.com/services/app-service/web/): Build and deploy web apps faster at scale
-* [Azure SQL Database](http://azure.microsoft.com/services/sql-database/): Managed, intelligent SQL in the cloud
-* [Content Delivery Network](http://azure.microsoft.com/services/cdn/): Ensure secure, reliable content delivery with broad global reach
-* [Azure Cache for Redis](http://azure.microsoft.com/services/cache/): Power applications with high-throughput, low-latency data access
+* [Web Apps](https://azure.microsoft.com/services/app-service/web/): Build and deploy web apps faster at scale
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): Managed, intelligent SQL in the cloud
+* [Content Delivery Network](https://azure.microsoft.com/services/cdn/): Ensure secure, reliable content delivery with broad global reach
+* [Azure Cache for Redis](https://azure.microsoft.com/services/cache/): Power applications with high-throughput, low-latency data access
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
 
 ## Next Steps
-* [Deploy web apps with CMS using pre-built templates](http://azure.microsoft.com/resources/templates/?term=CMS)
-* [Build an ASP.NET app in Azure with SQL Database](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
-* [Use Azure Content Delivery Network in Azure App Service](https://docs.microsoft.com/azure/cdn/cdn-add-to-web-app)
-* [How to use Azure Cache for Redis](https://docs.microsoft.com/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache)
-* [Application Performance Management with Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-detect-triage-diagnose)
+* [Deploy web apps with CMS using pre-built templates](https://azure.microsoft.com/resources/templates/?term=CMS)
+* [Build an ASP.NET app in Azure with SQL Database](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
+* [Use Azure Content Delivery Network in Azure App Service](/azure/cdn/cdn-add-to-web-app)
+* [How to use Azure Cache for Redis](/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache)
+* [Application Performance Management with Application Insights](/azure/application-insights/app-insights-detect-triage-diagnose)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

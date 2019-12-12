@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Build secure and scalable e-commerce solutions that meet the demands of both customers and business. Engage customers through customized products and offers, process transactions quickly and securely, and focus on fulfillment and customer service.
 ms.custom: acom-architecture, mysql, use cases, azure, solutions
+titleSuffix: Azure Solution Ideas
 ---
 # Retail and e-commerce using Azure Database for MySQL
 
-Build secure and scalable e-commerce solutions that meet the demands of both customers and business. Engage customers through customized products and offers, process transactions quickly and securely, and focus on fulfillment and customer service.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Build secure and scalable e-commerce solutions that meet the demands of both customers and business. Engage customers through customized products and offers, process transactions quickly and securely, and focus on fulfillment and customer service.
 
 ## Architecture
 
@@ -72,6 +80,5 @@ Build secure and scalable e-commerce solutions that meet the demands of both cus
         <path d="M477.274 229.51v-6.877h-4.112v4.282c0 .278.057.503-.195.503h-3.336c-.53 0-.472-.627-.472-.627v-4.158h-4.997l.883.584v4.417s-.218 2.973 2.462 2.973h5.234c.404 0 .936-.301.959-.451.027-.15.051 1.205-1.315 1.297h-6.808v3.18h8.04c.808 0 1.938-.134 2.731-1.255.7-.994.917-1.792.917-2.394 0-.429.01-1.473.01-1.473M449.51 224.691v6.378h-3.564v-10.208s.313-2.213 2.369-2.213 2.493.401 3.455 2.227a443.92 443.92 0 002.832 5.222s2.528-5.658 2.882-6.512c.352-.852 1.435-1.089 2.612-1.005 1.163.085 2.356.703 2.407 2.328v10.161h-3.562v-6.378s-2.182 4.954-2.586 5.54c-.406.586-1.08.855-1.837.855-.76 0-1.787-.085-2.277-.972-.489-.887-2.732-5.423-2.732-5.423" fill="#FFF"/>
     </g>
 </svg>
-
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

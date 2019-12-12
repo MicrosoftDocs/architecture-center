@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Learn how to use the Azure Blockchain Workbench. Build an asset tracking application for supply chain with a step-by-step flowchart.
 ms.custom: acom-architecture, Azure blockchain workbench, blockchain pattern, blockchain workbench, blockchain and IoT, interactive-diagram, is-deployable
+titleSuffix: Azure Solution Ideas
 ---
 # Supply Chain Track and Trace
 
-A common blockchain pattern is IoT-enabled monitoring of an asset as it moves along a multi-party supply chain. A great example of this pattern is the refrigerated transportation of perishable goods like food or pharmaceuticals where certain compliance rules must be met throughout the duration of the transportation process. In this scenario, an initiating counterparty (such as a retailer) specifies contractual conditions, such as a required humidity and temperature range, that the custodians on the supply chain must adhere to. At any point, if the device takes a temperature or humidity measurement that is out of range, the smart contract state will be updated to indicate that it's out of compliance, recording a transaction on the blockchain and triggering remediating events downstream.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+A common blockchain pattern is IoT-enabled monitoring of an asset as it moves along a multi-party supply chain. A great example of this pattern is the refrigerated transportation of perishable goods like food or pharmaceuticals where certain compliance rules must be met throughout the duration of the transportation process. In this scenario, an initiating counterparty (such as a retailer) specifies contractual conditions, such as a required humidity and temperature range, that the custodians on the supply chain must adhere to. At any point, if the device takes a temperature or humidity measurement that is out of range, the smart contract state will be updated to indicate that it's out of compliance, recording a transaction on the blockchain and triggering remediating events downstream.
 
 ## Architecture
 
@@ -339,25 +347,25 @@ The first service bus effectively serves as an "Outbox" for IoT Hub and the seco
 
 ## Components
 * Application Insights: Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle.
-* [Web Apps](http://azure.microsoft.com/services/app-service/web/): Quickly create and deploy mission critical web apps at scale
-* [Storage Accounts](http://azure.microsoft.com/services/storage/): Durable, highly available, and massively scalable cloud storage
-* [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/): Provision virtual machines for Ubuntu, Red Hat, and more
-* [Azure Active Directory](http://azure.microsoft.com/services/active-directory/): Synchronize on-premises directories and enable single sign-on
-* [Azure SQL Database](http://azure.microsoft.com/services/sql-database/) is a relational database service that lets you rapidly create, extend, and scale relational applications into the cloud.
-* [Azure Monitor](http://azure.microsoft.com/services/monitor/): Highly granular and real-time monitoring data for any Azure resource.
-* [Service Bus](http://azure.microsoft.com/services/service-bus/): Connect across private and public cloud environments
-* [Event Grid](http://azure.microsoft.com/services/event-grid/): Get reliable event delivery at massive scale
+* [Web Apps](https://azure.microsoft.com/services/app-service/web/): Quickly create and deploy mission critical web apps at scale
+* [Storage Accounts](https://azure.microsoft.com/services/storage/): Durable, highly available, and massively scalable cloud storage
+* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/): Provision virtual machines for Ubuntu, Red Hat, and more
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory/): Synchronize on-premises directories and enable single sign-on
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) is a relational database service that lets you rapidly create, extend, and scale relational applications into the cloud.
+* [Azure Monitor](https://azure.microsoft.com/services/monitor/): Highly granular and real-time monitoring data for any Azure resource.
+* [Service Bus](https://azure.microsoft.com/services/service-bus/): Connect across private and public cloud environments
+* [Event Grid](https://azure.microsoft.com/services/event-grid/): Get reliable event delivery at massive scale
 
 ## Next Steps
-* [Find run-time exceptions with Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions/)
-* [Create a blockchain app with Azure Blockchain Workbench](https://docs.microsoft.com/azure/blockchain-workbench/blockchain-workbench-create-app/)
-* [Azure Storage on Blockchain Workbench](https://docs.microsoft.com/azure/blockchain-workbench/blockchain-workbench-architecture#azure-storage)
-* [Azure and Linux Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/overview/)
-* [Blockchain Workbench API app registration](https://docs.microsoft.com/azure/blockchain-workbench/blockchain-workbench-deploy#blockchain-workbench-api-app-registration)
-* [Blockchain Workbench Database](https://docs.microsoft.com/azure/blockchain-workbench/blockchain-workbench-getdb-details/)
-* [Log Analytics Tutorial](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata/)
-* [Service Bus on Blockchain Workbench](https://docs.microsoft.com/azure/blockchain-workbench/blockchain-workbench-messages-overview#using-service-bus-topics-for-notifications)
-* [Event Notifications on Blockchain Workbench](https://docs.microsoft.com/azure/blockchain-workbench/blockchain-workbench-messages-overview#event-notifications)
+* [Find run-time exceptions with Application Insights](/azure/application-insights/app-insights-tutorial-runtime-exceptions/)
+* [Create a blockchain app with Azure Blockchain Workbench](/azure/blockchain-workbench/blockchain-workbench-create-app/)
+* [Azure Storage on Blockchain Workbench](/azure/blockchain-workbench/blockchain-workbench-architecture#azure-storage)
+* [Azure and Linux Virtual Machines](/azure/virtual-machines/linux/overview/)
+* [Blockchain Workbench API app registration](/azure/blockchain-workbench/blockchain-workbench-deploy#blockchain-workbench-api-app-registration)
+* [Blockchain Workbench Database](/azure/blockchain-workbench/blockchain-workbench-getdb-details/)
+* [Log Analytics Tutorial](/azure/log-analytics/log-analytics-tutorial-viewdata/)
+* [Service Bus on Blockchain Workbench](/azure/blockchain-workbench/blockchain-workbench-messages-overview#using-service-bus-topics-for-notifications)
+* [Event Notifications on Blockchain Workbench](/azure/blockchain-workbench/blockchain-workbench-messages-overview#event-notifications)
 
 ## Deploy to Azure
 * [Deploy to Azure](https://aka.ms/tryworkbench)

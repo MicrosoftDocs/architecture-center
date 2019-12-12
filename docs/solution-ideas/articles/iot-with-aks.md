@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: IoT with AKS
 ms.custom: acom-architecture, kubernetes, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # IoT device deployment and management on demand
 
-IoT scenarios can potentially involve hundreds to thousands of IoT devices. AKS provides scalable compute resources on demand for IoT solutions, running in the cloud or on-premises.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+IoT scenarios can potentially involve hundreds to thousands of IoT devices. AKS provides scalable compute resources on demand for IoT solutions, running in the cloud or on-premises.
 
 ## Architecture
 

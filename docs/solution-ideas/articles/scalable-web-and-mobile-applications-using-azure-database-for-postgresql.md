@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
 ms.custom: acom-architecture, postgresql, use cases, azure, solutions
+titleSuffix: Azure Solution Ideas
 ---
 # Scalable web and mobile applications using Azure Database for PostgreSQL
 
-Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac. 
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac. 
 
 ## Architecture
 
@@ -65,6 +73,5 @@ Rapidly build engaging, performant and scalable cross-platform and native apps f
         <path d="M504.1 47.575a9.2 9.2 0 014.464-15.423 7.474 7.474 0 012.976-.135 13.419 13.419 0 017.441-10.823 12.753 12.753 0 00-4.059-.676 13.24 13.24 0 00-12.582 9.2 10.554 10.554 0 00-2.976-.541 9.2 9.2 0 000 18.4h4.736z" fill="#fff"/>
     </g>
 </svg>
-
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

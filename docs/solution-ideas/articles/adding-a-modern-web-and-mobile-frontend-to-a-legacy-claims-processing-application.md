@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: The solution demonstrates modernizing an existing application by consolidating data from multiple business systems into one place and surfacing it through web and mobile frontends. This is targeted at improving employee productivity and to enable faster decision making.
 ms.custom: acom-architecture, line of business app, lob app, lift and shift cloud strategy, cloud migration, cloud innovation, lift and shift solution, lift and shift strategy, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # Lift and Shift and Innovate - LOB Apps
 
-This line-of-business application solution consolidates data from multiple business systems and surfaces the data through web and mobile front endsâ€”helping to improve employee productivity and speed decision making.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+This line-of-business application solution consolidates data from multiple business systems and surfaces the data through web and mobile front ends—helping to improve employee productivity and speed decision making.
 
 ## Architecture
 
@@ -257,10 +265,10 @@ This line-of-business application solution consolidates data from multiple busin
 </svg>
 
 <div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Customerâ€™s mobile app authenticates via Azure Active Directory B2C</p>
+<p>Customer’s mobile app authenticates via Azure Active Directory B2C</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Customerâ€™s mobile app connects to the back-end web service that aggregates data from different systems using asynchronous connection</p>
+<p>Customer’s mobile app connects to the back-end web service that aggregates data from different systems using asynchronous connection</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-3">
 <p>Web application connects to SQL database</p>
@@ -282,8 +290,8 @@ This line-of-business application solution consolidates data from multiple busin
 </div>
 
 ## Data Flow
-1. Customerâ€™s mobile app authenticates via Azure Active Directory B2C
-1. Customerâ€™s mobile app connects to the back-end web service that aggregates data from different systems using asynchronous connection
+1. Customer’s mobile app authenticates via Azure Active Directory B2C
+1. Customer’s mobile app connects to the back-end web service that aggregates data from different systems using asynchronous connection
 1. Web application connects to SQL database
 1. Power BI connects to SQL database and SharePoint
 1. Logic app pulls data from CRM (Salesforce)
@@ -292,11 +300,11 @@ This line-of-business application solution consolidates data from multiple busin
 1. Employee mobile app authenticates via Azure Active Directory
 
 ## Components
-* Azure [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/) lets you deploy a Windows Server or Linux image in the cloud. You can select images from a marketplace or use your own customized images.
-* [Azure SQL Database](http://azure.microsoft.com/services/sql-database/) is a relational database service that lets you rapidly create, extend, and scale relational applications into the cloud.
+* Azure [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) lets you deploy a Windows Server or Linux image in the cloud. You can select images from a marketplace or use your own customized images.
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) is a relational database service that lets you rapidly create, extend, and scale relational applications into the cloud.
 
 ## Next Steps
-* [Running SAP on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json)
-* [Running SQL server in Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal/)
+* [Running SAP on Azure](/azure/virtual-machines/workloads/sap/get-started?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json)
+* [Running SQL server in Azure](/azure/sql-database/sql-database-get-started-portal/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

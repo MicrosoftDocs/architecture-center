@@ -4,13 +4,21 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Small and medium businesses can inexpensively implement disaster recovery to the cloud by using a partner solution like Double-Take DR.
 ms.custom: acom-architecture
+titleSuffix: Azure Solution Ideas
 ---
 # SMB disaster recovery with Double-Take DR
 
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
+
 Small and medium businesses can inexpensively implement disaster recovery to the cloud by using a partner solution like Double-Take DR.
 
-This solution is built on the Azure managed services: [Traffic Manager](/en-us/services/traffic-manager/), [VPN Gateway](/en-us/services/vpn-gateway/) and [Virtual Network](/en-us/services/virtual-network/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
-
+This solution is built on the Azure managed services: [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/) and [Virtual Network](https://azure.microsoft.com/services/virtual-network/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 ## Architecture
 
@@ -179,15 +187,14 @@ This solution is built on the Azure managed services: [Traffic Manager](/en-us/s
     </g>
 </svg>
 
-
 ## Components
-* DNS traffic is routed via [Traffic Manager](http://azure.microsoft.com/services/traffic-manager/) which can easily move traffic from one site to another based on policies defined by your organization.
-* [VPN Gateway](http://azure.microsoft.com/services/vpn-gateway/): The VPN gateway maintains the communication between the on-premises network and the cloud network securely and privately.
-* [Virtual Network](http://azure.microsoft.com/services/virtual-network/): The virtual network is where the failover site will be created when a disaster occurs.
+* DNS traffic is routed via [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) which can easily move traffic from one site to another based on policies defined by your organization.
+* [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/): The VPN gateway maintains the communication between the on-premises network and the cloud network securely and privately.
+* [Virtual Network](https://azure.microsoft.com/services/virtual-network/): The virtual network is where the failover site will be created when a disaster occurs.
 
 ## Next Steps
-* [Configure Failover routing method](https://docs.microsoft.com/api/Redirect/documentation/articles/traffic-manager-configure-failover-routing-method/)
-* [Create a VNet with a Site-to-Site connection using the Azure portal](https://docs.microsoft.com/api/Redirect/documentation/articles/vpn-gateway-howto-site-to-site-resource-manager-portal/)
-* [Designing your network infrastructure for disaster recovery](https://docs.microsoft.com/api/Redirect/documentation/articles/site-recovery-network-design/)
+* [Configure Failover routing method](/api/Redirect/documentation/articles/traffic-manager-configure-failover-routing-method/)
+* [Create a VNet with a Site-to-Site connection using the Azure portal](/api/Redirect/documentation/articles/vpn-gateway-howto-site-to-site-resource-manager-portal/)
+* [Designing your network infrastructure for disaster recovery](/api/Redirect/documentation/articles/site-recovery-network-design/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

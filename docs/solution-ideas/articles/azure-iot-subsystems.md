@@ -1,30 +1,38 @@
 ---
-title: IoT Architecture â€“ Azure IoT Subsystems
+title: IoT Architecture – Azure IoT Subsystems
 author: adamboeglin
 ms.date: 12/12/2019
 description: Learn about our recommended IoT application architecture that supports hybrid cloud and edge computing. A flowchart details how the subsystems function within the IoT application.
 ms.custom: acom-architecture, IoT solution architecture, IoT application architecture, subsystem architecture, IoT architecture
+titleSuffix: Azure Solution Ideas
 ---
-# IoT Architecture â€“ Azure IoT Subsystems
+# IoT Architecture – Azure IoT Subsystems
+
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
 The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
 
-[Azure Active Directory application](/en-us/services/active-directory/)
+[Azure Active Directory application](https://azure.microsoft.com/services/active-directory/)
 
-[Virtual Machine (Standard D1 V2, 1 core, 3.5 GB memory)](/en-us/services/virtual-machines/)
+[Virtual Machine (Standard D1 V2, 1 core, 3.5 GB memory)](https://azure.microsoft.com/services/virtual-machines/)
 
-[IoT Hub (S1â€”basic tier)](/en-us/services/iot-hub/)
+[IoT Hub (S1—basic tier)](https://azure.microsoft.com/services/iot-hub/)
 
-[Cosmos DB account (Standard)](/en-us/services/cosmos-db/)
+[Cosmos DB account (Standard)](https://azure.microsoft.com/services/cosmos-db/)
 
-[Storage account (Standard-GRS)](/en-us/services/storage/)
+[Storage account (Standard-GRS)](https://azure.microsoft.com/services/storage/)
 
-[Web Application](/en-us/services/app-service/)
+[Web Application](https://azure.microsoft.com/services/app-service/)
 
-[Azure Machine Learning](/en-us/services/machine-learning/)
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)
 
-[Azure Stream Analytics](/en-us/services/stream-analytics/)
-
+[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 
 ## Architecture
 
@@ -119,21 +127,20 @@ The links to the right provide documentation on deploying and managing the Azure
     <path d="M114.025 189.9l-4.9-1.3c-.2-.1-.5.1-.5.3l-1.3 4.8v.1c0 .1 0 .3.1.4h.1l6.8-3.9c-.1-.2-.2-.3-.3-.4z" fill="#ADD458"/>
 </svg>
 
-
 ## Components
-* [Azure IoT Hub](http://azure.microsoft.com/services/iot-hub/): The cloud gateway for the system controls bidirectional, secure communication to and from devices.
-* [Azure Cosmos DB](http://azure.microsoft.com/services/cosmos-db/): Used for warm storage for device data.
-* [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/): Hosts containers that contain microservices for processing data and hosting the UI.
-* [Azure Stream Analytics](http://azure.microsoft.com/services/stream-analytics/): Processes data coming into the system from devices.
-* [Blob Storage](http://azure.microsoft.com/services/storage/blobs/): Cold storage of device data.
-* [Azure Active Directory](http://azure.microsoft.com/services/active-directory/): Used for authentication and authorization of the system.
+* [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/): The cloud gateway for the system controls bidirectional, secure communication to and from devices.
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Used for warm storage for device data.
+* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/): Hosts containers that contain microservices for processing data and hosting the UI.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): Processes data coming into the system from devices.
+* [Blob Storage](https://azure.microsoft.com/services/storage/blobs/): Cold storage of device data.
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory/): Used for authentication and authorization of the system.
 
 ## Next Steps
-* [IoT Hub Documentation](https://docs.microsoft.com/azure/iot-hub/)
-* [Cosmos DB Documentation](https://docs.microsoft.com/azure/cosmos-db/)
-* [Azure Virtual Machines Documentation](https://docs.microsoft.com/azure/virtual-machines/)
-* [Azure Stream Analytics Documentation](https://docs.microsoft.com/azure/stream-analytics/)
-* [Azure Blob Storage Documentation](https://docs.microsoft.com/azure/storage/)
-* [Azure Active Directory application Documentation](https://docs.microsoft.com/azure/active-directory/)
+* [IoT Hub Documentation](/azure/iot-hub/)
+* [Cosmos DB Documentation](/azure/cosmos-db/)
+* [Azure Virtual Machines Documentation](/azure/virtual-machines/)
+* [Azure Stream Analytics Documentation](/azure/stream-analytics/)
+* [Azure Blob Storage Documentation](/azure/storage/)
+* [Azure Active Directory application Documentation](/azure/active-directory/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

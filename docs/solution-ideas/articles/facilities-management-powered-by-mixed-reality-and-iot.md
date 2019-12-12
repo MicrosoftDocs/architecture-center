@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Improve uptime and operations in hospitality, manufacturing, retail, and more with mixed reality and IoT. This scenario shows how you can visualize a virtual replica of your physical space with real-time data in the context of your environment. It is built on Azure Spatial Anchors and Azure Digital Twins. After reviewing this solution architecture, dive right in and explore our reference sample.
 ms.custom: acom-architecture, Azure Spatial Anchors, Azure Digital Twins, Azure Active Directory, Cosmos DB, Event Hubs, Functions, Web Service, Microsoft HoloLens, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # Facilities management powered by mixed reality and IoT
 
-Improve uptime and operations in hospitality, manufacturing, retail, and more with mixed reality and IoT. This scenario shows how you can visualize a virtual replica of your physical space with real-time data in the context of your environment. It is built on [Azure Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors/) and [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/).
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Improve uptime and operations in hospitality, manufacturing, retail, and more with mixed reality and IoT. This scenario shows how you can visualize a virtual replica of your physical space with real-time data in the context of your environment. It is built on [Azure Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors/) and [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/).
 
 ## Architecture
 
@@ -132,10 +140,10 @@ Improve uptime and operations in hospitality, manufacturing, retail, and more wi
 </svg>
 
 <div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>The client authenticates to the facilities management web service and specifies the name of the space where itâ€™s located in the Azure Digital Twins object model.</p>
+<p>The client authenticates to the facilities management web service and specifies the name of the space where it’s located in the Azure Digital Twins object model.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>The clientâ€™s web service authenticates itself to Azure Active Directory.</p>
+<p>The client’s web service authenticates itself to Azure Active Directory.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-3">
 <p>The Azure AD token is then sent to the Azure Spatial Anchors service to retrieve an access token for the client to later use.</p>
@@ -150,7 +158,7 @@ Improve uptime and operations in hospitality, manufacturing, retail, and more wi
 <p>The client application completes a visual scan of the environment and retrieves its position in the area. Using the nearby API of Azure Spatial Anchors, it retrieves the position of all nearby anchors.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>The client application requests IoT sensor data and controls to be displayed as holograms in the space, where the sensors are located, making it easy for the operator to detect and fix any issues. The data is fetched by the appâ€™s web service from Azure Cosmos DB, the service storing this data.</p>
+<p>The client application requests IoT sensor data and controls to be displayed as holograms in the space, where the sensors are located, making it easy for the operator to detect and fix any issues. The data is fetched by the app’s web service from Azure Cosmos DB, the service storing this data.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-8">
 <p>When IoT sensor data is updated, Azure Digital Twins pushes it to Event Hubs.</p>
@@ -160,30 +168,30 @@ Improve uptime and operations in hospitality, manufacturing, retail, and more wi
 </div>
 
 ## Data Flow
-1. The client authenticates to the facilities management web service and specifies the name of the space where itâ€™s located in the Azure Digital Twins object model.
-1. The clientâ€™s web service authenticates itself to Azure Active Directory.
+1. The client authenticates to the facilities management web service and specifies the name of the space where it’s located in the Azure Digital Twins object model.
+1. The client’s web service authenticates itself to Azure Active Directory.
 1. The Azure AD token is then sent to the Azure Spatial Anchors service to retrieve an access token for the client to later use.
 1. Your app service retrieves information about the IoT sensors present in the area specified by the client and returns IoT sensor IDs, as well as the anchor IDs they correspond to in Azure Spatial Anchors.
 1. The Azure Spatial Anchors authorization token is returned to the client alongside the anchor IDs of the IoT sensors and additional metadata required by the client application.
 1. The client application completes a visual scan of the environment and retrieves its position in the area. Using the nearby API of Azure Spatial Anchors, it retrieves the position of all nearby anchors.
-1. The client application requests IoT sensor data and controls to be displayed as holograms in the space, where the sensors are located, making it easy for the operator to detect and fix any issues. The data is fetched by the appâ€™s web service from Azure Cosmos DB, the service storing this data.
+1. The client application requests IoT sensor data and controls to be displayed as holograms in the space, where the sensors are located, making it easy for the operator to detect and fix any issues. The data is fetched by the app’s web service from Azure Cosmos DB, the service storing this data.
 1. When IoT sensor data is updated, Azure Digital Twins pushes it to Event Hubs.
 1. Azure Functions uses an Event Hubs trigger to process the change and update data in Azure Cosmos DB as needed.
 
 ## Components
-* [Spatial Anchors](http://azure.microsoft.com/services/spatial-anchors/): Create multi-user, spatially aware mixed reality experiences
-* [Azure Active Directory](http://azure.microsoft.com/services/active-directory/): Synchronize on-premises directories and enable single sign-on
-* [Azure Cosmos DB](http://azure.microsoft.com/services/cosmos-db/): Globally distributed, multi-model database for any scale
-* [App Service](http://azure.microsoft.com/services/app-service/): Quickly create powerful cloud apps for web and mobile
-* [Event Hubs](http://azure.microsoft.com/services/event-hubs/): Receive telemetry from millions of devices
-* [Azure Digital Twins](http://azure.microsoft.com/services/digital-twins/): Build next-generation IoT spatial intelligence solutions
+* [Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors/): Create multi-user, spatially aware mixed reality experiences
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory/): Synchronize on-premises directories and enable single sign-on
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Globally distributed, multi-model database for any scale
+* [App Service](https://azure.microsoft.com/services/app-service/): Quickly create powerful cloud apps for web and mobile
+* [Event Hubs](https://azure.microsoft.com/services/event-hubs/): Receive telemetry from millions of devices
+* [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/): Build next-generation IoT spatial intelligence solutions
 
 ## Next Steps
-* [Share Spatial Anchors across devices](https://docs.microsoft.com/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices)
-* [Create a new tenant in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
-* [Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet)
-* [Authenticate and authorize users end-to-end in Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-auth-aad)
-* [Azure Event Hubs â€” A big data streaming platform and event ingestion service](https://docs.microsoft.com/azure/event-hubs/event-hubs-about)
-* [Deploy Azure Digital Twins and configure a spatial graph](https://docs.microsoft.com/azure/digital-twins/tutorial-facilities-setup)
+* [Share Spatial Anchors across devices](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices)
+* [Create a new tenant in Azure Active Directory](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal](/azure/cosmos-db/create-sql-api-dotnet)
+* [Authenticate and authorize users end-to-end in Azure App Service](/azure/app-service/app-service-web-tutorial-auth-aad)
+* [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
+* [Deploy Azure Digital Twins and configure a spatial graph](/azure/digital-twins/tutorial-facilities-setup)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

@@ -4,17 +4,25 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Learn how to build a machine-learning model with Microsoft R Server on Azure HDInsight Spark clusters to recommend actions to maximize the purchase rate.
 ms.custom: acom-architecture, predictive marketing, predictive analytics software, predictive analytics marketing
+titleSuffix: Azure Solution Ideas
 ---
 # Predictive Marketing with Machine Learning
 
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
+
 Marketing campaigns are about more than the message being delivered; when and how that message is delivered is just as important. Without a data-driven, analytical approach, campaigns can easily miss opportunities or struggle to gain traction.
 
-Through machine learning informed by historical campaign data, this solution architecture helps predict customer responses and recommends an optimized plan for connecting with your leadsâ€”including the best channel to use (by email, SMS, a cold call, etc.), the best day of the week, and the best time of the day.
+Through machine learning informed by historical campaign data, this solution architecture helps predict customer responses and recommends an optimized plan for connecting with your leads—including the best channel to use (by email, SMS, a cold call, etc.), the best day of the week, and the best time of the day.
 
 Optimizing your campaigns with predictive marketing helps improve both sales leads and revenue generation and can provide strong ROI for your marketing investment.
 
 This architecture enables efficient handling of big data on Spark with Microsoft R Server.
-
 
 ## Architecture
 
@@ -63,17 +71,16 @@ This architecture enables efficient handling of big data on Spark with Microsoft
     <path d="M847.751 54.417a5.237 5.237 0 015.237 5.237v12.077a5.238 5.238 0 01-5.238 5.238 5.237 5.237 0 01-5.239-5.235V59.655a5.238 5.238 0 015.238-5.238zM864.224 76.97a5.239 5.239 0 01-5.239-5.238v-31a5.238 5.238 0 0110.477 0v31a5.239 5.239 0 01-5.238 5.239M897.168 76.817a5.239 5.239 0 01-5.239-5.238v-43.9a5.238 5.238 0 1110.477 0v43.9a5.239 5.239 0 01-5.238 5.239M880.7 76.97a5.239 5.239 0 01-5.239-5.238V48.7a5.238 5.238 0 0110.477 0v23.032a5.239 5.239 0 01-5.238 5.239"/>
 </svg>
 
-
 ## Components
-* Microsoft R Server on [HDInsight](http://azure.microsoft.com/services/hdinsight/) Spark clusters provides distributed and scalable machine learning capabilities for big data, combining the power of R Server and Apache Spark.
+* Microsoft R Server on [HDInsight](https://azure.microsoft.com/services/hdinsight/) Spark clusters provides distributed and scalable machine learning capabilities for big data, combining the power of R Server and Apache Spark.
 * [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
-* [Storage Accounts](http://azure.microsoft.com/services/storage/): Azure Storage stores campaign and lead data.
-* [Machine Learning Studio](http://azure.microsoft.com/services/machine-learning-studio/): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
+* [Storage Accounts](https://azure.microsoft.com/services/storage/): Azure Storage stores campaign and lead data.
+* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
 
 ## Next Steps
-* [Learn more about Spark on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview)
+* [Learn more about Spark on HDInsight](/azure/hdinsight/hdinsight-apache-spark-overview)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
-* [Learn more about Azure storage](https://docs.microsoft.com/azure/storage/storage-introduction)
-* [Learn more about Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning)
+* [Learn more about Azure storage](/azure/storage/storage-introduction)
+* [Learn more about Machine Learning](/azure/machine-learning/machine-learning-what-is-machine-learning)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]
