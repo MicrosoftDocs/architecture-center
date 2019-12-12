@@ -16,6 +16,7 @@
           "**/_css/**",
           "**/_includes/**",
           "**/_bread/**",
+          "**/_js/**/*.json",
           "**/_themes/**"
         ]
       },
@@ -38,6 +39,9 @@
           "**/*.jpeg",
           "**/*.gif",
           "**/*.svg",
+          "**/*.js",
+          "**/*.json",
+          "**/*.json.txt"
           "feed.xml"
         ],
         "exclude": [
