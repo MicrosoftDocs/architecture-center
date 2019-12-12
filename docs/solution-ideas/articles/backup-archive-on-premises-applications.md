@@ -26,4 +26,4 @@ This solution is built on the Azure managed services: [Backup Server](/en-us/ser
 * [Back up files and folders using Azure Backup](https://docs.microsoft.com/api/Redirect/documentation/articles/backup-try-azure-backup-in-10-mins/)
 * [Store backed up files in Blob storage](https://docs.microsoft.com/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

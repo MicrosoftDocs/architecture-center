@@ -30,4 +30,4 @@ By using this solution to ingest historical transaction data, predict future dem
 * [Learn more about Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-introduction)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

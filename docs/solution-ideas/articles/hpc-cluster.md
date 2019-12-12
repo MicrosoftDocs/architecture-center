@@ -23,4 +23,4 @@ This solution is built on the Azure managed services: [Virtual Machine Scale Set
 * [Storage Accounts](http://azure.microsoft.com/services/storage/): Azure Storage blobs store the disks backing the virtual machines and provides long-term storage of unstructured data and executable files used by the HPC application.
 * [Azure Resource Manager templates](https://docs.microsoft.com/api/Redirecthttp://azure.microsoft.com/documentation/articles/virtual-machines-windows-cli-deploy-templates/): Resource Manager templates or script files are used to deploy your application to the HPC environment.
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

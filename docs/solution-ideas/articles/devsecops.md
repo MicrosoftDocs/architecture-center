@@ -62,4 +62,4 @@ code change
 using Azure Monitor
 1. Insights used to address issues and fed into next sprint plans
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

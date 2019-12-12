@@ -82,4 +82,4 @@ This solution provides a small scale deployment of SharePoint using a single Azu
 * [Express Route Documentation](https://docs.microsoft.com/azure/expressroute/)
 * [VPN Gateway Documentation](https://docs.microsoft.com/azure/vpn-gateway/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

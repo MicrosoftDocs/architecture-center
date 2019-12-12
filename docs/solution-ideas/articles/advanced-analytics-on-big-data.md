@@ -65,4 +65,4 @@ Transform your data into actionable insights using the best-in-class machine lea
 ## Pricing Calculator
 * [Customize and get pricing estimates](https://azure.com/e/96162a623bda4911bb8f631e317affc6)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

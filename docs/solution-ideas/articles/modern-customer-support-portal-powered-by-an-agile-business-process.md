@@ -50,4 +50,4 @@ The links to the right provide documentation on deploying and managing the Azure
 1. The solution sends a text message to the customer, thanking them for the feedback.
 1. If the feedback sentiment scores lower than 0.3, the app posts this information to a customer service channel to respond.
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

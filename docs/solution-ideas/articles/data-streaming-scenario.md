@@ -44,4 +44,4 @@ Use AKS to easily ingest & process a real-time data stream with millions of data
 1. Data is processed by the processing service which stores the result in Azure Database for PostgreSQL and caches the data in an Azure Cache for Redis.
 1. A web app running in Azure App Service is used to visualize the results.
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

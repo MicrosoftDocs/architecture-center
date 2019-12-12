@@ -57,4 +57,4 @@ The Customer 360 Profile solution addresses the above problems by:
 1. A second Spark job scores each customer profile against a machine learning model to predict future purchasing patterns (i.e., is a given customer likely to make a purchase in the next 30 days, and if so, in which product category?)
 1. Predictions and other profile data are visualized and shared as charts and tables in Power BI Online
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

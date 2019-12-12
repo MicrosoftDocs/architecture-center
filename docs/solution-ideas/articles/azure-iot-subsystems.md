@@ -46,4 +46,4 @@ The links to the right provide documentation on deploying and managing the Azure
 * [Azure Blob Storage Documentation](https://docs.microsoft.com/azure/storage/)
 * [Azure Active Directory application Documentation](https://docs.microsoft.com/azure/active-directory/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]
