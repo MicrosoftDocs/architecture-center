@@ -1,10 +1,10 @@
 ---
 title: AI at the Edge with Azure Stack - disconnected
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Move AI models to the edge with a solution architecture that includes Azure Stack. A step-by-step workflow will help you harness the power of edge AI when disconnected from the internet.
 ms.custom: acom-architecture, ai at the edge, azure stack edge, edge ai, offline machine learning, interactive-diagram
-titleSuffix: Azure Solution Ideas
 ---
 # AI at the Edge with Azure Stack - disconnected
 
@@ -189,12 +189,12 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 </div>
 
 ## Data Flow
-1. Data scientists train a model using Azure Machine Learning and an HDInsight cluster. The model is containerized and put in to an Azure Container Registry.
-1. The model is deployed via an offline installer to a Kubernetes cluster on Azure Stack.
-1. End users provide data that is scored against the model.
-1. Insights and anomalies from scoring are placed into storage for later upload.
-1. Globally-relevant and compliant insights are available in the global app.
-1. Data from edge scoring is used to improve the model.
+1. Data scientists train a model using Azure Machine Learning and an HDInsight cluster. The model is containerized and put in to an Azure Container Registry.
+1. The model is deployed via an offline installer to a Kubernetes cluster on Azure Stack.
+1. End users provide data that is scored against the model.
+1. Insights and anomalies from scoring are placed into storage for later upload.
+1. Globally-relevant and compliant insights are available in the global app.
+1. Data from edge scoring is used to improve the model.
 
 ## Components
 * [HDInsight](https://azure.microsoft.com/services/hdinsight/): Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters

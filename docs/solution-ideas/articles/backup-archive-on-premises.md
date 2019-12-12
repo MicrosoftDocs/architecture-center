@@ -1,10 +1,10 @@
 ---
 title: Archive on-premises data to cloud
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Archive your on-premises data to Azure Blob storage.
 ms.custom: acom-architecture
-titleSuffix: Azure Solution Ideas
 ---
 # Archive on-premises data to cloud
 
@@ -225,7 +225,7 @@ This solution is built on the Azure managed services: [StorSimple](https://azure
 
 ## Components
 * Azure [StorSimple](https://azure.microsoft.com/services/storsimple/) appliance running on-premises that can tier data to Azure Blob storage (both hot and cool tier). [StorSimple](https://azure.microsoft.com/services/storsimple/) can be used to archive data from on-premises to Azure.
-* [Blob Storage](https://azure.microsoft.com/services/storage/blobs/): A cool tier on Azure Blob storage is used to back up data that’s less frequently accessed, while a hot tier on Azure Blob storage is used to store data that’s frequently accessed.
+* [Blob Storage](https://azure.microsoft.com/services/storage/blobs/): A cool tier on Azure Blob storage is used to back up data thatâ€™s less frequently accessed, while a hot tier on Azure Blob storage is used to store data thatâ€™s frequently accessed.
 
 ## Next Steps
 * [Learning path for StorSimple](/azure/storsimple/)

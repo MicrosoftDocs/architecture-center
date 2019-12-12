@@ -1,10 +1,10 @@
 ---
 title: Build high availability into your BCDR strategy
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Virtual machines (VMs) are physically separated across zones, and a virtual network is created using load balancers at each site. These locations are close enough for high availability replication, so your applications stay running, despite any issues at the physical locations.
 ms.custom: acom-architecture, bcdr, availability, strategy, interactive-diagram
-titleSuffix: Azure Solution Ideas
 ---
 # Build high availability into your BCDR strategy
 
@@ -142,20 +142,20 @@ Virtual machines (VMs) are physically separated across zones, and a virtual netw
 <p>Configure zone-redundant SQL DB.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Add VMs to the load balancer’s back-end pool.</p>
+<p>Add VMs to the load balancerâ€™s back-end pool.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-7">
 <p>Deploy your application on VMs for redundancy and high availability.</p>
 </div>
 
 ## Data Flow
-1. Create zone-redundant Load Balancer.
-1. Create front-end subnet.
-1. Create DB subnet.
-1. Create VMs in three Availability Zones.
-1. Configure zone-redundant SQL DB.
-1. Add VMs to the load balancer’s back-end pool.
-1. Deploy your application on VMs for redundancy and high availability.
+1. Create zone-redundant Load Balancer.
+1. Create front-end subnet.
+1. Create DB subnet.
+1. Create VMs in three Availability Zones.
+1. Configure zone-redundant SQL DB.
+1. Add VMs to the load balancerâ€™s back-end pool.
+1. Deploy your application on VMs for redundancy and high availability.
 
 ## Components
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/): Provision Windows and Linux virtual machines in seconds

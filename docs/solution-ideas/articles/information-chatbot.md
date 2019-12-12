@@ -1,10 +1,10 @@
 ---
 title: Information Chatbot
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: This Informational Bot can answer questions defined in a knowledge set or FAQ using Cognitive Services QnA Maker and answer more open-ended questions using Azure Cognitive Search.
 ms.custom: acom-architecture, bot service, luis, interactive-diagram
-titleSuffix: Azure Solution Ideas
 ---
 # Information Chatbot
 
@@ -16,15 +16,7 @@ titleSuffix: Azure Solution Ideas
     <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
 </div>
 
-\r\n 
-
-\r\n 
-
 This Informational Bot can answer questions defined in a knowledge set or FAQ using Cognitive Services QnA Maker and answer more open-ended questions using Azure Cognitive Search.
-
-\r\n 
-
-\r\n 
 
 ## Architecture
 
@@ -213,14 +205,35 @@ This Informational Bot can answer questions defined in a knowledge set or FAQ us
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">\r\n                    <p>Employee starts the Application Bot</p>\r\n                </div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">\r\n                    <p>Azure Active Directory validates the employee\xe2\x80\x99s identity</p>\r\n                </div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">\r\n                    <p>The employee can ask the bot what type of queries are supported</p>\r\n                </div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">\r\n                    <p>Cognitive Services returns a FAQ built with the QnA Maker</p>\r\n                </div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">\r\n                    <p>The employee defines a valid query</p>\r\n                </div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">\r\n                    <p>The Bot submits the query to Azure Cognitive Search which returns information about the application data</p>\r\n                </div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">\r\n                    <p>Application insights gathers runtime telemetry to help development with Bot performance and usage</p>\r\n                </div>
+<div class="architecture-tooltip-content" id="architecture-tooltip-1">
+<p>Employee starts the Application Bot</p>
+</div>
+<div class="architecture-tooltip-content" id="architecture-tooltip-2">
+<p>Azure Active Directory validates the employee’s identity</p>
+</div>
+<div class="architecture-tooltip-content" id="architecture-tooltip-3">
+<p>The employee can ask the bot what type of queries are supported</p>
+</div>
+<div class="architecture-tooltip-content" id="architecture-tooltip-4">
+<p>Cognitive Services returns a FAQ built with the QnA Maker</p>
+</div>
+<div class="architecture-tooltip-content" id="architecture-tooltip-5">
+<p>The employee defines a valid query</p>
+</div>
+<div class="architecture-tooltip-content" id="architecture-tooltip-6">
+<p>The Bot submits the query to Azure Cognitive Search which returns information about the application data</p>
+</div>
+<div class="architecture-tooltip-content" id="architecture-tooltip-7">
+<p>Application insights gathers runtime telemetry to help development with Bot performance and usage</p>
+</div>
 
 ## Data Flow
+1. Employee starts the Application Bot
+1. Azure Active Directory validates the employee’s identity
+1. The employee can ask the bot what type of queries are supported
+1. Cognitive Services returns a FAQ built with the QnA Maker
+1. The employee defines a valid query
+1. The Bot submits the query to Azure Cognitive Search which returns information about the application data
+1. Application insights gathers runtime telemetry to help development with Bot performance and usage
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

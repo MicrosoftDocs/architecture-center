@@ -1,10 +1,10 @@
 ---
 title: Gaming using Cosmos DB
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Elastically scale your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale.
 ms.custom: acom-architecture, Cosmos DB
-titleSuffix: Azure Solution Ideas
 ---
 # Gaming using Cosmos DB
 

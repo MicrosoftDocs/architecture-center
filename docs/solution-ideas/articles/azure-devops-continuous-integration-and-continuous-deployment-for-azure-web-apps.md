@@ -1,10 +1,10 @@
 ---
 title: CI/CD for Azure Web Apps
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, Node.js, or PHP. Deliver value faster to your customers with a continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Web Apps.
 ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, pricing-calculator, is-deployable
-titleSuffix: Azure Solution Ideas
 ---
 # CI/CD for Azure Web Apps
 
@@ -160,14 +160,14 @@ Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, 
 </div>
 
 ## Data Flow
-1. Change application source code.
-1. Commit application code and Web Apps web.config file.
-1. Continuous integration triggers application build and unit tests.
-1. Continuous deployment trigger orchestrates deployment of application artifacts with environment-specific parameters.
-1. Deployment to Web Apps.
-1. Azure Application Insights collects and analyzes health, performance, and usage data.
-1. Review health, performance, and usage information.
-1. Update backlog item.
+1. Change application source code.
+1. Commit application code and Web Apps web.config file.
+1. Continuous integration triggers application build and unit tests.
+1. Continuous deployment trigger orchestrates deployment of application artifacts with environment-specific parameters.
+1. Deployment to Web Apps.
+1. Azure Application Insights collects and analyzes health, performance, and usage data.
+1. Review health, performance, and usage information.
+1. Update backlog item.
 
 ## Components
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services.

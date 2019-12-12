@@ -1,10 +1,10 @@
 ---
 title: Speech Services
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: With Speech Services, it's easy to transcribe every call. Index the transcription for full-text search, or apply Text Analytics to detect sentiment, language, and key phrases for insights. If your call center recordings involve specialized terminology, such as product names or IT jargon, create a custom language model to teach Speech Services the vocabulary. A custom acoustic model helps Speech Services understand speakers even with background noise or poor phone connections. For more information, read how batch transcription works with Speech Services.
 ms.custom: acom-architecture, speech service, speech, services, interactive-diagram
-titleSuffix: Azure Solution Ideas
 ---
 # Speech Services
 
@@ -112,12 +112,12 @@ For more information, read how [batch transcription](/azure/cognitive-services/s
 </div>
 
 ## Data Flow
-1. Adapt a model for your domain and deploy that model
-1. Upload your recordings to a blob container
-1. Create a POST request to batch transcription
-1. Speech Services schedules the transcription job
-1. Stereo files are split into two channels
-1. Mono files undergo diarization to distinguish between speakers
-1. Download the transcription using the transcription ID
+1. Adapt a model for your domain and deploy that model
+1. Upload your recordings to a blob container
+1. Create a POST request to batch transcription
+1. Speech Services schedules the transcription job
+1. Stereo files are split into two channels
+1. Mono files undergo diarization to distinguish between speakers
+1. Download the transcription using the transcription ID
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

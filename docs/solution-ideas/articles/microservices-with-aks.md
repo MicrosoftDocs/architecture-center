@@ -1,10 +1,10 @@
 ---
 title: Microservices with AKS
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Microservices with AKS
 ms.custom: acom-architecture, kubernetes, interactive-diagram
-titleSuffix: Azure Solution Ideas
 ---
 # Microservices with AKS
 
@@ -307,13 +307,13 @@ Use AKS to simplify the deployment and management of microservices based archite
 </div>
 
 ## Data Flow
-1. Developer uses IDE such as Visual Studio to commit changes to GitHub
-1. GitHub triggers a new build on Azure DevOps
-1. Azure DevOps packages microservices as containers and pushes them to the Azure Container Registry
-1. Containers are deployed to AKS cluster
-1. Users access services via apps and website
-1. Azure Active Directory is used to secure access to the resources
-1. Microservices use databases to store and retrieve information
-1. Administrator accesses via a separate admin portal
+1. Developer uses IDE such as Visual Studio to commit changes to GitHub
+1. GitHub triggers a new build on Azure DevOps
+1. Azure DevOps packages microservices as containers and pushes them to the Azure Container Registry
+1. Containers are deployed to AKS cluster
+1. Users access services via apps and website
+1. Azure Active Directory is used to secure access to the resources
+1. Microservices use databases to store and retrieve information
+1. Administrator accesses via a separate admin portal
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

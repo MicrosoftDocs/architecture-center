@@ -1,10 +1,10 @@
 ---
 title: Personalized Offers
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: In today's highly competitive and connected environment, modern businesses can no longer survive with generic, static online content. Furthermore, marketing strategies using traditional tools are often expensive, hard to implement, and do not produce the desired return on investment. These systems often fail to take full advantage of the data collected to create a more personalized experience for the user.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, interactive-diagram
-titleSuffix: Azure Solution Ideas
 ---
 # Personalized Offers
 
@@ -235,10 +235,10 @@ For post deployment instructions and more details on the technical implementatio
 </div>
 
 ## Data Flow
-1. User activity on the website is simulated with an Azure Function and a pair of Azure Storage Queues.
-1. Personalized Offer Functionality is implemented as an Azure Function. This is the key function that ties everything together to produce an offer and record activity. Data is read in from Azure Cache for Redis and Azure DocumentDb, product affinity scores are computed from Azure Machine Learning (if no history for the user exists then pre-computed affinities are read in from Azure Cache for Redis).
-1. Raw user activity data (Product and Offer Clicks), Offers made to users, and performance data (for Azure Functions and Azure Machine Learning) are sent to Azure Event Hub.
-1. The offer is returned to the User. In our simulation this is done by writing to an Azure Storage Queue and picked up by an Azure Function in order to produce the next user action.
-1. Azure Stream Analytics analyzes the data to provide near real-time analytics on the input stream from the Azure Event Hub. The aggregated data is sent to Azure DocumentDB. The raw data is sent to Azure Data Lake Storage.
+1. User activity on the website is simulated with an Azure Function and a pair of Azure Storage Queues.
+1. Personalized Offer Functionality is implemented as an Azure Function. This is the key function that ties everything together to produce an offer and record activity. Data is read in from Azure Cache for Redis and Azure DocumentDb, product affinity scores are computed from Azure Machine Learning (if no history for the user exists then pre-computed affinities are read in from Azure Cache for Redis).
+1. Raw user activity data (Product and Offer Clicks), Offers made to users, and performance data (for Azure Functions and Azure Machine Learning) are sent to Azure Event Hub.
+1. The offer is returned to the User. In our simulation this is done by writing to an Azure Storage Queue and picked up by an Azure Function in order to produce the next user action.
+1. Azure Stream Analytics analyzes the data to provide near real-time analytics on the input stream from the Azure Event Hub. The aggregated data is sent to Azure DocumentDB. The raw data is sent to Azure Data Lake Storage.
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

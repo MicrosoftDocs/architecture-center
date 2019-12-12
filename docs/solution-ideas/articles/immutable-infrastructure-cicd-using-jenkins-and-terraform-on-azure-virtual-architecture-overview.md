@@ -1,10 +1,10 @@
 ---
 title: Immutable Infrastructure CI/CD using Jenkins and Terraform on Azure Virtual Architecture overview
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
-description: Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use Java, Node.js, Go, or PHP to develop your applications, you’ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
+description: Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use Java, Node.js, Go, or PHP to develop your applications, youâ€™ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
 ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, is-deployable
-titleSuffix: Azure Solution Ideas
 ---
 # Immutable Infrastructure CI/CD using Jenkins and Terraform on Azure Virtual Architecture overview
 
@@ -16,7 +16,7 @@ titleSuffix: Azure Solution Ideas
     <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
 </div>
 
-Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use Java, Node.js, Go, or PHP to develop your applications, you’ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
+Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use Java, Node.js, Go, or PHP to develop your applications, youâ€™ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
 
 ## Architecture
 
@@ -292,13 +292,13 @@ Azure is a world-class cloud for hosting virtual machines running Windows or Lin
 </div>
 
 ## Data Flow
-1. Change application source code.
-1. Commit code to GitHub.
-1. Continuous Integration Trigger to Jenkins.
-1. Jenkins triggers a Packer image build to create a VM and stores it as a VM image using Azure Managed Disks.
-1. Jenkins triggers Terraform to provision a new Virtual Machine Scale Set using the Azure Managed Disks VM image.
-1. Azure Log Analytics collects and analyzes logs.
-1. Monitor application and make improvements.
+1. Change application source code.
+1. Commit code to GitHub.
+1. Continuous Integration Trigger to Jenkins.
+1. Jenkins triggers a Packer image build to create a VM and stores it as a VM image using Azure Managed Disks.
+1. Jenkins triggers Terraform to provision a new Virtual Machine Scale Set using the Azure Managed Disks VM image.
+1. Azure Log Analytics collects and analyzes logs.
+1. Monitor application and make improvements.
 
 ## Components
 * [Managed Disks](https://azure.microsoft.com/services/managed-disks/): Persistent, secured disk storage for Azure virtual machines.

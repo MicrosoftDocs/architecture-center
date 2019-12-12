@@ -1,10 +1,10 @@
 ---
 title: Discovery Hub with Cloud Scale Analytics
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Build a modern data estate that is ready for cloud scale analytics with a step-by-step flowchart from Microsoft Azure.
 ms.custom: acom-architecture, Azure Discovery Hub, Cloud Scale Analytics, data warehouse analytics, interactive-diagram
-titleSuffix: Azure Solution Ideas
 ---
 # Discovery Hub with Cloud Scale Analytics
 
@@ -130,7 +130,7 @@ Use Discovery Hub to define a data estate using a graphical user interface, with
 </svg>
 
 <div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Combine all your structured and semi-structured data in Azure Data Lake Storage using Discovery Hub’s data engineering pipeline with hundreds of native data connectors.</p>
+<p>Combine all your structured and semi-structured data in Azure Data Lake Storage using Discovery Hubâ€™s data engineering pipeline with hundreds of native data connectors.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-2">
 <p>Clean and transform data using the powerful analytics and computational ability of Azure Databricks.</p>
@@ -146,11 +146,11 @@ Use Discovery Hub to define a data estate using a graphical user interface, with
 </div>
 
 ## Data Flow
-1. Combine all your structured and semi-structured data in Azure Data Lake Storage using Discovery Hub’s data engineering pipeline with hundreds of native data connectors.
-1. Clean and transform data using the powerful analytics and computational ability of Azure Databricks.
-1. Move cleansed and transformed data to Azure Synapse Analytics, creating one hub for all your data. Take advantage of native connectors between Azure Databricks (Polybase) and Azure Synapse Analytics to access and move data at scale.
-1. Build operational reports and analytical dashboards on top of SQL Database to derive insights from the data and use Azure Analysis Services to serve the data.
-1. Run ad-hoc queries directly on data within Azure Databricks.
+1. Combine all your structured and semi-structured data in Azure Data Lake Storage using Discovery Hubâ€™s data engineering pipeline with hundreds of native data connectors.
+1. Clean and transform data using the powerful analytics and computational ability of Azure Databricks.
+1. Move cleansed and transformed data to Azure Synapse Analytics, creating one hub for all your data. Take advantage of native connectors between Azure Databricks (Polybase) and Azure Synapse Analytics to access and move data at scale.
+1. Build operational reports and analytical dashboards on top of SQL Database to derive insights from the data and use Azure Analysis Services to serve the data.
+1. Run ad-hoc queries directly on data within Azure Databricks.
 
 ## Components
 * [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/): Massively scalable, secure data lake functionality built on Azure Blob Storage

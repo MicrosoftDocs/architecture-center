@@ -1,10 +1,10 @@
 ---
 title: Forecast Energy and Power Demand
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Learn how Microsoft Azure can help accurately forecast spikes in demand for energy products and services to give your company a competitive advantage.
 ms.custom: acom-architecture, energy demand, power forecast, energy forecast
-titleSuffix: Azure Solution Ideas
 ---
 # Forecast Energy and Power Demand
 

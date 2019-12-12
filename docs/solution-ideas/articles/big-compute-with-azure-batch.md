@@ -1,10 +1,10 @@
 ---
 title: HPC System and Big Compute Solutions
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Explore Big Compute solutions with Azure Batch. Use HPC cloud systems for cloud-native application and batch processing.
 ms.custom: acom-architecture, Hpc cloud hpc system, big compute solutions, interactive-diagram
-titleSuffix: Azure Solution Ideas
 ---
 # HPC System and Big Compute Solutions
 
@@ -20,7 +20,7 @@ Big compute and high performance computing (HPC) workloads are normally compute 
 
 This solution implements a cloud-native application with Azure Batch, which provides compute resource allocation and management, application installation, resource auto-scaling, and job scheduling as a platform service. Batch also offers higher level workload accelerators specifically for running R in parallel, AI training, and rendering workloads.
 
-This solution is built on the Azure managed services—Virtual Machines, Storage, and Batch. These services run in a high-availability environment, patched and supported, allowing you to focus on your solution.
+This solution is built on the Azure managed servicesâ€”Virtual Machines, Storage, and Batch. These services run in a high-availability environment, patched and supported, allowing you to focus on your solution.
 
 The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
 
@@ -198,12 +198,12 @@ The links to the right provide documentation on deploying and managing the Azure
 </div>
 
 ## Data Flow
-1. Upload input files and the applications to your Azure Storage account.
-1. Create a Batch pool of compute nodes, a job to run the workload on the pool, and the tasks in the job.
-1. Batch downloads input files and applications.
-1. Batch monitors task execution.
-1. Batch uploads task output.
-1. Download output files.
+1. Upload input files and the applications to your Azure Storage account.
+1. Create a Batch pool of compute nodes, a job to run the workload on the pool, and the tasks in the job.
+1. Batch downloads input files and applications.
+1. Batch monitors task execution.
+1. Batch uploads task output.
+1. Download output files.
 
 ## Components
 * [Storage Accounts](https://azure.microsoft.com/services/storage/): Massively scalable object storage for unstructured data.
