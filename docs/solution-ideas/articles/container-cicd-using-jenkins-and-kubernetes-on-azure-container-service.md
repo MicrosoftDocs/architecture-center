@@ -71,4 +71,4 @@ By setting up a continuous build to produce your container images and orchestrat
 ## Deploy to Azure
 * [Deploy to Azure](/en-us/resources/templates/jenkins-cicd-container/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

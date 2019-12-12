@@ -36,4 +36,4 @@ This solution is built on the Azure managed services: [Media Services](/en-us/se
 * [How to monitor apps in Azure App Service](https://docs.microsoft.com/api/Redirect/documentation/articles/media-services-develop-video-players/)
 * [Deliver content securely](http://azure.microsoft.com/services/media-services/content-protection/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

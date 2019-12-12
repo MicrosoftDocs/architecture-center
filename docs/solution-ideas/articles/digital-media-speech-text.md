@@ -36,4 +36,4 @@ This solution is built on the Azure managed services: [Content Delivery Network]
 * [Run Web Apps in the cloud](https://docs.microsoft.com/api/Redirect/documentation/articles/app-service-web-overview/)
 * [Indexing media files](https://docs.microsoft.com/api/Redirect/documentation/articles/media-services-index-content/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

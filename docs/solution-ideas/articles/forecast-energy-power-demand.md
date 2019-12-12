@@ -32,4 +32,4 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](/
 * [Learn more about Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-introduction)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

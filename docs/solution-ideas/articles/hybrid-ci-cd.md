@@ -48,4 +48,4 @@ Implementing a continuous integration/continuous development (CI/CD) approach to
 * [Visual Studio Team Services](http://azure.microsoft.com/services/visual-studio-team-services/)
 * [Use Visual Studio Team Services to deploy to an Azure Web App](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

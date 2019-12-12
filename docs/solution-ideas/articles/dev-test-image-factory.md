@@ -50,4 +50,4 @@ The image factory provides a great way for organizations to create, maintain, an
 * [Virtual Machines documentation](https://docs.microsoft.com/azure/virtual-machines/)
 * [Azure Devops documentation](https://docs.microsoft.com/azure/devops/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

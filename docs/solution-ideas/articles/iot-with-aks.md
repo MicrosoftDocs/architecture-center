@@ -28,4 +28,4 @@ IoT scenarios can potentially involve hundreds to thousands of IoT devices. AKS 
 1. IoT Edge Connector virtual node deploys to Edge devices via the IoT Hub.
 1. Deployment is updated on Edge devices
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

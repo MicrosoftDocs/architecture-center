@@ -28,4 +28,4 @@ This solution is built on the Azure managed services: [Traffic Manager](/en-us/s
 * [Designing your network infrastructure for disaster recovery](https://docs.microsoft.com/api/Redirect/documentation/articles/site-recovery-network-design/)
 * [Introduction to Microsoft Azure Storage](https://docs.microsoft.com/api/Redirect/documentation/articles/storage-introduction/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

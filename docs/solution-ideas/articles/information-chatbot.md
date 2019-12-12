@@ -44,4 +44,4 @@ This Informational Bot can answer questions defined in a knowledge set or FAQ us
 1. The Bot submits the query to Azure Cognitive Search which returns information about the application data
 1. Application insights gathers runtime telemetry to help development with Bot performance and usage
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

@@ -44,4 +44,4 @@ Visual assistant provides rich information based on content of the image with ca
 1. Optionally Bot gets more information on barcodes/queries exclusively from your domain through the Bing Custom Search API.
 1. Assistant renders similar products/destinations from your domain or provides more information around celebrity/place/monuments/artworks.
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

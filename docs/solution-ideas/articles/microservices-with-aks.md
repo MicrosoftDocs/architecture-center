@@ -48,4 +48,4 @@ Use AKS to simplify the deployment and management of microservices based archite
 1. Microservices use databases to store and retrieve information
 1. Administrator accesses via a separate admin portal
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

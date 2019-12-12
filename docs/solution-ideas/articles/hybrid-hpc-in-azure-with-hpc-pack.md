@@ -61,4 +61,4 @@ The links to the right provide documentation on deploying and managing the Azure
 * [Create a Windows virtual machine with the Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 * [Set up a hybrid high performance computing (HPC) cluster with Microsoft HPC Pack and on-demand Azure compute nodes](https://docs.microsoft.com/azure/cloud-services/cloud-services-setup-hybrid-hpcpack-cluster)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

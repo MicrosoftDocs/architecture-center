@@ -56,4 +56,4 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 * [Storage documentation](https://docs.microsoft.com/azure/storage/)
 * [Azure Stack documentation](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-machine-learning)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

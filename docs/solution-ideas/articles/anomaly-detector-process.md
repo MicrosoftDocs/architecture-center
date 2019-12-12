@@ -51,4 +51,4 @@ ms.custom: acom-architecture, anomaly detection process, anomaly detection model
 * [Power BI Documentation](https://docs.microsoft.com/power-bi/)
 * [Storage Documentation](https://docs.microsoft.com/azure/storage/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

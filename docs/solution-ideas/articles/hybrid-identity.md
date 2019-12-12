@@ -50,4 +50,4 @@ The need to keep application components on-premises doesn't have to be a barrier
 * [Virtual Machines Overview](http://azure.microsoft.com/services/virtual-machines/)
 * [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

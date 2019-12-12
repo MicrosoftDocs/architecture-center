@@ -56,4 +56,4 @@ the customer’s photo and name.
 1. The customer information is added to the mailing list (MailChimp).
 1. The solution creates a record of the member in SQL Database.
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

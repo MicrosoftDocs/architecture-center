@@ -59,4 +59,4 @@ Azure is a world-class cloud for hosting virtual machines running Windows or Lin
 ## Deploy to Azure
 * [Deploy to Azure](/en-us/resources/templates/jenkins-cicd-vmss/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

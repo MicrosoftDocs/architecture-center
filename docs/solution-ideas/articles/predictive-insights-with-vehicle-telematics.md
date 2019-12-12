@@ -36,4 +36,4 @@ This solution is built on the Azure managed services: [Event Hubs](/en-us/servic
 * [Learn more about SQL Database](https://docs.microsoft.com/azure/sql-database/)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

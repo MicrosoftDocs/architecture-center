@@ -90,4 +90,4 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](/
 * [Learn more about Synapse Analytics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

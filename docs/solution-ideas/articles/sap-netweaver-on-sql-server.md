@@ -1822,4 +1822,4 @@ Y6o+AgAA8D9+CDAAMBi8XPMDkIMAAAAASUVORK5CYII="/><g><g><rect height="297.345" styl
 * [SAP Certifications for Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
 * [Premium Storage: high-performance storage for Azure Virtual Machine workloads](https://docs.microsoft.com/azure/storage/storage-premium-storage)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

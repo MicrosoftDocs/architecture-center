@@ -36,4 +36,4 @@ Easily migrate existing application to container(s) and run within the Azure man
 1. Easily access SLA-backed Azure Services such as Azure Database for MySQL using OSBA (Open Service Broker for Azure)
 1. Optionally, AKS can be deployed with a VNET virtual network
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

@@ -36,4 +36,4 @@ Create seamless conversational interfaces with all of your internet-accessible d
 1. The results of the command are returned to the user
 1. Application Insights gathers runtime telemetry to help development with bot performance and usage
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]

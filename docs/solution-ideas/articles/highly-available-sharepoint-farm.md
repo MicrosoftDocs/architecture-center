@@ -82,4 +82,4 @@ group.
 * [Load Balancer Documentation](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
 * [Express Route Documentation](https://docs.microsoft.com/azure/expressroute/)
 
-[!INCLUDE [js_include_file](../../../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]
