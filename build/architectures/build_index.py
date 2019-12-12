@@ -220,7 +220,7 @@ for file in all_architectures_list:
     logging.debug("Setting the image path")
     # Set the path
     if image:
-        image=path.normpath(path.join(main_dir, image))
+        image=path.normpath(path.join(path.dirname(file_path), image))
         article['image'] = str(PurePath("/azure/architecture/" + str(Path(image).resolve().relative_to(doc_directory))).as_posix())
     else:
         article['image'] = "/azure/architecture/_images/reference-architectures.svg"
