@@ -50,7 +50,7 @@ This architecture consists of the following components:
 
 [Azure Cosmos DB][cosmosdb]. Cosmos DB is a globally distributed database service used to store the top 10 recommended movies for each user. Azure Cosmos DB is well-suited for this scenario, because it provides low latency (10 ms at 99th percentile) to read the top recommended items for a given user.
 
-[Azure Machine Learning Service][mls]. This service is used to track and manage machine learning models, and then package and deploy these models to a scalable AKS environment.
+[Azure Machine Learning][mls]. This service is used to track and manage machine learning models, and then package and deploy these models to a scalable AKS environment.
 
 [Microsoft Recommenders][github]. This open-source repository contains utility code and samples to help users get started in building, evaluating, and operationalizing a recommender system.
 
