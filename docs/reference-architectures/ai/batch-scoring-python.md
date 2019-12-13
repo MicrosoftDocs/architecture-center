@@ -86,7 +86,7 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 [create-resources]: https://github.com/Microsoft/AMLBatchScoringPipeline/blob/master/01_create_resources.ipynb
 [deep]: /azure/architecture/reference-architectures/ai/batch-scoring-deep-learning
 [event-hubs]: /azure/event-hubs/event-hubs-geo-dr
-[explorer]: https://azure.microsoft.com/en-us/features/storage-explorer/
+[explorer]: https://azure.microsoft.com/features/storage-explorer/
 [github]: https://github.com/Microsoft/AMLBatchScoringPipeline
 [one-class-svm]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html
 [portal]: https://portal.azure.com
