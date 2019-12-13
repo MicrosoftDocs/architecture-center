@@ -440,6 +440,26 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
         </div>
     </a>
 </li>
+<!-- Event-based automation using Azure Functions -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./serverless/cloud-automation.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/functions.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Event-based automation using Azure Functions</h3>
+                        <p>An event-based approach to implementing cloud automation in Azure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
 </ul>
 
 ## Virtual networks
