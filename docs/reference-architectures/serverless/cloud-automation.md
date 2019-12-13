@@ -171,7 +171,7 @@ Consider adding security layers on top of function authentication, such as,
 
 Note that function-level authentication is the only option available to Azure Monitor action groups.
 
-If the function needs to be called from a third-party application or service, it is recommended to provide access to it with an [API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) layer. This layer should enforce authentication. API Management now has a [consumption tier](https://azure.microsoft.com/en-au/updates/azure-api-management-consumption-tier-is-now-generally-available/) integrated with Azure Functions, which allows you to pay only if the API gets executed. For more information, read [Create and expose your functions with OpenAPI](https://docs.microsoft.com/azure/azure-functions/functions-openapi-definition).
+If the function needs to be called from a third-party application or service, it is recommended to provide access to it with an [API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) layer. This layer should enforce authentication. API Management now has a [consumption tier](https://azure.microsoft.com/updates/azure-api-management-consumption-tier-is-now-generally-available/) integrated with Azure Functions, which allows you to pay only if the API gets executed. For more information, read [Create and expose your functions with OpenAPI](https://docs.microsoft.com/azure/azure-functions/functions-openapi-definition).
 
 If the calling service supports service endpoints, the following costlier options could be considered:
 
