@@ -132,9 +132,7 @@ If a sufficiently large number of alerts are generated, and the automation updat
 
 ## Security considerations
 
-### Azure Functions
-
-#### Control access to the function
+### Control access to the function
 
 Restrict access to an HTTP-triggered function by setting the [authorization level](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp#trigger---configuration). With *anonymous* authentication, the function is easily accessible with a URL such as `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>`. *Function* level authentication can obfuscate the http endpoint, by requiring function keys in the URL. This level is set in the file [function.json](https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/cost-center-tagging/OnResourceWriteSuccess/function.json):
 
@@ -178,7 +176,7 @@ If the calling service supports service endpoints, the following costlier option
 
 To compare pricing and features between these options, read [Azure Functions scale and hosting](https://docs.microsoft.com/azure/azure-functions/functions-scale).
 
-#### Control what the function can access
+### Control what the function can access
 
 [Managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), an Azure Active Directory feature, simplifies how the function authenticates and accesses other Azure resources and services. The code does not need to manage the authentication credentials, since it is managed by Azure AD.
 
