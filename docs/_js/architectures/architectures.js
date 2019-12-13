@@ -346,8 +346,6 @@ function filter(pageNumber, newSearch=false) {
         });
 
         $.getJSON('/azure/architecture/solution-ideas/metadata/display-tags.json.txt', function (tagData) {
-            //TODO: Sort JSON data by name
-
             // Get the tags for every checked item
             var visibleArticleTags = Array.from(new Set([].concat.apply([], data['articles'].map(data => data['tags'])).sort()))
 
