@@ -322,6 +322,7 @@ function filter(pageNumber, newSearch=false) {
         };
        
         // Look for items that match the checkbox
+        // TODO: Match all filters, not 'some'
         data.articles = $.grep(data.articles, function(article) {
             if (filterTerms.length > 0) {
                 return filterTerms.some(r=> article.tags.includes(r));
@@ -357,7 +358,8 @@ function filter(pageNumber, newSearch=false) {
                 return category['items'];
             });
 
-            tagData["categories"]=filteredTagData
+            // TODO: Fix Filter to not filter current category
+            // tagData["categories"]=filteredTagData
             
             var picker = refineTemplate(tagData);
             $("#refine-content").html(picker);
