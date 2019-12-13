@@ -158,7 +158,7 @@ Restrict access to an HTTP-triggered function by setting the [authorization leve
 }
 ```
 
-For production environment, additional strategies might be required to secure the function. In the reference implementations, the functions are executed within the Azure platform by other Azure services, and will not be exposed to the internet. Function authorization is sufficient for functions accessed as web hooks. Although not implemented in the reference, it is recommended to secure the function key in a [Key Vault](https://docs.microsoft.com/azure/key-vault/).
+For production environment, additional strategies might be required to secure the function. In the reference implementations, the functions are executed within the Azure platform by other Azure services, and will not be exposed to the internet. Function authorization is sufficient for functions accessed as web hooks.
 
 Consider adding security layers on top of function authentication, such as,
 
