@@ -350,15 +350,15 @@ function filter(pageNumber, newSearch=false) {
             // Get the tags for every checked item
             var visibleArticleTags = Array.from(new Set([].concat.apply([], data['articles'].map(data => data['tags'])).sort()))
 
-            filteredTagData = tagData["categories"].filter(function(category) {
-                var foundItems = category['items'].filter(function(item) {
-                    return item['tags'].some(r=> visibleArticleTags.includes(r));
-                });
-                category['items'] = foundItems
-                return category['items'];
-            });
-
             // TODO: Fix Filter to not filter current category
+            // filteredTagData = tagData["categories"].filter(function(category) {
+            //     var foundItems = category['items'].filter(function(item) {
+            //         return item['tags'].some(r=> visibleArticleTags.includes(r));
+            //     });
+            //     category['items'] = foundItems
+            //     return category['items'];
+            // });
+
             // tagData["categories"]=filteredTagData
             
             var picker = refineTemplate(tagData);
