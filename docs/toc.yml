@@ -203,6 +203,8 @@ items:
     href: patterns/retry.md
   - name: Scheduler Agent Supervisor
     href: patterns/scheduler-agent-supervisor.md
+  - name: Sequential Convoy
+    href: patterns/sequential-convoy.md
   - name: Sharding
     href: patterns/sharding.md
   - name: Sidecar
