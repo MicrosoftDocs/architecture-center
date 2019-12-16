@@ -2,7 +2,7 @@
 title: Hybrid CI/CD
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: Easily implement the practice of CI/CD by using a consistent set of development tools and processes across the Azure public cloud and on-premises Azure Stack environments.
 ms.custom: acom-architecture, CI/CD, Azure CI/CD, Continuous Integration And Continuous Deployment, Visual Studio Team Services, Microsoft DevOps, interactive-diagram
 ---

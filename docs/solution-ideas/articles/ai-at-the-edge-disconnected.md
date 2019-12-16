@@ -2,7 +2,7 @@
 title: AI at the Edge with Azure Stack - disconnected
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: Move AI models to the edge with a solution architecture that includes Azure Stack. A step-by-step workflow will help you harness the power of edge AI when disconnected from the internet.
 ms.custom: acom-architecture, ai at the edge, azure stack edge, edge ai, offline machine learning, interactive-diagram
 ---

@@ -2,7 +2,7 @@
 title: Anomaly Detector Process
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: Learn more about Anomaly Detector with a step-by-step flowchart that details the process. See how anomaly detection models are selected with time-series data.
 ms.custom: acom-architecture, anomaly detection process, anomaly detection model, anomaly detector, interactive-diagram
 ---
@@ -163,8 +163,6 @@ ms.custom: acom-architecture, anomaly detection process, anomaly detection model
 1. Stores the anomaly detection meta data.
 
 1. Visualizes the results of the time series anomaly detection.
-
-[!include deployment.md]
 
 ## Components
 * [Service Bus](https://azure.microsoft.com/services/service-bus/): Reliable cloud messaging as a service (MaaS) and simple hybrid integration

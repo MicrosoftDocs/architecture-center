@@ -7,12 +7,15 @@ import datetime
 import sys
 import html2text
 import pprint
+from pathlib import Path, PurePath
 from os import path
 import os
 import tempfile
+import json
+
 
 use_cache=True
-single_url=False
+single_url=True
 
 #url="https://azure.microsoft.com/en-us/solutions/architecture/dev-test-microservice/"
 #url="https://azure.microsoft.com/en-us/solutions/architecture/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview/"
@@ -20,14 +23,24 @@ single_url=False
 #url="https://azure.microsoft.com/en-us/solutions/architecture/advanced-analytics-on-big-data/"
 #url="https://azure.microsoft.com/en-us/solutions/architecture/cicd-for-containers/"
 #url="https://azure.microsoft.com/en-us/solutions/architecture/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters/"
-#url="https://azure.microsoft.com/solutions/architecture/ai-at-the-edge-disconnected/"
+#url="https://azure.microsoft.com/solutions/architecture/ai-at-the-edge/"
 #url="https://azure.microsoft.com/solutions/architecture/population-health-management-for-healthcare/"
 #url="https://azure.microsoft.com/en-us/solutions/architecture/disaster-recovery-smb-azure-site-recovery/"
 #url="https://azure.microsoft.com/en-us/solutions/architecture/telemetry-analytics/"
-url="https://azure.microsoft.com/en-us/solutions/architecture/azure-iot-subsystems/"
+#url="https://azure.microsoft.com/en-us/solutions/architecture/azure-iot-subsystems/"
+url="https://azure.microsoft.com/en-us/solutions/architecture/modern-customer-support-portal-powered-by-an-agile-business-process"
 
+root = path.dirname(path.abspath(__file__))
+
+mod_file = open(path.join(root, "mods.json.txt"), "r")
+file_mods=json.load(mod_file)['mods']
+
+def get_mods(filename): 
+    for mod in file_mods: 
+         if mod['file'] == str(filename.as_posix()): 
+             return mod
+  
 def scrape_page(url):
-    root = path.dirname(path.abspath(__file__))
     doc_directory = path.normpath(path.join(root, "..", ".." , "docs"))
     acom_dir=path.join(doc_directory, "solution-ideas")
     html_dir=path.join(root, "acom_html")
@@ -236,11 +249,23 @@ def scrape_page(url):
 
     articletext += "\n\n[!INCLUDE [js_include_file](../../_js/index.md)]\n"
 
-    # Cleanup
-    articletext = re.sub('\n\n\n*', '\n\n', articletext, flags=re.MULTILINE)
+    # URL Cleanup
     articletext = re.sub('\(/en-us', '(https://azure.microsoft.com', articletext, flags=re.MULTILINE)
     articletext = re.sub('http(:?s)://docs.microsoft.com', '', articletext, flags=re.MULTILINE)
     articletext = re.sub('en-us\/', '', articletext, flags=re.MULTILINE)
+
+    # Modify the articles as needed to meet docs standards
+    mods = get_mods(Path(str(acom_dir) + "/articles/" + filename).relative_to(doc_directory))
+    if mods:
+        if mods.get("tags"):
+            articletext = re.sub('ms.custom: ', 'ms.custom: ' + ','.join(mods['tags']) + ", ", articletext, flags=re.MULTILINE)
+
+        if mods.get("updates"):
+            for update in mods['updates']:
+                articletext = re.sub(update['old'], str(update['new']), articletext, flags=re.MULTILINE)
+
+    # Remove any extra blank lines
+    articletext = re.sub('\n\n\n*', '\n\n', articletext, flags=re.MULTILINE)
 
     file=open(path.abspath(str(acom_dir) + "/articles/" + filename),"w", encoding='utf8')
     file.write(articletext)
@@ -252,13 +277,31 @@ def scrape_page(url):
         image.write(svgtext)
         image.close
 
+    return path.abspath(str(acom_dir) + "/articles/" + filename)
+
+def get_docs_url(file_path):
+    file_path = Path(file_path)
+    root = path.dirname(path.abspath(__file__))
+    doc_directory = path.normpath(path.join(root, "..", ".." , "docs"))
+    http_url="https://docs.microsoft.com/en-us/azure/architecture/" + str(file_path.relative_to(doc_directory).as_posix()).replace(file_path.suffix, "")
+    return http_url
+
 if __name__ == '__main__':
+    redirects = ""
+
     if single_url:
-        scrape_page(url)
+        file_path = scrape_page(url)
+        redirects += '<add key="%s" value="%s" />\n' % (url.rstrip('\n'), get_docs_url(file_path))
     else:
         filepath = path.join(path.dirname(path.abspath(__file__)) + '/url_list.txt')
         with open(filepath) as fp:
             urls = fp.readlines()
         
         for url in urls:
-            scrape_page(url.rstrip('\n'))
+            file_path = scrape_page(url.rstrip('\n'))
+            redirects += '<add key="%s" value="%s" />\n' % (url.rstrip('\n'), get_docs_url(file_path))
+
+    redirects = re.sub('http(:?s)://azure.microsoft.com', '', redirects, flags=re.MULTILINE)
+    redirect_list=open(path.join(path.dirname(path.abspath(__file__)) + '/redirect_list.txt'), "w", encoding='utf8')
+    redirect_list.write(redirects)
+    redirect_list.close

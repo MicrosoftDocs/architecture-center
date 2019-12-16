@@ -2,7 +2,7 @@
 title: Unlock Legacy Data with Azure Stack
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: Follow a step-by-step flowchart to unlock and preserve legacy data from mainframe applications using Azure Stack.
 ms.custom: acom-architecture, data preservation, legacy data integration, legacy data, app modernization, interactive-diagram
 ---

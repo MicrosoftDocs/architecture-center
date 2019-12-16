@@ -2,7 +2,7 @@
 title: Image classification with Convolutional Neural Networks
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: Explore transfer learning, convolutional neural networks, and gradient-boosting decision tree algorithms.
 ms.custom: acom-architecture, convolutional neural network, discrete manufacturing, decision tree algorithm, image classification, gradient boosting decision tree, failure detection, automated manufacturing solutions
 ---

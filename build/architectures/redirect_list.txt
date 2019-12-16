@@ -1,0 +1,1 @@
+<add key="/en-us/solutions/architecture/modern-customer-support-portal-powered-by-an-agile-business-process" value="https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process" />

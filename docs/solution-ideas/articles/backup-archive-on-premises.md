@@ -2,7 +2,7 @@
 title: Archive on-premises data to cloud
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: Archive your on-premises data to Azure Blob storage.
 ms.custom: acom-architecture
 ---

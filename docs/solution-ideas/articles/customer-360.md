@@ -2,7 +2,7 @@
 title: Customer 360
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: A deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. This solution implements a process of aggregating customer data into a “360 degree” profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, interactive-diagram
 ---

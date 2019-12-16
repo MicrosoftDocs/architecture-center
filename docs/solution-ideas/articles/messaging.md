@@ -2,7 +2,7 @@
 title: Messaging
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: azure redis cache, web sockets, web communication frameworks, messaging publish and subscribe, azure cache for redis
 ms.custom: acom-architecture
 ---

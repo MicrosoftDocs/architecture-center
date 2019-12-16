@@ -2,7 +2,7 @@
 title: E-commerce website running in secured App Service Environment
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: Secure your e-commerce website's sensitive user and payment data using the Microsoft Azure App Service Environment.
 ms.custom: acom-architecture, app service environment, security for ecommerce websites, e-commerce security solutions, e-commerce site security, interactive-diagram
 ---
