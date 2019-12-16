@@ -2,7 +2,7 @@
 title: SharePoint Farm for Development Testing
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: Learn how to deploy a SharePoint farm for use as a development testing environment with a step-by-step flowchart from Azure.
 ms.custom: acom-architecture, sharepoint dev, sharepoint agile, sharepoint dev environment, azure sharepoint development environment, sharepoint farm solution, interactive-diagram
 ---

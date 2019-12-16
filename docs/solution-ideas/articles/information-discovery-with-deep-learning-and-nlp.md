@@ -2,7 +2,7 @@
 title: Information discovery with deep learning and NLP
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: See how deep learning and natural language processing can be used effectively with the Microsoft AI platform.
 ms.custom: acom-architecture, convolutional neural network, discrete manufacturing, decision tree algorithm, image classification, gradient boosting decision tree, failure detection, automated manufacturing solutions
 ---

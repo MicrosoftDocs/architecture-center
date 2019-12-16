@@ -2,7 +2,7 @@
 title: Interactive Price Analytics
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: The Pricing Analytics solution uses your transactional history data to show you how the demand for your products responds to the prices you offer, to recommend pricing changes, and allow you to simulate how changes in price would affect your demand, at a fine granularity.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery
 ---

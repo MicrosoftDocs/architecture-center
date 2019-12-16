@@ -2,7 +2,7 @@
 title: Demand Forecasting for Shipping and Distribution
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: The Demand Forecasting for Shipping and Distribution Solution uses historical demand data to forecast demand in future periods across varios customers, products and destinations. For instance, a shipping or delivery company wants to predict the quantities of the different products its customers want delivered at different locations at future times. A company can use these forecasts as input to an allocation tool that optimizes operations, such as delivery vehicles routing, or to plan capacity in the longer term.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery
 ---

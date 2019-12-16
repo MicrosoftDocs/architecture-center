@@ -2,7 +2,7 @@
 title: Visual Assistant
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: Visual assistant provides rich information based on content of the image with capabilities such as reading business card, identifying barcode, and recognizing popular people, places, objects, artworks, and monuments.
 ms.custom: acom-architecture, visual assistant, cognitive services, visual capabilities, visual assistant scenarios, interactive-diagram
 ---

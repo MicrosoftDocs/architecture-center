@@ -2,7 +2,7 @@
 title: Blockchain Workflow Application
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: Explore how blockchain is used to digitize workflows and supply chains across organizations with the Blockchain Workflow Application from Microsoft Azure.
 ms.custom: acom-architecture, Blockchain Workflow, Blockchain Workflow Application, Azure Blockchain, Azure Blockchain Service, interactive-diagram
 ---

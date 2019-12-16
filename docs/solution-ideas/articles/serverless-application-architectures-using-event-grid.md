@@ -2,7 +2,7 @@
 title: Serverless application architectures using Event Grid
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: Event Grid connects data sources and event handlers. For example, use Event Grid to instantly trigger a serverless function to run image analysis each time a new photo is added to a blob storage container.
 ms.custom: acom-architecture, event-grid, azure
 ---

@@ -2,7 +2,7 @@
 title: HPC System and Big Compute Solutions
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: Explore Big Compute solutions with Azure Batch. Use HPC cloud systems for cloud-native application and batch processing.
 ms.custom: acom-architecture, Hpc cloud hpc system, big compute solutions, interactive-diagram
 ---

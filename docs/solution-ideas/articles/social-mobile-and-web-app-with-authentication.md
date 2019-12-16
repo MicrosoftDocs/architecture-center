@@ -2,7 +2,7 @@
 title: Social App for Mobile and Web with Authentication
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: View a detailed, step-by-step diagram depicting the build process and implementation of the mobile client app architecture that offers social image sharing with a companion web app and authentication abilities, even while offline.
 ms.custom: acom-architecture, Social Image Sharing, Image Processing App, Image Share App, Companion Web App, interactive-diagram
 ---

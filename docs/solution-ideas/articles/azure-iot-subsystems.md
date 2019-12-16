@@ -2,7 +2,7 @@
 title: IoT Architecture – Azure IoT Subsystems
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: Learn about our recommended IoT application architecture that supports hybrid cloud and edge computing. A flowchart details how the subsystems function within the IoT application.
 ms.custom: acom-architecture, IoT solution architecture, IoT application architecture, subsystem architecture, IoT architecture
 ---

@@ -2,7 +2,7 @@
 title: Task-Based Consumer Mobile App
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: Learn how the task-based consumer mobile app architecture is created with a step-by-step flow chart that shows the integration with Azure App Service Mobile Apps, Visual Studio, and Xamarin to simplify the build process.
 ms.custom: acom-architecture, Consumer Mobile App, Offline Mobile App, Mobile App Authentication, interactive-diagram
 ---
