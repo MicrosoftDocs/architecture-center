@@ -2,7 +2,7 @@
 title: Information Chatbot
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: This Informational Bot can answer questions defined in a knowledge set or FAQ using Cognitive Services QnA Maker and answer more open-ended questions using Azure Cognitive Search.
 ms.custom: acom-architecture, bot service, luis, interactive-diagram
 ---

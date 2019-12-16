@@ -2,7 +2,7 @@
 title: Instant Broadcasting on Serverless Architecture
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: Simplify one-to-many real-time communication and updates using serverless code
 ms.custom: acom-architecture, serverless, signalr service, interactive-diagram
 ---

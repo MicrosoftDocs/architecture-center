@@ -2,7 +2,7 @@
 title: Speech Services
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: With Speech Services, it's easy to transcribe every call. Index the transcription for full-text search, or apply Text Analytics to detect sentiment, language, and key phrases for insights. If your call center recordings involve specialized terminology, such as product names or IT jargon, create a custom language model to teach Speech Services the vocabulary. A custom acoustic model helps Speech Services understand speakers even with background noise or poor phone connections. For more information, read how batch transcription works with Speech Services.
 ms.custom: acom-architecture, speech service, speech, services, interactive-diagram
 ---

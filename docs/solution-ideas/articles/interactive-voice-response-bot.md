@@ -2,7 +2,7 @@
 title: Interactive Voice Response Bot
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: This solution creates an intelligent interactive voice response (IVR) application that processes customer order requests for bicycles and bicycle accessories. Businesses with no existing IVR solution can easily get started automating requests, or, where existing human-operated systems exist, this solution can be extended to incorporate existing functionality and workflows.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery
 ---

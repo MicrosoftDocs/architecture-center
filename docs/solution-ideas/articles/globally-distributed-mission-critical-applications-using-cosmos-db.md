@@ -2,7 +2,7 @@
 title: Globally distributed applications using Cosmos DB
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft’s global datacenters.
 ms.custom: acom-architecture, Cosmos DB
 ---

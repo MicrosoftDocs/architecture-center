@@ -2,7 +2,7 @@
 title: Tier Applications & Data for Analytics
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: Tier applications and data with a solution architecture that includes Azure Stack. Optimize data analytics with a step-by-step flowchart and detailed instructions.
 ms.custom: acom-architecture, application tier, data tier, tier architecture, tier data, tier application architecture, hybrid application, interactive-diagram
 ---

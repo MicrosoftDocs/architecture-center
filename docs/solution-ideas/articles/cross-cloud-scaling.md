@@ -2,7 +2,7 @@
 title: Cross Cloud Scaling Architecture
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: Learn how to improve cross cloud scalability with solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation.
 ms.custom: acom-architecture, cross cloud architecture, cloud scalability, cross cloud, interactive-diagram
 ---

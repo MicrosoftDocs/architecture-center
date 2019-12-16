@@ -2,8 +2,8 @@
 title: Lift and Shift and Innovate - LOB Apps
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
-description: The solution demonstrates a business process for monitoring and responding to customer feedback. This architecture shows how to easily connect multiple business systems to enable a nimbler customer support.
+ms.date: 12/16/2019
+description: This architecture shows how to easily connect multiple business systems to enable customer support.
 ms.custom: acom-architecture, line of business app, lob app, lift and shift cloud strategy, cloud migration, cloud innovation, lift and shift solution, lift and shift strategy, interactive-diagram
 ---
 # Lift and Shift and Innovate - LOB Apps
@@ -18,17 +18,15 @@ ms.custom: acom-architecture, line of business app, lob app, lift and shift clou
 
 This line-of-business application solution provides a mechanism for monitoring and responding to customer feedback. Easily connect multiple business systems to enable nimbler customer support.
 
-The links to the right give you detailed technical guidance on navigating a particular area of the architecture.
+Related Links:
 
-[Matching the architecture to your business needs](/azure/architecture/guide/design-principles/build-for-business/)
+* [Matching the architecture to your business needs](/azure/architecture/guide/design-principles/build-for-business/)
 
-[Managing identities in your applications](/azure/architecture/multitenant-identity/)
+* [Managing identities in your applications](/azure/architecture/multitenant-identity/)
 
-The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
+* [Automate access and use of data across applications with Logic Apps](/azure/logic-apps/)
 
-[Automate access and use of data across applications with Logic Apps](/azure/logic-apps/)
-
-[Infuse intelligence into your apps with Cognitive Services](/azure/#pivot=products&panel=cognitive)
+* [Infuse intelligence into your apps with Cognitive Services](/azure/#pivot=products&panel=cognitive)
 
 ## Architecture
 
@@ -134,4 +132,4 @@ The links to the right provide documentation on deploying and managing the Azure
 
 1. If the feedback sentiment scores lower than 0.3, the app posts this information to a customer service channel to respond.
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+* [!INCLUDE [js_include_file](../../_js/index.md)]

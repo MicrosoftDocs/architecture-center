@@ -2,7 +2,7 @@
 title: Customer Churn Prediction
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: Customer Churn Prediction uses Cortana Intelligence Suite components to predict churn probability and helps find patterns in existing data associated with the predicted churn rate.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery
 ---

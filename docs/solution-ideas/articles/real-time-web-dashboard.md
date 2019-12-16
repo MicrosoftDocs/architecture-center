@@ -2,7 +2,7 @@
 title: Real-time Web Dashboard
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: Securely monitor and control data streamed from Internet-connected devices
 ms.custom: acom-architecture, signalr service, interactive-diagram
 ---

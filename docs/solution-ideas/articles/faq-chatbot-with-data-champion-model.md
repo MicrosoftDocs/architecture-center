@@ -2,7 +2,7 @@
 title: FAQ Chatbox with data champion model
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 description: The QnA Maker tool makes it super easy for the content owners to maintain their knowledge base of QnAs. Combined with Bot Service and LUIS, it's easy to setup an FAQ chatbot which responds from differnet knowledge bases depending on the intent of the query.
 ms.custom: acom-architecture, QnA, QnA Maker, FAQ, FAQ chatbot, interactive-diagram
 ---
