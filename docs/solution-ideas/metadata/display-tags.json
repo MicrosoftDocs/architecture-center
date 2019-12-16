@@ -41,6 +41,7 @@
                         "real-time-analytics",
                         "cloud-scale-analytics",
                         "advanced-analytics",
+                        "data-analytics",
                         "advanced-analytics-architecture"
                     ]
                 }, {
@@ -467,12 +468,13 @@
                 }, {
                     "name": "Automotive",
                     "friendly-name": "automotive",
-                    "tags": ["automotive-telematics", "vehicle-telematics"]
+                    "tags": ["automotive-telematics", "automotive", "vehicle-telematics"]
                 }, {
                     "name": "Ecommerce",
                     "friendly-name": "ecommerce",
                     "tags": [
                         "process-order-payment",
+                        "ecommerce",
                         "submits-order",
                         "price-optimization",
                         "search-for-products",
@@ -495,7 +497,8 @@
                         "probability-of-default",
                         "price-optimization",
                         "risk-analysis-solution",
-                        "risk-analysis-template"
+                        "risk-analysis-template",
+                        "finance"
                     ]
                 }, {
                     "name": "Healthcare",
@@ -515,7 +518,8 @@
                         "hospital-length-of-stay",
                         "healthcare-machine-learning",
                         "healthcare-data-storage",
-                        "healthcare-analytics"
+                        "healthcare-analytics",
+                        "healthcare"
                     ]
                 },
                 {
@@ -549,7 +553,7 @@
                 },  {
                     "name": "Media",
                     "friendly-name": "media",
-                    "tags": ["media-render", "media-services", "video-indexer"]
+                    "tags": ["media-render", "media-services", "video-indexer", "media"]
                 }
             ]
         }, {
