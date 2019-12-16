@@ -35,8 +35,8 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| SageMaker | [Azure Machine Learning Service](https://azure.microsoft.com/services/machine-learning-services/) | A cloud service to train, deploy, automate, and manage machine learning models. |
-| SageMaker | [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning/) | A collaborative, drag-and-drop tool to build, test, and deploy predictive analytics solutions on your data. |
+| SageMaker | [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-services/) | A cloud service to train, deploy, automate, and manage machine learning models. |
+| SageMaker | [Azure Machine Learning Studio (classic)](https://azure.microsoft.com/services/machine-learning/) | A collaborative, drag-and-drop tool to build, test, and deploy predictive analytics solutions on your data. |
 | Alexa Skills Kit | [Microsoft Bot Framework](https://dev.botframework.com/) | Build and connect intelligent bots that interact with your users using text/SMS, Skype, Teams, Slack, Office 365 mail, Twitter, and other popular services. |
 | Amazon Lex | [Speech Services](https://azure.microsoft.com/services/cognitive-services/speech/) | API capable of converting speech to text, understanding intent, and converting text back to speech for natural responsiveness. |
 | Amazon Lex | [Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) | Allows your applications to understand user commands contextually. |

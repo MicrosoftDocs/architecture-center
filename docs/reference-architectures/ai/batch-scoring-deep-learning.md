@@ -41,11 +41,11 @@ This architecture consists of the following components.
 
 ### Compute
 
-**[Azure Machine Learning Service][amls]** uses pipelines to create reproducible and easy-to-manage sequences of computation. It also offers a managed compute target (on which a pipeline computation can run) called [Azure Machine Learning Compute][aml-compute] for training, deploying, and scoring machine learning models.
+**[Azure Machine Learning][amls]** uses pipelines to create reproducible and easy-to-manage sequences of computation. It also offers a managed compute target (on which a pipeline computation can run) called [Azure Machine Learning Compute][aml-compute] for training, deploying, and scoring machine learning models.
 
 ### Storage
 
-**[Blob storage][blob-storage]** is used to store all images (input images, style images, and output images). Azure Machine Learning Service integrates with Blob storage so that users do not have to manually move data across compute platforms and Blob storage. Blob storage is also very cost-effective for the performance that this workload requires.
+**[Blob storage][blob-storage]** is used to store all images (input images, style images, and output images). Azure Machine Learning integrates with Blob storage so that users do not have to manually move data across compute platforms and Blob storage. Blob storage is also very cost-effective for the performance that this workload requires.
 
 ### Trigger / scheduling
 
@@ -77,7 +77,7 @@ For this workload, these two options will have comparable performance. Using few
 
 ### MPI step
 
-When creating the [Azure Machine Learning service pipeline][aml-pipeline], one of the steps used to perform parallel computation is the MPI step. The MPI step will help split the data evenly across the available nodes. The MPI step will not executed until all the requested nodes are ready. Should one node fail or get preempted (if it is a low-priority virtual machine), the MPI step will have to be rerun.
+When creating the [Azure Machine Learning pipeline][aml-pipeline], one of the steps used to perform parallel computation is the MPI step. The MPI step will help split the data evenly across the available nodes. The MPI step will not executed until all the requested nodes are ready. Should one node fail or get preempted (if it is a low-priority virtual machine), the MPI step will have to be rerun.
 
 ## Security considerations
 

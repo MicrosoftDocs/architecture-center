@@ -36,7 +36,7 @@ This scenario covers the training and evaluating of the machine learning model u
 
 3. A DSVM is often used to experiment with or productize a Spark ALS recommender model. The ALS model is trained using a training dataset, which is produced from the overall dataset by applying the appropriate data splitting strategy. For example, the dataset can be split into sets randomly, chronologically, or stratified, depending on the business requirement. Similar to other machine learning tasks, a recommender is validated by using evaluation metrics (for example, precision\@*k*, recall\@*k*, [MAP][map], [nDCG\@k][ndcg]).
 
-4. Azure Machine Learning service is used for coordinating the experimentation, such as hyperparameter sweeping and model management.
+4. Azure Machine Learning is used for coordinating the experimentation, such as hyperparameter sweeping and model management.
 
 5. A trained model is preserved on Azure Cosmos DB, which can then be applied for recommending the top *k* movies for a given user.
 
@@ -50,7 +50,7 @@ For an in-depth guide to building and scaling a recommender service, see [Build 
 
 * [Azure Blob storage][blob] stores the dataset for movie recommendations.
 
-* [Azure Machine Learning service][mls] is used to accelerate the building, managing, and deploying of machine learning models.
+* [Azure Machine Learning][mls] is used to accelerate the building, managing, and deploying of machine learning models.
 
 * [Azure Cosmos DB][cosmos-db] enables globally distributed and multi-model database storage.
 
