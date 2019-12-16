@@ -16,7 +16,7 @@
           "**/_css/**",
           "**/_includes/**",
           "**/_bread/**",
-          "**/_js/**/*.json",
+          "**/*.json",
           "**/_themes/**"
         ]
       },
@@ -40,8 +40,7 @@
           "**/*.gif",
           "**/*.svg",
           "**/*.js",
-          "**/_js/**/*.json",
-          "**/*.json.txt",
+          "**/*.json",
           "feed.xml"
         ],
         "exclude": [
