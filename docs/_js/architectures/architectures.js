@@ -296,7 +296,7 @@ function filter(pageNumber, newSearch=false) {
     }
 
     // Load content data and filter it
-    $.getJSON('/azure/architecture/solution-ideas/data/output.json', function (data) {
+    $.getJSON('/azure/architecture/solution-ideas/data/output.json.txt', function (data) {
         var filterTerms = [];
         var selectedNames = [];
         var selectedCategories = [];
@@ -346,7 +346,7 @@ function filter(pageNumber, newSearch=false) {
             selectedNames.push($(this).attr('friendly-name'));
         });
 
-        $.getJSON('/azure/architecture/solution-ideas/metadata/display-tags..json', function (tagData) {
+        $.getJSON('/azure/architecture/solution-ideas/metadata/display-tags.json.txt', function (tagData) {
             // Get the tags for every checked item
             var visibleArticleTags = Array.from(new Set([].concat.apply([], data['articles'].map(data => data['tags'])).sort()))
 
