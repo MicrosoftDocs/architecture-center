@@ -272,6 +272,17 @@ var pageString = ['<nav class="pagination" role="navigation" aria-label="paginat
 '</nav>'].join('');
 var paginationTemplate = Handlebars.compile(pageString);
 
+function findCommonElement(array1, array2) { 
+    for(var i = 0; i < array1.length; i++) { 
+        for(var j = 0; j < array2.length; j++) { 
+            if(array1[i] === array2[j]) { 
+                return true; 
+            } 
+        } 
+    } 
+    return false;  
+} 
+
 function filter(pageNumber, newSearch) {
     if (!newSearch) newSearch = false;
     
@@ -329,10 +340,9 @@ function filter(pageNumber, newSearch) {
         }
        
         // Look for items that match the checkbox
-        // TODO: Match all filters, not 'some'
         data.articles = $.grep(data.articles, function(article) {
             if (filterTerms.length > 0) {
-                return filterTerms.some(r=> article.tags.includes(r));
+                return findCommonElement(filterTerms, article.tags);
             } else {
                 return true;
             }
