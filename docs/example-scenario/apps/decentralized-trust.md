@@ -7,7 +7,10 @@ ms.date: 09/09/2018
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenarios
-ms.custom: csa-team
+ms.custom:
+  - csa-team
+  - blockchain
+  - finance
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-decentralized-trust.png
 ---
 

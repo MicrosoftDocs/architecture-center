@@ -3,8 +3,8 @@ title: Keyword search/speech-to-text/OCR digital media
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
-description: A speech-to-text solution allows you to identify speech in static video files so you can manage it as standard content, such as allowing employees to search within training videos for spoken words or phrases, and then enabling them to quickly navigate to the specific moment in the video. This solution allows you to upload static videos to an Azure website. The Azure Media Indexer uses the Speech API to index the speech within the videos and stores it in SQL Azure. You can search for words or phrases by using Azure Web Apps and retrieve a list of results. Selecting a result enables you to see where in the video the word or phrase is mentioned.
-ms.custom: acom-architecture, 'https://azure.microsoft.com/solutions/architecture/digital-media-speech-text/'
+description: A speech-to-text solution allows you to identify speech in static video files so you can manage it as standard content, such as allowing employees to search within training videos for spoken words or phrases, and then enabling them to quickly navigate to the specific moment in the video.
+ms.custom: acom-architecture, speech, 'https://azure.microsoft.com/solutions/architecture/digital-media-speech-text/'
 ---
 # Keyword search/speech-to-text/OCR digital media
 

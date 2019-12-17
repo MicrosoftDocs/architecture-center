@@ -43,15 +43,16 @@
 				"cloud-scale-analytics",
 				"advanced-analytics",
 				"data-analytics",
+                "analytics",
 				"advanced-analytics-architecture"
 			]
 		}, {
 			"name": "Anomoly detection",
 			"friendly-name": "anomoly-detection",
-			"tags": ["anomaly-detector", "anomaly-detection-model", "anomaly-detection-process"]
+			"tags": ["anomaly-detector", "anomoly-detection", "anomaly-detection-model", "anomaly-detection-process"]
 		}, {
 			"name": "App modernization",
-			"friendly-name": "App Modernization",
+			"friendly-name": "app-modernization",
 			"tags": [
 				"app-modernization",
 				"lift-and-shift-strategy",
@@ -64,6 +65,8 @@
 			"name": "Application development",
 			"friendly-name": "application-development",
 			"tags": [
+                "application-development",
+                "app-development"
 				"use-cases",
 				"vacation-planner",
 				"integration-services",
@@ -81,12 +84,13 @@
 				"app-modernization",
 				"availability",
 				"strategy", "cloud-migration", "lift-and-shift-strategy", "lift-and-shift-solution", "lift-and-shift-cloud-strategy",
-				"strategy", "cloud-innovation", "microservices"
+				"strategy", "cloud-innovation"
 			]
 		}, {
 			"name": "Blockchain",
 			"friendly-name": "blockchain",
 			"tags": [
+                "blockchain",
 				"azure-blockchain-service",
 				"azure-blockchain",
 				"blockchain-and-iot",
@@ -95,10 +99,6 @@
 				"blockchain-workflow",
 				"blockchain-workflow-application"
 			]
-		}, {
-			"name": "Data sovereignty",
-			"friendly-name": "data-sovereignty",
-			"tags": []
 		}, {
 			"name": "SAP",
 			"friendly-name": "SAP",
@@ -130,6 +130,7 @@
 			"name": "Hybrid infrastructure",
 			"friendly-name": "hybrid-infrastructure",
 			"tags": [
+                "hybrid-infrastructure",
 				"cross-cloud",
 				"cross-cloud-architecture",
 				"hybrid-hpc",
@@ -153,7 +154,7 @@
 		}, {
 			"name": "Chatbots",
 			"friendly-name": "chatbots",
-			"tags": ["chat", "faq", "faq-chatbot", "qna", "qna-maker"]
+			"tags": ["chat", "chatbots", "chatbot", "faq", "faq-chatbot", "qna", "qna-maker"]
 		}, {
 			"name": "DevOps",
 			"friendly-name": "devops",
@@ -172,23 +173,15 @@
 		}, {
 			"name": "Disaster recovery",
 			"friendly-name": "disaster-recovery",
-			"tags": ["bcdr"]
+			"tags": ["bcdr", "disaster-recovery"]
 		}, {
 			"name": "Data warehouse",
 			"friendly-name": "data-warehouse",
-			"tags": ["data-warehouse-analytics", "modern-data-warehouse", "modern-data-warehouse-architecture", "big-data-warehouse", "cloud-data-warehouse"]
-		}, {
-			"name": "App modernization",
-			"friendly-name": "app-modernization",
-			"tags": []
-		}, {
-			"name": "App migration",
-			"friendly-name": "app-migration",
-			"tags": []
+			"tags": [ "data-warehouse", "data-warehouse-analytics", "modern-data-warehouse", "modern-data-warehouse-architecture", "big-data-warehouse", "cloud-data-warehouse"]
 		}, {
 			"name": "Scalability",
 			"friendly-name": "scalability",
-			"tags": ["cloud-scalability"]
+			"tags": ["cloud-scalability", "scalability"]
 		}, {
 			"name": "Internet of Things (IoT)",
 			"friendly-name": "iot",
@@ -196,11 +189,12 @@
 		}, {
 			"name": "Content delivery (CDN)",
 			"friendly-name": "cdn",
-			"tags": ["content-delivery"]
+			"tags": ["cdn","content-delivery"]
 		}, {
 			"name": "Data architectures",
 			"friendly-name": "data",
 			"tags": [
+                "data",
 				"data-gravity",
 				"tier-data",
 				"data-factory",
@@ -209,6 +203,7 @@
 				"data-lake-storage",
 				"data-tier",
 				"database-team",
+                "data-analytics",
 				"data-preservation",
 				"big-data-warehouse",
 				"big-data-architecture",
@@ -225,7 +220,7 @@
 		}, {
 			"name": "Mobile applications",
 			"friendly-name": "mobile-applications",
-			"tags": ["offline-mobile-app", "mobile-workforce-management-solution", "mobile-app-authentication", "mobile-workforce-management-app", "mobile-workforce-app"]
+			"tags": ["offline-mobile-app", "mobile-applications", "mobile-workforce-management-solution", "mobile-app-authentication", "mobile-workforce-management-app", "mobile-workforce-app"]
 		}, {
 			"name": "MySQL",
 			"friendly-name": "msql",
@@ -253,7 +248,7 @@
 		}, {
 			"name": "Web apps",
 			"friendly-name": "web-applications",
-			"tags": ["web-applications", "web-apps", "web-service"]
+			"tags": ["web-applications", "web-apps", "web-service", "web-app"]
 		}]
 	}, {
 		"category": "Azure Components",

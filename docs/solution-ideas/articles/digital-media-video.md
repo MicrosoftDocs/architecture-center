@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: A basic video-on-demand solution that gives you the capability to stream recorded video content such as movies, news clips, sports segments, training videos, and customer support tutorials to any video-capable endpoint device, mobile application, or desktop browser. Video files are uploaded to Azure Blob storage, encoded to a multi-bitrate standard format, and then distributed via all major adaptive bit-rate streaming protocols (HLS, MPEG-DASH, Smooth) to the Azure Media Player client.
-ms.custom: acom-architecture, 'https://azure.microsoft.com/solutions/architecture/digital-media-video/'
+ms.custom: acom-architecture, media, 'https://azure.microsoft.com/solutions/architecture/digital-media-video/'
 ---
 # Video-on-demand digital media
 
