@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Using SQL Server 2016 with R Services, a lending institution can make use of predictive analytics to reduce number of loans they offer to those borrowers most likely to default, increasing the profitability of their loan portfolio.
-ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/loan-credit-risk-with-sql-server/'
+ms.custom: acom-architecture, finance, analytics, sql-server, artificial intelligence, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/loan-credit-risk-with-sql-server/'
 ---
 # Loan Credit Risk with SQL Server
 

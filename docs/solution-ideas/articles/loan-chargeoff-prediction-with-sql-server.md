@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: This solution demonstrates how to build and deploy a machine learning model with SQL Server 2016 with R Services to predict if a Bank loan will need to be charged off within next 3 months
-ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/loan-chargeoff-prediction-with-sql-server/'
+ms.custom: acom-architecture, finance, artificial intelligence, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/loan-chargeoff-prediction-with-sql-server/'
 ---
 # Loan ChargeOff Prediction with SQL Server
 

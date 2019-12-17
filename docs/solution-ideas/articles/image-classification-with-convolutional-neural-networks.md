@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Explore transfer learning, convolutional neural networks, and gradient-boosting decision tree algorithms.
-ms.custom: acom-architecture, convolutional neural network, discrete manufacturing, decision tree algorithm, image classification, gradient boosting decision tree, failure detection, automated manufacturing solutions, 'https://azure.microsoft.com/solutions/architecture/image-classification-with-convolutional-neural-networks/'
+ms.custom: acom-architecture, convolutional neural network, discrete manufacturing, decision tree algorithm, image classification, gradient boosting decision tree, ai-ml, failure detection, automated manufacturing solutions, 'https://azure.microsoft.com/solutions/architecture/image-classification-with-convolutional-neural-networks/'
 ---
 # Image classification with Convolutional Neural Networks
 
@@ -111,7 +111,8 @@ Using this solution to automate failure detection instead of relying solely on h
 ## Components
 * Azure Blob Storage: Data is ingested and stored in Azure Blob Storage.
 * GPU based Azure Data Science Virtual Machine: The core development environment is the Azure Ubuntu-based GPU DSVM. The data is pulled from blob onto an Azure virtual hard disk (VHD) attached to the DSVM. On that VHD, the data is processed, the images are featurized using a Deep Neural Network, and a Boosted Tree model is trained. DSVM IPython Notebook server is used for solution development.
-* Azure Batch AI training (BAIT): As an alternative to DSVM-based training, for computing-intensive jobs that use deep-learning image processing, we use BAIT as a managed Azure Batch framework for
+* Azure Batch AI training (BAIT): As an alternative to DSVM-based training, for computing-intensive jobs that use deep-learning image processing, we use BAIT as a managed Azure Batch framework for
+
 parallel and distributed computing using clusters of GPU compute nodes.
 * Microsoft Machine Learning for Apache Spark HDInsight Spark Cluster: As an alternative to DSVM-based training, for big datasets, we use MMLSpark to build a highly scalable training solution.
 * Azure Container Registry: The model and web application are packaged into a Docker image and written to Azure Container Registry.

@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: The Hybrid Identity blueprint enables teams to manage applications and user identity consistently across clouds with the utilization of Azure Stack
-ms.custom: acom-architecture, Hybrid Identity, Azure Hybrid Identity, Service Principles, Azure Active Directory, Azure Active Directory Tenant, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/hybrid-identity/'
+ms.custom: acom-architecture, Hybrid Identity, Azure Hybrid Identity, Service Principles, Azure Active Directory, Azure Active Directory Tenant, interactive-diagram, hybrid-infrastructure, 'https://azure.microsoft.com/solutions/architecture/hybrid-identity/'
 ---
 # Hybrid Identity
 
@@ -305,7 +305,13 @@ The need to keep application components on-premises doesn't have to be a barrier
 
 ## Data Flow
 
-1. Set up an Azure Active Directory tenant.1. Create users.1. Deploy, manage, and operate application resources on Azure and Azure Stack.1. Create service principles.1. Deploy with service principles.1. Application resources can communicate over network.
+1. Set up an Azure Active Directory tenant.
+1. Create users.
+1. Deploy, manage, and operate application resources on Azure and Azure Stack.
+1. Create service principles.
+1. Deploy with service principles.
+1. Application resources can communicate over network.
+
 
 ## Components
 * [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) is a hybrid cloud platform that lets you use Azure services on-premises.

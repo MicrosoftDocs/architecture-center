@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Easily implement the practice of CI/CD by using a consistent set of development tools and processes across the Azure public cloud and on-premises Azure Stack environments.
-ms.custom: acom-architecture, CI/CD, Azure CI/CD, Continuous Integration And Continuous Deployment, Visual Studio Team Services, Microsoft DevOps, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/hybrid-ci-cd/'
+ms.custom: acom-architecture, CI/CD, Azure CI/CD, Continuous Integration And Continuous Deployment, devops, Visual Studio Team Services, Microsoft DevOps, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/hybrid-ci-cd/'
 ---
 # Hybrid CI/CD
 
@@ -181,7 +181,12 @@ Implementing a continuous integration/continuous development (CI/CD) approach to
 
 ## Data Flow
 
-1. Engineer makes changes to application code and ARM template.1. Code and ARM template are checked into Visual Studio Team Services Git.1. Continuous integration triggers application build and unit tests.1. Continuous deployment trigger orchestrates deployment of application artifacts with environment-specific parameters.1. Deployment to App Service on both Azure and Azure Stack.
+1. Engineer makes changes to application code and ARM template.
+1. Code and ARM template are checked into Visual Studio Team Services Git.
+1. Continuous integration triggers application build and unit tests.
+1. Continuous deployment trigger orchestrates deployment of application artifacts with environment-specific parameters.
+1. Deployment to App Service on both Azure and Azure Stack.
+
 
 ## Components
 * [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) is a hybrid cloud platform that lets you use Azure services on-premises
