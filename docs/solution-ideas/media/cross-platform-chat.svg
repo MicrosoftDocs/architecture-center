@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="cross-platform-chat"  viewbox="0 0 431.809 410.755"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="cross-platform-chat" height="410.755" viewbox="0 0 431.809 410.755" width="431.809" xmlns="http://www.w3.org/2000/svg">
     <path d="M193.849 381.091a2.007 2.007 0 002.007 2.007h45.986a2.007 2.007 0 002.007-2.007v-31.329h-50z" fill="#59b4d9"/>
     <path d="M241.842 340.464h-45.986a2.006 2.006 0 00-2.007 2.007V353.1h50v-10.629a2.007 2.007 0 00-2.007-2.007" fill="#a0a1a2"/>
     <path d="M195.863 340.464a2.007 2.007 0 00-2.007 2.007v38.62a2.008 2.008 0 002.007 2.007h2.188l39.418-42.634z" fill="#fff" opacity=".2" style="isolation:isolate"/>
