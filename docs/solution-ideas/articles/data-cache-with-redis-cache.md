@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: data cache, data cache with azure cache for redis, azure database, cosmos db
-ms.custom: acom-architecture, 'https://azure.microsoft.com/solutions/architecture/data-cache-with-redis-cache/'
+ms.custom: acom-architecture, data, 'https://azure.microsoft.com/solutions/architecture/data-cache-with-redis-cache/'
 ---
 # Data cache
 

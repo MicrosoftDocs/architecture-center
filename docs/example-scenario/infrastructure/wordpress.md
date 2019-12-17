@@ -8,6 +8,9 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenarios
 social_image_url: /azure/architecture/example-scenario/infrastructure/media/secure-scalable-wordpress.png
+ms.custom:
+    - web-apps
+    - scalability
 ---
 
 # Highly scalable and secure WordPress website

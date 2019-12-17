@@ -7,7 +7,9 @@ ms.date: 07/10/2018
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenarios
-ms.custom: fasttrack
+ms.custom:
+  - fasttrack
+  - web-apps
 social_image_url: /azure/architecture/example-scenario/data/media/architecture-ecommerce-order-processing.png
 ---
 
