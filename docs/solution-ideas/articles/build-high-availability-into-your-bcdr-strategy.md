@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Virtual machines (VMs) are physically separated across zones, and a virtual network is created using load balancers at each site. These locations are close enough for high availability replication, so your applications stay running, despite any issues at the physical locations.
-ms.custom: acom-architecture, bcdr, availability, strategy, interactive-diagram
+ms.custom: acom-architecture, bcdr, availability, strategy, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/build-high-availability-into-your-bcdr-strategy/'
 ---
 # Build high availability into your BCDR strategy
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 Virtual machines (VMs) are physically separated across zones, and a virtual network is created using load balancers at each site. These locations are close enough for high availability replication, so your applications stay running, despite any issues at the physical locations.
 
@@ -149,19 +143,8 @@ Virtual machines (VMs) are physically separated across zones, and a virtual netw
 </div>
 
 ## Data Flow
-1. Create zone-redundant Load Balancer.
 
-1. Create front-end subnet.
-
-1. Create DB subnet.
-
-1. Create VMs in three Availability Zones.
-
-1. Configure zone-redundant SQL DB.
-
-1. Add VMs to the load balancer’s back-end pool.
-
-1. Deploy your application on VMs for redundancy and high availability.
+1. Create zone-redundant Load Balancer.1. Create front-end subnet.1. Create DB subnet.1. Create VMs in three Availability Zones.1. Configure zone-redundant SQL DB.1. Add VMs to the load balancer’s back-end pool.1. Deploy your application on VMs for redundancy and high availability.
 
 ## Components
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/): Provision Windows and Linux virtual machines in seconds

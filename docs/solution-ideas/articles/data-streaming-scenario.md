@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Data Streaming scenario
-ms.custom: acom-architecture, data streaming scenario, interactive-diagram
+ms.custom: acom-architecture, data streaming scenario, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/data-streaming-scenario/'
 ---
 # Data Streaming scenario
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 Use AKS to easily ingest & process a real-time data stream with millions of data points collected via sensors. Perform fast analysis and computations to develop insights into complex scenarios quickly.
 
@@ -202,18 +196,7 @@ Use AKS to easily ingest & process a real-time data stream with millions of data
 </div>
 
 ## Data Flow
-1. Sensor data is generated and streamed to Azure API Management.
 
-1. AKS cluster runs microservice that are deployed as containers behind a service mesh. Containers are built using a DevOps process and stored in Azure Container Registry.
-
-1. Ingest service stores data in a Azure Cosmos DB
-
-1. Asynchronously, the Analysis service receives the data and streams it to Apache Kafka and Azure HDInsight.
-
-1. Data scientists can analyze the large big data for use in machine learning models using Splunk.
-
-1. Data is processed by the processing service which stores the result in Azure Database for PostgreSQL and caches the data in an Azure Cache for Redis.
-
-1. A web app running in Azure App Service is used to visualize the results.
+1. Sensor data is generated and streamed to Azure API Management.1. AKS cluster runs microservice that are deployed as containers behind a service mesh. Containers are built using a DevOps process and stored in Azure Container Registry.1. Ingest service stores data in a Azure Cosmos DB1. Asynchronously, the Analysis service receives the data and streams it to Apache Kafka and Azure HDInsight.1. Data scientists can analyze the large big data for use in machine learning models using Splunk.1. Data is processed by the processing service which stores the result in Azure Database for PostgreSQL and caches the data in an Azure Cache for Redis.1. A web app running in Azure App Service is used to visualize the results.
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Learn more about Anomaly Detector with a step-by-step flowchart that details the process. See how anomaly detection models are selected with time-series data.
-ms.custom: acom-architecture, anomaly detection process, anomaly detection model, anomaly detector, interactive-diagram
+ms.custom: acom-architecture, anomaly detection process, anomaly detection model, anomaly detector, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
 ---
 # Anomaly Detector Process
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 ## Architecture
 
@@ -152,17 +146,8 @@ ms.custom: acom-architecture, anomaly detection process, anomaly detection model
 </div>
 
 ## Data Flow
-1. Ingests data from the various stores that contain raw data to be monitored by Anomaly Detector.
 
-1. Aggregates, samples, and computes the raw data to generate the time series, or calls the Anomaly Detector API directly if the time series are already prepared and gets a response with the detection results.
-
-1. Queues the anomaly related meta data.
-
-1. Based on the anomaly related meta data, calls the customized alerting service.
-
-1. Stores the anomaly detection meta data.
-
-1. Visualizes the results of the time series anomaly detection.
+1. Ingests data from the various stores that contain raw data to be monitored by Anomaly Detector.1. Aggregates, samples, and computes the raw data to generate the time series, or calls the Anomaly Detector API directly if the time series are already prepared and gets a response with the detection results.1. Queues the anomaly related meta data.1. Based on the anomaly related meta data, calls the customized alerting service.1. Stores the anomaly detection meta data.1. Visualizes the results of the time series anomaly detection.
 
 ## Components
 * [Service Bus](https://azure.microsoft.com/services/service-bus/): Reliable cloud messaging as a service (MaaS) and simple hybrid integration

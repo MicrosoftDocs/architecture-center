@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Tier applications and data with a solution architecture that includes Azure Stack. Optimize data analytics with a step-by-step flowchart and detailed instructions.
-ms.custom: acom-architecture, application tier, data tier, tier architecture, tier data, tier application architecture, hybrid application, interactive-diagram
+ms.custom: acom-architecture, application tier, data tier, tier architecture, tier data, tier application architecture, hybrid application, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/tiered-data-for-analytics/'
 ---
 # Tier Applications & Data for Analytics
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 Easily tier data and applications on-premises and in Azure with architecture that supports greater efficiency in applications. Filter unnecessary data early in the process, easily bring cloud applications close to the data on-premises, and analyze large scale aggregate data from multiple locations in Azure for fleet-level insights.
 
@@ -149,19 +143,8 @@ Easily tier data and applications on-premises and in Azure with architecture tha
 </div>
 
 ## Data Flow
-1. Data flows into a storage account.
 
-1. Function on Azure Stack analyzes the data for anomalies or compliance.
-
-1. Locally-relevant insights are displayed on the Azure Stack app.
-
-1. Insights and anomalies are placed into a queue.
-
-1. The bulk of the data is placed into an archive storage account.
-
-1. Function sends data from queue to Azure Storage.
-
-1. Globally-relevant and compliant insights are available in the global app.
+1. Data flows into a storage account.1. Function on Azure Stack analyzes the data for anomalies or compliance.1. Locally-relevant insights are displayed on the Azure Stack app.1. Insights and anomalies are placed into a queue.1. The bulk of the data is placed into an archive storage account.1. Function sends data from queue to Azure Storage.1. Globally-relevant and compliant insights are available in the global app.
 
 ## Components
 * [Storage](https://azure.microsoft.com/services/storage/): Durable, highly available, and massively scalable cloud storage

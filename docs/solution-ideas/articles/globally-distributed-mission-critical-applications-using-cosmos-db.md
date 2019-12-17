@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft’s global datacenters.
-ms.custom: acom-architecture, Cosmos DB
+ms.custom: acom-architecture, Cosmos DB, 'https://azure.microsoft.com/solutions/architecture/globally-distributed-mission-critical-applications-using-cosmos-db/'
 ---
 # Globally distributed applications using Cosmos DB
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft’s global datacenters.
 

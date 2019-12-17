@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, you’ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
-ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram
+ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/cicd-for-azure-vms/'
 ---
 # CI/CD for Azure VMs
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, you’ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
 
@@ -230,25 +224,8 @@ Azure DevOps provides the CI/CD pipeline, starting with a Git repository for man
 </div>
 
 ## Data Flow
-1. Change application source code
 
-1. Commit Application Code and Azure Resource Manager (ARM) Template
-
-1. Continuous integration triggers application build and unit tests
-
-1. Continuous deployment trigger orchestrates deployment of application artifacts with environment specific parameters
-
-1. Deployment to QA environment
-
-1. Deployment to staging environment
-
-1. Deployment to production environment
-
-1. Application Insights collects and analyses health, performance and usage data
-
-1. Review health, performance and usage information
-
-1. Update backlog item
+1. Change application source code1. Commit Application Code and Azure Resource Manager (ARM) Template1. Continuous integration triggers application build and unit tests1. Continuous deployment trigger orchestrates deployment of application artifacts with environment specific parameters1. Deployment to QA environment1. Deployment to staging environment1. Deployment to production environment1. Application Insights collects and analyses health, performance and usage data1. Review health, performance and usage information1. Update backlog item
 
 ## Components
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/): Provision Windows and Linux virtual machines in seconds

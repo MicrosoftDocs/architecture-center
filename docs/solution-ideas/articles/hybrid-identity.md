@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: The Hybrid Identity blueprint enables teams to manage applications and user identity consistently across clouds with the utilization of Azure Stack
-ms.custom: acom-architecture, Hybrid Identity, Azure Hybrid Identity, Service Principles, Azure Active Directory, Azure Active Directory Tenant, interactive-diagram
+ms.custom: acom-architecture, Hybrid Identity, Azure Hybrid Identity, Service Principles, Azure Active Directory, Azure Active Directory Tenant, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/hybrid-identity/'
 ---
 # Hybrid Identity
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 The need to keep application components on-premises doesn't have to be a barrier to adopting cloud technologies. With Azure Stack, app components can reside on-premises while interacting with components running in Azure public cloud. This blueprint enables teams to manage identity for users as well as applications in a way that is consistent across clouds.
 
@@ -310,17 +304,8 @@ The need to keep application components on-premises doesn't have to be a barrier
 </div>
 
 ## Data Flow
-1. Set up an Azure Active Directory tenant.
 
-1. Create users.
-
-1. Deploy, manage, and operate application resources on Azure and Azure Stack.
-
-1. Create service principles.
-
-1. Deploy with service principles.
-
-1. Application resources can communicate over network.
+1. Set up an Azure Active Directory tenant.1. Create users.1. Deploy, manage, and operate application resources on Azure and Azure Stack.1. Create service principles.1. Deploy with service principles.1. Application resources can communicate over network.
 
 ## Components
 * [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) is a hybrid cloud platform that lets you use Azure services on-premises.

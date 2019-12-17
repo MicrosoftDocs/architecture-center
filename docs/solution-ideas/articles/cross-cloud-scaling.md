@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Learn how to improve cross cloud scalability with solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation.
-ms.custom: acom-architecture, cross cloud architecture, cloud scalability, cross cloud, interactive-diagram
+ms.custom: acom-architecture, cross cloud architecture, cloud scalability, cross cloud, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/cross-cloud-scaling/'
 ---
 # Cross Cloud Scaling Architecture
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 Modern software is increasingly connected and distributed. The consistency of Azure Stack with Azure infrastructure and platform services enable you to scale resources cross cloud to meet increased load as needed, and decrease resources as demand drops. Optimize cost and maximize resource efficiency while remaining compliant with cross cloud architecture.
 
@@ -117,15 +111,8 @@ Modern software is increasingly connected and distributed. The consistency of Az
 </div>
 
 ## Data Flow
-1. A large number of users attempt to access a web app.
 
-1. Traffic manager returns the Azure Stack DNS name.
-
-1. Users access the Azure Stack web app.
-
-1. Once a threshold is reached, a function starts the Azure Web App and enables the Azure Traffic Manager route.
-
-1. Traffic is routed to Azure, which can automatically scale App Service.
+1. A large number of users attempt to access a web app.1. Traffic manager returns the Azure Stack DNS name.1. Users access the Azure Stack web app.1. Once a threshold is reached, a function starts the Azure Web App and enables the Azure Traffic Manager route.1. Traffic is routed to Azure, which can automatically scale App Service.
 
 ## Components
 * [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/): Route incoming traffic for high performance and availability

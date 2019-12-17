@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Get a hybrid high performance computing solution built with Windows Server technology. Use Azure HPC Pack to create a hybrid HPC environment.
-ms.custom: acom-architecture, hybrid hpc, hpc pack, azure hpc pack, interactive-diagram
+ms.custom: acom-architecture, hybrid hpc, hpc pack, azure hpc pack, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/hybrid-hpc-in-azure-with-hpc-pack/'
 ---
 # Hybrid HPC in Azure with HPC Pack
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 Microsoft HPC Pack is a free high performance computing (HPC) solution built on Microsoft Azure and Windows Server technologies. HPC Pack combines a comprehensive set of deployment, administration, job scheduling, and monitoring tools for your Windows and Linux HPC cluster environment, providing a flexible platform for developing and running HPC applications on premises and in Azure.
 
@@ -197,19 +191,8 @@ The links to the right provide documentation on deploying and managing the Azure
 </div>
 
 ## Data Flow
-1. Log into on-premises head node
 
-1. Add Azure compute nodes to the cluster
-
-1. Start the compute nodes
-
-1. Submit jobs to the cluster
-
-1. HPC Pack sends jobs to on-premises and Azure nodes based upon the node group selected
-
-1. Monitor job progress
-
-1. Stop the compute nodes or configure auto-scaling
+1. Log into on-premises head node1. Add Azure compute nodes to the cluster1. Start the compute nodes1. Submit jobs to the cluster1. HPC Pack sends jobs to on-premises and Azure nodes based upon the node group selected1. Monitor job progress1. Stop the compute nodes or configure auto-scaling
 
 ## Components
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/): Create Linux and Windows virtual machines in seconds.

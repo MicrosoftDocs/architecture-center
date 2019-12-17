@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Learn how the task-based consumer mobile app architecture is created with a step-by-step flow chart that shows the integration with Azure App Service Mobile Apps, Visual Studio, and Xamarin to simplify the build process.
-ms.custom: acom-architecture, Consumer Mobile App, Offline Mobile App, Mobile App Authentication, interactive-diagram
+ms.custom: acom-architecture, Consumer Mobile App, Offline Mobile App, Mobile App Authentication, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/task-based-consumer-mobile-app/'
 ---
 # Task-Based Consumer Mobile App
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 This consumer mobile app architecture uses Azure App Service Mobile Apps to simplify authentication with multiple social identity providers, store data and sync it for offline access, and send push notifications.
 
@@ -294,23 +288,8 @@ The links to the right provide documentation on deploying and managing the Azure
 </div>
 
 ## Data Flow
-1. Create the mobile app using Visual Studio and Xamarin.
 
-1. Create and configure a new Mobile Apps back end on the Azure portal, or through Visual Studio, and configure the solution in Visual Studio to communicate with the back end.
-
-1. Implement authentication through social identity providers.
-
-1. Create a model-driven data structure through the App Service APIs and SDK.
-
-1. Implement offline sync to make the mobile app functional without a network connection.
-
-1. If you created the back end in Visual Studio, you can publish the app service directly from Visual Studio (PC or Mac).
-
-1. Store the solution source code with your source control provider of choice.
-
-1. Build and test the app through Visual Studio App Center and publish it.
-
-1. Use Application Insights to monitor the App Service.
+1. Create the mobile app using Visual Studio and Xamarin.1. Create and configure a new Mobile Apps back end on the Azure portal, or through Visual Studio, and configure the solution in Visual Studio to communicate with the back end.1. Implement authentication through social identity providers.1. Create a model-driven data structure through the App Service APIs and SDK.1. Implement offline sync to make the mobile app functional without a network connection.1. If you created the back end in Visual Studio, you can publish the app service directly from Visual Studio (PC or Mac).1. Store the solution source code with your source control provider of choice.1. Build and test the app through Visual Studio App Center and publish it.1. Use Application Insights to monitor the App Service.
 
 ## Components
 * Build the web front end, mobile apps, and back end services with C# in [Visual Studio](https://www.visualstudio.com/vs/) 2017 or [Visual Studio](https://www.visualstudio.com/vs/) for Mac.

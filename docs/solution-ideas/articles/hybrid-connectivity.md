@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Azure's Hybrid Connection is a foundational blueprint that is applicable to most Azure Stack solutions, allowing you to establish connectivity for any application that involves communications between the Azure public cloud and on-premises Azure Stack components.
-ms.custom: acom-architecture, Hybrid Connection, Azure Hybrid Connection, Hybrid Network, Azure Hybrid Network, interactive-diagram
+ms.custom: acom-architecture, Hybrid Connection, Azure Hybrid Connection, Hybrid Network, Azure Hybrid Network, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/hybrid-connectivity/'
 ---
 # Hybrid Connection
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 Azure Stack enables you to deploy Azure services on-premises or in the cloud with a consistent application logic, development paradigm, and operations methodology. 
 
@@ -152,13 +146,8 @@ Note: This doesn't apply to Azure Stack deployments that are disconnected from t
 </div>
 
 ## Data Flow
-1. Deploy a virtual network in Azure and Azure Stack.
 
-1. Deploy a virtual network gateway in Azure and Azure Stack.
-
-1. Deploy virtual machines in each virtual network.
-
-1. Establish a VPN connection over the public internet between the network gateways.
+1. Deploy a virtual network in Azure and Azure Stack.1. Deploy a virtual network gateway in Azure and Azure Stack.1. Deploy virtual machines in each virtual network.1. Establish a VPN connection over the public internet between the network gateways.
 
 ## Components
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network/): Provision private networks, optionally connect to on-premises datacenters.
