@@ -1,6 +1,6 @@
 ---
 title: Azure Architectures
-description: Architecture diagrams for common solutions on Azure
+description: Architecture diagrams, reference architectures, example scenarios, and solutions for common workloads on Azure.
 author: adamboeglin
 ms.date: 10/18/2019
 layout: HubPage
@@ -13,8 +13,8 @@ layout: HubPage
         <div class="columns has-large-gaps">
             <div class="column">
                 <div class="content has-margin-bottom-large">
-                    <h1>Azure Architectures</h1>
-                    <p>A view of all of the architectural content on Azure</p>
+                    <h1><a href="https://docs.microsoft.com/azure/architecture">Azure Architectures</a></h1>
+                    <p>Architecture diagrams, reference architectures, example scenarios, and solutions for common workloads on Azure.</p>
                 </div>
             </div>
         </div>
