@@ -317,7 +317,7 @@ function filter(pageNumber, newSearch=false) {
                     '<button type="button" aria-label="Remove "' + checkName +
                     '" name="' +  checkName + '" class="delete" onclick="unCheck(\'' + checkId +
                     '\')"></button></span>');
-                filterTerms = filterTerms.concat($(this).val().split(" ").toLowerCase());
+                filterTerms = filterTerms.concat($(this).val().toLowerCase().split(" "));
             });
         };
        
@@ -443,7 +443,6 @@ function filter(pageNumber, newSearch=false) {
             skipStart = maxPageNums+1;
             skipEnd = maxPageNums+1;
         }
-
 
         var pageData = {
             "maxItems": maxItems,
