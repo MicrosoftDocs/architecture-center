@@ -1836,6 +1836,16 @@
       "source_path": "docs/service-fabric/index.md",
       "redirect_url": "https://docs.microsoft.com/azure/architecture/service-fabric/migrate-from-cloud-services",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/index.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/architectures/?filter=example-workload",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/index.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/architectures/?filter=reference-architecture",
+      "redirect_document_id": false
     }
   ]
 }

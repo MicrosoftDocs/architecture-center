@@ -32,7 +32,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
     </li>
     <!-- Reference architectures -->
     <li>
-        <a href="/azure/architecture/reference-architectures">
+        <a href="/azure/architecture/architectures/?filter=reference-architecture">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
@@ -69,7 +69,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 <ul class="panelContent cardsI">
     <!-- Example Workloads -->
     <li>
-        <a href="/azure/architecture/example-scenario/">
+        <a href="/azure/architecture/architectures/?filter=example-workload">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
