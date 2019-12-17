@@ -7,6 +7,7 @@ function unCheck(checkid) {
 }
 
 function toggle(object=this, forceExpand=false) {
+    var newObject;
     if (object.currentTarget) {
         newObject=object.currentTarget;
     } else {
@@ -28,8 +29,8 @@ function toggle(object=this, forceExpand=false) {
     controls.css('transition', 'max-height 300ms ease-in-out, opacity 300ms ease-in-out');
     controls.css('overflow', 'hidden');
     controls.css('hidden', false);
-    chevronAdd = expand ? "docon-chevron-up-light" : "docon-chevron-down-light";
-    chevronRemove = expand ? "docon-chevron-down-light" : "docon-chevron-up-light";
+    var chevronAdd = expand ? "docon-chevron-up-light" : "docon-chevron-down-light";
+    var chevronRemove = expand ? "docon-chevron-down-light" : "docon-chevron-up-light";
     controls.find(".expanded-indicator").removeClass(chevronRemove).addClass(chevronAdd);
 }
 
@@ -367,7 +368,7 @@ function filter(pageNumber, newSearch=false) {
             var picker = refineTemplate(tagData);
             $("#refine-content").html(picker);
 
-            button=$('.expander-button');
+            var button=$('.expander-button');
             $('.expander-button').on("click", toggle);
             button.each( function () {
                 toggle(this);
@@ -436,8 +437,10 @@ function filter(pageNumber, newSearch=false) {
             $(".grid-item").css("max-width","350px");
         }
 
-        maxPageNums = 10;
-        totalPages = Math.ceil(data.articles.length / maxItems);
+        var maxPageNums = 10;
+        var totalPages = Math.ceil(data.articles.length / maxItems);
+        var skipStart;
+        var skipEnd;
         if (totalPages > maxPageNums) {
             // Trying to figure out where to put the elipsis
             // TODO: Stupid math, needs to be better
