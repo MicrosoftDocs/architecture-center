@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.
-ms.custom: acom-architecture, mysql, use cases, azure, solutions, 'https://azure.microsoft.com/solutions/architecture/intelligent-apps-using-azure-database-for-mysql/'
+ms.custom: acom-architecture, mysql, use cases, azure, solutions, app-dev, 'https://azure.microsoft.com/solutions/architecture/intelligent-apps-using-azure-database-for-mysql/'
 ---
 # Intelligent apps using Azure Database for MySQL
 

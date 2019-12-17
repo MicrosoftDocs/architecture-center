@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Medium Umbraco CMS web app configured to scale and optimal for high-traffic sites. It uses two web apps, one for your front-end app and the other for your back-office app, deployed in a single region with autoscaling enabled.
-ms.custom: acom-architecture, is-deployable, 'https://azure.microsoft.com/solutions/architecture/medium-umbraco-web-app/'
+ms.custom: acom-architecture, web-apps, app-dev, is-deployable, 'https://azure.microsoft.com/solutions/architecture/medium-umbraco-web-app/'
 ---
 # Scalable Umbraco CMS web app
 

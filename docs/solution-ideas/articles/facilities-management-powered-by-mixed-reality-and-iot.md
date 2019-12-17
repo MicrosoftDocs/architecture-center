@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Improve uptime and operations in hospitality, manufacturing, retail, and more with mixed reality and IoT. This scenario shows how you can visualize a virtual replica of your physical space with real-time data in the context of your environment. It is built on Azure Spatial Anchors and Azure Digital Twins. After reviewing this solution architecture, dive right in and explore our reference sample.
-ms.custom: acom-architecture, Azure Spatial Anchors, Azure Digital Twins, Azure Active Directory, Cosmos DB, Event Hubs, Functions, Web Service, Microsoft HoloLens, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/facilities-management-powered-by-mixed-reality-and-iot/'
+ms.custom: acom-architecture, iot, Azure Spatial Anchors, Azure Digital Twins, Azure Active Directory, Cosmos DB, Event Hubs, Functions, Web Service, Microsoft HoloLens, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/facilities-management-powered-by-mixed-reality-and-iot/'
 ---
 # Facilities management powered by mixed reality and IoT
 
@@ -163,7 +163,16 @@ Improve uptime and operations in hospitality, manufacturing, retail, and more wi
 
 ## Data Flow
 
-1. The client authenticates to the facilities management web service and specifies the name of the space where it’s located in the Azure Digital Twins object model.1. The client’s web service authenticates itself to Azure Active Directory.1. The Azure AD token is then sent to the Azure Spatial Anchors service to retrieve an access token for the client to later use.1. Your app service retrieves information about the IoT sensors present in the area specified by the client and returns IoT sensor IDs, as well as the anchor IDs they correspond to in Azure Spatial Anchors.1. The Azure Spatial Anchors authorization token is returned to the client alongside the anchor IDs of the IoT sensors and additional metadata required by the client application.1. The client application completes a visual scan of the environment and retrieves its position in the area. Using the nearby API of Azure Spatial Anchors, it retrieves the position of all nearby anchors.1. The client application requests IoT sensor data and controls to be displayed as holograms in the space, where the sensors are located, making it easy for the operator to detect and fix any issues. The data is fetched by the app’s web service from Azure Cosmos DB, the service storing this data.1. When IoT sensor data is updated, Azure Digital Twins pushes it to Event Hubs.1. Azure Functions uses an Event Hubs trigger to process the change and update data in Azure Cosmos DB as needed.
+1. The client authenticates to the facilities management web service and specifies the name of the space where it’s located in the Azure Digital Twins object model.
+1. The client’s web service authenticates itself to Azure Active Directory.
+1. The Azure AD token is then sent to the Azure Spatial Anchors service to retrieve an access token for the client to later use.
+1. Your app service retrieves information about the IoT sensors present in the area specified by the client and returns IoT sensor IDs, as well as the anchor IDs they correspond to in Azure Spatial Anchors.
+1. The Azure Spatial Anchors authorization token is returned to the client alongside the anchor IDs of the IoT sensors and additional metadata required by the client application.
+1. The client application completes a visual scan of the environment and retrieves its position in the area. Using the nearby API of Azure Spatial Anchors, it retrieves the position of all nearby anchors.
+1. The client application requests IoT sensor data and controls to be displayed as holograms in the space, where the sensors are located, making it easy for the operator to detect and fix any issues. The data is fetched by the app’s web service from Azure Cosmos DB, the service storing this data.
+1. When IoT sensor data is updated, Azure Digital Twins pushes it to Event Hubs.
+1. Azure Functions uses an Event Hubs trigger to process the change and update data in Azure Cosmos DB as needed.
+
 
 ## Components
 * [Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors/): Create multi-user, spatially aware mixed reality experiences

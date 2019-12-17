@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security.
-ms.custom: acom-architecture, medical records management, medical records storage, medical data solutions, healthcare data storage, cloud storage in healthcare, medical data storage, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/medical-data-storage/'
+ms.custom: acom-architecture, medical records management, data, medical records storage, medical data solutions, healthcare data storage, cloud storage in healthcare, medical data storage, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/medical-data-storage/'
 ---
 # Medical Data Storage Solutions
 
@@ -254,7 +254,13 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
 
 ## Data Flow
 
-1. Securely ingest medical image data using Azure Data Factory.1. Securely store medical image data in Azure Data Lake Store and/or Azure Blob Storage.1. Analyze medical image data using a pre-trained Azure Cognitive Services API or a custom developed Machine Learning model.1. Store artificial intelligence (AI) and Machine Learning results in Azure Data Lake.1. Interact AI and Machine Learning results using PowerBI, while preserving Role-Based Access Control (RBAC).1. Securely interact with medical image data via a web based vendor neutral archive (VNA) image viewer.
+1. Securely ingest medical image data using Azure Data Factory.
+1. Securely store medical image data in Azure Data Lake Store and/or Azure Blob Storage.
+1. Analyze medical image data using a pre-trained Azure Cognitive Services API or a custom developed Machine Learning model.
+1. Store artificial intelligence (AI) and Machine Learning results in Azure Data Lake.
+1. Interact AI and Machine Learning results using PowerBI, while preserving Role-Based Access Control (RBAC).
+1. Securely interact with medical image data via a web based vendor neutral archive (VNA) image viewer.
+
 
 ## Components
 * [Data Factory](https://azure.microsoft.com/services/data-factory/): Hybrid data integration at enterprise scale, made easy

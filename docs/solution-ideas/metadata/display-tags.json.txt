@@ -82,6 +82,7 @@
 				"application-tier",
 				"app-service-environment",
 				"app-modernization",
+                "app-dev",
 				"availability",
 				"strategy", "cloud-migration", "lift-and-shift-strategy", "lift-and-shift-solution", "lift-and-shift-cloud-strategy",
 				"strategy", "cloud-innovation"

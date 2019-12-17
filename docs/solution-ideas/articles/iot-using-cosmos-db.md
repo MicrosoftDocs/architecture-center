@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Scale instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.
-ms.custom: acom-architecture, Cosmos DB, 'https://azure.microsoft.com/solutions/architecture/iot-using-cosmos-db/'
+ms.custom: acom-architecture, iot, Cosmos DB, 'https://azure.microsoft.com/solutions/architecture/iot-using-cosmos-db/'
 ---
 # IoT using Cosmos DB
 
