@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Quickly build and launch digital campaigns that automatically scale based on customer demand.
-ms.custom: acom-architecture, web applications, easy deploy, content delivery, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/simple-branded-website/'
+ms.custom: acom-architecture, web-app, web applications, easy deploy, content delivery, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/simple-branded-website/'
 ---
 # Simple branded website
 
@@ -106,7 +106,11 @@ Quickly build and launch digital campaigns that automatically scale based on cus
 
 ## Data Flow
 
-1. User accesses Web Apps from Azure App Service in a browser.1. Application Insights detects issues and analyzes usage for your web apps.1. Web App connects to SQL Database and Azure Cache for Redis for better performance.1. Browser pulls static resources such as video from Azure Content Delivery Network to reduce load time.
+1. User accesses Web Apps from Azure App Service in a browser.
+1. Application Insights detects issues and analyzes usage for your web apps.
+1. Web App connects to SQL Database and Azure Cache for Redis for better performance.
+1. Browser pulls static resources such as video from Azure Content Delivery Network to reduce load time.
+
 
 ## Components
 * [Web Apps](https://azure.microsoft.com/services/app-service/web/): Build and deploy web apps faster at scale
