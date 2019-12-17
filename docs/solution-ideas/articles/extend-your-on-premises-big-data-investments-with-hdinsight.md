@@ -14,7 +14,7 @@ Extend your on-premises big data investments to the cloud and transform your bus
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="extend-your-on-premises-big-data-investments-with-hdinsight" fill="none" height="196" viewbox="0 0 626 196" width="626" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="extend-your-on-premises-big-data-investments-with-hdinsight" fill="none"  viewbox="0 0 626 196"  xmlns="http://www.w3.org/2000/svg">
     <path d="M225.286 3.398H57.97v180.474h167.316V3.398zM574.97 3.398H407.654v180.474H574.97V3.398z" fill="#F7F7F7"/>
     <path d="M133.026 32.786h-4.556v17.151h4.556V32.786z" fill="#0078D4"/>
     <path d="M128.47 32.786h-4.864v17.151h4.864V32.786z" fill="#303030"/>

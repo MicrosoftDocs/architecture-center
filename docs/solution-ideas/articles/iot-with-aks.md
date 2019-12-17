@@ -14,7 +14,7 @@ IoT scenarios can potentially involve hundreds to thousands of IoT devices. AKS 
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="iot-with-aks" height="382" viewbox="0 0 676 382" width="676" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="iot-with-aks"  viewbox="0 0 676 382"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#F7F7F7" d="M9.577 233.501h319v-142h-319z"/>
         <path fill="#959595" d="M301.077 154.917h80v-1.5h-80z"/>

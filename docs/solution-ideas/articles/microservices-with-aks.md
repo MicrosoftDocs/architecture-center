@@ -14,7 +14,7 @@ Use AKS to simplify the deployment and management of microservices based archite
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="microservices-with-aks" height="674" viewbox="0 0 887 674" width="887" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="microservices-with-aks"  viewbox="0 0 887 674"  xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(0 -1)" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#FFF" d="M272.312 321.402l4 1.61v-8.594l-4 1.14z"/>
         <path fill="#F7F7F7" d="M253 480h422.315V290H253z"/>

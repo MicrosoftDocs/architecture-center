@@ -14,7 +14,7 @@ This solution architecture illustrates how a user request flows through an SAP l
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="sap-s4-hana-on-hli-with-ha-and-dr" height="747" viewbox="0 0 1163 747" width="1163" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="sap-s4-hana-on-hli-with-ha-and-dr"  viewbox="0 0 1163 747"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#FFF" d="M8.451 45.971h32.016V2.195l-2.724-.119.083-1.333L27.402.625l-.243 1.57h-2.528V15l-14.472.208-.35 18.375-.816-.541-1.584 3.291.334.5-1.334 2.792.625.292-1.54 2.625 3.082.375z"/>
         <path fill="#F7F7F7" d="M330.992 741h483.334V607.885H330.992zM666.992 435.667h488.334V125H666.992zM157.992 259.667h315.667V124.834H157.992z"/>

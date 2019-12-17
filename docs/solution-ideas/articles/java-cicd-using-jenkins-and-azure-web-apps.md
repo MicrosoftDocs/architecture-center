@@ -14,7 +14,7 @@ Azure App Service is a fast and simple way to create web apps using Java, Node, 
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="java-cicd-using-jenkins-and-azure-web-apps" height="734.379" viewbox="0 0 1098.898 734.379" width="1098.898" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg class="architecture-diagram" aria-labelledby="java-cicd-using-jenkins-and-azure-web-apps"  viewbox="0 0 1098.898 734.379"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
         <lineargradient gradienttransform="matrix(1, 0, 0, -1, 0, 738.235)" gradientunits="userSpaceOnUse" id="a" x1="1.112" x2="23.166" y1="63.217" y2="63.217">
             <stop offset=".258" stop-color="#f97a12"/>
@@ -234,7 +234,15 @@ Azure App Service is a fast and simple way to create web apps using Java, Node, 
 
 ## Data Flow
 
-1. Change application source code1. Commit code to GitHub1. Continuous Integration Trigger to Jenkins1. Jenkins triggers a build job using Azure Container Instances for a dynamic build agent1. Jenkins builds and stores artifact in Azure Storage1. Jenkins deploys Java application to Azure Web Apps backed by Azure Database for MySQL1. Azure App Insights provides metrics on application performance1. Monitor application and make improvements
+1. Change application source code
+1. Commit code to GitHub
+1. Continuous Integration Trigger to Jenkins
+1. Jenkins triggers a build job using Azure Container Instances for a dynamic build agent
+1. Jenkins builds and stores artifact in Azure Storage
+1. Jenkins deploys Java application to Azure Web Apps backed by Azure Database for MySQL
+1. Azure App Insights provides metrics on application performance
+1. Monitor application and make improvements
+
 
 ## Components
 * [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/): Quickly create and deploy mission critical Web apps at scale

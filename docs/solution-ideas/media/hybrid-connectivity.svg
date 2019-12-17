@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="hybrid-connectivity" height="504" viewbox="0 0 882 504" width="882" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="hybrid-connectivity"  viewbox="0 0 882 504"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#F3F3F3" d="M515.959 481.282h365.135V.001H515.959zM0 480.194h365.167V.001H0z"/>
         <path fill="#36C4EA" d="M594.165 93.662h35.531V68.505h-35.531z"/>

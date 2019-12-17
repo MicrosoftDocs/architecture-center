@@ -30,7 +30,7 @@ The links to the right provide documentation on deploying and managing the Azure
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="social-mobile-and-web-app-with-authentication" height="765" viewbox="0 0 1148 765" width="1148" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="social-mobile-and-web-app-with-authentication"  viewbox="0 0 1148 765"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#969696" fill-rule="nonzero" d="M181.082 380.63l-9.066-5.236v4.77H82.597v1.5h89.419v4.2zM46.424 124.913h4.485l-5.235-9.066-5.236 9.066h4.486v46.934h-4.486l5.236 9.066 5.235-9.066h-4.485z"/>
         <path fill="#F4F4F4" fill-rule="nonzero" d="M1001.873 298.115h145.982V0h-145.982z"/>

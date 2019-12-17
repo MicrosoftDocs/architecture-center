@@ -30,7 +30,7 @@ The links to the right provide documentation on deploying and managing the Azure
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="task-based-consumer-mobile-app" height="616.847" viewbox="0 0 1129.14 616.847" width="1129.14" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="task-based-consumer-mobile-app"  viewbox="0 0 1129.14 616.847"  xmlns="http://www.w3.org/2000/svg">
     <defs>
         <clippath id="a">
             <path fill="none" d="M726.402 211.062h18.767v41.965h-18.767z"/>

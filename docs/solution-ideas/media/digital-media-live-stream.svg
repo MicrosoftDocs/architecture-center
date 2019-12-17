@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="digital-media-live-stream" height="353.645" viewbox="0 0 814.247 353.645" width="814.247" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="digital-media-live-stream"  viewbox="0 0 814.247 353.645"  xmlns="http://www.w3.org/2000/svg">
     <path fill="#ededee" opacity=".5" d="M129.255 103.645h156v124h-156z"/>
     <path fill="none" stroke="#b5b6b6" stroke-miterlimit="10" stroke-width="1.5" d="M115.167 161.73H68.163"/>
     <path fill="#b5b6b6" d="M113.744 156.868l8.419 4.862-8.419 4.861v-9.723z"/>

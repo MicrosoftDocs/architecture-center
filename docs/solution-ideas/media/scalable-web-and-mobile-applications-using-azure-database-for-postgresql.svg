@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="scalable-web-and-mobile-applications-using-azure-database-for-postgresql" height="126.994" viewbox="0 0 789.121 126.994" width="789.121" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="scalable-web-and-mobile-applications-using-azure-database-for-postgresql"  viewbox="0 0 789.121 126.994"  xmlns="http://www.w3.org/2000/svg">
     <path d="M36.412 67.156a2.141 2.141 0 002.135 2.131h49.1a2.141 2.141 0 002.135-2.135V33.747H36.411z" fill="#59b4d9"/>
     <path d="M87.648 23.819h-49.1a2.141 2.141 0 00-2.135 2.135v8.113h53.371v-8.113a2.141 2.141 0 00-2.135-2.135" fill="#a0a1a2"/>
     <path d="M38.547 23.819a2.141 2.141 0 00-2.135 2.135v41.2a2.141 2.141 0 002.135 2.131H40.9L82.956 23.81z" fill="#fff" opacity=".2"/>

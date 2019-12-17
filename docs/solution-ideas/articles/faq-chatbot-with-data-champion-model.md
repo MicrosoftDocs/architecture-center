@@ -14,7 +14,7 @@ The QnA Maker tool makes it easy for the content owners to maintain their knowle
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="faq-chatbot-with-data-champion-model" height="824" viewbox="0 0 1072 824" width="1072" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="faq-chatbot-with-data-champion-model"  viewbox="0 0 1072 824"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#F3F3F3" d="M685.242 782.074h152.059V325.798H685.242zM342.427 457.121h150.17V0h-150.17zM0 457.121h150.17V160.986H0z"/>
         <path fill="#959595" d="M248.186 179.789v-19.592H73.58v19.592h-4.486l5.236 9.067 5.235-9.067H75.08v-18.092h171.607v18.092H242.2l5.236 9.067 5.236-9.067z"/>

@@ -14,7 +14,7 @@ Using SQL Server 2016 with R Services, a lending institution can make use of pre
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="loan-credit-risk-with-sql-server" height="71.778" viewbox="0 0 811.074 71.778" width="811.074" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="loan-credit-risk-with-sql-server"  viewbox="0 0 811.074 71.778"  xmlns="http://www.w3.org/2000/svg">
     <g data-name="Layer 2">
         <g data-name="Layer 1">
             <g fill="#969696">

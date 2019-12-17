@@ -32,7 +32,7 @@ The links to the right provide documentation on deploying and managing the Azure
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="custom-mobile-workforce-app" height="588.126" viewbox="0 0 1139.348 588.126" width="1139.348" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="custom-mobile-workforce-app"  viewbox="0 0 1139.348 588.126"  xmlns="http://www.w3.org/2000/svg">
     <defs>
         <clippath id="a">
             <path fill="none" d="M559.29 178.614h16.406v16.403H559.29z"/>
@@ -279,7 +279,15 @@ The links to the right provide documentation on deploying and managing the Azure
 
 ## Data Flow
 
-1. Create the app using Visual Studio and Xamarin.1. Add the Azure App Service Mobile Apps back end service to the app solution.1. Implement authentication through Azure Active Directory.1. Connect to business data in external systems like SAP using Azure API Management.1. Implement offline sync to make the mobile app functional without a network connection.1. Build and test the app through Visual Studio App Center and publish it.1. Deploy the app to devices using App Center.1. Use Application Insights to monitor the App Service.
+1. Create the app using Visual Studio and Xamarin.
+1. Add the Azure App Service Mobile Apps back end service to the app solution.
+1. Implement authentication through Azure Active Directory.
+1. Connect to business data in external systems like SAP using Azure API Management.
+1. Implement offline sync to make the mobile app functional without a network connection.
+1. Build and test the app through Visual Studio App Center and publish it.
+1. Deploy the app to devices using App Center.
+1. Use Application Insights to monitor the App Service.
+
 
 ## Components
 * Build the web front end, mobile apps, and back end services with C# in [Visual Studio](https://azure.microsoft.com/products/visual-studio/) 2017 or [Visual Studio](https://azure.microsoft.com/products/visual-studio/) for Mac.
