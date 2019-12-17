@@ -14,7 +14,7 @@ A modern data warehouse lets you bring together all your data at any scale easil
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="modern-data-warehouse"  viewbox="0 0 996 464"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="modern-data-warehouse" height="464" viewbox="0 0 996 464" width="996" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#F3F3F3" d="M159.882 315.866h148.99V176.433h-148.99zM331 319.433h148.99V180H331zM503.583 315.866h148.99V176.433h-148.99zM846.3 319.187h145.04V180.891H846.3zM673.33 163.107h322.346V16.731H673.33z"/>
         <path d="M938.769 250.231h-.927v-1.848h.927a3.559 3.559 0 003.555-3.553v-18.875a3.56 3.56 0 00-3.555-3.555h-35.004a3.562 3.562 0 00-3.557 3.555v18.873a3.561 3.561 0 003.557 3.554h.924v1.847h-.924a5.406 5.406 0 01-5.404-5.399v-18.875a5.41 5.41 0 015.404-5.403h35.004a5.408 5.408 0 015.401 5.403v18.873a5.406 5.406 0 01-5.401 5.403" fill="#ECBC11"/>
@@ -122,12 +122,7 @@ A modern data warehouse lets you bring together all your data at any scale easil
 
 ## Data Flow
 
-1. Combine all your structured, unstructured and semi-structured data (logs, files, and media) using Azure Data Factory to Azure Blob Storage.
-1. Leverage data in Azure Blob Storage to perform scalable analytics with Azure Databricks and achieve cleansed and transformed data.
-1. Cleansed and transformed data can be moved to Azure Synapse Analytics to combine with existing structured data, creating one hub for all your data. Leverage native connectors between Azure Databricks and Azure Synapse Analytics to access and move data at scale.
-1. Build operational reports and analytical dashboards on top of Azure Data Warehouse to derive insights from the data, and use Azure Analysis Services to serve thousands of end users.
-1. Run ad hoc queries directly on data within Azure Databricks.
-
+1. Combine all your structured, unstructured and semi-structured data (logs, files, and media) using Azure Data Factory to Azure Blob Storage.1. Leverage data in Azure Blob Storage to perform scalable analytics with Azure Databricks and achieve cleansed and transformed data.1. Cleansed and transformed data can be moved to Azure Synapse Analytics to combine with existing structured data, creating one hub for all your data. Leverage native connectors between Azure Databricks and Azure Synapse Analytics to access and move data at scale.1. Build operational reports and analytical dashboards on top of Azure Data Warehouse to derive insights from the data, and use Azure Analysis Services to serve thousands of end users.1. Run ad hoc queries directly on data within Azure Databricks.
 
 ## Components
 * [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) is the fast, flexible and trusted cloud data warehouse that lets you scale, compute and store elastically and independently, with a massively parallel processing architecture.

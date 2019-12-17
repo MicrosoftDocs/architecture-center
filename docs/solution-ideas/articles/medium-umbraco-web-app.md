@@ -16,7 +16,7 @@ This solution is built on the Azure managed services: [Azure SQL Database](https
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="medium-umbraco-web-app"  viewbox="0 0 655.575 403.089"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="medium-umbraco-web-app" height="403.089" viewbox="0 0 655.575 403.089" width="655.575" xmlns="http://www.w3.org/2000/svg">
     <path fill="none" stroke="#B5B5B5" stroke-miterlimit="10" stroke-width="1.643" d="M96.803 144.728h88.827"/>
     <path fill="#B5B5B5" d="M184.432 148.824l7.092-4.096-7.092-4.095z"/>
     <path fill="none" stroke="#B5B5B5" stroke-miterlimit="10" stroke-width="1.643" d="M295.803 149.728h307v-33.172"/>

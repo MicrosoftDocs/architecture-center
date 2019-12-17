@@ -14,7 +14,7 @@ Get insights from live streaming data with ease. Capture data continuously from 
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="real-time-analytics"  viewbox="0 0 1169 637"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="real-time-analytics" height="637" viewbox="0 0 1169 637" width="1169" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#F3F3F3" d="M847.517 636.925h149.62V498.83h-149.62zM161.034 489.503h148.542V337.658H161.034zM161.296 156.048h148.446V17.021H161.296zM332.63 156.048h148.445V17.021H332.63zM1020.31 489.503h146.791v-151.42h-146.79zM846.012 154.549h322.171V15.762h-322.17zM503.53 489.503h150.085V16.183H503.53z"/>
         <path fill="#959595" d="M126.892 422.741h40.334v-1.5h-40.334z"/>
@@ -181,15 +181,7 @@ Get insights from live streaming data with ease. Capture data continuously from 
 
 ## Data Flow
 
-1. Easily ingest live streaming data for an application using Apache Kafka cluster in Azure HDInsight.
-1. Bring together all your structured data using Azure Data Factory to Azure Blob Storage.
-1. Take advantage of Azure Databricks to clean, transform, and analyze the streaming data, and combine it with structured data from operational databases or data warehouses.
-1. Use scalable machine learning/deep learning techniques, to derive deeper insights from this data using Python, R or Scala, with inbuilt notebook experiences in Azure Databricks.
-1. Leverage native connectors between Azure Databricks and Azure Synapse Analytics to access and move data at scale.
-1. Build analytical dashboards and embedded reports on top of Azure Data Warehouse to share insights within your organization and use Azure Analysis Services to serve this data to thousands of users.
-1. Power users take advantage of the inbuilt capabilities of Azure Databricks and Azure HDInsight to perform root cause determination and raw data analysis.
-1. Take the insights from Azure Databricks to Cosmos DB to make them accessible through real time apps.
-
+1. Easily ingest live streaming data for an application using Apache Kafka cluster in Azure HDInsight.1. Bring together all your structured data using Azure Data Factory to Azure Blob Storage.1. Take advantage of Azure Databricks to clean, transform, and analyze the streaming data, and combine it with structured data from operational databases or data warehouses.1. Use scalable machine learning/deep learning techniques, to derive deeper insights from this data using Python, R or Scala, with inbuilt notebook experiences in Azure Databricks.1. Leverage native connectors between Azure Databricks and Azure Synapse Analytics to access and move data at scale.1. Build analytical dashboards and embedded reports on top of Azure Data Warehouse to share insights within your organization and use Azure Analysis Services to serve this data to thousands of users.1. Power users take advantage of the inbuilt capabilities of Azure Databricks and Azure HDInsight to perform root cause determination and raw data analysis.1. Take the insights from Azure Databricks to Cosmos DB to make them accessible through real time apps.
 
 ## Components
 * [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) is the fast, flexible and trusted cloud data warehouse that lets you scale, compute and store elastically and independently, with a massively parallel processing architecture.

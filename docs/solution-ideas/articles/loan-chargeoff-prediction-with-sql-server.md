@@ -14,7 +14,7 @@ This solution demonstrates how to build and deploy a machine learning model with
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="loan-chargeoff-prediction-with-sql-server"  viewbox="0 0 465.249 87.358"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="loan-chargeoff-prediction-with-sql-server" height="87.358" viewbox="0 0 465.249 87.358" width="465.249" xmlns="http://www.w3.org/2000/svg">
     <g data-name="Layer 2">
         <g data-name="Layer 1">
             <path d="M74.767 34.643H63.859c1.311 4.627-.45 5.291-8.163 5.291v2.423h26.228v-2.423c-7.713 0-8.469-.661-7.157-5.291" fill="#7a7a7a"/>

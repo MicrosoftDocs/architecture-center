@@ -14,7 +14,7 @@ This SAP S/4HANA on Azure VM solution architecture illustrates how a user reques
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="sap-s4-hana-vm-on-linux"  viewbox="0 0 1046.913 852.937"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg class="architecture-diagram" aria-labelledby="sap-s4-hana-vm-on-linux" height="852.937" viewbox="0 0 1046.913 852.937" width="1046.913" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <image height="149" transform="translate(182.989 683.97)" width="678" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqYAAACVCAYAAACKCji1AAAACXBIWXMAAAsSAAALEgHS3X78AAAA
 GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABJdJREFUeNrs3UtPE2EUgOHpBUgE
 IrJQoyvj//9bBEm4FkhaaMfzyRn8LIw4DTEsnic5mXamZdHVm9MLTQMAAG/A6IXzIy8RAACvqF07

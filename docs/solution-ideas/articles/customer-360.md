@@ -14,7 +14,7 @@ A deep understanding between customer interests and purchasing patterns is a cri
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="customer-360"  viewbox="0 0 1142.924 755.349"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg class="architecture-diagram" aria-labelledby="customer-360" height="755.349" viewbox="0 0 1142.924 755.349" width="1142.924" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <lineargradient gradienttransform="matrix(0.563, 0, 0, -0.568, -2295.912, -5004.079)" gradientunits="userSpaceOnUse" id="b" x1="5353.716" x2="5391.541" y1="-9365.146" y2="-9397.689">
         <stop offset="0" stop-color="#5a9fd4"/>
         <stop offset="1" stop-color="#306998"/>
@@ -289,12 +289,6 @@ The Customer 360 Profile solution addresses the above problems by:
 
 ## Data Flow
 
-1. A Data Generator pipes simulated customer events to an Event Hub
-1. A Stream Analytics job reads from the EventHub, performs aggregations
-1. Stream Analytics persists time-grouped data to an Azure Storage Blob
-1. A Spark job running in HDInsight merges the latest customer browsing data with historical purchase and demographic data to build a consolidated user profile
-1. A second Spark job scores each customer profile against a machine learning model to predict future purchasing patterns (i.e., is a given customer likely to make a purchase in the next 30 days, and if so, in which product category?)
-1. Predictions and other profile data are visualized and shared as charts and tables in Power BI Online
-
+1. A Data Generator pipes simulated customer events to an Event Hub1. A Stream Analytics job reads from the EventHub, performs aggregations1. Stream Analytics persists time-grouped data to an Azure Storage Blob1. A Spark job running in HDInsight merges the latest customer browsing data with historical purchase and demographic data to build a consolidated user profile1. A second Spark job scores each customer profile against a machine learning model to predict future purchasing patterns (i.e., is a given customer likely to make a purchase in the next 30 days, and if so, in which product category?)1. Predictions and other profile data are visualized and shared as charts and tables in Power BI Online
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

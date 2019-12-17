@@ -14,7 +14,7 @@ Use Discovery Hub to define a data estate using a graphical user interface, with
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="cloud-scale-analytics-with-discovery-hub"  viewbox="0 0 1018 354"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="cloud-scale-analytics-with-discovery-hub" height="354" viewbox="0 0 1018 354" width="1018" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(0 .25)" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path d="M537.498 133.236h-.75" stroke="#9F9F9F" stroke-width="1.5"/>
         <path d="M532.738 133.236H154.282" stroke="#9F9F9F" stroke-dasharray="1.504,4.01" stroke-width="1.5"/>
@@ -141,12 +141,7 @@ Use Discovery Hub to define a data estate using a graphical user interface, with
 
 ## Data Flow
 
-1. Combine all your structured and semi-structured data in Azure Data Lake Storage using Discovery Hub’s data engineering pipeline with hundreds of native data connectors.
-1. Clean and transform data using the powerful analytics and computational ability of Azure Databricks.
-1. Move cleansed and transformed data to Azure Synapse Analytics, creating one hub for all your data. Take advantage of native connectors between Azure Databricks (Polybase) and Azure Synapse Analytics to access and move data at scale.
-1. Build operational reports and analytical dashboards on top of SQL Database to derive insights from the data and use Azure Analysis Services to serve the data.
-1. Run ad-hoc queries directly on data within Azure Databricks.
-
+1. Combine all your structured and semi-structured data in Azure Data Lake Storage using Discovery Hub’s data engineering pipeline with hundreds of native data connectors.1. Clean and transform data using the powerful analytics and computational ability of Azure Databricks.1. Move cleansed and transformed data to Azure Synapse Analytics, creating one hub for all your data. Take advantage of native connectors between Azure Databricks (Polybase) and Azure Synapse Analytics to access and move data at scale.1. Build operational reports and analytical dashboards on top of SQL Database to derive insights from the data and use Azure Analysis Services to serve the data.1. Run ad-hoc queries directly on data within Azure Databricks.
 
 ## Components
 * [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/): Massively scalable, secure data lake functionality built on Azure Blob Storage

@@ -14,7 +14,7 @@ Extract, transform, and load your big data clusters on demand with Hadoop MapRed
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="extract-transform-and-load-using-hdinsight" fill="none"  viewbox="0 0 626 302"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="extract-transform-and-load-using-hdinsight" fill="none" height="302" viewbox="0 0 626 302" width="626" xmlns="http://www.w3.org/2000/svg">
     <path d="M381.851 189.705h155.6V30.644h-155.6v159.061zM130.665 298.915h73.371V1.75h-73.371v297.165z" fill="#F7F7F7"/>
     <path d="M327.5 93.174v17.569c0 1.839 4.065 3.291 9.147 3.291v-20.86H327.5z" fill="#3E3E3E"/>
     <path d="M336.502 114.082h.146c5.033 0 9.147-1.5 9.147-3.291V93.174h-9.293v20.908z" fill="#A0A1A2"/>

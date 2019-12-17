@@ -14,7 +14,7 @@ Engage with customers around the world with rich, personalized digital marketing
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="digital-marketing-using-azure-database-for-postgresql"  viewbox="0 0 626.343 434"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg class="architecture-diagram" aria-labelledby="digital-marketing-using-azure-database-for-postgresql" height="434" viewbox="0 0 626.343 434" width="626.343" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g style="isolation:isolate">
         <text fill="#5b5b5b" font-family="SegoeUI, Segoe UI" font-size="14" transform="translate(3.797 73.785)">
             B<tspan letter-spacing="-.013em" x="8.025" y="0">r</tspan><tspan x="12.708" y="0">owser</tspan>

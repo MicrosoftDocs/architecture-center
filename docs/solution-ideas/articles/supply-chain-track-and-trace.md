@@ -14,7 +14,7 @@ A common blockchain pattern is IoT-enabled monitoring of an asset as it moves al
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="supply-chain-track-and-trace"  viewbox="0 0 1202 823"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="supply-chain-track-and-trace" height="823" viewbox="0 0 1202 823" width="1202" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#969696" fill-rule="nonzero" d="M429 748.9v-258h4.5l-5.2-9.1-5.2 9.1h4.5v258H292.2v1.5l136.8-.2z"/>
         <path fill="#F4F4F4" fill-rule="nonzero" d="M10 665.2h149.7V364.8H10zM9.5 822.6h149.7V688.1H9.5z"/>
