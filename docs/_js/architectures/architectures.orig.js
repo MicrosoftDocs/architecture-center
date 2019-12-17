@@ -132,145 +132,145 @@ Handlebars.registerHelper("case", function(value, options) {
     }
 });
 
-var refineTemplate = Handlebars.compile(`
-{{#each categories as |category|}}{{#ifCond category.stub '!=' "hidden" }}
-<div data-bi-name="{{ category.stub }}_facet" class="has-border-top">
-    <button
-        data-bi-name="expander"
-        class="button expander-button has-inner-focus level is-mobile is-text is-undecorated is-fullwidth has-border-none has-margin-none is-large has-padding-left-medium"
-        aria-expanded="false"
-        aria-controls="{{ category.stub }}_facet"
-    >
-        <span class="has-text-weight-semibold is-size-7">{{ category.category }}</span>
-        <span class="icon" aria-hidden="true">
-            <span class="docon docon-chevron-up-light expanded-indicator"></span>
-        </span>
-    </button>
-    <div id="{{ category.stub }}_facet" category="{{ category.stub }}" class="panel-body">
-        <ul class="has-margin-none has-padding-top-none has-padding-bottom-small has-padding-left-medium">
-        {{#each category.items as |item|}}
-            <li class="is-unstyled">
-                <label class="checkbox is-small has-padding-bottom-extra-small">
-                    <input id="cb-dotnet" class="{{ item.friendly-name }}" name="{{ category.stub }}" value="{{#spaceDelim item.tags}}{{this}}{{/spaceDelim}}" friendly-name="{{ item.friendly-name }}" type="checkbox" onchange="filter(pageNumber=1)">
-                    <span class="checkbox-check" role="presentation"></span>
-                    <span class="checkbox-text">{{ item.name }}</span>
-                </label>
-            </li>
-        {{/each}}
-        </ul>
-    </div>
-</div>{{/ifCond}}
-{{/each}}
-`);
+var refineString = [
+'    {{#each categories as |category|}}{{#ifCond category.stub \'!=\' "hidden" }}',
+'<div data-bi-name="{{ category.stub }}_facet" class="has-border-top">',
+'    <button',
+'        data-bi-name="expander"',
+'        class="button expander-button has-inner-focus level is-mobile is-text is-undecorated is-fullwidth has-border-none has-margin-none is-large has-padding-left-medium"',
+'        aria-expanded="false"',
+'        aria-controls="{{ category.stub }}_facet"',
+'    >',
+'        <span class="has-text-weight-semibold is-size-7">{{ category.category }}</span>',
+'        <span class="icon" aria-hidden="true">',
+'            <span class="docon docon-chevron-up-light expanded-indicator"></span>',
+'        </span>',
+'    </button>',
+'    <div id="{{ category.stub }}_facet" category="{{ category.stub }}" class="panel-body">',
+'        <ul class="has-margin-none has-padding-top-none has-padding-bottom-small has-padding-left-medium">',
+'        {{#each category.items as |item|}}',
+'            <li class="is-unstyled">',
+'                <label class="checkbox is-small has-padding-bottom-extra-small">',
+'                    <input id="cb-dotnet" class="{{ item.friendly-name }}" name="{{ category.stub }}" value="{{#spaceDelim item.tags}}{{this}}{{/spaceDelim}}" friendly-name="{{ item.friendly-name }}" type="checkbox" onchange="filter(pageNumber=1)">',
+'                    <span class="checkbox-check" role="presentation"></span>',
+'                    <span class="checkbox-text">{{ item.name }}</span>',
+'                </label>',
+'            </li>',
+'        {{/each}}',
+'        </ul>',
+'    </div>',
+'</div>{{/ifCond}}',
+'{{/each}}'].join('');
+var refineTemplate = Handlebars.compile(refineString);
 
-var cardTemplate = Handlebars.compile(`
-{{#each articles as |article|}}
-<li class="grid-item" data-pivot="{{#spaceDelim article.tags}}{{this}}{{/spaceDelim}}">
-<article class="card">
-    <div class="card-header has-margin-top-small" aria-hidden="true">
-        <figure class="image diagram">
-            <a href="{{ article.http_url }}"><img src="{{ article.image }}"
-            class="diagram"
-            alt="Architecture Diagram"
-            data-linktype="relative-path"></a>
-        </figure>
-    </div>
-    <div class="card-content">
-        <p class="card-content-super-title">
-    {{#switch article.type}} 
-        {{#case 'example-workload'}}Example Workload{{/case}} 
-        {{#case 'reference-architecture'}}Reference Architecture{{/case}}
-        {{#case 'solution-idea'}}Solution Idea{{/case}}
-    {{/switch}}</p>
-        <a class="card-content-title" href="{{ article.http_url }}">
-            <h3>{{ article.title }}</h3>
-        </a>
-        <ul class="card-content-metadata">
-            <li>{{ article.publish_date }}</li>
-            <li>{{ article.read_time }}</li>
-        </ul>
-        <p class="card-content-description">{{ article.description }}
-           <div class="bottom-to-top-fade is-hidden-mobile"></div>
-        </p>
-        <p class="hidden-item">{{ article.filter_text }}</p>
-   </div>
-   <div class="card-footer">
-       <div class="card-footer-item left-aligned">
-           <ul class="tags">
-               {{#if article.sample_code}}{{#unless article.github_url }}
-               <li class="tag is-small"><a class="black-link" href="{{ article.http_url }}">Sample Code</a></li>
-               {{/unless}}{{/if}}
-               {{#if article.pricing_calculator}}{{#unless article.pricing_guidance}}
-               <li class="tag is-small"><a class="black-link" href="{{ article.pricing_calculator }}">Pricing Calculator</a></li>
-               {{/unless}}{{/if}}
-               {{#if article.deployable}}
-               <li class="tag is-small"><a class="black-link" href="{{ article.deployable }}">Deploy to Azure</a></li>
-               {{/if}}
-               {{#if article.visio_diagram}}
-               <li class="tag is-small"><a class="black-link" href="{{ article.visio_diagram }}">Visio Diagram</a></li>
-               {{/if}}
-               {{#if article.github_url}}
-               <li class="tag is-small"><a class="black-link" href="{{ article.github_url }}"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
-               {{/if}}
-               {{#if article.interactive_diagram}}{{#unless article.visio_diagram }}
-               <li class="tag is-small"><a class="black-link" href="{{ article.http_url }}">Interactive Diagram</a></li>
-               {{/unless}}{{/if}}
-               {{#if article.data_flow}}
-               <li class="tag is-small"><a class="black-link" href="{{ article.http_url }}#{{ article.data_flow }}">Data Flow</a></li>
-               {{/if}}
-               {{#if article.components}}
-               <li class="tag is-small"><a class="black-link" href="{{ article.http_url }}#{{ article.components }}">Component details</a></li>
-               {{/if}}
-               {{#if article.pricing_guidance}}
-               <li class="tag is-small"><a class="black-link" href="{{ article.http_url }}#{{ article.pricing_guidance }}">Pricing Details</a></li>
-               {{/if}}
-               {{#if article.alternative_choices}}
-               <li class="tag is-small"><a class="black-link" href="{{ article.http_url }}#{{ article.alternative_choices }}">Alternate Configurations</a></li>
-               {{/if}}
-           </ul>
-       </div>
-    </div>
-</article>
-</li>
-{{/each}}
-`);
 
-var paginationTemplate = Handlebars.compile(`
-<nav class="pagination" role="navigation" aria-label="pagination">
-    {{#ifCond totalPages '>' 1 }}
-        {{#ifCond currentPage '>' 1 }}
-        <a class="pagination-previous" aria-label="previous" data-page="{{#math currentPage '-' 1}}{{/math}}" href="#" onclick="filter(pageNumber={{#math currentPage '-' 1}}{{/math}})">
-            <span class="icon" aria-hidden="true">
-                <span class="docon docon-arrow-left"></span>
-            </span>
-        </a>
-        {{/ifCond}}
-        {{#ifCond currentPage '<' totalPages }}
-        <a class="pagination-next" aria-label="next" data-page="{{#math currentPage '+' 1}}{{/math}}" href="#" onclick="filter(pageNumber={{#math currentPage '+' 1}}{{/math}})">
-            <span class="icon" aria-hidden="true">
-                <span class="docon docon-arrow-right">
-                </span>
-            </span>
-        </a>
-        {{/ifCond}}
-        <ul class="pagination-list">
-            {{#times totalPages}}
-                {{#showPage this ../skipStart ../skipEnd ../currentPage}}
-                    <li>
-                    <a class="pagination-link{{#ifCond this '==' ../currentPage}} is-current{{/ifCond}}" data-page="this" href="#" onclick="filter(pageNumber={{this}})" aria-label="Page {{this}} of {{../totalPages}}" data-linktype="self-bookmark">{{this}}</a>
-                    </li>
-                {{else}}
-                    {{#elips this ../skipStart ../skipEnd ../currentPage}}
-                    <li>
-                        <span class="pagination-ellipsis">&hellip;</span>
-                    </li>
-                    {{/elips}}
-                {{/showPage}}
-            {{/times}}
-        </ul>
-    {{/ifCond}}
-</nav>
-`);
+var cardString = ['{{#each articles as |article|}}',
+'<li class="grid-item" data-pivot="{{#spaceDelim article.tags}}{{this}}{{/spaceDelim}}">',
+'<article class="card">',
+'    <div class="card-header has-margin-top-small" aria-hidden="true">',
+'        <figure class="image diagram">',
+'            <a href="{{ article.http_url }}"><img src="{{ article.image }}"',
+'            class="diagram"',
+'            alt="Architecture Diagram"',
+'            data-linktype="relative-path"></a>',
+'        </figure>',
+'    </div>',
+'    <div class="card-content">',
+'        <p class="card-content-super-title">',
+'    {{#switch article.type}} ',
+'        {{#case \'example-workload\'}}Example Workload{{/case}} ',
+'        {{#case \'reference-architecture\'}}Reference Architecture{{/case}}',
+'        {{#case \'solution-idea\'}}Solution Idea{{/case}}',
+'    {{/switch}}</p>',
+'        <a class="card-content-title" href="{{ article.http_url }}">',
+'            <h3>{{ article.title }}</h3>',
+'        </a>',
+'        <ul class="card-content-metadata">',
+'            <li>{{ article.publish_date }}</li>',
+'            <li>{{ article.read_time }}</li>',
+'        </ul>',
+'        <p class="card-content-description">{{ article.description }}',
+'           <div class="bottom-to-top-fade is-hidden-mobile"></div>',
+'        </p>',
+'        <p class="hidden-item">{{ article.filter_text }}</p>',
+'   </div>',
+'   <div class="card-footer">',
+'       <div class="card-footer-item left-aligned">',
+'           <ul class="tags">',
+'               {{#if article.sample_code}}{{#unless article.github_url }}',
+'               <li class="tag is-small"><a class="black-link" href="{{ article.http_url }}">Sample Code</a></li>',
+'               {{/unless}}{{/if}}',
+'               {{#if article.pricing_calculator}}{{#unless article.pricing_guidance}}',
+'               <li class="tag is-small"><a class="black-link" href="{{ article.pricing_calculator }}">Pricing Calculator</a></li>',
+'               {{/unless}}{{/if}}',
+'               {{#if article.deployable}}',
+'               <li class="tag is-small"><a class="black-link" href="{{ article.deployable }}">Deploy to Azure</a></li>',
+'               {{/if}}',
+'               {{#if article.visio_diagram}}',
+'               <li class="tag is-small"><a class="black-link" href="{{ article.visio_diagram }}">Visio Diagram</a></li>',
+'               {{/if}}',
+'               {{#if article.github_url}}',
+'               <li class="tag is-small"><a class="black-link" href="{{ article.github_url }}"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>',
+'               {{/if}}',
+'               {{#if article.interactive_diagram}}{{#unless article.visio_diagram }}',
+'               <li class="tag is-small"><a class="black-link" href="{{ article.http_url }}">Interactive Diagram</a></li>',
+'               {{/unless}}{{/if}}',
+'               {{#if article.data_flow}}',
+'               <li class="tag is-small"><a class="black-link" href="{{ article.http_url }}#{{ article.data_flow }}">Data Flow</a></li>',
+'               {{/if}}',
+'               {{#if article.components}}',
+'               <li class="tag is-small"><a class="black-link" href="{{ article.http_url }}#{{ article.components }}">Component details</a></li>',
+'               {{/if}}',
+'               {{#if article.pricing_guidance}}',
+'               <li class="tag is-small"><a class="black-link" href="{{ article.http_url }}#{{ article.pricing_guidance }}">Pricing Details</a></li>',
+'               {{/if}}',
+'               {{#if article.alternative_choices}}',
+'               <li class="tag is-small"><a class="black-link" href="{{ article.http_url }}#{{ article.alternative_choices }}">Alternate Configurations</a></li>',
+'               {{/if}}',
+'           </ul>',
+'       </div>',
+'    </div>',
+'</article>',
+'</li>',
+'{{/each}}'].join('');
+var cardTemplate = Handlebars.compile(cardString);
+
+
+var pageString = ['<nav class="pagination" role="navigation" aria-label="pagination">',
+'    {{#ifCond totalPages \'>\' 1 }}',
+'        {{#ifCond currentPage \'>\' 1 }}',
+'        <a class="pagination-previous" aria-label="previous" data-page="{{#math currentPage \'-\' 1}}{{/math}}" href="#" onclick="filter(pageNumber={{#math currentPage \'-\' 1}}{{/math}})">',
+'            <span class="icon" aria-hidden="true">',
+'                <span class="docon docon-arrow-left"></span>',
+'            </span>',
+'        </a>',
+'        {{/ifCond}}',
+'        {{#ifCond currentPage \'<\' totalPages }}',
+'        <a class="pagination-next" aria-label="next" data-page="{{#math currentPage \'+\' 1}}{{/math}}" href="#" onclick="filter(pageNumber={{#math currentPage \'+\' 1}}{{/math}})">',
+'            <span class="icon" aria-hidden="true">',
+'                <span class="docon docon-arrow-right">',
+'                </span>',
+'            </span>',
+'        </a>',
+'        {{/ifCond}}',
+'        <ul class="pagination-list">',
+'            {{#times totalPages}}',
+'                {{#showPage this ../skipStart ../skipEnd ../currentPage}}',
+'                    <li>',
+'                    <a class="pagination-link{{#ifCond this \'==\' ../currentPage}} is-current{{/ifCond}}" data-page="this" href="#" onclick="filter(pageNumber={{this}})" aria-label="Page {{this}} of {{../totalPages}}" data-linktype="self-bookmark">{{this}}</a>',
+'                    </li>',
+'                {{else}}',
+'                    {{#elips this ../skipStart ../skipEnd ../currentPage}}',
+'                    <li>',
+'                        <span class="pagination-ellipsis">&hellip;</span>',
+'                    </li>',
+'                    {{/elips}}',
+'                {{/showPage}}',
+'            {{/times}}',
+'        </ul>',
+'    {{/ifCond}}',
+'</nav>'].join('');
+var paginationTemplate = Handlebars.compile(pageString);
 
 function filter(pageNumber, newSearch) {
     if (!newSearch) newSearch = false;
