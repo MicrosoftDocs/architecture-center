@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Get a hybrid high performance computing solution built with Windows Server technology. Use Azure HPC Pack to create a hybrid HPC environment.
-ms.custom: acom-architecture, hybrid hpc, hpc pack, azure hpc pack, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/hybrid-hpc-in-azure-with-hpc-pack/'
+ms.custom: acom-architecture, hybrid hpc, hpc pack, azure hpc pack, interactive-diagram, hybrid-infrastructure, hpc, 'https://azure.microsoft.com/solutions/architecture/hybrid-hpc-in-azure-with-hpc-pack/'
 ---
 # Hybrid HPC in Azure with HPC Pack
 
@@ -192,7 +192,14 @@ The links to the right provide documentation on deploying and managing the Azure
 
 ## Data Flow
 
-1. Log into on-premises head node1. Add Azure compute nodes to the cluster1. Start the compute nodes1. Submit jobs to the cluster1. HPC Pack sends jobs to on-premises and Azure nodes based upon the node group selected1. Monitor job progress1. Stop the compute nodes or configure auto-scaling
+1. Log into on-premises head node
+1. Add Azure compute nodes to the cluster
+1. Start the compute nodes
+1. Submit jobs to the cluster
+1. HPC Pack sends jobs to on-premises and Azure nodes based upon the node group selected
+1. Monitor job progress
+1. Stop the compute nodes or configure auto-scaling
+
 
 ## Components
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/): Create Linux and Windows virtual machines in seconds.

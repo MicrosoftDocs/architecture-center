@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Create seamless conversational interfaces with all of your internet-accessible devices—from your connected television or fridge to devices in a connected power plant. LUIS is able to integrate up to 500 intents to translate commands into smart actions.
-ms.custom: acom-architecture, bot service, luis, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/iot-devices/'
+ms.custom: acom-architecture, bot service, luis, interactive-diagram, iot, 'https://azure.microsoft.com/solutions/architecture/iot-devices/'
 ---
 # IoT devices
 
@@ -167,6 +167,11 @@ Create seamless conversational interfaces with all of your internet-accessible d
 
 ## Data Flow
 
-1. User logs into Skype and accesses the IoT bot1. Using voice, the user asks the bot to turn on the lights via the IoT device1. The request is relayed to a third-party service that has access to the IoT device network1. The results of the command are returned to the user1. Application Insights gathers runtime telemetry to help development with bot performance and usage
+1. User logs into Skype and accesses the IoT bot
+1. Using voice, the user asks the bot to turn on the lights via the IoT device
+1. The request is relayed to a third-party service that has access to the IoT device network
+1. The results of the command are returned to the user
+1. Application Insights gathers runtime telemetry to help development with bot performance and usage
+
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

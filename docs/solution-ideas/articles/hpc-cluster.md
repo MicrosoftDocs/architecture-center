@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: High performance computing (HPC) applications can scale to thousands of compute cores, extend on-premises big compute, or run as a 100% cloud native solution. This HPC solution including the head node, compute nodes, and storage nodes, runs in Azure with no hardware infrastructure to maintain.
-ms.custom: acom-architecture, 'https://azure.microsoft.com/solutions/architecture/hpc-cluster/'
+ms.custom: acom-architecture, hpc, 'https://azure.microsoft.com/solutions/architecture/hpc-cluster/'
 ---
 # HPC cluster deployed in the cloud
 
