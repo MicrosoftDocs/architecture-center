@@ -11,7 +11,8 @@
                 "github",
                 "is-deployable",
                 "pricing-calculator",
-                "pricing-guidance"
+                "pricing-guidance",
+                "media"
             ],
             "type": "example-workload",
             "file_url": "example-scenario/infrastructure/video-rendering.md",
