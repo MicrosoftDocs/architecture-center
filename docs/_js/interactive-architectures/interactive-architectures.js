@@ -75,7 +75,7 @@ $(document).ready(function(){
         openToolTip(parent, parentOffset, $('#architecture-tooltip-1'), 'open-hover', 'open-click', windowWidth, true);
         timeout = setTimeout(function () {
             $('#architecture-tooltip-1').fadeOut(1000, function () {
-                closeToolTip($('#architecture-tooltip-1'), 'open-hover', false);
+                closeToolTip($('#architecture-tooltip-1'), 'open-click open-hover', false);
             });
         }, 2000);
     }
