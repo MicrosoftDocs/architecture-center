@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
-ms.custom: acom-architecture, postgresql, use cases, azure, solutions, 'https://azure.microsoft.com/solutions/architecture/scalable-web-and-mobile-applications-using-azure-database-for-postgresql/'
+ms.custom: acom-architecture, postgresql, web-app, scalability, use cases, azure, solutions, 'https://azure.microsoft.com/solutions/architecture/scalable-web-and-mobile-applications-using-azure-database-for-postgresql/'
 ---
 # Scalable web and mobile applications using Azure Database for PostgreSQL
 
