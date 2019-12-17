@@ -16,7 +16,7 @@ We want to introduce you to the Cortana Intelligence Vehicle Telemetry Analytics
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="telemetry-analytics"  viewbox="0 0 795.356 560.192"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg class="architecture-diagram" aria-labelledby="telemetry-analytics" height="560.192" viewbox="0 0 795.356 560.192" width="795.356" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <path d="M78.018 191.624H35.052a7.956 7.956 0 00-7.958 7.958v6.068h58.882v-6.068a7.958 7.958 0 00-7.958-7.958z" fill="#e81123"/>
     <path d="M63.9 180.783h-9.947A7.956 7.956 0 0046 188.741v5.534h25.854v-5.534a7.958 7.958 0 00-7.954-7.958z" fill="#fff"/>
     <circle cx="40.22" cy="205.648" fill="#00188f" r="5.774"/>

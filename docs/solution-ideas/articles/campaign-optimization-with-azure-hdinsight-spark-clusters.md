@@ -14,7 +14,7 @@ This solution demonstrates how to build and deploy a machine learning model with
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="campaign-optimization-with-azure-hdinsight-spark-clusters"  viewbox="0 0 626.222 405.867"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg class="architecture-diagram" aria-labelledby="campaign-optimization-with-azure-hdinsight-spark-clusters" height="405.867" viewbox="0 0 626.222 405.867" width="626.222" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <path d="M568.592 358.026H555c1.634 5.768-.561 6.6-10.175 6.6v3.02h32.692v-3.02c-9.614 0-10.557-.824-8.921-6.6" fill="#7a7a7a"/>
     <path d="M583.146 321.492h-44.262a2.828 2.828 0 00-2.717 2.847v30.866a2.812 2.812 0 002.717 2.823h44.262a3.09 3.09 0 003.021-2.823v-30.866a3.1 3.1 0 00-3.021-2.847" fill="#a0a1a2"/>
     <path d="M583.177 321.5h-44.294a2.827 2.827 0 00-2.717 2.847v30.865a2.812 2.812 0 002.717 2.824h1.053z" fill="#fff" opacity=".2" style="isolation:isolate"/>

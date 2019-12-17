@@ -16,7 +16,7 @@ This solution shows how to predict failures using the example of manufacturing p
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="quality-assurance"  viewbox="0 0 583.492 379.593"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="quality-assurance" height="379.593" viewbox="0 0 583.492 379.593" width="583.492" xmlns="http://www.w3.org/2000/svg">
     <path d="M19.12 156.082V188.7c0 3.332 7.635 6.108 16.936 6.108v-38.865H19.12z" fill="#3999c6"/>
     <path d="M35.779 194.951h.278c9.3 0 16.936-2.776 16.936-6.108v-32.761H35.779z" fill="#59b4d9"/>
     <path d="M52.992 156.082c0 3.332-7.635 6.108-16.936 6.108s-16.936-2.776-16.936-6.108 7.635-6.108 16.936-6.108 16.936 2.776 16.936 6.108" fill="#fff"/>

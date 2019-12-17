@@ -14,7 +14,7 @@ This solution demonstrates how to build and deploy a machine learning model with
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="campaign-optimization-with-sql-server"  viewbox="0 0 811.074 71.779"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="campaign-optimization-with-sql-server" height="71.779" viewbox="0 0 811.074 71.779" width="811.074" xmlns="http://www.w3.org/2000/svg">
     <path fill="#969696" d="M124.922 22.731h238.266v1.5H124.922z"/>
     <path fill="#969696" d="M361.655 18.246l9.067 5.235-9.067 5.236V18.246zM459.922 22.731h239.266v1.5H459.922z"/>
     <path fill="#969696" d="M697.655 18.246l9.067 5.235-9.067 5.236V18.246z"/>
