@@ -147,4 +147,3 @@ https://azure.microsoft.com/en-us/solutions/architecture/retail-assistant-or-vac
 https://azure.microsoft.com/en-us/solutions/architecture/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters/
 https://azure.microsoft.com/en-us/solutions/architecture/modern-data-warehouse/
 https://azure.microsoft.com/en-us/solutions/architecture/real-time-analytics/
-https://azure.microsoft.com/en-us/solutions/architecture/devsecops/
