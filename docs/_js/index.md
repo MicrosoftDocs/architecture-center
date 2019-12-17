@@ -11,7 +11,17 @@ loadjs([
 loadjs
   .ready('dependencies', function() {
     loadjs([
-        '/azure/architecture/_js/interactive-architectures/interactive-architectures.css',
+        '/azure/architecture/_js/interactive-architectures/interactive-architectures.css'
+        ], 'css',
+        {
+        async: false,
+        numRetries: 3,
+        returnPromise: true
+        });
+    })
+loadjs
+  .ready('css', function() {
+    loadjs([
         '/azure/architecture/_js/interactive-architectures/interactive-architectures.js'
         ], 'scripts',
         {
