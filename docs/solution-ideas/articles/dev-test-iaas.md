@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: This architecture represents how to configure your infrastructure for development and testing of a standard IaaS-based SaaS system.
-ms.custom: acom-architecture, 'https://azure.microsoft.com/solutions/architecture/dev-test-iaas/'
+ms.custom: acom-architecture, devops, 'https://azure.microsoft.com/solutions/architecture/dev-test-iaas/'
 ---
 # Dev-Test deployment for testing IaaS solutions
 

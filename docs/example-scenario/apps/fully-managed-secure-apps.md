@@ -11,6 +11,7 @@ ms.subservice: example-scenarios
 ms.custom:
     - fasttrack
     - security
+    - web-apps
 social_image_url: /azure/architecture/example-scenario/apps/media/ilb-ase-architecture.png
 ---
 

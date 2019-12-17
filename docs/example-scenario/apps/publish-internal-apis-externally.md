@@ -8,7 +8,10 @@ ms.author: ssarwa
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenarios
-ms.custom: fasttrack
+ms.custom:
+  - fasttrack
+  - web-apps
+  - app-modernization
 social_image_url: ./media/architecture-publish-internal-apis-externally.png
 ---
 

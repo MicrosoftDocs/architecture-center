@@ -7,7 +7,10 @@ ms.date: 07/13/2018
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenarios
-ms.custom: fasttrack
+ms.custom:
+  - fasttrack
+  - hpc
+  - media
 social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-video-rendering.png
 ---
 

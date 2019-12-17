@@ -3,8 +3,8 @@ title: Live streaming digital media
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
-description: A live streaming solution allows you to capture video in real-time and broadcast it to consumers in real time, such as streaming interviews, conferences, and sporting events online. In this solution, video is captured by a video camera and sent to a channel input endpoint. The channel receives the live input stream and makes it available for streaming through a streaming endpoint to a web browser or mobile app. The channel also provides a preview monitoring endpoint to preview and validate your stream before further processing and delivery. The channel can also record and store the ingested content in order to be streamed later (video-on-demand).
-ms.custom: acom-architecture, 'https://azure.microsoft.com/solutions/architecture/digital-media-live-stream/'
+description: A live streaming solution allows you to capture video in real-time and broadcast it to consumers in real time, such as streaming interviews, conferences, and sporting events online.
+ms.custom: acom-architecture, media, 'https://azure.microsoft.com/solutions/architecture/digital-media-live-stream/'
 ---
 # Live streaming digital media
 

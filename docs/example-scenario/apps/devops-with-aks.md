@@ -8,6 +8,9 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenarios
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-devops-with-aks.png
+ms.custom:
+    - devops
+    - microservices
 ---
 
 # CI/CD pipeline for container-based workloads
