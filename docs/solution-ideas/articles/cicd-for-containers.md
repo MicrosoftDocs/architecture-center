@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Containers make it very easy for you to continuously build and deploy your applications. By orchestrating deployment of those containers using Kubernetes in Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
-ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, pricing-calculator
+ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, pricing-calculator, 'https://azure.microsoft.com/solutions/architecture/cicd-for-containers/'
 ---
 # CI/CD for Containers
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 Containers make it very easy for you to continuously build and deploy your applications. By orchestrating deployment of those containers using Kubernetes in Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
 
@@ -224,25 +218,8 @@ By setting up a continuous build to produce your container images and orchestrat
 </div>
 
 ## Data Flow
-1. Change application source code
 
-1. Commit Application Code
-
-1. Continuous integration triggers application build, container image build and unit tests
-
-1. Container image pushed to Azure Container Registry
-
-1. Continuous deployment trigger orchestrates deployment of application artefacts with environment specific parameters
-
-1. Deployment to Azure Kubernetes Service (AKS)
-
-1. Container is launched using Container Image from Azure Container Registry
-
-1. Application Insights collects and analyses health, performance and usage data
-
-1. Review health, performance and usage information
-
-1. Update backlog item
+1. Change application source code1. Commit Application Code1. Continuous integration triggers application build, container image build and unit tests1. Container image pushed to Azure Container Registry1. Continuous deployment trigger orchestrates deployment of application artefacts with environment specific parameters1. Deployment to Azure Kubernetes Service (AKS)1. Container is launched using Container Image from Azure Container Registry1. Application Insights collects and analyses health, performance and usage data1. Review health, performance and usage information1. Update backlog item
 
 ## Components
 * [Container Registry](https://azure.microsoft.com/services/container-registry/): Store and manage container images across all types of Azure deployments

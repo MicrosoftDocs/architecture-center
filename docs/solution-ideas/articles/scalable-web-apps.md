@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: scalable web apps, azure redis cache, session data cache, user cookie cache, azure cache for redis
-ms.custom: acom-architecture
+ms.custom: acom-architecture, 'https://azure.microsoft.com/solutions/architecture/scalable-web-apps/'
 ---
 # Scalable Web Apps
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 Quickly save, retrieve, and update web session data such as user cookies and output pages. Azure Cache for Redis improves the performance of your application by increasing its responsiveness and enabling it to handle increasing loads with less web-compute resources.
 

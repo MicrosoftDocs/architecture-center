@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Learn how the custom mobile workforce management app architecture is built and implemented with a step-by-step diagram that illustrates the integration of Active Directory, SAP, and Azure App Service.
-ms.custom: acom-architecture, Mobile Workforce App, Mobile Workforce Management App, Workforce Management App, Mobile Workforce Management Solution, interactive-diagram
+ms.custom: acom-architecture, Mobile Workforce App, Mobile Workforce Management App, Workforce Management App, Mobile Workforce Management Solution, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/custom-mobile-workforce-app/'
 ---
 # Custom Mobile Workforce App
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 This mobile workforce app architecture uses Active Directory to secure corporate data from an SAP back end system, delivered to devices via Azure App Service API Management.
 
@@ -284,21 +278,8 @@ The links to the right provide documentation on deploying and managing the Azure
 </div>
 
 ## Data Flow
-1. Create the app using Visual Studio and Xamarin.
 
-1. Add the Azure App Service Mobile Apps back end service to the app solution.
-
-1. Implement authentication through Azure Active Directory.
-
-1. Connect to business data in external systems like SAP using Azure API Management.
-
-1. Implement offline sync to make the mobile app functional without a network connection.
-
-1. Build and test the app through Visual Studio App Center and publish it.
-
-1. Deploy the app to devices using App Center.
-
-1. Use Application Insights to monitor the App Service.
+1. Create the app using Visual Studio and Xamarin.1. Add the Azure App Service Mobile Apps back end service to the app solution.1. Implement authentication through Azure Active Directory.1. Connect to business data in external systems like SAP using Azure API Management.1. Implement offline sync to make the mobile app functional without a network connection.1. Build and test the app through Visual Studio App Center and publish it.1. Deploy the app to devices using App Center.1. Use Application Insights to monitor the App Service.
 
 ## Components
 * Build the web front end, mobile apps, and back end services with C# in [Visual Studio](https://azure.microsoft.com/products/visual-studio/) 2017 or [Visual Studio](https://azure.microsoft.com/products/visual-studio/) for Mac.

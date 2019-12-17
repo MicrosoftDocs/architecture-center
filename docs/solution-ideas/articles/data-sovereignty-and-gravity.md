@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Learn how to set custom data sovereignty and data gravity requirements in the cloud with Azure Stack. Find a step-by-step flow chart to implement this solution.
-ms.custom: acom-architecture, cloud data sovereignty, data gravity cloud, azure data sovereignty, data gravity, data sovereignty, data sovereignty requirements, interactive-diagram
+ms.custom: acom-architecture, cloud data sovereignty, data gravity cloud, azure data sovereignty, data gravity, data sovereignty, data sovereignty requirements, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/data-sovereignty-and-gravity/'
 ---
 # Custom Data Sovereignty & Data Gravity Requirements
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 Azure with Azure Stack enables organizations to make technology placement decisions based on business needs—simplifying meeting custom compliance, sovereignty, and data gravity requirements.
 
@@ -94,11 +88,8 @@ Azure with Azure Stack enables organizations to make technology placement decisi
 </div>
 
 ## Data Flow
-1. User enters data into Azure-based web app.
 
-1. Application commits data to database over virtual network-to virtual network VPN connection to Azure Stack.
-
-1. Data is stored in SQL database on virtual machine (VM).
+1. User enters data into Azure-based web app.1. Application commits data to database over virtual network-to virtual network VPN connection to Azure Stack.1. Data is stored in SQL database on virtual machine (VM).
 
 ## Components
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network/): Provision private networks, optionally connect to on-premises datacenters

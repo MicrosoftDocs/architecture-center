@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Explore how blockchain is used to digitize workflows and supply chains across organizations with the Blockchain Workflow Application from Microsoft Azure.
-ms.custom: acom-architecture, Blockchain Workflow, Blockchain Workflow Application, Azure Blockchain, Azure Blockchain Service, interactive-diagram
+ms.custom: acom-architecture, Blockchain Workflow, Blockchain Workflow Application, Azure Blockchain, Azure Blockchain Service, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/blockchain-workflow-application/'
 ---
 # Blockchain Workflow Application
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 Businesses use blockchain to digitize workflows they share with other organizations, such as moving physical assets across supply chains. The anatomy of blockchain apps is similar across use cases. Here, we use Azure Blockchain Service as the foundational managed blockchain network and build a consortium application that can ingest signals from relevant user interfaces and communicate ledger data to consuming apps across the consortium.
 
@@ -292,17 +286,8 @@ Businesses use blockchain to digitize workflows they share with other organizati
 </div>
 
 ## Data Flow
-1. Relevant apps, devices, and data sources send events or data to a message broker (Azure Service Bus).
 
-1. The distributed ledger technology (DLT) consumer Logic App fetches the data from the Service Bus and sends to transaction builder which builds and signs the transaction.
-
-1. The signed transaction gets routed to Azure Blockchain Service (fully managed Ethereum consortium network) via a ledger-specific Logic App connector.
-
-1. The blockchain data manager captures block and transaction data from configured transaction nodes, decodes events and properties and then sends the data to configured destinations.
-
-1. Message broker sends ledger data to consuming business applications and off-chain database.
-
-1. Information is analyzed and visualized using tools such as Power BI by connecting to off-chain database.
+1. Relevant apps, devices, and data sources send events or data to a message broker (Azure Service Bus).1. The distributed ledger technology (DLT) consumer Logic App fetches the data from the Service Bus and sends to transaction builder which builds and signs the transaction.1. The signed transaction gets routed to Azure Blockchain Service (fully managed Ethereum consortium network) via a ledger-specific Logic App connector.1. The blockchain data manager captures block and transaction data from configured transaction nodes, decodes events and properties and then sends the data to configured destinations.1. Message broker sends ledger data to consuming business applications and off-chain database.1. Information is analyzed and visualized using tools such as Power BI by connecting to off-chain database.
 
 ## Components
 * [Azure Blockchain Service](https://azure.microsoft.com/services/blockchain-service/): Build, govern, and expand consortium blockchain networks

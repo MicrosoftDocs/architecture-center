@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Explore Big Compute solutions with Azure Batch. Use HPC cloud systems for cloud-native application and batch processing.
-ms.custom: acom-architecture, Hpc cloud hpc system, big compute solutions, interactive-diagram
+ms.custom: acom-architecture, Hpc cloud hpc system, big compute solutions, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/big-compute-with-azure-batch/'
 ---
 # HPC System and Big Compute Solutions
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 Big compute and high performance computing (HPC) workloads are normally compute intensive and can be run in parallel, taking advantage of the scale and flexibility of the cloud. The workloads are often run asynchronously using batch processing, with compute resources required to run the work and job scheduling required to specify the work. Examples of Big Compute and HPC workloads include financial risk Monte Carlo simulations, image rendering, media transcoding, file processing, and engineering or scientific simulations.
 
@@ -198,17 +192,8 @@ The links to the right provide documentation on deploying and managing the Azure
 </div>
 
 ## Data Flow
-1. Upload input files and the applications to your Azure Storage account.
 
-1. Create a Batch pool of compute nodes, a job to run the workload on the pool, and the tasks in the job.
-
-1. Batch downloads input files and applications.
-
-1. Batch monitors task execution.
-
-1. Batch uploads task output.
-
-1. Download output files.
+1. Upload input files and the applications to your Azure Storage account.1. Create a Batch pool of compute nodes, a job to run the workload on the pool, and the tasks in the job.1. Batch downloads input files and applications.1. Batch monitors task execution.1. Batch uploads task output.1. Download output files.
 
 ## Components
 * [Storage Accounts](https://azure.microsoft.com/services/storage/): Massively scalable object storage for unstructured data.

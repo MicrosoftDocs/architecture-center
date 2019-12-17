@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Move AI models to the edge with a solution architecture that includes Azure Stack. A step-by-step workflow will help you harness the power of edge AI when disconnected from the internet.
-ms.custom: acom-architecture, ai at the edge, azure stack edge, edge ai, offline machine learning, interactive-diagram
+ms.custom: acom-architecture, ai at the edge, azure stack edge, edge ai, offline machine learning, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/ai-at-the-edge-disconnected/'
 ---
 # AI at the Edge with Azure Stack - disconnected
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 With the Azure AI tools and cloud platform, the next generation of AI-enabled hybrid applications can run where your data lives. With Azure Stack, bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence, with no tool or process changes for local applications. With Azure Stack, you can ensure that your cloud solutions work even when disconnected from the internet.
 
@@ -189,17 +183,8 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 </div>
 
 ## Data Flow
-1. Data scientists train a model using Azure Machine Learning and an HDInsight cluster. The model is containerized and put in to an Azure Container Registry.
 
-1. The model is deployed via an offline installer to a Kubernetes cluster on Azure Stack.
-
-1. End users provide data that is scored against the model.
-
-1. Insights and anomalies from scoring are placed into storage for later upload.
-
-1. Globally-relevant and compliant insights are available in the global app.
-
-1. Data from edge scoring is used to improve the model.
+1. Data scientists train a model using Azure Machine Learning and an HDInsight cluster. The model is containerized and put in to an Azure Container Registry.1. The model is deployed via an offline installer to a Kubernetes cluster on Azure Stack.1. End users provide data that is scored against the model.1. Insights and anomalies from scoring are placed into storage for later upload.1. Globally-relevant and compliant insights are available in the global app.1. Data from edge scoring is used to improve the model.
 
 ## Components
 * [HDInsight](https://azure.microsoft.com/services/hdinsight/): Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters

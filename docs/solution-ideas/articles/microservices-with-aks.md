@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Microservices with AKS
-ms.custom: acom-architecture, kubernetes, interactive-diagram
+ms.custom: acom-architecture, kubernetes, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/microservices-with-aks/'
 ---
 # Microservices with AKS
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 Use AKS to simplify the deployment and management of microservices based architecture. AKS streamlines horizontal scaling, self-healing, load balancing, secret management.
 
@@ -307,20 +301,7 @@ Use AKS to simplify the deployment and management of microservices based archite
 </div>
 
 ## Data Flow
-1. Developer uses IDE such as Visual Studio to commit changes to GitHub
 
-1. GitHub triggers a new build on Azure DevOps
-
-1. Azure DevOps packages microservices as containers and pushes them to the Azure Container Registry
-
-1. Containers are deployed to AKS cluster
-
-1. Users access services via apps and website
-
-1. Azure Active Directory is used to secure access to the resources
-
-1. Microservices use databases to store and retrieve information
-
-1. Administrator accesses via a separate admin portal
+1. Developer uses IDE such as Visual Studio to commit changes to GitHub1. GitHub triggers a new build on Azure DevOps1. Azure DevOps packages microservices as containers and pushes them to the Azure Container Registry1. Containers are deployed to AKS cluster1. Users access services via apps and website1. Azure Active Directory is used to secure access to the resources1. Microservices use databases to store and retrieve information1. Administrator accesses via a separate admin portal
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

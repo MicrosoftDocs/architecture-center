@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use Java, Node.js, Go, or PHP to develop your applications, you’ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
-ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, is-deployable
+ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, is-deployable, 'https://azure.microsoft.com/solutions/architecture/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview/'
 ---
 # Immutable Infrastructure CI/CD using Jenkins and Terraform on Azure Virtual Architecture overview
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use Java, Node.js, Go, or PHP to develop your applications, you’ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
 
@@ -292,19 +286,8 @@ Azure is a world-class cloud for hosting virtual machines running Windows or Lin
 </div>
 
 ## Data Flow
-1. Change application source code.
 
-1. Commit code to GitHub.
-
-1. Continuous Integration Trigger to Jenkins.
-
-1. Jenkins triggers a Packer image build to create a VM and stores it as a VM image using Azure Managed Disks.
-
-1. Jenkins triggers Terraform to provision a new Virtual Machine Scale Set using the Azure Managed Disks VM image.
-
-1. Azure Log Analytics collects and analyzes logs.
-
-1. Monitor application and make improvements.
+1. Change application source code.1. Commit code to GitHub.1. Continuous Integration Trigger to Jenkins.1. Jenkins triggers a Packer image build to create a VM and stores it as a VM image using Azure Managed Disks.1. Jenkins triggers Terraform to provision a new Virtual Machine Scale Set using the Azure Managed Disks VM image.1. Azure Log Analytics collects and analyzes logs.1. Monitor application and make improvements.
 
 ## Components
 * [Managed Disks](https://azure.microsoft.com/services/managed-disks/): Persistent, secured disk storage for Azure virtual machines.

@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Learn how to deploy a highly available SharePoint farm for intranet capabilities with a step-by-step solution architecture template from Azure.
-ms.custom: acom-architecture, sharepoint intranet, sharepoint intranet template, sharepoint intranet solutions, sharepoint farm solution, interactive-diagram
+ms.custom: acom-architecture, sharepoint intranet, sharepoint intranet template, sharepoint intranet solutions, sharepoint farm solution, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/highly-available-sharepoint-farm/'
 ---
 # Highly available SharePoint farm
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 This solution provides a highly available deployment of SharePoint using a load balanced Azure Active Directory (Azure AD), highly available SQL always on instance, and highly available SharePoint resources. It addresses the requirement to deliver highly available intranet capability using the latest and greatest supported platforms.
 
@@ -363,8 +357,7 @@ This solution provides a highly available deployment of SharePoint using a load 
 <p>Set up an Azure external load balancer to direct incoming HTTPS traffic to the SharePoint server.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>Leverage Express Route or VPN Gateway for management access to resource 
-
+<p>Leverage Express Route or VPN Gateway for management access to resource 
 group.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-10">
@@ -375,29 +368,9 @@ group.</p>
 </div>
 
 ## Data Flow
-1. Create resource group for the storage, network, and virtual machine, plus other dependent elements.
 
-1. Create virtual network to host the virtual machines and load balancers for the deployment. Ensure the network has appropriate network security groups implemented to protect network traffic flow.
-
-1. Create the storage accounts that will host the virtual hard disks (vhds) for the machine images.
-
-1. Create the Active Directory installation using either a new virtual machine or  Azure AD domain services. If using Azure AD domain services,  consider synchronizing identities to Azure AD with Azure AD Connect.
-
-1. Create a Windows failover cluster and install a supported version of SQL Server on an Azure virtual machine (VM) or deploy pay-as-you-go instances of SQL Server.
-
-1. Deploy SharePoint onto multiple Azure VMs, or, use trial images from the gallery that already have SharePoint Server installed.
-
-1. Create the SharePoint farm.
-
-1. Set up an Azure external load balancer to direct incoming HTTPS traffic to the SharePoint server.
-
-1. Leverage Express Route or VPN Gateway for management access to resource 
-
-group.
-
-1. On-premises users can access the SharePoint sites via the internet, Express Route, or VPN Gateway.
-
-1. External users can be granted access as required to the SharePoint sites for testing.
+1. Create resource group for the storage, network, and virtual machine, plus other dependent elements.1. Create virtual network to host the virtual machines and load balancers for the deployment. Ensure the network has appropriate network security groups implemented to protect network traffic flow.1. Create the storage accounts that will host the virtual hard disks (vhds) for the machine images.1. Create the Active Directory installation using either a new virtual machine or  Azure AD domain services. If using Azure AD domain services,  consider synchronizing identities to Azure AD with Azure AD Connect.1. Create a Windows failover cluster and install a supported version of SQL Server on an Azure virtual machine (VM) or deploy pay-as-you-go instances of SQL Server.1. Deploy SharePoint onto multiple Azure VMs, or, use trial images from the gallery that already have SharePoint Server installed.1. Create the SharePoint farm.1. Set up an Azure external load balancer to direct incoming HTTPS traffic to the SharePoint server.1. Leverage Express Route or VPN Gateway for management access to resource 
+group.1. On-premises users can access the SharePoint sites via the internet, Express Route, or VPN Gateway.1. External users can be granted access as required to the SharePoint sites for testing.
 
 ## Components
 * [Azure Resource Group](https://azure.microsoft.com/features/resource-manager/): Container that holds related resources for an Azure solution

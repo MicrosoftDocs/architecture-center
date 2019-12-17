@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Azure App Service is a fast and simple way to create web apps using Java, Node, PHP or ASP.NET, as well as support for custom language runtimes using Docker. A continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Azure app services allows you to deliver value faster to your customers.
-ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, is-deployable
+ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, is-deployable, 'https://azure.microsoft.com/solutions/architecture/java-cicd-using-jenkins-and-azure-web-apps/'
 ---
 # Java CI/CD using Jenkins and Azure Web Apps
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 Azure App Service is a fast and simple way to create web apps using Java, Node, PHP or ASP.NET, as well as support for custom language runtimes using Docker. A continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Azure app services allows you to deliver value faster to your customers.
 
@@ -239,21 +233,8 @@ Azure App Service is a fast and simple way to create web apps using Java, Node, 
 </div>
 
 ## Data Flow
-1. Change application source code
 
-1. Commit code to GitHub
-
-1. Continuous Integration Trigger to Jenkins
-
-1. Jenkins triggers a build job using Azure Container Instances for a dynamic build agent
-
-1. Jenkins builds and stores artifact in Azure Storage
-
-1. Jenkins deploys Java application to Azure Web Apps backed by Azure Database for MySQL
-
-1. Azure App Insights provides metrics on application performance
-
-1. Monitor application and make improvements
+1. Change application source code1. Commit code to GitHub1. Continuous Integration Trigger to Jenkins1. Jenkins triggers a build job using Azure Container Instances for a dynamic build agent1. Jenkins builds and stores artifact in Azure Storage1. Jenkins deploys Java application to Azure Web Apps backed by Azure Database for MySQL1. Azure App Insights provides metrics on application performance1. Monitor application and make improvements
 
 ## Components
 * [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/): Quickly create and deploy mission critical Web apps at scale
