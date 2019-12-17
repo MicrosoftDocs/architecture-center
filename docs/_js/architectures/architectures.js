@@ -1,7 +1,7 @@
 function unCheck(checkid) {
     $("#"+checkid).remove();
     $("."+checkid).prop("checked", false );
-    filter();
+    updateUrlBar(getQuery(false, 1))
 }
 
 function toggle(object, forceExpand) {
@@ -151,7 +151,7 @@ var refineString = [
 '        {{#each category.items as |item|}}',
 '            <li class="is-unstyled">',
 '                <label class="checkbox is-small has-padding-bottom-extra-small">',
-'                    <input id="cb-dotnet" class="{{ item.friendly-name }}" name="{{ category.stub }}" value="{{#spaceDelim item.tags}}{{this}}{{/spaceDelim}}" friendly-name="{{ item.friendly-name }}" type="checkbox" onchange="filter(pageNumber=1)">',
+'                    <input id="cb-dotnet" class="{{ item.friendly-name }}" name="{{ category.stub }}" value="{{#spaceDelim item.tags}}{{this}}{{/spaceDelim}}" friendly-name="{{ item.friendly-name }}" type="checkbox" onchange="updateUrlBar(getQuery(false, 1))">',
 '                    <span class="checkbox-check" role="presentation"></span>',
 '                    <span class="checkbox-text">{{ item.name }}</span>',
 '                </label>',
@@ -239,14 +239,14 @@ var cardTemplate = Handlebars.compile(cardString);
 var pageString = ['<nav class="pagination" role="navigation" aria-label="pagination">',
 '    {{#ifCond totalPages \'>\' 1 }}',
 '        {{#ifCond currentPage \'>\' 1 }}',
-'        <a class="pagination-previous" aria-label="previous" data-page="{{#math currentPage \'-\' 1}}{{/math}}" href="#" onclick="filter(pageNumber={{#math currentPage \'-\' 1}}{{/math}})">',
+'        <a class="pagination-previous" aria-label="previous" data-page="{{#math currentPage \'-\' 1}}{{/math}}" href="#" onclick="updateUrlBar(getQuery(firstLoad=false, pageNumber={{#math currentPage \'-\' 1}}{{/math}}))">',
 '            <span class="icon" aria-hidden="true">',
 '                <span class="docon docon-arrow-left"></span>',
 '            </span>',
 '        </a>',
 '        {{/ifCond}}',
 '        {{#ifCond currentPage \'<\' totalPages }}',
-'        <a class="pagination-next" aria-label="next" data-page="{{#math currentPage \'+\' 1}}{{/math}}" href="#" onclick="filter(pageNumber={{#math currentPage \'+\' 1}}{{/math}})">',
+'        <a class="pagination-next" aria-label="next" data-page="{{#math currentPage \'+\' 1}}{{/math}}" href="#" onclick="updateUrlBar(getQuery(firstLoad=false, pageNumber={{#math currentPage \'+\' 1}}{{/math}}))">',
 '            <span class="icon" aria-hidden="true">',
 '                <span class="docon docon-arrow-right">',
 '                </span>',
@@ -257,7 +257,7 @@ var pageString = ['<nav class="pagination" role="navigation" aria-label="paginat
 '            {{#times totalPages}}',
 '                {{#showPage this ../skipStart ../skipEnd ../currentPage}}',
 '                    <li>',
-'                    <a class="pagination-link{{#ifCond this \'==\' ../currentPage}} is-current{{/ifCond}}" data-page="this" href="#" onclick="filter(pageNumber={{this}})" aria-label="Page {{this}} of {{../totalPages}}" data-linktype="self-bookmark">{{this}}</a>',
+'                    <a class="pagination-link{{#ifCond this \'==\' ../currentPage}} is-current{{/ifCond}}" data-page="this" href="#" onclick="updateUrlBar(getQuery(firstLoad=false, pageNumber={{this}}))" aria-label="Page {{this}} of {{../totalPages}}" data-linktype="self-bookmark">{{this}}</a>',
 '                    </li>',
 '                {{else}}',
 '                    {{#elips this ../skipStart ../skipEnd ../currentPage}}',
@@ -283,208 +283,264 @@ function findCommonElement(array1, array2) {
     return false;  
 } 
 
-function filter(pageNumber, newSearch) {
-    if (!newSearch) newSearch = false;
-    
+function checkCheckboxes(parsedFilters) {
+    // Check all checkboxes passed in URL
+    parsedFilters.forEach(function(filter){
+        $( "input[friendly-name='" + filter + "']" ).prop("checked", true);
+        toggle($( "input[friendly-name='" + filter + "']" ).closest("div[data-bi-name]").find(".expander-button"), forceExpand=true);
+    });
+}
+
+function expandGroups(expandedGroups) {
+    // Expand anything that was previously expanded
+    expandedGroups.forEach(function(item){
+        toggle($(".expander-button[aria-controls='" + item + "']"), forceExpand=true);
+    });
+}
+
+function setSearchText() {
+    var parsedParams = new URLSearchParams(window.location.search);
+
+    if (parsedParams.get("search")) {
+        $('#search-content').val(parsedParams.get("search"));
+    }
+}
+
+function getQuery(firstLoad, pageNumber) {   
+    var parsedParams = new URLSearchParams(window.location.search);
+
+    // Create an array of every checkbox
+    var selectedNames = getCheckedItems();
+    var searchText = getSearchBoxText();
+
+    var parsedFilters = [];
+    if (firstLoad) {
+        var parsedFilters = parsedParams.getAll("filter");
+    }
+
+    if (!pageNumber){
+        pageNumber = getPageNumber();
+    } 
+
+    var branch;
+    if (parsedParams.get("branch")) {
+        branch = parsedParams.get("branch");
+    } else {
+        branch = "";
+    }
+
+    var filterNames = Array.from(new Set([...selectedNames, ...parsedFilters]));
+    checkCheckboxes(filterNames);
+
+    var queryParams = {
+        "filter": filterNames,
+        "search": searchText,
+        "page": pageNumber,
+        "branch": branch
+    };
+
+    function isEmpty(value){
+        return value === null || value === "";
+    }
+
+    for(var key in queryParams) {
+        if(isEmpty(queryParams[key])) {
+            delete queryParams[key]; 
+        }
+    }
+
+    if (queryParams.page == 1) {
+        delete queryParams.page;
+    }
+
+    return queryParams;
+}
+
+function updateUrlBar(queryParams) {
+    var newUrl = "?" + $.param(queryParams, true);
+    window.history.replaceState("object or string", document.title, newUrl);
+    filter();
+}
+
+function getCheckedItems() {
+    var selectedNames = [];
+    $('input[type=checkbox]:checked').map(function(){
+        selectedNames.push($(this).attr('friendly-name'));
+    });
+
+    return selectedNames;
+}
+
+function getExpandedGroups() {
     var expandedGroups = [];
     $(".expander-button[aria-expanded='false']").map(function(){
       expandedGroups.push($(this).attr('aria-controls'));
     });
 
-    // Don't display more than 12 items on a page
-    var maxItems = 12;
+    return expandedGroups;
+}
 
-    // Clear any CSS we set before
-    $(".grid-item").css("max-width", "");
-
+function getPageNumber() {
     var parsedParams = new URLSearchParams(window.location.search);
 
     // Set the page number if it exists
-    if (!pageNumber) {
-        if (parsedParams.get("page")) {
-            pageNumber = parsedParams.get("page");
-        } else {
-            pageNumber = 1;
-        }
+    var pageNumber = 1;
+    if (parsedParams.get("page")) {
+        pageNumber = parsedParams.get("page");
     }
 
-    // Set the search box text
-    if (parsedParams.get("search") && !newSearch) {
-        $('#search-content').val(parsedParams.get("search"));
+    return pageNumber;
+}
+
+function getSearchBoxText() {
+    // Look for items that include the search text
+    var searchText = $('#search-content').get(0).value;
+    return searchText;
+}
+
+function getCheckedBoxes() {
+    return $('input[type=checkbox]:checked');
+}
+
+function buildFilterList() {
+    // Filter the data
+    var filterTerms = [];
+    var selectedCategories = [];
+    var checked = getCheckedBoxes();
+    if (checked.length > 0) {
+        $.each(checked, function(){
+            selectedCategories.push($(this).closest("div").find('[category]')); 
+            var checkId = $(this).attr("friendly-name");
+            var checkName = $(this).siblings(".checkbox-text").text();
+            $(".facet-tags").append('<span class="tag facet-tag" id="' + checkId + '">' +  checkName +
+                '<button type="button" aria-label="Remove "' + checkName +
+                '" name="' +  checkName + '" class="delete" onclick="unCheck(\'' + checkId +
+                '\')"></button></span>');
+            filterTerms = filterTerms.concat($(this).val().toLowerCase().split(" "));
+        });
     }
 
-    // Load content data and filter it
-    $.getJSON('/azure/architecture/solution-ideas/data/output.json.txt', function (data) {
-        var filterTerms = [];
-        var selectedNames = [];
-        var selectedCategories = [];
-        
-        // Create an array of every checkbox
-        var checked = $('input[type=checkbox]:checked');
+    return filterTerms;
+}
 
-        // Clear the selected tags
-        $(".facet-tag").remove();
+function buildFilterHtml(tagData) {
+    var picker = refineTemplate(tagData);
+    $("#refine-content").html(picker);
 
-        // Filter the data
-        if (checked.length > 0) {
-            $.each(checked, function(){
-                selectedCategories.push($(this).closest("div").find('[category]')); 
-                var checkId = $(this).attr("friendly-name");
-                var checkName = $(this).siblings(".checkbox-text").text();
-                $(".facet-tags").append('<span class="tag facet-tag" id="' + checkId + '">' +  checkName +
-                    '<button type="button" aria-label="Remove "' + checkName +
-                    '" name="' +  checkName + '" class="delete" onclick="unCheck(\'' + checkId +
-                    '\')"></button></span>');
-                filterTerms = filterTerms.concat($(this).val().toLowerCase().split(" "));
-            });
-        }
-       
-        // Look for items that match the checkbox
-        data.articles = $.grep(data.articles, function(article) {
-            if (filterTerms.length > 0) {
-                return findCommonElement(filterTerms, article.tags);
-            } else {
-                return true;
-            }
-        });
-    
-        // Look for items that include the search text
-        var searchText = $('#search-content').get(0).value;
-
-        data.articles = $.grep(data.articles, function(article) {
-            if (searchText) {
-                return article.filter_text.includes(searchText.toLowerCase());
-            } else {
-                return true;
-            }
-        });
-    
-        checked.map(function(){
-            selectedNames.push($(this).attr('friendly-name'));
-        });
-
-        $.getJSON('/azure/architecture/solution-ideas/metadata/display-tags.json.txt', function (tagData) {
-            // Get the tags for every checked item
-            //var visibleArticleTags = Array.from(new Set([].concat.apply([], data.articles.map(data => data.tags)).sort()));
-
-            // TODO: Fix Filter to not filter current category
-            // filteredTagData = tagData["categories"].filter(function(category) {
-            //     var foundItems = category['items'].filter(function(item) {
-            //         return item['tags'].some(r=> visibleArticleTags.includes(r));
-            //     });
-            //     category['items'] = foundItems
-            //     return category['items'];
-            // });
-
-            // tagData["categories"]=filteredTagData
-            
-            var picker = refineTemplate(tagData);
-            $("#refine-content").html(picker);
-
-            var button=$('.expander-button');
-            $('.expander-button').on("click", toggle);
-            button.each( function () {
-                toggle(this);
-            });
-
-            var parsedParams = new URLSearchParams(window.location.search);
-
-            // Check all checkboxes passed in URL
-            parsedParams.getAll("filter").forEach(function(filter){
-                $( "input[friendly-name='" + filter + "']" ).prop("checked", true);
-                toggle($( "input[friendly-name='" + filter + "']" ).closest("div[data-bi-name]").find(".expander-button"), forceExpand=true);
-            });
-
-            // Expand anything that was previously expanded
-            expandedGroups.forEach(function(item){
-                toggle($(".expander-button[aria-controls='" + item + "']"), forceExpand=true);
-            });
-        });
-        
-        var branch;
-        if (parsedParams.get("branch")) {
-            branch = parsedParams.get("branch");
-        } else {
-            branch = "";
-        }
-
-        var queryParams = {
-            "filter": selectedNames,
-            "search": searchText,
-            "page": pageNumber,
-            "branch": branch
-        };
-
-        function isEmpty(value){
-            return value === null || value === "";
-        }
-
-        for(var key in queryParams) {
-            if(isEmpty(queryParams[key])) {
-                delete queryParams[key]; 
-            }
-        }
-
-        if (queryParams.page == 1) {
-            delete queryParams.page;
-        }
-
-        // Update the URL bar
-        var newUrl = "?" + $.param(queryParams, true);
-        window.history.replaceState("object or string", document.title, newUrl);
-
-        // Only show 18 pages at a time
-        var articleStart = 1 + (pageNumber - 1) * maxItems;
-        var articleEnd = articleStart + maxItems - 1;
-
-        // Show all items that should be visible
-        var visible_articles = { "articles": data.articles.slice(articleStart-1, articleEnd) };
-
-        // Generate cards for visible results
-        var cards = cardTemplate(visible_articles);
-        $(".grid").html(cards);
-
-        // Fix the width if there is only one card
-        var columns = $(".grid").css("grid-template-columns").split(" ").length;
-        if (data.articles.length == 1 || columns == 1) {
-            $(".grid-item").css("max-width","350px");
-        }
-
-        var maxPageNums = 10;
-        var totalPages = Math.ceil(data.articles.length / maxItems);
-        var skipStart;
-        var skipEnd;
-        if (totalPages > maxPageNums) {
-            // Trying to figure out where to put the elipsis
-            // TODO: Stupid math, needs to be better
-            skipStart = Math.ceil((totalPages+4-maxPageNums)/2);
-            skipEnd = Math.floor(totalPages-(totalPages-maxPageNums)+skipStart-2);
-        } else {
-            skipStart = maxPageNums+1;
-            skipEnd = maxPageNums+1;
-        }
-
-        var pageData = {
-            "maxItems": maxItems,
-            "visibleArticles": visible_articles.articles.length,
-            "totalPages": totalPages,
-            "skipStart": skipStart,
-            "skipEnd": skipEnd,
-            "currentPage": pageNumber
-        };
-       
-        var pagination = paginationTemplate(pageData);
-        $(".pagination").remove();
-        $("#results").append(pagination);
-
-        $(".resultcount").text(data.articles.length + " Architectures Found");
+    var button=$('.expander-button');
+    $('.expander-button').on("click", toggle);
+    button.each( function () {
+        toggle(this);
     });
+}
+
+function buildCards(visibleArticles) {
+    // Generate cards for visible results
+    var cards = cardTemplate(visibleArticles);
+    $(".grid").html(cards);
+
+    // Fix the width if there is only one card
+    var columns = $(".grid").css("grid-template-columns").split(" ").length;
+    if (visibleArticles.length == 1 || columns == 1) {
+        $(".grid-item").css("max-width","350px");
+    }
+}
+
+function buildPageNumbers(articles, visible_count, maxItems) {
+    var maxPages = 10;
+    var totalPages = Math.ceil(articles.length / maxItems);
+    var skipStart;
+    var skipEnd;
+    var pageNumber = getPageNumber();
+    if (totalPages > maxPages) {
+        // Trying to figure out where to put the ellipsis
+        // TODO: Stupid math, needs to be better
+        skipStart = Math.ceil((totalPages+4-maxPages)/2);
+        skipEnd = Math.floor(totalPages-(totalPages-maxPages)+skipStart-2);
+    } else {
+        skipStart = maxPages+1;
+        skipEnd = maxPages+1;
+    }
+
+    var pageData = {
+        "maxItems": maxItems,
+        "visibleArticles": visible_count,
+        "totalPages": totalPages,
+        "skipStart": skipStart,
+        "skipEnd": skipEnd,
+        "currentPage": pageNumber
+    };
+   
+    var pagination = paginationTemplate(pageData);
+    $(".pagination").remove();
+    $("#results").append(pagination);
+}
+
+function filter() {
+    // Clear any CSS we set before
+    $(".grid-item").css("max-width", "");
+
+    // Clear the selected tags
+    $(".facet-tag").remove();
+
+    // updateUrlBar(buildQuery());
+
+    // Load content data and filter it        
+    var searchText = getSearchBoxText();
+    var filterTerms = buildFilterList();
+
+    // Look for items that match the checkbox
+    articles = $.grep(window.articleData.articles, function(article) {
+        if (filterTerms.length > 0) {
+            return findCommonElement(filterTerms, article.tags);
+        } else {
+            return true;
+        }
+    });
+    
+    articles = $.grep(articles, function(article) {
+        if (searchText) {
+            return article.filter_text.includes(searchText.toLowerCase());
+        } else {
+            return true;
+        }
+    });
+
+    // Don't display more than 12 items on a page
+    var pageNumber = getPageNumber();
+    var maxItems = 12;
+    var articleStart = 1 + (pageNumber - 1) * maxItems;
+    var articleEnd = articleStart + maxItems - 1;
+
+    // Show all items that should be visible
+    var visibleArticles = { "articles": articles.slice(articleStart-1, articleEnd) };
+    buildCards(visibleArticles);
+
+    // Get the tags for every checked item
+    //var visibleArticleTags = Array.from(new Set([].concat.apply([], data.articles.map(data => data.tags)).sort()));
+
+    // TODO: Fix Filter to not filter current category
+    // var selectedCategories = [];
+    // filteredTagData = tagData["categories"].filter(function(category) {
+    //     var foundItems = category['items'].filter(function(item) {
+    //         return item['tags'].some(r=> visibleArticleTags.includes(r));
+    //     });
+    //     category['items'] = foundItems
+    //     return category['items'];
+    // });
+
+    // tagData["categories"]=filteredTagData
+            
+    buildPageNumbers(articles, visibleArticles.articles.length, maxItems);
+
+    $(".resultcount").text(articles.length + " Architectures Found");
 }
 
 $(window).resize(function() { 
     $(".grid-item").css("max-width", "");
     filter();
 }); 
+
 $(document).ready(function(){
     // Set the background class to match the SearchFilter
     $(".mainContainer").addClass("has-body-background-dark main-full-height is-full has-default-focus");
@@ -494,5 +550,13 @@ $(document).ready(function(){
     $("a").click(function(event){
         event.preventDefault();
       });
-    filter();
+
+    $.getJSON('/azure/architecture/solution-ideas/data/output.json.txt', function (articleData) {
+        $.getJSON('/azure/architecture/solution-ideas/metadata/display-tags.json.txt', function (tagData) {
+            window.articleData = articleData;
+            buildFilterHtml(tagData);
+            updateUrlBar(getQuery(firstLoad=true));
+        });
+    });
+    
 });
