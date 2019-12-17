@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security.
-ms.custom: acom-architecture, medical records management, medical records storage, medical data solutions, healthcare data storage, cloud storage in healthcare, medical data storage, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/security-compliance-blueprint-hippa-hitrust-health-data-ai/'
+ms.custom: acom-architecture, data, medical records management, medical records storage, medical data solutions, healthcare data storage, cloud storage in healthcare, medical data storage, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/security-compliance-blueprint-hippa-hitrust-health-data-ai/'
 ---
 # Medical Data Storage Solutions
 
@@ -353,7 +353,13 @@ ms.custom: acom-architecture, medical records management, medical records storag
 
 ## Data Flow
 
-1. Securely ingest bulk patient data into Azure Blob storage.1. Event Grid publishes patient data to Azure Functions for processing, and securely stores patient data in SQL Database.1. Analyze patient data using Machine Learning, and create a Machine Learning-trained model.1. Ingest new patient data in HL7/FHIR format and publish to Azure Functions for processing. Store in SQL Database.1. Analyze newly ingested data using the trained Machine Learning model.1. Interact with patient data using PowerBI while preserving Role-Based Access Control (RBAC).
+1. Securely ingest bulk patient data into Azure Blob storage.
+1. Event Grid publishes patient data to Azure Functions for processing, and securely stores patient data in SQL Database.
+1. Analyze patient data using Machine Learning, and create a Machine Learning-trained model.
+1. Ingest new patient data in HL7/FHIR format and publish to Azure Functions for processing. Store in SQL Database.
+1. Analyze newly ingested data using the trained Machine Learning model.
+1. Interact with patient data using PowerBI while preserving Role-Based Access Control (RBAC).
+
 
 ## Components
 * [Azure Functions](https://azure.microsoft.com/services/functions/): Process events with serverless code

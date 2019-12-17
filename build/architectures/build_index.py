@@ -138,7 +138,7 @@ env = Environment (
     keep_trailing_newline = True
     )
 
-tag_file = open(path.join(index_dir, "metadata", "display-tags..json"), "r")
+tag_file = open(path.join(index_dir, "metadata", "display-tags.json.txt"), "r")
 tag_metadata=json.load(tag_file)
 
 acom_diagrams = Path(acom_dir).glob('**/*.md')
@@ -401,14 +401,14 @@ output_file = open(path.join(doc_directory, "toc.yml"), "w")
 output_file.write(yaml.dump(main_toc, default_flow_style=False, sort_keys=False))
 output_file.close()
 
-output_file = open(path.join(index_dir, "data", "output.json"), "w")
+output_file = open(path.join(index_dir, "data", "output.json.txt"), "w")
 output_file.write(json.dumps(articles, indent=4))
 output_file.close()
 
-output_file = open(path.join(index_dir, "data", "tags.json"), "w")
+output_file = open(path.join(index_dir, "data", "tags.json.txt"), "w")
 output_file.write(json.dumps(sorted(all_tags), indent=4))
 output_file.close()
 
-output_file = open(path.join(index_dir, "data", "dev-langs.json"), "w")
+output_file = open(path.join(index_dir, "data", "dev-langs.json.txt"), "w")
 output_file.write(json.dumps(sorted(all_langs), indent=4))
 output_file.close()
