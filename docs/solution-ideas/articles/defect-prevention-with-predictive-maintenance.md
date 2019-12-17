@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Learn how to use Azure Machine Learning to predict failures before they happen with real-time assembly line data.
-ms.custom: acom-architecture, manufacturing control, quality control process, manufacturing quality control
+ms.custom: acom-architecture, manufacturing control, quality control process, manufacturing quality control, 'https://azure.microsoft.com/solutions/architecture/defect-prevention-with-predictive-maintenance/'
 ---
 # Defect prevention with predictive maintenance
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 Learn how to use Azure Machine Learning to predict failures before they happen with real-time assembly line data.
 

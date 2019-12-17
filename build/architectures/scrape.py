@@ -14,8 +14,8 @@ import tempfile
 import json
 
 
-use_cache=True
-single_url=True
+use_cache=False
+single_url=False
 
 #url="https://azure.microsoft.com/en-us/solutions/architecture/dev-test-microservice/"
 #url="https://azure.microsoft.com/en-us/solutions/architecture/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview/"
@@ -93,20 +93,14 @@ def scrape_page(url):
     articletext = articletext + "\nms.date: " + datetime.datetime.today().strftime('%m/%d/%Y')
     if description:
         articletext = articletext + "\ndescription: " + str(description.get('content'))
-    articletext = articletext + "\nms.custom: " + keywords
+    articletext = articletext + "\nms.custom: " + keywords + ", '" + url + "'"
 
     articletext = articletext + "\n---"
 
     # articletext += the title
     articletext = articletext + "\n# " + title + "\n\n"
 
-    articletext += '<div class="alert">\n\
-    <p class="alert-title">\n\
-        <span class="icon is-left" aria-hidden="true">\n\
-            <span class="icon docon docon-lightbulb" role="presentation"></span>\n\
-        </span>Solution Idea</p>\n\
-    <p>If you\'d like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>\n\
-</div>\n\n'
+    articletext += '[!INCLUDE [header_file](../header.md)]\n\n'
 
     # Pull all the text
     content=soup.find("div",{"class": "row-size2"}).find_all('p')
@@ -168,7 +162,7 @@ def scrape_page(url):
     #List the data flow
     flow=soup.find("div", {"id": "flowSteps"})
     if flow:
-        articletext += "\n\n## Data Flow"
+        articletext += "\n\n## Data Flow\n\n"
         steps=flow.find_all('li')
 
         steps_regex=re.compile('.*</span>\s*(.*).*\n', re.DOTALL)
@@ -177,7 +171,7 @@ def scrape_page(url):
             #articletext += str(step)
             match = steps_regex.match(str(step))
             if match:
-                articletext += "\n1. " + match.group(1)
+                articletext += "1. " + match.group(1)
             
 
 
@@ -243,10 +237,7 @@ def scrape_page(url):
         articletext += "\n* ["+deploy_link.text.strip()+"]("+deploy_link['href']+")"
 
 
-    # Link to original article on ACOM
-    # articletext += "\n\n## Original Article"
-    # articletext += "\n* ["+title.strip()+"]("+url+")"
-
+    # Link to JS file for dynamic content
     articletext += "\n\n[!INCLUDE [js_include_file](../../_js/index.md)]\n"
 
     # URL Cleanup
@@ -302,6 +293,8 @@ if __name__ == '__main__':
             redirects += '<add key="%s" value="%s" />\n' % (url.rstrip('\n'), get_docs_url(file_path))
 
     redirects = re.sub('http(:?s)://azure.microsoft.com', '', redirects, flags=re.MULTILINE)
+    redirects += '<add key="%s" value="%s" />\n' % ("/en-us/solutions/architecture/", "https://docs.microsoft.com/en-us/azure/architecture/architectures/")
+    redirects += '<add key="%s" value="%s" />\n' % ("/architecture/", "https://docs.microsoft.com/azure/architecture/")
     redirect_list=open(path.join(path.dirname(path.abspath(__file__)) + '/redirect_list.txt'), "w", encoding='utf8')
     redirect_list.write(redirects)
     redirect_list.close

@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Get near real-time data analytics on streaming services. This big data architecture allows you to combine any data at any scale with custom machine learning.
-ms.custom: acom-architecture, Big data architecture, Real time analytics, real time data analytics, interactive-diagram, pricing-calculator
+ms.custom: acom-architecture, Big data architecture, Real time analytics, real time data analytics, interactive-diagram, pricing-calculator, 'https://azure.microsoft.com/solutions/architecture/advanced-analytics-on-big-data/'
 ---
 # Advanced Analytics Architecture
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 Transform your data into actionable insights using the best-in-class machine learning tools. This architecture allows you to combine any data at any scale, and to build and deploy custom machine learning models at scale.
 
@@ -161,19 +155,8 @@ Transform your data into actionable insights using the best-in-class machine lea
 </div>
 
 ## Data Flow
-1. Bring together all your structured, unstructured and semi-structured data (logs, files, and media) using Azure Data Factory to Azure Blob Storage.
 
-1. Use Azure Databricks to clean and transform the structureless datasets and combine them with structured data from operational databases or data warehouses.
-
-1. Use scalable machine learning/deep learning techniques, to derive deeper insights from this data using Python, R or Scala, with inbuilt notebook experiences in Azure Databricks.
-
-1. Leverage native connectors between Azure Databricks and Azure Synapse Analytics to access and move data at scale.
-
-1. Power users take advantage of the inbuilt capabilities of Azure Databricks to perform root cause determination and raw data analysis.
-
-1. Run ad hoc queries directly on data within Azure Databricks.
-
-1. Take the insights from Azure Databricks to Cosmos DB to make them accessible through web and mobile apps.
+1. Bring together all your structured, unstructured and semi-structured data (logs, files, and media) using Azure Data Factory to Azure Blob Storage.1. Use Azure Databricks to clean and transform the structureless datasets and combine them with structured data from operational databases or data warehouses.1. Use scalable machine learning/deep learning techniques, to derive deeper insights from this data using Python, R or Scala, with inbuilt notebook experiences in Azure Databricks.1. Leverage native connectors between Azure Databricks and Azure Synapse Analytics to access and move data at scale.1. Power users take advantage of the inbuilt capabilities of Azure Databricks to perform root cause determination and raw data analysis.1. Run ad hoc queries directly on data within Azure Databricks.1. Take the insights from Azure Databricks to Cosmos DB to make them accessible through web and mobile apps.
 
 ## Components
 * [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) is the fast, flexible and trusted cloud data warehouse that lets you scale, compute and store elastically and independently, with a massively parallel processing architecture.

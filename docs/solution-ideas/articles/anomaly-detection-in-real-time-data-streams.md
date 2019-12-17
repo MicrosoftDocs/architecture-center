@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Cortana Intelligence IT Anomaly Insights solution helps IT departments within large organizations quickly detect and fix issues based on underlying health metrics from IT infrastructure (CPU, Memory, etc.), services (Timeouts, SLA variations, Brownouts, etc.), and other key performance indicators (KPIs) (Order backlog, Login and Payment failures, etc.) in an automated and scalable manner. This solution also offers an easy to 'Try it Now' experience that can be tried with customized data to realize the value offered by the solution. The 'Deploy' experience allows to quickly get started with the solution on Azure by deploying the end to end solution components into your Azure subscription and providing full control for customization as needed.
-ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery
+ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/anomaly-detection-in-real-time-data-streams/'
 ---
 # Anomaly Detection in Real-time Data Streams
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 Cortana Intelligence IT Anomaly Insights solution helps IT departments within large organizations quickly detect and fix issues based on underlying health metrics from IT infrastructure (CPU, Memory, etc.), services (Timeouts, SLA variations, Brownouts, etc.), and other key performance indicators (KPIs) (Order backlog, Login and Payment failures, etc.) in an automated and scalable manner. This solution also offers an easy to 'Try it Now' experience that can be tried with customized data to realize the value offered by the solution. The 'Deploy' experience allows to quickly get started with the solution on Azure by deploying the end to end solution components into your Azure subscription and providing full control for customization as needed.
 
@@ -98,7 +92,7 @@ Cortana Intelligence IT Anomaly Insights solves this customer pain by providing 
 
 ## Try It experience with PowerBI
 
-![IT Anomaly Insights Preconfigured Solution Dashboard](//azurecomcdn.azureedge.net/cvt-9c21c9cc881c0b235efc4f6c11e33fe02d206ad51552394dfa2abb52a71a94e1/images/shared/solutions/architecture-details/anomaly-detection-in-real-time-data-streams/power-bi-dashboard.png)
+![IT Anomaly Insights Preconfigured Solution Dashboard](//azurecomcdn.azureedge.net/cvt-add179e08f40a2f574f2c13e23c39140f82f2f0c5faf32b8e79061bb1ec3c7ca/images/shared/solutions/architecture-details/anomaly-detection-in-real-time-data-streams/power-bi-dashboard.png)
 
 ## Solution Diagram
 

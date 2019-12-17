@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Secure your e-commerce website's sensitive user and payment data using the Microsoft Azure App Service Environment.
-ms.custom: acom-architecture, app service environment, security for ecommerce websites, e-commerce security solutions, e-commerce site security, interactive-diagram
+ms.custom: acom-architecture, app service environment, security for ecommerce websites, e-commerce security solutions, e-commerce site security, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/ecommerce-website-running-in-secured-ase/'
 ---
 # E-commerce website running in secured App Service Environment
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 ## Architecture
 
@@ -265,31 +259,8 @@ ms.custom: acom-architecture, app service environment, security for ecommerce we
 </div>
 
 ## Data Flow
-1. Customer accesses the public website in browser.
 
-1. Browser pulls static resources and product images from Azure Content Delivery Network.
-
-1. Content Delivery Network pulls product images from blob storage.
-
-1. Customer searches for products.
-
-1. Public website pulls product catalog from product database.
-
-1. Page output is cached in the Azure Cache for Redis.
-
-1. Customer creates new orders.
-
-1. Public website invokes orders web service.
-
-1. Orders web service saves/loads orders from Azure SQL Database.
-
-1. Employee accesses the admin website in browser.
-
-1. Employee authenticates against Azure Active Directory (Azure AD).
-
-1. Employee searches orders.
-
-1. Admin website invokes orders web service.
+1. Customer accesses the public website in browser.1. Browser pulls static resources and product images from Azure Content Delivery Network.1. Content Delivery Network pulls product images from blob storage.1. Customer searches for products.1. Public website pulls product catalog from product database.1. Page output is cached in the Azure Cache for Redis.1. Customer creates new orders.1. Public website invokes orders web service.1. Orders web service saves/loads orders from Azure SQL Database.1. Employee accesses the admin website in browser.1. Employee authenticates against Azure Active Directory (Azure AD).1. Employee searches orders.1. Admin website invokes orders web service.
 
 ## Components
 * [App Service](https://azure.microsoft.com/services/app-service/): Quickly create powerful cloud apps for web and mobile

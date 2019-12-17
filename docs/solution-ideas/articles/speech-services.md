@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: With Speech Services, it's easy to transcribe every call. Index the transcription for full-text search, or apply Text Analytics to detect sentiment, language, and key phrases for insights. If your call center recordings involve specialized terminology, such as product names or IT jargon, create a custom language model to teach Speech Services the vocabulary. A custom acoustic model helps Speech Services understand speakers even with background noise or poor phone connections. For more information, read how batch transcription works with Speech Services.
-ms.custom: acom-architecture, speech service, speech, services, interactive-diagram
+ms.custom: acom-architecture, speech service, speech, services, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/speech-services/'
 ---
 # Speech Services
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 With Speech Services, it's easy to transcribe every call. Index the transcription for [full-text search](/azure/search/search-what-is-azure-search), or apply [Text Analytics](/azure/cognitive-services/Text-Analytics/) to detect sentiment, language, and key phrases for insights. If your call center recordings involve specialized terminology, such as product names or IT jargon, create a custom [language model](/azure/cognitive-services/speech-service/how-to-customize-language-model) to teach Speech Services the vocabulary. A custom [acoustic model](/azure/cognitive-services/speech-service/how-to-customize-acoustic-models) helps Speech Services understand speakers even with background noise or poor phone connections.
 
@@ -112,18 +106,7 @@ For more information, read how [batch transcription](/azure/cognitive-services/s
 </div>
 
 ## Data Flow
-1. Adapt a model for your domain and deploy that model
 
-1. Upload your recordings to a blob container
-
-1. Create a POST request to batch transcription
-
-1. Speech Services schedules the transcription job
-
-1. Stereo files are split into two channels
-
-1. Mono files undergo diarization to distinguish between speakers
-
-1. Download the transcription using the transcription ID
+1. Adapt a model for your domain and deploy that model1. Upload your recordings to a blob container1. Create a POST request to batch transcription1. Speech Services schedules the transcription job1. Stereo files are split into two channels1. Mono files undergo diarization to distinguish between speakers1. Download the transcription using the transcription ID
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

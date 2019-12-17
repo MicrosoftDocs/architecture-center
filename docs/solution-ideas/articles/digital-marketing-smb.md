@@ -4,17 +4,11 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Start simple with the content management system that enables you to easily maintain the messaging on your website in real-time, from a browser, with no coding skills.
-ms.custom: acom-architecture
+ms.custom: acom-architecture, 'https://azure.microsoft.com/solutions/architecture/digital-marketing-smb/'
 ---
 # Simple digital marketing website
 
-<div class="alert">
-    <p class="alert-title">
-        <span class="icon is-left" aria-hidden="true">
-            <span class="icon docon docon-lightbulb" role="presentation"></span>
-        </span>Solution Idea</p>
-    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-</div>
+[!INCLUDE [header_file](../header.md)]
 
 Start simple with the content management system that enables you to easily maintain the messaging on your website in real-time, from a browser, with no coding skills.
 
