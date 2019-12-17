@@ -16,7 +16,7 @@ This solution is built on the Azure managed services: [Azure Backup](https://azu
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="backup-archive-cloud-application" height="354" viewbox="0 0 1006 354" width="1006" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="backup-archive-cloud-application" height="354" viewbox="0 0 1006 354"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path d="M72.329 137.53v-5.14C72.329 59.122 128.748 0 198.663 0c42.9 0 80.73 23.774 102.784 59.123 11.663-6.212 22.702-9.855 36.197-9.855 39.438 0 70.72 33.63 70.72 75.19 28.6 19.282 45.359 51.201 45.359 86.326 0 54.855-37.807 98.114-86.651 104.326H84.204C36.992 315.11 0 273.55 0 226.85c0-46.05 31.059-83.12 72.35-89.333" fill="#EBF4FB"/>
         <path d="M179.225 191.613h-16.841c2.146 7.295-.61 8.57-12.252 8.57v3.81h39.83v-3.81c-11.643 0-12.868-1.275-10.724-8.57" fill="#7A7A7A"/>

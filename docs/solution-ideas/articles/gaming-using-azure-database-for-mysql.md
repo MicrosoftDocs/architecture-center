@@ -14,7 +14,7 @@ Scale your databases elastically to accommodate unpredictable bursts of traffic 
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="gaming-using-azure-database-for-mysql" height="248.39" viewbox="0 0 775.025 248.39" width="775.025" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="gaming-using-azure-database-for-mysql" height="248.39" viewbox="0 0 775.025 248.39"  xmlns="http://www.w3.org/2000/svg">
     <text fill="#5b5b5b" font-family="SegoeUI, Segoe UI" font-size="14" transform="translate(0 223.302)">
         Mobile App
     </text>

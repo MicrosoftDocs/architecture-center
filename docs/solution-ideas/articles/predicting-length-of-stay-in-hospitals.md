@@ -14,7 +14,7 @@ This solution enables a predictive model for Length of Stay for in-hospital admi
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="predicting-length-of-stay-in-hospitals" height="71.779" viewbox="0 0 811.074 71.779" width="811.074" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="predicting-length-of-stay-in-hospitals" height="71.779" viewbox="0 0 811.074 71.779"  xmlns="http://www.w3.org/2000/svg">
     <g data-name="Layer 2">
         <g data-name="Layer 1">
             <g fill="#969696">

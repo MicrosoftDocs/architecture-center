@@ -14,7 +14,7 @@ Easily tier data and applications on-premises and in Azure with architecture tha
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="tiered-data-for-analytics" height="320" viewbox="0 0 955 320" width="955" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="tiered-data-for-analytics" height="320" viewbox="0 0 955 320"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#F3F3F3" d="M117.834 319.643h666.01V19.973h-666.01zM805.477 319.643h149.368V19.973H805.477z"/>
         <path d="M171.345 102.52c0 .867.694 1.648 1.562 1.648h39.916c.868 0 1.648-.694 1.648-1.648V73.97h-43.126v28.55z" fill="#9FA0A1"/>

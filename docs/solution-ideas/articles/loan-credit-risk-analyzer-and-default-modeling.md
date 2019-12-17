@@ -18,7 +18,7 @@ Data-driven credit-risk modeling reduces the number of loans offered to borrower
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="loan-credit-risk-analyzer-and-default-modeling" height="117.719" viewbox="0 0 915.875 117.719" width="915.875" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="loan-credit-risk-analyzer-and-default-modeling" height="117.719" viewbox="0 0 915.875 117.719"  xmlns="http://www.w3.org/2000/svg">
     <text fill="#505050" font-family="SegoeUI, Segoe UI" font-size="15" style="isolation:isolate" transform="matrix(1.036 0 0 1 838.422 112.892)">
         <tspan letter-spacing="-.037em">P</tspan><tspan x="7.845" y="0">o</tspan><tspan letter-spacing="-.005em" x="16.634" y="0">w</tspan><tspan letter-spacing="0em" x="27.4" y="0">er BI</tspan>
     </text>

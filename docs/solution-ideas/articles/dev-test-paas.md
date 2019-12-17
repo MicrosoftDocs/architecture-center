@@ -16,7 +16,7 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="dev-test-paas" height="482.775" viewbox="0 0 825.046 482.775" width="825.046" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="dev-test-paas" height="482.775" viewbox="0 0 825.046 482.775"  xmlns="http://www.w3.org/2000/svg">
     <path fill="#ededed" opacity=".5" d="M280.048 150.108h265.376v332.667H280.048zM559.67 150.108h265.376v332.667H559.67zM0 150.108h265.376v332.667H0z"/>
     <path d="M153.631 382.729v-.382c0-9.812-8.41-17.967-18.731-18.094-.255-.382-6.116.127-6.116.127-9.3 1.147-16.565 8.92-16.565 17.967 0 .255-1.019 7.391 6.244 13.379 3.313 2.931 6.753 10.831 7.263 13.125l.382.765h13.507l.382-.765c.51-2.294 4.078-10.194 7.263-13 7.263-6.113 6.371-12.867 6.371-13.122z" fill="#68217a"/>
     <path fill="#7a7a7a" d="M126.362 414.203h13.507v4.332h-13.507zM130.567 427.709h4.97l4.205-4.459h-13.38l4.205 4.459z"/>
