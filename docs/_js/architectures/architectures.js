@@ -1,22 +1,23 @@
 function unCheck(checkid) {
-    $("#"+checkid).remove()
+    $("#"+checkid).remove();
     $("."+checkid).prop("checked", false );
     filter();
 }
 
 function toggle(object=this, forceExpand=false) {
     if (object.currentTarget) {
-        newObject=object.currentTarget
+        newObject=object.currentTarget;
     } else {
-        newObject=object
+        newObject=object;
     }
 
     var controls = $("#"+$(newObject).attr('aria-controls'));
     var current = JSON.parse($(newObject).attr('aria-expanded'));
+    var expand;
     if (forceExpand) {
-        var expand = !forceExpand;
+        expand = !forceExpand;
     } else {
-        var expand = !current;
+        expand = !current;
     }
 
     $(newObject).attr('aria-expanded', (expand).toString());
@@ -292,7 +293,7 @@ function filter(pageNumber, newSearch=false) {
 
     // Set the search box text
     if (parsedParams.get("search") && !newSearch) {
-        $('#search-content').val(parsedParams.get("search"))
+        $('#search-content').val(parsedParams.get("search"));
     }
 
     // Load content data and filter it
@@ -319,7 +320,7 @@ function filter(pageNumber, newSearch=false) {
                     '\')"></button></span>');
                 filterTerms = filterTerms.concat($(this).val().toLowerCase().split(" "));
             });
-        };
+        }
        
         // Look for items that match the checkbox
         // TODO: Match all filters, not 'some'
@@ -348,7 +349,7 @@ function filter(pageNumber, newSearch=false) {
 
         $.getJSON('/azure/architecture/solution-ideas/metadata/display-tags.json.txt', function (tagData) {
             // Get the tags for every checked item
-            var visibleArticleTags = Array.from(new Set([].concat.apply([], data['articles'].map(data => data['tags'])).sort()))
+            //var visibleArticleTags = Array.from(new Set([].concat.apply([], data.articles.map(data => data.tags)).sort()));
 
             // TODO: Fix Filter to not filter current category
             // filteredTagData = tagData["categories"].filter(function(category) {
@@ -376,18 +377,19 @@ function filter(pageNumber, newSearch=false) {
             parsedParams.getAll("filter").forEach(function(filter){
                 $( "input[friendly-name='" + filter + "']" ).prop("checked", true);
                 toggle($( "input[friendly-name='" + filter + "']" ).closest("div[data-bi-name]").find(".expander-button"), forceExpand=true);
-            })
+            });
 
             // Expand anything that was previously expanded
             expandedGroups.forEach(function(item){
                 toggle($(".expander-button[aria-controls='" + item + "']"), forceExpand=true);
-            })
+            });
         });
         
+        var branch;
         if (parsedParams.get("branch")) {
-            var branch = parsedParams.get("branch");
+            branch = parsedParams.get("branch");
         } else {
-            var branch = "";
+            branch = "";
         }
 
         var queryParams = {
@@ -395,20 +397,20 @@ function filter(pageNumber, newSearch=false) {
             "search": searchText,
             "page": pageNumber,
             "branch": branch
-        }
+        };
 
         function isEmpty(value){
-            return value == null || value == "";
+            return value === null || value === "";
         }
 
-        for(key in queryParams) {
+        for(var key in queryParams) {
             if(isEmpty(queryParams[key])) {
                 delete queryParams[key]; 
             }
         }
 
-        if (queryParams['page'] == 1) {
-            delete queryParams['page']
+        if (queryParams.page == 1) {
+            delete queryParams.page;
         }
 
         // Update the URL bar
@@ -438,7 +440,7 @@ function filter(pageNumber, newSearch=false) {
             // Trying to figure out where to put the elipsis
             // TODO: Stupid math, needs to be better
             skipStart = Math.ceil((totalPages+4-maxPageNums)/2);
-            skipEnd = Math.floor(totalPages-(totalPages-maxPageNums)+skipStart-2)
+            skipEnd = Math.floor(totalPages-(totalPages-maxPageNums)+skipStart-2);
         } else {
             skipStart = maxPageNums+1;
             skipEnd = maxPageNums+1;
@@ -454,12 +456,12 @@ function filter(pageNumber, newSearch=false) {
         };
        
         var pagination = paginationTemplate(pageData);
-        $(".pagination").remove()
+        $(".pagination").remove();
         $("#results").append(pagination);
 
-        $(".resultcount").text(data.articles.length + " Architectures Found")
+        $(".resultcount").text(data.articles.length + " Architectures Found");
     });
-};
+}
 
 $(window).resize(function() { 
     $(".grid-item").css("max-width", "");
