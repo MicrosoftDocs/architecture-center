@@ -501,45 +501,45 @@ items:
       - href: solution-ideas/articles/predictive-insights-with-vehicle-telematics.md
         name: Predictive Insights with Vehicle Telematics
   - name: Application development
+    items:
+    - name: Solution Ideas
       items:
-      - name: Solution Ideas
-        items:
-        - href: solution-ideas/articles/application-integration-using-event-grid.md
-          name: Application integration using Event Grid
-        - href: solution-ideas/articles/custom-mobile-workforce-app.md
-          name: Custom Mobile Workforce App
-        - href: solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.md
-          name: Digital Campaign Management
-        - href: solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.md
-          name: Digital Marketing using Azure Database for MySQL
-        - href: solution-ideas/articles/ecommerce-website-running-in-secured-ase.md
-          name: E-commerce website running in secured App Service Environment
-        - href: solution-ideas/articles/gaming-using-azure-database-for-mysql.md
-          name: Gaming using Azure Database for MySQL
-        - href: solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.md
-          name: Globally distributed applications using Cosmos DB
-        - href: solution-ideas/articles/hybrid-identity.md
-          name: Hybrid Identity
-        - href: solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql.md
-          name: Intelligent apps using Azure Database for MySQL
-        - href: solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql.md
-          name: Intelligent apps using Azure Database for PostgreSQL
-        - href: solution-ideas/articles/messaging.md
-          name: Messaging
-        - href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.md
-          name: Retail and e-commerce using Azure MySQL
-        - href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.md
-          name: Retail and e-commerce using Azure PostgreSQL
-        - href: solution-ideas/articles/medium-umbraco-web-app.md
-          name: Scalable Umbraco CMS web app
-        - href: solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.md
-          name: Scalable web and mobile applications using Azure Database for MySQL
-        - href: solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.md
-          name: Scalable web and mobile applications using Azure Database for PostgreSQL
-        - href: solution-ideas/articles/speech-services.md
-          name: Speech Services
-        - href: solution-ideas/articles/task-based-consumer-mobile-app.md
-          name: Task-Based Consumer Mobile App
+      - href: solution-ideas/articles/application-integration-using-event-grid.md
+        name: Application integration using Event Grid
+      - href: solution-ideas/articles/custom-mobile-workforce-app.md
+        name: Custom Mobile Workforce App
+      - href: solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.md
+        name: Digital Campaign Management
+      - href: solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.md
+        name: Digital Marketing using Azure Database for MySQL
+      - href: solution-ideas/articles/ecommerce-website-running-in-secured-ase.md
+        name: E-commerce website running in secured App Service Environment
+      - href: solution-ideas/articles/gaming-using-azure-database-for-mysql.md
+        name: Gaming using Azure Database for MySQL
+      - href: solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.md
+        name: Globally distributed applications using Cosmos DB
+      - href: solution-ideas/articles/hybrid-identity.md
+        name: Hybrid Identity
+      - href: solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql.md
+        name: Intelligent apps using Azure Database for MySQL
+      - href: solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql.md
+        name: Intelligent apps using Azure Database for PostgreSQL
+      - href: solution-ideas/articles/messaging.md
+        name: Messaging
+      - href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.md
+        name: Retail and e-commerce using Azure MySQL
+      - href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.md
+        name: Retail and e-commerce using Azure PostgreSQL
+      - href: solution-ideas/articles/medium-umbraco-web-app.md
+        name: Scalable Umbraco CMS web app
+      - href: solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.md
+        name: Scalable web and mobile applications using Azure Database for MySQL
+      - href: solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.md
+        name: Scalable web and mobile applications using Azure Database for PostgreSQL
+      - href: solution-ideas/articles/speech-services.md
+        name: Speech Services
+      - href: solution-ideas/articles/task-based-consumer-mobile-app.md
+        name: Task-Based Consumer Mobile App
   - name: App modernization
     items:
     - name: Solution Ideas
