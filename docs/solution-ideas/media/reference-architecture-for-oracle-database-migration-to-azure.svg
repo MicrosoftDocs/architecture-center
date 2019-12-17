@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="reference-architecture-for-oracle-database-migration-to-azure"  viewbox="0 0 1044 701"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="reference-architecture-for-oracle-database-migration-to-azure" height="701" viewbox="0 0 1044 701" width="1044" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(-29 -9)" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path d="M0 720.059h1081.57V0H0z"/>
         <text fill="#525252" font-family="SegoeUI-Semibold, Segoe UI" font-size="10.234" font-weight="500">

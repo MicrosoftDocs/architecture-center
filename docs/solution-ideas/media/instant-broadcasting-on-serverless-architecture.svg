@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="instant-broadcasting-on-serverless-architecture"  viewbox="0 0 593.754 403.234"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="instant-broadcasting-on-serverless-architecture" height="403.234" viewbox="0 0 593.754 403.234" width="593.754" xmlns="http://www.w3.org/2000/svg">
     <mask height="19.514" id="a" maskunits="userSpaceOnUse" width="10.785" x="313.462" y="144.199">
         <path fill="#fff" d="M313.462 144.199v19.515h10.786v-19.515h-10.786z"/>
     </mask>

@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview"  viewbox="0 0 1180 718.149"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview" height="718.149" viewbox="0 0 1180 718.149" width="1180" xmlns="http://www.w3.org/2000/svg">
     <path fill="#5c4ee5" d="M744.517 336.76l-12.027-6.842v-13.686l12.027 6.843v13.685zM758.061 344.357l-12.027-6.843v-13.686l12.027 6.843v13.686zM758.061 360.042l-12.027-6.842v-13.686l12.027 6.843v13.685z"/>
     <path fill="#4040b2" d="M771.478 323.828l-12.027 6.843v13.686l12.027-6.843v-13.686z"/>
     <path d="M765.213 38.123l-20.55-5.257V0l20.374 5.212a7.339 7.339 0 015.52 7.11v21.651a4.283 4.283 0 01-5.344 4.15z" fill="#6c9e91"/>

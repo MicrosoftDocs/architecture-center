@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="java-cicd-using-jenkins-and-azure-web-apps"  viewbox="0 0 1098.898 734.379"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg class="architecture-diagram" aria-labelledby="java-cicd-using-jenkins-and-azure-web-apps" height="734.379" viewbox="0 0 1098.898 734.379" width="1098.898" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
         <lineargradient gradienttransform="matrix(1, 0, 0, -1, 0, 738.235)" gradientunits="userSpaceOnUse" id="a" x1="1.112" x2="23.166" y1="63.217" y2="63.217">
             <stop offset=".258" stop-color="#f97a12"/>

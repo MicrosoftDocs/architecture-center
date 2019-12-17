@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="real-time-analytics"  viewbox="0 0 1169 637"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="real-time-analytics" height="637" viewbox="0 0 1169 637" width="1169" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#F3F3F3" d="M847.517 636.925h149.62V498.83h-149.62zM161.034 489.503h148.542V337.658H161.034zM161.296 156.048h148.446V17.021H161.296zM332.63 156.048h148.445V17.021H332.63zM1020.31 489.503h146.791v-151.42h-146.79zM846.012 154.549h322.171V15.762h-322.17zM503.53 489.503h150.085V16.183H503.53z"/>
         <path fill="#959595" d="M126.892 422.741h40.334v-1.5h-40.334z"/>
