@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 function unCheck(checkid) {
     $("#"+checkid).remove();
     $("."+checkid).prop("checked", false );
