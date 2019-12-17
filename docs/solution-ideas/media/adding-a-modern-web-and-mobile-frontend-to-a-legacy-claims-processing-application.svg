@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application" height="793" viewbox="0 0 1009 793" width="1009" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application"  viewbox="0 0 1009 793"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd">
         <path d="M81.43 572.727a3.706 3.706 0 01-3.694-3.694v-45.591a3.705 3.705 0 013.694-3.695h21.441a3.703 3.703 0 013.693 3.695v45.591a3.704 3.704 0 01-3.693 3.694h-21.44z" fill="#454C50"/>
         <path d="M93.218 523.75a1.066 1.066 0 11-2.133-.003 1.066 1.066 0 012.133.002" fill="#505659"/>

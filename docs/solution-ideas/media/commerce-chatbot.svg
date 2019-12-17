@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="commerce-chatbot" height="457" viewbox="0 0 614 457" width="614" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="commerce-chatbot"  viewbox="0 0 614 457"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#959595" d="M222.486 344.062h1.5V236.148h-1.5z"/>
         <path fill="#959595" d="M228.472 342.53l-5.236 9.066L218 342.53zM228.472 237.679l-5.236-9.066-5.235 9.066zM565.827 344.062h1.5V135.838h-1.5z"/>

@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="migrate-existing-applications-with-aks" height="450" viewbox="0 0 825 450" width="825" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="migrate-existing-applications-with-aks"  viewbox="0 0 825 450"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#F3F3F3" d="M415.824 308.222h400.177V9.422H415.824z"/>
         <path fill="#FFF" d="M511.135 211.67l5.437 1.897v-11.5l-5.437 1.78zM521.01 224.962l5.625 1.917v-11.813l-5.625 1.625zM502.187 224.88l5.584 1.957v-11.75l-5.584 1.646zM483.062 224.844l5.584 1.847v-11.583l-5.584 1.437zM492.041 238.17l5.437 1.813-.083-11.437-5.354 1.479z"/>

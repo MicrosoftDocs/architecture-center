@@ -14,7 +14,7 @@ Quickly save, retrieve, and update web session data such as user cookies and out
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="scalable-web-apps" height="462" viewbox="0 0 478 462" width="478" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="scalable-web-apps"  viewbox="0 0 478 462"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#F3F3F3" d="M327.96 461.997h149.714V0H327.96z"/>
         <path fill="#949494" d="M145.29 82.15l-7.064-3.646v2.534H76.208v1.5h62.018v3.03zM145.29 243.01l-7.064-3.646v2.534H76.208v1.5h62.018v3.03zM321.79 243.01l-7.065-3.646v2.534h-62.018v1.5h62.018v3.03zM321.79 82.15l-7.065-3.646v2.534h-62.018v1.5h62.018v3.03zM321.79 401.69l-7.065-3.647v2.534h-62.018v1.5h62.018v3.031zM145.29 402.69l-7.064-3.647v2.534H76.208v1.5h62.018v3.031z"/>

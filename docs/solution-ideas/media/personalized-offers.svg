@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="personalized-offers" height="927.094" viewbox="0 0 1193 927.094" width="1193" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg class="architecture-diagram" aria-labelledby="personalized-offers"  viewbox="0 0 1193 927.094"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g style="isolation:isolate">
         <text fill="#5b5b5b" font-family="SegoeUI, Segoe UI" font-size="14" transform="translate(47.175 379.589)">
             User Action<tspan x="2.878" y="16.8">Simulation</tspan>

@@ -16,7 +16,7 @@ This solution is built on the Azure managed services: [Content Delivery Network]
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="digital-media-speech-text" height="387.693" viewbox="0 0 721.972 387.693" width="721.972" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="digital-media-speech-text"  viewbox="0 0 721.972 387.693"  xmlns="http://www.w3.org/2000/svg">
     <text fill="#5e5e5e" font-family="SegoeUI, Segoe UI" font-size="10" transform="translate(249.756 287.984)">
         <tspan letter-spacing=".02em">T</tspan><tspan x="5.435" y="0">TML, </tspan><tspan letter-spacing="-.039em" x="29.268" y="0">W</tspan><tspan x="38.218" y="0">eb</tspan><tspan letter-spacing=".019em" x="49.326" y="0">VT</tspan><tspan x="61.162" y="0">T</tspan><tspan letter-spacing="-.013em" x="11.985" y="12">K</tspan><tspan x="17.654" y="12">eywords</tspan>
     </text>

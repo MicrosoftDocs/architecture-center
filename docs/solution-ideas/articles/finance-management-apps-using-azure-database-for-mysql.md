@@ -14,7 +14,7 @@ Securely store critical data and provide high-value analytics and insights over 
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="finance-management-apps-using-azure-database-for-mysql" height="388.214" viewbox="0 0 621 388.214" width="621" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="finance-management-apps-using-azure-database-for-mysql"  viewbox="0 0 621 388.214"  xmlns="http://www.w3.org/2000/svg">
     <path fill="none" stroke="#969696" stroke-miterlimit="10" stroke-width="1.5" d="M386.349 107.679V30.162H79.169"/>
     <path fill="#969696" d="M391.585 106.147l-5.236 9.067-5.235-9.067h10.471z"/>
     <text fill="#5b5b5b" font-family="SegoeUI, Segoe UI" font-size="14" style="isolation:isolate" transform="translate(3.851 76.428)">

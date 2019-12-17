@@ -28,7 +28,7 @@ The links to the right provide documentation on deploying and managing the Azure
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="big-compute-with-azure-batch" height="653" viewbox="0 0 640 653" width="640" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="big-compute-with-azure-batch"  viewbox="0 0 640 653"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#F7F7F7" d="M306.699 167.328h148.667V30.213H306.699z"/>
         <path fill="#F4F4F4" d="M135.992 644.294h493.874v-446.5H135.992z"/>

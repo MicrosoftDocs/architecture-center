@@ -22,7 +22,7 @@ The links to the right provide documentation on deploying and managing the Azure
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="hybrid-hpc-in-azure-with-hpc-pack" height="453" viewbox="0 0 690 453" width="690" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="hybrid-hpc-in-azure-with-hpc-pack"  viewbox="0 0 690 453"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#F4F4F4" d="M386.358 452.874h141.34v-131.25h-141.34zM386.358 145.541h141.341V14.291H386.358zM386.358 298.874h303.344V167.623H386.358z"/>
         <path d="M4.743 229.25c0 .7.5 1.2 1.2 1.2h27.6c.7 0 1.2-.5 1.2-1.2v-20h-30v20z" fill="#0072C5"/>

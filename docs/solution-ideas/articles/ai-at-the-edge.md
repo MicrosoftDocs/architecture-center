@@ -14,7 +14,7 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="ai-at-the-edge" height="504" viewbox="0 0 911 504" width="911" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="ai-at-the-edge"  viewbox="0 0 911 504"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#F3F3F3" d="M464.211 503.642h321v-483h-321zM98.697 503.642H441.65v-483H98.697z"/>
         <path fill="#959595" d="M838.189 101.565h-63.468v-4.486l-9.067 5.236 9.067 5.235v-4.485h63.468z"/>
@@ -171,7 +171,14 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 
 ## Data Flow
 
-1. Data scientists train a model using Azure Machine Learning workbench and an HDInsight cluster. The model is containerized and put into an Azure Container Registry.1. The model is deployed to a Kubernetes cluster on Azure Stack.1. End users provide data that’s scored against the model.1. Insights and anomalies from scoring are placed into a queue.1. A function sends compliant data and anomalies to Azure Storage.1. Globally relevant and compliant insights are available in the global app.1. Data from edge scoring is used to improve the model.
+1. Data scientists train a model using Azure Machine Learning workbench and an HDInsight cluster. The model is containerized and put into an Azure Container Registry.
+1. The model is deployed to a Kubernetes cluster on Azure Stack.
+1. End users provide data that’s scored against the model.
+1. Insights and anomalies from scoring are placed into a queue.
+1. A function sends compliant data and anomalies to Azure Storage.
+1. Globally relevant and compliant insights are available in the global app.
+1. Data from edge scoring is used to improve the model.
+
 
 ## Components
 * [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/): Easily build, deploy, and manage predictive analytics solutions
