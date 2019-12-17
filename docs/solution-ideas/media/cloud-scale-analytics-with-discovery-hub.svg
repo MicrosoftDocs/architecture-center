@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="cloud-scale-analytics-with-discovery-hub" height="354" viewbox="0 0 1018 354" width="1018" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="cloud-scale-analytics-with-discovery-hub"  viewbox="0 0 1018 354"  xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(0 .25)" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path d="M537.498 133.236h-.75" stroke="#9F9F9F" stroke-width="1.5"/>
         <path d="M532.738 133.236H154.282" stroke="#9F9F9F" stroke-dasharray="1.504,4.01" stroke-width="1.5"/>

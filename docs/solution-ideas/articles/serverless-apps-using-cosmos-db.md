@@ -14,7 +14,7 @@ Use Azure Functions and Azure Cosmos DB to build globally distributed, scalable 
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="serverless-apps-using-cosmos-db" fill="none" height="460" viewbox="0 0 832 460" width="832" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="serverless-apps-using-cosmos-db" fill="none"  viewbox="0 0 832 460"  xmlns="http://www.w3.org/2000/svg">
     <path d="M26.01 199.9v22.7c0 3.1 1.1 4.3 4.3 4.3h35.1c3.1 0 4.3-1.1 4.3-4.3v-22.7h-43.7z" fill="#59B3D8"/>
     <path d="M69.61 200.7v-7.1c0-3.1-1.1-4.3-4.3-4.3h-35c-3.1 0-4.3 1.1-4.3 4.3v7.1h43.6z" fill="#9FA0A1"/>
     <path d="M64.21 189.3h-33.9c-3.1 0-4.3 1.1-4.3 4.3v7.2h27.6l10.6-11.5z" fill="#B2B3B4"/>

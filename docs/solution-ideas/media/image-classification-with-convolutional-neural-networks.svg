@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="image-classification-with-convolutional-neural-networks" height="534" viewbox="0 0 681 534" width="681" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="image-classification-with-convolutional-neural-networks"  viewbox="0 0 681 534"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path d="M64.936 436.867h-2.553l-1.522 1.66h4.075v11.985H49.859l-3.131 3.41h-2.013a1.842 1.842 0 01-1.83-1.844v.185c0 .921.732 1.751 1.647 1.751h42.364c.915 0 1.739-.738 1.739-1.75v-31.579l-11.415.04-12.284 13.362v2.78z" fill="#9FA0A1"/>
         <path d="M88.635 421.655V416.4c0-.92-.732-1.75-1.738-1.75h-4.118l-6.432 7.005h12.288zM44.715 414.65h-.183c-.915 0-1.647.83-1.647 1.751v.092c0-1.014.823-1.844 1.83-1.844" fill="#7A7A7A"/>

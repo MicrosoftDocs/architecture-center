@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="dev-test-microservice" height="591.775" viewbox="0 0 825.046 591.775" width="825.046" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="dev-test-microservice"  viewbox="0 0 825.046 591.775"  xmlns="http://www.w3.org/2000/svg">
     <path fill="#ededed" opacity=".5" d="M280.048 150.108h265.376v441.667H280.048zM559.67 150.108h265.376v441.667H559.67z"/>
     <path fill="none" stroke="#b5b5b5" stroke-miterlimit="10" stroke-width="1.643" d="M303.888 35.631h60.759"/>
     <path fill="#b5b5b5" d="M363.448 39.726l7.093-4.095-7.093-4.096v8.191z"/>

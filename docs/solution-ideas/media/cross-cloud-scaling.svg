@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="cross-cloud-scaling" height="476" viewbox="0 0 782 476" width="782" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="cross-cloud-scaling"  viewbox="0 0 782 476"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#804997" d="M354.854 217.88l-.001.001h16.552l6.014 6v.005l-1.129 1.129 5.211 5.199v15.385l-10.759 10.669h-15.247l-5.231-5.212-1.132 1.133.001.001 5.698 5.677h16.574l11.696-11.596v-16.724l-5.681-5.666-6.014-6-.001-.001z"/>
         <path fill="#804997" d="M374.8 238.683l4.493 4.238v-11.792l-4.565-4.552-9.258 9.263v3.408h-3.408l-3.53 3.532h4.065l-1.903 2.129 9.016 9.155h.121l7.224-7.165-5.09-5.53-2.973 2.952v-8.598h9.1zM351.824 249.496l2.7 2.692.6.597 1.28 1.278h8.889l-1.317-1.278-.614-.597-5.157-5.01-2.14 2.305v-4.23z"/>

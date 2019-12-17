@@ -14,7 +14,7 @@ Build secure and scalable e-commerce solutions that meet the demands of both cus
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="retail-and-ecommerce-using-azure-database-for-postgresql" height="285.39" viewbox="0 0 595.565 285.39" width="595.565" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="retail-and-ecommerce-using-azure-database-for-postgresql"  viewbox="0 0 595.565 285.39"  xmlns="http://www.w3.org/2000/svg">
     <text fill="#5b5b5b" font-family="SegoeUI, Segoe UI" font-size="14" transform="translate(3.797 91.785)">
         B<tspan letter-spacing="-.013em" x="8.025" y="0">r</tspan><tspan x="12.708" y="0">owser</tspan>
     </text>

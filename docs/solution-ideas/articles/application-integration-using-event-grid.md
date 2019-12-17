@@ -14,7 +14,7 @@ Event Grid connects your app with other services. For example, create an applica
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="application-integration-using-event-grid" height="441" viewbox="0 0 268 147" width="804" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="application-integration-using-event-grid"  viewbox="0 0 268 147"  xmlns="http://www.w3.org/2000/svg">
     <path d="M48.213 130.917H7.412a6.266 6.266 0 01-6.266-6.267v-33.4h47.917v7.5l5.417.083v25.817a6.267 6.267 0 01-6.267 6.267" fill="#FFF4CD"/>
     <path fill="#DDF0F7" d="M36.662 41.862H3.812V1.126h25.5l7.35 7.75z"/>
     <path d="M248.61 127.67v-3.983h-1.993v3.983c0 .717-.637 1.354-1.673 1.673l-2.709.557c-1.832.558-3.106 1.992-3.106 3.585v4.541h1.991v-4.54c0-.717.637-1.355 1.674-1.673l2.708-.638a3.85 3.85 0 003.107-3.505" fill="#59B4D9"/>

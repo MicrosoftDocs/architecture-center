@@ -16,7 +16,7 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="digital-marketing-episerver" height="427" viewbox="0 0 806 427" width="806" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="digital-marketing-episerver"  viewbox="0 0 806 427"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#F3F3F3" d="M289.281 426.057h516.688V287.733H289.281z"/>
         <path fill="#804997" d="M356.65 0h17.991l6.538 6.523v.006l-1.228 1.227 5.665 5.65V30.13L373.92 41.728h-16.573l-5.686-5.665-1.23 1.23 6.194 6.172h18.015l12.714-12.604V12.683l-6.175-6.16L374.641 0V0z"/>

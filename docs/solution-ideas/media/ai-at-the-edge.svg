@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="ai-at-the-edge" height="504" viewbox="0 0 911 504" width="911" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="ai-at-the-edge"  viewbox="0 0 911 504"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#F3F3F3" d="M464.211 503.642h321v-483h-321zM98.697 503.642H441.65v-483H98.697z"/>
         <path fill="#959595" d="M838.189 101.565h-63.468v-4.486l-9.067 5.236 9.067 5.235v-4.485h63.468z"/>
