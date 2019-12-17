@@ -1,12 +1,13 @@
-/*jshint esversion: 6 */
-
 function unCheck(checkid) {
     $("#"+checkid).remove();
     $("."+checkid).prop("checked", false );
     filter();
 }
 
-function toggle(object=this, forceExpand=false) {
+function toggle(object, forceExpand) {
+    if (!object) object = this;
+    if (!forceExpand) forceExpand = false;
+    
     var newObject;
     if (object.currentTarget) {
         newObject=object.currentTarget;
@@ -271,7 +272,9 @@ var paginationTemplate = Handlebars.compile(`
 </nav>
 `);
 
-function filter(pageNumber, newSearch=false) {
+function filter(pageNumber, newSearch) {
+    if (!newSearch) newSearch = false;
+    
     var expandedGroups = [];
     $(".expander-button[aria-expanded='false']").map(function(){
       expandedGroups.push($(this).attr('aria-controls'));
