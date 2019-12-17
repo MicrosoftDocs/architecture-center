@@ -33,7 +33,7 @@ layout: HubPage
             <form id="search-content-form" role="search" action="#" class="has-margin-bottom-large">
                 <div class="field">
                     <p class="control has-margin-none has-icons-right">
-                        <input aria-label="Search" class="input is-large has-margin-bottom-large" placeholder="Search" id="search-content" type="search" onkeyup="filter(pageNumber=1, newsSearch=true)" onchange="filter(pageNumber=1, newSearch=true)">
+                        <input aria-label="Search" class="input is-large has-margin-bottom-large" placeholder="Search" id="search-content" type="search" onkeyup="updateUrlBar(getQuery(false, 1))" onchange="updateUrlBar(getQuery(false, 1))">
                           <p data-bi-name="facet-tags" class="tags facet-tags" aria-label="Active filters">
                           </p>
                     </p>
