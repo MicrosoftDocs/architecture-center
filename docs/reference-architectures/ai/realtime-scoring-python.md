@@ -12,7 +12,7 @@ ms.custom: azcat-ai
 
 # Real-time scoring of Python scikit-learn and deep learning models on Azure
 
-This reference architecture shows how to deploy Python models as web services to make real-time predictions using the [Azure Machine Learning service][aml]. Two scenarios are covered: deploying regular Python models, and the specific requirements of deploying deep learning models. Both scenarios use the architecture shown.
+This reference architecture shows how to deploy Python models as web services to make real-time predictions using the [Azure Machine Learning][aml]. Two scenarios are covered: deploying regular Python models, and the specific requirements of deploying deep learning models. Both scenarios use the architecture shown.
 
 Two reference implementations for this architecture are available on GitHub, one for [regular Python models][github-python] and one for [deep learning models][github-dl].
 
@@ -29,7 +29,7 @@ This scenario uses a subset of Stack Overflow question data that includes origin
 The application flow for this architecture is as follows:
 
 1. The trained model is registered to the machine learning model registry.
-2. The Machine Learning service creates a Docker image that includes the model and scoring script.
+2. Machine Learning creates a Docker image that includes the model and scoring script.
 3. Azure Machine Learning deploys the scoring image on Azure Kubernetes Service (AKS) as a web service.
 4. The client sends an HTTP POST request with the encoded question data.
 5. The web service created by Azure Machine Learning extracts the question from the request.
@@ -49,7 +49,7 @@ This scenario uses a pre-trained ResNet-152 model trained on ImageNet-1K (1,000 
 The application flow for the deep learning model is as follows:
 
 1. The deep learning model is registered to the machine learning model registry.
-2. Azure Machine Learning service creates a docker image including the model and scoring script.
+2. Azure Machine Learning creates a docker image including the model and scoring script.
 3. Azure Machine Learning deploys the scoring image on Azure Kubernetes Service (AKS) as a web service.
 4. The client sends an HTTP POST request with the encoded image data.
 5. The web service created by Azure Machine Learning preprocesses the image data and sends it to the model for scoring.
@@ -59,7 +59,7 @@ The application flow for the deep learning model is as follows:
 
 This architecture consists of the following components.
 
-**[Azure Machine Learning service][aml]** is a cloud service that is used to train, deploy, automate and manage machine learning models, all at the broad scale that the cloud provides. It is used in this architecture to manage the deployment of models as well as authentication, routing, and load balancing of the web service.
+**[Azure Machine Learning][aml]** is a cloud service that is used to train, deploy, automate and manage machine learning models, all at the broad scale that the cloud provides. It is used in this architecture to manage the deployment of models as well as authentication, routing, and load balancing of the web service.
 
 **[Virtual machine][vm]** (VM). The VM is shown as an example of a device &mdash; local or in the cloud &mdash; that can send an HTTP request.
 
@@ -137,7 +137,7 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 [get-started]: /azure/security-center/security-center-get-started
 [github-python]: https://github.com/Microsoft/MLAKSDeployAML
 [github-dl]: https://github.com/Microsoft/AKSDeploymentTutorial_AML
-[gpus-vs-cpus]: https://azure.microsoft.com/en-us/blog/gpus-vs-cpus-for-deployment-of-deep-learning-models/
+[gpus-vs-cpus]: https://azure.microsoft.com/blog/gpus-vs-cpus-for-deployment-of-deep-learning-models/
 [https-ingress]: /azure/aks/ingress-tls
 [ingress-controller]: https://kubernetes.io/docs/concepts/services-networking/ingress/
 [kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
