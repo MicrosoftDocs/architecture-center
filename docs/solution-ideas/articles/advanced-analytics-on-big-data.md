@@ -14,7 +14,7 @@ Transform your data into actionable insights using the best-in-class machine lea
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="advanced-analytics-on-big-data" height="473" viewbox="0 0 993 473" width="993" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="advanced-analytics-on-big-data" height="473" viewbox="0 0 993 473"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#F3F3F3" d="M331.327 316.131h146.937v-138.8H331.326zM161.048 316.131h146.938v-138.8H161.048zM504.853 316.131h146.936v-138.8H504.853zM674.524 159.962h318.284V15.992H674.524zM845.871 316.13H992.81v-138.8H845.87zM675.13 472.49h149.258v-138.8H675.129z"/>
         <path d="M937.899 379.558h-38.126a2.929 2.929 0 00-2.93 2.928v26.348a2.93 2.93 0 002.93 2.93h20.659v-3.816h-20.564v-24.575h37.936v24.575h-2.923v3.815h3.018a2.93 2.93 0 002.929-2.929v-26.348a2.929 2.929 0 00-2.93-2.928" fill="#000"/>
@@ -156,7 +156,14 @@ Transform your data into actionable insights using the best-in-class machine lea
 
 ## Data Flow
 
-1. Bring together all your structured, unstructured and semi-structured data (logs, files, and media) using Azure Data Factory to Azure Blob Storage.1. Use Azure Databricks to clean and transform the structureless datasets and combine them with structured data from operational databases or data warehouses.1. Use scalable machine learning/deep learning techniques, to derive deeper insights from this data using Python, R or Scala, with inbuilt notebook experiences in Azure Databricks.1. Leverage native connectors between Azure Databricks and Azure Synapse Analytics to access and move data at scale.1. Power users take advantage of the inbuilt capabilities of Azure Databricks to perform root cause determination and raw data analysis.1. Run ad hoc queries directly on data within Azure Databricks.1. Take the insights from Azure Databricks to Cosmos DB to make them accessible through web and mobile apps.
+1. Bring together all your structured, unstructured and semi-structured data (logs, files, and media) using Azure Data Factory to Azure Blob Storage.
+1. Use Azure Databricks to clean and transform the structureless datasets and combine them with structured data from operational databases or data warehouses.
+1. Use scalable machine learning/deep learning techniques, to derive deeper insights from this data using Python, R or Scala, with inbuilt notebook experiences in Azure Databricks.
+1. Leverage native connectors between Azure Databricks and Azure Synapse Analytics to access and move data at scale.
+1. Power users take advantage of the inbuilt capabilities of Azure Databricks to perform root cause determination and raw data analysis.
+1. Run ad hoc queries directly on data within Azure Databricks.
+1. Take the insights from Azure Databricks to Cosmos DB to make them accessible through web and mobile apps.
+
 
 ## Components
 * [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) is the fast, flexible and trusted cloud data warehouse that lets you scale, compute and store elastically and independently, with a massively parallel processing architecture.

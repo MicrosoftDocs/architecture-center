@@ -14,7 +14,7 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="scale-using-aks-with-aci" height="469" viewbox="0 0 1022 469" width="1022" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="scale-using-aks-with-aci" height="469" viewbox="0 0 1022 469"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd">
         <path d="M695.692 336.143h114.403v-1.5H695.692z" fill="#959595"/>
         <path d="M808.563 340.628l9.066-5.234-9.066-5.237z" fill="#959595"/>

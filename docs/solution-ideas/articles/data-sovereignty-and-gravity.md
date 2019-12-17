@@ -14,7 +14,7 @@ Azure with Azure Stack enables organizations to make technology placement decisi
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="data-sovereignty-and-gravity" height="489" viewbox="0 0 633 489" width="633" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="data-sovereignty-and-gravity" height="489" viewbox="0 0 633 489"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#F3F3F3" d="M483.156 488.639h149.35V17.642h-149.35zM117.317 488.639h331.126V17.642H117.317z"/>
         <path fill="#959595" d="M504.486 98.626l-9.066-5.236v4.486h-70.47v1.5h70.47v4.484zM432.017 86.376h70.469v-1.5h-70.469V80.39l-9.066 5.236 9.066 5.234z"/>
@@ -89,7 +89,10 @@ Azure with Azure Stack enables organizations to make technology placement decisi
 
 ## Data Flow
 
-1. User enters data into Azure-based web app.1. Application commits data to database over virtual network-to virtual network VPN connection to Azure Stack.1. Data is stored in SQL database on virtual machine (VM).
+1. User enters data into Azure-based web app.
+1. Application commits data to database over virtual network-to virtual network VPN connection to Azure Stack.
+1. Data is stored in SQL database on virtual machine (VM).
+
 
 ## Components
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network/): Provision private networks, optionally connect to on-premises datacenters

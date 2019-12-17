@@ -20,7 +20,7 @@ In this solution, SQL Server R Services brings the compute to the data by runnin
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="optimize-marketing-with-machine-learning" height="140.97" viewbox="0 0 920.904 140.97" width="920.904" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="optimize-marketing-with-machine-learning" height="140.97" viewbox="0 0 920.904 140.97"  xmlns="http://www.w3.org/2000/svg">
     <text fill="#505050" font-family="SegoeUI, Segoe UI" font-size="16.653" style="isolation:isolate" transform="matrix(1.036 0 0 1 838.693 102.884)">
         Power BI
     </text>

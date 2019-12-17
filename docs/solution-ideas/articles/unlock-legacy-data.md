@@ -14,7 +14,7 @@ Use Azure Stack to update and extend your legacy application data with the lates
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="unlock-legacy-data" height="335" viewbox="0 0 1004 335" width="1004" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="unlock-legacy-data" height="335" viewbox="0 0 1004 335"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#F3F3F3" d="M509.913 334.301h320.196V16.462H509.913zM853.315 334.301h149.714V16.462H853.315zM146.959 334.301h329.325V16.462H146.959z"/>
         <path d="M385.227 81.996v-3.75c0-3.353 3.381-6.07 7.551-6.07 4.171 0 7.552 2.717 7.552 6.07v3.706l6.694.044v-2.873c0-7.221-6.488-13.075-14.492-13.075-8.003 0-14.49 5.854-14.49 13.075v2.916l7.185-.043z" fill="#969798"/>

@@ -14,7 +14,7 @@ This templated risk analysis solution uses Azure HPC compute and GPU virtual mac
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="hpc-risk-analysis" height="671" viewbox="0 0 1191 671" width="1191" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="hpc-risk-analysis" height="671" viewbox="0 0 1191 671"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path d="M1070.806 292.199h-23.965V53.724a.75.75 0 00-.75-.75h-17.098a.75.75 0 100 1.5h16.349v457.589h-16.35a.75.75 0 100 1.5h17.1a.75.75 0 00.75-.75V293.699h23.964a.75.75 0 000-1.5" fill="#959595"/>
         <path fill="#F3F3F3" d="M184.931 189.668h148.413V53.404H184.931zM14.063 514.095h147.038V210.636H14.063zM184.931 655.686h149.487v-445.05H184.931zM529.198 514.095h149.369V372.979H529.198zM529.198 352.761h149.369V53.404H529.198zM749.442 514.095h267.18V52.443h-267.18z"/>

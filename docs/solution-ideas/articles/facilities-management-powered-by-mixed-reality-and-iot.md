@@ -14,7 +14,7 @@ Improve uptime and operations in hospitality, manufacturing, retail, and more wi
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="facilities-management-powered-by-mixed-reality-and-iot" height="427" viewbox="0 0 764 427" width="764" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="facilities-management-powered-by-mixed-reality-and-iot" height="427" viewbox="0 0 764 427"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#959595" d="M551.34 278.524H416.113v-64.64h-18.685v1.5h17.185v64.64H549.84v31.372h-4.485l5.235 9.067 5.235-9.067h-4.485zM302.976 205.605H169.863v-4.485l-9.067 5.235 9.067 5.236v-4.486h133.113v4.486l9.067-5.236-9.067-5.235zM359.244 255.433h-1.5v55.964h-4.485l5.235 9.067 5.235-9.067h-4.485zM302.976 366.453H168.331v1.5h134.645v4.486l9.067-5.236-9.067-5.235zM353.258 93.294h4.485v61.468h1.5V93.294h4.486l-5.236-9.067zM732 311.396v-68.168h-1.5v68.168h-4.486l5.236 9.067 5.235-9.067zM690.35 205.44h-83.51v1.5h83.51v4.486l9.066-5.236-9.066-5.235zM498.227 211.77l9.067-5.236-9.067-5.236v4.486H397.12v1.5h101.107z"/>
         <path fill="#F3F3F3" d="M0 426.727h142.23V127.44H0z"/>
