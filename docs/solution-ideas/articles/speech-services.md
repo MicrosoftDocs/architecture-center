@@ -16,7 +16,7 @@ For more information, read how [batch transcription](/azure/cognitive-services/s
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="speech-services"  viewbox="0 0 1126 562"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="speech-services" height="562" viewbox="0 0 1126 562" width="1126" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#F3F3F3" d="M687.057 561.453h438.099V20.595H687.057z"/>
         <path fill="#959595" d="M1014.63 390.618V311.11h4.485l-5.236-9.066-5.235 9.066h4.485v78.007h-65.5v122.696h11.512v-1.5h-10.013V390.618z"/>
@@ -107,13 +107,6 @@ For more information, read how [batch transcription](/azure/cognitive-services/s
 
 ## Data Flow
 
-1. Adapt a model for your domain and deploy that model
-1. Upload your recordings to a blob container
-1. Create a POST request to batch transcription
-1. Speech Services schedules the transcription job
-1. Stereo files are split into two channels
-1. Mono files undergo diarization to distinguish between speakers
-1. Download the transcription using the transcription ID
-
+1. Adapt a model for your domain and deploy that model1. Upload your recordings to a blob container1. Create a POST request to batch transcription1. Speech Services schedules the transcription job1. Stereo files are split into two channels1. Mono files undergo diarization to distinguish between speakers1. Download the transcription using the transcription ID
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

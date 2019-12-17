@@ -16,7 +16,7 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="disaster-recovery-smb-azure-site-recovery"  viewbox="0 0 825.047 443.187"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="disaster-recovery-smb-azure-site-recovery" height="443.187" viewbox="0 0 825.047 443.187" width="825.047" xmlns="http://www.w3.org/2000/svg">
     <path fill="none" stroke="#b5b5b5" stroke-miterlimit="10" stroke-width="1.643" d="M183.889 33.71h130.759"/>
     <path fill="#b5b5b5" d="M313.449 37.805l7.093-4.095-7.093-4.096v8.191z"/>
     <path fill="#ededed" opacity=".5" d="M463.047 128.187h362v315h-362zM.001 128.187h282v315h-282z"/>

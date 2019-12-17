@@ -14,7 +14,7 @@ Use AKS to easily ingest & process a real-time data stream with millions of data
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="data-streaming-scenario"  viewbox="0 0 823 418"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="data-streaming-scenario" height="418" viewbox="0 0 823 418" width="823" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#959595" d="M514.457 162.703h150.238v-1.114H514.457z"/>
         <path fill="#959595" d="M515.571 123.474v39.23h-1.114v-39.238z"/>

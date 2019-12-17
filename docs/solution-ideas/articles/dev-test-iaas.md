@@ -16,7 +16,7 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="dev-test-iaas"  viewbox="0 0 825.046 583.775"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="dev-test-iaas" height="583.775" viewbox="0 0 825.046 583.775" width="825.046" xmlns="http://www.w3.org/2000/svg">
     <path fill="#ededed" opacity=".5" d="M559.67 150.108h265.376v433.667H559.67zM0 150.108h265.376v433.667H0zM280.048 150.108h265.376v433.667H280.048z"/>
     <text fill="#5d5d5d" font-family="SegoeUI, Segoe UI" font-size="12" opacity=".5" transform="translate(751.798 442.618)">
         Swap

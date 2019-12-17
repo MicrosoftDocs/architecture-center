@@ -14,7 +14,7 @@ Guarantee access to users around the world with the high-availability and low-la
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="globally-distributed-mission-critical-applications-using-cosmos-db" fill="none"  viewbox="0 0 819 489"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="globally-distributed-mission-critical-applications-using-cosmos-db" fill="none" height="489" viewbox="0 0 819 489" width="819" xmlns="http://www.w3.org/2000/svg">
     <path d="M804.5 15.5h-150v457.8h150V15.5z" fill="#F3F3F3"/>
     <path d="M21.3 226.5v22.7c0 3.1 1.1 4.3 4.3 4.3h35.1c3.1 0 4.3-1.1 4.3-4.3v-22.7H21.3z" fill="#59B3D8"/>
     <path d="M64.9 227.3v-7.1c0-3.1-1.1-4.3-4.3-4.3h-35c-3.1 0-4.3 1.1-4.3 4.3v7.1h43.6z" fill="#9FA0A1"/>

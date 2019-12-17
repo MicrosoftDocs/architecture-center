@@ -16,7 +16,7 @@ By setting up a continuous build to produce your container images and orchestrat
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="container-cicd-using-jenkins-and-kubernetes-on-azure-container-service"  viewbox="0 0 1143 715"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="container-cicd-using-jenkins-and-kubernetes-on-azure-container-service" height="715" viewbox="0 0 1143 715" width="1143" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#959595" d="M63.468 413.639l-5.236-9.066-5.234 9.066h4.485l-.014 210.799h1.5l.014-210.8zM358.928 683.863l-252.323-.013v-4.485l-9.067 5.234 9.067 5.237v-4.486l252.323.013zM882.74 684.61l-9.067-5.235v4.485H449.26v1.5h424.412v4.485zM1063.125 408.968l-1.061-1.061-111.273 111.257-3.172-3.172-2.71 10.114 10.114-2.71-3.171-3.171zM889.928 526.106l-2.709-10.113-3.172 3.172-82.589-82.59-1.06 1.06 82.588 82.59-3.172 3.172zM367.166 365.838l-9.067-5.235v4.485l-252.838-.013v1.5l252.838.013v4.486zM711.666 365.838l-9.067-5.235v4.485l-249.183-.013v-4.472l-9.067 5.235 9.067 5.236v-4.499l249.183.013v4.486zM1043.166 365.838l-9.067-5.235v4.485l-254.183-.013v-4.472l-9.067 5.235 9.067 5.236v-4.499l254.183.013v4.486zM407.95 109.953l-5.236-9.067-5.236 9.067h4.485l-.013 183.484h1.5l.013-183.484zM709.396 293.799l-3.411-9.898-2.94 3.383-224.29-195.911-.986 1.129 224.293 195.914-2.943 3.39z"/>
         <path d="M930.4 492.563v9.205c0 5.842-4.735 10.577-10.577 10.577-5.84 0-10.576-4.735-10.576-10.577v-6.205h-3.61V501c0 7.835 6.351 14.187 14.186 14.187 7.836 0 14.188-6.352 14.188-14.187v-8.438h-3.61z" fill="#69ACCE"/>
@@ -231,16 +231,7 @@ By setting up a continuous build to produce your container images and orchestrat
 
 ## Data Flow
 
-1. Change application source code.
-1. Commit code to GitHub.
-1. Continuous Integration Trigger to Jenkins.
-1. Jenkins triggers a build job using Azure Kubernetes Service (AKS) for a dynamic build agent.
-1. Jenkins builds and pushes Docker container to Azure Container Registry.
-1. Jenkins deploys your new containerized app to Kubernetes on Azure.
-1. Container Service (AKS), backed by Azure Cosmos DB.
-1. Grafana displays visualization of infrastructure and application metrics via Azure Monitor.
-1. Monitor application and make improvements.
-
+1. Change application source code.1. Commit code to GitHub.1. Continuous Integration Trigger to Jenkins.1. Jenkins triggers a build job using Azure Kubernetes Service (AKS) for a dynamic build agent.1. Jenkins builds and pushes Docker container to Azure Container Registry.1. Jenkins deploys your new containerized app to Kubernetes on Azure.1. Container Service (AKS), backed by Azure Cosmos DB.1. Grafana displays visualization of infrastructure and application metrics via Azure Monitor.1. Monitor application and make improvements.
 
 ## Components
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/): Simplify the deployment, management, and operations of Kubernetes.

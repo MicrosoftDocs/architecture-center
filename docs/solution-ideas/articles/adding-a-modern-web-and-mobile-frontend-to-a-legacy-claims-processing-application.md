@@ -14,7 +14,7 @@ This line-of-business application solution consolidates data from multiple busin
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application"  viewbox="0 0 1009 793"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application" height="793" viewbox="0 0 1009 793" width="1009" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd">
         <path d="M81.43 572.727a3.706 3.706 0 01-3.694-3.694v-45.591a3.705 3.705 0 013.694-3.695h21.441a3.703 3.703 0 013.693 3.695v45.591a3.704 3.704 0 01-3.693 3.694h-21.44z" fill="#454C50"/>
         <path d="M93.218 523.75a1.066 1.066 0 11-2.133-.003 1.066 1.066 0 012.133.002" fill="#505659"/>
@@ -285,15 +285,7 @@ This line-of-business application solution consolidates data from multiple busin
 
 ## Data Flow
 
-1. Customer’s mobile app authenticates via Azure Active Directory B2C
-1. Customer’s mobile app connects to the back-end web service that aggregates data from different systems using asynchronous connection
-1. Web application connects to SQL database
-1. Power BI connects to SQL database and SharePoint
-1. Logic app pulls data from CRM (Salesforce)
-1. Logic app connects to SAP system (on-premises or in the cloud)
-1. Employee mobile app connects to the logic app that orchestrates the business process
-1. Employee mobile app authenticates via Azure Active Directory
-
+1. Customer’s mobile app authenticates via Azure Active Directory B2C1. Customer’s mobile app connects to the back-end web service that aggregates data from different systems using asynchronous connection1. Web application connects to SQL database1. Power BI connects to SQL database and SharePoint1. Logic app pulls data from CRM (Salesforce)1. Logic app connects to SAP system (on-premises or in the cloud)1. Employee mobile app connects to the logic app that orchestrates the business process1. Employee mobile app authenticates via Azure Active Directory
 
 ## Components
 * Azure [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) lets you deploy a Windows Server or Linux image in the cloud. You can select images from a marketplace or use your own customized images.

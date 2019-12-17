@@ -14,7 +14,7 @@ Event Grid allows you to speed automation and simplify policy enforcement. For e
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="ops-automation-using-event-grid"  viewbox="0 0 437 144"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="ops-automation-using-event-grid" height="288" viewbox="0 0 437 144" width="874" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path d="M355.334 103.51h-12.336c1.624 5.736-.56 6.56-10.12 6.56v3.003h32.513v-3.004c-9.562 0-10.499-.82-8.872-6.559h-1.185z" fill="#888"/>
         <path d="M370.993 67.176h-44.02c-1.497 0-2.703 1.337-2.703 2.831v30.697c0 1.486 1.206 2.808 2.702 2.808h44.021c1.492 0 3.004-1.322 3.004-2.808V70.007c0-1.498-1.512-2.83-3.004-2.83" fill="#AEAEAE"/>

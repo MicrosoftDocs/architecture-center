@@ -14,7 +14,7 @@ This Predictive Maintenance solution monitors aircraft and predicts the remainin
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="predictive-maintenance"  viewbox="0 0 777.527 552.35"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg class="architecture-diagram" aria-labelledby="predictive-maintenance" height="552.35" viewbox="0 0 777.527 552.35" width="777.527" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g data-name="Layer 2">
         <g data-name="Layer 1">
             <g fill="#5b5b5b">

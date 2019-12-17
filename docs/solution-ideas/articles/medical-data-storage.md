@@ -14,7 +14,7 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="medical-data-storage"  viewbox="0 0 1170 798"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="medical-data-storage" height="798" viewbox="0 0 1170 798" width="1170" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#F4F4F4" d="M337.301 479.3h149.4V338.901h-149.4z"/>
         <path fill="#FFF" d="M404.136 406.7h26.333v-7.333h-26.333z"/>
