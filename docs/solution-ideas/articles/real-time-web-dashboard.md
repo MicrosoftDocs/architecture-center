@@ -14,7 +14,7 @@ Securely monitor and control data streamed from Internet-connected devices.
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="real-time-web-dashboard" height="271.56" viewbox="0 0 593.835 271.56" width="593.835" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="real-time-web-dashboard" height="271.56" viewbox="0 0 593.835 271.56"  xmlns="http://www.w3.org/2000/svg">
     <g data-name="Layer 2">
         <g data-name="Layer 1">
             <g fill="#5b5b5b">

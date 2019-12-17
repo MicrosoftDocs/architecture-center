@@ -16,7 +16,7 @@ In this solution, we will be leveraging the clinical and socioeconomic in-patien
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="population-health-management-for-healthcare" height="590.36" viewbox="0 0 604.388 590.36" width="604.388" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg class="architecture-diagram" aria-labelledby="population-health-management-for-healthcare" height="590.36" viewbox="0 0 604.388 590.36"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <path d="M236.426 27.872a.63.63 0 01-.667.667h-5.2a.63.63 0 01-.667-.667V24a.63.63 0 01.667-.667h5.2a.63.63 0 01.667.667zM245.76 31.872a.63.63 0 01-.667.667h-5.2a.63.63 0 01-.667-.667V28a.63.63 0 01.667-.667h5.2a.63.63 0 01.667.667zM236.426 35.872a.63.63 0 01-.667.667h-5.2a.63.63 0 01-.667-.667V32a.63.63 0 01.667-.667h5.2a.63.63 0 01.667.667zM227.093 23.872a.63.63 0 01-.667.667h-5.333a.63.63 0 01-.667-.667v-4a.63.63 0 01.667-.667h5.2c.533 0 .8.267.8.667z" fill="#b8d432"/>
     <path d="M250.426 9.872h-37.333a.63.63 0 00-.667.667v8a.63.63 0 00.667.667h4a.63.63 0 00.667-.667V15.2h28v3.333c0 .4.267.667.8.667h3.867a.63.63 0 00.667-.667v-8a.63.63 0 00-.668-.661zM250.426 40.672h-3.866a.63.63 0 00-.667.667v3.2H217.76V41.2c0-.4-.267-.667-.8-.667h-3.867c-.4 0-.667.267-.667.8V49.2a.63.63 0 00.667.667h37.333a.63.63 0 00.667-.667v-7.862a.63.63 0 00-.667-.666z" fill="#0072c6"/>
     <path d="M227.093 31.872a.63.63 0 01-.667.667h-5.333a.63.63 0 01-.667-.667v-4a.63.63 0 01.667-.667h5.2c.533 0 .8.267.8.667zM227.093 39.872a.63.63 0 01-.667.667h-5.333a.63.63 0 01-.667-.667v-4a.63.63 0 01.667-.667h5.2c.533 0 .8.267.8.667z" fill="#b8d432"/>

@@ -16,7 +16,7 @@ This solution is built on the Azure managed services: [Event Hubs](https://azure
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="predictive-insights-with-vehicle-telematics" height="1091.3" viewbox="0 0 1091.3 772.609" width="772.609" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="predictive-insights-with-vehicle-telematics" height="1091.3" viewbox="0 0 1091.3 772.609"  xmlns="http://www.w3.org/2000/svg">
     <path d="M793.775 46.935l-16.534-27.471-.023-11.135h.3a3.507 3.507 0 003.562-3.447 3.506 3.506 0 00-3.58-3.432l-17.977.037a3.506 3.506 0 00-3.562 3.447 3.506 3.506 0 003.576 3.432h.3l.023 11.134-16.42 27.54c-1.8 3.02-.318 5.486 3.3 5.478l43.765-.091c3.61-.007 5.083-2.479 3.27-5.492z" fill="#59b4d9"/>
     <path fill="#b8d432" d="M756.985 35.173l-6.775 11.364 36.792-.077-6.822-11.335-23.195.048z"/>
     <path d="M767.348 38.524a3.266 3.266 0 003.318-3.211 3.091 3.091 0 00-.342-1.4l-5.972.012a3.085 3.085 0 00-.336 1.4 3.267 3.267 0 003.332 3.199z" fill="#7fba00"/>

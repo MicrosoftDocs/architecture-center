@@ -16,7 +16,7 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](h
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="defect-prevention-with-predictive-maintenance" height="639.059" viewbox="0 0 1065.788 639.059" width="1065.788" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="defect-prevention-with-predictive-maintenance" height="639.059" viewbox="0 0 1065.788 639.059"  xmlns="http://www.w3.org/2000/svg">
     <path d="M731.8 67.4l-24.5-40.7V10.2h.4c2.9 0 5.2-2.2 5.3-5.1-.1-2.9-2.4-5.1-5.3-5.1l-26.6.1c-2.9 0-5.2 2.2-5.3 5.1.1 2.9 2.4 5.1 5.3 5.1h.4v16.5l-24.3 40.8c-2.7 4.5-.5 8.1 4.9 8.1l64.8-.1c5.4-.1 7.6-3.8 4.9-8.2z" fill="#59B4D9"/>
     <path fill="#B8D432" d="M677.3 49.9l-10 16.9 54.5-.1-10.1-16.8z"/>
     <path d="M692.7 54.9c2.7 0 4.9-2.1 4.9-4.8 0-.7-.2-1.4-.5-2.1h-8.8c-.3.6-.5 1.4-.5 2.1 0 2.7 2.2 4.9 4.9 4.8z" fill="#7FBA00"/>

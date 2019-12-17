@@ -14,7 +14,7 @@ Businesses and teams across industries have to spend time and money on design re
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="collaborative-design-review-powered-by-mixed-reality" height="558" viewbox="0 0 631 558" width="631" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="collaborative-design-review-powered-by-mixed-reality" height="558" viewbox="0 0 631 558"  xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(0 -1)" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#959595" d="M551.94 367.033l-9.067-5.236v4.486H434.376v1.5h108.497v4.485zM362.088 209.033l-9.067-5.236v4.486H146.233v1.5H353.02v4.485zM362.088 367.033l-9.067-5.236v4.486H146.233v1.5H353.02v4.485zM362.088 50.033l-9.067-5.236v4.486H191.625v142.646h-45.392v1.5h46.892V50.783H353.02v4.485zM542.873 519.745l9.066-5.235-9.066-5.236v4.486h-144.34v-94.706h-1.5V515.26h145.84z"/>
         <path fill="#959595" d="M542.873 528.76h-349.75V382.736h-46.89v1.5h45.39V530.26h351.25v4.485l9.066-5.235-9.066-5.235z"/>
@@ -166,7 +166,17 @@ Businesses and teams across industries have to spend time and money on design re
 
 ## Data Flow
 
-1. Users of the client application authenticate using their Azure Active Directory credentials from HoloLens or a mobile device.1. Device 1 creates an anchor using Azure Spatial Anchors and gets back an anchor ID.1. Device 1 sends the anchor ID to the app’s web service to create a collaboration session. It also specifies which hologram is to be displayed via its ID in Azure Blob storage.1. Session information, including a 6-digit code to join the session, is stored in Azure Cosmos DB. That code is returned to the client, allowing the user of that device to invite others to join.1. Device 2 connects to the app’s web service and enters the code to join the session (displayed on Device 1).1. The web service retrieves the anchor ID for the session and the ID of the hologram associated to that session from Azure Cosmos DB.1. The web service retrieves a SAS key to access the hologram associated to the session from Blob storage. It then returns the anchor ID and SAS key to Device 2.1. Device 2 queries Azure Spatial Anchors to get coordinates for the anchor ID retrieved in step 6.1. Device 2 fetches the hologram from Blob storage using the SAS key obtained from the app service.1. Device 1 and Device 2 exchange state information over a peer-to-peer networking channel (or through a service relay of your choice).
+1. Users of the client application authenticate using their Azure Active Directory credentials from HoloLens or a mobile device.
+1. Device 1 creates an anchor using Azure Spatial Anchors and gets back an anchor ID.
+1. Device 1 sends the anchor ID to the app’s web service to create a collaboration session. It also specifies which hologram is to be displayed via its ID in Azure Blob storage.
+1. Session information, including a 6-digit code to join the session, is stored in Azure Cosmos DB. That code is returned to the client, allowing the user of that device to invite others to join.
+1. Device 2 connects to the app’s web service and enters the code to join the session (displayed on Device 1).
+1. The web service retrieves the anchor ID for the session and the ID of the hologram associated to that session from Azure Cosmos DB.
+1. The web service retrieves a SAS key to access the hologram associated to the session from Blob storage. It then returns the anchor ID and SAS key to Device 2.
+1. Device 2 queries Azure Spatial Anchors to get coordinates for the anchor ID retrieved in step 6.
+1. Device 2 fetches the hologram from Blob storage using the SAS key obtained from the app service.
+1. Device 1 and Device 2 exchange state information over a peer-to-peer networking channel (or through a service relay of your choice).
+
 
 ## Components
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory/): Synchronize on-premises directories and enable single sign-on

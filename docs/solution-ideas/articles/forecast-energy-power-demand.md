@@ -16,7 +16,7 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](h
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="forecast-energy-power-demand" height="716.116" viewbox="0 0 1075.878 716.116" width="1075.878" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="forecast-energy-power-demand" height="716.116" viewbox="0 0 1075.878 716.116"  xmlns="http://www.w3.org/2000/svg">
     <path d="M459.418 267.091l-26.568-44.143-.037-17.893h.478a5.53 5.53 0 10-.024-11.055l-28.886.06a5.531 5.531 0 10.023 11.054h.478l.037 17.891-26.384 44.253c-2.895 4.853-.511 8.815 5.3 8.8l70.325-.146c5.804-.012 8.171-3.98 5.258-8.821z" fill="#59b4d9"/>
     <path fill="#b8d432" d="M400.302 248.19l-10.888 18.26 59.12-.123-10.962-18.214-37.27.077z"/>
     <path d="M416.953 253.575a5.247 5.247 0 005.331-5.16 4.967 4.967 0 00-.549-2.251l-9.6.02a4.957 4.957 0 00-.54 2.253 5.25 5.25 0 005.358 5.138z" fill="#7fba00"/>

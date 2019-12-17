@@ -14,7 +14,7 @@ This solution provides a highly available deployment of SharePoint using a load 
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="sharepoint-farm-office-365" height="767" viewbox="0 0 1180 767" width="1180" xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="sharepoint-farm-office-365" height="767" viewbox="0 0 1180 767"  xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(0 -1)" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path d="M261.306 375.134v-1.923c0-3.847-1.398-7.431-3.846-9.966-2.273-2.622-7.343-4.283-11.102-4.283-3.76 0-8.83 1.661-11.103 4.283-2.36 2.535-3.846 6.119-3.846 9.966v1.923l6.906.787v-1.748c0-2.273.787-5.158 2.098-6.644 1.31-1.486 4.109-2.186 5.945-2.273 1.835 0 4.633.787 5.944 2.273 1.31 1.486 2.098 3.409 2.098 5.594v2.798l6.906-.787z" fill="#3E3E3E"/>
         <path d="M231.409 375.134c-3.41 0-4.633 2.011-4.633 4.633v18.271c0 2.273 1.399 4.633 4.02 4.633h31.122c2.972 0 4.02-2.36 4.02-4.633v-18.271c0-2.36-.96-4.633-4.632-4.633h-29.897z" fill="#59B4D9"/>
