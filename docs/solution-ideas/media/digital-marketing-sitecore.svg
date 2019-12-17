@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="digital-marketing-sitecore"  viewbox="0 0 957 432"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="digital-marketing-sitecore" height="432" viewbox="0 0 957 432" width="957" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path fill="#F3F3F3" d="M292.143 161.332h664.425V0H292.143z"/>
         <path d="M897.423 51.048c0-.337.084-.758.084-1.093 0-5.974-4.88-10.77-10.938-10.77a10.616 10.616 0 00-8.834 4.375c-1.262-.842-2.777-1.263-4.375-1.263-4.544 0-8.246 3.703-8.246 8.163v.672c-3.029 1.6-4.712 4.208-4.712 7.404 0 5.048 4.124 9.002 9.423 9.002h23.222c5.301 0 9.424-3.953 9.424-9.002 0-3.366-1.852-6.058-5.048-7.488" fill="#59B4D9"/>

@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="reference-architecture-for-oracle-database-on-azure"  viewbox="0 0 1139 507"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="reference-architecture-for-oracle-database-on-azure" height="507" viewbox="0 0 1139 507" width="1139" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(-12 -11)" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
         <path d="M0 533.821h1159.641V0H0z"/>
         <path stroke="#9F9F9F" stroke-linecap="round" d="M182.286 488.767h113.268V78.906H182.286zM387.21 352.096h113.268V78.906H387.21zM715.186 476.664v.5h-.5"/>

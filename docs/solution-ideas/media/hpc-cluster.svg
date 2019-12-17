@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="hpc-cluster"  viewbox="0 0 497.36 446.681"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="hpc-cluster" height="446.681" viewbox="0 0 497.36 446.681" width="497.36" xmlns="http://www.w3.org/2000/svg">
     <path fill="#ededed" opacity=".5" d="M135.423 0h307.156v328H135.423z"/>
     <path fill="none" stroke="#b5b5b5" stroke-miterlimit="10" stroke-width="1.643" d="M73.895 89.594h29.715v66.084h18.111"/>
     <path fill="#b5b5b5" d="M120.523 159.773l7.093-4.095-7.093-4.096v8.191z"/>

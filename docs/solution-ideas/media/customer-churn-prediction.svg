@@ -1,4 +1,4 @@
-<svg class="architecture-diagram" aria-labelledby="customer-churn-prediction"  viewbox="0 0 961.382 235.303"  xmlns="http://www.w3.org/2000/svg">
+<svg class="architecture-diagram" aria-labelledby="customer-churn-prediction" height="235.303" viewbox="0 0 961.382 235.303" width="961.382" xmlns="http://www.w3.org/2000/svg">
     <path d="M26.336 7.705v32.623c0 3.332 7.635 6.108 16.936 6.108V7.567H26.336z" fill="#3999c6"/>
     <path d="M42.994 46.574h.278c9.3 0 16.936-2.776 16.936-6.108V7.705H42.994z" fill="#59b4d9"/>
     <path d="M60.208 7.705c0 3.332-7.635 6.108-16.936 6.108s-16.936-2.776-16.936-6.108S33.971 1.6 43.272 1.6s16.936 2.774 16.936 6.105" fill="#fff"/>
