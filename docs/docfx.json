@@ -38,6 +38,8 @@
           "**/*.jpeg",
           "**/*.gif",
           "**/*.svg",
+          "**/*.js",
+          "**/*.json.txt",
           "feed.xml"
         ],
         "exclude": [

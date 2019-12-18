@@ -1,0 +1,53 @@
+.columns-classes-flex-1 {
+  flex-grow: 1;
+}
+
+a.content-browser-card-link {
+  width: 100%;
+}
+
+a.content-browser-card-link:hover {
+  text-decoration: none;
+}
+
+a.content-browser-card-link:hover h3 {
+  color: hsla(206, 100%, 35%, 1) !important;
+  color: var(--primary-base) !important;
+}
+
+.card .card-content {
+  min-height: 160px;
+}
+
+.card .card-footer .card-footer-item:last-child {
+  justify-content: flex-start !important;
+}
+
+.has-margin-bottom-large {
+  margin-bottom: 1.5rem !important;
+}
+
+figure.diagram {
+  width: 100%;
+  line-height: 200px;
+  min-height: 200px;
+  text-align: center;
+  vertical-align: middle !important;
+}
+
+img.diagram {
+  vertical-align: middle;
+  display: inline-block;
+  /* Breaks with for some pages but 
+     makes everything a uniform height */
+  /* height: 200px; */
+  object-fit: contain;
+}
+
+.hidden-item {
+  display: none;
+}
+
+.black-link {
+  color: black!important
+}

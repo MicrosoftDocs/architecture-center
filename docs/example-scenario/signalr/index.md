@@ -7,7 +7,8 @@ ms.date: 12/09/2019
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenarios
-ms.custom: fcp
+ms.custom:
+  - fcp
 ---
 # Sharing location in real time using low-cost serverless Azure services
 

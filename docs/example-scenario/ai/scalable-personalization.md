@@ -7,7 +7,9 @@ ms.date: 05/31/2019
 ms.topic: example-scenario 
 ms.service: architecture-center
 ms.subservice: example-scenarios
-ms.custom: azcat-ai, AI
+ms.custom:
+  - azcat-ai
+  - AI
 ---
 # Scalable personalization on Azure
 
