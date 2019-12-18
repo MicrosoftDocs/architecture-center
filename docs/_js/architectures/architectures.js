@@ -547,7 +547,7 @@ $(document).ready(function(){
     $(".mainContainer").removeClass("uhf-container");
     $("#hub-page-main").removeClass();
 
-    $("a").click(function(event){
+    $("#search-content-form").submit(function(event){
         event.preventDefault();
       });
 
