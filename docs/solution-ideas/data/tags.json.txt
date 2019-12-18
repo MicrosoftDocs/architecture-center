@@ -161,7 +161,7 @@
     "anomaly-detection-model",
     "anomaly-detection-process",
     "anomaly-detector",
-    "anomoly-detection",
+    "anomaly-detection",
     "ap-dev",
     "app-dev",
     "app-development",
