@@ -13,7 +13,7 @@ layout: HubPage
         <div class="columns has-large-gaps">
             <div class="column">
                 <div class="content has-margin-bottom-large">
-                    <h1><a href="https://docs.microsoft.com/azure/architecture">Azure Architectures</a></h1>
+                    <h1>Azure Architectures</h1>
                     <p>Architecture diagrams, reference architectures, example scenarios, and solutions for common workloads on Azure.</p>
                 </div>
             </div>
