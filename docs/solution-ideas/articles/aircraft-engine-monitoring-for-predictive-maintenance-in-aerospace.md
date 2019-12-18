@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Microsoft Azure’s Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health.
-ms.custom: acom-architecture, anomoly-detection, aircraft engine monitor, aircraft health monitoring systems, 'https://azure.microsoft.com/solutions/architecture/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace/'
+ms.custom: acom-architecture, anomaly-detection, aircraft engine monitor, aircraft health monitoring systems, 'https://azure.microsoft.com/solutions/architecture/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace/'
 ---
 # Predictive Aircraft Engine Monitoring
 
