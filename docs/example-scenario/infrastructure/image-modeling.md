@@ -7,7 +7,10 @@ ms.date: 01/11/2019
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenarios
-ms.custom: cat-team, Linux, HPC
+ms.custom:
+  - cat-team
+  - Linux
+  - HPC
 social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-image-modeling.png
 ---
 

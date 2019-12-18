@@ -250,7 +250,7 @@ items:
     - name: Development
       href: framework/devops/development.md
     - name: Deployment
-      href: framework/devops/deployment.md    
+      href: framework/devops/deployment.md
     - name: Infrastructure Deployments
       href: framework/devops/iac.md
     - name: Monitoring
@@ -267,12 +267,12 @@ items:
       href: framework/resiliency/overview.md
     - name: Application design
       items:
-        - name: Design overview
-          href: framework/resiliency/app-design.md
-        - name: Error handling
-          href: framework/resiliency/app-design-error-handling.md
-        - name: Failure mode analysis
-          href: resiliency/failure-mode-analysis.md
+      - name: Design overview
+        href: framework/resiliency/app-design.md
+      - name: Error handling
+        href: framework/resiliency/app-design-error-handling.md
+      - name: Failure mode analysis
+        href: resiliency/failure-mode-analysis.md
     - name: Backup and recovery
       href: framework/resiliency/backup-and-recovery.md
     - name: Business metrics
@@ -288,7 +288,7 @@ items:
     - name: Checklist
       href: checklist/resiliency-per-service.md
   - name: Scalability
-    items: 
+    items:
     - name: Overview
       href: framework/scalability/overview.md
     - name: Application design
@@ -302,7 +302,7 @@ items:
     - name: Checklist
       href: checklist/scalability.md
   - name: Security
-    items: 
+    items:
     - name: Overview
       href: framework/security/overview.md
     - name: Role of security
@@ -314,11 +314,11 @@ items:
     - name: Regulatory compliance
       href: framework/security/law-authority.md
     - name: Reduce organizational risk
-      href: framework/security/resilience.md            
+      href: framework/security/resilience.md
     - name: Governance, risk, and compliance
       href: framework/security/governance.md
     - name: Identity and access management
-      href: framework/security/identity.md      
+      href: framework/security/identity.md
     - name: Network security and containment
       href: framework/security/network-security-containment.md
     - name: Storage, data, and encryption
@@ -328,10 +328,10 @@ items:
     - name: Administration
       href: framework/security/critical-impact-accounts.md
     - name: Security operations
-      href: framework/security/security-operations.md  
+      href: framework/security/security-operations.md
 - name: Technologies
   expanded: true
-  items:   
+  items:
   - name: AI and machine learning
     items:
     - name: Overview
@@ -364,7 +364,6 @@ items:
         href: reference-architectures/ai/conversational-bot.md
       - name: Real-time recommendation API
         href: reference-architectures/ai/real-time-recommendation.md
-
     - name: Technology choices
       items:
       - name: Cognitive services
@@ -387,14 +386,186 @@ items:
         href: example-scenario/ai/newsfeed-ingestion.md
       - name: Scalable personalization
         href: example-scenario/ai/scalable-personalization.md
-
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/ai-at-the-edge.md
+        name: AI at the Edge with Azure Stack
+      - href: solution-ideas/articles/ai-at-the-edge-disconnected.md
+        name: Disconnected AI at the Edge with Azure Stack
+      - href: solution-ideas/articles/anomaly-detection-in-real-time-data-streams.md
+        name: Anomaly Detection in Real-time Data Streams
+      - href: solution-ideas/articles/enterprise-productivity-chatbot.md
+        name: Enterprise Productivity Chatbot
+      - href: solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.md
+        name: Campaign Optimization with HDInsight Spark
+      - href: solution-ideas/articles/campaign-optimization-with-sql-server.md
+        name: Campaign Optimization with SQL Server
+      - href: solution-ideas/articles/commerce-chatbot.md
+        name: Commerce Chatbot
+      - href: solution-ideas/articles/customer-360.md
+        name: Customer 360
+      - href: solution-ideas/articles/customer-churn-prediction.md
+        name: Customer Churn Prediction
+      - href: solution-ideas/articles/demand-forecasting.md
+        name: Demand Forecasting
+      - href: solution-ideas/articles/demand-forecasting-and-price-optimization.md
+        name: Demand Forecasting and Price Optimization
+      - href: solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.md
+        name: Demand Forecasting for Shipping and Distribution
+      - href: solution-ideas/articles/dev-test-image-factory.md
+        name: DevTest Image Factory
+      - href: solution-ideas/articles/energy-supply-optimization.md
+        name: Energy Supply Optimization
+      - href: solution-ideas/articles/information-chatbot.md
+        name: Information Chatbot
+      - href: solution-ideas/articles/image-classification-with-convolutional-neural-networks.md
+        name: Image classification with Convolutional Neural Networks
+      - href: solution-ideas/articles/information-discovery-with-deep-learning-and-nlp.md
+        name: Information discovery with NLP
+      - href: solution-ideas/articles/interactive-price-analytics.md
+        name: Interactive Price Analytics
+      - href: solution-ideas/articles/interactive-voice-response-bot.md
+        name: Interactive Voice Response Bot
+      - href: solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.md
+        name: Loan Prediction with HDInsight and Spark
+      - href: solution-ideas/articles/loan-chargeoff-prediction-with-sql-server.md
+        name: Loan ChargeOff Prediction with SQL Server
+      - href: solution-ideas/articles/loan-credit-risk-with-sql-server.md
+        name: Loan Credit Risk with SQL Server
+      - href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.md
+        name: Oil and Gas Tank Level Forecasting
+      - href: solution-ideas/articles/optimize-marketing-with-machine-learning.md
+        name: Optimize Marketing with Machine Learning
+      - href: solution-ideas/articles/personalized-offers.md
+        name: Personalized Offers
+      - href: solution-ideas/articles/population-health-management-for-healthcare.md
+        name: Population Health Management for Healthcare
+      - href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.md
+        name: Predicting Length of Stay in Hospitals
+      - href: solution-ideas/articles/predictive-maintenance.md
+        name: Predictive Maintenance
+      - href: solution-ideas/articles/quality-assurance.md
+        name: Quality Assurance
+      - href: solution-ideas/articles/real-time-analytics.md
+        name: Real Time Analytics on Big Data Architecture
+      - href: solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.md
+        name: Retail Assistant with Visual Capabilities
+      - href: solution-ideas/articles/social-mobile-and-web-app-with-authentication.md
+        name: Social App for Mobile and Web with Authentication
+      - href: solution-ideas/articles/digital-media-speech-text.md
+        name: Keyword search/speech-to-text/OCR digital media
+      - href: solution-ideas/articles/telemetry-analytics.md
+        name: Telemetry Analytics
+      - href: solution-ideas/articles/visual-assistant.md
+        name: Visual Assistant
+      - href: solution-ideas/articles/cross-platform-chat.md
+        name: Cross-platform Chat
+      - href: solution-ideas/articles/demand-forecasting-price-optimization-marketing.md
+        name: Demand Forecasting + Price Optimization
+      - href: solution-ideas/articles/faq-chatbot-with-data-champion-model.md
+        name: FAQ Chatbot with data champion model
+      - href: solution-ideas/articles/migrate-existing-applications-with-aks.md
+        name: Lift and shift to containers with AKS
+      - href: solution-ideas/articles/machine-learning-with-aks.md
+        name: Machine Learning model training with AKS
+  - name: Analytics
+    items:
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/advanced-analytics-on-big-data.md
+        name: Advanced Analytics Architecture
+      - href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.md
+        name: Discovery Hub with Cloud Scale Analytics
+      - href: solution-ideas/articles/predictive-marketing-campaigns-with-machine-learning-and-spark.md
+        name: Predictive Marketing with Machine Learning
+      - href: solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.md
+        name: Finance management apps using Azure Database for MySQL
+      - href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.md
+        name: Finance management apps using Azure Database for PostgreSQL
+      - href: solution-ideas/articles/interactive-querying-with-hdinsight.md
+        name: Interactive querying with HDInsight
+      - href: solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling.md
+        name: Loan Credit Risk + Default Modeling
+      - href: solution-ideas/articles/real-time-web-dashboard.md
+        name: Real-time Web Dashboard
+      - href: solution-ideas/articles/tiered-data-for-analytics.md
+        name: Tier Applications & Data for Analytics
+  - name: Anomoly detection
+    items:
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/anomaly-detector-process.md
+        name: Anomaly Detector Process
+      - href: solution-ideas/articles/defect-prevention-with-predictive-maintenance.md
+        name: Defect prevention with predictive maintenance
+      - href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.md
+        name: Predictive Aircraft Engine Monitoring
+      - href: solution-ideas/articles/predictive-insights-with-vehicle-telematics.md
+        name: Predictive Insights with Vehicle Telematics
+  - name: Application development
+    items:
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/application-integration-using-event-grid.md
+        name: Application integration using Event Grid
+      - href: solution-ideas/articles/custom-mobile-workforce-app.md
+        name: Custom Mobile Workforce App
+      - href: solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.md
+        name: Digital Campaign Management
+      - href: solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.md
+        name: Digital Marketing using Azure Database for MySQL
+      - href: solution-ideas/articles/ecommerce-website-running-in-secured-ase.md
+        name: E-commerce website running in secured App Service Environment
+      - href: solution-ideas/articles/gaming-using-azure-database-for-mysql.md
+        name: Gaming using Azure Database for MySQL
+      - href: solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.md
+        name: Globally distributed applications using Cosmos DB
+      - href: solution-ideas/articles/hybrid-identity.md
+        name: Hybrid Identity
+      - href: solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql.md
+        name: Intelligent apps using Azure Database for MySQL
+      - href: solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql.md
+        name: Intelligent apps using Azure Database for PostgreSQL
+      - href: solution-ideas/articles/messaging.md
+        name: Messaging
+      - href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.md
+        name: Retail and e-commerce using Azure MySQL
+      - href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.md
+        name: Retail and e-commerce using Azure PostgreSQL
+      - href: solution-ideas/articles/medium-umbraco-web-app.md
+        name: Scalable Umbraco CMS web app
+      - href: solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.md
+        name: Scalable web and mobile applications using Azure Database for MySQL
+      - href: solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.md
+        name: Scalable web and mobile applications using Azure Database for PostgreSQL
+      - href: solution-ideas/articles/speech-services.md
+        name: Speech Services
+      - href: solution-ideas/articles/task-based-consumer-mobile-app.md
+        name: Task-Based Consumer Mobile App
+  - name: App modernization
+    items:
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md
+        name: Lift and Shift and Innovate - LOB Apps
+      - href: solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.md
+        name: Lift and Shift and Innovate - LOB Apps
+      - href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.md
+        name: Serverless Computing Solution for LOB Apps
+      - href: solution-ideas/articles/unlock-legacy-data.md
+        name: Unlock Legacy Data with Azure Stack
   - name: Blockchain
     items:
     - name: Example workloads
       items:
       - name: Decentralized trust between banks
         href: example-scenario/apps/decentralized-trust.md
-
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/blockchain-workflow-application.md
+        name: Blockchain Workflow Application
+      - href: solution-ideas/articles/supply-chain-track-and-trace.md
+        name: Supply Chain Track and Trace
   - name: Data architectures
     items:
     - name: Reference architectures
@@ -491,11 +662,36 @@ items:
         href: example-scenario/data/ecommerce-order-processing.md
       - name: Securing data solutions
         href: data-guide/scenarios/securing-data-solutions.md
-      - name: Time series solutions 
+      - name: Time series solutions
         href: data-guide/scenarios/time-series.md
       - name: Working with CSV and JSON files
         href: data-guide/scenarios/csv-and-json.md
-
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/data-sovereignty-and-gravity.md
+        name: Custom Data Sovereignty & Data Gravity Requirements
+      - href: solution-ideas/articles/data-streaming-scenario.md
+        name: Data Streaming scenario
+      - href: solution-ideas/articles/data-cache-with-redis-cache.md
+        name: Data cache
+      - href: solution-ideas/articles/modern-data-warehouse.md
+        name: Modern Data Warehouse Architecture
+      - href: solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.md
+        name: Extend your on-premises big data investments with HDInsight
+      - href: solution-ideas/articles/extract-transform-and-load-using-hdinsight.md
+        name: Extract, transform, and load (ETL) using HDInsight
+      - href: solution-ideas/articles/security-compliance-blueprint-hippa-hitrust-health-data-ai.md
+        name: Medical Data Storage Solutions
+      - href: solution-ideas/articles/medical-data-storage.md
+        name: Medical Data Storage Solutions
+      - href: solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure.md
+        name: Oracle Database Migration to Azure
+      - href: solution-ideas/articles/personalization-using-cosmos-db.md
+        name: Personalization using Cosmos DB
+      - href: solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.md
+        name: Running Oracle Databases on Azure
+      - href: solution-ideas/articles/streaming-using-hdinsight.md
+        name: Streaming using HDInsight
   - name: DevOps
     items:
     - name: Checklist
@@ -522,7 +718,56 @@ items:
         href: example-scenario/apps/devops-with-aks.md
       - name: Jenkins server
         href: example-scenario/apps/jenkins.md
-
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/cicd-for-azure-vms.md
+        name: CI/CD for Azure VMs
+      - href: solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.md
+        name: CI/CD for Azure Web Apps
+      - href: solution-ideas/articles/cicd-for-containers.md
+        name: CI/CD for Containers
+      - href: solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.md
+        name: Container CI/CD using Jenkins and Kubernetes (AKS)
+      - href: solution-ideas/articles/hybrid-ci-cd.md
+        name: Hybrid CI/CD
+      - href: solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.md
+        name: CI/CD using Jenkins and Terraform
+      - href: solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps.md
+        name: Java CI/CD using Jenkins and Azure Web Apps
+      - href: solution-ideas/articles/simple-branded-website.md
+        name: Simple branded website
+      - href: solution-ideas/articles/scale-using-aks-with-aci.md
+        name: Bursting from AKS with ACI
+      - href: solution-ideas/articles/dev-test-iaas.md
+        name: Dev-Test deployment for testing IaaS solutions
+      - href: solution-ideas/articles/dev-test-paas.md
+        name: Dev-Test deployment for testing PaaS solutions
+      - href: solution-ideas/articles/dev-test-microservice.md
+        name: Dev-Test deployment for testing microservice solutions
+      - href: solution-ideas/articles/microservices-with-aks.md
+        name: Microservices with AKS
+      - href: solution-ideas/articles/ops-automation-using-event-grid.md
+        name: Ops automation using Event Grid
+      - href: solution-ideas/articles/secure-devops-for-kubernetes.md
+        name: Secure DevOps for AKS
+  - name: Disaster recovery
+    items:
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/backup-archive-on-premises.md
+        name: Archive on-premises data to cloud
+      - href: solution-ideas/articles/backup-archive-cloud-application.md
+        name: Back up cloud applications and data to cloud
+      - href: solution-ideas/articles/backup-archive-on-premises-applications.md
+        name: Back up on-premises applications and data to cloud
+      - href: solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.md
+        name: Build high availability into your BCDR strategy
+      - href: solution-ideas/articles/disaster-recovery-enterprise-scale-dr.md
+        name: Enterprise-scale disaster recovery
+      - href: solution-ideas/articles/highly-available-sharepoint-farm.md
+        name: Highly available SharePoint farm
+      - href: solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.md
+        name: SMB disaster recovery with Azure Site Recovery
   - name: Enterprise integration
     items:
     - name: Reference architectures
@@ -531,7 +776,6 @@ items:
         href: reference-architectures/enterprise-integration/basic-enterprise-integration.md
       - name: Enterprise integration with queues and events
         href: reference-architectures/enterprise-integration/queues-events.md
-
   - name: High performance computing (HPC)
     items:
     - name: Overview
@@ -548,7 +792,28 @@ items:
         href: example-scenario/infrastructure/image-modeling.md
       - name: Linux virtual desktops
         href: example-scenario/infrastructure/linux-vdi-citrix.md
-
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/hpc-risk-analysis.md
+        name: HPC Risk Analysis Template  Solution Architecture
+      - href: solution-ideas/articles/big-compute-with-azure-batch.md
+        name: HPC System and Big Compute Solutions
+      - href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.md
+        name: Hybrid HPC in Azure with HPC Pack
+      - href: solution-ideas/articles/azure-batch-rendering.md
+        name: Media Rendering  HPC Solution Architecture
+      - href: solution-ideas/articles/hpc-cluster.md
+        name: HPC cluster deployed in the cloud
+  - name: Hybrid infrastructure
+    items:
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/cross-cloud-scaling.md
+        name: Cross Cloud Scaling Architecture
+      - href: solution-ideas/articles/hybrid-connectivity.md
+        name: Hybrid Connection
+      - href: solution-ideas/articles/sharepoint-farm-office-365.md
+        name: Hybrid SharePoint Farm with Office 365
   - name: Identity
     items:
     - name: Reference architectures
@@ -589,7 +854,6 @@ items:
           href: multitenant-identity/client-assertion.md
         - name: Federate with a customer's AD FS
           href: multitenant-identity/adfs.md
-
   - name: Internet of Things (IoT)
     items:
     - name: Reference architectures
@@ -602,7 +866,18 @@ items:
         href: example-scenario/data/realtime-analytics-vehicle-iot.md
       - name: Telehealth System
         href: example-scenario/apps/telehealth-system.md
-
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/iot-devices.md
+        name: IoT devices
+      - href: solution-ideas/articles/iot-using-cosmos-db.md
+        name: IoT using Cosmos DB
+      - href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.md
+        name: Facilities management powered by mixed reality and IoT
+      - href: solution-ideas/articles/iot-with-aks.md
+        name: IoT device deployment and management on demand
+      - href: solution-ideas/articles/azure-iot-subsystems.md
+        name: Azure IoT Subsystems
   - name: Microservices
     items:
     - name: Overview
@@ -659,7 +934,6 @@ items:
       items:
       - name: Decomposing a monolithic application
         href: example-scenario/infrastructure/service-fabric-microservices.md
-
   - name: Networking
     items:
     - name: Hybrid networking
@@ -686,7 +960,38 @@ items:
         href: reference-architectures/dmz/secure-vnet-dmz.md
       - name: Highly available network virtual appliances
         href: reference-architectures/dmz/nva-ha.md
-
+  - name: SAP
+    items:
+    - name: Reference Architectures
+      items:
+      - name: SAP HANA on Azure Large Instances
+        href: reference-architectures/sap/hana-large-instances.md
+      - name: SAP NetWeaver for AnyDB
+        href: reference-architectures/sap/sap-netweaver.md
+      - name: SAP S/4HANA
+        href: reference-architectures/sap/sap-s4hana.md
+    - name: Example Workloads
+      items:
+      - name: SAP for dev/test
+        href: example-scenario/apps/sap-dev-test.md
+      - name: SAP for production
+        href: example-scenario/apps/sap-production.md
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/sap-netweaver-on-sql-server.md
+        name: SAP NetWeaver on SQLServer
+      - href: solution-ideas/articles/sap-s4-hana-vm-on-linux.md
+        name: SAP S/4 HANA VM on Azure and Linux| Microsoft Azure
+      - href: solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.md
+        name: SAP S/4 HANA for Large Instances
+  - name: Scalability
+    items:
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/gaming-using-cosmos-db.md
+        name: Gaming using Cosmos DB
+      - href: solution-ideas/articles/scalable-web-apps.md
+        name: Scalable Web Apps
   - name: Serverless applications
     items:
     - name: Overview
@@ -707,11 +1012,18 @@ items:
         href: serverless/guide/serverless-app-cicd-best-practices.md
       - name: Sharing location in real time using Functions, SignalR and Service Bus
         href: example-scenario/signalr/index.md
-
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/instant-broadcasting-on-serverless-architecture.md
+        name: Instant broadcasting using serverless
+      - href: solution-ideas/articles/serverless-application-architectures-using-event-grid.md
+        name: Serverless apps using Event Grid
+      - href: solution-ideas/articles/serverless-apps-using-cosmos-db.md
+        name: Serverless apps using Cosmos DB
   - name: VM workloads
     items:
     - name: Reference architectures
-      items:  
+      items:
       - name: Linux VM deployment
         href: reference-architectures/n-tier/linux-vm.md
       - name: Windows VM deployment
@@ -726,23 +1038,10 @@ items:
       items:
       - name: Apache Cassandra
         href: best-practices/cassandra.md
-      - name: SAP
-        items:
-        - name: SAP HANA on Azure Large Instances
-          href: reference-architectures/sap/hana-large-instances.md
-        - name: SAP NetWeaver for AnyDB
-          href: reference-architectures/sap/sap-netweaver.md
-        - name: SAP S/4HANA
-          href: reference-architectures/sap/sap-s4hana.md
-        - name: SAP for dev/test
-          href: example-scenario/apps/sap-dev-test.md
-        - name: SAP for production
-          href: example-scenario/apps/sap-production.md
       - name: SharePoint Server 2016
         href: reference-architectures/sharepoint/index.md
       - name: WordPress
         href: example-scenario/infrastructure/wordpress.md
-
   - name: Web apps
     items:
     - name: Reference architectures
@@ -769,6 +1068,41 @@ items:
         href: example-scenario/apps/fully-managed-secure-apps.md
       - name: Highly available web application
         href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.md
-
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/scalable-ecommerce-web-app.md
+        name: Scalable e-commerce web app
+      - href: solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.md
+        name: Mixed reality powered design review
+      - href: solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.md
+        name: Retail and e-commerce using Cosmos DB
+      - href: solution-ideas/articles/digital-marketing-episerver.md
+        name: Episerver marketing website
+      - href: solution-ideas/articles/digital-marketing-sitecore.md
+        name: Sitecore marketing website
+      - href: solution-ideas/articles/digital-marketing-smb.md
+        name: Simple digital marketing website
+  - name: Other Technologies
+    items:
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/forecast-energy-power-demand.md
+        name: Forecast Energy and Power Demand
+      - href: solution-ideas/articles/digital-media-live-stream.md
+        name: Live streaming digital media
+      - href: solution-ideas/articles/personalized-marketing.md
+        name: Personalized marketing solutions
+      - href: solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.md
+        name: Predict Length of Stay and Patient Flow
+      - href: solution-ideas/articles/remote-patient-monitoring.md
+        name: Remote Patient Monitoring Solutions
+      - href: solution-ideas/articles/disaster-recovery-smb-double-take-dr.md
+        name: SMB disaster recovery with Double-Take
+      - href: solution-ideas/articles/sharepoint-farm-devtest.md
+        name: SharePoint Farm for Development Testing
+      - href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.md
+        name: Training and procedural guidance powered by mixed reality
+      - href: solution-ideas/articles/digital-media-video.md
+        name: Video-on-demand digital media
 - name: Cloud Adoption Framework
   href: https://docs.microsoft.com/azure/cloud-adoption-framework

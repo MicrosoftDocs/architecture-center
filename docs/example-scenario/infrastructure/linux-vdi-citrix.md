@@ -7,7 +7,10 @@ ms.date: 09/12/2018
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenarios
-ms.custom: fasttrack, Linux
+ms.custom:
+  - fasttrack
+  - Linux
+  - hpc
 social_image_url: /azure/architecture/example-scenario/infrastructure/media/azure-citrix-sample-diagram.png
 ---
 
