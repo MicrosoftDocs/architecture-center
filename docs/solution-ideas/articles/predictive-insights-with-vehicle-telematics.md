@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Learn how car dealerships, manufacturers, and insurance companies can use Microsoft Azure to gain predictive insights on vehicle health and driving habits.
-ms.custom: acom-architecture, vehicle telematics, automotive telematics, anomoly-detection, ai-ml, 'https://azure.microsoft.com/solutions/architecture/predictive-insights-with-vehicle-telematics/'
+ms.custom: acom-architecture, vehicle telematics, automotive telematics, anomaly-detection, ai-ml, 'https://azure.microsoft.com/solutions/architecture/predictive-insights-with-vehicle-telematics/'
 ---
 # Predictive Insights with Vehicle Telematics
 
