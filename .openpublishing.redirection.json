@@ -1862,7 +1862,16 @@
     },
     {
       "source_path": "docs/example-scenario/index.experimental.md",
-      "redirect_url": "https://docs.microsoft.com/azure/architecture/example-scenario/index",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/architectures/?filter=example-workload",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/index.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/architectures/?filter=example-workload",
+    },
+    {
+      "source_path": "docs/cloud-adoption/operations/overview.md",
+      "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/operating-model",
       "redirect_document_id": false
     }
   ]
