@@ -490,7 +490,7 @@ items:
         name: Real-time Web Dashboard
       - href: solution-ideas/articles/tiered-data-for-analytics.md
         name: Tier Applications & Data for Analytics
-  - name: Anomoly detection
+  - name: Anomaly detection
     items:
     - name: Solution Ideas
       items:
