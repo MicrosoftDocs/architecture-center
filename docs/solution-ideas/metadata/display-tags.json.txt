@@ -57,11 +57,11 @@
 					]
 				},
 				{
-					"name": "Anomoly detection",
-					"friendly-name": "anomoly-detection",
+					"name": "Anomaly detection",
+					"friendly-name": "anomaly-detection",
 					"tags": [
 						"anomaly-detector",
-						"anomoly-detection",
+						"anomaly-detection",
 						"anomaly-detection-model",
 						"anomaly-detection-process"
 					]
