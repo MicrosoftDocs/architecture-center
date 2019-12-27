@@ -1,5 +1,5 @@
 ---
-title: Connect an on-premises network to Azure
+title: Solutions for connecting an on-premises network to Azure
 titleSuffix: Azure Reference Architectures
 description: Compare reference architectures for connecting an on-premises network to Azure.
 author: telmosampaio
