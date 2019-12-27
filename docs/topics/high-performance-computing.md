@@ -416,7 +416,7 @@ There are a number of customers who have seen great success by using Azure for t
 
 For the latest announcements, see:
 
-- [Microsoft HPC and Batch team blog](http://blogs.technet.com/b/windowshpc/)
+- [Microsoft HPC and Batch team blog](https://blogs.technet.com/b/windowshpc/)
 - Visit the [Azure blog](https://azure.microsoft.com/blog/tag/hpc/).
 
 ### Microsoft Batch Examples
