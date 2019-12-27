@@ -1,5 +1,5 @@
 ---
-title: Connect an on-premises network to Azure
+title: Connect an on-premises network to Azure using ExpressRoute
 titleSuffix: Azure Reference Architectures
 description: Implement a highly available and secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using ExpressRoute with VPN gateway failover.
 author: telmosampaio
