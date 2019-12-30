@@ -216,11 +216,11 @@ An example Resource Manager template for this architecture is [available on GitH
 To deploy the template using PowerShell, run the following commands:
 
 ```powershell
-New-AzureRmResourceGroup -Name <resource-group-name> -Location "West US"
+New-AzResourceGroup -Name <resource-group-name> -Location "West US"
 
 $parameters = @{"appName"="<app-name>";"environment"="dev";"locationShort"="uw";"databaseName"="app-db";"administratorLogin"="<admin>";"administratorLoginPassword"="<password>"}
 
-New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile .\PaaS-Basic.json -TemplateParameterObject  $parameters
+New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile .\PaaS-Basic.json -TemplateParameterObject  $parameters
 ```
 
 For more information, see [Deploy resources with Azure Resource Manager templates][deploy-arm-template].
