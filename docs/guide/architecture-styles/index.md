@@ -39,7 +39,7 @@ Web-queue-worker is suitable for relatively simple domains with some resource-in
 
 ### Microservices
 
-If your application has a more complex domain, consider moving to a **[Microservices][microservices]** architecture. A microservices application is composed of many small, independent services. Each service implements a single business capability. Services are loosely coupled, communicating through API contracts.
+If your application has a more complex domain, consider moving to a **[Microservices][microservices]** architecture. A microservices application is composed of many small, independent services. Each service implements a single business capability. Services are loosely coupled with three ways that they can communicate. Through API contracts, asynchronous messages, or events.
 
 Each service can be built by a small, focused development team. Individual services can be deployed without a lot of coordination between teams, which encourages frequent updates. A microservice architecture is more complex to build and manage than either N-tier or web-queue-worker. It requires a mature development and DevOps culture. But done right, this style can lead to higher release velocity, faster innovation, and a more resilient architecture.
 
@@ -73,7 +73,7 @@ The following table summarizes how each style manages dependencies, and the type
 |--------------------|------------------------|-------------|
 | N-tier | Horizontal tiers divided by subnet | Traditional business domain. Frequency of updates is low. |
 | Web-Queue-Worker | Front and backend jobs, decoupled by async messaging. | Relatively simple domain with some resource intensive tasks. |
-| Microservices | Vertically (functionally) decomposed services that call each other through APIs. | Complicated domain. Frequent updates. |
+| Microservices | Vertically (functionally) decomposed services that communicate with each other synchronously or asynchronously. | Complicated domain. Frequent updates. |
 | Event-driven architecture. | Producer/consumer. Independent view per sub-system. | IoT and real-time systems |
 | Big data | Divide a huge dataset into small chunks. Parallel processing on local datasets. | Batch and real-time data analysis. Predictive analysis using ML. |
 | Big compute| Data allocation to thousands of cores. | Compute intensive domains such as simulation. |
