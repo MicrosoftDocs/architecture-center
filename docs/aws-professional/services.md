@@ -9,6 +9,8 @@ ms.date: 05/07/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+experimental: true
+experiment_id: a8dbfcc6-71f8-41
 ---
 
 # AWS to Azure services comparison
