@@ -21,6 +21,8 @@ In general, avoid using a special character, such as a hyphen (`-`) or underscor
 
 | Entity | Scope | Length | Casing | Valid characters | Suggested pattern | Example |
 | --- | --- | --- | --- | --- | --- | --- |
+|Management Group ID |Root Management Group |1-90 |Insensitive |Alphanumeric, underscore, hyphen, period |`<service name>-<environment name>` |`IT-production` |
+|Subscription name |Management Group |1-64 | Insensitive| 0-9, a-z, A-Z, and cannot contain: greater than or lesser than signs, semicolon, pipe |`<Company> <Department> <Environment>` |`Contoso IT Production` | 
 |Resource group |Subscription |1-90 |Insensitive |Alphanumeric, underscore, parentheses, hyphen, period (except at the end), and Unicode characters that match the [regex documentation](/rest/api/resources/resourcegroups/createorupdate) |`<service short name>-<environment>-rg` |`profx-prod-rg` |
 |Availability set |Resource group |1-80 |Insensitive |Alphanumeric, underscore, and hyphen |`<service-short-name>-<context>-as` |`profx-sql-as` |
 |Tag |Associated entity |512 (name), 256 (value) |Insensitive |Alphanumeric, including Unicode characters; special characters except `<`, `>`, `%`, `&`, `\`, `?`, `/`, and [other limitations](/azure/azure-resource-manager/resource-group-using-tags) |`"key" : "value"` |`"department" : "Central IT"` |
