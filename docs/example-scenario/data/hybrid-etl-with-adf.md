@@ -3,11 +3,14 @@ title: Hybrid ETL with existing on-premises SSIS and Azure Data Factory
 titleSuffix: Azure Example Scenarios
 description: Hybrid ETL with existing on-premises SQL Server Integration Services (SSIS) deployments and Azure Data Factory.
 author: alhieng
-ms.date: 09/20/2018
+ms.date: 11/20/2019
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenarios
-ms.custom: tsp-team
+ms.custom:
+  - tsp-team
+  - sql-server
+  - data
 social_image_url: /azure/architecture/example-scenario/data/media/architecture-diagram-hybrid-etl-with-adf.png
 ---
 
@@ -40,14 +43,14 @@ Several potential on-premises use cases are listed below:
 2. The Data Factory pipeline invokes a stored procedure to execute an SSIS job hosted on-premises via the Integrated Runtime.
 3. The data cleansing jobs are executed to prepare the data for downstream consumption.
 4. Once the data cleansing task completes successfully, a copy task is executed to load the clean data into Azure.
-5. The clean data is then loaded into tables in the SQL Data Warehouse.
+5. The clean data is then loaded into tables in the Azure Synapse Analytics.
 
 ### Components
 
 - [Blob storage][docs-blob-storage] is used to store files and as a source for Data Factory to retrieve data.
 - [SQL Server Integration Services][docs-ssis] contains the on-premises ETL packages used to execute task-specific workloads.
 - [Azure Data Factory][docs-data-factory] is the cloud orchestration engine that takes data from multiple sources and combines, orchestrates, and loads the data into a data warehouse.
-- [SQL Data Warehouse][docs-sql-data-warehouse] centralizes data in the cloud for easy access using standard ANSI SQL queries.
+- [Azure Synapse][docs-sql-data-warehouse] centralizes data in the cloud for easy access using standard ANSI SQL queries.
 
 ### Alternatives
 

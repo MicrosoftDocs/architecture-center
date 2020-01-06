@@ -1,5 +1,5 @@
 ---
-title: App Design
+title: Designing scalable Azure applications
 description: 
 author: david-stanford
 ms.date: 10/16/2019
@@ -9,34 +9,34 @@ ms.subservice: cloud-design-principles
 ms.custom: How are you designing your applications to scale? 
 ---
 
-# App Design
+# Designing scalable Azure applications
 
-Application design is critical to handling scale as load increase
+Application design is critical to handling scale as load increases.
 
 ## Choosing the right database
 
-Not surprisingly, the overall performance and scale of an application is often heavily weighted on the choice and implementation of the database and the overall data tier of the application. This is because database reads and writes involve a network call and storage IO, both of which are expense operations. Choosing the right database service to store and retrieve data is therefore a critical decision and must be carefully considered to ensure overall application scalability. Azure has many first party database services that will fit most needs. In addition, there are a series of third-party options that can be considered from Azure Marketplace.
+The choice of database and the overall design of the data tier can greatly affect an application's performance and scalability. Database reads and writes involve a network call and storage IO, both of which are expense operations. Choosing the right database service to store and retrieve data is therefore a critical decision and must be carefully considered to ensure overall application scalability. Azure has many first party database services that will fit most needs. In addition, there are a series of third-party options that can be considered from Azure Marketplace.
 
 The first decision to consider is whether the application storage requirements fit a relational design (SQL) vs a key-value/document/graph design (NO-SQL). Some applications may have both a relational database and a NO-SQL database for different storage needs.
 
-If a relational RDBMS is considered optimal, Azure has a series of PaaS options where the hosting and operations of the database are run for the customer by the service. In particular Azure SQL Database has many different options spanning a single database needs and instances that host multiple databases (Azure SQL Database Managed Instance). The suite of offerings span requirements crossing performance, scale, size, resiliency, disaster recovery, and migration compatibility. For the full set of Azure PaaS relational database offerings, see the below.  
+If a relational RDBMS is considered optimal, Azure offers several PaaS options that fully manage hosting and operations of the database. Azure SQL Database has can host single databases or multiple databases (Azure SQL Database Managed Instance). The suite of offerings span requirements crossing performance, scale, size, resiliency, disaster recovery, and migration compatibility. Azure offers the following PaaS relational database services:  
 
-Azure SQL Database <https://azure.microsoft.com/services/sql-database>
-Azure Database for MySQL <https://azure.microsoft.com/services/mysql>
-Azure Database for PostgreSQL <https://azure.microsoft.com/services/postgresql>
-Azure Database for MariaDB <https://azure.microsoft.com/services/mariadb>
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
+- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)
+- [Azure Database for MariaDB](https://azure.microsoft.com/services/mariadb)
 
 If the application requirements fall into a format that better fits a key/value format or document storage (i.e JSON, XML, YAML, etc.), a NO-SQL should be considered as first option for performance, scale, and cost savings.
 
 For key/value storage needs, Azure provides two managed services that optimize for this scenario. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) and [Azure Cache for Redis](https://azure.microsoft.com/services/cache). For document and graph databases, Cosmos DB is a highly recommended first party service offering extreme scale and performance.
 
-## Dynamic service discovery for micro-services applications
+## Dynamic service discovery for microservices applications
 
-Clients of a service use either Client-side discovery or Server-side discovery to determine the location of a service instance to send requests. Service discovery is a process of figuring out how to connect to a service, and if done correctly, can lead to software that scales out as usage increases. Decomposing an application into microservices is a practice that can directly lead to native scalability given a service's ability to be scaled and updated individually. This level of decoupling is an architectural best practice. However, when many microservices are in play, managing, executing, and operationalizing the services becomes a bottleneck, leading to the incorporation of an orchestration platform like Kubernetes or Service Fabric. Both of these platforms provide built-in services for executing, scaling, and operating a microservices architecture; and one of those key services is discovery and finding where a particular service is running.
+Clients can use either client-side discovery or server-side discovery to determine the location of a service instance to send requests. Service discovery is a process of figuring out how to connect to a service, and if done correctly, can lead to software that scales out as usage increases. Decomposing an application into microservices is a practice that can directly lead to native scalability given a service's ability to be scaled and updated individually. This level of decoupling is an architectural best practice. However, when many microservices are in play, managing, executing, and operationalizing the services becomes a bottleneck, leading to the incorporation of an orchestration platform like Kubernetes or Service Fabric. Both of these platforms provide built-in services for executing, scaling, and operating a microservices architecture; and one of those key services is discovery and finding where a particular service is running.
 
-The client of the service should not need to know or care where the service executes or how many instances of the service are executing. It is the job of the orchestration platform to connect the client to the service through a decoupled discovery service, such as DNS, that major orchestration platforms all provide. An example of how this works in [Kubernetes](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/). The reason incorporating dynamic service discovery can lead to scalability gains is that each service can then be sized independently with multiple instances without the service client having this knowledge or changing its interaction.  
+The client of the service should not need to know or care where the service executes or how many instances of the service are executing. It is the job of the orchestration platform to connect the client to the service through a decoupled discovery service, such as DNS, that major orchestration platforms all provide. An example of how this works in [Kubernetes](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/). Dynamic service discovery can make an application more scalable, because each service can be scaled independently, without the client having knowledge of the individual instances.
 
-Use the [service registry pattern](https://microservices.io/patterns/service-registry.html)
+Use the [service registry pattern](https://microservices.io/patterns/service-registry.html).
 
 ## Connection pooling
 
@@ -68,7 +68,7 @@ A variant to asynchronous programming discussed above, queuing services have lon
 
 Using a queue is often the best way to hand off work to a processor service. The processor service receives work by listening on a queue and dequeuing messages. If items to be processed enter too quickly, the queuing service will keep them in the queue until the processing service has available resources and asks for a new work item (message). By leveraging the dynamic nature of Azure Functions, the processor service can easily autoscale on demand as the queue builds up to meet the intake pressure. Developing processor logic with Azure Functions to run task logic from a queue is a common, scalable, and cost effective way to using queuing between a client and a processor.  
 
-Azure provides a few native first-party queueing services with Azure Storage Queues (simple queuing service based on Azure Storage) and Azure Service Bus (message broker service supporting transactions and reduced latency). Many other third party options are also available through Marketplace. Review the [queue-based load leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) to learn more.
+Azure provides a few native first-party queueing services with Azure Storage Queues (simple queuing service based on Azure Storage) and Azure Service Bus (message broker service supporting transactions and reduced latency). Many other third-party options are also available through Marketplace. Review the [queue-based load leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) to learn more.
 
 ## Session affinity
 
@@ -88,4 +88,4 @@ Each service documents its autoscale capabilities. Review [Autoscale overview](/
 
 Back in the 1990s and early 2000's, Enterprise Application Integration became a major topic for hooking systems together, creating and scheduling jobs and tasks. These platforms offered a series of connectors for working with common formats and protocols like EDI/X12/EDIFACT, SFTP, HL7, SWIFT, and SOAP; and managing long running processes that may span minutes/hours/days through workflow orchestration. Along with workflow, these integration tools solved app-to-app and business-to-business integration needs. Not surprisingly, these needs still exist in the cloud, but a scalable cloud native way of enabling these capabilities is paramount, and that's what the Logic Apps service enables in Azure. Logic Apps is a serverless consumption  (pay-per-use) service that enables a vast set of out-of-the-box ready-to-use connectors and a long-running workflow engine to quickly enable cloud-native integration needs. Logic Apps is flexible enough for a plethora of sceneries like running tasks/jobs, advanced scheduling, and triggering. It includes many of the format and protocol capabilities that existed in Microsoft's enterprise EAI product called BizTalk Server, and has advanced hosting options to allow it run within enterprise restricted cloud environments. Logic Apps compliments and can be combined with all other Azure services, or it can be used independently.
 
-Like all serverless services, [Logic Apps](/azure/logic-apps/logic-apps-overview) doesn't require VM instances to be purchased, enabled, and scaled up and down. Instead, Logic Apps inheritably scale automatically on serverless PaaS provided instances, and a consumer only pays based on usage.
+Like all serverless services, [Logic Apps](/azure/logic-apps/logic-apps-overview) doesn't require VM instances to be purchased, enabled, and scaled up and down. Instead, Logic Apps scale automatically on serverless PaaS provided instances, and a consumer only pays based on usage.

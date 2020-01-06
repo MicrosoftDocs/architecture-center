@@ -8,6 +8,7 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenarios
 social_image_url: /azure/architecture/example-scenario/data/media/architecture-fraud-detection.png
+ms.custom: ai-ml
 ---
 
 # Real-time fraud detection on Azure

@@ -4,7 +4,6 @@ titleSuffix: Azure Reference Architectures
 description: Recommended architecture for implementing an enterprise integration pattern with Azure Logic Apps, Azure API Management, Azure Service Bus, and Azure Event Grid.
 author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
-ms.topic: article
 ms.date: 12/03/2018
 ms.topic: reference-architecture
 ms.service: architecture-center

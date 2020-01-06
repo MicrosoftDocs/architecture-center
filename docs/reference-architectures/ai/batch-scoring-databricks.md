@@ -2,7 +2,7 @@
 title: Batch scoring of Spark models on Azure Databricks
 description:  Build a scalable solution for batch scoring an Apache Spark classification model on a schedule using Azure Databricks.
 author: njray
-ms.date: 02/07/2019
+ms.date: 11/20/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -80,7 +80,7 @@ Additionally, more complex scheduled pipelines can be developed by using [Azure 
 
 ## Storage considerations
 
-In this reference implementation, the data is stored directly within Databricks storage for simplicity. In a production setting, however, the data can be stored on cloud data storage such as [Azure Blob Storage][blob]. [Databricks][databricks-connect] also supports Azure Data Lake Store, Azure SQL Data Warehouse, Azure Cosmos DB, Apache Kafka, and Hadoop.
+In this reference implementation, the data is stored directly within Databricks storage for simplicity. In a production setting, however, the data can be stored on cloud data storage such as [Azure Blob Storage][blob]. [Databricks][databricks-connect] also supports Azure Data Lake Store, Azure Synapse Analytics, Azure Cosmos DB, Apache Kafka, and Hadoop.
 
 ## Cost considerations
 
@@ -90,7 +90,7 @@ For this scenario, the standard pricing tier is sufficient. However, if your spe
 
 The solution notebooks can run on any Spark-based platform with minimal edits to remove the Databricks-specific packages. See the following similar solutions for various Azure platforms:
 
-- [Python on Azure Machine Learning Studio][python-aml]
+- [Python on Azure Machine Learning Studio (classic)][python-aml]
 - [SQL Server R services][sql-r]
 - [PySpark on an Azure Data Science Virtual Machine][py-dvsm]
 
@@ -107,7 +107,7 @@ We have also built a reference architecture that uses Spark for building [real-t
 [ai-guide]: /azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance
 [blob]: https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [cli]: https://docs.databricks.com/user-guide/dev-tools/databricks-cli.html
-[cluster]: https://docs.azuredatabricks.net/user-guide/clusters/sizing.html
+[cluster]: https://docs.azuredatabricks.net/clusters/configure.html#cluster-size-and-autoscaling
 [databricks]: /azure/azure-databricks/
 [databricks-connect]: /azure/azure-databricks/databricks-connect-to-data-sources
 [data-sources]: https://docs.databricks.com/spark/latest/data-sources/index.html
@@ -118,7 +118,7 @@ We have also built a reference architecture that uses Spark for building [real-t
 [mllib]: https://docs.databricks.com/spark/latest/mllib/index.html
 [mllib-spark]: https://docs.databricks.com/spark/latest/mllib/index.html#apache-spark-mllib
 [notebooks]: https://docs.databricks.com/user-guide/notebooks/index.html
-[pricing]: https://azure.microsoft.com/en-us/pricing/details/databricks/
+[pricing]: https://azure.microsoft.com/pricing/details/databricks/
 [python-aml]: https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1
 [py-dvsm]: https://gallery.azure.ai/Tutorial/Predictive-Maintenance-using-PySpark
 [recommendation]: /azure/architecture/reference-architectures/ai/real-time-recommendation

@@ -7,7 +7,10 @@ ms.date: 09/20/2018
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenarios
-ms.custom: fasttrack
+ms.custom:
+  - fasttrack
+  - application-development
+  - app-modernization
 social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-service-fabric-complete.png
 ---
 

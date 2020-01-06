@@ -214,7 +214,7 @@ Access to the Azure Database workspace is controlled using the [administrator co
 
 ### Managing secrets
 
-Azure Databricks includes a [secret store](https://docs.azuredatabricks.net/user-guide/secrets/index.html) that is used to store secrets, including connection strings, access keys, user names, and passwords. Secrets within the Azure Databricks secret store are partitioned by **scopes**:
+Azure Databricks includes a [secret store](https://docs.azuredatabricks.net/security/secrets/index.html#secrets) that is used to store secrets, including connection strings, access keys, user names, and passwords. Secrets within the Azure Databricks secret store are partitioned by **scopes**:
 
 ```bash
 databricks secrets create-scope --scope "azure-databricks-job"
@@ -227,7 +227,7 @@ databricks secrets put --scope "azure-databricks-job" --key "taxi-ride"
 ```
 
 > [!NOTE]
-> An Azure Key Vault-backed scope can be used instead of the native Azure Databricks scope. To learn more, see [Azure Key Vault-backed scopes](https://docs.azuredatabricks.net/user-guide/secrets/secret-scopes.html#azure-key-vault-backed-scopes).
+> An Azure Key Vault-backed scope can be used instead of the native Azure Databricks scope. To learn more, see [Azure Key Vault-backed scopes](https://docs.azuredatabricks.net/security/secrets/secret-scopes.html#azure-key-vault-backed-scopes).
 
 In code, secrets are accessed via the Azure Databricks [secrets utilities](https://docs.databricks.com/user-guide/dev-tools/dbutils.html#secrets-utilities).
 

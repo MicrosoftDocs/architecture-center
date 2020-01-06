@@ -2,7 +2,7 @@
 title: Real-time scoring of R machine learning models
 description:  Implement a real-time prediction service in R using Machine Learning Server running in Azure Kubernetes Service (AKS).
 author: njray
-ms.date: 12/12/2018
+ms.date: 12/10/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -12,9 +12,6 @@ ms.custom: azcat-ai
 # Real-time scoring of R machine learning models on Azure
 
 This reference architecture shows how to implement a real-time (synchronous) prediction service in R using Microsoft Machine Learning Server running in Azure Kubernetes Service (AKS). This architecture is intended to be generic and suited for any predictive model built in R that you want to deploy as a real-time service. **[Deploy this solution][github]**.
-
-_Azure Machine Learning alternative:_
-This architecture provides a pure R experience. It doesn't use the [Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) oriented [Azure Machine Learning Services](/azure/machine-learning/service/overview-what-is-azure-ml#what-is-azure-machine-learning-1) (__AzureML SDK__), which is a mature cloud service for developing AI solutions at scale. AzureML SDK provides an easy path for development and deployment of containerized scoring scripts. We provide an [alternative solution](https://github.com/microsoft/AMLSDKRModelsOperationalization) that shows how to use [Conda](https://conda.io/en/latest/) to [install R](https://docs.anaconda.com/anaconda/user-guide/tasks/use-r-language/) and R packages to leverage AzureML SDK via the [rpy2](https://rpy2.bitbucket.io/) Python package. The value in using this alternative to operationalize R models is that you don't need to know Flask, and you can reuse AzureML SDK expertise, which can be useful for teams that are comfortable using both R and Python languages for their data science projects. The implementation of this alternative architecture is [available on GitHub](https://github.com/microsoft/AMLSDKRModelsOperationalization).
 
 ## Architecture
 
@@ -28,7 +25,9 @@ The architecture of this workflow includes the following components.
 
 - **[Azure Kubernetes Service][aks]** is used to host the deployment and service. Clusters created with AKS can be managed using the standard [Kubernetes API][k-api] and client (kubectl).
 
-- **[Microsoft Machine Learning Server][mmls]** is used to define the REST API for the service and includes [Model Operationalization][operationalization]. This service-oriented web server process listens for requests, which are then handed off to other background processes that run the actual R code to generate the results. All these processes run on a single node in this configuration, which is wrapped in a container. For details about using this service outside a dev or test environment, contact your Microsoft representative.
+- **[Plumber][plumber]** is used to define the REST API for the service. Plumber is an open-source package for exposing R code, such as predictive models, via a REST API.
+
+- **[Traefik][traefik]** provides a middleware layer for basic authentication and TLS encryption.
 
 ## Performance considerations
 
@@ -48,11 +47,9 @@ In this reference architecture, HTTPS is enabled for communication with the clus
 
 ### Authentication and authorization
 
-Machine Learning Server [Model Operationalization][operationalization] requires scoring requests to be authenticated. In this deployment, a username and password are used. In an enterprise setting, you can enable authentication using [Azure Active Directory][azure-ad] or create a separate front end using [Azure API Management][API].
+In this architecture, access to the AKS cluster endpoint is secured using HTTP basic authentication. This allows anybody who knows the username and password to access the endpoint. It's strongly recommended to provide an additional layer of authentication on top of this, for example with [Azure API Management][API].
 
-For Model Operationalization to work correctly with Machine Learning Server on containers, you must install a JSON Web Token (JWT) certificate. This deployment uses a certificate supplied by Microsoft. In a production setting, supply your own.
-
-For traffic between Container Registry and AKS, consider enabling [role-based access control][rbac] (RBAC) to limit access privileges to only those needed.
+Traffic between Container Registry and AKS is authenticated using [role-based access control][rbac] (RBAC) to limit access privileges to only those needed.
 
 ### Separate storage
 
@@ -66,11 +63,15 @@ Although the dashboard gives you a view of the overall health of your cluster, i
 
 ## Cost considerations
 
-Machine Learning Server is licensed on a per-core basis, and all the cores in the cluster that will run Machine Learning  Server count towards this. If you are an enterprise Machine Learning Server or Microsoft SQL Server customer, contact your Microsoft representative for pricing details.
+The main cost consideration in this architecture is the Kubernetes cluster's compute resources. The cluster must be large enough to handle the expected request volume at peak times, but this approach leaves resources idle at other times. To limit the impact of idle resources, enable the [horizontal autoscaler][autoscaler] for the cluster using the kubectl tool. or use the AKS [cluster autoscaler][cluster-autoscaler].
 
-An open-source alternative to Machine Learning Server is [Plumber][plumber], an R package that turns your code into a REST API. Plumber is less fully featured than Machine Learning Server. For example, by default it doesn't include any features that provide request authentication. If you use Plumber, it’s recommended that you enable [Azure API Management][API] to handle authentication details.
+## Software alternatives
 
-Besides licensing, the main cost consideration is the Kubernetes cluster's compute resources. The cluster must be large enough to handle the expected request volume at peak times, but this approach leaves resources idle at other times. To limit the impact of idle resources, enable the [horizontal autoscaler][autoscaler] for the cluster using the kubectl tool. Or use the AKS [cluster autoscaler][cluster-autoscaler].
+An alternative to Plumber is [Microsoft Machine Learning Server][mmls], which provides a [model operationalization][operationalization] feature for exposing predictive models via REST APIs. MMLS has the advantage of providing built-in authentication, which may reduce or eliminate the need for a separate authentication layer. Note however that MMLS is commercial software, licensed on a per-core basis. If you are an enterprise Machine Learning Server or Microsoft SQL Server customer, contact your Microsoft representative for pricing details.
+
+[Nginx][nginx] and [Cert-Manager][cert-manager] can be used rather than Traefik to provide the middleware layer.
+
+This architecture provides a pure R experience. It doesn't use the [Python](/python/api/overview/azure/ml/intro?view=azure-ml-py)-oriented [Azure Machine Learning](/azure/machine-learning/service/overview-what-is-azure-ml#what-is-machine-learning) (AzureML SDK), which is a mature cloud service for developing AI solutions at scale. AzureML SDK provides an easy path for developing and deploying containerized scoring scripts. We provide an [alternative solution](https://github.com/microsoft/AMLSDKRModelsOperationalization) that shows how to use [Conda](https://conda.io/en/latest/) to [install R](https://docs.anaconda.com/anaconda/user-guide/tasks/use-r-language/) and R packages to leverage AzureML SDK via the [rpy2](https://rpy2.bitbucket.io/) Python package. The value of using this alternative to operationalize R models is that you don't need to know Flask, and you can reuse AzureML SDK expertise, which can be useful for teams that are comfortable using both R and Python languages for their data science projects. The implementation of this alternative architecture is [available on GitHub](https://github.com/microsoft/AMLSDKRModelsOperationalization).
 
 ## Deploy the solution
 
@@ -82,6 +83,7 @@ The reference implementation of this architecture is available on [GitHub][githu
 [ACR]: /azure/container-registry/container-registry-intro
 [AKS]: /azure/aks/intro-kubernetes
 [autoscaler]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
+[cert-manager]: https://cert-manager.io/
 [cluster-autoscaler]: /azure/aks/autoscaler
 [monitor]: /azure/monitoring/monitoring-container-insights-overview
 [dashboard]: /azure/aks/kubernetes-dashboard
@@ -91,8 +93,10 @@ The reference implementation of this architecture is available on [GitHub][githu
 [K-API]: https://kubernetes.io/docs/reference/
 [MMLS]: /machine-learning-server/what-is-machine-learning-server
 [monitor-containers]: /azure/azure-monitor/insights/container-insights-overview
+[nginx]: https://www.nginx.com
 [operationalization]: /machine-learning-server/what-is-operationalization
 [plumber]: https://www.rplumber.io
 [RBAC]: /azure/role-based-access-control/overview
 [storage]: /azure/storage/common/storage-introduction
+[traefik]: https://traefik.io
 [0]: ./_images/realtime-scoring-r.png

@@ -216,11 +216,11 @@ An example Resource Manager template for this architecture is [available on GitH
 To deploy the template using PowerShell, run the following commands:
 
 ```powershell
-New-AzureRmResourceGroup -Name <resource-group-name> -Location "West US"
+New-AzResourceGroup -Name <resource-group-name> -Location "West US"
 
 $parameters = @{"appName"="<app-name>";"environment"="dev";"locationShort"="uw";"databaseName"="app-db";"administratorLogin"="<admin>";"administratorLoginPassword"="<password>"}
 
-New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile .\PaaS-Basic.json -TemplateParameterObject  $parameters
+New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile .\PaaS-Basic.json -TemplateParameterObject  $parameters
 ```
 
 For more information, see [Deploy resources with Azure Resource Manager templates][deploy-arm-template].
@@ -262,11 +262,11 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [sql-dtu]: /azure/sql-database/sql-database-service-tiers
 [sql-human-error]: /azure/sql-database/sql-database-business-continuity#recover-a-database-within-the-same-azure-region
 [sql-outage-recovery]: /azure/sql-database/sql-database-recovery-using-backups#geo-restore
-[ssl-redirect]: /azure/app-service-web/web-sites-configure-ssl-certificate#bkmk_enforce
+[ssl-redirect]: /azure/app-service-web/web-sites-configure-ssl-certificate
 [sql-resource-limits]: /azure/sql-database/sql-database-resource-limits
 [ssl-cert]: /azure/app-service-web/web-sites-purchase-ssl-web-site
 [troubleshoot-blade]: https://azure.microsoft.com/updates/self-service-troubleshooting-for-app-service-web-apps-customers/
-[tfs]: /tfs/index
+[tfs]: /azure/devops/server/tfs-is-now-azure-devops-server
 [troubleshoot-web-app]: /azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx
 [web-app-autoscale]: /azure/app-service-web/web-sites-scale

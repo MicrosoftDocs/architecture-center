@@ -2,7 +2,7 @@
 title: Data warehousing in Microsoft Azure
 description: Creating data warehouse solutions for Azure
 author: MikeWasson
-ms.date: 04/20/2019
+ms.date: 11/20/2019
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -12,7 +12,7 @@ ms.subservice: cloud-fundamentals
 
 A data warehouse is a centralized repository of integrated data from one or more disparate sources. Data warehouses store current and historical data and are used for reporting and analysis of the data.
 
-![Data warehousing in Azure](../../reference-architectures/data/images/enterprise-bi-sqldw.png)
+![Data warehousing in Azure](../../reference-architectures/data/images/enterprise-bi-synapse.png)
 
 To move data into a data warehouse, data is periodically extracted from various sources that contain important business information. As the data is moved, it can be formatted, cleaned, validated, summarized, and reorganized. Alternatively, the data can be stored in the lowest level of detail, with aggregated views provided in the warehouse for reporting. In either case, the data warehouse becomes a permanent data store for reporting, analysis, and business intelligence (BI).
 
@@ -20,8 +20,8 @@ To move data into a data warehouse, data is periodically extracted from various 
 
 The following reference architectures show end-to-end data warehouse architectures on Azure:
 
-- [Enterprise BI in Azure with SQL Data Warehouse](../../reference-architectures/data/enterprise-bi-sqldw.md). This reference architecture implements an extract, load, and transform (ELT) pipeline that moves data from an on-premises SQL Server database into SQL Data Warehouse.
-- [Automated enterprise BI with SQL Data Warehouse and Azure Data Factory](../../reference-architectures/data/enterprise-bi-adf.md). This reference architecture shows an ELT pipeline with incremental loading, automated using Azure Data Factory.
+- [Enterprise BI in Azure with Azure Synapse Analytics](../../reference-architectures/data/enterprise-bi-synapse.md). This reference architecture implements an extract, load, and transform (ELT) pipeline that moves data from an on-premises SQL Server database into Azure Synapse.
+- [Automated enterprise BI with Azure Synapse and Azure Data Factory](../../reference-architectures/data/enterprise-bi-adf.md). This reference architecture shows an ELT pipeline with incremental loading, automated using Azure Data Factory.
 
 ## When to use this solution
 
@@ -53,7 +53,7 @@ Properly configuring a data warehouse to fit the needs of your business can brin
 
 ## Data warehousing in Azure
 
-You may have one or more sources of data, whether from customer transactions or business applications. This data is traditionally stored in one or more [OLTP](online-transaction-processing.md) databases. The data could be persisted in other storage mediums such as network shares, Azure Storage Blobs, or a data lake. The data could also be stored by the data warehouse itself or in a relational database such as Azure SQL Database. The purpose of the analytical data store layer is to satisfy queries issued by analytics and reporting tools against the data warehouse. In Azure, this analytical store capability can be met with Azure SQL Data Warehouse, or with Azure HDInsight using Hive or Interactive Query. In addition, you will need some level of orchestration to move or copy data from data storage to the data warehouse, which can be done using Azure Data Factory or Oozie on Azure HDInsight.
+You may have one or more sources of data, whether from customer transactions or business applications. This data is traditionally stored in one or more [OLTP](online-transaction-processing.md) databases. The data could be persisted in other storage mediums such as network shares, Azure Storage Blobs, or a data lake. The data could also be stored by the data warehouse itself or in a relational database such as Azure SQL Database. The purpose of the analytical data store layer is to satisfy queries issued by analytics and reporting tools against the data warehouse. In Azure, this analytical store capability can be met with Azure Synapse, or with Azure HDInsight using Hive or Interactive Query. In addition, you will need some level of orchestration to move or copy data from data storage to the data warehouse, which can be done using Azure Data Factory or Oozie on Azure HDInsight.
 
 There are several options for implementing a data warehouse in Azure, depending on your needs. The following lists are broken into two categories, [symmetric multiprocessing](https://en.wikipedia.org/wiki/Symmetric_multiprocessing) (SMP) and [massively parallel processing](https://en.wikipedia.org/wiki/Massively_parallel) (MPP).
 
@@ -80,15 +80,15 @@ MPP systems can be scaled out by adding more compute nodes (which have their own
 
 When deciding which SMP solution to use, see [A closer look at Azure SQL Database and SQL Server on Azure VMs](/azure/sql-database/sql-database-paas-vs-sql-server-iaas#business-motivations-for-choosing-databases-managed-instances-or-sql-virtual-machines).
 
-Azure SQL Data Warehouse can also be used for small and medium datasets, where the workload is compute and memory intensive. Read more about SQL Data Warehouse patterns and common scenarios:
+Azure Synapse (formerly Azure SQL Data Warehouse) can also be used for small and medium datasets, where the workload is compute and memory intensive. Read more about Azure Synapse patterns and common scenarios:
 
-- [SQL Data Warehouse Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/)
+- [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/)
 
-- [SQL Data Warehouse Loading Patterns and Strategies](https://blogs.msdn.microsoft.com/sqlcat/2017/05/17/azure-sql-data-warehouse-loading-patterns-and-strategies/)
+- [Azure SQL Data Warehouse loading patterns and strategies](https://blogs.msdn.microsoft.com/sqlcat/2017/05/17/azure-sql-data-warehouse-loading-patterns-and-strategies/)
 
-- [Migrating Data to Azure SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/)
+- [Migrating data to Azure SQL Data Warehouse in practice](https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/)
 
-- [Common ISV Application Patterns Using Azure SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/)
+- [Common ISV application patterns using Azure SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/)
 
 ## Key selection criteria
 
@@ -98,13 +98,13 @@ To narrow the choices, start by answering these questions:
 
 - Are you working with extremely large data sets or highly complex, long-running queries? If yes, consider an MPP option.
 
-- For a large data set, is the data source structured or unstructured? Unstructured data may need to be processed in a big data environment such as Spark on HDInsight, Azure Databricks, Hive LLAP on HDInsight, or Azure Data Lake Analytics. All of these can serve as ELT (Extract, Load, Transform) and ETL (Extract, Transform, Load) engines. They can output the processed data into structured data, making it easier to load into SQL Data Warehouse or one of the other options. For structured data, SQL Data Warehouse has a performance tier called Optimized for Compute, for compute-intensive workloads requiring ultra-high performance.
+- For a large data set, is the data source structured or unstructured? Unstructured data may need to be processed in a big data environment such as Spark on HDInsight, Azure Databricks, Hive LLAP on HDInsight, or Azure Data Lake Analytics. All of these can serve as ELT (Extract, Load, Transform) and ETL (Extract, Transform, Load) engines. They can output the processed data into structured data, making it easier to load into Azure Synapse or one of the other options. For structured data, Azure Synapse has a performance tier called Optimized for Compute, for compute-intensive workloads requiring ultra-high performance.
 
 - Do you want to separate your historical data from your current, operational data? If so, select one of the options where [orchestration](../technology-choices/pipeline-orchestration-data-movement.md) is required. These are standalone warehouses optimized for heavy read access, and are best suited as a separate historical data store.
 
 - Do you need to integrate data from several sources, beyond your OLTP data store? If so, consider options that easily integrate multiple data sources.
 
-- Do you have a multitenancy requirement? If so, SQL Data Warehouse is not ideal for this requirement. For more information, see [SQL Data Warehouse Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/).
+- Do you have a multitenancy requirement? If so, Azure Synapse is not ideal for this requirement. For more information, see [Azure Synapse Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/).
 
 - Do you prefer a relational data store? If so, choose an option with a relational data store, but also note that you can use a tool like PolyBase to query non-relational data stores if needed. If you decide to use PolyBase, however, run performance tests against your unstructured data sets for your workload.
 
@@ -116,7 +116,7 @@ To narrow the choices, start by answering these questions:
   
   - SQL Server allows a maximum of 32,767 user connections. When running on a VM, performance will depend on the VM size and other factors.
 
-  - SQL Data Warehouse has limits on concurrent queries and concurrent connections. For more information, see [Concurrency and workload management in SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-develop-concurrency). Consider using complementary services, such as [Azure Analysis Services](/azure/analysis-services/analysis-services-overview), to overcome limits in SQL Data Warehouse.
+  - Azure Synapse has limits on concurrent queries and concurrent connections. For more information, see [Concurrency and workload management in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-develop-concurrency). Consider using complementary services, such as [Azure Analysis Services](/azure/analysis-services/analysis-services-overview), to overcome limits in Azure Synapse.
 
 - What sort of workload do you have? In general, MPP-based warehouse solutions are best suited for analytical, batch-oriented workloads. If your workloads are transactional by nature, with many small read/write operations or multiple row-by-row operations, consider using one of the SMP options. One exception to this guideline is when using stream processing on an HDInsight cluster, such as Spark Streaming, and storing the data within a Hive table.
 
@@ -128,7 +128,7 @@ The following tables summarize the key differences in capabilities.
 
 <!-- markdownlint-disable MD033 -->
 
-| Capability | Azure SQL Database | SQL Server (VM) | SQL Data Warehouse | Apache Hive on HDInsight | Hive LLAP on HDInsight |
+| Capability | Azure SQL Database | SQL Server (VM) | Azure Synapse | Apache Hive on HDInsight | Hive LLAP on HDInsight |
 | --- | --- | --- | --- | --- | --- | -- |
 | Is managed service | Yes | No | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> |
 | Requires data orchestration (holds copy of data/historical data) | No | No | Yes | Yes | Yes |
@@ -145,7 +145,7 @@ The following tables summarize the key differences in capabilities.
 
 [2] HDInsight clusters can be deleted when not needed, and then re-created. Attach an external data store to your cluster so your data is retained when you delete your cluster. You can use Azure Data Factory to automate your cluster's lifecycle by creating an on-demand HDInsight cluster to process your workload, then delete it once the processing is complete.
 
-[3] With SQL Data Warehouse, you can restore a database to any available restore point within the last seven days. Snapshots start every four to eight hours and are available for seven days. When a snapshot is older than seven days, it expires and its restore point is no longer available.
+[3] With Azure Synapse, you can restore a database to any available restore point within the last seven days. Snapshots start every four to eight hours and are available for seven days. When a snapshot is older than seven days, it expires and its restore point is no longer available.
 
 [4] Consider using an [external Hive metastore](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#use-hiveoozie-metastore) that can be backed up and restored as needed. Standard backup and restore options that apply to Blob Storage or Data Lake Storage can be used for the data, or third-party HDInsight backup and restore solutions, such as [Imanis Data](https://azure.microsoft.com/blog/imanis-data-cloud-migration-backup-for-your-big-data-applications-on-azure-hdinsight/) can be used for greater flexibility and ease of use.
 
@@ -153,14 +153,14 @@ The following tables summarize the key differences in capabilities.
 
 <!-- markdownlint-disable MD033 -->
 
-| Capability | Azure SQL Database | SQL Server (VM) |  SQL Data Warehouse | Apache Hive on HDInsight | Hive LLAP on HDInsight |
+| Capability | Azure SQL Database | SQL Server (VM) |  Azure Synapse | Apache Hive on HDInsight | Hive LLAP on HDInsight |
 | --- | --- | --- | --- | --- | --- | -- |
 | Redundant regional servers for high availability  | Yes | Yes | Yes | No | No |
 | Supports query scale out (distributed queries)  | No | No | Yes | Yes | Yes |
 | Dynamic scalability | Yes | No | Yes <sup>1</sup> | No | No |
 | Supports in-memory caching of data | Yes |  Yes | Yes | Yes | Yes |
 
-[1] SQL Data Warehouse allows you to scale up or down by adjusting the number of data warehouse units (DWUs). See [Manage compute power in Azure SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview).
+[1] Azure Synapse allows you to scale up or down by adjusting the number of data warehouse units (DWUs). See [Manage compute power in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview).
 
 <!-- markdownlint-enable MD033 -->
 
@@ -168,7 +168,7 @@ The following tables summarize the key differences in capabilities.
 
 <!-- markdownlint-disable MD033 -->
 
-| Capability |           Azure SQL Database            |  SQL Server in a virtual machine  | SQL Data Warehouse |   Apache Hive on HDInsight    |    Hive LLAP on HDInsight     |
+| Capability |           Azure SQL Database            |  SQL Server in a virtual machine  | Azure Synapse |   Apache Hive on HDInsight    |    Hive LLAP on HDInsight     |
 |-------------------------|-----------------------------------------|-----------------------------------|--------------------|-------------------------------|-------------------------------|
 |     Authentication      | SQL / Azure Active Directory (Azure AD) | SQL / Azure AD / Active Directory |   SQL / Azure AD   | local / Azure AD <sup>1</sup> | local / Azure AD <sup>1</sup> |
 |      Authorization      |                   Yes                   |                Yes                |        Yes         |              Yes              |       Yes <sup>1</sup>        |
@@ -190,7 +190,7 @@ Read more about securing your data warehouse:
 
 - [Securing your SQL Database](/azure/sql-database/sql-database-security-overview#network-security)
 
-- [Secure a database in SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security)
+- [Secure a database in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security)
 
 - [Extend Azure HDInsight using an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
 

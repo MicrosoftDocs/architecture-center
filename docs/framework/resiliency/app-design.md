@@ -1,5 +1,5 @@
 ---
-title: App Design
+title: Designing resilient Azure applications
 description: 
 author: david-stanford
 ms.date: 10/16/2019
@@ -9,7 +9,7 @@ ms.subservice: cloud-design-principles
 ms.custom: How have you ensured that your application is resilient to failures? 
 ---
 
-# App Design
+# Designing resilient Azure applications
 
 Building *resiliency* (recovering from failures) and *availability* (running in a healthy state without significant downtime) into your apps begins with gathering requirements. For example, how much downtime is acceptable? How much does potential downtime cost your business? What are your customer's availability requirements? How much do you invest in making your application highly available? What is the risk versus the cost?
 
@@ -44,7 +44,7 @@ This section describes some common resiliency strategies. Most of these strategi
 
       ![Diagram of the Bulkhead pattern](/azure/architecture/framework/_images/bulkhead.png)
 
-- **Apply [*compensating transactions*](/azure/architecture/patterns/compensating-transaction.md)**. A compensating transaction is a transaction that undoes the effects of another completed transaction. In a distributed system, it can be difficult to achieve strong transactional consistency. Compensating transactions help to achieve consistency by using a series of smaller, individual transactions that can be undone at each step. For example, to book a trip, a customer might reserve a car, a hotel room, and a flight. If one of these steps fails, the entire operation fails. Instead of trying to use a single distributed transaction for the entire operation, you can define a compensating transaction for each step.
+- **Apply [*compensating transactions*](/azure/architecture/patterns/compensating-transaction)**. A compensating transaction is a transaction that undoes the effects of another completed transaction. In a distributed system, it can be difficult to achieve strong transactional consistency. Compensating transactions help to achieve consistency by using a series of smaller, individual transactions that can be undone at each step. For example, to book a trip, a customer might reserve a car, a hotel room, and a flight. If one of these steps fails, the entire operation fails. Instead of trying to use a single distributed transaction for the entire operation, you can define a compensating transaction for each step.
 - **Implement asynchronous operations, whenever possible.** Synchronous operations can monopolize resources and block other operations while the caller waits for the process to complete. Design each part of your application to allow for asynchronous operations, whenever possible. For more information on how to implement asynchronous programming in C\#, see [Asynchronous Programming](/dotnet/articles/csharp/async).
 
 ## Plan for usage patterns

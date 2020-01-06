@@ -1,6 +1,6 @@
 ---
 title: Distributed training of deep learning models on Azure
-description:  This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs using Azure Machine Learning Services.
+description:  This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs using Azure Machine Learning.
 author: msalvaris
 ms.date: 06/05/2019
 ms.custom: azcat-ai

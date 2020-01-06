@@ -3,7 +3,7 @@ title: Choose the right data store
 titleSuffix: Azure Application Architecture Guide
 description: Overview of choosing data stores in Azure.
 author: MikeWasson
-ms.date: 06/01/2018
+ms.date: 11/20/2019
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -106,7 +106,7 @@ Data analytics stores provide massively parallel solutions for ingesting, storin
 
 Relevant Azure services:
 
-- [SQL Data Warehouse][sql-dw]
+- [Azure Synapse Analytics][sql-dw]
 - [Azure Data Lake][data-lake]
 - [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/)
 

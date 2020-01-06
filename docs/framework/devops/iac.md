@@ -7,7 +7,6 @@ ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
 ms.custom: fasttrack-edit
-ms.custom: 
 ---
 
 # Infrastructure Deployment
@@ -32,7 +31,7 @@ A declarative automation framework is characterized for handling some of the det
 * [Resource Manager templates][arm]: Resource Manager templates are declarative text files containing a description of Azure resources to be deployed. Resource Manager templates are specific to Azure, and its most important advantage is the extensive coverage of Azure resource types and properties.
 * [Terraform][terraform]: Terraform is a cloud-agnostic declarative framework that supports many private and public clouds, being Azure one of them. It has the main advantage of offering a cloud-agnostic framework: while Terraform configurations are specific to each cloud, the framework itself is the same for all of them.
 * [Ansible][ansible]: Ansible is an open-source software provisioning, configuration management, and application-deployment tool. It runs on many Unix-like systems, and can configure both Unix-like systems as well as Windows. Ansible is agentless, temporarily connecting remotely via SSH or remote PowerShell to do its tasks. Ansible’s language, despite being based on the declarative YAML language, is imperative. Ansible playbooks are a sequence of plays to be carried out on different groups of hosts. Plays are in turn sequences of tasks that invoke modules to commit changes to individual hosts. Ansible has evolved to describe infrastructure in multiple clouds, such as Azure.
-* Other: other declarative frameworks such as Chef or Puppet support as well deploying infrastructure to Azure.
+* Other: other declarative frameworks such as Chef or Puppet support deploying infrastructure to Azure as well.
 
 Which of these frameworks is better for you will depend on factors such as whether your organization already has any experience in one of them and if you plan on running workloads in multiple clouds now or in the future. For Azure, the best option would be Resource Manager templates: it has the best coverage for Azure resources and features and Resource Manager templates can be used to manage certain Azure services such as Azure Blueprints or Azure Policy. If you are planning on running workloads in multiple clouds, it is best to standardize on tools and frameworks that let you manage those deployments in a consistent manner.
 
@@ -109,9 +108,9 @@ And lastly, do not forget to version-control your infrastructure code, and use c
 [sdks]: /azure/#pivot=sdkstools
 [extensions]: /azure/virtual-machines/extensions/overview
 [cloudinit]: /azure/virtual-machines/linux/using-cloud-init
-[packer_linux]: /azure/virtual-machines/linux/build-image-with-packer
+[packer-linux]: /azure/virtual-machines/linux/build-image-with-packer
 [packer-windows]: /azure/virtual-machines/windows/build-image-with-packer
-[azuredevops]: /services/devops
+[azuredevops]: /azure/devops
 [pipelines]: /azure/devops/pipelines
 [repos]: /azure/devops/repos/?view=azure-devops
 [git]: https://git-scm.com/

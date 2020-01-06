@@ -27,8 +27,8 @@ The following options are available for machine learning in the Azure cloud.
 
 | Cloud&nbsp;options | What it is | What you can do with it |
 |-|-|-|
-| [Azure Machine Learning service](#azure-machine-learning-service) | Managed cloud service for machine learning  | Train, deploy, and manage models in Azure using Python and CLI |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Drag&ndash;and&ndash;drop visual interface for machine learning | Build, experiment, and deploy models using preconfigured algorithms |
+| [Azure Machine Learning](#azure-machine-learning) | Managed cloud service for machine learning  | Train, deploy, and manage models in Azure using Python and CLI |
+| [Azure Machine Learning Studio (classic)](#classic) | Drag&ndash;and&ndash;drop visual interface for machine learning | Build, experiment, and deploy models using preconfigured algorithms |
 
 If you want to use pre-built AI and machine learning models, [Azure Cognitive Services](#azure-cognitive-services) allows you to easily add intelligent features to your applications.
 
@@ -53,13 +53,13 @@ The following development platforms and tools are available for machine learning
 | [Windows ML](#windows-ml) | Windows 10 machine learning platform | Evaluate trained models on a Windows 10 device |
 | [MMLSpark](#mmlspark) | Open-source, distributed, machine learning and microservice framework for Apache Spark | Create and deploy scalable machine learning applications for Scala and Python. |
 
-## Azure Machine Learning service
+## Azure Machine Learning
 
-[Azure Machine Learning service](/azure/machine-learning/service/overview-what-is-azure-ml) is a fully managed cloud service used to train, deploy, and manage machine learning models at scale. It fully supports open-source technologies, so you can use tens of thousands of open-source Python packages such as TensorFlow, PyTorch, and scikit-learn. Rich tools are also available, such as [Azure notebooks](https://notebooks.azure.com/), [Jupyter notebooks](http://jupyter.org), or the [Azure Machine Learning for Visual Studio Code](https://aka.ms/vscodetoolsforai) extension to make it easy to explore and transform data, and then train and deploy models. Azure Machine Learning service includes features that automate model generation and tuning with ease, efficiency, and accuracy.
+[Azure Machine Learning](/azure/machine-learning/service/overview-what-is-azure-ml) is a fully managed cloud service used to train, deploy, and manage machine learning models at scale. It fully supports open-source technologies, so you can use tens of thousands of open-source Python packages such as TensorFlow, PyTorch, and scikit-learn. Rich tools are also available, such as [Azure notebooks](https://notebooks.azure.com/), [Jupyter notebooks](http://jupyter.org), or the [Azure Machine Learning for Visual Studio Code](https://aka.ms/vscodetoolsforai) extension to make it easy to explore and transform data, and then train and deploy models. Azure Machine Learning includes features that automate model generation and tuning with ease, efficiency, and accuracy.
 
-Use Azure Machine Learning service to train, deploy, and manage machine learning models using Python and CLI at cloud scale. For a low-code or no-code option, use the interactive, [visual interface](/azure/machine-learning/service/ui-tutorial-automobile-price-train-score) (preview) to easily and quickly build, test, and deploy models using pre-built machine learning algorithms.
+Use Azure Machine Learning to train, deploy, and manage machine learning models using Python and CLI at cloud scale. For a low-code or no-code option, use the interactive, [visual interface](/azure/machine-learning/service/ui-tutorial-automobile-price-train-score) (preview) to easily and quickly build, test, and deploy models using pre-built machine learning algorithms.
 
-Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree).
+Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
 |||
 |-|-|
@@ -69,14 +69,11 @@ Try the [free or paid version of Azure Machine Learning service](https://aka.ms/
 |**Key benefits**           |Central management of scripts and run history, making it easy to compare model versions.<br/><br/>Easy deployment and management of models to the cloud or edge devices.|
 |**Considerations**         |Requires some familiarity with the model management model.|
 
-## Azure Machine Learning Studio
+<a name="classic"></a>
+## Azure ML Studio (Classic)
 
-[Azure Machine Learning Studio](/azure/machine-learning/studio/) gives you an interactive, visual workspace that you can use to easily and quickly build, test, and deploy models using pre-built machine learning algorithms. Machine Learning Studio publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
+[Studio (classic)](/azure/machine-learning/studio/) gives you an interactive, visual workspace that you can use to easily and quickly build, test, and deploy models using pre-built machine learning algorithms. Studio (classic) publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
 No programming is required - you construct your machine learning model by connecting datasets and analysis modules on an interactive canvas, and then deploy it with a couple clicks.
-
-Use Machine Learning Studio when you want to develop and deploy models with no code required.
-
-Try [Azure Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2&target=_blank), available in paid or free options.
 
 |||
 |-|-|
@@ -120,7 +117,7 @@ Use SQL Server Machine Learning Services when you need built-in AI and predictiv
 
 ## Microsoft Machine Learning Server
 
-[Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server) is an enterprise server for hosting and managing parallel and distributed workloads of R and Python processes. Microsoft Machine Learning Server runs on Linux, Windows, Hadoop, and Apache Spark, and it is also available on [HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/) as [Microsoft Machine Learning Server (ML Server)](https://docs.microsoft.com/azure/hdinsight/r-server/r-server-overview). It provides an execution engine for solutions built using [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), [revoscalepy](https://docs.microsoft.com/machine-learning-server/python-reference/revoscalepy/revoscalepy-package), and  [MicrosoftML packages](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package), and extends open-source R and Python with support for high-performance analytics, statistical analysis, machine learning, and massively large datasets. This functionality is provided through proprietary packages that install with the server. For development, you can use IDEs such as [R Tools for Visual Studio](https://www.visualstudio.com/vs/rtvs/) and [Python Tools for Visual Studio](https://www.visualstudio.com/vs/python/).
+[Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server) is an enterprise server for hosting and managing parallel and distributed workloads of R and Python processes. Microsoft Machine Learning Server runs on Linux, Windows, Hadoop, and Apache Spark, and it is also available on [HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/) as [Microsoft Machine Learning Server (ML Server)](https://docs.microsoft.com/azure/hdinsight/r-server/r-server-overview). It provides an execution engine for solutions built using [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), [revoscalepy](https://docs.microsoft.com/machine-learning-server/python-reference/revoscalepy/revoscalepy-package), and  [MicrosoftML packages](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package), and extends open-source R and Python with support for high-performance analytics, statistical analysis, machine learning, and massively large datasets. This functionality is provided through proprietary packages that install with the server. For development, you can use IDEs such as [R Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) and [Python Tools for Visual Studio](https://www.visualstudio.com/vs/python/).
 
 Use Microsoft Machine Learning Server when you need to build and operationalize models built with R and Python on a server, or distribute R and Python training at scale on a Hadoop or Spark cluster.
 
@@ -136,8 +133,8 @@ Use Microsoft Machine Learning Server when you need to build and operationalize 
 
 The [Azure Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) is a customized virtual machine environment on the Microsoft Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics.
 
-The Data Science Virtual Machine is supported as a target for Azure Machine Learning service.
-It is available in versions for both Windows and Linux Ubuntu (Azure Machine Learning service is not supported on Linux CentOS).
+The Data Science Virtual Machine is supported as a target for Azure Machine Learning.
+It is available in versions for both Windows and Linux Ubuntu (Azure Machine Learning is not supported on Linux CentOS).
 For specific version information and a list of what’s included, see [Introduction to the Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview).
 
 Use the Data Science VM when you need to run or host your jobs on a single node. Or if you need to remotely scale up your processing on a single machine.
@@ -184,7 +181,7 @@ Use Windows ML when you want to use trained machine learning models within your 
 |**Languages supported**    |C#/C++, JavaScript|
 
 ## MMLSpark
-[Microsoft ML for Apache Spark](https://aka.ms/spark/) (MMLSpark) is an open source library that expands the distributed computing framework [Apache Spark](https://spark.apache.org/). MMLSpark adds many deep learning and data science tools to the Spark ecosystem, including seamless integration of [Spark Machine Learning](https://spark.apache.org/docs/latest/ml-guide.html) pipelines with [Microsoft Cognitive Toolkit (CNTK)](/cognitive-toolkit/), [LightGBM](https://github.com/microsoft/LightGBM), [LIME (Model Interpretability)](https://www.oreilly.com/learning/introduction-to-local-interpretable-model-agnostic-explanations-lime), and [OpenCV](https://opencv.org/). You can use these tools to create powerful predictive models on any Spark cluster, such as [Azure Databricks](#azure-databricks) or [Cosmic Spark](/azure/cosmos-db/spark-api-introduction).
+[Microsoft ML for Apache Spark](https://aka.ms/spark/) (MMLSpark) is an open source library that expands the distributed computing framework [Apache Spark](https://spark.apache.org/). MMLSpark adds many deep learning and data science tools to the Spark ecosystem, including seamless integration of [Spark Machine Learning](https://spark.apache.org/docs/latest/ml-guide.html) pipelines with [Microsoft Cognitive Toolkit (CNTK)](/cognitive-toolkit/), [LightGBM](https://github.com/microsoft/LightGBM), [LIME (Model Interpretability)](https://www.oreilly.com/learning/introduction-to-local-interpretable-model-agnostic-explanations-lime), and [OpenCV](https://opencv.org/). You can use these tools to create powerful predictive models on any Spark cluster, such as [Azure Databricks](#azure-databricks) or [Cosmic Spark](/azure/cosmos-db/spark-connector).
 
 MMLSpark also brings new networking capabilities to the Spark ecosystem. With the HTTP on Spark project, users can embed any web service into their SparkML models. Additionally, MMLSpark provides easy-to-use tools for orchestrating [Microsoft Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) at scale. For production-grade deployment, the Spark Serving project enables high throughput, sub-millisecond latency web services, backed by your Spark cluster.
 
