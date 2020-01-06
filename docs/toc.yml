@@ -1,7 +1,7 @@
 items:
 - name: Azure Architecture Center
   href: index.md
-- name: Application architecture guide
+- name: Application Architecture Guide
   items:
   - name: Introduction
     href: guide/index.md

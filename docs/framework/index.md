@@ -10,9 +10,11 @@ ms.subservice: reference-architecture
 ms.custom: seojan19
 ---
 
-# Pillars of architecture excellence
+# Azure Architecture Framework
 
-A successful cloud solution requires focus on these five pillars of architecture excellence: Cost, DevOps, Resiliency, Scalability, and Security. To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](/assessments/?mode=pre-assessment&id=azure-architecture-review).
+The Azure architecture framework is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architecture excellence: Cost, DevOps, Resiliency, Scalability, and Security.
+
+To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](/assessments/?mode=pre-assessment&id=azure-architecture-review).
 
 | Pillar | Description |
 |--------|-------------|
