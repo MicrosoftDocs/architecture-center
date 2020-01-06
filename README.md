@@ -1,3 +1,4 @@
+[![Board Status](https://dev.azure.com/ceapex/0ed5b4a0-21d8-4dc2-8b95-5fdb8449e2bd/2084ccd3-8289-487c-beb0-4d82fe06fa10/_apis/work/boardbadge/391ad978-8343-4e79-880e-4bf6e988dc09)](https://dev.azure.com/ceapex/0ed5b4a0-21d8-4dc2-8b95-5fdb8449e2bd/_boards/board/t/2084ccd3-8289-487c-beb0-4d82fe06fa10/Microsoft.EpicCategory)
 # Azure Architecture Center
 Microsoft patterns & practices
 
