@@ -20,6 +20,8 @@ Reliable applications are:
 
 Understanding how these elements work together &mdash; and how they affect cost &mdash; is essential to building a reliable application. It can help you determine how much downtime is acceptable, the potential cost to your business, and which functions are necessary during a recovery.
 
+To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](/assessments/?mode=pre-assessment&id=azure-architecture-review).
+
 This article provides a brief overview of building reliability into each step of the Azure application design process. Each section includes a link to an in-depth article on how to integrate reliability into that specific step in the process. If you're looking for reliability considerations for individual Azure services, review the [Resiliency checklist for specific Azure services](../../checklist/resiliency-per-service.md).
 
 ## Build for reliability

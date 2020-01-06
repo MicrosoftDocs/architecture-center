@@ -13,6 +13,8 @@ ms.custom:
 
 This article introduces you to cloud cost management, through a series of important considerations that need to be applied to achieve both business objectives and cost justification.
 
+To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](/assessments/?mode=pre-assessment&id=azure-architecture-review).
+
 ## Overview
 
 Successful technology architectures are driven by an organization's requirements. The purpose of an architecture is to achieve business goals and return on investment (ROI) while staying within an allocated budget. Therefore, a cloud architecture must consider cost optimization: From all possible technology choices that meet business needs, which choice makes best use of the organization's financial investments?

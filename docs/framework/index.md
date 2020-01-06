@@ -12,7 +12,7 @@ ms.custom: seojan19
 
 # Pillars of architecture excellence
 
-A successful cloud solution requires focus on these five pillars of architecture excellence: Cost, DevOps, Resiliency, Scalability, and Security.
+A successful cloud solution requires focus on these five pillars of architecture excellence: Cost, DevOps, Resiliency, Scalability, and Security. To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](/assessments/?mode=pre-assessment&id=azure-architecture-review).
 
 | Pillar | Description |
 |--------|-------------|
