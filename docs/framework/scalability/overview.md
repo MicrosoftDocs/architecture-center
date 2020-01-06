@@ -9,7 +9,7 @@ ms.subservice: cloud-design-principles
 ms.custom: 
 ---
 
-# Designing scalable Azure applications
+# Overview of the scalability pillar
 
 *Scalability* is the ability of a system to handle increased load. To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](/assessments/?mode=pre-assessment&id=azure-architecture-review).
 

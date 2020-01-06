@@ -18,11 +18,11 @@ To assess your workload using the tenets found in the Azure architecture framewo
 
 | Pillar | Description |
 |--------|-------------|
-| Cost | Managing costs to maximize the value delivered. |
-| DevOps | Operations processes that keep a system running in production. |
-| Resiliency | The ability of a system to recover from failures and continue to function. |
-| Scalability | The ability of a system to adapt to changes in load. |
-| Security | Protecting applications and data from threats. |
+| [Cost][cost-pillar] | Managing costs to maximize the value delivered. |
+| [DevOps][devops-pillar] | Operations processes that keep a system running in production. |
+| [Resiliency][resiliency-pillar] | The ability of a system to recover from failures and continue to function. |
+| [Scalability][scalability-pillar] | The ability of a system to adapt to changes in load. |
+| [Security][security-pillar] | Protecting applications and data from threats. |
 
 ## Cost
 
@@ -182,3 +182,10 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 <!-- checklist -->
 [devops-checklist]: ../checklist/dev-ops.md
 [scalability-checklist]: ../checklist/scalability.md
+
+<!-- pillars -->
+[cost-pillar]: ./cost/overview.md
+[security-pillar]: ./security/overview.md
+[resiliency-pillar]: ./resiliency/overview.md
+[scalability-pillar]: ./scalability/overview.md
+[devops-pillar]: ./devops/overview.md

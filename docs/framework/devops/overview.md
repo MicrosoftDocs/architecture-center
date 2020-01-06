@@ -9,7 +9,7 @@ ms.subservice: cloud-design-principles
 ms.custom: fasttrack-edit
 ---
 
-# Overview of DevOps
+# Overview of the DevOps pillar
 
 In the Azure Architecture Framework, we understand DevOps in a broad sense. In order to ensure that your application is running effectively over time, you need to consider multiple perspectives, from both an application and infrastructure angles, including the processes that you implement to make sure that your users are getting the right experience. And most importantly, those perspectives are closely interrelated to each other. That is why in this framework we have grouped disciplines such as management, monitoring and CI/CD under the DevOps umbrella.
 

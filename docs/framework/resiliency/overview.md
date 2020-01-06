@@ -9,7 +9,7 @@ ms.subservice: cloud-design-principles
 ms.custom: 
 ---
 
-# Designing reliable Azure applications
+# Overview of the resiliency pillar
 
 Building a reliable application in the cloud is different from traditional application development. While historically you may have purchased higher-end hardware to scale up, in a cloud environment you scale out instead of up. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component.
 
