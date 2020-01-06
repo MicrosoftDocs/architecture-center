@@ -1010,7 +1010,9 @@ items:
         href: serverless/code.md
       - name: CI/CD for a serverless frontend
         href: serverless/guide/serverless-app-cicd-best-practices.md
-      - name: Sharing location in real time using Functions, SignalR and Service Bus
+    - name: Example workloads
+      items:
+      - name: Sharing location in real time using Functions and SignalR
         href: example-scenario/signalr/index.md
     - name: Solution Ideas
       items:
