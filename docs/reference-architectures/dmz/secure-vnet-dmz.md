@@ -3,7 +3,7 @@ title: Implement a secure hybrid network architecture
 titleSuffix: Azure Reference Architectures
 description: Implement a secure hybrid network architecture in Azure.
 author: MikeWasson
-ms.date: 10/10/2019
+ms.date: 01/07/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -43,7 +43,7 @@ The architecture consists of the following components.
 
 - **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network. For example, in the deployment provided with this reference architecture, the web tier subnet allows TCP traffic from the on-premises network and from within the virtual network; the business tier allows traffic from the web tier; and the data tier allows traffic from the business tier.
 
-- **Jumpbox**. The jumpbox VM implements management and monitoring capabilities for the components running in the virtual network. All remote desktop (RDP) or ssh access to the other VMs go through the jumpbox.
+- **Bastion**. [Azure Bastion](/azure/bastion/) allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. Use Bastion to manage the VMs in the virtual network.
 
 ## Recommendations
 
@@ -68,7 +68,7 @@ Azure resources such as VMs, virtual networks, and load balancers can be easily 
 We recommend creating the following resource groups:
 
 - A resource group containing the virtual network (excluding the VMs), NSGs, and the gateway resources for connecting to the on-premises network. Assign the centralized IT administrator role to this resource group.
-- A resource group containing the VMs for the Azure Firewall instance, the jumpbox and other management VMs, and the user-defined routes for the gateway subnet. Assign the security IT administrator role to this resource group.
+- A resource group containing the VMs for the Azure Firewall instance and the user-defined routes for the gateway subnet. Assign the security IT administrator role to this resource group.
 - Separate resource groups for each application tier that contain the load balancer and VMs. Note that this resource group shouldn't include the subnets for each tier. Assign the DevOps role to this resource group.
 
 ### Networking recommendations
@@ -88,12 +88,6 @@ Verify that outbound internet traffic is force-tunneled correctly. If you're usi
 
 Consider using Application Gateway or Azure Front Door for SSL termination.
 
-### Management subnet recommendations
-
-The management subnet contains a jumpbox that performs management and monitoring functionality. Restrict execution of all secure management tasks to the jumpbox.
-
-Do not create a public IP address for the jumpbox. Instead, create one route to access the jumpbox through the incoming gateway. Create NSG rules so the management subnet only responds to requests from the allowed route.
-
 ## Scalability considerations
 
 For details about the bandwidth limits of VPN Gateway, see [Gateway SKUs](/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). For higher bandwidths, consider upgrading to an ExpressRoute gateway. ExpressRoute provides up to 10 Gbps bandwidth with lower latency than a VPN connection.
@@ -108,9 +102,7 @@ For specific information on maintaining availability for VPN and ExpressRoute co
 
 ## Manageability considerations
 
-All application and resource monitoring should be performed by the jumpbox in the management subnet. Depending on your application requirements, you may need additional monitoring resources in the management subnet. If so, these resources should be accessed through the jumpbox.
-
-If gateway connectivity from your on-premises network to Azure is down, you can still reach the jumpbox by deploying a public IP address, adding it to the jumpbox, and remoting in from the internet.
+If gateway connectivity from your on-premises network to Azure is down, you can still reach the VMs in the Azure virtual network through Azure Bastion.
 
 Each tier's subnet in the reference architecture is protected by NSG rules. You may need to create a rule to open port 3389 for remote desktop protocol (RDP) access on Windows VMs or port 22 for secure shell (SSH) access on Linux VMs. Other management and monitoring tools may require rules to open additional ports.
 
@@ -188,9 +180,9 @@ In this step, you will connect the two local network gateways.
 
 1. In the Azure portal, navigate to the resource group that you created.
 
-2. Find the resource named `fe-config1-web`, which is the load balancer in front of the private DMZ. Copy the private IP address from the **Overview** blade.
+2. Find the resource named `fe-config1-web`, which is the load balancer in front of web tier. Copy the private IP address from the **Overview** blade.
 
-3. Find the VM named `jb-vm1`. Click **Connect** and use Remote Desktop to connect to the VM. The user name and password are specified in the onprem.json file.
+3. Find the VM named `jb-vm1`. This VM represents the on-premises network. Click **Connect** and use Remote Desktop to connect to the VM. The user name and password are specified in the onprem.json file.
 
 4. From the Remote Desktop Session, open a web browser and navigate to the IP address from step 2. You should see the default Apache2 server home page.
 
