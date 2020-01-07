@@ -140,8 +140,6 @@ To deploy a Service Fabric cluster, start with the sample Azure Resource Manager
 A Service Fabric cluster contains one or more [node types](/azure/service-fabric/service-fabric-cluster-nodetypes). A node type typically maps to an [Azure virtual machine scale set](/azure/virtual-machine-scale-sets/) which is a set of one or more VM instances with same properties. The cluster must have at least one node type—primary node type, which runs the Service Fabric system services. 
 Do not run your application container on the primary node type because the container can compete with the system services for resources. Consider, designing a cluster with two or more node types depending on the types of applications. For example, if you have two node types, run HTTP web and application tier containers on a non-primary node type. 
 
-This example infrastructure uses two Service Fabric node types: application and primary. You can scale in or scale out the scale set individually. It doesn't require extensive planning and testing up front to determine the correct application node type size, that is the scale set instance count. That is because the actual size can grow and reduce in real time driven by monitoring and metrics.
-
 This example infrastructure uses two Service Fabric node types: application and primary. You can scale in or scale out the scale set individually. It doesn't require extensive planning and testing up front to determine the correct application node type size (scale set instance count), because the actual size can grow and reduce in real time driven by monitoring and metrics.
 
 ![Example infrastructure for containerizing apps](images/containersf.png)
