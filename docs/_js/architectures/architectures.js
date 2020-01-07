@@ -315,7 +315,7 @@ function getQuery(firstLoad, pageNumber) {
 
     var parsedFilters = [];
     if (firstLoad) {
-        var parsedFilters = parsedParams.getAll("filter");
+        parsedFilters = parsedParams.getAll("filter");
     }
 
     if (!pageNumber){
@@ -418,7 +418,7 @@ function buildFilterList() {
                 '" name="' +  checkName + '" class="delete" onclick="unCheck(\'' + checkId +
                 '\')"></button></span>');
             if (!(category in filterTerms)) {
-                filterTerms[category]=[]
+                filterTerms[category]=[];
             }
             filterTerms[category] = filterTerms[category].concat($(this).val().toLowerCase().split(" "));
         });
