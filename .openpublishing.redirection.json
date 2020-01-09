@@ -1864,6 +1864,16 @@
       "source_path": "docs/guide/pillars.md",
       "redirect_url": "https://docs.microsoft.com/azure/architecture/framework/",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/technology-choices/compute-overview.md",
+      "redirect_url": "/azure/architecture/guide/technology-choices/compute-decision-tree",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/technology-choices/compute-comparison.md",
+      "redirect_url": "/azure/architecture/guide/technology-choices/compute-decision-tree",
+      "redirect_document_id": true
     }
   ]
 }
