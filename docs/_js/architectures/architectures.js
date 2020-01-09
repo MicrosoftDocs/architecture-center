@@ -151,7 +151,7 @@ var refineString = [
 '        {{#each category.items as |item|}}',
 '            <li class="is-unstyled">',
 '                <label class="checkbox is-small has-padding-bottom-extra-small">',
-'                    <input id="cb-dotnet" class="{{ item.friendly-name }}" name="{{ category.stub }}" value="{{#spaceDelim item.tags}}{{this}}{{/spaceDelim}}" friendly-name="{{ item.friendly-name }}" type="checkbox" onchange="updateUrlBar(getQuery(false, 1))">',
+'                    <input id="{{ item.friendly-name }}" class="{{ item.friendly-name }}" name="{{ category.stub }}" category="{{ category.stub }}" value="{{#spaceDelim item.tags}}{{this}}{{/spaceDelim}}" friendly-name="{{ item.friendly-name }}" type="checkbox" onchange="updateUrlBar(getQuery(false, 1))">',
 '                    <span class="checkbox-check" role="presentation"></span>',
 '                    <span class="checkbox-text">{{ item.name }}</span>',
 '                </label>',
@@ -315,7 +315,7 @@ function getQuery(firstLoad, pageNumber) {
 
     var parsedFilters = [];
     if (firstLoad) {
-        var parsedFilters = parsedParams.getAll("filter");
+        parsedFilters = parsedParams.getAll("filter");
     }
 
     if (!pageNumber){
@@ -404,11 +404,12 @@ function getCheckedBoxes() {
 
 function buildFilterList() {
     // Filter the data
-    var filterTerms = [];
+    var filterTerms = {};
     var selectedCategories = [];
     var checked = getCheckedBoxes();
     if (checked.length > 0) {
         $.each(checked, function(){
+            var category = $(this).attr('category');
             selectedCategories.push($(this).closest("div").find('[category]')); 
             var checkId = $(this).attr("friendly-name");
             var checkName = $(this).siblings(".checkbox-text").text();
@@ -416,7 +417,10 @@ function buildFilterList() {
                 '<button type="button" aria-label="Remove "' + checkName +
                 '" name="' +  checkName + '" class="delete" onclick="unCheck(\'' + checkId +
                 '\')"></button></span>');
-            filterTerms = filterTerms.concat($(this).val().toLowerCase().split(" "));
+            if (!(category in filterTerms)) {
+                filterTerms[category]=[];
+            }
+            filterTerms[category] = filterTerms[category].concat($(this).val().toLowerCase().split(" "));
         });
     }
 
@@ -489,14 +493,19 @@ function filter() {
     var searchText = getSearchBoxText();
     var filterTerms = buildFilterList();
 
-    // Look for items that match the checkbox
-    articles = $.grep(window.articleData.articles, function(article) {
-        if (filterTerms.length > 0) {
-            return findCommonElement(filterTerms, article.tags);
-        } else {
-            return true;
-        }
-    });
+    var articles = window.articleData.articles;
+    for (var key in filterTerms) {
+        // Look for items that match the checkbox
+        var tags = filterTerms[key];
+        articles = $.grep(articles, function(article) {
+            if (tags.length > 0) {
+                return findCommonElement(tags, article.tags);
+            } else {
+                return true;
+            }
+        });
+    };
+
     
     articles = $.grep(articles, function(article) {
         if (searchText) {
@@ -516,21 +525,6 @@ function filter() {
     var visibleArticles = { "articles": articles.slice(articleStart-1, articleEnd) };
     buildCards(visibleArticles);
 
-    // Get the tags for every checked item
-    //var visibleArticleTags = Array.from(new Set([].concat.apply([], data.articles.map(data => data.tags)).sort()));
-
-    // TODO: Fix Filter to not filter current category
-    // var selectedCategories = [];
-    // filteredTagData = tagData["categories"].filter(function(category) {
-    //     var foundItems = category['items'].filter(function(item) {
-    //         return item['tags'].some(r=> visibleArticleTags.includes(r));
-    //     });
-    //     category['items'] = foundItems
-    //     return category['items'];
-    // });
-
-    // tagData["categories"]=filteredTagData
-            
     buildPageNumbers(articles, visibleArticles.articles.length, maxItems);
 
     $(".resultcount").text(articles.length + " Architectures Found");
