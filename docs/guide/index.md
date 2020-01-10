@@ -65,7 +65,7 @@ Learn more: [Architecture styles](./architecture-styles/index.md)
 
 Knowing the type of architecture you are building, now you can start to choose the main technology pieces for the architecture. The following technology choices are critical:
 
-- *Compute* refers to the hosting model for the computing resources that your applications run on. For more information, see [Choose a compute service](./technology-choices/compute-overview.md).
+- *Compute* refers to the hosting model for the computing resources that your applications run on. For more information, see [Choose a compute service](./technology-choices/compute-decision-tree.md).
 
 - *Data stores* include databases but also storage for message queues, caches, logs, and anything else that an application might persist to storage. For more information, see [Choose a data store](./technology-choices/data-store-overview.md).
 
@@ -87,7 +87,7 @@ We have identified 10 high-level design principles that will make your applicati
 
 ### Design patterns
 
-Software design patterns are repeatable patterns that are proven to solve specific patterns. Our catalog of Cloud design patterns addresses specific challenges in distributed systems. They address aspects such as availability, resiliency, performance, and security.
+Software design patterns are repeatable patterns that are proven to solve specific patterns. Our catalog of Cloud design patterns addresses specific challenges in distributed systems. They address aspects such as availability, resiliency, performance, and security. You can find our catalog of design patterns [here](../patterns/index.md).
 
 ### Best practices
 

@@ -616,7 +616,7 @@ For more information about authentication and authorization in this application,
 
 - This application is an example of an event-driven architecture. Read more about the [Event-driven architecture style](../guide/architecture-styles/event-driven.md).
 
-- Azure Functions is just one of the compute options on Azure. For help with choosing a compute technology, see [Overview of Azure compute options](../guide/technology-choices/compute-overview.md).
+- Azure Functions is just one of the compute options on Azure. For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree.md).
 
 <!-- links -->
 
