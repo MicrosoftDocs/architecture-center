@@ -206,4 +206,4 @@ To deploy the reference implementations for this architecture, see the [deployme
 
 ## Next steps
 
-To learn more about the serverless implementations, start [here](https://docs.microsoft.com/azure/architecture/reference-architectures/#serverless-applications).
+To learn more about the serverless implementations, start [here](https://docs.microsoft.com/azure/architecture/serverless/).
