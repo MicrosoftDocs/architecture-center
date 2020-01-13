@@ -21,9 +21,11 @@ In general, avoid using a special character, such as a hyphen (`-`) or underscor
 
 | Entity | Scope | Length | Casing | Valid characters |
 | --- | --- | --- | --- | --- |
+|Management Group ID |Root Management Group |1-90 |Insensitive |Alphanumeric, underscore, hyphen, period |
+|Subscription name |Management Group |1-64 | Insensitive| 0-9, a-z, A-Z, and cannot contain: greater than or lesser than signs, semicolon, pipe |
 |Resource group |Subscription |1-90 |Insensitive |Alphanumeric, underscore, parentheses, hyphen, period (except at the end), and Unicode characters that match the [regex documentation](/rest/api/resources/resourcegroups/createorupdate) |
 |Availability set |Resource group |1-80 |Insensitive |Alphanumeric, underscore, and hyphen |
-|Tag |Associated entity |512 (name), 256 (value) |Insensitive |Alphanumeric, including Unicode characters; special characters except `<`, `>`, `%`, `&`, `\`, `?`, `/`, and [other limitations](/azure/azure-resource-manager/resource-group-using-tags) |
+|Tag |Associated entity |512 (name), 256 (value) |Insensitive |Alphanumeric, including Unicode characters; special characters except `<`, `>`, `%`, `&`, `\`, `?`, `/`, and [other limitations](/azure/azure-resource-manager/resource-group-using-tags) |`"key" : "value"` |`"department" : "Central IT"` |
 |API management |Global |1-50 |Insensitive |0-9, a-z, A-Z, and `-` |
 |Key vault | Global | 3-24 | Insensitive | 0-9, a-z, A-Z, and `-`. Must start with a letter. |
 

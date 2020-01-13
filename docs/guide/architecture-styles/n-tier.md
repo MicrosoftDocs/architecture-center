@@ -58,7 +58,7 @@ N-tier architectures are very common in traditional on-premises applications, so
 ## Best practices
 
 - Use autoscaling to handle changes in load. See [Autoscaling best practices][autoscaling].
-- Use asynchronous messaging to decouple tiers.
+- Use [asynchronous messaging](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-async-messaging) to decouple tiers.
 - Cache semistatic data. See [Caching best practices][caching].
 - Configure the database tier for high availability, using a solution such as [SQL Server Always On availability groups][sql-always-on].
 - Place a web application firewall (WAF) between the front end and the Internet.
