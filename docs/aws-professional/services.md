@@ -90,9 +90,9 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [EC2 Container Service (ECS)](https://aws.amazon.com/ecs/)<br/><br/>[Fargate](https://aws.amazon.com/fargate/) | [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) | Azure Container Instances is the fastest and simplest way to run a container in Azure, without having to provision any virtual machines or adopt a higher-level orchestration service. |
-| [EC2 Container Registry](https://aws.amazon.com/ecr/) | [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) | Allows customers to store Docker formatted images. Used to create all types of container deployments on Azure. |
-| [Elastic Container Service for Kubernetes (EKS)](https://aws.amazon.com/eks/) | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) | Deploy orchestrated containerized applications with Kubernetes. Simplify monitoring and cluster management through auto upgrades and a built-in operations console. |
+| [Elastic Container Service (ECS)](https://aws.amazon.com/ecs/)<br/><br/>[Fargate](https://aws.amazon.com/fargate/) | [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) | Azure Container Instances is the fastest and simplest way to run a container in Azure, without having to provision any virtual machines or adopt a higher-level orchestration service. |
+| [Elastic Container Registry](https://aws.amazon.com/ecr/) | [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) | Allows customers to store Docker formatted images. Used to create all types of container deployments on Azure. |
+| [Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/) | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) | Deploy orchestrated containerized applications with Kubernetes. Simplify monitoring and cluster management through auto upgrades and a built-in operations console. |
 | [App Mesh](https://aws.amazon.com/app-mesh/) | [Service Fabric Mesh](/azure/service-fabric-mesh/service-fabric-mesh-overview) | Fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking.
 
 ### Serverless
@@ -106,7 +106,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | Type | AWS Service | Azure Service | Description |
 | -----| ----------- | ------------- | ----------- |
 | Relational database | [RDS](https://aws.amazon.com/rds/) | [SQL Database](https://azure.microsoft.com/services/sql-database/)<br/><br/>[Azure Database for MySQL](https://azure.microsoft.com/services/mysql/)<br/><br/>[Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) | Managed relational database service where resiliency, scale, and maintenance are primarily handled by the platform. |
-| NoSQL / Document | [DynamoDB](https://aws.amazon.com/dynamodb/) and [SimpleDB](https://aws.amazon.com/simpledb/) | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) | A globally distributed, multi-model database that natively supports multiple data models: key-value, documents, graphs, and columnar. |
+| NoSQL / Document | [DynamoDB](https://aws.amazon.com/dynamodb/)<br/><br/>[SimpleDB](https://aws.amazon.com/simpledb/)<br/><br/>[Amazon DocumentDB](https://aws.amazon.com/documentdb/) | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) | A globally distributed, multi-model database that natively supports multiple data models: key-value, documents, graphs, and columnar. |
 | Caching | [ElastiCache](https://aws.amazon.com/elasticache/) | [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) | An in-memory–based, distributed caching service that provides a high-performance store typically used to offload nontransactional work from a database. |
 | Database migration | [AWS Database Migration Service](https://aws.amazon.com/dms/) | [Azure Database Migration Service](https://azure.microsoft.com/campaigns/database-migration/) | Migration of database schema and data from one database format to a specific database technology in the cloud. |
 
