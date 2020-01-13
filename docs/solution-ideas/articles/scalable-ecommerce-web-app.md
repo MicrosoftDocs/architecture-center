@@ -196,6 +196,6 @@ ms.custom: acom-architecture, ecommerce, scalability, web-app, architect scalabl
 * [Get started easily with Web Apps using the five-minute quick starts](/azure/app-service/)
 * [Build an ASP.NET app in Azure with SQL Database](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
 * [Learn what can you do with Azure Functions](/azure/azure-functions/functions-overview)
-* [Application Performance Management with Application Insights](/hazure/application-insights/app-insights-overview)
+* [Application Performance Management with Application Insights](/azure/application-insights/app-insights-overview)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]
