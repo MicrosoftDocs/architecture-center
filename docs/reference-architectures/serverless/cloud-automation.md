@@ -4,7 +4,7 @@ titleSuffix: Azure Reference Architectures
 description: Recommended architecture for implementing cloud automation using serverless technologies.
 author: dsk-2015
 ms.author: dkshir
-ms.date: 10/30/2019
+ms.date: 1/14/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -56,20 +56,17 @@ Event-based automation scenarios are best implemented using Azure Functions. The
     1. triggering automation for a failing service, and
     1. onboarding users to the organization's resources.
 
+1. **Create ChatOps interface**. This pattern enables customers to create a chat-based operational interface, and run development and operations functions and commands in-line with human collaboration. This can integrate with the Azure Bot Framework and use Microsoft Teams or Slack commands for deployment, monitoring, common questions, and so on. A ChatOps interface creates a real-time system for managing production incidents, with each step documented automatically on the chat. Read [How ChatOps can help you DevOps better](https://chatbotsmagazine.com/how-chatops-can-help-you-devops-better-5-minutes-read-507438c156bf) for more information.
+
 ## Architecture
 
 The architecture consists of the following blocks:
 
-**Azure Functions**. Azure Functions provide the event-driven, serverless compute capabilities in this architecture. A function performs automation tasks, when triggered by events or alerts. In the reference implementations, a function is invoked with an HTTP request. Code complexity should be minimized, by developing the function so that:
+**Azure Functions**. Azure Functions provide the event-driven, serverless compute capabilities in this architecture. A function performs automation tasks, when triggered by events or alerts. In the reference implementations, a function is invoked with an HTTP request. Code complexity should be minimized, by developing the function that is **stateless**, and **idempotent**.
 
-- it does exactly one thing (single responsibility principle),
-- it returns as soon as possible,
-- it is stateless, and
-- it is idempotent (that is, multiple executions do not create different results).
+Multiple executions of an idempotent function create the same results. To maintain idempotency, the function scaling in the throttling scenario is kept simplistic. In real world automation, make sure to scale up or down appropriately.
 
-To maintain idempotency, the function scaling in the throttling scenario is kept simplistic. In real world automation, make sure to scale up or down appropriately.
-
-Additionally, read the [Optimize the performance and reliability of Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-best-practices) for best practices when writing your functions.
+Read the [Optimize the performance and reliability of Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-best-practices) for best practices when writing your functions.
 
 **Logic Apps**. Logic Apps can be used to perform simpler tasks, easily implemented using [the built-in connectors](https://docs.microsoft.com/azure/connectors/apis-list). These tasks can range from email notifications, to integrating with external management applications. To learn how to use Logic Apps with third-party applications, read [basic enterprise integration in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration).
 
@@ -101,22 +98,9 @@ As a best practice, the function should log any failures in carrying out automat
 
 #### Concurrency
 
-Verify the concurrency requirement for your automation function. For example, the throttling automation workflow limits the maximum number of [concurrent HTTP calls](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp#hostjson-settings) to the function to one, to avoid side-effects of false alarms. The following [host.json](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/throttling-respond/host.json) file illustrates this:
+Verify the concurrency requirement for your automation function. For example, to avoid side-effects of false alarms, the throttling automation workflow limits the maximum number of [concurrent HTTP calls](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp#hostjson-settings) to the function to one, by setting the variable `maxConcurrentRequests` in the file [host.json](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/throttling-respond/host.json).
 
-```JSON
-{
-  "version": "2.0",
-  "managedDependency": {
-    "enabled": true
-  },
-  "extensions": {
-    "http": {
-        "routePrefix": "api",
-        "maxConcurrentRequests": 1
-    }
-  }
-}
-```
+Note that the concurrency required in your scenario might be different from the reference implementation.
 
 #### Idempotency
 
