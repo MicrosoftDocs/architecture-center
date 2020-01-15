@@ -139,9 +139,7 @@ the customer’s photo and name.</p>
 ## Data Flow
 
 1. Information about the new customer is posted to a web endpoint.
-1. The customer’s photo is posted to Cognitive Services Face API. Face API associates
-
-the customer’s photo and name.
+1. The customer’s photo is posted to Cognitive Services Face API. Face API associates the customer’s photo and name.
 1. The customer information is recorded in Dynamics 365 or other CRM.
 1. The information about a new customer is sent to Power BI.
 1. The customer information is added to the mailing list (MailChimp).
