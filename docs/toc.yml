@@ -49,7 +49,7 @@ items:
     items:
     - name: Choose a compute service
       href: guide/technology-choices/compute-decision-tree.md
-    - name: Chose a data store
+    - name: Choose a data store
       href: guide/technology-choices/data-store-overview.md
     - name: Choose a load balancing service
       href: guide/technology-choices/load-balancing-overview.md
