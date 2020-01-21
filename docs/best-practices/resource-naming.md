@@ -1,7 +1,7 @@
 ---
 title: Naming rules and restrictions for Azure resources
 description: A summary of the naming rules and restrictions for Azure resources.
-author: dermar
+author: dragon119
 ms.date: 09/06/2019
 ms.topic: best-practice
 ms.service: architecture-center
