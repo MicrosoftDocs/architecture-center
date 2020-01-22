@@ -1,6 +1,6 @@
 ---
-title: Deployment Stamp
-titleSuffix: Best practices for cloud applications
+title: Deployment stamps
+titleSuffix: Azure Architecture Center
 description: Deploy multiple independent copies of application components.
 keywords: best practice
 author: johndowns
@@ -11,7 +11,7 @@ ms.subservice: cloud-fundamentals
 ms.custom: fasttrack-new, fcp
 ---
 
-# Deployment Stamp
+# Deployment stamps
 
 The deployment stamp best practice involves deploying multiple independent copies of application components, including data stores. Each individual copy is called a *stamp*, or sometimes a *service unit* or *scale unit*. This approach can improve the scalability of your solution, allow you to deploy instances across multiple regions, and separate your customer data.
 
@@ -123,7 +123,7 @@ Click the link below to deploy the solution.
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fdeployment-stamp%2Fdeployment-stamp.json)
 
 > [!NOTE]
-> There are alternative approaches to deploying stamps with an ARM template, including using [nested templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-linked-templates#nested-template) or [linked templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-linked-templates#linked-template) to decouple the definition of each stamp from the iteration required to deploy multiple copies.
+> There are alternative approaches to deploying stamps with a Resource Manager template, including using [nested templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-linked-templates#nested-template) or [linked templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-linked-templates#linked-template) to decouple the definition of each stamp from the iteration required to deploy multiple copies.
 
 ### Example traffic routing approach
 
