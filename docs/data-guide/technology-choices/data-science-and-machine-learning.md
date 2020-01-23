@@ -134,7 +134,7 @@ Use Microsoft Machine Learning Server when you need to build and operationalize 
 The [Azure Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) is a customized virtual machine environment on the Microsoft Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics.
 
 The Data Science Virtual Machine is supported as a target for Azure Machine Learning.
-It is available in versions for both Windows and Linux Ubuntu (Azure Machine Learning is not supported on Linux CentOS).
+It is available in versions for both Windows and Linux Ubuntu.
 For specific version information and a list of what’s included, see [Introduction to the Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview).
 
 Use the Data Science VM when you need to run or host your jobs on a single node. Or if you need to remotely scale up your processing on a single machine.
