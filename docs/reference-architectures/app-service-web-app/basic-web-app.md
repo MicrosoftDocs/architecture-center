@@ -46,9 +46,10 @@ The architecture has the following components:
 
 - **Azure Active Directory (Azure AD)**. Use Azure AD or another identity provider for authentication.
 
-## Cost Considerations
+## Recommendations
 
 Your requirements might differ from the architecture described here. Use the recommendations in this section as a starting point.
+
 
 ### App Service plan
 

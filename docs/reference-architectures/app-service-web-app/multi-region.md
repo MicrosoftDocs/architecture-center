@@ -130,8 +130,8 @@ If the primary database fails, perform a manual failover to the secondary databa
 
 <!-- links -->
 
-[AFD-pricing]: https://azure.microsoft.com/en-in/pricing/details/frontdoor/
-[bandwidth-pricing]: https://azure.microsoft.com/en-in/pricing/details/bandwidth/
+[AFD-pricing]: https://azure.microsoft.com/pricing/details/frontdoor/
+[bandwidth-pricing]: https://azure.microsoft.com/pricing/details/bandwidth/
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
 [guidance-web-apps-scalability]: ./scalable-web-app.md
 [ra-grs]: /azure/storage/common/storage-designing-ha-apps-with-ragrs
