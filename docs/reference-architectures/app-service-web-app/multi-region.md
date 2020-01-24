@@ -80,21 +80,6 @@ For Azure Storage, use [read-access geo-redundant storage][ra-grs] (RA-GRS). Wit
 
 For Queue storage, create a backup queue in the secondary region. During failover, the app can use the backup queue until the primary region becomes available again. That way, the application can still process new requests.
 
-## Cost considerations
-
-### Azure Front Door
-
-Azure Front Door billing is based on three pricing dimensions, Outbound data transfers, Inbound data transfers and Routing Rules For more info See [Azure Front Door Pricing][AFD-pricing]. The cost of accessing data from Azure backends and transferring to Front Door is not included in Azure Front Door pricing, it is based on regular data transfer charges as described on [bandwidth][bandwidth-pricing] pricing page.
-
-
-### Azure Cosmos DB
-
-The pricing model of Cosmos DB makes cost management and planning simpler. With Azure Cosmos DB, you pay for the throughput provisioned and the consumed storage.
-
-Provisioned Throughput: Provisioned throughput (also called reserved throughput) guarantees high performance at any scale. You specify the throughput (RU/s) that you need, and Azure Cosmos DB dedicates the resources required to guarantee the configured throughput. You are billed hourly for the maximum provisioned throughput for a given hour. Note that since the provisioned throughput model dedicates resources to your container or database, you will be charged for the provisioned throughput even if you don’t run any workloads.
-
-Consumed Storage: You are billed a flat rate for the total amount of storage (GBs) consumed for data and the indexes for a given hour.
-
 ## Availability considerations - Front Door
 
 Front Door automatically fails over if the primary region becomes unavailable. When Front Door fails over, there is a period of time (usually about 20-60 seconds) when clients cannot reach the application. The duration is affected by the following factors:
@@ -130,8 +115,6 @@ If the primary database fails, perform a manual failover to the secondary databa
 
 <!-- links -->
 
-[AFD-pricing]: https://azure.microsoft.com/en-in/pricing/details/frontdoor/
-[bandwidth-pricing]: https://azure.microsoft.com/en-in/pricing/details/bandwidth/
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
 [guidance-web-apps-scalability]: ./scalable-web-app.md
 [ra-grs]: /azure/storage/common/storage-designing-ha-apps-with-ragrs

@@ -88,7 +88,7 @@ The following security considerations may also apply:
 - Add [governance](/azure/security/governance-in-azure) mechanisms to enforce policy or cost controls over Azure resources if needed. For example, use Log Analytics for security-related monitoring such as policies and role-based access control, or use [Azure Policy](/azure/azure-policy/azure-policy-introduction) to create, assign and, manage policy definitions.
 - To monitor potential security issues and get a central view of the security state of your Azure resources, consider using [Azure Security Center](/azure/security-center/security-center-intro).
 
-### Cost
+## Pricing
 
 Monitoring charges can add up quickly, so consider pricing up front, understand what you are monitoring, and check the associated fees for each service. Azure Monitor provides [basic metrics][basic metrics] at no cost, while monitoring costs for [Application Insights][application-insights-pricing] and [Log Analytics][log-analytics] are based on the amount of data ingested and the number of tests you run.
 
