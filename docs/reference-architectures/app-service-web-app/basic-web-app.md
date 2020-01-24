@@ -46,11 +46,13 @@ The architecture has the following components:
 
 - **Azure Active Directory (Azure AD)**. Use Azure AD or another identity provider for authentication.
 
-## Recommendations
+## Cost Considerations
 
 Your requirements might differ from the architecture described here. Use the recommendations in this section as a starting point.
 
 ### App Service plan
+
+Free and Shared (preview) plans provide different options for testing within your budget. Basic, Standard and Premium plans are for production workloads and run on dedicated Virtual Machine instances. App Service plans are billed on a per second basis.
 
 Use the Standard or Premium tiers, because they support scale-out, autoscale, and secure sockets layer (SSL). Each tier supports several *instance sizes* that differ by number of cores and memory. You can change the tier or instance size after you create a plan. For more information about App Service plans, see [App Service Pricing][app-service-plans-tiers].
 
@@ -58,13 +60,20 @@ You are charged for the instances in the App Service plan, even if the app is st
 
 ### SQL Database
 
+Logical servers are logical grouping of multiple Azure SQL Databases under the same server, The server is virtual and there are not shared resources cross databases that are deployed under it.
+
+Since there is no computation allocated to the server, for each created database, the tier (size) should be specified. That is the cost driver in the end.
+
 Use the [V12 version][sql-db-v12] of SQL Database. SQL Database supports Basic, Standard, and Premium [service tiers][sql-db-service-tiers], with multiple performance levels within each tier measured in [Database Transaction Units (DTUs)][sql-dtu]. Perform capacity planning and choose a tier and performance level that meets your requirements.
 
 ### Region
 
 Provision the App Service plan and the SQL Database in the same region to minimize network latency. Generally, choose the region closest to your users.
 
-The resource group also has a region, which specifies where deployment metadata is stored. Put the resource group and its resources in the same region. This can improve availability during deployment.
+The resource group also has a region, which specifies where deployment metadata is stored. Put the resource group and its resources in the same region. This can improve availability during deployment. Choose your region wisely, Microsoft Azure region pricing varies and region selection can help you reduce cloud spending.
+
+
+For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
 
 ## Scalability considerations
 
@@ -228,6 +237,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 <!-- links -->
 
 [aad-auth]: /azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [app-insights]: /azure/application-insights/app-insights-overview
 [app-insights-data-rate]: /azure/application-insights/app-insights-pricing
 [app-service]: /azure/app-service/
