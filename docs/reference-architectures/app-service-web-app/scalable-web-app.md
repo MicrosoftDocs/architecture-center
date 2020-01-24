@@ -82,6 +82,19 @@ Modern applications often process large amounts of data. In order to scale for t
 
 See [Choose the right data store][datastore].
 
+## Cost considerations
+
+You can reduce load on servers that repeatedly serve the same content, smart use of CDN and caching can dramatically decrease load on front-end servers that are continually rendering dynamic content which doesn't change frequently. Every render cycle of a page or payload consumes both compute and memory, and with CDN you trade this off for pre-canned storage and bandwidth costs, and the savings can be dramatic, especially for static content services (such as JavaScript Single-Page apps and media streaming content)
+
+Stateless, autoscaling web applications have a dramatic cost-benefit. By using Azure Redis Cache, or even CosmosDB as a back-end session state sore
+For example, many asp.net stateful web applications can be made stateless (and hence can be auto scaled for a dramatic cost-benefit) by using Azure Redis Cache, or CosmosDB as a back-end session state store via a Session State Provider.
+
+For more guidance please refer to the data management for cost optimization section in [Azure Architecture Framework][AAF-cost-data]
+
+
+For function apps, consider putting them into their own plan so that background tasks don't run on the same instances that handle HTTP requests. If background tasks run intermittently, consider using a [consumption plan][functions-consumption-plan], which is billed based on the number of executions, rather than hourly.
+
+
 ## Scalability considerations
 
 A major benefit of Azure App Service is the ability to scale your application based on load. Here are some considerations to keep in mind when planning to scale your application.
@@ -90,7 +103,6 @@ A major benefit of Azure App Service is the ability to scale your application ba
 
 If your solution includes several App Service apps, consider deploying them to separate App Service plans. This approach enables you to scale them independently because they run on separate instances.
 
-Similarly, consider putting a function app into its own plan so that background tasks don't run on the same instances that handle HTTP requests. If background tasks run intermittently, consider using a [consumption plan][functions-consumption-plan], which is billed based on the number of executions, rather than hourly.
 
 ### SQL Database
 
@@ -137,6 +149,7 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 
 <!-- links -->
 
+[AAF-cost-data]: /azure/architecture/framework/cost/data-management
 [api-guidance]: ../../best-practices/api-design.md
 [app-service-security]: /azure/app-service-web/web-sites-security
 [app-service-web-app]: /azure/app-service-web/app-service-web-overview
