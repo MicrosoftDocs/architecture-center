@@ -292,7 +292,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [sql-alwayson-read-only-routing]: https://technet.microsoft.com/library/hh213417.aspx#ConnectToSecondary
 [sql-alwayson]: https://msdn.microsoft.com/library/hh510230.aspx
 [sql-keyvault]: /azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault
-[Sql-vm-pricing]: https://azure.microsoft.com/en-us/pricing/details/virtual-machines/sql-server-enterprise/
+[Sql-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/
 [subscription-limits]: /azure/azure-subscription-service-limits
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
 [vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
