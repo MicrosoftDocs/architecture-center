@@ -158,6 +158,29 @@ Test the resiliency of the system to failures. Here are some common failure scen
 
 Measure the recovery times and verify they meet your business requirements. Test combinations of failure modes, as well.
 
+## Cost considerations
+
+### Virtual Machine Scale Sets
+
+Virtual Machine scale sets are available on all Windows VM sizes. You are only charged for the Azure VMs you deploy, as well as any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the Virtual Machine scale sets service itself.
+
+For single VMs pricing options See [Windows VMs pricing][Windows-vm-pricing]
+
+### SQL server
+
+For SQL server VMs pricing options see [SQL VMs pricing][Sql-vm-pricing]
+
+If you consider Azure SQL DBaas, you won't need to configure an always on availability group and you won't spend on domain controller machines. In that case there are different deployment options starting from single database up to managed instance, or elastic pools. For more information see [Azure SQL pricing][Azure-SQl-Pricing]
+
+### Load balancers
+
+You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules don't count in the total number of rules and for the amount of data processed inbound and outbound independent of rules. There is no hourly charge for the Standard Load Balancer when no rules are configured.
+
+### Traffic Manager pricing
+
+Traffic Manager billing is based on the number of DNS queries received, with a discount for services receiving more than 1 billion monthly queries. You will also be charged for each monitored endpoint.
+
+
 ## Related resources
 
 The following architecture uses some of the same technologies:

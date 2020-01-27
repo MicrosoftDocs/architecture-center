@@ -180,6 +180,19 @@ For more information about health probes, see:
 
 For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md).
 
+## Cost considerations
+
+### Virtual Machine Scale Sets
+
+Virtual Machine scale sets are available on all Linux VM sizes. You are only charged for the Azure VMs you deploy, as well as any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the Virtual Machine scale sets service itself.
+
+For single VMs pricing options See [Linux VMs pricing][Linux-vm-pricing]
+
+
+### Load balancers
+
+You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules don't count in the total number of rules and for the amount of data processed inbound and outbound independent of rules. There is no hourly charge for the Standard Load Balancer when no rules are configured.
+
 ## Security considerations
 
 Virtual networks are a traffic isolation boundary in Azure. VMs in one VNet can't communicate directly with VMs in a different VNet. VMs within the same VNet can communicate, unless you create [network security groups][nsg] (NSGs) to restrict traffic. For more information, see [Microsoft cloud services and network security][network-security].
@@ -236,6 +249,7 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
 [ddos]: /azure/virtual-network/ddos-protection-overview
 [dmz]: ../dmz/secure-vnet-dmz.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-linux
+[Linux-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
 [load-balancer-hashing]: /azure/load-balancer/concepts-limitations#load-balancer-concepts
 [load-balancer]: /azure/load-balancer/load-balancer-get-started-internet-arm-cli
 [network-security]: /azure/best-practices-network-security

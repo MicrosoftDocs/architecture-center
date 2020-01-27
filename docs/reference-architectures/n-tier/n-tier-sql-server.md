@@ -185,6 +185,25 @@ For more information about health probes, see:
 
 For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md).
 
+## Cost considerations
+
+### Virtual Machine Scale Sets
+
+Virtual Machine scale sets are available on all Windows VM sizes. You are only charged for the Azure VMs you deploy, as well as any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the Virtual Machine scale sets service itself.
+
+For single VMs pricing options See [Windows VMs pricing][Windows-vm-pricing]
+
+### SQL server
+
+For SQL server VMs pricing options see [SQL VMs pricing][Sql-vm-pricing]
+
+If you consider Azure SQL DBaas, you won't need to configure an always on availability group and you won't spend on domain controller machines. In that case there are different deployment options starting from single database up to managed instance, or elastic pools. For more information see [Azure SQL pricing][Azure-SQl-Pricing]
+
+### Load balancers
+
+You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules don't count in the total number of rules and for the amount of data processed inbound and outbound independent of rules. There is no hourly charge for the Standard Load Balancer when no rules are configured.
+
+
 ## Security considerations
 
 Virtual networks are a traffic isolation boundary in Azure. By default, VMs in one virtual network can't communicate directly with VMs in a different virtual network. However, you can explicitly connect virtual networks by using [virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
@@ -249,6 +268,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [app-gw-scaling]: /azure/application-gateway/application-gateway-autoscaling-zone-redundant
 [azure-dns]: /azure/dns/dns-overview
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault
+[Azure-SQl-Pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed/
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [ddos-best-practices]: /azure/security/azure-ddos-best-practices
@@ -272,7 +292,9 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [sql-alwayson-read-only-routing]: https://technet.microsoft.com/library/hh213417.aspx#ConnectToSecondary
 [sql-alwayson]: https://msdn.microsoft.com/library/hh510230.aspx
 [sql-keyvault]: /azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault
+[Sql-vm-pricing]: https://azure.microsoft.com/en-us/pricing/details/virtual-machines/sql-server-enterprise/
 [subscription-limits]: /azure/azure-subscription-service-limits
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
 [vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
 [vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
+[Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
