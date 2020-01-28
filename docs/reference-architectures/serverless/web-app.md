@@ -260,6 +260,26 @@ If you make a breaking change in an API, publish a new version in API Management
 
 For updates that are not breaking API changes, deploy the new version to a staging slot in the same Function App. Verify the deployment succeeded and then swap the staged version with the production version. Publish a revision in API Management.
 
+### Azure functions
+
+Azure functions service is managed by the cloud provider, so the total cost of owning the service is minimal, you pay for consumption. Azure Functions consumption plan is billed based on per-second resource consumption and execution count. Number of executions count is simple: each function defines an event trigger which fires the execution. Batching is recommended for reducing cost, that means processing several events in a single execution.
+Nothing is reserved in advance, so the cost of executing Function App grows linearly with the application demand. Elastically scalable when a Function workload is low, Azure scales the infrastructure down up to zero with no associated cost. Whenever the workload grows, Azure uses enough capacity to serve all the demand. Since you pay per actual use, you can understand and manage the exact cost of each component. 
+
+There might be other potential costs associated with running an Azure Function App, like Application Insights; the cost of this monitoring service can become quite substantial and exceed the cost of Azure Functions themselves, depending on the event volume and sampling settings. 
+
+### Cosmos DB
+
+Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations (inserts, reads, queries, etc.). 
+For example, 1 RU/s is sufficient for processing one eventually consistent read per second of 1K item, and 5 RU/s is sufficient for processing one write per second of 1K item. Storage is billed for each GB used for your stored data and index. See [Cosmos DB pricing model][cosmosdb-pricing] for more info.
+The price is based on what you reserve. So, what you reserve with Cosmos is the capacity expressed in RU/s. You pay for the RU as well as the space (GB) and you have to reserve a minimum of 400 RUs (a concurrent read of 1KB docuemnt consumes 1 RU), 
+so if your app does not need to be this intensive, you will end up probably paying for more than what you need with Cosmos, since 400 RU is the minimum that you can provision per container. Also keep in mind that the RU that you reserve is per container so, each container will cost about $25 with 1 GB storage, meaning that if you have 10 collections you are paying $250. Reusing collections is recommended for keeping cost down.
+
+### Content Delivery Network
+
+Billing rate may differ depending on the Billing Region, the billing region is based on the location of the source server delivering the content to the end user. The physical location of the client is not considered the billing region.
+
+Any http or https request that hits the CDN is a billable event, which includes all response types: success, failure, or other. Different responses may generate different traffic amounts. 
+
 ## Deploy the solution
 
 To deploy the reference implementation for this architecture, see the [GitHub readme][readme].
@@ -294,6 +314,7 @@ Related guidance:
 [cosmosdb]: /azure/cosmos-db/introduction
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
 [cosmosdb-input-binding]: /azure/azure-functions/functions-bindings-cosmosdb-v2#input
+[cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
 [event-driven]: ../../guide/architecture-styles/event-driven.md
 [functions]: /azure/azure-functions/functions-overview

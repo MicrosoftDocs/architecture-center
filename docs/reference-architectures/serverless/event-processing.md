@@ -128,6 +128,23 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 - **Azure Storage**. Use [RA-GRS][ra-grs] storage for the dead letter queue. This creates a read-only replica in another region. If the primary region becomes unavailable, you can read the items currently in the queue. In addition, provision another storage account in the secondary region that the function can write to after a fail-over.
 
+## Cost considerations
+
+### Azure functions
+
+Azure functions service is managed by the cloud provider, so the total cost of owning the service is minimal, you pay for consumption. Azure Functions consumption plan is billed based on per-second resource consumption and execution count. Number of executions count is simple: each function defines an event trigger which fires the execution. Batching is recommended for reducing cost, that means processing several events in a single execution.
+Nothing is reserved in advance, so the cost of executing Function App grows linearly with the application demand. Elastically scalable when a Function workload is low, Azure scales the infrastructure down up to zero with no associated cost. Whenever the workload grows, Azure uses enough capacity to serve all the demand. Since you pay per actual use, you can understand and manage the exact cost of each component. 
+
+There might be other potential costs associated with running an Azure Function App, like Application Insights; the cost of this monitoring service can become quite substantial and exceed the cost of Azure Functions themselves, depending on the event volume and sampling settings. 
+
+### Cosmos DB
+
+Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations (inserts, reads, queries, etc.). 
+For example, 1 RU/s is sufficient for processing one eventually consistent read per second of 1K item, and 5 RU/s is sufficient for processing one write per second of 1K item. Storage is billed for each GB used for your stored data and index. See [Cosmos DB pricing model][cosmosdb-pricing] for more info.
+The price is based on what you reserve. So, what you reserve with Cosmos is the capacity expressed in RU/s. You pay for the RU as well as the space (GB) and you have to reserve a minimum of 400 RUs (a concurrent read of 1KB docuemnt consumes 1 RU), 
+so if your app does not need to be this intensive, you will end up probably paying for more than what you need with Cosmos, since 400 RU is the minimum that you can provision per container. Also keep in mind that the RU that you reserve is per container so, each container will cost about $25 with 1 GB storage, meaning that if you have 10 collections you are paying $250. Reusing collections is recommended for keeping cost down.
+
+
 ## Deploy the solution
 
 To deploy this reference architecture, view the [GitHub readme][readme].
@@ -141,6 +158,7 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 [cosmosdb]: /azure/cosmos-db/introduction
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
+[cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
 [cosmosdb-sql]: /azure/cosmos-db/sql-api-introduction
 [eh]: /azure/event-hubs/
 [eh-autoscale]: /azure/event-hubs/event-hubs-auto-inflate
