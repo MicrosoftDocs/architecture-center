@@ -83,6 +83,9 @@
     },
     "fileMetadata": {
       "featureFlags": {
+        "**/*.md": [
+          "binaryRatingUpdate"
+        ]
       },
       "searchScope": { 
         "guide/**/*.md": [ "Azure", "Azure Architecture Center", "Application Architecture Guide" ],
