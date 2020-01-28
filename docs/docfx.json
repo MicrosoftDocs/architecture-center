@@ -83,7 +83,7 @@
     },
     "fileMetadata": {
       "featureFlags": {
-        "azure-architecture-center/**/*.md": [
+        "**/*.md": [
           "binaryRatingUpdate"
         ]
       },
