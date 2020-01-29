@@ -40,8 +40,8 @@ The architecture consists of the following components.
 
 - **VPN virtual network gateway or ExpressRoute gateway**. The virtual network gateway enables the virtual network to connect to the VPN device, or ExpressRoute circuit, used for connectivity with your on-premises network. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
 
-> [!NOTE]
-> The deployment scripts for this reference architecture use a VPN gateway for connectivity, and a virtual network in Azure to simulate your on-premises network.
+   > [!NOTE]
+   > The deployment scripts for this reference architecture use a VPN gateway for connectivity, and a virtual network in Azure to simulate your on-premises network.
 
 - **Hub virtual network**. The virtual network used as the hub in the hub-spoke topology. The hub is the central point of connectivity to your on-premises network, and a place to host services that can be consumed by the different workloads hosted in the spoke virtual networks.
 
@@ -77,7 +77,7 @@ A hub-spoke topology can also be used without a gateway, if you don't need conne
 
 ### Virtual network peering
 
-Virtual networkt peering is a non-transitive relationship between two virtual networks. If you require spokes to connect to each other, consider adding a separate peering connection between those spokes.
+Virtual network peering is a non-transitive relationship between two virtual networks. If you require spokes to connect to each other, consider adding a separate peering connection between those spokes.
 
 However, if you have several spokes that need to connect with each other, you will run out of possible peering connections very quickly due to the limitation on number of virtual network peerings per virtual network. (For more information, see [Networking limits][vnet-peering-limit].) In this scenario, consider using user defined routes (UDRs) to force traffic destined to a spoke to be sent to Azure Firewall or an NVA acting as a router at the hub. This will allow the spokes to connect to each other.
 
