@@ -6,7 +6,7 @@ author: miguelangelopereira
 ms.date: 09/12/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
+ms.subservice: example-scenario
 ms.custom:
   - fasttrack
   - Linux
