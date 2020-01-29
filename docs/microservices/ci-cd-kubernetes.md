@@ -56,7 +56,7 @@ trigger:
     include:
     # for new release to production: release flow strategy
     - release/delivery/v*
-    - refs/relelase/delivery/v*
+    - refs/release/delivery/v*
     - master
     - feature/delivery/*
     - topic/delivery/*
