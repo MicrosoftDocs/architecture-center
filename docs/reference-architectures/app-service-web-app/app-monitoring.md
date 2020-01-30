@@ -100,6 +100,8 @@ After deployment, you can watch a [Live Metrics Stream][Live Metrics Stream] of 
 
 Log Analytics is billed per gigabyte (GB) of data ingested into the service. The first 5 GB of data ingested to the Azure Log Analytics service every month is offered free, and the data is retained at no charge for first 31 days in your Log Analytics workspace.
 
+For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
+
 ## Next steps
 
 Check out these resources designed to help you get started with your own monitoring solution:
@@ -117,6 +119,8 @@ Check out these resources designed to help you get started with your own monitor
 [Find and diagnose run-time exceptions with Azure Application Insights][Find and diagnose run-time exceptions with Azure Application Insights]
 
 <!-- links -->
+
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [architecture]: ./images/architecture-diagram-app-monitoring.svg
 [availability-tests]: /azure/application-insights/app-insights-monitor-web-app-availability
 [application-insights]: /azure/application-insights/app-insights-overview
@@ -143,7 +147,7 @@ Check out these resources designed to help you get started with your own monitor
 [monitor its availability]: /azure/application-insights/app-insights-monitor-web-app-availability
 [Resources, roles, and access control in Application Insights]: /azure/application-insights/app-insights-resources-roles-access-control
 [basic metrics]: /azure/monitoring-and-diagnostics/monitoring-supported-metrics
-[pricing]: https://azure.microsoft.com/pricing/calculator/#log-analyticsc126d8c1-ec9c-4e5b-9b51-4db95d06a9b1
+[pricing]: https://azure.microsoft.com/pricing/calculator
 [Sampling in Application Insights]: /azure/application-insights/app-insights-sampling
 [Live Metrics Stream]: /azure/application-insights/app-insights-live-stream
 [Basic web application reference architecture]: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app#scalability-considerations

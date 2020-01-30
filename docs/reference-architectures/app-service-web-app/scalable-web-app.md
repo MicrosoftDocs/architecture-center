@@ -95,6 +95,9 @@ For more guidance please refer to the data management for cost optimization sect
 For function apps, consider putting them into their own plan so that background tasks don't run on the same instances that handle HTTP requests. If background tasks run intermittently, consider using a [consumption plan][functions-consumption-plan], which is billed based on the number of executions, rather than hourly.
 
 
+To help you get started, use the [pricing calculator][pricing] to estimate costs.
+
+
 ## Scalability considerations
 
 A major benefit of Azure App Service is the ability to scale your application based on load. Here are some considerations to keep in mind when planning to scale your application.
@@ -171,6 +174,7 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [functions]: /azure/azure-functions/functions-overview
 [functions-consumption-plan]: /azure/azure-functions/functions-scale#consumption-plan
 [github]: https://github.com/mspnp/reference-architectures/tree/master/web-app
+[pricing]: https://azure.microsoft.com/pricing/calculator
 [queue-storage]: /azure/storage/storage-dotnet-how-to-use-queues
 [queues-compared]: /azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted
 [sql-db]: /azure/sql-database/

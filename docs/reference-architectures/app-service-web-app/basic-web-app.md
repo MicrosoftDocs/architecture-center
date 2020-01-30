@@ -73,6 +73,7 @@ Provision the App Service plan and the SQL Database in the same region to minimi
 
 The resource group also has a region, which specifies where deployment metadata is stored. Put the resource group and its resources in the same region. This can improve availability during deployment. Choose your region wisely, Microsoft Azure region pricing varies and region selection can help you reduce cloud spending.
 
+To help you get started, use the [pricing calculator][pricing] to estimate costs.
 
 For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
 
@@ -260,6 +261,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [new-relic]: https://newrelic.com/
 [paas-basic-arm-template]: https://github.com/mspnp/reference-architectures/tree/master/managed-web-app/basic-web-app/Paas-Basic/Templates
 [perf-analysis]: https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md
+[pricing]: https://azure.microsoft.com/pricing/calculator
 [rbac]: /azure/active-directory/role-based-access-control-what-is
 [resource-group]: /azure/azure-resource-manager/resource-group-overview
 [sla]: https://azure.microsoft.com/support/legal/sla/

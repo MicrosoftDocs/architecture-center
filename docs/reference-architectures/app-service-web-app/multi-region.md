@@ -95,6 +95,12 @@ Provisioned Throughput: Provisioned throughput (also called reserved throughput)
 
 Consumed Storage: You are billed a flat rate for the total amount of storage (GBs) consumed for data and the indexes for a given hour.
 
+To help you get started, use the [pricing calculator][pricing] to estimate costs.
+
+For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
+
+
+
 ## Availability considerations - Front Door
 
 Front Door automatically fails over if the primary region becomes unavailable. When Front Door fails over, there is a period of time (usually about 20-60 seconds) when clients cannot reach the application. The duration is affected by the following factors:
@@ -130,10 +136,12 @@ If the primary database fails, perform a manual failover to the secondary databa
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [AFD-pricing]: https://azure.microsoft.com/pricing/details/frontdoor/
 [bandwidth-pricing]: https://azure.microsoft.com/pricing/details/bandwidth/
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
 [guidance-web-apps-scalability]: ./scalable-web-app.md
+[pricing]: https://azure.microsoft.com/pricing/calculator
 [ra-grs]: /azure/storage/common/storage-designing-ha-apps-with-ragrs
 [regional-pairs]: /azure/best-practices-availability-paired-regions
 [resource groups]: /azure/azure-resource-manager/resource-group-overview#resource-groups
