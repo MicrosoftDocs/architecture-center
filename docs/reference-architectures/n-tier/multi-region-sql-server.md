@@ -181,6 +181,11 @@ You are charged only for the number of configured load-balancing and outbound ru
 Traffic Manager billing is based on the number of DNS queries received, with a discount for services receiving more than 1 billion monthly queries. You will also be charged for each monitored endpoint.
 
 
+Use the [Azure Pricing Calculator][Cost-Calculator] to get your estimates, that will help you get started.
+
+For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
+
+
 ## Related resources
 
 The following architecture uses some of the same technologies:
@@ -189,9 +194,11 @@ The following architecture uses some of the same technologies:
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [azure-sql-db]: /azure/sql-database/
 [health-endpoint-monitoring-pattern]: ../../patterns/health-endpoint-monitoring.md
 [azure-cli]: /cli/azure/
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [regional-pairs]: /azure/best-practices-availability-paired-regions
 [resource groups]: /azure/azure-resource-manager/resource-group-overview
 [resource-group-links]: /azure/resource-group-link-resources

@@ -114,6 +114,11 @@ Large-scale stateless applications.
 
 For more information See [Azure Linux VM pricing][linux-vms-pricing]
 
+Use the [Azure Pricing Calculator][Cost-Calculator] to get your estimates, that will help you get started.
+
+For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
+
+
 
 ## Security considerations
 
@@ -138,11 +143,14 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 - For a complete N-tier architecture on Linux VMs, see [Linux N-tier application in Azure with Apache Cassandra](./n-tier-cassandra.md).
 
 <!-- links -->
+
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-linux]: /azure/virtual-machines/virtual-machines-linux-azure-overview
 [azure-storage]: /azure/storage/storage-introduction
 [blob-storage]: /azure/storage/storage-introduction
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: /azure/virtual-machines/virtual-machines-linux-about-disks-vhds
 [disk-encryption]: /azure/security/fundamentals/azure-disk-encryption-vms-vmss
@@ -157,6 +165,7 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 [nsg-default-rules]: /azure/virtual-network/security-overview#default-security-rules
 [planned-maintenance]: /azure/virtual-machines/virtual-machines-linux-planned-maintenance
 [premium-storage]: /azure/virtual-machines/linux/premium-storage
+[pricing]: https://azure.microsoft.com/pricing/calculator
 [rbac]: /azure/active-directory/role-based-access-control-what-is
 [rbac-roles]: /azure/active-directory/role-based-access-built-in-roles
 [rbac-devtest]: /azure/active-directory/role-based-access-built-in-roles#devtest-labs-user
