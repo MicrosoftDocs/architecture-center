@@ -123,6 +123,44 @@ This architecture supports [disaster recovery][hli-dr] between HANA Large Instan
 
 - Multi-tier HSR with a third replica in the DR region (where the HANA database is loaded onto memory). This option supports a faster recovery time but does not support a point-in-time recovery. HSR requires a secondary system. HANA system replication for the DR site is handled through proxies such as nginx or IP tables.
 
+## Cost Considerations
+
+### Virtual machines
+
+Azure Virtual Machines gives you the flexibility of virtualization for a wide range of computing solutions with support for SAP.
+
+There are different budget options depending on the usage and workload.
+
+For unpredictable workloads that cannot be interrupted, consider the "Pay as you go" payment option. you can Increase or decrease compute capacity on demand. Start or stop at any time and only pay for what you use.
+
+Consider Reserved Virtual Machine Instances if you want budget predicatbility. A reserved VM instance is an advanced purchase of a Virtual Machine for one or three years in a specified region, so if you can commit to using a virtual machine over a one-year or three-year term to reduce computing costs, this is the best option, it can significantly reduce costs—up to 72 percent compared to pay-as-you-go prices.
+
+
+For workloads the can be iterrupted and do not require completion within a predetermined timeframe or an SLA, Spot VMs can be a good option for reduced costs.
+
+Consider Spot VMs for the following types of workloads:
+
+High-performance computing scenarios, batch processing jobs, or visual rendering applications.
+Test environments, including continuous integration and continuous delivery workloads.
+Large-scale stateless applications.
+
+For more information See [RHEL for SAP HANA Virtual Machines Pricing][HANA-vms-pricing]
+
+
+### HANA Large instances
+
+SAP HANA on Azure Large Instances SKUs are available as reserved VM instances (1 or 3 years).  You get purpose-built SAP HANA infrastructure with high-performance compute, storage and network. SAP HANA on Azure Large Instances are coupled with high-performance NFS storage and networking and provide built-in support for backups through storage snapshots, high availability and disaster recovery and scale-out configurations.
+
+Please contact your Microsoft account team to get pricing for larger SKUs.
+
+
+### Express Route
+
+All inbound data transfer is free of charge, and all outbound data transfer is charged based on a pre-determined rate. See [Azure ExpressRoute pricing][expressroute-pricing] For more info.
+
+Use the [Azure Pricing Calculator][Cost-Calculator] to get your estimates.
+
+
 > [!NOTE]
 > You can optimize this reference architecture for costs by running in a single-instance environment. This [cost-optimized scenario](https://blogs.sap.com/2016/07/19/new-whitepaper-for-high-availability-for-sap-hana-cost-optimized-scenario/) is suitable for non-production HANA workloads.
 
@@ -181,10 +219,13 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [azure-forum]: https://azure.microsoft.com/support/forums/
 [azure-large-instances]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
 [classes]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
+[Cost-Calculator]: https://azure.microsoft.com/en-us/pricing/calculator/
 [cross-connected]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
 [dr-site]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery
 [expressroute]: /azure/architecture/reference-architectures/hybrid-networking/expressroute
+[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [filter-network]: https://azure.microsoft.com/blog/multiple-vm-nics-and-network-virtual-appliances-in-azure/
+[HANA-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/rhel-sap-hana/
 [hli-dr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
 [hli-backup]: /azure/virtual-machines/workloads/sap/hana-backup-restore
 [hli-hadr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
