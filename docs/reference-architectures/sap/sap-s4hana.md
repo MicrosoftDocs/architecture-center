@@ -181,6 +181,8 @@ High-performance computing scenarios, batch processing jobs, or visual rendering
 Test environments, including continuous integration and continuous delivery workloads.
 Large-scale stateless applications.
 
+For more information See [RHEL for SAP HANA Virtual Machines Pricing][HANA-vms-pricing]
+
 ### Azure Load Balancer
 
 With Azure Standard Load Balancer, you only pay for what you use.  You are charged for amount of data processed inbound and outbound independent of rules and the number of configured load-balancing and outbound rules. Inbound NAT rules don't count in the total number of rules. There is no hourly charge for the Standard Load Balancer when no rules are configured.
