@@ -85,7 +85,7 @@ Consider Reserved Virtual Machine Instances if you want budget predicatbility. A
 
 For workloads the can be iterrupted and do not require completion within a predetermined timeframe or an SLA, Spot VMs can be a good option for reduced costs.
 
-Consider Spot VMs for teh following types of workloads:
+Consider Spot VMs for the following types of workloads:
 
 High-performance computing scenarios, batch processing jobs, or visual rendering applications.
 Test environments, including continuous integration and continuous delivery workloads.
