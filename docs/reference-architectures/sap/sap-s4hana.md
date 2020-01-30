@@ -245,5 +245,5 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 
 <!-- links -->
 
-[Cost-Calculator]: https://azure.microsoft.com/en-us/pricing/calculator/
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-reference-architectures.vsdx

@@ -219,7 +219,7 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [azure-forum]: https://azure.microsoft.com/support/forums/
 [azure-large-instances]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
 [classes]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
-[Cost-Calculator]: https://azure.microsoft.com/en-us/pricing/calculator/
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [cross-connected]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
 [dr-site]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery
 [expressroute]: /azure/architecture/reference-architectures/hybrid-networking/expressroute
