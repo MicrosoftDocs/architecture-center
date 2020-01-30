@@ -212,6 +212,11 @@ For example, 1 RU/s is sufficient for processing one eventually consistent read 
 The price is based on what you reserve. So, what you reserve with Cosmos is the capacity expressed in RU/s. You pay for the RU as well as the space (GB) and you have to reserve a minimum of 400 RUs (a concurrent read of 1KB docuemnt consumes 1 RU), 
 so if your app does not need to be this intensive, you will end up probably paying for more than what you need with Cosmos, since 400 RU is the minimum that you can provision per container. Also keep in mind that the RU that you reserve is per container so, each container will cost about $25 with 1 GB storage, meaning that if you have 10 collections you are paying $250. Reusing collections is recommended for keeping cost down.
 
+The [Cosmos DB capacity calculator][Cosmos-Calculator] offers you a quick estimate of the workload cost. Also consider using the [Azure Pricing Calculator][Cost-Calculator] to get your estimates, that will help you get started.
+
+For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
+
+
 ## Deployment considerations
 
 For critical automation workflows that manage behavior of your application, zero downtime deployment must be achieved using an efficient DevOps pipeline. For more information, read [serverless backend deployment](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/web-app#back-end-deployment).
@@ -230,4 +235,8 @@ To learn more about the serverless implementations, start [here](https://docs.mi
 
 
 <!-- links -->
+
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [Logic-Apps-Pricing]: https://azure.microsoft.com/pricing/details/logic-apps/

@@ -274,6 +274,10 @@ For example, 1 RU/s is sufficient for processing one eventually consistent read 
 The price is based on what you reserve. So, what you reserve with Cosmos is the capacity expressed in RU/s. You pay for the RU as well as the space (GB) and you have to reserve a minimum of 400 RUs (a concurrent read of 1KB docuemnt consumes 1 RU), 
 so if your app does not need to be this intensive, you will end up probably paying for more than what you need with Cosmos, since 400 RU is the minimum that you can provision per container. Also keep in mind that the RU that you reserve is per container so, each container will cost about $25 with 1 GB storage, meaning that if you have 10 collections you are paying $250. Reusing collections is recommended for keeping cost down.
 
+The [Cosmos DB capacity calculator][Cosmos-Calculator] offers you a quick estimate of the workload cost. Also consider using the [Azure Pricing Calculator][Cost-Calculator] to get your estimates, that will help you get started.
+
+For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
+
 ### Content Delivery Network
 
 Billing rate may differ depending on the Billing Region, the billing region is based on the location of the source server delivering the content to the end user. The physical location of the client is not considered the billing region.
@@ -294,6 +298,7 @@ Related guidance:
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [api-versioning]: ../../best-practices/api-design.md#versioning-a-restful-web-api
 [apim]: /azure/api-management/api-management-key-concepts
 [apim-ip]: /azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services
@@ -311,11 +316,13 @@ Related guidance:
 [cdn]: https://azure.microsoft.com/services/cdn/
 [cdn-https]: /azure/cdn/cdn-custom-ssl
 [cors-policy]: /azure/api-management/api-management-cross-domain-policies
+[Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
 [cosmosdb]: /azure/cosmos-db/introduction
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
 [cosmosdb-input-binding]: /azure/azure-functions/functions-bindings-cosmosdb-v2#input
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [event-driven]: ../../guide/architecture-styles/event-driven.md
 [functions]: /azure/azure-functions/functions-overview
 [functions-bindings]: /azure/azure-functions/functions-triggers-bindings
