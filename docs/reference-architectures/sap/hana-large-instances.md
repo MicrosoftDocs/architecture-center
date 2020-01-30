@@ -158,8 +158,9 @@ Please contact your Microsoft account team to get pricing for larger SKUs.
 
 All inbound data transfer is free of charge, and all outbound data transfer is charged based on a pre-determined rate. See [Azure ExpressRoute pricing][expressroute-pricing] For more info.
 
-Use the [Azure Pricing Calculator][Cost-Calculator] to get your estimates.
+Use the [Azure Pricing Calculator][Cost-Calculator] to get your estimates, that will help you get started.
 
+For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
 
 > [!NOTE]
 > You can optimize this reference architecture for costs by running in a single-instance environment. This [cost-optimized scenario](https://blogs.sap.com/2016/07/19/new-whitepaper-for-high-availability-for-sap-hana-cost-optimized-scenario/) is suitable for non-production HANA workloads.
@@ -216,6 +217,7 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [azure-forum]: https://azure.microsoft.com/support/forums/
 [azure-large-instances]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
 [classes]: /azure/virtual-machines/workloads/sap/hana-overview-architecture

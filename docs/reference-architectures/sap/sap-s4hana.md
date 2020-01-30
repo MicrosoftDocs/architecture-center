@@ -191,7 +191,9 @@ With Azure Standard Load Balancer, you only pay for what you use.  You are charg
 
 All inbound data transfer is free of charge, and all outbound data transfer is charged based on a pre-determined rate. See [Azure ExpressRoute pricing][expressroute-pricing] For more info.
 
-Use the [Azure Pricing Calculator][Cost-Calculator] to get your estimates.
+Use the [Azure Pricing Calculator][Cost-Calculator] to get your estimates, that will help you get started.
+
+For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
 
 
 ## Manageability considerations
@@ -245,5 +247,6 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-reference-architectures.vsdx
