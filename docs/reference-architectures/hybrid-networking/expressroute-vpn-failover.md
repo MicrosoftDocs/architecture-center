@@ -94,6 +94,13 @@ For site-to-site VPN considerations, see the [Implementing a Hybrid Network Arch
 
 For general Azure security considerations, see [Microsoft cloud services and network security][best-practices-security].
 
+## Cost considerations
+
+For ExpressRoute cost considerations, see the cost section in [Implementing a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance.
+
+For site-to-site VPN considerations, see the cost section in [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance.
+
+
 ## Deploy the solution
 
 **Prerequisites**. You must have an existing on-premises infrastructure already configured with a suitable network appliance.
@@ -127,12 +134,16 @@ To deploy the solution, perform the following steps.
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [windows-vm-ra]: ../virtual-machines-windows/index.md
 [linux-vm-ra]: ../virtual-machines-linux/index.md
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
+[linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
+[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [expressroute-prereq]: /azure/expressroute/expressroute-prerequisites
 [implementing-expressroute]: ./expressroute.md
 [implementing-vpn]: ./vpn.md

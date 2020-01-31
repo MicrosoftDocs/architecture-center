@@ -94,8 +94,6 @@ Select the Azure VPN gateway SKU that most closely matches your throughput requi
 > The Basic SKU is not compatible with Azure ExpressRoute. You can [change the SKU][changing-SKUs] after the gateway has been created.
 >
 
-You are charged based on the amount of time that the gateway is provisioned and available. See [VPN Gateway Pricing][azure-gateway-charges].
-
 Create routing rules for the gateway subnet that direct incoming application traffic from the gateway to the internal load balancer, rather than allowing requests to pass directly to the application VMs.
 
 ### On-premises network connection
@@ -188,6 +186,49 @@ If the application in the virtual network sends data to the Internet, consider [
 > Forced tunneling can impact connectivity to Azure services (the Storage Service, for example) and the Windows license manager.
 >
 
+## Cost Considerations
+
+### VPN Gateway
+
+You are charged based on the amount of time that the gateway is provisioned and available. See [VPN Gateway Pricing][azure-gateway-charges].
+
+VPN Outboud traffic will be subjected to the internet bandwidth costs. The usual concept applies, all inbound traffic is free, all outbound traffic is billed.
+
+
+### Virtual Network
+
+Azure Virtual Network is free of charge. Every subscription is allowed to create up to 50 Virtual Networks across all regions.
+All traffic that occurs within the boundaries of a Virtual Network is free of charge. So if two VMs that are in the same VNET are talking each other then no charges will occur.
+
+### Azure Bastion
+
+Azure Bastion allows you to securely and RDP & SSH to your virtual machine in the Azure virtual network, directly from the Azure portal, without the need of public IP on the VM. So keep in mind that for every virtual network that contians VMs you need to RDP or SSH, you will need an Azure Bastion Service, in the end is going to be a more economic (and more secure) solution than using jumpboxes. See [Azure Bastion Pricing][Bastion-pricing] for examples.
+
+### Virtual machine and internal load balancing
+
+There are different budget options depending on the usage and workload. Starting from economical Bs-series to the newest GPU VMs optimized for machine learning. 
+
+For unpredictable workloads that cannot be interrupted, consider the "Pay as you go" payment option. you can Increase or decrease compute capacity on demand. Start or stop at any time and only pay for what you use.
+
+Consider Reserved Virtual Machine Instances if you want budget predicatbility. A reserved VM instance is an advanced purchase of a Virtual Machine for one or three years in a specified region, so if you can commit to using a virtual machine over a one-year or three-year term to reduce computing costs, this is the best option, it can significantly reduce costs—up to 72 percent compared to pay-as-you-go prices.
+
+
+For workloads the can be iterrupted and do not require completion within a predetermined timeframe or an SLA, Spot VMs can be a good option for reduced costs.
+
+Consider Spot VMs for the following types of workloads:
+
+High-performance computing scenarios, batch processing jobs, or visual rendering applications.
+Test environments, including continuous integration and continuous delivery workloads.
+Large-scale stateless applications.
+
+Basic load balancing between virtual machines that reside in the same VNET is free of charge.
+
+For more information See [Azure VM pricing][linux-vms-pricing]
+
+Use the [Azure Pricing Calculator][Cost-Calculator] to get your estimates, that will help you get started.
+
+For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
+
 ## Deploy the solution
 
 To deploy this reference architecture, see the [GitHub readme][readme]. 
@@ -199,20 +240,25 @@ Although VPNs can be used to connect virtual networks within Azure, it's not alw
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [adds-extend-domain]: ../identity/adds-extend-domain.md
 [az-vpn]: /azure/azure-stack/azure-stack-connect-vpn
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway/
 [azure-gateway-skus]: /azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku
 [azure-virtual-network]: /azure/virtual-network/virtual-networks-overview
 [azure-vpn-gateway]: https://azure.microsoft.com/services/vpn-gateway/
+[Bastion-pricing]: https://azure.microsoft.com/pricing/details/azure-bastion/
 [changing-SKUs]: https://azure.microsoft.com/blog/azure-virtual-network-gateway-improvements/
 [CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [connect-to-an-Azure-vnet]: /office365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [forced-tunneling]: /azure/vpn-gateway/vpn-gateway-about-forced-tunneling
 [gateway-diagnostic-logs]: https://blogs.technet.microsoft.com/keithmayer/2016/10/12/step-by-step-capturing-azure-resource-manager-arm-vnet-gateway-diagnostic-logs/
 [linux-vm-ra]: ../virtual-machines-linux/index.md
+[linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
 [nagios]: https://www.nagios.org/
 [policy-based-routing]: https://en.wikipedia.org/wiki/Policy-based_routing
+[pricing]: https://azure.microsoft.com/pricing/calculator
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/hybrid-networking/vpn/README.md
 [route-based-routing]: https://en.wikipedia.org/wiki/Static_routing
 [rras-logging]: https://www.petri.com/enable-diagnostic-logging-in-windows-server-2012-r2-routing-and-remote-access
