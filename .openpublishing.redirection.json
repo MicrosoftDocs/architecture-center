@@ -1874,6 +1874,11 @@
       "source_path": "docs/guide/technology-choices/compute-comparison.md",
       "redirect_url": "/azure/architecture/guide/technology-choices/compute-decision-tree",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/best-practices/resource-naming.md",
+      "redirect_url": "/azure/azure-resource-manager/management/resource-name-rules",
+      "redirect_document_id": true
     }
   ]
 }
