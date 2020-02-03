@@ -94,6 +94,40 @@ A deployment for this architecture is available on [GitHub][ref-arch-repo]. The 
 
 The template parameter files refer to these names, so if you change them, update the parameter files to match.
 
+## Cost Considerations
+
+### Azure firewall
+
+Azure native network security service, Azure Firewall is cost effective. Azure Firewall pricing includes a fixed hourly cost ($1.25/firewall/hour) and a variable per GB processed cost to support auto scaling. You can save up to 30 percent – 50 percent in comparison to an NVA deployment model.  For more informatotion see [Azure firewall vs NVA][Firewall-NVA]. Also it is a shared solution consumed by multiple workloads.
+
+### Azure Bastion
+
+Azure Bastion will cost the same as a basic, low-level VM that acting as a jump box.
+
+Consider moving from management jump boxes to Azure Bastion, native security service for RDP. Azure bastion is cost effective since you doon't have to pay for any storage costs as well as manage a separate server for each managed virtual network
+
+### Virtual network peering
+
+Virtual network peering Enables you to route traffic between virtual networks using private IP addresses. Ingress and egress traffic is charged at both ends of the peered networks. Keep in mind that different zones have different transfer rates:
+
+For instance, if data is being transferred from a VNET in zone 1 to a VNET in zone 2, customers will incur outbound data transfer rates for zone 1 and inbound data transfer rates for zone 2. See [Virtual network pricing][VNA-pricing] For more info.
+
+### AD Domain Services. 
+
+HAving Active Directory Domain services as a shared service consumed by multiple workloads is cost effective. See [AD DS pricing][ADDS-pricing] for pricing info.
+
+### Express route
+
+You can choose between two billing options Metered and Unlimited. 
+
+Metered plan: All inbound traffic is free, and all outbound traffic is charged. 
+
+Unlimited plan: All inbound and outbound data transfer is free of charge. Users are charged a single fixed monthly port fee (based on High Availability dual ports).
+
+Calculate you utilization so you can decide the billing plan, tipically if you axceed about 68% of utilization you should consider the unlimited plan.
+
+See [Azure Express Route Pricing][expressroute-pricing] For more info.
+
 ### Prerequisites
 
 [!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
@@ -157,6 +191,7 @@ Test-NetConnection 10.2.0.36 -CommonTCPPort RDP
 
 <!-- links -->
 
+[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/  
 [azure-cli-2]: /azure/install-azure-cli
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [guidance-hub-spoke]: ./hub-spoke.md
