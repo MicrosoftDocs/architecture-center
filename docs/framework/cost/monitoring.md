@@ -13,7 +13,7 @@ ms.custom:
 
 ## Perform cost reviews
 
-Effective ongoing cost management includes informed cost reviews with key stakeholders. Reviews should be scheduled on a regular cadence. You may also need to have reactive cost reviews, for example when a budget limit causes an alert.
+Cost monitoring is about establishing controls and business processes for reviewing your cloud spend to avoid any misuse and take advantage of new opportunities through flexibility provided by the cloud. Effective ongoing cost management includes informed cost reviews with key stakeholders. Reviews should be scheduled on a regular cadence. You may also need to have reactive cost reviews, for example when a budget limit causes an alert.
 
 ### Identify stakeholders
 
