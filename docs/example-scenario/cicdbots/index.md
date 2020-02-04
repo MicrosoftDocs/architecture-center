@@ -28,7 +28,7 @@ This document will show you how to:
 In this example, we will be creating a Build and Release pipeline to deploy our underlying bot infrastructure and release the bot logic. Assuming that we are developing the code locally, then the deployment flow would look similar to this:
 
 
-![Diagram showing the flow of deployment in our Pipeline](cicdbots/botvisio.jpg)
+![Diagram showing the flow of deployment in our Pipeline](images/botvisio.jpg)
 
 
 ## Initial Setup
