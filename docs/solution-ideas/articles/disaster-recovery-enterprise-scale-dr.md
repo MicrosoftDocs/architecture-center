@@ -405,11 +405,12 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network/): The virtual network is where the failover site will be created when a disaster occurs.
 
 ## Next Steps
-* [Configure Failover routing method](/api/Redirect/documentation/articles/traffic-manager-configure-failover-routing-method/)
-* [How does Azure Site Recovery work?](/api/Redirect/documentation/articles/site-recovery-components/)
-* [Introduction to Microsoft Azure Storage](/api/Redirect/documentation/articles/storage-introduction/)
-* [Integrating your on-premises identities with Azure Active Directory](/api/Redirect/documentation/articles/active-directory-aadconnect/)
-* [Create a VNet with a Site-to-Site connection using the Azure portal](/api/Redirect/documentation/articles/vpn-gateway-howto-site-to-site-resource-manager-portal/)
-* [Designing your network infrastructure for disaster recovery](/api/Redirect/documentation/articles/site-recovery-network-design/)
+
+* [Configure Failover routing method](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method)
+* [How does Azure Site Recovery work?](/azure/site-recovery/site-recovery-overview)
+* [Introduction to Microsoft Azure Storage](/azure/storage/common/storage-introduction)
+* [Integrating your on-premises identities with Azure Active Directory](/azure/active-directory/hybrid/whatis-azure-ad-connect)
+* [Create a VNet with a Site-to-Site connection using the Azure portal](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+* [Designing your network infrastructure for disaster recovery](https://gallery.technet.microsoft.com/Designing-Your-Network-a849fa98)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]
