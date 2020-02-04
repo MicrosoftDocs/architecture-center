@@ -105,19 +105,24 @@ Also consider what services are shared in the hub, to ensure the hub scales for 
 
 ### Azure firewall
 
-Azure native network security service, Azure Firewall is cost effective. Azure Firewall pricing includes a fixed hourly cost ($1.25/firewall/hour) and a variable per GB processed cost to support auto scaling. You can save up to 30 percent – 50 percent in comparison to an NVA deployment model.  For more informatotion see [Azure firewall vs NVA][Firewall-NVA]. Also it is a shared solution consumed by multiple workloads.
+Azure native network security service, Azure Firewall is cost effective, especially if it's used as a shared solution consumed by multiple workloads. Azure Firewall pricing includes a fixed hourly cost ($1.25/firewall/hour) and a variable per GB processed cost to support auto scaling. You can save up to 30 percent – 50 percent in comparison to an NVA deployment model.  For more information see [Azure firewall vs NVA][Firewall-NVA].
 
 ### Azure Bastion
 
-Azure Bastion will cost the same as a basic, low-level VM that acting as a jump box.
+Azure Bastion will cost the same as a basic, low-level VM that is acting as a jump box.
 
-Consider moving from management jump boxes to Azure Bastion, native security service for RDP. Azure bastion is cost effective since you doon't have to pay for any storage costs as well as manage a separate server for each managed virtual network
+Consider moving from management jump boxes to Azure Bastion, native security service for RDP. Azure bastion is cost effective since you don't have to pay for any storage costs as well as manage a separate server for each managed virtual network
 
 ### Virtual network peering
 
 Virtual network peering Enables you to route traffic between virtual networks using private IP addresses. Ingress and egress traffic is charged at both ends of the peered networks. Keep in mind that different zones have different transfer rates:
 
 For instance, if data is being transferred from a VNET in zone 1 to a VNET in zone 2, customers will incur outbound data transfer rates for zone 1 and inbound data transfer rates for zone 2. See [Virtual network pricing][VNA-pricing] For more info.
+
+
+Use the [Azure Pricing Calculator][Cost-Calculator] to get your estimates, that will help you get started.
+
+For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
 
 ## Deploy the solution
 
@@ -291,10 +296,12 @@ For a version of this architecture that deploys shared identity and security ser
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [azure-cli-2]: /azure/install-azure-cli
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances/
 [guidance-expressroute]: ./expressroute.md
 [guidance-vpn]: ./vpn.md

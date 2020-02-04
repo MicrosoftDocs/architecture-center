@@ -128,6 +128,11 @@ Calculate you utilization so you can decide the billing plan, tipically if you a
 
 See [Azure Express Route Pricing][expressroute-pricing] For more info.
 
+Use the [Azure Pricing Calculator][Cost-Calculator] to get your estimates, that will help you get started.
+
+For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
+
+
 ### Prerequisites
 
 [!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
@@ -191,12 +196,14 @@ Test-NetConnection 10.2.0.36 -CommonTCPPort RDP
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/  
 [azure-cli-2]: /azure/install-azure-cli
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [guidance-hub-spoke]: ./hub-spoke.md
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [guidance-expressroute]: ./expressroute.md
 [guidance-vpn]: ./vpn.md
 [linux-vm-ra]: ../virtual-machines-linux/index.md
