@@ -77,8 +77,6 @@ items:
       href: best-practices/deployment-stamp.md
     - name: Monitoring and diagnostics
       href: best-practices/monitoring.md
-    - name: Naming rules and restrictions for Azure resources
-      href: best-practices/resource-naming.md
     - name: Retry guidance for specific services
       href: best-practices/retry-service-specific.md
     - name: Transient fault handling
