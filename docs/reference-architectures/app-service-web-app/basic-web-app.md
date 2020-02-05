@@ -75,7 +75,7 @@ Use the [V12 version][sql-db-v12] of SQL Database. SQL Database supports Basic, 
 
 Provision the App Service plan and the SQL Database in the same region to minimize network latency. Generally, choose the region closest to your users.
 
-The resource group also has a region, which specifies where deployment metadata is stored. Put the resource group and its resources in the same region. This can improve availability during deployment. Choose your region wisely, Microsoft Azure region pricing varies and region selection can help you reduce cloud spending.
+The resource group also has a region, which specifies where deployment metadata is stored. Put the resource group and its resources in the same region. This can improve availability during deployment. Pricing for a resource can vary by region. Before choosing a region, consider the region pricing to keep your costs low.
 
 To help you get started, use the [pricing calculator][pricing] to estimate costs.
 
