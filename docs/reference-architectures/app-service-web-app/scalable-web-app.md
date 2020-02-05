@@ -173,7 +173,7 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [functions]: /azure/azure-functions/functions-overview
 [functions-consumption-plan]: /azure/azure-functions/functions-scale#consumption-plan
 [github]: https://github.com/mspnp/reference-architectures/tree/master/web-app
-[pricing]: https://azure.microsoft.com/pricing/calculator
+Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 [queue-storage]: /azure/storage/storage-dotnet-how-to-use-queues
 [queues-compared]: /azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted
 [sql-db]: /azure/sql-database/
