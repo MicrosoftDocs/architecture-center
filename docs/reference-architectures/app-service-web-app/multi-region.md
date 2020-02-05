@@ -98,7 +98,6 @@ You are billed a flat rate for the total amount of storage (GBs) consumed for da
 
 
 
-Consumed Storage: You are billed a flat rate for the total amount of storage (GBs) consumed for data and the indexes for a given hour.
 
 To help you get started, use the [pricing calculator][pricing] to estimate costs.
 
