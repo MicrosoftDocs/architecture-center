@@ -80,7 +80,7 @@ For Azure Storage, use [read-access geo-redundant storage][ra-grs] (RA-GRS). Wit
 
 For Queue storage, create a backup queue in the secondary region. During failover, the app can use the backup queue until the primary region becomes available again. That way, the application can still process new requests.
 
-## Cost considerations
+## Cost considerations - Front Door
 
 ### Azure Front Door
 
