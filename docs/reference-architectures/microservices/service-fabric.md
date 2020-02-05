@@ -397,6 +397,36 @@ Use Azure Monitor alerts to notify sysadmins when certain conditions occur in sp
 
 [Log search alert rules](/azure/azure-monitor/platform/alerts-unified-log) allow you to define and run a Kusto query against a Log Analytics workspace at regular intervals. An alert is created if the query result matches a certain condition.
 
+## Cost Considerations
+
+### Service Fabric Cluster
+
+Use the [Azure Cost Calculator][Cost-Calculator] to estimate you resources and cost. You are only charged for the compute instances, storage, networking resources, and IP addresses you choose when creating a Service Fabric cluster. There is no charge for the service offered by Service Fabric itself with this deployment option.
+
+### Api Management
+
+There are different pricing options including one for Consumption, which offers the Gateway component on a pay-per-use basis. See [Api Management pricing][Api-Management-pricing]
+
+### Azure DevOps Services
+
+Choose the plan that's right for you. For this reference architectures, you only need Azure Pipelines. Azure offers the Azure Pipeline individual Service, you have a free Microsoft-hosted job with 1,800 minutes per month for CI/CD and 1 self-hosted job with unlimited minutes per month, extra jobs are have charges. See [Azure DevOps Services Pricing][DevOps-pricing]
+
+### Azure monitor
+
+For Azure Monitor Log Analytics, you pay for data ingestion and data retention.
+
+### Azure KeyVault
+
+Azure Key Vault is offered in two service tiers: standard and premium. If you don't need HSM-protected keys you should go for Standard.
+
+### Virtual Machine Scale Sets
+
+Virtual Machine scale sets are available on all Linux VM sizes. You are only charged for the Azure VMs you deploy, as well as any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the Virtual Machine scale sets service itself.
+
+
+
+For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
+
 ## Deploy the solution
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][ri-deploy].
 
@@ -408,4 +438,8 @@ To deploy the reference implementation for this architecture, follow the steps i
 - [Using domain analysis to model microservices](../../microservices/model/domain-analysis.md)
 - [Designing a microservices architecture](../../microservices/design/index.md)
 
+
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[Api-Management-pricing]: https://azure.microsoft.com/pricing/details/api-management/
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [sfx]: /azure/service-fabric/service-fabric-visualizing-your-cluster

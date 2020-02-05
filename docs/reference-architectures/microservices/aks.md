@@ -259,10 +259,39 @@ To learn more about the challenges, see [CI/CD for microservices architectures](
 
 For specific recommendations and best practices, see [CI/CD for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.md).
 
+## Cost Considerations
+
+### AKS
+
+You only pay for the virtual machines instances, storage and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources please see the [Container Services calculator][aks-Calculator]
+
+### Azure Load balancer
+
+You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules don't count in the total number of rules and for the amount of data processed inbound and outbound independent of rules. There is no hourly charge for the Standard Load Balancer when no rules are configured.
+
+### Azure Application Gateway
+
+You are charged for the application gateways based on the amount of time that the gateway is provisioned and available, as well as the amount of data processed by the application gateways. See [App Gateway pricing][AppGatewayPricing] for more info.
+
+### Azure DevOps Services
+
+Choose the plan that's right for you. For this reference architectures, you only need Azure Pipelines. Azure offers the Azure Pipeline individual Service, you have a free Microsoft-hosted job with 1,800 minutes per month for CI/CD and 1 self-hosted job with unlimited minutes per month, extra jobs are have charges. See [Azure DevOps Services Pricing][DevOps-pricing]
+
+### Azure monitor
+
+For Azure Monitor Log Analytics, you pay for data ingestion and data retention.
+
+
+For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
+
 ## Deploy the solution
 
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][ri-deploy].
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[AppGatewayPricing]: https://azure.microsoft.com/pricing/details/application-gateway/
+[aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service
+[DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services/
 [ri]: https://github.com/mspnp/microservices-reference-implementation
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.md
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/aks-reference-architecture.vsdx
