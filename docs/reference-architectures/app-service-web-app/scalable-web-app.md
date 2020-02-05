@@ -94,7 +94,7 @@ For more information, see the cost section in [Azure Architecture Framework](/az
 Consider placing a function app into a dedicated App Service plan so that background tasks don't run on the same instances that handle HTTP requests. If background tasks run intermittently, consider using a [consumption plan](/azure/azure-functions/functions-scale#consumption-plan), which is billed based on the number of executions, rather than hourly.
 
 
-To help you get started, use the [pricing calculator][pricing] to estimate costs.
+Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
 
 ## Scalability considerations
@@ -151,7 +151,6 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 
 <!-- links -->
 
-[AAF-cost-data]: /azure/architecture/framework/cost/data-management
 [api-guidance]: ../../best-practices/api-design.md
 [app-service-security]: /azure/app-service-web/web-sites-security
 [app-service-web-app]: /azure/app-service-web/app-service-web-overview
@@ -173,7 +172,6 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [functions]: /azure/azure-functions/functions-overview
 [functions-consumption-plan]: /azure/azure-functions/functions-scale#consumption-plan
 [github]: https://github.com/mspnp/reference-architectures/tree/master/web-app
-Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 [queue-storage]: /azure/storage/storage-dotnet-how-to-use-queues
 [queues-compared]: /azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted
 [sql-db]: /azure/sql-database/
