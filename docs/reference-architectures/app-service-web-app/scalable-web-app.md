@@ -88,7 +88,7 @@ You can reduce load on servers that repeatedly serve the same content, smart use
 
 Stateless, autoscaling web applications have a dramatic cost-benefit. By using Azure Redis Cache, or even CosmosDB as a back-end session state sore
 
-For more guidance please refer to the data management for cost optimization section in [Azure Architecture Framework][AAF-cost-data]
+For more information, see the cost section in [Azure Architecture Framework](/azure/architecture/framework/cost/overview).
 
 
 Consider placing a function app into a dedicated App Service plan so that background tasks don't run on the same instances that handle HTTP requests. If background tasks run intermittently, consider using a [consumption plan](/azure/azure-functions/functions-scale#consumption-plan), which is billed based on the number of executions, rather than hourly.
