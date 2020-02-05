@@ -97,7 +97,6 @@ Azure Cosmos DB allocates the resources required to guarantee the RU/s that you 
 You are billed a flat rate for the total amount of storage (GBs) consumed for data and the indexes for a given hour.
 
 
-Provisioned Throughput: Provisioned throughput (also called reserved throughput) guarantees high performance at any scale. You specify the throughput (RU/s) that you need, and Azure Cosmos DB dedicates the resources required to guarantee the configured throughput. You are billed hourly for the maximum provisioned throughput for a given hour. Note that since the provisioned throughput model dedicates resources to your container or database, you will be charged for the provisioned throughput even if you don’t run any workloads.
 
 Consumed Storage: You are billed a flat rate for the total amount of storage (GBs) consumed for data and the indexes for a given hour.
 
