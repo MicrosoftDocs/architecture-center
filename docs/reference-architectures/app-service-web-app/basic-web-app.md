@@ -53,7 +53,11 @@ Your requirements might differ from the architecture described here. Use the rec
 
 ### App Service plan
 
-Free and Shared (preview) plans provide different options for testing within your budget. Basic, Standard and Premium plans are for production workloads and run on dedicated Virtual Machine instances. App Service plans are billed on a per second basis.
+Use **Free** and **Shared** (preview) tiers for testing purposes because the shared resources cannot scale out. The two tiers provide different options within your budget.  Run your production workload on **Basic**, **Standard**, and **Premium** tiers because the app runs on dedicated virtual machine instances and has the allocated resources can scale out . App Service plans are billed on a per second basis.
+
+For more information, see [How much does my App Service plan cost?
+](https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans#how-much-does-my-app-service-plan-cost)
+
 
 Use the Standard or Premium tiers, because they support scale-out, autoscale, and secure sockets layer (SSL). Each tier supports several *instance sizes* that differ by number of cores and memory. You can change the tier or instance size after you create a plan. For more information about App Service plans, see [App Service Pricing][app-service-plans-tiers].
 
