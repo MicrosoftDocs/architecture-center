@@ -83,7 +83,7 @@ For Queue storage, create a backup queue in the secondary region. During failove
 ## Cost considerations - Front Door
 
 
-Azure Front Door billing has three pricing tiers: outbound data transfers, inbound data transfers, and routing rules. For more info See [Azure Front Door Pricing][AFD-pricing]. The pricing chart does not include the cost of accessing data from the backend services and transferring to Front Door. Those costs are billed based on data transfer charges, described in [Bandwidth Pricing Details](https://azure.microsoft.com/en-us/pricing/details/bandwidth/)```
+Azure Front Door billing has three pricing tiers: outbound data transfers, inbound data transfers, and routing rules. For more info See [Azure Front Door Pricing][AFD-pricing]. The pricing chart does not include the cost of accessing data from the backend services and transferring to Front Door. Those costs are billed based on data transfer charges, described in [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/)```
 
 
 ## Cost considerations - Azure Cosmos DB
@@ -99,7 +99,7 @@ You are billed a flat rate for the total amount of storage (GBs) consumed for da
 
 
 
-Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
+Use the [pricing calculator][pricing-calculator] to estimate costs.
 
 For more information, see the cost section in [Azure Architecture Framework](/azure/architecture/framework/cost/overview)
 
@@ -140,12 +140,11 @@ If the primary database fails, perform a manual failover to the secondary databa
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
 [AFD-pricing]: https://azure.microsoft.com/pricing/details/frontdoor/
 [bandwidth-pricing]: https://azure.microsoft.com/pricing/details/bandwidth/
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
 [guidance-web-apps-scalability]: ./scalable-web-app.md
-[pricing]: https://azure.microsoft.com/pricing/calculator
+[pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [ra-grs]: /azure/storage/common/storage-designing-ha-apps-with-ragrs
 [regional-pairs]: /azure/best-practices-availability-paired-regions
 [resource groups]: /azure/azure-resource-manager/resource-group-overview#resource-groups

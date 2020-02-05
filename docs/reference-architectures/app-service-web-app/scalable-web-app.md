@@ -88,7 +88,7 @@ Use caching to reduce the load on servers that serves content that doesn't chang
 
 If your app has static content, use CDN to decrease the load on frontend servers. For data that doesn't change frequently, use Azure Cache for Redis. 
 
-Stateless apps that are configured for autoscaling are more cost effective that stateful apps. For an ASP.NET application, store your session state in-memory with Azure Cache for Redis. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-aspnet-session-state-provider). Another option is to use CosmosDB as a backend state store through a session state provider. See [Support Azure Cosmos DB and Azure Redis](https://github.com/Microsoft/service-fabric-services-and-actors-dotnet/issues/32). 
+Stateless apps that are configured for autoscaling are more cost effective that stateful apps. For an ASP.NET application, store your session state in-memory with Azure Cache for Redis. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-aspnet-session-state-provider). Another option is to use CosmosDB as a backend state store through a session state provider. See [Support Azure Cosmos DB and Azure Redis](https://github.com/Microsoft/service-fabric-services-and-actors-dotnet/issues/32). 
 
 For more information, see the cost section in [Azure Architecture Framework](/azure/architecture/framework/cost/overview).
 

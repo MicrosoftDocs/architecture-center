@@ -243,7 +243,6 @@ For more information, see [Deploy resources with Azure Resource Manager template
 <!-- links -->
 
 [aad-auth]: /azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication
-[AAF-cost]: /azure/architecture/framework/cost/overview
 [app-insights]: /azure/application-insights/app-insights-overview
 [app-insights-data-rate]: /azure/application-insights/app-insights-pricing
 [app-service]: /azure/app-service/
