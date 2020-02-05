@@ -87,7 +87,6 @@ See [Choose the right data store][datastore].
 You can reduce load on servers that repeatedly serve the same content, smart use of CDN and caching can dramatically decrease load on front-end servers that are continually rendering dynamic content which doesn't change frequently. Every render cycle of a page or payload consumes both compute and memory, and with CDN you trade this off for pre-canned storage and bandwidth costs, and the savings can be dramatic, especially for static content services (such as JavaScript Single-Page apps and media streaming content)
 
 Stateless, autoscaling web applications have a dramatic cost-benefit. By using Azure Redis Cache, or even CosmosDB as a back-end session state sore
-For example, many asp.net stateful web applications can be made stateless (and hence can be auto scaled for a dramatic cost-benefit) by using Azure Redis Cache, or CosmosDB as a back-end session state store via a Session State Provider.
 
 For more guidance please refer to the data management for cost optimization section in [Azure Architecture Framework][AAF-cost-data]
 
