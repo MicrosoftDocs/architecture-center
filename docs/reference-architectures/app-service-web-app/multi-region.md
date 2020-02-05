@@ -86,7 +86,7 @@ For Queue storage, create a backup queue in the secondary region. During failove
 Azure Front Door billing has three pricing tiers: outbound data transfers, inbound data transfers, and routing rules. For more info See [Azure Front Door Pricing][AFD-pricing]. The pricing chart does not include the cost of accessing data from the backend services and transferring to Front Door. Those costs are billed based on data transfer charges, described in [Bandwidth Pricing Details](https://azure.microsoft.com/en-us/pricing/details/bandwidth/)```
 
 
-### Azure Cosmos DB
+## Cost considerations - Azure Cosmos DB
 
 There are two factors that determine Azure Cosmos DB pricing:
 - The provisioned throughput or [Request Units per second (RU/s)](/azure/cosmos-db/request-units).
