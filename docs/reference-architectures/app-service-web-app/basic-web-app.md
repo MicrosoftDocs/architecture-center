@@ -68,7 +68,7 @@ You are charged for the instances in the App Service plan, even if the app is st
 Logical servers are logical grouping of multiple Azure SQL Databases under the same server, The server is virtual and there are not shared resources cross databases that are deployed under it.
 
 Since there is no computation allocated to the server, for each created database, the tier (size) should be specified. That is the cost driver in the end.
-
+A logical server groups databases making administrative tasks simple. Each database within the group is deployed with a specific  [service tier][sql-db-service-tiers]. Within each group, the databases cannot share resources. Even though the performance is better because of the dedicated resources, the cost can be higher. 
 Use the [V12 version][sql-db-v12] of SQL Database. SQL Database supports Basic, Standard, and Premium [service tiers][sql-db-service-tiers], with multiple performance levels within each tier measured in [Database Transaction Units (DTUs)][sql-dtu]. Perform capacity planning and choose a tier and performance level that meets your requirements.
 
 ### Region
