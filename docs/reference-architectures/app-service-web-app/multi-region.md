@@ -101,7 +101,7 @@ You are billed a flat rate for the total amount of storage (GBs) consumed for da
 
 Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
-For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
+For more information, see the cost section in [Azure Architecture Framework](/azure/architecture/framework/cost/overview)
 
 
 
