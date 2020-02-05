@@ -84,7 +84,9 @@ See [Choose the right data store][datastore].
 
 ## Cost considerations
 
-You can reduce load on servers that repeatedly serve the same content, smart use of CDN and caching can dramatically decrease load on front-end servers that are continually rendering dynamic content which doesn't change frequently. Every render cycle of a page or payload consumes both compute and memory, and with CDN you trade this off for pre-canned storage and bandwidth costs, and the savings can be dramatic, especially for static content services (such as JavaScript Single-Page apps and media streaming content)
+Use caching to reduce the load on servers that serves content that doesn't change frequently. Every render cycle of a page can impact cost because it consumes compute, memory, and bandwidth. Those costs can be reduced significantly by using caching, especially for static content services, such as JavaScript single-page apps and media streaming content.
+
+If your app has static content, use CDN to decrease the load on frontend servers. For data that doesn't change frequently, use Azure Cache for Redis. 
 
 Stateless, autoscaling web applications have a dramatic cost-benefit. By using Azure Redis Cache, or even CosmosDB as a back-end session state sore
 
