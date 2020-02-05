@@ -139,6 +139,31 @@ Though plain-text logging is lower impact on upfront development costs, it is mo
 
 ## Cost Considerations
 
+### IoT Hub
+
+Billing varies depending on the operation performed. Jobs operations (create, update, insert, delete), for example, are not charged. 
+Device-To-Cloud messages are charged this way:
+
+Successfully sent messages are charged in 4-KB chunks on ingress into IoT Hub. For example, a 6-KB message is charged 2 messages.
+
+See [IoT Hub Pricing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-pricing) for more detailed pricing information. 
+
+### Azure Stream Analytics
+
+Azure Stream Analytics is priced by the number of streaming units ($0.11/hour) required to process the data into the service. Azure Stream Analytics on IoT Edge is billed per job; billing starts when an ASA job is deployed to devices, no matter what the job status is (running/failed/stopped).
+
+### Azure Functions
+
+
+
+### Data Storage
+
+For cold path storage, Azure Blob Storage is the most cost effective option.
+
+For warm path storage, Cosmos DB is recommender. See [Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/) for more info.
+
+
+
 ## Next steps
 
 - For a more detailed discussion of the recommended architecture and implementation choices, see [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (PDF).
