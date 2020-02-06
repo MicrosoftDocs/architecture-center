@@ -144,9 +144,12 @@ For example, 1 RU/s is sufficient for processing one eventually consistent read 
 The price is based on what you reserve. So, what you reserve with Cosmos is the capacity expressed in RU/s. You pay for the RU as well as the space (GB) and you have to reserve a minimum of 400 RUs (a concurrent read of 1KB docuemnt consumes 1 RU), 
 so if your app does not need to be this intensive, you will end up probably paying for more than what you need with Cosmos, since 400 RU is the minimum that you can provision per container. Also keep in mind that the RU that you reserve is per container so, each container will cost about $25 with 1 GB storage, meaning that if you have 10 collections you are paying $250. Reusing collections is recommended for keeping cost down.
 
-The [Cosmos DB capacity calculator][Cosmos-Calculator] offers you a quick estimate of the workload cost. Also consider using the [Azure Pricing Calculator][Cost-Calculator] to get your estimates, that will help you get started.
+The [Cosmos DB capacity calculator][Cosmos-Calculator] offers you a quick estimate of the workload cost.
 
-For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
+
+Use the [Pricing calculator][Cost-Calculator] to estimate costs.
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
 ## Deploy the solution
 
