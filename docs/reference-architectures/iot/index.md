@@ -152,9 +152,13 @@ See [IoT Hub Pricing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-
 
 Azure Stream Analytics is priced by the number of streaming units ($0.11/hour) required to process the data into the service. Azure Stream Analytics on IoT Edge is billed per job; billing starts when an ASA job is deployed to devices, no matter what the job status is (running/failed/stopped).
 
-### Azure Functions
+### Azure functions
 
+Azure functions service is managed by the cloud provider, so the total cost of owning the service is minimal, you pay for consumption. Azure Functions consumption plan is billed based on per-second resource consumption and execution count. Number of executions count is simple: each function defines an event trigger which fires the execution. Batching is recommended for reducing cost, that means processing several events in a single execution.
 
+### Logic Apps
+
+Logig apps pricing works on the pay-as-you-go model. For instance, if you process 1000 service bus messages a day, with a workflow of five actions it would cost you less than 6 USD. Every time a Logic App definition is triggered, action and connector executions are metered. See [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/) for more info.
 
 ### Data Storage
 
@@ -162,6 +166,10 @@ For cold path storage, Azure Blob Storage is the most cost effective option.
 
 For warm path storage, Cosmos DB is recommender. See [Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/) for more info.
 
+
+Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
+
+For more information, see the cost section in [Azure Architecture Framework](/azure/architecture/framework/cost/overview).
 
 
 ## Next steps
