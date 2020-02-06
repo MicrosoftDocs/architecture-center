@@ -282,7 +282,9 @@ Choose the plan that's right for you. For this reference architectures, you only
 For Azure Monitor Log Analytics, you pay for data ingestion and data retention.
 
 
-For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
+Use the [Pricing calculator][Cost-Calculator] to estimate costs.
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
 ## Deploy the solution
 
@@ -291,6 +293,7 @@ To deploy the reference implementation for this architecture, follow the steps i
 [AAF-cost]: /azure/architecture/framework/cost/overview
 [AppGatewayPricing]: https://azure.microsoft.com/pricing/details/application-gateway/
 [aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services/
 [ri]: https://github.com/mspnp/microservices-reference-implementation
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.md
