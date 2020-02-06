@@ -225,9 +225,10 @@ Basic load balancing between virtual machines that reside in the same VNET is fr
 
 For more information See [Azure VM pricing][linux-vms-pricing]
 
-Use the [Azure Pricing Calculator][Cost-Calculator] to get your estimates, that will help you get started.
 
-For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
+Use the [Pricing calculator][Cost-Calculator] to estimate costs.
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
 ## Deploy the solution
 
