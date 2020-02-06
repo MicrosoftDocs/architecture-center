@@ -94,9 +94,9 @@ Large-scale stateless applications.
 For more information See [Azure Windows VM pricing][windows-vms-pricing]
 
 
-Use the [Azure Pricing Calculator][Cost-Calculator] to get your estimates, that will help you get started.
+Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs.
 
-For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost]
 
 
 ## Security considerations

@@ -204,9 +204,9 @@ If you consider Azure SQL DBaas, you won't need to configure an always on availa
 You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules don't count in the total number of rules and for the amount of data processed inbound and outbound independent of rules. There is no hourly charge for the Standard Load Balancer when no rules are configured.
 
 
-Use the [Azure Pricing Calculator][Cost-Calculator] to get your estimates, that will help you get started.
+Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs.
 
-For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost]
 
 
 ## Security considerations
