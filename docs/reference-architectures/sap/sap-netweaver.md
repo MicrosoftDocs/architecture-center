@@ -90,7 +90,7 @@ cluster software.
 To lower infrastructure costs, Microsoft supports multiple ASCSs with different [system IDs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-multi-sid) (SID) deployed on one Windows cluster over multiple file shares served up by the same [SOFS cluster](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/File-Server-with-SOFS-and-S2D-as-an-Alternative-to-Cluster/ba-p/368111).
 
 In the case of cluster network partitioning, the cluster software uses votes to decide which segment of the network and its associated services will serve as brain of the now fragmented cluster. Windows offers a number of quorum models.
-This solution uses Azure [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) for its simplicity and availability, which is better than a compute node witness. The [Azure file share witness](/windows-server/failover-clustering/file-share-witness) is another alternative to provide a cluster quorum vote.
+This solution uses Azure [Cloud Witness](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) for its simplicity and availability, which is better than a compute node witness. The [Azure file share witness](https://docs.microsoft.com//windows-server/failover-clustering/file-share-witness) is another alternative to provide a cluster quorum vote.
 
 On an Azure deployment, the application servers connect to the highly available Central Services through the virtual hostnames of the ASCS or ERS services. These hostnames are assigned to the cluster frontend IP configuration of the load balancer. Azure Load Balancer supports multiple frontend IPs, so both the ASCS and ERS virtual IPs (VIPs) can be bounded to one load balancer.
 
@@ -100,13 +100,13 @@ Availability sets distribute servers to different physical infrastructures and u
 
 All virtual machines in a set must perform the same role. Do not mix servers of different roles in the same availability set. For example, don't place an ASCS node in the same availability set with the application servers.
 
-You can deploy Azure availability sets within [Azure Availability Zones] (https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) when you use a [proximity placement group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
+You can deploy Azure availability sets within [Azure Availability Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) when you use a [proximity placement group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
 
 ### Networking
 
 This architecture uses a hub-spoke topology, where the hub VNet acts as a central point of connectivity to an on-premises network. The spokes are VNets hat peer with the hub and isolate the SAP workloads. Traffic flows between the on-premises datacenter and the hub through a gateway connection.
 
-#### [Network interface cards](https://github.com/mspnp/architecture-center/blob/sap-landing-page/azure/virtual-network/virtual-network-network-interface) (NICs) 
+#### [Network interface cards (NICs)](https://github.com/mspnp/architecture-center/blob/sap-landing-page/azure/virtual-network/virtual-network-network-interface)  
 
 Enable all communication of virtual machines on a virtual network. Traditional on-premises SAP deployments implement multiple NICs per machine to segregate administrative traffic from business traffic. On Azure, the virtual network is a software-defined network that sends all traffic through the same network fabric. Therefore, the use of multiple NICs is unnecessary for performance considerations. However, if your organization needs to segregate traffic, you can deploy multiple NICs per VM, connect each NIC to a different subnet, and then use network security groups to enforce different access control policies.
 
@@ -155,7 +155,7 @@ Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview) 
 Because application servers do not host any business data, you can also use the smaller P4 and P6 Premium disks to help minimize cost and benefit from the [single instance VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/)
 in case of a central SAP stack installation.
 
-Azure Storage is also used by [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) to maintain quorum with a device in a remote Azure region, away from the primary region where the cluster resides.
+Azure Storage is also used by [Cloud Witness](https://docs.microsoft.com//windows-server/failover-clustering/deploy-cloud-witness) to maintain quorum with a device in a remote Azure region, away from the primary region where the cluster resides.
 
 For the backup data store, we recommend using Azure [cool and archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). These storage tiers are cost-effective ways to store long-lived data that is
 infrequently accessed.
@@ -182,7 +182,7 @@ Some SAP applications require frequent communication with the database. The phys
 
 #### Availability Zones
 
-[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview) give you the option to deploy virtual machines across zones—that is, physically separated locations within a specific Azure region. Their purpose is to enhance service availability, but consider performance when deploying resources with zones. Administrators need a clear network latency profile between all zones of a target region before they can decide on the resource placement with minimum inter-zone latency. To create this profile, deploy small virtual machines in each zone for testing. Recommended tools for the test include [PsPing](/sysinternals/downloads/psping) and [Iperf](https://sourceforge.net/projects/iperf/). Afterwards, remove the virtual machines used for testing.
+[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview) give you the option to deploy virtual machines across zones—that is, physically separated locations within a specific Azure region. Their purpose is to enhance service availability, but consider performance when deploying resources with zones. Administrators need a clear network latency profile between all zones of a target region before they can decide on the resource placement with minimum inter-zone latency. To create this profile, deploy small virtual machines in each zone for testing. Recommended tools for the test include [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) and [Iperf](https://sourceforge.net/projects/iperf/). Afterwards, remove the virtual machines used for testing.
 
 ### Scalability considerations
 
