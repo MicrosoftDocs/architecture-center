@@ -120,9 +120,9 @@ Virtual network peering Enables you to route traffic between virtual networks us
 For instance, if data is being transferred from a VNET in zone 1 to a VNET in zone 2, customers will incur outbound data transfer rates for zone 1 and inbound data transfer rates for zone 2. See [Virtual network pricing][VNA-pricing] For more info.
 
 
-Use the [Azure Pricing Calculator][Cost-Calculator] to get your estimates, that will help you get started.
+Use the [Pricing calculator][Cost-Calculator] to estimate costs.
 
-For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
 ## Deploy the solution
 
