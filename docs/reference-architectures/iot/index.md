@@ -167,9 +167,9 @@ For cold path storage, Azure Blob Storage is the most cost effective option.
 For warm path storage, Cosmos DB is recommender. See [Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/) for more info.
 
 
-Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
+Use the [pricing calculator][cost-calculator] to estimate costs.
 
-For more information, see the cost section in [Azure Architecture Framework](/azure/architecture/framework/cost/overview).
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
 
 ## Next steps
@@ -179,3 +179,7 @@ For more information, see the cost section in [Azure Architecture Framework](/az
 - For detailed documentation of the various Azure IoT services, see [Azure IoT Fundamentals](/azure/iot-fundamentals/).
 
 - A sample IoT implementation is available on [GitHub](https://github.com/mspnp/iot-guidance).
+
+
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[cost-calculator]: https://azure.microsoft.com/pricing/calculator
