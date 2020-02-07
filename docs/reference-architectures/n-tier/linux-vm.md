@@ -106,7 +106,7 @@ Consider using [Azure Reserverations](/azure/cost-management-billing/reservation
 
 Use [Azure Spot VMs](/azure/virtual-machines/windows/spot-vms) to run workloads the can be interrupted and do not require completion within a predetermined timeframe or an SLA. Azure deploys Spot VMs if there is available capacity and evicts when it needs the capacity back. Costs associated with Spot virtual machines are significantly lower.  
 
-Consider Spot VMs for the following types of workloads:
+Consider Spot VMs for these workloads:
 
 High-performance computing scenarios, batch processing jobs, or visual rendering applications.
 Test environments, including continuous integration and continuous delivery workloads.
