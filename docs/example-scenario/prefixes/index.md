@@ -25,9 +25,8 @@ The following use cases have been tested with these scripts:
 
 * Single Subscription
 
-<insert PNG file>
+![Single Sub.png](Single Sub.png)
 
 * Multiple Subscriptions
 
-<insert PNG file>
-
+![Multi Sub.png](Multi Sub.png)
