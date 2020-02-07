@@ -76,7 +76,7 @@ All NSGs contain a set of [default rules][nsg-default-rules], including a rule t
 
 ## Cost considerations
 
-There are different budget options depending on the usage and workload. Starting from economical Bs-series to the newest GPU VMs optimized for machine learning. 
+There are various options for VM sizes depending on the usage and workload. The range includes most economical option of the Bs-series to the newest GPU VMs optimized for machine learning. 
 
 For unpredictable workloads that cannot be interrupted, consider the "Pay as you go" payment option. you can Increase or decrease compute capacity on demand. Start or stop at any time and only pay for what you use.
 
