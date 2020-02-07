@@ -114,7 +114,7 @@ For instance, if data is being transferred from a VNET in zone 1 to a VNET in zo
 
 ### AD Domain Services. 
 
-HAving Active Directory Domain services as a shared service consumed by multiple workloads is cost effective. See [AD DS pricing][ADDS-pricing] for pricing info.
+Having Active Directory Domain services as a shared service consumed by multiple workloads is cost effective. See [AD DS pricing][ADDS-pricing] for pricing info.
 
 ### Express route
 
