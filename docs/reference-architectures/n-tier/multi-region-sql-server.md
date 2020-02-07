@@ -162,7 +162,7 @@ Measure the recovery times and verify they meet your business requirements. Test
 
 ### Virtual Machine Scale Sets
 
-Virtual Machine scale sets are available on all Windows VM sizes. You are only charged for the Azure VMs you deploy, as well as any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the Virtual Machine scale sets service itself.
+Virtual Machine scale sets are available on all Windows VM sizes. You are only charged for the Azure VMs you deploy and any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the Virtual Machine scale sets service.
 
 For single VMs pricing options See [Windows VMs pricing][Windows-vm-pricing]
 
@@ -170,7 +170,7 @@ For single VMs pricing options See [Windows VMs pricing][Windows-vm-pricing]
 
 For SQL server VMs pricing options see [SQL VMs pricing][Sql-vm-pricing]
 
-If you consider Azure SQL DBaas, you won't need to configure an always on availability group and you won't spend on domain controller machines. In that case there are different deployment options starting from single database up to managed instance, or elastic pools. For more information see [Azure SQL pricing][Azure-SQl-Pricing]
+If you choose Azure SQL DBaas, you can save on cost because don't need to configure an Always On Availability Group and domain controller machines. There are several deployment options starting from single database up to managed instance, or elastic pools. For more information see [Azure SQL pricing](https://azure.microsoft.com/en-us/pricing/details/sql-database/managed/).
 
 ### Load balancers
 
@@ -178,7 +178,7 @@ You are charged only for the number of configured load-balancing and outbound ru
 
 ### Traffic Manager pricing
 
-Traffic Manager billing is based on the number of DNS queries received, with a discount for services receiving more than 1 billion monthly queries. You will also be charged for each monitored endpoint.
+Traffic Manager billing is based on the number of DNS queries received, with a discount for services receiving more than 1 billion monthly queries. You are also charged for each monitored endpoint.
 
 
 Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs
