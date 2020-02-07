@@ -201,9 +201,9 @@ Set-AzVirtualNetworkPeering -VirtualNetworkPeering $spoke1peering
 #$spoke3peering = Get-AzVirtualNetworkPeering -ResourceGroupName "Spoke3RG" -VirtualNetworkName "Spoke3VNet" -Name "SpokeVNet3PeeringName"
 #Set-AzVirtualNetworkPeering -VirtualNetworkPeering $spoke3peering
 
-#endregion
+# REPEAT STARTING AT LINE THAT SAYS "COPY AND PASTE THE SUBSCRIPTION ID FOR THE SPOKE SUBSCRIPTION" FOR ANY ADDITIONAL SUBSCRIPTIONS YOU MAY HAVE
 
-# REPEAT STARTING AT LINE 49 FOR ANY ADDITIONAL SPOKE SUBSCRIPTIONS YOU MAY HAVE
+#endregion
 
 #region Set context back to Hub VNet Subscription
 Set-AzContext -Subscription $HubVNetSubsID
