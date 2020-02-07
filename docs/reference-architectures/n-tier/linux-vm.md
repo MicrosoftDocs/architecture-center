@@ -97,16 +97,16 @@ All NSGs contain a set of [default rules][nsg-default-rules], including a rule t
 
 ## Cost considerations
 
-There are different budget options depending on the usage and workload. Starting from economical Bs-series to the newest GPU VMs optimized for machine learning. 
+There are various options for VM sizes depending on the usage and workload. The range includes most economical option of the Bs-series to the newest GPU VMs optimized for machine learning. 
 
 For unpredictable workloads that cannot be interrupted, consider the "Pay as you go" payment option. you can Increase or decrease compute capacity on demand. Start or stop at any time and only pay for what you use.
 
-Consider Reserved Virtual Machine Instances if you want budget predicatbility. A reserved VM instance is an advanced purchase of a Virtual Machine for one or three years in a specified region, so if you can commit to using a virtual machine over a one-year or three-year term to reduce computing costs, this is the best option, it can significantly reduce costs—up to 72 percent compared to pay-as-you-go prices.
+Consider using [Azure Reserverations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) if you can commit to using a virtual machine over a one-year or three-year term. VM reservations can reduce costs up to 72 % compared to pay-as-you-go prices.
 
 
-For workloads the can be iterrupted and do not require completion within a predetermined timeframe or an SLA, Spot VMs can be a good option for reduced costs.
+Use [Azure Spot VMs](/azure/virtual-machines/windows/spot-vms) to run workloads the can be interrupted and do not require completion within a predetermined timeframe or an SLA. Azure deploys Spot VMs if there is available capacity and evicts when it needs the capacity back. Costs associated with Spot virtual machines are significantly lower.  
 
-Consider Spot VMs for the following types of workloads:
+Consider Spot VMs for these workloads:
 
 High-performance computing scenarios, batch processing jobs, or visual rendering applications.
 Test environments, including continuous integration and continuous delivery workloads.
