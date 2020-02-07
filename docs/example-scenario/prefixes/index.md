@@ -29,4 +29,19 @@ The following use cases have been tested with these scripts:
 
 * Multiple Subscriptions
 
-![Multi Sub.png](Multi Sub.png)
+## Components
+ * Virtual Networks
+ * Virtual NEtwork Peerings
+
+## Alternatives
+
+Use one or a combination of the existing methods for removing Virtual Network peerings manually ([Azure Portal](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#delete-a-peering), [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.network/remove-azvirtualnetworkpeering), or [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/network/vnet/peering)) before adding any new IP Address spaces.
+
+## Considerations
+
+* These scrips require the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps). You need to run `Connect-AzAccount` to create a connection with Azure.
+* Performing this exercise will result in outage or disconnections between the Hub and Spoke virtual networks.  Perform this during an approved maintenance window.
+* The accounts you use to work with virtual network peering must be assigned to the [Network Contributor](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [Custom Role](https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles) containing the necessary actions found at https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#permissions.
+* The accounts you use to add IP Address spaces must be assigned to the [Network Contributor](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [Custom Role](https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles) containing the necessary actions found at https://docs.microsoft.com/en-us/azure/virtual-network/manage-virtual-network#permissions. 
+* The IP address space you wish to add to the Hub virtual network must not overlap with any of the IP address spaces of the Spoke virtual networks that you intend to peer with the Hub virtual network. 
+
