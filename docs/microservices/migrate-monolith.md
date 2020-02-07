@@ -102,7 +102,7 @@ The presentation tier can be developed in any language or framework that the tea
 
 ## Start to retire the monolith
 
-At this stage, the team can begin peeling away the monolithic application and slowly extract the services that have been established by their bounded contexts into their own set of microservices. The microservices can expose a RESTful interface for the application layer to interact with, through the API gateway, with glue code in place to communicate with the monolith in specific circumstances.
+At this stage, the team can begin peering away the monolithic application and slowly extract the services that have been established by their bounded contexts into their own set of microservices. The microservices can expose a RESTful interface for the application layer to interact with, through the API gateway, with glue code in place to communicate with the monolith in specific circumstances.
 
 ![Use API layer](./images/monolith/figure6.png)
 
