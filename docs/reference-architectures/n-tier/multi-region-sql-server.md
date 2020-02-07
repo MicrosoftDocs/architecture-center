@@ -178,7 +178,7 @@ You are charged only for the number of configured load-balancing and outbound ru
 
 ### Traffic Manager pricing
 
-Traffic Manager billing is based on the number of DNS queries received, with a discount for services receiving more than 1 billion monthly queries. You will also be charged for each monitored endpoint.
+Traffic Manager billing is based on the number of DNS queries received, with a discount for services receiving more than 1 billion monthly queries. You are also charged for each monitored endpoint.
 
 
 Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs
