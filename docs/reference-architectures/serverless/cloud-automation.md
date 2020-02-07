@@ -4,7 +4,7 @@ titleSuffix: Azure Reference Architectures
 description: Recommended architecture for implementing cloud automation using serverless technologies.
 author: dsk-2015
 ms.author: dkshir
-ms.date: 10/30/2019
+ms.date: 1/14/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -28,48 +28,51 @@ The functions in these implementations are written in PowerShell and Python, two
 
 Event-based automation scenarios are best implemented using Azure Functions. They follow these common patterns:
 
-1. **Respond to events on resources**. These are responses to events such as an Azure resource or resource group getting created, deleted, changed, and so on. This pattern uses [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) to trigger the function for such events. The cost center tagging implementation is an example of this pattern. Other common scenarios include:
+- **Respond to events on resources**. These are responses to events such as an Azure resource or resource group getting created, deleted, changed, and so on. This pattern uses [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) to trigger the function for such events. The cost center tagging implementation is an example of this pattern. Other common scenarios include:
 
-    1. granting the DevOps teams access to newly created resource groups,
-    1. sending notification to the DevOps when a resource is deleted, and
-    1. responding to maintenance events for resources such as Azure Virtual Machines (VMs).
+  - granting the DevOps teams access to newly created resource groups,
+  - sending notification to the DevOps when a resource is deleted, and
+  - responding to maintenance events for resources such as Azure Virtual Machines (VMs).
 
-1. **Scheduled tasks**. These are typically maintenance tasks executed using [timer-triggered functions](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function). Examples of this pattern are:
+- **Scheduled tasks**. These are typically maintenance tasks executed using [timer-triggered functions](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function). Examples of this pattern are:
 
-    1. stopping a VM at night, and starting in the morning,
-    1. reading Blob Storage content at regular intervals, and converting to a CosmosDB document, and
-    1. periodically scanning for resources no longer in use, and removing them.
+  - stopping a VM at night, and starting in the morning,
+  - reading Blob Storage content at regular intervals, and converting to a CosmosDB document,
+  - periodically scanning for resources no longer in use, and removing them, and
+  - automated backups.
 
-1. **Process Azure alerts**. This pattern leverages the ease of integrating Azure Monitor alerts and action groups with Azure Functions. The function typically takes remedial actions in response to metrics, log analytics, and alerts originating in the applications as well as the infrastructure. The throttling response implementation is an example of this pattern. Other common scenarios are:
+- **Process Azure alerts**. This pattern leverages the ease of integrating Azure Monitor alerts and action groups with Azure Functions. The function typically takes remedial actions in response to metrics, log analytics, and alerts originating in the applications as well as the infrastructure. The throttling response implementation is an example of this pattern. Other common scenarios are:
 
-    1. truncating the table when SQL Database reaches maximum size,
-    1. restarting a service in a VM when it is erroneously stopped, and
-    1. sending notifications if a function is failing.
+  - truncating the table when SQL Database reaches maximum size,
+  - restarting a service in a VM when it is erroneously stopped, and
+  - sending notifications if a function is failing.
 
-1. **Orchestrate with external systems**. This pattern enables integration with external systems, using [Logic Apps](https://docs.microsoft.com/azure/logic-apps/) to orchestrate the workflow. [Logic Apps connectors](https://docs.microsoft.com/azure/connectors/apis-list) can easily integrate with several third-party services as well as Microsoft services such as Office 365. Azure Functions can be used for the actual automation. The cost center tagging implementation demonstrates this pattern. Other common scenarios include:
+- **Orchestrate with external systems**. This pattern enables integration with external systems, using [Logic Apps](https://docs.microsoft.com/azure/logic-apps/) to orchestrate the workflow. [Logic Apps connectors](https://docs.microsoft.com/azure/connectors/apis-list) can easily integrate with several third-party services as well as Microsoft services such as Office 365. Azure Functions can be used for the actual automation. The cost center tagging implementation demonstrates this pattern. Other common scenarios include:
 
-    1. monitoring IT processes such as change requests or approvals, and
-    1. sending email notification when automation task is completed.
+  - monitoring IT processes such as change requests or approvals, and
+  - sending email notification when automation task is completed.
 
-1. **Expose as a *web hook* or API**. Automation tasks using Azure Functions can be integrated into third-party applications or even command-line tools, by exposing the function as a web hook/API using [an HTTP trigger](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function). Multiple authentication methods are available in both PowerShell and Python to secure external access to the function. The automation happens in response to the app-specific external events, for example, integration with power apps or GitHub. Common scenarios include:
+- **Expose as a *web hook* or API**. Automation tasks using Azure Functions can be integrated into third-party applications or even command-line tools, by exposing the function as a web hook/API using [an HTTP trigger](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function). Multiple authentication methods are available in both PowerShell and Python to secure external access to the function. The automation happens in response to the app-specific external events, for example, integration with power apps or GitHub. Common scenarios include:
 
-    1. triggering automation for a failing service, and
-    1. onboarding users to the organization's resources.
+  - triggering automation for a failing service, and
+  - onboarding users to the organization's resources.
+
+- **Create ChatOps interface**. This pattern enables customers to create a chat-based operational interface, and run development and operations functions and commands in-line with human collaboration. This can integrate with the Azure Bot Framework and use Microsoft Teams or Slack commands for deployment, monitoring, common questions, and so on. A ChatOps interface creates a real-time system for managing production incidents, with each step documented automatically on the chat. Read [How ChatOps can help you DevOps better](https://chatbotsmagazine.com/how-chatops-can-help-you-devops-better-5-minutes-read-507438c156bf) for more information.
+
+- **Hybrid automation**. This pattern uses the [Azure App Service Hybrid Connections](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections) to install a software component on your local machine. This component allows secure access to resources on that machine. The ability to [manage hybrid environments](https://docs.microsoft.com/azure/azure-functions/functions-hybrid-powershell) is currently available on Windows-based systems using PowerShell functions. Common scenarios include:
+
+  - managing your on-premises machines, and
+  - managing other systems behind the firewall (for example, an on-premises SQL Server) through a [jump server](https://en.wikipedia.org/wiki/Jump_server).
 
 ## Architecture
 
 The architecture consists of the following blocks:
 
-**Azure Functions**. Azure Functions provide the event-driven, serverless compute capabilities in this architecture. A function performs automation tasks, when triggered by events or alerts. In the reference implementations, a function is invoked with an HTTP request. Code complexity should be minimized, by developing the function so that:
+**Azure Functions**. Azure Functions provide the event-driven, serverless compute capabilities in this architecture. A function performs automation tasks, when triggered by events or alerts. In the reference implementations, a function is invoked with an HTTP request. Code complexity should be minimized, by developing the function that is **stateless**, and **idempotent**.
 
-- it does exactly one thing (single responsibility principle),
-- it returns as soon as possible,
-- it is stateless, and
-- it is idempotent (that is, multiple executions do not create different results).
+Multiple executions of an idempotent function create the same results. To maintain idempotency, the function scaling in the throttling scenario is kept simplistic. In real world automation, make sure to scale up or down appropriately.
 
-To maintain idempotency, the function scaling in the throttling scenario is kept simplistic. In real world automation, make sure to scale up or down appropriately.
-
-Additionally, read the [Optimize the performance and reliability of Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-best-practices) for best practices when writing your functions.
+Read the [Optimize the performance and reliability of Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-best-practices) for best practices when writing your functions.
 
 **Logic Apps**. Logic Apps can be used to perform simpler tasks, easily implemented using [the built-in connectors](https://docs.microsoft.com/azure/connectors/apis-list). These tasks can range from email notifications, to integrating with external management applications. To learn how to use Logic Apps with third-party applications, read [basic enterprise integration in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration).
 
@@ -101,22 +104,7 @@ As a best practice, the function should log any failures in carrying out automat
 
 #### Concurrency
 
-Verify the concurrency requirement for your automation function. For example, the throttling automation workflow limits the maximum number of [concurrent HTTP calls](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp#hostjson-settings) to the function to one, to avoid side-effects of false alarms. The following [host.json](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/throttling-respond/host.json) file illustrates this:
-
-```JSON
-{
-  "version": "2.0",
-  "managedDependency": {
-    "enabled": true
-  },
-  "extensions": {
-    "http": {
-        "routePrefix": "api",
-        "maxConcurrentRequests": 1
-    }
-  }
-}
-```
+Verify the concurrency requirement for your automation function. Concurrency is limited by setting the variable `maxConcurrentRequests` in the file [host.json](https://docs.microsoft.com/azure/azure-functions/functions-host-json). This setting limits the number of concurrent function instances running in your function app. Since every instance consumes CPU and memory, this value needs to be adjusted for CPU-intensive operations. Lower the `maxConcurrentRequests` if your function calls appear to be too slow or aren't able to complete. See the section [Configure host behaviors to better handle concurrency](https://docs.microsoft.com/azure/azure-functions/functions-best-practices#configure-host-behaviors-to-better-handle-concurrency) for more details.
 
 #### Idempotency
 
@@ -191,6 +179,20 @@ There are two types of managed identities:
     - where resources are recycled frequently, while permissions need to be consistent.
 
 Once the identity is assigned to the Azure function, assign it a role using [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) to access the resources. For example, to update a resource, the *Contributor* role will need to be assigned to the function identity.
+
+## Cost considerations
+
+### Azure Functions
+
+Azure Functions are available with [the following three pricing plans](https://docs.microsoft.com/azure/azure-functions/functions-scale). Choose the plan depending on your automation scenario.
+
+- **Consumption plan**. This is the most cost-effective, serverless plan available, where you only pay for the time your function runs. Under this plan, functions can run for up to 10 minutes at a time. Start with this plan for the most basic scenarios.
+
+- **Premium plan**. Consider using [Azure Functions Premium plan](https://docs.microsoft.com/azure/azure-functions/functions-premium-plan) for automation scenarios with additional requirements, such as a dedicated virtual network, a longer execution duration, and so on. These functions can run for up to an hour, and should be chosen for longer automation tasks such as running backups, database indexing, or generating reports.
+
+- **App Service plan**. Hybrid automation scenarios that use the [Azure App Service Hybrid Connections](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections), will need to use the App Service plan. The functions created under this plan can run for unlimited duration, similar to a web app.
+
+Both the Consumption and Premium plans are execution-based models. See the [Azure Function pricing](https://azure.microsoft.com/pricing/details/functions/) when considering these plans. The App Service plan is a dedicated, *always on* model. Refer to the [App Service pricing model](https://azure.microsoft.com/pricing/details/app-service/windows/) when considering this plan.
 
 ## Deployment considerations
 
