@@ -101,7 +101,7 @@ There are various options for VM sizes depending on the usage and workload. The 
 
 For unpredictable workloads that cannot be interrupted, consider the "Pay as you go" payment option. you can Increase or decrease compute capacity on demand. Start or stop at any time and only pay for what you use.
 
-Consider Reserved Virtual Machine Instances if you want budget predicatbility. A reserved VM instance is an advanced purchase of a Virtual Machine for one or three years in a specified region, so if you can commit to using a virtual machine over a one-year or three-year term to reduce computing costs, this is the best option, it can significantly reduce costs—up to 72 percent compared to pay-as-you-go prices.
+Consider using [Azure Reserverations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) if you can commit to using a virtual machine over a one-year or three-year term. VM reservations can reduce costs up to 72 % compared to pay-as-you-go prices.
 
 
 For workloads the can be iterrupted and do not require completion within a predetermined timeframe or an SLA, Spot VMs can be a good option for reduced costs.
