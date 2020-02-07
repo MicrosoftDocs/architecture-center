@@ -191,7 +191,7 @@ For single VMs pricing options See [Linux VMs pricing][Linux-vm-pricing]
 
 ### Load balancers
 
-You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules don't count in the total number of rules and for the amount of data processed inbound and outbound independent of rules. There is no hourly charge for the Standard Load Balancer when no rules are configured.
+Virtual Machine scale sets are available on all Windows VM sizes. You are only charged for the Azure VMs you deploy and any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the Virtual Machine scale sets service.
 
 
 Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs
