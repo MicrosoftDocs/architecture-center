@@ -25,11 +25,11 @@ The following use cases have been tested with these scripts:
 
 ## Architecture
 
-* Single Subscription
+* **Single Subscription**
 
 ![Single Sub.png](Single-Sub.png)
 
-* Multiple Subscriptions
+* **Multiple Subscriptions**
 
 ![Multi Sub.png](Multi-Sub.png)
 
