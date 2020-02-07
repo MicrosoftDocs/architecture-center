@@ -207,6 +207,16 @@ Use conditional access control to deny authentication requests from unexpected s
 
 For more information, see [Azure Active Directory conditional access][aad-conditional-access].
 
+## Cost considerations
+
+### Azure AD Connect
+
+Azure Active Directory comes in four editions—Free, Office 365 apps, Premium P1, and Premium P2. Azure AD Connect sync service is available in all of them. See [Azure AD pricing][Azure-AD-pricing] for more info. 
+
+### VMs for N-Tier application 
+
+The deployment includes infrastructure for an N-tier application. For cost information about these resources see cost considerations section in the reference architecture: [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
+
 ## Deploy the solution
 
 A deployment for a reference architecture that implements these recommendations and considerations is available on GitHub. This reference architecture deploys a simulated on-premises network in Azure that you can use to test and experiment. To deploy the solution, see the [readme](https://github.com/mspnp/identity-reference-architectures/tree/master/azure-ad) on GitHub.
@@ -238,6 +248,7 @@ A deployment for a reference architecture that implements these recommendations 
 [aad-user-sign-in]: /azure/active-directory/hybrid/plan-connect-user-signin
 [azure-active-directory]: /azure/active-directory-domain-services/active-directory-ds-overview
 [azure-ad-connect]: /azure/active-directory/hybrid/whatis-hybrid-identity
+[Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory/
 [azure-multifactor-authentication]: /azure/multi-factor-authentication/multi-factor-authentication
 [considerations]: ./considerations.md
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory
