@@ -165,7 +165,6 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 [nsg-default-rules]: /azure/virtual-network/security-overview#default-security-rules
 [planned-maintenance]: /azure/virtual-machines/virtual-machines-linux-planned-maintenance
 [premium-storage]: /azure/virtual-machines/linux/premium-storage
-[pricing]: https://azure.microsoft.com/pricing/calculator
 [rbac]: /azure/active-directory/role-based-access-control-what-is
 [rbac-roles]: /azure/active-directory/role-based-access-built-in-roles
 [rbac-devtest]: /azure/active-directory/role-based-access-built-in-roles#devtest-labs-user
