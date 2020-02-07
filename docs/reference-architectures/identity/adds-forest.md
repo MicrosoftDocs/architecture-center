@@ -79,6 +79,12 @@ Forest level trusts are transitive. If you establish a forest level trust betwee
 
 For Active Directory-specific security considerations, see the security considerations section in [Extending Active Directory to Azure][adds-extend-domain].
 
+## Cost considerations
+
+### AD Domain Services. 
+
+Having Active Directory Domain services as a shared service consumed by multiple workloads is cost effective. See [AD DS pricing][ADDS-pricing] for pricing info.
+
 ## Deploy the solution
 
 A deployment for this architecture is available on [GitHub][github]. Note that the entire deployment can take up to two hours, which includes creating the VPN gateway and running the scripts that configure AD DS.

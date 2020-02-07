@@ -91,6 +91,12 @@ AD DS servers provide authentication services and are an attractive target for a
 
 Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD DS database.
 
+## Cost considerations
+
+### AD Domain Services. 
+
+Having Active Directory Domain services as a shared service consumed by multiple workloads is cost effective. See [AD DS pricing][ADDS-pricing] for pricing info.
+
 ## Deploy the solution
 
 A deployment for this architecture is available on [GitHub][github]. The entire deployment can take up to two hours, which includes creating the VPN gateway and running the scripts that configure AD DS.
@@ -177,6 +183,7 @@ After deployment completes, you can test connectivity from the simulated on-prem
 [adds-data-disks]: https://msdn.microsoft.com/library/mt674703.aspx
 [ad-ds-operations-masters]: https://technet.microsoft.com/library/cc779716(v=ws.10).aspx
 [ad-ds-ports]: https://technet.microsoft.com/library/dd772723(v=ws.11).aspx
+[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/  
 [availability-set]: /azure/virtual-machines/virtual-machines-windows-create-availability-set
 [azure-expressroute]: /azure/expressroute/expressroute-introduction
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways

@@ -186,6 +186,17 @@ Restrict direct sign in access to the AD FS and WAP servers. Only DevOps staff s
 
 Consider using a set of network virtual appliances that logs detailed information on traffic traversing the edge of your virtual network for auditing purposes.
 
+## Cost considerations
+
+### AD Domain Services
+
+Having Active Directory Domain services as a shared service consumed by multiple workloads is cost effective. See [AD DS pricing][ADDS-pricing] for pricing info.
+
+### Azure AD Federation Services
+
+Azure Active Directory comes in four editions—Free, Office 365 apps, Premium P1, and Premium P2. Azure AD Federation Service is available in all of them. See [Azure AD pricing][Azure-AD-pricing] for more info. 
+
+
 ## Deploy the solution
 
 A deployment for this architecture is available on [GitHub][github]. Note that the entire deployment can take up to two hours, which includes creating the VPN gateway and running the scripts that configure Active Directory and AD FS.
@@ -366,9 +377,11 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [vm-recommendations]: ../virtual-machines-windows/single-vm.md
 [hybrid-azure-on-prem-vpn]: ../hybrid-networking/vpn.md
 
+[Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory/
 [azure-cli]: /azure/azure-resource-manager/xplat-cli-azure-resource-manager
 [DRS]: https://technet.microsoft.com/library/dn280945.aspx
 [where-to-place-an-fs-proxy]: https://technet.microsoft.com/library/dd807048.aspx
+[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/  
 [ADDRS]: https://technet.microsoft.com/library/dn486831.aspx
 [plan-your-adfs-deployment]: https://msdn.microsoft.com/library/azure/dn151324.aspx
 [ad_network_recommendations]: #network_configuration_recommendations_for_AD_DS_VMs
