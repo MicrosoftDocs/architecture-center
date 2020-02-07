@@ -129,7 +129,7 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 [blob-storage]: /azure/storage/storage-introduction
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[Pricing calculator](https://azure.microsoft.com/pricing/calculator)
 [data-disk]: /azure/virtual-machines/virtual-machines-windows-about-disks-vhds
 [disk-encryption]: /azure/security/fundamentals/azure-disk-encryption-vms-vmss
 [enable-monitoring]: /azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
