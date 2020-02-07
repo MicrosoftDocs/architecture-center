@@ -85,6 +85,17 @@ For Active Directory-specific security considerations, see the security consider
 
 Having Active Directory Domain services as a shared service consumed by multiple workloads is cost effective. See [AD DS pricing][ADDS-pricing] for pricing info.
 
+### VPN Gateway
+
+You are charged based on the amount of time that the gateway is provisioned and available. See [VPN Gateway Pricing][azure-gateway-charges].
+
+VPN Outboud traffic will be subjected to the internet bandwidth costs. The usual concept applies, all inbound traffic is free, all outbound traffic is billed.
+
+
+Use the [Pricing calculator][Cost-Calculator] to estimate costs.
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+
 ## Deploy the solution
 
 A deployment for this architecture is available on [GitHub][github]. Note that the entire deployment can take up to two hours, which includes creating the VPN gateway and running the scripts that configure AD DS.
@@ -161,6 +172,8 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 - Learn the best practices for [creating an AD FS infrastructure][adfs] in Azure.
 
 <!-- links -->
+
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [adds-extend-domain]: adds-extend-domain.md
 [adfs]: adfs.md
 [azure-cli-2]: /azure/install-azure-cli
@@ -172,6 +185,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [azure-expressroute]: /azure/expressroute/expressroute-introduction
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [considerations]: ./considerations.md
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [creating-external-trusts]: https://technet.microsoft.com/library/cc816837(v=ws.10).aspx
 [creating-forest-trusts]: https://technet.microsoft.com/library/cc816810(v=ws.10).aspx
 [github]: https://github.com/mspnp/identity-reference-architectures/tree/master/adds-forest

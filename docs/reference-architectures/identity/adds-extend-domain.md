@@ -97,6 +97,23 @@ Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD
 
 Having Active Directory Domain services as a shared service consumed by multiple workloads is cost effective. See [AD DS pricing][ADDS-pricing] for pricing info.
 
+### VPN Gateway
+
+You are charged based on the amount of time that the gateway is provisioned and available. See [VPN Gateway Pricing][azure-gateway-charges].
+
+VPN Outboud traffic will be subjected to the internet bandwidth costs. The usual concept applies, all inbound traffic is free, all outbound traffic is billed.
+
+
+### Virtual Network
+
+Azure Virtual Network is free of charge. Every subscription is allowed to create up to 50 Virtual Networks across all regions.
+All traffic that occurs within the boundaries of a Virtual Network is free of charge. So if two VMs that are in the same VNET are talking each other then no charges will occur.
+
+
+Use the [Pricing calculator][Cost-Calculator] to estimate costs.
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+
 ## Deploy the solution
 
 A deployment for this architecture is available on [GitHub][github]. The entire deployment can take up to two hours, which includes creating the VPN gateway and running the scripts that configure AD DS.
@@ -174,6 +191,7 @@ After deployment completes, you can test connectivity from the simulated on-prem
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [adds-resource-forest]: adds-forest.md
 [adfs]: adfs.md
 [azure-cli-2]: /azure/install-azure-cli
@@ -189,6 +207,7 @@ After deployment completes, you can test connectivity from the simulated on-prem
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [capacity-planning-for-adds]: https://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
 [considerations]: ./considerations.md
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [GitHub]: https://github.com/mspnp/identity-reference-architectures/tree/master/adds-extend-domain
 [microsoft_systems_center]: https://www.microsoft.com/download/details.aspx?id=50013
 [monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx
