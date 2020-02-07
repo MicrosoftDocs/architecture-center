@@ -162,7 +162,7 @@ Measure the recovery times and verify they meet your business requirements. Test
 
 ### Virtual Machine Scale Sets
 
-Virtual Machine scale sets are available on all Windows VM sizes. You are only charged for the Azure VMs you deploy, as well as any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the Virtual Machine scale sets service itself.
+Virtual Machine scale sets are available on all Windows VM sizes. You are only charged for the Azure VMs you deploy and any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the Virtual Machine scale sets service.
 
 For single VMs pricing options See [Windows VMs pricing][Windows-vm-pricing]
 
