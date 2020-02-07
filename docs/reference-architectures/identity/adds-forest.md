@@ -175,8 +175,10 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 [AAF-cost]: /azure/architecture/framework/cost/overview
 [adds-extend-domain]: adds-extend-domain.md
+[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
 [adfs]: adfs.md
 [azure-cli-2]: /azure/install-azure-cli
+[azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway/
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 
 [running-VMs-for-an-N-tier-architecture-on-Azure]: ../virtual-machines-windows/n-tier.md
