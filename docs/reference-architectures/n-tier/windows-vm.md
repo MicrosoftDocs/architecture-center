@@ -123,7 +123,7 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+ [Azure Architecture Framework](/azure/architecture/framework/cost/overview).
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-storage]: /azure/storage/storage-introduction
 [blob-storage]: /azure/storage/storage-introduction
