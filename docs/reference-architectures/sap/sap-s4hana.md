@@ -3,7 +3,7 @@ title: SAP S/4HANA for Linux virtual machines on Azure
 titleSuffix: Azure Reference Architectures
 description: Proven practices for running SAP S/4HANA in a Linux environment on Azure with high availability.
 author: lbrader
-ms.date: 12/19/2019
+ms.date: 12/20/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -87,13 +87,7 @@ the application tier and database tier, grouped as follows:
     protocol (RDP) or secure shell (SSH) services, try [Azure
     Baston](https://docs.microsoft.com/azure/bastion/bastion-overview).
 
-    **Load balancers.** To distribute traffic to virtual machines in the
-    application-tier subnet, [load
-    balancers](https://docs.microsoft.com/azure/load-balancer/) are used.
-    For high availability, use the built-in SAP Web Dispatcher, [Azure Load
-    Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview),
-    or other mechanisms, depending on the traffic type (such as HTTP or SAPGUI)
-    or the required network services (such as SSL termination).
+**Load balancers.** To distribute traffic to virtual machines in the application-tier subnet, [load balancers](https://docs.microsoft.com/azure/load-balancer/) are sed. For high availability, use the built-in SAP Web Dispatcher, [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview), or other mechanisms, depending on the traffic type (such as HTTP or SAPGUI) or the required network services (such as SSL termination).
 
 **Availability sets.** Virtual machines for all pools and clusters (Web
 Dispatcher, SAP application servers, Central Services, and HANA) are grouped
@@ -262,7 +256,7 @@ central point of connectivity to an on-premises network. The spokes are VNets
 that peer with the hub, and they can be used to isolate workloads. Traffic flows
 between the on-premises datacenter and the hub through a gateway connection.
 
-### [Network interface cards](https://github.com/mspnp/architecture-center/blob/sap-landing-page/azure/virtual-network/virtual-network-network-interface) (NICs) 
+### Network interface cards (NICs)
 
 Traditional on-premises SAP deployments implement multiple NICs per machine to
 segregate administrative traffic from business traffic. On Azure, the VNet is a
@@ -330,7 +324,7 @@ The workaround is to connect all the VNets to the ExpressRoute circuit directly.
 
 ### Load balancers
 
-SAP Web Dispatcher handles load balancing of HTTP(S) traffic to a pool of SAP
+[SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/8fe37933114e6fe10000000a421937/frameset.htm) handles load balancing of HTTP(S) traffic to a pool of SAP
 application servers. This software load balancer offers application layer
 services (referred to as layer 7 in the ISO networking model) capable of Secure
 Sockets Layer (SSL) termination and other offloading functions.

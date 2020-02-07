@@ -3,7 +3,7 @@ title: Deploy SAP NetWeaver (Windows) for AnyDB on Azure VMs
 titleSuffix: Azure Reference Architectures
 description: Proven practices for running SAP S/4HANA in a Linux environment on Azure with high availability.
 author: lbrader
-ms.date: 12/18/2019
+ms.date: 12/19/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -106,7 +106,7 @@ You can deploy Azure availability sets within [Azure Availability Zones](https:/
 
 This architecture uses a hub-spoke topology, where the hub VNet acts as a central point of connectivity to an on-premises network. The spokes are VNets hat peer with the hub and isolate the SAP workloads. Traffic flows between the on-premises datacenter and the hub through a gateway connection.
 
-#### [Network interface cards (NICs)](https://github.com/mspnp/architecture-center/blob/sap-landing-page/azure/virtual-network/virtual-network-network-interface)  
+#### Network interface cards (NICs)  
 
 Enable all communication of virtual machines on a virtual network. Traditional on-premises SAP deployments implement multiple NICs per machine to segregate administrative traffic from business traffic. On Azure, the virtual network is a software-defined network that sends all traffic through the same network fabric. Therefore, the use of multiple NICs is unnecessary for performance considerations. However, if your organization needs to segregate traffic, you can deploy multiple NICs per VM, connect each NIC to a different subnet, and then use network security groups to enforce different access control policies.
 
