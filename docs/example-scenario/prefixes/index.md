@@ -29,13 +29,16 @@ The following use cases have been tested with these scripts:
 
 * Multiple Subscriptions
 
+![Multi Sub.png](Multi Sub.png)
+
 ## Components
- * Virtual Networks
- * Virtual NEtwork Peerings
+
+* Virtual Networks
+* Virtual Network Peelings
 
 ## Alternatives
 
-Use one or a combination of the existing methods for removing Virtual Network peerings manually ([Azure Portal](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#delete-a-peering), [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.network/remove-azvirtualnetworkpeering), or [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/network/vnet/peering)) before adding any new IP Address spaces.
+Use one or a combination of the existing methods for removing Virtual Network peelings manually ([Azure Portal](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#delete-a-peering), [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.network/remove-azvirtualnetworkpeering), or [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/network/vnet/peering)) before adding any new IP Address spaces.
 
 ## Considerations
 
