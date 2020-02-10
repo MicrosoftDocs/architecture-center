@@ -46,6 +46,21 @@ layout: HubPage
                         <span class="has-text-weight-semibold resultcount" role="alert" aria-live="polite"></span>
                      </div>
                 </div>
+                <div class="level-right">
+                    <div class="level-item">
+                        <label class="label has-margin-bottom-none has-padding-right-small" for="example-select-country">Sort</label>
+                        <div class="control">
+                            <div class="select">
+                                <select id="sortOrder" onchange="updateUrlBar(getQuery(false, 1))">
+                                    <option value="-popularity">Popular</option>
+                                    <option value="-publish_date" selected>Newest</option>
+                                    <option value="-word_count">Article Length</option>
+                                    <option value="title">Alphabetical</option>
+                                </select>
+                            </div>
+                        </div>
+                     </div>
+                </div>
             </div>
             <div id="results">
                 <div class="level is-mobile">
