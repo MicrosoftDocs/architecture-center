@@ -115,9 +115,11 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 - To provision a Windows VM, see [Create and Manage Windows VMs with Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm)
 - For a complete N-tier architecture on Windows VMs, see [Windows N-tier application on Azure with SQL Server](./n-tier-sql-server.md).
 
+
+
 <!-- links -->
 
- [Azure Architecture Framework](/azure/architecture/framework/cost/overview).
+[Azure Architecture Framework](/azure/architecture/framework/cost/overview).
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-storage]: /azure/storage/storage-introduction
 [blob-storage]: /azure/storage/storage-introduction
