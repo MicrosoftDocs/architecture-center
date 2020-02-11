@@ -11,11 +11,11 @@ ms.custom:
     - fcp
 ---
 
-# Add IP Address spaces on Peered Virtual Networks in Azure
+# Add IP address spaces to peered virtual networks
 
 In this example scenario, we pursue a scenario where customers deploy a virtual networking architecture, such as a [Hub and Spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) model, and at some point in the future, this Hub virtual network needs additional IP Address spaces.  At this time, you can't add address ranges to, or delete address ranges from a virtual network's address space once a virtual network is peered with another virtual network. To add or remove address ranges, delete the peering, add or remove the address ranges, then re-create the peering manually.  To accommodate this scenario, we have developed a PowerShell script that can make this process easier.
 
-## Relevant Use Cases
+## Relevant use cases
 
 The following use cases have been tested with these scripts:
 
@@ -25,11 +25,11 @@ The following use cases have been tested with these scripts:
 
 ## Architecture
 
-* **Single Subscription**
+* **Single subscription**
 
 ![Single Sub.png](Single-Sub.png)
 
-* **Multiple Subscriptions**
+* **Multiple subscriptions**
 
 ![Multi Sub.png](Multi-Sub.png)
 
@@ -50,7 +50,7 @@ Use one or a combination of the existing methods for removing Virtual Network pe
 * The accounts you use to add IP Address spaces must be assigned to the [Network Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [Custom Role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) containing the necessary actions found at https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#permissions.
 * The IP address space you wish to add to the Hub virtual network must not overlap with any of the IP address spaces of the Spoke virtual networks that you intend to peer with the Hub virtual network.
 
-## Add the IP Address Range
+## Add the IP address range
 
 This script automatically removes all Virtual Network peerings from the Hub Virtual Network, adds an IP address range prefix to the Hub Virtual Network based on Input parameters, adds the Virtual Network peerings back to the Hub Virtual Network, and reconnects the Hub virtual network peerings to the existing Spoke virtual network peerings. The script will work with single and multiple subscription hub and spoke topologies.
 
@@ -93,7 +93,7 @@ $hubPeerings | Remove-AzVirtualNetworkPeering -Force
 
 #region Add IP address range to the hub vnet
 $hubVNet.AddressSpace.AddressPrefixes.AddRange($IPAddressRange)
-Set-AzVirtualNetwork -VirtualNetwork $hubvnet
+Set-AzVirtualNetwork -VirtualNetwork $hubVNet
 #endregion
 
 foreach ($vNetPeering in $hubPeerings)
