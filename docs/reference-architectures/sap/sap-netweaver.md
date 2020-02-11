@@ -363,4 +363,4 @@ See the following articles for more information and for examples of SAP workload
 
 <!-- links -->
 
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-reference-architectures.vsdx
+[visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-netweaver.vsdx

@@ -831,4 +831,4 @@ workloads that use some of the same technologies:
 
 <!-- links -->
 
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-reference-architectures.vsdx
+[visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-s4hana.vsdx
