@@ -200,7 +200,7 @@ There are different options depending in you service level needs:
 
 Data storage is charged separately. There are also other services like disaster recovery and threat detection which are also charged separately.
 
-See [Azure Synapse Pricing][az-synapse-pricing] for more info.
+See [Azure Synapse Pricing][az-synapse-pricing] for more information.
 
 ### Analysis Services
 
@@ -208,7 +208,7 @@ Azure Analysis Services is available in **developer**, **basic**, and **standard
 
 No charges apply when you paise your instance
 
-See [Azure Analysis Services pricing][az-as-pricing] for more info.
+See [Azure Analysis Services pricing][az-as-pricing] for more information.
 
 ## Blob Storage
 

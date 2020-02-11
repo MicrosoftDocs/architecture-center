@@ -205,7 +205,7 @@ Azure Analysis Services is available in **developer**, **basic**, and **standard
 
 No charges apply when you paise your instance
 
-See [Azure Analysis Services pricing][az-as-pricing] for more info.
+See [Azure Analysis Services pricing][az-as-pricing] for more information.
 
 ## Blob Storage
 
