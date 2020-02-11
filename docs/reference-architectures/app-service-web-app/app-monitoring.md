@@ -88,11 +88,11 @@ The following security considerations may also apply:
 - Add [governance](/azure/security/governance-in-azure) mechanisms to enforce policy or cost controls over Azure resources if needed. For example, use Log Analytics for security-related monitoring such as policies and role-based access control, or use [Azure Policy](/azure/azure-policy/azure-policy-introduction) to create, assign and, manage policy definitions.
 - To monitor potential security issues and get a central view of the security state of your Azure resources, consider using [Azure Security Center](/azure/security-center/security-center-intro).
 
-### Cost considerations
+## Cost considerations
 
-Monitoring charges can add up quickly, so consider pricing up front, understand what you are monitoring, and check the associated fees for each service. Azure Monitor provides [basic metrics][basic metrics] at no cost, while monitoring costs for [Application Insights][application-insights-pricing] and [Log Analytics][log-analytics] are based on the amount of data ingested and the number of tests you run.
+Monitoring charges can add up quickly. Consider pricing up front, understand what you are monitoring, and check the associated fees for each service. Azure Monitor provides [basic metrics][basic metrics] at no cost, while monitoring costs for [Application Insights][application-insights-pricing] and [Log Analytics][log-analytics] are based on the amount of data ingested and the number of tests you run.
 
-To help you get started, use the [pricing calculator][pricing] to estimate costs. To see how the pricing would change for your particular use case, change the various options to match your expected deployment.
+To help you get started, use the [pricing calculator][pricing] to estimate costs. Change the various pricing options to match your expected deployment.
 
 Telemetry from Application Insights is sent to the Azure portal during debugging and after you have published your app. For testing purposes and to avoid charges, a limited volume of telemetry is instrumented. To add more indicators, you can raise the telemetry limit. For more granular control, see [Sampling in Application Insights][Sampling in Application Insights].
 
@@ -100,7 +100,7 @@ After deployment, you can watch a [Live Metrics Stream][Live Metrics Stream] of 
 
 Log Analytics is billed per gigabyte (GB) of data ingested into the service. The first 5 GB of data ingested to the Azure Log Analytics service every month is offered free, and the data is retained at no charge for first 31 days in your Log Analytics workspace.
 
-For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
+For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost].
 
 ## Next steps
 
