@@ -187,7 +187,7 @@ For considerations about designing a health probe endpoint, see [Health Endpoint
 
 ## Security considerations
 
-Virtual networks are a traffic isolation boundary in Azure. By default, VMs in one virtual network can't communicate directly with VMs in a different virtual network. However, you can explicitly connect virtual networks by using [virtual network peering](/virtual-network/virtual-network-peering-overview).
+Virtual networks are a traffic isolation boundary in Azure. By default, VMs in one virtual network can't communicate directly with VMs in a different virtual network. However, you can explicitly connect virtual networks by using [virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
 
 **NSGs**. Use [network security groups][nsg] (NSGs) to restrict traffic to and from the internet. For more information, see [Microsoft cloud services and network security][network-security].
 
@@ -255,7 +255,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [ddos]: /azure/virtual-network/ddos-protection-overview
 [dmz]: ../dmz/secure-vnet-dmz.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-windows
-[load-balancer-hashing]: /azure/load-balancer/load-balancer-overview#fundamental-load-balancer-features
+[load-balancer-hashing]: /azure/load-balancer/concepts-limitations#load-balancer-concepts
 [load-balancer]: /azure/load-balancer/load-balancer-standard-overview
 [multi-dc]: multi-region-sql-server.md
 [n-tier]: n-tier.md

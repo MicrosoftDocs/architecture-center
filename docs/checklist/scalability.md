@@ -12,7 +12,7 @@ ms.custom: checklist
 
 # Scalability checklist
 
-Scalability is the ability of a system to handle increased load, and is one of the [pillars of software quality](../guide/pillars.md). Use this checklist to review your application architecture from a scalability standpoint.
+Scalability is the ability of a system to handle increased load, and is one of the [pillars of software quality](../framework/index.md). Use this checklist to review your application architecture from a scalability standpoint.
 
 ## Application design
 

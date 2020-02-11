@@ -3,11 +3,15 @@ title: Ingestion and processing of real-time automotive IoT data
 titleSuffix: Azure Example Scenarios
 description: Ingest and process real-time vehicle data using IoT.
 author: msdpalam
-ms.date: 09/12/2018
+ms.date: 11/20/2019
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
-ms.custom: fasttrack, IoT
+ms.subservice: example-scenarios
+ms.custom:
+  - fasttrack
+  - IoT
+  - data
+  - analytics
 social_image_url: /azure/architecture/example-scenario/data/media/architecture-realtime-analytics-vehicle-data1.png
 ---
 
@@ -48,10 +52,10 @@ IoT device-generated events (data or messages) are ingested, processed, and then
 
 - [Apache Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is in the ingestion layer. The data is written into the Kafka topic using a Kafka producer API.
 - [Azure Databricks](https://azure.microsoft.com/services/databricks) is located in the transformation and analytics layer. Databricks notebooks implement a Kafka consumer API to read the data from the Kafka topic.
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), [Azure SQL Database](/azure/sql-database/sql-database-technical-overview), and Azure SQL Data Warehouse are in the Serving storage layer, where Azure Databricks can write the data via data connectors.
-- [Azure SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) is a distributed system for storing and analyzing large datasets. Its use of massive parallel processing (MPP) makes it suitable for running high-performance analytics.
-- [Power BI](/power-bi) is a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query SQL Data Warehouse directly.
-- [Azure Active Directory (Azure AD)](/azure/active-directory) authenticates users, when connecting to [Azure Databricks](https://azure.microsoft.com/services/databricks). If we would build a cube in [Analysis Services](/azure/analysis-services) based on the model based on Azure SQL Data Warehouse data, we could use Azure AD to connect to the Analysis Services server through Power BI. Data Factory can also use Azure AD to authenticate to SQL Data Warehouse via a service principal or Managed Service Identity (MSI).
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), [Azure SQL Database](/azure/sql-database/sql-database-technical-overview), and Azure Synapse Analytics are in the Serving storage layer, where Azure Databricks can write the data via data connectors.
+- [Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) is a distributed system for storing and analyzing large datasets. Its use of massive parallel processing (MPP) makes it suitable for running high-performance analytics.
+- [Power BI](/power-bi) is a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
+- [Azure Active Directory (Azure AD)](/azure/active-directory) authenticates users, when connecting to [Azure Databricks](https://azure.microsoft.com/services/databricks). If we would build a cube in [Analysis Services](/azure/analysis-services) based on the model based on Azure Synapse data, we could use Azure AD to connect to the Analysis Services server through Power BI. Data Factory can also use Azure AD to authenticate to Azure Synapse via a service principal or Managed Service Identity (MSI).
 - [Azure App Services](/azure/app-service/app-service-web-overview), in particular [API App](https://azure.microsoft.com/services/app-service/api) can be used to expose data to third parties, based on the data stored in the Serving Layer.
 
 ## Alternatives
@@ -70,17 +74,17 @@ The technologies in this architecture were chosen based on the scale needed to p
 
 - Managed [HDInsight Kafka](/azure/hdinsight/kafka/apache-kafka-introduction) comes with a 99.9% SLA is integrated with Azure managed disks.
 - [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks) is optimized from the ground up for performance and cost-efficiency in the cloud. The Databricks Runtime adds several key capabilities to Apache Spark workloads that can increase performance and reduce costs by as much as 10-100x when running on Azure, including:
-- Azure Databricks integrates deeply with Azure databases and stores: [Azure SQL Data Warehouse](/azure/sql-data-warehouse), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage), and [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
+- Azure Databricks integrates deeply with Azure databases and stores: [Azure Synapse](/azure/sql-data-warehouse), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage), and [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
   - Autoscaling and autotermination for Spark clusters to automatically minimize costs.
   - Performance optimizations including caching, indexing, and advanced query optimization, which can improve performance by as much as 10-100x over traditional Apache Spark deployments in cloud or on-premises environments.
   - Integration with Azure Active Directory enables you to run complete Azure-based solutions using Azure Databricks.
   - Role-based access in Azure Databricks enables fine-grained user permissions for notebooks, clusters, jobs, and data.
   - Comes with Enterprise-grade SLAs.
 - Azure Cosmos DB is Microsoft’s globally distributed, multi-model database. Azure Cosmos DB was built from the ground up with global distribution and horizontal scale at its core. It offers turnkey global distribution across any number of Azure regions by transparently scaling and replicating your data wherever your users are. You can elastically scale throughput and storage worldwide, and pay only for the throughput and storage you need.
-- The massively parallel processing architecture of SQL Data Warehouse provides scalability and high performance.
-- Azure SQL Data Warehouse has guaranteed SLAs and recommended practices for achieving high availability.
-- When analysis activity is low, the company can scale Azure SQL Data Warehouse on demand, reducing or even pausing compute to lower costs.
-- The Azure SQL Data Warehouse security model provides connection security, authentication, and authorization via Azure AD or SQL Server authentication, and encryption.
+- The massively parallel processing architecture of Azure Synapse provides scalability and high performance.
+- Azure Synapse has guaranteed SLAs and recommended practices for achieving high availability.
+- When analysis activity is low, the company can scale Azure Synapse on demand, reducing or even pausing compute to lower costs.
+- The Azure Synapse security model provides connection security, authentication, and authorization via Azure AD or SQL Server authentication, and encryption.
 
 ## Pricing
 
@@ -89,7 +93,7 @@ Review [Azure Databricks pricing](https://azure.microsoft.com/pricing/details/da
 - [Azure HDInsight](/azure/hdinsight) is a fully managed cloud service that makes it easy, fast, and cost-effective to process massive amounts of data
 - [Azure Databricks](https://azure.microsoft.com/services/databricks) offers two distinct workloads on several [VM Instances](https://azure.microsoft.com/pricing/details/databricks/#instances) tailored for your data analytics workflow &mdash; the Data Engineering workload makes it easy for data engineers to build and execute jobs, and the Data Analytics workload makes it easy for data scientists to explore, visualize, manipulate, and share data and insights interactively.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) guarantees single-digit-millisecond latencies at the 99th percentile anywhere in the world, offers [multiple well-defined consistency models](/azure/cosmos-db/consistency-levels) to fine-tune performance, and guarantees high availability with multi-homing capabilities &mdash; all backed by industry leading comprehensive [service level agreements](https://azure.microsoft.com/support/legal/sla/cosmos-db) (SLAs).
-- [Azure SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2) allows you to scale your compute and storage levels independently. Compute resources are charged per hour, and you can scale or pause these resources on demand. Storage resources are billed per terabyte, so your costs will increase as you ingest more data.
+- [Azure Synapse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2) allows you to scale your compute and storage levels independently. Compute resources are charged per hour, and you can scale or pause these resources on demand. Storage resources are billed per terabyte, so your costs will increase as you ingest more data.
 - [Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services) is available in developer, basic, and standard tiers. Instances are priced based on query processing units (QPUs) and available memory. To keep your costs lower, minimize the number of queries you run, how much data they process, and how often they run.
 - [Power BI](https://powerbi.microsoft.com/pricing) has different product options for different requirements. [Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded) provides an Azure-based option for embedding Power BI functionality inside your applications. A Power BI Embedded instance is included in the pricing sample above.
 

@@ -6,7 +6,7 @@ ms.author: pnp
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture
-ms.date: 08/30/2018
+ms.date: 01/08/2020
 ---
 
 # Azure Application Architecture Guide
@@ -15,9 +15,9 @@ This guide presents a structured approach for designing applications on Azure th
 
 ## Introduction
 
-The cloud is changing the way applications are designed. Instead of monoliths, applications are decomposed into smaller, decentralized services. These services communicate through APIs or by using asynchronous messaging or eventing. Applications scale horizontally, adding new instances as demand requires.
+The cloud is changing how applications are designed. Instead of monoliths, applications are decomposed into smaller, decentralized services. These services communicate through APIs or by using asynchronous messaging or eventing. Applications scale horizontally, adding new instances as demand requires.
 
-These trends bring new challenges. Application state is distributed. Operations are done in parallel and asynchronously. The system as a whole must be resilient when failures occur. Deployments must be automated and predictable. Monitoring and telemetry are critical for gaining insight into the system. The Azure Application Architecture Guide is designed to help you navigate these changes.
+These trends bring new challenges. Application state is distributed. Operations are done in parallel and asynchronously. Applications must be resilient when failures occur. Deployments must be automated and predictable. Monitoring and telemetry are critical for gaining insight into the system. This guide is designed to help you navigate these changes.
 
 <!-- markdownlint-disable MD033 -->
 
@@ -26,21 +26,19 @@ These trends bring new challenges. Application state is distributed. Operations 
     <tr><th>Traditional on-premises</th><th>Modern cloud</th></tr>
 </thead>
 <tbody>
-<tr><td>Monolithic, centralized<br/>
-Design for predictable scalability<br/>
+<tr><td>Monolithic<br/>
+Designed for predictable scalability<br/>
 Relational database<br/>
-Strong consistency<br/>
-Serial and synchronized processing<br/>
+Synchronized processing<br/>
 Design to avoid failures (MTBF)<br/>
-Occasional big updates<br/>
+Occasional large updates<br/>
 Manual management<br/>
 Snowflake servers</td>
 <td>
-Decomposed, de-centralized<br/>
-Design for elastic scale<br/>
+Decomposed<br/>
+Designed for elastic scale<br/>
 Polyglot persistence (mix of storage technologies)<br/>
-Eventual consistency<br/>
-Parallel and asynchronous processing<br/>
+Asynchronous processing<br/>
 Design for failure (MTTR)<br/>
 Frequent small updates<br/>
 Automated self-management<br/>
@@ -51,46 +49,66 @@ Immutable infrastructure<br/>
 
 <!-- markdownlint-enable MD033 -->
 
-This guide is intended for application architects, developers, and operations teams. It's not a how-to guide for using individual Azure services. After reading this guide, you will understand the architectural patterns and best practices to apply when building on the Azure cloud platform.
-
 ## How this guide is structured
 
 The Azure Application Architecture Guide is organized as a series of steps, from the architecture and design to implementation. For each step, there is supporting guidance that will help you with the design of your application architecture.
 
-### Architecture styles
+![](./images/a3g.svg)
+
+## Architecture styles
 
 The first decision point is the most fundamental. What kind of architecture are you building? It might be a microservices architecture, a more traditional N-tier application, or a big data solution. We have identified several distinct architecture styles. There are benefits and challenges to each.
 
-Learn more:
+Learn more: [Architecture styles](./architecture-styles/index.md)
 
-- [Architecture styles](./architecture-styles/index.md)
+## Technology choices
 
-### Technology choices
+Knowing the type of architecture you are building, now you can start to choose the main technology pieces for the architecture. The following technology choices are critical:
 
-Two technology choices should be decided early on, because they affect the entire architecture. These are the choice of compute service and data stores. *Compute* refers to the hosting model for the computing resources that your applications runs on. *Data stores* includes databases but also storage for message queues, caches, logs, and anything else that an application might persist to storage.
+- *Compute* refers to the hosting model for the computing resources that your applications run on. For more information, see [Choose a compute service](./technology-choices/compute-decision-tree.md).
 
-Learn more:
+- *Data stores* include databases but also storage for message queues, caches, logs, and anything else that an application might persist to storage. For more information, see [Choose a data store](./technology-choices/data-store-overview.md).
 
-- [Choosing a compute service](./technology-choices/compute-overview.md)
-- [Choosing a data store](./technology-choices/data-store-overview.md)
+- *Messaging* technologies enable asynchronous messages between components of the system. For more information, see [Choose a messaging service](./technology-choices/messaging.md).
+
+You will probably have to make additional technology choices along the way, but these three elements (compute, data, and messaging) are central to most cloud applications and will determine many aspects of your design.
+
+## Design the architecture
+
+Once you have chosen the architecture style and the major technology components, you are ready to tackle the specific design of your application. Every application is different, but the following resources can help you along the way:
+
+### Reference architectures
+
+Depending on your scenario, one of our [reference architectures](/azure/architecture/architectures/?filter=reference-architecture) may be a good starting point. Each reference architecture includes recommended practices, along with considerations for scalability, availability, security, resilience, and other aspects of the design. Most also include a deployable solution or reference implementation.
 
 ### Design principles
 
-We have identified ten high-level design principles that will make your application more scalable, resilient, and manageable. These design principles apply to any architecture styles. Throughout the design process, keep these ten high-level design principles in mind. Then consider the set of best practices for specific aspects of the architecture, such as auto-scaling, caching, data partitioning, API design, and others.
+We have identified 10 high-level design principles that will make your application more scalable, resilient, and manageable. These design principles apply to any architecture style. Throughout the design process, keep these 10 high-level design principles in mind. For more information, see [Design principles](./design-principles/index.md).
 
-Learn more:
+### Design patterns
 
-- [Design principles](./design-principles/index.md)
+Software design patterns are repeatable patterns that are proven to solve specific patterns. Our catalog of Cloud design patterns addresses specific challenges in distributed systems. They address aspects such as availability, resiliency, performance, and security. You can find our catalog of design patterns [here](../patterns/index.md).
 
-### Quality pillars
+### Best practices
 
-A successful cloud application will focus on five pillars of software quality: Scalability, availability, resiliency, management, and security. Use our design review checklists to review your architecture according to these quality pillars.
+Our [best practices](/azure/architecture/best-practices) articles cover various design considerations including API design, autoscaling, data partitioning, caching, and so forth. Review these and apply the best practices that are appropriate for your application.
 
-- [Quality pillars](./pillars.md)
 
-### More learning
+## Quality pillars
 
-For a guided introduction to common cloud computing services, benefits of cloud computing, and cloud deployment modules, review [Cloud Concepts - Principles of Cloud Computing](/learn/modules/principles-cloud-computing/).  
+A successful cloud application will focus on five pillars of software quality: Cost, DevOps, resiliency, scalability, and security. 
 
-For a more technical perspective on the key pillars of a cloud solution and principles for creating a solid architectural foundation, review [Pillars of a great Azure Architecture](/learn/modules/pillars-of-a-great-azure-architecture).
+| Pillar | Description |
+|--------|-------------|
+| Cost | Managing costs to maximize the value delivered. |
+| DevOps | Operations processes that keep a system running in production. |
+| Resiliency | The ability of a system to recover from failures and continue to function. |
+| Scalability | The ability of a system to adapt to changes in load. |
+| Security | Protecting applications and data from threats. |
 
+Use the [Azure Architecture Framework](../framework/index.md) to assess your architecture across these five pillars.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Architecture styles](./architecture-styles/index.md)

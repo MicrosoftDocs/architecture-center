@@ -125,14 +125,14 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: /azure/virtual-machines/virtual-machines-linux-about-disks-vhds
-[disk-encryption]: /azure/security/azure-security-disk-encryption
+[disk-encryption]: /azure/security/fundamentals/azure-disk-encryption-vms-vmss
 [enable-monitoring]: /azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
 [fqdn]: /azure/virtual-machines/virtual-machines-linux-portal-create-fqdn
 [group-policy]: /windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates
 [iostat]: https://en.wikipedia.org/wiki/Iostat
 [manage-vm-availability]: /azure/virtual-machines/virtual-machines-linux-manage-availability
 [managed-disks]: /azure/storage/storage-managed-disks-overview
-[naming-conventions]: ../../best-practices/naming-conventions.md
+[naming-conventions]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
 [nsg]: /azure/virtual-network/virtual-networks-nsg
 [nsg-default-rules]: /azure/virtual-network/security-overview#default-security-rules
 [planned-maintenance]: /azure/virtual-machines/virtual-machines-linux-planned-maintenance

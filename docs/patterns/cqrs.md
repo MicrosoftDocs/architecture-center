@@ -35,7 +35,7 @@ Read and write workloads are often asymmetrical, with very different performance
 
 ## Solution
 
-CQRS addresses separates reads and writes into separate models, using **commands** to update data, and **queries** to read data.
+CQRS separates reads and writes into different models, using **commands** to update data, and **queries** to read data.
 
 - Commands should be task based, rather than data centric. ("Book hotel room", not "set ReservationStatus to Reserved"). 
 - Commands may be placed on a queue for asynchronous processing, rather than being processed synchronously.

@@ -105,7 +105,7 @@ The monitoring library includes a [sample application][sample-app] that demonstr
 
 1. Build the **spark-jobs** project in the monitoring library, as described in the [GitHub readme][config-cluster].
 
-1. Navigate to your Databricks workspace and create a new job, as described [here](https://docs.azuredatabricks.net/user-guide/jobs.html#create-a-job).
+1. Navigate to your Databricks workspace and create a new job, as described [here](https://docs.azuredatabricks.net/jobs.html#create-a-job).
 
 1. In the job detail page, select **Set JAR**.
 
@@ -142,6 +142,6 @@ Deploy the performance monitoring dashboard that accompanies this code library t
 <!-- links -->
 
 [config-cluster]: https://github.com/mspnp/spark-monitoring/blob/master/README.md
-[log4j.properties]: https://github.com/mspnp/spark-monitoring/blob/master/src/spark-jobs/src/main/resources/com/microsoft/pnp/samplejob/log4j.properties
-[sample-app]: https://github.com/mspnp/spark-monitoring/tree/master/src/spark-jobs
+[log4j.properties]: https://github.com/mspnp/spark-monitoring/blob/master/sample/spark-sample-job/src/main/resources/com/microsoft/pnp/samplejob/log4j.properties
+[sample-app]: https://github.com/mspnp/spark-monitoring/tree/master/sample/spark-sample-job
 [spark-logging]: https://spark.apache.org/docs/2.3.0/api/java/org/apache/spark/internal/Logging.html

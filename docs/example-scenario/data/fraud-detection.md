@@ -6,8 +6,9 @@ author: alexbuckgit
 ms.date: 07/05/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: example-scenarios
 social_image_url: /azure/architecture/example-scenario/data/media/architecture-fraud-detection.png
+ms.custom: ai-ml
 ---
 
 # Real-time fraud detection on Azure
@@ -71,7 +72,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 ### Resiliency
 
-For general guidance on designing resilient solutions, see [Designing reliable Azure applications](../../reliability/index.md).
+For general guidance on designing resilient solutions, see [Designing reliable Azure applications](../../framework/resiliency/app-design.md).
 
 ## Deploy the scenario
 

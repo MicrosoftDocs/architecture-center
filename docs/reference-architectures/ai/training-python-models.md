@@ -18,9 +18,9 @@ This reference architecture shows recommended practices for tuning the hyperpara
 
 **Scenario 1: FAQ matching.** The problem addressed here is Frequently Asked Question (FAQ) matching. This scenario uses a subset of Stack Overflow question data that includes original questions tagged as JavaScript, their duplicate questions, and their answers. It tunes a scikit-learn pipeline to predict the probability that a duplicate question matches one of the original questions.
 
-Processing in this [Azure Machine Learning service pipeline][pipeline] scenario involves the following steps:
+Processing in this [Azure Machine Learning pipeline][pipeline] scenario involves the following steps:
 
-1. The training Python script is submitted to the [Azure Machine Learning service][aml].
+1. The training Python script is submitted to [Azure Machine Learning][aml].
 
 1. The script runs in Docker containers that are created on each node.
 
@@ -30,7 +30,7 @@ Processing in this [Azure Machine Learning service pipeline][pipeline] scenario 
 
 1. The model's performance is evaluated on the testing data, and is written to Azure Storage.
 
-1. The best performing model is [registered][mlops] with the Azure Machine Learning service.
+1. The best performing model is [registered][mlops] with Azure Machine Learning.
 
 See also considerations for training [deep learning models][training-deep-learning] with GPUs.
 
@@ -38,7 +38,7 @@ See also considerations for training [deep learning models][training-deep-learni
 
 Processing in this scenario involves the following steps:
 
-1. The training Python script is submitted to the [Azure Machine Learning service][aml].
+1. The training Python script is submitted to [Azure Machine Learning][aml].
 
 1. The script runs in Docker containers that are created on each node by pulling a custom image that is stored on [Azure Container Registry][acr].
 
@@ -46,7 +46,7 @@ Processing in this scenario involves the following steps:
 
 1. The model's performance is evaluated on the testing data, and is written to Azure Storage.
 
-1. The best performing model is registered with the Azure Machine Learning service.
+1. The best performing model is registered with Azure Machine Learning.
 
 See also considerations for distributed training of [deep learning models][training-deep-learning] with GPUs.
 
@@ -56,13 +56,13 @@ This architecture consists of several Azure cloud services that scale resources 
 
 [Microsoft Data Science Virtual Machine][dsvm] (DSVM) is a VM image configured with tools used for data analytics and machine learning. Both Windows Server and Linux versions are available. This deployment uses the Linux editions of the DSVM on Ubuntu 16.04 LTS.
 
-[Azure Machine Learning service][aml] is used to train, deploy, automate, and manage machine learning models at cloud scale. It's used in this architecture to manage the allocation and use of the Azure resources described below.
+[Azure Machine Learning][aml] is used to train, deploy, automate, and manage machine learning models at cloud scale. It's used in this architecture to manage the allocation and use of the Azure resources described below.
 
 [Azure Machine Learning Compute][aml-compute] is the resource used to train and test machine learning and AI models at scale in Azure. The [compute target][target] in this scenario is a cluster of nodes that are allocated on demand based on an automatic [scaling][scaling] option. Each node is a VM that runs a training job for a particular [hyperparameter][hyperparameter] set.
 
-[Azure Container Registry][acr] stores images for all types of Docker container deployments. These containers are created on each node and used to run the training Python script. The image used in the Machine Learning Compute cluster is created by the Machine Learning service in the local run and hyperparameter tuning notebooks, and then is pushed to Container Registry.
+[Azure Container Registry][acr] stores images for all types of Docker container deployments. These containers are created on each node and used to run the training Python script. The image used in the Machine Learning Compute cluster is created by Machine Learning in the local run and hyperparameter tuning notebooks, and then is pushed to Container Registry.
 
-[Azure Blob][blob] storage receives the training and test data sets from the Machine Learning service that are used by the training Python script. Storage is mounted as a virtual drive onto each node of a Machine Learning Compute cluster.
+[Azure Blob][blob] storage receives the training and test data sets from Machine Learning that are used by the training Python script. Storage is mounted as a virtual drive onto each node of a Machine Learning Compute cluster.
 
 ## Performance considerations
 
@@ -106,7 +106,7 @@ In scenarios that use sensitive data, encrypt the data at rest—that is, the da
 
 ### Secure data in a virtual network
 
-For production deployments, consider deploying the cluster into a subnet of a virtual network that you specify. This allows the compute nodes in the cluster to communicate securely with other virtual machines or with an on-premises network. You can also use [service endpoints][endpoints] with blob storage to grant access from a virtual network or use a single-node NFS inside the virtual network with Azure Machine Learning service.
+For production deployments, consider deploying the cluster into a subnet of a virtual network that you specify. This allows the compute nodes in the cluster to communicate securely with other virtual machines or with an on-premises network. You can also use [service endpoints][endpoints] with blob storage to grant access from a virtual network or use a single-node NFS inside the virtual network with Azure Machine Learning.
 
 ## Deployment
 

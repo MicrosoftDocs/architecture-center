@@ -6,8 +6,12 @@ author: sujayt
 ms.date: 11/16/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
-ms.custom: product-team
+ms.subservice: example-scenarios
+ms.custom:
+  - product-team
+  - bcdr
+  - web-apps
+  - application-development
 social_image_url: /azure/architecture/example-scenario/infrastructure/media/arhitecture-disaster-recovery-multi-tier-app.png
 ---
 

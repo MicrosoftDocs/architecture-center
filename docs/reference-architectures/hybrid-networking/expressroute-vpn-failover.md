@@ -1,5 +1,5 @@
 ---
-title: Connect an on-premises network to Azure
+title: Connect an on-premises network to Azure using ExpressRoute
 titleSuffix: Azure Reference Architectures
 description: Implement a highly available and secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using ExpressRoute with VPN gateway failover.
 author: telmosampaio
@@ -53,16 +53,16 @@ Create the ExpressRoute virtual network gateway connection and the VPN virtual n
 If the VNet already includes a subnet named *GatewaySubnet*, ensure that it has a /27 or larger address space. If the existing subnet is too small, use the following PowerShell command to remove the subnet:
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
-Remove-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
+$vnet = Get-AzVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
+Remove-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
 ```
 
 If the VNet does not contain a subnet named **GatewaySubnet**, create a new one using the following PowerShell command:
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
-Add-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.224/27"
-$vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+$vnet = Get-AzVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
+Add-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.224/27"
+$vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
 ```
 
 ### VPN and ExpressRoute gateways
@@ -72,7 +72,7 @@ Verify that your organization meets the [ExpressRoute prerequisite requirements]
 If you already have a VPN virtual network gateway in your Azure VNet, use the following PowerShell command to remove it:
 
 ```powershell
-Remove-AzureRmVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
+Remove-AzVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
 ```
 
 Follow the instructions in [Implementing a hybrid network architecture with Azure ExpressRoute][implementing-expressroute] to establish your ExpressRoute connection.

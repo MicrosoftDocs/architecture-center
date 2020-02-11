@@ -2,7 +2,7 @@
 title: Securing data solutions
 description: 
 author: zoinerTejada
-ms.date: 02/12/2018
+ms.date: 11/20/2019
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -54,11 +54,11 @@ For more information, see [Azure Logging and Auditing](/azure/security/azure-log
 
 ### Encryption
 
-**Virtual machines**. Use [Azure Disk Encryption](/azure/security/azure-security-disk-encryption) to encrypt the attached disks on Windows or Linux VMs. This solution integrates with [Azure Key Vault](/azure/key-vault/) to control and manage the disk-encryption keys and secrets.
+**Virtual machines**. Use [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) to encrypt the attached disks on Windows or Linux VMs. This solution integrates with [Azure Key Vault](/azure/key-vault/) to control and manage the disk-encryption keys and secrets.
 
 **Azure Storage**. Use [Azure Storage Service Encryption](/azure/storage/common/storage-service-encryption) to automatically encrypt data at rest in Azure Storage. Encryption, decryption, and key management are totally transparent to users. Data can also be secured in transit by using client-side encryption with Azure Key Vault. For more information, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](/azure/storage/common/storage-client-side-encryption).
 
-**SQL Database** and **Azure SQL Data Warehouse**. Use [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) (TDE)  to perform real-time encryption and decryption of your databases, associated backups, and transaction log files without requiring any changes to your applications. SQL Database can also use [Always Encrypted](/azure/sql-database/sql-database-always-encrypted-azure-key-vault) to help protect sensitive data at rest on the server, during movement between client and server, and while the data is in use. You can use Azure Key Vault to store your Always Encrypted encryption keys.
+**SQL Database** and **Azure Synapse Analytics**. Use [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) (TDE)  to perform real-time encryption and decryption of your databases, associated backups, and transaction log files without requiring any changes to your applications. SQL Database can also use [Always Encrypted](/azure/sql-database/sql-database-always-encrypted-azure-key-vault) to help protect sensitive data at rest on the server, during movement between client and server, and while the data is in use. You can use Azure Key Vault to store your Always Encrypted encryption keys.
 
 ### Rights management
 

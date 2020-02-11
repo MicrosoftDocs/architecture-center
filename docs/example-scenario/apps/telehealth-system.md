@@ -7,8 +7,10 @@ ms.author: jeanyd
 ms.date: 05/25/2019
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
-ms.custom: database-team
+ms.subservice: example-scenarios
+ms.custom:
+  - database-team
+  - healthcare
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-telehealth-system.png
 ---
 
@@ -113,7 +115,7 @@ Using the TimescaleDB extension of PostgreSQL will enable more efficient handlin
 
 ## Security and compliance
 
-This solution handles PHI and PII data. As such, it is important to use services that are certified for medical applications (HIPPA certifications, not only for the data that remains in the database but also the logs and telemetry data). For details please consult the [HIPAA section](https://www.microsoft.com/TrustCenter/Compliance/HIPAA) of the Microsoft Trust Center.
+This solution handles PHI and personal data. As such, it is important to use services that are certified for medical applications (HIPAA certifications, not only for the data that remains in the database but also the logs and telemetry data). For details please consult the [HIPAA section](https://www.microsoft.com/TrustCenter/Compliance/HIPAA) of the Microsoft Trust Center.
 
 ## Pricing
 

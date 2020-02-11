@@ -6,8 +6,12 @@ author: christianreddington
 ms.date: 12/06/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
-ms.custom: fasttrack, seodec18
+ms.subservice: example-scenarios
+ms.custom:
+  - fasttrack
+  - seodec18
+  - devops
+  - app-development
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-devops-dotnet-webapp.svg
 ---
 
@@ -117,7 +121,7 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 [ansible]: /azure/ansible/
 [application-insights]: /azure/application-insights/app-insights-overview
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.md
-[arm-templates]: /azure/azure-resource-manager/resource-group-overview#template-deployment
+[arm-templates]: /azure/azure-resource-manager/template-deployment-overview
 [architecture]: ./media/architecture-devops-dotnet-webapp.svg
 [chef]: /azure/chef/
 [design-patterns-availability]: /azure/architecture/patterns/category/availability

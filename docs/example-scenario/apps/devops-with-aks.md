@@ -6,8 +6,11 @@ author: iainfoulds
 ms.date: 07/05/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: example-scenarios
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-devops-with-aks.png
+ms.custom:
+    - devops
+    - microservices
 ---
 
 # CI/CD pipeline for container-based workloads
@@ -85,7 +88,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 This scenario uses Azure Kubernetes Service for your application. Built into Kubernetes are resiliency components that monitor and restart the containers (pods) if there is an issue. Combined with running multiple Kubernetes nodes, your application can tolerate a pod or node being unavailable.
 
-For general guidance on designing resilient solutions, see [Designing reliable Azure applications](../../reliability/index.md).
+For general guidance on designing resilient solutions, see [Designing reliable Azure applications](../../framework/resiliency/app-design.md).
 
 ## Deploy the scenario
 

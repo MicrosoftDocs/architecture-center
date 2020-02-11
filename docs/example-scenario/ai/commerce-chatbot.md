@@ -6,7 +6,7 @@ author: iainfoulds
 ms.date: 07/05/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: example-scenarios
 social_image_url: /azure/architecture/example-scenario/ai/media/architecture-commerce-chatbot.png
 ---
 
@@ -80,13 +80,13 @@ This scenario uses Azure SQL Database for storing customer reservations. SQL Dat
 
 To monitor the health of your application, this scenario uses Application Insights. With Application Insights, you can generate alerts and respond to performance issues that would impact the customer experience and availability of the chatbot. For more information, see [What is Application Insights?][appinsights-docs]
 
-For other resiliency topics, see [Designing reliable Azure applications](../../reliability/index.md).
+For other resiliency topics, see [Designing reliable Azure applications](../../framework/resiliency/app-design.md).
 
 ## Deploy the scenario
 
 This scenario is divided into three components for you to explore areas that you are most focused on:
 
-- [Infrastructure components](#walk-through). Use an Azure Resource Manger template to deploy the core infrastructure components of an App Service, Web App, Application Insights, Storage account, and SQL Server and database.
+- [Infrastructure components](#walk-through). Use an Azure Resource Manager template to deploy the core infrastructure components of an App Service, Web App, Application Insights, Storage account, and SQL Server and database.
 - [Web App Chatbot](#deploy-web-app-chatbot). Use the Azure CLI to deploy a bot with the Bot Service and Language Understanding and Intelligent Services (LUIS) app.
 - [Sample C# chatbot application](#deploy-chatbot-c-application-code). Use Visual Studio to review the sample hotel reservation C# application code and deploy to a bot in Azure.
 

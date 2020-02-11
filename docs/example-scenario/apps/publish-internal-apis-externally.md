@@ -7,8 +7,11 @@ ms.date: 03/12/2019
 ms.author: ssarwa
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
-ms.custom: fasttrack
+ms.subservice: example-scenarios
+ms.custom:
+  - fasttrack
+  - web-apps
+  - app-modernization
 social_image_url: ./media/architecture-publish-internal-apis-externally.png
 ---
 
@@ -181,7 +184,7 @@ Check out the related scenario on [Migrating legacy web APIs to API Management][
 [availability]: /azure/architecture/checklist/availability
 [scalability]: /azure/architecture/checklist/scalability
 [security]: /azure/security/
-[resiliency]: /azure/architecture/resiliency/index
+[resiliency]: /azure/architecture/framework/resiliency/overview
 [azure-vpn]: /azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
 [azure-hybrid]: /azure/architecture/reference-architectures/hybrid-networking/
 [azure-vm-lift-shift]: https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/

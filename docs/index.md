@@ -32,7 +32,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
     </li>
     <!-- Reference architectures -->
     <li>
-        <a href="/azure/architecture/reference-architectures">
+        <a href="/azure/architecture/architectures/?filter=reference-architecture">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
@@ -53,7 +53,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
-                        <img src="_images/cloud-adoption.svg" alt="" />
+                        <img src="_images/cloud-adoption-framework.png" alt="" />
                         <div class="cardText">
                             <h3>Microsoft Cloud Adoption Framework for Azure</h3>
                             <p>A process for creating an organization-wide cloud adoption strategy, focusing on policies, governance, and infrastructure.</p>
@@ -69,7 +69,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 <ul class="panelContent cardsI">
     <!-- Example Workloads -->
     <li>
-        <a href="/azure/architecture/example-scenario/">
+        <a href="/azure/architecture/architectures/?filter=example-workload">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
@@ -170,7 +170,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
     </li>
     <!-- Resiliency -->
     <li>
-        <a href="/azure/architecture/resiliency">
+        <a href="/azure/architecture/framework/resiliency/overview">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
@@ -250,7 +250,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
     </li>
     <!-- Performance anti-practices -->
     <li>
-        <a href="/azure/architecture/antipatterns">
+        <a href="/azure/architecture/performance">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
@@ -260,8 +260,8 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
                             </div>
                         </div>
                         <div class="cardText">
-                            <h3>Performance Antipatterns</h3>
-                            <p>How to detect and fix some common causes of performance and scalability problems in cloud applications.</p>
+                            <h3>Performance tuning</h3>
+                            <p>Used load tests and metrics to diagnose performance issues in cloud applications.</p>
                         </div>
                     </div>
                 </div>
@@ -290,30 +290,6 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
     </li>
 </ul>
 
-<ul class="panelContent cardsJ">
-    <li>
-        <a href="https://azure-architecture.uservoice.com/forums/918127-general" data-linktype="external">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img src="https://docs.microsoft.com/en-us/media/common/i_feedback.svg" alt="" data-linktype="external">
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <h3>Submit your ideas for the Architecture Center</h3>
-                            <p>Do you have ideas for new architecture or design documentation?</p>
-                            <p>What kinds of articles would you like to see in the Azure Architecture Center?</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
-</ul>
-
----
 
 ## Build your skills with Microsoft Learn
 

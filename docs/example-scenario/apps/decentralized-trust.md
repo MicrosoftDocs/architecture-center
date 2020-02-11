@@ -6,8 +6,11 @@ author: vitoc
 ms.date: 09/09/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
-ms.custom: csa-team
+ms.subservice: example-scenarios
+ms.custom:
+  - csa-team
+  - blockchain
+  - finance
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-decentralized-trust.png
 ---
 
@@ -83,7 +86,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 The Ethereum PoA blockchain can itself provide some degree of resilience as the validator nodes can be deployed in different regions. Azure has options for deployments in over 54 regions worldwide. A blockchain such as the one in this scenario provides unique and refreshing possibilities of cooperation to increase resilience. The resilience of the network is not just provided for by a single centralized party but all members of the consortium. A proof-of-authority&ndash;based blockchain allows network resilience to be even more planned and deliberate.
 
-For general guidance on designing resilient solutions, see [Designing reliable Azure applications](../../reliability/index.md).
+For general guidance on designing resilient solutions, see [Designing reliable Azure applications](../../framework/resiliency/app-design.md).
 
 ## Pricing
 

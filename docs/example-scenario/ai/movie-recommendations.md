@@ -3,11 +3,13 @@ title: Movie recommendations on Azure
 description: Use machine learning to automate movie, product, and other recommendations using machine learning and an Azure Data Science Virtual Machine (DSVM) to train a model on Azure.
 author: njray
 ms.date: 01/09/2019
-ms.custom: azcat-ai, AI
+ms.custom:
+  - azcat-ai
+  - AI
 social_image_url: /azure/architecture/example-scenario/ai/media/architecture-movie-recommender.png
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: example-scenarios
 ---
 
 # Movie recommendations on Azure
@@ -36,7 +38,7 @@ This scenario covers the training and evaluating of the machine learning model u
 
 3. A DSVM is often used to experiment with or productize a Spark ALS recommender model. The ALS model is trained using a training dataset, which is produced from the overall dataset by applying the appropriate data splitting strategy. For example, the dataset can be split into sets randomly, chronologically, or stratified, depending on the business requirement. Similar to other machine learning tasks, a recommender is validated by using evaluation metrics (for example, precision\@*k*, recall\@*k*, [MAP][map], [nDCG\@k][ndcg]).
 
-4. Azure Machine Learning service is used for coordinating the experimentation, such as hyperparameter sweeping and model management.
+4. Azure Machine Learning is used for coordinating the experimentation, such as hyperparameter sweeping and model management.
 
 5. A trained model is preserved on Azure Cosmos DB, which can then be applied for recommending the top *k* movies for a given user.
 
@@ -50,7 +52,7 @@ For an in-depth guide to building and scaling a recommender service, see [Build 
 
 * [Azure Blob storage][blob] stores the dataset for movie recommendations.
 
-* [Azure Machine Learning service][mls] is used to accelerate the building, managing, and deploying of machine learning models.
+* [Azure Machine Learning][mls] is used to accelerate the building, managing, and deploying of machine learning models.
 
 * [Azure Cosmos DB][cosmos-db] enables globally distributed and multi-model database storage.
 
@@ -125,11 +127,11 @@ For an in-depth guide to building and scaling a recommender service, see [Build 
 [ndcg]: https://en.wikipedia.org/wiki/Discounted_cumulative_gain
 [notebook]: https://github.com/Microsoft/Recommenders/notebooks/00_quick_start/als_pyspark_movielens.ipynb
 [ref-arch]: /azure/architecture/reference-architectures/ai/real-time-recommendation
-[regions]: https://azure.microsoft.com/en-us/global-infrastructure/services/?products=virtual-machines&regions=all
+[regions]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all
 [resiliency]: /azure/architecture/resiliency/
 [sec-docs]: /azure/security/
 [setup]: https://github.com/Microsoft/Recommenders/blob/master/SETUP.md%60
-[sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/
-[sla-aks]: https://azure.microsoft.com/en-us/support/legal/sla/kubernetes-service/v1_0/
+[sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/
+[sla-aks]: https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_0/
 [storage-security]: /azure/storage/common/storage-service-encryption
 [vm-size]: /azure/virtual-machines/virtual-machines-linux-change-vm-size

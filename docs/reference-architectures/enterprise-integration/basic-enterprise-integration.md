@@ -5,7 +5,6 @@ description: Recommended architecture for implementing a simple enterprise integ
 services: logic-apps
 author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
-ms.topic: article
 ms.date: 12/03/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -157,7 +156,7 @@ Each service also has these options:
 
 Although this list doesn't completely describe all security best practices, here are some security considerations that apply specifically to this architecture:
 
-- The Azure API Management service has a fixed public IP address. Restrict access for calling Logic Apps endpoints to only the IP address of API Management. For more information, see [Restrict incoming IP addresses][logic-apps-restrict-ip].
+- The Azure API Management service has a fixed public IP address. Restrict access for calling Logic Apps endpoints to only the IP address of API Management. For more information, see [Restrict inbound IP addresses][logic-apps-restrict-ip].
 
 - To make sure users have appropriate access levels, use role-based access control (RBAC).
 
@@ -213,9 +212,9 @@ For greater reliability and scalability, use message queues and events to decoup
 [logic-apps-connectors]: /azure/connectors/apis-list
 [logic-apps-log-analytics]: /azure/logic-apps/logic-apps-monitor-your-logic-apps-oms
 [logic-apps-monitor]: /azure/logic-apps/logic-apps-monitor-your-logic-apps
-[logic-apps-restrict-ip]: /azure/logic-apps/logic-apps-securing-a-logic-app#restrict-incoming-ip-addresses
+[logic-apps-restrict-ip]: /azure/logic-apps/logic-apps-securing-a-logic-app#restrict-inbound-ip-addresses
 [logic-apps-secure]: /azure/logic-apps/logic-apps-securing-a-logic-app#access-to-parameter-inputs
 [logic-apps-sla]: https://azure.microsoft.com/support/legal/sla/logic-apps
 [monitor]: /azure/azure-monitor/overview
 [rbac]: /azure/role-based-access-control/overview
-[rto]: ../../reliability/requirements.md#recovery-metrics
+[rto]: ../../framework/resiliency/business-metrics.md

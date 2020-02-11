@@ -6,8 +6,9 @@ author: alexbuckgit
 ms.date: 08/22/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
-ms.custom: HPC
+ms.subservice: example-scenarios
+ms.custom:
+  - HPC
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-hpc-saas.png
 ---
 

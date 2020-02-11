@@ -1,12 +1,11 @@
 items:
 - name: Azure Architecture Center
   href: index.md
-
-- name: Application architecture guide
+- name: Application Architecture Guide
   items:
   - name: Introduction
     href: guide/index.md
-  - name: Architecture Styles
+  - name: Architecture styles
     items:
     - name: Overview
       href: guide/architecture-styles/index.md
@@ -22,7 +21,7 @@ items:
       href: guide/architecture-styles/n-tier.md
     - name: Web-queue-worker
       href: guide/architecture-styles/web-queue-worker.md
-  - name: Design Principles
+  - name: Design principles for Azure applications
     items:
     - name: Overview
       href: guide/design-principles/index.md
@@ -46,15 +45,17 @@ items:
       href: guide/design-principles/design-for-evolution.md
     - name: Build for the needs of business
       href: guide/design-principles/build-for-business.md
-  - name: Choosing a compute service
+  - name: Technology choices
     items:
-    - name: Overview
-      href: guide/technology-choices/compute-overview.md
-    - name: Decision tree
+    - name: Choose a compute service
       href: guide/technology-choices/compute-decision-tree.md
-    - name: Compute comparison
-      href: guide/technology-choices/compute-comparison.md
-  - name: Best Practices
+    - name: Choose a data store
+      href: guide/technology-choices/data-store-overview.md
+    - name: Choose a load balancing service
+      href: guide/technology-choices/load-balancing-overview.md
+    - name: Choose a messaging service
+      href: guide/technology-choices/messaging.md
+  - name: Best practices for cloud applications
     items:
     - name: API design
       href: best-practices/api-design.md
@@ -72,57 +73,198 @@ items:
       href: best-practices/data-partitioning.md
     - name: Data partitioning strategies (by service)
       href: best-practices/data-partitioning-strategies.md
+    - name: Deployment stamp
+      href: best-practices/deployment-stamp.md
     - name: Monitoring and diagnostics
       href: best-practices/monitoring.md
-    - name: Naming conventions
-      href: best-practices/naming-conventions.md
     - name: Retry guidance for specific services
       href: best-practices/retry-service-specific.md
     - name: Transient fault handling
       href: best-practices/transient-faults.md
-  - name: Performance Antipatterns
+  - name: Performance tuning
     items:
-    - name: Overview
-      href: antipatterns/index.md
-    - name: Busy Database
-      href: antipatterns/busy-database/index.md
-    - name: Busy Front End
-      href: antipatterns/busy-front-end/index.md
-    - name: Chatty I/O
-      href: antipatterns/chatty-io/index.md
-    - name: Extraneous Fetching
-      href: antipatterns/extraneous-fetching/index.md
-    - name: Improper Instantiation
-      href: antipatterns/improper-instantiation/index.md
-    - name: Monolithic Persistence
-      href: antipatterns/monolithic-persistence/index.md
-    - name: No Caching
-      href: antipatterns/no-caching/index.md
-    - name: Synchronous I/O
-      href: antipatterns/synchronous-io/index.md
+    - name: Introduction
+      href: performance/index.md
+    - name: Scenario 1 - Distributed transactions
+      href: performance/distributed-transaction.md
+    - name: Scenario 2 - Multiple backend services
+      href: performance/backend-services.md
+    - name: Scenario 3 - Event streaming
+      href: performance/event-streaming.md
+    - name: Performance antipatterns
+      items:
+      - name: Overview
+        href: antipatterns/index.md
+      - name: Busy Database
+        href: antipatterns/busy-database/index.md
+      - name: Busy Front End
+        href: antipatterns/busy-front-end/index.md
+      - name: Chatty I/O
+        href: antipatterns/chatty-io/index.md
+      - name: Extraneous Fetching
+        href: antipatterns/extraneous-fetching/index.md
+      - name: Improper Instantiation
+        href: antipatterns/improper-instantiation/index.md
+      - name: Monolithic Persistence
+        href: antipatterns/monolithic-persistence/index.md
+      - name: No Caching
+        href: antipatterns/no-caching/index.md
+      - name: Synchronous I/O
+        href: antipatterns/synchronous-io/index.md
   - name: Azure for AWS Professionals
     items:
     - name: Overview
       href: aws-professional/index.md
     - name: Services comparison
       href: aws-professional/services.md
-
+- name: Azure Architecture Framework
+  items:
+  - name: Overview
+    href: framework/index.md
+  - name: Cost
+    items:
+    - name: Overview
+      href: framework/cost/overview.md
+    - name: Cost modeling
+      href: framework/cost/modeling.md
+    - name: Cost monitoring
+      href: framework/cost/monitoring.md
+    - name: Data management
+      href: framework/cost/data-management.md
+    - name: Optimizing cloud costs
+      href: framework/cost/optimizing.md
+    - name: Provisioning
+      href: framework/cost/provisioning.md
+    - name: Trade-offs
+      href: framework/cost/tradeoffs.md
+    - name: Checklist
+      href: framework/cost/checklist.md
+  - name: DevOps
+    items:
+    - name: Overview
+      href: framework/devops/overview.md
+    - name: Application design
+      href: framework/devops/app-design.md
+    - name: Branching strategies
+      href: framework/devops/gitflow-branch-workflow.md
+    - name: Development
+      href: framework/devops/development.md
+    - name: Deployment
+      href: framework/devops/deployment.md
+    - name: Infrastructure Deployments
+      href: framework/devops/iac.md
+    - name: Monitoring
+      href: framework/devops/monitoring.md
+    - name: Performance
+      href: framework/devops/performance.md
+    - name: Testing
+      href: framework/devops/testing.md
+    - name: Checklist
+      href: checklist/dev-ops.md
+  - name: Resiliency
+    items:
+    - name: Overview
+      href: framework/resiliency/overview.md
+    - name: Application design
+      items:
+      - name: Design overview
+        href: framework/resiliency/app-design.md
+      - name: Error handling
+        href: framework/resiliency/app-design-error-handling.md
+      - name: Failure mode analysis
+        href: resiliency/failure-mode-analysis.md
+    - name: Backup and recovery
+      href: framework/resiliency/backup-and-recovery.md
+    - name: Business metrics
+      href: framework/resiliency/business-metrics.md
+    - name: Data management
+      href: framework/resiliency/data-management.md
+    - name: Monitoring and disaster recovery
+      href: framework/resiliency/monitoring.md
+    - name: Recover from a region-wide service disruption
+      href: resiliency/recovery-loss-azure-region.md
+    - name: Resiliency testing
+      href: framework/resiliency/testing.md
+    - name: Checklist
+      href: checklist/resiliency-per-service.md
+  - name: Scalability
+    items:
+    - name: Overview
+      href: framework/scalability/overview.md
+    - name: Application design
+      href: framework/scalability/app-design.md
+    - name: Capacity planning
+      href: framework/scalability/capacity.md
+    - name: Load testing
+      href: framework/scalability/load-testing.md
+    - name: Monitoring
+      href: framework/scalability/monitoring.md
+    - name: Checklist
+      href: checklist/scalability.md
+  - name: Security
+    items:
+    - name: Overview
+      href: framework/security/overview.md
+    - name: Role of security
+      href: framework/security/role-of-security.md
+    - name: Security design principles
+      href: framework/security/security-principles.md
+    - name: Types of attacks to resist
+      href: framework/security/architecture-type.md
+    - name: Regulatory compliance
+      href: framework/security/law-authority.md
+    - name: Reduce organizational risk
+      href: framework/security/resilience.md
+    - name: Governance, risk, and compliance
+      href: framework/security/governance.md
+    - name: Identity and access management
+      href: framework/security/identity.md
+    - name: Network security and containment
+      href: framework/security/network-security-containment.md
+    - name: Storage, data, and encryption
+      href: framework/security/storage-data-encryption.md
+    - name: Applications and services
+      href: framework/security/applications-services.md
+    - name: Administration
+      href: framework/security/critical-impact-accounts.md
+    - name: Security operations
+      href: framework/security/security-operations.md
 - name: Design Patterns
   items:
   - name: Overview
     href: patterns/index.md
+  - name: Categories
+    items:
+    - name: Availability
+      href: patterns/category/availability.md
+    - name: Data management
+      href: patterns/category/data-management.md
+    - name: Design and implementation
+      href: patterns/category/design-implementation.md
+    - name: Management and monitoring
+      href: patterns/category/management-monitoring.md
+    - name: Messaging
+      href: patterns/category/messaging.md
+    - name: Performance and scalability
+      href: patterns/category/performance-scalability.md
+    - name: Resiliency
+      href: patterns/category/resiliency.md
+    - name: Security
+      href: patterns/category/security.md
   - name: Ambassador
     href: patterns/ambassador.md
   - name: Anti-corruption Layer
     href: patterns/anti-corruption-layer.md
-  - name: Availability
-    href: patterns/category/availability.md
+  - name: Asynchronous Request-Reply
+    href: patterns/async-request-reply.md
   - name: Backends for Frontends
     href: patterns/backends-for-frontends.md
   - name: Bulkhead
     href: patterns/bulkhead.md
   - name: Cache-Aside
     href: patterns/cache-aside.md
+  - name: Choreography
+    href: patterns/choreography.md
   - name: Circuit Breaker
     href: patterns/circuit-breaker.md
   - name: Claim Check
@@ -135,10 +277,6 @@ items:
     href: patterns/competing-consumers.md
   - name: Compute Resource Consolidation
     href: patterns/compute-resource-consolidation.md
-  - name: Data management
-    href: patterns/category/data-management.md
-  - name: Design and implementation
-    href: patterns/category/design-implementation.md
   - name: Event Sourcing
     href: patterns/event-sourcing.md
   - name: External Configuration Store
@@ -159,14 +297,8 @@ items:
     href: patterns/index-table.md
   - name: Leader Election
     href: patterns/leader-election.md
-  - name: Management and monitoring
-    href: patterns/category/management-monitoring.md
   - name: Materialized View
     href: patterns/materialized-view.md
-  - name: Messaging
-    href: patterns/category/messaging.md
-  - name: Performance and scalability
-    href: patterns/category/performance-scalability.md
   - name: Pipes and Filters
     href: patterns/pipes-and-filters.md
   - name: Priority Queue
@@ -175,14 +307,12 @@ items:
     href: patterns/publisher-subscriber.md
   - name: Queue-Based Load Leveling
     href: patterns/queue-based-load-leveling.md
-  - name: Resiliency
-    href: patterns/category/resiliency.md
   - name: Retry
     href: patterns/retry.md
   - name: Scheduler Agent Supervisor
     href: patterns/scheduler-agent-supervisor.md
-  - name: Security
-    href: patterns/category/security.md
+  - name: Sequential Convoy
+    href: patterns/sequential-convoy.md
   - name: Sharding
     href: patterns/sharding.md
   - name: Sidecar
@@ -195,71 +325,9 @@ items:
     href: patterns/throttling.md
   - name: Valet Key
     href: patterns/valet-key.md
-
-- name: Pillars of software quality
-  items:
-  - name: Overview
-    href: guide/pillars.md
-  - name: Reliability
-    items:
-    - name: Overview
-      href: reliability/index.md
-    - name: Define requirements
-      href: reliability/requirements.md
-    - name: Architect for reliability
-      href: reliability/architect.md
-    - name: Test for reliability
-      href: reliability/testing.md
-    - name: Deploy for reliability
-      href: reliability/deploy.md
-    - name: Monitor application health
-      href: reliability/monitoring.md
-    - name: Respond to failures and disasters
-      href: reliability/disaster-recovery.md
-  - name: Resiliency
-    items:
-    - name: Checklist
-      href: checklist/resiliency-per-service.md
-    - name: Failure mode analysis
-      href: resiliency/failure-mode-analysis.md
-    - name: Recover from a region-wide service disruption
-      href: resiliency/recovery-loss-azure-region.md
-    - name: Recover from data corruption or accidental deletion
-      href: resiliency/recovery-data-corruption.md
-  - name: Security
-    items: 
-    - name: Overview
-      href: security/overview.md
-    - name: Security design principles
-      href: security/security-principles.md
-    - name: Types of attacks to resist
-      href: security/architecture-type.md
-    - name: Regulatory compliance
-      href: security/law-authority.md
-    - name: Reduce organizational risk
-      href: security/resilience.md            
-    - name: Governance, risk, and compliance
-      href: security/governance.md
-    - name: Identity and access management
-      href: security/identity.md      
-    - name: Network security and containment
-      href: security/network-security-containment.md
-    - name: Storage, data, and encryption
-      href: security/storage-data-encryption.md
-    - name: Applications and services
-      href: security/applications-services.md
-    - name: Administration
-      href: security/critical-impact-accounts.md
-    - name: Security operations
-      href: security/security-operations.md
-  - name: Scalability
-    items:
-    - name: Checklist
-      href: checklist/scalability.md
-
 - name: Technologies
   expanded: true
-  items:   
+  items:
   - name: AI and machine learning
     items:
     - name: Overview
@@ -292,7 +360,6 @@ items:
         href: reference-architectures/ai/conversational-bot.md
       - name: Real-time recommendation API
         href: reference-architectures/ai/real-time-recommendation.md
-
     - name: Technology choices
       items:
       - name: Cognitive services
@@ -315,16 +382,198 @@ items:
         href: example-scenario/ai/newsfeed-ingestion.md
       - name: Scalable personalization
         href: example-scenario/ai/scalable-personalization.md
-
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/ai-at-the-edge.md
+        name: AI at the Edge with Azure Stack
+      - href: solution-ideas/articles/ai-at-the-edge-disconnected.md
+        name: Disconnected AI at the Edge with Azure Stack
+      - href: solution-ideas/articles/anomaly-detection-in-real-time-data-streams.md
+        name: Anomaly Detection in Real-time Data Streams
+      - href: solution-ideas/articles/enterprise-productivity-chatbot.md
+        name: Enterprise Productivity Chatbot
+      - href: solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.md
+        name: Campaign Optimization with HDInsight Spark
+      - href: solution-ideas/articles/campaign-optimization-with-sql-server.md
+        name: Campaign Optimization with SQL Server
+      - href: solution-ideas/articles/commerce-chatbot.md
+        name: Commerce Chatbot
+      - href: solution-ideas/articles/customer-360.md
+        name: Customer 360
+      - href: solution-ideas/articles/customer-churn-prediction.md
+        name: Customer Churn Prediction
+      - href: solution-ideas/articles/demand-forecasting.md
+        name: Demand Forecasting
+      - href: solution-ideas/articles/demand-forecasting-and-price-optimization.md
+        name: Demand Forecasting and Price Optimization
+      - href: solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.md
+        name: Demand Forecasting for Shipping and Distribution
+      - href: solution-ideas/articles/dev-test-image-factory.md
+        name: DevTest Image Factory
+      - href: solution-ideas/articles/energy-supply-optimization.md
+        name: Energy Supply Optimization
+      - href: solution-ideas/articles/information-chatbot.md
+        name: Information Chatbot
+      - href: solution-ideas/articles/image-classification-with-convolutional-neural-networks.md
+        name: Image classification with Convolutional Neural Networks
+      - href: solution-ideas/articles/information-discovery-with-deep-learning-and-nlp.md
+        name: Information discovery with NLP
+      - href: solution-ideas/articles/interactive-price-analytics.md
+        name: Interactive Price Analytics
+      - href: solution-ideas/articles/interactive-voice-response-bot.md
+        name: Interactive Voice Response Bot
+      - href: solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.md
+        name: Loan Prediction with HDInsight and Spark
+      - href: solution-ideas/articles/loan-chargeoff-prediction-with-sql-server.md
+        name: Loan ChargeOff Prediction with SQL Server
+      - href: solution-ideas/articles/loan-credit-risk-with-sql-server.md
+        name: Loan Credit Risk with SQL Server
+      - href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.md
+        name: Oil and Gas Tank Level Forecasting
+      - href: solution-ideas/articles/optimize-marketing-with-machine-learning.md
+        name: Optimize Marketing with Machine Learning
+      - href: solution-ideas/articles/personalized-offers.md
+        name: Personalized Offers
+      - href: solution-ideas/articles/population-health-management-for-healthcare.md
+        name: Population Health Management for Healthcare
+      - href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.md
+        name: Predicting Length of Stay in Hospitals
+      - href: solution-ideas/articles/predictive-maintenance.md
+        name: Predictive Maintenance
+      - href: solution-ideas/articles/quality-assurance.md
+        name: Quality Assurance
+      - href: solution-ideas/articles/real-time-analytics.md
+        name: Real Time Analytics on Big Data Architecture
+      - href: solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.md
+        name: Retail Assistant with Visual Capabilities
+      - href: solution-ideas/articles/social-mobile-and-web-app-with-authentication.md
+        name: Social App for Mobile and Web with Authentication
+      - href: solution-ideas/articles/digital-media-speech-text.md
+        name: Keyword search/speech-to-text/OCR digital media
+      - href: solution-ideas/articles/telemetry-analytics.md
+        name: Telemetry Analytics
+      - href: solution-ideas/articles/visual-assistant.md
+        name: Visual Assistant
+      - href: solution-ideas/articles/cross-platform-chat.md
+        name: Cross-platform Chat
+      - href: solution-ideas/articles/demand-forecasting-price-optimization-marketing.md
+        name: Demand Forecasting + Price Optimization
+      - href: solution-ideas/articles/faq-chatbot-with-data-champion-model.md
+        name: FAQ Chatbot with data champion model
+      - href: solution-ideas/articles/migrate-existing-applications-with-aks.md
+        name: Lift and shift to containers with AKS
+      - href: solution-ideas/articles/machine-learning-with-aks.md
+        name: Machine Learning model training with AKS
+  - name: Analytics
+    items:
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/advanced-analytics-on-big-data.md
+        name: Advanced Analytics Architecture
+      - href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.md
+        name: Discovery Hub with Cloud Scale Analytics
+      - href: solution-ideas/articles/predictive-marketing-campaigns-with-machine-learning-and-spark.md
+        name: Predictive Marketing with Machine Learning
+      - href: solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.md
+        name: Finance management apps using Azure Database for MySQL
+      - href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.md
+        name: Finance management apps using Azure Database for PostgreSQL
+      - href: solution-ideas/articles/interactive-querying-with-hdinsight.md
+        name: Interactive querying with HDInsight
+      - href: solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling.md
+        name: Loan Credit Risk + Default Modeling
+      - href: solution-ideas/articles/real-time-web-dashboard.md
+        name: Real-time Web Dashboard
+      - href: solution-ideas/articles/tiered-data-for-analytics.md
+        name: Tier Applications & Data for Analytics
+  - name: Anomaly detection
+    items:
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/anomaly-detector-process.md
+        name: Anomaly Detector Process
+      - href: solution-ideas/articles/defect-prevention-with-predictive-maintenance.md
+        name: Defect prevention with predictive maintenance
+      - href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.md
+        name: Predictive Aircraft Engine Monitoring
+      - href: solution-ideas/articles/predictive-insights-with-vehicle-telematics.md
+        name: Predictive Insights with Vehicle Telematics
+  - name: Application development
+    items:
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/application-integration-using-event-grid.md
+        name: Application integration using Event Grid
+      - href: solution-ideas/articles/custom-mobile-workforce-app.md
+        name: Custom Mobile Workforce App
+      - href: solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.md
+        name: Digital Campaign Management
+      - href: solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.md
+        name: Digital Marketing using Azure Database for MySQL
+      - href: solution-ideas/articles/ecommerce-website-running-in-secured-ase.md
+        name: E-commerce website running in secured App Service Environment
+      - href: solution-ideas/articles/gaming-using-azure-database-for-mysql.md
+        name: Gaming using Azure Database for MySQL
+      - href: solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.md
+        name: Globally distributed applications using Cosmos DB
+      - href: solution-ideas/articles/hybrid-identity.md
+        name: Hybrid Identity
+      - href: solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql.md
+        name: Intelligent apps using Azure Database for MySQL
+      - href: solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql.md
+        name: Intelligent apps using Azure Database for PostgreSQL
+      - href: solution-ideas/articles/messaging.md
+        name: Messaging
+      - href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.md
+        name: Retail and e-commerce using Azure MySQL
+      - href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.md
+        name: Retail and e-commerce using Azure PostgreSQL
+      - href: solution-ideas/articles/medium-umbraco-web-app.md
+        name: Scalable Umbraco CMS web app
+      - href: solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.md
+        name: Scalable web and mobile applications using Azure Database for MySQL
+      - href: solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.md
+        name: Scalable web and mobile applications using Azure Database for PostgreSQL
+      - href: solution-ideas/articles/speech-services.md
+        name: Speech Services
+      - href: solution-ideas/articles/task-based-consumer-mobile-app.md
+        name: Task-Based Consumer Mobile App
+  - name: App modernization
+    items:
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md
+        name: Lift and Shift and Innovate - LOB Apps
+      - href: solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.md
+        name: Lift and Shift and Innovate - LOB Apps
+      - href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.md
+        name: Serverless Computing Solution for LOB Apps
+      - href: solution-ideas/articles/unlock-legacy-data.md
+        name: Unlock Legacy Data with Azure Stack
   - name: Blockchain
     items:
     - name: Example workloads
       items:
       - name: Decentralized trust between banks
         href: example-scenario/apps/decentralized-trust.md
-
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/blockchain-workflow-application.md
+        name: Blockchain Workflow Application
+      - href: solution-ideas/articles/supply-chain-track-and-trace.md
+        name: Supply Chain Track and Trace
   - name: Data architectures
     items:
+    - name: Reference architectures
+      items:
+      - name: Enterprise BI with Azure Synapse Analytics
+        href: reference-architectures/data/enterprise-bi-synapse.md
+      - name: Automated enterprise BI with Azure Data Factory
+        href: reference-architectures/data/enterprise-bi-adf.md
+      - name: Stream processing with Azure Databricks
+        href: reference-architectures/data/stream-processing-databricks.md
+      - name: Stream processing with Azure Stream Analytics
+        href: reference-architectures/data/stream-processing-stream-analytics.md
     - name: Guides
       items:
       - name: Overview
@@ -351,8 +600,6 @@ items:
           href: data-guide/big-data/real-time-processing.md
       - name: Technology choices
         items:
-        - name: Overview
-          href: guide/technology-choices/data-store-overview.md
         - name: Analytical data stores
           href: data-guide/technology-choices/analytical-data-stores.md
         - name: Analytics and reporting
@@ -381,16 +628,6 @@ items:
           href: databricks-monitoring/dashboards.md
         - name: Troubleshoot performance bottlenecks
           href: databricks-monitoring/performance-troubleshooting.md
-    - name: Reference architectures
-      items:
-      - name: Automated enterprise BI with Azure Data Factory
-        href: reference-architectures/data/enterprise-bi-adf.md
-      - name: Enterprise BI with SQL Data Warehouse
-        href: reference-architectures/data/enterprise-bi-sqldw.md
-      - name: Stream processing with Azure Databricks
-        href: reference-architectures/data/stream-processing-databricks.md
-      - name: Stream processing with Azure Stream Analytics
-        href: reference-architectures/data/stream-processing-stream-analytics.md
     - name: Example workloads
       items:
       - name: Advanced analytics
@@ -419,11 +656,36 @@ items:
         href: example-scenario/data/ecommerce-order-processing.md
       - name: Securing data solutions
         href: data-guide/scenarios/securing-data-solutions.md
-      - name: Time series solutions 
+      - name: Time series solutions
         href: data-guide/scenarios/time-series.md
       - name: Working with CSV and JSON files
         href: data-guide/scenarios/csv-and-json.md
-
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/data-sovereignty-and-gravity.md
+        name: Custom Data Sovereignty & Data Gravity Requirements
+      - href: solution-ideas/articles/data-streaming-scenario.md
+        name: Data Streaming scenario
+      - href: solution-ideas/articles/data-cache-with-redis-cache.md
+        name: Data cache
+      - href: solution-ideas/articles/modern-data-warehouse.md
+        name: Modern Data Warehouse Architecture
+      - href: solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.md
+        name: Extend your on-premises big data investments with HDInsight
+      - href: solution-ideas/articles/extract-transform-and-load-using-hdinsight.md
+        name: Extract, transform, and load (ETL) using HDInsight
+      - href: solution-ideas/articles/security-compliance-blueprint-hippa-hitrust-health-data-ai.md
+        name: Medical Data Storage Solutions
+      - href: solution-ideas/articles/medical-data-storage.md
+        name: Medical Data Storage Solutions
+      - href: solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure.md
+        name: Oracle Database Migration to Azure
+      - href: solution-ideas/articles/personalization-using-cosmos-db.md
+        name: Personalization using Cosmos DB
+      - href: solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.md
+        name: Running Oracle Databases on Azure
+      - href: solution-ideas/articles/streaming-using-hdinsight.md
+        name: Streaming using HDInsight
   - name: DevOps
     items:
     - name: Checklist
@@ -450,7 +712,56 @@ items:
         href: example-scenario/apps/devops-with-aks.md
       - name: Jenkins server
         href: example-scenario/apps/jenkins.md
-
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/cicd-for-azure-vms.md
+        name: CI/CD for Azure VMs
+      - href: solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.md
+        name: CI/CD for Azure Web Apps
+      - href: solution-ideas/articles/cicd-for-containers.md
+        name: CI/CD for Containers
+      - href: solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.md
+        name: Container CI/CD using Jenkins and Kubernetes (AKS)
+      - href: solution-ideas/articles/hybrid-ci-cd.md
+        name: Hybrid CI/CD
+      - href: solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.md
+        name: CI/CD using Jenkins and Terraform
+      - href: solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps.md
+        name: Java CI/CD using Jenkins and Azure Web Apps
+      - href: solution-ideas/articles/simple-branded-website.md
+        name: Simple branded website
+      - href: solution-ideas/articles/scale-using-aks-with-aci.md
+        name: Bursting from AKS with ACI
+      - href: solution-ideas/articles/dev-test-iaas.md
+        name: Dev-Test deployment for testing IaaS solutions
+      - href: solution-ideas/articles/dev-test-paas.md
+        name: Dev-Test deployment for testing PaaS solutions
+      - href: solution-ideas/articles/dev-test-microservice.md
+        name: Dev-Test deployment for testing microservice solutions
+      - href: solution-ideas/articles/microservices-with-aks.md
+        name: Microservices with AKS
+      - href: solution-ideas/articles/ops-automation-using-event-grid.md
+        name: Ops automation using Event Grid
+      - href: solution-ideas/articles/secure-devops-for-kubernetes.md
+        name: Secure DevOps for AKS
+  - name: Disaster recovery
+    items:
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/backup-archive-on-premises.md
+        name: Archive on-premises data to cloud
+      - href: solution-ideas/articles/backup-archive-cloud-application.md
+        name: Back up cloud applications and data to cloud
+      - href: solution-ideas/articles/backup-archive-on-premises-applications.md
+        name: Back up on-premises applications and data to cloud
+      - href: solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.md
+        name: Build high availability into your BCDR strategy
+      - href: solution-ideas/articles/disaster-recovery-enterprise-scale-dr.md
+        name: Enterprise-scale disaster recovery
+      - href: solution-ideas/articles/highly-available-sharepoint-farm.md
+        name: Highly available SharePoint farm
+      - href: solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.md
+        name: SMB disaster recovery with Azure Site Recovery
   - name: Enterprise integration
     items:
     - name: Reference architectures
@@ -459,7 +770,6 @@ items:
         href: reference-architectures/enterprise-integration/basic-enterprise-integration.md
       - name: Enterprise integration with queues and events
         href: reference-architectures/enterprise-integration/queues-events.md
-
   - name: High performance computing (HPC)
     items:
     - name: Overview
@@ -476,9 +786,42 @@ items:
         href: example-scenario/infrastructure/image-modeling.md
       - name: Linux virtual desktops
         href: example-scenario/infrastructure/linux-vdi-citrix.md
-
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/hpc-risk-analysis.md
+        name: HPC Risk Analysis Template  Solution Architecture
+      - href: solution-ideas/articles/big-compute-with-azure-batch.md
+        name: HPC System and Big Compute Solutions
+      - href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.md
+        name: Hybrid HPC in Azure with HPC Pack
+      - href: solution-ideas/articles/azure-batch-rendering.md
+        name: Media Rendering  HPC Solution Architecture
+      - href: solution-ideas/articles/hpc-cluster.md
+        name: HPC cluster deployed in the cloud
+  - name: Hybrid infrastructure
+    items:
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/cross-cloud-scaling.md
+        name: Cross Cloud Scaling Architecture
+      - href: solution-ideas/articles/hybrid-connectivity.md
+        name: Hybrid Connection
+      - href: solution-ideas/articles/sharepoint-farm-office-365.md
+        name: Hybrid SharePoint Farm with Office 365
   - name: Identity
     items:
+    - name: Reference architectures
+      items:
+      - name: Choose an Active Directory integration architecture
+        href: reference-architectures/identity/index.md
+      - name: Integrate on-premises AD with Azure AD
+        href: reference-architectures/identity/azure-ad.md
+      - name: Extend AD DS to Azure
+        href: reference-architectures/identity/adds-extend-domain.md
+      - name: Create an AD DS forest in Azure
+        href: reference-architectures/identity/adds-forest.md
+      - name: Extend AD FS to Azure
+        href: reference-architectures/identity/adfs.md
     - name: Guides
       items:
       - name: Identity in multitenant applications
@@ -505,19 +848,6 @@ items:
           href: multitenant-identity/client-assertion.md
         - name: Federate with a customer's AD FS
           href: multitenant-identity/adfs.md
-    - name: Reference architectures
-      items:
-      - name: Choose an Active Directory integration architecture
-        href: reference-architectures/identity/index.md
-      - name: Integrate on-premises AD with Azure AD
-        href: reference-architectures/identity/azure-ad.md
-      - name: Extend AD DS to Azure
-        href: reference-architectures/identity/adds-extend-domain.md
-      - name: Create an AD DS forest in Azure
-        href: reference-architectures/identity/adds-forest.md
-      - name: Extend AD FS to Azure
-        href: reference-architectures/identity/adfs.md
-
   - name: Internet of Things (IoT)
     items:
     - name: Reference architectures
@@ -530,16 +860,31 @@ items:
         href: example-scenario/data/realtime-analytics-vehicle-iot.md
       - name: Telehealth System
         href: example-scenario/apps/telehealth-system.md
-
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/iot-devices.md
+        name: IoT devices
+      - href: solution-ideas/articles/iot-using-cosmos-db.md
+        name: IoT using Cosmos DB
+      - href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.md
+        name: Facilities management powered by mixed reality and IoT
+      - href: solution-ideas/articles/iot-with-aks.md
+        name: IoT device deployment and management on demand
+      - href: solution-ideas/articles/azure-iot-subsystems.md
+        name: Azure IoT Subsystems
   - name: Microservices
     items:
     - name: Overview
       href: microservices/index.md
-    - name: Introduction to microservices
-      href: microservices/introduction.md
+    - name: Reference architectures
+      items:
+      - name: Azure Kubernetes Service (AKS)
+        href: reference-architectures/microservices/aks.md
+      - name: Azure Service Fabric
+        href: reference-architectures/microservices/service-fabric.md
     - name: Guides
       items:
-      - name: Modeling microservices
+      - name: Domain modeling for microservices
         items:
         - name: Domain analysis
           href: microservices/model/domain-analysis.md
@@ -571,27 +916,26 @@ items:
           href: microservices/ci-cd.md
         - name: CI/CD for microservices on Kubernetes
           href: microservices/ci-cd-kubernetes.md
-      - name: Modernize enterprise applications with Azure Service Fabric
-        href: service-fabric/modernize-app-azure-service-fabric.md
-      - name: Migrate from Cloud Services to Service Fabric
-        href: service-fabric/migrate-from-cloud-services.md
-    - name: Reference architectures
-      items:
-      - name: Azure Kubernetes Service (AKS)
-        href: reference-architectures/microservices/aks.md
-      - name: Azure Service Fabric
-        href: reference-architectures/microservices/service-fabric.md
+      - name: Migrate to a microservices architecture
+        items:
+        - name: Migrate a monolith application to microservices
+          href: microservices/migrate-monolith.md
+        - name: Modernize enterprise applications with Service Fabric
+          href: service-fabric/modernize-app-azure-service-fabric.md
+        - name: Migrate from Cloud Services to Service Fabric
+          href: service-fabric/migrate-from-cloud-services.md
     - name: Example workloads
       items:
       - name: Decomposing a monolithic application
         href: example-scenario/infrastructure/service-fabric-microservices.md
-
   - name: Networking
     items:
     - name: Hybrid networking
       items:
       - name: Choose a hybrid network architecture
         href: reference-architectures/hybrid-networking/index.md
+      - name: Choose between virtual network peering and VPN gateways
+        href: reference-architectures/hybrid-networking/vnet-peering.md
       - name: VPN
         href: reference-architectures/hybrid-networking/vpn.md
       - name: ExpressRoute
@@ -607,29 +951,75 @@ items:
     - name: Network DMZ
       items:
       - name: DMZ between Azure and on-premises
-        href: reference-architectures/dmz/secure-vnet-hybrid.md
-      - name: DMZ between Azure and the Internet
         href: reference-architectures/dmz/secure-vnet-dmz.md
       - name: Highly available network virtual appliances
         href: reference-architectures/dmz/nva-ha.md
-
+  - name: SAP
+    items:
+    - name: Reference Architectures
+      items:
+      - name: SAP HANA on Azure Large Instances
+        href: reference-architectures/sap/hana-large-instances.md
+      - name: SAP NetWeaver for AnyDB
+        href: reference-architectures/sap/sap-netweaver.md
+      - name: SAP S/4HANA
+        href: reference-architectures/sap/sap-s4hana.md
+    - name: Example Workloads
+      items:
+      - name: SAP for dev/test
+        href: example-scenario/apps/sap-dev-test.md
+      - name: SAP for production
+        href: example-scenario/apps/sap-production.md
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/sap-netweaver-on-sql-server.md
+        name: SAP NetWeaver on SQLServer
+      - href: solution-ideas/articles/sap-s4-hana-vm-on-linux.md
+        name: SAP S/4 HANA VM on Azure and Linux| Microsoft Azure
+      - href: solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.md
+        name: SAP S/4 HANA for Large Instances
+  - name: Scalability
+    items:
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/gaming-using-cosmos-db.md
+        name: Gaming using Cosmos DB
+      - href: solution-ideas/articles/scalable-web-apps.md
+        name: Scalable Web Apps
   - name: Serverless applications
     items:
     - name: Overview
       href: serverless/index.md
-    - name: Code walkthrough
-      href: serverless/code.md
     - name: Reference architectures
       items:
       - name: Serverless event processing
         href: reference-architectures/serverless/event-processing.md
       - name: Serverless web application
         href: reference-architectures/serverless/web-app.md
-
+      - name: Serverless cloud automation
+        href: reference-architectures/serverless/cloud-automation.md
+    - name: Guides
+      items:
+      - name: Create a serverless backend with Azure Functions
+        href: serverless/code.md
+      - name: CI/CD for a serverless frontend
+        href: serverless/guide/serverless-app-cicd-best-practices.md
+    - name: Example workloads
+      items:
+      - name: Sharing location in real time using Functions and SignalR
+        href: example-scenario/signalr/index.md
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/instant-broadcasting-on-serverless-architecture.md
+        name: Instant broadcasting using serverless
+      - href: solution-ideas/articles/serverless-application-architectures-using-event-grid.md
+        name: Serverless apps using Event Grid
+      - href: solution-ideas/articles/serverless-apps-using-cosmos-db.md
+        name: Serverless apps using Cosmos DB
   - name: VM workloads
     items:
     - name: Reference architectures
-      items:  
+      items:
       - name: Linux VM deployment
         href: reference-architectures/n-tier/linux-vm.md
       - name: Windows VM deployment
@@ -642,25 +1032,12 @@ items:
         href: reference-architectures/n-tier/multi-region-sql-server.md
     - name: Example workloads
       items:
-      - name: Highly scalable WordPress
-        href: example-scenario/infrastructure/wordpress.md
-      - name: Multi-tier Windows
-        href: example-scenario/infrastructure/regulated-multitier-app.md
-      - name: SAP
-        items:
-        - name: SAP HANA on Azure Large Instances
-          href: reference-architectures/sap/hana-large-instances.md
-        - name: SAP NetWeaver for AnyDB
-          href: reference-architectures/sap/sap-netweaver.md
-        - name: SAP S/4HANA
-          href: reference-architectures/sap/sap-s4hana.md
-        - name: SAP for dev/test
-          href: example-scenario/apps/sap-dev-test.md
-        - name: SAP for production
-          href: example-scenario/apps/sap-production.md
+      - name: Apache Cassandra
+        href: best-practices/cassandra.md
       - name: SharePoint Server 2016
         href: reference-architectures/sharepoint/index.md
-
+      - name: WordPress
+        href: example-scenario/infrastructure/wordpress.md
   - name: Web apps
     items:
     - name: Reference architectures
@@ -687,731 +1064,41 @@ items:
         href: example-scenario/apps/fully-managed-secure-apps.md
       - name: Highly available web application
         href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.md
-
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/scalable-ecommerce-web-app.md
+        name: Scalable e-commerce web app
+      - href: solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.md
+        name: Mixed reality powered design review
+      - href: solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.md
+        name: Retail and e-commerce using Cosmos DB
+      - href: solution-ideas/articles/digital-marketing-episerver.md
+        name: Episerver marketing website
+      - href: solution-ideas/articles/digital-marketing-sitecore.md
+        name: Sitecore marketing website
+      - href: solution-ideas/articles/digital-marketing-smb.md
+        name: Simple digital marketing website
+  - name: Other Technologies
+    items:
+    - name: Solution Ideas
+      items:
+      - href: solution-ideas/articles/forecast-energy-power-demand.md
+        name: Forecast Energy and Power Demand
+      - href: solution-ideas/articles/digital-media-live-stream.md
+        name: Live streaming digital media
+      - href: solution-ideas/articles/personalized-marketing.md
+        name: Personalized marketing solutions
+      - href: solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.md
+        name: Predict Length of Stay and Patient Flow
+      - href: solution-ideas/articles/remote-patient-monitoring.md
+        name: Remote Patient Monitoring Solutions
+      - href: solution-ideas/articles/disaster-recovery-smb-double-take-dr.md
+        name: SMB disaster recovery with Double-Take
+      - href: solution-ideas/articles/sharepoint-farm-devtest.md
+        name: SharePoint Farm for Development Testing
+      - href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.md
+        name: Training and procedural guidance powered by mixed reality
+      - href: solution-ideas/articles/digital-media-video.md
+        name: Video-on-demand digital media
 - name: Cloud Adoption Framework
-  items:
-  - name: Introduction
-    href: cloud-adoption/index.md
-  - name: Getting started
-    items:
-    - name: Understand the migration journey
-      href: cloud-adoption/getting-started/migrate.md
-    - name: Understand the innovation journey
-      href: cloud-adoption/getting-started/innovate.md
-    - name: Enable success during either journey
-      href: cloud-adoption/getting-started/enable.md
-  - name: Strategy
-    items:
-    - name: Overview
-      href: cloud-adoption/business-strategy/index.md
-    - name: Motivations (Why are we moving to the cloud?)
-      href: cloud-adoption/business-strategy/motivations-why-are-we-moving-to-the-cloud.md
-    - name: Business outcomes
-      items:
-      - name: Overview - what are business outcomes?
-        href: cloud-adoption/business-strategy/business-outcomes/index.md
-      - name: Fiscal outcomes
-        href: cloud-adoption/business-strategy/business-outcomes/fiscal-outcomes.md
-      - name: Agility outcomes
-        href: cloud-adoption/business-strategy/business-outcomes/agility-outcomes.md
-      - name: Reach outcomes
-        href: cloud-adoption/business-strategy/business-outcomes/reach-outcomes.md
-      - name: Engagement outcomes
-        href: cloud-adoption/business-strategy/business-outcomes/engagement-outcomes.md
-      - name: Performance outcomes
-        href: cloud-adoption/business-strategy/business-outcomes/performance-outcomes.md
-      - name: How to use business outcomes
-        href: cloud-adoption/business-strategy/business-outcomes/how-to-use-the-business-outcome-template.md
-      - name: Align technical effort to learning metrics 
-        href: cloud-adoption/business-strategy/learning-metrics.md
-    - name: Business justification
-      items:
-      - name: Build a cloud migration business case
-        href: cloud-adoption/business-strategy/cloud-migration-business-case.md
-      - name: Create a financial model for cloud transformation
-        href: cloud-adoption/business-strategy/financial-models.md
-      - name: What is cloud accounting?
-        href: cloud-adoption/business-strategy/cloud-accounting.md
-    - name: First adoption project
-      href: cloud-adoption/business-strategy/first-adoption-project.md
-    - name: Suggested skills
-      href: cloud-adoption/business-strategy/suggested-skills.md
-  - name: Plan
-    items:
-    - name: Overview
-      href: cloud-adoption/plan/index.md
-    - name: Digital estate
-      items: 
-      - name: The 5 Rs of rationalization 
-        href: cloud-adoption/digital-estate/5-rs-of-rationalization.md
-      - name: What is a digital estate?
-        href: cloud-adoption/digital-estate/index.md
-      - name: Approaches to digital estate planning
-        href: cloud-adoption/digital-estate/approach.md
-      - name: Gather inventory data
-        href: cloud-adoption/digital-estate/inventory.md
-      - name: Rationalize the digital estate
-        href: cloud-adoption/digital-estate/rationalize.md
-      - name: Align cost models to forecast cost
-        href: cloud-adoption/digital-estate/calculate.md
-    - name: Initial organization alignment
-      href: cloud-adoption/plan/initial-org-alignment.md
-    - name: Skills readiness - Adapt roles, skills, and processes
-      href: cloud-adoption/plan/adapt-roles-skills-processes.md
-    - name: Cloud adoption plan
-      items: 
-      - name: Introduction
-        href: cloud-adoption/plan/plan-intro.md
-      - name: Prerequisites
-        href: cloud-adoption/plan/prerequisites.md
-      - name: Deploy the cloud adoption plan template to Azure DevOps
-        href: cloud-adoption/plan/template.md
-      - name: Define and prioritize workloads
-        href: cloud-adoption/plan/workloads.md
-      - name: Align assets to workloads
-        href: cloud-adoption/plan/assets.md
-      - name: Review rationalization decisions 
-        href: cloud-adoption/plan/review-rationalization.md
-      - name: Update iteration paths (define releases and iterations)
-        href: cloud-adoption/plan/iteration-paths.md
-      - name: Create timelines
-        href: cloud-adoption/plan/timelines.md
-    - name: Suggested skills
-      href: cloud-adoption/plan/suggested-skills.md
-    - name: Adapt existing roles, skills, and processes 
-      href: cloud-adoption/plan/adapt-roles-skills-processes.md
-  - name: Ready
-    items:
-    - name: Overview
-      href: cloud-adoption/ready/index.md
-    - name: Azure readiness guide
-      items:
-      - name: Before you start
-        href: cloud-adoption/ready/azure-readiness-guide/index.md
-      - name: Organize your resources
-        href: cloud-adoption/ready/azure-readiness-guide/organize-resources.md
-      - name: Manage access
-        href: cloud-adoption/ready/azure-readiness-guide/manage-access.md
-      - name: Manage costs and billing
-        href: cloud-adoption/ready/azure-readiness-guide/manage-costs.md
-      - name: Plan governance, security, and compliance
-        href: cloud-adoption/ready/azure-readiness-guide/govern-org-compliance.md
-      - name: Use monitoring and reporting
-        href: cloud-adoption/ready/azure-readiness-guide/monitoring-reporting.md
-      - name: Staying current with Azure
-        href: cloud-adoption/ready/azure-readiness-guide/staying-current.md
-      - name: Deploy a migration landing zone
-        href: cloud-adoption/ready/azure-readiness-guide/migration-landing-zone.md
-    - name: Landing zone considerations
-      items: 
-      - name: Overview
-        href: cloud-adoption/ready/considerations/index.md
-      - name: Azure fundamental concepts
-        href: cloud-adoption/ready/considerations/fundamental-concepts.md
-      - name: Choosing compute services
-        href: cloud-adoption/ready/considerations/compute-decisions.md
-      - name: Networking decisions
-        href: cloud-adoption/ready/considerations/network-decisions.md
-      - name: Storage guidance
-        href: cloud-adoption/ready/considerations/storage-guidance.md
-      - name: Choosing a data store
-        href: cloud-adoption/ready/considerations/data-decisions.md
-      - name: Role-based access controls
-        href: cloud-adoption/ready/azure-best-practices/roles.md
-      - name: Create hybrid cloud consistency
-        href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
-    - name: Best practices
-      items: 
-      - name: Overview
-        href: cloud-adoption/ready/azure-best-practices/index.md
-      - name: Azure primitives
-        items:
-        - name: Scaling with multiple subscriptions
-          href: cloud-adoption/ready/considerations/scaling-subscriptions.md
-        - name: Naming and tagging
-          href: cloud-adoption/ready/considerations/name-and-tag.md
-      - name: Networking
-        items:
-        - name: Planning virtual networks
-          href: https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-        - name: Best practices for network security
-          href: https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-        - name: Workload migration networking best practices
-          href: https://docs.microsoft.com/azure/migrate/migrate-best-practices-networking?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-        - name: Perimeter networks
-          href: cloud-adoption/ready/azure-best-practices/perimeter-networks.md
-        - name: Hub-spoke network topology
-          href: cloud-adoption/ready/azure-best-practices/hub-spoke-network-topology.md
-      - name: Identity and access controls
-        items:
-          - name: Identity management best practices
-            href: https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-          - name: Securing admin access in Azure AD
-            href: https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-          - name: Choose Azure AD authentication
-            href: https://docs.microsoft.com/azure/security/azure-ad-choose-authn?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-      - name: Storage
-        items:
-        - name: Storage security guide
-          href: https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-      - name: Databases
-        items:
-        - name: Database security best practices
-          href: https://docs.microsoft.com/azure/security/azure-database-security-best-practices?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-        - name: Choosing a version of Azure SQL 
-          href: https://docs.microsoft.com/azure/sql-database/sql-database-paas-vs-sql-server-iaas?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-      - name: Cost management
-        items:
-          - name: Tracking costs across business units, environments, and projects
-            href: cloud-adoption/ready/azure-best-practices/track-costs.md
-          - name: Azure Cost Management best practice
-            href: https://docs.microsoft.com/azure/cost-management/cost-mgt-best-practices?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-          - name: Create and manage budgets
-            href: https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-          - name: Export cost data
-            href: https://docs.microsoft.com/azure/cost-management/tutorial-export-acm-data?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-          - name: Optimize costs based on recommendations
-            href: https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-          - name: Use cost alerts to monitor usage and spending
-            href: https://docs.microsoft.com/azure/cost-management/cost-mgt-alerts-monitor-usage-spending?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-    - name: Suggested skills
-      href: cloud-adoption/ready/suggested-skills.md
-  - name: Adopt
-    items:
-    - name: Migrate
-      items:
-      - name: Overview
-        href: cloud-adoption/migrate/index.md
-      - name: Azure migration guide
-        items:
-        - name: Introduction to the Azure migration guide
-          href: cloud-adoption/migrate/azure-migration-guide/index.md
-        - name: Prerequisites for Azure migration 
-          href: cloud-adoption/migrate/azure-migration-guide/prerequisites.md
-        - name: Assess individual workloads prior to migration
-          href: cloud-adoption/migrate/azure-migration-guide/assess.md
-        - name: Migrate assets that make up a workload
-          href: cloud-adoption/migrate/azure-migration-guide/migrate.md
-        - name: Migration-focused cost control mechanisms
-          href: cloud-adoption/migrate/azure-migration-guide/manage-costs.md
-        - name: Optimize and transform
-          href: cloud-adoption/migrate/azure-migration-guide/optimize-and-transform.md
-        - name: Secure and manage
-          href: cloud-adoption/migrate/azure-migration-guide/secure-and-manage.md
-        - name: Obtain assistance during your migration to Azure
-          href: cloud-adoption/migrate/azure-migration-guide/assistance.md
-      - name: Expanded scope
-        items:
-        - name: Expanded scope checklist
-          href: cloud-adoption/migrate/expanded-scope/index.md
-        - name: Business-driven scope changes
-          items:
-          - name: Balance the portfolio
-            href: cloud-adoption/migrate/expanded-scope/balance-the-portfolio.md
-          - name: Multiple geographic regions
-            href: cloud-adoption/migrate/expanded-scope/multiple-regions.md
-        - name: Culture-driven scope changes
-          items:
-          - name: Skills readiness
-            href: cloud-adoption/migrate/expanded-scope/suggested-skills.md
-        - name: Technical strategy-driven scope changes
-          items:
-          - name: Multiple datacenters
-            href: cloud-adoption/migrate/expanded-scope/multiple-datacenters.md
-          - name: Data requirements exceed network capacity
-            href: cloud-adoption/migrate/expanded-scope/network-capacity-exceeded.md
-          - name: Governance and compliance
-            href: cloud-adoption/migrate/expanded-scope/governance-or-compliance.md
-      - name: Best practices
-        items:
-        - name: Overview
-          href: cloud-adoption/migrate/azure-best-practices/index.md
-        - name: Best practices for assessing workloads
-          items:
-          - name: Assess on-premises resources for migration
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-assessment.md
-        - name: Best practices for migrating workloads
-          items:
-          - name: Set up networking for migrated workloads
-            href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-networking.md
-          - name: Application migration patterns and examples
-            items:
-            - name: Overview
-              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-overview.md
-            - name: Deploy an Azure infrastructure
-              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-infrastructure.md
-            - name: Windows Server workloads
-              items:
-              - name: Rehost an app on Azure VMs
-                href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm.md
-              - name: Rearchitect an app to use Azure containers and Azure SQL Database
-                href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rearchitect-container-sql.md            
-            - name: Linux workloads
-              items:
-              - name: Rehost a Linux app on Azure VMs
-                href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm.md
-              - name: Rehost a Linux app on Azure VMs and Azure Database for MySQL
-                href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm-mysql.md
-            - name: SQL Server workloads
-              items:
-              - name: Rehost an app on Azure VMs and Azure SQL Database Managed Instance
-                href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-managed-instance.md
-              - name: Rehost an app on Azure VMs and SQL Server Always On availability groups
-                href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-ag.md
-            - name: ASP.NET/PHP/Java apps
-              items:
-              - name: Refactor an app on Azure App Service and Azure SQL Database
-                href: cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql.md
-              - name: Refactor a Linux app on Azure App Service and Azure Database for MySQL
-                href: cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-linux-app-service-mysql.md
-              - name: Rebuild an app in Azure
-                href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rebuild.md
-              - name: Migrate TFS to Azure DevOps Services
-                href: cloud-adoption/migrate/azure-best-practices/contoso-migration-tfs-vsts.md
-            - name: Scale a migration
-              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-scale.md
-          - name: Mainframe migration
-            items:
-            - name: Overview
-              href: cloud-adoption/infrastructure/mainframe-migration/overview.md
-            - name: Myths and facts
-              href: cloud-adoption/infrastructure/mainframe-migration/myths-and-facts.md
-            - name: Migration strategies
-              href: cloud-adoption/infrastructure/mainframe-migration/migration-strategies.md
-            - name: Application strategies
-              href: cloud-adoption/infrastructure/mainframe-migration/application-strategies.md
-        - name: Best practices for optimizing workloads
-          items:
-          - name: Costing and sizing workloads
-            href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-costs.md
-        - name: Best practices for securing and managing workloads
-          items:
-          - name: Securing and managing workloads after migration
-            href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-security-management.md
-          - name: Additional Best Practices from the Azure Architecture Center
-            items:
-            - name: Azure boundary security best practices
-              href: /vdc/networking-virtual-datacenter.md
-            - name: Azure database security best practices
-              href: https://docs.microsoft.com/azure/security/azure-database-security-best-practices?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-            - name: Azure data security and encryption best practices
-              href: https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-            - name: Azure identity management and access control security best practices
-              href: https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-            - name: Azure network security best practices
-              href: https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-            - name: Azure operational security best practices
-              href: https://docs.microsoft.com/azure/security/azure-operational-security-best-practices?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-            - name: Azure PaaS Best Practices
-              href: https://docs.microsoft.com/azure/security/security-paas-deployments?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-            - name: Azure Service Fabric security best practices
-              href: https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-            - name: Best practices for Azure VM security
-              href: https://docs.microsoft.com/azure/security/azure-security-best-practices-vms?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-            - name: Implementing a secure hybrid network architecture in Azure
-              href: https://docs.microsoft.com/azure/guidance/guidance-iaas-ra-secure-vnet-hybrid?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-            - name: Internet of Things security best practices
-              href: https://docs.microsoft.com/azure/security/azure-security-iot-best-practices?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-            - name: Securing PaaS databases in Azure
-              href: https://docs.microsoft.com/azure/security/security-paas-applications-using-sql?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-            - name: Securing PaaS web and mobile applications using Azure App Service
-              href: https://docs.microsoft.com/azure/security/security-paas-applications-using-app-services?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-            - name: Securing PaaS web and mobile applications using Azure Storage
-              href: https://docs.microsoft.com/azure/security/security-paas-applications-using-storage?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-            - name: Security best practices for IaaS workloads in Azure
-              href: https://docs.microsoft.com/azure/security/azure-security-iaas?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json
-      - name: Migration considerations
-        items:
-        - name: Overview
-          href: cloud-adoption/migrate/migration-considerations/index.md
-        - name: Prerequisites
-          items:
-          - name: Overview
-            href: cloud-adoption/migrate/migration-considerations/prerequisites/index.md
-          - name: Decisions that affect migration activities
-            href: cloud-adoption/migrate/migration-considerations/prerequisites/decisions.md
-          - name: Environment planning checklist
-            href: cloud-adoption/migrate/migration-considerations/prerequisites/planning-checklist.md
-          - name: Align roles and responsibilities
-            href: cloud-adoption/migrate/migration-considerations/prerequisites/culture-complexity.md
-          - name: Structure backlogs to manage change
-            href: cloud-adoption/migrate/migration-considerations/prerequisites/technical-complexity.md
-          - name: Migration backlog review
-            href: cloud-adoption/migrate/migration-considerations/prerequisites/migration-backlog-review.md
-        - name: Assess assets and workloads
-          items:
-          - name: Assess assets before migration
-            href: cloud-adoption/migrate/migration-considerations/assess/index.md
-          - name: Keep priorities aligned
-            href: cloud-adoption/migrate/migration-considerations/assess/business-priorities.md
-          - name: Evaluate workload and asset readiness
-            href: cloud-adoption/migrate/migration-considerations/assess/evaluate.md
-          - name: Architect workloads
-            href: cloud-adoption/migrate/migration-considerations/assess/architect.md
-          - name: Estimate cloud costs
-            href: cloud-adoption/migrate/migration-considerations/assess/estimate.md
-          - name: Engage migration partners and support
-            href: cloud-adoption/migrate/migration-considerations/assess/partnership-options.md
-          - name: Manage incremental processes
-            href: cloud-adoption/migrate/migration-considerations/assess/release-iteration-backlog.md
-          - name: Change approval processes
-            href: cloud-adoption/migrate/migration-considerations/assess/approve.md
-        - name: Migrate individual assets
-          items:
-          - name: Overview
-            href: cloud-adoption/migrate/migration-considerations/migrate/index.md
-          - name: Promotion models - single-step, staged, or flight
-            href: cloud-adoption/migrate/migration-considerations/migrate/promotion-models.md
-          - name: Remediation tasks
-            href: cloud-adoption/migrate/migration-considerations/migrate/remediate.md
-          - name: Replicate assets to the cloud
-            href: cloud-adoption/migrate/migration-considerations/migrate/replicate.md
-          - name: Replicate options
-            href: cloud-adoption/migrate/migration-considerations/migrate/replicate-options.md
-          - name: Stage workloads for testing and promotion
-            href: cloud-adoption/migrate/migration-considerations/migrate/stage.md
-        - name: Optimize and promote workloads
-          items:
-          - name: Overview
-            href: cloud-adoption/migrate/migration-considerations/optimize/index.md
-          - name: Business change plan
-            href: cloud-adoption/migrate/migration-considerations/optimize/business-change-plan.md
-          - name: Business testing
-            href: cloud-adoption/migrate/migration-considerations/optimize/business-test.md
-          - name: Benchmark and optimize assets
-            href: cloud-adoption/migrate/migration-considerations/optimize/optimize.md
-          - name: Ready for promotion
-            href: cloud-adoption/migrate/migration-considerations/optimize/ready.md
-          - name: Promote workloads to production
-            href: cloud-adoption/migrate/migration-considerations/optimize/promote.md
-          - name: Decommission retired assets
-            href: cloud-adoption/migrate/migration-considerations/optimize/decommission.md
-          - name: Retrospective
-            href: cloud-adoption/migrate/migration-considerations/optimize/retrospective.md
-        - name: Secure and manage workloads in production
-          items:
-          - name: Overview
-            href: cloud-adoption/migrate/migration-considerations/secure-and-manage/index.md
-    - name: Innovate
-      items:
-      - name: Overview
-        href: cloud-adoption/innovate/index.md
-  - name: Operate
-    items:
-    - name: Overview
-      href: cloud-adoption/operating-model/index.md
-    - name: Govern
-      items:
-      - name: Overview 
-        href: cloud-adoption/governance/index.md
-      - name: Initial governance foundation
-        href: cloud-adoption/governance/getting-started.md
-      - name: Maturing governance best practices
-        href: cloud-adoption/governance/best-practices.md
-      - name: Governance guides
-        items:
-        - name: Overview
-          href: cloud-adoption/governance/journeys/index.md
-        - name: Small-to-medium enterprise guide
-          items:
-          - name: Best practices for getting started with cloud governance
-            href: cloud-adoption/governance/journeys/small-to-medium-enterprise/index.md
-          - name: Example scenario
-            href: cloud-adoption/governance/journeys/small-to-medium-enterprise/narrative.md
-          - name: Initial corporate policy
-            href: cloud-adoption/governance/journeys/small-to-medium-enterprise/initial-corporate-policy.md
-          - name: Best practice explained
-            href: cloud-adoption/governance/journeys/small-to-medium-enterprise/best-practice-explained.md
-          - name: Improve the security baseline for this governance guide
-            href: cloud-adoption/governance/journeys/small-to-medium-enterprise/security-baseline-evolution.md
-          - name: Improve resource consistency for this governance guide
-            href: cloud-adoption/governance/journeys/small-to-medium-enterprise/resource-consistency-evolution.md
-          - name: Improve cost management for this governance guide
-            href: cloud-adoption/governance/journeys/small-to-medium-enterprise/cost-management-evolution.md
-          - name: Apply this guidance to multicloud scenarios
-            href: cloud-adoption/governance/journeys/small-to-medium-enterprise/multicloud-evolution.md
-        - name: Large enterprise guide
-          items:
-          - name: Best practices for getting started with cloud governance
-            href: cloud-adoption/governance/journeys/large-enterprise/index.md
-          - name: Example scenario
-            href: cloud-adoption/governance/journeys/large-enterprise/narrative.md
-          - name: Initial corporate policy
-            href: cloud-adoption/governance/journeys/large-enterprise/initial-corporate-policy.md
-          - name: Best practice explained
-            href: cloud-adoption/governance/journeys/large-enterprise/best-practice-explained.md
-          - name: Improve the identity baseline for this governance guide
-            href: cloud-adoption/governance/journeys/large-enterprise/identity-baseline-evolution.md
-          - name: Improve the security baseline for this governance guide
-            href: cloud-adoption/governance/journeys/large-enterprise/security-baseline-evolution.md
-          - name: Improve resource consistency for this governance guide
-            href: cloud-adoption/governance/journeys/large-enterprise/resource-consistency-evolution.md
-          - name: Improve cost management for this governance guide
-            href: cloud-adoption/governance/journeys/large-enterprise/cost-management-evolution.md
-          - name: Apply this guidance to multicloud scenarios
-            href: cloud-adoption/governance/journeys/large-enterprise/multicloud-evolution.md
-          - name: Multiple layers of governance
-            href: cloud-adoption/governance/journeys/large-enterprise/multiple-layers-of-governance.md
-      - name: Governance considerations
-        items:
-        - name: Implement a cloud governance strategy
-          href: cloud-adoption/governance/corporate-policy.md
-        - name: Cloud governance disciplines
-          href: cloud-adoption/governance/governance-disciplines.md
-        - name: Cloud-ready corporate policy and compliance
-          items:
-            - name: Make corporate policy cloud-ready
-              href: cloud-adoption/governance/policy-compliance/index.md
-            - name: Understand business risks
-              href: cloud-adoption/governance/policy-compliance/understanding-business-risk.md
-            - name: Evaluate risk tolerance
-              href: cloud-adoption/governance/policy-compliance/risk-tolerance.md
-            - name: Define corporate policy
-              href: cloud-adoption/governance/policy-compliance/define-policy.md
-            - name: Align design with corporate policy
-              href: cloud-adoption/governance/policy-compliance/align-governance-journeys.md
-            - name: Develop policy adherence processes
-              href: cloud-adoption/governance/policy-compliance/processes.md
-            - name: Regulatory compliance
-              href: cloud-adoption/governance/policy-compliance/what-is-regulatory-compliance.md
-            - name: Cloud policy review
-              href: cloud-adoption/governance/policy-compliance/what-is-a-cloud-policy-review.md
-            - name: Cloud security readiness
-              href: cloud-adoption/governance/policy-compliance/how-can-a-ciso-prepare-for-the-cloud.md
-            - name: Data classification
-              href: cloud-adoption/governance/policy-compliance/what-is-data-classification.md
-        - name: Implement the cloud governance disciplines
-          items:
-          - name: Cost management
-            items:
-              - name: Overview of cost management
-                href: cloud-adoption/governance/cost-management/index.md
-              - name: Download the template
-                href: cloud-adoption/governance/cost-management/template.md
-              - name: Understand business risks
-                href: cloud-adoption/governance/cost-management/business-risks.md
-              - name: Risk tolerance metrics and indicators
-                href: cloud-adoption/governance/cost-management/metrics-tolerance.md
-              - name: Sample cost management policies
-                href: cloud-adoption/governance/cost-management/policy-statements.md
-              - name: Policy compliance processes
-                href: cloud-adoption/governance/cost-management/compliance-processes.md
-              - name: Improve cost management 
-                href: cloud-adoption/governance/cost-management/discipline-improvement.md
-              - name: Azure tools for cost management
-                href: cloud-adoption/governance/cost-management/toolchain.md
-          - name: Security baseline
-            items:
-              - name: Overview of the security baseline
-                href: cloud-adoption/governance/security-baseline/index.md
-              - name: Download the template
-                href: cloud-adoption/governance/security-baseline/template.md
-              - name: Understand business risks
-                href: cloud-adoption/governance/security-baseline/business-risks.md
-              - name: Risk tolerance metrics and indicators
-                href: cloud-adoption/governance/security-baseline/metrics-tolerance.md
-              - name: Sample security baseline policies
-                href: cloud-adoption/governance/security-baseline/policy-statements.md
-              - name: Policy compliance processes
-                href: cloud-adoption/governance/security-baseline/compliance-processes.md
-              - name: Improve the security baseline
-                href: cloud-adoption/governance/security-baseline/discipline-improvement.md
-              - name: Cloud-native security baseline
-                href: cloud-adoption/governance/security-baseline/cloud-native-policy.md          
-              - name: Additional Azure security guidance
-                href: cloud-adoption/governance/security-baseline/azure-security-guidance.md
-              - name: Azure tools for security baseline
-                href: cloud-adoption/governance/security-baseline/toolchain.md        
-          - name: Identity baseline
-            items:
-              - name: Overview of the identity baseline
-                href: cloud-adoption/governance/identity-baseline/index.md
-              - name: Download the template
-                href: cloud-adoption/governance/identity-baseline/template.md
-              - name: Understand business risks
-                href: cloud-adoption/governance/identity-baseline/business-risks.md
-              - name: Risk tolerance metrics and indicators
-                href: cloud-adoption/governance/identity-baseline/metrics-tolerance.md
-              - name: Sample identity baseline policies
-                href: cloud-adoption/governance/identity-baseline/policy-statements.md
-              - name: Policy compliance processes
-                href: cloud-adoption/governance/identity-baseline/compliance-processes.md
-              - name: Improve the identity baseline
-                href: cloud-adoption/governance/identity-baseline/discipline-improvement.md
-              - name: Azure tools for identity baseline
-                href: cloud-adoption/governance/identity-baseline/toolchain.md
-          - name: Resource consistency
-            items:
-              - name: Overview of resource consistency
-                href: cloud-adoption/governance/resource-consistency/index.md
-              - name: Download the template
-                href: cloud-adoption/governance/resource-consistency/template.md
-              - name: Understand business risks
-                href: cloud-adoption/governance/resource-consistency/business-risks.md
-              - name: Risk tolerance metrics and indicators
-                href: cloud-adoption/governance/resource-consistency/metrics-tolerance.md
-              - name: Sample resource consistency policies
-                href: cloud-adoption/governance/resource-consistency/policy-statements.md
-              - name: Policy compliance processes
-                href: cloud-adoption/governance/resource-consistency/compliance-processes.md
-              - name: Improve resource consistency
-                href: cloud-adoption/governance/resource-consistency/discipline-improvement.md
-              - name: Azure tools for resource consistency
-                href: cloud-adoption/governance/resource-consistency/toolchain.md
-              - name: Resource access management
-                href: cloud-adoption/governance/resource-consistency/azure-resource-access.md
-              - name: Governance design for a simple workload
-                href: cloud-adoption/governance/resource-consistency/governance-simple-workload.md
-              - name: Governance design for multiple teams
-                href: cloud-adoption/governance/resource-consistency/governance-multiple-teams.md
-          - name: Deployment acceleration
-            items:
-              - name: Overview of deployment acceleration
-                href: cloud-adoption/governance/deployment-acceleration/index.md
-              - name: Download the template
-                href: cloud-adoption/governance/deployment-acceleration/template.md
-              - name: Understand business risks
-                href: cloud-adoption/governance/deployment-acceleration/business-risks.md
-              - name: Risk tolerance metrics and indicators
-                href: cloud-adoption/governance/deployment-acceleration/metrics-tolerance.md
-              - name: Sample deployment acceleration policies
-                href: cloud-adoption/governance/deployment-acceleration/policy-statements.md
-              - name: Policy compliance processes
-                href: cloud-adoption/governance/deployment-acceleration/compliance-processes.md
-              - name: Improve deployment acceleration
-                href: cloud-adoption/governance/deployment-acceleration/discipline-improvement.md
-              - name: Azure tools for deployment acceleration
-                href: cloud-adoption/governance/deployment-acceleration/toolchain.md
-    - name: Organize
-      items:
-      - name: Managing organization alignment
-        href: cloud-adoption/organization/index.md
-      - name: Required cloud capabilities
-        items:
-        - name: Cloud strategy
-          href: cloud-adoption/organization/cloud-strategy.md
-        - name: Cloud adoption
-          href: cloud-adoption/organization/cloud-adoption.md
-        - name: Cloud governance
-          href: cloud-adoption/organization/cloud-governance.md
-        - name: Cloud operations
-          href: cloud-adoption/organization/cloud-operations.md
-        - name: Cloud center of excellence
-          href: cloud-adoption/organization/cloud-center-excellence.md
-        - name: Cloud platform
-          href: cloud-adoption/organization/cloud-platform.md
-        - name: Cloud automation
-          href: cloud-adoption/organization/cloud-automation.md
-      - name: Establish teams
-        href: cloud-adoption/organization/organization-structures.md
-      - name: Align the RACI matrix
-        href: cloud-adoption/organization/raci-alignment.md
-      - name: Building technical skills
-        href: cloud-adoption/organization/suggested-skills.md
-      - name: Creating a cost-conscious organization
-        href: cloud-adoption/organization/cost-conscious-organization.md
-      - name: Antipatterns - IT fiefdoms and IT silos
-        href: cloud-adoption/organization/fiefdoms-silos.md
-    - name: Manage
-      items:
-      - name: Overview
-        href: cloud-adoption/operations/index.md
-      - name: Azure Server Management
-        items:
-        - name: Introduction to Azure Server Management
-          href: cloud-adoption/operations/azure-server-management/index.md
-        - name: Getting ready for cloud operations
-          href: cloud-adoption/operations/azure-server-management/prerequisites.md
-        - name: Getting started with cloud operations
-          items:
-          - name: Overview
-            href: cloud-adoption/operations/azure-server-management/onboarding-overview.md
-          - name: Configure the service for a single VM
-            href: cloud-adoption/operations/azure-server-management/onboard-single-vm.md
-          - name: Configure the service for an entire subscription
-            href: cloud-adoption/operations/azure-server-management/onboard-at-scale.md
-          - name: Configure at scale with automation 
-            href: cloud-adoption/operations/azure-server-management/onboarding-automation.md
-          - name: Set up basic alerts
-            href: cloud-adoption/operations/azure-server-management/setup-alerts.md
-        - name: Ongoing cloud operations
-          items:
-          - name: Overview
-            href: cloud-adoption/operations/azure-server-management/ongoing-management-overview.md
-          - name: Enable guest configuration policy
-            href: cloud-adoption/operations/azure-server-management/guest-configuration-policy.md
-          - name: Critical changes (tracking and alerting)
-            href: cloud-adoption/operations/azure-server-management/enable-tracking-alerting.md
-          - name: Update schedules
-            href: cloud-adoption/operations/azure-server-management/update-schedules.md
-          - name: Common policies in Azure
-            href: cloud-adoption/operations/azure-server-management/common-policies.md
-        - name: Review of tools and services
-          href: cloud-adoption/operations/azure-server-management/tools-services.md
-      - name: Monitoring
-        items:
-        - name: Introduction
-          href: cloud-adoption/operations/monitor/index.md
-        - name: Monitoring cloud models
-          href: cloud-adoption/operations/monitor/cloud-models-monitor-overview.md
-        - name: Data collection
-          href: cloud-adoption/operations/monitor/data-collection.md
-        - name: Alerting
-          href: cloud-adoption/operations/monitor/alert.md
-        - name: Monitoring platforms overview
-          href: cloud-adoption/operations/monitor/platform-overview.md
-      - name: Establish an operational fitness review
-        href: cloud-adoption/operations/operational-fitness-review.md
-  - name: References
-    items:
-    - name: Decision guides
-      href: cloud-adoption/decision-guides/index.md
-      items:
-      - name: Subscriptions
-        href: cloud-adoption/decision-guides/subscriptions/index.md
-      - name: Identity
-        href: cloud-adoption/decision-guides/identity/index.md
-      - name: Policy enforcement
-        href: cloud-adoption/decision-guides/policy-enforcement/index.md
-      - name: Resource consistency
-        href: cloud-adoption/decision-guides/resource-consistency/index.md
-      - name: Resource tagging
-        href: cloud-adoption/decision-guides/resource-tagging/index.md
-      - name: Encryption
-        href: cloud-adoption/decision-guides/encryption/index.md
-      - name: Software-defined networks
-        items:
-        - name: Overview
-          href: cloud-adoption/decision-guides/software-defined-network/index.md
-        - name: PaaS-only
-          href: cloud-adoption/decision-guides/software-defined-network/paas-only.md
-        - name: Cloud-native
-          href: cloud-adoption/decision-guides/software-defined-network/cloud-native.md
-        - name: Cloud DMZ
-          href: cloud-adoption/decision-guides/software-defined-network/cloud-dmz.md
-        - name: Hybrid
-          href: cloud-adoption/decision-guides/software-defined-network/hybrid.md
-        - name: Hub and spoke model
-          href: cloud-adoption/decision-guides/software-defined-network/hub-spoke.md
-      - name: Logs and reporting
-        href: cloud-adoption/decision-guides/log-and-report/index.md
-      - name: Migration tools
-        href: cloud-adoption/decision-guides/migrate-decision-guide/index.md
-    - name: Infrastructure
-      items:
-      - name: Virtual machines
-        items:
-          - name: Deploy a basic workload
-            href: cloud-adoption/infrastructure/virtual-machines/basic-workload.md
-    - name: Roadmap
-      href: cloud-adoption/appendix/roadmap.md
-    - name: Cloud Operating Model
-      href: cloud-adoption/appendix/cloud-operating-model.md
-    - name: Azure enterprise scaffold
-      href: cloud-adoption/appendix/azure-scaffold.md
-    - name: Implementing Azure enterprise scaffold
-      href: cloud-adoption/appendix/azure-scaffold-examples.md
-    - name: Virtual Datacenter (VDC)
-      href: vdc/index.md
-    - name: How does Azure work?
-      href: cloud-adoption/getting-started/what-is-azure.md
+  href: https://docs.microsoft.com/azure/cloud-adoption-framework
