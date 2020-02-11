@@ -4,7 +4,7 @@ titleSuffix: Cloud Design Patterns
 description: Segregate operations that read data from those that update data.
 keywords: design pattern
 author: dragon119
-ms.date: 05/14/2019
+ms.date: 02/11/2020
 ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -12,8 +12,6 @@ ms.custom: seodec18
 ---
 
 # Command and Query Responsibility Segregation (CQRS) pattern
-
-[!INCLUDE [header](../_includes/header.md)]
 
 The Command and Query Responsibility Segregation (CQRS) pattern describes the seperation of read and update operations for a data store. Implementing CQRS in your application can maximize its performance, scalability, and security. The flexability created by migrating to CQRS allows a system to better evolve over time and prevents update commands from causing merge conflicts at the domain level.
 
