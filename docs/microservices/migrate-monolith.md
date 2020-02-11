@@ -33,7 +33,7 @@ Despite these limitations, a monolithic design can make sense as a starting poin
 - Easier to debug, because the code runs within a single process and memory space.
 - Easier to reason about, because there are fewer moving parts.
 
-As the application grows in complexity, however, these advantages can disappear. Large monoliths often become progressively harder to build, debug, and reason about. At some point, the problems outweigh the benefits. This is the point when it can make sense to migrate the application to a microservices architecture. Unlike monoliths, microservices are typically decentralized, loosely coupled units of execution. The following diagram shows a typical microservices architecture: 
+As the application grows in complexity, however, these advantages can disappear. Large monoliths often become progressively harder to build, debug, and reason about. At some point, the problems outweigh the benefits. This is the point when it can make sense to migrate the application to a microservices architecture. Unlike monoliths, microservices are typically decentralized, loosely coupled units of execution. The following diagram shows a typical microservices architecture:
  
 ![A typical microservices architecture](./images/monolith/figure2.png)
 
@@ -102,7 +102,7 @@ The presentation tier can be developed in any language or framework that the tea
 
 ## Start to retire the monolith
 
-At this stage, the team can begin peering away the monolithic application and slowly extract the services that have been established by their bounded contexts into their own set of microservices. The microservices can expose a RESTful interface for the application layer to interact with, through the API gateway, with glue code in place to communicate with the monolith in specific circumstances.
+At this stage, the team can begin peeling away the monolithic application and slowly extract the services that have been established by their bounded contexts into their own set of microservices. The microservices can expose a RESTful interface for the application layer to interact with, through the API gateway, with glue code in place to communicate with the monolith in specific circumstances.
 
 ![Use API layer](./images/monolith/figure6.png)
 
