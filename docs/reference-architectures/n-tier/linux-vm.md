@@ -97,26 +97,21 @@ All NSGs contain a set of [default rules][nsg-default-rules], including a rule t
 
 ## Cost considerations
 
-There are various options for VM sizes depending on the usage and workload. The range includes most economical option of the Bs-series to the newest GPU VMs optimized for machine learning. 
+There are various options for VM sizes depending on the usage and workload. The range includes most economical option of the Bs-series to the newest GPU VMs optimized for machine learning. For information about the available options, see [Azure Linux VM pricing][linux-vms-pricing].
 
-For unpredictable workloads that cannot be interrupted, consider the "Pay as you go" payment option. you can Increase or decrease compute capacity on demand. Start or stop at any time and only pay for what you use.
+For workloads with no predictable time of completion or resource consumption, consider the **Pay as you go** option. 
 
 Consider using [Azure Reserverations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) if you can commit to using a virtual machine over a one-year or three-year term. VM reservations can reduce costs up to 72 % compared to pay-as-you-go prices.
 
+Use [Azure Spot VMs](/azure/virtual-machines/windows/spot-vms) to run workloads the can be interrupted and do not require completion within a predetermined timeframe or an SLA. Azure deploys Spot VMs if there is available capacity and evicts when it needs the capacity back. Costs associated with Spot virtual machines are significantly lower.  Consider Spot VMs for these workloads:
 
-Use [Azure Spot VMs](/azure/virtual-machines/windows/spot-vms) to run workloads the can be interrupted and do not require completion within a predetermined timeframe or an SLA. Azure deploys Spot VMs if there is available capacity and evicts when it needs the capacity back. Costs associated with Spot virtual machines are significantly lower.  
+- High-performance computing scenarios, batch processing jobs, or visual rendering applications.
+- Test environments, including continuous integration and continuous delivery workloads.
+- Large-scale stateless applications.
 
-Consider Spot VMs for these workloads:
+Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs.
 
-High-performance computing scenarios, batch processing jobs, or visual rendering applications.
-Test environments, including continuous integration and continuous delivery workloads.
-Large-scale stateless applications.
-
-For more information See [Azure Linux VM pricing][linux-vms-pricing]
-
-Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs
-
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost]
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
 
 

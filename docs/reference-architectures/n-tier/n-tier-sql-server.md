@@ -186,6 +186,7 @@ For more information about health probes, see:
 For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md).
 
 ## Cost considerations
+Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs. Here are some other considerations.
 
 ### Virtual Machine Scale Sets
 
@@ -195,18 +196,16 @@ For single VMs pricing options See [Windows VMs pricing][Windows-vm-pricing]
 
 ### SQL server
 
-For SQL server VMs pricing options see [SQL VMs pricing][Sql-vm-pricing]
+If you choose Azure SQL DBaas, you can save on cost because don't need to configure an Always On Availability Group and domain controller machines. There are several deployment options starting from single database up to managed instance, or elastic pools. For more information see [Azure SQL pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/). 
 
-If you choose Azure SQL DBaas, you can save on cost because don't need to configure Always On Availability Group and domain controller machines. There are several deployment options starting from single database up to managed instance, or elastic pools. For more information see [Azure SQL pricing][Azure-SQl-Pricing].
+For SQL server VMs pricing options see [SQL VMs pricing][Managed-Sql-pricing].
 
 ### Load balancers
 
-You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules don't count in the total number of rules and for the amount of data processed inbound and outbound independent of rules. There is no hourly charge for the Standard Load Balancer when no rules are configured.
+You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
 
 
-Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs.
-
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost]
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
 
 ## Security considerations
@@ -301,6 +300,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [sql-alwayson]: https://msdn.microsoft.com/library/hh510230.aspx
 [sql-keyvault]: /azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault
 [Sql-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/
+[Managed-Sql-pricing]: /azure.microsoft.com/pricing/details/sql-database/managed/
 [subscription-limits]: /azure/azure-subscription-service-limits
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
 [vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview

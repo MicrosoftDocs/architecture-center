@@ -182,21 +182,20 @@ For considerations about designing a health probe endpoint, see [Health Endpoint
 
 ## Cost considerations
 
+Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs. Here are some other considerations.
+
 ### Virtual Machine Scale Sets
 
 Virtual Machine scale sets are available on all Linux VM sizes. You are only charged for the Azure VMs you deploy, as well as any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the Virtual Machine scale sets service itself.
 
-For single VMs pricing options See [Linux VMs pricing][Linux-vm-pricing]
+For single VMs pricing options See [Linux VMs pricing][Linux-vm-pricing].
 
 
 ### Load balancers
 
-Virtual Machine scale sets are available on all Windows VM sizes. You are only charged for the Azure VMs you deploy and any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the Virtual Machine scale sets service.
+You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
 
-
-Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs
-
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost]
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
 
 ## Security considerations
