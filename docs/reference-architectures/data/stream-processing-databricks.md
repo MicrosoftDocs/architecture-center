@@ -343,6 +343,21 @@ See [Azure Databricks Pricing][azure-databricks-pricing] for more information.
 
 ## Cosmos DB
 
+### Cosmos DB
+
+Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations (inserts, reads, queries, etc.). 
+For example, 1 RU/s is sufficient for processing one eventually consistent read per second of 1K item, and 5 RU/s is sufficient for processing one write per second of 1K item. Storage is billed for each GB used for your stored data and index. See [Cosmos DB pricing model][cosmosdb-pricing] for more info.
+The price is based on what you reserve. So, what you reserve with Cosmos is the capacity expressed in RU/s. You pay for the RU as well as the space (GB) and you have to reserve a minimum of 400 RUs (a concurrent read of 1KB docuemnt consumes 1 RU), 
+so if your app does not need to be this intensive, you will end up probably paying for more than what you need with Cosmos, since 400 RU is the minimum that you can provision per container. Also keep in mind that the RU that you reserve is per container so, each container will cost about $25 with 1 GB storage, meaning that if you have 10 collections you are paying $250. Reusing collections is recommended for keeping cost down.
+
+The [Cosmos DB capacity calculator][Cosmos-Calculator] offers you a quick estimate of the workload cost. 
+
+
+
+Use the [Pricing calculator][Cost-Calculator] to estimate costs.
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+
 
 ## Deploy the solution
 
@@ -350,5 +365,9 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
+[cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [event-hubs-pricing]: https://azure.microsoft.com/pricing/details/event-hubs/
 [github]: https://github.com/mspnp/azure-databricks-streaming-analytics
