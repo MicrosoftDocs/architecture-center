@@ -6,7 +6,7 @@ author: randycampbell
 ms.date: 02/01/2020
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
+ms.subservice: example-scenario
 ms.custom:
     - fcp
 ---
