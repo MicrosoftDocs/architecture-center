@@ -316,8 +316,39 @@ SparkMetric_CL
 
 For more information, see [Monitoring Azure Databricks](../../databricks-monitoring/index.md).
 
+## Cost considerations
+
+
+### Event Hubs
+
+There three tier offerings, **Basic**, **Standard** and **Dedicated**. The **Standard** tier provides features beyond what is available in the **Basic** tier.
+
+**Basic** and **Standard** are billed based on ingress events, and throughput units. An ingress event is a unit of data 64 KB or less. Each one is a billable event. Larger messages are billed in multiples of 64 KB. For example, 8 KB is billed as one event, but a 96 KB message is billed as two events. Throughput units are selected by the customer, either through the Azure portal or Event Hub management APIs.
+
+ Event Hubs **Dedicated** tier offers single-tenant deployments for customers with most demanding requirements. This offering builds a  cluster based on capacity units (CU) that is not bound by throughput units.
+
+
+For complete information about Event Hubs pricing, see the [Event Hubs pricing][event-hubs-pricing].
+
+
+## Azure Databricks
+
+Azure Databricks offers three workloads. **Data Engineering** and **Data Engineering Light** are for data engineers to build and execute jobs, and the **Data Analytics** workload are for data scientists to explore, visualize, manipulate, and share data and insights interactively. There are also two tiers offered: **Standard** ane  **Premium**.
+
+Azure Databricks bills you for virtual machines (VMs) provisioned in clusters and Databricks Units (DBUs) based on the VM instance selected (pay-as-you-go). A DBU is a unit of processing capability, billed on a per-second usage. The DBU consumption depends on the size and type of instance running Azure Databricks. Price will very depending on the selected workload and tier.
+
+You can get up to 37% savings over pay-as-you-go DBU prices when you pre-purchase Azure Databricks Units (DBU) as Databricks Commit Units (DBCU) for either 1 or 3 years.
+
+See [Azure Databricks Pricing][azure-databricks-pricing] for more information.
+
+## Cosmos DB
+
+
 ## Deploy the solution
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github].
 
+<!-- links -->
+
+[event-hubs-pricing]: https://azure.microsoft.com/pricing/details/event-hubs/
 [github]: https://github.com/mspnp/azure-databricks-streaming-analytics
