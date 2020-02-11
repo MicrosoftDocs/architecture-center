@@ -1,10 +1,10 @@
 ---
 title: Command and Query Responsibility Segregation (CQRS) pattern
 titleSuffix: Cloud Design Patterns
-description: Segregate operations that read data from operations that update data by using separate interfaces.
+description: Segregate operations that read data from those that update data.
 keywords: design pattern
 author: dragon119
-ms.date: 05/14/2019
+ms.date: 02/11/2020
 ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -13,9 +13,9 @@ ms.custom: seodec18
 
 # Command and Query Responsibility Segregation (CQRS) pattern
 
-Segregate operations that read data from operations that update data by using separate interfaces. This can maximize performance, scalability, and security. Supports the evolution of the system over time through higher flexibility, and prevents update commands from causing merge conflicts at the domain level.
+The Command and Query Responsibility Segregation (CQRS) pattern describes the seperation of read and update operations for a data store. Implementing CQRS in your application can maximize its performance, scalability, and security. The flexability created by migrating to CQRS allows a system to better evolve over time and prevents update commands from causing merge conflicts at the domain level.
 
-## Context and problem
+## The problem
 
 In traditional architectures, the same data model is used to query and update a database. That's simple and works well for basic CRUD operations. In more complex applications, however, this approach can become unwieldy. For example, on the read side, the application may perform many different queries, returning data transfer objects (DTOs) with different shapes. Object mapping can become complicated. On the write side, the model may implement complex validation and business logic. As a result, you can end up with an overly complex model that does too much.
 
@@ -65,7 +65,7 @@ Benefits of CQRS include:
 - **Separation of concerns**. Segregating the read and write sides can result in models that are more maintainable and flexible. Most of the complex business logic goes into the write model. The read model can be relatively simple.
 - **Simpler queries**. By storing a materialized view in the read database, the application can avoid complex joins when querying.
 
-## Issues and considerations
+## Implementation issues and considerations
 
 Some challenges of implementing this pattern include:
 
