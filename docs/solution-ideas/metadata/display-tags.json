@@ -1,0 +1,926 @@
+{
+	"categories": [
+		{
+			"category": "Technology Topics",
+			"stub": "technologies",
+			"items": [
+				{
+					"name": "AI and machine learning",
+					"friendly-name": "ai-ml",
+					"tags": [
+						"edge-ai",
+						"visual-assistant",
+						"visual-capabilities",
+						"visual-assistant-scenarios",
+						"offline-machine-learning",
+						"machine-learning",
+						"machine-learning-in-marketing",
+						"machine-learning-marketing",
+						"machine-learning-r",
+						"failure-detection",
+						"image-processing-app",
+						"image-classification",
+						"image-management-solutions",
+						"gradient-boosting-decision-tree",
+						"convolutional-neural-network",
+						"decision-tree-algorithm",
+						"deep-learning-analytics",
+						"cognitive-services",
+						"artificial-intelligence",
+						"ai-gallery",
+						"ai",
+						"ai-at-the-edge",
+						"demand-forecasting",
+						"chat",
+						"faq",
+						"faq-chatbot",
+						"qna",
+						"qna-maker",
+						"anomaly-detector",
+						"anomaly-detection-model",
+						"anomaly-detection-process"
+					]
+				},
+				{
+					"name": "Analytics",
+					"friendly-name": "analytics",
+					"tags": [
+						"data-warehouse-analytics",
+						"real-time-data-analytics",
+						"predictive-analytics-software",
+						"real-time-analytics",
+						"cloud-scale-analytics",
+						"advanced-analytics",
+						"data-analytics",
+						"analytics",
+						"advanced-analytics-architecture"
+					]
+				},
+				{
+					"name": "Anomaly detection",
+					"friendly-name": "anomaly-detection",
+					"tags": [
+						"anomaly-detector",
+						"anomaly-detection",
+						"anomaly-detection-model",
+						"anomaly-detection-process"
+					]
+				},
+				{
+					"name": "App modernization",
+					"friendly-name": "app-modernization",
+					"tags": [
+						"app-modernization",
+						"lift-and-shift-strategy",
+						"lift-and-shift-solution",
+						"lift-and-shift-cloud-strategy",
+						"legacy-data",
+						"legacy-data-integration"
+					]
+				},
+				{
+					"name": "Application development",
+					"friendly-name": "application-development",
+					"tags": [
+						"application-development",
+						"app-development",
+						"use-cases",
+						"vacation-planner",
+						"integration-services",
+						"companion-web-app",
+						"tier-architecture",
+						"subsystem-architecture",
+						"tier-application-architecture",
+						"services",
+						"service-principles",
+						"social-image-sharing",
+						"image-share-app",
+						"consumer-mobile-app",
+						"application-tier",
+						"app-service-environment",
+						"app-modernization",
+						"app-dev",
+						"availability",
+						"strategy",
+						"cloud-migration",
+						"lift-and-shift-strategy",
+						"lift-and-shift-solution",
+						"lift-and-shift-cloud-strategy",
+						"strategy",
+						"cloud-innovation"
+					]
+				},
+				{
+					"name": "Blockchain",
+					"friendly-name": "blockchain",
+					"tags": [
+						"blockchain",
+						"azure-blockchain-service",
+						"azure-blockchain",
+						"blockchain-and-iot",
+						"blockchain-workbench",
+						"blockchain-pattern",
+						"blockchain-workflow",
+						"blockchain-workflow-application"
+					]
+				},
+				{
+					"name": "SAP",
+					"friendly-name": "SAP",
+					"tags": [
+						"azure-hana-large-instances",
+						"sap",
+						"sap-on-azure",
+						"sap-netweaver",
+						"sap-hana-on-linux",
+						"sap-hana-on-azure-large-instances",
+						"hana-linux",
+						"sap-hana-large-instances"
+					]
+				},
+				{
+					"name": "High performance computing (HPC)",
+					"friendly-name": "hpc",
+					"tags": [
+						"azure-hpc-pack",
+						"big-compute-solutions",
+						"hpc",
+						"hpc-cloud-hpc-system",
+						"hpc-risk-analysis",
+						"hpc-solution",
+						"hpc-pack",
+						"hpc-architecture",
+						"hybrid-hpc"
+					]
+				},
+				{
+					"name": "Hybrid infrastructure",
+					"friendly-name": "hybrid-infrastructure",
+					"tags": [
+						"hybrid-infrastructure",
+						"hybrid",
+						"cross-cloud",
+						"cross-cloud-architecture",
+						"hybrid-hpc",
+						"azure-hybrid-network",
+						"azure-hybrid-identity",
+						"azure-hybrid-connection",
+						"office-365-sharepoint-hybrid",
+						"sharepoint-hybrid",
+						"sharepoint-hybrid",
+						"sharepoint-hybrid-architecture",
+						"sharepoint-hybrid-solution",
+						"hybrid-risk-analysis",
+						"hybrid-network",
+						"hybrid-application",
+						"hybrid-connection"
+					]
+				},
+				{
+					"name": "Linux",
+					"friendly-name": "linux",
+					"tags": [
+						"azure-linux-vm",
+						"linux"
+					]
+				},
+				{
+					"name": "Chatbots",
+					"friendly-name": "chatbots",
+					"tags": [
+						"chat",
+						"chatbots",
+						"chatbot",
+						"faq",
+						"faq-chatbot",
+						"qna",
+						"qna-maker"
+					]
+				},
+				{
+					"name": "DevOps",
+					"friendly-name": "devops",
+					"tags": [
+						"easy-deploy",
+						"continuous-integration-and-continuous-deployment",
+						"continuous-delivery",
+						"continuous-integration",
+						"continuous-deployment",
+						"ci-cd",
+						"cluster-orchestration",
+						"devops",
+						"kubernetes",
+						"microsoft-devops"
+					]
+				},
+				{
+					"name": "Disaster recovery",
+					"friendly-name": "disaster-recovery",
+					"tags": [
+						"bcdr",
+						"disaster-recovery"
+					]
+				},
+				{
+					"name": "Data warehouse",
+					"friendly-name": "data-warehouse",
+					"tags": [
+						"data-warehouse",
+						"data-warehouse-analytics",
+						"modern-data-warehouse",
+						"modern-data-warehouse-architecture",
+						"big-data-warehouse",
+						"cloud-data-warehouse"
+					]
+				},
+				{
+					"name": "Scalability",
+					"friendly-name": "scalability",
+					"tags": [
+						"cloud-scalability",
+						"scalability"
+					]
+				},
+				{
+					"name": "Internet of Things (IoT)",
+					"friendly-name": "iot",
+					"tags": [
+						"blockchain-and-iot",
+						"iot",
+						"iot-application-architecture",
+						"iot-architecture",
+						"iot-solution-architecture"
+					]
+				},
+				{
+					"name": "Content delivery (CDN)",
+					"friendly-name": "cdn",
+					"tags": [
+						"cdn",
+						"content-delivery"
+					]
+				},
+				{
+					"name": "Data architectures",
+					"friendly-name": "data",
+					"tags": [
+						"data",
+						"data-gravity",
+						"tier-data",
+						"data-factory",
+						"data-gravity-cloud",
+						"data-analytics",
+						"data-lake-storage",
+						"data-tier",
+						"database-team",
+						"data-analytics",
+						"data-preservation",
+						"big-data-warehouse",
+						"big-data-architecture",
+						"azure-data-sovereignty",
+						"data-sovereignty",
+						"cloud-data-sovereignty",
+						"data-sovereignty-requirements"
+					]
+				},
+				{
+					"name": "Identity",
+					"friendly-name": "identity",
+					"tags": [
+						"identity",
+						"hybrid-identity"
+					]
+				},
+				{
+					"name": "Microservices",
+					"friendly-name": "microservices",
+					"tags": [
+						"microservices"
+					]
+				},
+				{
+					"name": "Mobile applications",
+					"friendly-name": "mobile-applications",
+					"tags": [
+						"offline-mobile-app",
+						"mobile-applications",
+						"mobile-workforce-management-solution",
+						"mobile-app-authentication",
+						"mobile-workforce-management-app",
+						"mobile-workforce-app"
+					]
+				},
+				{
+					"name": "MySQL",
+					"friendly-name": "msql",
+					"tags": [
+						"mysql"
+					]
+				},
+				{
+					"name": "Networking",
+					"friendly-name": "networking",
+					"tags": [
+						"networking"
+					]
+				},
+				{
+					"name": "Postgresql",
+					"friendly-name": "postgresql",
+					"tags": [
+						"postgresql"
+					]
+				},
+				{
+					"name": "Security",
+					"friendly-name": "security",
+					"tags": [
+						"security",
+						"security-for-ecommerce-websites"
+					]
+				},
+				{
+					"name": "Serverless applications",
+					"friendly-name": "serverless",
+					"tags": [
+						"serverless"
+					]
+				},
+				{
+					"name": "Speech",
+					"friendly-name": "speech",
+					"tags": [
+						"speech-service",
+						"speech"
+					]
+				},
+				{
+					"name": "Web apps",
+					"friendly-name": "web-applications",
+					"tags": [
+						"web-applications",
+						"web-apps",
+						"web-service",
+						"web-app"
+					]
+				}
+			]
+		},
+		{
+			"category": "Azure Components",
+			"stub": "products",
+			"items": [
+				{
+					"name": "Azure Active Directory",
+					"friendly-name": "azure-active-directory",
+					"tags": [
+						"azure-active-directory-tenant",
+						"azure-active-directory"
+					]
+				},
+				{
+					"name": "Azure App Service",
+					"friendly-name": "azure-app-service",
+					"tags": [
+						"azure-app-service"
+					]
+				},
+				{
+					"name": "Azure Blob Storage",
+					"friendly-name": "blob-storage",
+					"tags": [
+						"blob-storage"
+					]
+				},
+				{
+					"name": "Azure Blockchain Service",
+					"friendly-name": "azure-blockchain-service",
+					"tags": [
+						"azure-blockchain-workbench",
+						"azure-blockchain",
+						"azure-blockchain-service"
+					]
+				},
+				{
+					"name": "Azure Bot Service",
+					"friendly-name": "bot-service",
+					"tags": [
+						"bot-service",
+						"chat"
+					]
+				},
+				{
+					"name": "Azure Data Factory",
+					"friendly-name": "azure-data-factory",
+					"tags": [
+						"data-factory"
+					]
+				},
+				{
+					"name": "Azure Devops",
+					"friendly-name": "azure-devops",
+					"tags": [
+						"azure-devtest-image-factory",
+						"azure-ci-cd",
+						"microsoft-devops",
+						"visual-studio-team-services"
+					]
+				},
+				{
+					"name": "Azure Digital Twins",
+					"friendly-name": "azure-digital-twins",
+					"tags": [
+						"azure-digital-twins"
+					]
+				},
+				{
+					"name": "Azure Discovery Hub",
+					"friendly-name": "azure-discovery-hub",
+					"tags": [
+						"azure-discovery-hub"
+					]
+				},
+				{
+					"name": "Azure Functions",
+					"friendly-name": "azure-functions",
+					"tags": [
+						"functions"
+					]
+				},
+				{
+					"name": "Azure HDInsight",
+					"friendly-name": "hdinsightt",
+					"tags": [
+						"hdinsight"
+					]
+				},
+				{
+					"name": "Azure Spatial Anchors",
+					"friendly-name": "azure-spatial-anchors",
+					"tags": [
+						"azure-spatial-anchors"
+					]
+				},
+				{
+					"name": "Azure Stack Edge",
+					"friendly-name": "azure-stack-edge",
+					"tags": [
+						"azure-stack-edge"
+					]
+				},
+				{
+					"name": "Azure Virtual Machines",
+					"friendly-name": "azure-virtual-machines",
+					"tags": [
+						"azure-virtual-machine",
+						"create-custom-image"
+					]
+				},
+				{
+					"name": "CosmosDB",
+					"friendly-name": "cosmos-db",
+					"tags": [
+						"cosmos-db",
+						"azure-cosmos-db"
+					]
+				},
+				{
+					"name": "Event Grid",
+					"friendly-name": "event-grid",
+					"tags": [
+						"event-grid"
+					]
+				},
+				{
+					"name": "Event Hubs",
+					"friendly-name": "event-hubs",
+					"tags": [
+						"event-hubs"
+					]
+				},
+				{
+					"name": "Expressroute",
+					"friendly-name": "expressroute",
+					"tags": [
+						"expressroute"
+					]
+				},
+				{
+					"name": "Microsoft Hololeans",
+					"friendly-name": "Microsoft Hololeans",
+					"tags": [
+						"microsoft-hololens"
+					]
+				},
+				{
+					"name": "Microsoft SQL Server",
+					"friendly-name": "sql-server",
+					"tags": [
+						"sql",
+						"sql-server"
+					]
+				},
+				{
+					"name": "Microsoft Windows",
+					"friendly-name": "windows",
+					"tags": [
+						"windows"
+					]
+				},
+				{
+					"name": "SQL Server",
+					"friendly-name": "sql-server",
+					"tags": [
+						"azure-sql-server"
+					]
+				},
+				{
+					"name": "Sharepoint",
+					"friendly-name": "sharepoint",
+					"tags": [
+						"azure-sharepoint-development-environment",
+						"sharepoint-intranet-template",
+						"sharepoint-intranet-solutions",
+						"office-365-sharepoint-hybrid",
+						"sharepoint-hybrid",
+						"sharepoint-hybrid",
+						"sharepoint-hybrid-architecture",
+						"sharepoint-hybrid-solution",
+						"sharepoint-farm-solution",
+						"sharepoint-dev-environment",
+						"sharepoint-dev",
+						"sharepoint-agile",
+						"office-365-sharepoint-hybrid",
+						"sharepoint-intranet"
+					]
+				},
+				{
+					"name": "SignalR",
+					"friendly-name": "signalr",
+					"tags": [
+						"signalr-service"
+					]
+				}
+			]
+		},
+		{
+			"category": "Industries",
+			"stub": "industries",
+			"items": [
+				{
+					"name": "Aerospace",
+					"friendly-name": "aerospace",
+					"tags": [
+						"aircraft-health-monitoring-systems",
+						"aircraft-engine-monitor"
+					]
+				},
+				{
+					"name": "Automotive",
+					"friendly-name": "automotive",
+					"tags": [
+						"automotive-telematics",
+						"automotive",
+						"vehicle-telematics"
+					]
+				},
+				{
+					"name": "Ecommerce",
+					"friendly-name": "ecommerce",
+					"tags": [
+						"process-order-payment",
+						"ecommerce",
+						"submits-order",
+						"price-optimization",
+						"search-for-products",
+						"retail-assistant",
+						"security-for-ecommerce-websites",
+						"architect-scalable-e-commerce-web-app",
+						"e-commerce-security-solutions",
+						"e-commerce-site-security"
+					]
+				},
+				{
+					"name": "Energy",
+					"friendly-name": "energy",
+					"tags": [
+						"energy-demand",
+						"energy-forecast",
+						"power-forecast"
+					]
+				},
+				{
+					"name": "Finance",
+					"friendly-name": "finance",
+					"tags": [
+						"credit-risk-analyzer",
+						"credit-risk-modeling",
+						"probability-of-default",
+						"price-optimization",
+						"risk-analysis-solution",
+						"risk-analysis-template",
+						"finance"
+					]
+				},
+				{
+					"name": "Healthcare",
+					"friendly-name": "healthcare",
+					"tags": [
+						"cloud-storage-in-healthcare",
+						"remote-patient-monitoring-system",
+						"remote-patient-monitoring",
+						"remote-patient-monitoring-solutions",
+						"patient-flow",
+						"medical-records-storage",
+						"medical-records-management",
+						"medical-data-analysis",
+						"medical-data-solutions",
+						"medical-data-storage",
+						"length-of-stay",
+						"hospital-length-of-stay",
+						"healthcare-machine-learning",
+						"healthcare-data-storage",
+						"healthcare-analytics",
+						"healthcare"
+					]
+				},
+				{
+					"name": "Line of business applications",
+					"friendly-name": "lob-app",
+					"tags": [
+						"line-of-business-app",
+						"lob-app",
+						"workforce-management-app"
+					]
+				},
+				{
+					"name": "Manufacturing",
+					"friendly-name": "manufacturing",
+					"tags": [
+						"discrete-manufacturing",
+						"quality-control-process",
+						"failure-detection",
+						"automated-manufacturing-solutions",
+						"manufacturing-control",
+						"manufacturing-quality-control"
+					]
+				},
+				{
+					"name": "Marketing",
+					"friendly-name": "marketing",
+					"tags": [
+						"machine-learning-in-marketing",
+						"machine-learning-marketing",
+						"predictive-marketing",
+						"personalized-marketing",
+						"marketing-personalization",
+						"predictive-analytics-marketing",
+						"targeted-marketing"
+					]
+				},
+				{
+					"name": "Media",
+					"friendly-name": "media",
+					"tags": [
+						"media-render",
+						"media-services",
+						"video-indexer",
+						"media"
+					]
+				}
+			]
+		},
+		{
+			"category": "Article Features",
+			"stub": "features",
+			"items": [
+				{
+					"name": "Alternate choices",
+					"friendly-name": "alternatives",
+					"tags": [
+						"alternative-choices"
+					]
+				},
+				{
+					"name": "Code examples",
+					"friendly-name": "example-code",
+					"tags": [
+						"example-code"
+					]
+				},
+				{
+					"name": "Component details",
+					"friendly-name": "components",
+					"tags": [
+						"components"
+					]
+				},
+				{
+					"name": "Data flow",
+					"friendly-name": "data-flow",
+					"tags": [
+						"data-flow"
+					]
+				},
+				{
+					"name": "Deploy to Azure",
+					"friendly-name": "is-deployable",
+					"tags": [
+						"is-deployable"
+					]
+				},
+				{
+					"name": "Github project",
+					"friendly-name": "github",
+					"tags": [
+						"github"
+					]
+				},
+				{
+					"name": "Interactive diagram",
+					"friendly-name": "interactive-diagram",
+					"tags": [
+						"interactive-diagram"
+					]
+				},
+				{
+					"name": "Pricing details",
+					"friendly-name": "pricing",
+					"tags": [
+						"pricing-calculator",
+						"pricing-guidance"
+					]
+				},
+				{
+					"name": "Visio diagram",
+					"friendly-name": "visio-diagram",
+					"tags": [
+						"visio-diagram"
+					]
+				}
+			]
+		},
+		{
+			"category": "Code Languages",
+			"stub": "codelang",
+			"items": [
+				{
+					"name": "Azure CLI",
+					"friendly-name": "azurecli",
+					"tags": [
+						"azurecli-interactive",
+						"azurecli"
+					]
+				},
+				{
+					"name": "C#",
+					"friendly-name": "csharp",
+					"tags": [
+						"csharp"
+					]
+				},
+				{
+					"name": "JSON",
+					"friendly-name": "json",
+					"tags": [
+						"json"
+					]
+				},
+				{
+					"name": "Linux Shell",
+					"friendly-name": "shell",
+					"tags": [
+						"bash",
+						"shell"
+					]
+				},
+				{
+					"name": "Powershell",
+					"friendly-name": "powershell",
+					"tags": [
+						"powershell"
+					]
+				},
+				{
+					"name": "SQL",
+					"friendly-name": "sql",
+					"tags": [
+						"sql"
+					]
+				},
+				{
+					"name": "XML",
+					"friendly-name": "xml",
+					"tags": [
+						"xml"
+					]
+				},
+				{
+					"name": "YML",
+					"friendly-name": "yaml",
+					"tags": [
+						"yaml"
+					]
+				}
+			]
+		},
+		{
+			"category": "Article Type",
+			"stub": "articletype",
+			"items": [
+				{
+					"name": "Solution Idea",
+					"friendly-name": "solution-idea",
+					"tags": [
+						"solution-idea"
+					]
+				},
+				{
+					"name": "Example Workload",
+					"friendly-name": "example-workload",
+					"tags": [
+						"example-workload"
+					]
+				},
+				{
+					"name": "Reference Architecture",
+					"friendly-name": "reference-architecture",
+					"tags": [
+						"reference-architecture"
+					]
+				}
+			]
+		},
+		{
+			"category": "Hidden",
+			"stub": "hidden",
+			"items": [
+				{
+					"name": "Azure",
+					"friendly-name": "azure",
+					"tags": [
+						"azure"
+					]
+				},
+				{
+					"name": "All items",
+					"friendly-name": "all-items",
+					"tags": [
+						"all-items"
+					]
+				},
+				{
+					"name": "Azure CAT team",
+					"friendly-name": "azcat",
+					"tags": [
+						"azcat",
+						"azcat-ai",
+						"cat-team"
+					]
+				},
+				{
+					"name": "CSA team",
+					"friendly-name": "csa-team",
+					"tags": [
+						"csa-team"
+					]
+				},
+				{
+					"name": "Product team",
+					"friendly-name": "product-team",
+					"tags": [
+						"product-team"
+					]
+				},
+				{
+					"name": "FastTrack team",
+					"friendly-name": "fasttrack-team",
+					"tags": [
+						"fasttrack"
+					]
+				},
+				{
+					"name": "TSP team",
+					"friendly-name": "tsp-team",
+					"tags": [
+						"tsp-team"
+					]
+				},
+				{
+					"name": "December SEO work",
+					"friendly-name": "seodec18",
+					"tags": [
+						"seodec18"
+					]
+				},
+				{
+					"name": "Luis",
+					"friendly-name": "luis",
+					"tags": [
+						"luis"
+					]
+				}
+			]
+		}
+	]
+}

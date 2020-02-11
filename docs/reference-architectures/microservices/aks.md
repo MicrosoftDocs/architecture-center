@@ -2,7 +2,7 @@
 title: Microservices architecture on Azure Kubernetes Service (AKS)
 description: Deploy a microservices architecture on Azure Kubernetes Service (AKS)
 author: MikeWasson
-ms.date: 12/10/2018
+ms.date: 12/10/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -75,21 +75,15 @@ Functionality provided by a gateway can be grouped as follows:
 
 - [Gateway Offloading](../../patterns/gateway-offloading.md). A gateway can offload functionality from the backend services, such as SSL termination, authentication, IP whitelisting, or client rate limiting (throttling).
 
-API gateways are a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). They can be implemented using a number of different technologies. Probably the most common implementation is to deploy an edge router or reverse proxy, such as Nginx, HAProxy, or Traefik, inside the cluster.
+API gateways are a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). They can be implemented using a number of different technologies. Probably the most common implementation is to deploy an edge router or reverse proxy, such as Nginx, HAProxy, or Traefik, inside the cluster. A reverse proxy server is a potential bottleneck or single point of failure, so always deploy at least two replicas for high availability.
 
-Other options include:
+For AKS, you can also use Azure Application Gateway, using the [Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/). This option requires [CNI networking](/azure/aks/configure-azure-cni) to be enabled when you configure the AKS cluster, because Application Gateway is deployed into a subnet of the AKS virtual network. For more information about load-balancing services in Azure, see [Overview of load-balancing options in Azure](../../guide/technology-choices/load-balancing-overview.md).
 
-- Azure Application Gateway and/or Azure API-Management, which are both managed services that reside outside of the cluster. An Application Gateway Ingress Controller is currently in beta.
-
-- Azure Functions Proxies. Proxies can modify requests and responses and route requests based on URL.
-
-The Kubernetes **Ingress** resource type abstracts the configuration settings for a proxy server. It works in conjunction with an ingress controller, which provides the underlying implementation of the Ingress. There are ingress controllers for Nginx, HAProxy, Traefik, and Application Gateway (preview), among others.
+The Kubernetes **Ingress** resource type abstracts the configuration settings for a proxy server. It works in conjunction with an ingress controller, which provides the underlying implementation of the Ingress. There are ingress controllers for Nginx, HAProxy, Traefik, and Application Gateway, among others.
 
 The ingress controller handles configuring the proxy server. Often these require complex configuration files, which can be hard to tune if you aren't an expert, so the ingress controller is a nice abstraction. In addition, the Ingress Controller has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
 
 On the other hand, if you need complete control over the settings, you may want to bypass this abstraction and configure the proxy server manually.
-
-A reverse proxy server is a potential bottleneck or single point of failure, so always deploy at least two replicas for high availability.
 
 ### Data storage
 
@@ -135,7 +129,7 @@ A side-effect of autoscaling is that pods may be created or evicted more frequen
 
 ### Cluster autoscaling
 
-The cluster autoscaler scales the number of nodes. If pods can't be scheduled because of resource constraints, the cluster autoscaler will provision more nodes.  (Note: Integration between AKS and the cluster autoscaler is currently in preview.)
+The cluster autoscaler scales the number of nodes. If pods can't be scheduled because of resource constraints, the cluster autoscaler will provision more nodes.
 
 Whereas HPA looks at actual resources consumed or other metrics from running pods, the cluster autoscaler is provisioning nodes for pods that aren't scheduled yet. Therefore, it looks at the requested resources, as specified in the Kubernetes pod spec for a deployment. Use load testing to fine-tune these values.
 

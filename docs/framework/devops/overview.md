@@ -9,9 +9,11 @@ ms.subservice: cloud-design-principles
 ms.custom: fasttrack-edit
 ---
 
-# Overview of DevOps
+# Overview of the DevOps pillar
 
 In the Azure Architecture Framework, we understand DevOps in a broad sense. In order to ensure that your application is running effectively over time, you need to consider multiple perspectives, from both an application and infrastructure angles, including the processes that you implement to make sure that your users are getting the right experience. And most importantly, those perspectives are closely interrelated to each other. That is why in this framework we have grouped disciplines such as management, monitoring and CI/CD under the DevOps umbrella.
+
+To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](/assessments/?mode=pre-assessment&id=azure-architecture-review).
 
 These are the disciplines we group in the DevOps pillar:
 
@@ -23,7 +25,6 @@ These are the disciplines we group in the DevOps pillar:
 | [Code deployment][deployment] | How you deploy your application code is going to be one of the key factors that will determine your application stability  |
 | [Infrastructure provisioning][iac] | Frequently known as "Automation" or "Infrastructure as code", this discipline refers to best practices for deploying the platform where your application will run on |
 | [Testing][testing] | Testing is fundamental to be prepared for the unexpected and to catch mistakes before they impact users |
-
 
 <!-- devops disciplines -->
 [monitoring]: ./monitoring.md

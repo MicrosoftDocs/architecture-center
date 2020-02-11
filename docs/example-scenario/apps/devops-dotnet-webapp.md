@@ -7,7 +7,11 @@ ms.date: 12/06/2018
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenarios
-ms.custom: fasttrack, seodec18
+ms.custom:
+  - fasttrack
+  - seodec18
+  - devops
+  - app-development
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-devops-dotnet-webapp.svg
 ---
 

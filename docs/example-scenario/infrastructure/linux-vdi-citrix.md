@@ -6,8 +6,11 @@ author: miguelangelopereira
 ms.date: 09/12/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
-ms.custom: fasttrack, Linux
+ms.subservice: example-scenario
+ms.custom:
+  - fasttrack
+  - Linux
+  - hpc
 social_image_url: /azure/architecture/example-scenario/infrastructure/media/azure-citrix-sample-diagram.png
 ---
 
@@ -46,7 +49,7 @@ This example scenario demonstrates allowing the corporate network to access the 
 
 For this scenario, the following SKUs are used:
 
-- Citrix ADC (NetScaler): 2 x D4sv3 with [NetScaler 12.0 VPX Standard Edition 200 MBPS PAYG image](https://azuremarketplace.microsoft.com/pt-br/marketplace/apps/citrix.netscalervpx-120?tab=PlansAndPrice)
+- Citrix ADC (NetScaler): 2 x D4sv3 with [NetScaler 12.0 VPX Standard Edition 200 MBPS PAYG image](https://azuremarketplace.microsoft.com/marketplace/apps/citrix.netscalervpx-120?tab=PlansAndPrice)
 - Citrix License Server: 1 x D2s v3
 - Citrix VDA: 4 x D8s v3
 - Citrix Storefront: 2 x D2s v3

@@ -10,10 +10,12 @@ ms.custom:
 ---
 
 # Overview of the security pillar
+
 Information Security has always been a complex subject, and it evolves quickly with the creative ideas and implementations of attackers and security researchers. The origin of security vulnerabilities started with identifying and exploiting common programming errors and unexpected edge cases. However over time, the attack surface that an attacker may explore and exploit has expanded well beyond that. Attackers now freely exploit vulnerabilities in system configurations, operational practices, and the social habits of the systems’ users. As system complexity, connectedness, and the variety of users increase, attackers have more opportunities to identify unprotected edge cases and to “hack” systems into doing things they were not designed to do.
 
 Security is one of the most important aspects of any architecture. It provides confidentiality, integrity, and availability assurances against deliberate attacks and abuse of your valuable data and systems. Losing these assurances can negatively impact your business operations and revenue, as well as your organization’s reputation in the marketplace. In the following series of articles, we’ll discuss key architectural considerations and principles for security and how they apply to Azure.
 
+To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](/assessments/?mode=pre-assessment&id=azure-architecture-review).
 
 These are the topics we cover in the security pillar of the Azure Architecture Framework
 
@@ -30,8 +32,7 @@ These are the topics we cover in the security pillar of the Azure Architecture F
 | [Identity and access management][identity] | Identity provides the basis of a large percentage of security assurances. |
 | [Info protection and storage][info] | Protecting data at rest is required to maintain confidentiality, integrity, and availability assurances across all workloads. |
 | [Network security and containment][network] | Network security has been the traditional lynchpin of enterprise security efforts. However, cloud computing has increased the requirement for network perimeters to be more porous and many attackers have mastered the art of attacks on identity system elements (which nearly always bypass network controls). |
-| [Security Operations][identity] | Security operations maintain and restores the security assurances of the system as live adversaries attack it. The tasks of security operations are described well by the NIST Cybersecurity Framework functions of Detect, Respond, and Recover. |
-| ... |  |
+| [Security Operations][sec-ops] | Security operations maintain and restores the security assurances of the system as live adversaries attack it. The tasks of security operations are described well by the NIST Cybersecurity Framework functions of Detect, Respond, and Recover. |
 
 <!-- security links -->
 [monitoring]: ./monitoring.md
@@ -46,3 +47,4 @@ These are the topics we cover in the security pillar of the Azure Architecture F
 [org-risk]: ./resilience.md
 [admin]: ./critical-impact-accounts.md
 [info]: ./storage-data-encryption.md
+[sec-ops]: ./security-operations.md

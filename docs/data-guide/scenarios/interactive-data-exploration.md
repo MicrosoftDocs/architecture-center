@@ -36,7 +36,7 @@ When an organization requires advanced analytics and predictive modeling, the in
 Relevant Azure services:
 
 - [Azure Notebooks](https://notebooks.azure.com/)
-- [Azure Machine Learning Studio](/azure/machine-learning/studio/what-is-ml-studio)
+- [Azure Machine Learning Studio (classic)](/azure/machine-learning/studio/what-is-ml-studio)
 - [Azure Machine Learning Experimentation Services](/azure/machine-learning/service/how-to-enable-virtual-network)
 - [The Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview)
 

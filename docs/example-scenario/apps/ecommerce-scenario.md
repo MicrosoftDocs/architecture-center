@@ -2,12 +2,15 @@
 title: E-commerce front end
 titleSuffix: Azure Example Scenarios
 description: Host an e-commerce site on Azure.
-author: masonch
+author: chrismason
 ms.date: 07/13/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
-ms.custom: fasttrack
+ms.subservice: example-scenario
+ms.custom:
+  - fasttrack
+  - web-apps
+  - ecommerce
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-ecommerce-scenario.png
 ---
 

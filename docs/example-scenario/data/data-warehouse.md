@@ -7,7 +7,9 @@ ms.date: 11/20/2019
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenarios
-ms.custom: data-analytics
+ms.custom:
+  - data-analytics
+  - data-warehouse
 social_image_url: /azure/architecture/example-scenario/data/media/architecture-data-warehouse.png
 ---
 

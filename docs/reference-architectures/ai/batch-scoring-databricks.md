@@ -90,7 +90,7 @@ For this scenario, the standard pricing tier is sufficient. However, if your spe
 
 The solution notebooks can run on any Spark-based platform with minimal edits to remove the Databricks-specific packages. See the following similar solutions for various Azure platforms:
 
-- [Python on Azure Machine Learning Studio][python-aml]
+- [Python on Azure Machine Learning Studio (classic)][python-aml]
 - [SQL Server R services][sql-r]
 - [PySpark on an Azure Data Science Virtual Machine][py-dvsm]
 

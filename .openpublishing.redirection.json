@@ -7,8 +7,7 @@
     },
     {
       "source_path": "docs/compliance/fedramp/index.md",
-      "redirect_url": "/azure/security/blueprints/fedramp",
-      "redirect_document_id": true
+      "redirect_url": "/previous-versions/azure/security/blueprints/fedramp-iaaswa-overview"
     },
     {
       "source_path": "docs/compliance/pci-dss/index.md",
@@ -202,8 +201,8 @@
     },
     {
       "source_path": "docs/resiliency/index.md",
-      "redirect_url": "/azure/architecture/reliability",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/framework/resiliency/overview",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/resiliency/disaster-recovery-azure-applications.md",
@@ -236,9 +235,13 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/guide/architecture-styles/cqrs.md",
+      "redirect_url": "/azure/architecture/patterns/cqrs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/data-guide/relational-data/index.md",
-      "redirect_url": "/azure/architecture/data-guide",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/data-guide"
     },
     {
       "source_path": "docs/microservices/ingestion-workflow.md",
@@ -251,8 +254,7 @@
     },
     {
       "source_path": "docs/databricks-monitoring/configure-cluster.md",
-      "redirect_url": "/azure/architecture/databricks-monitoring",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/databricks-monitoring"
     },
     {
       "source_path": "docs/topics/high-performance-computing/index.md",
@@ -271,8 +273,7 @@
     },
     {
       "source_path": "docs/cloud-adoption/getting-started/azure-resource-access.md",
-      "redirect_url": "/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management",
     },
     {
       "source_path": "docs/cloud-adoption/getting-started/what-is-governance.md",
@@ -294,8 +295,8 @@
     },
     {
       "source_path": "docs/cloud-adoption/governance/governance-multiple-teams.md",
-      "redirect_url": "/azure/architecture/cloud-adoption/governance",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cloud-adoption-framework/govern/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/cloud-adoption/migrate/expanded-scope/skills-readiness.md",
@@ -427,35 +428,35 @@
     },
     {
       "source_path": "docs/cloud-adoption-guide/adoption-intro/azure-resource-access.md",
-      "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      "redirect_url": "/cloud-adoption-framework/ready/azure-setup-guide/manage-access"
     },
     {
       "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-group-explainer.md",
-      "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      "redirect_url": "/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources"
     },
     {
       "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-group.md",
-      "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      "redirect_url": "/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources"
     },
     {
       "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-manager-explainer.md",
-      "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      "redirect_url": "/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources"
     },
     {
       "source_path": "docs/cloud-adoption-guide/adoption-intro/subscription-explainer.md",
-      "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      "redirect_url": "/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources"
     },
     {
       "source_path": "docs/cloud-adoption-guide/adoption-intro/subscription.md",
-      "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      "redirect_url": "/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources"
     },
     {
       "source_path": "docs/cloud-adoption-guide/adoption-intro/tenant-explainer.md",
-      "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      "redirect_url": "/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources"
     },
     {
       "source_path": "docs/cloud-adoption-guide/adoption-intro/tenant.md",
-      "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      "redirect_url": "/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources"
     },
     {
       "source_path": "docs/cloud-adoption-guide/intermediate-stage/governance-design-guide.md",
@@ -469,7 +470,7 @@
     {
       "source_path": "docs/cloud-adoption-guide/index.md",
       "redirect_url": "/azure/architecture/cloud-adoption",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/cloud-adoption-guide/subscription-governance-examples.md",
@@ -1836,6 +1837,42 @@
       "source_path": "docs/service-fabric/index.md",
       "redirect_url": "https://docs.microsoft.com/azure/architecture/service-fabric/migrate-from-cloud-services",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/index.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/architectures/?filter=reference-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/index.experimental.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/architectures/?filter=example-workload",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/index.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/architectures/?filter=example-workload",
+    },
+    {
+      "source_path": "docs/cloud-adoption/operations/overview.md",
+      "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/operating-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/pillars.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/framework/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/technology-choices/compute-overview.md",
+      "redirect_url": "/azure/architecture/guide/technology-choices/compute-decision-tree"
+    },
+    {
+      "source_path": "docs/guide/technology-choices/compute-comparison.md",
+      "redirect_url": "/azure/architecture/guide/technology-choices/compute-decision-tree"
+    },
+    {
+      "source_path": "docs/best-practices/resource-naming.md",
+      "redirect_url": "/azure/azure-resource-manager/management/resource-name-rules"
     }
   ]
 }
