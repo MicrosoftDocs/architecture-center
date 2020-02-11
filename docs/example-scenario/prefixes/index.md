@@ -4,7 +4,7 @@ titleSuffix: Azure Example Scenarios
 description: Automation of IP address space additions on peered vNets
 author: randycampbell
 ms.date: 02/01/2020
-ms.topic: example-scenarios
+ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenarios
 ms.custom:
