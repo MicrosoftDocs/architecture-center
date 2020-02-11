@@ -136,7 +136,7 @@ A deployment for a reference architecture that implements these recommendations 
 
 ### Deploy resources
 
-1. Navigate to the `/dmz/secure-vnet-dmz` folder of the reference architectures GitHub repository.
+1. Navigate to the `/dmz/secure-vnet-hybrid` folder of the reference architectures GitHub repository.
 
 2. Run the following command:
 
@@ -147,7 +147,7 @@ A deployment for a reference architecture that implements these recommendations 
 3. Run the following command:
 
     ```bash
-    azbb -s <subscription_id> -g <resource_group_name> -l <region> -p secure-vnet-dmz.json --deploy
+    azbb -s <subscription_id> -g <resource_group_name> -l <region> -p secure-vnet-hybrid.json --deploy
     ```
 
 ### Connect the on-premises and Azure gateways
@@ -199,7 +199,7 @@ In this step, you will connect the two local network gateways.
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [cloud-services-network-security]: /azure/best-practices-network-security
 [getting-started-with-azure-security]: /azure/security/azure-security-getting-started
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-dmz
+[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-hybrid
 [guidance-expressroute-availability]: ../hybrid-networking/expressroute.md#availability-considerations
 [guidance-expressroute-manageability]: ../hybrid-networking/expressroute.md#manageability-considerations
 [guidance-expressroute-scalability]: ../hybrid-networking/expressroute.md#scalability-considerations
