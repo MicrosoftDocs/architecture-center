@@ -185,6 +185,38 @@ Be aware of the following limitations:
 
 - To enable Analysis Services to read data from Azure Synapse, deploy a Windows VM to the virtual network that contains the Azure Synapse service endpoint. Install [Azure On-premises Data Gateway](/azure/analysis-services/analysis-services-gateway) on this VM. Then connect your Azure Analysis service to the data gateway.
 
+## Cost considerations
+
+### Synapse
+
+There are different options depending in you service level needs:
+
+**Compute Optimized Gen1** is designed for frequent scaling operations, is is priced as "pay as you go", based on Data warehouse units consumption (DWU). 
+
+**Compute Optimized Gen2** is designed for intensive workloads with higher query performance and compute scalability needs, it is priced as "pay as yo go" or you can go for reserved plans of 1 year (37 % savings), or 3 years (65 % savings).
+
+Data storage is charged separately. There are also other services like disaster recovery and threat detection which are also charged separately.
+
+See [Azure Synapse Pricing][az-synapse-pricing] for more info.
+
+### Analysis Services
+
+Azure Analysis Services is available in **developer**, **basic**, and **standard** tiers. The **Developer** tier is recommended for evaluation, development, and test scenarios. The **basic** tier is a general-purpose tier and recommended for small production environments. The **standard** tier is best suited for mission-critical production applications.
+
+No charges apply when you paise your instance
+
+See [Azure Analysis Services pricing][az-as-pricing] for more info.
+
+## Blob Storage
+
+Consider going for [Azure Storage Reserved Capacity][az-storage-reserved] pricing model, for cost savings.
+
+
+
+Use the [Pricing calculator][Cost-Calculator] to estimate costs.
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+
 ## Deploy the solution
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github]. It deploys the following:
@@ -205,7 +237,12 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [adf]: /azure/data-factory
+[az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services/
+[az-storage-reserved]: https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity
+[az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics/
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [github]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline
 [MergeLocation]: https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
