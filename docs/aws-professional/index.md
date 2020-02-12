@@ -489,3 +489,5 @@ services are needed for those delivery types.
 [traffic-manager]: /azure/traffic-manager/
 
 <!-- markdownlint-enable MD024 -->
+
+[!INCLUDE [clicktale](../_js/clicktale.md)]
