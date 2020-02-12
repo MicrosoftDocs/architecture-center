@@ -547,7 +547,8 @@ apply when deciding to deploy resources across Availability Zones, including:
 -   Availability of the same Azure services (virtual machine types) in the
     chosen zones.
 
-**NOTE:** Availability Zones support high availability but are not an effective
+> [!NOTE]
+> Availability Zones support high availability but are not an effective
 DR strategy. The distance between zones is too short. Typical DR regions should
 be at least 100 miles away from the primary region.
 
@@ -658,7 +659,8 @@ failover virtual machines. An example of the custom Site Recovery Automation
 Runbooks script is available on
 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery).
 
-**NOTE:** In case of a regional disaster that causes a mass failover event for
+> [!NOTE]
+>  In case of a regional disaster that causes a mass failover event for
 many Azure customers in one region, the target regions resource
 [capacity](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-common-questions#capacity)
 is **not** guaranteed. Like all Azure services, Site Recovery continues to
