@@ -165,6 +165,27 @@ In addition, it's always wise to plan for security hardening. Other recommendati
 - As an option, use IPsec policies for encryption of cleartext traffic between servers. If you are also doing subnet isolation, update your network security group rules to allow IPsec traffic.
 - Install anti-malware agents for the VMs.
 
+## Cost Considerations
+
+### AD Domain Services. 
+
+Having Active Directory Domain services as a shared service consumed by multiple workloads is cost effective. See [AD DS pricing][ADDS-pricing] for more information.
+
+### VPN Gateway
+
+You are charged based on the amount of time that the gateway is provisioned and available. See [VPN Gateway Pricing][azure-gateway-pricing].
+
+VPN Outboud traffic will be subjected to the internet bandwidth costs. The usual concept applies, all inbound traffic is free, all outbound traffic is billed.
+
+
+### Virtual Network
+
+Azure Virtual Network is free of charge. Every subscription is allowed to create up to 50 Virtual Networks across all regions.
+All traffic that occurs within the boundaries of a Virtual Network is free of charge. So if two VMs that are in the same VNET are talking each other then no charges will occur.
+
+
+This architecture builds on the one shown in [Run Windows VMs for an N-tier application][windows-n-tier], see cost the considerations section for more information.
+
 ## Deploy the solution
 
 A deployment for this reference architecture is available on [GitHub][github]. The entire deployment can take several hours to complete.
@@ -279,7 +300,9 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 
 <!-- links -->
 
+[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
 [availability-set]: /azure/virtual-machines/windows/manage-availability
+[azure-gateway-pricing]: https://azure.microsoft.com/pricing/details/vpn-gateway/
 [azure-portal]: https://portal.azure.com
 [azure-ps]: /powershell/azure/overview
 [azure-pricing]: https://azure.microsoft.com/pricing/calculator/
