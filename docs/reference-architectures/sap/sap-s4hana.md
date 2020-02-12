@@ -158,44 +158,6 @@ Each tier uses a different strategy to provide disaster recovery (DR) protection
 
 To use Azure Site Recovery to automatically build a fully replicated production site of your original, you must run customized [deployment scripts](/azure/site-recovery/site-recovery-runbook-automation). Site Recovery first deploys the virtual machines in availability sets, then runs scripts to add resources such as load balancers.
 
-## Cost considerations
-
-### Virtual machines and availability sets
-
-There is no cost for the Availability Set itself, you only pay for each VM instance that you create.
-
-Azure Virtual Machines gives you the flexibility of virtualization for a wide range of computing solutions with support for SAP.
-
-There are different budget options depending on the usage and workload.
-
-For unpredictable workloads that cannot be interrupted, consider the "Pay as you go" payment option. you can Increase or decrease compute capacity on demand. Start or stop at any time and only pay for what you use.
-
-Consider Reserved Virtual Machine Instances if you want budget predicatbility. A reserved VM instance is an advanced purchase of a Virtual Machine for one or three years in a specified region, so if you can commit to using a virtual machine over a one-year or three-year term to reduce computing costs, this is the best option, it can significantly reduce costs—up to 72 percent compared to pay-as-you-go prices.
-
-
-For workloads the can be iterrupted and do not require completion within a predetermined timeframe or an SLA, Spot VMs can be a good option for reduced costs.
-
-Consider Spot VMs for the following types of workloads:
-
-High-performance computing scenarios, batch processing jobs, or visual rendering applications.
-Test environments, including continuous integration and continuous delivery workloads.
-Large-scale stateless applications.
-
-For more information See [RHEL for SAP HANA Virtual Machines Pricing][HANA-vms-pricing]
-
-### Azure Load Balancer
-
-With Azure Standard Load Balancer, you only pay for what you use.  You are charged for amount of data processed inbound and outbound independent of rules and the number of configured load-balancing and outbound rules. Inbound NAT rules don't count in the total number of rules. There is no hourly charge for the Standard Load Balancer when no rules are configured.
-
-### Express Route
-
-All inbound data transfer is free of charge, and all outbound data transfer is charged based on a pre-determined rate. See [Azure ExpressRoute pricing][expressroute-pricing] For more info.
-
-Use the [Pricing calculator][Cost-Calculator] to estimate costs.
-
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
-
-
 ## Manageability considerations
 
 SAP HANA has a backup feature that makes use of the underlying Azure infrastructure. To back up the SAP HANA database running on Azure virtual machines, both the SAP HANA snapshot and Azure storage snapshot are used to ensure the backup files' consistency. For details, see [Backup guide for SAP HANA on Azure Virtual Machines](/azure/virtual-machines/workloads/sap/sap-hana-backup-guide) and the [Azure Backup service FAQ](/azure/backup/backup-azure-backup-faq). Only HANA single container deployments support Azure storage snapshot.
@@ -247,6 +209,4 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-reference-architectures.vsdx
