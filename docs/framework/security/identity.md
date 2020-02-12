@@ -114,7 +114,7 @@ block legacy protocols.
 Disabling legacy authentication can be difficult, as some users may not want to
 move to new client software that supports modern authentication methods.
 However, moving away from legacy authentication can be done gradually. Start by
-using metrics and logging from your authentication provider to determine the how
+using metrics and logging from your authentication provider to determine how
 many users still authenticate with old clients. Next, disable any down-level
 protocols that aren’t in use, and set up conditional access for all users who
 aren’t using legacy protocols. Finally, give plenty of notice and guidance to
@@ -161,7 +161,7 @@ providers are uniquely positioned to offer protection against these attacks.
 Since they handle such large volumes of signons, they can apply better anomaly
 detection and use a variety of data sources to both proactively notify companies
 if their users’ passwords have been found in other breaches, as well as validate
-that any given sign in appears legitimate and is not coming from an unexpected
+that any given sign-in appears legitimate and is not coming from an unexpected
 or known-malicious host.
 
 Additionally, synchronizing passwords to the cloud to support these checks also
