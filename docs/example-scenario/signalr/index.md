@@ -70,9 +70,9 @@ Front Door is a possible failure point in the system. If the service fails, clie
 
 ### Pricing this scenario
 
-Assume your business has 1000 orders in a day and needs to share location data with all of them concurrently, your estimated Azure usage for deploying this scenario will be close to $192 based on pricing at the time of writing.
+Assume your business has 1000 orders in a day and needs to share location data with all of them concurrently, your estimated Azure usage for deploying this scenario will be close to $192 per month based on pricing at the time of writing.
 
-| Service type          | Estimated Cost |
+| Service type          | Estimated Monthly Cost |
 |-----------------------|----------------|
 | Azure Functions       | $119.40        |
 | Azure SignalR Service | $48.97         |

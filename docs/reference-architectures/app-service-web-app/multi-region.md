@@ -56,7 +56,7 @@ Consider placing the primary region, secondary region, and Traffic Manager into 
 
 ### Front Door configuration
 
-**Routing**. Front Door supports several [routing mechanisms](/azure/frontdoor/front-door-routing-methods#priority-based-traffic-routing). For the scenario described in this article, use *priority* routing. With this setting, Front Door sends all requests to the primary region unless the endpoint for that region becomes unreachable. At that point, it automatically fails over to the secondary region. Set the backend pool with different priority values, 1 for the active region and 2 or lower for the standby or passive region.
+**Routing**. Front Door supports several [routing mechanisms](/azure/frontdoor/front-door-routing-methods#priority-based-traffic-routing). For the scenario described in this article, use *priority* routing. With this setting, Front Door sends all requests to the primary region unless the endpoint for that region becomes unreachable. At that point, it automatically fails over to the secondary region. Set the backend pool with different priority values, 1 for the active region and 2 or higher for the standby or passive region.
 
 **Health probe**. Front Door uses an HTTP (or HTTPS) probe to monitor the availability of each back end. The probe gives Front Door a pass/fail test for failing over to the secondary region. It works by sending a request to a specified URL path. If it gets a non-200 response within a timeout period, the probe fails. You can configure the health probe frequency, number of samples required for evaluation, and the number of successful samples required for the backend to be marked as healthy. If Front Door marks the backend as degraded, it fails over to the other backend. For details, see [Health Probes](/azure/frontdoor/front-door-health-probes).
 
@@ -80,20 +80,24 @@ For Azure Storage, use [read-access geo-redundant storage][ra-grs] (RA-GRS). Wit
 
 For Queue storage, create a backup queue in the secondary region. During failover, the app can use the backup queue until the primary region becomes available again. That way, the application can still process new requests.
 
-## Availability considerations - Front Door
+## Availability considerations 
 
-Front Door automatically fails over if the primary region becomes unavailable. When Front Door fails over, there is a period of time (usually about 20-60 seconds) when clients cannot reach the application. The duration is affected by the following factors:
+Consider these points when designing for high availability across regions.
+
+### Azure Front Door
+
+Azure Front Door automatically fails over if the primary region becomes unavailable. When Front Door fails over, there is a period of time (usually about 20-60 seconds) when clients cannot reach the application. The duration is affected by the following factors:
 
 - **Frequency of health probes**. The more frequent the health probes are sent, the faster Front Door can detect downtime or the backend coming back healthy.
 - **Sample size configuration**. This configuration controls how many samples are required for the health probe to detect that the primary backend has become unreachable. If this value is too low, you could get false positives from intermittent issues.
 
 Front Door is a possible failure point in the system. If the service fails, clients cannot access your application during the downtime. Review the [Front Door service level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/frontdoor) and determine whether using Front Door alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a fallback. If the Front Door service fails, change your canonical name (CNAME) records in DNS to point to the other traffic management service. This step must be performed manually, and your application will be unavailable until the DNS changes are propagated.
 
-## Availability Considerations - SQL Database
+### SQL Database
 
 The recovery point objective (RPO) and estimated recovery time (ERT) for SQL Database are documented in [Overview of business continuity with Azure SQL Database][sql-rpo].
 
-## Availability Considerations - Storage
+### Storage
 
 RA-GRS storage provides durable storage, but it's important to understand what can happen during an outage:
 
@@ -109,14 +113,37 @@ RA-GRS storage provides durable storage, but it's important to understand what c
 
 For more information, see [What to do if an Azure Storage outage occurs][storage-outage].
 
-## Manageability Considerations - SQL Database
+## Cost considerations
+
+Use the [pricing calculator][pricing-calculator] to estimate costs. These recommendations in this section may help you to reduce cost.
+
+### Azure Front Door
+
+Azure Front Door billing has three pricing tiers: outbound data transfers, inbound data transfers, and routing rules. For more info See [Azure Front Door Pricing][AFD-pricing]. The pricing chart does not include the cost of accessing data from the backend services and transferring to Front Door. Those costs are billed based on data transfer charges, described in [Bandwidth Pricing Details][bandwidth-pricing].
+
+### Azure Cosmos DB
+
+There are two factors that determine Azure Cosmos DB pricing:
+- The provisioned throughput or [Request Units per second (RU/s)](/azure/cosmos-db/request-units).
+
+    Cosmos DB allocates the resources required to guarantee the RU/s that you specify. You are billed hourly for the maximum provisioned throughput per hour. Because of the resources dedicated to your container or database, you are charged for the specified throughput even if you don’t run any workload.
+
+- Consumed storage.
+    You are billed a flat rate for the total amount of storage (GBs) consumed for data and the indexes for a given hour.
+
+For more information, see the cost section in [Azure Architecture Framework](/azure/architecture/framework/cost/overview).
+
+## Manageability considerations
 
 If the primary database fails, perform a manual failover to the secondary database. See [Restore an Azure SQL Database or failover to a secondary][sql-failover]. The secondary database remains read-only until you fail over.
 
 <!-- links -->
 
+[AFD-pricing]: https://azure.microsoft.com/pricing/details/frontdoor/
+[bandwidth-pricing]: https://azure.microsoft.com/pricing/details/bandwidth/
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
 [guidance-web-apps-scalability]: ./scalable-web-app.md
+[pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [ra-grs]: /azure/storage/common/storage-designing-ha-apps-with-ragrs
 [regional-pairs]: /azure/best-practices-availability-paired-regions
 [resource groups]: /azure/azure-resource-manager/resource-group-overview#resource-groups

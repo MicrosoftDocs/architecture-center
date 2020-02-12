@@ -46,7 +46,7 @@ In the logical diagram above, each type of consumer is shown as a single box. In
 ## Benefits
 
 - Producers and consumers are decoupled.
-- No point-to point-integrations. It's easy to add new consumers to the system.
+- No point-to-point integrations. It's easy to add new consumers to the system.
 - Consumers can respond to events immediately as they arrive.
 - Highly scalable and distributed.
 - Subsystems have independent views of the event stream.

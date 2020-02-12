@@ -170,7 +170,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
     </li>
     <!-- Resiliency -->
     <li>
-        <a href="/azure/architecture/resiliency">
+        <a href="/azure/architecture/framework/resiliency/overview">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
@@ -290,7 +290,6 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
     </li>
 </ul>
 
----
 
 ## Build your skills with Microsoft Learn
 
