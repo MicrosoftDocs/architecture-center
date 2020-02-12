@@ -954,8 +954,8 @@ items:
         href: reference-architectures/dmz/secure-vnet-dmz.md
       - name: Highly available network virtual appliances
         href: reference-architectures/dmz/nva-ha.md
-    - name: Add IP prefixes to peered virtual Networks
-        href: example-scenario/prefixes/add-ipspace-peered-vnet.md
+    - name: Add IP prefixes to peered virtual networks
+      href: example-scenario/prefixes/add-ipspace-peered-vnet.md
   - name: SAP
     items:
     - name: Reference Architectures
