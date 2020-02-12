@@ -87,7 +87,7 @@ the application tier and database tier, grouped as follows:
     protocol (RDP) or secure shell (SSH) services, try [Azure
     Baston](https://docs.microsoft.com/azure/bastion/bastion-overview).
 
-**Load balancers.** To distribute traffic to virtual machines in the application-tier subnet, [load balancers](https://docs.microsoft.com/azure/load-balancer/) are sed. For high availability, use the built-in SAP Web Dispatcher, [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview), or other mechanisms, depending on the traffic type (such as HTTP or SAPGUI) or the required network services (such as SSL termination).
+**Load balancers.** To distribute traffic to virtual machines in the application-tier subnet, [load balancers](https://docs.microsoft.com/azure/load-balancer/) are used. For high availability, use the built-in SAP Web Dispatcher, [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview), or other mechanisms, depending on the traffic type (such as HTTP or SAPGUI) or the required network services (such as SSL termination).
 
 **Availability sets.** Virtual machines for all pools and clusters (Web
 Dispatcher, SAP application servers, Central Services, and HANA) are grouped
@@ -177,7 +177,7 @@ failover cluster or the parallel Web Dispatcher setup.
 
 ### Fiori Front-end Server (FES)
 
-This architecture addresses broad base requirement and assumes that the Embedded
+This architecture addresses broad base requirements and assumes that the Embedded
 Fiori FES model is used. All the technology components are installed on the S/4
 system itself, meaning that each S/4 system has its own Fiori Launchpad. The
 high availability setup for this deployment model is that of the S/4 system—no
@@ -709,14 +709,10 @@ SAP HANA data can be backed up in many ways. After migrating to Azure, continue
 to use any existing backup solutions you already have. Azure provides two native
 approaches to backup. You can back up [SAP HANA on virtual
 machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide),
-and use [Azure Backup on file
-level](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level).
+and use [Azure Backup on the file
+level](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level). Azure Backup is now [BackInt certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) by SAP. 
 See also the [Azure Backup
 FAQ](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq).
-
-Coming soon: The SAP [HANA
-BACKINT](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database)
-integrated Azure Backup service, currently in preview.
 
 > [!NOTE]
 > As of this writing, only HANA single container deployments support
