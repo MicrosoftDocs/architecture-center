@@ -1,12 +1,12 @@
 ---
 title: Add IP address spaces to peered virtual networks
-titleSuffix: Azure Example Scenarios
+titleSuffix: Azure article
 description: Automation of IP address space additions to peered vNets
 author: randycampbell
 ms.date: 02/01/2020
-ms.topic: example-scenario
+ms.topic: article
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: overview
 ms.custom:
     - fcp
 ---
