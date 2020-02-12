@@ -19,9 +19,9 @@ Implement partitioning guidance to meet scalability requirements.
 
 Use Data Consistency Primer guidance. Ensure appropriate consistency and isolation level while making database connections.
 
-## Database query optimimization
+## Database query optimization
 
-Review Query Tuning guidance. Utilize automatic tuning in Azure SQL Database. Use Azure Managed Database Services for automatic tuning.
+Review Query Tuning guidance. Turn on automatic tuning in Azure SQL Database. Use Azure Managed Database Services for automatic tuning.
 
 ## Planning for data growth
 
