@@ -621,7 +621,7 @@ kernel updates take place on the primary Central Services servers, the changes
 must also be repeated on the virtual machine in the DR region. For details about
 this replication method's build, copy, and test failover process, download [SAP
 NetWeaver: Building a Hyper-V and Microsoft Azure–based Disaster Recovery
-Solution](http://download.microsoft.com/download/9/5/6/956FEDC3-702D-4EFB-A7D3-2DB7505566B6/SAP%20NetWeaver%20-%20Building%20an%20Azure%20based%20Disaster%20Recovery%20Solution%20V1_5%20.docx),
+Solution](https://download.microsoft.com/download/9/5/6/956FEDC3-702D-4EFB-A7D3-2DB7505566B6/SAP%20NetWeaver%20-%20Building%20an%20Azure%20based%20Disaster%20Recovery%20Solution%20V1_5%20.docx),
 and refer to "4.3. SAP SPOF layer (ASCS)."
 
 When implementing high availability for Central Services using SOFS or SIOS,
