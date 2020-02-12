@@ -42,7 +42,7 @@ authoritative source, teams that need to make changes to the directory can do so
 in one place and have confidence that their change will take effect everywhere.
 
 For Azure, designate a single Azure Active Directory (Azure AD) instance
-directory as the authoritative source for corporate/organizational accounts.
+directory as the authoritative source for corporate/organizational accounts. For more information on [hybrid identity providers](/azure/active-directory/hybrid/whatis-hybrid-identity).
 
 ## Synchronize identity systems
 
@@ -233,41 +233,3 @@ risk.
 
 You can use [Office 365 Attack Simulation](https://docs.microsoft.com/office365/securitycompliance/attack-simulator)
 capabilities or any number of third-party offerings.
-
-## Implementing Identity best practices in Azure
-
-Each of the recommendations from this section can be implemented using Azure Active Directory. See the below articles for more information about how to use these features. 
-
-### Single Enterprise Directory 
-
-https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity
-
-### Synchronize Identity Systems 
-
-https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect 
-
-### Use Cloud Provider Identity Source for Third Parties
-
-https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility 
-
-https://docs.microsoft.com/azure/active-directory/b2b/
-
-https://docs.microsoft.com/azure/active-directory-b2c/
-
-### Block Legacy Authentication 
-
-### Don’t Synchronize On-Premises Admin Accounts to Cloud Identity Providers 
-
-### Use Modern Password Protection Offerings 
-
-*https://docs.microsoft.com/azure/active-directory/identity-protection/overview*
-
-https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises
-
-https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
-
-https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
-
-### Use Cross-Platform Credential Management
-
-https://docs.microsoft.com/azure/virtual-machines/linux/login-using-aad
