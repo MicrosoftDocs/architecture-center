@@ -20,7 +20,7 @@ This reference architecture shows how to implement a hub-spoke topology in Azure
 
 The benefits of this topology include:
 
-- **Cost savings** by centralizing services that can be shared by multiple workloads, such as Azure firewall and DNS servers, in a single location.
+- **Cost savings** by centralizing services that can be shared by multiple workloads, such as network virtual appliances (NVAs) and DNS servers, in a single location.
 - **Overcome subscriptions limits** by peering virtual networks from different subscriptions to the central hub.
 - **Separation of concerns** between central IT (SecOps, InfraOps) and workloads (DevOps).
 
@@ -100,29 +100,6 @@ In this scenario, you must configure the peering connections to **allow forwarde
 You can also use a VPN gateway to route traffic between spokes, although this will have impacts in terms of latency and throughput. Also, Azure Firewall or a network firewall appliance provides an additional layer of security.
 
 Also consider what services are shared in the hub, to ensure the hub scales for a larger number of spokes. For instance, if your hub provides firewall services, consider the bandwidth limits of your firewall solution when adding multiple spokes. You might want to move some of these shared services to a second level of hubs.
-
-## Cost Considerations
-
-### Azure firewall
-
-Azure native network security service, Azure Firewall is cost effective, especially if it's used as a shared solution consumed by multiple workloads. Azure Firewall pricing includes a fixed hourly cost ($1.25/firewall/hour) and a variable per GB processed cost to support auto scaling. You can save up to 30 percent – 50 percent in comparison to an NVA deployment model.  For more information see [Azure firewall vs NVA][Firewall-NVA].
-
-### Azure Bastion
-
-Azure Bastion will cost the same as a basic, low-level VM that is acting as a jump box.
-
-Consider moving from management jump boxes to Azure Bastion, native security service for RDP. Azure bastion is cost effective since you don't have to pay for any storage costs as well as manage a separate server for each managed virtual network
-
-### Virtual network peering
-
-Virtual network peering Enables you to route traffic between virtual networks using private IP addresses. Ingress and egress traffic is charged at both ends of the peered networks. Keep in mind that different zones have different transfer rates:
-
-For instance, if data is being transferred from a VNET in zone 1 to a VNET in zone 2, customers will incur outbound data transfer rates for zone 1 and inbound data transfer rates for zone 2. See [Virtual network pricing][VNA-pricing] For more info.
-
-
-Use the [Pricing calculator][Cost-Calculator] to estimate costs.
-
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
 ## Deploy the solution
 
@@ -296,20 +273,16 @@ For a version of this architecture that deploys shared identity and security ser
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
 [azure-cli-2]: /azure/install-azure-cli
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
-[Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances/
 [guidance-expressroute]: ./expressroute.md
 [guidance-vpn]: ./vpn.md
 [linux-vm-ra]: ../virtual-machines-linux/index.md
 [hybrid-ha]: ./expressroute-vpn-failover.md
 [naming conventions]: /azure/guidance/guidance-naming-conventions
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
-[VNA-pricing]: https://azure.microsoft.com/pricing/details/virtual-network/
 [vnet-peering]: /azure/virtual-network/virtual-network-peering-overview
 [vnet-peering-limit]: /azure/azure-subscription-service-limits#networking-limits
 [vnet-peering-requirements]: /azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints
