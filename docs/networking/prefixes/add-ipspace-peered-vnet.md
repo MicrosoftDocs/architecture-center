@@ -13,7 +13,7 @@ ms.custom:
 
 # Add IP address spaces to peered virtual networks
 
-Many organizations deploy a virtual networking architecture that follows the [Hub and Spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) model. At some point, after being deployed to production, the hub virtual network might require additional IP address spaces.  Currently, address ranges cannot be added or deleted from a virtual network's address space once it's peered with another virtual network.  To add or remove address ranges, delete the peering, add or remove the address ranges, then re-create the peering manually.  This can be accomplished by different methods, such as the [Azure Portal](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#delete-a-peering), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetworkpeering), or [Azure CLI](https://docs.microsoft.com/cli/azure/network/vnet/peering).  To accommodate and help automate this scenario, we have developed a PowerShell script that can make this process easier.
+Many organizations deploy a virtual networking architecture that follows the [Hub and Spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) model. At some point, after being deployed to production, the hub virtual network might require additional IP address spaces.  Currently, address ranges can't be added or deleted from a virtual network's address space once it's peered with another virtual network.  To add or remove address ranges, delete the peering, add or remove the address ranges, then re-create the peering manually.  This change can be accomplished by different methods, such as the [Azure Portal](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#delete-a-peering), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetworkpeering), or [Azure CLI](https://docs.microsoft.com/cli/azure/network/vnet/peering).  To help automate this scenario, we've developed a PowerShell script that can make this process easier.
 
 ## Relevant use cases
 
@@ -39,7 +39,7 @@ A single Azure Active Directory tenant, different subscriptions scenario where t
 
 ## Add the IP address range
 
-This script automatically removes all Virtual Network peerings from the Hub Virtual Network, adds an IP address range prefix to the Hub Virtual Network based on Input parameters, adds the Virtual Network peerings back to the Hub Virtual Network, and reconnects the Hub virtual network peerings to the existing Spoke virtual network peerings. The script will work with single and multiple subscription hubs and spoke topologies.
+This script automatically removes all Virtual Network peerings from the Hub Virtual Network, adds an IP address range prefix to the Hub Virtual Network based on Input parameters, adds the Virtual Network peerings back to the Hub Virtual Network, and reconnects the Hub virtual network peerings to the existing Spoke virtual network peerings. The script will work with single and multiple subscription hub and spoke topologies.
 
 ```powershell
 param (
@@ -102,7 +102,7 @@ foreach ($vNetPeering in $hubPeerings)
     $vNetObj = Get-AzVirtualNetwork -Name $vNetName
 
     # Get the peering from the remote vnet object
-    $peeringName = $vNetObj.VirtualNetworkPeerings.Where({$_.RemoteVirtualNetwork.Id -like "*$($hubvnet.Name)"}).Name
+    $peeringName = $vNetObj.VirtualNetworkPeerings.Where({$_.RemoteVirtualNetwork.Id -like "*$($hubVNet.Name)"}).Name
     $peering = Get-AzVirtualNetworkPeering -ResourceGroupName $vNetObj.ResourceGroupName -VirtualNetworkName $vNetName -Name $peeringName
 
     # Reset to initiated state
