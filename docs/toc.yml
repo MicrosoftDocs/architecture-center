@@ -145,8 +145,6 @@ items:
       href: framework/devops/overview.md
     - name: Application design
       href: framework/devops/app-design.md
-    - name: Branching strategies
-      href: framework/devops/gitflow-branch-workflow.md
     - name: Development
       href: framework/devops/development.md
     - name: Deployment
