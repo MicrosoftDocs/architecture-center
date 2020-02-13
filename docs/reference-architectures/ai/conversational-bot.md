@@ -176,6 +176,29 @@ The bot itself is only part of a larger system that provides it with the latest 
 
 You can deploy the bot logic directly from your IDE or from a command line, such as the Azure CLI. As your bot matures, however, it's best to use a continual deployment process using a CI/CD solution such as Azure DevOps, as described in the article [Set up continuous deployment](/azure/bot-service/bot-service-build-continuous-deployment). This is a good way to ease the friction in testing new features and fixes in your bot in a near-production environment. It's also a good idea to have multiple deployment environments, typically at least staging and production. Azure DevOps supports this approach.
 
+## Cost considerations
+
+### Bot application
+
+The main cost driver in this architecture is the Azure App Service the bot application logic is hosted in, choose the App Service plan tier that best suits your needs. Use **Free** and **Shared** (preview) tiers for testing purposes because the shared resources cannot scale out. The two tiers provide different options within your budget.  Run your production workload on **Basic**, **Standard**, and **Premium** tiers because the app runs on dedicated virtual machine instances and has allocated resources that can scale out. App Service plans are billed on a per second basis.
+For more information, see [How much does my App Service plan cost?][app-service-cost]
+
+### Data ingestion
+
+#### Azure Data Factory
+
+Explore a range of data integration capabilities to fit your budget needs, from managed SQL Server Integration Services for seamless migration of SQL Server projects to the cloud (cost effective option), to large-scale, serverless data pipelines for integrating data of all shapes and sizes.
+
+#### Azure functions
+
+
+
+#### Logic Apps
+
+
+
+Use the [Pricing calculator][Cost-Calculator] to estimate costs.
+
 <!-- links -->
 
 [0]: ./_images/conversational-bot.png
@@ -184,6 +207,7 @@ You can deploy the bot logic directly from your IDE or from a command line, such
 [aml]: /azure/machine-learning/service/
 [app-insights]: /azure/azure-monitor/app/app-insights-overview
 [app-service]: /azure/app-service/
+[app-service-cost]: https://docs.microsoft.com/azure/app-service/overview-hosting-plans#how-much-does-my-app-service-plan-cost
 [blob]: /azure/storage/blobs/storage-blobs-introduction
 [bot-authentication]: /azure/bot-service/bot-builder-authentication
 [bot-framework]: https://dev.botframework.com/
@@ -191,6 +215,7 @@ You can deploy the bot logic directly from your IDE or from a command line, such
 [cognitive-services]: /azure/cognitive-services/welcome
 [conversations]: /azure/bot-service/bot-service-design-conversation-flow
 [cosmosdb]: /azure/cosmos-db/
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [data-factory]: /azure/data-factory/
 [data-factory-ref-arch]: ../data/enterprise-bi-adf.md
 [devops]: https://azure.microsoft.com/solutions/devops/

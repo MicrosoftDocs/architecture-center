@@ -117,6 +117,22 @@ Use [RBAC][rbac] to control access to the Azure resources that you deploy. RBAC 
 
 **Logging**. Use best practices before storing log data, such as scrubbing user passwords and other information that could be used to commit security fraud.
 
+## Cost considerations
+
+### Azure Machine Learning
+
+Compute is the biggest cost driver in this architecture and varies depending on the use case. For experimentation and training, Azure Machine Learning is free, you pay only for the compute used by the web service. Use the [Pricing calculator][Cost-Calculator] to estimate your compute costs.
+
+### Azure Container Registry
+
+There three tiers offered, **Basic**, **Standard** and **Premium**. Choose your tier depending on the storage you are going to use. If you need Geo Replication, or you enhanced throughput for docker pulls across concurrent nodes, you should go for **Premium** tier. Keep in mind that also standard networking charges apply. See Azure [Container Registry pricing][az-container-registry-pricing], for more information.
+
+### Azure Kubernetes Service
+
+You only pay for the virtual machines instances, storage and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources please see the [Container Services calculator][aks-Calculator]
+
+
+
 ## Deployment
 
 To deploy this reference architecture, follow the steps described in the GitHub repos:
@@ -130,9 +146,12 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 [acr]: /azure/container-registry/
 [something]: https://kubernetes.io/docs/reference/access-authn-authz/authentication/
 [aks]: /azure/aks/intro-kubernetes
+[aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service
 [autoscaler]: /azure/aks/autoscaler
 [autoscale-pods]: /azure/aks/tutorial-kubernetes-scale#autoscale-pods
+[az-container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry/
 [azcopy]: /azure/storage/common/storage-use-azcopy-linux
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [ddos]: /azure/virtual-network/ddos-protection-overview
 [get-started]: /azure/security-center/security-center-get-started
 [github-python]: https://github.com/Microsoft/MLAKSDeployAML
