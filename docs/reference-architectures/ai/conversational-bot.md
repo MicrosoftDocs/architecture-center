@@ -191,18 +191,22 @@ Explore a range of data integration capabilities to fit your budget needs, from 
 
 #### Azure functions
 
-
+Azure functions service is managed by the cloud provider, so the total cost of owning the service is minimal, you pay for consumption. Azure Functions consumption plan is billed based on per-second resource consumption and execution count. Number of executions count is simple: each function defines an event trigger which fires the execution. Batching is recommended for reducing cost, that means processing several events in a single execution.
+Nothing is reserved in advance, so the cost of executing Function App grows linearly with the application demand. Elastically scalable when a Function workload is low, Azure scales the infrastructure down up to zero with no associated cost. Whenever the workload grows, Azure uses enough capacity to serve all the demand. Since you pay per actual use, you can understand and manage the exact cost of each component. 
 
 #### Logic Apps
 
+Logig apps pricing works on the pay-as-you-go model. For instance, if you process 1000 service bus messages a day, with a workflow of five actions it would cost you less than 6 USD. Every time a Logic App definition are triggered, action and connector executions are metered. See [Logic Apps pricing][Logic-Apps-Pricing] for more info.
 
 
 Use the [Pricing calculator][Cost-Calculator] to estimate costs.
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
 <!-- links -->
 
 [0]: ./_images/conversational-bot.png
 [aad]: /azure/active-directory/
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [activities]: /azure/bot-service/rest-api/bot-framework-rest-connector-concepts?#activity
 [aml]: /azure/machine-learning/service/
 [app-insights]: /azure/azure-monitor/app/app-insights-overview
@@ -230,6 +234,7 @@ Use the [Pricing calculator][Cost-Calculator] to estimate costs.
 [key-vault]: /azure/key-vault/
 [lda]: https://wikipedia.org/wiki/Latent_Dirichlet_allocation
 [logic-apps]: /azure/logic-apps/logic-apps-overview
+[Logic-Apps-Pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
 [luis]: /azure/cognitive-services/luis/
 [power-bi]: /power-bi/
 [qna-maker]: /azure/cognitive-services/QnAMaker/

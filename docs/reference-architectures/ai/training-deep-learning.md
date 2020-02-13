@@ -128,6 +128,8 @@ Azure ML Compute is one of the main cost drivers in this architecture. You will 
 
 Use the [Pricing calculator][Cost-Calculator] to estimate costs.
 
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+
 ## Deployment
 
 The reference implementation of this architecture is available on [GitHub][github]. Follow the steps described there to conduct distributed training of deep learning models across clusters of GPU-enabled VMs.
@@ -145,6 +147,7 @@ The output from this architecture is a trained model that is saved to blob stora
 [1]: ./_images/distributed_dl_flow.png
 [2]: ./_images/distributed_dl_tests.png
 [acr]: /azure/container-registry/container-registry-intro
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [ai]: /azure/application-insights/app-insights-overview
 [aml-compute]: /azure/machine-learning/service/how-to-set-up-training-targets#amlcompute
 [amls]: /azure/machine-learning/service/overview-what-is-azure-ml
