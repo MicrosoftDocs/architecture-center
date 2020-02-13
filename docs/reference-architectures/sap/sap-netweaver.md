@@ -59,8 +59,7 @@ application tier and database tier, grouped as follows:
     availability, supported by Windows Scale Out File Server (SOFS) with Storage
     Space Direct (S2D).
 
--   **AnyDB.** The database tier runs AnyDB as the source database, such as
-    Microsoft SQL Server, Oracle, or IBM DB2.
+-   **AnyDB.** The database tier runs AnyDB as the database, such as Microsoft SQL Server, Oracle, or IBM DB2.
 
 -   **Jumpbox.** Also called a bastion host. This secure virtual machine on the
     network is used by administrators to connect to the other virtual machines
@@ -246,7 +245,7 @@ central point of connectivity to an on-premises network. The spokes are VNets
 that peer with the hub and isolate the SAP workloads. Traffic flows between the
 on-premises datacenter and the hub through a gateway connection.
 
-#### Network interface cards
+#### Network interface cards (NICs)
 
 Enable all communication of virtual machines on a virtual network. Traditional
 on-premises SAP deployments implement multiple NICs per machine to segregate
@@ -396,10 +395,9 @@ storage content that changes infrequently enhances the speed of data retrieval.
 
 [Ultra
 disks](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd)
-are now available for IO demanding applications where one replaces [Write
+Ultra disks are now available for IO demanding applications. When available, it is recommended in place of [Write
 Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
-premium storage. Performance metrics, such as IOPS and MB/s, can be individually
-increased or decreased without the need to reboot.
+premium storage. Performance metrics, such as IOPS and MB/s, can be individually increased or decreased without the need to reboot. 
 
 For SAP on Azure, the [Azure Virtual Machines planning and implementation for
 SAP
