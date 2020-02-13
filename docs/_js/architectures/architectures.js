@@ -577,7 +577,6 @@ $(window).resize(function() {
     filter();
 }); 
 
-
 $(document).ready(function(){
     // Set the background class to match the SearchFilter
     $(".mainContainer").addClass("has-body-background-dark main-full-height is-full has-default-focus");
