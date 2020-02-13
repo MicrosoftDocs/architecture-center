@@ -1,11 +1,11 @@
 items:
 - name: Azure Architecture Center
   href: index.md
-- name: Application architecture guide
+- name: Application Architecture Guide
   items:
   - name: Introduction
     href: guide/index.md
-  - name: Architecture Styles
+  - name: Architecture styles
     items:
     - name: Overview
       href: guide/architecture-styles/index.md
@@ -21,7 +21,7 @@ items:
       href: guide/architecture-styles/n-tier.md
     - name: Web-queue-worker
       href: guide/architecture-styles/web-queue-worker.md
-  - name: Design Principles
+  - name: Design principles for Azure applications
     items:
     - name: Overview
       href: guide/design-principles/index.md
@@ -47,19 +47,15 @@ items:
       href: guide/design-principles/build-for-business.md
   - name: Technology choices
     items:
-    - name: Choosing a compute service
-      items:
-      - name: Overview
-        href: guide/technology-choices/compute-overview.md
-      - name: Decision tree
-        href: guide/technology-choices/compute-decision-tree.md
-      - name: Compute comparison
-        href: guide/technology-choices/compute-comparison.md
-    - name: Choosing a load balancing service
+    - name: Choose a compute service
+      href: guide/technology-choices/compute-decision-tree.md
+    - name: Choose a data store
+      href: guide/technology-choices/data-store-overview.md
+    - name: Choose a load balancing service
       href: guide/technology-choices/load-balancing-overview.md
-    - name: Choosing a messaging service
+    - name: Choose a messaging service
       href: guide/technology-choices/messaging.md
-  - name: Best Practices
+  - name: Best practices for cloud applications
     items:
     - name: API design
       href: best-practices/api-design.md
@@ -77,10 +73,10 @@ items:
       href: best-practices/data-partitioning.md
     - name: Data partitioning strategies (by service)
       href: best-practices/data-partitioning-strategies.md
+    - name: Deployment stamp
+      href: best-practices/deployment-stamp.md
     - name: Monitoring and diagnostics
       href: best-practices/monitoring.md
-    - name: Naming rules and restrictions for Azure resources
-      href: best-practices/resource-naming.md
     - name: Retry guidance for specific services
       href: best-practices/retry-service-specific.md
     - name: Transient fault handling
@@ -95,128 +91,32 @@ items:
       href: performance/backend-services.md
     - name: Scenario 3 - Event streaming
       href: performance/event-streaming.md
-  - name: Performance antipatterns
-    items:
-    - name: Overview
-      href: antipatterns/index.md
-    - name: Busy Database
-      href: antipatterns/busy-database/index.md
-    - name: Busy Front End
-      href: antipatterns/busy-front-end/index.md
-    - name: Chatty I/O
-      href: antipatterns/chatty-io/index.md
-    - name: Extraneous Fetching
-      href: antipatterns/extraneous-fetching/index.md
-    - name: Improper Instantiation
-      href: antipatterns/improper-instantiation/index.md
-    - name: Monolithic Persistence
-      href: antipatterns/monolithic-persistence/index.md
-    - name: No Caching
-      href: antipatterns/no-caching/index.md
-    - name: Synchronous I/O
-      href: antipatterns/synchronous-io/index.md
+    - name: Performance antipatterns
+      items:
+      - name: Overview
+        href: antipatterns/index.md
+      - name: Busy Database
+        href: antipatterns/busy-database/index.md
+      - name: Busy Front End
+        href: antipatterns/busy-front-end/index.md
+      - name: Chatty I/O
+        href: antipatterns/chatty-io/index.md
+      - name: Extraneous Fetching
+        href: antipatterns/extraneous-fetching/index.md
+      - name: Improper Instantiation
+        href: antipatterns/improper-instantiation/index.md
+      - name: Monolithic Persistence
+        href: antipatterns/monolithic-persistence/index.md
+      - name: No Caching
+        href: antipatterns/no-caching/index.md
+      - name: Synchronous I/O
+        href: antipatterns/synchronous-io/index.md
   - name: Azure for AWS Professionals
     items:
     - name: Overview
       href: aws-professional/index.md
     - name: Services comparison
       href: aws-professional/services.md
-- name: Design Patterns
-  items:
-  - name: Overview
-    href: patterns/index.md
-  - name: Categories
-    items:
-    - name: Availability
-      href: patterns/category/availability.md
-    - name: Data management
-      href: patterns/category/data-management.md
-    - name: Design and implementation
-      href: patterns/category/design-implementation.md
-    - name: Management and monitoring
-      href: patterns/category/management-monitoring.md
-    - name: Messaging
-      href: patterns/category/messaging.md
-    - name: Performance and scalability
-      href: patterns/category/performance-scalability.md
-    - name: Resiliency
-      href: patterns/category/resiliency.md
-    - name: Security
-      href: patterns/category/security.md
-  - name: Ambassador
-    href: patterns/ambassador.md
-  - name: Anti-corruption Layer
-    href: patterns/anti-corruption-layer.md
-  - name: Asynchronous Request-Reply
-    href: patterns/async-request-reply.md
-  - name: Backends for Frontends
-    href: patterns/backends-for-frontends.md
-  - name: Bulkhead
-    href: patterns/bulkhead.md
-  - name: Cache-Aside
-    href: patterns/cache-aside.md
-  - name: Choreography
-    href: patterns/choreography.md
-  - name: Circuit Breaker
-    href: patterns/circuit-breaker.md
-  - name: Claim Check
-    href: patterns/claim-check.md
-  - name: Command and Query Responsibility Segregation (CQRS)
-    href: patterns/cqrs.md
-  - name: Compensating Transaction
-    href: patterns/compensating-transaction.md
-  - name: Competing Consumers
-    href: patterns/competing-consumers.md
-  - name: Compute Resource Consolidation
-    href: patterns/compute-resource-consolidation.md
-  - name: Event Sourcing
-    href: patterns/event-sourcing.md
-  - name: External Configuration Store
-    href: patterns/external-configuration-store.md
-  - name: Federated Identity
-    href: patterns/federated-identity.md
-  - name: Gatekeeper
-    href: patterns/gatekeeper.md
-  - name: Gateway Aggregation
-    href: patterns/gateway-aggregation.md
-  - name: Gateway Offloading
-    href: patterns/gateway-offloading.md
-  - name: Gateway Routing
-    href: patterns/gateway-routing.md
-  - name: Health Endpoint Monitoring
-    href: patterns/health-endpoint-monitoring.md
-  - name: Index Table
-    href: patterns/index-table.md
-  - name: Leader Election
-    href: patterns/leader-election.md
-  - name: Materialized View
-    href: patterns/materialized-view.md
-  - name: Pipes and Filters
-    href: patterns/pipes-and-filters.md
-  - name: Priority Queue
-    href: patterns/priority-queue.md
-  - name: Publisher/Subscriber
-    href: patterns/publisher-subscriber.md
-  - name: Queue-Based Load Leveling
-    href: patterns/queue-based-load-leveling.md
-  - name: Retry
-    href: patterns/retry.md
-  - name: Scheduler Agent Supervisor
-    href: patterns/scheduler-agent-supervisor.md
-  - name: Sequential Convoy
-    href: patterns/sequential-convoy.md
-  - name: Sharding
-    href: patterns/sharding.md
-  - name: Sidecar
-    href: patterns/sidecar.md
-  - name: Static Content Hosting
-    href: patterns/static-content-hosting.md
-  - name: Strangler
-    href: patterns/strangler.md
-  - name: Throttling
-    href: patterns/throttling.md
-  - name: Valet Key
-    href: patterns/valet-key.md
 - name: Azure Architecture Framework
   items:
   - name: Overview
@@ -329,6 +229,102 @@ items:
       href: framework/security/critical-impact-accounts.md
     - name: Security operations
       href: framework/security/security-operations.md
+- name: Design Patterns
+  items:
+  - name: Overview
+    href: patterns/index.md
+  - name: Categories
+    items:
+    - name: Availability
+      href: patterns/category/availability.md
+    - name: Data management
+      href: patterns/category/data-management.md
+    - name: Design and implementation
+      href: patterns/category/design-implementation.md
+    - name: Management and monitoring
+      href: patterns/category/management-monitoring.md
+    - name: Messaging
+      href: patterns/category/messaging.md
+    - name: Performance and scalability
+      href: patterns/category/performance-scalability.md
+    - name: Resiliency
+      href: patterns/category/resiliency.md
+    - name: Security
+      href: patterns/category/security.md
+  - name: Ambassador
+    href: patterns/ambassador.md
+  - name: Anti-corruption Layer
+    href: patterns/anti-corruption-layer.md
+  - name: Asynchronous Request-Reply
+    href: patterns/async-request-reply.md
+  - name: Backends for Frontends
+    href: patterns/backends-for-frontends.md
+  - name: Bulkhead
+    href: patterns/bulkhead.md
+  - name: Cache-Aside
+    href: patterns/cache-aside.md
+  - name: Choreography
+    href: patterns/choreography.md
+  - name: Circuit Breaker
+    href: patterns/circuit-breaker.md
+  - name: Claim Check
+    href: patterns/claim-check.md
+  - name: Command and Query Responsibility Segregation (CQRS)
+    href: patterns/cqrs.md
+  - name: Compensating Transaction
+    href: patterns/compensating-transaction.md
+  - name: Competing Consumers
+    href: patterns/competing-consumers.md
+  - name: Compute Resource Consolidation
+    href: patterns/compute-resource-consolidation.md
+  - name: Event Sourcing
+    href: patterns/event-sourcing.md
+  - name: External Configuration Store
+    href: patterns/external-configuration-store.md
+  - name: Federated Identity
+    href: patterns/federated-identity.md
+  - name: Gatekeeper
+    href: patterns/gatekeeper.md
+  - name: Gateway Aggregation
+    href: patterns/gateway-aggregation.md
+  - name: Gateway Offloading
+    href: patterns/gateway-offloading.md
+  - name: Gateway Routing
+    href: patterns/gateway-routing.md
+  - name: Health Endpoint Monitoring
+    href: patterns/health-endpoint-monitoring.md
+  - name: Index Table
+    href: patterns/index-table.md
+  - name: Leader Election
+    href: patterns/leader-election.md
+  - name: Materialized View
+    href: patterns/materialized-view.md
+  - name: Pipes and Filters
+    href: patterns/pipes-and-filters.md
+  - name: Priority Queue
+    href: patterns/priority-queue.md
+  - name: Publisher/Subscriber
+    href: patterns/publisher-subscriber.md
+  - name: Queue-Based Load Leveling
+    href: patterns/queue-based-load-leveling.md
+  - name: Retry
+    href: patterns/retry.md
+  - name: Scheduler Agent Supervisor
+    href: patterns/scheduler-agent-supervisor.md
+  - name: Sequential Convoy
+    href: patterns/sequential-convoy.md
+  - name: Sharding
+    href: patterns/sharding.md
+  - name: Sidecar
+    href: patterns/sidecar.md
+  - name: Static Content Hosting
+    href: patterns/static-content-hosting.md
+  - name: Strangler
+    href: patterns/strangler.md
+  - name: Throttling
+    href: patterns/throttling.md
+  - name: Valet Key
+    href: patterns/valet-key.md
 - name: Technologies
   expanded: true
   items:
@@ -604,8 +600,6 @@ items:
           href: data-guide/big-data/real-time-processing.md
       - name: Technology choices
         items:
-        - name: Overview
-          href: guide/technology-choices/data-store-overview.md
         - name: Analytical data stores
           href: data-guide/technology-choices/analytical-data-stores.md
         - name: Analytics and reporting
@@ -1010,7 +1004,9 @@ items:
         href: serverless/code.md
       - name: CI/CD for a serverless frontend
         href: serverless/guide/serverless-app-cicd-best-practices.md
-      - name: Sharing location in real time using Functions, SignalR and Service Bus
+    - name: Example workloads
+      items:
+      - name: Sharing location in real time using Functions and SignalR
         href: example-scenario/signalr/index.md
     - name: Solution Ideas
       items:

@@ -1,5 +1,5 @@
 function unCheck(checkid) {
-    $("#"+checkid).remove();
+    $("#"+checkid+'-filter').remove();
     $("."+checkid).prop("checked", false );
     updateUrlBar(getQuery(false, 1))
 }
@@ -151,7 +151,7 @@ var refineString = [
 '        {{#each category.items as |item|}}',
 '            <li class="is-unstyled">',
 '                <label class="checkbox is-small has-padding-bottom-extra-small">',
-'                    <input id="cb-dotnet" class="{{ item.friendly-name }}" name="{{ category.stub }}" value="{{#spaceDelim item.tags}}{{this}}{{/spaceDelim}}" friendly-name="{{ item.friendly-name }}" type="checkbox" onchange="updateUrlBar(getQuery(false, 1))">',
+'                    <input id="{{ item.friendly-name }}" class="{{ item.friendly-name }}" name="{{ category.stub }}" category="{{ category.stub }}" value="{{#spaceDelim item.tags}}{{this}}{{/spaceDelim}}" friendly-name="{{ item.friendly-name }}" type="checkbox" onchange="updateUrlBar(getQuery(false, 1))">',
 '                    <span class="checkbox-check" role="presentation"></span>',
 '                    <span class="checkbox-text">{{ item.name }}</span>',
 '                </label>',
@@ -306,6 +306,30 @@ function setSearchText() {
     }
 }
 
+
+function sortObject(property,) {
+    var sortOrder = 1;
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+    return function (a,b) {
+        /* next line works with strings and numbers, 
+         * and you may want to customize it to your needs
+         */
+        if (property == 'publish_date') {
+            var result = (Date.parse(a[property]) <Date.parse( b[property])) ? -1 : (Date.parse(a[property]) > Date.parse(b[property])) ? 1 : 0;
+        } else {
+            var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        }
+        return result * sortOrder;
+    }
+}
+
+function updateSortDropdown(option) {
+    $('#sortOrder option[value=' + option + ']').attr('selected','selected');
+}
+
 function getQuery(firstLoad, pageNumber) {   
     var parsedParams = new URLSearchParams(window.location.search);
 
@@ -314,13 +338,24 @@ function getQuery(firstLoad, pageNumber) {
     var searchText = getSearchBoxText();
 
     var parsedFilters = [];
+    var sortKey = '';
     if (firstLoad) {
-        var parsedFilters = parsedParams.getAll("filter");
+        parsedFilters = parsedParams.getAll("filter");
+        if (parsedParams.get("sort")) {
+            sortKey = parsedParams.get("sort");
+            updateSortDropdown(sortKey);
+        }
     }
 
     if (!pageNumber){
         pageNumber = getPageNumber();
-    } 
+    }
+
+    
+    if (!sortKey) {
+        sortKey=getSortKey();
+    }
+        
 
     var branch;
     if (parsedParams.get("branch")) {
@@ -336,6 +371,7 @@ function getQuery(firstLoad, pageNumber) {
         "filter": filterNames,
         "search": searchText,
         "page": pageNumber,
+        "sort": sortKey,
         "branch": branch
     };
 
@@ -404,19 +440,23 @@ function getCheckedBoxes() {
 
 function buildFilterList() {
     // Filter the data
-    var filterTerms = [];
+    var filterTerms = {};
     var selectedCategories = [];
     var checked = getCheckedBoxes();
     if (checked.length > 0) {
         $.each(checked, function(){
+            var category = $(this).attr('category');
             selectedCategories.push($(this).closest("div").find('[category]')); 
             var checkId = $(this).attr("friendly-name");
             var checkName = $(this).siblings(".checkbox-text").text();
             $(".facet-tags").append('<span class="tag facet-tag" id="' + checkId + '">' +  checkName +
                 '<button type="button" aria-label="Remove "' + checkName +
-                '" name="' +  checkName + '" class="delete" onclick="unCheck(\'' + checkId +
+                '" name="' +  checkId + '-filter" class="delete" onclick="unCheck(\'' + checkId +
                 '\')"></button></span>');
-            filterTerms = filterTerms.concat($(this).val().toLowerCase().split(" "));
+            if (!(category in filterTerms)) {
+                filterTerms[category]=[];
+            }
+            filterTerms[category] = filterTerms[category].concat($(this).val().toLowerCase().split(" "));
         });
     }
 
@@ -454,7 +494,6 @@ function buildPageNumbers(articles, visible_count, maxItems) {
     var pageNumber = getPageNumber();
     if (totalPages > maxPages) {
         // Trying to figure out where to put the ellipsis
-        // TODO: Stupid math, needs to be better
         skipStart = Math.ceil((totalPages+4-maxPages)/2);
         skipEnd = Math.floor(totalPages-(totalPages-maxPages)+skipStart-2);
     } else {
@@ -476,6 +515,11 @@ function buildPageNumbers(articles, visible_count, maxItems) {
     $("#results").append(pagination);
 }
 
+function getSortKey() {
+    var sortKey = $('#sortOrder').children("option:selected").val();
+    return sortKey;
+}
+
 function filter() {
     // Clear any CSS we set before
     $(".grid-item").css("max-width", "");
@@ -489,15 +533,19 @@ function filter() {
     var searchText = getSearchBoxText();
     var filterTerms = buildFilterList();
 
-    // Look for items that match the checkbox
-    articles = $.grep(window.articleData.articles, function(article) {
-        if (filterTerms.length > 0) {
-            return findCommonElement(filterTerms, article.tags);
-        } else {
-            return true;
-        }
-    });
-    
+    var articles = window.articleData.articles;
+    for (var key in filterTerms) {
+        // Look for items that match the checkbox
+        var tags = filterTerms[key];
+        articles = $.grep(articles, function(article) {
+            if (tags.length > 0) {
+                return findCommonElement(tags, article.tags);
+            } else {
+                return true;
+            }
+        });
+    };
+
     articles = $.grep(articles, function(article) {
         if (searchText) {
             return article.filter_text.includes(searchText.toLowerCase());
@@ -505,6 +553,9 @@ function filter() {
             return true;
         }
     });
+
+    var sort_key = getSortKey();
+    articles.sort(sortObject(sort_key, true));
 
     // Don't display more than 12 items on a page
     var pageNumber = getPageNumber();
@@ -516,21 +567,6 @@ function filter() {
     var visibleArticles = { "articles": articles.slice(articleStart-1, articleEnd) };
     buildCards(visibleArticles);
 
-    // Get the tags for every checked item
-    //var visibleArticleTags = Array.from(new Set([].concat.apply([], data.articles.map(data => data.tags)).sort()));
-
-    // TODO: Fix Filter to not filter current category
-    // var selectedCategories = [];
-    // filteredTagData = tagData["categories"].filter(function(category) {
-    //     var foundItems = category['items'].filter(function(item) {
-    //         return item['tags'].some(r=> visibleArticleTags.includes(r));
-    //     });
-    //     category['items'] = foundItems
-    //     return category['items'];
-    // });
-
-    // tagData["categories"]=filteredTagData
-            
     buildPageNumbers(articles, visibleArticles.articles.length, maxItems);
 
     $(".resultcount").text(articles.length + " Architectures Found");
@@ -551,8 +587,8 @@ $(document).ready(function(){
         event.preventDefault();
       });
 
-    $.getJSON('/azure/architecture/solution-ideas/data/output.json.txt', function (articleData) {
-        $.getJSON('/azure/architecture/solution-ideas/metadata/display-tags.json.txt', function (tagData) {
+    $.getJSON('/azure/architecture/solution-ideas/data/output.json', function (articleData) {
+        $.getJSON('/azure/architecture/solution-ideas/metadata/display-tags.json', function (tagData) {
             window.articleData = articleData;
             buildFilterHtml(tagData);
             updateUrlBar(getQuery(firstLoad=true));

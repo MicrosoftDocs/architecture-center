@@ -185,6 +185,29 @@ For more information about health probes, see:
 
 For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md).
 
+## Cost considerations
+Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs. Here are some other considerations.
+
+### Virtual machine scale sets
+
+Virtual machine scale sets are available on all Windows VM sizes. You are only charged for the Azure VMs you deploy and any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the virtual machine scale sets service.
+
+For single VMs pricing options See [Windows VMs pricing][Windows-vm-pricing]
+
+### SQL server
+
+If you choose Azure SQL DBaas, you can save on cost because don't need to configure an Always On Availability Group and domain controller machines. There are several deployment options starting from single database up to managed instance, or elastic pools. For more information see [Azure SQL pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/). 
+
+For SQL server VMs pricing options see [SQL VMs pricing][Managed-Sql-pricing].
+
+### Load balancers
+
+You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
+
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+
+
 ## Security considerations
 
 Virtual networks are a traffic isolation boundary in Azure. By default, VMs in one virtual network can't communicate directly with VMs in a different virtual network. However, you can explicitly connect virtual networks by using [virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
@@ -246,16 +269,20 @@ If you specify a region that supports availability zones, the VMs are deployed i
 - [Microsoft Learn module: Tour the N-tier architecture style](/learn/modules/n-tier-architecture/)
 
 <!-- links -->
+
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [app-gw-scaling]: /azure/application-gateway/application-gateway-autoscaling-zone-redundant
 [azure-dns]: /azure/dns/dns-overview
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault
+[Azure-SQl-Pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed/
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [ddos-best-practices]: /azure/security/azure-ddos-best-practices
 [ddos]: /azure/virtual-network/ddos-protection-overview
 [dmz]: ../dmz/secure-vnet-dmz.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-windows
-[load-balancer-hashing]: /azure/load-balancer/load-balancer-overview#load-balancer-concepts
+[load-balancer-hashing]: /azure/load-balancer/concepts-limitations#load-balancer-concepts
 [load-balancer]: /azure/load-balancer/load-balancer-standard-overview
 [multi-dc]: multi-region-sql-server.md
 [n-tier]: n-tier.md
@@ -272,7 +299,10 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [sql-alwayson-read-only-routing]: https://technet.microsoft.com/library/hh213417.aspx#ConnectToSecondary
 [sql-alwayson]: https://msdn.microsoft.com/library/hh510230.aspx
 [sql-keyvault]: /azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault
+[Sql-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/
+[Managed-Sql-pricing]: /azure.microsoft.com/pricing/details/sql-database/managed/
 [subscription-limits]: /azure/azure-subscription-service-limits
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
 [vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
 [vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
+[Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows/

@@ -158,6 +158,32 @@ Test the resiliency of the system to failures. Here are some common failure scen
 
 Measure the recovery times and verify they meet your business requirements. Test combinations of failure modes, as well.
 
+## Cost considerations
+Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs. Here are some other considerations.
+
+### Virtual machine scale sets
+
+Virtual machine scale sets are available on all Windows VM sizes. You are only charged for the Azure VMs you deploy and any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the Virtual machine scale sets service.
+
+For single VMs pricing options See [Windows VMs pricing][Windows-vm-pricing].
+
+### SQL server
+
+If you choose Azure SQL DBaas, you can save on cost because don't need to configure an Always On Availability Group and domain controller machines. There are several deployment options starting from single database up to managed instance, or elastic pools. For more information see [Azure SQL pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/). 
+
+For SQL server VMs pricing options see [SQL VMs pricing][Managed-Sql-pricing].
+
+### Load balancers
+
+You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
+
+### Traffic Manager pricing
+
+Traffic Manager billing is based on the number of DNS queries received, with a discount for services receiving more than 1 billion monthly queries. You are also charged for each monitored endpoint.
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+
+
 ## Related resources
 
 The following architecture uses some of the same technologies:
@@ -166,9 +192,14 @@ The following architecture uses some of the same technologies:
 
 <!-- links -->
 
+[Windows-vm-pricing]: /azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/
+[Sql-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/
+[Managed-Sql-pricing]: /azure.microsoft.com/pricing/details/sql-database/managed/
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [azure-sql-db]: /azure/sql-database/
 [health-endpoint-monitoring-pattern]: ../../patterns/health-endpoint-monitoring.md
 [azure-cli]: /cli/azure/
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [regional-pairs]: /azure/best-practices-availability-paired-regions
 [resource groups]: /azure/azure-resource-manager/resource-group-overview
 [resource-group-links]: /azure/resource-group-link-resources

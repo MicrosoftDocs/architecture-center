@@ -22,7 +22,7 @@ loadjs
 loadjs
   .ready('css', function() {
     loadjs([
-        '/azure/architecture/_js/interactive-architectures/interactive-architectures.js'
+        '/azure/architecture/_js/interactive-architectures/interactive-architectures.js?version=202001060533'
         ], 'scripts',
         {
         async: false,

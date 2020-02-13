@@ -146,7 +146,7 @@ The `Connection` property is an exception. This property always specifies an app
 
 While the other two properties (event hub name and consumer group) are not sensitive data like a connection string, it's still better to put them into app settings, rather than hard coding. That way, they can be updated without recompiling the app. 
 
-For more information about configuring this trigger, see [Azure Event Hubs bindings for Azure Functions](/azure/azure-functions/functions-bindings-event-hubs#trigger---attributes).
+For more information about configuring this trigger, see [Azure Event Hubs bindings for Azure Functions](/azure/azure-functions/functions-bindings-event-hubs#trigger---attributes-and-annotations).
 
 
 ## Message processing logic
@@ -616,7 +616,7 @@ For more information about authentication and authorization in this application,
 
 - This application is an example of an event-driven architecture. Read more about the [Event-driven architecture style](../guide/architecture-styles/event-driven.md).
 
-- Azure Functions is just one of the compute options on Azure. For help with choosing a compute technology, see [Overview of Azure compute options](../guide/technology-choices/compute-overview.md).
+- Azure Functions is just one of the compute options on Azure. For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree.md).
 
 <!-- links -->
 

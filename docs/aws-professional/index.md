@@ -5,7 +5,7 @@ description: Understand the basics of Microsoft Azure accounts, platform, and se
 keywords: AWS experts, Azure comparison, AWS comparison, difference between Azure and AWS, Azure and AWS
 author: lbrader
 ms.date: 09/19/2018
-ms.topic: article
+ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom: seodec18
@@ -489,3 +489,5 @@ services are needed for those delivery types.
 [traffic-manager]: /azure/traffic-manager/
 
 <!-- markdownlint-enable MD024 -->
+
+[!INCLUDE [clicktale](../_js/clicktale.md)]

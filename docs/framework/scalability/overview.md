@@ -9,9 +9,11 @@ ms.subservice: cloud-design-principles
 ms.custom: 
 ---
 
-# Designing scalable Azure applications
+# Overview of the scalability pillar
 
-*Scalability* is the ability of a system to handle increased load and is one of the [pillars of the Azure architecture framework](../index.md). Scalability tasks during the architecting phase include:
+*Scalability* is the ability of a system to handle increased load. To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](/assessments/?mode=pre-assessment&id=azure-architecture-review).
+
+Scalability tasks during the architecting phase include:
 
 - **Partition workloads.** Design parts of the process to be discrete and decomposable. Minimize the size of each part. This allows the component parts to be distributed in a way that maximizes use of each compute unit. It also makes it easier to scale the application by adding instances of specific resources. For complex domains, consider adopting a [microservices architecture](../../guide/architecture-styles/microservices.md).
 - **Design for scaling.** Scaling allows applications to react to variable load by increasing and decreasing the number of instances of roles, queues, and other services. However, the application must be designed with this in mind. For example, the application and the services it uses must be stateless to allow requests to be routed to any instance. Having stateless services also means that adding or removing an instance does not adversely impact current users.

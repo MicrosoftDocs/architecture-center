@@ -290,7 +290,6 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
     </li>
 </ul>
 
----
 
 ## Build your skills with Microsoft Learn
 
