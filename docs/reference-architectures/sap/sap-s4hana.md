@@ -351,7 +351,7 @@ Some customers use standard storage for their application servers. Because
 standard managed disks are not supported, as stated in SAP note 1928533, we
 recommend using Premium [Azure Managed
 Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)
-in all cases.
+in all cases. Note that a recent update to [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) excludes the use of Standard HDD Storage and Standard SSD Storage for a few specific use cases.
 
 Because application servers do not host any business data, you can also use the
 smaller P4 and P6 Premium disks to help minimize cost and benefit from the
