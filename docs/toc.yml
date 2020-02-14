@@ -955,7 +955,7 @@ items:
       - name: Highly available network virtual appliances
         href: reference-architectures/dmz/nva-ha.md
     - name: Add IP spaces to peered virtual networks
-      href: networking/prefixes/add-ipspace-peered-vnet.md
+      href: networking/prefixes/add-ip-space-peered-vnet.md
   - name: SAP
     items:
     - name: Reference Architectures

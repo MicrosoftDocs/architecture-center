@@ -1,6 +1,6 @@
 ---
 title: Add IP address spaces to peered virtual networks
-titleSuffix: Azure article
+titleSuffix:
 description: Automation of IP address space additions to peered vNets
 author: randycampbell
 ms.date: 02/01/2020
@@ -19,13 +19,13 @@ Many organizations deploy a virtual networking architecture that follows the [Hu
 
 A single subscription use case, both hub and all spoke virtual networks are in the same subscription.
 
-![Single Sub.png](Single-Sub.png)
+![Single Sub.png](single-sub.png)
 
 ## Multiple subscriptions
 
 Another use case can be where the hub virtual network is in one subscription and all other spoke virtual networks are in different subscriptions. The subscriptions are for a single Azure Active Directory tenant.
 
-![Multi Sub.png](Multi-Sub.png)
+![Multi Sub.png](multi-sub.png)
 
 ## Considerations
 
