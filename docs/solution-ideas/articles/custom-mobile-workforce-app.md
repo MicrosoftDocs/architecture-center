@@ -299,7 +299,6 @@ The links to the right provide documentation on deploying and managing the Azure
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) is used for secure, enterprise-grade authentication.
 
 ## Next Steps
-
 * [Visual Studio Documentation](/visualstudio)
 * [Xamarin Documentation](/xamarin)
 * [Visual Studio App Center](/appcenter)
