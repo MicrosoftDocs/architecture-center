@@ -13,33 +13,32 @@ ms.custom:
 
 # Add IP address spaces to peered virtual networks
 
-Many organizations deploy a virtual networking architecture that follows the [Hub and Spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) model. At some point, after being deployed to production, the hub virtual network might require additional IP address spaces.  Currently, address ranges can't be added or deleted from a virtual network's address space once it's peered with another virtual network.  To add or remove address ranges, delete the peering, add or remove the address ranges, then re-create the peering manually.  This change can be accomplished by different methods, such as the [Azure portal](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#delete-a-peering), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetworkpeering), or [Azure CLI](https://docs.microsoft.com/cli/azure/network/vnet/peering).  To help, we've developed a PowerShell script that can make this process easier.
+Many organizations deploy a virtual networking architecture that follows the [Hub and Spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) model. At some point, the hub virtual network might require additional IP address spaces.  However, address ranges can't be added or deleted from a virtual network's address space once it's peered with another virtual network.  To add or remove address ranges, delete the peering, add or remove the address ranges, then re-create the peering manually.  The scripts described in this article can make that process easier.
 
-## Relevant use cases
+## Single subscription
 
-### Single subscription
-
-A single subscription scenario where both hub and all spoke virtual networks are in the same subscription.  As demonstrated below:
+A single subscription use case, both hub and all spoke virtual networks are in the same subscription.
 
 ![Single Sub.png](Single-Sub.png)
 
-### Multiple subscriptions
+## Multiple subscriptions
 
-A single Azure Active Directory tenant, different subscriptions scenario where the hub virtual network is in one subscription and all other spoke virtual networks are in different subscriptions. As demonstrated below:
+Another use case can be where the hub virtual network is in one subscription and all other spoke virtual networks are in different subscriptions. The subscriptions are for a single Azure Active Directory tenant.
 
 ![Multi Sub.png](Multi-Sub.png)
 
 ## Considerations
 
-* The script requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). Run `Connect-AzAccount` to create a connection with Azure.
-* Performing this exercise will result in outage or disconnections between the Hub and Spoke virtual networks.  Perform this during an approved maintenance window.
-* The accounts you use to work with virtual network peering must be assigned to the [Network Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [Custom Role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) containing the necessary actions found under [virtual network peering permissions](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#permissions).
-* The accounts you use to add IP Address spaces must be assigned to the [Network Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [Custom Role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) containing the necessary actions found under [virtual network permissions](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#permissions).
-* The IP address space you wish to add to the Hub virtual network must not overlap with any of the IP address spaces of the Spoke virtual networks that you intend to peer with the Hub virtual network.
+* Running the script will result in outage or disconnections between the Hub and Spoke virtual networks.  Execute the script during an approved maintenance window.
+* Run `Get-Module -ListAvailable Az` to find the installed version.  The script requires the Azure PowerShell module version 1.0.0 or later.  If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+* If not already connected, run `Connect-AzAccount` to create a connection with Azure.
+* Consider assigning accounts, used for virtual network peering, to the [Network Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [Custom Role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) containing the necessary actions found under [virtual network peering permissions](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#permissions).
+* Assign accounts used to add IP address spaces, to the [Network Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [Custom Role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) containing the necessary actions found under [virtual network permissions](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#permissions).
+* The IP address space that you want to add to the hub virtual network must not overlap with any of the IP address spaces of the spoke virtual networks that you intend to peer with the hub virtual network.
 
 ## Add the IP address range
 
-This script automatically removes all Virtual Network peerings from the Hub Virtual Network, adds an IP address range prefix to the Hub Virtual Network based on Input parameters, adds the Virtual Network peerings back to the Hub Virtual Network, and reconnects the Hub virtual network peerings to the existing Spoke virtual network peerings. The script will work with single and multiple subscription hub and spoke topologies.
+The script automatically removes all Virtual Network peerings from the Hub Virtual Network, adds an IP address range prefix to the Hub Virtual Network based on Input parameters, adds the Virtual Network peerings back to the Hub Virtual Network, and reconnects the Hub virtual network peerings to the existing Spoke virtual network peerings. The script applies to single and multiple subscription hub and spoke topologies.
 
 ```powershell
 param (
