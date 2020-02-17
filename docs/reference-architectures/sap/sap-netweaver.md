@@ -165,12 +165,7 @@ for a detailed description of the solution.
 
 ### Application servers pool
 
-The SAP SMLG transaction is commonly used to manage logon groups for ABAP
-application servers and to load-balance logon users, such as SM61 for batch
-server groups, RZ12 for RFC groups, and so on. These transactions use the
-load-balancing capability within the message server of the SAP Central Services
-to distribute incoming sessions or workloads among SAP application servers pool
-for SAPGUIs and RFC traffic.
+The SAP SMLG transaction is commonly used to manage logon groups for ABAP application servers and to load-balance logon users. Other transactions, such as SM61 for batch server groups, RZ12 for RFC groups, and so on, load-balance logon users. These transactions use the load-balancing capability within the message server of the SAP Central Services to distribute incoming sessions or workloads among SAP application servers pool for SAPGUIs and RFC traffic.
 
 ### SAP Central Services cluster
 
@@ -204,7 +199,7 @@ same [SOFS
 cluster](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/File-Server-with-SOFS-and-S2D-as-an-Alternative-to-Cluster/ba-p/368111).
 
 In the case of cluster network partitioning, the cluster software uses votes to
-decide which segment of the network and its associated services will serve as
+decide which segment of the network and its associated services will serve as the
 brain of the now fragmented cluster. Windows offers a number of quorum models.
 This solution uses Azure [Cloud
 Witness](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)
@@ -504,7 +499,7 @@ server responses to bypass the load balancer. This direct connection keeps the
 load balancer from becoming a bottleneck in the path of data transmission. For
 the SAP ASCS and database clusters, we recommend enabling DSR.
 
-### Other application services in the application servers tier
+### Application services in the application servers tier
 
 High availability for the SAP application servers is achieved by load balancing
 traffic within a pool of application servers.
@@ -583,10 +578,7 @@ full capacity for application processing.
 
 ## Disaster recovery considerations
 
-Every tier in the SAP application stack uses a different DR strategy. For
-automatic replication of application servers to a secondary region, [Azure Site
-Recovery](/azure/site-recovery/site-recovery-overview)
-is the recommended solution.
+Every tier in the SAP application stack uses a different DR strategy. 
 
 ### Application servers tier
 

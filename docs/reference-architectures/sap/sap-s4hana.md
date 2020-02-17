@@ -85,14 +85,13 @@ the application tier and database tier, grouped as follows:
     HANA Studio, SAPGUI, file transfer, and other functions that are commonly
     used for installation and administration purposes. For remote desktop
     protocol (RDP) or secure shell (SSH) services, try [Azure
-    Bastion](/azure/bastion/bastion-overview).
+    Bastion](/azure/bastion/bastion-overview). If only RDP and SSH are used for administration, Azure Bastion is a great alternative.
 
-**Load balancers.** To distribute traffic to virtual machines in the application-tier subnet, [load balancers](/azure/load-balancer/) are used. For high availability, use the built-in SAP Web Dispatcher, [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), or other mechanisms, depending on the traffic type (such as HTTP or SAPGUI) or the required network services (such as SSL termination).
+**Load balancers.** To distribute traffic to virtual machines in the application-tier subnet, [load balancers](/azure/load-balancer/) are used. When using Azure Zones, use the Standard Load Balancer. For high availability, use the built-in SAP Web Dispatcher, [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), or other mechanisms, depending on the traffic type (such as HTTP or SAPGUI) or the required network services (such as SSL termination).
 
 **Availability sets.** Virtual machines for all pools and clusters (Web
 Dispatcher, SAP application servers, Central Services, and HANA) are grouped
-into separate [availability
-sets](/azure/virtual-machines/windows/tutorial-availability-sets),
+into separate [availability sets](/azure/virtual-machines/windows/tutorial-availability-sets),
 and at least two virtual machines are provisioned per role. Availability sets
 increase the availability of applications and virtual machines through
 management of hosts system faults or maintenance events by distributing role
@@ -107,22 +106,16 @@ architecture uses
 VNet gateways for resiliency rather than a zonal deployment based on the same
 Availability Zone.
 
-**Proximity placement group.** This logical group places a constraint on virtual
-machines deployed in an availability set or a Virtual Machine Scale Set. A
-[proximity placement
-group](https://azure.microsoft.com/blog/introducing-proximity-placement-groups/)
-favors colocation, meaning that virtual machines reside in the same datacenter
-to minimize application latency.
+**Proximity placement group.** This logical group places a constraint on VMs deployed in an availability set or a Virtual Machine Scale Set. A 
+[proximity placement group](https://azure.microsoft.com/blog/introducing-proximity-placement-groups/)
+favors colocation, meaning deployed VMs reside in the same datacenter, which helps minimize network latency and improve application performance.  
 
 **Network security groups.** To restrict incoming, outgoing, and intra-subnet
-traffic in the virtual network, you can create [network security
-groups](/azure/virtual-network/security-overview)
+traffic in the virtual network, you can create [network security groups](/azure/virtual-network/security-overview)
 (NSGs).
 
 **Application security groups.** To define fine-grained network security
-policies based on workloads and centered on applications, use [application
-security
-groups](/azure/virtual-network/security-overview#application-security-groups)
+policies based on workloads and centered on applications, use [application security groups](/azure/virtual-network/security-overview#application-security-groups)
 instead of explicit IP addresses. You can group virtual machines by name and
 secure applications by filtering traffic from trusted segments of your network.
 
@@ -132,16 +125,13 @@ on-premises network to the Azure VNet.
 is the recommended Azure service for creating private connections that do not go
 over the public internet, but a
 [site-to-site](/azure/architecture/reference-architectures/hybrid-networking/vpn)
-connection can also be used. To reduce latency or increase throughput,
-[ExpressRoute Global
-Reach](/azure/expressroute/expressroute-global-reach)
-and [ExpressRoute
-FastPath](/azure/expressroute/about-fastpath)
+connection can also be used. To reduce latency,
+[ExpressRoute Global Reach](/azure/expressroute/expressroute-global-reach)
+and [ExpressRoute FastPath](/azure/expressroute/about-fastpath)
 are connectivity options discussed later in this article.
 
 **Azure Storage.** To provide data persistence for a virtual machine in the form
-of virtual hard disk (VHD). [Azure Managed
-Disk](/azure/virtual-machines/windows/managed-disks-overview)
+of virtual hard disk (VHD). [Azure Managed Disk](/azure/virtual-machines/windows/managed-disks-overview)
 is recommended.
 
 ## Recommendations
@@ -153,25 +143,19 @@ recommendations as a starting point.
 ### Virtual machines
 
 In application server pools and clusters, adjust the number of virtual machines
-based on your requirements. The [Azure Virtual Machines planning and
-implementation
-guide](/azure/virtual-machines/workloads/sap/planning-guide)
+based on your requirements. The [Azure Virtual Machines planning and implementation guide](/azure/virtual-machines/workloads/sap/planning-guide)
 includes details about running SAP NetWeaver on virtual machines, and this
 information also applies to SAP S/4HANA deployment.
 
 For details about SAP support for Azure virtual machine types and throughput
-metrics (SAPS), see [SAP Note
-1928533](https://launchpad.support.sap.com/#/notes/1928533). (To access the SAP
-notes, you must have an SAP Service Marketplace account.) The [SAP Certified and
-Supported SAP HANA Hardware
-Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
+metrics (SAPS), see [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533). (To access the SAP
+notes, you must have an SAP Service Marketplace account.) The [SAP Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 has a list of certified Azure virtual machines for the HANA database.
 
 ### SAP Web Dispatcher
 
 The Web Dispatcher component is used as a load balancer for SAP traffic among
-the SAP application servers. To achieve [high
-availability](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/7.5.4/en-US/489a9a6b48c673e8e10000000a42189b.html?q=parallel%20web%20dispatcher)
+the SAP application servers. To achieve [high availability](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/7.5.4/en-US/489a9a6b48c673e8e10000000a42189b.html?q=parallel%20web%20dispatcher)
 for the Web Dispatcher component, Azure Load Balancer implements either the
 failover cluster or the parallel Web Dispatcher setup.
 
@@ -184,8 +168,7 @@ high availability setup for this deployment model is that of the S/4 system—no
 additional clustering or virtual machines are required. That’s why the
 architecture diagram does not show the FES component.
 
-The [SAP Fiori Deployment Options and System Landscape
-Recommendations](https://www.sap.com/documents/2018/02/f0148939-f27c-0010-82c7-eda71af511fa.html)
+The [SAP Fiori Deployment Options and System Landscape Recommendations](https://www.sap.com/documents/2018/02/f0148939-f27c-0010-82c7-eda71af511fa.html)
 document describes the primary deployment options—either embedded or hub,
 depending on the scenarios. In achieving simplification and performance, the
 software releases between the Fiori technology components and the S/4
@@ -210,12 +193,7 @@ traffic.
 
 ### SAP Central Services cluster
 
-Central Services can be deployed to a single virtual machine when high
-availability is not a requirement. However, the virtual machine becomes a
-potential single point of failure (SPOF) for the SAP environment. For a [highly
-available Central Services
-deployment](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files),
-the Azure NetApp Files service and a Central Services cluster are used.
+Central Services can be deployed to a single virtual machine when the Azure single-instance VM availability SLA meets your requirement. However, the virtual machine becomes a potential single point of failure (SPOF) for the SAP environment. For a [highly available Central Services deployment](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files), the Azure NetApp Files service and a Central Services cluster are used.
 
 Alternately, an NFS file share can be used for the [Linux cluster shared
 storage](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files).
@@ -240,9 +218,7 @@ Azure infrastructure maintenance and to meet service-level agreements
 ([SLAs](https://azure.microsoft.com/support/legal/sla/virtual-machines)). Two or
 more virtual machines per availability set are required to get the higher SLA.
 
-All virtual machines in a set must perform the same role. Do not mix servers of
-different roles in the same availability set. For example, don't place an ASCS
-node in the same availability set with the application server.
+All virtual machines in a set must perform the same role. Do not mix servers of different roles in the same availability set. For example, don't place an ASCS node in the same availability set with application servers.
 
 You can deploy Azure availability sets within [Azure Availability
 Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones)
@@ -279,19 +255,12 @@ Place application servers on a separate subnet so you can secure them more
 easily by managing the subnet security policies, rather than the individual
 servers.
 
-When an NSG is associated with a subnet, it applies to all the servers within
-the subnet. For fine-grained control over the servers in a subnet, set up NSGs
-to filter network traffic using the [Azure
-portal](/azure/virtual-network/tutorial-filter-network-traffic)
-(or using
-[PowerShell](/azure/virtual-network/tutorial-filter-network-traffic-powershell)
-or [Azure
-CLI](/azure/virtual-network/tutorial-filter-network-traffic-cli)).
+When associated with a subnet, a NSG applies to all the servers within the subnet and offers fine-grained control over the servers. Set them up using the [portal](/azure/virtual-network/tutorial-filter-network-traffic), [PowerShell](/azure/virtual-network/tutorial-filter-network-traffic-powershell),
+or [Azure CLI](/azure/virtual-network/tutorial-filter-network-traffic-cli).
 
 ### ExpressRoute Global Reach
 
-If your network environment includes two or more ExpressRoute circuits, a best
-practice is to use [ExpressRoute Global
+If your network environment includes two or more ExpressRoute circuits, an option to reduce network hops and lower latency is to use [ExpressRoute Global
 Reach](/azure/expressroute/expressroute-global-reach).
 This is a Border Gateway Protocol (BGP) route peering setup between two or more
 ExpressRoute circuits for bridging two ExpressRoute routing domains. Global
@@ -308,14 +277,10 @@ access to resources.
 
 ### ExpressRoute FastPath
 
-Also known as Microsoft Edge Exchange (MSEE) v2,
-[FastPath](/azure/expressroute/about-fastpath)
-implements MSEE at the entry point of the Azure network. It reduces network hops
-for most data packets, which reach their destination on Azure more directly.
-FastPath lowers network latency, improves application performance, and is the
-default for new ExpressRoute connections to Azure.
+Also known as Microsoft Edge Exchange (MSEE) v2, [FastPath](/azure/expressroute/about-fastpath)
+implements MSEE at the entry point of the Azure network. It reduces network hops for most data packets. FastPath lowers network latency, improves application performance, and is the default for new ExpressRoute connections to Azure.
 
-For existing ExpressRoute circuits, activate FastPath over support arrangements.
+For existing ExpressRoute circuits, activate FastPath with Azure support.
 
 FastPath does not support VNet peering. If you have other VNets peered with the
 one that is connected to ExpressRoute, the network traffic from your on-premises
@@ -383,9 +348,7 @@ Accelerator](/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 (WA) for the log volume to improve log write latency. WA is available for
 M-series VMs.
 
-[Ultra-SSD](/azure/virtual-machines/linux/disks-enable-ultra-ssd)
-is another high-performance option for the HANA log volume. To optimize
-inter-server communications, use [Accelerated
+To optimize inter-server communications, use [Accelerated
 Networking](https://azure.microsoft.com/blog/linux-and-windows-networking-performance-enhancements-accelerated-networking/).
 This option is available only for supported virtual machines, including D/DSv2,
 D/DSv3, E/ESv3, F/FS, FSv2, and Ms/Mms.
@@ -439,7 +402,7 @@ between zones. To create this profile, run a test by deploying small virtual
 machines in each zone. Recommended tools for the test include
 [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) and
 [Iperf](https://sourceforge.net/projects/iperf/). After testing, remove these
-virtual machines.
+virtual machines. The [public domain network latency test tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test) is also available for your convenience.
 
 ## Scalability considerations
 
@@ -525,7 +488,7 @@ application server [logon
 groups](https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing).
 No additional load balancer is needed.
 
-### Other application servers in the application servers tier
+### Application servers in the application servers tier
 
 High availability is achieved by load balancing traffic within a pool of
 application servers.
@@ -548,7 +511,7 @@ replicated nodes:
 -   Much like the application servers layer, the commonly deployed HANA high
     availability solution for SLES is Pacemaker and SIOS LifeKeeper for RHEL.
 
-### Deploying virtual machines across Availability Zones
+### Deploy virtual machines across Availability Zones
 
 [Availability
 Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones)
@@ -556,7 +519,7 @@ can help enhance service availability. Zones refer to physically separated
 locations within a specific Azure region. They improve workload availability and
 protect application services and virtual machines against datacenter outages.
 Virtual machines in a single zone are treated as if they were in a single update
-or fault domain.
+or fault domain. When zonal deployment is selected, virtual machines in the same zone are distributed to fault and upgrade domains on a best-effort basis.
 
 In [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/)
 that support this feature, at least three zones are available. However, the
@@ -615,10 +578,7 @@ for application processing.
 ## Disaster recovery considerations 
 
 Every tier in the SAP application stack uses a different approach to provide DR
-protection. For automatic replication of application servers to a secondary
-region, [Azure Site
-Recovery](/azure/site-recovery/site-recovery-overview)
-is the recommended solution.
+protection. 
 
 ### Application servers tier
 
