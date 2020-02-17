@@ -145,6 +145,22 @@ App Services has built-in support for CORS, without needing to write any applica
 
 Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at rest in the database. This feature performs real-time encryption and decryption of an entire database (including backups and transaction log files) and requires no changes to the application. Encryption does add some latency, so it's a good practice to separate the data that must be secure into its own database and enable encryption only for that database.
 
+
+## DevOps considerations
+
+### Front-end deployment
+
+Deploy the application uniformly to users over a wide geographical area with a global-ready CDN, with the static content hosted on the cloud. This avoids the need for a dedicated web server. Read [Integrate an Azure storage account with Azure CDN][az-cdn-storage] to get started. Secure your application with HTTPS. Read the [Best practices for using content delivery networks][az-cdn-best-practices] for additional recommendations. 
+
+Compress your website files to reduce the bandwidth consumption on the CDN and improve performance. Azure CDN allows compression on the fly on the edge servers. 
+
+The CDN should be able to purge its cache to ensure all users are served the freshest content. A cache purge is required if the build and deploy processes are not atomic, for example, if they replace old files with newly built ones in the same origin folder.
+
+
+
+This architecture builds on the one shown in [Basic web application][basic-web-app], see DevOps considerations section.
+
+
 ## Next steps
 
 - [Run a web application in multiple Azure regions for high availability][web-app-multi-region]
@@ -157,6 +173,8 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [app-service-security]: /azure/app-service-web/web-sites-security
 [app-service-web-app]: /azure/app-service-web/app-service-web-overview
 [app-service-pricing]: https://azure.microsoft.com/pricing/details/app-service/
+[az-cdn-best-practices]: https://docs.microsoft.com/azure/architecture/best-practices/cdn
+[az-cdn-storage]: [https://docs.microsoft.com/azure/cdn/cdn-create-a-storage-account-with-cdn]
 [azure-cdn]: https://azure.microsoft.com/services/cdn/
 [azure-dns]: /azure/dns/dns-overview
 [azure-redis]: https://azure.microsoft.com/services/cache/

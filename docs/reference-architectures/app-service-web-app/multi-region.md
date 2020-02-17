@@ -137,8 +137,16 @@ For more information, see the cost section in [Azure Architecture Framework](/az
 
 If the primary database fails, perform a manual failover to the secondary database. See [Restore an Azure SQL Database or failover to a secondary][sql-failover]. The secondary database remains read-only until you fail over.
 
+
+## DevOps considerations
+
+This architectures is follows The [Azure Architecture Framework][AAF-devops-deployment] multi region deployment recommendation, described in DevOps secion.
+
+This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability], see DevOps considerations section.
+
 <!-- links -->
 
+[AAF-devops-deployment]: /azure/architecture/framework/devops/overview
 [AFD-pricing]: https://azure.microsoft.com/pricing/details/frontdoor/
 [bandwidth-pricing]: https://azure.microsoft.com/pricing/details/bandwidth/
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
