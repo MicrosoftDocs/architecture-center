@@ -305,7 +305,7 @@
     },
     {
       "source_path": "docs/framework/devops/gitflow-branch-workflow.md",
-      "redirect_url": "docs/framework/devops/overview",
+      "redirect_url": "/azure/architecture/framework/devops/overview",
       "redirect_document_id": false
     },
     {
