@@ -165,13 +165,13 @@ Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs. Here are
 
 Virtual machine scale sets are available on all Windows VM sizes. You are only charged for the Azure VMs you deploy and any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the Virtual machine scale sets service.
 
-For single VMs pricing options See [Windows VMs pricing][Windows-vm-pricing].
+For single VMs pricing options, see [Windows VMs pricing][Windows-vm-pricing].
 
 ### SQL server
 
 If you choose Azure SQL DBaas, you can save on cost because don't need to configure an Always On Availability Group and domain controller machines. There are several deployment options starting from single database up to managed instance, or elastic pools. For more information see [Azure SQL pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/). 
 
-For SQL server VMs pricing options see [SQL VMs pricing][Managed-Sql-pricing].
+For SQL server VMs pricing options, see [SQL VMs pricing][Managed-Sql-pricing].
 
 ### Load balancers
 
@@ -192,9 +192,9 @@ The following architecture uses some of the same technologies:
 
 <!-- links -->
 
-[Windows-vm-pricing]: /azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/
+[Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
 [Sql-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/
-[Managed-Sql-pricing]: /azure.microsoft.com/pricing/details/sql-database/managed/
+[Managed-Sql-pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed/
 [AAF-cost]: /azure/architecture/framework/cost/overview
 [azure-sql-db]: /azure/sql-database/
 [health-endpoint-monitoring-pattern]: ../../patterns/health-endpoint-monitoring.md
