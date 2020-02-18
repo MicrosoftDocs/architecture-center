@@ -132,6 +132,12 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 **Data encryption**. Use [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks.
 
+## DevOps considerations
+
+In this architecture you use an [Azure Resource Manager template][arm-template] for provisioning the Azure resources and its dependencies. Since this is a single web application, all the resources are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
+
+With the use of Azure Resource Manager templates][arm-template]  you can use Azure DevOps Services to provision different environment in minutes, for example to replicate a production, peak-usage scenarios. This allows you save cost and provision load testing environment only when needed.
+
 ## Next steps
 
 - To provision a Linux VM, see [Create and Manage Linux VMs with the Azure CLI](/azure/virtual-machines/linux/tutorial-manage-vm)
