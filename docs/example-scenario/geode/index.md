@@ -24,7 +24,9 @@ Many large scale services have challenges of geographic availability and scale. 
 
 In "classic" designs we'd often *"bring data to the compute"*  (Example of which: your application would retain data in a remote SQL server, which serves as the compute tier for that data, relying on scale-up for growth.)
 
-The geode pattern is an example whereby we'd do the reverse and *"bring compute to the data"*: starting with the principle that (for availability and performance reasons, getting data closer to the user) data is going to be geo-distributed, we will make sure that these geo-distributed datastores are co-located with the compute which will handle that data.  (Other examples where this happens is in Big Data architectures where commodity hardware is used to process data co-located on the same machine, using map-reduce to consolidate results across machines.  Another example is "IOT-edge" whereby we're bringing compute closer to the data on the edge of the network.  Also single-page apps represent an example whereby we're bringing more compute/intelligence to where the data resides and originates: the user's browser.)
+The geode pattern is an example whereby we'd do the reverse and *"bring compute to the data"*: starting with the principle that (for availability and performance reasons, getting data closer to the user) data is going to be geo-distributed, we will make sure that these geo-distributed datastores are co-located with the compute which will handle that data.
+
+(Other examples where this happens is in Big Data architectures where commodity hardware is used to process data co-located on the same machine, using map-reduce to consolidate results across machines.  Another example is "IOT-edge" whereby we're bringing compute closer to the data on the edge of the network.  Also single-page apps represent an example whereby we're bringing more compute/intelligence to where the data resides and originates: the user's browser.)
 
 The classic approach may present challenges in a number of forms: 
 - network latency: users coming from the other side of the globe connecting to the hosting endpoint
