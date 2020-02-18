@@ -192,9 +192,9 @@ The following architecture uses some of the same technologies:
 
 <!-- links -->
 
-[Windows-vm-pricing]: /azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/
+[Windows-vm-pricing]: https://azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/
 [Sql-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/
-[Managed-Sql-pricing]: /azure.microsoft.com/pricing/details/sql-database/managed/
+[Managed-Sql-pricing]: https://azure.microsoft.com/en-us/pricing/details/sql-database/managed/
 [AAF-cost]: /azure/architecture/framework/cost/overview
 [azure-sql-db]: /azure/sql-database/
 [health-endpoint-monitoring-pattern]: ../../patterns/health-endpoint-monitoring.md
