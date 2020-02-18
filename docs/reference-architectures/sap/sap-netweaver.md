@@ -100,10 +100,8 @@ to understand the differences between a zonal and zone redundant deployment.
 
 **Proximity placement group.** This logical group places a constraint on VMs
 deployed in an availability set or a Virtual Machine Scale Set. A [proximity
-placement
-group](https://azure.microsoft.com/blog/introducing-proximity-placement-groups/)
-favors colocation, meaning deployed VMs reside in the same datacenter, which
-helps minimize network latency and improve application performance.
+placement group](https://azure.microsoft.com/blog/introducing-proximity-placement-groups/)
+favors colocation, meaning that virtual machines reside in the same datacenter to minimize application latency.
 
 **Network security groups.** To restrict incoming, outgoing, and intra-subnet
 traffic in the VNet, create [network security
@@ -293,12 +291,10 @@ access to resources.
 Also known as Microsoft Edge Exchange (MSEE) v2,
 [FastPath](/azure/expressroute/about-fastpath)
 implements MSEE at the entry point of the Azure network. It reduces network hops
-for most data packets, which reach their destination on Azure more directly.
-FastPath lowers network latency and improves application performance.
+for most data packets.
 
 For all new ExpressRoute connections to Azure, FastPath is the default
-configuration. For existing ExpressRoute circuits, activate FastPath over
-support arrangements.
+configuration. For existing ExpressRoute circuits, activate FastPath with Azure support.
 
 FastPath does not support VNet peering. If other VNets are peered with the one
 that is connected to ExpressRoute, the network traffic from your on-premises
@@ -520,7 +516,7 @@ NetWeaver](/azure/virtual-machines/workloads/sap/dbms_guide_general).
 Availability Zones are a logical construct designed to improve workload
 availability and protect application services and virtual machines against
 datacenter outages. Virtual machines in a single zone are treated as if they
-were in a single update or fault domain.
+were in a single update or fault domain. When zonal deployment is selected, virtual machines in the same zone are distributed to fault and upgrade domains on a best-effort basis. 
 
 In [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/)
 that support this feature, at least three zones are available. However, the

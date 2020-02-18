@@ -108,7 +108,7 @@ Availability Zone.
 
 **Proximity placement group.** This logical group places a constraint on VMs deployed in an availability set or a Virtual Machine Scale Set. A 
 [proximity placement group](https://azure.microsoft.com/blog/introducing-proximity-placement-groups/)
-favors colocation, meaning deployed VMs reside in the same datacenter, which helps minimize network latency and improve application performance.  
+favors colocation, meaning that virtual machines reside in the same datacenter to minimize application latency.  
 
 **Network security groups.** To restrict incoming, outgoing, and intra-subnet
 traffic in the virtual network, you can create [network security groups](/azure/virtual-network/security-overview)
