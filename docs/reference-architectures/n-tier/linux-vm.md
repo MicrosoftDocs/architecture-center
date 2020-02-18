@@ -134,9 +134,18 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 ## DevOps considerations
 
-In this architecture you use an [Azure Resource Manager template][arm-template] for provisioning the Azure resources and its dependencies. Since this is a single web application, all the resources are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
+Use a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources and its dependencies. Since all the resources are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
 
-With the use of Azure Resource Manager templates][arm-template]  you can use Azure DevOps Services to provision different environment in minutes, for example to replicate a production, peak-usage scenarios. This allows you save cost and provision load testing environment only when needed.
+With the use of [Azure Resource Manager templates][arm-template]  you can use Azure DevOps Services to provision different environment in minutes, for example to replicate production scenarios. This allows you save cost and provision load testing environment only when needed.
+
+To automate the infrastructure deployment, you can use [Azure DevOps Services][az-devops], or other CI/CD solutions.
+
+For higher availability architecture see [Linux N-tier application in Azure with Apache Cassandra](./n-tier-cassandra.md), the reference archiecture includes more than one VM and each VM is included in an availability set.
+
+Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines.
+
+
+For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
 
 ## Next steps
 
@@ -146,8 +155,12 @@ With the use of Azure Resource Manager templates][arm-template]  you can use Azu
 <!-- links -->
 
 [AAF-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azure-linux]: /azure/virtual-machines/virtual-machines-linux-azure-overview
+[azure-monitor]: https://azure.microsoft.com/en-us/services/monitor/
 [azure-storage]: /azure/storage/storage-introduction
 [blob-storage]: /azure/storage/storage-introduction
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
