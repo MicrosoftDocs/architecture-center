@@ -318,10 +318,10 @@ az group deployment create -g <resource-group-name> \
 
 <!-- links -->
 
-[azure-resource-manager-authoring-templates]: /azure/azure-resource-manager/resource-group-authoring-templates
-[azure-resource-manager-create-template]: /azure/azure-resource-manager/resource-manager-create-first-template
+[azure-resource-manager-authoring-templates]: /azure/azure-resource-manager/templates/template-syntax
+[azure-resource-manager-create-template]: /azure/azure-resource-manager/templates/template-tutorial-create-first-template
 [azure-resource-manager-create-multiple-instances]: /azure/azure-resource-manager/resource-group-create-multiple
-[azure-resource-manager-functions]: /azure/azure-resource-manager/resource-group-template-functions-resource
+[azure-resource-manager-functions]: /azure/azure-resource-manager/templates/template-functions-deployment#parameters
 [nsg]: /azure/virtual-network/virtual-networks-nsg
 [cli]: /cli/azure/?view=azure-cli-latest
 [github]: https://github.com/mspnp/template-examples

@@ -20,7 +20,7 @@ Related Links:
 
 * [Automate access and use of data across applications with Logic Apps](/azure/logic-apps/)
 
-* [Infuse intelligence into your apps with Cognitive Services](/azure/#pivot=products&panel=cognitive)
+* [Infuse intelligence into your apps with Cognitive Services](/azure/cognitive-services/welcome)
 
 ## Architecture
 

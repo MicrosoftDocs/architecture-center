@@ -273,7 +273,7 @@
     },
     {
       "source_path": "docs/cloud-adoption/getting-started/azure-resource-access.md",
-      "redirect_url": "/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management",
+      "redirect_url": "/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management"
     },
     {
       "source_path": "docs/cloud-adoption/getting-started/what-is-governance.md",
@@ -1855,7 +1855,7 @@
     },
     {
       "source_path": "docs/example-scenario/index.md",
-      "redirect_url": "https://docs.microsoft.com/azure/architecture/architectures/?filter=example-workload",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/architectures/?filter=example-workload"
     },
     {
       "source_path": "docs/cloud-adoption/operations/overview.md",
