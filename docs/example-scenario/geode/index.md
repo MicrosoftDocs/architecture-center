@@ -1,14 +1,15 @@
 ---
-title: Title
+title: Geodes
 titleSuffix: Azure Example Scenarios
 description: Description
-author: githubusername
+author: willeastbury
 ms.date: 03/01/2020
 ms.topic: example-scenarios
 ms.service: architecture-center
 ms.subservice: example-scenarios
 ms.custom:
     - fcp
+    - fasttrack-new
 ---
 
 # Geodes
