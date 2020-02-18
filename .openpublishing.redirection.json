@@ -304,6 +304,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/framework/devops/gitflow-branch-workflow.md",
+      "redirect_url": "docs/framework/devops/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/cloud-adoption/operations/monitor/cloud-app-howto.md",
       "redirect_url": "/azure/architecture/cloud-adoption/operations/monitor/cloud-models-monitor-overview"
     },
