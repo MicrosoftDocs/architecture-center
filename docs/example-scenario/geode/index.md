@@ -28,10 +28,10 @@ The geode pattern is an example whereby we'd do the reverse and *"bring compute 
 
 The classic approach may present challenges in a number of forms: 
 - network latency: users coming from the other side of the globe connecting to the hosting endpoint
-- traffic management: my users may have bursts in demand that can overwhelm the services
+- traffic management: my users may have bursts in demand that can overwhelm the services in a single region
 - complexity: the complexity of deploying 40 copies of my app infrastructure into multiple regions for a follow-the-sun-service is overwhelming and often cost-prohibitive (40x as expensive).
 
-The geode pattern harnesses key features of Azure to route traffic to the nearest geographical endpoint by which latency is reduced and performance increase. Cloud data-replication services are used to ensure that _all_ requests can be served from _all_ geo-nodes – as their data store is identical.  In addition by using serverless and consumption-based billed technologies waste and cost is reduced from having duplicate geo-distributed deployments.
+The geode pattern harnesses key features of Azure to route traffic to the nearest geographical endpoint by which latency is reduced and performance increases. Cloud data-replication services are used to ensure that _all_ requests can be served from _all_ geo-nodes – as their data store is identical.  In addition by using serverless and consumption-based billed technologies waste and cost is reduced from having duplicate geo-distributed deployments. Furthermore, the resiliency of the whole solution increases with each added geode, since all geodes can take over from each other in the event of a regional outage.
 
 ## Solution
 
@@ -40,8 +40,8 @@ Split the service into a number of satellite deployments spread around the globe
 **Geodes enjoy the following charateristics:**
 - They are a collection of disparate types of resources – often defined as a template.
 - All dependencies reside within the geode footprint, no geode is dependent on another to operate
-- They are loosely coupled via an edge network and replication backplane. For example Traffic Manager or Azure Frontdoor can be used for fronting the geodes while Cosmos DB can act as the replication backplane.
-- They are self-contained, if one dies the others continue to operate. An example in which this can be done is by relying on Cosmos DB.
+- They are loosely coupled via an edge network and replication backplane. For example Traffic Manager or Azure Front Door can be used for fronting the geodes while Cosmos DB can act as the replication backplane.
+- They are self-contained, if one dies the others continue to operate.
 - These services could deployed into an intra-zone, zonal, or regional footprint depending on the level of Geo-Distribution, Geo-Regulation location constraints.
 - The key difference between a stamp and a geode is that geodes never exist in isolation, there should be always more than one in a production platform.
 - They are not clusters as they share a replication backplane and hence have the issues of quorum taken care of by the platform.
@@ -49,14 +49,15 @@ Split the service into a number of satellite deployments spread around the globe
 ## Issues and Considerations
 
 Please consider the following points when deciding how to implement this pattern:
-- Use a replicating data store that provides control over the data-consistency, such as Azure CosmosDB. 
-- Use a frontend service that does dynamic content acceleration and split-tcp and anycast routing such as Azure FrontDoor. 
-- Making a deliberate choice whether to process data locally in each region or distribute making aggregations in a single geo and then replicating the result across the globe.  The [Cosmos DB Change feed processor](https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed-processor) offers this granular control using its "lease container" concept and the "leasecollectionprefix" in the corresponding [Azure Functions binding](https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed-functions).  Each approach has distinct advantages and drawbacks.
-- Use serverless technologies where possible to reduce the always-on deployment cost – especially where load gets rebalanced around the globe frequently.
+- Use a replicating data store that provides control over the data-consistency, such as Azure Cosmos DB. 
+- Use a frontend service that does dynamic content acceleration, split TCP, and Anycast routing such as Azure Front Door.
+- Making a deliberate choice whether to process data locally in each region or distribute making aggregations in a single geode and then replicating the result across the globe.  The [Cosmos DB Change feed processor](https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed-processor) offers this granular control using its "lease container" concept and the "leasecollectionprefix" in the corresponding [Azure Functions binding](https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed-functions).  Each approach has distinct advantages and drawbacks.
+- Use serverless technologies where possible to reduce the always-on deployment cost – especially where load gets rebalanced around the globe frequently. This potentially allows for a high number of geodes to be deployed with minimal marginal cost.
 - This design pattern implicitly decouples everything from everywhere else, resulting in an ultra-highly distributed and decoupled architecture. Whilst this is a good thing – consider how to track different components of the same request as they might execute asynchronously on different instances.  Get a good monitoring strategy in place.
 - Use Autoscaling to autoscale out instances of compute and/or Database throughput within a Geode.  Each geode individually scales out, within the common backplane constraints.
-- It is perfectly reasonable to have nested geodes, should one require it where local availability techniques (Az’s, Paired Regions) are augmented with the Geode Pattern for global availability – though this increases complexity – this is particularly useful if your architecture is underpinned by a storage engine such as blob storage which can only replicate to a paired region.
-- Geodes can work in tandem, leveraging Cosmos DB's change feed and a realtime comms platform like SignalR which allows for geodes to loosely communicate with other geode’s users. This is demonstrated in the sample voting app.
+- Use Infrastructure as Code practices and tools, such as Resource Manager templates, Azure Deployment Manager, or others. These principles and tools allow for identical deployments to be rapidly rolled out across a large number of separate regions or instances.
+- It is perfectly reasonable to have nested geodes, should one require it where local availability techniques (such as availability zones or paired regions) are augmented with the Geode Pattern for global availability. Though this increases complexity, it is particularly useful if your architecture is underpinned by a storage engine such as blob storage which can only replicate to a paired region.
+- Geodes can work in tandem, leveraging Cosmos DB's change feed and a realtime communication platform like SignalR which allows for geodes to loosely communicate with other geode’s users. This is demonstrated in the sample voting app.
 
 ## When to use this pattern
 
@@ -66,9 +67,10 @@ Use this pattern:
 
 ## This pattern might not be suitable for
 
-- Architectures which may have data residency constraints that mean that all Geodes cannot be equal in terms of data storage.  In this case, consider using deployment stamps in combination with a global routing plane that is aware of where a user’s data resides.
+- Architectures which may have constraints that mean that all Geodes cannot be equal in terms of data storage. For example, there may be data residency requirements, an application that needs to maintain temporary state for a particular session, or a heavy weighting of requests towards a single region. In this case, consider using deployment stamps in combination with a global routing plane that is aware of where a user’s data resides.
 - Situations where there is no geographical distribution required.  Instead consider availability zones and/or paired regions for clustering.
 - Situations where a legacy platform needs to be retrofitted.  The pattern presented here works for cloud-native development only and is very difficult to retrofit.
+- Very simple architectures and requirements, where geo-redundancy and geo-distribution are not required or advantageous.
 
 ## Examples
 
