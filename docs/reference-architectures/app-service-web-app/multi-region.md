@@ -140,7 +140,7 @@ If the primary database fails, perform a manual failover to the secondary databa
 
 ## DevOps considerations
 
-This architectures is follows The [Azure Architecture Framework][AAF-devops-deployment] multi region deployment recommendation, described in DevOps secion.
+This architectures follows The [Azure Architecture Framework][AAF-devops-deployment] multi region deployment recommendation, described in DevOps secion.
 
 This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability], see DevOps considerations section.
 

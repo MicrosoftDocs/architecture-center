@@ -150,14 +150,6 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 
 ### Front-end deployment
 
-Deploy the application uniformly to users over a wide geographical area with a global-ready CDN, with the static content hosted on the cloud. This avoids the need for a dedicated web server. Read [Integrate an Azure storage account with Azure CDN][az-cdn-storage] to get started. Secure your application with HTTPS. Read the [Best practices for using content delivery networks][az-cdn-best-practices] for additional recommendations. 
-
-Compress your website files to reduce the bandwidth consumption on the CDN and improve performance. Azure CDN allows compression on the fly on the edge servers. 
-
-The CDN should be able to purge its cache to ensure all users are served the freshest content. A cache purge is required if the build and deploy processes are not atomic, for example, if they replace old files with newly built ones in the same origin folder.
-
-
-
 This architecture builds on the one shown in [Basic web application][basic-web-app], see DevOps considerations section.
 
 
