@@ -1,5 +1,5 @@
 function unCheck(checkid) {
-    $("#"+checkid).remove();
+    $("#"+checkid+'-filter').remove();
     $("."+checkid).prop("checked", false );
     updateUrlBar(getQuery(false, 1))
 }
@@ -306,6 +306,30 @@ function setSearchText() {
     }
 }
 
+
+function sortObject(property,) {
+    var sortOrder = 1;
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+    return function (a,b) {
+        /* next line works with strings and numbers, 
+         * and you may want to customize it to your needs
+         */
+        if (property == 'publish_date') {
+            var result = (Date.parse(a[property]) <Date.parse( b[property])) ? -1 : (Date.parse(a[property]) > Date.parse(b[property])) ? 1 : 0;
+        } else {
+            var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        }
+        return result * sortOrder;
+    }
+}
+
+function updateSortDropdown(option) {
+    $('#sortOrder option[value=' + option + ']').attr('selected','selected');
+}
+
 function getQuery(firstLoad, pageNumber) {   
     var parsedParams = new URLSearchParams(window.location.search);
 
@@ -314,13 +338,24 @@ function getQuery(firstLoad, pageNumber) {
     var searchText = getSearchBoxText();
 
     var parsedFilters = [];
+    var sortKey = '';
     if (firstLoad) {
         parsedFilters = parsedParams.getAll("filter");
+        if (parsedParams.get("sort")) {
+            sortKey = parsedParams.get("sort");
+            updateSortDropdown(sortKey);
+        }
     }
 
     if (!pageNumber){
         pageNumber = getPageNumber();
-    } 
+    }
+
+    
+    if (!sortKey) {
+        sortKey=getSortKey();
+    }
+        
 
     var branch;
     if (parsedParams.get("branch")) {
@@ -336,6 +371,7 @@ function getQuery(firstLoad, pageNumber) {
         "filter": filterNames,
         "search": searchText,
         "page": pageNumber,
+        "sort": sortKey,
         "branch": branch
     };
 
@@ -415,7 +451,7 @@ function buildFilterList() {
             var checkName = $(this).siblings(".checkbox-text").text();
             $(".facet-tags").append('<span class="tag facet-tag" id="' + checkId + '">' +  checkName +
                 '<button type="button" aria-label="Remove "' + checkName +
-                '" name="' +  checkName + '" class="delete" onclick="unCheck(\'' + checkId +
+                '" name="' +  checkId + '-filter" class="delete" onclick="unCheck(\'' + checkId +
                 '\')"></button></span>');
             if (!(category in filterTerms)) {
                 filterTerms[category]=[];
@@ -458,7 +494,6 @@ function buildPageNumbers(articles, visible_count, maxItems) {
     var pageNumber = getPageNumber();
     if (totalPages > maxPages) {
         // Trying to figure out where to put the ellipsis
-        // TODO: Stupid math, needs to be better
         skipStart = Math.ceil((totalPages+4-maxPages)/2);
         skipEnd = Math.floor(totalPages-(totalPages-maxPages)+skipStart-2);
     } else {
@@ -478,6 +513,11 @@ function buildPageNumbers(articles, visible_count, maxItems) {
     var pagination = paginationTemplate(pageData);
     $(".pagination").remove();
     $("#results").append(pagination);
+}
+
+function getSortKey() {
+    var sortKey = $('#sortOrder').children("option:selected").val();
+    return sortKey;
 }
 
 function filter() {
@@ -506,7 +546,6 @@ function filter() {
         });
     };
 
-    
     articles = $.grep(articles, function(article) {
         if (searchText) {
             return article.filter_text.includes(searchText.toLowerCase());
@@ -514,6 +553,9 @@ function filter() {
             return true;
         }
     });
+
+    var sort_key = getSortKey();
+    articles.sort(sortObject(sort_key, true));
 
     // Don't display more than 12 items on a page
     var pageNumber = getPageNumber();
@@ -545,8 +587,8 @@ $(document).ready(function(){
         event.preventDefault();
       });
 
-    $.getJSON('/azure/architecture/solution-ideas/data/output.json.txt', function (articleData) {
-        $.getJSON('/azure/architecture/solution-ideas/metadata/display-tags.json.txt', function (tagData) {
+    $.getJSON('/azure/architecture/solution-ideas/data/output.json', function (articleData) {
+        $.getJSON('/azure/architecture/solution-ideas/metadata/display-tags.json', function (tagData) {
             window.articleData = articleData;
             buildFilterHtml(tagData);
             updateUrlBar(getQuery(firstLoad=true));

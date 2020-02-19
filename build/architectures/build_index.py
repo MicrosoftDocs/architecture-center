@@ -12,6 +12,7 @@ import readtime
 from jinja2 import Environment, FileSystemLoader
 import os.path as path
 import logging
+import csv
 
 def find_all(iterable, searchtext, returned="key"):
     
@@ -28,7 +29,7 @@ def find_all(iterable, searchtext, returned="key"):
   
     if isinstance(iterable, dict):
         for key, value in iterable.items():
-            if key == searchtext or value == searchtext:
+            if re.search(searchtext, str(key)) or re.search(searchtext, str(value)):
                 if returned == "key":
                     yield key
                 elif returned == "value":
@@ -138,7 +139,7 @@ env = Environment (
     keep_trailing_newline = True
     )
 
-tag_file = open(path.join(index_dir, "metadata", "display-tags..json"), "r")
+tag_file = open(path.join(index_dir, "metadata", "display-tags.json"), "r")
 tag_metadata=json.load(tag_file)
 
 acom_diagrams = Path(acom_dir).glob('**/*.md')
@@ -167,6 +168,13 @@ all_architectures_list = sorted(all_architectures_list, key=lambda x: x.name)
 parsed_articles = []
 
 all_architectures_list = unique(all_architectures_list, cleanup=False)
+
+root = path.dirname(path.abspath(__file__))
+popularity = []
+with open(path.join(root, "popularity.csv"), newline='') as csvfile:
+    reader = csv.DictReader(csvfile)
+    for line in reader:
+        popularity.append(dict(line))
 
 for file in all_architectures_list:
     article = {}
@@ -201,9 +209,9 @@ for file in all_architectures_list:
         article['type'] = "solution-idea"
 
     logging.debug("Getting article URL")
-    http_url="/azure/architecture/" + str(file_path.relative_to(doc_directory).as_posix()).replace(file_path.suffix, "")
+    http_url="/azure/architecture/" + str(file_path.relative_to(doc_directory).as_posix()).replace(file_path.suffix, "").replace("/index", "")
     article['file_url'] = str(file_path.relative_to(doc_directory).as_posix())
-    article['http_url'] = http_url
+    article['http_url'] = http_url.lower()
 
     # Strip SVG and convert to html
     logging.debug("Stripping tags")
@@ -361,6 +369,12 @@ for file in all_architectures_list:
         if article.get('code_languages'):
             article['code_languages'] = unique(article['code_languages'])
 
+        rank = list(find_all(popularity, article['http_url'], 'item'))
+        if rank:
+            article['popularity'] = int(rank[0]['Ranking'])
+        else:
+            article['popularity'] = 0
+
         logging.debug("Add to list")
         parsed_articles.append(article)
 
@@ -401,14 +415,14 @@ output_file = open(path.join(doc_directory, "toc.yml"), "w")
 output_file.write(yaml.dump(main_toc, default_flow_style=False, sort_keys=False))
 output_file.close()
 
-output_file = open(path.join(index_dir, "data", "output..json"), "w")
+output_file = open(path.join(index_dir, "data", "output.json"), "w")
 output_file.write(json.dumps(articles, indent=4))
 output_file.close()
 
-output_file = open(path.join(index_dir, "data", "tags..json"), "w")
+output_file = open(path.join(index_dir, "data", "tags.json"), "w")
 output_file.write(json.dumps(sorted(all_tags), indent=4))
 output_file.close()
 
-output_file = open(path.join(index_dir, "data", "dev-langs..json"), "w")
+output_file = open(path.join(index_dir, "data", "dev-langs.json"), "w")
 output_file.write(json.dumps(sorted(all_langs), indent=4))
 output_file.close()

@@ -77,8 +77,6 @@ items:
       href: best-practices/deployment-stamp.md
     - name: Monitoring and diagnostics
       href: best-practices/monitoring.md
-    - name: Naming rules and restrictions for Azure resources
-      href: best-practices/resource-naming.md
     - name: Retry guidance for specific services
       href: best-practices/retry-service-specific.md
     - name: Transient fault handling
@@ -147,12 +145,10 @@ items:
       href: framework/devops/overview.md
     - name: Application design
       href: framework/devops/app-design.md
-    - name: Branching strategies
-      href: framework/devops/gitflow-branch-workflow.md
     - name: Development
       href: framework/devops/development.md
     - name: Deployment
-      href: framework/devops/deployment.md    
+      href: framework/devops/deployment.md
     - name: Infrastructure Deployments
       href: framework/devops/iac.md
     - name: Monitoring
@@ -956,6 +952,8 @@ items:
         href: reference-architectures/dmz/secure-vnet-dmz.md
       - name: Highly available network virtual appliances
         href: reference-architectures/dmz/nva-ha.md
+    - name: Add IP spaces to peered virtual networks
+      href: networking/prefixes/add-ip-space-peered-vnet.md
   - name: SAP
     items:
     - name: Reference Architectures
