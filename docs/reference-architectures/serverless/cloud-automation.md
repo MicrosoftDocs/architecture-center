@@ -198,6 +198,15 @@ Once the identity is assigned to the Azure function, assign it a role using [rol
 
 Logig apps pricing works on the pay-as-you-go model. For instance, if you process 1000 service bus messages a day, with a workflow of five actions it would cost you less than 5 EUR. Every time a Logic App definition are triggered, action and connector executions are metered. See [Logic Apps pricing][Logic-Apps-Pricing] for more info.
 
+Logic apps has also a fixed pricing model. If you need to run logic apps that can communicate with secured resources in an Azure virtual network, you can create them in an [Integration Service Environment (ISE)][az-logic-apps-ISE], ISE provides a private, isolated, and dedicated way to run your logic apps. For new logic apps that run inside an ISE, you pay a fixed monthly price for these capabilities:
+
+Built in triggers and actions
+Standard and Enterprise connectors
+Integration accounts
+
+See [Logic Apps pricing model][logic-apps-pricing] for more information.
+
+
 ### Azure functions
 
 Azure functions service is managed by the cloud provider, so the total cost of owning the service is minimal, you pay for consumption. Azure Functions consumption plan is billed based on per-second resource consumption and execution count. Number of executions count is simple: each function defines an event trigger which fires the execution. Batching is recommended for reducing cost, that means processing several events in a single execution.
@@ -240,6 +249,8 @@ To learn more about the serverless implementations, start [here](https://docs.mi
 <!-- links -->
 
 [AAF-cost]: /azure/architecture/framework/cost/overview
+[az-logic-apps-ISE]: https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [Logic-Apps-Pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
+[logic-apps-pricing]: https://docs.microsoft.com/azure/logic-apps/logic-apps-pricing
