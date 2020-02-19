@@ -204,6 +204,10 @@ Built in triggers and actions
 Standard and Enterprise connectors
 Integration accounts
 
+Azure Logic Apps connectors help your logic app to communicate with appplications and services in the cloud or on premises by providing triggers, actions, or both. Connectors are classified as either Standard or Enterprise. If no prebuilt connectors are available you can create custom connectors. Custom connectors are billed as Standard connectors.
+
+Azure Logic Apps meters all successful and unsuccessful actions as executions. Triggers are special actions and so are metered the same way, you decide between polling, webhook, recurring triggers depending on your business needs. For example if your logic app gets triggered only when an HTTPS request happens, then you don't need to continually poll and check for a criteria to be satisfied, since every polling request is metered as an action.  
+
 See [Logic Apps pricing model][logic-apps-pricing] for more information.
 
 
