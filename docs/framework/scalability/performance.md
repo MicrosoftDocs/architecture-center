@@ -11,24 +11,34 @@ ms.custom: How are you thinking about Performance?
 
 # Performance
 
-<!-- Have well defined performance goals (eg: throughput and latency) -->
-[!include[91563675-7699-46b8-a60d-311e92aede83](../../../includes/aar_guidance/91563675-7699-46b8-a60d-311e92aede83.md)]
+## Defining performance goals
 
-<!-- Using horizontal scaling when possible -->
-[!include[17dbf926-0d77-459e-a44c-76895adcb2d4](../../../includes/aar_guidance/17dbf926-0d77-459e-a44c-76895adcb2d4.md)]
+Defining performance goals allows you to build architecture that aligns to your business needs.  Learn More: [/azure/architecture/antipatterns/](/azure/architecture/antipatterns/)
 
-<!-- Have policies to scale in (down) when your load decreases? -->
-[!include[1eab2007-a8bd-440d-87eb-09a42e320ad5](../../../includes/aar_guidance/1eab2007-a8bd-440d-87eb-09a42e320ad5.md)]
+## Horizontal Scaling
 
-<!-- Understand your performance bottlenecks? (components or goals) -->
-[!include[aebd1ae8-4d79-4ed5-a625-9c8dc270b18f](../../../includes/aar_guidance/aebd1ae8-4d79-4ed5-a625-9c8dc270b18f.md)]
+Horizontal scaling allows you to dynamically add and remove resources based on demand.
 
-<!-- Gracefully handle throttling -->
-[!include[fa7fe27a-fb7a-47bf-84ec-ae009ed95a54](../../../includes/aar_guidance/fa7fe27a-fb7a-47bf-84ec-ae009ed95a54.md)]
+Read more about [Auto-scaling](/azure/architecture/best-practices/auto-scaling).
 
-<!-- Use idempotent operations -->
-[!include[1bc6e483-efd2-41c8-8415-ad02c95caa97](../../../includes/aar_guidance/1bc6e483-efd2-41c8-8415-ad02c95caa97.md)]
+## Scaling down when load decreases
 
-<!-- Gracefully handle failures -->
-[!include[e769b84e-1c9a-4e51-9ff1-3546acda036d](../../../includes/aar_guidance/e769b84e-1c9a-4e51-9ff1-3546acda036d.md)]
+Scaling in removes unused resources when they become idle.
 
+## Performance Bottlenecks
+
+Understanding your performance bottlenecks is critical for designing systems that will have variable throughput over time. Review [architecture anti-patterns](/azure/architecture/antipatterns/) to avoid common pitfalls when building solutions.
+
+## Throttling
+
+Learn More: [/azure/architecture/patterns/throttling](/azure/architecture/patterns/throttling)
+
+## Idempotency
+
+If a worker crashes in the middle of an operation, another worker simply picks up the work item.
+
+Learn More: [/azure/architecture/guide/design-principles/scale-out](/azure/architecture/guide/design-principles/scale-out)
+
+## Failure handling
+
+In a distributed system, failures happen. Hardware can fail. The network can have transient failures. Review [Design for self-healing](/azure/architecture/guide/design-principles/self-healing) to learn more about gracefully handling failures.
