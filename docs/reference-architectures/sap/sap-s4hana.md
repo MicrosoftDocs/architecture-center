@@ -3,11 +3,11 @@ title: SAP S/4HANA for Linux virtual machines on Azure
 titleSuffix: Azure Reference Architectures
 description: Proven practices for running SAP S/4HANA in a Linux environment on Azure with high availability.
 author: lbrader
-ms.date: 12/19/2019
+ms.date: 02/19/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
-ms.custom: seodec18, SAP, Linux
+ms.custom: seodec18, SAP, Linux, fcp
 ---
 
 # SAP S/4HANA for Linux virtual machines on Azure
