@@ -136,9 +136,7 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 Use a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources and its dependencies. Since all the resources are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
 
-With the use of [Azure Resource Manager templates][arm-template]  you can use Azure DevOps Services to provision different environment in minutes, for example to replicate production scenarios. This allows you save cost and provision load testing environment only when needed.
-
-To automate the infrastructure deployment, you can use [Azure DevOps Services][az-devops], or other CI/CD solutions.
+With the use of [Azure Resource Manager templates][arm-template] you can use [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production scenarios. This allows you save cost and provision load testing environment only when needed.
 
 For higher availability architecture see [Linux N-tier application in Azure with Apache Cassandra](./n-tier-cassandra.md), the reference archiecture includes more than one VM and each VM is included in an availability set.
 

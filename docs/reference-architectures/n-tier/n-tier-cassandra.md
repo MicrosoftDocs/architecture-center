@@ -234,6 +234,23 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
    azbb -s <your subscription_id> -g <your resource_group_name> -l <azure region> -p n-tier-linux.json --deploy
    ```
 
+## DevOps considerations
+
+In this architecture you use an [Azure Building Blocks template][azbb-template] for provisioning the Azure resources and its dependencies. Since all the main resources and their dependencies are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
+
+You can use [Azure DevOps Services][az-devops] to integrate your template in a CI/CD pipeline; that would allow you to utomate the infrastructure deployment, provision different environments in minutes, for example to replicate a production, peak-usage scenario. This allows you save cost and provision load testing environment only when needed.
+
+In this sceanario you virtual machines are configured by using Virtual Machine Extensions, since they offer the possibility of installing certain additional software, such as Apache Cassandra. In particular, the Custom Script Extension allows the download and execution of arbitrary code on a Virtual Machine, allowing unlimited customization of the Operating System of an Azure VM. VM Extensions are installed and executed only at VM creation time. That means if the Operating System gets configured incorrectly at a later stage, it will require a manual intervention to move it back to its correct state. Configuration Management Tools can be used to address this issue.
+
+Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines. Application Insights is actually one of the components of Azure Monitor, which gives you rich metrics and logs to verify the state of your complete Azure landscape. Azure Monitor will help you to follow the state of your infrastructure.
+
+Make sure not only to monitor your compute elements supporting your application code, but your data platform as well, in particular your databases, since a low performance of the data tier of an application could have serious consequences.
+
+In order to test the Azure environment where the applications are running, it should be version-controlled and deployed through the same mechanisms as application code, then it can be tested and validated using DevOps testing paradigms too.
+
+
+For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+
 ## Next steps
 
 - [Microsoft Learn module: Tour the N-tier architecture style](/learn/modules/n-tier-architecture/)
@@ -241,9 +258,13 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
 <!-- links -->
 
 [AAF-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [app-gw-scaling]: /azure/application-gateway/
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[azbb-template]: https://github.com/mspnp/template-building-blocks/wiki/overview
 [azure-dns]: /azure/dns/dns-overview
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault
+[azure-monitor]: https://azure.microsoft.com/en-us/services/monitor/
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cassandra-in-azure]: https://academy.datastax.com/resources/deployment-guide-azure
 [cassandra-consistency]: https://docs.datastax.com/en/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html

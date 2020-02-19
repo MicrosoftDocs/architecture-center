@@ -183,6 +183,21 @@ Traffic Manager billing is based on the number of DNS queries received, with a d
 
 For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
+## DevOps considerations
+
+Use a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources and its dependencies. Use the same template to deploy the resources to both primary and secondary regions. Include all the resources in the same virtual network so they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
+
+With the use of [Azure Resource Manager templates][arm-template] you can use [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production scenarios. This allows you save cost and provision load testing environment only when needed.
+
+Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines. Application Insights is actually one of the components of Azure Monitor, which gives you rich metrics and logs to verify the state of your complete Azure landscape. Azure Monitor will help you to follow the state of your infrastructure.
+
+Make sure not only to monitor your compute elements supporting your application code, but your data platform as well, in particular your databases, since a low performance of the data tier of an application could have serious consequences.
+
+
+In order to test the Azure environment where the applications are running, it should be version-controlled and deployed through the same mechanisms as application code, then it can be tested and validated using DevOps testing paradigms too.
+
+For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+
 
 ## Related resources
 
@@ -192,10 +207,13 @@ The following architecture uses some of the same technologies:
 
 <!-- links -->
 
+[azure-monitor]: https://azure.microsoft.com/en-us/services/monitor/
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
 [Sql-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/
 [Managed-Sql-pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed/
 [AAF-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [azure-sql-db]: /azure/sql-database/
 [health-endpoint-monitoring-pattern]: ../../patterns/health-endpoint-monitoring.md
 [azure-cli]: /cli/azure/

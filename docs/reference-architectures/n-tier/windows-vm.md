@@ -112,13 +112,11 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 ## DevOps considerations
 
-Use infrastructure as Code (IaC) either by using a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources (declarative approach) or by using a single Powershell (imperative approach). Since all the resources are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
+Use infrastructure as Code (IaC) either by using a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources (declarative approach) or by using a single Powershell script (imperative approach). Since all the resources are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
 
-With the use of [Azure Resource Manager templates][arm-template]  you can use Azure DevOps Services to provision different environment in minutes, for example to replicate production scenarios. This allows you save cost and provision load testing environment only when needed.
+With the use of [Azure Resource Manager templates][arm-template] you can use [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production scenarios. This allows you save cost and provision load testing environment only when needed.
 
-To automate the infrastructure deployment, you can use [Azure DevOps Services][az-devops], or other CI/CD solutions.
-
-For higher availability architecture see [Create and Manage Windows VMs with Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm), the reference archiecture includes more than one VM and each VM is included in an availability set.
+For higher availability architecture see [Windows N-tier application on Azure with SQL Server](./n-tier-sql-server.md), the reference archiecture includes more than one VM and each VM is included in an availability set.
 
 Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines.
 
