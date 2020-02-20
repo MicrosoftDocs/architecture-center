@@ -14,7 +14,7 @@ ms.custom:
 
 # Geodes
 
-The geode pattern involves splicing a collection of backend services into a set of *geo*graphical no*de*s, each of which can service any request for any client in any region. This pattern enabled requests to be served in an active-active-active style, whilst distributing request processing across multiple geographies, improving latency and providing ultimate availability.
+The geode pattern involves splicing a collection of backend services into a set of *geo*graphical no*de*s, each of which can service any request for any client in any region. This pattern allows requests to be served in an active-active-active style, improving latency and providing ultimate availability by distributing all request processing across around the globe.
 
 ![geode-overview](./images/geode-dist.png)
 
@@ -34,7 +34,7 @@ The classic approach may present challenges in a number of forms:
 - traffic management: my users may have bursts in demand that can overwhelm the services in a single region
 - complexity: the complexity of deploying 40 copies of my app infrastructure into multiple regions for a 24x7 service can be overwhelming and often cost-prohibitive.
 
-The geode pattern harnesses key features of Azure to route traffic via the shortest path to the nearest endpoint to improve latency is and performance. Cloud data-replication services are used to ensure that _all_ requests can be served from _all_ geo-nodes – as their data store is identical.  
+The geode pattern harnesses key features of Azure and routes traffic via the shortest path to a nearby geode, which improves latency and performance. It uses data-replication services to ensure that _all_ requests can be served from _all_ geo-nodes – as their data stores are identical.  
 
 We can also use serverless and consumption-based billed technologies to reduce waste and cost from having duplicated geo-distributed deployments. Furthermore, the resiliency of the whole solution increases with each added geode, since all geodes can take over should a regional outage take one or more geodes offline.
 
@@ -64,7 +64,7 @@ Consider the following points when deciding how to implement this pattern:
 - Use Autoscaling to autoscale out instances of compute and/or Database throughput within a Geode.  Each geode individually scales out, within the common backplane constraints.
 - Use modern DevOps practices and tools to produce identical geodes to be rapidly deployed across a large number of separate regions or instances.
 - It's also possible to combine geodes with local availability techniques (such as availability zones or paired regions) are augmented with the Geode Pattern for global availability. Though this increases complexity, it is useful if your architecture is underpinned by a storage engine such as blob storage that can only replicate to a paired region.
-- Geodes can work in tandem, using Cosmos DB's change feed and a real-time communication platform like SignalR, which allows for geodes to loosely communicate with other geode’s users so the user is completely unaware they are acting as a remote part of a geo-distributed system. This concept is demonstrated in the sample voting app.
+- Geodes can work in tandem, using Cosmos DB's change feed and a real-time communication platform like SignalR, which allows for geodes to communicate with remote users via other Geodes in a mesh pattern, without knowing or caring where the remote user is located. This concept is demonstrated in the sample voting app.
 
 ## When to use this pattern
 
@@ -74,16 +74,16 @@ Use this pattern:
 
 ## This pattern might not be suitable for
 
-- Architectures which have constraints so that all Geodes can't be equal for data storage. For example, there may be data residency requirements, an application that needs to maintain temporary state for a particular session, or a heavy weighting of requests towards a single region. In this case, consider using deployment stamps in combination with a global routing plane that is aware of where a user’s data sits.
+- Architectures that have constraints so that all Geodes can't be equal for data storage. For example, there may be data residency requirements, an application that needs to maintain temporary state for a particular session, or a heavy weighting of requests towards a single region. In this case, consider using deployment stamps in combination with a global routing plane that is aware of where a user’s data sits.
 - Situations where there's no geographical distribution required.  Instead consider availability zones and/or paired regions for clustering.
-- Situations where a legacy platform needs to be retrofitted.  The pattern presented here works for cloud-native development only and is very difficult to retrofit.
-- Very simple architectures and requirements, where geo-redundancy and geo-distribution aren't required or advantageous.
+- Situations where a legacy platform needs to be retrofitted.  The pattern presented here works for cloud-native development only and can be difficult to retrofit.
+- Simplistic architectures and requirements, where geo-redundancy and geo-distribution aren't required or advantageous.
 
 ## Examples
 
-- Windows Active Directory implements a very early variant of this pattern where multimaster replication is enabled, all updates can be served from all nodes, but the idea of FSMO roles means that all geodes aren't equal.
+- Windows Active Directory implements an early variant of this pattern where multimaster replication is enabled, all updates / requests can in theory be served from all serviceable nodes, but the idea of FSMO roles means that all geodes aren't equal.
 
-- There's a "QnA" sample application which showcases this design pattern in practice, find it here.  **Temporary Link until we find a better location: https://github.com/xstof/qnademo**
+- There's a "QnA" sample application that showcases this design pattern in practice, find it here.  **Temporary Link until we find a better location: https://github.com/xstof/qnademo**
 
 
 
