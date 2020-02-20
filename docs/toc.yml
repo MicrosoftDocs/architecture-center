@@ -660,6 +660,8 @@ items:
         href: data-guide/scenarios/time-series.md
       - name: Working with CSV and JSON files
         href: data-guide/scenarios/csv-and-json.md
+      - name: Data platform end-to-end
+        href: example-scenario/dataplate2e/data-platform-end-to-end.md
     - name: Solution Ideas
       items:
       - href: solution-ideas/articles/data-sovereignty-and-gravity.md
