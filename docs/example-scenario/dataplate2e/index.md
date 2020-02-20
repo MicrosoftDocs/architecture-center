@@ -15,7 +15,7 @@ ms.custom:
 
 This example scenario demonstrates how to leverage the extensive family of Azure Data Services to build a modern data platform capable of handling the most common data challenges in an organization.
 
-The design pattern described in this article combines a range of Azure services that will ingest, process, store, serve and visualize data from different sources, both structured and unstructured.
+The design pattern described in this article combines a range of Azure services that will ingest, process, store, serve, and visualize data from different sources, both structured and unstructured.
 
 This solution architecture demonstrates how a single, unified data platform can be used to meet the most common requirements for:
 
@@ -108,7 +108,7 @@ The following Azure services have been used in the reference architecture:
 - Azure Stream Analytics
 - Microsoft Power BI
 
-If you need further training resources or access to technical documentation please find in the table below links to Microsoft Learn and to each service's Technical Documentation.
+If you need further training resources or access to technical documentation, the table below links to Microsoft Learn and to each service's Technical Documentation.
 
 Azure Service | Microsoft Learn | Technical Documentation|
 --------------|-----------------|------------------------|
@@ -124,11 +124,11 @@ Power BI | [Create and use analytics reports with Power BI][pbi-learn] | [Power 
 
 ### Alternatives
 
-- In the reference architecture above Azure Data Factory is the service responsible for data pipeline orchestration. Azure Databricks can also be used to perform the same role through the execution of nested notebooks;  
+- In the reference architecture above, Azure Data Factory is the service responsible for data pipeline orchestration. Azure Databricks can also be used to perform the same role through the execution of nested notebooks;  
 
-- In the reference architecture above Azure Stream Analytics is the service responsible for processing streaming data. Azure Databricks can also be used to perform the same role through the execution of  notebooks;
+- In the reference architecture, Azure Stream Analytics is the service responsible for processing streaming data. Azure Databricks can also be used to perform the same role through the execution of  notebooks;
 
-- In the reference architecture above Azure Databricks was used to invoke Cognitive Services. You can also make use of Azure Functions to invoke Azure Cognitive Services from an Azure Data Factory Pipeline.
+- In the reference architecture above, Azure Databricks was used to invoke Cognitive Services. You can also make use of Azure Functions to invoke Azure Cognitive Services from an Azure Data Factory Pipeline.
 
 - For comparisons of other alternatives, see:
 
@@ -158,7 +158,6 @@ The ideal individual pricing tier and the total overall cost of each service inc
 ## Next Steps
 
 - Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](/azure/architecture/data-guide).
-- **More TBD**
 
 <!-- links -->
 
