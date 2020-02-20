@@ -25,18 +25,18 @@ Many large-scale services have specific challenges around geo-availability and s
 
 In "classic" designs, we'd often *"bring the data to the compute"* by storing data in a remote SQL server, which serves as the compute tier for that data, relying on scale-up for growth.)
 
-The geode pattern is an example whereby we'd do the reverse and *"bring the compute to the data"*. We can start with the principle that for availability and performance reasons, getting data closer to the user is good. However, when data is going to be geo-distributed across a far-flung user base, we will need to ensure these geo-distributed datastores are co-located with the compute which will process the data.
+The geode pattern is an example whereby we'd do the reverse and *"bring the compute to the data"*. We can start with the principle that for availability and performance reasons, getting data closer to the user is good. However, when data is going to be geo-distributed across a far-flung user base, we will need to ensure these geo-distributed datastores are colocated with the compute which will process the data.
 
-We also see this pattern occur in Big Data architectures where commodity hardware is used to process data co-located on the same machine, using map-reduce to consolidate results across machines. Another valid example is near-edge compute where we bring compute closer to the intelligent edge of the network to reduce response time, this pattern then holds true with services that can have 10's or even potentially *hundreds* of geodes. 
+We also see this pattern occur in Big Data architectures where commodity hardware is used to process data colocated on the same machine, using map-reduce to consolidate results across machines. Another valid example is near-edge compute where we bring compute closer to the intelligent edge of the network to reduce response time, this pattern then holds true with services that can have 10's or even potentially *hundreds* of geodes. 
 
 The classic approach may present challenges in a number of forms: 
 - network latency: users coming from the other side of the globe connecting to the hosting endpoint
 - traffic management: my users may have bursts in demand that can overwhelm the services in a single region
-- complexity: the complexity of deploying 40 copies of my app infrastructure into multiple regions for a 24x7 service is overwhelming and often cost-prohibitive (40x as expensive).
+- complexity: the complexity of deploying 40 copies of my app infrastructure into multiple regions for a 24x7 service can be overwhelming and often cost-prohibitive.
 
 The geode pattern harnesses key features of Azure to route traffic via the shortest path to the nearest endpoint to improve latency is and performance. Cloud data-replication services are used to ensure that _all_ requests can be served from _all_ geo-nodes – as their data store is identical.  
 
-We can also use serverless and consumption-based billed technologies to reduce waste and cost from having duplicated geo-distributed deployments. Furthermore, the resiliency of the whole solution increases with each added geode, since all geodes can take over from each other in the event of a regional outage.
+We can also use serverless and consumption-based billed technologies to reduce waste and cost from having duplicated geo-distributed deployments. Furthermore, the resiliency of the whole solution increases with each added geode, since all geodes can take over should a regional outage take one or more geodes offline.
 
 ![geode-map](./images/geode.jpg)
 
@@ -59,12 +59,12 @@ Consider the following points when deciding how to implement this pattern:
 - Use a replicating data store that provides control over the data-consistency, such as Azure Cosmos DB. 
 - Use a frontend service that does dynamic content acceleration, split TCP, and Anycast routing such as Azure Front Door.
 - Making a deliberate choice whether to process data locally in each region or distribute making aggregations in a single geode and then replicating the result across the globe. The [Cosmos DB Change feed processor](https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed-processor) offers this granular control using its "lease container" concept and the "leasecollectionprefix" in the corresponding [Azure Functions binding](https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed-functions).  Each approach has distinct advantages and drawbacks.
-- Use serverless technologies where possible to reduce the always-on deployment cost – especially where load gets rebalanced around the globe frequently. This potentially allows for a high number of geodes to be deployed with minimal marginal cost.
-- This design pattern implicitly decouples everything from everywhere else, resulting in an ultra-highly distributed and decoupled architecture. Whilst this is a good thing – consider how to track different components of the same request as they might execute asynchronously on different instances.  Get a good monitoring strategy in place.
+- Use serverless technologies where possible to reduce the always-on deployment cost – especially where load gets rebalanced around the globe frequently. This strategy potentially allows for a high number of geodes to be deployed with minimal additional investment.
+- This design pattern implicitly decouples everything from everywhere else, resulting in an ultra-highly distributed and decoupled architecture. Whilst decoupling is a good thing – consider how to track different components of the same request as they might execute asynchronously on different instances.  Get a good monitoring strategy in place.
 - Use Autoscaling to autoscale out instances of compute and/or Database throughput within a Geode.  Each geode individually scales out, within the common backplane constraints.
 - Use modern DevOps practices and tools to produce identical geodes to be rapidly deployed across a large number of separate regions or instances.
-- It's perfectly reasonable to have nested geodes, should one require it where local availability techniques (such as availability zones or paired regions) are augmented with the Geode Pattern for global availability. Though this increases complexity, it is particularly useful if your architecture is underpinned by a storage engine such as blob storage which can only replicate to a paired region.
-- Geodes can work in tandem, using Cosmos DB's change feed and a real-time communication platform like SignalR which allows for geodes to loosely communicate with other remote geode’s users so the user is completely unaware they are acting on a remote part of a geo-distributed system. This is demonstrated in the sample voting app.
+- It's also possible to combine geodes with local availability techniques (such as availability zones or paired regions) are augmented with the Geode Pattern for global availability. Though this increases complexity, it is useful if your architecture is underpinned by a storage engine such as blob storage that can only replicate to a paired region.
+- Geodes can work in tandem, using Cosmos DB's change feed and a real-time communication platform like SignalR, which allows for geodes to loosely communicate with other geode’s users so the user is completely unaware they are acting as a remote part of a geo-distributed system. This concept is demonstrated in the sample voting app.
 
 ## When to use this pattern
 
