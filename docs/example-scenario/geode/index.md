@@ -16,7 +16,8 @@ ms.custom:
 
 The geode pattern involves splicing a collection of backend services into a set of *geo*graphical no*de*s, each of which is capable of servicing any request for any client in any region. This allows requests to be served in an active-active-active manner while request processing can then be distributed across multiple geographical regions, enhancing both low-latency performance and providing ultimate availability.
 
-![geode-overview](./images/geode.jpg)
+![geode-overview](./images/geode-dist.png)
+
 
 ## Context and Problem
 
@@ -34,6 +35,8 @@ The classic approach may present challenges in a number of forms:
 - complexity: the complexity of deploying 40 copies of my app infrastructure into multiple regions for a follow-the-sun-service is overwhelming and often cost-prohibitive (40x as expensive).
 
 The geode pattern harnesses key features of Azure to route traffic to the nearest geographical endpoint by which latency is reduced and performance increases. Cloud data-replication services are used to ensure that _all_ requests can be served from _all_ geo-nodes – as their data store is identical.  In addition by using serverless and consumption-based billed technologies waste and cost is reduced from having duplicate geo-distributed deployments. Furthermore, the resiliency of the whole solution increases with each added geode, since all geodes can take over from each other in the event of a regional outage.
+
+![geode-overview](./images/geode.jpg)
 
 ## Solution
 
