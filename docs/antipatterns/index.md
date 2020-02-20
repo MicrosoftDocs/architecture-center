@@ -1,6 +1,5 @@
 ---
-title: Performance antipatterns for cloud applications
-titleSuffix: Azure Architecture Center
+title: Performance antipatterns
 description: Common practices that are likely to cause scalability problems.
 author: dragon119
 ms.date: 06/05/2017
