@@ -1,6 +1,5 @@
 ---
 title: N-tier application with Apache Cassandra
-titleSuffix: Azure Reference Architectures
 description: Run Linux virtual machines for an N-tier architecture with Apache Cassandra in Microsoft Azure.
 author: MikeWasson
 ms.date: 08/21/2019

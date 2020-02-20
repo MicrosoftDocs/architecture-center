@@ -1,6 +1,5 @@
 ---
 title: Highly available multi-region web application
-titleSuffix: Azure Reference Architectures
 description: Recommended architecture for a highly available web application running in multiple regions in Azure.
 author: MikeWasson
 ms.date: 08/14/2019

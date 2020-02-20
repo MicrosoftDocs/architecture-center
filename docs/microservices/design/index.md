@@ -1,5 +1,5 @@
 ---
-title: Microservices reference implementation for Azure Kubernetes Service
+title: Designing a microservices architecture
 description: This reference implementation illustrates best practices for a microservices architecture
 author: MikeWasson
 ms.date: 02/26/2019
