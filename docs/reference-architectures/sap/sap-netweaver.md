@@ -3,11 +3,11 @@ title: Deploy SAP NetWeaver (Windows) for AnyDB on Azure VMs
 titleSuffix: Azure Reference Architectures
 description: Proven practices for running SAP S/4HANA in a Linux environment on Azure with high availability.
 author: lbrader
-ms.date: 12/18/2019
+ms.date: 02/19/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
-ms.custom: seodec18, SAP, Windows
+ms.custom: seodec18, SAP, Windows, fcp
 ---
 
 # Deploy SAP NetWeaver (Windows) for AnyDB on Azure virtual machines
