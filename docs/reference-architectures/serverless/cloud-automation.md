@@ -184,7 +184,9 @@ Once the identity is assigned to the Azure function, assign it a role using [rol
 
 ### Logic Apps
 
-Logig apps pricing works on the pay-as-you-go model. For instance, if you process 1000 service bus messages a day, with a workflow of five actions it would cost you less than 5 EUR. Every time a Logic App definition are triggered, action and connector executions are metered. See [Logic Apps pricing][Logic-Apps-Pricing] for more info.
+In this architecture, Logic Apps are used in the cost center tagging scenario to orchestrate the workflow. In this case, built in connectors are used to connect to Azure functions and send email notification when automation task is completed.
+
+Logic apps pricing works on the pay-as-you-go model. For instance, if you process 1000 service bus messages a day, with a workflow of five actions it would cost you less than 5 EUR. Every time a Logic App definition are triggered, action and connector executions are metered. See [Logic Apps pricing][Logic-Apps-Pricing] for more info.
 
 Logic apps has also a fixed pricing model. If you need to run logic apps that can communicate with secured resources in an Azure virtual network, you can create them in an [Integration Service Environment (ISE)][az-logic-apps-ISE], ISE provides a private, isolated, and dedicated way to run your logic apps. For new logic apps that run inside an ISE, you pay a fixed monthly price for these capabilities:
 
@@ -192,32 +194,35 @@ Built in triggers and actions
 Standard and Enterprise connectors
 Integration accounts
 
-Azure Logic Apps connectors help your logic app to communicate with appplications and services in the cloud or on premises by providing triggers, actions, or both. Connectors are classified as either Standard or Enterprise. If no prebuilt connectors are available you can create custom connectors. Custom connectors are billed as Standard connectors.
+Azure Logic Apps connectors help your logic app to communicate with appplications and services in the cloud or on premises by providing triggers, actions, or both. Connectors are classified as either Standard or Enterprise. 
 
-Azure Logic Apps meters all successful and unsuccessful actions as executions. Triggers are special actions and so are metered the same way, you decide between polling, webhook, recurring triggers depending on your business needs. For example if your logic app gets triggered only when an HTTPS request happens, then you don't need to continually poll and check for a criteria to be satisfied, since every polling request is metered as an action.  
+Azure Logic Apps meters all successful and unsuccessful actions as executions. Triggers are special actions and so are metered the same way, you decide between polling, webhook, recurring triggers depending on your business needs. 
+
+For this architecture the functions are exposed as a web hook/API using an HTTP trigger, this is cost effective since they get triggered only when an HTTPS request happens, then are not continually polling and checking for a criteria to be satisfied, since every polling request is metered as an action.
 
 See [Logic Apps pricing model][logic-apps-pricing] for more information.
 
 
 ### Azure Functions
 
-Azure Functions are available with [the following three pricing plans](https://docs.microsoft.com/azure/azure-functions/functions-scale). Choose the plan depending on your automation scenario.
+In this architecture Azure Functions are used for interactive tasks such as updating the tags in Azure Active Directory, or changing cosmos DB configuration by scaling up the RUs to a higher value. Hence the **Consumption plan** is the appropiate for this scenario:
 
-- **Consumption plan**. This is the most cost-effective, serverless plan available, where you only pay for the time your function runs. Under this plan, functions can run for up to 10 minutes at a time. Start with this plan for the most basic scenarios.
+Azure Functions are available with [the following three pricing plans](https://docs.microsoft.com/azure/azure-functions/functions-scale).
+
+- **Consumption plan**. This is the most cost-effective, serverless plan available, where you only pay for the time your function runs. Under this plan, functions can run for up to 10 minutes at a time. 
 
 - **Premium plan**. Consider using [Azure Functions Premium plan](https://docs.microsoft.com/azure/azure-functions/functions-premium-plan) for automation scenarios with additional requirements, such as a dedicated virtual network, a longer execution duration, and so on. These functions can run for up to an hour, and should be chosen for longer automation tasks such as running backups, database indexing, or generating reports.
 
 - **App Service plan**. Hybrid automation scenarios that use the [Azure App Service Hybrid Connections](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections), will need to use the App Service plan. The functions created under this plan can run for unlimited duration, similar to a web app.
 
-Both the Consumption and Premium plans are execution-based models. See the [Azure Function pricing](https://azure.microsoft.com/pricing/details/functions/) when considering these plans. The App Service plan is a dedicated, *always on* model. Refer to the [App Service pricing model](https://azure.microsoft.com/pricing/details/app-service/windows/) when considering this plan.
-
 
 ### Cosmos DB
 
+In this architecture, in the throtling response scenario, the Cosmos DB is monitored for throttling. When data access requests to CosmosDB exceed the capacity in Request Units (or RUs), Azure Monitor triggers alerts, then an Azure Monitor action group is configured to call the automation function in response to those alerts. The function scales the RUs to a higher value. This helps to keep the cost down, you only pay for the resources that your workloads need on a per-hour basis.
+
 Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations (inserts, reads, queries, etc.). 
 For example, 1 RU/s is sufficient for processing one eventually consistent read per second of 1K item, and 5 RU/s is sufficient for processing one write per second of 1K item. Storage is billed for each GB used for your stored data and index. See [Cosmos DB pricing model][cosmosdb-pricing] for more info.
-The price is based on what you reserve. So, what you reserve with Cosmos is the capacity expressed in RU/s. You pay for the RU as well as the space (GB) and you have to reserve a minimum of 400 RUs (a concurrent read of 1KB docuemnt consumes 1 RU), 
-so if your app does not need to be this intensive, you will end up probably paying for more than what you need with Cosmos, since 400 RU is the minimum that you can provision per container. Also keep in mind that the RU that you reserve is per container so, each container will cost about $25 with 1 GB storage, meaning that if you have 10 collections you are paying $250. Reusing collections is recommended for keeping cost down.
+
 
 The [Cosmos DB capacity calculator][Cosmos-Calculator] offers you a quick estimate of the workload cost. 
 

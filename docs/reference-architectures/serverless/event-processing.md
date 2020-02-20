@@ -132,19 +132,19 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 ### Azure functions
 
-Azure functions service is managed by the cloud provider, so the total cost of owning the service is minimal, you pay for consumption. Azure Functions consumption plan is billed based on per-second resource consumption and execution count. Number of executions count is simple: each function defines an event trigger which fires the execution. Batching is recommended for reducing cost, that means processing several events in a single execution.
-Nothing is reserved in advance, so the cost of executing Function App grows linearly with the application demand. Elastically scalable when a Function workload is low, Azure scales the infrastructure down up to zero with no associated cost. Whenever the workload grows, Azure uses enough capacity to serve all the demand. Since you pay per actual use, you can understand and manage the exact cost of each component. 
+Azure functions service is managed by the cloud provider, so the total cost of owning the service is minimal, you pay for consumption. Azure Functions supports two hosting models. With the **consumption plan**, compute power is automatically allocated when your code is running. With the **App Service** plan, a set of VMs are allocated for your code. The App Service plan defines the number of VMs and the VM size.
 
-There might be other potential costs associated with running an Azure Function App, like Application Insights; the cost of this monitoring service can become quite substantial and exceed the cost of Azure Functions themselves, depending on the event volume and sampling settings. 
+In this architecture, when events arrive at the Event Hubs, they trigger an Azure function that processes the events, so the recommendations is to use the **consumption plan** as hosting model, this is cost effective because you pay only for the compute resources that you use.
+
 
 ### Cosmos DB
 
-Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations (inserts, reads, queries, etc.). 
-For example, 1 RU/s is sufficient for processing one eventually consistent read per second of 1K item, and 5 RU/s is sufficient for processing one write per second of 1K item. Storage is billed for each GB used for your stored data and index. See [Cosmos DB pricing model][cosmosdb-pricing] for more info.
-The price is based on what you reserve. So, what you reserve with Cosmos is the capacity expressed in RU/s. You pay for the RU as well as the space (GB) and you have to reserve a minimum of 400 RUs (a concurrent read of 1KB docuemnt consumes 1 RU), 
-so if your app does not need to be this intensive, you will end up probably paying for more than what you need with Cosmos, since 400 RU is the minimum that you can provision per container. Also keep in mind that the RU that you reserve is per container so, each container will cost about $25 with 1 GB storage, meaning that if you have 10 collections you are paying $250. Reusing collections is recommended for keeping cost down.
+In this reference architecture, the function stores exactly one document per device that is sending data. The function continually updates the documents with latest device status, using an upsert operation, which is cost effective in terms of consumed storage. Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations (inserts, reads, queries, etc.). The price is based on what you reserve. So, what you reserve with Cosmos is the capacity expressed in RU/s. You pay for the RU as well as the space (GB) and you have to reserve a minimum of 400 RUs (a concurrent read of 1KB docuemnt consumes 1 RU), so if your app does not need to be this intensive, you will end up probably paying for more than what you need with Cosmos, since 400 RU is the minimum that you can provision per container. In this scenario you are using a single container, that is also cost effective since each container has a fixed cost of $25.
 
-The [Cosmos DB capacity calculator][Cosmos-Calculator] offers you a quick estimate of the workload cost.
+See [Cosmos DB pricing model][cosmosdb-pricing] for more info.
+
+Also, the [Cosmos DB capacity calculator][Cosmos-Calculator] offers you a quick estimate of the workload cost.
+
 
 
 Use the [Pricing calculator][Cost-Calculator] to estimate costs.
