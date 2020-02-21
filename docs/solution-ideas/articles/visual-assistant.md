@@ -199,4 +199,4 @@ Visual assistant provides rich information based on content of the image with ca
 1. Assistant renders similar products/destinations from your domain or provides more information around celebrity/place/monuments/artworks.
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -503,4 +503,4 @@ Azure Write Accelerator is a performance enhancement for M-Series VMs exclusivel
 * [ExpressRoute overview](https://azure.microsoft.com/services/expressroute/)
 * [Virtual Network overview](/azure/virtual-network/virtual-networks-overview)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

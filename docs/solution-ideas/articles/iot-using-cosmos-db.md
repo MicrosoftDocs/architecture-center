@@ -120,4 +120,4 @@ Scale instantly and elastically to accommodate diverse and unpredictable IoT wor
     <path d="M152.1 48.5l-9-5.2v4.4H79.6v1.5h63.5v4.5l9-5.2zM328.1 48.5l-9-5.2v4.4h-63.5v1.5h63.5v4.5l9-5.2zM498.1 48.5l-9-5.2v4.4h-63.5v1.5h63.5v4.5l9-5.2zM498.1 220l-9-5.3v4.5h-63.5v1.5h63.5v4.5l9-5.2zM207.6 219V117.8h4.5l-5.2-9.1-5.3 9.1h4.5v102.7h113V219H207.6zM550.6 324.2V307H379.8v-13.3h-1.5v14.8h170.8v15.7h-4.5l5.3 9 5.2-9h-4.5zM550.9 148.5v-14.8h-1.5V147H378.6v17.2h-4.5l5.2 9 5.2-9h-4.4v-15.7h170.8zM669.1 48.5l-9-5.2v4.4h-63.5v1.5h63.5v4.5l9-5.2zM669.1 376.5l-9-5.2v4.4h-63.5v1.5h63.5v4.5l9-5.2z" fill="#959595"/>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

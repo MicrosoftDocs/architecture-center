@@ -297,4 +297,4 @@ The Customer 360 Profile solution addresses the above problems by:
 1. Predictions and other profile data are visualized and shared as charts and tables in Power BI Online
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -128,4 +128,4 @@ parallel and distributed computing using clusters of GPU compute nodes.
 * [Learn more about Model Management](/azure/machine-learning/preview/model-management-overview)
 * [Learn more about Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

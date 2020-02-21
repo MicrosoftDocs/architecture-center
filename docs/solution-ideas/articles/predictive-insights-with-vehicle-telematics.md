@@ -207,4 +207,4 @@ This solution is built on the Azure managed services: [Event Hubs](https://azure
 * [Learn more about SQL Database](/azure/sql-database/)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

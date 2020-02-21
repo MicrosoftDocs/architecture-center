@@ -162,4 +162,4 @@ Use Discovery Hub to define a data estate using a graphical user interface, with
 * [Azure Analysis Services documentation](https://azure.microsoft.com/services/analysis-services/)
 * [Power BI Embedded documentation](https://azure.microsoft.com/services/power-bi-embedded/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

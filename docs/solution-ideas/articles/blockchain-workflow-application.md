@@ -323,4 +323,4 @@ Businesses use blockchain to digitize workflows they share with other organizati
 * [Virtual Network Documentation](/azure/virtual-network/)
 * [Power BI Documentation](/azure/power-bi-embedded/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -183,4 +183,4 @@ Enable your team and employees to learn new processes and materials faster, with
 * [Upload, encode, and stream videos using .NET](/azure/media-services/latest/stream-files-tutorial-with-api/)
 * [What is Video Indexer?](/azure/media-services/latest/stream-files-tutorial-with-api/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

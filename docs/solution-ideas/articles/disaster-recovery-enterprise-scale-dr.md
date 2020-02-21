@@ -413,4 +413,4 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 * [Create a VNet with a Site-to-Site connection using the Azure portal](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
 * [Designing your network infrastructure for disaster recovery](https://gallery.technet.microsoft.com/Designing-Your-Network-a849fa98)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

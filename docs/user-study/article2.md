@@ -142,6 +142,4 @@ A modern data warehouse lets you bring together all your data at any scale easil
 * [Power BI Documentation](/power-bi/)
 
 ## Pricing Calculator
-* [Customize and get pricing estimates](https://azure.com/e/4269bfbeee564d3cb88348a033e022e8)
-
-[!INCLUDE [js_include_file](../_js/index.md)]
+* [Customize and get pricing estimates](https://azure.com/e/4269bfbeee564d3cb88348a033e022e8

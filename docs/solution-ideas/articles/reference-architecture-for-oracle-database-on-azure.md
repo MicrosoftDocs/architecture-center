@@ -349,4 +349,4 @@ This solution architecture illustrates a canonical architecture to achieve high 
 1. Oracle databases are monitored for uptime and performance by Oracle Enterprise Manager. OEM also allows you to generate various performance and usage reports.
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -278,4 +278,4 @@ This solution architecture illustrates how a user request flows through an SAP l
 * [ExpressRoute overview](https://azure.microsoft.com/services/expressroute/)
 * [Back end Network to HANA large instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture#networking)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

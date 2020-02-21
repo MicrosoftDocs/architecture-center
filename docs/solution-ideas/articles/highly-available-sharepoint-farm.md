@@ -405,4 +405,4 @@ group.
 * [Load Balancer Documentation](/azure/load-balancer/load-balancer-standard-overview)
 * [Express Route Documentation](/azure/expressroute/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -222,4 +222,4 @@ Azure Bot Service can be easily combined with Language Understanding to build po
 1. Application insights gathers runtime telemetry to help the development with Bot performance and usage
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -146,4 +146,4 @@ the customer’s photo and name.</p>
 1. The solution creates a record of the member in SQL Database.
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

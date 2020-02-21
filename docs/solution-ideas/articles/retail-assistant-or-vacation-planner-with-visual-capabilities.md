@@ -148,4 +148,4 @@ The retail assistant or vacation planner can help your customers have interactio
 1. Optionally Bot gets more information for user queries exclusively from your domain using the Bing Custom Search API
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

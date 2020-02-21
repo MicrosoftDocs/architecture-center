@@ -140,4 +140,4 @@ Securely monitor and control data streamed from Internet-connected devices.
 1. Data from real-time source sent to SignalR Service and user
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

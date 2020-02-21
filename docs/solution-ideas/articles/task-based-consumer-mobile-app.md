@@ -320,4 +320,4 @@ The links to the right provide documentation on deploying and managing the Azure
 * [Offline sync Documentation](/azure/app-service-mobile/app-service-mobile-offline-data-sync)
 * [Identity Provider Documentation](/azure/app-service/app-service-authentication-overview)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

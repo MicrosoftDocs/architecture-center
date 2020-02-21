@@ -203,4 +203,4 @@ Training of models using large datasets is a complex and resource intensive task
 1. Developer can build features querying the model running in AKS cluster
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

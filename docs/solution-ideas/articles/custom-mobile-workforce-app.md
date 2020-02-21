@@ -307,4 +307,4 @@ The links to the right provide documentation on deploying and managing the Azure
 * [API Management documentation](/azure/api-management/)
 * [Azure Active Directory Documentation](/azure/active-directory/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

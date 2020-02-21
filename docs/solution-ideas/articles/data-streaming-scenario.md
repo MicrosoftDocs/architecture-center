@@ -206,4 +206,4 @@ Use AKS to easily ingest & process a real-time data stream with millions of data
 1. A web app running in Azure App Service is used to visualize the results.
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

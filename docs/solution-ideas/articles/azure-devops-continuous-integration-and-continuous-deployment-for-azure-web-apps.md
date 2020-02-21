@@ -183,4 +183,4 @@ Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, 
 ## Deploy to Azure
 * [Deploy to Azure](https://ms.portal.azure.com/#create/Microsoft.AzureProject)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

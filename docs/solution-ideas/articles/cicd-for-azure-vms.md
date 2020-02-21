@@ -249,4 +249,4 @@ Azure DevOps provides the CI/CD pipeline, starting with a Git repository for man
 * [Performance monitoring with Application Insights](/azure/application-insights/app-insights-detect-triage-diagnose)
 * [Git on Azure DevOps](/vsts/git/gitquickstart?tabs=visual-studio)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

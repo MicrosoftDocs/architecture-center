@@ -58,4 +58,4 @@ Event Grid connects your app with other services. For example, create an applica
     <path fill="#969696" d="M22.046 74.723V70.75h-1.801v3.973h-4.723l5.236 7.066 5.235-7.066zM20.245 57.25h1.801v-4.5h-1.801zM20.245 63.25h1.801v-4.5h-1.801zM20.245 69.25h1.801v-4.5h-1.801zM99.291 104.131l-7.067-5.235v4.454h-4.079v1.801h4.079v4.215zM70.146 105.151h4.5v-1.801h-4.5zM76.146 105.151h4.5v-1.801h-4.5zM82.146 105.151h4.5v-1.801h-4.5z"/>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

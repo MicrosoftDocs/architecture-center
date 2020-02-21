@@ -261,4 +261,4 @@ Azure App Service is a fast and simple way to create web apps using Java, Node, 
 ## Deploy to Azure
 * [Deploy to Azure](https://azure.microsoft.com/resources/templates/jenkins-cicd-webapp/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

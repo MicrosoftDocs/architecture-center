@@ -190,4 +190,4 @@ Improve uptime and operations in hospitality, manufacturing, retail, and more wi
 * [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
 * [Deploy Azure Digital Twins and configure a spatial graph](/azure/digital-twins/tutorial-facilities-setup)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

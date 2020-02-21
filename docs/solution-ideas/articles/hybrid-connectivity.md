@@ -165,4 +165,4 @@ Note: This doesn't apply to Azure Stack deployments that are disconnected from t
 * [Virtual Machines Overview](https://azure.microsoft.com/services/virtual-machines/)
 * [Azure Stack User Documentation](/azure/azure-stack/user)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

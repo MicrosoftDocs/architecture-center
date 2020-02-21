@@ -337,4 +337,4 @@ This HPC media rendering solution architecture shows Azure CycleCloud monitoring
 * [Avere vFXT Documentation](/azure/avere-vfxt)
 * [Azure Batch Documentation](/azure/batch)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

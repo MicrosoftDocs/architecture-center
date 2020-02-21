@@ -299,4 +299,4 @@ ms.custom: acom-architecture, app service environment, security for ecommerce we
 * [Get started with Azure AD](/azure/active-directory/get-started-azure-ad)
 * [Quickstart: Upload, download, and list blobs](/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

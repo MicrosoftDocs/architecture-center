@@ -324,4 +324,4 @@ The links to the right provide documentation on deploying and managing the Azure
 * [Notification Hubs Documentation](/azure/notification-hubs/)
 * [Traffic Manager Documentation](/azure/traffic-manager/traffic-manager-overview)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

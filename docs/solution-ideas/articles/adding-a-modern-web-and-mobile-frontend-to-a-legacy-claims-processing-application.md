@@ -303,4 +303,4 @@ This line-of-business application solution consolidates data from multiple busin
 * [Running SAP on Azure](/azure/virtual-machines/workloads/sap/get-started?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json)
 * [Running SQL server in Azure](/azure/sql-database/sql-database-get-started-portal/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

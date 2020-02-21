@@ -108,4 +108,4 @@ Azure with Azure Stack enables organizations to make technology placement decisi
 * [Azure Functions documentation](/azure/azure-functions/)
 * [Azure Stack documentation](/azure/azure-stack/user/azure-stack-solution-staged-data-analytics)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

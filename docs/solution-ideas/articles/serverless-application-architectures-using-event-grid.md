@@ -93,4 +93,4 @@ Event Grid connects data sources and event handlers. For example, use Event Grid
     </g>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

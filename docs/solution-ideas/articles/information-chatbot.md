@@ -232,4 +232,4 @@ This Informational Bot can answer questions defined in a knowledge set or FAQ us
 1. Application insights gathers runtime telemetry to help development with Bot performance and usage
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

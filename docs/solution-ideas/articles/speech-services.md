@@ -116,4 +116,4 @@ For more information, read how [batch transcription](/azure/cognitive-services/s
 1. Download the transcription using the transcription ID
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

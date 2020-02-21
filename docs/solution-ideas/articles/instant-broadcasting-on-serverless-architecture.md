@@ -232,4 +232,4 @@ Simplify one-to-many real-time communication and updates using serverless code.
 1. …which in turn pushes data to client
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

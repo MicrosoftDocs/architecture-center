@@ -123,4 +123,4 @@ Your Azure subscription used for the deployment will incur consumption charges o
 
 Note: If you are no longer using the deployed solution, remember to delete it to stop incurring consumption charges.
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

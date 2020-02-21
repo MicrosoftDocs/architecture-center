@@ -209,4 +209,4 @@ The links to the right provide documentation on deploying and managing the Azure
 * [Quickstart: Upload, download, and list blobs using the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal)
 * [Quickstart: Run your first Batch job in the Azure portal](/azure/batch/quick-create-portal)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

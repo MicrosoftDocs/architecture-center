@@ -369,4 +369,4 @@ This templated risk analysis solution uses Azure HPC compute and GPU virtual mac
 * [Avere vFXT Documentation](/azure/avere-vfxt)
 * [TIBCO GridServer Documentation](https://docs.tibco.com/products/tibco-datasynapse-gridserver-6-2-0)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

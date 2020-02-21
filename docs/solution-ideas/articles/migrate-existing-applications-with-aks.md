@@ -147,4 +147,4 @@ Easily migrate existing application to container(s) and run within the Azure man
 1. Optionally, AKS can be deployed with a VNET virtual network
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

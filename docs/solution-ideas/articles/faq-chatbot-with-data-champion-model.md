@@ -143,4 +143,4 @@ The QnA Maker tool makes it easy for the content owners to maintain their knowle
 1. Data Champions manage and update their QnA Knowledge base based on the feedback from user traffic
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

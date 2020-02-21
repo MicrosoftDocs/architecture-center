@@ -139,4 +139,4 @@ IoT scenarios can potentially involve hundreds to thousands of IoT devices. AKS 
 1. Deployment is updated on Edge devices
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

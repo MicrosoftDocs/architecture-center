@@ -80,4 +80,4 @@ Securely store critical data and provide high-value analytics and insights over 
     </g>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

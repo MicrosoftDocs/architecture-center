@@ -279,4 +279,4 @@ The image factory provides a great way for organizations to create, maintain, an
 * [Virtual Machines documentation](/azure/virtual-machines/)
 * [Azure Devops documentation](/azure/devops/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -157,4 +157,4 @@ Together, the Azure Bot Service and Language Understanding service enable develo
 1. Application insights gathers runtime telemetry to help development with Bot performance and usage
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

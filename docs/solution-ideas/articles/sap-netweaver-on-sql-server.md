@@ -517,4 +517,4 @@ Y6o+AgAA8D9+CDAAMBi8XPMDkIMAAAAASUVORK5CYII=" overflow="visible" opacity=".25"/>
 * [SAP Certifications for Azure](/azure/virtual-machines/workloads/sap/sap-certifications)
 * [Premium Storage: high-performance storage for Azure Virtual Machine workloads](/azure/storage/storage-premium-storage)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -198,4 +198,4 @@ ms.custom: acom-architecture, ecommerce, scalability, web-app, architect scalabl
 * [Learn what can you do with Azure Functions](/azure/azure-functions/functions-overview)
 * [Application Performance Management with Application Insights](/azure/application-insights/app-insights-overview)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

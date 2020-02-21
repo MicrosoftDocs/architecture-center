@@ -114,4 +114,4 @@ Accelerate development of reliable, high-performing chat applications.
 1. User connects to the SignalR Service with endpoint and token
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -328,4 +328,4 @@ Oracle DB migrations can be accomplished in multiple ways. This architecture cov
 1. Switch your OracleDB1 in Azure as primary and set up your OracleDB2 in Azure as your standby to finish your migration. NOTE: This method only works when migrating to and from the same OS version and DB version. Assumption: customer is using DataGuard on-premises.
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+
