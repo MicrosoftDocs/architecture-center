@@ -77,16 +77,6 @@ Azure with Azure Stack enables organizations to make technology placement decisi
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>User enters data into Azure-based web app.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Application commits data to database over virtual network-to virtual network VPN connection to Azure Stack.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Data is stored in SQL database on virtual machine (VM).</p>
-</div>
-
 ## Data Flow
 
 1. User enters data into Azure-based web app.

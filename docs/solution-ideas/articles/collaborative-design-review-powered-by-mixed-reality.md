@@ -133,37 +133,6 @@ Businesses and teams across industries have to spend time and money on design re
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Users of the client application authenticate using their Azure Active Directory credentials from HoloLens or a mobile device.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Device 1 creates an anchor using Azure Spatial Anchors and gets back an anchor ID.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Device 1 sends the anchor ID to the app’s web service to create a collaboration session. It also specifies which hologram is to be displayed via its ID in Azure Blob storage.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Session information, including a 6-digit code to join the session, is stored in Azure Cosmos DB. That code is returned to the client, allowing the user of that device to invite others to join.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Device 2 connects to the app’s web service and enters the code to join the session (displayed on Device 1).</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>The web service retrieves the anchor ID for the session and the ID of the hologram associated to that session from Azure Cosmos DB.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>The web service retrieves a SAS key to access the hologram associated to the session from Blob storage. It then returns the anchor ID and SAS key to Device 2.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Device 2 queries Azure Spatial Anchors to get coordinates for the anchor ID retrieved in step 6.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>Device 2 fetches the hologram from Blob storage using the SAS key obtained from the app service.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-10">
-<p>Device 1 and Device 2 exchange state information over a peer-to-peer networking channel (or through a service relay of your choice).</p>
-</div>
-
 ## Data Flow
 
 1. Users of the client application authenticate using their Azure Active Directory credentials from HoloLens or a mobile device.

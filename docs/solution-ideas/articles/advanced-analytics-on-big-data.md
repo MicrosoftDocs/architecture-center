@@ -132,28 +132,6 @@ Transform your data into actionable insights using the best-in-class machine lea
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Bring together all your structured, unstructured and semi-structured data (logs, files, and media) using Azure Data Factory to Azure Blob Storage.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Use Azure Databricks to clean and transform the structureless datasets and combine them with structured data from operational databases or data warehouses.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Use scalable machine learning/deep learning techniques, to derive deeper insights from this data using Python, R or Scala, with inbuilt notebook experiences in Azure Databricks.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Leverage native connectors between Azure Databricks and Azure Synapse Analytics to access and move data at scale.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Power users take advantage of the inbuilt capabilities of Azure Databricks to perform root cause determination and raw data analysis.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Run ad hoc queries directly on data within Azure Databricks.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Take the insights from Azure Databricks to Cosmos DB to make them accessible through web and mobile apps.</p>
-</div>
-
 ## Data Flow
 
 1. Bring together all your structured, unstructured and semi-structured data (logs, files, and media) using Azure Data Factory to Azure Blob Storage.

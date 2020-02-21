@@ -172,25 +172,6 @@ The links to the right provide documentation on deploying and managing the Azure
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Upload input files and the applications to your Azure Storage account.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Create a Batch pool of compute nodes, a job to run the workload on the pool, and the tasks in the job.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Batch downloads input files and applications.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Batch monitors task execution.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Batch uploads task output.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Download output files.</p>
-</div>
-
 ## Data Flow
 
 1. Upload input files and the applications to your Azure Storage account.

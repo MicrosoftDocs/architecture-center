@@ -174,25 +174,6 @@ Training of models using large datasets is a complex and resource intensive task
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Package ML model into a container and publish to ACR</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Azure Blob storage hosts training data sets and trained model</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Use Kubeflow to deploy training job to AKS, distributed training job to AKS includes Parameter servers and Worker nodes</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Serve production model using Kubeflow, promoting a consistent environment across test, control and production</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>AKS supports GPU enabled VM</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Developer can build features querying the model running in AKS cluster</p>
-</div>
-
 ## Data Flow
 
 1. Package ML model into a container and publish to ACR

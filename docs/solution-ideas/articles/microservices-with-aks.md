@@ -275,31 +275,6 @@ Use AKS to simplify the deployment and management of microservices based archite
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Developer uses IDE such as Visual Studio to commit changes to GitHub</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>GitHub triggers a new build on Azure DevOps</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Azure DevOps packages microservices as containers and pushes them to the Azure Container Registry</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Containers are deployed to AKS cluster</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Users access services via apps and website</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Azure Active Directory is used to secure access to the resources</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Microservices use databases to store and retrieve information</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Administrator accesses via a separate admin portal</p>
-</div>
-
 ## Data Flow
 
 1. Developer uses IDE such as Visual Studio to commit changes to GitHub

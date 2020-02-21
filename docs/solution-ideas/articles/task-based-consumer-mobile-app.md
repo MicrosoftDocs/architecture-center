@@ -259,34 +259,6 @@ The links to the right provide documentation on deploying and managing the Azure
     </a>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Create the mobile app using Visual Studio and Xamarin.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Create and configure a new Mobile Apps back end on the Azure portal, or through Visual Studio, and configure the solution in Visual Studio to communicate with the back end.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Implement authentication through social identity providers.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Create a model-driven data structure through the App Service APIs and SDK.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Implement offline sync to make the mobile app functional without a network connection.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>If you created the back end in Visual Studio, you can publish the app service directly from Visual Studio (PC or Mac).</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Store the solution source code with your source control provider of choice.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Build and test the app through Visual Studio App Center and publish it.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>Use Application Insights to monitor the App Service.</p>
-</div>
-
 ## Data Flow
 
 1. Create the mobile app using Visual Studio and Xamarin.

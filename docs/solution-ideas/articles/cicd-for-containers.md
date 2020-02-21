@@ -186,37 +186,6 @@ By setting up a continuous build to produce your container images and orchestrat
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Change application source code</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Commit Application Code</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Continuous integration triggers application build, container image build and unit tests</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Container image pushed to Azure Container Registry</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Continuous deployment trigger orchestrates deployment of application artefacts with environment specific parameters</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Deployment to Azure Kubernetes Service (AKS)</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Container is launched using Container Image from Azure Container Registry</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Application Insights collects and analyses health, performance and usage data</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>Review health, performance and usage information</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-10">
-<p>Update backlog item</p>
-</div>
-
 ## Data Flow
 
 1. Change application source code

@@ -97,16 +97,6 @@ Accelerate development of reliable, high-performing chat applications.
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Web chat app connects to SignalR Service and receives token</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>User logs into app with multi-factor authentication; if passed, SignalR endpoint and bearer token returned</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>User connects to the SignalR Service with endpoint and token</p>
-</div>
-
 ## Data Flow
 
 1. Web chat app connects to SignalR Service and receives token

@@ -258,31 +258,6 @@ This line-of-business application solution consolidates data from multiple busin
     </a>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Customer’s mobile app authenticates via Azure Active Directory B2C</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Customer’s mobile app connects to the back-end web service that aggregates data from different systems using asynchronous connection</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Web application connects to SQL database</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Power BI connects to SQL database and SharePoint</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Logic app pulls data from CRM (Salesforce)</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Logic app connects to SAP system (on-premises or in the cloud)</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Employee mobile app connects to the logic app that orchestrates the business process</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Employee mobile app authenticates via Azure Active Directory</p>
-</div>
-
 ## Data Flow
 
 1. Customer’s mobile app authenticates via Azure Active Directory B2C

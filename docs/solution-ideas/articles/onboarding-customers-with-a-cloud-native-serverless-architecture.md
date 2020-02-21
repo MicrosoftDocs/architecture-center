@@ -115,25 +115,11 @@ The links to the right provide documentation on deploying and managing the Azure
     </a>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Information about the new customer is posted to a web endpoint.</p>
-</div>
+
 <div class="architecture-tooltip-content" id="architecture-tooltip-2">
 <p>The customer’s photo is posted to Cognitive Services Face API. Face API associates
 
 the customer’s photo and name.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>The customer information is recorded in Dynamics 365 or other CRM.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>The information about a new customer is sent to Power BI.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>The customer information is added to the mailing list (MailChimp).</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>The solution creates a record of the member in SQL Database.</p>
 </div>
 
 ## Data Flow

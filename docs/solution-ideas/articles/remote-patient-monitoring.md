@@ -137,25 +137,6 @@ Predict and prevent future incidents by combining IoT and intelligence to optimi
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Securely ingest medical sensor and device data using Azure IoT Hub.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Securely store sensor and device data in Cosmos DB.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Analyze sensor and device data using a pre-trained Cognitive Services API or a custom developed Machine Learning model.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Store Artificial Intelligence (AI) and Machine Learning results in Cosmos DB.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Interact AI and Machine Learning results using PowerBI, while preserving Role-Based Access Control (RBAC).</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Integrate data insights with backend systems and processes using Logic Apps.</p>
-</div>
-
 ## Data Flow
 
 1. Securely ingest medical sensor and device data using Azure IoT Hub.

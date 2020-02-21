@@ -249,40 +249,6 @@ The links to the right provide documentation on deploying and managing the Azure
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Create the app using Visual Studio and Xamarin.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Add the Azure App Service Mobile Apps back end service to the app solution.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Implement authentication through social identity providers.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Store non-image data in CosmosDB and cache it in Azure Cache for Redis.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Store uploaded images in Azure Blob Storage.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Queue messages about newly uploaded images.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Use Azure Functions to dequeue messages and process images retrieved from blob storage.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Send push notifications to users through a notification hub.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>Build and test the app through Visual Studio App Center and publish it.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-10">
-<p>Control the distribution of user traffic to service endpoints in different datacenters.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-11">
-<p>Use Application Insights to monitor the app service.</p>
-</div>
-
 ## Data Flow
 
 1. Create the app using Visual Studio and Xamarin.

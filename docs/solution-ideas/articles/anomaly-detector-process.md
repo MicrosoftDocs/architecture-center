@@ -126,25 +126,6 @@ ms.custom: acom-architecture, anomaly detection process, anomaly detection model
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Ingests data from the various stores that contain raw data to be monitored by Anomaly Detector.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Aggregates, samples, and computes the raw data to generate the time series, or calls the Anomaly Detector API directly if the time series are already prepared and gets a response with the detection results.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Queues the anomaly related meta data.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Based on the anomaly related meta data, calls the customized alerting service.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Stores the anomaly detection meta data.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Visualizes the results of the time series anomaly detection.</p>
-</div>
-
 ## Data Flow
 
 1. Ingests data from the various stores that contain raw data to be monitored by Anomaly Detector.

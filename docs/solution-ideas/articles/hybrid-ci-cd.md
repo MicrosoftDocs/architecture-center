@@ -163,22 +163,6 @@ Implementing a continuous integration/continuous development (CI/CD) approach to
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Engineer makes changes to application code and ARM template.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Code and ARM template are checked into Visual Studio Team Services Git.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Continuous integration triggers application build and unit tests.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Continuous deployment trigger orchestrates deployment of application artifacts with environment-specific parameters.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Deployment to App Service on both Azure and Azure Stack.</p>
-</div>
-
 ## Data Flow
 
 1. Engineer makes changes to application code and ARM template.

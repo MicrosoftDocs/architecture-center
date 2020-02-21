@@ -147,28 +147,6 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Data scientists train a model using Azure Machine Learning workbench and an HDInsight cluster. The model is containerized and put into an Azure Container Registry.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>The model is deployed to a Kubernetes cluster on Azure Stack.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>End users provide data that’s scored against the model.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Insights and anomalies from scoring are placed into a queue.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>A function sends compliant data and anomalies to Azure Storage.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Globally relevant and compliant insights are available in the global app.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Data from edge scoring is used to improve the model.</p>
-</div>
-
 ## Data Flow
 
 1. Data scientists train a model using Azure Machine Learning workbench and an HDInsight cluster. The model is containerized and put into an Azure Container Registry.

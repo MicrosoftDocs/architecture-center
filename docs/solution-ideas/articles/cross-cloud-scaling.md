@@ -94,22 +94,6 @@ Modern software is increasingly connected and distributed. The consistency of Az
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>A large number of users attempt to access a web app.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Traffic manager returns the Azure Stack DNS name.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Users access the Azure Stack web app.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Once a threshold is reached, a function starts the Azure Web App and enables the Azure Traffic Manager route.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Traffic is routed to Azure, which can automatically scale App Service.</p>
-</div>
-
 ## Data Flow
 
 1. A large number of users attempt to access a web app.

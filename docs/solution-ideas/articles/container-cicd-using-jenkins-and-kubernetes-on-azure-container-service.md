@@ -201,34 +201,6 @@ By setting up a continuous build to produce your container images and orchestrat
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Change application source code.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Commit code to GitHub.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Continuous Integration Trigger to Jenkins.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Jenkins triggers a build job using Azure Kubernetes Service (AKS) for a dynamic build agent.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Jenkins builds and pushes Docker container to Azure Container Registry.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Jenkins deploys your new containerized app to Kubernetes on Azure.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Container Service (AKS), backed by Azure Cosmos DB.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Grafana displays visualization of infrastructure and application metrics via Azure Monitor.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>Monitor application and make improvements.</p>
-</div>
-
 ## Data Flow
 
 1. Change application source code.

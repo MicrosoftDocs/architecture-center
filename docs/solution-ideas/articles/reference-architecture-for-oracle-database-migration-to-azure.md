@@ -307,19 +307,6 @@ Oracle DB migrations can be accomplished in multiple ways. This architecture cov
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Connect your Azure environment with your on-premises network via site-to-site VPN or ExpressRoute.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Use Azure Load Balancer to migrate and balance traffic between the on-prem AppServer and your Azure AppServer.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Use DataGuard to mark your OracleDB1 in Azure as your active stand-by.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Switch your OracleDB1 in Azure as primary and set up your OracleDB2 in Azure as your standby to finish your migration. NOTE: This method only works when migrating to and from the same OS version and DB version. Assumption: customer is using DataGuard on-premises.</p>
-</div>
-
 ## Data Flow
 
 1. Connect your Azure environment with your on-premises network via site-to-site VPN or ExpressRoute.

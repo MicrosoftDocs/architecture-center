@@ -193,32 +193,23 @@ the same Kubernetes cluster</p>
 
 run by Azure Pipelines</p>
 </div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Container image is registered in Azure Container Registry</p>
-</div>
+
 <div class="architecture-tooltip-content" id="architecture-tooltip-4">
 <p>Kubernetes clusters are provisioned using tools like Terraform; Helm charts, installed
 
 by Terraform, define the desired state of app resources and configurations</p>
 </div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Operators enforce policies to govern deployments to the AKS cluster</p>
-</div>
+
 <div class="architecture-tooltip-content" id="architecture-tooltip-6">
 <p>Release pipeline automatically executes pre-defined deployment strategy with each
 
 code change</p>
 </div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Policy enforcement and auditing is added to CI/CD pipeline using Azure Policy</p>
-</div>
+
 <div class="architecture-tooltip-content" id="architecture-tooltip-8">
 <p>App telemetry, container health monitoring, and real-time log analytics are obtained
 
 using Azure Monitor</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>Insights used to address issues and fed into next sprint plans</p>
 </div>
 
 ## Data Flow

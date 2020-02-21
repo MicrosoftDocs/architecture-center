@@ -122,22 +122,6 @@ Easily migrate existing application to container(s) and run within the Azure man
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>User converts existing application to container(s) &amp; publishes container image(s)to the Azure Container Registry</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Using Azure Portal or command line, user deploys containers to AKS cluster</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Azure Active Directory is used to control access to AKS resources</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Easily access SLA-backed Azure Services such as Azure Database for MySQL using OSBA (Open Service Broker for Azure)</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Optionally, AKS can be deployed with a VNET virtual network</p>
-</div>
-
 ## Data Flow
 
 1. User converts existing application to container(s) &amp; publishes container image(s)to the Azure Container Registry

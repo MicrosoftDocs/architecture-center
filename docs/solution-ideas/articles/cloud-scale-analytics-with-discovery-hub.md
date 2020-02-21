@@ -123,22 +123,6 @@ Use Discovery Hub to define a data estate using a graphical user interface, with
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Combine all your structured and semi-structured data in Azure Data Lake Storage using Discovery Hub’s data engineering pipeline with hundreds of native data connectors.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Clean and transform data using the powerful analytics and computational ability of Azure Databricks.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Move cleansed and transformed data to Azure Synapse Analytics, creating one hub for all your data. Take advantage of native connectors between Azure Databricks (Polybase) and Azure Synapse Analytics to access and move data at scale.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Build operational reports and analytical dashboards on top of SQL Database to derive insights from the data and use Azure Analysis Services to serve the data.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Run ad-hoc queries directly on data within Azure Databricks.</p>
-</div>
-
 ## Data Flow
 
 1. Combine all your structured and semi-structured data in Azure Data Lake Storage using Discovery Hub’s data engineering pipeline with hundreds of native data connectors.

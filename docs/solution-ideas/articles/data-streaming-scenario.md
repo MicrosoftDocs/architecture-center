@@ -173,28 +173,6 @@ Use AKS to easily ingest & process a real-time data stream with millions of data
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Sensor data is generated and streamed to Azure API Management.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>AKS cluster runs microservice that are deployed as containers behind a service mesh. Containers are built using a DevOps process and stored in Azure Container Registry.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Ingest service stores data in a Azure Cosmos DB</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Asynchronously, the Analysis service receives the data and streams it to Apache Kafka and Azure HDInsight.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Data scientists can analyze the large big data for use in machine learning models using Splunk.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Data is processed by the processing service which stores the result in Azure Database for PostgreSQL and caches the data in an Azure Cache for Redis.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>A web app running in Azure App Service is used to visualize the results.</p>
-</div>
-
 ## Data Flow
 
 1. Sensor data is generated and streamed to Azure API Management.

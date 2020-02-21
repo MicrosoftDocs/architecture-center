@@ -446,34 +446,6 @@ Y6o+AgAA8D9+CDAAMBi8XPMDkIMAAAAASUVORK5CYII=" overflow="visible" opacity=".25"/>
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>In this example, an on-premises SAP user  executes a sales order request via SAP’s S/4HANA Fiori interface, custom application interface, or others.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Azure high speed express route gateway is used to connect securely from On-premises network to Azure Virtual Machines and other Azure resources</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Request flows into highly available SAP ABAP SAP Central Services ASCS and then through SAP application servers running on Azure Virtual Machines in a Azure VM Availability Set offering a 99.95 percent uptime SLA.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Request is sent from app server to SAP HANA running on on an Azure Virtual Machine optimized for large memory SAP HANA workloads.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Primary (active) and secondary (standby) running on SAP certified M-series virtual machines with Write Accelerator are clustered at OS level for 99.95 percent availability, and data replication is handled through HANA System Replication in synchronous mode (HSR) from primary to secondary enabling zero RPO.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>In-memory data of SAP HANA is persisted to high-performance Azure Premium Storage.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>In-memory HANA data is replicated to a disaster recovery (DR) region virtual machine through an Azure high-speed backbone network and HSR in asynchronous mode. The disaster recovery VM can be smaller than the production VM to save costs.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>VMs on the DR region can be used for nonproduction to save costs by mounting both the non-production storage and DR replicated volume (read-only).</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>SAP App Server with ASCS on the DR side can be in standby shutdown mode, and can be started when needed to save costs.</p>
-</div>
-
 ## Data Flow
 
 1. In this example, an on-premises SAP user  executes a sales order request via SAP’s S/4HANA Fiori interface, custom application interface, or others.

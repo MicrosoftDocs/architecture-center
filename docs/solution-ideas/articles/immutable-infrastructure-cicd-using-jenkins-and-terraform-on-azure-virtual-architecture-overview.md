@@ -263,28 +263,6 @@ Azure is a world-class cloud for hosting virtual machines running Windows or Lin
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Change application source code.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Commit code to GitHub.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Continuous Integration Trigger to Jenkins.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Jenkins triggers a Packer image build to create a VM and stores it as a VM image using Azure Managed Disks.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Jenkins triggers Terraform to provision a new Virtual Machine Scale Set using the Azure Managed Disks VM image.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Azure Log Analytics collects and analyzes logs.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Monitor application and make improvements.</p>
-</div>
-
 ## Data Flow
 
 1. Change application source code.

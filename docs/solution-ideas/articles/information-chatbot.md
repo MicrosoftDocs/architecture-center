@@ -199,28 +199,6 @@ This Informational Bot can answer questions defined in a knowledge set or FAQ us
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Employee starts the Application Bot</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Azure Active Directory validates the employee’s identity</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>The employee can ask the bot what type of queries are supported</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Cognitive Services returns a FAQ built with the QnA Maker</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>The employee defines a valid query</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>The Bot submits the query to Azure Cognitive Search which returns information about the application data</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Application insights gathers runtime telemetry to help development with Bot performance and usage</p>
-</div>
-
 ## Data Flow
 
 1. Employee starts the Application Bot
