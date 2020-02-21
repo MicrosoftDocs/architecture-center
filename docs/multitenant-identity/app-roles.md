@@ -79,7 +79,7 @@ Drawbacks:
 
 The `value`  property appears in the role claim. The `id` property is the unique identifier for the defined role. Always generate a new GUID value for `id`.
 
-**Assign users**. When a new customer signs up, the application is registered in the customer's Azure AD tenant. At this point, an Azure AD admin for that tenant or an app owner (under Enteprise apps) can assign app roles to users.
+**Assign users**. When a new customer signs up, the application is registered in the customer's Azure AD tenant. At this point, an Azure AD admin for that tenant or an app owner (under Enterprise apps) can assign app roles to users.
 
 > [!NOTE]
 > As noted earlier, customers with Azure AD Premium can also assign app roles to security groups.
