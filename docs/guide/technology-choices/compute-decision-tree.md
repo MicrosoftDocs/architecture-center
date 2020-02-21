@@ -1,6 +1,5 @@
 ---
-title: Choose an Azure compute service for your application
-titleSuffix: Azure Application Architecture Guide
+title: Choosing an Azure compute service
 description: A flowchart for selecting a compute service.
 author: MikeWasson
 ms.date: 01/10/2020

@@ -207,31 +207,6 @@ Azure App Service is a fast and simple way to create web apps using Java, Node, 
     <path d="M716.666 350.6a4.135 4.135 0 005.79.771c.1-.072.167-.16.253-.238 1.85 1.3 3.135 2.163 3.859 2.656a16.639 16.639 0 00.514-1.644c-.764-.569-1.8-1.366-3.294-2.577a4.1 4.1 0 00-5.886-5.028 174.35 174.35 0 01-6.368-6.015c7.037-3.785 12.037-3.23 12.037-3.23a19.294 19.294 0 00-2.769-2.839 20.446 20.446 0 00-12.845 2.395q-2.632-2.757-5.362-5.922a17.923 17.923 0 00-2.543 1.034 41.333 41.333 0 005.186 6.577l.013.013a35.555 35.555 0 00-5.332 4.619q-.333.355-.646.715a5.792 5.792 0 00-3.161.216 14.019 14.019 0 01-1.324-8.317 20.194 20.194 0 00-2.067 2.508 12.3 12.3 0 00.756 7.752 5.789 5.789 0 000 7.028 6.044 6.044 0 00.429.5 29.123 29.123 0 00-1.121 6.727c.182.248.182.447.363.688a19.448 19.448 0 003.194 3.078 21.167 21.167 0 011.316-8.732 5.77 5.77 0 002.675-.435c.491.433 1.006.87 1.555 1.314a31.95 31.95 0 005.593 3.565 3.791 3.791 0 006.956 2.474 34.25 34.25 0 007.53.782c.3 0 1.672-1.87 2.459-3.03a20.246 20.246 0 01-9.444-.645 3.773 3.773 0 00-5.771-2.39 35.981 35.981 0 01-5.19-3.448q-.541-.429-1.043-.858a5.819 5.819 0 00.244-5.8c.22-.219.435-.44.669-.658a42.058 42.058 0 015.006-4.049c-.063-.059-.12-.12-.182-.179.063.057.121.116.184.174 2.4 2.216 4.938 4.316 7.344 6.192a4.107 4.107 0 00.423 4.256z" fill="#fff"/>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Change application source code</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Commit code to GitHub</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Continuous Integration Trigger to Jenkins</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Jenkins triggers a build job using Azure Container Instances for a dynamic build agent</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Jenkins builds and stores artifact in Azure Storage</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Jenkins deploys Java application to Azure Web Apps backed by Azure Database for MySQL</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Azure App Insights provides metrics on application performance</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Monitor application and make improvements</p>
-</div>
-
 ## Data Flow
 
 1. Change application source code
@@ -261,4 +236,4 @@ Azure App Service is a fast and simple way to create web apps using Java, Node, 
 ## Deploy to Azure
 * [Deploy to Azure](https://azure.microsoft.com/resources/templates/jenkins-cicd-webapp/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

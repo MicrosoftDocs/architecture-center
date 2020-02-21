@@ -113,4 +113,4 @@ By combining deep learning and natural language processing (NLP) with data on si
 * [Learn more about Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 * [Learn more about Azure Kubernetes Service](https://azure.microsoft.com/services/hdinsight/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

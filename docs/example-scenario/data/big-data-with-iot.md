@@ -1,12 +1,11 @@
 ---
-title: IoT and data analytics in the construction industry
-titleSuffix: Azure Example Scenarios
+title: IoT and data analytics
 description: Use IoT devices and data analytics to provide comprehensive management and operation of construction projects.
 author: alexbuckgit
 ms.date: 08/29/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
+ms.subservice: example-scenario
 ms.custom:
   - IoT
   - data-analytics

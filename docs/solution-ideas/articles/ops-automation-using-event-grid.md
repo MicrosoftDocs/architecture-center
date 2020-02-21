@@ -54,4 +54,4 @@ Event Grid allows you to speed automation and simplify policy enforcement. For e
     </g>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

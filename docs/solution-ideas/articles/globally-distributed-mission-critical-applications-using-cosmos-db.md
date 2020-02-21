@@ -53,4 +53,4 @@ Guarantee access to users around the world with the high-availability and low-la
     <path d="M638.9 398.3l2.4 6.6-6.9-1.2 4.5-5.4zm.3-2l-6.7 8 10.3 1.8-3.6-9.8z" fill="#959595"/>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

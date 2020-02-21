@@ -252,19 +252,6 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>User registers container in Azure Container Registry</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Container images are pulled from the Azure Container Registry</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>AKS virtual node, a Virtual Kubelet implementation, provisions pods inside ACI from AKS when traffic comes in spikes.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>AKS and ACI containers write to shared data store</p>
-</div>
-
 ## Data Flow
 
 1. User registers container in Azure Container Registry
@@ -273,4 +260,4 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
 1. AKS and ACI containers write to shared data store
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

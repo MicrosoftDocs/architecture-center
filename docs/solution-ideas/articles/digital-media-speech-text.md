@@ -140,4 +140,4 @@ This solution is built on the Azure managed services: [Content Delivery Network]
 * [Run Web Apps in the cloud](/api/Redirect/documentation/articles/app-service-web-overview/)
 * [Indexing media files](/api/Redirect/documentation/articles/media-services-index-content/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

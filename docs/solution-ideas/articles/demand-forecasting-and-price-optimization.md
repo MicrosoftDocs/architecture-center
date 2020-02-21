@@ -69,4 +69,4 @@ For post deployment instructions and more details on the technical implementatio
   4. Azure Data Factory orchestrates and schedules the entire data flow.
   5. Finally, Power BI is used for results visualization, so that users can monitor the results of the sales, predicted future demand as well as recommended optimal prices for a variety of products sold in different stores.
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

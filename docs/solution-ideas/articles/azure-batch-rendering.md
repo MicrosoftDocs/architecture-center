@@ -286,31 +286,6 @@ This HPC media rendering solution architecture shows Azure CycleCloud monitoring
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Operations team uses Azure CycleCloud to configure and launch rendering pipeline cluster.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Azure CycleCloud orchestrates virtual machine (VM) creation and software configuration for head nodes, license servers, and Avere vFXT Cache.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Artist submits a render job to the Pixar Tractor pipeline manager.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Azure CycleCloud detects the change in job queue depth and autostarts render farm nodes in Virtual Machines Scale Sets with location, SKU, and configuration customized by job requirements.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Render pipeline manager (head nodes) executes render jobs on the new render farm VMs.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Render jobs pull artifacts from on-premises and Azure Blob storage as needed from NFS-mounted Avere vFXT.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>As each job finishes rendering, resulting artifacts are written back to storage through the Avere vFXT.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>As job queue empties, Azure CycleCloud auto-stops render farm VMs to reduce cost.</p>
-</div>
-
 ## Data Flow
 
 1. Operations team uses Azure CycleCloud to configure and launch rendering pipeline cluster.
@@ -337,4 +312,4 @@ This HPC media rendering solution architecture shows Azure CycleCloud monitoring
 * [Avere vFXT Documentation](/azure/avere-vfxt)
 * [Azure Batch Documentation](/azure/batch)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -115,4 +115,4 @@ This solution provides an Azure-based smart solution, leveraging external open-s
   5. Azure SQL Database is used to store the optimization results received from the Azure Batch service. These results are then consumed in the Power BI dashboard.
   6. Finally, Power BI is used for results visualization.
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

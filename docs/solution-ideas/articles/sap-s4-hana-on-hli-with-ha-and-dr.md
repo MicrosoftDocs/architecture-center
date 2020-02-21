@@ -221,34 +221,6 @@ This solution architecture illustrates how a user request flows through an SAP l
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>In this example, an on-premises SAP user executes a sales order via Fiori interface, custom interface, or other.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Azure high speed express route gateway is used to connect to Azure Virtual Machines.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Request flows into highly available ABAP SAP Central Services (ASCS) and then through application servers running on Azure Virtual Machines in an availability set offering a 99.95 percent uptime SLA.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Request is sent from App Server to SAP HANA running on primary large instance blades.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Primary and secondary blades are clustered at OS level for 99.99 percent availability, and data replication is handled through HANA System Replication in synchronous mode (HSR) from primary to secondary enabling zero RPO.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>In-memory data of SAP HANA is persisted to high-performance NFS storage.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Data from NFS storage is periodically backed up in seconds, using built-in storage snapshots on the local storage, with no impact to database performance.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Persistent data volume on secondary storage is replicated to dedicated DR system through a dedicated backbone network for HANA storage replication.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>Large instance on DR side can be used for nonproduction to save costs by mounting both the QA storage and DR replicated volume (read-only).</p>
-</div>
-
 ## Data Flow
 
 1. In this example, an on-premises SAP user executes a sales order via Fiori interface, custom interface, or other.
@@ -278,4 +250,4 @@ This solution architecture illustrates how a user request flows through an SAP l
 * [ExpressRoute overview](https://azure.microsoft.com/services/expressroute/)
 * [Back end Network to HANA large instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture#networking)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

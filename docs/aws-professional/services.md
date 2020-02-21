@@ -277,4 +277,3 @@ Dedicated network | [Direct Connect](https://aws.amazon.com/directconnect/) | [E
 
 If you are new to Azure, review the interactive [Core Cloud Services - Introduction to Azure](/learn/modules/welcome-to-azure) module on [Microsoft Learn](/learn).
 
-[!INCLUDE [clicktale](../_js/clicktale.md)]

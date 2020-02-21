@@ -119,19 +119,6 @@ Securely monitor and control data streamed from Internet-connected devices.
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Web app connects to SignalR Service and receives token</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>User connects to web app and gets SignalR endpoint and token</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>User connects to SignalR Service</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Data from real-time source sent to SignalR Service and user</p>
-</div>
-
 ## Data Flow
 
 1. Web app connects to SignalR Service and receives token
@@ -140,4 +127,4 @@ Securely monitor and control data streamed from Internet-connected devices.
 1. Data from real-time source sent to SignalR Service and user
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

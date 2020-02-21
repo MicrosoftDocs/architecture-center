@@ -1,6 +1,5 @@
 ---
-title: Implement a secure hybrid network architecture
-titleSuffix: Azure Reference Architectures
+title: Implement a secure hybrid network
 description: Implement a secure hybrid network architecture in Azure.
 author: MikeWasson
 ms.date: 01/07/2020

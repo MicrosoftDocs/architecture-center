@@ -84,4 +84,4 @@ Azure Cache for Redis perfectly complements Azure database services such as Cosm
     </g>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

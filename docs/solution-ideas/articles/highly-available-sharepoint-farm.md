@@ -332,40 +332,18 @@ This solution provides a highly available deployment of SharePoint using a load 
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Create resource group for the storage, network, and virtual machine, plus other dependent elements.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Create virtual network to host the virtual machines and load balancers for the deployment. Ensure the network has appropriate network security groups implemented to protect network traffic flow.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Create the storage accounts that will host the virtual hard disks (vhds) for the machine images.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Create the Active Directory installation using either a new virtual machine or  Azure AD domain services. If using Azure AD domain services,  consider synchronizing identities to Azure AD with Azure AD Connect.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Create a Windows failover cluster and install a supported version of SQL Server on an Azure virtual machine (VM) or deploy pay-as-you-go instances of SQL Server.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Deploy SharePoint onto multiple Azure VMs, or, use trial images from the gallery that already have SharePoint Server installed.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Create the SharePoint farm.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Set up an Azure external load balancer to direct incoming HTTPS traffic to the SharePoint server.</p>
-</div>
+
+
+
+
+
+
+
+
 <div class="architecture-tooltip-content" id="architecture-tooltip-9">
 <p>Leverage Express Route or VPN Gateway for management access to resource 
 
 group.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-10">
-<p>On-premises users can access the SharePoint sites via the internet, Express Route, or VPN Gateway.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-11">
-<p>External users can be granted access as required to the SharePoint sites for testing.</p>
 </div>
 
 ## Data Flow
@@ -405,4 +383,4 @@ group.
 * [Load Balancer Documentation](/azure/load-balancer/load-balancer-standard-overview)
 * [Express Route Documentation](/azure/expressroute/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+
