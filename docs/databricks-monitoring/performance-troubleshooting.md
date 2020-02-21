@@ -1,6 +1,5 @@
 ---
-title: Performance troubleshooting for Azure Databricks using Azure Monitor
-titleSuffix: 
+title: Troubleshoot performance issues in Azure Databricks
 description: Use Grafana dashboards to troubleshoot performance issues in Azure Databricks 
 author: petertaylor9999
 ms.date: 04/02/2019
