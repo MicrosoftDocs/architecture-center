@@ -1,6 +1,14 @@
 items:
 - name: Azure Architecture Center
   href: index.md
+- name: Architectures
+  items:
+  - name: Reference Architectures
+    href: architectures/reference-architectures.md
+  - name: Example Workloads
+    href: architectures/example-workloads.md
+  - name: Solution Ideas
+    href: architectures/index.md
 - name: Application Architecture Guide
   items:
   - name: Introduction
