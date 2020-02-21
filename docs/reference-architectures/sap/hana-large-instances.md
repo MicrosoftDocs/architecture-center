@@ -127,36 +127,35 @@ This architecture supports [disaster recovery][hli-dr] between HANA Large Instan
 
 ### Virtual machines
 
-Azure Virtual Machines gives you the flexibility of virtualization for a wide range of computing solutions with support for SAP.
+In this architecture, virtual machines are used for hosting SAP applications, SAP services and shared services such as management jump boxes. There 
+are specific certified SKUs of HANA large Instances, the configurations chosen are dependent on workload, CPU resources, desired memory and budget. 
 
-There are different budget options depending on the usage and workload.
+SAP HANA on Azure Large Instances SKUs are available as reserved VM instances (1 or 3 years).  You get purpose-built SAP HANA infrastructure with high-performance compute, storage and network. SAP HANA on Azure Large Instances are coupled with high-performance NFS storage and networking and provide built-in support for backups through storage snapshots, high availability and disaster recovery and scale-out configurations.
 
-For unpredictable workloads that cannot be interrupted, consider the "Pay as you go" payment option. you can Increase or decrease compute capacity on demand. Start or stop at any time and only pay for what you use.
+See the [available SKUs for HLI][HLI-SKUs] for more information.
 
-Consider Reserved Virtual Machine Instances if you want budget predicatbility. A reserved VM instance is an advanced purchase of a Virtual Machine for one or three years in a specified region, so if you can commit to using a virtual machine over a one-year or three-year term to reduce computing costs, this is the best option, it can significantly reduce costs—up to 72 percent compared to pay-as-you-go prices.
+There are several payment options for virtual machines in general:
 
+For workloads with no predictable time of completion or resource consumption, consider the Pay as you go option.
 
-For workloads the can be iterrupted and do not require completion within a predetermined timeframe or an SLA, Spot VMs can be a good option for reduced costs.
+Consider using Azure Reservations if you can commit to using a virtual machine over a one-year or three-year term. VM reservations can reduce costs up to 72 % compared to pay-as-you-go prices.
 
-Consider Spot VMs for the following types of workloads:
+Use Azure [Spot VMs][az-spot-vms] to run workloads the can be interrupted and do not require completion within a predetermined timeframe or an SLA. Azure deploys Spot VMs if there is available capacity and evicts when it needs the capacity back. Costs associated with Spot virtual machines are significantly lower. Consider Spot VMs for these workloads:
 
 High-performance computing scenarios, batch processing jobs, or visual rendering applications.
 Test environments, including continuous integration and continuous delivery workloads.
 Large-scale stateless applications.
 
-For more information See [RHEL for SAP HANA Virtual Machines Pricing][HANA-vms-pricing]
 
-
-### HANA Large instances
-
-SAP HANA on Azure Large Instances SKUs are available as reserved VM instances (1 or 3 years).  You get purpose-built SAP HANA infrastructure with high-performance compute, storage and network. SAP HANA on Azure Large Instances are coupled with high-performance NFS storage and networking and provide built-in support for backups through storage snapshots, high availability and disaster recovery and scale-out configurations.
-
-Please contact your Microsoft account team to get pricing for larger SKUs.
+For more information See [HLI for SAP HANA Virtual Machines Pricing][HLI-vms-pricing], there is a specific section with SKUs for SAP HANA on Azure Large Instances.
 
 
 ### Express Route
 
+For this architecture, Express Route is the networking service used for creating private connections between an on-premises network and Azure virtual networks. Azure VMs connect to HANA Large Instances using another ExpressRoute connection and an ExpressRoute Gateway, [High Performance or Ultra Performance][sku] is the recommended SKU.
+
 All inbound data transfer is free of charge, and all outbound data transfer is charged based on a pre-determined rate. See [Azure ExpressRoute pricing][expressroute-pricing] For more info.
+
 
 Use the [Pricing calculator][Cost-Calculator] to estimate costs.
 
@@ -218,6 +217,7 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 <!-- links -->
 
 [AAF-cost]: /azure/architecture/framework/cost/overview
+[az-spot-vms]: https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms
 [azure-forum]: https://azure.microsoft.com/support/forums/
 [azure-large-instances]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
 [classes]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
@@ -227,13 +227,14 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [expressroute]: /azure/architecture/reference-architectures/hybrid-networking/expressroute
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [filter-network]: https://azure.microsoft.com/blog/multiple-vm-nics-and-network-virtual-appliances-in-azure/
-[HANA-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/rhel-sap-hana/
 [hli-dr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
 [hli-backup]: /azure/virtual-machines/workloads/sap/hana-backup-restore
 [hli-hadr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
 [hli-infrastructure]: /azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity
 [hli-overview]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
+[HLI-SKUs]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus
 [hli-troubleshoot]: /azure/virtual-machines/workloads/sap/troubleshooting-monitoring
+[HLI-vms-pricing]: https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux
 [ip]: https://blogs.msdn.microsoft.com/saponsqlserver/2018/02/10/setting-up-hana-system-replication-on-azure-hana-large-instances/
 [network-best-practices]: /azure/security/azure-security-network-security-best-practices
 [nfs]: /azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs

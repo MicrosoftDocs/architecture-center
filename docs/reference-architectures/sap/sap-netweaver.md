@@ -163,32 +163,38 @@ To provide SAP-based monitoring of resources and service performance of the SAP 
 
 ### Virtual machines and availability sets
 
-There is no cost for the Availability Set itself, you only pay for each VM instance that you create.
+This architecture uses virtual machines for the application tier and database tier. SAP NetWeaver tier uses Windows virtual machines to run SAP servies and applications. The database tier runs AnyDB as the database, such as Microsoft SQL Server, Oracle, or IBM DB2. Virtual machines are also used as jump boxes for management.
 
-Azure Virtual Machines gives you the flexibility of virtualization for a wide range of computing solutions with support for SAP.
+#### Payment options
 
-There are different budget options depending on the usage and workload.
+There are several payment options for virtual machines in general:
 
-For unpredictable workloads that cannot be interrupted, consider the "Pay as you go" payment option. you can Increase or decrease compute capacity on demand. Start or stop at any time and only pay for what you use.
+For workloads with no predictable time of completion or resource consumption, consider the Pay as you go option.
 
-Consider Reserved Virtual Machine Instances if you want budget predicatbility. A reserved VM instance is an advanced purchase of a Virtual Machine for one or three years in a specified region, so if you can commit to using a virtual machine over a one-year or three-year term to reduce computing costs, this is the best option, it can significantly reduce costs—up to 72 percent compared to pay-as-you-go prices.
+Consider using Azure Reservations if you can commit to using a virtual machine over a one-year or three-year term. VM reservations can reduce costs up to 72 % compared to pay-as-you-go prices.
 
-
-For workloads the can be iterrupted and do not require completion within a predetermined timeframe or an SLA, Spot VMs can be a good option for reduced costs.
-
-Consider Spot VMs for the following types of workloads:
+Use Azure [Spot VMs][az-spot-vms] to run workloads the can be interrupted and do not require completion within a predetermined timeframe or an SLA. Azure deploys Spot VMs if there is available capacity and evicts when it needs the capacity back. Costs associated with Spot virtual machines are significantly lower. Consider Spot VMs for these workloads:
 
 High-performance computing scenarios, batch processing jobs, or visual rendering applications.
 Test environments, including continuous integration and continuous delivery workloads.
 Large-scale stateless applications.
 
+### Virtual machines and availability sets
+
+For all pools and clusters (Web Dispatcher, SAP application servers, Central Services, and database) the virtual machines are grouped into separate availability sets. There is no cost for the Availability Set itself, you only pay for each VM instance that you create.
+
 ### Azure Load Balancer
 
-With Azure Standard Load Balancer, you only pay for what you use.  You are charged for amount of data processed inbound and outbound independent of rules and the number of configured load-balancing and outbound rules. Inbound NAT rules don't count in the total number of rules. There is no hourly charge for the Standard Load Balancer when no rules are configured.
+In this scenario, Azure Load Balancers are used to distribute traffic to virtual machines in the application-tier subnet.
+
+You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
 
 ### Express Route
 
+In this architecture, Express Route is the networking service used for creating private connections between an on-premises network and Azure virtual networks.
+
 All inbound data transfer is free of charge, and all outbound data transfer is charged based on a pre-determined rate. See [Azure ExpressRoute pricing][expressroute-pricing] For more info.
+
 
 Use the [Pricing calculator][Cost-Calculator] to estimate costs.
 
@@ -224,4 +230,5 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 
 [AAF-cost]: /azure/architecture/framework/cost/overview
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-reference-architectures.vsdx
