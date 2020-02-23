@@ -150,7 +150,15 @@ For details about service level agreements, see [SLA for VPN Gateway][sla-for-vp
 
 On Azure Stack, you can expand VPN gateways to include interfaces to multiple Azure Stack stamps and Azure deployments.
 
-## Manageability considerations
+## DevOps considerations
+
+In this architecture a single [Azure Building Blocks][azbb] template is used to deploy the Azure resources. so it follows the IaC process for deploying the infrastructure. To automate infrastructure deployment, you can use Azure DevOps Services or other CI/CD solutions. The deployment process is also idempotent - that is, repeatable to produce the same results. 
+
+Azure Building Blocks templates are also good for dependency tracking since they allow to define dependencies for resources that are deployed in the same template. For a given resource, there can be other resources that must exist before the resource is deployed.
+
+All the main resources (Virtual machine scale set, VPN gateway, Azure Bastion) are in the same virtual network so they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
+
+### Monitoring
 
 Monitor diagnostic information from on-premises VPN appliances. This process depends on the features provided by the VPN appliance. For example, if you are using the Routing and Remote Access Service on Windows Server 2012, [RRAS logging][rras-logging].
 
