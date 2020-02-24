@@ -4,7 +4,7 @@ titleSuffix: Cloud Design Patterns
 description: Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.
 keywords: design pattern
 author: PageWriter-MSFT
-ms.date: 08/27/2018
+ms.date: 02/24/2020
 ms.author: pnp
 ms.topic: design-pattern
 ms.service: architecture-center
@@ -89,10 +89,9 @@ The example implements a custom solution to correlate calls across all services 
 
 Here’s a code example that shows the choreography pattern between all business services. It shows the workflow of the Drone Delivery app transactions. Code for exception handling and logging have been removed for brevity.
 
-```
+```csharp
 [HttpPost]
-
-[Route("/api/choreography/operation")]
+[Route("/api/[controller]/operation")]
 [ProducesResponseType(typeof(void), 200)]
 [ProducesResponseType(typeof(void), 400)]
 [ProducesResponseType(typeof(void), 500)]
@@ -119,7 +118,7 @@ public async Task<IActionResult> Post([FromBody] EventGridEvent[] events)
                 if (packageGen is null)
                 {
                     //BadRequest allows the event to be reprocessed by Event Grid
-                    return BadRequest("Package creation failed.);
+                    return BadRequest("Package creation failed.");
                 }
 
                 //we set the eventype to the next choreography step

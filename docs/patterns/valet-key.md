@@ -4,7 +4,7 @@ titleSuffix: Cloud Design Patterns
 description: Use a token or key that provides clients with restricted direct access to a specific resource or service.
 keywords: design pattern
 author: dragon119
-ms.date: 06/23/2017
+ms.date: 02/24/2020
 ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -106,7 +106,7 @@ The following code shows how to create a shared access signature token that's va
 ```csharp
 public class ValuesController : ApiController
 {
-  private readonly CloudStorageAccount account;
+  private readonly BlobServiceClient blobServiceClient;
   private readonly string blobContainer;
   ...
   /// <summary>
@@ -114,39 +114,33 @@ public class ValuesController : ApiController
   /// to this specific destination for a defined period of time.
   /// </summary>
   private StorageEntitySas GetSharedAccessReferenceForUpload(string blobName)
-  {
-    var blobClient = this.account.CreateCloudBlobClient();
-    var container = blobClient.GetContainerReference(this.blobContainer);
+  {          
+      var blob = blobServiceClient.GetBlobContainerClient(this.blobContainer).GetBlobClient(blobName);
 
-    var blob = container.GetBlockBlobReference(blobName);
+      var storageSharedKeyCredential = new StorageSharedKeyCredential(blobServiceClient.AccountName, ConfigurationManager.AppSettings["AzureStorageEmulatorAccountKey"]);
 
-    var policy = new SharedAccessBlobPolicy
-    {
-      Permissions = SharedAccessBlobPermissions.Write,
+      var blobSasBuilder = new BlobSasBuilder
 
-      // Specify a start time five minutes earlier to allow for client clock skew.
-      SharedAccessStartTime = DateTime.UtcNow.AddMinutes(-5),
-
-      // Specify a validity period of five minutes starting from now.
-      SharedAccessExpiryTime = DateTime.UtcNow.AddMinutes(5)
-    };
-
-    // Create the signature.
-    var sas = blob.GetSharedAccessSignature(policy);
-
-    return new StorageEntitySas
-    {
-      BlobUri = blob.Uri,
-      Credentials = sas,
-      Name = blobName
-    };
+      {
+          BlobContainerName = this.blobContainer,
+          BlobName = blobName,
+          Resource = "b",
+          StartsOn = DateTimeOffset.UtcNow.AddMinutes(-5),
+          ExpiresOn = DateTimeOffset.UtcNow.AddMinutes(5)
+      };
+      policy.SetPermissions(BlobSasPermissions.Write);
+      var sas = policy.ToSasQueryParameters(storageSharedKeyCredential).ToString();
+  
+      return new StorageEntitySas
+      {
+          BlobUri = blob.Uri,
+          Credentials = sas        
+      };
   }
-
   public struct StorageEntitySas
   {
-    public string Credentials;
-    public Uri BlobUri;
-    public string Name;
+      public string Credentials;
+      public Uri BlobUri;
   }
 }
 ```
