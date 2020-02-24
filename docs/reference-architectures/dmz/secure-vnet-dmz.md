@@ -107,7 +107,7 @@ Each tier's subnet in the reference architecture is protected by NSG rules. You 
 
 If you're using ExpressRoute to provide the connectivity between your on-premises datacenter and Azure, use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor and troubleshoot connection issues.
 
-You can find additional information about monitoring and managing VPN and ExpressRoute connections in the articles [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-manageability] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-manageability].
+You can find additional information about monitoring and managing VPN and ExpressRoute connections in the articles [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-devops] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-devops].
 
 ## Security considerations
 
@@ -200,11 +200,11 @@ In this step, you will connect the two local network gateways.
 [getting-started-with-azure-security]: /azure/security/azure-security-getting-started
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-hybrid
 [guidance-expressroute-availability]: ../hybrid-networking/expressroute.md#availability-considerations
-[guidance-expressroute-manageability]: ../hybrid-networking/expressroute.md#DevOps-considerations
+[guidance-expressroute-devops]: ../hybrid-networking/expressroute.md#devpps-considerations
 [guidance-expressroute-scalability]: ../hybrid-networking/expressroute.md#scalability-considerations
 [guidance-expressroute-security]: ../hybrid-networking/expressroute.md#security-considerations
 [guidance-vpn-gateway-availability]: ../hybrid-networking/vpn.md#availability-considerations
-[guidance-vpn-gateway-manageability]: ../hybrid-networking/vpn.md#DevOps-considerations
+[guidance-vpn-gateway-devops]: ../hybrid-networking/vpn.md#devops-considerations
 [guidance-vpn-gateway-scalability]: ../hybrid-networking/vpn.md#scalability-considerations
 [guidance-vpn-gateway-security]: ../hybrid-networking/vpn.md#security-considerations
 [nsg]: /azure/virtual-network/security-overview
