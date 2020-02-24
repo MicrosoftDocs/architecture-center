@@ -200,11 +200,11 @@ In this step, you will connect the two local network gateways.
 [getting-started-with-azure-security]: /azure/security/azure-security-getting-started
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-hybrid
 [guidance-expressroute-availability]: ../hybrid-networking/expressroute.md#availability-considerations
-[guidance-expressroute-manageability]: ../hybrid-networking/expressroute.md#manageability-considerations
+[guidance-expressroute-manageability]: ../hybrid-networking/expressroute.md#DevOps-considerations
 [guidance-expressroute-scalability]: ../hybrid-networking/expressroute.md#scalability-considerations
 [guidance-expressroute-security]: ../hybrid-networking/expressroute.md#security-considerations
 [guidance-vpn-gateway-availability]: ../hybrid-networking/vpn.md#availability-considerations
-[guidance-vpn-gateway-manageability]: ../hybrid-networking/vpn.md#manageability-considerations
+[guidance-vpn-gateway-manageability]: ../hybrid-networking/vpn.md#DevOps-considerations
 [guidance-vpn-gateway-scalability]: ../hybrid-networking/vpn.md#scalability-considerations
 [guidance-vpn-gateway-security]: ../hybrid-networking/vpn.md#security-considerations
 [nsg]: /azure/virtual-network/security-overview
