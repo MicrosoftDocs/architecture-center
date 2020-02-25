@@ -186,13 +186,13 @@ Once the identity is assigned to the Azure function, assign it a role using [rol
 
 Logic apps have a pay-as-you-go pricing model. Triggers, actions, and connector executions are metered each time a logic app runs. All successful and unsuccessful actions, including triggers, are considered as executions. 
 
-Logic apps has also a fixed pricing model. If you need to run logic apps that  communicate with secured resources in an Azure virtual network, you can create them in an [Integration Service Environment (ISE)][az-logic-apps-ISE].
+Logic apps have also a fixed pricing model. If you need to run logic apps that  communicate with secured resources in an Azure virtual network, you can create them in an [Integration Service Environment (ISE)][az-logic-apps-ISE].
 
 For details, see [Pricing model for Azure Logic Apps](logic-apps-pricing).
 
 In this architecture, logic apps are used in the cost center tagging scenario to orchestrate the workflow. 
 
-Built-in connectors are used to connect to Azure Functions and send email notification an when an automation task is completed. The functions are exposed as a web hook/API using an HTTP trigger. Logic apps are triggered only when an HTTPS request occurs. This is a cost effective way when compared to a design where functions continously poll and check for certain criteria. Every polling request is metered as an action.
+Built-in connectors are used to connect to Azure Functions and send email notification an when an automation task is completed. The functions are exposed as a web hook/API using an HTTP trigger. Logic apps are triggered only when an HTTPS request occurs. This is a cost effective way when compared to a design where functions continuously poll and check for certain criteria. Every polling request is metered as an action.
 
 For more information, see [Logic Apps pricing][Logic-Apps-Pricing].
 
@@ -207,13 +207,13 @@ Azure Functions are available with [the following three pricing plans](https://d
 
 - **App Service plan**. Hybrid automation scenarios that use the [Azure App Service Hybrid Connections](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections), will need to use the App Service plan. The functions created under this plan can run for unlimited duration, similar to a web app.
 
-In this architecture Azure Functions are used for tasks such as updating tags in Azure Active Directory, or changing cosmos DB configuration by scaling up the RUs to a higher value. The **Consumption plan** is the appropiate for this use case because those tasks are interactive and not on going.
+In this architecture Azure Functions are used for tasks such as updating tags in Azure Active Directory, or changing cosmos DB configuration by scaling up the RUs to a higher value. The **Consumption plan** is the appropriate for this use case because those tasks are interactive and not on going.
 
 ### Cosmos DB
 
 Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations, such as inserts, reads. Storage is billed for each GB used for your stored data and index. See [Cosmos DB pricing model][cosmosdb-pricing] for more information.
 
-In this architecture, when data access requests to CosmosDB exceed the capacity in Request Units (or RUs), Azure Monitor triggers alerts. In reponse to those alerts, an Azure Monitor action group is configured to call the automation function. The function scales the RUs to a higher value. This helps to keep the cost down because you only pay for the resources that your workloads need on a per-hour basis.
+In this architecture, when data access requests to CosmosDB exceed the capacity in Request Units (or RUs), Azure Monitor triggers alerts. In response to those alerts, an Azure Monitor action group is configured to call the automation function. The function scales the RUs to a higher value. This helps to keep the cost down because you only pay for the resources that your workloads need on a per-hour basis.
 
 To get a quick cost estimate of your workload, use the [Cosmos DB capacity calculator][Cosmos-Calculator]. 
 
