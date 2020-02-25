@@ -246,4 +246,4 @@ To learn more about the serverless implementations, start [here](https://docs.mi
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [Logic-Apps-Pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
-[logic-app-pricing]: https://docs.microsoft.com/azure/logic-apps/logic-apps-pricing
+[logic-app-pricing]: /azure/logic-apps/logic-apps-pricing
