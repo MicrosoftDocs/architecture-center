@@ -8,9 +8,9 @@ ms.topic: landing-page
 ---
 
 # Solution Ideas
-<a class="button" href="reference-architectures">Reference Architectures</a>
-<a class="button" href="example-workloads">Example Workloads</a>
-<a class="button is-primary" href="index">Solution Ideas</a>
+<a class="button" href="/azure/architecture/architectures/reference-architectures">Reference Architectures</a>
+<a class="button" href="/azure/architecture/architectures/example-workloads">Example Workloads</a>
+<a class="button is-primary" href="/azure/architecture/architectures/index">Solution Ideas</a>
 
 Architecture diagrams and overviews of workloads and solutions that can be built using Azure technologies.
 

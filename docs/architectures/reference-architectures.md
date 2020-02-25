@@ -8,9 +8,9 @@ ms.topic: landing-page
 ---
 
 # Reference Architectures
-<a class="button is-primary" href="reference-architectures">Reference Architectures</a>
-<a class="button" href="example-workloads">Example Workloads</a>
-<a class="button" href="index">Solution Ideas</a>
+<a class="button is-primary" href="/azure/architecture/architectures/reference-architectures">Reference Architectures</a>
+<a class="button" href="/azure/architecture/architectures/example-workloads">Example Workloads</a>
+<a class="button" href="/azure/architecture/architectures/index">Solution Ideas</a>
 
 Recommended architectures for Azure.
 
