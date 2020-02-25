@@ -19,11 +19,11 @@ The solution described in this article combines a range of Azure services that w
 
 This solution architecture demonstrates how a single, unified data platform can be used to meet the most common requirements for:
 
-- Traditional relational data pipelines;
-- Big data transformations;
-- Unstructured data ingestion and enrichment with AI-based functions;
-- Stream ingestion and processing following the Lambda architecture;
-- Serving insights for data-driven applications and rich data visualization;
+- Traditional relational data pipelines
+- Big data transformations
+- Unstructured data ingestion and enrichment with AI-based functions
+- Stream ingestion and processing following the Lambda architecture
+- Serving insights for data-driven applications and rich data visualization
 
 ## Relevant use cases
 
@@ -46,41 +46,41 @@ The data flows through the solution as follows (from bottom-up):
 
 ### Relational Databases
 
-1. Use Azure Data Factory pipelines to pull data from a wide variety of databases, both on-premises and in the cloud. Pipelines can be triggered based on a pre-defined schedule, in response to an event or be explicitly called via REST APIs;
+1. Use Azure Data Factory pipelines to pull data from a wide variety of databases, both on-premises and in the cloud. Pipelines can be triggered based on a pre-defined schedule, in response to an event or be explicitly called via REST APIs.
 
-1. Still part of the Azure Data Factory pipeline, use Azure Data Lake Store Gen 2 to stage the data copied from the relational databases. You can save the data in delimited text format or compressed as Parquet files;
+1. Still part of the Azure Data Factory pipeline, use Azure Data Lake Store Gen 2 to stage the data copied from the relational databases. You can save the data in delimited text format or compressed as Parquet files.
 
-1. Use Azure Synapse Polybase capabilities for fast ingestion into your data warehouse tables;
+1. Use Azure Synapse Polybase capabilities for fast ingestion into your data warehouse tables.
 
-1. Load relevant data from the Azure Synapse data warehouse into Power BI datasets for data visualization. Power BI models implement a semantic model to simplify the analysis of business data and relationships;
+1. Load relevant data from the Azure Synapse data warehouse into Power BI datasets for data visualization. Power BI models implement a semantic model to simplify the analysis of business data and relationships.
 
 1. Business analysts use Power BI reports and dashboards to analyze  data and derive business insights.
 
 ### Semi-Structured Data Sources
 
-1. Use Azure Data Factory pipelines to pull data from a wide variety of semi-structured data sources, both on-premises and in the cloud. For example, you can ingest data from file-based locations containing CSV or JSON files. You can connect to No-SQL databases such as Cosmos DB or Mongo DB. Or you call REST APIs provided by SaaS applications that will function as your data source for the pipeline;
+1. Use Azure Data Factory pipelines to pull data from a wide variety of semi-structured data sources, both on-premises and in the cloud. For example, you can ingest data from file-based locations containing CSV or JSON files. You can connect to No-SQL databases such as Cosmos DB or Mongo DB. Or you call REST APIs provided by SaaS applications that will function as your data source for the pipeline.
 
-1. Still part of the Azure Data Factory pipeline, use Azure Data Lake Store Gen 2 to save the original data copied from the semi-structured data source;
+1. Still part of the Azure Data Factory pipeline, use Azure Data Lake Store Gen 2 to save the original data copied from the semi-structured data source.
 
-1. Azure Data Factory Mapping Dataflows or Azure Databricks notebooks can now be used to process the semi-structured data and apply the necessary transformations before data can be used for reporting. You can save the resulting dataset as Parquet files in the data lake;
+1. Azure Data Factory Mapping Dataflows or Azure Databricks notebooks can now be used to process the semi-structured data and apply the necessary transformations before data can be used for reporting. You can save the resulting dataset as Parquet files in the data lake.
 
-1. Use Azure Synapse Polybase capabilities for fast ingestion into your data warehouse tables;
+1. Use Azure Synapse Polybase capabilities for fast ingestion into your data warehouse tables.
 
-1. Load relevant data from the Azure Synapse data warehouse into Power BI datasets for data visualization. Power BI models implement a semantic model to simplify the analysis of business data and relationships;
+1. Load relevant data from the Azure Synapse data warehouse into Power BI datasets for data visualization. Power BI models implement a semantic model to simplify the analysis of business data and relationships.
 
 1. Business analysts use Power BI reports and dashboards to analyze  data and derive business insights.
 
 ### Non-structured Data Sources
 
-1. Use Azure Data Factory pipelines to pull data from a wide variety of unstructured data sources, both on-premises and in the cloud. For example, you can ingest video, image or free text log data from file-based locations. You can also call REST APIs provided by SaaS applications that will function as your data source for the pipeline;
+1. Use Azure Data Factory pipelines to pull data from a wide variety of unstructured data sources, both on-premises and in the cloud. For example, you can ingest video, image or free text log data from file-based locations. You can also call REST APIs provided by SaaS applications that will function as your data source for the pipeline.
 
-1. Still part of the Azure Data Factory pipeline, use Azure Data Lake Store Gen 2 to save the original data copied from the unstructured data source;
+1. Still part of the Azure Data Factory pipeline, use Azure Data Lake Store Gen 2 to save the original data copied from the unstructured data source.
 
-1. You can invoke Azure Databricks notebooks from your pipeline to process the unstructured data. The notebook can make use of Cognitive Services APIs or invoke custom Azure Machine Learning Service models to generate insights from the unstructured data. You can save the resulting dataset as Parquet files in the data lake;
+1. You can invoke Azure Databricks notebooks from your pipeline to process the unstructured data. The notebook can make use of Cognitive Services APIs or invoke custom Azure Machine Learning Service models to generate insights from the unstructured data. You can save the resulting dataset as Parquet files in the data lake.
 
-1. Use Azure Synapse Polybase capabilities for fast ingestion into your data warehouse tables;
+1. Use Azure Synapse Polybase capabilities for fast ingestion into your data warehouse tables.
 
-1. Load relevant data from the Azure Synapse data warehouse into Power BI datasets for data visualization. Power BI models implement a semantic model to simplify the analysis of business data and relationships;
+1. Load relevant data from the Azure Synapse data warehouse into Power BI datasets for data visualization. Power BI models implement a semantic model to simplify the analysis of business data and relationships.
 
 1. Business analysts use Power BI reports and dashboards to analyze  data and derive business insights.
 
@@ -88,9 +88,9 @@ The data flows through the solution as follows (from bottom-up):
 
 1. Use Azure Event Hubs to ingest data streams generated by a client application. The Event Hub will then ingest and store streaming data preserving the sequence of events received. Consumers can then connect to Event Hub and retrieve the messages for processing.
 
-1. Configure the Event Hub Capture to save a copy of the events in your data lake. This feature implements the "Cold Path" of the Lambda architecture pattern and allows you to perform historical and trend analysis on the stream data saved in your data lake using tools such as Azure Databricks notebooks;
+1. Configure the Event Hub Capture to save a copy of the events in your data lake. This feature implements the "Cold Path" of the Lambda architecture pattern and allows you to perform historical and trend analysis on the stream data saved in your data lake using tools such as Azure Databricks notebooks.
 
-1. Use a Stream Analytics job to implement the "Hot Path" of the Lambda architecture pattern and derive insights from the stream data in transit. Define at least one input for the data stream coming from your Event Hub, one query to process the input data stream and one Power BI output to where the query results will be sent to;
+1. Use a Stream Analytics job to implement the "Hot Path" of the Lambda architecture pattern and derive insights from the stream data in transit. Define at least one input for the data stream coming from your Event Hub, one query to process the input data stream and one Power BI output to where the query results will be sent to.
 
 1. Business analysts then use Power BI real-time datasets and dashboard capabilities for to visualize the fast changing insights generated by your Stream Analytics query.
 
@@ -124,9 +124,9 @@ Power BI | [Create and use analytics reports with Power BI][pbi-learn] | [Power 
 
 ### Alternatives
 
-- In the architecture above, Azure Data Factory is the service responsible for data pipeline orchestration. Azure Databricks can also be used to perform the same role through the execution of nested notebooks;  
+- In the architecture above, Azure Data Factory is the service responsible for data pipeline orchestration. Azure Databricks can also be used to perform the same role through the execution of nested notebooks.
 
-- In the architecture above, Azure Stream Analytics is the service responsible for processing streaming data. Azure Databricks can also be used to perform the same role through the execution of  notebooks;
+- In the architecture above, Azure Stream Analytics is the service responsible for processing streaming data. Azure Databricks can also be used to perform the same role through the execution of notebooks.
 
 - In the architecture above, Azure Databricks was used to invoke Cognitive Services. You can also make use of Azure Functions to invoke Azure Cognitive Services from an Azure Data Factory Pipeline.
 
