@@ -1,5 +1,5 @@
 ---
-title: Azure Data Platform End-to-End
+title: Azure data platform end-to-end
 titleSuffix: Azure Example Scenarios
 description: Description
 author: fabragaMS
@@ -163,7 +163,7 @@ The ideal individual pricing tier and the total overall cost of each service inc
 
 [source-document]: https://customers.microsoft.com/story/maritz
 [calculator]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
-[architecture]: ./media/adpe2e.jpg
+[architecture]: ./media/azure-data-platform-end-to-end.jpg
 [adf-learn]: https://docs.microsoft.com/learn/modules/data-ingestion-with-azure-data-factory
 [adf-techdoc]: https://docs.microsoft.com/azure/data-factory/
 [synapse-learn]: https://docs.microsoft.com/learn/paths/implement-sql-data-warehouse/
