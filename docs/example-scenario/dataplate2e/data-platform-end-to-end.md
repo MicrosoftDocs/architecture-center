@@ -35,7 +35,7 @@ This approach can also be used to:
 
 ## Architecture
 
-![Architecture for modern data platform using Azure data services][architecture]
+[ ![Architecture for modern data platform using Azure data services](./media/azure-data-platform-end-to-end.jpg)](./media/azure-data-platform-end-to-end.jpg#lightbox)
 
 > [!NOTE]
 >
@@ -163,7 +163,6 @@ The ideal individual pricing tier and the total overall cost of each service inc
 
 [source-document]: https://customers.microsoft.com/story/maritz
 [calculator]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
-[architecture]: ./media/azure-data-platform-end-to-end.jpg
 [adf-learn]: https://docs.microsoft.com/learn/modules/data-ingestion-with-azure-data-factory
 [adf-techdoc]: https://docs.microsoft.com/azure/data-factory/
 [synapse-learn]: https://docs.microsoft.com/learn/paths/implement-sql-data-warehouse/
