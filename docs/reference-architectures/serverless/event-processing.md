@@ -127,6 +127,35 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 - **Azure Storage**. Use [RA-GRS][ra-grs] storage for the dead letter queue. This creates a read-only replica in another region. If the primary region becomes unavailable, you can read the items currently in the queue. In addition, provision another storage account in the secondary region that the function can write to after a fail-over.
 
+## Cost considerations
+
+### Azure functions
+
+Azure Functions supports two hosting models. 
+- **Consumption plan**. 
+Compute power is automatically allocated when your code is running. 
+- **App Service** plan. 
+A set of VMs are allocated for your code. The App Service plan defines the number of VMs and the VM size.
+
+In this architecture, each event that arrives on Event Hubs, triggers a function that processes that event. From a cost perspective, the recommendation is to use the **consumption plan** because you pay only for the compute resources you use.
+
+
+### Cosmos DB
+
+Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations, such as inserts, reads. The price is based on the capacity in RU/s that you reserve. Also, you have to reserve a minimum of 400 RUs per container, where a concurrent read of 1KB document consumes 1 RU. If your app does not need to be this intensive, consider using a single container because each container has a fixed cost.
+
+In this reference architecture, the function stores exactly one document per device that is sending data. The function continually updates the documents with latest device status, using an upsert operation, which is cost effective in terms of consumed storage. 
+
+Storage is billed for each GB used for your stored data and index. 
+
+See [Cosmos DB pricing model][cosmosdb-pricing] for more information.
+
+Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
+
+For other cost estimates, use the [Pricing calculator][Cost-Calculator].
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+
 ## Deploy the solution
 
 To deploy this reference architecture, view the [GitHub readme][readme].
@@ -137,10 +166,14 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
 [cosmosdb]: /azure/cosmos-db/introduction
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
+[cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
 [cosmosdb-sql]: /azure/cosmos-db/sql-api-introduction
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [eh]: /azure/event-hubs/
 [eh-autoscale]: /azure/event-hubs/event-hubs-auto-inflate
 [eh-dr]: /azure/event-hubs/event-hubs-geo-dr
