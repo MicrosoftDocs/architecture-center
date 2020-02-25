@@ -131,22 +131,28 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 ### Azure functions
 
-Azure functions service is managed by the cloud provider, so the total cost of owning the service is minimal, you pay for consumption. Azure Functions supports two hosting models. With the **consumption plan**, compute power is automatically allocated when your code is running. With the **App Service** plan, a set of VMs are allocated for your code. The App Service plan defines the number of VMs and the VM size.
+Azure Functions supports two hosting models. 
+- **Consumption plan**. 
+Compute power is automatically allocated when your code is running. 
+- **App Service** plan. 
+A set of VMs are allocated for your code. The App Service plan defines the number of VMs and the VM size.
 
-In this architecture, when events arrive at the Event Hubs, they trigger an Azure function that processes the events, so the recommendations is to use the **consumption plan** as hosting model, this is cost effective because you pay only for the compute resources that you use.
+In this architecture, each event that arrives on Event Hubs, triggers a function that processes that event. From a cost perspective, the recommendation is to use the **consumption plan** because you pay only for the compute resources you use.
 
 
 ### Cosmos DB
 
-In this reference architecture, the function stores exactly one document per device that is sending data. The function continually updates the documents with latest device status, using an upsert operation, which is cost effective in terms of consumed storage. Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations (inserts, reads, queries, etc.). The price is based on what you reserve. So, what you reserve with Cosmos is the capacity expressed in RU/s. You pay for the RU as well as the space (GB) and you have to reserve a minimum of 400 RUs (a concurrent read of 1KB docuemnt consumes 1 RU), so if your app does not need to be this intensive, you will end up probably paying for more than what you need with Cosmos, since 400 RU is the minimum that you can provision per container. In this scenario you are using a single container, that is also cost effective since each container has a fixed cost of $25.
+Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations, such as inserts, reads. The price is based on the capacity in RU/s that you reserve. Also, you have to reserve a minimum of 400 RUs per container, where a concurrent read of 1KB document consumes 1 RU. If your app does not need to be this intensive, consider using a single container because each container has a fixed cost.
 
-See [Cosmos DB pricing model][cosmosdb-pricing] for more info.
+In this reference architecture, the function stores exactly one document per device that is sending data. The function continually updates the documents with latest device status, using an upsert operation, which is cost effective in terms of consumed storage. 
 
-Also, the [Cosmos DB capacity calculator][Cosmos-Calculator] offers you a quick estimate of the workload cost.
+Storage is billed for each GB used for your stored data and index. 
 
+See [Cosmos DB pricing model][cosmosdb-pricing] for more information.
 
+Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
 
-Use the [Pricing calculator][Cost-Calculator] to estimate costs.
+For other cost estimates, use the [Pricing calculator][Cost-Calculator].
 
 For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
