@@ -342,7 +342,7 @@ catch (Exception ex)
 }
  ```
 
-The dead-letter queue is defined using an [output binding](/azure/azure-functions/functions-bindings-storage-queue#output) to a storage queue:
+The dead-letter queue is defined using an [output binding](/azure/azure-functions/functions-bindings-storage-queue-output) to a storage queue:
 
 ```csharp
 [FunctionName("RawTelemetryFunction")]
