@@ -135,4 +135,4 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](h
 * [Learn more about Data Factory](/azure/data-factory/data-factory-introduction)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -154,4 +154,4 @@ The Deploy button will launch a workflow that will deploy an instance of the sol
   7. Azure Data Factory handles orchestration, scheduling, and monitoring of the batch processing pipeline.
   8. Finally, Power BI is used for results visualization, so that aircraft technicians can monitor the sensor data from an airplane or across the fleet in real time and use visualizations to schedule engine maintenance.
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

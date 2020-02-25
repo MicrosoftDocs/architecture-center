@@ -120,28 +120,6 @@ Easily tier data and applications on-premises and in Azure with architecture tha
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Data flows into a storage account.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Function on Azure Stack analyzes the data for anomalies or compliance.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Locally-relevant insights are displayed on the Azure Stack app.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Insights and anomalies are placed into a queue.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>The bulk of the data is placed into an archive storage account.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Function sends data from queue to Azure Storage.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Globally-relevant and compliant insights are available in the global app.</p>
-</div>
-
 ## Data Flow
 
 1. Data flows into a storage account.
@@ -163,4 +141,4 @@ Easily tier data and applications on-premises and in Azure with architecture tha
 * [Azure Functions documentation](/azure/azure-functions/)
 * [Azure Stack documentation](/azure/azure-stack/user/azure-stack-solution-staged-data-analytics)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

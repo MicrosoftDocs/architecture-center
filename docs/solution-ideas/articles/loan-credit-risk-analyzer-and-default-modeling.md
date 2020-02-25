@@ -66,4 +66,4 @@ Data-driven credit-risk modeling reduces the number of loans offered to borrower
 * [Learn more about Machine Learning](/azure/machine-learning/machine-learning-what-is-machine-learning)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

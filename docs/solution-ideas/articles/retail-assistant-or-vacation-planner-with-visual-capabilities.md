@@ -127,19 +127,6 @@ The retail assistant or vacation planner can help your customers have interactio
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Users interact with your business assistant</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Assistant understands context from LUIS</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Assistant passes visual context to the Bing Visual Search API</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Optionally Bot gets more information for user queries exclusively from your domain using the Bing Custom Search API</p>
-</div>
-
 ## Data Flow
 
 1. Users interact with your business assistant
@@ -148,4 +135,4 @@ The retail assistant or vacation planner can help your customers have interactio
 1. Optionally Bot gets more information for user queries exclusively from your domain using the Bing Custom Search API
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

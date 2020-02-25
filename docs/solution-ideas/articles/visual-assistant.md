@@ -166,28 +166,6 @@ Visual assistant provides rich information based on content of the image with ca
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Users interact with bot</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Bot understands context from LUIS</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Bot passes visual context to the Bing Visual Search API</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Bot gets additional information from Bing Entity Search for rich context on people, place, artwork, monument, and objects.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Bot gets additional information for barcodes.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Optionally Bot gets more information on barcodes/queries exclusively from your domain through the Bing Custom Search API.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Assistant renders similar products/destinations from your domain or provides more information around celebrity/place/monuments/artworks.</p>
-</div>
-
 ## Data Flow
 
 1. Users interact with bot
@@ -199,4 +177,4 @@ Visual assistant provides rich information based on content of the image with ca
 1. Assistant renders similar products/destinations from your domain or provides more information around celebrity/place/monuments/artworks.
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

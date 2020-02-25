@@ -84,4 +84,4 @@ Please ensure that you stop your VM instance when not actively using the solutio
 
 Please delete the solution if you are not using it.
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

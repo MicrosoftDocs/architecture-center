@@ -120,28 +120,6 @@ Virtual machines (VMs) are physically separated across zones, and a virtual netw
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Create zone-redundant Load Balancer.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Create front-end subnet.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Create DB subnet.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Create VMs in three Availability Zones.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Configure zone-redundant SQL DB.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Add VMs to the load balancer’s back-end pool.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Deploy your application on VMs for redundancy and high availability.</p>
-</div>
-
 ## Data Flow
 
 1. Create zone-redundant Load Balancer.
@@ -163,4 +141,4 @@ Virtual machines (VMs) are physically separated across zones, and a virtual netw
 * [SQL Database documentation](/azure/sql-database)
 * [Load Balancer documentation](/azure/load-balancer)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -63,4 +63,4 @@ This solution demonstrates the end-to-end process of how to develop and deploy m
 
 Data scientists who are testing this solution can work with the provided R code from the browser-based Open Source Edition of RStudio Server that runs on the Edge Node of the Azure HDInsight Spark cluster. By [setting the compute context]({0}) the user can decide where the computation will be performed: locally on the edge node, or distributed across the nodes in the Spark cluster. All the R code can also be found in public Github repository. Have fun!
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

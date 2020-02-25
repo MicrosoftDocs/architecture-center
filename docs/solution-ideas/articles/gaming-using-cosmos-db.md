@@ -58,4 +58,4 @@ Elastically scale your database to accommodate unpredictable bursts of traffic a
     <path d="M873.3 369.9h6.7l3.9-7.8h-5.6v3.7l-8.7-7.5h16.1l1.9-3.6H869V365c0 2.5 1.8 4.8 4.3 4.9zM893.5 342.8h-20.2c-2.6 0-4.3 1.5-4.3 4.1v4.1h20.5l4-8.2z" fill="#FBA141"/>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

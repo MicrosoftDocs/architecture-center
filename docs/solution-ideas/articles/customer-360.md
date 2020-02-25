@@ -268,25 +268,6 @@ The Customer 360 Profile solution addresses the above problems by:
   * Performing ETL and feature engineering needed to use a predictive Machine Learning model.
   * Creating a comprehensive customer 360 profile enriched by predictive analytics running across a distributed system backed by Microsoft R Server and Azure HDInsight.
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>A Data Generator pipes simulated customer events to an Event Hub</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>A Stream Analytics job reads from the EventHub, performs aggregations</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Stream Analytics persists time-grouped data to an Azure Storage Blob</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>A Spark job running in HDInsight merges the latest customer browsing data with historical purchase and demographic data to build a consolidated user profile</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>A second Spark job scores each customer profile against a machine learning model to predict future purchasing patterns (i.e., is a given customer likely to make a purchase in the next 30 days, and if so, in which product category?)</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Predictions and other profile data are visualized and shared as charts and tables in Power BI Online</p>
-</div>
-
 ## Data Flow
 
 1. A Data Generator pipes simulated customer events to an Event Hub
@@ -297,4 +278,4 @@ The Customer 360 Profile solution addresses the above problems by:
 1. Predictions and other profile data are visualized and shared as charts and tables in Power BI Online
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

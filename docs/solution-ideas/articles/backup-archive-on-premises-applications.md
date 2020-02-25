@@ -145,4 +145,4 @@ This solution is built on the Azure managed services: [Backup Server](https://az
 * [Back up files and folders using Azure Backup](/azure/backup/backup-configure-vault)
 * [Store backed up files in Blob storage](/azure/storage/blobs/storage-quickstart-blobs-dotnet)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -155,4 +155,4 @@ Securely store critical data and provide high-value analytics and insights over 
     <path fill="#969696" d="M217.868 270.274l-5.235 9.067-5.236-9.067h10.471zM217.868 230.608l-5.235-9.067-5.236 9.067h10.471z"/>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

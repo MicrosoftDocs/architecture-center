@@ -88,4 +88,4 @@ The Cortana Intelligence Suite provides advanced analytics tools through Microso
   3. There are 2 Azure Stream Analytics jobs used in this pattern to provide near real-time analytics on the input stream from the Azure Event Hub. Both jobs filter through the input data and pass the data points along to a Azure Machine Learning endpoint sending the results to a Power BI Dashboard.
   4. Finally, Power BI is used for results visualization.
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -192,37 +192,6 @@ Azure DevOps provides the CI/CD pipeline, starting with a Git repository for man
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Change application source code</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Commit Application Code and Azure Resource Manager (ARM) Template</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Continuous integration triggers application build and unit tests</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Continuous deployment trigger orchestrates deployment of application artifacts with environment specific parameters</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Deployment to QA environment</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Deployment to staging environment</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Deployment to production environment</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Application Insights collects and analyses health, performance and usage data</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>Review health, performance and usage information</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-10">
-<p>Update backlog item</p>
-</div>
-
 ## Data Flow
 
 1. Change application source code
@@ -249,4 +218,4 @@ Azure DevOps provides the CI/CD pipeline, starting with a Git repository for man
 * [Performance monitoring with Application Insights](/azure/application-insights/app-insights-detect-triage-diagnose)
 * [Git on Azure DevOps](/vsts/git/gitquickstart?tabs=visual-studio)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

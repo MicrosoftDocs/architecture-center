@@ -107,4 +107,4 @@ This solution is built on the Azure managed services: [Azure Backup](https://azu
 * [Back up files and folders using Azure Backup](/api/Redirect/documentation/articles/backup-try-azure-backup-in-10-mins/)
 * [Store backed up files in Blob storage](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -260,4 +260,4 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 * [How to create a web app with Azure Cache for Redis](/azure/azure-cache-for-redis/cache-web-app-howto)
 * [Set up Application Insights for ASP.NET](/azure/azure-monitor/app/asp-net)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -1,6 +1,5 @@
 ---
-title: Command and Query Responsibility Segregation (CQRS) pattern
-titleSuffix: Cloud Design Patterns
+title: CQRS pattern
 description: Segregate operations that read data from those that update data.
 keywords: design pattern
 author: dragon119
