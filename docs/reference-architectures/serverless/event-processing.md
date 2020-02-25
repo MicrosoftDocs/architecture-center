@@ -153,7 +153,7 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 [partition-key]: /azure/cosmos-db/partition-data
 [pipelines]: /azure/devops/pipelines/index
 [queue]: /azure/storage/queues/storage-queues-introduction
-[queue-binding]: /azure/azure-functions/functions-bindings-storage-queue#output
+[queue-binding]: /azure/azure-functions/functions-bindings-storage-queue-output
 [ra-grs]: /azure/storage/common/storage-redundancy-grs
 [ru]: /azure/cosmos-db/request-units
 
