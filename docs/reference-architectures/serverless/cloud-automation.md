@@ -186,7 +186,7 @@ Once the identity is assigned to the Azure function, assign it a role using [rol
 
 In this architecture, Logic Apps are used in the cost center tagging scenario to orchestrate the workflow. In this case, built in connectors are used to connect to Azure functions and send email notification when automation task is completed.
 
-Logic apps pricing works on the pay-as-you-go model. For instance, if you process 1000 service bus messages a day, with a workflow of five actions it would cost you less than 5 EUR. Every time a Logic App definition are triggered, action and connector executions are metered. See [Logic Apps pricing][Logic-Apps-Pricing] for more info.
+Logic apps pricing works on the pay-as-you-go model. For instance, if you process 1000 service bus messages a day, with a workflow of five actions it would cost you less than 5 EUR. Every time a Logic App definition are triggered, action and connector executions are metered. 
 
 Logic apps has also a fixed pricing model. If you need to run logic apps that can communicate with secured resources in an Azure virtual network, you can create them in an [Integration Service Environment (ISE)][az-logic-apps-ISE], ISE provides a private, isolated, and dedicated way to run your logic apps. For new logic apps that run inside an ISE, you pay a fixed monthly price for these capabilities:
 
@@ -255,5 +255,4 @@ To learn more about the serverless implementations, start [here](https://docs.mi
 [az-logic-apps-ISE]: https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
-[Logic-Apps-Pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
 [logic-apps-pricing]: https://docs.microsoft.com/azure/logic-apps/logic-apps-pricing
