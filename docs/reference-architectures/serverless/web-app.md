@@ -264,19 +264,32 @@ For updates that are not breaking API changes, deploy the new version to a stagi
 
 ### Azure functions
 
-Azure functions service is managed by the cloud provider, so the total cost of owning the service is minimal, you pay for consumption. Azure Functions supports two hosting models. With the **consumption plan**, compute power is automatically allocated when your code is running. With the **App Service** plan, a set of VMs are allocated for your code. The App Service plan defines the number of VMs and the VM size.
+Azure Functions supports two hosting models. 
+- **Consumption plan**. 
+Compute power is automatically allocated when your code is running. 
+- **App Service** plan. 
+A set of VMs are allocated for your code. The App Service plan defines the number of VMs and the VM size.
 
-In this architecture, the Azure Function is invoked when a client makes an HTTP request, so the recommendations is to use the **consumption plan** as hosting model, the **consumption plan** is cost effective because you pay only for the compute resources that you use. For this scenario we don't expect a constant high-volume throughput that could jutify foing for **App Service** plan.
+In this architecture, a function is invoked when a client makes an HTTP request. Because a constant high-volume throughput is not expected in this use case, the **consumption plan** is recommended because you pay only for the compute resources you use.
 
 ### Cosmos DB
 
-In this architecure, the function application fetches documents from Cosmos DB in response to HTTP GET requests from the client. Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations (inserts, reads, queries, etc.). Reading an item that is 1 KB in size costs one RU (five time less than write operations).
+Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations, such as inserts, reads. The price is based on the capacity in RU/s that you reserve. 
+
+Storage is billed for each GB used for your stored data and index. 
+
+See [Cosmos DB pricing model][cosmosdb-pricing] for more information.
+
+In this architecure, the function application fetches documents from Cosmos DB in response to HTTP GET requests from the client. Cosmos DB is cost effective in this case because reading operations are significantly cheaper than write operations expressed on RU/s.
 
 
 ### Content Delivery Network
 
-In this reference architecture the deployment resides in a single Azure region, that is cost effective. Billing rate may differ depending on the Billing Region, the billing region is based on the location of the source server delivering the content to the end user. The physical location of the client is not considered the billing region. Any http or https request that hits the CDN is a billable event, which includes all response types: success, failure, or other. Different responses may generate different traffic amounts. 
-In this scenario we recommend increasing the cache TTL by caching resource files for a longer duration, setting the longest TTL possible on your content is cost effective.
+Billing rate may differ depending on the billing region based on the location of the source server delivering the content to the end user. The physical location of the client is not the billing region. Any HTTP or HTTPS request that hits the CDN is a billable event, which includes all response types: success, failure, or other. Different responses may generate different traffic amounts. 
+
+In this reference architecture the deployment resides in a single Azure region. 
+
+To lower costs, consider increasing the cache TTL by caching resource files for a longer duration and setting the longest TTL possible on your content.
 
 
 Use the [Pricing calculator][Cost-Calculator] to estimate costs.
