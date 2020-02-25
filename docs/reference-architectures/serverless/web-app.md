@@ -280,7 +280,7 @@ Storage is billed for each GB used for your stored data and index.
 
 See [Cosmos DB pricing model][cosmosdb-pricing] for more information.
 
-In this architecure, the function application fetches documents from Cosmos DB in response to HTTP GET requests from the client. Cosmos DB is cost effective in this case because reading operations are significantly cheaper than write operations expressed on RU/s.
+In this architecture, the function application fetches documents from Cosmos DB in response to HTTP GET requests from the client. Cosmos DB is cost effective in this case because reading operations are significantly cheaper than write operations expressed on RU/s.
 
 
 ### Content Delivery Network
