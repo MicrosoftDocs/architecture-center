@@ -182,6 +182,8 @@ Once the identity is assigned to the Azure function, assign it a role using [rol
 
 ## Cost Considerations
 
+Here are some considerations for lowering cost.
+
 ### Azure Logic Apps
 
 Logic apps have a pay-as-you-go pricing model. Triggers, actions, and connector executions are metered each time a logic app runs. All successful and unsuccessful actions, including triggers, are considered as executions. 
