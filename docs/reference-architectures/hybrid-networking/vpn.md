@@ -190,10 +190,9 @@ If the application in the virtual network sends data to the Internet, consider [
 
 ### VPN Gateway
 
-You are charged based on the amount of time that the gateway is provisioned and available. See [VPN Gateway Pricing][azure-gateway-charges].
+In this reference architecture, a network is extended from on-premises into an Azure virtual network, using a site-to-site virtual private network (VPN), the main component is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available. See [VPN Gateway Pricing][azure-gateway-charges].
 
 VPN Outboud traffic will be subjected to the internet bandwidth costs. The usual concept applies, all inbound traffic is free, all outbound traffic is billed.
-
 
 ### Virtual Network
 
@@ -202,26 +201,14 @@ All traffic that occurs within the boundaries of a Virtual Network is free of ch
 
 ### Azure Bastion
 
-Azure Bastion allows you to securely and RDP & SSH to your virtual machine in the Azure virtual network, directly from the Azure portal, without the need of public IP on the VM. So keep in mind that for every virtual network that contians VMs you need to RDP or SSH, you will need an Azure Bastion Service, in the end is going to be a more economic (and more secure) solution than using jumpboxes. See [Azure Bastion Pricing][Bastion-pricing] for examples.
+In this architecture, the Azure Bastion PaaS service is used to manage the VMs in the virtual network. Azure Bastion allows you to securely and RDP & SSH to your virtual machine in the Azure virtual network, directly from the Azure portal, without the need of public IP on the VM. So keep in mind that for every virtual network that contians VMs you need to RDP or SSH, you will need an Azure Bastion Service, in the end is going to be a more economic (and more secure) solution than using jumpboxes. See [Azure Bastion Pricing][Bastion-pricing] for examples.
 
 ### Virtual machine and internal load balancing
 
-There are different budget options depending on the usage and workload. Starting from economical Bs-series to the newest GPU VMs optimized for machine learning. 
-
-For unpredictable workloads that cannot be interrupted, consider the "Pay as you go" payment option. you can Increase or decrease compute capacity on demand. Start or stop at any time and only pay for what you use.
-
-Consider Reserved Virtual Machine Instances if you want budget predicatbility. A reserved VM instance is an advanced purchase of a Virtual Machine for one or three years in a specified region, so if you can commit to using a virtual machine over a one-year or three-year term to reduce computing costs, this is the best option, it can significantly reduce costs—up to 72 percent compared to pay-as-you-go prices.
+In this architecture, internal load balancers are used to load balance traffic inside a virtual network. Basic load balancing between virtual machines that reside in the same VNET is free of charge.
 
 
-For workloads the can be iterrupted and do not require completion within a predetermined timeframe or an SLA, Spot VMs can be a good option for reduced costs.
-
-Consider Spot VMs for the following types of workloads:
-
-High-performance computing scenarios, batch processing jobs, or visual rendering applications.
-Test environments, including continuous integration and continuous delivery workloads.
-Large-scale stateless applications.
-
-Basic load balancing between virtual machines that reside in the same VNET is free of charge.
+Virtual machine scale sets are available on all Linux and windows VM sizes. You are only charged for the Azure VMs you deploy, as well as any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the virtual machine scale sets service itself.
 
 For more information See [Azure VM pricing][linux-vms-pricing]
 

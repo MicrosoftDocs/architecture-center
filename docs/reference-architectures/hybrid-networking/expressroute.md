@@ -239,40 +239,25 @@ If you must expose management endpoints for VMs to an external network, use NSGs
 
 ### Express route
 
-You can choose between two billing options Metered and Unlimited. 
+In this architecture, an Express Route circuit is used join the on-premises network with Azure through the edge routers. All inbound data transfer is free of charge, and all outbound data transfer is charged based on a pre-determined rate. See [Azure ExpressRoute pricing][expressroute-pricing] For more info.	All inbound data transfer is free of charge, and all outbound data transfer is charged based on a pre-determined rate.
 
-Metered plan: All inbound traffic is free, and all outbound traffic is charged. 
-
-Unlimited plan: All inbound and outbound data transfer is free of charge. Users are charged a single fixed monthly port fee (based on High Availability dual ports).
+There is also an unlimited plan: All inbound and outbound data transfer is free of charge. Users are charged a single fixed monthly port fee (based on High Availability dual ports).
 
 Calculate you utilization so you can decide the billing plan, tipically if you axceed about 68% of utilization you should consider the unlimited plan.
 
-See [Azure Express Route Pricing][expressroute-pricing] For more info.
+See [Azure ExpressRoute pricing][expressroute-pricing] For more info.
 
 
 ### Virtual Network
 
-Azure Virtual Network is free of charge. Every subscription is allowed to create up to 50 Virtual Networks across all regions.
-All traffic that occurs within the boundaries of a Virtual Network is free of charge. So if two VMs that are in the same VNET are talking each other then no charges will occur.
+In this architecture all the application tiers are hosted in a single virtual network, they are segmented using subnets. Azure Virtual Network is free of charge. Every subscription is allowed to create up to 50 Virtual Networks across all regions. All traffic that occurs within the boundaries of a Virtual Network is free of charge. So if two VMs that are in the same VNET are talking each other then no charges will occur.
 
 ### Virtual machine and internal load balancing
 
-There are different budget options depending on the usage and workload. Starting from economical Bs-series to the newest GPU VMs optimized for machine learning. 
-
-For unpredictable workloads that cannot be interrupted, consider the "Pay as you go" payment option. you can Increase or decrease compute capacity on demand. Start or stop at any time and only pay for what you use.
-
-Consider Reserved Virtual Machine Instances if you want budget predicatbility. A reserved VM instance is an advanced purchase of a Virtual Machine for one or three years in a specified region, so if you can commit to using a virtual machine over a one-year or three-year term to reduce computing costs, this is the best option, it can significantly reduce costs—up to 72 percent compared to pay-as-you-go prices.
+In this architecture, internal load balancers are used to load balance traffic inside a virtual network. Basic load balancing between virtual machines that reside in the same VNET is free of charge.
 
 
-For workloads the can be iterrupted and do not require completion within a predetermined timeframe or an SLA, Spot VMs can be a good option for reduced costs.
-
-Consider Spot VMs for the following types of workloads:
-
-High-performance computing scenarios, batch processing jobs, or visual rendering applications.
-Test environments, including continuous integration and continuous delivery workloads.
-Large-scale stateless applications.
-
-Basic load balancing between virtual machines that reside in the same VNET is free of charge.
+Virtual machine scale sets are available on all Linux and windows VM sizes. You are only charged for the Azure VMs you deploy, as well as any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the virtual machine scale sets service itself.
 
 For more information See [Azure VM pricing][linux-vms-pricing]
 
