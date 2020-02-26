@@ -85,23 +85,9 @@ For other resiliency topics, see [Designing reliable Azure applications](../../f
 
 This scenario is divided into three components for you to explore areas that you are most focused on:
 
-- [Conversational chatbot for hotel reservations on Azure](#conversational-chatbot-for-hotel-reservations-on-azure)
-  - [Relevant use cases](#relevant-use-cases)
-  - [Architecture](#architecture)
-    - [Components](#components)
-    - [Alternatives](#alternatives)
-  - [Considerations](#considerations)
-    - [Availability](#availability)
-    - [Scalability](#scalability)
-    - [Security](#security)
-    - [Resiliency](#resiliency)
-  - [Deploy the scenario](#deploy-the-scenario)
-    - [Prerequisites](#prerequisites)
-    - [Walk-through](#walk-through)
-    - [Deploy Web App chatbot](#deploy-web-app-chatbot)
-    - [Deploy chatbot C# application code](#deploy-chatbot-c-application-code)
-  - [Pricing](#pricing)
-  - [Related resources](#related-resources)
+- [Infrastructure components](#walk-through). Use an Azure Resource Manager template to deploy the core infrastructure components of an App Service, Web App, Application Insights, Storage account, and SQL Server and database.
+- [Web App Chatbot](#deploy-web-app-chatbot). Use the Azure CLI to deploy a bot with the Bot Service and Language Understanding and Intelligent Services (LUIS) app.
+- [Sample C# chatbot application](#deploy-chatbot-c-application-code). Use Visual Studio to review the sample hotel reservation C# application code and deploy to a bot in Azure.
 
 ### Prerequisites
 
