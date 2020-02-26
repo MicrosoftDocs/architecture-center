@@ -8,9 +8,9 @@ ms.topic: landing-page
 ---
 
 # Reference Architectures
-<a class="button is-primary" href="reference-architectures">Reference Architectures</a>
-<a class="button" href="example-workloads">Example Workloads</a>
-<a class="button" href="index">Solution Ideas</a>
+<a class="button is-primary" href="/azure/architecture/architectures/reference-architectures">Reference Architectures</a>
+<a class="button" href="/azure/architecture/architectures/example-workloads">Example Workloads</a>
+<a class="button" href="/azure/architecture/architectures/index">Solution Ideas</a>
 
 Recommended architectures for Azure.
 
@@ -494,7 +494,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0-update"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
-                                <li class="tag is-small"><a class="black-link" href="/azure/architecture/reference-architectures/serverless/web-app#alternatively,-you-can-store-application-secrets-in-key-vault.-this-allows-you-to-centralize-the-storage-of-secrets,-control-their-distribution,-and-monitor-how-and-when-secrets-are-being-accessed.-for-more-information,-see-[configure-an-azure-web-application-to-read-a-secret-from-key-vault][key-vault-web-app].-however,-note-that-functions-triggers-and-bindings-load-their-configuration-settings-from-app-settings.-there-is-no-built-in-way-to-configure-the-triggers-and-bindings-to-use-key-vault-secrets.">Alternate Configurations</a></li>
+                                <li class="tag is-small"><a class="black-link" href="/azure/architecture/reference-architectures/serverless/web-app#protect-application-secrets">Alternate Configurations</a></li>
                             </ul>
                         </div>
                     </div>
@@ -693,7 +693,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/reference-architectures/app-service-web-app/app-monitoring#components">Component details</a></li>
-                                <li class="tag is-small"><a class="black-link" href="/azure/architecture/reference-architectures/app-service-web-app/app-monitoring#pricing">Pricing Details</a></li>
+                                <li class="tag is-small"><a class="black-link" href="/azure/architecture/reference-architectures/app-service-web-app/app-monitoring#cost-considerations">Pricing Details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/reference-architectures/app-service-web-app/app-monitoring#alternatives">Alternate Configurations</a></li>
                             </ul>
                         </div>

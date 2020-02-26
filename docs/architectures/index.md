@@ -8,9 +8,9 @@ ms.topic: landing-page
 ---
 
 # Solution Ideas
-<a class="button" href="reference-architectures">Reference Architectures</a>
-<a class="button" href="example-workloads">Example Workloads</a>
-<a class="button is-primary" href="index">Solution Ideas</a>
+<a class="button" href="/azure/architecture/architectures/reference-architectures">Reference Architectures</a>
+<a class="button" href="/azure/architecture/architectures/example-workloads">Example Workloads</a>
+<a class="button is-primary" href="/azure/architecture/architectures/index">Solution Ideas</a>
 
 Architecture diagrams and overviews of workloads and solutions that can be built using Azure technologies.
 
@@ -2802,7 +2802,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/solution-ideas/articles/demand-forecasting-price-optimization-marketing#components">Component details</a></li>
-                                <li class="tag is-small"><a class="black-link" href="/azure/architecture/solution-ideas/articles/demand-forecasting-price-optimization-marketing#pricing-is-pivotal-for-many-industries,-but-it-can-be-one-of-the-most-challenging-tasks.-companies-often-struggle-to-accurately-forecast-the-fiscal-impact-of-potential-tactics,-fully-consider-core-business-constraints,-and-fairly-validate-pricing-decisions-once-they’ve-been-made.-as-product-offerings-expand-and-complicate-the-calculations-behind-real-time-pricing-decisions,-the-process-grows-even-more-difficult.">Pricing Details</a></li>
+                                <li class="tag is-small"><a class="black-link" href="/azure/architecture/solution-ideas/articles/demand-forecasting-price-optimization-marketing">Pricing Details</a></li>
                             </ul>
                         </div>
                     </div>
@@ -2917,7 +2917,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-price-optimization/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/solution-ideas/articles/demand-forecasting-and-price-optimization#technical-details-and-workflow">Data Flow</a></li>
-                                <li class="tag is-small"><a class="black-link" href="/azure/architecture/solution-ideas/articles/demand-forecasting-and-price-optimization#pricing-is-recognized-as-a-pivotal-determinant-of-success-in-many-industries-and-can-be-one-of-the-most-challenging-tasks.-companies-often-struggle-with-several-aspects-of-the-pricing-process,-including-accurately-forecasting-the-financial-impact-of-potential-tactics,-taking-reasonable-consideration-of-core-business-constraints,-and-fairly-validating-the-executed-pricing-decisions.-expanding-product-offerings-add-further-computational-requirements-to-make-real-time-pricing-decisions,-compounding-the-difficulty-of-this-already-overwhelming-task.">Pricing Details</a></li>
+                                <li class="tag is-small"><a class="black-link" href="/azure/architecture/solution-ideas/articles/demand-forecasting-and-price-optimization">Pricing Details</a></li>
                             </ul>
                         </div>
                     </div>

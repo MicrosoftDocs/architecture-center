@@ -180,19 +180,46 @@ There are two types of managed identities:
 
 Once the identity is assigned to the Azure function, assign it a role using [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) to access the resources. For example, to update a resource, the *Contributor* role will need to be assigned to the function identity.
 
-## Cost considerations
+## Cost Considerations
+
+### Azure Logic Apps
+
+Logic apps have a pay-as-you-go pricing model. Triggers, actions, and connector executions are metered each time a logic app runs. All successful and unsuccessful actions, including triggers, are considered as executions. 
+
+Logic apps have also a fixed pricing model. If you need to run logic apps that  communicate with secured resources in an Azure virtual network, you can create them in an [Integration Service Environment (ISE)][az-logic-apps-ISE].
+
+For details, see [Pricing model for Azure Logic Apps][logic-app-pricing].
+
+In this architecture, logic apps are used in the cost center tagging scenario to orchestrate the workflow. 
+
+Built-in connectors are used to connect to Azure Functions and send email notification an when an automation task is completed. The functions are exposed as a web hook/API using an HTTP trigger. Logic apps are triggered only when an HTTPS request occurs. This is a cost effective way when compared to a design where functions continuously poll and check for certain criteria. Every polling request is metered as an action.
+
+For more information, see [Logic Apps pricing][Logic-Apps-Pricing].
+
 
 ### Azure Functions
 
-Azure Functions are available with [the following three pricing plans](https://docs.microsoft.com/azure/azure-functions/functions-scale). Choose the plan depending on your automation scenario.
+Azure Functions are available with [the following three pricing plans](https://docs.microsoft.com/azure/azure-functions/functions-scale).
 
-- **Consumption plan**. This is the most cost-effective, serverless plan available, where you only pay for the time your function runs. Under this plan, functions can run for up to 10 minutes at a time. Start with this plan for the most basic scenarios.
+- **Consumption plan**. This is the most cost-effective, serverless plan available, where you only pay for the time your function runs. Under this plan, functions can run for up to 10 minutes at a time. 
 
 - **Premium plan**. Consider using [Azure Functions Premium plan](https://docs.microsoft.com/azure/azure-functions/functions-premium-plan) for automation scenarios with additional requirements, such as a dedicated virtual network, a longer execution duration, and so on. These functions can run for up to an hour, and should be chosen for longer automation tasks such as running backups, database indexing, or generating reports.
 
 - **App Service plan**. Hybrid automation scenarios that use the [Azure App Service Hybrid Connections](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections), will need to use the App Service plan. The functions created under this plan can run for unlimited duration, similar to a web app.
 
-Both the Consumption and Premium plans are execution-based models. See the [Azure Function pricing](https://azure.microsoft.com/pricing/details/functions/) when considering these plans. The App Service plan is a dedicated, *always on* model. Refer to the [App Service pricing model](https://azure.microsoft.com/pricing/details/app-service/windows/) when considering this plan.
+In this architecture Azure Functions are used for tasks such as updating tags in Azure Active Directory, or changing cosmos DB configuration by scaling up the RUs to a higher value. The **Consumption plan** is the appropriate for this use case because those tasks are interactive and not on going.
+
+### Cosmos DB
+
+Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations, such as inserts, reads. Storage is billed for each GB used for your stored data and index. See [Cosmos DB pricing model][cosmosdb-pricing] for more information.
+
+In this architecture, when data access requests to CosmosDB exceed the capacity in Request Units (or RUs), Azure Monitor triggers alerts. In response to those alerts, an Azure Monitor action group is configured to call the automation function. The function scales the RUs to a higher value. This helps to keep the cost down because you only pay for the resources that your workloads need on a per-hour basis.
+
+To get a quick cost estimate of your workload, use the [Cosmos DB capacity calculator][Cosmos-Calculator]. 
+
+Use the [Pricing calculator][Cost-Calculator] to estimate costs.
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
 ## Deployment considerations
 
@@ -209,3 +236,14 @@ To deploy the reference implementations for this architecture, see the [deployme
 ## Next steps
 
 To learn more about the serverless implementations, start [here](https://docs.microsoft.com/azure/architecture/serverless/).
+
+
+
+<!-- links -->
+
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[az-logic-apps-ISE]: https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview
+[Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[Logic-Apps-Pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
+[logic-app-pricing]: /azure/logic-apps/logic-apps-pricing
