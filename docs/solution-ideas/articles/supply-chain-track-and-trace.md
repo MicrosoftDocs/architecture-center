@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Learn how to use the Azure Blockchain Workbench. Build an asset tracking application for supply chain with a step-by-step flowchart.
 ms.custom: acom-architecture, Azure blockchain workbench, blockchain pattern, blockchain workbench, manufacturing, blockchain and IoT, interactive-diagram, is-deployable, 'https://azure.microsoft.com/solutions/architecture/supply-chain-track-and-trace/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Supply Chain Track and Trace
 

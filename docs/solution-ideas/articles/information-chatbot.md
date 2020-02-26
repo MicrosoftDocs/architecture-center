@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: This Informational Bot can answer questions defined in a knowledge set or FAQ using Cognitive Services QnA Maker and answer more open-ended questions using Azure Cognitive Search.
 ms.custom: acom-architecture, bot service, luis, interactive-diagram, ai-ml, 'https://azure.microsoft.com/solutions/architecture/information-chatbot/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Information Chatbot
 

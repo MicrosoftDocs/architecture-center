@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Easily implement the practice of CI/CD by using a consistent set of development tools and processes across the Azure public cloud and on-premises Azure Stack environments.
 ms.custom: acom-architecture, CI/CD, Azure CI/CD, Continuous Integration And Continuous Deployment, devops, Visual Studio Team Services, Microsoft DevOps, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/hybrid-ci-cd/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Hybrid CI/CD
 

@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Oracle DB migrations can be accomplished in multiple ways. This architecture covers one of these options wherein Oracle Active Data Guard is used to migrate the Database.
 ms.custom: acom-architecture, data, Oracle, Oracle Database, Oracle DB, Oracle on Azure, Oracle DB architecture, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/reference-architecture-for-oracle-database-migration-to-azure/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Oracle Database Migration to Azure
 

@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Get deep learning analytics and insights live from streaming data. Review logs from website clickstream in near real-time for advanced analytics processing.
 ms.custom: acom-architecture, Advanced analytics, deep learning analytics, advanced analytics architecture, interactive-diagram, pricing-calculator, 'https://azure.microsoft.com/solutions/architecture/real-time-analytics/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Real Time Analytics on Big Data Architecture
 

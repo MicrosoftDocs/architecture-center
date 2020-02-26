@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Learn how to build a machine-learning model with Microsoft R Server on Azure HDInsight Spark clusters to recommend actions to maximize the purchase rate.
 ms.custom: acom-architecture, predictive marketing, ai-ml, analytics, predictive analytics software, predictive analytics marketing, 'https://azure.microsoft.com/solutions/architecture/predictive-marketing-campaigns-with-machine-learning-and-spark/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Predictive Marketing with Machine Learning
 

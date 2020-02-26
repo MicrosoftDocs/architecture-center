@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Enable your team and employees to learn new processes and materials faster, with fewer errors, and greater confidence by providing persistent holographic instructions mapped to precise locations in their physical workspace. Jumpstart employee comprehension with head-up, hands-free experiences using HoloLens devices. And with Azure Spatial Anchors, you can place directions on the procedure’s most important objects and return to this content over time.
 ms.custom: acom-architecture, ai-ml, Azure Spatial Anchors, Azure Active Directory, Azure Cosmos DB, Azure App Service, Media Services, Microsoft HoloLens, Video Indexer, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/training-and-procedural-guidance-powered-by-mixed-reality/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Training and procedural guidance powered by mixed reality
 

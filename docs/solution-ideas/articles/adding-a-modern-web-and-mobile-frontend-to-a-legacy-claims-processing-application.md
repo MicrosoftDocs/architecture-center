@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: The solution demonstrates modernizing an existing application by consolidating data from multiple business systems into one place and surfacing it through web and mobile frontends. This is targeted at improving employee productivity and to enable faster decision making.
 ms.custom: acom-architecture, line of business app, lob app, lift and shift cloud strategy, cloud migration, cloud innovation, lift and shift solution, lift and shift strategy, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Lift and Shift and Innovate - LOB Apps
 

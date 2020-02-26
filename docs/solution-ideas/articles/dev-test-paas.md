@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: This architecture represents how to configure your infrastructure for development and testing of a standard PaaS-style system.
 ms.custom: acom-architecture, devops, 'https://azure.microsoft.com/solutions/architecture/dev-test-paas/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Dev-Test deployment for testing PaaS solutions
 

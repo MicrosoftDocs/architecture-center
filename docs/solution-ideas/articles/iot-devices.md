@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Create seamless conversational interfaces with all of your internet-accessible devices—from your connected television or fridge to devices in a connected power plant. LUIS is able to integrate up to 500 intents to translate commands into smart actions.
 ms.custom: acom-architecture, bot service, luis, interactive-diagram, iot, 'https://azure.microsoft.com/solutions/architecture/iot-devices/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # IoT devices
 

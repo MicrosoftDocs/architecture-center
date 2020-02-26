@@ -6,6 +6,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Visual assistant provides rich information based on content of the image with capabilities such as reading business card, identifying barcode, and recognizing popular people, places, objects, artworks, and monuments.
 ms.custom: acom-architecture, ai-ml, visual assistant, cognitive services, visual capabilities, visual assistant scenarios, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/visual-assistant/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Visual Assistant
 

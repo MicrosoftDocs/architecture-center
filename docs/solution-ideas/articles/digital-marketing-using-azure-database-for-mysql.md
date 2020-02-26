@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Engage with customers around the world with rich, personalized digital marketing experiences. Quickly build and launch digital campaigns that automatically scale based on customer demand.
 ms.custom: acom-architecture, mysql, use cases, azure, solutions, web-apps, 'https://azure.microsoft.com/solutions/architecture/digital-marketing-using-azure-database-for-mysql/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Digital Marketing using Azure Database for MySQL
 
