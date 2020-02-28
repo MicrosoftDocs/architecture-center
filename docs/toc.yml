@@ -56,9 +56,9 @@ items:
     - name: Choose a messaging service
       items:
       - name: Messaging technology choices
-      - href: guide/technology-choices/messaging.md
+        href: guide/technology-choices/messaging.md
       - name: Message encoding considerations
-      - href: guide/technology-choices/encoding.md
+        href: guide/technology-choices/encoding.md
   - name: Best practices for cloud applications
     items:
     - name: API design
