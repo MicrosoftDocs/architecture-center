@@ -18,7 +18,7 @@ As a developer using a Microsoft identity solution, you will commonly hear two t
 
 For a gentle introduction into the basics of authentication, consult the document on [Authentication basics](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 
-# Example scenario
+## Example scenario
 
 In the example scenario for this document, an IoT developer at a company
 that sells cloud-connected chillers and pumps has created a SaaS app
@@ -30,7 +30,7 @@ Azure AD rather than writing their own identity solution. This document
 will explain how and why the developer integrated their app with Azure
 AD for identity and access management.
 
-# Benefits of integrating with Azure AD
+## Benefits of integrating with Azure AD
 
 Our developer intends to save time and increase their app security by
 using an existing identity solution rather than creating one themselves.
@@ -38,27 +38,23 @@ using an existing identity solution rather than creating one themselves.
 There are several other benefits that make using Azure AD and the
 identity platform a good choice for this developer:
 
--   End users will be able to reuse preexisting credentials from work or
-    social accounts to log in
+- End users will be able to reuse preexisting credentials from work or social accounts to log in
 
--   Azure provides the necessary infrastructure to authenticate and
-    manage data from users from multiple client companies (more on this
-    below)
+- Azure provides the necessary infrastructure to authenticate and manage data from users from multiple client companies (more on this below)
 
--   IT administrators at the client companies will be able to enforce
-    organizational policies
+- IT administrators at the client companies will be able to enforce organizational policies
 
 For more on the benefits of using Azure AD, check out the [Azure AD
 landing page](https://azure.microsoft.com/services/active-directory/).
 
-# Sign in users with their existing credentials using Azure AD multi-tenancy
+## Sign in users with their existing credentials using Azure AD multi-tenancy
 
 Our developer will sell the app they are creating to many other
 companies, and they want the end users to be able to sign in using their
 existing work or social account. So our developer will register their
 app in the Azure portal as a [multi-tenant app](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant).
 
-\[!Note\] This is a common scenario for IoT developers. If your
+> [!Note] This is a common scenario for IoT developers. If your
 customers have their own Azure AD tenants, the multi-tenant app by
 itself is sufficient. If you have customers that do not have Azure AD
 tenants you can leverage Azure AD's B2B guest model outlined in scenario
@@ -72,19 +68,15 @@ identifies the tenant that each user belongs to. The developer can use
 this information to restrict access to data based on tenant membership,
 maintaining separation of proprietary information.
 
-> **Runtime:**
+### Runtime
 
-1.  User logs in to app
+1. User logs in to app
 
-2.  Azure AD determines the user's tenant and issues token with tenant
-    ID
+2. Azure AD determines the user's tenant and issues token with tenant ID
 
-3.  App accepts the token and user gets access to tenant-specific
-    resources (note that the app developer must enforce the separation
-    of resources by tenant ID)
+3. App accepts the token and user gets access to tenant-specific resources (note that the app developer must enforce the separation of resources by tenant ID)
 
-In the sections below, we'll cover the basics of registering a
-multi-tenant app with Azure AD.
+In the sections below, we'll cover the basics of registering a multi-tenant app with Azure AD.
 
 ## Prerequisites
 
@@ -128,14 +120,13 @@ them to consent to the permissions requested by the application. If they
 consent, then a service principal is created in the user's tenant, and
 sign-in can continue.
 
- **Runtime:**
+### Runtime
 
-1.  App sends sign in request to /common on behalf of user
+1. App sends sign in request to /common on behalf of user
 
-2.  User responds to sign in prompt and provides any required consent to
-    App
+2. User responds to sign in prompt and provides any required consent to app
 
-3.  Azure AD creates service principal (SP) in customer's tenant
+3. Azure AD creates service principal (SP) in customer's tenant
 
 A developer can decide if permission is needed from just the user (to
 access data related to them) or an admin (to allow access to the
@@ -144,7 +135,7 @@ the policies set on the user\'s tenant, such as if consent to add a new
 app is required by an admin of the tenant. This is explained in more
 detail in the [this document](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent).
 
-## Properly direct sign-in requests
+### Properly direct sign-in requests
 
 For multi-tenant apps, sign-in requests for AAD accounts should be sent
 to a [common
@@ -158,9 +149,9 @@ Guest users' sign in attempts are directed to a tenant-specific endpoint
 (i.e. the developer's tenant) https://login.microsoftonline.com/{TenantId\_or\_Name}. We provide an
 example of this in the Woodgrove scenario below.
 
-### Creating roles and permissions for users of your app
+#### Creating roles and permissions for users of your app
 
-#### Azure AD App Roles
+##### Azure AD App Roles
 
 In addition to authentication, the developer will want to provide the
 proper authorization within the app. Using Azure AD, this can be done
@@ -182,7 +173,7 @@ managers can then assign these pre-defined app roles to users and manage
 who has access to which resource in accordance with their organization's
 needs.
 
-#### Conditional Access
+##### Conditional Access
 
 In addition to the role based access control, IT admins at companies
 using the developer's app will be able to control access to the app and
@@ -202,7 +193,7 @@ include
 
 -   Specific applications
 
-# Example app usage scenarios
+## Example app usage scenarios
 
 So far we've explained the basic configurations necessary for a
 developer to set up a multi-tenant app. Now, let's explore a couple
@@ -212,7 +203,7 @@ will sign in to our IoT developer's app in different ways. We'll go
 through each scenario and discuss how Azure AD helped the developer meet
 the customers' needs.
 
-## Scenario 1: Customer with an existing Azure AD tenant
+### Scenario 1: Customer with an existing Azure AD tenant
 
 Fabrikam is a large enterprise customer of our developer and has its own
 Azure AD tenant. Fabrikam would like its employees to sign into the IoT
@@ -224,7 +215,7 @@ any app prior to allowing it in the tenant.
 
 Our developer's app supports these requirements as follows:
 
-### Signing in Fabrikam's users with their existing work accounts
+#### Signing in Fabrikam's users with their existing work accounts
 
 Since the app has been registered as a multi-tenant app, Fabrikam users
 can sign into the app with their Azure AD work credentials. The app must
@@ -236,7 +227,7 @@ developer can use this information to determine which resources the user
 can access. For more information about using the common endpoint, see
 [Update your code to send requests to /common](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant#update-your-code-to-send-requests-to-common).
 
-### Admin consent for the app
+#### Admin consent for the app
 
 Fabrikam's tenant administrators can set the [enterprise app settings](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance) so
 that administrator approval is required before a user in the tenant can
@@ -258,8 +249,7 @@ Benefits of the admin consent workflow include the following: \
 • Gives administrators increased visibility into what app users need access to. \
 The new workflow gives all end-users the ability to request access to apps that they were previously unable to access because of a lack of permissions. When a user tries to access an app but is unable to provide consent, they can send a request for admin approval. The request is sent via email to admins who have been designated as reviewers. A reviewer acts on the request, and the user is notified of the action.
 
-
-## Scenario 2: Customer without Azure AD tenant
+### Scenario 2: Customer without Azure AD tenant
 
 Woodgrove is another company using our developer's app. Woodgrove does
 not have an Azure AD tenant and would like its employees to log in with
@@ -278,7 +268,7 @@ company would like to ensure all access to the app can be audited and
 reported on. Leveraging Azure AD B2B will fulfill the business
 requirements as follows.
 
-### Isolation
+#### Isolation
 
 Our developer can [create a security
 group](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context)
@@ -291,7 +281,7 @@ security group-level policies put in place by the group owner. The
 developer's app will factor in guest users' group memberships when
 making access control decisions.
 
-**Runtime:**
+##### Runtime
 
 1.  User logs in to app targeting the tenanted endpoint
 
@@ -299,7 +289,7 @@ making access control decisions.
 
 3.  App accepts the token and user gets access to security group-specific resources
 
-### Adding guest users to a tenant
+#### Adding guest users to a tenant
 
 The developer can enable guests to log in with existing social account
 using an [invitation and redemption process](https://docs.microsoft.com/azure/active-directory/b2b/redemption-experience) that involves sends either a
@@ -320,7 +310,7 @@ sign in attempts are directed to the tenant-specific endpoint (i.e. the
 developer's tenant)
 https://login.microsoftonline.com/{TenantId\_or\_Name}. This may require you implement a separate sign-in page specifically for guests. 
 
-# Next Steps 
+## Next steps
 
 Our developer may want to provide an e-commerce site for customers to
 purchase licenses for their app. This e-commerce site is separate from
@@ -337,7 +327,7 @@ user provisioning. IT administrators can add connectors from the app
 gallery, and then configure and use the connectors for single sign-on
 and provisioning for additional convenience for the end user of the app.
 
-# Conclusion
+## Conclusion
 
 Using the information in this article you learned to secure your IoT
 app, providing users with and without access to existing Azure AD tenant
@@ -347,16 +337,16 @@ Architecture Center.
 
 Additional reading and resources:
 
--   [Microsoft identity platform best practices and recommendations](https://docs.microsoft.com/azure/active-directory/develop/identity-platform-integration-checklist)
+- [Microsoft identity platform best practices and recommendations](https://docs.microsoft.com/azure/active-directory/develop/identity-platform-integration-checklist)
 
--   [Azure AD developer guidance](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
+- [Azure AD developer guidance](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
 
--   [Permissions and consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
+- [Permissions and consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
 
--   [Signing up and signing in with Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-add-branding-in-azure-ad-apps#signing-up-and-signing-in-with-azure-ad)
+- [Signing up and signing in with Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-add-branding-in-azure-ad-apps#signing-up-and-signing-in-with-azure-ad)
 
--   [Self-service group management](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context)​
+- [Self-service group management](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context)​
 
--   [Restrict your app to a set of users](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
+- [Restrict your app to a set of users](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
 
--   [Microsoft identity platform (v2.0) Authentication flows and app scenarios](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios)
+- [Microsoft identity platform (v2.0) Authentication flows and app scenarios](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios)
