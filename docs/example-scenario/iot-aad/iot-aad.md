@@ -1,10 +1,10 @@
 ---
-title: Title
+title: Secure access to IoT apps with Azure AD
 titleSuffix: Azure Example Scenarios
 description: Description
 author: GitHubAlias
 ms.date: 01/31/2020
-ms.topic: example-scenarios
+ms.topic: example-scenario
 ms.service: architecture-center
 ms.custom:
     - fasttrack
@@ -44,7 +44,7 @@ landing page](https://azure.microsoft.com/services/active-directory/).
 Our developer will sell the app they're creating to many other companies. They want the end users to be able to sign in using their existing work or social account. So, our developer will register their app in the Azure portal as a [multi-tenant app](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant).
 
 > [!NOTE]
->This is a common scenario for IoT developers. If your customers have their own Azure AD tenants, the multi-tenant app by itself is sufficient. If you have customers that do not have Azure AD tenants you can leverage Azure AD's B2B guest model outlined in scenario two below.
+> This is a common scenario for IoT developers. If your customers have their own Azure AD tenants, the multi-tenant app by itself is sufficient. If you have customers that do not have Azure AD tenants you can leverage Azure AD's B2B guest model outlined in scenario two below.
 
 With a multi-tenant app, users can authenticate using any Azure AD directory or personal accounts. In addition, the admin in charge of each tenant can set their own authentication and access policies for the use of the app in their own tenant. Finally, the identity platform identifies the tenant that each user belongs to. The developer can use this information to restrict access to data based on tenant membership, maintaining separation of proprietary information.
 
@@ -65,7 +65,7 @@ The developer of the app must belong to an Azure AD tenant. If they don't have a
 Additionally, the developer needs to have permission to register an app in their Azure AD tenant. You can [check if you have sufficient permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#check-azure-ad-permissions) in the Azure portal.
 
 >[!NOTE]
->The app's home tenant is often times [created specifically for development](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant#create-a-new-azure-ad-tenant) and is separate from the ISV's own corporate tenant.
+> The app's home tenant is often times [created specifically for development](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant#create-a-new-azure-ad-tenant) and is separate from the ISV's own corporate tenant.
 
 ## Register the app
 
@@ -153,7 +153,8 @@ In addition, the admins can set up the tenant to require admin consent for certa
 
 Woodgrove is another company using our developer's app. Woodgrove does not have an Azure AD tenant and would like its employees to log in with social IDs such Facebook or Google. To enable this, the developer and IT Admins can use [Azure AD B2B (business-to-business) collaboration](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b) by adding Woodgrove's users as **guests in the app's home tenant**.
 
->[!NOTE] It is possible you may not know which external users need access to your app, in which case you can develop a self-service sign-up app that does not require an invitation to your app tenant.
+>[!NOTE]
+>It is possible you may not know which external users need access to your app, in which case you can develop a self-service sign-up app that does not require an invitation to your app tenant.
 
 Isolation of Woodgrove's users and resources from other customers and the developer's tenant must be maintained. In addition, the developer's company would like to ensure all access to the app can be audited and reported on. Leveraging Azure AD B2B will fulfill the business requirements as follows.
 
