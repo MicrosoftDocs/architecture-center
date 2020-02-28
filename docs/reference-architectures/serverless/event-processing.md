@@ -129,15 +129,21 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 ## Cost considerations
 
+Use the [Azure Pricing calculator][Cost-Calculator] to estimates costs. Here are some other considerations.
+
 ### Azure functions
 
 Azure Functions supports two hosting models. 
-- **Consumption plan**. 
-Compute power is automatically allocated when your code is running. 
-- **App Service** plan. 
-A set of VMs are allocated for your code. The App Service plan defines the number of VMs and the VM size.
 
-In this architecture, each event that arrives on Event Hubs, triggers a function that processes that event. From a cost perspective, the recommendation is to use the **consumption plan** because you pay only for the compute resources you use.
+- **Consumption plan**. 
+
+    Compute power is automatically allocated when your code is running. 
+
+- **App Service** plan. 
+
+    A set of VMs are allocated for your code. The App Service plan defines the number of VMs and the VM size.
+
+In this architecture, each event that arrives on Event Hubs, triggers a function that processes that event. From a cost perspective, the recommendation is to use **consumption plan** because you pay only for the compute resources you use.
 
 
 ### Cosmos DB
@@ -151,8 +157,6 @@ Storage is billed for each GB used for your stored data and index.
 See [Cosmos DB pricing model][cosmosdb-pricing] for more information.
 
 Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
-
-For other cost estimates, use the [Pricing calculator][Cost-Calculator].
 
 For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
