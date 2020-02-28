@@ -3,7 +3,7 @@ title: Secure access to IoT apps with Azure AD
 titleSuffix: Azure Example Scenarios
 description: Description
 author: GitHubAlias
-ms.date: 01/31/2020
+ms.date: 02/28/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.custom:
@@ -36,8 +36,7 @@ There are several other benefits that make using Azure AD and the identity platf
 
 - IT administrators at the client companies can enforce organizational policies
 
-For more on the benefits of using Azure AD, check out the [Azure AD
-landing page](https://azure.microsoft.com/services/active-directory/).
+For more on the benefits of using Azure AD, check out the [Azure AD Docs](https://azure.microsoft.com/services/active-directory/).
 
 ## Sign-in users with their existing credentials using Azure AD multi-tenancy
 
@@ -97,7 +96,7 @@ A developer can decide if permission is needed from just the user (to access dat
 
 ### Properly direct sign-in requests
 
-For multi-tenant apps, sign-in requests for AAD accounts should be sent to a [common endpoint](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant#update-your-code-to-send-requests-to-common) for all Azure AD tenants: *https://login.microsoftonline.com/common.* When the Microsoft identity platform receives a request on the common endpoint, it signs the user in and in that process discovers which tenant the user belongs to.
+For multi-tenant apps, sign-in requests for AAD accounts should be sent to a [common endpoint](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant#update-your-code-to-send-requests-to-common) for all Azure AD tenants: `https://login.microsoftonline.com/common`. When the Microsoft identity platform receives a request on the common endpoint, it signs the user in and in that process discovers which tenant the user belongs to.
 
 Guest users' sign-in attempts are directed to a tenant-specific endpoint (i.e. the developer's tenant) https://login.microsoftonline.com/{TenantId_or_Name}. We provide an example of this in the Woodgrove scenario below.
 
@@ -135,7 +134,7 @@ Our developer's app supports these requirements as follows:
 
 #### Signing in Fabrikam's users with their existing work accounts
 
-Since the app has been registered as a multi-tenant app, Fabrikam users can sign into the app with their Azure AD work credentials. The app must send the sign-in request with these credentials to the common endpoint, *https://login.microsoftonline.com/common*. The identity platform will discover which tenant the user is from and send a sign-in response token that contains information on which tenant the user belongs to. The developer can use this information to determine which resources the user can access. For more information about using the common endpoint, see [Update your code to send requests to common](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant#update-your-code-to-send-requests-to-common).
+Since the app has been registered as a multi-tenant app, Fabrikam users can sign into the app with their Azure AD work credentials. The app must send the sign-in request with these credentials to the common endpoint, `https://login.microsoftonline.com/common`. The identity platform will discover which tenant the user is from and send a sign-in response token that contains information on which tenant the user belongs to. The developer can use this information to determine which resources the user can access. For more information about using the common endpoint, see [Update your code to send requests to common](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant#update-your-code-to-send-requests-to-common).
 
 #### Admin consent for the app
 
