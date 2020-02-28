@@ -1,12 +1,10 @@
 ---
-title: Conversational chatbot for hotel reservations
-titleSuffix: Azure Example Scenarios
+title: Chatbot for hotel reservations
 description: Build a conversational chatbot for commerce applications with Azure Bot Service.
 author: iainfoulds
 ms.date: 07/05/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
 social_image_url: /azure/architecture/example-scenario/ai/media/architecture-commerce-chatbot.png
 ---
 

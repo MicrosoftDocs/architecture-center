@@ -83,4 +83,4 @@ Scale your databases elastically to accommodate unpredictable bursts of traffic 
     <path d="M701.7 0a2.043 2.043 0 00-1.9 1.9v38.8a2.043 2.043 0 001.9 1.9h2.1L743.4 0z" fill="#fff" opacity=".2" style="isolation:isolate"/>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

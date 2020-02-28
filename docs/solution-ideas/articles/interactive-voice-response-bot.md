@@ -108,4 +108,4 @@ The "Deploy" button on this page will launch a workflow that deploys an instance
   * Cosmos DB stores shared session state for every conversation, allowing the web application to scale out in a stateless architecture.
   * Azure SQL stores product inventory and order status
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

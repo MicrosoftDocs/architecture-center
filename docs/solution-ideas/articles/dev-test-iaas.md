@@ -417,9 +417,9 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 ## Next Steps
 * [Set up Azure DevOps](https://www.visualstudio.com/docs/setup-admin/get-started)
 * [Configure Microsoft Release Management agents](https://www.visualstudio.com/docs/release/getting-started/configure-agents)
-* [Deploy using Azure Resource Groups](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup)
-* [Create a lab in Azure DevTest Labs](/api/Redirect/documentation/articles/devtest-lab-create-lab/)
-* [Create your first Windows virtual machine in the Azure portal](/api/Redirect/documentation/articles/virtual-machines-windows-hero-tutorial/)
-* [Set up Application Insights for ASP.NET](/api/Redirect/documentation/articles/app-insights-asp-net/)
+* [Deploy using Azure Resource Groups](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2)
+* [Create a lab in Azure DevTest Labs](/azure/lab-services/tutorial-create-custom-lab)
+* [Create your first Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
+* [Set up Application Insights for ASP.NET](/azure/azure-monitor/app/asp-net)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

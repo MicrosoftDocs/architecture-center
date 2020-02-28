@@ -218,46 +218,6 @@ ms.custom: acom-architecture, app service environment, security for ecommerce we
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Customer accesses the public website in browser.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Browser pulls static resources and product images from Azure Content Delivery Network.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Content Delivery Network pulls product images from blob storage.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Customer searches for products.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Public website pulls product catalog from product database.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Page output is cached in the Azure Cache for Redis.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Customer creates new orders.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Public website invokes orders web service.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>Orders web service saves/loads orders from Azure SQL Database.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-10">
-<p>Employee accesses the admin website in browser.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-11">
-<p>Employee authenticates against Azure Active Directory (Azure AD).</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-12">
-<p>Employee searches orders.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-13">
-<p>Admin website invokes orders web service.</p>
-</div>
-
 ## Data Flow
 
 1. Customer accesses the public website in browser.
@@ -299,4 +259,4 @@ ms.custom: acom-architecture, app service environment, security for ecommerce we
 * [Get started with Azure AD](/azure/active-directory/get-started-azure-ad)
 * [Quickstart: Upload, download, and list blobs](/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -332,25 +332,6 @@ ms.custom: acom-architecture, data, medical records management, medical records 
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Securely ingest bulk patient data into Azure Blob storage.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Event Grid publishes patient data to Azure Functions for processing, and securely stores patient data in SQL Database.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Analyze patient data using Machine Learning, and create a Machine Learning-trained model.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Ingest new patient data in HL7/FHIR format and publish to Azure Functions for processing. Store in SQL Database.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Analyze newly ingested data using the trained Machine Learning model.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Interact with patient data using PowerBI while preserving Role-Based Access Control (RBAC).</p>
-</div>
-
 ## Data Flow
 
 1. Securely ingest bulk patient data into Azure Blob storage.
@@ -391,4 +372,4 @@ ms.custom: acom-architecture, data, medical records management, medical records 
 * [What is Operations Management Suite (OMS)?](/azure/operations-management-suite/operations-management-suite-overview)
 * [Built-in roles for Azure role-based access control](/azure/role-based-access-control/built-in-roles)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

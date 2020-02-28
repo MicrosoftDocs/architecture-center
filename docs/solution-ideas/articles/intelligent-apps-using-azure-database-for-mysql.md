@@ -90,4 +90,4 @@ Develop sophisticated, transformational apps using state of the art machine lear
     <path fill="#969696" d="M493.213 202.937h-17.75V48.729h1.5v152.708h16.25v1.5z"/>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

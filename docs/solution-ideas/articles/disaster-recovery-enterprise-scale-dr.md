@@ -78,7 +78,7 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
         <path stroke-dasharray="6.048 6.048" d="M812.737 150.569v323.594"/>
     </g>
     <text fill="#5d5d5d" font-family="SegoeUI, Segoe UI" font-size="12" transform="translate(744.757 272.644)">
-        *VMs <tspan x="0" y="14.4">aren&apos;t </tspan><tspan x="0" y="28.8">created </tspan><tspan x="0" y="43.2">until </tspan><tspan x="0" y="57.6">failover </tspan><tspan x="0" y="72">occurs</tspan>
+        \*VMs <tspan x="0" y="14.4">aren&apos;t </tspan><tspan x="0" y="28.8">created </tspan><tspan x="0" y="43.2">until </tspan><tspan x="0" y="57.6">failover </tspan><tspan x="0" y="72">occurs</tspan>
     </text>
     <text fill="#5d5d5d" font-family="SegoeUI, Segoe UI" font-size="12" transform="translate(133.826 77.733)">
         Users
@@ -290,7 +290,7 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
     </g>
     <g>
         <text fill="#5d5d5d" font-family="SegoeUI, Segoe UI" font-size="12" transform="translate(624.353 207.415)">
-            Linux <tspan letter-spacing="-.039em" x="30.932" y="0">W</tspan><tspan x="41.672" y="0">eb VM*</tspan>
+            Linux <tspan letter-spacing="-.039em" x="30.932" y="0">W</tspan><tspan x="41.672" y="0">eb VM\*</tspan>
         </text>
         <path d="M665.725 178.77H655.3c1.253 4.424-.43 5.058-7.8 5.058v2.316h25.073v-2.316c-7.373 0-8.1-.632-6.842-5.058" fill="#7a7a7a"/>
         <path d="M676.887 150.75H642.94a2.169 2.169 0 00-2.084 2.183v23.673a2.157 2.157 0 002.084 2.165h33.947a2.37 2.37 0 002.317-2.165v-23.672a2.378 2.378 0 00-2.317-2.183" fill="#a0a1a2"/>
@@ -310,7 +310,7 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
     </g>
     <g>
         <text fill="#5d5d5d" font-family="SegoeUI, Segoe UI" font-size="12" transform="translate(636.719 295.479)">
-            Share<tspan letter-spacing="-.037em" x="29.719" y="0">P</tspan><tspan x="35.994" y="0">oint</tspan><tspan x="-8.892" y="14.4">Frontend VM*</tspan>
+            Share<tspan letter-spacing="-.037em" x="29.719" y="0">P</tspan><tspan x="35.994" y="0">oint</tspan><tspan x="-8.892" y="14.4">Frontend VM\*</tspan>
         </text>
         <path d="M665.725 266.108H655.3c1.253 4.424-.43 5.058-7.8 5.058v2.316h25.073v-2.316c-7.373 0-8.1-.632-6.842-5.058" fill="#7a7a7a"/>
         <path d="M676.887 238.089H642.94a2.169 2.169 0 00-2.084 2.183v23.673a2.157 2.157 0 002.084 2.165h33.947a2.37 2.37 0 002.317-2.165v-23.673a2.378 2.378 0 00-2.317-2.183" fill="#a0a1a2"/>
@@ -331,7 +331,7 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
     </g>
     <g>
         <text fill="#5d5d5d" font-family="SegoeUI, Segoe UI" font-size="12" transform="translate(625.281 383.542)">
-            Dynamics CRM<tspan x="10.063" y="14.4">Server VM*</tspan>
+            Dynamics CRM<tspan x="10.063" y="14.4">Server VM\*</tspan>
         </text>
         <path d="M665.725 353.926H655.3c1.253 4.424-.43 5.058-7.8 5.058v2.316h25.073v-2.316c-7.373 0-8.1-.632-6.842-5.058" fill="#7a7a7a"/>
         <path d="M676.887 325.907H642.94a2.169 2.169 0 00-2.084 2.183v23.673a2.157 2.157 0 002.084 2.165h33.947a2.37 2.37 0 002.317-2.165V328.09a2.378 2.378 0 00-2.317-2.183" fill="#a0a1a2"/>
@@ -351,7 +351,7 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
     </g>
     <g>
         <text fill="#5d5d5d" font-family="SegoeUI, Segoe UI" font-size="12" transform="translate(639.971 471.606)">
-            DNS VM*
+            DNS VM\*
         </text>
         <path d="M665.725 441.4H655.3c1.253 4.424-.43 5.058-7.8 5.058v2.316h25.073v-2.316c-7.373 0-8.1-.632-6.842-5.058" fill="#7a7a7a"/>
         <path d="M676.887 413.381H642.94a2.169 2.169 0 00-2.084 2.183v23.673a2.157 2.157 0 002.084 2.165h33.947a2.37 2.37 0 002.317-2.165v-23.673a2.378 2.378 0 00-2.317-2.183" fill="#a0a1a2"/>
@@ -405,11 +405,12 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network/): The virtual network is where the failover site will be created when a disaster occurs.
 
 ## Next Steps
-* [Configure Failover routing method](/api/Redirect/documentation/articles/traffic-manager-configure-failover-routing-method/)
-* [How does Azure Site Recovery work?](/api/Redirect/documentation/articles/site-recovery-components/)
-* [Introduction to Microsoft Azure Storage](/api/Redirect/documentation/articles/storage-introduction/)
-* [Integrating your on-premises identities with Azure Active Directory](/api/Redirect/documentation/articles/active-directory-aadconnect/)
-* [Create a VNet with a Site-to-Site connection using the Azure portal](/api/Redirect/documentation/articles/vpn-gateway-howto-site-to-site-resource-manager-portal/)
-* [Designing your network infrastructure for disaster recovery](/api/Redirect/documentation/articles/site-recovery-network-design/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+* [Configure Failover routing method](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method)
+* [How does Azure Site Recovery work?](/azure/site-recovery/site-recovery-overview)
+* [Introduction to Microsoft Azure Storage](/azure/storage/common/storage-introduction)
+* [Integrating your on-premises identities with Azure Active Directory](/azure/active-directory/hybrid/whatis-azure-ad-connect)
+* [Create a VNet with a Site-to-Site connection using the Azure portal](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+* [Designing your network infrastructure for disaster recovery](https://gallery.technet.microsoft.com/Designing-Your-Network-a849fa98)
+
+

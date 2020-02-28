@@ -1,6 +1,5 @@
 ---
-title: Solutions for connecting an on-premises network to Azure
-titleSuffix: Azure Reference Architectures
+title: Connect an on-premises network to Azure
 description: Compare reference architectures for connecting an on-premises network to Azure.
 author: telmosampaio
 ms.date: 07/02/2018
@@ -23,12 +22,12 @@ This architecture is suitable for hybrid applications where the traffic between 
 ### Benefits
 
 - Simple to configure.
+- Much higher bandwidth available; up to 10 Gbps depending on the VPN Gateway SKU.
 
 ### Challenges
 
 - Requires an on-premises VPN device.
 - Although Microsoft guarantees 99.9% availability for each VPN Gateway, this [SLA](https://azure.microsoft.com/support/legal/sla/vpn-gateway/) only covers the VPN gateway, and not your network connection to the gateway.
-- A VPN connection over Azure VPN Gateway currently supports a maximum of 1.25 Gbps bandwidth. You may need to partition your Azure virtual network across multiple VPN connections if you expect to exceed this throughput.
 
 ### Reference architecture
 

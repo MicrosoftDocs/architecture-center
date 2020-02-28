@@ -1,6 +1,5 @@
 ---
-title: Basic enterprise integration using Azure
-titleSuffix: Azure Reference Architectures
+title: Basic enterprise integration on Azure
 description: Recommended architecture for implementing a simple enterprise integration pattern using Azure Logic Apps and Azure API Management.
 services: logic-apps
 author: mattfarm

@@ -298,4 +298,4 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 * [Create your first Azure Service Fabric application](/api/Redirect/documentation/articles/service-fabric-create-your-first-application-in-visual-studio/)
 * [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/api/Redirect/documentation/articles/sql-database-get-started/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

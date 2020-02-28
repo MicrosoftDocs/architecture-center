@@ -77,4 +77,4 @@ This architecture enables efficient handling of big data on Spark with Microsoft
 * [Learn more about Azure storage](/azure/storage/storage-introduction)
 * [Learn more about Machine Learning](/azure/machine-learning/machine-learning-what-is-machine-learning)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

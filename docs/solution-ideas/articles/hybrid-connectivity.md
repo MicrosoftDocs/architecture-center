@@ -132,19 +132,6 @@ Note: This doesn't apply to Azure Stack deployments that are disconnected from t
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Deploy a virtual network in Azure and Azure Stack.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Deploy a virtual network gateway in Azure and Azure Stack.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Deploy virtual machines in each virtual network.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Establish a VPN connection over the public internet between the network gateways.</p>
-</div>
-
 ## Data Flow
 
 1. Deploy a virtual network in Azure and Azure Stack.
@@ -165,4 +152,4 @@ Note: This doesn't apply to Azure Stack deployments that are disconnected from t
 * [Virtual Machines Overview](https://azure.microsoft.com/services/virtual-machines/)
 * [Azure Stack User Documentation](/azure/azure-stack/user)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

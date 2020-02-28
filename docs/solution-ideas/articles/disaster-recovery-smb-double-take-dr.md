@@ -191,4 +191,4 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 * [Create a VNet with a Site-to-Site connection using the Azure portal](/api/Redirect/documentation/articles/vpn-gateway-howto-site-to-site-resource-manager-portal/)
 * [Designing your network infrastructure for disaster recovery](/api/Redirect/documentation/articles/site-recovery-network-design/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

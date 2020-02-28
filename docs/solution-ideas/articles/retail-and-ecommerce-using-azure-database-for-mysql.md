@@ -75,4 +75,4 @@ Build secure and scalable e-commerce solutions that meet the demands of both cus
     </g>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

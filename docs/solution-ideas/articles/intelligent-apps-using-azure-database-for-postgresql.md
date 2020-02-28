@@ -246,4 +246,4 @@ Develop sophisticated, transformational apps using state of the art machine lear
     </g>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

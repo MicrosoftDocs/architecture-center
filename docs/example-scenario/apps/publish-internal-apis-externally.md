@@ -1,13 +1,12 @@
 ---
-title: Publishing internal APIs to external consumers
-titleSuffix: Azure example scenarios
+title: Publishing internal APIs to external users
 description: Use Azure API Management to modernize and expose intranet legacy web APIs.
 author: ssarwa
 ms.date: 03/12/2019
 ms.author: ssarwa
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
+ms.subservice: example-scenario
 ms.custom:
   - fasttrack
   - web-apps

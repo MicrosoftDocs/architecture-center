@@ -203,25 +203,6 @@ Simplify one-to-many real-time communication and updates using serverless code.
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Client pulls web app content from blob storage</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Web app receives SignalR token and endpoint</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>User connects to web app</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Connection triggers database event via Functions</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Functions pushes data to SignalR Service</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>…which in turn pushes data to client</p>
-</div>
-
 ## Data Flow
 
 1. Client pulls web app content from blob storage
@@ -232,4 +213,4 @@ Simplify one-to-many real-time communication and updates using serverless code.
 1. …which in turn pushes data to client
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

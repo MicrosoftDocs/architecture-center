@@ -1,6 +1,5 @@
 ---
-title: Implement a secure hybrid network architecture
-titleSuffix: Azure Reference Architectures
+title: Implement a secure hybrid network
 description: Implement a secure hybrid network architecture in Azure.
 author: MikeWasson
 ms.date: 01/07/2020
@@ -35,7 +34,7 @@ The architecture consists of the following components.
 - **Virtual network routes**. [Virtual network routes][udr-overview] define the flow of IP traffic within the Azure virtual network. In the diagram shown above, there are two user-defined route tables. 
 
     - In the gateway subnet, traffic sent to the web-tier subnet (10.0.1.0/24) is routed through the Azure Firewall instance.
-    - In the web tier subnet, all traffic (0.0.0.0/0) is sent to the Azure Firewall.
+    - In the web tier subnet, Since there is no route for address space of the VNet itself to point to Azure firewall, web tier instances are able to communicate directly to each other, not via Azure Firewall.
 
     > [!NOTE]
     > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes to implement the forwarding rules that direct traffic back through the on-premises network.
@@ -136,7 +135,7 @@ A deployment for a reference architecture that implements these recommendations 
 
 ### Deploy resources
 
-1. Navigate to the `/dmz/secure-vnet-dmz` folder of the reference architectures GitHub repository.
+1. Navigate to the `/dmz/secure-vnet-hybrid` folder of the reference architectures GitHub repository.
 
 2. Run the following command:
 
@@ -147,7 +146,7 @@ A deployment for a reference architecture that implements these recommendations 
 3. Run the following command:
 
     ```bash
-    azbb -s <subscription_id> -g <resource_group_name> -l <region> -p secure-vnet-dmz.json --deploy
+    azbb -s <subscription_id> -g <resource_group_name> -l <region> -p secure-vnet-hybrid.json --deploy
     ```
 
 ### Connect the on-premises and Azure gateways
@@ -199,7 +198,7 @@ In this step, you will connect the two local network gateways.
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [cloud-services-network-security]: /azure/best-practices-network-security
 [getting-started-with-azure-security]: /azure/security/azure-security-getting-started
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-dmz
+[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-hybrid
 [guidance-expressroute-availability]: ../hybrid-networking/expressroute.md#availability-considerations
 [guidance-expressroute-manageability]: ../hybrid-networking/expressroute.md#manageability-considerations
 [guidance-expressroute-scalability]: ../hybrid-networking/expressroute.md#scalability-considerations

@@ -252,31 +252,6 @@ The links to the right provide documentation on deploying and managing the Azure
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Create the app using Visual Studio and Xamarin.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Add the Azure App Service Mobile Apps back end service to the app solution.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Implement authentication through Azure Active Directory.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Connect to business data in external systems like SAP using Azure API Management.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Implement offline sync to make the mobile app functional without a network connection.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Build and test the app through Visual Studio App Center and publish it.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Deploy the app to devices using App Center.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Use Application Insights to monitor the App Service.</p>
-</div>
-
 ## Data Flow
 
 1. Create the app using Visual Studio and Xamarin.
@@ -285,11 +260,11 @@ The links to the right provide documentation on deploying and managing the Azure
 1. Connect to business data in external systems like SAP using Azure API Management.
 1. Implement offline sync to make the mobile app functional without a network connection.
 1. Build and test the app through Visual Studio App Center and publish it.
-1. Deploy the app to devices using App Center.
 1. Use Application Insights to monitor the App Service.
-
+1. Deploy the app to devices using App Center.
 
 ## Components
+
 * Build the web front end, mobile apps, and back end services with C# in [Visual Studio](https://azure.microsoft.com/products/visual-studio/) 2017 or [Visual Studio](https://azure.microsoft.com/products/visual-studio/) for Mac.
 * [Xamarin](https://azure.microsoft.com/features/xamarin/): Create mobile apps for iOS and Android using C# and Azure SDKs.
 * [Visual Studio App Center](https://azure.microsoft.com/services/app-center/): App Center enables a continuous integration and deployment workflow by pulling code from BitBucket, GitHub, and Visual Studio Team Services.
@@ -307,4 +282,4 @@ The links to the right provide documentation on deploying and managing the Azure
 * [API Management documentation](/azure/api-management/)
 * [Azure Active Directory Documentation](/azure/active-directory/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -148,4 +148,4 @@ The solution uses an Azure SQL server to store your transactional data and the g
 
 Please read the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a more detailed discussion of the architecture, connecting your own data and customization (Github login required).
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

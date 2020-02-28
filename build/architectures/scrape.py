@@ -17,22 +17,22 @@ import json
 use_cache=False
 single_url=False
 
-#url="https://azure.microsoft.com/en-us/solutions/architecture/dev-test-microservice/"
-#url="https://azure.microsoft.com/en-us/solutions/architecture/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview/"
-#url="https://azure.microsoft.com/en-us/solutions/architecture/modern-data-warehouse/"
-#url="https://azure.microsoft.com/en-us/solutions/architecture/advanced-analytics-on-big-data/"
-#url="https://azure.microsoft.com/en-us/solutions/architecture/cicd-for-containers/"
-#url="https://azure.microsoft.com/en-us/solutions/architecture/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters/"
+#url="https://azure.microsoft.com/en-ca/solutions/architecture/dev-test-microservice/"
+#url="https://azure.microsoft.com/en-ca/solutions/architecture/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview/"
+#url="https://azure.microsoft.com/en-ca/solutions/architecture/modern-data-warehouse/"
+#url="https://azure.microsoft.com/en-ca/solutions/architecture/advanced-analytics-on-big-data/"
+#url="https://azure.microsoft.com/en-ca/solutions/architecture/cicd-for-containers/"
+#url="https://azure.microsoft.com/en-ca/solutions/architecture/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters/"
 #url="https://azure.microsoft.com/solutions/architecture/ai-at-the-edge/"
 #url="https://azure.microsoft.com/solutions/architecture/population-health-management-for-healthcare/"
-#url="https://azure.microsoft.com/en-us/solutions/architecture/disaster-recovery-smb-azure-site-recovery/"
-#url="https://azure.microsoft.com/en-us/solutions/architecture/telemetry-analytics/"
-#url="https://azure.microsoft.com/en-us/solutions/architecture/azure-iot-subsystems/"
-url="https://azure.microsoft.com/en-us/solutions/architecture/modern-customer-support-portal-powered-by-an-agile-business-process"
+#url="https://azure.microsoft.com/en-ca/solutions/architecture/disaster-recovery-smb-azure-site-recovery/"
+#url="https://azure.microsoft.com/en-ca/solutions/architecture/telemetry-analytics/"
+#url="https://azure.microsoft.com/en-ca/solutions/architecture/azure-iot-subsystems/"
+url="https://azure.microsoft.com/en-ca/solutions/architecture/modern-customer-support-portal-powered-by-an-agile-business-process"
 
 root = path.dirname(path.abspath(__file__))
 
-mod_file = open(path.join(root, "mods.json.txt"), "r")
+mod_file = open(path.join(root, "mods.json"), "r")
 file_mods=json.load(mod_file)['mods']
 
 def get_mods(filename): 
@@ -42,7 +42,7 @@ def get_mods(filename):
   
 def scrape_page(url):
     doc_directory = path.normpath(path.join(root, "..", ".." , "docs"))
-    acom_dir=path.join(doc_directory, "solution-ideas")
+    acom_dir=path.join(doc_directory, "solution-ideas2")
     html_dir=path.join(root, "acom_html")
 
     # Generate file names
@@ -238,12 +238,12 @@ def scrape_page(url):
 
 
     # Link to JS file for dynamic content
-    articletext += "\n\n[!INCLUDE [js_include_file](../../_js/index.md)]\n"
+    articletext += "\n\n\n"
 
     # URL Cleanup
-    articletext = re.sub('\(/en-us', '(https://azure.microsoft.com', articletext, flags=re.MULTILINE)
+    articletext = re.sub('\(/en-ca', '(https://azure.microsoft.com', articletext, flags=re.MULTILINE)
     articletext = re.sub('http(:?s)://docs.microsoft.com', '', articletext, flags=re.MULTILINE)
-    articletext = re.sub('en-us\/', '', articletext, flags=re.MULTILINE)
+    articletext = re.sub('en-ca\/', '', articletext, flags=re.MULTILINE)
 
     # Modify the articles as needed to meet docs standards
     mods = get_mods(Path(str(acom_dir) + "/articles/" + filename).relative_to(doc_directory))
@@ -258,7 +258,7 @@ def scrape_page(url):
     # Remove any extra blank lines
     articletext = re.sub('\n\n\n*', '\n\n', articletext, flags=re.MULTILINE)
 
-    file=open(path.abspath(str(acom_dir) + "/articles/" + filename),"w", encoding='utf8')
+    file=open(path.abspath(str(acom_dir) + "/articles/" + filename),"w", encoding='utf8', newline='\n')
     file.write(articletext)
     file.close
     print("Wrote", path.abspath(str(acom_dir) + "/articles/" + filename))
@@ -274,13 +274,14 @@ def get_docs_url(file_path):
     file_path = Path(file_path)
     root = path.dirname(path.abspath(__file__))
     doc_directory = path.normpath(path.join(root, "..", ".." , "docs"))
-    http_url="https://docs.microsoft.com/en-us/azure/architecture/" + str(file_path.relative_to(doc_directory).as_posix()).replace(file_path.suffix, "")
+    http_url="https://docs.microsoft.com/en-ca/azure/architecture/" + str(file_path.relative_to(doc_directory).as_posix()).replace(file_path.suffix, "")
     return http_url
 
 if __name__ == '__main__':
     redirects = ""
 
     if single_url:
+        print("Scraping " + url)
         file_path = scrape_page(url)
         redirects += '<add key="%s" value="%s" />\n' % (url.rstrip('\n'), get_docs_url(file_path))
     else:
@@ -289,11 +290,12 @@ if __name__ == '__main__':
             urls = fp.readlines()
         
         for url in urls:
+            print("Scraping " + url)
             file_path = scrape_page(url.rstrip('\n'))
             redirects += '<add key="%s" value="%s" />\n' % (url.rstrip('\n'), get_docs_url(file_path))
 
     redirects = re.sub('http(:?s)://azure.microsoft.com', '', redirects, flags=re.MULTILINE)
-    redirects += '<add key="%s" value="%s" />\n' % ("/en-us/solutions/architecture/", "https://docs.microsoft.com/en-us/azure/architecture/architectures/")
+    redirects += '<add key="%s" value="%s" />\n' % ("/en-ca/solutions/architecture/", "https://docs.microsoft.com/en-ca/azure/architecture/architectures/")
     redirects += '<add key="%s" value="%s" />\n' % ("/architecture/", "https://docs.microsoft.com/azure/architecture/")
     redirect_list=open(path.join(path.dirname(path.abspath(__file__)) + '/redirect_list.txt'), "w", encoding='utf8')
     redirect_list.write(redirects)

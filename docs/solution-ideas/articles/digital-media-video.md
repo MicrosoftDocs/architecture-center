@@ -150,4 +150,4 @@ This solution is built on the Azure managed services: [Blob Storage](https://azu
 * [Develop video player applications](/api/Redirect/documentation/articles/media-services-develop-video-players/)
 * [Deliver content securely](https://azure.microsoft.com/services/media-services/content-protection/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

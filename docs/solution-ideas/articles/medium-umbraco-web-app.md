@@ -170,4 +170,4 @@ Use the following pre-built template to deploy this architecture to Azure
 ## Deploy to Azure
 * [Deploy to Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fumbraco-cms-webapp-redis-cache%2Fazuredeploy.json)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

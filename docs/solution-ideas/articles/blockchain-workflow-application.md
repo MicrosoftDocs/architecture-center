@@ -266,25 +266,6 @@ Businesses use blockchain to digitize workflows they share with other organizati
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Relevant apps, devices, and data sources send events or data to a message broker (Azure Service Bus).</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>The distributed ledger technology (DLT) consumer Logic App fetches the data from the Service Bus and sends to transaction builder which builds and signs the transaction.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>The signed transaction gets routed to Azure Blockchain Service (fully managed Ethereum consortium network) via a ledger-specific Logic App connector.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>The blockchain data manager captures block and transaction data from configured transaction nodes, decodes events and properties and then sends the data to configured destinations.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Message broker sends ledger data to consuming business applications and off-chain database.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Information is analyzed and visualized using tools such as Power BI by connecting to off-chain database.</p>
-</div>
-
 ## Data Flow
 
 1. Relevant apps, devices, and data sources send events or data to a message broker (Azure Service Bus).
@@ -323,4 +304,4 @@ Businesses use blockchain to digitize workflows they share with other organizati
 * [Virtual Network Documentation](/azure/virtual-network/)
 * [Power BI Documentation](/azure/power-bi-embedded/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

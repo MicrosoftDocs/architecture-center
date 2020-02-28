@@ -145,34 +145,6 @@ ms.custom: acom-architecture, ecommerce, scalability, web-app, architect scalabl
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>User accesses the web app in browser and signs in.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Browser pulls static resources such as images from Azure Content Delivery Network.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>User searches for products and queries SQL database.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Web site pulls product catalog from database.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Web app pulls product images from Blob Storage.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Page output is cached in Azure Cache for Redis for better performance.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>User submits order and order is placed in the queue.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Azure Functions processes order payment.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>Azure Functions makes payment to third party and records payment in SQL database.</p>
-</div>
-
 ## Data Flow
 
 1. User accesses the web app in browser and signs in.
@@ -198,4 +170,4 @@ ms.custom: acom-architecture, ecommerce, scalability, web-app, architect scalabl
 * [Learn what can you do with Azure Functions](/azure/azure-functions/functions-overview)
 * [Application Performance Management with Application Insights](/azure/application-insights/app-insights-overview)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

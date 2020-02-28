@@ -58,4 +58,4 @@ Ingest and process millions of streaming events per second with Apache Kafka, Ap
     <path d="M90.22 46.604a2.03 2.03 0 100-4.06 2.03 2.03 0 000 4.06zM79.675 43.56a2.03 2.03 0 100-4.06 2.03 2.03 0 000 4.06z" fill="#58E6FD"/>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+
