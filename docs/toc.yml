@@ -54,7 +54,11 @@ items:
     - name: Choose a load balancing service
       href: guide/technology-choices/load-balancing-overview.md
     - name: Choose a messaging service
-      href: guide/technology-choices/messaging.md
+      items:
+      - name: Messaging technology choices
+      - href: guide/technology-choices/messaging.md
+      - name: Message encoding considerations
+      - href: guide/technology-choices/encoding.md
   - name: Best practices for cloud applications
     items:
     - name: API design
