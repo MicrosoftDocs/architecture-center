@@ -164,7 +164,7 @@ Our developer can [create a security group](https://docs.microsoft.com/azure/act
 
 ##### Runtime
 
-1. User logs in to app targeting the tenanted endpoint
+1. User logs in to app using the targeted tenant endpoint
 
 2. Azure AD issues a token with tenant ID and group membership claims
 
