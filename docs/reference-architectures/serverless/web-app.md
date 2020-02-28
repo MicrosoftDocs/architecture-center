@@ -262,15 +262,20 @@ For updates that are not breaking API changes, deploy the new version to a stagi
 
 ## Cost considerations
 
+Consider these points to optimize cost of this architecture.
+
 ### Azure functions
 
 Azure Functions supports two hosting models. 
 - **Consumption plan**. 
-Compute power is automatically allocated when your code is running. 
-- **App Service** plan. 
-A set of VMs are allocated for your code. The App Service plan defines the number of VMs and the VM size.
 
-In this architecture, a function is invoked when a client makes an HTTP request. Because a constant high-volume throughput is not expected in this use case, the **consumption plan** is recommended because you pay only for the compute resources you use.
+    Compute power is automatically allocated when your code is running. 
+
+- **App Service** plan. 
+
+    A set of VMs are allocated for your code. This plan defines the number of VMs and the VM size.
+
+In this architecture, a function is invoked when a client makes an HTTP request. Because a constant high-volume throughput is not expected in this use case, **consumption plan** is recommended because you pay only for the compute resources you use.
 
 ### Cosmos DB
 
