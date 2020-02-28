@@ -48,6 +48,8 @@ Our developer will sell the app they're creating to many other companies. They w
 
 With a multi-tenant app, users can authenticate using any Azure AD directory or personal accounts. In addition, the admin in charge of each tenant can set their own authentication and access policies for the use of the app in their own tenant. Finally, the identity platform identifies the tenant that each user belongs to. The developer can use this information to restrict access to data based on tenant membership, maintaining separation of proprietary information.
 
+![azure ad multi-tenant architecture](./media/multi-tenant-iot.png)
+
 ### Runtime
 
 1. User logs in to app
@@ -99,9 +101,7 @@ For multi-tenant apps, sign-in requests for AAD accounts should be sent to a [co
 
 Guest users' sign-in attempts are directed to a tenant-specific endpoint (i.e. the developer's tenant) https://login.microsoftonline.com/{TenantId_or_Name}. We provide an example of this in the Woodgrove scenario below.
 
-#### Creating roles and permissions for users of your app
-
-##### Azure AD App Roles
+#### Azure AD App Roles
 
 In addition to authentication, the developer will want to provide the proper authorization within the app. Using Azure AD, this can be done with [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview) (RBAC) and [Role Claims](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management). When using RBAC, an administrator grants permissions to **roles**, and not to individual users or groups.
 
@@ -109,7 +109,7 @@ The developer will [add roles](https://docs.microsoft.com/azure/active-directory
 
 An app does not need any extra Active Directory permissions, other than reading the user's profile, to enable app roles. Role assignment managers can then assign these pre-defined app roles to users and manage who has access to which resource following their organization's needs.
 
-##### Conditional Access
+#### Conditional Access
 
 In addition to the role based access control, IT admins at companies using the developer's app can control access to the app and the related IoT resources according to organizational policy around specific conditions.
 
@@ -130,8 +130,6 @@ So far we've explained the basic configurations necessary for a developer to set
 ### Scenario 1: Customer with an existing Azure AD tenant
 
 Fabrikam is a large enterprise customer of our developer and has its own Azure AD tenant. Fabrikam would like its employees to sign into the IoT app using their existing Azure AD work accounts. In addition, the company's IT departments will manage access and apply organizational policies for access to the app, the IoT devices, and data the IoT app manages. Fabrikam's global admin will review the permissions required by any app before allowing it in the tenant.
-
-![azure ad multi-tenant architecture](./media/multi-tenant-iot.png)
 
 Our developer's app supports these requirements as follows:
 
@@ -157,8 +155,6 @@ In addition, the admins can set up the tenant to require admin consent for certa
 
 Woodgrove is another company using our developer's app. Woodgrove does not have an Azure AD tenant and would like its employees to log in with social IDs such Facebook or Google. To enable this, the developer and IT Admins can use [Azure AD B2B (business-to-business) collaboration](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b) by adding Woodgrove's users as **guests in the app's home tenant**.
 
-![azure b2b architecture](./media/single-tenant-iot.png)
-
 >[!NOTE]
 >It is possible you may not know which external users need access to your app, in which case you can develop a self-service sign-up app that does not require an invitation to your app tenant.
 
@@ -167,6 +163,8 @@ Isolation of Woodgrove's users and resources from other customers and the develo
 #### Isolation
 
 Our developer can [create a security group](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) in their home tenant that will act as the isolation boundary for Woodgrove's users and their IoT devices. Woodgrove can designate one of its users as the owner of the security group so that that user can control security group membership. Guests will be subject to the tenant-level policies set in the developer's home tenant, and security group-level policies put in place by the group owner. The developer's app will factor in guest users' group memberships when making access control decisions.
+
+![azure b2b architecture](./media/single-tenant-iot.png)
 
 ##### Runtime
 
