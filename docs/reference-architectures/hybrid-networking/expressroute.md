@@ -234,11 +234,11 @@ If you must expose management endpoints for VMs to an external network, use NSGs
 
 In this architecture you use a set of [Azure Building Blocks][azbb] custom templates deployed manually by using the Azure Portal, so it follows the IaC process for deploying the infrastructure. To automate infrastructure deployment, you can use Azure DevOps Services or other CI/CD solutions. The deployment process is also idempotent - that is, repeatable to produce the same results. 
 
-Azure Building Blocks temaplates are also good for dependency tracking since they allow to define dependencies for resources that are deployed in the same template. For a given resource, there can be other resources that must exist before the resource is deployed.
+Azure Building Blocks templates are also good for dependency tracking since they allow to define dependencies for resources that are deployed in the same template. For a given resource, there can be other resources that must exist before the resource is deployed.
 
 ### Network monitoring
 
-Use the Network Watcher to monitor and troubleshoot the network compoents, tools like Traffic Analytics will show you the systems in your virtual networks that generate most traffic, so that you can visually identify bottlenecks before they degenerate into problems. Network Performance Manager is the aduquate tool to monitor information about Microsoft ExpressRoute circuits. For more information see [Monitoring For DevOps][devops-monitoring] in the Azure Architecure Framework.
+Use the Network Watcher to monitor and troubleshoot the network components, tools like Traffic Analytics will show you the systems in your virtual networks that generate most traffic, so that you can visually identify bottlenecks before they degenerate into problems. Network Performance Manager is the aduquate tool to monitor information about Microsoft ExpressRoute circuits. For more information see [Monitoring For DevOps][devops-monitoring] in the Azure Architecure Framework.
 
 You also can use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor connectivity between your on-premises datacenter and Azure.
 
