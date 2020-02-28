@@ -81,6 +81,8 @@ When the app is registered, two objects are created in the tenant:
 
 The next step is for the developer to ensure the app [obtains consent](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent) to access protected resources on the user's behalf. When a user from a new tenant signs in to the application for the first time, Azure AD asks them to consent to the permissions requested by the application. If they consent, then a service principal is created in the user's tenant, and sign-in can continue.
 
+![request response diagram](./media/request.png)
+
 ### Runtime
 
 1. App sends sign-in request to common for the user
@@ -129,6 +131,8 @@ So far we've explained the basic configurations necessary for a developer to set
 
 Fabrikam is a large enterprise customer of our developer and has its own Azure AD tenant. Fabrikam would like its employees to sign into the IoT app using their existing Azure AD work accounts. In addition, the company's IT departments will manage access and apply organizational policies for access to the app, the IoT devices, and data the IoT app manages. Fabrikam's global admin will review the permissions required by any app before allowing it in the tenant.
 
+![azure ad multi-tenant architecture](./media/multi-tenant-iot.png)
+
 Our developer's app supports these requirements as follows:
 
 #### Signing in Fabrikam's users with their existing work accounts
@@ -152,6 +156,8 @@ In addition, the admins can set up the tenant to require admin consent for certa
 ### Scenario 2: Customer without Azure AD tenant
 
 Woodgrove is another company using our developer's app. Woodgrove does not have an Azure AD tenant and would like its employees to log in with social IDs such Facebook or Google. To enable this, the developer and IT Admins can use [Azure AD B2B (business-to-business) collaboration](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b) by adding Woodgrove's users as **guests in the app's home tenant**.
+
+![azure b2b architecture](./media/single-tenant-iot.png)
 
 >[!NOTE]
 >It is possible you may not know which external users need access to your app, in which case you can develop a self-service sign-up app that does not require an invitation to your app tenant.
