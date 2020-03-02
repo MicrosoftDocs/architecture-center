@@ -397,6 +397,14 @@ Use Azure Monitor alerts to notify sysadmins when certain conditions occur in sp
 
 [Log search alert rules](/azure/azure-monitor/platform/alerts-unified-log) allow you to define and run a Kusto query against a Log Analytics workspace at regular intervals. An alert is created if the query result matches a certain condition.
 
+## DevOps considerations
+
+### Azure Pipelines
+
+For DevOps considerations in a microservices architecture, see the DevOps section in [Microservices architecture on Azure Kubernetes Service](./aks.md#devops-considerations)
+
+You can also learn how to deploy a container application with CI/CD to a Service Fabric cluster, in this [tutorial][service-fabric-tutorial]
+
 ## Deploy the solution
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][ri-deploy].
 
@@ -409,3 +417,4 @@ To deploy the reference implementation for this architecture, follow the steps i
 - [Designing a microservices architecture](../../microservices/design/index.md)
 
 [sfx]: /azure/service-fabric/service-fabric-visualizing-your-cluster
+[service-fabric-tutorial]: https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-container-app-with-cicd-vsts

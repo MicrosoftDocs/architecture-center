@@ -245,7 +245,9 @@ Scan images and running containers for known vulnerabilities, using a scanning s
 
 Automate image patching using ACR Tasks, a feature of Azure Container Registry. A container image is built up from layers. The base layers include the OS image and application framework images, such as ASP.NET Core or Node.js. The base images are typically created upstream from the application developers, and are maintained by other project maintainers. When these images are patched upstream, it's important to update, test, and redeploy your own images, so that you don't leave any known security vulnerabilities. ACR Tasks can help to automate this process.
 
-## Deployment (CI/CD) considerations
+## DevOps considerations
+
+This reference architecture provides an [Azure Resource Manager template][arm-template] for provisioning the cloud resources, and its dependencies. With the use of [Azure Resource Manager templates][arm-template] you can use [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production scenarios. This allows you save cost and provision load testing environment only when needed.
 
 Here are some goals of a robust CI/CD process for a microservices architecture:
 
@@ -263,6 +265,8 @@ For specific recommendations and best practices, see [CI/CD for microservices on
 
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][ri-deploy].
 
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [ri]: https://github.com/mspnp/microservices-reference-implementation
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.md
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/aks-reference-architecture.vsdx

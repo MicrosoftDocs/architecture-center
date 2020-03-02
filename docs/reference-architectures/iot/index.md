@@ -137,6 +137,16 @@ Logging systems are integral in understanding what actions or activities a solut
 
 Though plain-text logging is lower impact on upfront development costs, it is more challenging for a machine to parse/read. We recommend structured logging be used, as collected information is both machine parsable and human readable. Structured logging adds situational context and metadata to the log information. In structured logging, properties are first class citizens formatted as key/value pairs, or with a fixed schema, to enhance search and query capabilities.
 
+## DevOps considerations
+
+Consider creating an [Azure Resource Manager template][arm-template] for provisioning the IoT resources and the infrastructure, so you follow Infrastructure as code practuce (IaC). IaC is the management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, using the same versioning as DevOps team uses for source code. The most reliable deployment processes are automated and idempotent — that is, repeatable to produce the same results. 
+
+To automate infrastructure deployment, you can use Azure DevOps Services, Jenkins, or other CI/CD solutions. Azure [Pipelines][pipelines] is part of [Azure DevOps Services][az-devops] and runs automated builds, tests, and deployments.
+
+You can also learn how to adopt DevOps with your Azure IoT Edge applications with the built-in Azure IoT Edge tasks in Azure Pipelines, see this [How-to guide][IoT-edge-devops].
+
+For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+
 ## Next steps
 
 - For a more detailed discussion of the recommended architecture and implementation choices, see [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (PDF).
@@ -144,3 +154,8 @@ Though plain-text logging is lower impact on upfront development costs, it is mo
 - For detailed documentation of the various Azure IoT services, see [Azure IoT Fundamentals](/azure/iot-fundamentals/).
 
 - A sample IoT implementation is available on [GitHub](https://github.com/mspnp/iot-guidance).
+
+[AAF-devops]: /azure/architecture/framework/devops/overview
+[az-devops]: https://docs.microsoft.com/azure/devops/index?view=azure-devops
+[IoT-edge-devops]: https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd
+[pipelines]: https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops
