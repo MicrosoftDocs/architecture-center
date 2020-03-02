@@ -141,7 +141,8 @@ Though plain-text logging is lower impact on upfront development costs, it is mo
 
 ### IoT Hub
 
-Billing varies depending on the operation performed. Jobs operations (create, update, insert, delete), for example, are not charged. 
+
+In this architecture the devices connect to the cloud and send events through a cloud gateway. You can use the IoT Hub for event ingestion. IoT Hub billing varies depending on the operation performed. Jobs operations (create, update, insert, delete), for example, are not charged. 
 Device-To-Cloud messages are charged this way:
 
 Successfully sent messages are charged in 4-KB chunks on ingress into IoT Hub. For example, a 6-KB message is charged 2 messages.
@@ -150,13 +151,17 @@ See [IoT Hub Pricing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-
 
 ### Azure Stream Analytics
 
-Azure Stream Analytics is priced by the number of streaming units ($0.11/hour) required to process the data into the service. Azure Stream Analytics on IoT Edge is billed per job; billing starts when an ASA job is deployed to devices, no matter what the job status is (running/failed/stopped).
+Azure Stream Analytics is used for stream processing and rules evaluation. Azure Stream Analytics is priced by the number of streaming units ($0.11/hour) required to process the data into the service. Azure Stream Analytics on IoT Edge is billed per job; billing starts when an ASA job is deployed to devices, no matter what the job status is (running/failed/stopped).
 
 ### Azure functions
 
-Azure functions service is managed by the cloud provider, so the total cost of owning the service is minimal, you pay for consumption. Azure Functions consumption plan is billed based on per-second resource consumption and execution count. Number of executions count is simple: each function defines an event trigger which fires the execution. Batching is recommended for reducing cost, that means processing several events in a single execution.
+In this architecture we recommend using Azure Functions for data transformationm that occurs after the data reaches the IoT Hub. Azure functions service is managed by the cloud provider, so the total cost of owning the service is minimal. From a cost perspective, the recommendation is to use consumption plan because you pay only for the compute resources you use.
+
+Azure Functions consumption plan is billed based on per-second resource consumption and execution count. Number of executions count is simple: each function defines an event trigger which fires the execution. Batching is recommended for reducing cost, that means processing several events in a single execution.
 
 ### Logic Apps
+
+In this architecure we recommend using Loic Apps for business process integration.
 
 Logig apps pricing works on the pay-as-you-go model. For instance, if you process 1000 service bus messages a day, with a workflow of five actions it would cost you less than 6 USD. Every time a Logic App definition is triggered, action and connector executions are metered. See [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/) for more info.
 

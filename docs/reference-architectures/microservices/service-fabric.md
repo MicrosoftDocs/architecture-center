@@ -405,6 +405,8 @@ Use the [Azure Cost Calculator][Cost-Calculator] to estimate you resources and c
 
 ### Api Management
 
+In this architecture, you use API Management to act as an API gateway that routes the requests from clients to your services (Ingress).
+
 There are different pricing options including one for Consumption, which offers the Gateway component on a pay-per-use basis. See [Api Management pricing][Api-Management-pricing]
 
 ### Azure DevOps Services
@@ -413,15 +415,19 @@ Choose the plan that's right for you. For this reference architectures, you only
 
 ### Azure monitor
 
-For Azure Monitor Log Analytics, you pay for data ingestion and data retention.
+In this architecture you use Azure Monitor to collect and store metrics and logs, including platform metrics and application telemetry. For Azure Monitor Log Analytics, you pay for data ingestion and data retention. See [Azure Monitor Pricing][az-monitor-pricing] for more information.
+
+### Application Insights
+
+You can you Application insights for Application level telemetry. Use it also To view the traces and event logs in a structured way. The pricing for Azure Application Insights is a Pay-As-You-Go model based on data volume ingested and optionally for longer data retention. See [Manange Usage and Cost For Application Insights][ap-insight-cost] for more information.
 
 ### Azure KeyVault
 
-Azure Key Vault is offered in two service tiers: standard and premium. If you don't need HSM-protected keys you should go for Standard.
+In this is architecure you use Azure Key Vault to store the Application Insight's instrumentation key as a secret. Azure Key Vault is offered in two service tiers: standard and premium. If you don't need HSM-protected keys you should go for Standard.
 
 ### Virtual Machine Scale Sets
 
-Virtual Machine scale sets are available on all Linux VM sizes. You are only charged for the Azure VMs you deploy, as well as any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the Virtual Machine scale sets service itself.
+Your microservices are deployed into the service fabric cluster in form of nodes, that are virtual machine scale sets. Virtual Machine scale sets are available on all Linux VM sizes. You are only charged for the Azure VMs you deploy, as well as any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the Virtual Machine scale sets service itself.
 
 
 Use the [Pricing calculator][Cost-Calculator] to estimate costs.
@@ -441,6 +447,9 @@ To deploy the reference implementation for this architecture, follow the steps i
 
 
 [AAF-cost]: /azure/architecture/framework/cost/overview
+[ap-insight-cost]: https://docs.microsoft.com/azure/azure-monitor/app/pricing
 [Api-Management-pricing]: https://azure.microsoft.com/pricing/details/api-management/
+[az-monitor-pricing]: https://azure.microsoft.com/pricing/details/monitor/
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services/
 [sfx]: /azure/service-fabric/service-fabric-visualizing-your-cluster

@@ -263,15 +263,16 @@ For specific recommendations and best practices, see [CI/CD for microservices on
 
 ### AKS
 
-You only pay for the virtual machines instances, storage and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources please see the [Container Services calculator][aks-Calculator]
+In this architecture you deploy a microservices application to Azure Kubernetes Service (AKS), AKS is an Azure service that deploys a managed Kubernetes cluster. You only pay for the virtual machines instances, storage and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources please see the [Container Services calculator][aks-Calculator]
 
 ### Azure Load balancer
 
-You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules don't count in the total number of rules and for the amount of data processed inbound and outbound independent of rules. There is no hourly charge for the Standard Load Balancer when no rules are configured.
+In this scenario, the load balancer routes internet traffic to the ingress Gateway. You are charged only for the Amount of data processed inbound independent of rules. There is no hourly charge for the Standard Load Balancer when no rules are configured. See [Azure Load Balancer Pricing][az-lb-pricing] for more information.
+
 
 ### Azure Application Gateway
 
-You are charged for the application gateways based on the amount of time that the gateway is provisioned and available, as well as the amount of data processed by the application gateways. See [App Gateway pricing][AppGatewayPricing] for more info.
+For Ingress, you can use Azure Application Gateway to route traffic to services inside de cluster. You are charged for the application gateways based on the amount of time that the gateway is provisioned and available, as well as the amount of data processed by the application gateways. See [App Gateway pricing][AppGatewayPricing] for more information.
 
 ### Azure DevOps Services
 
@@ -279,7 +280,7 @@ Choose the plan that's right for you. For this reference architectures, you only
 
 ### Azure monitor
 
-For Azure Monitor Log Analytics, you pay for data ingestion and data retention.
+In this architecture you use Azure Monitor to collect and store metrics and logs, including platform metrics and application telemetry. For Azure Monitor Log Analytics, you pay for data ingestion and data retention. See [Azure Monitor Pricing][az-monitor-pricing] for more information.
 
 
 Use the [Pricing calculator][Cost-Calculator] to estimate costs.
@@ -293,6 +294,8 @@ To deploy the reference implementation for this architecture, follow the steps i
 [AAF-cost]: /azure/architecture/framework/cost/overview
 [AppGatewayPricing]: https://azure.microsoft.com/pricing/details/application-gateway/
 [aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service
+[az-lb-pricing]: https://azure.microsoft.com/pricing/details/load-balancer/
+[az-monitor-pricing]: https://azure.microsoft.com/pricing/details/monitor/
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services/
 [ri]: https://github.com/mspnp/microservices-reference-implementation
