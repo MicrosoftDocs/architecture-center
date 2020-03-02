@@ -125,44 +125,33 @@ This architecture supports [disaster recovery][hli-dr] between HANA Large Instan
 
 ## Cost Considerations
 
+SKUs can affect the billing model. Here are some cost considerations.
+
 ### Virtual machines
 
-In this architecture, virtual machines are used for hosting SAP applications, SAP services and shared services such as management jump boxes. There 
-are specific certified SKUs of HANA large Instances, the configurations chosen are dependent on workload, CPU resources, desired memory and budget. 
+In this reference architecture, virtual machines are used for hosting SAP applications, SAP services, and shared services such as management jumpboxes. There are certain certified SKUs of HANA Large Instances. The configurations depend on the workload, CPU resources, desired memory, and budget. 
 
-SAP HANA on Azure Large Instances SKUs are available as reserved VM instances (1 or 3 years).  You get purpose-built SAP HANA infrastructure with high-performance compute, storage and network. SAP HANA on Azure Large Instances are coupled with high-performance NFS storage and networking and provide built-in support for backups through storage snapshots, high availability and disaster recovery and scale-out configurations.
+SAP HANA on Azure Large Instances SKUs are available as reserved VM instances. Azure Reservations can lower your cost if you can commit to one-year or three-year term. VM reservations can reduce costs up to 72% when compared to pay-as-you-go prices. You get a purpose-built SAP HANA infrastructure with compute, storage, and network. SAP HANA on Azure Large Instances are coupled with NFS storage and networking and provide built-in support for backups through storage snapshots, high availability and disaster recovery and scale-out configurations. If your workload doesn't have a predictable time of completion or resource consumption, consider the Pay-as-you-go option.
+
+Use Azure [Spot VMs][az-spot-vms] to run workloads the can be interrupted and do not require completion within a predetermined timeframe or an SLA.
 
 See the [available SKUs for HLI][HLI-SKUs] for more information.
-
-There are several payment options for virtual machines in general:
-
-For workloads with no predictable time of completion or resource consumption, consider the Pay as you go option.
-
-Consider using Azure Reservations if you can commit to using a virtual machine over a one-year or three-year term. VM reservations can reduce costs up to 72 % compared to pay-as-you-go prices.
-
-Use Azure [Spot VMs][az-spot-vms] to run workloads the can be interrupted and do not require completion within a predetermined timeframe or an SLA. Azure deploys Spot VMs if there is available capacity and evicts when it needs the capacity back. Costs associated with Spot virtual machines are significantly lower. Consider Spot VMs for these workloads:
-
-High-performance computing scenarios, batch processing jobs, or visual rendering applications.
-Test environments, including continuous integration and continuous delivery workloads.
-Large-scale stateless applications.
-
 
 For more information See [HLI for SAP HANA Virtual Machines Pricing][HLI-vms-pricing], there is a specific section with SKUs for SAP HANA on Azure Large Instances.
 
 
 ### Express Route
 
-For this architecture, Express Route is the networking service used for creating private connections between an on-premises network and Azure virtual networks. Azure VMs connect to HANA Large Instances using another ExpressRoute connection and an ExpressRoute Gateway, [High Performance or Ultra Performance][sku] is the recommended SKU.
+For this architecture, Express Route is used as the networking service for creating private connections between an on-premises network and Azure virtual networks. Azure VMs connect to HANA Large Instances using another ExpressRoute connection and an ExpressRoute Gateway, [High Performance or Ultra Performance][sku] is the recommended SKU.
 
-All inbound data transfer is free of charge, and all outbound data transfer is charged based on a pre-determined rate. See [Azure ExpressRoute pricing][expressroute-pricing] For more info.
-
+All inbound data transfer is free of charge, and all outbound data transfer is charged based on a pre-determined rate. For more information, see [Azure ExpressRoute pricing][expressroute-pricing].
 
 Use the [Pricing calculator][Cost-Calculator] to estimate costs.
 
 For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
 > [!NOTE]
-> You can optimize this reference architecture for costs by running in a single-instance environment. This [cost-optimized scenario](https://blogs.sap.com/2016/07/19/new-whitepaper-for-high-availability-for-sap-hana-cost-optimized-scenario/) is suitable for non-production HANA workloads.
+> You can optimize this reference architecture for cost by running it in a single-instance environment. This [cost-optimized scenario](https://blogs.sap.com/2016/07/19/new-whitepaper-for-high-availability-for-sap-hana-cost-optimized-scenario/) is suitable for non-production HANA workloads.
 
 ## Backup considerations
 
