@@ -91,7 +91,7 @@ A multi-host scale-out deployment is generally used for BW/4HANA deployments as 
 
 S/4HANA and SAP Business Suite on HANA on a single blade can be scaled up to 20 TB with a single HANA Large Instances instance.
 
-For greenfield scenarios, the [SAP Quick Sizer][quick-sizer] is available to calculate memory requirements of the implementation of SAP software on top of HANA. Memory requirements for HANA increase as data volume grows. Use your system’s current memory consumption as the basis for predicting future consumption, and then map your demand into one of the HANA Large Instances sizes.
+For green field scenarios, the [SAP Quick Sizer][quick-sizer] is available to calculate memory requirements of the implementation of SAP software on top of HANA. Memory requirements for HANA increase as data volume grows. Use your system’s current memory consumption as the basis for predicting future consumption, and then map your demand into one of the HANA Large Instances sizes.
 
 If you already have SAP deployments, SAP provides reports you can use to check the data used by existing systems and calculate memory requirements for a HANA instance. For example, see the following SAP Notes:
 
@@ -131,9 +131,9 @@ SKUs can affect the billing model. Here are some cost considerations.
 
 In this reference architecture, virtual machines are used for hosting SAP applications, SAP services, and shared services such as management jumpboxes. There are certain certified SKUs of HANA Large Instances. The configurations depend on the workload, CPU resources, desired memory, and budget. 
 
-SAP HANA on Azure Large Instances SKUs are available as reserved VM instances. Azure Reservations can lower your cost if you can commit to one-year or three-year term. VM reservations can reduce costs up to 72% when compared to pay-as-you-go prices. You get a purpose-built SAP HANA infrastructure with compute, storage, and network. SAP HANA on Azure Large Instances are coupled with NFS storage and networking and provide built-in support for backups through storage snapshots, high availability and disaster recovery and scale-out configurations. If your workload doesn't have a predictable time of completion or resource consumption, consider the Pay-as-you-go option.
+SAP HANA on Azure Large Instances SKUs are available as reserved VM instances. Azure Reservations can lower your cost if you can commit to one-year or three-year term. VM reservations can reduce costs up to 72% when compared to pay-as-you-go prices. You get a purpose-built SAP HANA infrastructure with compute, storage, and network. SAP HANA on Azure Large Instances is coupled with NFS storage and networking and provide built-in support for backups through storage snapshots, high availability and disaster recovery and scale-out configurations. If your workload doesn't have a predictable time of completion or resource consumption, consider the Pay-as-you-go option.
 
-Use Azure [Spot VMs][az-spot-vms] to run workloads the can be interrupted and do not require completion within a predetermined timeframe or an SLA.
+Use Azure [Spot VMs][az-spot-vms] to run workloads that can be interrupted and do not require completion within a predetermined timeframe or an SLA.
 
 See the [available SKUs for HLI][HLI-SKUs] for more information.
 
@@ -185,7 +185,7 @@ If you need more computing capability, you must get a larger SKU.
 
 - For physical security, access to Azure datacenters is limited to authorized personnel only. No customers can access the physical servers.
 
-For more information, see [SAP HANA Security  &mdash;  An Overview][sap-security].(A SAP Service Marketplace account is required for access.)
+For more information, see [SAP HANA Security  &mdash;  An Overview][sap-security].(An SAP Service Marketplace account is required for access.)
 
 ## Communities
 
