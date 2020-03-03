@@ -90,9 +90,9 @@ Traditional on-premises SAP landscapes implement multiple network interface card
 
 ### Subnets and NSGs
 
-This architecture subdivides the virtual network address space into subnets. Each subnet can be associated with a NSG that defines the access policies for the subnet. Place application servers on a separate subnet so you can secure them more easily by managing the subnet security policies, not the individual servers.
+This architecture subdivides the virtual network address space into subnets. Each subnet can be associated with an NSG that defines the access policies for the subnet. Place application servers on a separate subnet so you can secure them more easily by managing the subnet security policies, not the individual servers.
 
-When a NSG is associated with a subnet, it then applies to all the servers within the subnet. For more information about using NSGs for fine-grained control over the servers in a subnet, see [Filter network traffic with network security groups](https://azure.microsoft.com/blog/multiple-vm-nics-and-network-virtual-appliances-in-azure/).
+When an NSG is associated with a subnet, it then applies to all the servers within the subnet. For more information about using NSGs for fine-grained control over the servers in a subnet, see [Filter network traffic with network security groups](https://azure.microsoft.com/blog/multiple-vm-nics-and-network-virtual-appliances-in-azure/).
 
 See also [Planning and design for VPN Gateway](/azure/vpn-gateway/vpn-gateway-plan-design).
 
@@ -100,7 +100,7 @@ See also [Planning and design for VPN Gateway](/azure/vpn-gateway/vpn-gateway-pl
 
 [SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/8fe37933114e6fe10000000a421937/frameset.htm) handles load balancing of HTTP(S) traffic including Fiori style applications to a pool of SAP application servers.
 
-For traffic from SAP GUI clients connecting a SAP server via DIAG or Remote Function Calls (RFC), the Central Service message server balances the load through SAP application server [logon groups](https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing), so no additional load balancer is needed.
+For traffic from SAP GUI clients connecting an SAP server via DIAG or Remote Function Calls (RFC), the Central Service message server balances the load through SAP application server [logon groups](https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing), so no additional load balancer is needed.
 
 ### Azure Storage
 
@@ -162,21 +162,19 @@ To use Azure Site Recovery to automatically build a fully replicated production 
 
 ### Virtual machines and availability sets
 
-This architecture uses virtual machines running Linux, for the application tier and database tier. SAP NetWeaver tier uses Windows virtual machines to run SAP servies and applications. The database tier runs AnyDB as the database, such as Microsoft SQL Server, Oracle, or IBM DB2. Virtual machines are also used as jump boxes for management.
-
-#### Payment options
+This architecture uses virtual machines running Linux, for the application tier and database tier. SAP NetWeaver tier uses Windows virtual machines to run SAP services and applications. The database tier runs AnyDB as the database, such as Microsoft SQL Server, Oracle, or IBM DB2. Virtual machines are also used as jump boxes for management.
 
 There are several payment options for virtual machines in general:
 
-For workloads with no predictable time of completion or resource consumption, consider the Pay as you go option.
+For workloads with no predictable time of completion or resource consumption, consider the Pay-as-you-go option.
 
-Consider using Azure Reservations if you can commit to using a virtual machine over a one-year or three-year term. VM reservations can reduce costs up to 72 % compared to pay-as-you-go prices.
+Consider using [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) if you can commit to using a virtual machine over a one-year or three-year term. VM reservations can reduce costs up to 72% compared to pay-as-you-go prices.
 
-Use Azure [Spot VMs][az-spot-vms] to run workloads the can be interrupted and do not require completion within a predetermined timeframe or an SLA. Azure deploys Spot VMs if there is available capacity and evicts when it needs the capacity back. Costs associated with Spot virtual machines are significantly lower. Consider Spot VMs for these workloads:
+Use [Azure Spot VMs][az-spot-vms] to run workloads that can be interrupted and do not require completion within a predetermined timeframe or an SLA. Azure deploys Spot VMs if there is available capacity and evicts when it needs the capacity back. Costs associated with Spot virtual machines are significantly lower. Consider Spot VMs for these workloads:
 
-High-performance computing scenarios, batch processing jobs, or visual rendering applications.
-Test environments, including continuous integration and continuous delivery workloads.
-Large-scale stateless applications.
+- High-performance computing scenarios, batch processing jobs, or visual rendering applications.
+- Test environments, including continuous integration and continuous delivery workloads.
+- Large-scale stateless applications.
 
 For more information [Linux Virtual Machines Pricing][linux-vms-pricing].
 
@@ -237,7 +235,7 @@ For SAP HANA data-at-rest encryption, we recommend using the SAP HANA native enc
 
 ## Communities
 
-Communities can answer questions and help you set up a successful deployment. Consider the following:
+Communities can answer questions and help you set up a successful deployment. Consider the following articles:
 
 - [Running SAP Applications on the Microsoft Platform Blog](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/04/sap-on-azure-general-update-for-customers-partners-april-2017/)
 - [Azure Community Support](https://azure.microsoft.com/support/community/)
