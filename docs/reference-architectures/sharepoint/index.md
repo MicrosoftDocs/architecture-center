@@ -166,25 +166,25 @@ In addition, it's always wise to plan for security hardening. Other recommendati
 - Install anti-malware agents for the VMs.
 
 ## Cost Considerations
+Here are factors for optimizing cost for this architecture. 
 
-### AD Domain Services. 
+### Active Directory Domain Services
 
-Having Active Directory Domain services as a shared service consumed by multiple workloads is cost effective. See [AD DS pricing][ADDS-pricing] for more information.
+Consider having Active Directory Domain Services as a shared service consumed by multiple workloads to lower costs. See [Azure Active Directory Domain Services pricing][ADDS-pricing] for more information.
 
 ### VPN Gateway
 
-You are charged based on the amount of time that the gateway is provisioned and available. See [VPN Gateway Pricing][azure-gateway-pricing].
+The billing model is based on the amount of time that the gateway is provisioned and available. See [VPN Gateway Pricing][azure-gateway-pricing].
 
-VPN Outboud traffic will be subjected to the internet bandwidth costs. The usual concept applies, all inbound traffic is free, all outbound traffic is billed.
+All inbound traffic is free. All outbound traffic is billed. Internet bandwidth costs are applied to VPN outbound traffic.
 
 
 ### Virtual Network
 
-Azure Virtual Network is free of charge. Every subscription is allowed to create up to 50 Virtual Networks across all regions.
-All traffic that occurs within the boundaries of a Virtual Network is free of charge. So if two VMs that are in the same VNET are talking each other then no charges will occur.
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 Virtual Networks across all regions.
+All traffic that originates within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network are free.
 
-
-This architecture builds on the one shown in [Run Windows VMs for an N-tier application][windows-n-tier], see cost the considerations section for more information.
+This architecture builds on the architecture deployed in [Run Windows VMs for an N-tier application][windows-n-tier]. See [Cost considerations](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server#cost-considerations) for more information.
 
 ## Deploy the solution
 
