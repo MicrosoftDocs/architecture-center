@@ -146,7 +146,7 @@ The `Connection` property is an exception. This property always specifies an app
 
 While the other two properties (event hub name and consumer group) are not sensitive data like a connection string, it's still better to put them into app settings, rather than hard coding. That way, they can be updated without recompiling the app. 
 
-For more information about configuring this trigger, see [Azure Event Hubs bindings for Azure Functions](/azure/azure-functions/functions-bindings-event-hubs#trigger---attributes-and-annotations).
+For more information about configuring this trigger, see [Azure Event Hubs bindings for Azure Functions](/azure/azure-functions/functions-bindings-event-hubs-trigger#attributes-and-annotations).
 
 
 ## Message processing logic

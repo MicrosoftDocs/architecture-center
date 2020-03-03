@@ -22,7 +22,7 @@ The links to the right provide documentation on deploying and managing the Azure
 
 [Learn how you can use machine learning](/azure/machine-learning/preview/)
 
-[Infuse intelligence into your apps with Cognitive Services](/azure/#pivot=products&panel=cognitive)
+[Infuse intelligence into your apps with Cognitive Services](/azure/cognitive-services/)
 
 ## Architecture
 
@@ -117,15 +117,15 @@ The links to the right provide documentation on deploying and managing the Azure
 
 
 <div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>The customer’s photo is posted to Cognitive Services Face API. Face API associates
+<p>The customer's photo is posted to Cognitive Services Face API. Face API associates
 
-the customer’s photo and name.</p>
+the customer's photo and name.</p>
 </div>
 
 ## Data Flow
 
 1. Information about the new customer is posted to a web endpoint.
-1. The customer’s photo is posted to Cognitive Services Face API. Face API associates the customer’s photo and name.
+1. The customer's photo is posted to Cognitive Services Face API. Face API associates the customer's photo and name.
 1. The customer information is recorded in Dynamics 365 or other CRM.
 1. The information about a new customer is sent to Power BI.
 1. The customer information is added to the mailing list (MailChimp).

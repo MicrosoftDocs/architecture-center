@@ -259,7 +259,7 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
 ## Next Steps
 * [Azure Data Factory V2 Preview Documentation](/azure/data-factory/)
 * [Data Lake Store Documentation](/azure/data-lake-store/)
-* [Get started with Azure](/azure/#pivot=get-started)
+* [Get started with Azure](/azure/guides/developer/azure-developer-guide)
 * [Web Apps overview](/azure/app-service/app-service-web-overview/)
 * [Azure Security Center Documentation](/azure/security-center/)
 * [Get started with Azure AD](/azure/active-directory/get-started-azure-ad/)
