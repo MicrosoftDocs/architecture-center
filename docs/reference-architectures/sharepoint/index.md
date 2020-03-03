@@ -304,7 +304,7 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 
 
 [AAF-cost]: /azure/architecture/framework/cost/overview
-[Cost-Calculator]: https://azure.microsoft.com/en-us/pricing/calculator/
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
 [availability-set]: /azure/virtual-machines/windows/manage-availability
 [azure-gateway-pricing]: https://azure.microsoft.com/pricing/details/vpn-gateway/
