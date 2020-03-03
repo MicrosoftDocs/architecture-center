@@ -74,4 +74,4 @@ Generate personalized recommendations for customers in real time, using low-late
     <path d="M428.16 106.1v-7.4l1.4-.4v8.2l-1.4-.4zm-1.5-.4v-6.5l1.1-.3v7.1l-1.1-.3zm-1.3-.5v-5.8l.8-.3v6.3l-.8-.2zm-.2-6.4v7l5 1.9V97.1l-5 1.7z" fill="#804997"/>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

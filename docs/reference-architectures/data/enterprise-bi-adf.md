@@ -1,6 +1,5 @@
 ---
-title: Automated enterprise business intelligence (BI)
-titleSuffix: Azure Reference Architectures
+title: Automated enterprise BI
 description: Automate an extract, load, and transform (ELT) workflow in Azure using Azure Data Factory with Azure Synapse Analytics.
 author: MikeWasson
 ms.date: 11/20/2019

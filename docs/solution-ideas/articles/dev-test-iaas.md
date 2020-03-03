@@ -422,4 +422,4 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 * [Create your first Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
 * [Set up Application Insights for ASP.NET](/azure/azure-monitor/app/asp-net)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

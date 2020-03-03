@@ -12,7 +12,7 @@ function writeIndexPage(indexFolder) {
 
     const basePath = path.resolve(__dirname, `../../docs/reference-architectures/`, indexFolder);
     const outputhPath = path.resolve(basePath, 'index.md');
-    const jsonPath = path.resolve(basePath, `index.json`);
+    const jsonPath = path.resolve(basePath, `index.json.txt`);
 
     const content = fs.readFileSync(jsonPath, 'utf8');
     const index = JSON.parse(content);

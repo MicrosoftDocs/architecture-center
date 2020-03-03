@@ -1,6 +1,14 @@
 items:
 - name: Azure Architecture Center
   href: index.md
+- name: Architectures
+  items:
+  - name: Reference Architectures
+    href: architectures/reference-architectures.md
+  - name: Example Workloads
+    href: architectures/example-workloads.md
+  - name: Solution ideas
+    href: architectures/index.md
 - name: Application Architecture Guide
   items:
   - name: Introduction
@@ -77,8 +85,6 @@ items:
       href: best-practices/deployment-stamp.md
     - name: Monitoring and diagnostics
       href: best-practices/monitoring.md
-    - name: Naming rules and restrictions for Azure resources
-      href: best-practices/resource-naming.md
     - name: Retry guidance for specific services
       href: best-practices/retry-service-specific.md
     - name: Transient fault handling
@@ -147,8 +153,6 @@ items:
       href: framework/devops/overview.md
     - name: Application design
       href: framework/devops/app-design.md
-    - name: Branching strategies
-      href: framework/devops/gitflow-branch-workflow.md
     - name: Development
       href: framework/devops/development.md
     - name: Deployment
@@ -384,7 +388,7 @@ items:
         href: example-scenario/ai/newsfeed-ingestion.md
       - name: Scalable personalization
         href: example-scenario/ai/scalable-personalization.md
-    - name: Solution Ideas
+    - name: Solution ideas
       items:
       - href: solution-ideas/articles/ai-at-the-edge.md
         name: AI at the Edge with Azure Stack
@@ -468,7 +472,7 @@ items:
         name: Machine Learning model training with AKS
   - name: Analytics
     items:
-    - name: Solution Ideas
+    - name: Solution ideas
       items:
       - href: solution-ideas/articles/advanced-analytics-on-big-data.md
         name: Advanced Analytics Architecture
@@ -490,7 +494,7 @@ items:
         name: Tier Applications & Data for Analytics
   - name: Anomaly detection
     items:
-    - name: Solution Ideas
+    - name: Solution ideas
       items:
       - href: solution-ideas/articles/anomaly-detector-process.md
         name: Anomaly Detector Process
@@ -502,7 +506,7 @@ items:
         name: Predictive Insights with Vehicle Telematics
   - name: Application development
     items:
-    - name: Solution Ideas
+    - name: Solution ideas
       items:
       - href: solution-ideas/articles/application-integration-using-event-grid.md
         name: Application integration using Event Grid
@@ -542,7 +546,7 @@ items:
         name: Task-Based Consumer Mobile App
   - name: App modernization
     items:
-    - name: Solution Ideas
+    - name: Solution ideas
       items:
       - href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md
         name: Lift and Shift and Innovate - LOB Apps
@@ -558,7 +562,7 @@ items:
       items:
       - name: Decentralized trust between banks
         href: example-scenario/apps/decentralized-trust.md
-    - name: Solution Ideas
+    - name: Solution ideas
       items:
       - href: solution-ideas/articles/blockchain-workflow-application.md
         name: Blockchain Workflow Application
@@ -580,7 +584,7 @@ items:
       items:
       - name: Overview
         href: data-guide/index.md
-      - name: Relational Data
+      - name: Relational data
         items:
         - name: Extract, transform, and load (ETL)
           href: data-guide/relational-data/etl.md
@@ -590,14 +594,22 @@ items:
           href: data-guide/relational-data/online-transaction-processing.md
         - name: Data Warehousing
           href: data-guide/relational-data/data-warehousing.md
+      - name: Non-relational data
+        items:
+        - name: Non-relational data stores
+          href: data-guide/big-data/non-relational-data.md
+        - name: Free-form text search
+          href: data-guide/scenarios/search.md
+        - name: Time series data
+          href: data-guide/scenarios/time-series.md
+        - name: Working with CSV and JSON files
+          href: data-guide/scenarios/csv-and-json.md
       - name: Big Data
         items:
         - name: Big Data architectures
           href: data-guide/big-data/index.md
         - name: Batch processing
           href: data-guide/big-data/batch-processing.md
-        - name: Non-relational data stores
-          href: data-guide/big-data/non-relational-data.md
         - name: Real time processing
           href: data-guide/big-data/real-time-processing.md
       - name: Technology choices
@@ -608,6 +620,8 @@ items:
           href: data-guide/technology-choices/analysis-visualizations-reporting.md
         - name: Batch processing
           href: data-guide/technology-choices/batch-processing.md
+        - name: Data lakes
+          href: data-guide/scenarios/data-lake.md
         - name: Data storage
           href: data-guide/technology-choices/data-storage.md
         - name: Data store comparison
@@ -620,7 +634,7 @@ items:
           href: data-guide/technology-choices/search-options.md
         - name: Stream processing
           href: data-guide/technology-choices/stream-processing.md
-      - name: Databricks Monitoring
+      - name: Monitor Azure Databricks jobs
         items:
         - name: Overview
           href: databricks-monitoring/index.md
@@ -630,39 +644,32 @@ items:
           href: databricks-monitoring/dashboards.md
         - name: Troubleshoot performance bottlenecks
           href: databricks-monitoring/performance-troubleshooting.md
+      - name: Transfer data to and from Azure
+        href: data-guide/scenarios/data-transfer.md
+      - name: Extend on-premises data solutions to Azure
+        href: data-guide/scenarios/hybrid-on-premises-and-cloud.md
+      - name: Securing data solutions
+        href: data-guide/scenarios/securing-data-solutions.md
+
     - name: Example workloads
       items:
       - name: Advanced analytics
         href: data-guide/scenarios/advanced-analytics.md
-      - name: Data lakes
-        href: data-guide/scenarios/data-lake.md
-      - name: Data transfer
-        href: data-guide/scenarios/data-transfer.md
+      - name: Data platform end-to-end
+        href: example-scenario/dataplate2e/data-platform-end-to-end.md
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.md
-      - name: Extending on-premises data solutions to the cloud
-        href: data-guide/scenarios/hybrid-on-premises-and-cloud.md
-      - name: Free-form text search
-        href: data-guide/scenarios/search.md
       - name: Hybrid ETL with Data Factory
         href: example-scenario/data/hybrid-etl-with-adf.md
       - name: Interactive data exploration
         href: data-guide/scenarios/interactive-data-exploration.md
       - name: IoT for construction
         href: example-scenario/data/big-data-with-iot.md
-      - name: Natural language processing
-        href: data-guide/scenarios/natural-language-processing.md
       - name: Real-time fraud detection
         href: example-scenario/data/fraud-detection.md
       - name: Scalable order processing
         href: example-scenario/data/ecommerce-order-processing.md
-      - name: Securing data solutions
-        href: data-guide/scenarios/securing-data-solutions.md
-      - name: Time series solutions
-        href: data-guide/scenarios/time-series.md
-      - name: Working with CSV and JSON files
-        href: data-guide/scenarios/csv-and-json.md
-    - name: Solution Ideas
+    - name: Solution ideas
       items:
       - href: solution-ideas/articles/data-sovereignty-and-gravity.md
         name: Custom Data Sovereignty & Data Gravity Requirements
@@ -694,7 +701,7 @@ items:
       href: checklist/dev-ops.md
     - name: Guides
       items:
-      - name: Extending Resource Manager Templates
+      - name: Extending Resource Manager templates
         items:
         - name: Overview
           href: building-blocks/extending-templates/index.md
@@ -714,7 +721,7 @@ items:
         href: example-scenario/apps/devops-with-aks.md
       - name: Jenkins server
         href: example-scenario/apps/jenkins.md
-    - name: Solution Ideas
+    - name: Solution ideas
       items:
       - href: solution-ideas/articles/cicd-for-azure-vms.md
         name: CI/CD for Azure VMs
@@ -748,7 +755,7 @@ items:
         name: Secure DevOps for AKS
   - name: Disaster recovery
     items:
-    - name: Solution Ideas
+    - name: Solution ideas
       items:
       - href: solution-ideas/articles/backup-archive-on-premises.md
         name: Archive on-premises data to cloud
@@ -788,7 +795,7 @@ items:
         href: example-scenario/infrastructure/image-modeling.md
       - name: Linux virtual desktops
         href: example-scenario/infrastructure/linux-vdi-citrix.md
-    - name: Solution Ideas
+    - name: Solution ideas
       items:
       - href: solution-ideas/articles/hpc-risk-analysis.md
         name: HPC Risk Analysis Template  Solution Architecture
@@ -802,7 +809,7 @@ items:
         name: HPC cluster deployed in the cloud
   - name: Hybrid infrastructure
     items:
-    - name: Solution Ideas
+    - name: Solution ideas
       items:
       - href: solution-ideas/articles/cross-cloud-scaling.md
         name: Cross Cloud Scaling Architecture
@@ -862,7 +869,7 @@ items:
         href: example-scenario/data/realtime-analytics-vehicle-iot.md
       - name: Telehealth System
         href: example-scenario/apps/telehealth-system.md
-    - name: Solution Ideas
+    - name: Solution ideas
       items:
       - href: solution-ideas/articles/iot-devices.md
         name: IoT devices
@@ -932,33 +939,37 @@ items:
         href: example-scenario/infrastructure/service-fabric-microservices.md
   - name: Networking
     items:
-    - name: Hybrid networking
+    - name: Guides
       items:
       - name: Choose a hybrid network architecture
         href: reference-architectures/hybrid-networking/index.md
       - name: Choose between virtual network peering and VPN gateways
         href: reference-architectures/hybrid-networking/vnet-peering.md
-      - name: VPN
-        href: reference-architectures/hybrid-networking/vpn.md
-      - name: ExpressRoute
-        href: reference-architectures/hybrid-networking/expressroute.md
-      - name: ExpressRoute with VPN failover
-        href: reference-architectures/hybrid-networking/expressroute-vpn-failover.md
-      - name: Troubleshoot a hybrid VPN connection
-        href: reference-architectures/hybrid-networking/troubleshoot-vpn.md
-    - name: Hub-spoke topology
-      href: reference-architectures/hybrid-networking/hub-spoke.md
-    - name: Hub-spoke topology with shared services
-      href: reference-architectures/hybrid-networking/shared-services.md
-    - name: Network DMZ
-      items:
-      - name: DMZ between Azure and on-premises
-        href: reference-architectures/dmz/secure-vnet-dmz.md
       - name: Highly available network virtual appliances
         href: reference-architectures/dmz/nva-ha.md
+      - name: Troubleshoot a hybrid VPN connection
+        href: reference-architectures/hybrid-networking/troubleshoot-vpn.md
+      - name: Add IP spaces to peered virtual networks
+        href: networking/prefixes/add-ip-space-peered-vnet.md
+
+    - name: Reference architectures
+      items:
+      - name: Hub-spoke topology
+        href: reference-architectures/hybrid-networking/hub-spoke.md
+      - name: Hub-spoke topology with shared services
+        href: reference-architectures/hybrid-networking/shared-services.md
+      - name: Hybrid network with VPN
+        href: reference-architectures/hybrid-networking/vpn.md
+      - name: Hybrid network with ExpressRoute
+        href: reference-architectures/hybrid-networking/expressroute.md
+      - name: Hybrid network with ExpressRoute and VPN failover
+        href: reference-architectures/hybrid-networking/expressroute-vpn-failover.md
+      - name: Network DMZ
+        href: reference-architectures/dmz/secure-vnet-dmz.md
+
   - name: SAP
     items:
-    - name: Reference Architectures
+    - name: Reference architectures
       items:
       - name: SAP HANA on Azure Large Instances
         href: reference-architectures/sap/hana-large-instances.md
@@ -966,13 +977,13 @@ items:
         href: reference-architectures/sap/sap-netweaver.md
       - name: SAP S/4HANA
         href: reference-architectures/sap/sap-s4hana.md
-    - name: Example Workloads
+    - name: Example workloads
       items:
       - name: SAP for dev/test
         href: example-scenario/apps/sap-dev-test.md
       - name: SAP for production
         href: example-scenario/apps/sap-production.md
-    - name: Solution Ideas
+    - name: Solution ideas
       items:
       - href: solution-ideas/articles/sap-netweaver-on-sql-server.md
         name: SAP NetWeaver on SQLServer
@@ -982,12 +993,12 @@ items:
         name: SAP S/4 HANA for Large Instances
   - name: Scalability
     items:
-    - name: Solution Ideas
+    - name: Solution ideas
       items:
       - href: solution-ideas/articles/gaming-using-cosmos-db.md
         name: Gaming using Cosmos DB
       - href: solution-ideas/articles/scalable-web-apps.md
-        name: Scalable Web Apps
+        name: Scalable web apps
   - name: Serverless applications
     items:
     - name: Overview
@@ -1010,7 +1021,7 @@ items:
       items:
       - name: Sharing location in real time using Functions and SignalR
         href: example-scenario/signalr/index.md
-    - name: Solution Ideas
+    - name: Solution ideas
       items:
       - href: solution-ideas/articles/instant-broadcasting-on-serverless-architecture.md
         name: Instant broadcasting using serverless
@@ -1066,7 +1077,7 @@ items:
         href: example-scenario/apps/fully-managed-secure-apps.md
       - name: Highly available web application
         href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.md
-    - name: Solution Ideas
+    - name: Solution ideas
       items:
       - href: solution-ideas/articles/scalable-ecommerce-web-app.md
         name: Scalable e-commerce web app
@@ -1080,9 +1091,9 @@ items:
         name: Sitecore marketing website
       - href: solution-ideas/articles/digital-marketing-smb.md
         name: Simple digital marketing website
-  - name: Other Technologies
+  - name: Other technologies
     items:
-    - name: Solution Ideas
+    - name: Solution ideas
       items:
       - href: solution-ideas/articles/forecast-energy-power-demand.md
         name: Forecast Energy and Power Demand

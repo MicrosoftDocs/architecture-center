@@ -20,7 +20,7 @@ Related Links:
 
 * [Automate access and use of data across applications with Logic Apps](/azure/logic-apps/)
 
-* [Infuse intelligence into your apps with Cognitive Services](/azure/#pivot=products&panel=cognitive)
+* [Infuse intelligence into your apps with Cognitive Services](/azure/cognitive-services/welcome)
 
 ## Architecture
 
@@ -99,22 +99,6 @@ Related Links:
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Customer submits feedback posted to a web endpoint.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>The feedback is posted to Microsoft Cognitive Services Text Analytics API to extract sentiment and keywords.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>The customer feedback creates a new case in Dynamics CRM or other CRM.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>The solution sends a text message to the customer, thanking them for the feedback.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>If the feedback sentiment scores lower than 0.3, the app posts this information to a customer service channel to respond.</p>
-</div>
-
 ## Data Flow
 
 1. Customer submits feedback posted to a web endpoint.
@@ -124,4 +108,4 @@ Related Links:
 1. If the feedback sentiment scores lower than 0.3, the app posts this information to a customer service channel to respond.
 
 
-* [!INCLUDE [js_include_file](../../_js/index.md)]
+* 

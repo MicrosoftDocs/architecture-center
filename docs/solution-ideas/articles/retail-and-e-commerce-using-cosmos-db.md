@@ -67,4 +67,4 @@ Support in-depth queries over diverse product catalogs, traffic spikes, and rapi
     <path d="M157.06 203.6l9 5.2-9 5.2v-10.4z" fill="#959595"/>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

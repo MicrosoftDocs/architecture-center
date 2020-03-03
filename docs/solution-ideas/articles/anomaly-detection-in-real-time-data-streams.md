@@ -108,4 +108,4 @@ The [Anomaly Detection API](https://gallery.cortanaintelligence.com/MachineLearn
   * Positive and negative trends: When monitoring memory usage in computing, for instance, shrinking free memory size is indicative of a potential memory leak; when monitoring service queue length, a persistent upward trend may indicate an underlying software issue.
   * Level changes and changes in dynamic range of values: For example, level changes in latencies of a service after a service upgrade or lower levels of exceptions after upgrade can be interesting to monitor.
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

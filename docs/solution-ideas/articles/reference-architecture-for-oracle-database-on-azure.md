@@ -316,28 +316,6 @@ This solution architecture illustrates a canonical architecture to achieve high 
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>The client system accesses a custom application with Oracle DB backend via the web.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Web front end is configured in a load balancer.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Web front end makes a call to the appropriate Application Server to handle the work.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Application server queries primary Oracle Database.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Oracle Database has been configured using a HyperThreaded Virtual Machine with multiple Premium storage-based Managed Disks for performance and availability.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Oracle databases are replicated with Oracle DataGuard (or Active DataGuard) or Oracle GoldenGate for HA and DR purposes.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Oracle databases are monitored for uptime and performance by Oracle Enterprise Manager. OEM also allows you to generate various performance and usage reports.</p>
-</div>
-
 ## Data Flow
 
 1. The client system accesses a custom application with Oracle DB backend via the web.
@@ -349,4 +327,4 @@ This solution architecture illustrates a canonical architecture to achieve high 
 1. Oracle databases are monitored for uptime and performance by Oracle Enterprise Manager. OEM also allows you to generate various performance and usage reports.
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

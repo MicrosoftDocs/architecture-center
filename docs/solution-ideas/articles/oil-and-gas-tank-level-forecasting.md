@@ -119,4 +119,4 @@ After deployment, see the post deployment instructions [here](https://github.com
   5. Azure Data Factory handles orchestration, and scheduling of the hourly model retraining.
   6. Finally, Power BI is used for results visualization, so that users can monitor the tank level from a facility in real time and use the forecast level to prevent spillage.
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -68,4 +68,4 @@ Rapidly build engaging, performant and scalable cross-platform and native apps f
     </g>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -233,25 +233,6 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Securely ingest medical image data using Azure Data Factory.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Securely store medical image data in Azure Data Lake Store and/or Azure Blob Storage.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Analyze medical image data using a pre-trained Azure Cognitive Services API or a custom developed Machine Learning model.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Store artificial intelligence (AI) and Machine Learning results in Azure Data Lake.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Interact AI and Machine Learning results using PowerBI, while preserving Role-Based Access Control (RBAC).</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Securely interact with medical image data via a web based vendor neutral archive (VNA) image viewer.</p>
-</div>
-
 ## Data Flow
 
 1. Securely ingest medical image data using Azure Data Factory.
@@ -288,4 +269,4 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
 * [Azure Machine Learning Documentation](/azure/machine-learning/)
 * [Power BI Embedded Documentation](/azure/power-bi-embedded/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

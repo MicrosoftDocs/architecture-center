@@ -1,6 +1,5 @@
 ---
 title: Stream processing with Azure Stream Analytics
-titleSuffix: Azure Reference Architectures
 description: Create an end-to-end stream processing pipeline in Azure.
 author: MikeWasson
 ms.date: 11/06/2018

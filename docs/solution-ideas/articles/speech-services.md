@@ -83,28 +83,6 @@ For more information, read how [batch transcription](/azure/cognitive-services/s
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Adapt a model for your domain and deploy that model</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Upload your recordings to a blob container</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Create a POST request to batch transcription</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Speech Services schedules the transcription job</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Stereo files are split into two channels</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Mono files undergo diarization to distinguish between speakers</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Download the transcription using the transcription ID</p>
-</div>
-
 ## Data Flow
 
 1. Adapt a model for your domain and deploy that model
@@ -116,4 +94,4 @@ For more information, read how [batch transcription](/azure/cognitive-services/s
 1. Download the transcription using the transcription ID
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

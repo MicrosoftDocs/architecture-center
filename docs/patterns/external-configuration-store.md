@@ -80,7 +80,7 @@ The following example shows how a configuration store can be implemented over Bl
 ```csharp
 public interface ISettingsStore
 {
-    Task<string> GetVersionAsync();
+    Task<ETag> GetVersionAsync();
 
     Task<Dictionary<string, string>> FindAllAsync();
 }
@@ -90,7 +90,7 @@ This interface defines methods for retrieving and updating configuration setting
 
 > By design, this simple solution exposes all configuration settings as string values rather than typed values.
 
-The `ExternalConfigurationManager` class provides a wrapper around a `BlobSettingsStore` object. An application can use this class to store and retrieve configuration information. This class uses the Microsoft [Reactive Extensions](https://msdn.microsoft.com/library/hh242985.aspx) library to expose any changes made to the configuration through an implementation of the `IObservable` interface. If a setting is modified by calling the `SetAppSetting` method, the `Changed` event is raised and all subscribers to this event will be notified.
+The `ExternalConfigurationManager` class provides a wrapper around a `BlobSettingsStore` object. An application can use this class to store and retrieve configuration information. This class uses the Microsoft [Reactive Extensions](https://github.com/dotnet/reactive) library to expose any changes made to the configuration through an implementation of the `IObservable` interface. If a setting is modified by calling the `SetAppSetting` method, the `Changed` event is raised and all subscribers to this event will be notified.
 
 Note that all settings are also cached in a `Dictionary` object inside the `ExternalConfigurationManager` class for fast access. The `GetSetting` method used to retrieve a configuration setting reads the data from the cache. If the setting isn't found in the cache, it's retrieved from the `BlobSettingsStore` object instead.
 
@@ -109,13 +109,18 @@ public class ExternalConfigurationManager : IDisposable
   private readonly SemaphoreSlim syncCacheSemaphore = new SemaphoreSlim(1);  
   ...
   private Dictionary<string, string> settingsCache;
-  private string currentVersion;
+  private ETag currentVersion;
   ...
-  public ExternalConfigurationManager(ISettingsStore settings, ...)
+
+  public ExternalConfigurationManager(ISettingsStore settings, TimeSpan interval, string environment)
   {
-    this.settings = settings;
-    ...
+      this.settings = settings;
+      this.interval = interval;
+      this.CheckForConfigurationChangesAsync().Wait();
+      this.changed = new Subject<KeyValuePair<string, string>>();
+      this.Environment = environment;
   }
+
   ...
   public IObservable<KeyValuePair<string, string>> Changed => this.changed.AsObservable();
   ...

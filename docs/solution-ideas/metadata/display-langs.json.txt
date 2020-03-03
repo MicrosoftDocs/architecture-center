@@ -1,0 +1,30 @@
+[
+    {
+        "display-name": "Azure CLI",
+        "value": "azurecli"
+    }, {
+        "display-name": "Bash",
+        "value": "bash"
+    }, {
+        "display-name": "C#",
+        "value": "csharp"
+    }, {
+        "display-name": "JSON",
+        "value": "json"
+    }, {
+        "display-name": "Powershell",
+        "value": "powershell"
+    }, {
+        "display-name": "Shell",
+        "value": "shell"
+    }, {
+        "display-name": "SQL",
+        "value": "sql"
+    }, {
+        "display-name": "XML",
+        "value": "xml"
+    }, {
+        "display-name": "YAML",
+        "value": "yaml"
+    }
+]

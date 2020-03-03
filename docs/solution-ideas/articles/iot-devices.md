@@ -149,22 +149,6 @@ Create seamless conversational interfaces with all of your internet-accessible d
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>User logs into Skype and accesses the IoT bot</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Using voice, the user asks the bot to turn on the lights via the IoT device</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>The request is relayed to a third-party service that has access to the IoT device network</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>The results of the command are returned to the user</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Application Insights gathers runtime telemetry to help development with bot performance and usage</p>
-</div>
-
 ## Data Flow
 
 1. User logs into Skype and accesses the IoT bot
@@ -174,4 +158,4 @@ Create seamless conversational interfaces with all of your internet-accessible d
 1. Application Insights gathers runtime telemetry to help development with bot performance and usage
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

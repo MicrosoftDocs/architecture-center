@@ -91,19 +91,6 @@ Quickly build and launch digital campaigns that automatically scale based on cus
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>User accesses Web Apps from Azure App Service in a browser.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Application Insights detects issues and analyzes usage for your web apps.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Web App connects to SQL Database and Azure Cache for Redis for better performance.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Browser pulls static resources such as video from Azure Content Delivery Network to reduce load time.</p>
-</div>
-
 ## Data Flow
 
 1. User accesses Web Apps from Azure App Service in a browser.
@@ -126,4 +113,4 @@ Quickly build and launch digital campaigns that automatically scale based on cus
 * [How to use Azure Cache for Redis](/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache)
 * [Application Performance Management with Application Insights](/azure/application-insights/app-insights-detect-triage-diagnose)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -56,4 +56,4 @@ Azure Cache for Redis supports standard publish and subscribe functionalities. I
     </g>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

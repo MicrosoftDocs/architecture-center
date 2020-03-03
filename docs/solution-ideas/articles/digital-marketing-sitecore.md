@@ -102,4 +102,4 @@ This solution is built on the Azure managed services: [Azure SQL Database](https
 * [Use Azure Cognitive Search](https://azure.microsoft.com/services/search/)
 * [Application Performance Management with Azure Monitor](/azure/azure-monitor/app/app-insights-overview)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

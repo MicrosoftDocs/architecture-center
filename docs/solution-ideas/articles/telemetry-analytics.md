@@ -133,4 +133,4 @@ If you don't have an [Azure subscription](https://azure.microsoft.com/free/), ge
 
 You also need to download [Power BI desktop](/power-bi/desktop-get-the-desktop).
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+
