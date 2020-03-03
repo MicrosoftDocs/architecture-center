@@ -162,7 +162,7 @@ Predict and prevent future incidents by combining IoT and intelligence to optimi
 ## Next Steps
 * [IoT Hub Documentation](/azure/iot-hub)
 * [Azure Security Center Documentation](/azure/security-center)
-* [Get Started with Azure](/azure/#pivot=get-started)
+* [Get Started with Azure](/azure/guides/developer/azure-developer-guide)
 * [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)
 * [Azure Logic Apps Documentation](/azure/logic-apps)
 * [Power BI Embedded Documentation](/azure/power-bi-embedded)

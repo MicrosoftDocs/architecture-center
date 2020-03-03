@@ -244,10 +244,10 @@ This solution architecture illustrates how a user request flows through an SAP l
 
 ## Next Steps
 * [Getting started](/azure/virtual-machines/workloads/sap/get-started)
-* [High performance NFS storage for SAP HANA large instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture#storage)
+* [High performance NFS storage for SAP HANA large instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 * [SAP Certifications for Azure](/azure/virtual-machines/workloads/sap/sap-certifications)
 * [Premium Storage: high-performance storage for Azure Virtual Machine workloads](/azure/storage/storage-premium-storage)
 * [ExpressRoute overview](https://azure.microsoft.com/services/expressroute/)
-* [Back end Network to HANA large instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture#networking)
+* [Back end Network to HANA large instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 
 
