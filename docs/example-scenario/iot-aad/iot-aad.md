@@ -195,7 +195,7 @@ To increase the discoverability and adoption of your IoT app, the developer can 
 
 - [Microsoft identity platform best practices and recommendations](https://docs.microsoft.com/azure/active-directory/develop/identity-platform-integration-checklist)
 
-- [Mage identity in multi-tenant applications](https://docs.microsoft.com/azure/architecture/multitenant-identity/)
+- [Manage identity in multi-tenant applications](https://docs.microsoft.com/azure/architecture/multitenant-identity/)
 
 - [Azure AD developer guidance](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
 
