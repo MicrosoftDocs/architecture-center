@@ -124,6 +124,9 @@ This architecture supports [disaster recovery][hli-dr] between HANA Large Instan
 - Multi-tier HSR with a third replica in the DR region (where the HANA database is loaded onto memory). This option supports a faster recovery time but does not support a point-in-time recovery. HSR requires a secondary system. HANA system replication for the DR site is handled through proxies such as nginx or IP tables.
 
 ## Cost Considerations
+Use the [Pricing calculator][Cost-Calculator] to estimate costs.
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
 SKUs can affect the billing model. Here are some cost considerations.
 
@@ -137,18 +140,16 @@ Use [Azure Spot VMs][az-spot-vms] to run workloads that can be interrupted and d
 
 See the [available SKUs for HLI][HLI-SKUs] for more information.
 
-For more information See [HLI for SAP HANA Virtual Machines Pricing][HLI-vms-pricing], there is a specific section with SKUs for SAP HANA on Azure Large Instances.
+For more information, see the **SAP HANA on Azure Large Instances** section in [HLI for SAP HANA Virtual Machines Pricing][HLI-vms-pricing].
 
 
 ### Express Route
 
-For this architecture, Express Route is used as the networking service for creating private connections between an on-premises network and Azure virtual networks. Azure VMs connect to HANA Large Instances using another ExpressRoute connection and an ExpressRoute Gateway, [High Performance or Ultra Performance][sku] is the recommended SKU.
+For this architecture, Express Route is used as the networking service for creating private connections between an on-premises network and Azure virtual networks. Azure VMs connect to HANA Large Instances using another ExpressRoute connection and an ExpressRoute Gateway.  [High Performance or Ultra Performance][sku] is the recommended SKU.
 
-All inbound data transfer is free of charge, and all outbound data transfer is charged based on a pre-determined rate. For more information, see [Azure ExpressRoute pricing][expressroute-pricing].
+All inbound data transfer is free. All outbound data transfer is charged based on a pre-determined rate. For more information, see [Azure ExpressRoute pricing][expressroute-pricing].
 
-Use the [Pricing calculator][Cost-Calculator] to estimate costs.
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
 > [!NOTE]
 > You can optimize this reference architecture for cost by running it in a single-instance environment. This [cost-optimized scenario](https://blogs.sap.com/2016/07/19/new-whitepaper-for-high-availability-for-sap-hana-cost-optimized-scenario/) is suitable for non-production HANA workloads.
@@ -210,7 +211,7 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [azure-forum]: https://azure.microsoft.com/support/forums/
 [azure-large-instances]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
 [classes]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
-[Cost-Calculator]: https://azure.microsoft.com/en-us/pricing/calculator/
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [cross-connected]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
 [dr-site]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery
 [expressroute]: /azure/architecture/reference-architectures/hybrid-networking/expressroute
@@ -223,7 +224,7 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [hli-overview]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
 [HLI-SKUs]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus
 [hli-troubleshoot]: /azure/virtual-machines/workloads/sap/troubleshooting-monitoring
-[HLI-vms-pricing]: https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux
+[HLI-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [ip]: https://blogs.msdn.microsoft.com/saponsqlserver/2018/02/10/setting-up-hana-system-replication-on-azure-hana-large-instances/
 [network-best-practices]: /azure/security/azure-security-network-security-best-practices
 [nfs]: /azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs
@@ -250,7 +251,7 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [stack-overflow]: https://stackoverflow.com/tags/sap/info
 [stonith]: /azure/virtual-machines/workloads/sap/ha-setup-with-stonith
 [subnet]: /azure/virtual-network/virtual-network-manage-subnet
-[swd]: https://help.sap.com/doc/saphelp_nw70ehp2/7.02.16/en-us/48/8fe37933114e6fe10000000a421937/frameset.htm
+[swd]: https://help.sap.com/doc/saphelp_nw70ehp2/7.02.16/48/8fe37933114e6fe10000000a421937/frameset.htm
 [type]: /azure/virtual-machines/workloads/sap/hana-installation
 [vnet]: /azure/virtual-network/virtual-networks-overview
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-reference-architectures.vsdx

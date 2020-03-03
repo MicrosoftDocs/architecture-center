@@ -261,7 +261,7 @@ policies for the subnet. Place application servers on a separate subnet so you
 can secure them more easily by managing the subnet security policies, rather
 than the individual servers.
 
-When associated with a subnet, a NSG applies to all the servers within the
+When associated with a subnet, an NSG applies to all the servers within the
 subnet and offers fine-grained control over the servers. Set them up using the
 [portal](/azure/virtual-network/tutorial-filter-network-traffic),
 [PowerShell](/azure/virtual-network/tutorial-filter-network-traffic-powershell),
@@ -754,6 +754,9 @@ approach](/azure/automation/automation-tutorial-update-management)
 for the task.
 
 ## Cost considerations
+Use the [Pricing calculator][Cost-Calculator] to estimate costs.
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
 ### Virtual machines
 
@@ -773,7 +776,7 @@ Use [Azure Spot VMs][az-spot-vms] to run workloads that can be interrupted and d
 
 ### Virtual machines and availability sets
 
-For all pools and clusters (Web Dispatcher, SAP application servers, Central Services, and database) the virtual machines are grouped into separate availability sets. There is no cost for the Availability Set itself, you only pay for each VM instance that you create.
+For all pools and clusters (Web Dispatcher, SAP application servers, Central Services, and database) the virtual machines are grouped into separate availability sets. There is no cost for the availability set. You only pay for each VM instance that you create.
 
 ### Azure Load Balancer
 
@@ -785,12 +788,10 @@ You are charged only for the number of configured load-balancing and outbound ru
 
 In this architecture, Express Route is the networking service used for creating private connections between an on-premises network and Azure virtual networks.
 
-All inbound data transfer is free of charge, and all outbound data transfer is charged based on a pre-determined rate. See [Azure ExpressRoute pricing][expressroute-pricing] For more info.
+All inbound data transfer is free. All outbound data transfer is charged based on a pre-determined rate. See [Azure ExpressRoute pricing][expressroute-pricing] For more info.
 
 
-Use the [Pricing calculator][Cost-Calculator] to estimate costs.
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
 ## Communities
 
@@ -828,3 +829,4 @@ workloads that use some of the same technologies:
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-netweaver.vsdx
+[az-spot-vms]: /azure/virtual-machines/windows/spot-vms
