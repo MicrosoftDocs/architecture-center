@@ -185,7 +185,7 @@ There are several options for authenticating guests who wish to use non- Azure A
 
 To enable guest sign-ins, the developer must ensure that guest users' sign-in attempts are directed to the tenant-specific endpoint (i.e. the developer's tenant) `https://login.microsoftonline.com/{TenantId_or_Name}`. This may require you implement a separate sign-in page specifically for guests.
 
-## Integration and Visibility
+## Integration and visibility
 
 The developer may want to provide an e-commerce site for customers to purchase licenses for their app. This e-commerce site is separate from the IoT app itself. A sample workload describing how to build an [e-commerce front-end](https://docs.microsoft.com/azure/architecture/example-scenario/apps/ecommerce-scenario) is available on the Azure Reference Architecture Center.
 
