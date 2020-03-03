@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on demand forecasting within the energy sector.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/demand-forecasting/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Demand Forecasting
 

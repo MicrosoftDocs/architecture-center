@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Accelerate development of reliable, high-performing chat applications
 ms.custom: acom-architecture, chat, signalr service, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/cross-platform-chat/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Cross-platform Chat
 

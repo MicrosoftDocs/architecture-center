@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: IoT with AKS
 ms.custom: acom-architecture, iot, kubernetes, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/iot-with-aks/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # IoT device deployment and management on demand
 

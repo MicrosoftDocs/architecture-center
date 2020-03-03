@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Bursting from AKS with ACI
 ms.custom: acom-architecture, devops, kubernetes, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/scale-using-aks-with-aci/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Bursting from AKS with ACI
 

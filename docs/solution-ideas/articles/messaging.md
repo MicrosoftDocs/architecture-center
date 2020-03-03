@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: azure redis cache, web sockets, web communication frameworks, messaging publish and subscribe, azure cache for redis
 ms.custom: acom-architecture, app-dev, data, 'https://azure.microsoft.com/solutions/architecture/messaging/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Messaging
 

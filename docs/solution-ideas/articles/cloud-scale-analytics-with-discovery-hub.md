@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Build a modern data estate that is ready for cloud scale analytics with a step-by-step flowchart from Microsoft Azure.
 ms.custom: acom-architecture, Azure Discovery Hub, Cloud Scale Analytics, data warehouse analytics, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/cloud-scale-analytics-with-discovery-hub/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Discovery Hub with Cloud Scale Analytics
 

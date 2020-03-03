@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Learn more about SAP HANA on Azure for large instances that includes high reliability and disaster recovery. Find out how NFS storage is used for large instances of SAP HANA.
 ms.custom: acom-architecture, sap, Azure hana large instances, sap hana large instances, sap hana on azure large instances, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/sap-s4-hana-on-hli-with-ha-and-dr/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # SAP S/4 HANA for Large Instances
 

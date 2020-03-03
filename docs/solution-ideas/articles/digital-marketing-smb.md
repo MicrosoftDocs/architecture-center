@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Start simple with the content management system that enables you to easily maintain the messaging on your website in real-time, from a browser, with no coding skills.
 ms.custom: acom-architecture, web-apps,'https://azure.microsoft.com/solutions/architecture/digital-marketing-smb/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Simple digital marketing website
 
