@@ -22,7 +22,7 @@ For Azure Virtual Networks, the recommendation is to set up a hub and spoke mode
 
 ![alt text for image goes here (waiting on image)](WSUS%20Deployment%20for%20Azure%20VNets%20v1_Paul%20Reed_html_9a1bdebc43f51737.png)
 
-Here is a description of Figure 1:
+In the image above:
 
 - **DMZSubnet** – The hub in the hub and spoke.
 - **NSG_DS** – Network Security Group rule that allows traffic for WSUS while blocking other Internet traffic.
