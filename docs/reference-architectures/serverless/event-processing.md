@@ -160,6 +160,19 @@ Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estima
 
 For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
+
+## DevOps considerations
+
+Consider including all the infrastructure, application and storage resources in a descriptive template like [Azure Resource Manager][arm-template], that will allow to automate the deployment using DevOps as a CI/CD solutions and make it repeatable to produce the same results. Use the same versioning as DevOps team uses for source code. The cloud resources should be grouped in templates using the workload criteria, that means isolating workloads by the way resources are organized; tipically a workload is defined as a single serveless application or a virtual network. The goal of workload isolation is to associate the resources to a team, so that the DevOps team can independently manage all aspects of those resources and perform continuous integration and continuous delivery (CI/CD).
+
+This architecture includes steps to configure the Drone Status Function App CI/CD with Azure DevOps, using Azure Pipelines with YAML and Azure Functions Slots, this allows to quickly provision prorduction or testing environments to mimic real-life scenarios when needed.
+
+As you deploy your services you will need to monitor them. Consider using [Application Insights][app-insights] to enable the developers to monitor performance and detect issues.
+
+
+For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+
+
 ## Deploy the solution
 
 To deploy this reference architecture, view the [GitHub readme][readme].
@@ -170,7 +183,11 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 
 <!-- links -->
 
+
 [AAF-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
+[app-insights]: https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
 [cosmosdb]: /azure/cosmos-db/introduction
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally

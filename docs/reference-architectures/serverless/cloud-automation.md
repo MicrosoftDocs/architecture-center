@@ -223,13 +223,20 @@ Use the [Pricing calculator][Cost-Calculator] to estimate costs.
 
 For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
-## Deployment considerations
+## DevOps considerations
 
 For critical automation workflows that manage behavior of your application, zero downtime deployment must be achieved using an efficient DevOps pipeline. For more information, read [serverless backend deployment](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/web-app#back-end-deployment).
 
 If the automation covers multiple applications, keep the resources required by the automation in a [separate resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). A single resource group can be shared between automation and application resources, if the automation covers a single application.
 
 If the workflow involves a number of automation functions, group the functions catering to one scenario in a single function app. Read [Manage function app](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) for more information.
+
+
+As you deploy your application you will need to monitor it. Consider using [Application Insights][app-insights] to enable the developers to monitor performance and detect issues.
+
+
+For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+
 
 ## Deploy the solution
 
@@ -244,6 +251,8 @@ To learn more about the serverless implementations, start [here](https://docs.mi
 <!-- links -->
 
 [AAF-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
+[app-insights]: https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview
 [az-logic-apps-ISE]: https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
