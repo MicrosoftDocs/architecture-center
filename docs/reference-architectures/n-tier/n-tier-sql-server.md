@@ -224,7 +224,7 @@ Virtual networks are a traffic isolation boundary in Azure. By default, VMs in o
 
 In this architecture you use [Azure Building Blocks templates][azbb-template] for provisioning the Azure resources and its dependencies. Since all the main resources and their dependencies are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
 
-You can use [Azure DevOps Services][az-devops] to integrate your templates in a CI/CD pipeline; that would allow you to utomate the infrastructure deployment, provision different environments in minutes, for example to replicate a production, peak-usage scenario. This allows you save cost and provision load testing environment only when needed.
+You can use [Azure DevOps Services][az-devops] to integrate your templates in a CI/CD pipeline; that would allow you to automate the infrastructure deployment, provision different environments in minutes, for example to replicate a production, peak-usage scenario. This allows you save cost and provision load testing environments only when needed.
 
 In this sceanario you virtual machines are configured by using Virtual Machine Extensions, since they offer the possibility of installing certain additional software, such as anti malware and security agents. VM Extensions are installed and executed only at VM creation time. That means if the Operating System gets configured incorrectly at a later stage, it will require a manual intervention to move it back to its correct state..
 
@@ -290,9 +290,12 @@ If you specify a region that supports availability zones, the VMs are deployed i
 <!-- links -->
 
 [AAF-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [app-gw-scaling]: /azure/application-gateway/application-gateway-autoscaling-zone-redundant
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azure-dns]: /azure/dns/dns-overview
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault
+[azure-monitor]: https://azure.microsoft.com/en-us/services/monitor/
 [Azure-SQl-Pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed/
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
