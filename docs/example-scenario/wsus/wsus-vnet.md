@@ -204,4 +204,4 @@ You can use the Update Management solution in Azure to manage operating system u
 
 ## Next steps
 
-- [Managing WSUS](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus)
+- For more information on managing WSUS, setting up a WSUS synchronization schedule and more, please see [WSUS Administration](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus).
