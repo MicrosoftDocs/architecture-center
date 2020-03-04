@@ -198,4 +198,4 @@ It is not possible to set up Virtual Network peering across public and private c
 
 ## Next steps
 
-Now that you finished configuring your WSUS, you can learn more about how to manage WSUS (i.e. setting up WSUS synchronization schedule) by reading [Windows Server Update Services (WSUS)](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus)
+- [Managing WSUS](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus)
