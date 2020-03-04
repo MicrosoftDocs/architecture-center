@@ -817,6 +817,8 @@ items:
         name: Hybrid Connection
       - href: solution-ideas/articles/sharepoint-farm-office-365.md
         name: Hybrid SharePoint Farm with Office 365
+      - href: example-scenario/iot-aad/iot-aad.md
+        name: Secure access to IoT with Azure AD
   - name: Identity
     items:
     - name: Reference architectures
@@ -869,8 +871,6 @@ items:
         href: example-scenario/data/realtime-analytics-vehicle-iot.md
       - name: Telehealth System
         href: example-scenario/apps/telehealth-system.md
-      - name: Secure access to IoT with Azure AD
-        href: example-scenario/iot-aad/iot-aad.md
     - name: Solution ideas
       items:
       - href: solution-ideas/articles/iot-devices.md
