@@ -12,15 +12,15 @@ ms.custom:
 ---
 # Plan Your Deployment for updating Azure Virtual Networks
 
-# Introduction
+## Introduction
 
-If you locked down your Azure Virtual Network (VNET) from the Internet, you can still get Windows Updateswithout jeopardizing security and opening up access to the Internet as a whole. This article contains recommendations how you can set up a perimeter network, also called a DMZ, to host a Windows Server Update Service (WSUS) instance to securely update Vnets without Internet connectivity.
+If you locked down your Azure Virtual Network (VNet) from the Internet, you can still get Windows Updates without jeopardizing security and opening up access to the Internet as a whole. This article contains recommendations how you can set up a perimeter network, also called a DMZ, to host a Windows Server Update Service (WSUS) instance to securely update VNets without Internet connectivity.
 
 This article assumes a familiarity with Azure services. The following sections describes the recommended deployment design with a hub and spoke configuration in a single or multi-region configuration.
 
-# Azure Virtual Network Hub-spoke Network Topology
+## Azure Virtual Network Hub-spoke Network Topology
 
-For Azure Virtual Networks, the recommendation is to set up a hub and spoke model network topology by creating a perimeter network, also called a DMZ, to host the WSUS Server on an Azure Virtual Machine that is in the hub between the Internet and VNets. The Hub will have the WSUS Server. WSUS uses port 80 for HTTP protocol and port 443 for HTTPS protocol to obtain updates from Microsoft. It will be on the only Subnet that communicates with the Internet. The spokes are all of the other VNets, which will communicate with the Hub, and not with the Internet. This will be accomplished by creating a Subnet, Network Security Groups (NSG's), and Azure VNet Peering that allows the specific traffic while blocking other Internet traffic. The following image illustrates a sample hub-spoke topology.
+For Azure Virtual Networks, the recommendation is to set up a hub and spoke model network topology by creating a perimeter network, also called a DMZ, to host the WSUS Server on an Azure Virtual Machine that is in the hub between the Internet and VNets. The Hub will have the WSUS Server. WSUS uses port 80 for HTTP protocol and port 443 for HTTPS protocol to obtain updates from Microsoft. It will be on the only Subnet that communicates with the Internet. The spokes are all of the other VNets, which will communicate with the Hub, and not with the Internet. This will be accomplished by creating a Subnet, Network Security Groups (NSGs), and Azure VNet Peering that allows the specific traffic while blocking other Internet traffic. The following image illustrates a sample hub-spoke topology.
 
 ![](WSUS%20Deployment%20for%20Azure%20VNets%20v1_Paul%20Reed_html_9a1bdebc43f51737.png)
 
@@ -44,7 +44,7 @@ You can reuse an existing server, or deploy a new server that will be the WSUS. 
 
 Your network will have more than one VNet. You will need to evaluate all VNets to see if one can be used to connect to the Internet. Your VNets could also be in the same region, or in multiple regions.
 
-If all your VNets are in the same region, then we suggest having one WSUS for every 18,000 VM's. This is based on a combination of the VM's requirements based on the number of client VM's being updated, and cost of communicating between VNets. For more information on WSUS capacity requirements, see the article [_Determine WSUS Capacity Requirements_](https://docs.microsoft.com/de-de/security-updates/windowsupdateservices/18127528).
+If all your VNets are in the same region, then we suggest having one WSUS for every 18,000 VMs. This is based on a combination of the VM's requirements based on the number of client VMs being updated, and cost of communicating between VNets. For more information on WSUS capacity requirements, see the article [_Determine WSUS Capacity Requirements_](https://docs.microsoft.com/de-de/security-updates/windowsupdateservices/18127528).
 
 You can find the cost of these configurations by using the [Azuring Pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/). You will need to add the following:
 
@@ -60,13 +60,13 @@ You can find the cost of these configurations by using the [Azuring Pricing calc
     - Across Region if moving data from one region to another
   - Data Transfer 2GB
   - Region
-    - If within the same region, choose the region the WSUS and Vnets are in.
-    - If across region, the Source VNet region is where the WSUS is. The destination Vnet Region is where the data is going.
+    - If within the same region, choose the region the WSUS and VNets are in.
+    - If across region, the Source VNet region is where the WSUS is. The destination VNet Region is where the data is going.
   - If you have multiple regions, you will need to select virtual network multiple times.
 
 **Note:** Prices will vary by region.
 
-# Manual Deployment
+## Manual Deployment
 
 After you have either identified the VNet to use as the Hub or determine that you will need to create a new Windows Server instance, you will need to create a NSG rule that will allow Internet Traffic that allows Windows Update metadata and content to sync with the WSUS you will create. Here are the rules that need to be added:
 
@@ -76,7 +76,7 @@ After you have either identified the VNet to use as the Hub or determine that yo
 
 Now that you have created the NSG rule,
 
-# Setting up WSUS
+## Setting up WSUS
 
 There are two approaches you can use to set up your WSUS server.
 
@@ -87,13 +87,13 @@ Both approaches are described below.
 
 You can also combine the two approaches, by using the automation script to do most of the work, then using the WSUS administrative console to fine-tune the server settings.
 
-# Setting up WSUS with the Automation Script
+## Setting up WSUS with the Automation Script
 
 The Configure-WSUSServer script allows you to quickly set up a WSUS server that will automatically synchronize and approve updates for a chosen set of products and languages.
 
 NOTE: The script always sets up WSUS to use Windows Internal Database to store its update data. This speeds up setup and reduces administration complexity. But if your server will support thousands of client computers, especially if you also need to support a wide variety of products and languages, you should set up WSUS manually instead so that you can use SQL Server as the database.
 
-The latest version of this script is available on GitHub at \*\*\*link\*\*\* .
+The latest version of this script is [available on GitHub](https://github.com/mspnp/solution-architectures/tree/master/wsus).
 
 The script is configured through a JSON file. The following options can currently be configured:
 
@@ -115,19 +115,24 @@ This script can be run in one of two ways:
 powershell.exe -ExecutionPolicy Unrestricted -File .\Configure-WSUSServer.ps1 -WSUSConfigJson .\WSUS-Config.json
 - You can use the Custom Script Azure VM Extension, described at [https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows) .
   - Copy the script and the JSON configuration file to your own storage container.
-  - In typical VM and VNET configurations, the Custom Script extension needs only these two parameters to run the script correctly (substituting in the correct URLs for your storage locations):
-"fileUris": ["https://mystorage.blob.core.windows.net/mycontainer/Configure-WSUSServer.ps1","https://mystorage.blob.core.windows.net/container/WSUS-Config.json"],
- "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File .\Configure-WSUSServer.ps1 -WSUSConfigJson .\WSUS-Config.json"
+  - In typical VM and VNet configurations, the Custom Script extension needs only these two parameters to run the script correctly (substituting in the correct URL for your storage locations):
+
+  ```json
+    "fileUris": ["https://mystorage.blob.core.windows.net/mycontainer/Configure-WSUSServer.ps1","https://mystorage.blob.core.windows.net/container/WSUS-Config.json"],
+    "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File .\Configure-WSUSServer.ps1 -WSUSConfigJson .\WSUS-Config.json"
+
+  ```
 
 The script will start the initial synchronization needed to make updates available to client computers. However, it will not wait for that synchronization to complete. Depending on the products, classifications, and languages you have selected, the initial synchronization may take several hours to complete. All synchronizations after that should be significantly shorter.
 
-# Setting up WSUS Manually
+## Setting up WSUS Manually
 
 1. **From your** _ **WSUS VM** _, open _Server Manager_ and click _Add roles and features_.
 2. Click _Next_ until you get to the _Select server roles_ page and select _Windows Server Update Services_. Click _Add Features_ when you are prompted "Add features that are required for Windows Server Update Services?"
 3. Click _Next_ until you get to the _Select role services_ page.
-  1. By default, you can use _WID Connectivity_.
-  2. You should use _SQL Server Connectivity_ if you need to support clients with many different Windows versions (i.e. Windows 10, Windows 8, Windows 7, etc.).
+    - By default, you can use _WID Connectivity_.
+    - You should use _SQL Server Connectivity_ if you need to support clients with many different Windows versions (i.e. Windows 10, Windows 8, Windows 7, etc.).
+
 4. Click _Next_ until you get to the _Content location selection_ page. Type in where you want to store the updates.
 5. Click _Next_ until you get to the _Confirm installation selections_ page. Click _Install_.
 6. Open the installed _Windows server Update Services_ and click _Run_.
@@ -145,7 +150,7 @@ During synchronization, WSUS determines if any new updates have been made availa
 
 **Note:** Initial synchronization can take over an hour. All synchronizations after that should be significantly shorter.
 
-# Configure Virtual Networks to Communicate with WSUS
+## Configure Virtual Networks to Communicate with WSUS
 
 Next setup Azure VNet Peering or Global VNet Peering to communicate with the Hub. We recommend that you setup a WSUS in each region that you have deployed to minimize latency.
 
@@ -163,7 +168,7 @@ Next create the VNet Peering from the spoke to the Hub.
 
 **NSG\_MS**
 
-# Configure Client Virtual Machines
+## Configure Client Virtual Machines
 
 Any Virtual Machines running Microsoft Windows (except Home SKU) can be updated using WSUS. Go to each client Virtual machine and do the following steps to enable communication between the WSUS and client:
 
@@ -175,703 +180,10 @@ Any Virtual Machines running Microsoft Windows (except Home SKU) can be updated 
 
 Administrators managing a large network should see the article [Configure automatic updates and update service location](https://docs.microsoft.com/en-us/windows/deployment/update/waas-manage-updates-wsus#configure-automatic-updates-and-update-service-location) to use Group Policy settings to automatically configure clients.
 
-# WSUS Deployment for Multiple Clouds
+## WSUS Deployment for Multiple Clouds
 
 It is not possible to setup Virtual Network peering across public and private clouds. Networks that are deployed across public and private clouds will need to have at least one WSUS setup in each cloud.
 
-# Managing WSUS
+## Managing WSUS
 
 Now that you finished configuring your WSUS, you can learn more about how to manage WSUS (i.e. setting up WSUS synchronization schedule) by reading [_Windows Server Update Services (WSUS)_](https://docs.microsoft.com/en-us/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus).
-
-# Appendix: WSUS Automation Script Configuration File
-//Derek Note: let's take this to a separate script file in /mspnp for downloading...//
-
-{
-
-"\_Comment" : "The directory or file share that payload files should be stored in. Note that backslashes should be doubled -- for example, 'C:\\SomeDirectory\\SomeSubDirectory",
-
-"ContentDir" : "C:\\WSUS",
-
-"\_Comment" : "One or more names of products that should be synchronized. The names used are the same as the names displayed in the WSUS administrative console's product configuration dialog. Case-insensitive. Can contain wildcards; for example, 'Windows 10\*' will synchronize all products with names starting with 'Windows 10'. Script will stop and return an error if any product string cannot be matched with at least one product. If this parameter is omitted, the server's current product synchronization settings will not change.",
-
-"Products" : [
-
-{Value : "Windows 10"},
-
-{Value : "Windows 7"},
-
-{value : "Windows 8.1"}
-
-],
-
-"\_Comment" : "One or more classifications that should be synchronized. The names used are the same as the names displayed in the WSUS administrative console's product configuration dialog. Case-insensitive. Can contain wildcards; for example, '\*' will synchronize all classifications. if any classification string cannot be matched with at least one classification. If this parameter is omitted, the server's current classification synchronization settings will not change.",
-
-"Classifications" : [
-
-{Value : "Critical Updates"},
-
-{Value : "Updates"}
-
-],
-
-"\_Comment" : "One or more language tags that should be synchronized (examples: 'en', 'pt-br'). The available language tags are documented in 'Available languages for Windows' at https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/available-language-packs-for-windows . Language tags are case-sensitive. Cannot contain wildcards. You can use the value 'all' to support all languages. If this parameter is omitted, it defaults to 'all'.",
-
-"Languages" : [
-
-{Value : "en"}
-
-],
-
-"\_Comment" : "Set to 'true' to auto-approve all updates as they arrive. Set to 'false' to delete the auto-approval rule created by 'true'.",
-
-"AutoApproveUpdates" : "true",
-
-"\_Comment" : "The number of times per day that automatic synchonization should be performed (examples: '1', '4', '0'). A value of zero disables automatic synchronization.",
-
-"AutoSynchronize" : "1",
-
-"\_Comment" : "If 'true', updates payloads are stored locally (on the WSUS server). If 'false', update payloads are stored at Microsoft or on the upstream WSUS server.",
-
-"StoreUpdatesLocally" : "false",
-
-"\_Comment" : "If 'true', express update packages are used in addition to full updates. This saves server-to-client bandwidth but increases client CPU/disk usage and server-to-server bandwidth. Ignored if StoreUpdatesLocally is false.",
-
-"UseExpressInstallationOption" : "false",
-
-"\_Comment" : "This script will normally take no action if it has already been run. If this parameter is 'true', the script will configure the server even if the script has run before",
-
-"Force": "false"
-
-}
-
-# Appendix: WSUS Automation Script
-
-\<#
-
-.DESCRIPTION
-
-Installs and configures the WSUS role
-
-.EXAMPLE
-
-.\Configure-WSUSServer.ps1 -WSUSConfigJson ".\WSUS-Config.json"
-
-.PARAMETER WSUSConfigJson
-
-Pass location of configuration file
-
-#\>
-
-Param (
-
-[Parameter(Mandatory=$True, HelpMessage="Specify complete path of the WSUS-Config.json")]
-
-[string]$WSUSConfigJson
-
-)
-
-$ErrorActionPreference = 'Stop'
-
-$Json = Get-Content $WSUSConfigJson | Out-String | ConvertFrom-Json
-
-write-Output $Json
-
-function HasScriptRun
-
-{
-
-try {
-
-$scriptrun = Get-ItemProperty -Path "HKLM:\Software\Microsoft\Windows" -Name WSUSConfigScriptRun -erroraction stop
-
-$hasscriptrun = $scriptrun -ne 0
-
-}
-
-catch
-
-{
-
-$hasscriptrun = $false
-
-}
-
-$hasscriptrun
-
-}
-
-function ShouldScriptRun
-
-{
-
-$scriptshouldrun = $True
-
-if ([string]::IsNullOrWhitespace($Json.Force) -or ($Json.Force -ine "true"))
-
-{
-
-$scripthasrun = HasScriptRun
-
-$scriptshouldrun = ($scripthasrun -ne $true)
-
-}
-
-$scriptshouldrun
-
-}
-
-function SetScriptRun
-
-{
-
-try
-
-{
-
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows" -Name WSUSConfigScriptRun -Value 1
-
-}
-
-catch
-
-{
-
-throw $Error[0]
-
-}
-
-}
-
-function RunPostInstall
-
-{
-
-try
-
-{
-
-$contentdir = $Json.ContentDir
-
-if ([string]::IsNullOrWhitespace($contentdir))
-
-{
-
-throw "Must specify WSUS content directory."
-
-}
-
-& $env:SystemDrive'\Program Files\Update Services\Tools\WsusUtil.exe' postinstall CONTENT\_DIR=$contentdir
-
-}
-
-catch
-
-{
-
-throw $Error[0]
-
-}
-
-}
-
-function InstallWSUS
-
-{
-
-try
-
-{
-
-# Install WSUS Role i.e. WSUS Services and Management tools
-
-write-host 'Installing WSUS for WID (Windows Internal Database)'
-
-Install-WindowsFeature -Name UpdateServices -IncludeManagementTools
-
-RunPostInstall
-
-}
-
-catch
-
-{
-
-throw $Error[0]
-
-}
-
-}
-
-function ConfigWSUSAndPerformCategorySync
-
-{
-
-try
-
-{
-
-Set-WsusServerSynchronization –SyncFromMU
-
-$wsus = Get-WSUSServer
-
-$wsusConfig = $wsus.GetConfiguration()
-
-$languages = "all"
-
-if (-not [string]::IsNullOrWhitespace($Json.Languages))
-
-{
-
-$languages = $Json.Languages
-
-}
-
-if ($languages -ieq "all")
-
-{
-
-Write-Host "Enabling all WSUS languages"
-
-$wsusConfig.AllUpdateLanguagesEnabled = $true
-
-}
-
-else
-
-{
-
-Write-Host "Setting WSUS languages to $languages"
-
-$wsusConfig.AllUpdateLanguagesEnabled = $false
-
-$wsusConfig.SetEnabledUpdateLanguages($languages)
-
-}
-
-if (-not [string]::IsNullOrWhitespace($Json.StoreUpdatesLocally))
-
-{
-
-$storelocally = $Json.StoreUpdatesLocally -ieq "true"
-
-Write-Host "Setting WSUS local update storage to $storelocally"
-
-$wsusConfig.HostBinariesOnMicrosoftUpdate = $storelocally
-
-if ($storelocally)
-
-{
-
-$useexpress = false
-
-if (-not [string]::IsNullOrWhitespace($Json.UseExpressInstallationOption))
-
-{
-
-$useexpress = $Json.UseExpressInstallationOption -ieq "true"
-
-}
-
-Write-Host "Setting WSUS express installation to $useexpress"
-
-$wsusConfig.DownloadExpressPackages = $useexpress
-
-}
-
-}
-
-$wsusConfig.Save()
-
-$subscription = $wsus.GetSubscription()
-
-write-host 'Beginning WSUS category sync'
-
-$subscription.StartSynchronizationForCategoryOnly()
-
-While ($subscription.GetSynchronizationStatus() -ne 'NotProcessing') {
-
-Write-Host "." -NoNewline
-
-Start-Sleep -Seconds 10
-
-}
-
-Write-Host "Initial sync is done."
-
-}
-
-catch
-
-{
-
-throw $Error[0]
-
-}
-
-}
-
-function ConfigProductsForSync
-
-{
-
-try
-
-{
-
-if ($Json.Products.Length -eq 0)
-
-{
-
-Write-Host "No products specified"
-
-}
-
-else
-
-{
-
-write-host 'Setting WSUS Products'
-
-# De-select previous products
-
-Get-WsusServer | Get-WsusProduct | Set-WSUSProduct -Disable
-
-foreach($Product in $Json.Products)
-
-{
-
-$productFound = Get-WsusProduct | Where-Object -FilterScript {$\_.product.title -like $Product.Value}
-
-if (-not [string]::IsNullOrWhitespace($productFound))
-
-{
-
-Get-WsusServer | Get-WsusProduct | Where-Object -FilterScript {$\_.product.title -like $Product.Value} | Set-WsusProduct
-
-}
-
-else
-
-{
-
-throw "Product ($Product.Value) that requested to sync not found in the product categories"
-
-}
-
-}
-
-}
-
-}
-
-catch
-
-{
-
-throw $Error[0]
-
-}
-
-}
-
-function ConfigClassificationsForSync
-
-{
-
-try
-
-{
-
-if ($Json.Classifications.Length -eq 0)
-
-{
-
-Write-Host "No classifications specified"
-
-}
-
-else
-
-{
-
-write-host 'Setting WSUS Classifications'
-
-# De-select current classifications
-
-Get-WsusServer | Get-WsusClassification | Set-WsusClassification -Disable
-
-foreach($Classification in $Json.Classifications)
-
-{
-
-$classificationFound = Get-WsusClassification | Where-Object { $\_.Classification.Title -Like $Classification.Value}
-
-if (-not [string]::IsNullOrWhitespace($classificationFound))
-
-{
-
-Get-WsusServer | Get-WsusClassification | Where-Object { $\_.Classification.Title -Like $Classification.Value} | Set-WsusClassification
-
-}
-
-else
-
-{
-
-throw "Classification ($Classification.Value) that requested to sync not found in the classification list"
-
-}
-
-}
-
-}
-
-}
-
-catch
-
-{
-
-throw $Error[0]
-
-}
-
-}
-
-function EnableAutoApproval
-
-{
-
-try
-
-{
-
-$wsus = Get-WsusServer
-
-$approvalrule = $wsus.GetInstallApprovalRules() | Where-Object {$\_.Name -eq "Approve All Updates" }
-
-if ($approvalrule)
-
-{
-
-Write-Host "Using existing auto-approval rule"
-
-}
-
-else
-
-{
-
-$approvalrule = $wsus.CreateInstallApprovalRule("Approve All Updates")
-
-Write-Host "Creating new auto-approval rule"
-
-}
-
-$ApprovalRule.Enabled = $true
-
-$productcollection = New-Object -TypeName Microsoft.UpdateServices.Administration.UpdateCategoryCollection
-
-$computergroupcollection = New-Object -TypeName Microsoft.UpdateServices.Administration.ComputerTargetGroupCollection
-
-$allcomputers = $wsus.GetComputerTargetGroups() | Where-Object {$\_.Name -eq "All Computers"}
-
-if ($allcomputers)
-
-{
-
-$computergroupcollection.Add($allcomputers)
-
-}
-
-else
-
-{
-
-throw "Failed to find 'All Computers' target group"
-
-}
-
-$approvalrule.SetComputerTargetGroups($computergroupcollection)
-
-$approvalrule.Save()
-
-}
-
-catch
-
-{
-
-throw $Error[0]
-
-}
-
-}
-
-function DisableAutoApproval
-
-{
-
-try
-
-{
-
-$wsus = Get-WsusServer
-
-$approvalrule = $wsus.GetInstallApprovalRules() | Where-Object {$\_.Name -eq "Approve All Updates" }
-
-if ($approvalrule)
-
-{
-
-Write-Host "Deleting existing auto-approval rule"
-
-$wsus.DeleteInstallApprovalRule($approvalrule.Id)
-
-}
-
-else
-
-{
-
-Write-Host "Approval rule already deleted"
-
-}
-
-}
-
-catch
-
-{
-
-throw $Error[0]
-
-}
-
-}
-
-function SetAutoApproval
-
-{
-
-if ($Json.AutoApproveUpdates -ieq "true")
-
-{
-
-EnableAutoApproval
-
-}
-
-elseif ($Json.AutoApproveUpdates -ieq "false")
-
-{
-
-DisableAutoApproval
-
-}
-
-else
-
-{
-
-Write-Host"Auto-approval unchanged"
-
-}
-
-}
-
-function SetSynchronizationTypeAndStartFullSync
-
-{
-
-try
-
-{
-
-$wsus = Get-WSUSServer
-
-$subscription = $wsus.GetSubscription()
-
-$autosynccount = 0
-
-if (-not [string]::IsNullOrWhitespace($Json.AutoSynchronize))
-
-{
-
-$autosynccount = 0 + $Json.AutoSynchronize
-
-}
-
-if ($autosynccount -eq 0)
-
-{
-
-Write-Host "Disabling automatic synchronization."
-
-$subscription.SynchronizeAutomatically=$false
-
-}
-
-else
-
-{
-
-Write-Host "Setting automatic synchronization to $autosynccount times per day."
-
-$subscription.SynchronizeAutomatically=$true
-
-$subscription.NumberOfSynchronizationsPerDay = $autosynccount
-
-}
-
-$subscription.Save()
-
-RunPostInstall
-
-$subscription.StartSynchronization()
-
-write-host 'WSUS Sync started'
-
-}
-
-catch
-
-{
-
-throw $Error[0]
-
-}
-
-}
-
-if (ShouldScriptRun)
-
-{
-
-Write-Host "Configuring WSUS"
-
-SetScriptRun
-
-InstallWSUS
-
-ConfigWSUSAndPerformCategorySync
-
-ConfigProductsForSync
-
-ConfigClassificationsForSync
-
-SetAutoApproval
-
-SetSynchronizationTypeAndStartFullSync
-
-}
-
-else
-
-{
-
-Write-Host "WSUS configuration script has already run. Use parameter 'Force=true' in the configuration file to force script to run again."
-
-}
-
-#
