@@ -1,22 +1,22 @@
 ---
-title: title
+title: Plan your deployment for updating Azure VNets
 titleSuffix: Azure Example Scenarios
 description: description
 author: githubalias
 ms.date: 03/15/2020
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
+ms.subservice: example-scenario
 ms.custom:
   - fcp
 ---
-# Plan Your Deployment for updating Azure Virtual Networks
+# Plan your deployment for updating Azure Virtual Networks
 
 If you locked down your Azure Virtual Network (VNet) from the Internet, you can still get Windows Updates without jeopardizing security and opening up access to the Internet as a whole. This article contains recommendations how you can set up a perimeter network, also called a DMZ, to host a Windows Server Update Service (WSUS) instance to securely update VNets without Internet connectivity.
 
 This article assumes a familiarity with Azure services. The following sections describe the recommended deployment design with a hub and spoke configuration in a single or multi-region configuration.
 
-## Azure Virtual Network Hub-spoke Network Topology
+## Azure Virtual Network hub-spoke network topology
 
 For Azure Virtual Networks, the recommendation is to set up a hub and spoke model network topology by creating a perimeter network, also called a DMZ. Host the WSUS Server on an Azure Virtual Machine that is in the hub between the Internet and VNets. The Hub will have the WSUS Server. WSUS uses port 80 for HTTP protocol and port 443 for HTTPS protocol to obtain updates from Microsoft. It will be on the only Subnet that communicates with the Internet. The spokes are all of the other VNets, which will communicate with the Hub, and not with the Internet. This will be accomplished by creating a Subnet, Network Security Groups (NSGs), and Azure VNet Peering that allows the specific traffic while blocking other Internet traffic. The following image illustrates a sample hub-spoke topology.
 
@@ -63,7 +63,7 @@ You can find the cost of these configurations by using the [Azure Pricing calcul
 >[!NOTE]
 >Prices will vary by region.
 
-## Manual Deployment
+## Manual deployment
 
 After you've either identified the VNet to use as the Hub or determine that you'll need to create a new Windows Server instance, you'll need to create an NSG rule that will allow Internet Traffic that allows Windows Update metadata and content to sync with the WSUS you will create. Here are the rules that need to be added:
 
@@ -80,7 +80,7 @@ There are two approaches you can use to set up your WSUS server.
 
 You can also combine the two approaches, by using the automation script to do most of the work, then using the WSUS administrative console to fine-tune the server settings.
 
-## Setting up WSUS with the Automation Script
+## Setting up WSUS with the automation script
 
 The `Configure-WSUSServer` script allows you to quickly set up a WSUS server that will automatically synchronize and approve updates for a chosen set of products and languages.
 
@@ -122,7 +122,7 @@ This script can be run in one of two ways:
 
 The script will start the initial synchronization needed to make updates available to client computers. However, it won't wait for that synchronization to complete. Depending on the products, classifications, and languages you have selected, the initial synchronization may take several hours to complete. All synchronizations after that should be shorter.
 
-## Setting up WSUS Manually
+## Setting up WSUS manually
 
 1. **From your WSUS VM**, open _Server Manager_ and click _Add roles and features_.
 2. Click _Next_ until you get to the _Select server roles_ page and select _Windows Server Update Services_. Click _Add Features_ when you're prompted "Add features that are required for Windows Server Update Services?"
@@ -148,7 +148,7 @@ During synchronization, WSUS determines if any new updates have been made availa
 >[!NOTE]
 >Initial synchronization can take over an hour. All synchronizations after that should be significantly shorter.
 
-## Configure Virtual Networks to Communicate with WSUS
+## Configure virtual networks to communicate with WSUS
 
 Next set up Azure VNet Peering or Global VNet Peering to communicate with the Hub. We recommend that you set up a WSUS in each region that you've deployed to minimize latency.
 
@@ -164,7 +164,7 @@ Next create the VNet Peering from the spoke to the Hub.
 - For extra security, you can get rid of the associated public IP address. Read [View, change settings for, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-change-settings-for-or-delete-a-public-ip-address).
 - To access your Virtual Machine more securely using JIT, read [Manage virtual machine access using just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
 
-## Configure Client Virtual Machines
+## Configure client virtual machines
 
 Any Virtual Machines running Microsoft Windows (except Home SKU) can be updated using WSUS. Go to each client Virtual machine and do the following steps to enable communication between the WSUS and client:
 
@@ -192,10 +192,10 @@ Any Virtual Machines running Microsoft Windows (except Home SKU) can be updated 
 
 Administrators managing a large network should see the article [Configure automatic updates and update service location](https://docs.microsoft.com/windows/deployment/update/waas-manage-updates-wsus#configure-automatic-updates-and-update-service-location) to use Group Policy settings to automatically configure clients.
 
-## WSUS Deployment for Multiple Clouds
+## WSUS deployment for multiple clouds
 
 It is not possible to set up Virtual Network peering across public and private clouds. Networks that are deployed across public and private clouds will need to have at least one WSUS set up in each cloud.
 
-## Next Steps
+## Next steps
 
 Now that you finished configuring your WSUS, you can learn more about how to manage WSUS (i.e. setting up WSUS synchronization schedule) by reading [Windows Server Update Services (WSUS)](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus)
