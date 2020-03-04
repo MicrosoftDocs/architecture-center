@@ -198,6 +198,10 @@ Administrators managing a large network should see the article [Configure automa
 
 It is not possible to set up Virtual Network peering across public and private clouds. Networks that are deployed across public and private clouds will need to have at least one WSUS set up in each cloud.
 
+## Azure Update Management
+
+You can use the Update Management solution in Azure to manage operating system updates for VM’s that are syncing against WSUS. Update Management reports how up to date the VM is based on the source you are configured to sync with. If the Windows VM is configured to report to WSUS, depending on when WSUS last synced with Microsoft Update, the results might differ from what Microsoft Update shows. Once you have finished configuring your WSUS environment, you can enable Update Management. For more information, see the [Update Management overview and Onboarding steps](https://docs.microsoft.com/azure/automation/automation-update-management).
+
 ## Next steps
 
 - [Managing WSUS](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus)
