@@ -170,7 +170,7 @@ Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some f
 
 ### Active Directory Domain Services
 
-Consider having Active Directory Domain Services as a shared service that is consumed by multiple workloads to lower costs. See [Azure Active Directory Domain Services pricing][ADDS-pricing] for more information.
+Consider having Active Directory Domain Services as a shared service that is consumed by multiple workloads to lower costs. See [Active Directory Domain Services pricing][ADDS-pricing] for more information.
 
 ### VPN Gateway
 
