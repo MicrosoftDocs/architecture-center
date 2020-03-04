@@ -14,6 +14,8 @@ ms.custom:
 
 If you locked down your Azure Virtual Network (VNet) from the Internet, you can still get Windows Updates without jeopardizing security and opening up access to the Internet as a whole. This article contains recommendations how you can set up a perimeter network, also called a DMZ, to host a Windows Server Update Service (WSUS) instance to securely update VNets without Internet connectivity.
 
+Customers using Azure Firewall can use FQDN tags in application rules to allow the required outbound network traffic through your firewall.  For more information, see [FQDN tags overview](https://docs.microsoft.com/azure/firewall/fqdn-tags).
+
 This article assumes a familiarity with Azure services. The following sections describe the recommended deployment design with a hub and spoke configuration in a single or multi-region configuration.
 
 ## Azure Virtual Network hub-spoke network topology
@@ -30,7 +32,7 @@ In the image above:
 - **MainSubnet** – A Virtual Network, a spoke, with Virtual Machines.
 - **NSG_MS** – Network Security Group policy that allows traffic from WSUS VM, but denies Internet traffic.
 
-You can reuse an existing server, or deploy a new server that will be the WSUS. The following is the minimum recommendation for the WSUS VM:
+You can reuse an existing server, or deploy a new server that will be the WSUS. Minimum recommendation for the WSUS VM:
 
 - **Operating System:** Windows Server 2016 or later
 - **Processor:** Dual-Core, 2GHz or faster
@@ -65,7 +67,7 @@ You can find the cost of these configurations by using the [Azure Pricing calcul
 
 ## Manual deployment
 
-After you've either identified the VNet to use as the Hub or determine that you'll need to create a new Windows Server instance, you'll need to create an NSG rule that will allow Internet Traffic that allows Windows Update metadata and content to sync with the WSUS you will create. Here are the rules that need to be added:
+After you've either identified the VNet to use as the Hub or determine that you'll need to create a new Windows Server instance, you'll need to create an NSG rule that will allow Internet Traffic that allows Windows Update metadata and content to sync with the WSUS you'll create. Here are the rules that need to be added:
 
 - Add inbound/outbound NSG rule to allow traffic to/from the _Internet_ on Port 80 (for content)
 - Add inbound/outbound NSG rule to allow traffic to/from the _Internet_ on Port 443 (for metadata)
@@ -75,7 +77,7 @@ After you've either identified the VNet to use as the Hub or determine that you'
 
 There are two approaches you can use to set up your WSUS server.
 
-- If you want to automatically set up a server configured to handle a typical workload with minimal administration required going forward, you can use the PowerShell automation script.
+- If you want to automatically set up a server configured to handle a typical workload with minimal administration required, you can use the PowerShell automation script.
 - If you need to handle thousands of clients running many different operating systems and languages, or if you want to configure WSUS in a way that the PowerShell script can't handle, you can set up WSUS manually. Both approaches are described below.
 
 You can also combine the two approaches, by using the automation script to do most of the work, then using the WSUS administrative console to fine-tune the server settings.
@@ -120,7 +122,7 @@ This script can be run in one of two ways:
 
   ```
 
-The script will start the initial synchronization needed to make updates available to client computers. However, it won't wait for that synchronization to complete. Depending on the products, classifications, and languages you have selected, the initial synchronization may take several hours to complete. All synchronizations after that should be shorter.
+The script will start the initial synchronization needed to make updates available to client computers. However, it won't wait for that synchronization to complete. Depending on the products, classifications, and languages you've selected, the initial synchronization may take several hours to complete. All synchronizations after that should be shorter.
 
 ## Setting up WSUS manually
 
