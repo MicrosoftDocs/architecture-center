@@ -162,7 +162,8 @@ In many applications, the back-end API must check whether a user has permission 
 
 The ID token that Azure AD returns to the client contains some of the user's claims. Within the function app, these claims are available in the X-MS-CLIENT-PRINCIPAL header of the request. However, it's simpler to read this information from binding data. For other claims, use [Microsoft Graph][graph] to query Azure AD. (The user must consent to this action when signing in.)
 
-For more information, see [Working with client identities](/azure/azure-functions/functions-bindings-http-webhook#working-with-client-identities).
+For more information, see [Working with client identities](/azure/azure-functions/functions-bindings-http-webhook-trigger#working-with-client-identities
+).
 
 ### CORS
 
@@ -260,6 +261,49 @@ If you make a breaking change in an API, publish a new version in API Management
 
 For updates that are not breaking API changes, deploy the new version to a staging slot in the same Function App. Verify the deployment succeeded and then swap the staged version with the production version. Publish a revision in API Management.
 
+## Cost considerations
+
+Consider these points to optimize cost of this architecture.
+
+### Azure functions
+
+Azure Functions supports two hosting models. 
+- **Consumption plan**. 
+
+    Compute power is automatically allocated when your code is running. 
+
+- **App Service** plan. 
+
+    A set of VMs are allocated for your code. This plan defines the number of VMs and the VM size.
+
+In this architecture, a function is invoked when a client makes an HTTP request. Because a constant high-volume throughput is not expected in this use case, **consumption plan** is recommended because you pay only for the compute resources you use.
+
+### Cosmos DB
+
+Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations, such as inserts, reads. The price is based on the capacity in RU/s that you reserve. 
+
+Storage is billed for each GB used for your stored data and index. 
+
+See [Cosmos DB pricing model][cosmosdb-pricing] for more information.
+
+In this architecture, the function application fetches documents from Cosmos DB in response to HTTP GET requests from the client. Cosmos DB is cost effective in this case because reading operations are significantly cheaper than write operations expressed on RU/s.
+
+
+### Content Delivery Network
+
+Billing rate may differ depending on the billing region based on the location of the source server delivering the content to the end user. The physical location of the client is not the billing region. Any HTTP or HTTPS request that hits the CDN is a billable event, which includes all response types: success, failure, or other. Different responses may generate different traffic amounts. 
+
+In this reference architecture the deployment resides in a single Azure region. 
+
+To lower costs, consider increasing the cache TTL by caching resource files for a longer duration and setting the longest TTL possible on your content.
+
+
+Use the [Pricing calculator][Cost-Calculator] to estimate costs.
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+
+
+
 ## Deploy the solution
 
 To deploy the reference implementation for this architecture, see the [GitHub readme][readme].
@@ -274,6 +318,7 @@ Related guidance:
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [api-versioning]: ../../best-practices/api-design.md#versioning-a-restful-web-api
 [apim]: /azure/api-management/api-management-key-concepts
 [apim-ip]: /azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services
@@ -291,10 +336,13 @@ Related guidance:
 [cdn]: https://azure.microsoft.com/services/cdn/
 [cdn-https]: /azure/cdn/cdn-custom-ssl
 [cors-policy]: /azure/api-management/api-management-cross-domain-policies
+[Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
 [cosmosdb]: /azure/cosmos-db/introduction
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
-[cosmosdb-input-binding]: /azure/azure-functions/functions-bindings-cosmosdb-v2#input
+[cosmosdb-input-binding]: /azure/azure-functions/functions-bindings-cosmosdb-v2-input
+[cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [event-driven]: ../../guide/architecture-styles/event-driven.md
 [functions]: /azure/azure-functions/functions-overview
 [functions-bindings]: /azure/azure-functions/functions-triggers-bindings

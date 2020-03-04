@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Learn how to improve cross cloud scalability with solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation.
 ms.custom: acom-architecture, hybrid-infrastructure, cross cloud architecture, cloud scalability, scalability,  cross cloud, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/cross-cloud-scaling/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Cross Cloud Scaling Architecture
 
@@ -94,22 +96,6 @@ Modern software is increasingly connected and distributed. The consistency of Az
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>A large number of users attempt to access a web app.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Traffic manager returns the Azure Stack DNS name.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Users access the Azure Stack web app.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Once a threshold is reached, a function starts the Azure Web App and enables the Azure Traffic Manager route.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Traffic is routed to Azure, which can automatically scale App Service.</p>
-</div>
-
 ## Data Flow
 
 1. A large number of users attempt to access a web app.
@@ -129,4 +115,4 @@ Modern software is increasingly connected and distributed. The consistency of Az
 * [Azure Functions documentation](/azure/azure-functions/)
 * [Azure Stack documentation](/azure/azure-stack/user/azure-stack-solution-cloud-burst)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

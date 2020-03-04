@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Too often, product designers waste time and money with inefficient design review—2D images lose essential detail and context, and physical prototypes are extremely expensive. With this mixed reality scenario, clients, designers, and on-site engineers can easily share and review designs as 3D holograms in the context of their environment, accelerating design decisions and reducing time to market.
 ms.custom: acom-architecture, Azure Spatial Anchors, Azure Active Directory, Cosmos DB, Blob Storage, Web Service, Microsoft Hololens, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/collaborative-design-review-powered-by-mixed-reality/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Design Review Powered by Mixed Reality
 
@@ -133,37 +135,6 @@ Businesses and teams across industries have to spend time and money on design re
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Users of the client application authenticate using their Azure Active Directory credentials from HoloLens or a mobile device.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Device 1 creates an anchor using Azure Spatial Anchors and gets back an anchor ID.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Device 1 sends the anchor ID to the app’s web service to create a collaboration session. It also specifies which hologram is to be displayed via its ID in Azure Blob storage.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Session information, including a 6-digit code to join the session, is stored in Azure Cosmos DB. That code is returned to the client, allowing the user of that device to invite others to join.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Device 2 connects to the app’s web service and enters the code to join the session (displayed on Device 1).</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>The web service retrieves the anchor ID for the session and the ID of the hologram associated to that session from Azure Cosmos DB.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>The web service retrieves a SAS key to access the hologram associated to the session from Blob storage. It then returns the anchor ID and SAS key to Device 2.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Device 2 queries Azure Spatial Anchors to get coordinates for the anchor ID retrieved in step 6.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>Device 2 fetches the hologram from Blob storage using the SAS key obtained from the app service.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-10">
-<p>Device 1 and Device 2 exchange state information over a peer-to-peer networking channel (or through a service relay of your choice).</p>
-</div>
-
 ## Data Flow
 
 1. Users of the client application authenticate using their Azure Active Directory credentials from HoloLens or a mobile device.
@@ -188,4 +159,4 @@ Businesses and teams across industries have to spend time and money on design re
 * [Blob Storage documentation](/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows)
 * [Azure Cosmos DB documentation](/azure/cosmos-db/create-sql-api-dotnet/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

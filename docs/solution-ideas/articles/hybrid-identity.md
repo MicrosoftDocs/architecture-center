@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: The Hybrid Identity blueprint enables teams to manage applications and user identity consistently across clouds with the utilization of Azure Stack
 ms.custom: acom-architecture, Hybrid Identity, Azure Hybrid Identity, Service Principles, Azure Active Directory, Azure Active Directory Tenant, interactive-diagram, hybrid-infrastructure, 'https://azure.microsoft.com/solutions/architecture/hybrid-identity/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Hybrid Identity
 
@@ -284,25 +286,6 @@ The need to keep application components on-premises doesn't have to be a barrier
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Set up an Azure Active Directory tenant.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Create users.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Deploy, manage, and operate application resources on Azure and Azure Stack.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Create service principles.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Deploy with service principles.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Application resources can communicate over network.</p>
-</div>
-
 ## Data Flow
 
 1. Set up an Azure Active Directory tenant.
@@ -323,4 +306,4 @@ The need to keep application components on-premises doesn't have to be a barrier
 * [Virtual Machines Overview](https://azure.microsoft.com/services/virtual-machines/)
 * [Azure Active Directory Documentation](/azure/active-directory)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

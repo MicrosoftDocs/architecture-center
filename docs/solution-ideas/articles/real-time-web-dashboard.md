@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Securely monitor and control data streamed from Internet-connected devices
 ms.custom: acom-architecture, analytics, data, signalr service, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/real-time-web-dashboard/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Real-time Web Dashboard
 
@@ -119,19 +121,6 @@ Securely monitor and control data streamed from Internet-connected devices.
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Web app connects to SignalR Service and receives token</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>User connects to web app and gets SignalR endpoint and token</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>User connects to SignalR Service</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Data from real-time source sent to SignalR Service and user</p>
-</div>
-
 ## Data Flow
 
 1. Web app connects to SignalR Service and receives token
@@ -140,4 +129,4 @@ Securely monitor and control data streamed from Internet-connected devices.
 1. Data from real-time source sent to SignalR Service and user
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

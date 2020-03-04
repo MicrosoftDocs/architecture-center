@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Move AI models to the edge with a solution architecture that includes Azure Stack. A step-by-step workflow will help you harness the power of edge AI when disconnected from the internet.
 ms.custom: acom-architecture, ai at the edge, azure stack edge, edge ai, offline machine learning, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/ai-at-the-edge-disconnected/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # AI at the Edge with Azure Stack - disconnected
 
@@ -163,25 +165,6 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Data scientists train a model using Azure Machine Learning and an HDInsight cluster. The model is containerized and put in to an Azure Container Registry.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>The model is deployed via an offline installer to a Kubernetes cluster on Azure Stack.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>End users provide data that is scored against the model.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Insights and anomalies from scoring are placed into storage for later upload.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Globally-relevant and compliant insights are available in the global app.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Data from edge scoring is used to improve the model.</p>
-</div>
-
 ## Data Flow
 
 1. Data scientists train a model using Azure Machine Learning and an HDInsight cluster. The model is containerized and put in to an Azure Container Registry.
@@ -208,4 +191,4 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 * [Storage documentation](/azure/storage/)
 * [Azure Stack documentation](/azure/azure-stack/user/azure-stack-solution-machine-learning)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

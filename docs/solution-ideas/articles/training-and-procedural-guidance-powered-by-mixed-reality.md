@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Enable your team and employees to learn new processes and materials faster, with fewer errors, and greater confidence by providing persistent holographic instructions mapped to precise locations in their physical workspace. Jumpstart employee comprehension with head-up, hands-free experiences using HoloLens devices. And with Azure Spatial Anchors, you can place directions on the procedure’s most important objects and return to this content over time.
 ms.custom: acom-architecture, ai-ml, Azure Spatial Anchors, Azure Active Directory, Azure Cosmos DB, Azure App Service, Media Services, Microsoft HoloLens, Video Indexer, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/training-and-procedural-guidance-powered-by-mixed-reality/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Training and procedural guidance powered by mixed reality
 
@@ -122,37 +124,6 @@ Enable your team and employees to learn new processes and materials faster, with
     <path class="cls-34" d="M219.83 1095.33h-1.77v-13.36a3.93 3.93 0 01-.6.47 7.87 7.87 0 01-.88.52 10 10 0 01-1 .49 6.57 6.57 0 01-1.06.35v-1.79a9.69 9.69 0 001.24-.43c.43-.19.86-.39 1.28-.62a12.46 12.46 0 001.19-.71 9.41 9.41 0 001-.73h.67zM234.92 1087.53a15.37 15.37 0 01-.35 3.44 8 8 0 01-1 2.53 4.49 4.49 0 01-1.63 1.56 4.39 4.39 0 01-2.19.54 4.19 4.19 0 01-2.08-.51 4.41 4.41 0 01-1.54-1.5 7.58 7.58 0 01-.94-2.41 14.57 14.57 0 01-.33-3.27 17.34 17.34 0 01.34-3.58 8.25 8.25 0 011-2.6 4.5 4.5 0 011.63-1.59 4.66 4.66 0 012.24-.53q4.85 0 4.85 7.92zm-1.81.18q0-6.6-3.14-6.6c-2.2 0-3.31 2.24-3.31 6.71 0 4.18 1.09 6.27 3.25 6.27s3.2-2.13 3.2-6.38z"/>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>The user creating the training session authenticates using their Azure Active Directory credentials from HoloLens.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>The client application connects to its own web service to create a training session. Metadata about that training session is stored in Azure Cosmos DB.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>The user scans the environment and places a first anchor where the first step of the procedure needs to happen. Azure Spatial Anchors validates that the user has sufficient permissions to create anchors via Azure AD, and then stores the anchor.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>The user records a video of the procedure on HoloLens and uploads it to Azure</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>The video is encoded with Media Services and prepared for on-demand viewing, as well as processed with Video Indexer for better content search. Video Indexer stores the metadata on Azure Cosmos DB.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>The app saves against its web service the anchor ID for that first step, alongside a link to the video.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>The user, in the same session, then moves on to step 2, places an anchor there, and again records a video of the procedure and saves the resulting anchor ID and video link to its web service. That process is then repeated until all steps in the procedure are executed. As the user moves from step to step, previous anchors are still visible with their respective step number.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>A trainee comes in, selects the training session, retrieves anchor IDs and links to videos that are part of the procedure.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>The trainee scans the room to find the anchors indicating the real-world location of each step in the procedure. As soon as one is found, all anchors are retrieved and shown in the app.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-10">
-<p>The trainee can then retrace the exact steps of the expert who recorded the procedure, and view holographic videos of each step at the right location in the lab.</p>
-</div>
-
 ## Data Flow
 
 1. The user creating the training session authenticates using their Azure Active Directory credentials from HoloLens.
@@ -183,4 +154,4 @@ Enable your team and employees to learn new processes and materials faster, with
 * [Upload, encode, and stream videos using .NET](/azure/media-services/latest/stream-files-tutorial-with-api/)
 * [What is Video Indexer?](/azure/media-services/latest/stream-files-tutorial-with-api/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

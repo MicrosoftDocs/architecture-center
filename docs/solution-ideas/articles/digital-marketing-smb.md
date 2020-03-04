@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Start simple with the content management system that enables you to easily maintain the messaging on your website in real-time, from a browser, with no coding skills.
 ms.custom: acom-architecture, web-apps,'https://azure.microsoft.com/solutions/architecture/digital-marketing-smb/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Simple digital marketing website
 
@@ -80,4 +82,4 @@ This solution is built on the Azure managed services: [Azure SQL Database](https
 * [Use Azure Content Delivery Network in Azure App Service](/api/Redirect/documentation/articles/cdn-websites-with-cdn/)
 * [How to Use Azure Cache for Redis](/api/Redirect/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

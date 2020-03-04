@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Let your business run multi-channel digital marketing websites on one platform and spin up and spin down campaigns on demand. Take advantage of the comprehensive capabilities of Episerver to manage every aspect of your site and campaign performance.
 ms.custom: acom-architecture, web-apps, 'https://azure.microsoft.com/solutions/architecture/digital-marketing-episerver/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Scalable Episerver marketing website
 
@@ -121,4 +123,4 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 * [Application Performance Management with Application Insights](/azure/azure-monitor/app/app-insights-overview)
 * [How to configure your App Service application to use Facebook login](/api/Redirect/documentation/articles/app-service-mobile-how-to-configure-facebook-authentication/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

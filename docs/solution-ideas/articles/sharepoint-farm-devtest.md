@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Learn how to deploy a SharePoint farm for use as a development testing environment with a step-by-step flowchart from Azure.
 ms.custom: acom-architecture, sharepoint dev, sharepoint agile, sharepoint dev environment, lob-app, azure sharepoint development environment, sharepoint farm solution, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/sharepoint-farm-devtest/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # SharePoint Farm for Development Testing
 
@@ -213,40 +215,6 @@ This solution provides a small scale deployment of SharePoint using a single Azu
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Create resource group for the storage, network, and virtual machine, plus other dependent elements.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Create Virtual Network to host the Virtual Machines and Load Balancers for the deployment. Ensure the network has appropriate Network Security Groups implement to protect network traffic flow.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Create the storage accounts that will host the virtual machine images (vhds).</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Create the Active Directory Installation. Either utilizing a new Virtual Machine or leveraging Azure Active Directory Domain Services. Ife leveraging Azure Active Directory you also need to consider synchronizing identities to Azure AD with Azure AD Connect.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Install a supported version of SQL Server on an Azure VM or deploy a pay as you go instance of SQL Server.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Deploy SharePoint onto an Azure VM or leverage a trial image from the gallery which already have SharePoint Server installed.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Create the SharePoint farm.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Set up an Azure external load balancer to direct incoming HTTPS traffic to the SharePoint server.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>Leverage Express Route or VPN Gateway for management access to resource group.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-10">
-<p>On Premises users can access the SharePoint sites via the internet or Express Route or VPN Gateway.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-11">
-<p>External users can be granted access as required to the SharePoint sites for testing.</p>
-</div>
-
 ## Data Flow
 
 1. Create resource group for the storage, network, and virtual machine, plus other dependent elements.
@@ -284,4 +252,4 @@ This solution provides a small scale deployment of SharePoint using a single Azu
 * [Express Route Documentation](/azure/expressroute/)
 * [VPN Gateway Documentation](/azure/vpn-gateway/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

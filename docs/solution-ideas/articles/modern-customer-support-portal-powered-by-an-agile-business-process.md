@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: This architecture shows how to easily connect multiple business systems to enable customer support.
 ms.custom: acom-architecture, line of business app, lob app, lift and shift cloud strategy, cloud migration, cloud innovation, lift and shift solution, lift and shift strategy, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/modern-customer-support-portal-powered-by-an-agile-business-process/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Lift and Shift and Innovate - LOB Apps
 
@@ -99,22 +101,6 @@ Related Links:
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Customer submits feedback posted to a web endpoint.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>The feedback is posted to Microsoft Cognitive Services Text Analytics API to extract sentiment and keywords.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>The customer feedback creates a new case in Dynamics CRM or other CRM.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>The solution sends a text message to the customer, thanking them for the feedback.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>If the feedback sentiment scores lower than 0.3, the app posts this information to a customer service channel to respond.</p>
-</div>
-
 ## Data Flow
 
 1. Customer submits feedback posted to a web endpoint.
@@ -124,4 +110,4 @@ Related Links:
 1. If the feedback sentiment scores lower than 0.3, the app posts this information to a customer service channel to respond.
 
 
-* [!INCLUDE [js_include_file](../../_js/index.md)]
+* 

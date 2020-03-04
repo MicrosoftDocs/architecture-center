@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Implementing secure DevOps  with Kubernetes on Azure, you can achieve the balance between speed and security and deliver code faster at scale.
 ms.custom: acom-architecture, devops, signalr service, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/secure-devops-for-kubernetes/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Secure DevOps for AKS
 
@@ -193,32 +195,23 @@ the same Kubernetes cluster</p>
 
 run by Azure Pipelines</p>
 </div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Container image is registered in Azure Container Registry</p>
-</div>
+
 <div class="architecture-tooltip-content" id="architecture-tooltip-4">
 <p>Kubernetes clusters are provisioned using tools like Terraform; Helm charts, installed
 
 by Terraform, define the desired state of app resources and configurations</p>
 </div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Operators enforce policies to govern deployments to the AKS cluster</p>
-</div>
+
 <div class="architecture-tooltip-content" id="architecture-tooltip-6">
 <p>Release pipeline automatically executes pre-defined deployment strategy with each
 
 code change</p>
 </div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Policy enforcement and auditing is added to CI/CD pipeline using Azure Policy</p>
-</div>
+
 <div class="architecture-tooltip-content" id="architecture-tooltip-8">
 <p>App telemetry, container health monitoring, and real-time log analytics are obtained
 
 using Azure Monitor</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>Insights used to address issues and fed into next sprint plans</p>
 </div>
 
 ## Data Flow
@@ -244,4 +237,4 @@ using Azure Monitor
 1. Insights used to address issues and fed into next sprint plans
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

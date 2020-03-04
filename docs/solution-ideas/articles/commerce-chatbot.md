@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Together, the Azure Bot Service and Language Understanding service enable developers to create conversational interfaces for various scenarios like banking, travel, and entertainment. For example, a hotel’s concierge can use a bot to enhance traditional e-mail and phone call interactions by validating a customer via Azure Active Directory and using Cognitive Services to better contextually process customer requests using text and voice. The Speech recognition service can be added to support voice commands.
 ms.custom: acom-architecture, chatbot, bot service, luis, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/commerce-chatbot/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Commerce Chatbot
 
@@ -124,28 +126,6 @@ Together, the Azure Bot Service and Language Understanding service enable develo
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Customer uses your mobile app</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Using Azure AD B2C, the user authenticates</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Using the custom Application Bot, user requests information</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Cognitive Services helps process the natural language request</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Response is reviewed by customer who can refine the question using natural conversation</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Once the user is happy with the results, the Application Bot updates the customer’s reservation</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Application insights gathers runtime telemetry to help development with Bot performance and usage</p>
-</div>
-
 ## Data Flow
 
 1. Customer uses your mobile app
@@ -157,4 +137,4 @@ Together, the Azure Bot Service and Language Understanding service enable develo
 1. Application insights gathers runtime telemetry to help development with Bot performance and usage
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

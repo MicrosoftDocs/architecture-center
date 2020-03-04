@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: This architecture represents how to configure your infrastructure for development and testing of a standard PaaS-style system.
 ms.custom: acom-architecture, devops, 'https://azure.microsoft.com/solutions/architecture/dev-test-paas/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Dev-Test deployment for testing PaaS solutions
 
@@ -260,4 +262,4 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 * [How to create a web app with Azure Cache for Redis](/azure/azure-cache-for-redis/cache-web-app-howto)
 * [Set up Application Insights for ASP.NET](/azure/azure-monitor/app/asp-net)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

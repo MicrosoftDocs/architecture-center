@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Learn how the task-based consumer mobile app architecture is created with a step-by-step flow chart that shows the integration with Azure App Service Mobile Apps, Visual Studio, and Xamarin to simplify the build process.
 ms.custom: acom-architecture, Consumer Mobile App, Offline Mobile App, Mobile App Authentication, app-dev, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/task-based-consumer-mobile-app/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Task-Based Consumer Mobile App
 
@@ -259,34 +261,6 @@ The links to the right provide documentation on deploying and managing the Azure
     </a>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Create the mobile app using Visual Studio and Xamarin.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Create and configure a new Mobile Apps back end on the Azure portal, or through Visual Studio, and configure the solution in Visual Studio to communicate with the back end.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Implement authentication through social identity providers.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Create a model-driven data structure through the App Service APIs and SDK.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Implement offline sync to make the mobile app functional without a network connection.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>If you created the back end in Visual Studio, you can publish the app service directly from Visual Studio (PC or Mac).</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Store the solution source code with your source control provider of choice.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Build and test the app through Visual Studio App Center and publish it.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>Use Application Insights to monitor the App Service.</p>
-</div>
-
 ## Data Flow
 
 1. Create the mobile app using Visual Studio and Xamarin.
@@ -320,4 +294,4 @@ The links to the right provide documentation on deploying and managing the Azure
 * [Offline sync Documentation](/azure/app-service-mobile/app-service-mobile-offline-data-sync)
 * [Identity Provider Documentation](/azure/app-service/app-service-authentication-overview)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

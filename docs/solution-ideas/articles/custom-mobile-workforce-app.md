@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Learn how the custom mobile workforce management app architecture is built and implemented with a step-by-step diagram that illustrates the integration of Active Directory, SAP, and Azure App Service.
 ms.custom: acom-architecture, Mobile Workforce App, Mobile Workforce Management App, Workforce Management App, Mobile Workforce Management Solution, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/custom-mobile-workforce-app/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Custom Mobile Workforce App
 
@@ -252,31 +254,6 @@ The links to the right provide documentation on deploying and managing the Azure
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Create the app using Visual Studio and Xamarin.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Add the Azure App Service Mobile Apps back end service to the app solution.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Implement authentication through Azure Active Directory.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Connect to business data in external systems like SAP using Azure API Management.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Implement offline sync to make the mobile app functional without a network connection.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Build and test the app through Visual Studio App Center and publish it.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Use Application Insights to monitor the App Service.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Deploy the app to devices using App Center.</p>
-</div>
-
 ## Data Flow
 
 1. Create the app using Visual Studio and Xamarin.
@@ -307,4 +284,4 @@ The links to the right provide documentation on deploying and managing the Azure
 * [API Management documentation](/azure/api-management/)
 * [Azure Active Directory Documentation](/azure/active-directory/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -1,6 +1,5 @@
 ---
-title: On-premises network connected to Azure using VPN
-titleSuffix: Azure Reference Architectures
+title: Extend an on-premises network using VPN
 description: A secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using a VPN.
 author: MikeWasson
 ms.date: 01/24/2020

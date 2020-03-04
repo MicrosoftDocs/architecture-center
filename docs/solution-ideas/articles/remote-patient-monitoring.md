@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Provide a high level of preventative medical care with remote patient monitoring from Azure. Analyze large amounts of medical data in a secure environment.
 ms.custom: acom-architecture, ai-ml, healthcare, remote patient monitoring, remote patient monitoring system, medical data analysis, remote patient monitoring solutions, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/remote-patient-monitoring/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Remote Patient Monitoring Solutions
 
@@ -137,25 +139,6 @@ Predict and prevent future incidents by combining IoT and intelligence to optimi
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Securely ingest medical sensor and device data using Azure IoT Hub.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Securely store sensor and device data in Cosmos DB.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Analyze sensor and device data using a pre-trained Cognitive Services API or a custom developed Machine Learning model.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Store Artificial Intelligence (AI) and Machine Learning results in Cosmos DB.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Interact AI and Machine Learning results using PowerBI, while preserving Role-Based Access Control (RBAC).</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Integrate data insights with backend systems and processes using Logic Apps.</p>
-</div>
-
 ## Data Flow
 
 1. Securely ingest medical sensor and device data using Azure IoT Hub.
@@ -181,7 +164,7 @@ Predict and prevent future incidents by combining IoT and intelligence to optimi
 ## Next Steps
 * [IoT Hub Documentation](/azure/iot-hub)
 * [Azure Security Center Documentation](/azure/security-center)
-* [Get Started with Azure](/azure/#pivot=get-started)
+* [Get Started with Azure](/azure/guides/developer/azure-developer-guide)
 * [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)
 * [Azure Logic Apps Documentation](/azure/logic-apps)
 * [Power BI Embedded Documentation](/azure/power-bi-embedded)
@@ -190,4 +173,4 @@ Predict and prevent future incidents by combining IoT and intelligence to optimi
 * [Azure Machine Learning Documentation](/azure/machine-learning)
 * [Azure Monitor Documentation](/azure/monitoring-and-diagnostics)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Follow a step-by-step flowchart to unlock and preserve legacy data from mainframe applications using Azure Stack.
 ms.custom: acom-architecture, data, data preservation, legacy data integration, legacy data, app modernization, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/unlock-legacy-data/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Unlock Legacy Data with Azure Stack
 
@@ -93,19 +95,6 @@ Use Azure Stack to update and extend your legacy application data with the lates
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>User enters data into Azure-based web app.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Application commits data to database over virtual network-to-virtual network VPN connection to Azure Stack.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Data is processed by applications running on a Kubernetes cluster on Azure Stack.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Kubernetes cluster communicates with legacy system on corporate network.</p>
-</div>
-
 ## Data Flow
 
 1. User enters data into Azure-based web app.
@@ -122,4 +111,4 @@ Use Azure Stack to update and extend your legacy application data with the lates
 * [Virtual Network documentation](https://azure.microsoft.com/services/virtual-network/)
 * [VPN Gateway documentation](https://azure.microsoft.com/services/vpn-gateway/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

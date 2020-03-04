@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: See how deep learning and natural language processing can be used effectively with the Microsoft AI platform.
 ms.custom: acom-architecture, convolutional neural network, discrete manufacturing, decision tree algorithm, ai-ml,  image classification, gradient boosting decision tree, failure detection, automated manufacturing solutions, 'https://azure.microsoft.com/solutions/architecture/information-discovery-with-deep-learning-and-nlp/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Information discovery with deep learning and NLP
 
@@ -113,4 +115,4 @@ By combining deep learning and natural language processing (NLP) with data on si
 * [Learn more about Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 * [Learn more about Azure Kubernetes Service](https://azure.microsoft.com/services/hdinsight/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

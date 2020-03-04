@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Learn more about Anomaly Detector with a step-by-step flowchart that details the process. See how anomaly detection models are selected with time-series data.
 ms.custom: acom-architecture, anomaly detection process, anomaly detection model, anomaly detector, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Anomaly Detector Process
 
@@ -126,25 +128,6 @@ ms.custom: acom-architecture, anomaly detection process, anomaly detection model
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Ingests data from the various stores that contain raw data to be monitored by Anomaly Detector.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Aggregates, samples, and computes the raw data to generate the time series, or calls the Anomaly Detector API directly if the time series are already prepared and gets a response with the detection results.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Queues the anomaly related meta data.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Based on the anomaly related meta data, calls the customized alerting service.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Stores the anomaly detection meta data.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Visualizes the results of the time series anomaly detection.</p>
-</div>
-
 ## Data Flow
 
 1. Ingests data from the various stores that contain raw data to be monitored by Anomaly Detector.
@@ -167,4 +150,4 @@ ms.custom: acom-architecture, anomaly detection process, anomaly detection model
 * [Power BI Documentation](/power-bi/)
 * [Storage Documentation](/azure/storage/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

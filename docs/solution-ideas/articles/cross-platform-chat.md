@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Accelerate development of reliable, high-performing chat applications
 ms.custom: acom-architecture, chat, signalr service, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/cross-platform-chat/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Cross-platform Chat
 
@@ -97,16 +99,6 @@ Accelerate development of reliable, high-performing chat applications.
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Web chat app connects to SignalR Service and receives token</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>User logs into app with multi-factor authentication; if passed, SignalR endpoint and bearer token returned</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>User connects to the SignalR Service with endpoint and token</p>
-</div>
-
 ## Data Flow
 
 1. Web chat app connects to SignalR Service and receives token
@@ -114,4 +106,4 @@ Accelerate development of reliable, high-performing chat applications.
 1. User connects to the SignalR Service with endpoint and token
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

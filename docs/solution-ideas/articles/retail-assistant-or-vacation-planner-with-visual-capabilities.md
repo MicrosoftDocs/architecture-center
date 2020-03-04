@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: The retail assistant or vacation planner can help your customers have interactions with your business bot and provide suggestions based on the visual information.
 ms.custom: acom-architecture, ai-ml, chatbot, ecommerce, retail assistant, cognitive services, vacation planner, visual capabilities, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/retail-assistant-or-vacation-planner-with-visual-capabilities/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Retail Assistant with Visual Capabilities using Cognitive Services
 
@@ -127,19 +129,6 @@ The retail assistant or vacation planner can help your customers have interactio
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Users interact with your business assistant</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Assistant understands context from LUIS</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Assistant passes visual context to the Bing Visual Search API</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Optionally Bot gets more information for user queries exclusively from your domain using the Bing Custom Search API</p>
-</div>
-
 ## Data Flow
 
 1. Users interact with your business assistant
@@ -148,4 +137,4 @@ The retail assistant or vacation planner can help your customers have interactio
 1. Optionally Bot gets more information for user queries exclusively from your domain using the Bing Custom Search API
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

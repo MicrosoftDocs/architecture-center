@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.
 ms.custom: acom-architecture, mysql, use cases, azure, solutions, app-dev, 'https://azure.microsoft.com/solutions/architecture/intelligent-apps-using-azure-database-for-mysql/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Intelligent apps using Azure Database for MySQL
 
@@ -90,4 +92,4 @@ Develop sophisticated, transformational apps using state of the art machine lear
     <path fill="#969696" d="M493.213 202.937h-17.75V48.729h1.5v152.708h16.25v1.5z"/>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

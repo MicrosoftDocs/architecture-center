@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: With the Sitecore Experience Platform (xP), you have at your fingertips the complete data, integrated tools, and automation capabilities to engage your customers throughout an iterative life cycle—the technology foundation necessary to win customers for life.
 ms.custom: acom-architecture, web-apps, 'https://azure.microsoft.com/solutions/architecture/digital-marketing-sitecore/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Scalable Sitecore marketing website
 
@@ -102,4 +104,4 @@ This solution is built on the Azure managed services: [Azure SQL Database](https
 * [Use Azure Cognitive Search](https://azure.microsoft.com/services/search/)
 * [Application Performance Management with Azure Monitor](/azure/azure-monitor/app/app-insights-overview)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

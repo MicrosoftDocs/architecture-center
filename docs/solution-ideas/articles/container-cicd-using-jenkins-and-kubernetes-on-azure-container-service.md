@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Containers make it easy for you to continuously build and deploy applications. By orchestrating the deployment of those containers using Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
 ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, is-deployable, 'https://azure.microsoft.com/solutions/architecture/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)
 
@@ -201,34 +203,6 @@ By setting up a continuous build to produce your container images and orchestrat
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Change application source code.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Commit code to GitHub.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Continuous Integration Trigger to Jenkins.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Jenkins triggers a build job using Azure Kubernetes Service (AKS) for a dynamic build agent.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Jenkins builds and pushes Docker container to Azure Container Registry.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Jenkins deploys your new containerized app to Kubernetes on Azure.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Container Service (AKS), backed by Azure Cosmos DB.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Grafana displays visualization of infrastructure and application metrics via Azure Monitor.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>Monitor application and make improvements.</p>
-</div>
-
 ## Data Flow
 
 1. Change application source code.
@@ -259,4 +233,4 @@ By setting up a continuous build to produce your container images and orchestrat
 ## Deploy to Azure
 * [Deploy to Azure](https://azure.microsoft.com/resources/templates/jenkins-cicd-container/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

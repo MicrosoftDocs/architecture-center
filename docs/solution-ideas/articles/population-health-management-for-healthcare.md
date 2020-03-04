@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Population Health Management is an important tool that is increasingly being used by health care providers to manage and control the escalating costs. The crux of Population Health Management is to use data to improve health outcomes. Tracking, monitoring, and bench marking are the three bastions of Population Health Management, aimed at improving clinical and health outcomes while managing and reducing cost.
 ms.custom: acom-architecture, artificial intelligence, healthcare, ai-ml, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/population-health-management-for-healthcare/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Population Health Management for Healthcare
 
@@ -108,4 +110,4 @@ The architecture diagram below shows the solution design for Population Health M
 
 Once the solution is deployed to the subscription, you can see the various services deployed by clicking the resource group name on the final deployment screen. Alternatively you can use [Azure management portal](https://portal.azure.com/) to see the resources provisioned in your resource group in your subscription. The source code of the solution as well as manual deployment instructions can be found here. The post deployment steps constitute monitoring the health of your deployment and visualizing the Population Health Report in real time as well as the results of the predictions from length of stay model. The post deployment instructions can be found [here](https://github.com/Azure/cortana-intelligence-population-health-management/blob/master/Azure%20Data%20Lake/AutomatedDeploymentGuide/Post%20Deployment%20Instructions.md).
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

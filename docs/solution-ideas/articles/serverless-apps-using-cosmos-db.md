@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Use Azure Functions and Azure Cosmos DB to build globally distributed, scalable serverless applications.
 ms.custom: acom-architecture, serverless, Cosmos DB, 'https://azure.microsoft.com/solutions/architecture/serverless-apps-using-cosmos-db/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Serverless apps using Cosmos DB
 
@@ -54,4 +56,4 @@ Use Azure Functions and Azure Cosmos DB to build globally distributed, scalable 
     <path d="M707.61 304.9c1.4.1 2.4 1.2 2.4 2.6-.1 1.4-1.2 2.4-2.6 2.4-1.4-.1-2.4-1.2-2.4-2.6.1-1.4 1.2-2.5 2.6-2.4zM717.309 304.9c1.4.1 2.4 1.2 2.4 2.6-.1 1.4-1.2 2.4-2.6 2.4-1.4-.1-2.4-1.2-2.4-2.6 0-1.4 1.2-2.5 2.6-2.4zM725.91 304.9c1.4.1 2.4 1.2 2.4 2.6-.1 1.4-1.2 2.4-2.6 2.4-1.4-.1-2.4-1.2-2.4-2.6.1-1.4 1.3-2.5 2.6-2.4zM734.61 304.9c1.4.1 2.4 1.2 2.4 2.6-.1 1.4-1.2 2.4-2.6 2.4-1.4-.1-2.4-1.2-2.4-2.6.1-1.4 1.2-2.5 2.6-2.4zM743.309 304.9c1.4.1 2.4 1.2 2.4 2.6-.1 1.4-1.2 2.4-2.6 2.4-1.4-.1-2.4-1.2-2.4-2.6 0-1.4 1.2-2.5 2.6-2.4z" fill="#969696"/>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

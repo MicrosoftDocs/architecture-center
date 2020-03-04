@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Ingest and process millions of streaming events per second with Apache Kafka, Apache Storm, and Apache Spark Streaming.
 ms.custom: acom-architecture, data, HDInsight, Data Lake Storage, 'https://azure.microsoft.com/solutions/architecture/streaming-using-hdinsight/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Streaming using HDInsight
 
@@ -58,4 +60,4 @@ Ingest and process millions of streaming events per second with Apache Kafka, Ap
     <path d="M90.22 46.604a2.03 2.03 0 100-4.06 2.03 2.03 0 000 4.06zM79.675 43.56a2.03 2.03 0 100-4.06 2.03 2.03 0 000 4.06z" fill="#58E6FD"/>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

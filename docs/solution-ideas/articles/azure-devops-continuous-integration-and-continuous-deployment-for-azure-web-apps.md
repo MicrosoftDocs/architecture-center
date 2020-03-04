@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, Node.js, or PHP. Deliver value faster to your customers with a continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Web Apps.
 ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, pricing-calculator, is-deployable, 'https://azure.microsoft.com/solutions/architecture/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # CI/CD for Azure Web Apps
 
@@ -128,31 +130,6 @@ Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, 
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Change application source code.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Commit application code and Web Apps web.config file.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Continuous integration triggers application build and unit tests.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Continuous deployment trigger orchestrates deployment of application artifacts with environment-specific parameters.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Deployment to Web Apps.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Azure Application Insights collects and analyzes health, performance, and usage data.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Review health, performance, and usage information.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Update backlog item.</p>
-</div>
-
 ## Data Flow
 
 1. Change application source code.
@@ -183,4 +160,4 @@ Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, 
 ## Deploy to Azure
 * [Deploy to Azure](https://ms.portal.azure.com/#create/Microsoft.AzureProject)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

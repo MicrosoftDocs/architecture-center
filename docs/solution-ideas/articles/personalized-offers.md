@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: In today's highly competitive and connected environment, modern businesses can no longer survive with generic, static online content. Furthermore, marketing strategies using traditional tools are often expensive, hard to implement, and do not produce the desired return on investment. These systems often fail to take full advantage of the data collected to create a more personalized experience for the user.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/personalized-offers/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Personalized Offers
 
@@ -212,22 +214,6 @@ The 'Deploy' button will launch a workflow that will deploy an instance of the s
 
 For post deployment instructions and more details on the technical implementation, please see the [instructions here](https://github.com/Azure/cortana-intelligence-personalized-offers/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md).
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>User activity on the website is simulated with an Azure Function and a pair of Azure Storage Queues.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Personalized Offer Functionality is implemented as an Azure Function. This is the key function that ties everything together to produce an offer and record activity. Data is read in from Azure Cache for Redis and Azure DocumentDb, product affinity scores are computed from Azure Machine Learning (if no history for the user exists then pre-computed affinities are read in from Azure Cache for Redis).</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Raw user activity data (Product and Offer Clicks), Offers made to users, and performance data (for Azure Functions and Azure Machine Learning) are sent to Azure Event Hub.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>The offer is returned to the User. In our simulation this is done by writing to an Azure Storage Queue and picked up by an Azure Function in order to produce the next user action.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Azure Stream Analytics analyzes the data to provide near real-time analytics on the input stream from the Azure Event Hub. The aggregated data is sent to Azure DocumentDB. The raw data is sent to Azure Data Lake Storage.</p>
-</div>
-
 ## Data Flow
 
 1. User activity on the website is simulated with an Azure Function and a pair of Azure Storage Queues.
@@ -237,4 +223,4 @@ For post deployment instructions and more details on the technical implementatio
 1. Azure Stream Analytics analyzes the data to provide near real-time analytics on the input stream from the Azure Event Hub. The aggregated data is sent to Azure DocumentDB. The raw data is sent to Azure Data Lake Storage.
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

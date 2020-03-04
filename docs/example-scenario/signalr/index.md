@@ -6,7 +6,7 @@ author: talhanaveed
 ms.date: 12/09/2019
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
+ms.subservice: example-scenario
 ms.custom:
   - fcp
 ---

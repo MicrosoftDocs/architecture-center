@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Build an HPC risk analysis solution architecture with a step-by-step flowchart from Microsoft Azure that combines CycleCloud, Avere vFXT and Tibco Gridserver.
 ms.custom: acom-architecture, risk analysis template, risk analysis solution, hpc risk analysis, hybrid risk analysis, interactive-diagram, hpc, finance, 'https://azure.microsoft.com/solutions/architecture/hpc-risk-analysis/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # HPC Risk Analysis Template – Solution Architecture
 
@@ -318,31 +320,6 @@ This templated risk analysis solution uses Azure HPC compute and GPU virtual mac
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Operations team uses Azure CycleCloud to configure and launch risk analysis grid in Azure.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Azure CycleCloud orchestrates VM creation and software configuration for Tibco Gridserver brokers and HPCCA, in-memory data cache, and Avere vFXT cache.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Quant (or scheduled batch) submits a risk analysis template workflow to the on-premises Tibco GridServer director. Based on job policies and current on-premises use, the workflow is allowed to burst to Azure to expand on-premises grid capacity.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>The Tibco HPCCA detects the change in queue depth for each Tibco broker and requests additional Tibco engine capacity using the Azure CycleCloud Auto-Scaling API. Azure CycleCloud then autostarts engine nodes in Virtual Machine Scale Sets using the Azure H-series, HB-series, and HC-series VMs to optimize cost and performance and NC-series VMs to provide GPU capacity as required.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>As soon as engine VMs join the Azure Grid, the brokers begin executing tasks to the new nodes.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Risk jobs pull artifacts from on-premises and Azure Blob storage as needed from NFS mounted Avere vFXT and/or via the fast in-memory cache.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>As each task completes, results are returned to the submitter or driver and data is written back to the in-memory cache, or to NFS storage through the Avere vFXT, as required. Cached data is persisted either on-premises or in Azure Blob storage.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>As task queues drain, the Tibco HPCCA uses the Azure CycleCloud Auto-Scaling API to shrink the compute grid and reduce cost.</p>
-</div>
-
 ## Data Flow
 
 1. Operations team uses Azure CycleCloud to configure and launch risk analysis grid in Azure.
@@ -369,4 +346,4 @@ This templated risk analysis solution uses Azure HPC compute and GPU virtual mac
 * [Avere vFXT Documentation](/azure/avere-vfxt)
 * [TIBCO GridServer Documentation](https://docs.tibco.com/products/tibco-datasynapse-gridserver-6-2-0)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

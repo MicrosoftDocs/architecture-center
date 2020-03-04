@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Today, most facilities operate reactively to problems in tank levels. This often leads to spills, emergency shutdowns, expensive remediation costs, regulatory issues, costly repairs and fines. Tank level forecasting helps manage and abate these and other problems.
 ms.custom: acom-architecture, artificial intelligence, hpc, analytics, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/oil-and-gas-tank-level-forecasting/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Oil and Gas Tank Level Forecasting
 
@@ -119,4 +121,4 @@ After deployment, see the post deployment instructions [here](https://github.com
   5. Azure Data Factory handles orchestration, and scheduling of the hourly model retraining.
   6. Finally, Power BI is used for results visualization, so that users can monitor the tank level from a facility in real time and use the forecast level to prevent spillage.
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: The QnA Maker tool makes it super easy for the content owners to maintain their knowledge base of QnAs. Combined with Bot Service and LUIS, it's easy to setup an FAQ chatbot which responds from differnet knowledge bases depending on the intent of the query.
 ms.custom: acom-architecture, chatbot, QnA, QnA Maker, FAQ, FAQ chatbot, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/faq-chatbot-with-data-champion-model/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # FAQ Chatbot with data champion model
 
@@ -110,28 +112,6 @@ The QnA Maker tool makes it easy for the content owners to maintain their knowle
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Employee access FAQ Bot</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Azure Active Director validates the employee's identity</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Query is send to a LUIS model to get the intent of the query</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Based in the intent, the query is redirected to the appropriate Knowledge base</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>QnA Maker gives the best match to the incoming query</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>The result is shown to the employee</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Data Champions manage and update their QnA Knowledge base based on the feedback from user traffic</p>
-</div>
-
 ## Data Flow
 
 1. Employee access FAQ Bot
@@ -143,4 +123,4 @@ The QnA Maker tool makes it easy for the content owners to maintain their knowle
 1. Data Champions manage and update their QnA Knowledge base based on the feedback from user traffic
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

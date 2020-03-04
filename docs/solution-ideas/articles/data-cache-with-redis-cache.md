@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: data cache, data cache with azure cache for redis, azure database, cosmos db
 ms.custom: acom-architecture, data, 'https://azure.microsoft.com/solutions/architecture/data-cache-with-redis-cache/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Data cache
 
@@ -84,4 +86,4 @@ Azure Cache for Redis perfectly complements Azure database services such as Cosm
     </g>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

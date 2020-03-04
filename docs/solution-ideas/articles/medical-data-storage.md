@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security.
 ms.custom: acom-architecture, medical records management, data, medical records storage, medical data solutions, healthcare data storage, cloud storage in healthcare, medical data storage, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/medical-data-storage/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Medical Data Storage Solutions
 
@@ -233,25 +235,6 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Securely ingest medical image data using Azure Data Factory.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Securely store medical image data in Azure Data Lake Store and/or Azure Blob Storage.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Analyze medical image data using a pre-trained Azure Cognitive Services API or a custom developed Machine Learning model.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Store artificial intelligence (AI) and Machine Learning results in Azure Data Lake.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Interact AI and Machine Learning results using PowerBI, while preserving Role-Based Access Control (RBAC).</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Securely interact with medical image data via a web based vendor neutral archive (VNA) image viewer.</p>
-</div>
-
 ## Data Flow
 
 1. Securely ingest medical image data using Azure Data Factory.
@@ -278,7 +261,7 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
 ## Next Steps
 * [Azure Data Factory V2 Preview Documentation](/azure/data-factory/)
 * [Data Lake Store Documentation](/azure/data-lake-store/)
-* [Get started with Azure](/azure/#pivot=get-started)
+* [Get started with Azure](/azure/guides/developer/azure-developer-guide)
 * [Web Apps overview](/azure/app-service/app-service-web-overview/)
 * [Azure Security Center Documentation](/azure/security-center/)
 * [Get started with Azure AD](/azure/active-directory/get-started-azure-ad/)
@@ -288,4 +271,4 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
 * [Azure Machine Learning Documentation](/azure/machine-learning/)
 * [Power BI Embedded Documentation](/azure/power-bi-embedded/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

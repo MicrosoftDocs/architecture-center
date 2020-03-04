@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: A speech-to-text solution allows you to identify speech in static video files so you can manage it as standard content, such as allowing employees to search within training videos for spoken words or phrases, and then enabling them to quickly navigate to the specific moment in the video.
 ms.custom: acom-architecture, speech, 'https://azure.microsoft.com/solutions/architecture/digital-media-speech-text/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Keyword search/speech-to-text/OCR digital media
 
@@ -140,4 +142,4 @@ This solution is built on the Azure managed services: [Content Delivery Network]
 * [Run Web Apps in the cloud](/api/Redirect/documentation/articles/app-service-web-overview/)
 * [Indexing media files](/api/Redirect/documentation/articles/media-services-index-content/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

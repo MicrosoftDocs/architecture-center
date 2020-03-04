@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Create, maintain, and distribute custom images with the DevTest Image Factory, an automated image development and management solution from Azure Dev Test Labs.
 ms.custom: acom-architecture, Azure DevTest Image Factory, devops, Image Management Solutions, Create Custom Image, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/dev-test-image-factory/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # DevTest Image Factory
 
@@ -240,25 +242,6 @@ The image factory provides a great way for organizations to create, maintain, an
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>With config as code, define the images to push and select which labs will receive the image.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>IT admin checks into source code control of choice (such as Visual Studio Team Services or Github + Jenkins).</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Orchestrator triggers “golden image” creation based on configuration in source code control that goes to the image factory.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Image factory lab receives commands to create virtual machines (VMs) and custom images.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Specified images copied from image factory lab to team labs.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Team lab users claim VMs or create VMs with the latest images.</p>
-</div>
-
 ## Data Flow
 
 1. With config as code, define the images to push and select which labs will receive the image.
@@ -279,4 +262,4 @@ The image factory provides a great way for organizations to create, maintain, an
 * [Virtual Machines documentation](/azure/virtual-machines/)
 * [Azure Devops documentation](/azure/devops/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

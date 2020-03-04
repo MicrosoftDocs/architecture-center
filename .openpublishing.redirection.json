@@ -304,6 +304,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/framework/devops/gitflow-branch-workflow.md",
+      "redirect_url": "/azure/architecture/framework/devops/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/cloud-adoption/operations/monitor/cloud-app-howto.md",
       "redirect_url": "/azure/architecture/cloud-adoption/operations/monitor/cloud-models-monitor-overview"
     },
@@ -1873,6 +1878,10 @@
     {
       "source_path": "docs/best-practices/resource-naming.md",
       "redirect_url": "/azure/azure-resource-manager/management/resource-name-rules"
+    },
+    {
+      "source_path": "docs/data-guide/scenarios/natural-language-processing.md",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/natural-language-processing"
     }
   ]
 }
