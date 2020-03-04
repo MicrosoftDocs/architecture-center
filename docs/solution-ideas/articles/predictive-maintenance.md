@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: This Predictive Maintenance solution monitors aircraft and predicts the remaining useful life of aircraft engine components.
 ms.custom: acom-architecture, artificial intelligence, anomaly-detection, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/predictive-maintenance/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Predictive Maintenance
 

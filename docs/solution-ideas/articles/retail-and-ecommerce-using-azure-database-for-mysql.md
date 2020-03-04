@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Build secure and scalable e-commerce solutions that meet the demands of both customers and business. Engage customers through customized products and offers, process transactions quickly and securely, and focus on fulfillment and customer service.
 ms.custom: acom-architecture, web-app, ecommerce, mysql, use cases, azure, solutions, 'https://azure.microsoft.com/solutions/architecture/retail-and-ecommerce-using-azure-database-for-mysql/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Retail and e-commerce using Azure Database for MySQL
 

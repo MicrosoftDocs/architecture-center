@@ -7,6 +7,8 @@ ms.date: 09/19/2019
 ms.topic: best-practice
 ms.service: architecture-center
 ms.customer: fcp
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ---
 # Run Apache Cassandra on Azure VMs
 

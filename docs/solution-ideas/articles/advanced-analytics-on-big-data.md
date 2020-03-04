@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Get near real-time data analytics on streaming services. This big data architecture allows you to combine any data at any scale with custom machine learning.
 ms.custom: acom-architecture, Big data architecture, Real time analytics, real time data analytics, interactive-diagram, pricing-calculator, 'https://azure.microsoft.com/solutions/architecture/advanced-analytics-on-big-data/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Advanced Analytics Architecture
 

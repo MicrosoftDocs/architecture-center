@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: View a detailed, step-by-step diagram depicting the build process and implementation of the mobile client app architecture that offers social image sharing with a companion web app and authentication abilities, even while offline.
 ms.custom: acom-architecture, identity, web-app, Social Image Sharing, Image Processing App, Image Share App, Companion Web App, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/social-mobile-and-web-app-with-authentication/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Social App for Mobile and Web with Authentication
 

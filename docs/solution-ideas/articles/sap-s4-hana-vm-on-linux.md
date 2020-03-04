@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Learn more about the SAP S/4 HANA and Linux solution architecture for user requests with a step-by-step flow chart. See how Azure Virtual Machines power the entire system, and learn more about the advantages of this application solution.
 ms.custom: acom-architecture, sap, linux, Azure linux vm, hana linux, sap hana on linux, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/sap-s4-hana-vm-on-linux/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # SAP S/4 HANA VM on Azure and Linux| Microsoft Azure
 

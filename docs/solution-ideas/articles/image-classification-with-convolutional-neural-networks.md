@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Explore transfer learning, convolutional neural networks, and gradient-boosting decision tree algorithms.
 ms.custom: acom-architecture, convolutional neural network, discrete manufacturing, decision tree algorithm, image classification, gradient boosting decision tree, ai-ml, failure detection, automated manufacturing solutions, 'https://azure.microsoft.com/solutions/architecture/image-classification-with-convolutional-neural-networks/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Image classification with Convolutional Neural Networks
 

@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Data Streaming scenario
 ms.custom: acom-architecture, data streaming scenario, interactive-diagram, data, 'https://azure.microsoft.com/solutions/architecture/data-streaming-scenario/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Data Streaming scenario
 

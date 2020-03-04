@@ -162,7 +162,8 @@ In many applications, the back-end API must check whether a user has permission 
 
 The ID token that Azure AD returns to the client contains some of the user's claims. Within the function app, these claims are available in the X-MS-CLIENT-PRINCIPAL header of the request. However, it's simpler to read this information from binding data. For other claims, use [Microsoft Graph][graph] to query Azure AD. (The user must consent to this action when signing in.)
 
-For more information, see [Working with client identities](/azure/azure-functions/functions-bindings-http-webhook#working-with-client-identities).
+For more information, see [Working with client identities](/azure/azure-functions/functions-bindings-http-webhook-trigger#working-with-client-identities
+).
 
 ### CORS
 
@@ -338,7 +339,7 @@ Related guidance:
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
 [cosmosdb]: /azure/cosmos-db/introduction
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
-[cosmosdb-input-binding]: /azure/azure-functions/functions-bindings-cosmosdb-v2#input
+[cosmosdb-input-binding]: /azure/azure-functions/functions-bindings-cosmosdb-v2-input
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/

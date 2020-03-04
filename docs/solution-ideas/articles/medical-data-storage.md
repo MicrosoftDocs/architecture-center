@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security.
 ms.custom: acom-architecture, medical records management, data, medical records storage, medical data solutions, healthcare data storage, cloud storage in healthcare, medical data storage, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/medical-data-storage/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Medical Data Storage Solutions
 
@@ -259,7 +261,7 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
 ## Next Steps
 * [Azure Data Factory V2 Preview Documentation](/azure/data-factory/)
 * [Data Lake Store Documentation](/azure/data-lake-store/)
-* [Get started with Azure](/azure/#pivot=get-started)
+* [Get started with Azure](/azure/guides/developer/azure-developer-guide)
 * [Web Apps overview](/azure/app-service/app-service-web-overview/)
 * [Azure Security Center Documentation](/azure/security-center/)
 * [Get started with Azure AD](/azure/active-directory/get-started-azure-ad/)

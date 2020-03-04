@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: A deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. This solution implements a process of aggregating customer data into a “360 degree” profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/customer-360/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Customer 360
 

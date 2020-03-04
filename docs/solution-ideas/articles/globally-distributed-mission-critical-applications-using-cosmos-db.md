@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft’s global datacenters.
 ms.custom: acom-architecture, app-dev, Cosmos DB, 'https://azure.microsoft.com/solutions/architecture/globally-distributed-mission-critical-applications-using-cosmos-db/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Globally distributed applications using Cosmos DB
 

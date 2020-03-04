@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Microservices with AKS
 ms.custom: acom-architecture, microservices, devops, kubernetes, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/microservices-with-aks/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Microservices with AKS
 

@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Simplify one-to-many real-time communication and updates using serverless code
 ms.custom: acom-architecture, serverless, signalr service, media, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/instant-broadcasting-on-serverless-architecture/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Instant Broadcasting on Serverless Architecture
 

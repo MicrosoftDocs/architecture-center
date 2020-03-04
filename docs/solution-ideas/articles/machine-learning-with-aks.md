@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Machine Learning with AKS
 ms.custom: acom-architecture, chat, signalr service, interactive-diagram, devops, microservices, ai-ml, 'https://azure.microsoft.com/solutions/architecture/machine-learning-with-aks/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Machine Learning model training with AKS
 

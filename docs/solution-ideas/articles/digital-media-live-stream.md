@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: A live streaming solution allows you to capture video in real-time and broadcast it to consumers in real time, such as streaming interviews, conferences, and sporting events online.
 ms.custom: acom-architecture, media, 'https://azure.microsoft.com/solutions/architecture/digital-media-live-stream/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Live streaming digital media
 

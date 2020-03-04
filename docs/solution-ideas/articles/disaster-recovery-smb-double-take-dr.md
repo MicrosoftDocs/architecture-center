@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Small and medium businesses can inexpensively implement disaster recovery to the cloud by using a partner solution like Double-Take DR.
 ms.custom: acom-architecture, 'https://azure.microsoft.com/solutions/architecture/disaster-recovery-smb-double-take-dr/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # SMB disaster recovery with Double-Take DR
 
