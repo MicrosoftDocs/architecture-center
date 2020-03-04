@@ -110,7 +110,7 @@ This script can be run in one of two ways:
 
   `powershell.exe -ExecutionPolicy Unrestricted -File .\Configure-WSUSServer.ps1 -WSUSConfigJson .\WSUS-Config.json`
 
-- You can use the Custom Script Azure VM Extension, described [here](https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-windows)
+- You can use the [Custom Script Azure VM Extension](https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-windows)
   - Copy the script and the JSON configuration file to your own storage container
   - In typical VM and VNet configurations, the Custom Script extension needs only these two parameters to run the script correctly (substituting in the correct URL for your storage locations):
 
