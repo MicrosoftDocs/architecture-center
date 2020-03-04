@@ -163,7 +163,7 @@ When the Microsoft identity platform receives a request on the /common
 endpoint, it signs the user in and in that process discovers which
 tenant the user belongs to.
 
-Guest users' sign in attempts are directed to a tenant-specific endpoint
+Guest users' sign in attempts should be directed to a tenant-specific endpoint
 (i.e. the developer's tenant) https://login.microsoftonline.com/{TenantId\_or\_Name}. We provide an
 example of this in the Woodgrove scenario below.
 
@@ -326,7 +326,7 @@ There are several options for authenticating guests who wish to use non- Azure A
 
 To enable guest sign ins, the developer must ensure that guest users'
 sign in attempts are directed to the tenant-specific endpoint (i.e. the
-developer's tenant)
+developer's tenant, see the [FAQ](https://docs.microsoft.com/en-us/azure/active-directory/b2b/faq#what-applications-and-services-support-azure-b2b-guest-users))
 https://login.microsoftonline.com/{TenantId\_or\_Name}. This may require you implement a separate sign-in page specifically for guests. 
 
 # Next Steps 
