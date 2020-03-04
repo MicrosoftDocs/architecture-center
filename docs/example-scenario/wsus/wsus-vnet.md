@@ -35,9 +35,9 @@ In the image above:
 You can reuse an existing server, or deploy a new server that will be the WSUS. Minimum recommendation for the WSUS VM:
 
 - **Operating System:** Windows Server 2016 or later
-- **Processor:** Dual-Core, 2GHz or faster
-- **Memory:** 2GB of RAM more than what is required by the server and all other services and software running.
-- **Storage:** 40GB or greater
+- **Processor:** Dual-Core, 2 GHz or faster
+- **Memory:** 2 GB of RAM more than what is required by the server and all other services and software running.
+- **Storage:** 40 GB or greater
 - To access your Virtual Machine more securely using Just-In-time (JIT), read [Manage virtual machine access using just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
 
 Your network will have more than one VNet. You'll need to evaluate all VNets to see if one can be used to connect to the Internet. Your VNets could also be in the same region, or in multiple regions.
@@ -51,12 +51,12 @@ You can find the cost of these configurations by using the [Azure Pricing calcul
   - Operating System: Windows
   - Tier: Standard
   - Instance: D4 configuration
-  - Managed Disks: Standard HDD 64GB
+  - Managed Disks: Standard HDD 64 GB
 - Virtual Network
   - Type
     - Same Region if transfer is in the same region
     - Across Region if moving data from one region to another
-  - Data Transfer 2GB
+  - Data Transfer 2 GB
   - Region
     - If within the same region, choose the region the WSUS and VNets are in
     - If across region, the Source VNet region is where the WSUS is. The destination VNet Region is where the data is going
