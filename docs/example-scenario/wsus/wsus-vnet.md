@@ -194,7 +194,7 @@ Administrators managing a large network should see the article [Configure automa
 
 ## WSUS Deployment for Multiple Clouds
 
-It is not possible to setup Virtual Network peering across public and private clouds. Networks that are deployed across public and private clouds will need to have at least one WSUS setup in each cloud.
+It is not possible to set up Virtual Network peering across public and private clouds. Networks that are deployed across public and private clouds will need to have at least one WSUS set up in each cloud.
 
 ## Next Steps
 
