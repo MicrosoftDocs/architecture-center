@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Quickly build and launch digital campaigns that automatically scale based on customer demand.
 ms.custom: acom-architecture, web-app, web applications, easy deploy, content delivery, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/simple-branded-website/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Simple branded website
 

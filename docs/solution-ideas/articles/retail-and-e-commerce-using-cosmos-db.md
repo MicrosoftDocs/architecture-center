@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Support in-depth queries over diverse product catalogs, traffic spikes, and rapidly changing inventory.
 ms.custom: acom-architecture, web-apps, Cosmos DB, ecommerce,'https://azure.microsoft.com/solutions/architecture/retail-and-e-commerce-using-cosmos-db/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Retail and e-commerce using Cosmos DB
 

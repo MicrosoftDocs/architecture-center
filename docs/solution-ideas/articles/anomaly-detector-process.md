@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Learn more about Anomaly Detector with a step-by-step flowchart that details the process. See how anomaly detection models are selected with time-series data.
 ms.custom: acom-architecture, anomaly detection process, anomaly detection model, anomaly detector, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Anomaly Detector Process
 

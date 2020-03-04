@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Move AI models to the edge with a solution architecture that includes Azure Stack.
 ms.custom: ai-ml, acom-architecture, ai at the edge, azure stack edge, edge ai, machine learning, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/ai-at-the-edge/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # AI at the Edge with Azure Stack
 

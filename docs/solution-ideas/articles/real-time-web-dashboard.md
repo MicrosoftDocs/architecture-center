@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Securely monitor and control data streamed from Internet-connected devices
 ms.custom: acom-architecture, analytics, data, signalr service, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/real-time-web-dashboard/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Real-time Web Dashboard
 

@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: The solution demonstrates a business process for customer onboarding. This serverless architecture enables you to build and run applications without having to worry about the underlying infrastructure and the associated management and maintenance. By using it, you can dramatically improve developer productivity.
 ms.custom: acom-architecture, line of business app, lob app, lift and shift cloud strategy, cloud migration, cloud innovation, lift and shift solution, lift and shift strategy, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/onboarding-customers-with-a-cloud-native-serverless-architecture/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Serverless Computing Solution for LOB Apps
 
@@ -22,7 +24,7 @@ The links to the right provide documentation on deploying and managing the Azure
 
 [Learn how you can use machine learning](/azure/machine-learning/preview/)
 
-[Infuse intelligence into your apps with Cognitive Services](/azure/#pivot=products&panel=cognitive)
+[Infuse intelligence into your apps with Cognitive Services](/azure/cognitive-services/)
 
 ## Architecture
 
@@ -117,15 +119,15 @@ The links to the right provide documentation on deploying and managing the Azure
 
 
 <div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>The customer’s photo is posted to Cognitive Services Face API. Face API associates
+<p>The customer's photo is posted to Cognitive Services Face API. Face API associates
 
-the customer’s photo and name.</p>
+the customer's photo and name.</p>
 </div>
 
 ## Data Flow
 
 1. Information about the new customer is posted to a web endpoint.
-1. The customer’s photo is posted to Cognitive Services Face API. Face API associates the customer’s photo and name.
+1. The customer's photo is posted to Cognitive Services Face API. Face API associates the customer's photo and name.
 1. The customer information is recorded in Dynamics 365 or other CRM.
 1. The information about a new customer is sent to Power BI.
 1. The customer information is added to the mailing list (MailChimp).

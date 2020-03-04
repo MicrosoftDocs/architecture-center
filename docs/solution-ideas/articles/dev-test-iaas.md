@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: This architecture represents how to configure your infrastructure for development and testing of a standard IaaS-based SaaS system.
 ms.custom: acom-architecture, devops, 'https://azure.microsoft.com/solutions/architecture/dev-test-iaas/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Dev-Test deployment for testing IaaS solutions
 

@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: A large enterprise architecture for SharePoint, Dynamics CRM, and Linux web servers hosted on an on-premises datacenter with failover to Azure infrastructure.
 ms.custom: acom-architecture, bcdr, 'https://azure.microsoft.com/solutions/architecture/disaster-recovery-enterprise-scale-dr/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Enterprise-scale disaster recovery
 
