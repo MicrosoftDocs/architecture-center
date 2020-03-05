@@ -175,17 +175,15 @@ If a logic app requires any sensitive values that you can't create within a conn
 API Management manages secrets by using objects called *named values* or *properties*. These objects securely store values that you can access through API Management policies. For more information, see [How to use Named Values in Azure API Management policies][apim-properties].
 
 ## Cost considerations
+In general, use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some other consierations.
 
-### Api Management
+### API Management
 
 You are charged for all API Management instances when they are running. If you have scaled up and don't need that level of performance all the time, manually scale down or configure [autoscaling][apim-autoscale].
 
 ### Logic Apps
 
-Logic Apps uses a [serverless](/azure/logic-apps/logic-apps-serverless-overview) model. Billing is calculated based on action and connector execution. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). Currently, there are no tier considerations for Logic Apps.
-
-
-Use the [Pricing calculator][Cost-Calculator] to estimate costs.
+Logic Apps uses a [serverless](/azure/logic-apps/logic-apps-serverless-overview) model. Billing is calculated based on action and connector execution. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
