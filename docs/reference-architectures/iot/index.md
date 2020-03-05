@@ -143,7 +143,9 @@ Consider creating an [Azure Resource Manager template][arm-template] for provisi
 
 To automate infrastructure deployment, you can use Azure DevOps Services, Jenkins, or other CI/CD solutions. Azure [Pipelines][pipelines] is part of [Azure DevOps Services][az-devops] and runs automated builds, tests, and deployments.
 
-You can also learn how to adopt DevOps with your Azure IoT Edge applications with the built-in Azure IoT Edge tasks in Azure Pipelines, see this [How-to guide][IoT-edge-devops].
+Consider staging your workloads, which means deploying to various stages and running validations at each stage before moving on to the next one; that way you can push updates to yout production environments in a highly controlled way and minimize unanticipated deployment issues. [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases] are recommended deployment strategies for updating live production environments. Also consider having a good rollback strategy for when a deployment fails; for example you could automatically redeploy an earlier, successful deployment from your deployment history, the --rollback-on-error flag parameter in Azure CLI is good example. 
+
+Consider monitoring your solution by using [Azure Monitor][az-monitor]. Azure Monitor is the main source of monitoring and logging for all your Azure services, it provides diagnostics information for Azure resources. You can for example, monitor the operations that take place within your IoT hub. There are specific metrics and events that Azure Monitor supports, as well as services, schemas, and categories for Azure Diagnostic Logs.
 
 For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
 
@@ -157,5 +159,7 @@ For more information, see the DevOps section in [Azure Architecture Framework][A
 
 [AAF-devops]: /azure/architecture/framework/devops/overview
 [az-devops]: https://docs.microsoft.com/azure/devops/index?view=azure-devops
-[IoT-edge-devops]: https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd
+[az-monitor]: https://azure.microsoft.com/services/monitor/
+[blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
+[cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
 [pipelines]: https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops

@@ -249,6 +249,8 @@ Automate image patching using ACR Tasks, a feature of Azure Container Registry. 
 
 This reference architecture provides an [Azure Resource Manager template][arm-template] for provisioning the cloud resources, and its dependencies. With the use of [Azure Resource Manager templates][arm-template] you can use [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production scenarios. This allows you save cost and provision load testing environment only when needed.
 
+Consider following the workload isolation criteria to structure your ARM template, a workload is typically defined as an arbitrary unit of functionality; you could, for exmaple, have a separate template for the cluster and then other for the dependant services. Workload isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD), since every workload is associated and managed by its corresponding DevOps team. 
+
 Here are some goals of a robust CI/CD process for a microservices architecture:
 
 - Each team can build and deploy the services that it owns independently, without affecting or disrupting other teams.
