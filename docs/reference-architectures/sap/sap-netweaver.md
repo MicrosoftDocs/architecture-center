@@ -261,7 +261,7 @@ policies for the subnet. Place application servers on a separate subnet so you
 can secure them more easily by managing the subnet security policies, rather
 than the individual servers.
 
-When associated with a subnet, a NSG applies to all the servers within the
+When associated with a subnet, an NSG applies to all the servers within the
 subnet and offers fine-grained control over the servers. Set them up using the
 [portal](/azure/virtual-network/tutorial-filter-network-traffic),
 [PowerShell](/azure/virtual-network/tutorial-filter-network-traffic-powershell),
@@ -753,6 +753,46 @@ ongoing effort to safeguard your information assets. Consider an end-to-end
 approach](/azure/automation/automation-tutorial-update-management)
 for the task.
 
+## Cost considerations
+Use the [Pricing calculator][Cost-Calculator] to estimate costs.
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+
+### Virtual machines
+
+This architecture uses virtual machines for the application tier and database tier. SAP NetWeaver tier uses Windows virtual machines to run SAP services and applications. The database tier runs AnyDB as the database, such as Microsoft SQL Server, Oracle, or IBM DB2. Virtual machines are also used as jumpboxes for management.
+
+There are several payment options for virtual machines in general:
+
+- For workloads with no predictable time of completion or resource consumption, consider the Pay-as-you-go option.
+
+- Consider using [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) if you can commit to using a virtual machine over a one-year or three-year term. VM reservations can reduce costs up to 72% when compared to pay-as-you-go prices.
+
+Use [Azure Spot VMs][az-spot-vms] to run workloads that can be interrupted and do not require completion within a predetermined timeframe or an SLA. Azure deploys Spot VMs if there is available capacity and evicts when it needs the capacity back. Costs associated with Spot virtual machines are lower. Consider Spot VMs for these workloads:
+
+- High-performance computing scenarios, batch processing jobs, or visual rendering applications.
+- Test environments, including continuous integration and continuous delivery workloads.
+- Large-scale stateless applications.
+
+### Virtual machines and availability sets
+
+For all pools and clusters (Web Dispatcher, SAP application servers, Central Services, and database) the virtual machines are grouped into separate availability sets. There is no cost for the availability set. You only pay for each VM instance that you create.
+
+### Azure Load Balancer
+
+In this scenario, Azure Load Balancers are used to distribute traffic to virtual machines in the application-tier subnet.
+
+You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
+
+### Express Route
+
+In this architecture, Express Route is the networking service used for creating private connections between an on-premises network and Azure virtual networks.
+
+All inbound data transfer is free. All outbound data transfer is charged based on a pre-determined rate. See [Azure ExpressRoute pricing][expressroute-pricing] For more info.
+
+
+
+
 ## Communities
 
 Communities can answer questions and help you set up a successful deployment.
@@ -785,4 +825,8 @@ workloads that use some of the same technologies:
     Azure](/azure/architecture/example-scenario/apps/sap-dev-test)
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-netweaver.vsdx
+[az-spot-vms]: /azure/virtual-machines/windows/spot-vms
