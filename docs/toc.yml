@@ -857,6 +857,10 @@ items:
           href: multitenant-identity/client-assertion.md
         - name: Federate with a customer's AD FS
           href: multitenant-identity/adfs.md
+    - name: Example workloads
+      items:
+      - name: Secure access to IoT with Azure AD
+        href: example-scenario/iot-aad/iot-aad.md
   - name: Internet of Things (IoT)
     items:
     - name: Reference architectures
