@@ -165,7 +165,7 @@ In addition, it's always wise to plan for security hardening. Other recommendati
 - As an option, use IPsec policies for encryption of cleartext traffic between servers. If you are also doing subnet isolation, update your network security group rules to allow IPsec traffic.
 - Install anti-malware agents for the VMs.
 
-## Cost Considerations
+## Cost considerations
 Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some factors for optimizing cost for this architecture. 
 
 ### Active Directory Domain Services
