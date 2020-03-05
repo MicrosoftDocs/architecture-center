@@ -63,7 +63,8 @@ The CI pipeline gets triggered every time code is checked in. It publishes an up
 
 - **Data test.** These tests verify that the data samples conform to the expected schema and distribution. Customize this test for other use cases and run it as a separate data sanity pipeline that gets triggered as new data arrives. For example, move the data test task to a *data ingestion pipeline* so you can test it earlier.
 
-**Note:** You should consider enabling DevOps practices for the data used to train the machine learning models, but this is not covered in this article. For more information on the architecture and best practices for CI/CD of a data ingestion pipeline, see [DevOps for a data ingestion pipeline](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-cicd-data-ingestion).
+> [NOTE]
+> You should consider enabling DevOps practices for the data used to train the machine learning models, but this is not covered in this article. For more information about the architecture and best practices for CI/CD of a data ingestion pipeline, see [DevOps for a data ingestion pipeline](https://docs.microsoft.com/azure/machine-learning/how-to-cicd-data-ingestion).
 
 The following one-time tasks occur when setting up the infrastructure for Azure Machine Learning and the Python SDK:
 
@@ -81,11 +82,11 @@ The machine learning pipeline orchestrates the process of retraining the model i
 
 This pipeline covers the following steps:
 
-- **Train model.** The training Python script is executed on the Azure Machine Learning Compute resource to get a new [model](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#models) file which is stored in the [run history](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#runs). Since training is the most compute-intensive task in an AI project, the solution uses [Azure Machine Learning Compute](/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute).
+- **Train model.** The training Python script is executed on the Azure Machine Learning Compute resource to get a new [model](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#models) file which is stored in the [run history](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#runs). Since training is the most compute-intensive task in an AI project, the solution uses [Azure Machine Learning Compute](/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute).
 
 - **Evaluate model.** A simple evaluation test compares the new model with the existing model. Only when the new model is better does it get promoted. Otherwise, the model is not registered and the pipeline is canceled.
 
-- **Register model.** The retrained model is registered with the [Azure ML Model registry](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#model-registry). This service provides version control for the models along with metadata tags so they can be easily reproduced.
+- **Register model.** The retrained model is registered with the [Azure ML Model registry](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#model-registry). This service provides version control for the models along with metadata tags so they can be easily reproduced.
 
 ### Release pipeline
 
