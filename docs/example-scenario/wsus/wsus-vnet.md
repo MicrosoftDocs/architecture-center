@@ -20,7 +20,7 @@ This article assumes a familiarity with Azure services. The following sections d
 
 ## Limitations
 
-Currently, pushing updates with WSUS to Windows Home SKU is not supported.
+Currently, WSUS doesn't support syncing with Windows Home Sku.
 
 ## Azure Virtual Network hub-spoke network topology
 
