@@ -1,4 +1,4 @@
----
+----
 title: Extend on-premises AD FS to Azure
 titleSuffix: Azure Reference Architectures
 description: Implement a secure hybrid network architecture with Active Directory Federation Service authorization in Azure.
@@ -185,6 +185,10 @@ Place AD FS servers and WAP servers in separate subnets with their own firewalls
 Restrict direct sign in access to the AD FS and WAP servers. Only DevOps staff should be able to connect. Do not join the WAP servers to the domain.
 
 Consider using a set of network virtual appliances that logs detailed information on traffic traversing the edge of your virtual network for auditing purposes.
+
+## DevOps considerations
+
+For DevOps considerations, refer to DevOps section described in [Extending Active Directory Domain Services (AD DS) to Azure](./adds-extend-domain#devops-considerations) reference architecture.
 
 ## Deploy the solution
 

@@ -90,6 +90,21 @@ AD DS servers provide authentication services and are an attractive target for a
 
 Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD DS database.
 
+## DevOps considerations
+
+Use Infrastructure as Code (IaC) practice, to provision and configure the network and security infrastructure. In this reference achitecture an [Azure Building Blocks (AZBB)][azbb] template is used, but you can use [Azure Resource Manager templates][arm-template] or any other declarative approach. 
+
+In this reference architecture the entire virtual network that includes the different application tiers, management jump box, and Azure AD Domain Services is identified as a single isolated workload, so it's all declared in a single AZBB template. Workload isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD), since every workload is associated and managed by its corresponding DevOps team. 
+
+Consider using [Azure DevOps][az-devops] or any other CI/CD solutions to automate your deployments. [Azure Pipelines][az-pipelines] is the recommended component of Azure DevOps services that brings automation for solution builds and deployments, it's also highly integrated in the Azure ecosystem.
+
+In this sceanario you virtual machines are configured by using Virtual Machine Extensions and other tools such as [Desired State Configuration (DSC)][dsc-overview] which is used to configure ADDS on the virutal machines.
+
+Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines. Application Insights is actually one of the components of Azure Monitor, which gives you rich metrics and logs to verify the state of your complete Azure landscape. Azure Monitor will help you to follow the state of your infrastructure.
+
+
+For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+
 ## Deploy the solution
 
 A deployment for this architecture is available on [GitHub][github]. The entire deployment can take up to two hours, which includes creating the VPN gateway and running the scripts that configure AD DS.
@@ -171,13 +186,18 @@ After deployment completes, you can test connectivity from the simulated on-prem
 [adfs]: adfs.md
 [azure-cli-2]: /azure/install-azure-cli
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
+[dsc-overview]: https://docs.microsoft.com/powershell/scripting/dsc/overview/overview?view=powershell-7
 [dmz]: ../dmz/secure-vnet-dmz.md
 
 [adds-data-disks]: https://msdn.microsoft.com/library/mt674703.aspx
 [ad-ds-operations-masters]: https://technet.microsoft.com/library/cc779716(v=ws.10).aspx
 [ad-ds-ports]: https://technet.microsoft.com/library/dd772723(v=ws.11).aspx
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [availability-set]: /azure/virtual-machines/virtual-machines-windows-create-availability-set
 [azure-expressroute]: /azure/expressroute/expressroute-introduction
+[azure-monitor]: https://azure.microsoft.com/en-us/services/monitor/
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[az-pipelines]: https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [capacity-planning-for-adds]: https://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
 [considerations]: ./considerations.md

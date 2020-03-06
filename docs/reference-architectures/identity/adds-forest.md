@@ -79,6 +79,10 @@ Forest level trusts are transitive. If you establish a forest level trust betwee
 
 For Active Directory-specific security considerations, see the security considerations section in [Extending Active Directory to Azure][adds-extend-domain].
 
+## DevOps considerations
+
+For DevOps considerations, refer to DevOps section described in [Extending Active Directory Domain Services (AD DS) to Azure](./adds-extend-domain#devops-considerations) reference architecture.
+
 ## Deploy the solution
 
 A deployment for this architecture is available on [GitHub][github]. Note that the entire deployment can take up to two hours, which includes creating the VPN gateway and running the scripts that configure AD DS.

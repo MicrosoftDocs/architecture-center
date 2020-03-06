@@ -207,6 +207,22 @@ Use conditional access control to deny authentication requests from unexpected s
 
 For more information, see [Azure Active Directory conditional access][aad-conditional-access].
 
+## DevOps considerations
+
+Use Infrastructure as Code (IaC) practice, to provision and configure the network and security infrastructure. In this reference achitecture an [Azure Building Blocks (AZBB)][azbb] template is used, but you can use [Azure Resource Manager templates][arm-template] or any other declarative approach. 
+
+In this reference architecture the entire virtual network that includes the different tiers and VMs is identified as a single isolated workload, so it's all declared in a single AZBB template. Workload isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD), since every workload is associated and managed by its corresponding DevOps team. 
+
+Consider using [Azure DevOps][az-devops] or any other CI/CD solutions to automate your deployments. [Azure Pipelines][az-pipelines] is the recommended component of Azure DevOps services that brings automation for solution builds and deployments, it's also highly integrated in the Azure ecosystem.
+
+In this sceanario you virtual machines are configured by using Virtual Machine Extensions, since they offer the possibility of installing certain additional software, such as Apache Cassandra. In particular, the Custom Script Extension allows the download and execution of arbitrary code on a Virtual Machine, allowing unlimited customization of the Operating System of an Azure VM. VM Extensions are installed and executed only at VM creation time. That means if the Operating System gets configured incorrectly at a later stage, it will require a manual intervention to move it back to its correct state. Configuration Management Tools can be used to address this issue.
+
+Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines. Application Insights is actually one of the components of Azure Monitor, which gives you rich metrics and logs to verify the state of your complete Azure landscape. Azure Monitor will help you to follow the state of your infrastructure.
+
+
+
+For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+
 ## Deploy the solution
 
 A deployment for a reference architecture that implements these recommendations and considerations is available on GitHub. This reference architecture deploys a simulated on-premises network in Azure that you can use to test and experiment. To deploy the solution, see the [readme](https://github.com/mspnp/identity-reference-architectures/tree/master/azure-ad) on GitHub.
@@ -236,8 +252,14 @@ A deployment for a reference architecture that implements these recommendations 
 [aad-sync-requirements]: /azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements
 [aad-topologies]: /azure/active-directory/hybrid/plan-connect-topologies
 [aad-user-sign-in]: /azure/active-directory/hybrid/plan-connect-user-signin
+[AAF-devops]: /azure/architecture/framework/devops/overview
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[azbb]: https://github.com/mspnp/template-building-blocks/wiki/overview
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[az-pipelines]: https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops
 [azure-active-directory]: /azure/active-directory-domain-services/active-directory-ds-overview
 [azure-ad-connect]: /azure/active-directory/hybrid/whatis-hybrid-identity
+[azure-monitor]: https://azure.microsoft.com/en-us/services/monitor/
 [azure-multifactor-authentication]: /azure/multi-factor-authentication/multi-factor-authentication
 [considerations]: ./considerations.md
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory
