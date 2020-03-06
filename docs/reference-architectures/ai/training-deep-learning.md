@@ -130,7 +130,7 @@ The output from this architecture is a trained model that is saved to blob stora
 [azure-blob]: /azure/storage/blobs/storage-blobs-introduction
 [batch-scoring]: /azure/architecture/reference-architectures/ai/batch-scoring-deep-learning
 [benchmark]: https://github.com/msalvaris/BatchAIHorovodBenchmark
-[blob]: https://azure.microsoft.com/en-gb/blog/introducing-azure-premium-blob-storage-limited-public-preview/
+[blob]: https://azure.microsoft.com/blog/introducing-azure-premium-blob-storage-limited-public-preview/
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 [docker]: https://hub.docker.com/
 [endpoints]: /azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network
@@ -144,8 +144,8 @@ The output from this architecture is a trained model that is saved to blob stora
 [security-guide]: /azure/storage/common/storage-security-guide
 [storage-explorer]: /azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows
 [tutorial]: https://github.com/Microsoft/DistributedDeepLearning
-[azureml-logging]: /azure/machine-learning/service/how-to-track-experiments
-[azureml-tensorboard]: https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/tensorboard/tensorboard.ipynb
+[azureml-logging]: /azure/machine-learning/how-to-track-experiments
+[azureml-tensorboard]: https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/tensorboard/tensorboard.ipynb
 [tfrecords]: https://www.tensorflow.org/tutorials/load_data/tf_records
 [petastorm]: https://github.com/uber/petastorm
 [premium-storage]: https://azure.microsoft.com/services/storage/blobs/
