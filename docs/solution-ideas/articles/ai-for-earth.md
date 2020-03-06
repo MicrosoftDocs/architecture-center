@@ -4,13 +4,13 @@ titleSuffix: Azure Solution Ideas
 author: jocontr
 ms.date: 03/06/2020
 description: In this module you will get an introduction to AI for Earth, an introduction to some of the projects underway, and some hands-on tutorials using the AI for Earth APIs.
-ms.custom: APIs, AI, 'https://azure.microsoft.com/solutions/architecture/ai-for-earth/'
+ms.custom: FCP, AISchool
 ---
 # AI for Earth
 
 In this article, you will get an introduction to what AI for Earth is at a high level, some of the projects that are already underway, and an overview of the public AI for Earth APIs.
 
-The world is currently facing environmental challenges so huge that the scale is almost impossible to comprehend. Climate change, biodiversity and habitat loss, pollution, population growth, and food and fresh water shortages are all speeding up, and science tells us that these problems will quickly grow worse without comprehensive mitigation. The problems are so big that philosopher Timothy Morton has dubbed them *hyperobjects*: things that are all too real but impossible to truly comprehend. 
+The world is currently facing environmental challenges so huge that the scale is almost impossible to comprehend. Climate change, biodiversity and habitat loss, pollution, population growth, and food and fresh water shortages are all speeding up, and science tells us that these problems will quickly grow worse without comprehensive mitigation. The problems are so significant that philosopher Timothy Morton has dubbed them *hyperobjects*: things that are all too real but impossible to truly comprehend. 
 
 AI is one tool that can help—both to understand these issues and to mitigate them.
 
@@ -72,17 +72,17 @@ Microsoft partnered with the Chesapeake Conservancy to build a system for genera
 
 This project was the basis for the now-public Land CoverMapping  API that is covered in a hands-on tutorial later in this article.
 
-Now you know what AI for Earth is. We've covered the grants, APIs, and projects taking place around this initiative. The next step is to see how you can helpv by working with some of these public APIs available today.
+Now you know what AI for Earth is. We've covered the grants, APIs, and projects taking place around this initiative. The next step is to see how you can help by working with some of these public APIs available today.
 
 # Land Cover Mapping API Tutorial
 
-This step serves as an introduction to the Land Cover Mapping APIs, its capabilities and a hands-on experience using Azure Notebooks.
+This step serves as an introduction to the Land Cover Mapping APIs, its capabilities, and a hands-on experience using Azure Notebooks.
 
 Understanding land use is critical to strategic conservation planning. As discussed in the introduction, Microsoft partnered with the Chesapeake Conservancy to build a system for generating one-meter-resolution land cover data anywhere in the United States. This is now a publicly available API that anyone can use to get detailed land cover data from aerial images.
 
 ## What is the AI for Earth Land Cover Mapping API?
 
-The Land Cover API comes in two versions, which are slightly different in scope. V1 can take a supplied aerial image (in tiff format at 1m resolution) and return an image file that corresponds to the land cover of the provided image. V2 takes a latitude and longitude within the United States and returns the land cover data from the most recent aerial image available.
+The Land Cover API comes in two versions, which are slightly different in scope. V1 can take a supplied aerial image (in tiff format at 1 m resolution) and return an image file that corresponds to the land cover of the provided image. V2 takes a latitude and longitude within the United States and returns the land cover data from the most recent aerial image available.
 
 Both versions of the API return an image containing land cover classifications with corresponding colors representing the different types of land cover:
 
@@ -117,7 +117,7 @@ To run the notebook, you will need to get a key for the Land Cover Mapping API b
 
 ![Screenshot of Microsoft Azure Notebooks. It shows the AI for Earth Apis notebook. The Clone button is circled.](../media/Clone The Project In Azure Notebooks.png)
 
-5. Click *Clone* again to finish cloning the project.
+5. Click *Clone* again to prepare cloning the project.
 
 ![Screenshot of Microsoft Azure Notebooks. A pop-up has been opened when clicking the Clone button. It details information for cloning a project. The field Project Name states AI for Earth Apis (2). The project ID field states /projects/ai-for-earth-apis-2. The project is marked as Public. The Clone button is circled.](../media/ClickOnClone2.png)
 
