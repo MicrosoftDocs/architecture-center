@@ -2,7 +2,7 @@
 title: Plan your deployment for updating Windows Virtual Machines in Azure
 titleSuffix: Azure Example Scenarios
 description: description
-author: githubalias
+author: vpaulreed
 ms.date: 03/15/2020
 ms.topic: example-scenario
 ms.service: architecture-center
