@@ -42,6 +42,6 @@ Also on the Recommendations tab are various summaries of recommendations and dem
 
 This solution demonstrates the end-to-end process of how to develop and deploy machine learning models for marketing campaign optimization. It contains sample data, R code for each step of building the model (including data processing, feature engineering, training and evaluating models along with sample data), deploying the model as a web service (on the edge node) and consuming the web service remotely with Microsoft R Server on Azure HDInsight Spark clusters.
 
-Data scientists who are testing this solution can work with the provided R code from the browser-based Open Source Edition of RStudio Server that runs on the Edge Node of the Azure HDInsight Spark cluster. By [setting the compute context]({0}) the user can decide where the computation will be performed: locally on the edge node, or distributed across the nodes in the Spark cluster. All the R code can also be found in public Github repository. Have fun!
+Data scientists who are testing this solution can work with the provided R code from the browser-based Open Source Edition of RStudio Server that runs on the Edge Node of the Azure HDInsight Spark cluster. By setting the compute context the user can decide where the computation will be performed: locally on the edge node, or distributed across the nodes in the Spark cluster. All the R code can also be found in public Github repository. Have fun!
 
 

@@ -10,7 +10,7 @@ A modern data warehouse lets you bring together all your data at any scale easil
 
 ## Architecture
 
-![Architecture diagram](../media/modern-data-warehouse.svg)
+![Architecture diagram](../solution-ideas/media/modern-data-warehouse.svg)
 
 ## Data Flow
 
