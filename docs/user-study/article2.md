@@ -3,6 +3,7 @@ title: Modern Data Warehouse
 ms.date: 12/16/2019
 description: Explore a cloud data warehouse that uses big data. Modern data warehouse brings together all your data and scales easily as your data grows.
 ms.custom: acom-architecture, Modern data warehouse, modern data warehouse architecture, Cloud data warehouse, Big Data warehouse, interactive-diagram, pricing-calculator, 'https://azure.microsoft.com/solutions/architecture/modern-data-warehouse/'
+author: adamboeglin
 ---
 # Modern Data Warehouse 
 
