@@ -79,7 +79,7 @@ If you need to expose a Service Bus queue as an HTTP endpoint, for example, to p
 The Event Grid service secures event delivery through a validation code. If you use Logic Apps to consume the event, validation is automatically performed. For more information, see [Event Grid security and authentication](/azure/event-grid/security-authentication).
 
 ## Cost Considerations
-In general, use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some other consierations.
+In general, use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some other considerations.
 
 ### API Management
 
