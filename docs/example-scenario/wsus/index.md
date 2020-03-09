@@ -1,7 +1,7 @@
 ---
 title: Plan your deployment for updating Windows Virtual Machines in Azure
 titleSuffix: Azure Example Scenarios
-description: description
+description: A discussion of how best to configure your environment for Windows Service Update Services
 author: vpaulreed
 ms.date: 03/15/2020
 ms.topic: example-scenario
@@ -12,7 +12,7 @@ ms.custom:
 ---
 # Plan your deployment for updating Windows Virtual Machines in Azure
 
-If you locked down your Azure Virtual Network (VNet) from the Internet, you can still get Windows Updates without jeopardizing security and opening up access to the Internet as a whole. This article contains recommendations how you can set up a perimeter network, also called a DMZ, to host a Windows Server Update Service (WSUS) instance to securely update VNets without Internet connectivity.
+If you locked down your Azure Virtual Network (Microsoft Azure Virtual Network) from the Internet, you can still get Windows Updates without jeopardizing security and opening up access to the Internet as a whole. This article contains recommendations how you can set up a perimeter network, also called a DMZ, to host a Windows Server Update Service (WSUS) instance to securely update VNets without Internet connectivity.
 
 Customers using Azure Firewall can use the Windows Update FQDN tag in application rules to allow the required outbound network traffic through your firewall.  For more information, see [FQDN tags overview](https://docs.microsoft.com/azure/firewall/fqdn-tags).
 
@@ -20,7 +20,7 @@ This article assumes a familiarity with Azure services. The following sections d
 
 ## Azure Virtual Network hub-spoke network topology
 
-The recommendation is to set up a hub and spoke model network topology by creating a perimeter network, also called a DMZ, host the WSUS Server on an Azure Virtual Machine that is in the hub between the Internet and VNets. The hub will have open ports, WSUS uses port 80 for HTTP protocol and port 443 for HTTPS protocol to obtain updates from Microsoft. The spokes are all of the other VNets, which will communicate with the Hub, and not with the Internet. This will be accomplished by creating a Subnet, Network Security Groups (NSGs), and Azure VNet Peering that allows the specific traffic while blocking other Internet traffic. The following image illustrates a sample hub-spoke topology.
+The recommendation is to set up a hub and spoke model network topology by creating a perimeter network, also called a DMZ, host the WSUS Server on an Azure Virtual Machine that is in the hub between the Internet and VNets. The hub will have open ports, WSUS uses port 80 for HTTP protocol and port 443 for HTTPS protocol to obtain updates from Microsoft. The spokes are all of the other VNets, which will communicate with the Hub, and not with the Internet. This will be accomplished by creating a Subnet, Network Security Groups (NSGs), and Azure Microsoft Azure Virtual Network Peering that allows the specific traffic while blocking other Internet traffic. The following image illustrates a sample hub-spoke topology.
 
 ![Architecture diagram](.\wsus-vnet.png)
 
@@ -40,14 +40,14 @@ You can reuse an existing server, or deploy a new server that will be the WSUS. 
 - **Storage:** 40 GB or greater
 - To access your Virtual Machine more securely using Just-In-time (JIT), read [Manage virtual machine access using just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
 
-Your network will have more than one VNet, which can be in the same or different regions. You'll need to evaluate all Windows Server VM's to see if one can be used as a WSUS. If you have thousands of VM's to update, we recommend having a Windows Server dedicated to the WSUS role.
+Your network will have more than one Microsoft Azure Virtual Network, which can be in the same or different regions. You'll need to evaluate all Windows Server VMs to see if one can be used as a WSUS. If you have thousands of VMs to update, we recommend having a Windows Server dedicated to the WSUS role.
 
 If all your VNets are in the same region, then we suggest having one WSUS for every 18,000 VMs. This is based on a combination of the VM's requirements based on the number of client VMs being updated, and cost of communicating between VNets. For more information on WSUS capacity requirements, see the article [Determine WSUS Capacity Requirements](https://docs.microsoft.com/security-updates/windowsupdateservices/18127528).
 
 You can find the cost of these configurations by using the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/). You'll need to add the following:
 
 - Virtual Machine
-  - Region: Select the region where your VNet is currently deployed
+  - Region: Select the region where your Microsoft Azure Virtual Network is currently deployed
   - Operating System: Windows
   - Tier: Standard
   - Instance: D4 configuration
@@ -59,14 +59,14 @@ You can find the cost of these configurations by using the [Azure Pricing calcul
   - Data Transfer 2 GB
   - Region
     - If within the same region, choose the region the WSUS and VNets are in
-    - If across region, the Source VNet region is where the WSUS is. The destination VNet Region is where the data is going
+    - If across region, the Source Microsoft Azure Virtual Network region is where the WSUS is. The destination Microsoft Azure Virtual Network Region is where the data is going
   - If you have multiple regions, you'll need to select virtual network multiple times
 
 It's important to note that prices will vary by region.
 
 ## Manual deployment
 
-After you've either identified the VNet to use as the Hub or determine that you'll need to create a new Windows Server instance, you'll need to create an NSG rule. The rule will allow Internet Traffic, which allows Windows Update metadata and content to sync with the WSUS you'll create. Here are the rules that need to be added:
+After you've either identified the Microsoft Azure Virtual Network to use as the Hub or determine that you'll need to create a new Windows Server instance, you'll need to create an NSG rule. The rule will allow Internet Traffic, which allows Windows Update metadata and content to sync with the WSUS you'll create. Here are the rules that need to be added:
 
 - Add inbound/outbound NSG rule to allow traffic to/from the _Internet_ on Port 80 (for content)
 - Add inbound/outbound NSG rule to allow traffic to/from the _Internet_ on Port 443 (for metadata)
@@ -113,7 +113,7 @@ This script can be run in one of two ways:
 
 - You can use the [Custom Script Azure VM Extension](https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-windows)
   - Copy the script and the JSON configuration file to your own storage container
-  - In typical VM and VNet configurations, the Custom Script extension needs only these two parameters to run the script correctly (substituting in the correct URL for your storage locations):
+  - In typical VM and Microsoft Azure Virtual Network configurations, the Custom Script extension needs only these two parameters to run the script correctly (substituting in the correct URL for your storage locations):
 
   ```json
     "fileUris": ["https://mystorage.blob.core.windows.net/mycontainer/Configure-WSUSServer.ps1","https://mystorage.blob.core.windows.net/container/WSUS-Config.json"],
@@ -151,14 +151,14 @@ During synchronization, WSUS determines if any new updates have been made availa
 
 ## Configure virtual networks to communicate with WSUS
 
-Next set up Azure VNet Peering or Global VNet Peering to communicate with the Hub. We recommend that you set up a WSUS in each region that you've deployed to minimize latency.
+Next set up Azure Microsoft Azure Virtual Network Peering or Global Microsoft Azure Virtual Network Peering to communicate with the Hub. We recommend that you set up a WSUS in each region that you've deployed to minimize latency.
 
-On each VNet that is the spoke, you'll need to create an NSG Policy with the following rules:
+On each Microsoft Azure Virtual Network that is the spoke, you'll need to create an NSG Policy with the following rules:
 
 - Add inbound/outbound NSG rule to allow traffic from the _WSUS VM_ on Port 8530 (default unless configured).
 - Add inbound/outbound NSG rule to deny traffic from the _Internet_.
 
-Next create the VNet Peering from the spoke to the Hub.
+Next create the Microsoft Azure Virtual Network Peering from the spoke to the Hub.
 
 ### Client VM
 
@@ -171,25 +171,25 @@ Any Virtual Machines running Microsoft Windows (except Home SKU) can be updated 
 
 ### From your client VM
 
-- Open _Local Group Policy Editor_ (or Group Policy Management Editor)
-- Click _Computer Configuration_ → _Administrative Templates_ → _Windows Components_ → _Windows Update_
-- Enable _Specify intranet Microsoft update service location_
-- Enter in the URL – `http://[WSUS name]:8530`. (You can see your _WSUS name_ (i.e. WsusVM) from the _Update Services_ page.) It may take some time (up to few hours) for this setting to be reflected.
-- Go to _Settings_ → _Update & Security_ → _Windows Update_
-- Click _check for updates_
+1. Open _Local Group Policy Editor_ (or Group Policy Management Editor)
+2. Click _Computer Configuration_ → _Administrative Templates_ → _Windows Components_ → _Windows Update_
+3. Enable _Specify intranet Microsoft update service location_
+4. Enter in the URL – `http://[WSUS name]:8530`. (You can see your _WSUS name_ (i.e. WsusVM) from the _Update Services_ page.) It may take some time (up to few hours) for this setting to be reflected.
+5. Go to _Settings_ → _Update & Security_ → _Windows Update_
+6. Click _check for updates_
 
 ### From your WSUS VM
 
-- Open _Windows server Update Services_. You should be able to see your client VM listed under _Computers_ → _All Computers_
-- Click on _Updates_ → _All Updates_
-- Set _Approval_ as _Any Except Declined_
-- Set _Status_ as _Needed_. Now, you can see all the needed updates for your client VM.
-- Right click on any of the updates and _approve_ installation.
+1. Open _Windows server Update Services_. You should be able to see your client VM listed under _Computers_ → _All Computers_
+2. Click on _Updates_ → _All Updates_
+3. Set _Approval_ as _Any Except Declined_
+4. Set _Status_ as _Needed_. Now, you can see all the needed updates for your client VM.
+5. Right click on any of the updates and _approve_ installation.
 
 ### Verification
 
-- On the client VM, go to _Settings_ → _Update & Security_ → _Windows Update_
-- Click _check for updates_. You should see an update with the same KB article number (i.e. 4480056) which you approved from the WSUS VM.
+1. On the client VM, go to _Settings_ → _Update & Security_ → _Windows Update_
+2. Click _check for updates_. You should see an update with the same KB article number (i.e. 4480056) which you approved from the WSUS VM.
 
 Administrators managing a large network should see the article [Configure automatic updates and update service location](https://docs.microsoft.com/windows/deployment/update/waas-manage-updates-wsus#configure-automatic-updates-and-update-service-location) to use Group Policy settings to automatically configure clients.
 
@@ -203,7 +203,7 @@ Currently, WSUS doesn't support syncing with Windows Home Sku.
 
 ## Azure Update Management
 
-You can use the Update Management solution in Azure to manage and schedule operating system updates for VM's that are syncing against WSUS. The patch status of the VM (i.e. which patches are missing) is assessed based on the source that the VM is configured to sync with. If the Windows VM is configured to report to WSUS, depending on when WSUS last synced with Microsoft Update, the results might differ from what Microsoft Update shows. Once you have finished configuring your WSUS environment, you can enable Update Management. For more information, see the [Update Management overview and Onboarding steps](https://docs.microsoft.com/azure/automation/automation-update-management).
+You can use the Update Management solution in Azure to manage and schedule operating system updates for VMs that are syncing against WSUS. The patch status of the VM (i.e. which patches are missing) is assessed based on the source that the VM is configured to sync with. If the Windows VM is configured to report to WSUS, depending on when WSUS last synced with Microsoft Update, the results might differ from what Microsoft Update shows. Once you have finished configuring your WSUS environment, you can enable Update Management. For more information, see the [Update Management overview and Onboarding steps](https://docs.microsoft.com/azure/automation/automation-update-management).
 
 ## Next steps
 

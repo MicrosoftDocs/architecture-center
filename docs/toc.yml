@@ -1051,6 +1051,8 @@ items:
         href: reference-architectures/sharepoint/index.md
       - name: WordPress
         href: example-scenario/infrastructure/wordpress.md
+      - name: Configuring Windows Update Services
+        href: example-scenario/wsus/index.md
   - name: Web apps
     items:
     - name: Reference architectures
