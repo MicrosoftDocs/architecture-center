@@ -18,10 +18,6 @@ Customers using Azure Firewall can use the Windows Update FQDN tag in applicatio
 
 This article assumes a familiarity with Azure services. The following sections describe the recommended deployment design with a hub and spoke configuration in a single or multi-region configuration.
 
-## Limitations
-
-Currently, WSUS doesn't support syncing with Windows Home Sku.
-
 ## Azure Virtual Network hub-spoke network topology
 
 The recommendation is to set up a hub and spoke model network topology by creating a perimeter network, also called a DMZ, host the WSUS Server on an Azure Virtual Machine that is in the hub between the Internet and VNets. The hub will have open ports, WSUS uses port 80 for HTTP protocol and port 443 for HTTPS protocol to obtain updates from Microsoft. The spokes are all of the other VNets, which will communicate with the Hub, and not with the Internet. This will be accomplished by creating a Subnet, Network Security Groups (NSGs), and Azure VNet Peering that allows the specific traffic while blocking other Internet traffic. The following image illustrates a sample hub-spoke topology.
@@ -200,6 +196,10 @@ Administrators managing a large network should see the article [Configure automa
 ## WSUS deployment for multiple clouds
 
 It isn't possible to set up Virtual Network peering across public and private clouds. Networks that are deployed across public and private clouds will need to have at least one WSUS set up in each cloud.
+
+## Support notes
+
+Currently, WSUS doesn't support syncing with Windows Home Sku.
 
 ## Azure Update Management
 
