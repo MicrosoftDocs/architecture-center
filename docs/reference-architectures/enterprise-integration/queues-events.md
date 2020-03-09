@@ -91,7 +91,7 @@ Logic Apps uses a [serverless](/azure/logic-apps/logic-apps-serverless-overview)
 
 ### Service Bus queues
 
-Service Bus queues supports both push and pull models for delivering messages. In the pull model, every polling request is metered as an action. Even with long polling that has the default set at 30 secs, cost can be high. Unless you need real-time delivery of messages, consider using the push model.     
+Service Bus queues support both push and pull models for delivering messages. In the pull model, every polling request is metered as an action. Even with long polling at 30 secs (default), cost can be high. Unless you need real-time delivery of messages, consider using the push model.     
 
 Service Bus queues are included in all tiers (Basic, standard, and premium tiers). For more information, see [Azure Service Bus pricing][service-bus-pricing]. 
 
