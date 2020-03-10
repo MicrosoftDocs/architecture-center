@@ -193,9 +193,9 @@ Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some c
 
 ### Azure Synapse
 
-- **Compute Optimized Gen1** for frequent scaling operations. This option is priced as pay-as-you-go, based on Data warehouse units consumption (DWU). 
+- Choose **Compute Optimized Gen1** for frequent scaling operations. This option is priced as pay-as-you-go, based on Data warehouse units consumption (DWU). 
 
-- **Compute Optimized Gen2** for intensive workloads with higher query performance and compute scalability needs. You can choose the pay-as-you-go model or use reserved plans of one year (37% savings) or 3 years (65% savings).
+- Choose **Compute Optimized Gen2** for intensive workloads with higher query performance and compute scalability needs. You can choose the pay-as-you-go model or use reserved plans of one year (37% savings) or 3 years (65% savings).
 
 Data storage is charged separately. Other services such as disaster recovery and threat detection are also charged separately.
 
@@ -203,7 +203,7 @@ See [Azure Synapse Pricing][az-synapse-pricing] for more information.
 
 ### Analysis Services
 
-Pricing for Azure Analysis Services depends on the tier you choose. The reference implementation of this architecture uses the **Developer** tier, which is recommended for evaluation, development, and test scenarios. Other tiers include, the **Basic** tier, which is recommended for small production environment. Use the **Standard** tier for mission-critical production applications. For more information, see [The right tier when you need it
+Pricing for Azure Analysis Services depends on the tier. The reference implementation of this architecture uses the **Developer** tier, which is recommended for evaluation, development, and test scenarios. Other tiers include, the **Basic** tier, which is recommended for small production environment; the **Standard** tier for mission-critical production applications. For more information, see [The right tier when you need it
 ](/azure/analysis-services/analysis-services-overview#the-right-tier-when-you-need-it). 
 
 No charges apply when you pause your instance.
@@ -212,7 +212,7 @@ See [Azure Analysis Services pricing][az-as-pricing] for more information.
 
 ### Blob Storage
 
-Consider Azure Storage reserved capacity to lower cost on storage. With this model, you get a discount on fixed storage capacity if you can commit to reservation for one or three years. For more information, see [Optimize costs for Blob storage with reserved capacity][az-storage-reserved].
+Consider using the Azure Storage reserved capacity feature to lower cost on storage. With this model, you get a discount if you can commit to reservation for fixed storage capacity for one or three years. For more information, see [Optimize costs for Blob storage with reserved capacity][az-storage-reserved].
 
 ### Power BI Embedded
 
