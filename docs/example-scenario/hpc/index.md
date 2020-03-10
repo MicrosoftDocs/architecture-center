@@ -34,8 +34,7 @@ When the calculations are completed, the results are returned to a VM running Wi
 
 ## Architecture
 
-![Architecture diagram][architecture]
-
+![Architecture diagram][./architecture-hpc-reservoir-simulation.png]
 
 This diagram offers a high-level overview of the architecture used in the example. The workflow is as follows:
 
@@ -73,7 +72,7 @@ If you don't need this level of security, separate subnets aren't required for t
 
 ### Storage 
 
-[Data storage](https://docs.microsoft.com/en-us/azure/architecture/topics/high-performance-computing#storage) and access needs vary widely, depending on the scale of a workload, and Azure supports several approaches for managing the speed and capacity of HPC applications. The following approaches are commonly used the oil and gas industry. Choose the solution best suited to your unique IO and capacity requirements.
+[Data storage](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing#storage) and access needs vary widely, depending on the scale of a workload, and Azure supports several approaches for managing the speed and capacity of HPC applications. The following approaches are commonly used the oil and gas industry. Choose the solution best suited to your unique IO and capacity requirements.
 
 - **Low-scale workload.** Consider running NFS on the head node, as in this example, using a storage-optimized [Lsv2-series VM][lsv2] with large ephemeral disks, or use D-series VMs with Azure Premium Storage, depending on your requirements. This solution suits workloads with 500 cores or less, throughput of up to 1.5 gibibytes per second (GiB/s), and up to 19 TB RAM and 100 TB storage.
 
@@ -96,7 +95,7 @@ Get an example implementation of this [OPM FLOW architecture on GitHub][opm-flow
 - Learn about [HPC on Azure][hpc]
 
 <!-- links -->
-[architecture]: ./media/architecture-hpc-reservoir-simulation.png
+[architecture]: ./architecture-hpc-reservoir-simulation.png
 [azurehpc]: https://github.com/Azure/azurehpc/tree/master/examples
 [azure-cyclecloud]: /azure/cyclecloud/overview
 [avere-vfxt]: /azure/avere-vfxt/avere-vfxt-overview
