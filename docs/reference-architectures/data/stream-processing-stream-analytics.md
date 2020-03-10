@@ -224,7 +224,7 @@ Azure Stream Analytics is priced by the number of streaming units ($0.11/hour) r
 
 ### Event Hubs and Cosmos DB
 
-For cost considerations about Azure Event Hubs and Cosmos DB, see Cost considerations see the [Stream processing with Azure Databricks](./stream-processing-databricks#cost-considerations) reference architecture.
+For cost considerations about Azure Event Hubs and Cosmos DB, see Cost considerations see the [Stream processing with Azure Databricks](stream-processing-databricks.md) reference architecture. 
 
 
 ## Deploy the solution
