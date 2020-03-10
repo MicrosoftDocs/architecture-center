@@ -218,6 +218,21 @@ Interestingly, this had the side effect of increasing the SU utilization in the 
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github].
 
+## DevOps considerations
+
+Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
+
+Use the [Azure Resource Manager template][arm-template] to deploy the Azure resources which follows the infrastructure as Code (IaC) Process. Templates make it easier to automate deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions.
+
+Identify your workloads and put every workload in a single deployment template. By using separate templates, you can store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier. In this architecture, the Azure event hubs, stream analytics service, CosmosDB and related artifacts are identified as a single workload, so they are included in a single ARM template.
+
+Consider staging your workloads, which means deploying to various stages and running validations at each stage before moving on to the next one; that way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. Create an Azure DevOps pipeline and include those stages, so they are automated. 
+
+Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your entire Azure analytics platform for an integrated monitoring experience. See [this article][monitoring-stream-analytics] to learn how to Set up alerts for Azure Stream Analytics job.
+
+
+For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+
 ## Related resources
 
 You may wish to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
@@ -226,5 +241,11 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 - [Real-time fraud detection](/azure/architecture/example-scenario/data/fraud-detection)
 
 <!-- links -->
-
+[AAF-devops]: /azure/architecture/framework/devops/overview
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
 [github]: https://github.com/mspnp/azure-stream-analytics-data-pipeline
+[monitoring-stream-analytics]: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts
+
+

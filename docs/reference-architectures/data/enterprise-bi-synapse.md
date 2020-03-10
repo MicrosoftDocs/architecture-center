@@ -188,6 +188,23 @@ Azure Analysis Services uses Azure Active Directory (Azure AD) to authenticate u
 
 For more information, see [Manage database roles and users](/azure/analysis-services/analysis-services-database-users).
 
+## DevOps considerations
+
+Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
+
+Use the [Azure Building blocks][azbb] template provided in this architecture or create an [Azure Resource Manager template][arm-template] to deploy the Azure resources which follows the infrastructure as Code (IaC) Process. Templates make it easier to automate deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions.
+
+Identify your workloads and put every workload in a single deployment template. By using separate templates, you can store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier. In this architecture, the Data warehouse server, analysis services PaaS and related resources are identified as a single workload, there is an on premimses in cloud simulated scenario, which is separate workload and included in its own deployment template.
+
+In this architecture the Data Warehouse server is setup and configured using Azure CLI commands which follows the imperative approach of the IaC practice, also consider using powershell scripts and integrate them in the automation process.
+
+Consider staging your workloads, which means deploying to various stages and running validations at each stage before moving on to the next one; that way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases] are recommended deployment strategies for updating live production environments. Also consider having a good rollback strategy for when a deployment fails; for example you could automatically redeploy an earlier, successful deployment from your deployment history, the --rollback-on-error flag parameter in Azure CLI is good example. 
+
+Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your data warehouse but also your entire Azure analytics platform for an integrated monitoring experience. Also, [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to surface insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse as it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs. 
+
+
+For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+
 ## Deploy the solution
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github-folder]. It deploys the following:
@@ -210,6 +227,14 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 
 <!-- links -->
 
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [adf-ra]: ./enterprise-bi-adf.md
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[azbb]: https://github.com/mspnp/template-building-blocks/wiki
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
+[blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
+[cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw
+[synapse-analytics]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database

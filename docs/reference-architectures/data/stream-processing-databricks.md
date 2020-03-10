@@ -316,8 +316,36 @@ SparkMetric_CL
 
 For more information, see [Monitoring Azure Databricks](../../databricks-monitoring/index.md).
 
+## DevOps considerations
+
+Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
+
+Use the [Azure Resource Manager template][arm-template] to deploy the Azure resources which follows the infrastructure as Code (IaC) Process. Templates make it easier to automate deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions.
+
+Identify your workloads and put every workload in a single deployment template. By using separate templates, you can store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier. In this architecture, the Azure event hubs, log analytics and CosmosDB are identified as a single workload, so they are included in a single ARM template.
+
+Consider staging your steps, which means deploying to various stages and running validations at each stage before moving on to the next one; that way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. In this architecture there are multiple deployment stages identified, you should consider creating a DevOps Pipeline and adding those stages. Some examples of the stages that you can automate with a DevOps pipeline are: 
+
+Start a Databrick Cluster
+Configure Databricks CLI
+Install Scala Tools
+Add the Databricks secrets
+
+Also consider writing automated integration tests to improve the quality and the reliability of the databricks code and its life cycle. 
+
+Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your stream processing pipeline. See [Monitoring Azure Databricks][databricks=monitoring], for more information.
+
+
+For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+
+
 ## Deploy the solution
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github].
 
+[AAF-devops]: /azure/architecture/framework/devops/overview
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
+[databricks=monitoring]: https://docs.microsoft.com/en-us/azure/architecture/databricks-monitoring/
 [github]: https://github.com/mspnp/azure-databricks-streaming-analytics
