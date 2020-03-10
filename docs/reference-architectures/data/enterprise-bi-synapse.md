@@ -189,42 +189,37 @@ Azure Analysis Services uses Azure Active Directory (Azure AD) to authenticate u
 For more information, see [Manage database roles and users](/azure/analysis-services/analysis-services-database-users).
 
 ## Cost considerations
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
 
-### Synapse
+### Azure Synapse
 
-There are different options depending in you service level needs:
+- **Compute Optimized Gen1** for frequent scaling operations. This option is priced as pay-as-you-go, based on Data warehouse units consumption (DWU). 
 
-**Compute Optimized Gen1** is designed for frequent scaling operations, is is priced as "pay as you go", based on Data warehouse units consumption (DWU). 
+- **Compute Optimized Gen2** for intensive workloads with higher query performance and compute scalability needs. You can choose the pay-as-you-go model or use reserved plans of one year (37% savings) or 3 years (65% savings).
 
-**Compute Optimized Gen2** is designed for intensive workloads with higher query performance and compute scalability needs, it is priced as "pay as yo go" or you can go for reserved plans of 1 year (37 % savings), or 3 years (65 % savings).
-
-Data storage is charged separately. There are also other services like disaster recovery and threat detection which are also charged separately.
+Data storage is charged separately. Other services such as disaster recovery and threat detection are also charged separately.
 
 See [Azure Synapse Pricing][az-synapse-pricing] for more information.
 
 ### Analysis Services
 
-Azure Analysis Services is available in **developer**, **basic**, and **standard** tiers. The **Developer** tier is recommended for evaluation, development, and test scenarios. The **basic** tier is a general-purpose tier and recommended for small production environments. The **standard** tier is best suited for mission-critical production applications.
+Pricing for Azure Analysis Services depends on the tier you choose. The reference implementation of this architecture uses the **Developer** tier, which is recommended for evaluation, development, and test scenarios. Other tiers include, the **Basic** tier, which is recommended for small production environment. Use the **Standard** tier for mission-critical production applications. For more information, see [The right tier when you need it
+](/azure/analysis-services/analysis-services-overview#the-right-tier-when-you-need-it). 
 
-No charges apply when you paise your instance
+No charges apply when you paise your instance.
 
 See [Azure Analysis Services pricing][az-as-pricing] for more information.
 
-## Blob Storage
+### Blob Storage
 
-Consider going for [Azure Storage Reserved Capacity][az-storage-reserved] pricing model, for cost savings.
-
+Consider Azure Storage reserved capacity to lower cost on storage. With this model, you get a discount on fixed storage capacity if you can commit to reservation for one or three years. For more information, see [Optimize costs for Blob storage with reserved capacity][az-storage-reserved].
 
 ### Power BI Embedded
 
-Power BI Embedded is a Platform-as-a-Service (PaaS) solution that offers a set of APIs to enable the integration of Power BI content into custom apps and websites. Users who publish BI content need to be licensed with [Power BI Pro ][powerbi-pro-purchase].
-
-See [Power BI Embedded pricing][powerbi-embedded-pricing] for more info.
+Power BI Embedded is a Platform-as-a-Service (PaaS) solution that offers a set of APIs to enable the integration of Power BI content into custom apps and websites. Users who publish BI content need to be licensed with [Power BI Pro][powerbi-pro-purchase]. For information about pricing, see [Power BI Embedded pricing][powerbi-embedded-pricing].
 
 
-Use the [Pricing calculator][Cost-Calculator] to estimate costs.
-
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
 
 
 ## Deploy the solution
@@ -254,3 +249,8 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [powerbi-embedded-pricing]: https://azure.microsoft.com/pricing/details/power-bi-embedded/
 [powerbi-pro-purchase]: https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
+[az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics/
+[az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services/
+[az-storage-reserved]: https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[AAF-cost]: /azure/architecture/framework/cost/overview
