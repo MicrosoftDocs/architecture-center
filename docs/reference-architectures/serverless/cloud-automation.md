@@ -249,3 +249,4 @@ To learn more about the serverless implementations, start [here](https://docs.mi
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [Logic-Apps-Pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
 [logic-app-pricing]: /azure/logic-apps/logic-apps-pricing
+[cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
