@@ -206,7 +206,7 @@ See [Azure Synapse Pricing][az-synapse-pricing] for more information.
 Pricing for Azure Analysis Services depends on the tier you choose. The reference implementation of this architecture uses the **Developer** tier, which is recommended for evaluation, development, and test scenarios. Other tiers include, the **Basic** tier, which is recommended for small production environment. Use the **Standard** tier for mission-critical production applications. For more information, see [The right tier when you need it
 ](/azure/analysis-services/analysis-services-overview#the-right-tier-when-you-need-it). 
 
-No charges apply when you paise your instance.
+No charges apply when you pause your instance.
 
 See [Azure Analysis Services pricing][az-as-pricing] for more information.
 
