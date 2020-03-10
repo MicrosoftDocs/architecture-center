@@ -216,6 +216,7 @@ Auto-inflate was enabled at about the 06:35 mark. You can see the p drop in thro
 Interestingly, this had the side effect of increasing the SU utilization in the Stream Analytics job. By throttling, Event Hubs was artificially reducing the ingestion rate for the Stream Analytics job. It's actually common that resolving one performance bottleneck reveals another. In this case, allocating additional SU for the Stream Analytics job resolved the issue.
 
 ## Cost considerations
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
 
 ### Azure Stream Analytics
 
@@ -223,7 +224,7 @@ Azure Stream Analytics is priced by the number of streaming units ($0.11/hour) r
 
 ### Event Hubs and Cosmos DB
 
-For Azure Event Hubs and Cosmos DB, cost considerations see the [Stream processing with Azure Databricks](./stream-processing-databricks.md) reference architecture.
+For cost considerations about Azure Event Hubs and Cosmos DB, see Cost considerations see the [Stream processing with Azure Databricks](./stream-processing-databricks#cost-considerations) reference architecture.
 
 
 ## Deploy the solution

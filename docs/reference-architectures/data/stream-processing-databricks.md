@@ -318,43 +318,47 @@ For more information, see [Monitoring Azure Databricks](../../databricks-monitor
 
 ## Cost considerations
 
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
 
 ### Event Hubs
 
-There three tier offerings, **Basic**, **Standard** and **Dedicated**. The **Standard** tier provides features beyond what is available in the **Basic** tier.
+This reference architecture deploys Event Hubs in the **Standard** tier. The pricing model is based on throughput units, ingress events, and capture events. An ingress event is a unit of data 64 KB or less. Larger messages are billed in multiples of 64 KB. You specify throughput units either through the Azure portal or Event Hub management APIs.
 
-**Basic** and **Standard** are billed based on ingress events, and throughput units. An ingress event is a unit of data 64 KB or less. Each one is a billable event. Larger messages are billed in multiples of 64 KB. For example, 8 KB is billed as one event, but a 96 KB message is billed as two events. Throughput units are selected by the customer, either through the Azure portal or Event Hub management APIs.
+If you need more retention days, consider the **Dedicated** tier. This tier offers single-tenant deployments with most demanding requirements. This offering builds a cluster based on capacity units (CU) that is not bound by throughput units.
 
- Event Hubs **Dedicated** tier offers single-tenant deployments for customers with most demanding requirements. This offering builds a  cluster based on capacity units (CU) that is not bound by throughput units.
+The **Standard** tier is also billed based on ingress events and throughput units. 
+
+For information about Event Hubs pricing, see the [Event Hubs pricing][event-hubs-pricing].
 
 
-For complete information about Event Hubs pricing, see the [Event Hubs pricing][event-hubs-pricing].
+### Azure Databricks
 
+Azure Databricks offers two tiers **Standard** ane  **Premium** each supports three workloads. This reference architecture deploys Azure DataBricks workspace in the **Premium** tier.
 
-## Azure Databricks
+**Data Engineering** and **Data Engineering Light** workloads are for data engineers to build and execute jobs. The **Data Analytics** workload is intended for data scientists to explore, visualize, manipulate, and share data and insights interactively.
 
-Azure Databricks offers three workloads. **Data Engineering** and **Data Engineering Light** are for data engineers to build and execute jobs, and the **Data Analytics** workload are for data scientists to explore, visualize, manipulate, and share data and insights interactively. There are also two tiers offered: **Standard** ane  **Premium**.
+Azure Databricks offers many pricing models. 
 
-Azure Databricks bills you for virtual machines (VMs) provisioned in clusters and Databricks Units (DBUs) based on the VM instance selected (pay-as-you-go). A DBU is a unit of processing capability, billed on a per-second usage. The DBU consumption depends on the size and type of instance running Azure Databricks. Price will very depending on the selected workload and tier.
+- Pay-as-you-go plan
 
-You can get up to 37% savings over pay-as-you-go DBU prices when you pre-purchase Azure Databricks Units (DBU) as Databricks Commit Units (DBCU) for either 1 or 3 years.
+  You are billed for virtual machines (VMs) provisioned in clusters and Databricks Units (DBUs) based on the VM instance selected. A DBU is a unit of processing capability, billed on a per-second usage. The DBU consumption depends on the size and type of instance running Azure Databricks. Price will very depending on the selected workload and tier.
+
+- Pre-purchase plan
+
+  You commit to Azure Databricks Units (DBU) as Databricks Commit Units (DBCU) for either one or three years. When compared to the pay-as-you-go model, you can save up to 37%.
 
 See [Azure Databricks Pricing][azure-databricks-pricing] for more information.
 
-## Cosmos DB
-
 ### Cosmos DB
 
-Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations (inserts, reads, queries, etc.). 
-For example, 1 RU/s is sufficient for processing one eventually consistent read per second of 1K item, and 5 RU/s is sufficient for processing one write per second of 1K item. Storage is billed for each GB used for your stored data and index. See [Cosmos DB pricing model][cosmosdb-pricing] for more information.
+Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations, such as inserts, reads. The price is based on the capacity in RU/s that you reserve.
+
+Storage is billed for each GB used for your stored data and index. See [Cosmos DB pricing model][cosmosdb-pricing] for more information.
+
 The price is based on what you reserve. So, what you reserve with Cosmos is the capacity expressed in RU/s. You pay for the RU as well as the space (GB) and you have to reserve a minimum of 400 RUs (a concurrent read of 1KB docuemnt consumes 1 RU), 
 so if your app does not need to be this intensive, you will end up probably paying for more than what you need with Cosmos, since 400 RU is the minimum that you can provision per container. Also keep in mind that the RU that you reserve is per container so, each container will cost about $25 with 1 GB storage, meaning that if you have 10 collections you are paying $250. Reusing collections is recommended for keeping cost down.
 
-The [Cosmos DB capacity calculator][Cosmos-Calculator] offers you a quick estimate of the workload cost. 
-
-
-
-Use the [Pricing calculator][Cost-Calculator] to estimate costs.
+Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
 
 For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
@@ -371,3 +375,4 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [event-hubs-pricing]: https://azure.microsoft.com/pricing/details/event-hubs/
 [github]: https://github.com/mspnp/azure-databricks-streaming-analytics
+[azure-databricks-pricing]: https://azure.microsoft.com/en-us/pricing/details/databricks/
