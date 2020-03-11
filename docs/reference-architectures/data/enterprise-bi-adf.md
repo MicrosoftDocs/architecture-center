@@ -196,7 +196,7 @@ In this architecture you use Azure Data Factory to automate the ELT pipeline. Th
 
 #### Example cost analysis
 
-There are two lookups activities from two different sources. One takes 1 minute and 2 seconds (rounded up to 2 minutes) and the other one takes 1 minute resulting in total time of 3 minutes. One copy data activity takes 10 minutes. One stored procedure activity takes 2 minutes. Total activitiy runs for 4 minutes. Cost is callcuated as follows:
+There are two lookups activities from two different sources. One takes 1 minute and 2 seconds (rounded up to 2 minutes) and the other one takes 1 minute resulting in total time of 3 minutes. One copy data activity takes 10 minutes. One stored procedure activity takes 2 minutes. Total activity runs for 4 minutes. Cost is calculated as follows:
 
 Activity runs: 4 * $ 0.001 = $0.004
 
@@ -210,7 +210,7 @@ Total cost per pipeline run: $0.17.
 Run once per day for 30 days: $5.1 month. 
 Run once per day per 100 tables for 30 days: $ 510 
 
-Be aware that every activity has an associated cost. Understand the pricing model and use the [ADF pricing calculator][adf-calculator] to get a solution optimized not only for performance but also for cost. Manage your costs by starting, stopping, pausing and scaling your services.
+Every activity has an associated cost. Understand the pricing model and use the [ADF pricing calculator][adf-calculator] to get a solution optimized not only for performance but also for cost. Manage your costs by starting, stopping, pausing and scaling your services.
 
 ### Azure Synapse
 
@@ -220,7 +220,7 @@ Be aware that every activity has an associated cost. Understand the pricing mode
 
 Data storage is charged separately. Other services such as disaster recovery and threat detection are also charged separately.
 
-See [Azure Synapse Pricing][az-synapse-pricing] for more information.
+For more information, see [Azure Synapse Pricing][az-synapse-pricing].
 
 ### Analysis Services
 
@@ -228,7 +228,7 @@ Pricing for Azure Analysis Services depends on the tier. The reference implement
 
 No charges apply when you pause your instance.
 
-See [Azure Analysis Services pricing][az-as-pricing] for more information.
+For more information, see [Azure Analysis Services pricing][az-as-pricing].
 
 ### Blob Storage
 
