@@ -351,12 +351,24 @@ See [Azure Databricks Pricing][azure-databricks-pricing] for more information.
 
 ### Cosmos DB
 
-Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations, such as inserts, reads. The price is based on the capacity in RU/s that you reserve.
+In this architecture a series of records are written to Cosmos DB by the Azure Databricks job. You are charged for the capacity that you reserve
+expressed in Request Units per second (RU/s) used to perform the inserts. The unit for billing is 100 RU/sec per hour, charged at $0.008 per hour. As an example, the cost of writing 100 kb items is 50 RU/s.
 
-Storage is billed for each GB used for your stored data and index. See [Cosmos DB pricing model][cosmosdb-pricing] for more information.
+When you perform write operations, you should provision enough capacity to support the number of writes needed per second. You can increase the provisioned throughput by using the portal or CLI before performing the writes and then reduce the throughput after the writes are completed. Your throughput for the write period is the minimum throughput needed for the given data, plus the throughput required for insert workload assuming no other workloads are running.
 
-The price is based on what you reserve. So, what you reserve with Cosmos is the capacity expressed in RU/s. You pay for the RU as well as the space (GB) and you have to reserve a minimum of 400 RUs (a concurrent read of 1KB document consumes 1 RU), 
-so if your app does not need to be this intensive, you will end up probably paying for more than what you need with Cosmos, since 400 RU is the minimum that you can provision per container. Also keep in mind that the RU that you reserve is per container so, each container will cost about $25 with 1 GB storage, meaning that if you have 10 collections you are paying $250. Reusing collections is recommended for keeping cost down.
+For example if you configure a throughput of 1,000 RU/sec on a container, and it exists for 24 hours * 30 days for the month, that is 720 hours total.
+
+1,000 RU/sec is 10 units of 100 RU/sec per hour for each hour the containers exists (that is, 1,000/100 = 10).
+
+Multiplying 10 units per hour by the cost of $0.008 (per 100 RU/sec per hour) = $0.08 per hour.
+
+Multiplying the $0.08 per hour by the number of hours in the month equals $0.08 * 24 hours * 30 days = $57.60 for the month.
+
+The total monthly bill will show 7,200 units (of 100 RUs), which will cost $57.60.
+
+
+Storage is also billed, for each GB used for your stored data and index. See [Cosmos DB pricing model][cosmosdb-pricing] for more information.
+
 
 Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
 
