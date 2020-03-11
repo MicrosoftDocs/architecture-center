@@ -189,6 +189,44 @@ Be aware of the following limitations:
 ## Cost considerations
 Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
 
+
+### Azure Data Factory
+
+In this architecture you use Azure Data Factory to automate the ELT pipeline. The pipeline moves the data from an on-premises SQL Server database into Azure Synapse. Then the data is transformed into a tabular model for analysis. For this scenario the pricing starts from $ 0.001 activity runs per month (that involves activity, trigger and debug runs), but that's the base charge only for orchestration, you are also charged for execution activities. 
+
+Data copy activities are charged $0.25 per data integration unit (DIU) / hour.
+
+Lookups activities are charged $0.005 per hour. 
+
+External activities are charged $0.00025 per hour.
+
+You will be also charged $0.80 per month, per inactive pipeline (pipeline with no associated triggers or runs within the month)
+
+All activities are prorated by the minute and rounded up, so if an activity's actual time is 1 min, 1 sec. it will be billed for 2 minutes.
+
+Consider this example:
+
+2 Lookups activities from two different sources, 1 taking 1 minute and 2 seconds (rounded up to 2 minutes), the other one taking 1 minute (total time: 3 minutes)
+
+1 Copy data activity taking 10 minutes
+1 Stored Procedure activity taking 2 minutes.
+
+Total activitiy runs: 4 minutes.
+
+Activity runs: 4 * $ 0.001 = $0.004
+Lookups: 3 min * ($0.005 / 60) = $0.00025
+Stored Procedure: 2 min * ($0.00025 / 60) = $0.000008
+Copy Data: 10 min * ($0.25 / 60) * 4 DIUs - $0.167
+
+Total cost per pipeline run: $0.17
+Run once per day for 30 days: $5.1 month
+Run once per day per 100 tables for 30 days: $ 510 
+
+Keep in mind that in ADF, every activity has a price, so you need to understand the pricing model to get a solution optimized for performance but also for cost. Manage your costs by starting, stopping, pausing and scaling your services.
+
+use the ADF [pricing calculator][adf-calculator]:
+
+
 ### Azure Synapse
 
 - Choose **Compute Optimized Gen1** for frequent scaling operations. This option is priced as pay-as-you-go, based on Data warehouse units consumption (DWU). 
@@ -210,6 +248,7 @@ See [Azure Analysis Services pricing][az-as-pricing] for more information.
 ### Blob Storage
 
 Consider using the Azure Storage reserved capacity feature to lower cost on storage. With this model, you get a discount if you can commit to reservation for fixed storage capacity for one or three years. For more information, see [Optimize costs for Blob storage with reserved capacity][az-storage-reserved].
+
 
 For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
 
@@ -236,6 +275,7 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 
 [AAF-cost]: /azure/architecture/framework/cost/overview
 [adf]: /azure/data-factory
+[adf-calculator]: https://azure.microsoft.com/pricing/calculator/?service=data-factory
 [az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services/
 [az-storage-reserved]: https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity
 [az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics/
