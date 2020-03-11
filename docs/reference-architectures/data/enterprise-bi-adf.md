@@ -192,40 +192,25 @@ Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some c
 
 ### Azure Data Factory
 
-In this architecture you use Azure Data Factory to automate the ELT pipeline. The pipeline moves the data from an on-premises SQL Server database into Azure Synapse. Then the data is transformed into a tabular model for analysis. For this scenario the pricing starts from $ 0.001 activity runs per month (that involves activity, trigger and debug runs), but that's the base charge only for orchestration, you are also charged for execution activities. 
+In this architecture you use Azure Data Factory to automate the ELT pipeline. The pipeline moves the data from an on-premises SQL Server database into Azure Synapse. The data is then transformed into a tabular model for analysis. For this scenario the pricing starts from $ 0.001 activity runs per month that involves activity, trigger, and debug runs. That price is the base charge only for orchestration. You are also charged for execution activities, such as data copy activities, lookups activities, and external activities, each individually priced. You are also charged for pipeline with no associated triggers or runs within the month. All activities are prorated by the minute and rounded up.
 
-Data copy activities are charged $0.25 per data integration unit (DIU) / hour.
+#### Example cost analysis
 
-Lookups activities are charged $0.005 per hour. 
-
-External activities are charged $0.00025 per hour.
-
-You will be also charged $0.80 per month, per inactive pipeline (pipeline with no associated triggers or runs within the month)
-
-All activities are prorated by the minute and rounded up, so if an activity's actual time is 1 min, 1 sec. it will be billed for 2 minutes.
-
-Consider this example:
-
-2 Lookups activities from two different sources, 1 taking 1 minute and 2 seconds (rounded up to 2 minutes), the other one taking 1 minute (total time: 3 minutes)
-
-1 Copy data activity taking 10 minutes
-1 Stored Procedure activity taking 2 minutes.
-
-Total activitiy runs: 4 minutes.
+There are two lookups activities from two different sources. One takes 1 minute and 2 seconds (rounded up to 2 minutes) and the other one takes 1 minute resulting in total time of 3 minutes. One copy data activity takes 10 minutes. One stored procedure activity takes 2 minutes. Total activitiy runs for 4 minutes. Cost is callcuated as follows:
 
 Activity runs: 4 * $ 0.001 = $0.004
-Lookups: 3 min * ($0.005 / 60) = $0.00025
-Stored Procedure: 2 min * ($0.00025 / 60) = $0.000008
-Copy Data: 10 min * ($0.25 / 60) * 4 DIUs - $0.167
 
-Total cost per pipeline run: $0.17
-Run once per day for 30 days: $5.1 month
+Lookups: 3 * ($0.005 / 60) = $0.00025
+
+Stored procedure: 2 * ($0.00025 / 60) = $0.000008
+
+Copy data: 10 * ($0.25 / 60) * 4 DIUs - $0.167
+
+Total cost per pipeline run: $0.17.
+Run once per day for 30 days: $5.1 month. 
 Run once per day per 100 tables for 30 days: $ 510 
 
-Keep in mind that in ADF, every activity has a price, so you need to understand the pricing model to get a solution optimized for performance but also for cost. Manage your costs by starting, stopping, pausing and scaling your services.
-
-use the ADF [pricing calculator][adf-calculator]:
-
+Be aware that every activity has an associated cost. Understand the pricing model and use the [ADF pricing calculator][adf-calculator] to get a solution optimized not only for performance but also for cost. Manage your costs by starting, stopping, pausing and scaling your services.
 
 ### Azure Synapse
 
