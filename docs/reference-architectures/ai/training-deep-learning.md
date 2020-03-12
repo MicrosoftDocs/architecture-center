@@ -114,7 +114,7 @@ Use the  [Pricing calculator][Cost-Calculator] to estimate costs. Here are some 
 
 ### Premium Blob Storage
 
-Premium Blob Storage has higher data storage cost, however the transaction cost is lower compared to data stored in the regular Hot tier. So, Premium Blob Storaged can be less expensive for workloads with high transaction rates. For more information, see [pricing page][block-blob-pricing].
+Premium Blob Storage has higher data storage cost, however the transaction cost is lower compared to data stored in the regular Hot tier. So, Premium Blob Storage can be less expensive for workloads with high transaction rates. For more information, see [pricing page][block-blob-pricing].
 
 ### Azure Container Registry
 
