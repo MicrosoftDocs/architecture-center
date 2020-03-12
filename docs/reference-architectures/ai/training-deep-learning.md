@@ -110,25 +110,21 @@ While running your job, it's important to monitor the progress and make sure tha
 Azure Machine Learning offers many ways to [instrument your experiments][azureml-logging]. The stdout/stderr from your scripts are automatically logged. These logs are automatically synced to your workspace Blob storage. You can either view these files through the Azure portal, or download or stream them using the Python SDK or Azure Machine Learning CLI. If you log your experiments using Tensorboard, these logs are automatically synced and you can access them directly or use the Azure Machine Learning SDK to stream them to a [Tensorboard session][azureml-tensorboard].
 
 ## Cost considerations
-
-Main cost Drivers:
+Use the  [Pricing calculator][Cost-Calculator] to estimate costs. Here are some other considerations. 
 
 ### Premium Blob Storage
 
-Premium Blob Storage has higher data storage cost, however the transaction cost is lower compared to data stored in the regular Hot tier, this makes it cost effective and can be less expensive for workloads with high transaction rates. See the [pricing page][block-blob-pricing] for more information.
+Premium Blob Storage has higher data storage cost, however the transaction cost is lower compared to data stored in the regular Hot tier, this makes it cost effective and can be less expensive for workloads with high transaction rates. For more information, see [pricing page][block-blob-pricing].
 
 ### Azure Container Registry
 
-There three tiers offered, **Basic**, **Standard** and **Premium**. Choose your tier depending on the storage you are going to use. If you need Geo Replication, or you enhanced throughput for docker pulls across concurrent nodes, you should go for **Premium** tier. Keep in mind that also standard networking charges apply. See Azure [Container Registry pricing][az-container-registry-pricing], for more information.
+Azure Container Registry offers **Basic**, **Standard** and **Premium**. Choose a tier depending on the storage you need. For example, choose **Premium**  if you need geo replication, or you enhanced throughput for docker pulls across concurrent nodes. In addition, standard networking charges apply. For more information, see Azure [Container Registry pricing][az-container-registry-pricing].
 
 ### Azure Machine Learning Compute
 
-Azure ML Compute is one of the main cost drivers in this architecture. You will need a cluster of GPU compute nodes and the cost dependes on the selected VM size.  For more information on the VM sizes that include GPUs, see [GPU-optimized virtual machine sizes][gpu-vm-sizes]. See [Azure Virtual Machines Pricing][az-vm-pricing] for pricing information.
+In this architecture, Azure ML Compute is one of the main cost drivers. The implementation needs a cluster of GPU compute nodes and selected VM size can impact cost.  For more information on the VM sizes that include GPUs, see [GPU-optimized virtual machine sizes][gpu-vm-sizes] and [Azure Virtual Machines Pricing][az-vm-pricing].
 
-
-Use the [Pricing calculator][Cost-Calculator] to estimate costs.
-
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
 
 ## Deployment
 

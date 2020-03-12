@@ -123,15 +123,15 @@ Use the  [Pricing calculator][Cost-Calculator] to estimate costs. Here are some 
 
 ### Azure Machine Learning
 
-In this reference architecture, a large portion of cost is driven by compute resources. For the puposes of experimentation and training, Azure Machine Learning is free. You are only charged for the compute used by the web service. Use the [Pricing calculator][Cost-Calculator] to estimate your compute costs.
+In this reference architecture, a large portion of cost is driven by compute resources. For the purposes of experimentation and training, Azure Machine Learning is free. You are only charged for the compute used by the web service. Use the [Pricing calculator][Cost-Calculator] to estimate your compute costs.
 
 ### Azure Container Registry
 
-Azure Container Registry offers **Basic**, **Standard** and **Premium**. Choose a tier depending on the storage you need. For example, choose **Premium**  if you need geo replication, or you enhanced throughput for docker pulls across concurrent nodes. In addition, standard networking charges apply. For more information, see Azure [Container Registry pricing][az-container-registry-pricing].
+Azure Container Registry offers **Basic**, **Standard**, and **Premium**. Choose a tier depending on the storage you need. For example, choose **Premium**  if you need geo replication, or you enhanced throughput for docker pulls across concurrent nodes. In addition, standard networking charges apply. For more information, see Azure [Container Registry pricing][az-container-registry-pricing].
 
 ### Azure Kubernetes Service
 
-You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources please see the [Container Services calculator][aks-Calculator].
+You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources, see the [Container Services calculator][aks-Calculator].
 
 
 For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
