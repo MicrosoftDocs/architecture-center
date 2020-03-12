@@ -103,7 +103,7 @@ Guest users' sign-in attempts must be directed to a tenant-specific endpoint (i.
 
 ## Azure AD App Roles
 
-In addition to authentication, the developer will want to provide the proper authorization within the app. Authorization is the process of making sure that once a user has access to an app, they are given proper priviledges to access data and resources.
+In addition to authentication, the developer will want to provide the proper authorization within the app. Authorization is the process of making sure that once a user has access to an app, they are given proper privileges to access data and resources.
 
 Using Azure AD, proper authorization can be enforced with [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview) (RBAC) and [Role Claims](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management). When using RBAC, an administrator grants permissions to use or view resources based on **roles**, and not to individual users or groups.
 
