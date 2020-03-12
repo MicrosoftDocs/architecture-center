@@ -177,7 +177,7 @@ The bot itself is only part of a larger system that provides it with the latest 
 You can deploy the bot logic directly from your IDE or from a command line, such as the Azure CLI. As your bot matures, however, it's best to use a continual deployment process using a CI/CD solution such as Azure DevOps, as described in the article [Set up continuous deployment](/azure/bot-service/bot-service-build-continuous-deployment). This is a good way to ease the friction in testing new features and fixes in your bot in a near-production environment. It's also a good idea to have multiple deployment environments, typically at least staging and production. Azure DevOps supports this approach.
 
 ## Cost considerations
-Use the [Pricing calculator][Cost-Calculator] to estimate costs.
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some other considerations.
 
 ### Bot application
 

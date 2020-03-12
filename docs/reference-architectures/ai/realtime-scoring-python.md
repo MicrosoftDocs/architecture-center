@@ -119,20 +119,22 @@ Use [RBAC][rbac] to control access to the Azure resources that you deploy. RBAC 
 
 ## Cost considerations
 
+Use the  [Pricing calculator][Cost-Calculator] to estimate costs. Here are some other considerations. 
+
 ### Azure Machine Learning
 
-Compute is the biggest cost driver in this architecture and varies depending on the use case. For experimentation and training, Azure Machine Learning is free, you pay only for the compute used by the web service. Use the [Pricing calculator][Cost-Calculator] to estimate your compute costs.
+In this reference architecture, a large portion of cost is driven by compute resources. For the puposes of experimentation and training, Azure Machine Learning is free. You are only charged for the compute used by the web service. Use the [Pricing calculator][Cost-Calculator] to estimate your compute costs.
 
 ### Azure Container Registry
 
-There three tiers offered, **Basic**, **Standard** and **Premium**. Choose your tier depending on the storage you are going to use. If you need Geo Replication, or you enhanced throughput for docker pulls across concurrent nodes, you should go for **Premium** tier. Keep in mind that also standard networking charges apply. See Azure [Container Registry pricing][az-container-registry-pricing], for more information.
+Azure Container Registry offers **Basic**, **Standard** and **Premium**. Choose a tier depending on the storage you need. For example, choose **Premium**  if you need geo replication, or you enhanced throughput for docker pulls across concurrent nodes. In addition, standard networking charges apply. For more information, see Azure [Container Registry pricing][az-container-registry-pricing].
 
 ### Azure Kubernetes Service
 
-You only pay for the virtual machines instances, storage and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources please see the [Container Services calculator][aks-Calculator]
+You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources please see the [Container Services calculator][aks-Calculator].
 
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
 
 
 ## Deployment
