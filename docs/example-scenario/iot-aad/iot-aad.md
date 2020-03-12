@@ -1,18 +1,15 @@
 ---
-title: Secure access to IoT apps with Azure AD
+title: Secure access to IoT apps with Azure AD - Developer guide
 titleSuffix: Azure Example Scenarios
-description: Description
-author: GitHubAlias
-ms.date: 02/28/2020
+description: An overview of how a developer can use Azure Active Directory to implement secure authentication and authorization for a SaaS app that manages cloud-connected IoT devices.
+author: knicholasa
+ms.date: 03/12/2020
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.custom:
-    - fasttrack
-    - fcp
 ---
-# Secure access to IoT apps with Azure AD
+# Secure access to IoT apps with Azure AD - Developer guide
 
-This article provides an overview of how a developer can use Azure Active Directory to secure access to a [SaaS app](https://azure.microsoft.com/overview/what-is-saas/) that manages cloud-connected IoT devices. We'll cover the basics of setting up the app and two common customer scenarios IoT developers may encounter.
+This article provides an overview of how a developer can use Azure Active Directory to implement secure authentication and authorization for a [SaaS app](https://azure.microsoft.com/overview/what-is-saas/) that manages cloud-connected IoT devices. We'll cover the basics of setting up the app and two common customer scenarios IoT developers may encounter.
 
 As a developer using a Microsoft identity solution, you'll commonly hear two terms: Azure Active Directory (Azure AD) and the identity platform. [Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) is Microsoft's cloud-based identity and access management service. [The identity platform](https://docs.microsoft.com/azure/active-directory/develop/v2-overview) is a platform that enables developers to use this service in their applications.
 
