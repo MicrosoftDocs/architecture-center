@@ -99,7 +99,10 @@
         "reference-architectures/data/**/*.md": [ "Azure", "Azure Architecture Center", "Data Guide" ],
         "example-scenario/data/**/*.md": [ "Azure", "Azure Architecture Center", "Data Guide" ],
         "reference-architectures/hybrid-networking/**/*.md": [ "Azure", "Azure Architecture Center", "Networking" ],
-        "reference-architectures/dmz/**/*.md": [ "Azure", "Azure Architecture Center", "Networking" ]
+        "reference-architectures/dmz/**/*.md": [ "Azure", "Azure Architecture Center", "Networking" ],
+        "reference-architectures/**/*.md": [ "Azure", "Azure Architecture Center", "Reference Architectures" ],
+        "example-scenario/**/*.md": [ "Azure", "Azure Architecture Center", "Reference Architectures" ],
+        "solution-ideas/**/*.md": [ "Azure", "Azure Architecture Center", "Reference Architectures" ]
       }
     },
     "template": [
