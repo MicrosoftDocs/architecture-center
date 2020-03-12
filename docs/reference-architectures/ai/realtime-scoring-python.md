@@ -117,6 +117,11 @@ Use [RBAC][rbac] to control access to the Azure resources that you deploy. RBAC 
 
 **Logging**. Use best practices before storing log data, such as scrubbing user passwords and other information that could be used to commit security fraud.
 
+## DevOps considerations
+
+In this architecture the scoring images are created by the Machine Learning model and deployed as containers on AKS. You can integrate the entire architecture into a release pipeline for model management and oprationalization, including DevOps tasks for data sanity test, model training on different compute targets, model version management, model deployment as real-time web service, staged deployment to QA/production environments, integration testing and functional testing. 
+The [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning][mlops-ra] reference architecture shows how to implement a continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning.
+
 ## Deployment
 
 To deploy this reference architecture, follow the steps described in the GitHub repos:
@@ -143,6 +148,7 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 [kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [aml]: /azure/machine-learning/service/overview-what-is-azure-ml
 [manually-scale-pods]: /azure/aks/tutorial-kubernetes-scale#manually-scale-pods
+[mlops-ra]: /azure/architecture/reference-architectures/ai/mlops-python
 [monitor-containers]: /azure/monitoring/monitoring-container-insights-overview
 [permissions]: /azure/aks/concepts-identity
 [rbac]: /azure/active-directory/role-based-access-control-what-is
