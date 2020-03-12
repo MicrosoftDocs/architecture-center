@@ -114,15 +114,15 @@ Use the  [Pricing calculator][Cost-Calculator] to estimate costs. Here are some 
 
 ### Premium Blob Storage
 
-Premium Blob Storage has higher data storage cost, however the transaction cost is lower compared to data stored in the regular Hot tier, this makes it cost effective and can be less expensive for workloads with high transaction rates. For more information, see [pricing page][block-blob-pricing].
+Premium Blob Storage has higher data storage cost, however the transaction cost is lower compared to data stored in the regular Hot tier. So, Premium Blob Storaged can be less expensive for workloads with high transaction rates. For more information, see [pricing page][block-blob-pricing].
 
 ### Azure Container Registry
 
-Azure Container Registry offers **Basic**, **Standard** and **Premium**. Choose a tier depending on the storage you need. For example, choose **Premium**  if you need geo replication, or you enhanced throughput for docker pulls across concurrent nodes. In addition, standard networking charges apply. For more information, see Azure [Container Registry pricing][az-container-registry-pricing].
+Azure Container Registry offers **Basic**, **Standard** and **Premium**. Choose a tier depending on the storage you need. Choose **Premium**  if you need geo replication, or you enhanced throughput for docker pulls across concurrent nodes. In addition, standard networking charges apply. For more information, see Azure [Container Registry pricing][az-container-registry-pricing].
 
 ### Azure Machine Learning Compute
 
-In this architecture, Azure ML Compute is one of the main cost drivers. The implementation needs a cluster of GPU compute nodes and selected VM size can impact cost.  For more information on the VM sizes that include GPUs, see [GPU-optimized virtual machine sizes][gpu-vm-sizes] and [Azure Virtual Machines Pricing][az-vm-pricing].
+In this architecture, Azure ML Compute is one of the main cost drivers. The implementation needs a cluster of GPU compute nodes and selected VM sizes can impact cost. For more information on the VM sizes that include GPUs, see [GPU-optimized virtual machine sizes][gpu-vm-sizes] and [Azure Virtual Machines Pricing][az-vm-pricing].
 
 For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
 

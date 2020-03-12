@@ -127,7 +127,7 @@ In this reference architecture, a large portion of cost is driven by compute res
 
 ### Azure Container Registry
 
-Azure Container Registry offers **Basic**, **Standard**, and **Premium**. Choose a tier depending on the storage you need. For example, choose **Premium**  if you need geo replication, or you enhanced throughput for docker pulls across concurrent nodes. In addition, standard networking charges apply. For more information, see Azure [Container Registry pricing][az-container-registry-pricing].
+Azure Container Registry offers **Basic**, **Standard**, and **Premium**. Choose a tier depending on the storage you need. Choose **Premium**  if you need geo replication, or you enhanced throughput for docker pulls across concurrent nodes. In addition, standard networking charges apply. For more information, see Azure [Container Registry pricing][az-container-registry-pricing].
 
 ### Azure Kubernetes Service
 
