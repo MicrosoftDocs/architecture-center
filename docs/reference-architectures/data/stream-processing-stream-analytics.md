@@ -220,7 +220,9 @@ Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some c
 
 ### Azure Stream Analytics
 
-Azure Stream Analytics is priced by the number of streaming units ($0.11/hour) required to process the data into the service.
+Azure Stream Analytics is priced by the number of streaming units ($0.11/hour) required to process the data into the service. 
+
+Stream Analytics can be expensive if you are not processing the data in real-time or small amounts of data. For those use cases, consider using Azure Functions or Logic Apps to move data from Azure Event Hubs to a data store. 
 
 ### Azure Event Hubs and Azure Cosmos DB
 
