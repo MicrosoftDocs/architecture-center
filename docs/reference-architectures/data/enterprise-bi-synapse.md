@@ -175,9 +175,9 @@ To reduce the amount of unnecessary processing, consider using partitions to div
 
 ## Security considerations
 
-### IP allowlisting of Analysis Services clients
+### IP allow list of Analysis Services clients
 
-Consider using the Analysis Services firewall feature to allowlist client IP addresses. If enabled, the firewall blocks all client connections other than those specified in the firewall rules. The default rules allowlist the Power BI service, but you can disable this rule if desired. For more information, see [Hardening Azure Analysis Services with the new firewall capability](https://azure.microsoft.com/blog/hardening-azure-analysis-services-with-the-new-firewall-capability/).
+Consider using the Analysis Services firewall feature to allow list client IP addresses. If enabled, the firewall blocks all client connections other than those specified in the firewall rules. The default rules allow list the Power BI service, but you can disable this rule if desired. For more information, see [Hardening Azure Analysis Services with the new firewall capability](https://azure.microsoft.com/blog/hardening-azure-analysis-services-with-the-new-firewall-capability/).
 
 ### Authorization
 
@@ -199,7 +199,7 @@ Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some c
 
 Data storage is charged separately. Other services such as disaster recovery and threat detection are also charged separately.
 
-See [Azure Synapse Pricing][az-synapse-pricing] for more information.
+For more information, see [Azure Synapse Pricing][az-synapse-pricing].
 
 ### Azure Analysis Services
 
@@ -207,7 +207,7 @@ Pricing for Azure Analysis Services depends on the tier. The reference implement
 
 No charges apply when you pause your instance.
 
-See [Azure Analysis Services pricing][az-as-pricing] for more information.
+For more information, see [Azure Analysis Services pricing][az-as-pricing].
 
 ### Blob Storage
 
@@ -223,7 +223,7 @@ For more information, see the Cost section in [Azure Architecture Framework][AAF
 
 ## Deploy the solution
 
-To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github-folder]. It deploys the following:
+To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github-folder]. It deploys the following resources:
 
 - A Windows VM to simulate an on-premises database server. It includes SQL Server 2017 and related tools, along with Power BI Desktop.
 - An Azure storage account that provides Blob storage to hold data exported from the SQL Server database.
