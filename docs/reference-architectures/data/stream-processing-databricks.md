@@ -333,7 +333,7 @@ For information about Event Hubs pricing, see the [Event Hubs pricing][event-hub
 
 ### Azure Databricks
 
-Azure Databricks offers two tiers **Standard** and  **Premium** each supports three workloads. This reference architecture deploys Azure DataBricks workspace in the **Premium** tier.
+Azure Databricks offers two tiers **Standard** and  **Premium** each supports three workloads. This reference architecture deploys Azure Databricks workspace in the **Premium** tier.
 
 **Data Engineering** and **Data Engineering Light** workloads are for data engineers to build and execute jobs. The **Data Analytics** workload is intended for data scientists to explore, visualize, manipulate, and share data and insights interactively.
 
@@ -349,17 +349,17 @@ Azure Databricks offers many pricing models.
 
 See [Azure Databricks Pricing][azure-databricks-pricing] for more information.
 
-### Cosmos DB
+### Azure Cosmos DB
 
-In this architecture, a series of records are written to Cosmos DB by the Azure Databricks job. You are charged for the capacity that you reserve, expressed in Request Units per second (RU/s), used to perform the inserts. The unit for billing is 100 RU/sec per hour. For example, the cost of writing 100-KB items is 50 RU/s.
+In this architecture, a series of records are written to Cosmos DB by the Azure Databricks job. You are charged for the capacity that you reserve, expressed in Request Units per second (RU/s), used to perform the insert operations. The unit for billing is 100 RU/sec per hour. For example, the cost of writing 100-KB items is 50 RU/s.
 
-For write operations, provision enough capacity to support the number of writes needed per second. You can increase the provisioned throughput by using the portal or CLI before performing the writes and then reduce the throughput after the writes are completed. Your throughput for the write period is the minimum throughput needed for the given data plus the throughput required for insert workload assuming no other workload is running.
+For write operations, provision enough capacity to support the number of writes needed per second. You can increase the provisioned throughput by using the portal or Azure CLI before performing the write operations and then reduce the throughput after those operations are complete. Your throughput for the write period is the minimum throughput needed for the given data plus the throughput required for the insert operation assuming no other workload is running.
 
 #### Example cost analysis
 
-Suppose you configure throughput of 1,000 RU/sec on a container. It's deployed for 24 hours for 30 days, a total of 720 hours.
+Suppose you configure a throughput value of 1,000 RU/sec on a container. It's deployed for 24 hours for 30 days, a total of 720 hours.
 
-The container is billed at 10 units of 100 RU/sec per hour for each hour. 10 units at $0.008 (per 100 RU/sec per hour) = $0.08 per hour.
+The container is billed at 10 units of 100 RU/sec per hour for each hour. 10 units at $0.008 (per 100 RU/sec per hour) is charged $0.08 per hour.
 
 For 720 hours or 7,200 units (of 100 RUs), you are billed $57.60 for the month.
 

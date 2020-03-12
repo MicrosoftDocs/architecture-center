@@ -175,9 +175,9 @@ To reduce the amount of unnecessary processing, consider using partitions to div
 
 ## Security considerations
 
-### IP whitelisting of Analysis Services clients
+### IP allowlisting of Analysis Services clients
 
-Consider using the Analysis Services firewall feature to whitelist client IP addresses. If enabled, the firewall blocks all client connections other than those specified in the firewall rules. The default rules whitelist the Power BI service, but you can disable this rule if desired. For more information, see [Hardening Azure Analysis Services with the new firewall capability](https://azure.microsoft.com/blog/hardening-azure-analysis-services-with-the-new-firewall-capability/).
+Consider using the Analysis Services firewall feature to allowlist client IP addresses. If enabled, the firewall blocks all client connections other than those specified in the firewall rules. The default rules allowlist the Power BI service, but you can disable this rule if desired. For more information, see [Hardening Azure Analysis Services with the new firewall capability](https://azure.microsoft.com/blog/hardening-azure-analysis-services-with-the-new-firewall-capability/).
 
 ### Authorization
 
@@ -201,10 +201,9 @@ Data storage is charged separately. Other services such as disaster recovery and
 
 See [Azure Synapse Pricing][az-synapse-pricing] for more information.
 
-### Analysis Services
+### Azure Analysis Services
 
-Pricing for Azure Analysis Services depends on the tier. The reference implementation of this architecture uses the **Developer** tier, which is recommended for evaluation, development, and test scenarios. Other tiers include, the **Basic** tier, which is recommended for small production environment; the **Standard** tier for mission-critical production applications. For more information, see [The right tier when you need it
-](/azure/analysis-services/analysis-services-overview#the-right-tier-when-you-need-it). 
+Pricing for Azure Analysis Services depends on the tier. The reference implementation of this architecture uses the **Developer** tier, which is recommended for evaluation, development, and test scenarios. Other tiers include, the **Basic** tier, which is recommended for small production environment; the **Standard** tier for mission-critical production applications. For more information, see [The right tier when you need it](/azure/analysis-services/analysis-services-overview#the-right-tier-when-you-need-it). 
 
 No charges apply when you pause your instance.
 

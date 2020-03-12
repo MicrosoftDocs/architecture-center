@@ -181,7 +181,7 @@ Be aware of the following limitations:
 
 - If service endpoints are enabled for Azure Storage, PolyBase cannot copy data from Storage into Azure Synapse. There is a mitigation for this issue. For more information, see [Impact of using VNet Service Endpoints with Azure storage](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fvirtual-network%2ftoc.json#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
-- To move data from on-premises into Azure Storage, you will need to whitelist public IP addresses from your on-premises or ExpressRoute. For details, see [Securing Azure services to virtual networks](/azure/virtual-network/virtual-network-service-endpoints-overview#secure-azure-services-to-virtual-networks).
+- To move data from on-premises into Azure Storage, you will need to allowlist public IP addresses from your on-premises or ExpressRoute. For details, see [Securing Azure services to virtual networks](/azure/virtual-network/virtual-network-service-endpoints-overview#secure-azure-services-to-virtual-networks).
 
 - To enable Analysis Services to read data from Azure Synapse, deploy a Windows VM to the virtual network that contains the Azure Synapse service endpoint. Install [Azure On-premises Data Gateway](/azure/analysis-services/analysis-services-gateway) on this VM. Then connect your Azure Analysis service to the data gateway.
 
@@ -192,11 +192,11 @@ Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some c
 
 ### Azure Data Factory
 
-In this architecture you use Azure Data Factory to automate the ELT pipeline. The pipeline moves the data from an on-premises SQL Server database into Azure Synapse. The data is then transformed into a tabular model for analysis. For this scenario the pricing starts from $ 0.001 activity runs per month that involves activity, trigger, and debug runs. That price is the base charge only for orchestration. You are also charged for execution activities, such as data copy activities, lookups activities, and external activities, each individually priced. You are also charged for pipeline with no associated triggers or runs within the month. All activities are prorated by the minute and rounded up.
+In this architecture, Azure Data Factory automates the ELT pipeline. The pipeline moves the data from an on-premises SQL Server database into Azure Synapse. The data is then transformed into a tabular model for analysis. For this scenario, pricing starts from $ 0.001 activity runs per month that includes activity, trigger, and debug runs. That price is the base charge only for orchestration. You are also charged for execution activities, such as copying data, lookups, and external activities. Each activity is individually priced. You are also charged for pipelines with no associated triggers or runs within the month. All activities are prorated by the minute and rounded up.
 
 #### Example cost analysis
 
-There are two lookups activities from two different sources. One takes 1 minute and 2 seconds (rounded up to 2 minutes) and the other one takes 1 minute resulting in total time of 3 minutes. One copy data activity takes 10 minutes. One stored procedure activity takes 2 minutes. Total activity runs for 4 minutes. Cost is calculated as follows:
+Consider a use case where there are two lookups activities from two different sources. One takes 1 minute and 2 seconds (rounded up to 2 minutes) and the other one takes 1 minute resulting in total time of 3 minutes. One data copy activity takes 10 minutes. One stored procedure activity takes 2 minutes. Total activity runs for 4 minutes. Cost is calculated as follows:
 
 Activity runs: 4 * $ 0.001 = $0.004
 
@@ -204,11 +204,11 @@ Lookups: 3 * ($0.005 / 60) = $0.00025
 
 Stored procedure: 2 * ($0.00025 / 60) = $0.000008
 
-Copy data: 10 * ($0.25 / 60) * 4 DIUs - $0.167
+Data copy: 10 * ($0.25 / 60) * 4 data integration unit (DIU) = $0.167
 
-Total cost per pipeline run: $0.17.
-Run once per day for 30 days: $5.1 month. 
-Run once per day per 100 tables for 30 days: $ 510 
+- Total cost per pipeline run: $0.17.
+- Run once per day for 30 days: $5.1 month. 
+- Run once per day per 100 tables for 30 days: $ 510 
 
 Every activity has an associated cost. Understand the pricing model and use the [ADF pricing calculator][adf-calculator] to get a solution optimized not only for performance but also for cost. Manage your costs by starting, stopping, pausing and scaling your services.
 
