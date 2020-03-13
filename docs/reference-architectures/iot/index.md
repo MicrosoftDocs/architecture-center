@@ -137,44 +137,42 @@ Logging systems are integral in understanding what actions or activities a solut
 
 Though plain-text logging is lower impact on upfront development costs, it is more challenging for a machine to parse/read. We recommend structured logging be used, as collected information is both machine parsable and human readable. Structured logging adds situational context and metadata to the log information. In structured logging, properties are first class citizens formatted as key/value pairs, or with a fixed schema, to enhance search and query capabilities.
 
-## Cost Considerations
+## Cost considerations
+In general, use the [Azure pricing calculator][cost-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
+
+There are ways to optimize costs associated the services used in this reference architecture. 
 
 ### IoT Hub
 
+In this architecture, IoT Hub is the cloud gateway that ingests events from devices. IoT Hub billing varies depending on the type of operation. Create, update, insert, delete are free. Messages sent successfully from device to the cloud are charged in 4-KB chunks on ingress into IoT Hub. For example, a 6-KB message is charged as two messages.
 
-In this architecture the devices connect to the cloud and send events through a cloud gateway. You can use the IoT Hub for event ingestion. IoT Hub billing varies depending on the operation performed. Jobs operations (create, update, insert, delete), for example, are not charged. 
-Device-To-Cloud messages are charged this way:
-
-Successfully sent messages are charged in 4-KB chunks on ingress into IoT Hub. For example, a 6-KB message is charged 2 messages.
-
-See [IoT Hub Pricing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-pricing) for more detailed pricing information. 
+For more information, see [IoT Hub Pricing](/azure/iot-hub/iot-hub-devguide-pricing). 
 
 ### Azure Stream Analytics
 
-Azure Stream Analytics is used for stream processing and rules evaluation. Azure Stream Analytics is priced by the number of streaming units ($0.11/hour) required to process the data into the service. Azure Stream Analytics on IoT Edge is billed per job; billing starts when an ASA job is deployed to devices, no matter what the job status is (running/failed/stopped).
+Azure Stream Analytics is used for stream processing and rules evaluation. Azure Stream Analytics is priced by the number of Streaming Units (SU) per hour, which takes into compute, memory, and throughput required to process the data. Azure Stream Analytics on IoT Edge is billed per job. Billing starts when a Stream Analytics job is deployed to devices regardless of the job status, running, failed, or stopped.
 
-### Azure functions
+For more information about pricing, see [Stream Analytics pricing](https://azure.microsoft.com/is-is/pricing/details/stream-analytics/).
 
-In this architecture we recommend using Azure Functions for data transformationm that occurs after the data reaches the IoT Hub. Azure functions service is managed by the cloud provider, so the total cost of owning the service is minimal. From a cost perspective, the recommendation is to use consumption plan because you pay only for the compute resources you use.
+### Azure Functions
 
-Azure Functions consumption plan is billed based on per-second resource consumption and execution count. Number of executions count is simple: each function defines an event trigger which fires the execution. Batching is recommended for reducing cost, that means processing several events in a single execution.
+Azure Functions is used to transform data after it reaches the IoT Hub. From a cost perspective, the recommendation is to use **consumption plan** because you pay only for the compute resources you use. You are charged based on per-second resource consumption each time an event triggers the execution of the function. Processing several events in a single execution or batches can reduce cost.
 
-### Logic Apps
+### Azure Logic Apps
 
-In this architecure we recommend using Loic Apps for business process integration.
+In this architecture, Logic Apps is used for business process integration.
 
-Logig apps pricing works on the pay-as-you-go model. For instance, if you process 1000 service bus messages a day, with a workflow of five actions it would cost you less than 6 USD. Every time a Logic App definition is triggered, action and connector executions are metered. See [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/) for more info.
+Logic apps pricing works on the pay-as-you-go model. Triggers, actions, and connector executions are metered each time a logic app runs. All successful and unsuccessful actions, including triggers, are considered as executions.
+
+For instance, your logic app processes 1000 messages a day. A workflow of five actions will cost less than $6. 
+
+For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 ### Data Storage
 
-For cold path storage, Azure Blob Storage is the most cost effective option.
+For cold path storage, Azure Blob Storage is the most cost-effective option.
 
-For warm path storage, Cosmos DB is recommender. See [Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/) for more info.
-
-
-Use the [pricing calculator][cost-calculator] to estimate costs.
-
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For warm path storage, consider using Azure Cosmos DB. For more information, see [Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 
 ## Next steps
