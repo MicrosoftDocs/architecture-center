@@ -3,7 +3,7 @@ title: Speech to text conversion
 titleSuffix: Azure Reference Architectures
 description: Recommended way to upload audio files and process the speech content to text.
 author: dsk-2015
-ms.date: 02/26/2020
+ms.date: 03/12/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
