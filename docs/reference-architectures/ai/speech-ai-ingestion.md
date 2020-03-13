@@ -13,7 +13,7 @@ ms.subservice: reference-architecture
 
 Customer care centers form an integral part of business success. Efficiency of these call centers can be significantly improved using *Speech AI*. Speech recognition and analysis of high volumes of recorded customer calls can provide businesses with valuable information about current trends, product shortcomings as well as successes. Enterprise solutions using the Speech APIs of Azure Cognitive Services can be implemented to consume and process such high volumes of discrete data.
 
-This reference architecture shows how to build an audio ingestion and *speech-to-text* conversion pipeline for such customer care centers. This pipeline processes batches of recorded audio files, and stores the transcribed text files in Azure Blob Storage. Note that this does not implement real-time speech processing.
+This reference architecture shows how to build an audio ingestion and *speech-to-text* transcription pipeline for such customer care centers. This pipeline processes batches of recorded audio files, and stores the transcribed text files in Azure Blob Storage. Note that this does not implement real-time speech processing.
 
 This pipeline can later feed into the next phase of your Speech AI implementation, where transcribed text is processed for PII (or Personally Identifiable Information) recognition and deletion, sentiment analysis, and so on.
 
@@ -23,15 +23,15 @@ The reference implementation for this architecture is available on GitHub (TBD l
 
 ![Audio files upload](./_images/audio-files-upload.png)
 
-Businesses can implement this architecture with their Azure account, and allow the client applications access to the pipeline via REST APIs. The client application uses the REST API to get a SAS token required to access the blob storage. The client then uploads the audio files to a blob container. The reference client application uses JavaScript to upload the files, as shown in [this example](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-nodejs#upload-blobs-to-a-container). Once the file is uploaded, an Event Grid trigger is generated which invokes an Azure Function. The function processes the file using the Cognitive Services Speech APIs. The converted text is stored in a separate blob container, ready for analysis and storage in a database.
+Businesses can implement this architecture with their Azure account, and allow the client applications access to the pipeline via REST APIs. The client application uses the REST API to get a SAS token required to access the blob storage. The client then uploads the audio files to a blob container. The reference client application uses JavaScript to upload the files, as shown in [this example](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-nodejs#upload-blobs-to-a-container). Once the file is uploaded, an Event Grid trigger is generated which invokes an Azure Function. The function processes the file using the Cognitive Services Speech APIs. The transcribed text is stored in a separate blob container, ready for analysis and storage in a database.
 
 The architecture utilizes the following Azure services:
 
 **Azure Blob Storage** stores objects on the cloud. Blob storage is optimized for storing massive amounts of unstructured data, such as text or binary data. Since sensitive information might be saved in the blob, its access must be secured using authentication methods such as SAS keys.
 
-**Azure Event Grid** provides built-in support to build efficient event-driven architectures on Azure. An Event Grid trigger acts as the bridge between the Blob Storage and the Azure Function in this architecture.
+**Azure Event Grid** provides built-in support to build efficient event-driven architectures on Azure. When the audio file upload is completed, the Event Grid triggers a [*Blob Created*](https://docs.microsoft.com/en-us/azure/event-grid/event-schema-blob-storage#microsoftstorageblobcreated-event) event for the transcription function.
 
-**Azure Functions** provides the event-driven compute capabilities, without the overhead of building the infrastructure. The function in this reference implementation uses the Cognitive Services Speech APIs to convert speech to plain text.
+**Azure Functions** provides the event-driven compute capabilities, without the overhead of building the infrastructure. The function in this reference implementation uses the Cognitive Services Speech APIs to transcribe speech to plain text.
 
 **Azure Cognitive Services** is a collection of APIs available to help developers build intelligent applications without requiring extensive AI or data science skills. This service enables developers to easily implement cognitive AI capabilities in their applications. These APIs were created using vast amounts of machine learning data, which generally covers most scenarios.
 
@@ -39,7 +39,7 @@ The architecture utilizes the following Azure services:
 
 **Azure Active Directory** provides identity management and secured access to resources in Azure cloud. Azure AD credentials belonging to the owner of the Azure resources in this architecture, are used to create the access token for the blob storage. The clients are given the minimum access privileges required to upload their audio files, using the **Role-based Access Control** feature of Azure AD.
 
-[**Key Vault**](https://docs.microsoft.com/azure/key-vault/key-vault-overview) allows secure storage of secrets and keys. This reference architecture stores the account credentials and other secrets required to generate the SAS tokens in the Key Vault. Both the REST APIs and the speech conversion function access this vault to retrieve the secrets.
+[**Key Vault**](https://docs.microsoft.com/azure/key-vault/key-vault-overview) allows secure storage of secrets and keys. This reference architecture stores the account credentials and other secrets required to generate the SAS tokens in the Key Vault. Both the REST APIs and the speech transcription function access this vault to retrieve the secrets.
 
 ## Scalability considerations
 
