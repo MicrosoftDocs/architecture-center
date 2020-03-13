@@ -44,7 +44,7 @@ With a multi-tenant app, the identity platform identifies the tenant that each u
 > [!NOTE]
 > To enable the use of social accounts you will need to leverage Azure AD's B2B guest model outlined in scenario two below.
 
-![azure ad multi-tenant architecture](./media/multi-tenant-iot.png)
+![Diagram illustrating the runtime steps of a user signing in to a multi-tenant app. There are steps for the sign in process that are labeled and explained below the diagram.](./media/multi-tenant-iot.png)
 
 ### Runtime
 
@@ -83,7 +83,7 @@ When a user (or admin) logs in to a multi-tenant application for the first time,
 
 When the user consents, a service principal is created in the user's tenant, and sign-in will continue. An example of the consent process is available on GitHub in the [Azure Active Directory consent framework sample](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/develop/consent-framework.md). 
 
-![request response diagram](./media/request.png)
+![Diagram illustrating the process of obtaining user consent. There are steps for obtaining user consent that are labeled and explained below the diagram.](./media/request.png)
 
 ### Diagram explanation
 
@@ -177,7 +177,7 @@ In order to enforce company policies, the Woodgrove security group owner can set
 >[!NOTE]
 > Depending on the business logic required by your app, security group ownership and membership can be managed by either an account manager who is an employee of the developer's company or by a Woodgrove guest user who is asigned as owner of the group. To learn more about Azure AD security group functionality, see [Manage app and resource access using Azure Active Directory groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups).
 
-![azure b2b architecture](./media/single-tenant-iot.png)
+![Diagram illustrating guest isolation in a tenant with security groups. There are steps for adding a new guest user that are labeled and explained below the diagram.](./media/single-tenant-iot.png)
 
 ##### Runtime
 
