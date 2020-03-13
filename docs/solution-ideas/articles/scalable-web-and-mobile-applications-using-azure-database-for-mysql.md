@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
 ms.custom: acom-architecture, mysql, web-app, scalability, use cases, azure, solutions, 'https://azure.microsoft.com/solutions/architecture/scalable-web-and-mobile-applications-using-azure-database-for-mysql/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Scalable web and mobile applications using Azure Database for MySQL
 
@@ -108,4 +110,4 @@ Rapidly build engaging, performant and scalable cross-platform and native apps f
     <path d="M378.1 40.446a6.8 6.8 0 013.3-11.4 5.525 5.525 0 012.2-.1 9.919 9.919 0 015.5-8 9.427 9.427 0 00-3-.5 9.787 9.787 0 00-9.3 6.8 7.8 7.8 0 00-2.2-.4 6.8 6.8 0 000 13.6h3.5z" fill="#fff" opacity=".2" style="isolation:isolate"/>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

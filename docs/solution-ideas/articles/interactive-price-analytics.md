@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: The Pricing Analytics solution uses your transactional history data to show you how the demand for your products responds to the prices you offer, to recommend pricing changes, and allow you to simulate how changes in price would affect your demand, at a fine granularity.
 ms.custom: acom-architecture, artificial intelligence, analytics, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/interactive-price-analytics/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Interactive Price Analytics
 
@@ -148,4 +150,4 @@ The solution uses an Azure SQL server to store your transactional data and the g
 
 Please read the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a more detailed discussion of the architecture, connecting your own data and customization (Github login required).
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

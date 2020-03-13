@@ -4,6 +4,8 @@ description: A guide to building running HPC workloads on Azure
 author: adamboeglin
 ms.date: 8/14/2019
 ms.custom: fcp
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ---
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD026 -->

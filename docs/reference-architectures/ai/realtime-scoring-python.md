@@ -117,6 +117,26 @@ Use [RBAC][rbac] to control access to the Azure resources that you deploy. RBAC 
 
 **Logging**. Use best practices before storing log data, such as scrubbing user passwords and other information that could be used to commit security fraud.
 
+## Cost considerations
+
+Use the  [Pricing calculator][Cost-Calculator] to estimate costs. Here are some other considerations. 
+
+### Azure Machine Learning
+
+In this reference architecture, a large portion of cost is driven by compute resources. For the purposes of experimentation and training, Azure Machine Learning is free. You are only charged for the compute used by the web service. Use the [Pricing calculator][Cost-Calculator] to estimate your compute costs.
+
+### Azure Container Registry
+
+Azure Container Registry offers **Basic**, **Standard**, and **Premium**. Choose a tier depending on the storage you need. Choose **Premium**  if you need geo replication, or you enhanced throughput for docker pulls across concurrent nodes. In addition, standard networking charges apply. For more information, see Azure [Container Registry pricing][az-container-registry-pricing].
+
+### Azure Kubernetes Service
+
+You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources, see the [Container Services calculator][aks-Calculator].
+
+
+For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
+
+
 ## Deployment
 
 To deploy this reference architecture, follow the steps described in the GitHub repos:
@@ -127,12 +147,16 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 <!-- links -->
 
 [aad-auth]: /azure/aks/aad-integration
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [acr]: /azure/container-registry/
 [something]: https://kubernetes.io/docs/reference/access-authn-authz/authentication/
 [aks]: /azure/aks/intro-kubernetes
+[aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service
 [autoscaler]: /azure/aks/autoscaler
 [autoscale-pods]: /azure/aks/tutorial-kubernetes-scale#autoscale-pods
+[az-container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry/
 [azcopy]: /azure/storage/common/storage-use-azcopy-linux
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [ddos]: /azure/virtual-network/ddos-protection-overview
 [get-started]: /azure/security-center/security-center-get-started
 [github-python]: https://github.com/Microsoft/MLAKSDeployAML

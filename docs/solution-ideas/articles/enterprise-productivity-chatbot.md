@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Office 365 calendar, customer cases stored in Dynamics CRM and much more.
 ms.custom: acom-architecture, bot service, luis, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/enterprise-productivity-chatbot/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Enterprise Productivity Chatbot
 
@@ -193,25 +195,6 @@ Azure Bot Service can be easily combined with Language Understanding to build po
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Employee access Enterprise Productivity Bot</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Azure Active Directory validates the employee’s identity</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>The Bot is able to query the employee’s Office 365 calendar via the Azure Graph</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Using data gathered from the calendar, the Bot access case information in Dynamics CRM</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Information is returned to the employee who can filter down the data without leaving the Bot</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Application insights gathers runtime telemetry to help the development with Bot performance and usage</p>
-</div>
-
 ## Data Flow
 
 1. Employee access Enterprise Productivity Bot
@@ -222,4 +205,4 @@ Azure Bot Service can be easily combined with Language Understanding to build po
 1. Application insights gathers runtime telemetry to help the development with Bot performance and usage
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

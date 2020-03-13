@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Get deep learning analytics and insights live from streaming data. Review logs from website clickstream in near real-time for advanced analytics processing.
 ms.custom: acom-architecture, Advanced analytics, deep learning analytics, advanced analytics architecture, interactive-diagram, pricing-calculator, 'https://azure.microsoft.com/solutions/architecture/real-time-analytics/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Real Time Analytics on Big Data Architecture
 
@@ -154,31 +156,6 @@ Get insights from live streaming data with ease. Capture data continuously from 
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Easily ingest live streaming data for an application using Apache Kafka cluster in Azure HDInsight.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Bring together all your structured data using Azure Data Factory to Azure Blob Storage.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Take advantage of Azure Databricks to clean, transform, and analyze the streaming data, and combine it with structured data from operational databases or data warehouses.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Use scalable machine learning/deep learning techniques, to derive deeper insights from this data using Python, R or Scala, with inbuilt notebook experiences in Azure Databricks.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Leverage native connectors between Azure Databricks and Azure Synapse Analytics to access and move data at scale.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Build analytical dashboards and embedded reports on top of Azure Data Warehouse to share insights within your organization and use Azure Analysis Services to serve this data to thousands of users.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Power users take advantage of the inbuilt capabilities of Azure Databricks and Azure HDInsight to perform root cause determination and raw data analysis.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Take the insights from Azure Databricks to Cosmos DB to make them accessible through real time apps.</p>
-</div>
-
 ## Data Flow
 
 1. Easily ingest live streaming data for an application using Apache Kafka cluster in Azure HDInsight.
@@ -214,4 +191,4 @@ Get insights from live streaming data with ease. Capture data continuously from 
 ## Pricing Calculator
 * [Customize and get pricing estimates](https://azure.com/e/f8f5bc2de0b64aa0ae2dd154e7b6b462)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

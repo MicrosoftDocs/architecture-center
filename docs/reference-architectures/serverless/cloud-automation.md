@@ -190,7 +190,7 @@ Logic apps have a pay-as-you-go pricing model. Triggers, actions, and connector 
 
 Logic apps have also a fixed pricing model. If you need to run logic apps that  communicate with secured resources in an Azure virtual network, you can create them in an [Integration Service Environment (ISE)][az-logic-apps-ISE].
 
-For details, see [Pricing model for Azure Logic Apps](logic-app-pricing).
+For details, see [Pricing model for Azure Logic Apps][logic-app-pricing].
 
 In this architecture, logic apps are used in the cost center tagging scenario to orchestrate the workflow. 
 

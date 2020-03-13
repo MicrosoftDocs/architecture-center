@@ -8,6 +8,7 @@ ms.author: wieastbu
 ms.custom: fasttrack-new, architecture
 ms.topic: design-pattern
 ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ---
 
 # Asynchronous Request-Reply pattern

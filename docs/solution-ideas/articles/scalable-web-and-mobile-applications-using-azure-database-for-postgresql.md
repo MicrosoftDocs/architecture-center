@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
 ms.custom: acom-architecture, postgresql, web-app, scalability, use cases, azure, solutions, 'https://azure.microsoft.com/solutions/architecture/scalable-web-and-mobile-applications-using-azure-database-for-postgresql/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Scalable web and mobile applications using Azure Database for PostgreSQL
 
@@ -68,4 +70,4 @@ Rapidly build engaging, performant and scalable cross-platform and native apps f
     </g>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+
