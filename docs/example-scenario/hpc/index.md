@@ -1,7 +1,7 @@
 ---
-title: Run reservoir simulation software on Microsoft Azure
+title: Run reservoir simulation software on Azure
 titleSuffix: Azure Example Scenarios
-description: Run OPM Flow reservoir simulation software and OPM ResInsight visualization software on Microsoft Azure
+description: Run OPM Flow reservoir simulation software and OPM ResInsight visualization software on Azure.
 author: edprice
 ms.date: 03/02/2020
 ms.topic: example-scenario
@@ -10,9 +10,9 @@ ms.subservice: example-scenario
 ms.custom: fcp
 ---
 
-# Run reservoir simulation software on Microsoft Azure
+# Run reservoir simulation software on Azure
 
-*Reservoir simulation* uses data-intensive computer models to predict complex flows of fluids such as oil, water, and gas beneath the earth's surface. This example sets up reservoir simulation software on Microsoft Azure using an infrastructure for high-performance computing (HPC). Azure makes it possible to run this type of workload with maximum performance, scalability, and cost efficiency.
+*Reservoir simulation* uses data-intensive computer models to predict complex flows of fluids such as oil, water, and gas beneath the earth's surface. This example sets up reservoir simulation software on Azure using an infrastructure for high-performance computing (HPC). Azure makes it possible to run this type of workload with maximum performance, scalability, and cost efficiency.
 
 The architecture in this example is designed for a commonly used open source oil and gas software package—OPM Flow software from the Open Porous Media (OPM) initiative. The software runs on Azure HPC virtual machines (VMs) that deliver performance at levels near or better than current on-premises infrastructures.
 
