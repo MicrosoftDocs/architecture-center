@@ -727,7 +727,7 @@ configured on the subnet and avoid directing traffic to a single-instance NVA,
 which can lead to maintenance downtime and network or clustered node failures.
 
 For infrastructure security, data is encrypted in transit and at rest. The
-**Secuity considerations** section of the [SAP NetWeaver on Azure Virtual
+**Secuity recommendations** section of the [SAP NetWeaver on Azure Virtual
 Machines (VMs) – Planning and Implementation
 Guide](/azure/virtual-machines/workloads/sap/planning-guide#security-recommendations)
 begins to address network security. The guide also specifies the network ports
