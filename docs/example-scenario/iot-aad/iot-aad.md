@@ -7,7 +7,7 @@ ms.date: 03/12/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.custom:
-  - fcp
+    - fcp
 ---
 # Secure access to IoT apps with Azure AD - Developer guide
 
