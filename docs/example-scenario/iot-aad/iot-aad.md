@@ -27,7 +27,7 @@ The developer intends to save time and increase their app security by using an e
 
 There are several other benefits that make using Azure AD and the Microsoft identity platform a good choice for this developer:
 
-- End users can reuse pre-existing credentials from work or emails accounts to log in
+- End users can reuse pre-existing credentials from work or email accounts to log in
 
 - Azure AD provides the necessary infrastructure to authenticate and manage data from users from multiple client companies (more on this below)
 
