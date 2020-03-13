@@ -52,7 +52,7 @@ The architecture consists of the following components.
 
 **Azure Active Directory** (Azure AD) authenticates users who connect to the Analysis Services server through Power BI.
 
-Data Factory can use also use Azure AD to authenticate to Azure Synapse, by using a service principal or Managed Service Identity (MSI). For simplicity, the example deployment uses SQL Server authentication.
+Data Factory can also use Azure AD to authenticate to Azure Synapse, by using a service principal or Managed Service Identity (MSI). For simplicity, the example deployment uses SQL Server authentication.
 
 ## Data pipeline
 
@@ -180,9 +180,62 @@ Be aware of the following limitations:
 
 - If service endpoints are enabled for Azure Storage, PolyBase cannot copy data from Storage into Azure Synapse. There is a mitigation for this issue. For more information, see [Impact of using VNet Service Endpoints with Azure storage](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fvirtual-network%2ftoc.json#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
-- To move data from on-premises into Azure Storage, you will need to whitelist public IP addresses from your on-premises or ExpressRoute. For details, see [Securing Azure services to virtual networks](/azure/virtual-network/virtual-network-service-endpoints-overview#secure-azure-services-to-virtual-networks).
+- To move data from on-premises into Azure Storage, you will need to allow public IP addresses from your on-premises or ExpressRoute. For details, see [Securing Azure services to virtual networks](/azure/virtual-network/virtual-network-service-endpoints-overview#secure-azure-services-to-virtual-networks).
 
 - To enable Analysis Services to read data from Azure Synapse, deploy a Windows VM to the virtual network that contains the Azure Synapse service endpoint. Install [Azure On-premises Data Gateway](/azure/analysis-services/analysis-services-gateway) on this VM. Then connect your Azure Analysis service to the data gateway.
+
+
+## Cost considerations
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
+
+
+### Azure Data Factory
+
+In this architecture, Azure Data Factory automates the ELT pipeline. The pipeline moves the data from an on-premises SQL Server database into Azure Synapse. The data is then transformed into a tabular model for analysis. For this scenario, pricing starts from $ 0.001 activity runs per month that includes activity, trigger, and debug runs. That price is the base charge only for orchestration. You are also charged for execution activities, such as copying data, lookups, and external activities. Each activity is individually priced. You are also charged for pipelines with no associated triggers or runs within the month. All activities are prorated by the minute and rounded up.
+
+#### Example cost analysis
+
+Consider a use case where there are two lookups activities from two different sources. One takes 1 minute and 2 seconds (rounded up to 2 minutes) and the other one takes 1 minute resulting in total time of 3 minutes. One data copy activity takes 10 minutes. One stored procedure activity takes 2 minutes. Total activity runs for 4 minutes. Cost is calculated as follows:
+
+Activity runs: 4 * $ 0.001 = $0.004
+
+Lookups: 3 * ($0.005 / 60) = $0.00025
+
+Stored procedure: 2 * ($0.00025 / 60) = $0.000008
+
+Data copy: 10 * ($0.25 / 60) * 4 data integration unit (DIU) = $0.167
+
+- Total cost per pipeline run: $0.17.
+- Run once per day for 30 days: $5.1 month. 
+- Run once per day per 100 tables for 30 days: $ 510 
+
+Every activity has an associated cost. Understand the pricing model and use the [ADF pricing calculator][adf-calculator] to get a solution optimized not only for performance but also for cost. Manage your costs by starting, stopping, pausing, and scaling your services.
+
+### Azure Synapse
+
+- Choose **Compute Optimized Gen1** for frequent scaling operations. This option is priced as pay-as-you-go, based on Data warehouse units consumption (DWU). 
+
+- Choose **Compute Optimized Gen2** for intensive workloads with higher query performance and compute scalability needs. You can choose the pay-as-you-go model or use reserved plans of one year (37% savings) or 3 years (65% savings).
+
+Data storage is charged separately. Other services such as disaster recovery and threat detection are also charged separately.
+
+For more information, see [Azure Synapse Pricing][az-synapse-pricing].
+
+### Analysis Services
+
+Pricing for Azure Analysis Services depends on the tier. The reference implementation of this architecture uses the **Developer** tier, which is recommended for evaluation, development, and test scenarios. Other tiers include, the **Basic** tier, which is recommended for small production environment; the **Standard** tier for mission-critical production applications. For more information, see [The right tier when you need it](/azure/analysis-services/analysis-services-overview#the-right-tier-when-you-need-it). 
+
+No charges apply when you pause your instance.
+
+For more information, see [Azure Analysis Services pricing][az-as-pricing].
+
+### Blob Storage
+
+Consider using the Azure Storage reserved capacity feature to lower cost on storage. With this model, you get a discount if you can commit to reservation for fixed storage capacity for one or three years. For more information, see [Optimize costs for Blob storage with reserved capacity][az-storage-reserved].
+
+
+For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
+
 
 ## Deploy the solution
 
@@ -204,7 +257,13 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [adf]: /azure/data-factory
+[adf-calculator]: https://azure.microsoft.com/pricing/calculator/?service=data-factory
+[az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services/
+[az-storage-reserved]: https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity
+[az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics/
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [github]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline
 [MergeLocation]: https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database

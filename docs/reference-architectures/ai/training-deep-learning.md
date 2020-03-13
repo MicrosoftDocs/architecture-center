@@ -109,6 +109,23 @@ While running your job, it's important to monitor the progress and make sure tha
 
 Azure Machine Learning offers many ways to [instrument your experiments][azureml-logging]. The stdout/stderr from your scripts are automatically logged. These logs are automatically synced to your workspace Blob storage. You can either view these files through the Azure portal, or download or stream them using the Python SDK or Azure Machine Learning CLI. If you log your experiments using Tensorboard, these logs are automatically synced and you can access them directly or use the Azure Machine Learning SDK to stream them to a [Tensorboard session][azureml-tensorboard].
 
+## Cost considerations
+Use the  [Pricing calculator][Cost-Calculator] to estimate costs. Here are some other considerations. 
+
+### Premium Blob Storage
+
+Premium Blob Storage has higher data storage cost, however the transaction cost is lower compared to data stored in the regular Hot tier. So, Premium Blob Storage can be less expensive for workloads with high transaction rates. For more information, see [pricing page][block-blob-pricing].
+
+### Azure Container Registry
+
+Azure Container Registry offers **Basic**, **Standard** and **Premium**. Choose a tier depending on the storage you need. Choose **Premium**  if you need geo replication, or you enhanced throughput for docker pulls across concurrent nodes. In addition, standard networking charges apply. For more information, see Azure [Container Registry pricing][az-container-registry-pricing].
+
+### Azure Machine Learning Compute
+
+In this architecture, Azure ML Compute is one of the main cost drivers. The implementation needs a cluster of GPU compute nodes and selected VM sizes can impact cost. For more information on the VM sizes that include GPUs, see [GPU-optimized virtual machine sizes][gpu-vm-sizes] and [Azure Virtual Machines Pricing][az-vm-pricing].
+
+For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
+
 ## Deployment
 
 The reference implementation of this architecture is available on [GitHub][github]. Follow the steps described there to conduct distributed training of deep learning models across clusters of GPU-enabled VMs.
@@ -120,23 +137,31 @@ The output from this architecture is a trained model that is saved to blob stora
 - [Real-time scoring of Python scikit-learn and deep learning models on Azure][real-time-scoring]
 - [Batch scoring on Azure for deep learning models][batch-scoring]
 
+<!-- links -->
+
 [0]: ./_images/distributed_dl_architecture.png
 [1]: ./_images/distributed_dl_flow.png
 [2]: ./_images/distributed_dl_tests.png
 [acr]: /azure/container-registry/container-registry-intro
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [ai]: /azure/application-insights/app-insights-overview
 [aml-compute]: /azure/machine-learning/service/how-to-set-up-training-targets#amlcompute
 [amls]: /azure/machine-learning/service/overview-what-is-azure-ml
+[az-container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry/
+[az-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/
 [azure-blob]: /azure/storage/blobs/storage-blobs-introduction
 [batch-scoring]: /azure/architecture/reference-architectures/ai/batch-scoring-deep-learning
 [benchmark]: https://github.com/msalvaris/BatchAIHorovodBenchmark
 [blob]: https://azure.microsoft.com/blog/introducing-azure-premium-blob-storage-limited-public-preview/
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
+[block-blob-pricing]: https://azure.microsoft.com/pricing/details/storage/blobs/
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [docker]: https://hub.docker.com/
 [endpoints]: /azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network
 [files]: /azure/storage/files/storage-files-introduction
 [github]: https://github.com/microsoft/DistributedDeepLearning/
 [gpu]: /azure/virtual-machines/windows/sizes-gpu
+[gpu-vm-sizes]: https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu
 [horovod]: https://github.com/uber/horovod
 [imagenet]: http://www.image-net.org/
 [real-time-scoring]: /azure/architecture/reference-architectures/ai/realtime-scoring-python
