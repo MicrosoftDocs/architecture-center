@@ -11,29 +11,35 @@ ms.subservice: reference-architecture
 
 # Speech recognition with Azure Cognitive Services
 
-Oftentimes businesses might need to consume and process high volumes of discrete signals such as audio, video, and images. These scenarios can leverage built-in Artificial Intelligence (AI) capabilities of Azure Cognitive Services. This reference architecture builds a basic ingestion and conversion pipeline for speech translation using Azure Cognitive Services' Speech APIs. The scope is limited to batch processing of pre-recorded wav files.
+Customer care centers form an integral part of business success. Efficiency of these call centers can be significantly improved using *Speech AI*. Speech recognition and analysis of high volumes of recorded customer calls can provide businesses with valuable information about current trends, product shortcomings as well as successes. Enterprise solutions using the Speech APIs of Azure Cognitive Services can be implemented to consume and process such high volumes of discrete data.
+
+This reference architecture shows how to build an audio ingestion and *speech-to-text* conversion pipeline for such customer care centers. This pipeline processes batches of recorded audio files, and stores the transcribed text files in Azure Blob Storage. Note that this does not implement real-time speech processing.
+
+This pipeline can later feed into the next phase of your Speech AI implementation, where transcribed text is processed for PII (or Personally Identifiable Information) recognition and deletion, sentiment analysis, and so on.
 
 The reference implementation for this architecture is available on GitHub (TBD link).
 
-![Audio files upload](./_images/audio-files-upload.png)
-
 ## Architecture
 
-The architecture consists of the following blocks:
+![Audio files upload](./_images/audio-files-upload.png)
 
-**Azure Blob Storage**. Azure Blob storage stores objects on the cloud. Blob storage is optimized for storing massive amounts of unstructured data, which is the data that does not adhere to a particular data model or definition, such as text or binary data. This reference architecture shows how clients can securely access a Blob storage container using SAS keys. The client application uploads its audio files to the container. The text files resulting from the conversion are stored in a separate container.
+Businesses can implement this architecture with their Azure account, and allow the client applications access to the pipeline via REST APIs. The client application uses the REST API to get a SAS token required to access the blob storage. The client then uploads the audio files to a blob container. The reference client application uses JavaScript to upload the files, as shown in [this example](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-nodejs#upload-blobs-to-a-container). Once the file is uploaded, an Event Grid trigger is generated which invokes an Azure Function. The function processes the file using the Cognitive Services Speech APIs. The converted text is stored in a separate blob container, ready for analysis and storage in a database.
 
-**Azure Event Grid**. Azure Event Grid provides built-in support to build efficient event-driven architectures on Azure. An Event Grid trigger is generated when an audio file is uploaded to the Blob. The trigger in turn calls the function that will process this uploaded file.
+The architecture utilizes the following Azure services:
 
-**Azure Functions**. Azure Functions provides the event-driven compute capabilities, without the overhead of building the infrastructure. The function in this reference implementation uses the cognitive services APIs to convert speech to plain text.
+**Azure Blob Storage** stores objects on the cloud. Blob storage is optimized for storing massive amounts of unstructured data, such as text or binary data. Since sensitive information might be saved in the blob, its access must be secured using authentication methods such as SAS keys.
 
-**Azure Cognitive Services**. Azure Cognitive Services is a collection of APIs available to help developers build intelligent applications without having direct AI or data science skills or knowledge. Azure Cognitive Services enables developers to easily add cognitive features into their applications. This reference implementation uses Speech APIs. Machine Learning is out of scope for this implementation, since Cognitive Services were created using predetermined data.
+**Azure Event Grid** provides built-in support to build efficient event-driven architectures on Azure. An Event Grid trigger acts as the bridge between the Blob Storage and the Azure Function in this architecture.
 
-**API Management**. This reference architecture provides a REST API to generate a SAS token to access the Blob storage. [Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) provides secure access to this REST API. Only clients authenticated with the API Management will be able to get this SAS token.  
+**Azure Functions** provides the event-driven compute capabilities, without the overhead of building the infrastructure. The function in this reference implementation uses the Cognitive Services Speech APIs to convert speech to plain text.
 
-**Azure Active Directory**. The Azure Active Directory provides identity management and secured access to resources in Azure cloud. Azure AD credentials belonging to the owner the Azure resources as well as the developer of the REST API in this architecture, are used to create access token for the blob storage. The clients are given the minimum access privileges required to upload their audio files, using the **Role-based Access Control** feature of the Azure AD.
+**Azure Cognitive Services** is a collection of APIs available to help developers build intelligent applications without requiring extensive AI or data science skills. This service enables developers to easily implement cognitive AI capabilities in their applications. These APIs were created using vast amounts of machine learning data, which generally covers most scenarios.
 
-**Key Vault**. The [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) allows secure storage of secrets and keys. This reference architecture stores the account credentials and other secrets required to generate the SAS tokens in the Key Vault.
+[**API Management**](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) provides secure access to your REST APIs. Only clients authenticated with the API Management will be able to get this SAS token. API Management thus provides an additional layer of security in this architecture.
+
+**Azure Active Directory** provides identity management and secured access to resources in Azure cloud. Azure AD credentials belonging to the owner of the Azure resources in this architecture, are used to create the access token for the blob storage. The clients are given the minimum access privileges required to upload their audio files, using the **Role-based Access Control** feature of Azure AD.
+
+[**Key Vault**](https://docs.microsoft.com/azure/key-vault/key-vault-overview) allows secure storage of secrets and keys. This reference architecture stores the account credentials and other secrets required to generate the SAS tokens in the Key Vault. Both the REST APIs and the speech conversion function access this vault to retrieve the secrets.
 
 ## Scalability considerations
 
@@ -41,11 +47,11 @@ The architecture consists of the following blocks:
 
 #### Scalability during upload
 
-While audio files can be easily uploaded using a REST API interface, it may soon run out of ephemeral ports as uploads to the blob increase. To increase scalability, this reference architecture uses the [Valet Key design pattern](https://docs.microsoft.com/azure/architecture/patterns/valet-key) to offload the data upload to the client application. The valet key here is the SAS token required to access the blob. The REST API generates a [user delegate SAS token](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas), which is created using Azure Active Directory credentials. For most scenarios, this is more secure and recommended over [the SAS tokens](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature#types-of-shared-access-signatures) that are created using an account key.
+While audio files can be easily uploaded using a REST API interface, it may soon run out of ephemeral ports as uploads to the blob increase. For scalability, this reference architecture uses the [Valet Key design pattern](https://docs.microsoft.com/azure/architecture/patterns/valet-key) to offload the data upload to the client application. The valet key here is the SAS token required to access the blob. The REST API generates a [user delegate SAS token](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas), which is created using Azure Active Directory credentials. For most scenarios, this is more secure and recommended over [the SAS tokens](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature#types-of-shared-access-signatures) created using an account key.
 
 #### Scalability for file size
 
-The reference architecture chunks large files into 4K byte chunks, a common technique use to upload large data to the cloud. This allows you to upload extremely large audio files, limited only by the [maximum size limits of a blob](https://azure.microsoft.com/blog/general-availability-larger-block-blobs-in-azure-storage/).
+The reference architecture divides large files into four kilobyte chunks. This is a common technique used to upload extremely large data to the cloud. The audio file size is then limited only by the [maximum size limits of a blob](https://azure.microsoft.com/blog/general-availability-larger-block-blobs-in-azure-storage/).
 
 #### Scalability for storage
 
@@ -82,25 +88,9 @@ For an extremely high churn, the Event Grid may fail to trigger the function. Re
 
 Another way to reduce these failures is to use Service Bus instead of the Event Grid. The architecture will change in that case to a sequential processing of events. The client will need to signal the Service Bus when the upload is completed, which in turn can invoke the function to transcribe the uploaded file. This guarantees hundred percent reliability, however this model will generally have less throughput than an event-based architecture. Carefully consider which architecture applies to your scenario and application.
 
-## Performance considerations
-
-TBD
-
-## Availability considerations
-
-TBD do we need to talk about this?
-
-## Cost considerations
-
-TBD do we have any?
-
-## Deployment considerations
-
-TBD
-
 ## Deploy the solution
 
-TBD Readme for the implementation
+TBD pending the availability of the readme.
 
 ## Next steps
 
