@@ -131,7 +131,7 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 Use the [Azure Pricing calculator][Cost-Calculator] to estimates costs. Here are some other considerations.
 
-### Azure functions
+### Azure Functions
 
 Azure Functions supports two hosting models. 
 
@@ -156,7 +156,7 @@ Storage is billed for each GB used for your stored data and index.
 
 Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
 
 ## Deploy the solution
 

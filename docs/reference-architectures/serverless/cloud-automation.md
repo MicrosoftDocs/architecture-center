@@ -180,9 +180,9 @@ There are two types of managed identities:
 
 Once the identity is assigned to the Azure function, assign it a role using [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) to access the resources. For example, to update a resource, the *Contributor* role will need to be assigned to the function identity.
 
-## Cost Considerations
+## Cost considerations
 
-Here are some considerations for lowering cost.
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some considerations for lowering cost. 
 
 ### Azure Logic Apps
 
@@ -211,7 +211,7 @@ Azure Functions are available with [the following three pricing plans](https://d
 
 In this architecture Azure Functions are used for tasks such as updating tags in Azure Active Directory, or changing cosmos DB configuration by scaling up the RUs to a higher value. The **Consumption plan** is the appropriate for this use case because those tasks are interactive and not on going.
 
-### Cosmos DB
+### Azure Cosmos DB
 
 Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations, such as inserts, reads. Storage is billed for each GB used for your stored data and index. See [Cosmos DB pricing model][cosmosdb-pricing] for more information.
 
@@ -219,9 +219,7 @@ In this architecture, when data access requests to CosmosDB exceed the capacity 
 
 To get a quick cost estimate of your workload, use the [Cosmos DB capacity calculator][Cosmos-Calculator]. 
 
-Use the [Pricing calculator][Cost-Calculator] to estimate costs.
-
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
 
 ## Deployment considerations
 
