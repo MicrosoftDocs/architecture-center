@@ -549,7 +549,7 @@ application layer, all four active application servers of the SAP system are in
 zone 1. Another set of four passive application servers are built in zone 2 yet
 shut down, only to be activated when needed.
 
-The two-node clusters for Central Services and the database are stretched across
+The two-node clusters for Central Services and the database services are stretched across
 two zones. In the event zone 1 fails, the Central Services and database services
 will run in zone 2. The passive application servers in zone 2 get activated.
 With all components of this SAP system now collocated in the same zone, network
@@ -727,9 +727,9 @@ configured on the subnet and avoid directing traffic to a single-instance NVA,
 which can lead to maintenance downtime and network or clustered node failures.
 
 For infrastructure security, data is encrypted in transit and at rest. The
-“Security considerations” section of the [SAP NetWeaver on Azure Virtual
+**Secuity recommendations** section of the [SAP NetWeaver on Azure Virtual
 Machines (VMs) – Planning and Implementation
-Guide](/azure/virtual-machines/workloads/sap/planning-guide)
+Guide](/azure/virtual-machines/workloads/sap/planning-guide#security-recommendations)
 begins to address network security. The guide also specifies the network ports
 you must open on the firewalls to allow application communication.
 
