@@ -176,14 +176,53 @@ The bot itself is only part of a larger system that provides it with the latest 
 
 You can deploy the bot logic directly from your IDE or from a command line, such as the Azure CLI. As your bot matures, however, it's best to use a continual deployment process using a CI/CD solution such as Azure DevOps, as described in the article [Set up continuous deployment](/azure/bot-service/bot-service-build-continuous-deployment). This is a good way to ease the friction in testing new features and fixes in your bot in a near-production environment. It's also a good idea to have multiple deployment environments, typically at least staging and production. Azure DevOps supports this approach.
 
+## Cost considerations
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some other considerations.
+
+### Bot application
+
+In this architecture, the main cost driver is the Azure App Service in which the bot application logic is hosted. Choose an App Service plan tier that best suits your needs. Here are some recommendations:
+
+- Use **Free** and **Shared** (preview) tiers for testing purposes because the shared resources cannot scale out. 
+- Run your production workload on **Basic**, **Standard**, and **Premium** tiers because the app runs on dedicated virtual machine instances and has allocated resources that can scale out. App Service plans are billed on a per second basis.
+
+You are charged for the instances in the App Service plan, even when the app is stopped. Delete plans that you don't intend to use long term, such as test deployments.
+
+For more information, see [How much does my App Service plan cost?][app-service-cost].
+
+### Data ingestion
+
+- Azure Data Factory
+
+    In this architecture, Data Factory automates the data ingestion pipeline. Explore a range of data integration capabilities to fit your budget needs, from managed SQL Server Integration Services for seamless migration of SQL Server projects to the cloud (cost effective option), to large-scale, serverless data pipelines for integrating data of all shapes and sizes.
+
+    For an example, see [Azure Data Factory - example cost analysis](https://review.docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/enterprise-bi-adf#example-cost-analysis).
+
+- Azure Functions
+
+    In this reference architecture, Azure Functions is billed as per the **Consumption plan**. You are charged based on per-second resource consumption and each time an event triggers the execution of the function. Processing several events in a single execution or batches can reduce cost.
+
+    Azure scales the infrastructure required to run functions as needed. When workload is low, the infrastructure is scaled down up to zero with no associated cost. Whenever the workload grows, Azure uses enough capacity to serve all the demand. Because you pay per actual use, manage the exact cost of each component. 
+
+### Logic Apps
+
+Logic apps pricing works on the pay-as-you-go model. Logic apps have a pay-as-you-go pricing model. Triggers, actions, and connector executions are metered each time a logic app runs. All successful and unsuccessful actions, including triggers, are considered as executions.
+
+For instance, your logic app processes 1000 messages a day from Azure Service Bus. A workflow of five actions will cost less than $6. For more information, see [Logic Apps pricing][Logic-Apps-Pricing].
+
+
+For other cost considerations, see the Cost section in [Azure Architecture Framework][AAF-cost].
+
 <!-- links -->
 
 [0]: ./_images/conversational-bot.png
 [aad]: /azure/active-directory/
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [activities]: /azure/bot-service/rest-api/bot-framework-rest-connector-concepts?#activity
 [aml]: /azure/machine-learning/service/
 [app-insights]: /azure/azure-monitor/app/app-insights-overview
 [app-service]: /azure/app-service/
+[app-service-cost]: https://docs.microsoft.com/azure/app-service/overview-hosting-plans#how-much-does-my-app-service-plan-cost
 [blob]: /azure/storage/blobs/storage-blobs-introduction
 [bot-authentication]: /azure/bot-service/bot-builder-authentication
 [bot-framework]: https://dev.botframework.com/
@@ -191,6 +230,7 @@ You can deploy the bot logic directly from your IDE or from a command line, such
 [cognitive-services]: /azure/cognitive-services/welcome
 [conversations]: /azure/bot-service/bot-service-design-conversation-flow
 [cosmosdb]: /azure/cosmos-db/
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [data-factory]: /azure/data-factory/
 [data-factory-ref-arch]: ../data/enterprise-bi-adf.md
 [devops]: https://azure.microsoft.com/solutions/devops/
@@ -205,6 +245,7 @@ You can deploy the bot logic directly from your IDE or from a command line, such
 [key-vault]: /azure/key-vault/
 [lda]: https://wikipedia.org/wiki/Latent_Dirichlet_allocation
 [logic-apps]: /azure/logic-apps/logic-apps-overview
+[Logic-Apps-Pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
 [luis]: /azure/cognitive-services/luis/
 [power-bi]: /power-bi/
 [qna-maker]: /azure/cognitive-services/QnAMaker/
