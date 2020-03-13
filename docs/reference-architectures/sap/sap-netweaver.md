@@ -385,7 +385,7 @@ storage content that changes infrequently enhances the speed of data retrieval.
 
 [Ultra
 disks](/azure/virtual-machines/linux/disks-enable-ultra-ssd)
-Ultra disks are now available for IO demanding applications. When available, it is recommended in place of [Write
+are now available for IO demanding applications. When available, it is recommended in place of [Write
 Accelerator](/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 premium storage. Performance metrics, such as IOPS and MB/s, can be individually increased or decreased without the need to reboot. 
 
