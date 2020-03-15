@@ -44,11 +44,11 @@ This diagram offers a high-level overview of the architecture used in the exampl
 
 4. OPM Flow sends calculated results to a file share on the head node. A [premium disk][disk] is connected to the head node and set up as an NFS server for the compute nodes and the visualization VM.
 
-5. OPM ResInsight running on a Standard-NV6 Windows VM produces and displays 3D visualizations of the results. Users can access the visualization VM through RDP. 
+5. OPM ResInsight running on a Standard-NV6 Windows VM produces and displays 3D visualizations of results. Users can access the visualization VM through RDP. 
 
 ## Considerations
 
-To test OPM on Azure, the [example implementation][opm-flow] of this OPM FLOW architecture on GitHub installs the Norne case, an open-benchmark case of a real Norwegian Sea oil field. To run this test case, you must:
+To test OPM on Azure, the [example implementation][opm-flow] of this OPM Flow architecture on GitHub installs the Norne case, an open-benchmark case of a real Norwegian Sea oil field. To run this test case, you must:
 
 - Use Azure Key Vault for storing keys and secrets, a requirement of the GitHub setup scripts.
 
@@ -68,7 +68,7 @@ This example workload deploys the VMs within different subnets. For additional s
 
 ### Storage 
 
-[Data storage](/azure/architecture/topics/high-performance-computing#storage) and access needs vary widely, depending on the scale of a workload, and Azure supports several approaches for managing the speed and capacity of HPC applications. The following approaches are common in the oil and gas industry. Choose the solution best suited to your unique IO and capacity requirements.
+[Data storage](/azure/architecture/topics/high-performance-computing#storage) and access needs vary widely, depending on the scale of a workload. Azure supports several approaches for managing the speed and capacity of HPC applications. The following approaches are common in the oil and gas industry. Choose the solution best suited to your unique IO and capacity requirements. The azurehpc repository includes [example Azure HPC scripts][azurehpc].
 
 - **Low-scale workload** like this example: Consider running NFS on the head node, using a storage-optimized [Lsv2-series VM][lsv2] with large ephemeral disks, or D-series VMs with Azure Premium Storage, depending on your requirements. This solution suits workloads with 500 cores or fewer, throughput of up to 1.5 gigabytes per second (GiB/s), and up to 19 TB RAM and 100 TB storage.
 
@@ -76,11 +76,11 @@ This example workload deploys the VMs within different subnets. For additional s
 
 - **Balanced or write-intensive medium-scale workloads:** Consider using [Azure NetApps Files][azure-naf] for workloads of up to 4,000 cores, with a throughput up to 6.5 GiB/s, storage up to 100 TB/volume, and a maximize file size of 12 TB.
 
-- **Large-scale workloads:** Use an orchestrated parallel file service, such as Lustre or BeeGFS. This approach works for up to 50,000 cores, with read/write rates up to 50 GiB/s, and 500 TB storage. For even larger clusters, a bare-metal approach may be more cost-effective. For example, Cray ClusterStor is a managed HPC storage solution with the flexibility to support larger elastic clusters on the fly. The azurehpc repository includes [example Azure HPC scripts][azurehpc].
+- **Large-scale workloads:** Use an orchestrated parallel file service, such as Lustre or BeeGFS. This approach works for up to 50,000 cores, with read/write rates up to 50 GiB/s, and 500 TB storage. For even larger clusters, a bare-metal approach may be more cost-effective. For example, Cray ClusterStor is a managed HPC storage solution with the flexibility to support larger elastic clusters on the fly. 
 
 ## Deployment
 
-Get an [example implementation of this OPM FLOW architecture][opm-flow] on GitHub.
+Get an [example implementation of this OPM Flow architecture][opm-flow] on GitHub.
 
 ## Next steps
 
