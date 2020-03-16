@@ -1,11 +1,10 @@
 ---
-title: Azure for Amazon Web Services (AWS) Professionals
-titleSuffix: Azure Architecture Center
+title: Azure for AWS professionals
 description: Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the AWS and Azure platforms. Take advantage of your AWS experience in Azure.
 keywords: AWS experts, Azure comparison, AWS comparison, difference between Azure and AWS, Azure and AWS
 author: lbrader
 ms.date: 09/19/2018
-ms.topic: article
+ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom: seodec18

@@ -9,7 +9,7 @@ ms.custom:
 social_image_url: /azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
+ms.subservice: example-scenario
 ---
 
 # Mass ingestion and analysis of news feeds on Azure

@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Quality assurance systems allow businesses to prevent defects throughout their processes of delivering goods or services to customers. Building such a system that collects data and identifies potential problems along a pipeline can provide enormous advantages. For example, in digital manufacturing, quality assurance across the assembly line is imperative. Identifying slowdowns and potential failures before they occur rather than after they are detected can help companies reduce costs for scrap and rework while improving productivity.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, anomaly-detection, 'https://azure.microsoft.com/solutions/architecture/quality-assurance/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Quality Assurance
 
@@ -88,4 +90,4 @@ The Cortana Intelligence Suite provides advanced analytics tools through Microso
   3. There are 2 Azure Stream Analytics jobs used in this pattern to provide near real-time analytics on the input stream from the Azure Event Hub. Both jobs filter through the input data and pass the data points along to a Azure Machine Learning endpoint sending the results to a Power BI Dashboard.
   4. Finally, Power BI is used for results visualization.
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

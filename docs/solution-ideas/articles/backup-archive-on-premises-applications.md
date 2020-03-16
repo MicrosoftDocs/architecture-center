@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Back up on-premises applications and data with Azure Backup and Blob storage applications. Read documentation on implementing these archiving solutions today.
 ms.custom: acom-architecture, bcdr, 'https://azure.microsoft.com/solutions/architecture/backup-archive-on-premises-applications/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Back up on-premises applications and data to cloud
 
@@ -141,8 +143,8 @@ This solution is built on the Azure managed services: [Backup Server](https://az
 * [Blob Storage](https://azure.microsoft.com/services/storage/blobs/): Blob storage that partner solutions such as Commvault connect to for backing up data and applications. You need to create and manage Azure Blob storage when using partner solutions.
 
 ## Next Steps
-* [Back up workloads using Azure Backup Server](/api/Redirect/documentation/articles/backup-azure-microsoft-azure-backup/)
-* [Back up files and folders using Azure Backup](/api/Redirect/documentation/articles/backup-try-azure-backup-in-10-mins/)
-* [Store backed up files in Blob storage](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs/)
+* [Back up workloads using Azure Backup Server](/azure/backup/backup-azure-microsoft-azure-backup)
+* [Back up files and folders using Azure Backup](/azure/backup/backup-configure-vault)
+* [Store backed up files in Blob storage](/azure/storage/blobs/storage-quickstart-blobs-dotnet)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

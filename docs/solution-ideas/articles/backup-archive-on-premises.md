@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Archive your on-premises data to Azure Blob storage.
 ms.custom: acom-architecture, bcdr, 'https://azure.microsoft.com/solutions/architecture/backup-archive-on-premises/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Archive on-premises data to cloud
 
@@ -225,4 +227,4 @@ This solution is built on the Azure managed services: [StorSimple](https://azure
 * [Learning path for StorSimple](/azure/storsimple/)
 * [Azure Blob Storage: Hot and cool storage tiers](/api/Redirect/documentation/articles/storage-blob-storage-tiers/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

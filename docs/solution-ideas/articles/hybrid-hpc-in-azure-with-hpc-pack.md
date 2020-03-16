@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Get a hybrid high performance computing solution built with Windows Server technology. Use Azure HPC Pack to create a hybrid HPC environment.
 ms.custom: acom-architecture, hybrid hpc, hpc pack, azure hpc pack, interactive-diagram, hybrid-infrastructure, hpc, 'https://azure.microsoft.com/solutions/architecture/hybrid-hpc-in-azure-with-hpc-pack/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Hybrid HPC in Azure with HPC Pack
 
@@ -168,28 +170,6 @@ The links to the right provide documentation on deploying and managing the Azure
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Log into on-premises head node</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Add Azure compute nodes to the cluster</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Start the compute nodes</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Submit jobs to the cluster</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>HPC Pack sends jobs to on-premises and Azure nodes based upon the node group selected</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Monitor job progress</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Stop the compute nodes or configure auto-scaling</p>
-</div>
-
 ## Data Flow
 
 1. Log into on-premises head node
@@ -209,4 +189,4 @@ The links to the right provide documentation on deploying and managing the Azure
 * [Create a Windows virtual machine with the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
 * [Set up a hybrid high performance computing (HPC) cluster with Microsoft HPC Pack and on-demand Azure compute nodes](/azure/cloud-services/cloud-services-setup-hybrid-hpcpack-cluster)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

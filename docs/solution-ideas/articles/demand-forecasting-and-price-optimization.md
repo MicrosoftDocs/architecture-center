@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Pricing is recognized as a pivotal determinant of success in many industries and can be one of the most challenging tasks. Companies often struggle with several aspects of the pricing process, including accurately forecasting the financial impact of potential tactics, taking reasonable consideration of core business constraints, and fairly validating the executed pricing decisions. Expanding product offerings add further computational requirements to make real-time pricing decisions, compounding the difficulty of this already overwhelming task.
 ms.custom: acom-architecture, anomaly-detection, artificial intelligence, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/demand-forecasting-and-price-optimization/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Demand Forecasting and Price Optimization
 
@@ -69,4 +71,4 @@ For post deployment instructions and more details on the technical implementatio
   4. Azure Data Factory orchestrates and schedules the entire data flow.
   5. Finally, Power BI is used for results visualization, so that users can monitor the results of the sales, predicted future demand as well as recommended optimal prices for a variety of products sold in different stores.
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

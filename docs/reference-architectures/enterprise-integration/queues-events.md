@@ -1,6 +1,5 @@
 ---
-title: Enterprise integration using message queues and events
-titleSuffix: Azure Reference Architectures
+title: Enterprise integration using queues and events
 description: Recommended architecture for implementing an enterprise integration pattern with Azure Logic Apps, Azure API Management, Azure Service Bus, and Azure Event Grid.
 author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
@@ -55,8 +54,6 @@ Use [PeekLock](/azure/service-bus-messaging/service-bus-messaging-overview#queue
 
 When an Event Grid trigger fires, it means *at least one* event happened. For example, when a logic app gets an Event Grid triggers for a Service Bus message, it should assume that several messages might be available to process.
 
-Event Grid uses a serverless model. Billing is calculated based on the number of operations (event executions). For more information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/). Currently, there are no tier considerations for Event Grid.
-
 ## Scalability considerations
 
 To achieve higher scalability, the Service Bus Premium tier can scale out the number of messaging units. Premium tier configurations can have one, two, or four messaging units. For more information about scaling Service Bus, see [Best practices for performance improvements by using Service Bus Messaging](/azure/service-bus-messaging/service-bus-performance-improvements).
@@ -80,12 +77,42 @@ If you need to expose a Service Bus queue as an HTTP endpoint, for example, to p
 
 The Event Grid service secures event delivery through a validation code. If you use Logic Apps to consume the event, validation is automatically performed. For more information, see [Event Grid security and authentication](/azure/event-grid/security-authentication).
 
+## Cost Considerations
+In general, use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some other considerations.
+
+### API Management
+
+You are charged for all API Management instances when they are running. If you have scaled up and don't need that level of performance all the time, manually scale down or configure [autoscaling][apim-autoscale].
+
+### Logic Apps
+
+Logic Apps uses a [serverless](/azure/logic-apps/logic-apps-serverless-overview) model. Billing is calculated based on action and connector execution. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). 
+
+### Service Bus queues
+
+Service Bus queues support both push and pull models for delivering messages. In the pull model, every polling request is metered as an action. Even with long polling at 30 secs (default), cost can be high. Unless you need real-time delivery of messages, consider using the push model.     
+
+Service Bus queues are included in all tiers (Basic, standard, and premium tiers). For more information, see [Azure Service Bus pricing][service-bus-pricing]. 
+
+### Event Grid
+
+Event Grid uses a serverless model. Billing is calculated based on the number of operations (event executions). Operations include ingress of events to Domains or Topics, advanced matches, delivery attempts, and management calls. Usage of up to 100,000 operations is free of charge.
+
+For more information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/). 
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+
+
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [apim]: /azure/api-management
 [apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management/
+[apim-autoscale]: /azure/api-management/api-management-howto-autoscale
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [event-grid]: /azure/event-grid/
 [event-grid-sla]: https://azure.microsoft.com/support/legal/sla/event-grid
 [logic-apps]: /azure/logic-apps/logic-apps-overview
 [logic-apps-sla]: https://azure.microsoft.com/support/legal/sla/logic-apps
 [sb-sla]: https://azure.microsoft.com/support/legal/sla/service-bus/
 [service-bus]: /azure/service-bus-messaging/
+[service-bus-pricing]: https://azure.microsoft.com/pricing/details/service-bus/
 [basic-enterprise-integration]: ./basic-enterprise-integration.md
