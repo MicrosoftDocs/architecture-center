@@ -142,9 +142,19 @@ In general, use the [Azure pricing calculator][cost-calculator] to estimate cost
 
 There are ways to optimize costs associated the services used in this reference architecture. 
 
-### IoT Hub
+### Azure IoT Hub
 
-In this architecture, IoT Hub is the cloud gateway that ingests events from devices. IoT Hub billing varies depending on the type of operation. Create, update, insert, delete are free. Messages sent successfully from device to the cloud are charged in 4-KB chunks on ingress into IoT Hub. For example, a 6-KB message is charged as two messages.
+In this architecture, IoT Hub is the cloud gateway that ingests events from devices. IoT Hub billing varies depending on the type of operation. Create, update, insert, delete are free. Successful operations such as device-to-cloud and cloud-to-device messages are charged. 
+
+Device-to-cloud messages sent successfully are charged in 4-KB chunks on ingress into IoT Hub. For example, a 6-KB message is charged as two messages.
+
+IoT Hub maintains state information about each connected device in a device twin JSON document. Read operations from a device twin document are charged. 
+
+IoT Hub offers two tiers: **Basic** and **Standard**. 
+
+Consider using the **Standard** tier if your IoT architecture uses bi-directional communication capabilities. This tier also offers a free edition that is most suited for testing purposes.
+
+If you only need uni-directional communication from devices to the cloud, use the **Basic** tier, which is cheaper.
 
 For more information, see [IoT Hub Pricing](/azure/iot-hub/iot-hub-devguide-pricing). 
 
