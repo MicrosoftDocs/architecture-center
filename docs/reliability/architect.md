@@ -1,5 +1,5 @@
 ---
-title: Architecting Azure applications for resiliency and availability
+title: Architecting for resiliency and availability
 description: Build resiliency and availability into an Azure application
 author: MikeWasson
 ms.date: 11/20/2019

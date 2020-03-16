@@ -291,13 +291,11 @@ For more information, see the cost section in [Azure Architecture Framework][AAF
 
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][ri-deploy].
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
-[AppGatewayPricing]: https://azure.microsoft.com/pricing/details/application-gateway/
-[aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service
-[az-lb-pricing]: https://azure.microsoft.com/pricing/details/load-balancer/
-[az-monitor-pricing]: https://azure.microsoft.com/pricing/details/monitor/
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
-[DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services/
+## Next steps
+
+- To learn about monitoring this architecture, see [Monitoring a microservices architecture in Azure Kubernetes Service (AKS)](../../microservices/logging-monitoring.md).
+- To learn how we measured the performance of this application, see [Performance tuning scenario: Distributed business transactions](../../performance/distributed-transaction.md).
+
 [ri]: https://github.com/mspnp/microservices-reference-implementation
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.md
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/aks-reference-architecture.vsdx

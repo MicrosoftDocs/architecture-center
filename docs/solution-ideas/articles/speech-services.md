@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: With Speech Services, it's easy to transcribe every call. Index the transcription for full-text search, or apply Text Analytics to detect sentiment, language, and key phrases for insights. If your call center recordings involve specialized terminology, such as product names or IT jargon, create a custom language model to teach Speech Services the vocabulary. A custom acoustic model helps Speech Services understand speakers even with background noise or poor phone connections. For more information, read how batch transcription works with Speech Services.
 ms.custom: acom-architecture, speech service, speech, services, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/speech-services/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Speech Services
 
@@ -83,28 +85,6 @@ For more information, read how [batch transcription](/azure/cognitive-services/s
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Adapt a model for your domain and deploy that model</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Upload your recordings to a blob container</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Create a POST request to batch transcription</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Speech Services schedules the transcription job</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Stereo files are split into two channels</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Mono files undergo diarization to distinguish between speakers</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Download the transcription using the transcription ID</p>
-</div>
-
 ## Data Flow
 
 1. Adapt a model for your domain and deploy that model
@@ -116,4 +96,4 @@ For more information, read how [batch transcription](/azure/cognitive-services/s
 1. Download the transcription using the transcription ID
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

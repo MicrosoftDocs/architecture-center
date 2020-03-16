@@ -1,12 +1,11 @@
 ---
-title: Image classification for insurance claims
-titleSuffix: Azure Example Scenarios
+title: Image classification on Azure
 description: Build image processing into your Azure applications.
 author: david-stanford
 ms.date: 07/05/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
+ms.subservice: example-scenario
 social_image_url: /azure/architecture/example-scenario/ai/media/architecture-intelligent-apps-image-processing.png
 ---
 

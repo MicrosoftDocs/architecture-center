@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Back up data and applications running in Azure to another Azure location by using Azure Backup or a partner solution.
 ms.custom: acom-architecture, bcdr, 'https://azure.microsoft.com/solutions/architecture/backup-archive-cloud-application/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Back up cloud applications and data to cloud
 
@@ -107,4 +109,4 @@ This solution is built on the Azure managed services: [Azure Backup](https://azu
 * [Back up files and folders using Azure Backup](/api/Redirect/documentation/articles/backup-try-azure-backup-in-10-mins/)
 * [Store backed up files in Blob storage](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

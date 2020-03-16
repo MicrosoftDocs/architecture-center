@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Bursting from AKS with ACI
 ms.custom: acom-architecture, devops, kubernetes, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/scale-using-aks-with-aci/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Bursting from AKS with ACI
 
@@ -252,19 +254,6 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>User registers container in Azure Container Registry</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Container images are pulled from the Azure Container Registry</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>AKS virtual node, a Virtual Kubelet implementation, provisions pods inside ACI from AKS when traffic comes in spikes.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>AKS and ACI containers write to shared data store</p>
-</div>
-
 ## Data Flow
 
 1. User registers container in Azure Container Registry
@@ -273,4 +262,4 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
 1. AKS and ACI containers write to shared data store
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

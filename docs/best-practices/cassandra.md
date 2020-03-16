@@ -7,6 +7,8 @@ ms.date: 09/19/2019
 ms.topic: best-practice
 ms.service: architecture-center
 ms.customer: fcp
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ---
 # Run Apache Cassandra on Azure VMs
 
@@ -42,9 +44,9 @@ with the latest drivers, such as Cent OS 7.5+ or Ubuntu 16.x/18.x. For more info
 Cassandra read workloads perform best when random-access disk latency is low. We recommend using Azure managed disks with [ReadOnly](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-caching) caching enabled. ReadOnly caching provides lower average latency, because the data is read from the cache on the host instead of going to the backend storage.
 
 
-Read-heavy, random-read workloads like Cassandra benefit from the lower read latency even though cached mode has lower throughput limits than uncached mode. (For example, [DS14_v2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#dsv2-series-11-15) virtual machines have a maximum cached throughput of 512 MB/s versus uncached of 768 MB/s.)
+Read-heavy, random-read workloads like Cassandra benefit from the lower read latency even though cached mode has lower throughput limits than uncached mode. (For example, [DS14_v2](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series-memory) virtual machines have a maximum cached throughput of 512 MB/s versus uncached of 768 MB/s.)
 
-ReadOnly caching is particularly helpful for Cassandra time-series and other workloads where the working dataset fits in the host cache and data is not constantly overwritten. For example, [DS14_v2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#dsv2-series-11-15) provides a cache size of 512 GB, which could store up to 50% of the data from a Cassandra node with 1-2 TB data density.
+ReadOnly caching is particularly helpful for Cassandra time-series and other workloads where the working dataset fits in the host cache and data is not constantly overwritten. For example, [DS14_v2](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series-memory) provides a cache size of 512 GB, which could store up to 50% of the data from a Cassandra node with 1-2 TB data density.
 
 There is no significant performance penalty from cache-misses when ReadOnly caching is enabled, so cached mode is recommended for all but the most write-heavy workloads.
 
@@ -147,8 +149,8 @@ The following reference architecture deploys Cassandra as part of an n-tier conf
 
 - [Linux N-tier application in Azure with Apache Cassandra](../reference-architectures/n-tier/n-tier-cassandra.md)
 
-[dsv2]: /azure/virtual-machines/linux/sizes-memory#dsv2-series-11-15
-[dsv3]: /azure/virtual-machines/linux/sizes-general#dsv3-series-1
-[lsv2]: /azure/virtual-machines/linux/sizes-storage#lsv2-series
+[dsv2]: /azure/virtual-machines/dv2-dsv2-series-memory
+[dsv3]: /azure/virtual-machines/dv3-dsv3-series
+[lsv2]: /azure/virtual-machines/lsv2-series
 
 [repo]: https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments
