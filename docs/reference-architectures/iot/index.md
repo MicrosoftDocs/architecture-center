@@ -162,7 +162,7 @@ For more information, see [IoT Hub Pricing](/azure/iot-hub/iot-hub-devguide-pric
 
 Azure Stream Analytics is used for stream processing and rules evaluation. Azure Stream Analytics is priced by the number of Streaming Units (SU) per hour, which takes into compute, memory, and throughput required to process the data. Azure Stream Analytics on IoT Edge is billed per job. Billing starts when a Stream Analytics job is deployed to devices regardless of the job status, running, failed, or stopped.
 
-For more information about pricing, see [Stream Analytics pricing](https://azure.microsoft.com/is-is/pricing/details/stream-analytics/).
+For more information about pricing, see [Stream Analytics pricing](https://azure.microsoft.com/pricing/details/stream-analytics/).
 
 ### Azure Functions
 
