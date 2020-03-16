@@ -1,9 +1,9 @@
 ---
 title: Run reservoir simulation software on Azure
 titleSuffix: Azure Example Scenarios
-description: Run OPM Flow reservoir simulation software and OPM ResInsight visualization software on Azure.
+description: Run OPM Flow reservoir simulation software and OPM ResInsight visualization software on an Azure HPC compute cluster and visualization VM.
 author: edprice
-ms.date: 03/02/2020
+ms.date: 03/16/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -12,11 +12,11 @@ ms.custom: fcp
 
 # Run reservoir simulation software on Azure
 
-*Reservoir simulation* uses data-intensive computer models to predict complex flows of fluids such as oil, water, and gas beneath the earth's surface. This example sets up reservoir simulation software on an Azure infrastructure for high-performance computing (HPC). Azure makes it possible to run this type of workload with maximum performance, scalability, and cost efficiency.
+*Reservoir simulation* uses data-intensive computer models to predict complex flows of fluids such as oil, water, and gas beneath the earth's surface. This example sets up reservoir simulation software on an Azure high-performance computing (HPC) infrastructure. Azure makes it possible to run this type of workload with maximum performance, scalability, and cost efficiency.
 
 The architecture in this example supports OPM Flow, a popular open-source oil and gas reservoir simulation package from the Open Porous Media (OPM) initiative. The OPM Flow software runs on Azure HPC virtual machines (VMs) that deliver performance near or better than current on-premises infrastructures.
 
-Users connect to a Linux head node VM to prepare models and submit jobs to the HPC resources through PBS Pro 19.1 job-scheduling software. The HPC resources run OPM Flow, and send the calculated results to a file share. In this example, the HPC cluster stores results in a 4-terabyte (TB) network file system (NFS) space on the head node VM. Depending on your model and your input and output (IO) requirements, you can use other [storage](#storage) options.
+Users connect to a Linux head node VM to submit models to the HPC resources through PBS Pro 19.1 job-scheduling software. The HPC resources run OPM Flow and send calculated results to a file share. In this example, the file share is a 4-terabyte (TB) network file system (NFS) space on the head node VM. Depending on your model and your input and output (IO) requirements, you can use other [storage](#storage) options.
 
 A Windows Azure VM running OPM ResInsight, an open-source visualization tool, accesses the file share to [model and visualize][model] the calculated results. Users can connect to the VM via remote desktop protocol (RDP) to view the visualizations. 
 
@@ -44,11 +44,11 @@ This diagram offers a high-level overview of the architecture used in the exampl
 
 4. OPM Flow sends calculated results to a file share on the head node. A [premium disk][disk] is connected to the head node and set up as an NFS server for the compute nodes and the visualization VM.
 
-5. OPM ResInsight running on a Standard-NV6 Windows VM produces and displays 3D visualizations of results. Users can access the visualization VM through RDP. 
+5. OPM ResInsight running on a Standard-NV6 Windows VM displays 3D visualizations of results. Users can access the visualization VM through RDP. 
 
 ## Considerations
 
-To test OPM on Azure, the [example implementation][opm-flow] of this OPM Flow architecture on GitHub installs the Norne case, an open-benchmark case of a real Norwegian Sea oil field. To run this test case, you must:
+To test this OPM Flow architecture on Azure, the [GitHub example implementation][opm-flow] installs the Norne case, an open-benchmark case of a real Norwegian Sea oil field. To run this test case, you must:
 
 - Use Azure Key Vault for storing keys and secrets, a requirement of the GitHub setup scripts.
 
@@ -64,13 +64,15 @@ Azure CycleCloud is a tool for creating, managing, operating, and optimizing HPC
 
 ### Network
 
-This example workload deploys the VMs within different subnets. For additional security, you can define [network security groups][nsg] for each subnet. For example, you can set security rules that allow or deny inbound network traffic to, or outbound network traffic from, the various nodes. If you don't need this level of security, you don't need separate subnets for this implementation.
+This example workload deploys the VMs within different subnets. For additional security, you can define [network security groups][nsg] for each subnet. For example, you can set security rules that allow or deny network traffic to or from the various nodes. If you don't need this level of security, you don't need separate subnets for this implementation.
 
 ### Storage 
 
-[Data storage](/azure/architecture/topics/high-performance-computing#storage) and access needs vary widely, depending on the scale of a workload. Azure supports several approaches for managing the speed and capacity of HPC applications. The following approaches are common in the oil and gas industry. Choose the solution best suited to your unique IO and capacity requirements. The azurehpc repository includes [example Azure HPC scripts][azurehpc].
+[Data storage](/azure/architecture/topics/high-performance-computing#storage) and access needs vary widely, depending on  workload scale. Azure supports several approaches for managing the speed and capacity of HPC applications. The [azurehpc][azurehpc] GitHub repository includes example Azure HPC scripts.
 
-- **Low-scale workload** like this example: Consider running NFS on the head node, using a storage-optimized [Lsv2-series VM][lsv2] with large ephemeral disks, or D-series VMs with Azure Premium Storage, depending on your requirements. This solution suits workloads with 500 cores or fewer, throughput of up to 1.5 gigabytes per second (GiB/s), and up to 19 TB RAM and 100 TB storage.
+The following approaches are common in the oil and gas industry. Choose the solution best suited to your unique IO and capacity requirements. 
+
+- For **low-scale workloads** like the current example, consider running NFS on the head node, using a storage-optimized [Lsv2-series VM][lsv2] with large ephemeral disks, or D-series VMs with Azure Premium Storage, depending on your requirements. This solution suits workloads with 500 cores or fewer, throughput of up to 1.5 gigabytes per second (GiB/s), and up to 19 TB RAM and 100 TB storage.
 
 - **Medium to large-scale read-intensive workloads:** Consider using [Avere vFXT for Azure][avere-vfxt] (6 to 24 nodes). This solution works for workloads of up to 50,000 cores, throughput up to 2 GiB/s for writes and up to 14 GiB/s for reads, a cache of up to 192 TB, and a file server of up to 2 petabytes (PB).
 
