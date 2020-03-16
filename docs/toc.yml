@@ -796,7 +796,7 @@ items:
       - name: Linux virtual desktops
         href: example-scenario/infrastructure/linux-vdi-citrix.md
       - name: Reservoir simulation and visualization
-        href: example-scenario/hpc/index.md
+        href: example-scenario/infrastructure/reservoir-simulation.md
     - name: Solution ideas
       items:
       - href: solution-ideas/articles/hpc-risk-analysis.md
