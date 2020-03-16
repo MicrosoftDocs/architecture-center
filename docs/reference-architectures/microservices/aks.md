@@ -261,31 +261,33 @@ For specific recommendations and best practices, see [CI/CD for microservices on
 
 ## Cost Considerations
 
-### AKS
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
 
-In this architecture you deploy a microservices application to Azure Kubernetes Service (AKS), AKS is an Azure service that deploys a managed Kubernetes cluster. You only pay for the virtual machines instances, storage and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources please see the [Container Services calculator][aks-Calculator]
+### Azure Kubernetes Service (AKS)
+
+There are no costs associated for AKS in deployment, management, and operations of the Kubernetes cluster. You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster.
+
+To estimate the cost of the required resources please see the [Container Services calculator][aks-Calculator].
 
 ### Azure Load balancer
 
-In this scenario, the load balancer routes internet traffic to the ingress Gateway. You are charged only for the Amount of data processed inbound independent of rules. There is no hourly charge for the Standard Load Balancer when no rules are configured. See [Azure Load Balancer Pricing][az-lb-pricing] for more information.
+You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
+
+See [Azure Load Balancer Pricing][az-lb-pricing] for more information.
 
 
 ### Azure Application Gateway
 
-For Ingress, you can use Azure Application Gateway to route traffic to services inside de cluster. You are charged for the application gateways based on the amount of time that the gateway is provisioned and available, as well as the amount of data processed by the application gateways. See [App Gateway pricing][AppGatewayPricing] for more information.
+In this reference architecture,  Azure Application Gateway is used as the **Ingress** resource.  The gateway routes traffic to services inside the cluster. You are charged for the time that the gateway is provisioned and available and the amount of data processed by the gateway. For more information, see [App Gateway pricing][AppGatewayPricing].
 
 ### Azure DevOps Services
 
-Choose the plan that's right for you. For this reference architectures, you only need Azure Pipelines. Azure offers the Azure Pipeline individual Service, you have a free Microsoft-hosted job with 1,800 minutes per month for CI/CD and 1 self-hosted job with unlimited minutes per month, extra jobs are have charges. See [Azure DevOps Services Pricing][DevOps-pricing]
+This reference architecture only uses Azure Pipelines. Azure offers the Azure Pipeline as an individual Service. You are allowed  a free Microsoft-hosted job with 1,800 minutes per month for CI/CD and 1 self-hosted job with unlimited minutes per month, extra jobs are have charges. For more information, see [Azure DevOps Services Pricing][DevOps-pricing].
 
-### Azure monitor
+### Azure Monitor
 
-In this architecture you use Azure Monitor to collect and store metrics and logs, including platform metrics and application telemetry. For Azure Monitor Log Analytics, you pay for data ingestion and data retention. See [Azure Monitor Pricing][az-monitor-pricing] for more information.
+For Azure Monitor Log Analytics, you are charged for data ingestion and retention. For more information, see [Azure Monitor Pricing][az-monitor-pricing] for more information.
 
-
-Use the [Pricing calculator][Cost-Calculator] to estimate costs.
-
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
 ## Deploy the solution
 
