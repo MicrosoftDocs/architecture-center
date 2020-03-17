@@ -207,11 +207,11 @@ All traffic that occurs within the boundaries of a virtual network is free. So, 
 
 ### Azure Bastion
 
-Azure Bastion securely connects to your virtual machine in the virtual network over RDP and SSH without having the need to configure a public IP on the virtual machine. You will need Bastion in every virtual network that contains virtual machines with which you want to connect. This solution is more economical and secure than using jumpboxes. 
+Azure Bastion securely connects to your virtual machine in the virtual network over RDP and SSH without having the need to configure a public IP on the virtual machine. You will need Bastion in every virtual network that contains virtual machines that you want to connect to. This solution is more economical and secure than using jumpboxes. 
 
 For examples, see [Azure Bastion Pricing][Bastion-pricing].
 
-### Virtual machine and internal load balancing
+### Virtual machine and internal load balancers
 
 In this architecture, internal load balancers are used to load balance traffic inside a virtual network. Basic load balancing between virtual machines that reside in the same virtual network is free.
 

@@ -235,36 +235,39 @@ If you must expose management endpoints for VMs to an external network, use NSGs
 > Azure VMs deployed through the Azure portal can include a public IP address that provides login access. However, it is a best practice not to permit this.
 >
 
-## Cost Considerations
+## Cost considerations
 
-### Express route
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. For general considerations, see the Cost section in [Azure Architecture Framework][AAF-cost].
 
-In this architecture, an Express Route circuit is used join the on-premises network with Azure through the edge routers. All inbound data transfer is free of charge, and all outbound data transfer is charged based on a pre-determined rate. See [Azure ExpressRoute pricing][expressroute-pricing] For more info.	All inbound data transfer is free of charge, and all outbound data transfer is charged based on a pre-determined rate.
+The services used in this architecture are charged as follows:
 
-There is also an unlimited plan: All inbound and outbound data transfer is free of charge. Users are charged a single fixed monthly port fee (based on High Availability dual ports).
+### Azure ExpressRoute
 
-Calculate you utilization so you can decide the billing plan, tipically if you axceed about 68% of utilization you should consider the unlimited plan.
+In this architecture, an ExpressRoute circuit is used join the on-premises network with Azure through the edge routers. 
 
-See [Azure ExpressRoute pricing][expressroute-pricing] For more info.
+There are two main plans. In the **Metered Data** plan, all inbound data transfer is free. All outbound data transfer is charged based on a pre-determined rate. 
 
+You can also opt for the **Unlimited Data** plan in which all inbound and outbound data transfer is free. Users are charged a fixed monthly port fee based on high availability dual ports.
 
-### Virtual Network
+Calculate your utilization and choose a billing plan accordingly. The **Unlimited Data** plan  is recommended if you exceed about 68% of utilization.
 
-In this architecture all the application tiers are hosted in a single virtual network, they are segmented using subnets. Azure Virtual Network is free of charge. Every subscription is allowed to create up to 50 Virtual Networks across all regions. All traffic that occurs within the boundaries of a Virtual Network is free of charge. So if two VMs that are in the same VNET are talking each other then no charges will occur.
+For more information, see [Azure ExpressRoute pricing][expressroute-pricing]. 
 
-### Virtual machine and internal load balancing
+### Azure Virtual Network
 
-In this architecture, internal load balancers are used to load balance traffic inside a virtual network. Basic load balancing between virtual machines that reside in the same VNET is free of charge.
+All application tiers are hosted in a single virtual network and are segmented using subnets. 
 
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
+All traffic that occurs within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
 
-Virtual machine scale sets are available on all Linux and windows VM sizes. You are only charged for the Azure VMs you deploy, as well as any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the virtual machine scale sets service itself.
+### Virtual machine and internal load balancers
 
-For more information See [Azure VM pricing][linux-vms-pricing]
+In this architecture, internal load balancers are used to load balance traffic inside a virtual network. Basic load balancing between virtual machines that reside in the same virtual network is free.
 
+Virtual machine scale sets are available on all Linux and windows VM sizes. You are only charged for the Azure VMs you deploy and underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the virtual machine scale sets service.
 
-Use the [Pricing calculator][Cost-Calculator] to estimate costs.
+For more information, see [Azure VM pricing][linux-vms-pricing].
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
 
 ## Deploy the solution
 
