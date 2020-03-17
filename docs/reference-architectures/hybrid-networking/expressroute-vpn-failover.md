@@ -96,10 +96,11 @@ For general Azure security considerations, see [Microsoft cloud services and net
 
 ## Cost considerations
 
-For ExpressRoute cost considerations, see the cost section in [Implementing a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance.
+For ExpressRoute cost considerations, see these articles:
 
-For site-to-site VPN considerations, see the cost section in [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance.
+- [Cost considerations in Implementing a Hybrid Network Architecture with Azure ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute#cost-considerations).
 
+- [Cost considerations in Implementing a Hybrid Network Architecture with Azure and On-premises VPN](/azure/architecture/reference-architectures/hybrid-networking/vpn#cost-considerations).
 
 ## Deploy the solution
 

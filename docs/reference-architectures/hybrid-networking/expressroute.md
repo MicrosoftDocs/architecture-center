@@ -101,7 +101,7 @@ Create an ExpressRoute circuit as follows:
 
     3. Reserve another pool of valid public IP addresses to use for network address translation (NAT) for Microsoft peering. It is recommended to have a different pool for each peering. Specify the pool to your connectivity provider, so they can configure border gateway protocol (BGP) advertisements for those ranges.
 
-5. Run the following PowerShell commands to link your private VNet(s) to the ExpressRoute circuit. For more information,see [Link a virtual network to an ExpressRoute circuit][link-vnet-to-expressroute].
+5. Run the following PowerShell commands to link your private VNet(s) to the ExpressRoute circuit. For more information, see [Link a virtual network to an ExpressRoute circuit][link-vnet-to-expressroute].
 
     ```powershell
     $circuit = Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
@@ -243,7 +243,7 @@ The services used in this architecture are charged as follows:
 
 ### Azure ExpressRoute
 
-In this architecture, an ExpressRoute circuit is used join the on-premises network with Azure through the edge routers. 
+In this architecture, an ExpressRoute circuit is used to join the on-premises network with Azure through the edge routers. 
 
 There are two main plans. In the **Metered Data** plan, all inbound data transfer is free. All outbound data transfer is charged based on a pre-determined rate. 
 
