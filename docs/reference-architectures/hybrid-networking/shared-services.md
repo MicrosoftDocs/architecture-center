@@ -81,6 +81,11 @@ You can use network virtual appliances (NVAs) in Azure to host different types o
 > [!NOTE]
 > The deployment scripts for this reference architecture use an Ubuntu VM with IP forwarding enabled to mimic a network virtual appliance.
 
+## Cost considerations
+
+This reference architecture builds on the hub-spoke reference architecture (see [cost considerations](hub-spoke.md#cost-considerations) section), and includes shared services in the hub that can be consumed by all spokes. For example, having Active Directory Domain services as a shared service consumed by multiple workloads is cost effective. See [AD DS pricing][ADDS-pricing] for pricing info.
+
+
 ## Deploy the solution
 
 A deployment for this architecture is available on [GitHub][ref-arch-repo]. The deployment creates the following resource groups in your subscription:
