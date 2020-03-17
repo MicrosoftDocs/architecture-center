@@ -236,3 +236,4 @@ _themes*/
 /_model
 /_viewmodel
 /build/architectures/acom_html
+.DS_Store
