@@ -94,7 +94,7 @@ It is strongly recommended that device design incorporates features that defend 
 
 For example:
 
-- Choose microcontrollers/microprocessors or auxiliary hardware that provide secure storage and use of cryptographic key material, such as trusted platform module (TPM) integration.
+- Choose microcontrollers/microprocessors or auxiliary hardware that provides secure storage and use of cryptographic key material, such as trusted platform module (TPM) integration.
 - Secure boot loader and secure software loading, anchored in the TPM.
 - Use sensors to detect intrusion attempts and attempts to manipulate the device environment with alerting and potentially "digital self-destruction" of the device.
 

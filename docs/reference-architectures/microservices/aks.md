@@ -59,7 +59,7 @@ The Kubernetes Service object is a natural way to model microservices in Kuberne
 
 - Service discovery. Services are assigned internal DNS entries by the Kubernetes DNS service. That means the API gateway can call a backend service using the DNS name. The same mechanism can be used for service-to-service communication. The DNS entries are organized by namespace, so if your namespaces correspond to bounded contexts, then the DNS name for a service will map naturally to the application domain.
 
-The following diagram show the conceptual relation between services and pods. The actual mapping to endpoint IP addresses and ports is done by kube-proxy, the Kubernetes network proxy.
+The following diagram shows the conceptual relation between services and pods. The actual mapping to endpoint IP addresses and ports is done by kube-proxy, the Kubernetes network proxy.
 
 ![Services and pods](./_images/aks-services.png)
 
@@ -284,7 +284,7 @@ In this reference architecture,  Azure Application Gateway is used as the **Ingr
 
 ### Azure DevOps Services
 
-This reference architecture only uses Azure Pipelines. Azure offers the Azure Pipeline as an individual Service. You are allowed  a free Microsoft-hosted job with 1,800 minutes per month for CI/CD and 1 self-hosted job with unlimited minutes per month, extra jobs are have charges. For more information, see [Azure DevOps Services Pricing][DevOps-pricing].
+This reference architecture only uses Azure Pipelines. Azure offers the Azure Pipeline as an individual Service. You are allowed  a free Microsoft-hosted job with 1,800 minutes per month for CI/CD and 1 self-hosted job with unlimited minutes per month, extra jobs have charges. For more information, see [Azure DevOps Services Pricing][DevOps-pricing].
 
 ### Azure Monitor
 
