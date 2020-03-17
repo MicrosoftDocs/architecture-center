@@ -136,7 +136,7 @@ Recommendations
 
 This architecture describes a small, production-level deployment. Your
 deployment will differ based on your business requirements, so consider these
-recommendations a starting point.
+recommendations as a starting point.
 
 ### Virtual machines
 
