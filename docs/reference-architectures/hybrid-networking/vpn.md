@@ -186,36 +186,38 @@ If the application in the virtual network sends data to the Internet, consider [
 > Forced tunneling can impact connectivity to Azure services (the Storage Service, for example) and the Windows license manager.
 >
 
-## Cost Considerations
+## Cost considerations
 
-### VPN Gateway
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. For general considerations, see the Cost section in [Azure Architecture Framework][AAF-cost].
 
-In this reference architecture, a network is extended from on-premises into an Azure virtual network, using a site-to-site virtual private network (VPN), the main component is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available. See [VPN Gateway Pricing][azure-gateway-charges].
+The services used in this architecture are charged as follows:
 
-VPN Outboud traffic will be subjected to the internet bandwidth costs. The usual concept applies, all inbound traffic is free, all outbound traffic is billed.
+### Azure VPN Gateway
 
-### Virtual Network
+The main component of this architecture is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available. 
 
-Azure Virtual Network is free of charge. Every subscription is allowed to create up to 50 Virtual Networks across all regions.
-All traffic that occurs within the boundaries of a Virtual Network is free of charge. So if two VMs that are in the same VNET are talking each other then no charges will occur.
+All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.  
+
+For more information, see [VPN Gateway Pricing][azure-gateway-charges].
+
+### Azure Virtual Network
+
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
+All traffic that occurs within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
 
 ### Azure Bastion
 
-In this architecture, the Azure Bastion PaaS service is used to manage the VMs in the virtual network. Azure Bastion allows you to securely and RDP & SSH to your virtual machine in the Azure virtual network, directly from the Azure portal, without the need of public IP on the VM. So keep in mind that for every virtual network that contians VMs you need to RDP or SSH, you will need an Azure Bastion Service, in the end is going to be a more economic (and more secure) solution than using jumpboxes. See [Azure Bastion Pricing][Bastion-pricing] for examples.
+Azure Bastion securely connects to your virtual machine in the virtual network over RDP and SSH without having the need to configure a public IP on the virtual machine. You will need Bastion in every virtual network that contains virtual machines with which you want to connect. This solution is more economical and secure than using jumpboxes. 
+
+For examples, see [Azure Bastion Pricing][Bastion-pricing].
 
 ### Virtual machine and internal load balancing
 
-In this architecture, internal load balancers are used to load balance traffic inside a virtual network. Basic load balancing between virtual machines that reside in the same VNET is free of charge.
+In this architecture, internal load balancers are used to load balance traffic inside a virtual network. Basic load balancing between virtual machines that reside in the same virtual network is free.
 
+Virtual machine scale sets are available on all Linux and windows VM sizes. You are only charged for the Azure VMs you deploy and underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the virtual machine scale sets service.
 
-Virtual machine scale sets are available on all Linux and windows VM sizes. You are only charged for the Azure VMs you deploy, as well as any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the virtual machine scale sets service itself.
-
-For more information See [Azure VM pricing][linux-vms-pricing]
-
-
-Use the [Pricing calculator][Cost-Calculator] to estimate costs.
-
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see [Azure VM pricing][linux-vms-pricing].
 
 ## Deploy the solution
 
