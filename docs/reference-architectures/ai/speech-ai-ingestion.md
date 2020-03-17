@@ -27,17 +27,21 @@ Businesses can implement this architecture with their Azure account, and allow t
 
 The architecture utilizes the following Azure services:
 
-**Azure Blob Storage** stores objects on the cloud. Blob storage is optimized for storing massive amounts of unstructured data, such as text or binary data. Since sensitive information might be saved in the blob, its access must be secured using authentication methods such as SAS keys.
+[**Azure Blob Storage**](https://docs.microsoft.com/azure/storage/blobs/) stores objects on the cloud. Blob storage is optimized for storing massive amounts of unstructured data, such as text or binary data. Since sensitive information might be saved in the blob, its access must be secured using authentication methods such as SAS keys.
 
-**Azure Event Grid** provides built-in support to build efficient event-driven architectures on Azure. When the audio file upload is completed, the Event Grid triggers a [*Blob Created*](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage#microsoftstorageblobcreated-event) event for the transcription function.
+[**Azure Event Grid**](https://docs.microsoft.com/azure/event-grid/) provides built-in support to build efficient event-driven architectures on Azure. When the audio file upload is completed, the Event Grid triggers a [*Blob Created*](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage#microsoftstorageblobcreated-event) event for the transcription function.
 
-**Azure Functions** provides the event-driven compute capabilities, without the overhead of building the infrastructure. The function in this reference implementation uses the Cognitive Services Speech APIs to transcribe speech to plain text.
+[**Azure Functions**](https://docs.microsoft.com/azure/azure-functions/) provides the event-driven compute capabilities, without the overhead of building the infrastructure. The function in this reference implementation uses the Cognitive Services Speech APIs to transcribe speech to text. Note that [consumption plan](https://docs.microsoft.com/azure/azure-functions/functions-consumption-costs) is used to host this function.
 
-**Azure Cognitive Services** is a collection of APIs available to help developers build intelligent applications without requiring extensive AI or data science skills. This service enables developers to easily implement cognitive AI capabilities in their applications. These APIs were created using vast amounts of machine learning data, which generally covers most scenarios.
+[**Azure Cognitive Services**](https://docs.microsoft.com/azure/cognitive-services/) is a collection of APIs available to help developers build intelligent applications without requiring extensive AI or data science skills. This service enables developers to easily implement cognitive AI capabilities in their applications. These APIs were created using vast amounts of machine learning data, which generally covers most scenarios. The text transcribed by [Speech-to-text APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) looks similar to:
+
+```bash
+ResultId:19e70bee8b5348a6afb67817825a9586 Reason:RecognizedSpeech Recognized text:<Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.>. Json:{"DisplayText":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","Duration":53700000,"Id":"28526a6304da4af1922fedd4edcdddbb","Offset":3900000,"RecognitionStatus":"Success"}
+```
 
 [**API Management**](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) provides secure access to your REST APIs. Only clients authenticated with the API Management will be able to get this SAS token. API Management thus provides an additional layer of security in this architecture.
 
-**Azure Active Directory** provides identity management and secured access to resources in Azure cloud. Azure AD credentials belonging to the owner of the Azure resources in this architecture, are used to create the access token for the blob storage. The clients are given the minimum access privileges required to upload their audio files, using the **Role-based Access Control** feature of Azure AD.
+[**Azure Active Directory**](https://docs.microsoft.com/azure/active-directory/) provides identity management and secured access to resources in Azure cloud. Azure AD credentials belonging to the owner of the Azure resources in this architecture, are used to create the access token for the blob storage. The clients are given the minimum access privileges required to upload their audio files, using the [**Role-based Access Control**](https://docs.microsoft.com/azure/role-based-access-control/overview) feature of Azure AD.
 
 [**Key Vault**](https://docs.microsoft.com/azure/key-vault/key-vault-overview) allows secure storage of secrets and keys. This reference architecture stores the account credentials and other secrets required to generate the SAS tokens in the Key Vault. Both the REST APIs and the speech transcription function access this vault to retrieve the secrets.
 
@@ -47,7 +51,7 @@ The architecture utilizes the following Azure services:
 
 #### Scalability during upload
 
-While audio files can be easily uploaded using a REST API interface, it may soon run out of ephemeral ports as uploads to the blob increase. For scalability, this reference architecture uses the [Valet Key design pattern](https://docs.microsoft.com/azure/architecture/patterns/valet-key) to offload the data upload to the client application. The valet key here is the SAS token required to access the blob. The REST API generates a [user delegate SAS token](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas), which is created using Azure Active Directory credentials. For most scenarios, this is more secure and recommended over [the SAS tokens](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature#types-of-shared-access-signatures) created using an account key.
+For high-performing and cost-effective scalable solution, this reference architecture uses the [Valet Key design pattern](https://docs.microsoft.com/azure/architecture/patterns/valet-key) to offload the data upload to the client application. The valet key here is the SAS token required to access the blob. The REST API generates a [user delegate SAS token](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas), which is created using Azure Active Directory credentials. For most scenarios, this is more secure and recommended over [the SAS tokens](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature#types-of-shared-access-signatures) created using an account key.
 
 #### Scalability for file size
 
@@ -59,7 +63,7 @@ Azure Blob Storage can throttle service requests [per blob](https://docs.microso
 
 ### Event Grid
 
-The function that transcribes the audio files is triggered when the upload is completed. In applications which need high throughput, the Event Grid trigger is preferred over the Blob trigger. The blob trigger is not suitable for blobs greater than 10K size.
+The function that transcribes the audio files is triggered when the upload is completed. In applications which need high throughput, the Event Grid trigger is preferred over the Blob trigger, since blob trigger events might be missed as number of blobs in a container increases significantly. Read [Blob trigger bindings](https://web.archive.org/web/20190324011457/https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#trigger) for more details.
 
 ### Azure Cognitive Services
 
@@ -73,20 +77,26 @@ Many of the basic principles of security in this architecture are similar to [Se
 
 Blob storage stores client's audio files, which may potentially contain sensitive information such as PII. Clients should get only the minimal required access to the blobs. This reference architecture uses SAS tokens created using the service owner's Azure AD credentials (a user delegate SAS token). A SAS token allows you to control:
     - The resources the client can access, since SAS tokens are created per resource.
-    - What permissions they have to access these resources, using [Role based access control](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas#assign-permissions-with-rbac). It is recommended to give minimal required privileges, such as *Read Only* for a client in this scenario.
+    - What permissions they have to access these resources, using [Role based access control](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas#assign-permissions-with-rbac). It is recommended to give minimal required privileges, such as *Write Only* for a client in this scenario.
     - Expiration of the SAS token, as this helps to limit any chance of unauthorized access to a token. For a large file upload, if the client's SAS token expires before the upload is over, it can request another SAS token from the application's REST API. This does not negatively affect security since the client will always need to authenticate with the API Management for accessing the REST API.
 
 Read [Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)) for more in-depth discussion on SAS tokens. Also see [Create a user delegation SAS](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas) to learn more about a user delegate SAS token.
 
 ### API Management
 
-Although the Valet Key design pattern is secure enough for most applications, the API Management layer in front of the REST API provides an additional layer of security. In this reference architecture, only the clients authenticated with API Management can request the SAS token to access the blob storage. The API Gateway uses [its built-in security controls](https://docs.microsoft.com/azure/api-management/api-management-security-controls) to gate the access to your APIs.
+Although the Valet Key design pattern is secure enough for most applications, the API Management layer in front of the REST API provides an additional layer of security. In this reference architecture, only the clients authenticated with API Management can request the SAS token to access the blob storage. The API Gateway uses [its built-in security controls](https://docs.microsoft.com/azure/api-management/api-management-security-controls) to gate the access to the APIs. In this reference architecture, this additional layer of security is recommended since the data uploaded to the blob can contain sensitive information. When several clients are uploading in parallel, API Management serves multiple purposes such as:
+
+- Enforcing usage quotas and rate limits
+- Validating OAuth tokens for authentication
+- Enabling [CORS](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS)
+- Caching responses
+- Monitoring and logging requests
 
 ## Resiliency considerations
 
-For an extremely high churn, the Event Grid may fail to trigger the function. Read [Event Grid message delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry) for its policies on retries and failures. If it fails, the message is normally left in a *dead letter queue*. Although the reference architecture does not implement this for simplicity, it is advised to make the architecture more resilient by having a *supervisor* function in addition. This supervisor can periodically wake up on a timer trigger, and look for discrepancies in the processing. It can either figure this out from the dead letter queue, or by comparing the files between the containers used to keep uploaded and transcribed files. This pattern is similar to the [Scheduler Agent Supervisor pattern](https://docs.microsoft.com/azure/architecture/patterns/scheduler-agent-supervisor).
+For an extremely high churn, the Event Grid may fail to trigger the function. Read [Event Grid message delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry) for its policies on retries and failures. If it fails, the message is normally left in a *dead letter container*. Although the reference architecture does not implement this for simplicity, it is advised to make the architecture more resilient by having a *supervisor* function in addition. This supervisor can periodically wake up on a timer trigger, and look for discrepancies in the processing. It can either figure this out from the dead letter queue, or by comparing the files between the containers used to keep uploaded and transcribed files. This pattern is similar to the [Scheduler Agent Supervisor pattern](https://docs.microsoft.com/azure/architecture/patterns/scheduler-agent-supervisor).
 
-Another way to reduce these failures is to use Service Bus instead of the Event Grid. The architecture will change in that case to a sequential processing of events. The client will need to signal the Service Bus when the upload is completed, which in turn can invoke the function to transcribe the uploaded file. This guarantees hundred percent reliability, however this model will generally have less throughput than an event-based architecture. Carefully consider which architecture applies to your scenario and application.
+Another way to reduce these failures is to use Service Bus instead of the Event Grid. The architecture will change in that case to a sequential processing of events. The client will need to signal the Service Bus when the upload is completed, which in turn can invoke the function to transcribe the uploaded file. This model is slightly more reliable, however it will also have less throughput than an event-based architecture. Carefully consider which architecture applies to your scenario and application.
 
 ## Deploy the solution
 
