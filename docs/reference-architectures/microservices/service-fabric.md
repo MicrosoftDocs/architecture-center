@@ -431,7 +431,7 @@ Azure Key Vault is ised to store the Application Insight's instrumentation key a
 
 ### Azure DevOps Services
 
-This reference architecture only uses Azure Pipelines. Azure offers the Azure Pipeline as an individual Service. You are allowed  a free Microsoft-hosted job with 1,800 minutes per month for CI/CD and 1 self-hosted job with unlimited minutes per month, extra jobs are have charges. For more information, see [Azure DevOps Services Pricing][DevOps-pricing].
+This reference architecture only uses Azure Pipelines. Azure offers the Azure Pipeline as an individual Service. You are allowed a free Microsoft-hosted job with 1,800 minutes per month for CI/CD and one self-hosted job with unlimited minutes per month, extra jobs are have charges. For more information, see [Azure DevOps Services Pricing][DevOps-pricing].
 
 ## Deploy the solution
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][ri-deploy].

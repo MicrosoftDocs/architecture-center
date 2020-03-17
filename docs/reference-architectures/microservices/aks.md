@@ -280,7 +280,7 @@ See [Azure Load Balancer Pricing][az-lb-pricing] for more information.
 
 ### Azure Application Gateway
 
-In this reference architecture,  Azure Application Gateway is used as the **Ingress** resource.  The gateway routes traffic to services inside the cluster. You are charged for the time that the gateway is provisioned and available and the amount of data processed by the gateway. For more information, see [App Gateway pricing][AppGatewayPricing].
+In this reference architecture,  Azure Application Gateway is used as the **Ingress** resource.  The gateway routes traffic to services inside the cluster. You are charged for the time that the gateway is provisioned and available and the amount of data processed by the gateway. For more information, see [Application Gateway pricing][AppGatewayPricing].
 
 ### Azure DevOps Services
 
@@ -303,3 +303,8 @@ To deploy the reference implementation for this architecture, follow the steps i
 [ri]: https://github.com/mspnp/microservices-reference-implementation
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.md
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/aks-reference-architecture.vsdx
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services/
+[AppGatewayPricing]: https://azure.microsoft.com//pricing/details/application-gateway/
+[aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service
