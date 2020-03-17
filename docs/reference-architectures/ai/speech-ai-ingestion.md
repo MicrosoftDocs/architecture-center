@@ -11,9 +11,9 @@ ms.subservice: reference-architecture
 
 # Speech recognition with Azure Cognitive Services
 
-Customer care centers form an integral part of business success. Efficiency of these call centers can be significantly improved using *Speech AI*. Speech recognition and analysis of high volumes of recorded customer calls can provide businesses with valuable information about current trends, product shortcomings as well as successes. Enterprise solutions using the Speech APIs of Azure Cognitive Services can be implemented to consume and process such high volumes of discrete data.
+Customer care centers form an integral part of business success. Efficiency of these call centers can be improved using *Speech AI*. Speech recognition and analysis of high volumes of recorded customer calls can provide businesses with valuable information about current trends, product shortcomings as well as successes. Enterprise solutions using the Speech APIs of Azure Cognitive Services can be implemented to consume and process such high volumes of discrete data.
 
-This reference architecture shows how to build an audio ingestion and *speech-to-text* transcription pipeline for such customer care centers. This pipeline processes batches of recorded audio files, and stores the transcribed text files in Azure Blob Storage. Note that this does not implement real-time speech processing.
+This reference architecture shows how to build an audio ingestion and *speech-to-text* transcription pipeline for such customer care centers. This pipeline processes batches of recorded audio files, and stores the transcribed text files in Azure Blob Storage. This architecture does not implement real-time speech processing.
 
 This pipeline can later feed into the next phase of your Speech AI implementation, where transcribed text is processed for PII (or Personally Identifiable Information) recognition and deletion, sentiment analysis, and so on.
 
@@ -23,7 +23,7 @@ The reference implementation for this architecture is available on GitHub (TBD l
 
 ![Audio files upload](./_images/audio-files-upload.png)
 
-Businesses can implement this architecture with their Azure account, and allow the client applications access to the pipeline via REST APIs. The client application first signs in with the Azure account, to get authenticated with API Management. It then calls the REST API to get the SAS token required to access the Azure Blob Storage. It then uploads the audio files to a blob container. The reference client application uses JavaScript to upload the files, as shown in [this example](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-nodejs#upload-blobs-to-a-container). Once the file is uploaded, an Event Grid trigger is generated which invokes an Azure Function. The function processes the file using the Cognitive Services Speech APIs. The transcribed text is stored in a separate blob container, ready for consumption into the next phase of the pipeline, i.e. speech analysis and storage in a database.
+Businesses can implement this architecture with their Azure account, and allow the client applications access to the pipeline via REST APIs. The client application first signs in with the Azure account, to get authenticated with API Management. It then calls the REST API to get the SAS token required to access the Azure Blob Storage. It then uploads the audio files to a blob container. The reference client application uses JavaScript to upload the files, as shown in [this example](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-nodejs#upload-blobs-to-a-container). Once the file is uploaded, an Event Grid trigger is generated which invokes an Azure Function. The function processes the file using the Cognitive Services Speech APIs. The transcribed text is stored in a separate blob container, ready for consumption into the next phase of the pipeline, that is speech analysis and storage in a database.
 
 The architecture utilizes the following Azure services:
 
@@ -31,11 +31,11 @@ The architecture utilizes the following Azure services:
 
 [**Azure Event Grid**](https://docs.microsoft.com/azure/event-grid/) provides built-in support to build efficient event-driven architectures on Azure. When the audio file upload is completed, the Event Grid triggers a [*Blob Created*](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage#microsoftstorageblobcreated-event) event for the transcription function.
 
-[**Azure Functions**](https://docs.microsoft.com/azure/azure-functions/) provides the event-driven compute capabilities, without the overhead of building the infrastructure. The function in this reference implementation uses the Cognitive Services Speech APIs to transcribe speech to text. Note that [consumption plan](https://docs.microsoft.com/azure/azure-functions/functions-consumption-costs) is used to host this function.
+[**Azure Functions**](https://docs.microsoft.com/azure/azure-functions/) provides the event-driven compute capabilities, without the overhead of building the infrastructure. The function in this reference implementation uses the Cognitive Services Speech APIs to transcribe speech to text. The [consumption plan](https://docs.microsoft.com/azure/azure-functions/functions-consumption-costs) is used to host this function.
 
 [**Azure Cognitive Services**](https://docs.microsoft.com/azure/cognitive-services/) is a collection of APIs available to help developers build intelligent applications without requiring extensive AI or data science skills. The function above calls the [Speech-to-text APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) for speech transcription. The output for one small audio file transcription might look similar to the following:
 
-*ResultId:19e70bee8b5348a6afb67817825a9586 Reason:RecognizedSpeech Recognized text:<Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.>. Json:{"DisplayText":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","Duration":53700000,"Id":"28526a6304da4af1922fedd4edcdddbb","Offset":3900000,"RecognitionStatus":"Success"}*
+*ResultId:19e70bee8b5348a6afb67817825a9586 Reason:RecognizedSpeech Recognized text:<Text for sample audio.>. Json:{"DisplayText":"Text for sample audio.","Duration":53700000,"Id":"28526a6304da4af1922fedd4edcdddbb","Offset":3900000,"RecognitionStatus":"Success"}*
 
 [**API Management**](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) provides secure access to REST APIs. Clients first need to get authenticated with the API Management to be able to access the SAS token. API Management thus provides an additional layer of security in this architecture.
 
@@ -53,7 +53,7 @@ For high-performing and cost-effective scalable solution, this reference archite
 
 #### Scalability for file size
 
-The reference architecture allows very large audio files to be uploaded to the cloud, by dividing them into four kilobyte chunks. *Chunking* is a common technique to upload large blobs, as discussed in detail in [this article](https://www.red-gate.com/simple-talk/cloud/platform-as-a-service/azure-blob-storage-part-4-uploading-large-blobs/). The maximum allowed file size that can be uploaded is dictated by the [maximum size limit of a blob](https://azure.microsoft.com/blog/general-availability-larger-block-blobs-in-azure-storage/), which can be up to 4.77 TB.
+The reference architecture allows large audio files to be uploaded to the cloud, by dividing them into four-kilobyte chunks. *Chunking* is a common technique to upload large blobs, as discussed in detail in [this article](https://www.red-gate.com/simple-talk/cloud/platform-as-a-service/azure-blob-storage-part-4-uploading-large-blobs/). The maximum allowed file size that can be uploaded is dictated by the [maximum size limit of a blob](https://azure.microsoft.com/blog/general-availability-larger-block-blobs-in-azure-storage/), which can be up to 4.77 TB.
 
 #### Scalability for storage
 
@@ -79,7 +79,7 @@ A SAS token allows you to control the following:
 
 - The resources clients can access, since it is created per resource.
 - The permissions clients can have while accessing these resources, using [role based access control](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas#assign-permissions-with-rbac). It is recommended to give minimal required privileges. The clients in this architecture have *Write Only* access to the blobs. This prevents them from reading other clients' audio files, either accidentally or maliciously.
-- The expiration of the SAS token. This limits the window of exposure to a token, hence limiting the possibility of unauthorized access to the resource. For larger files, the SAS token may expire before the upload is completed. The client can request multiple tokens for the same file. Since only authenticated clients can do so, multiple requests of these tokens does not affect overall security.
+- The expiration of the SAS token. This limits the window of exposure to a token, hence limiting the possibility of unauthorized access to the resource. For larger files, the SAS token may expire before the upload is completed. The client can request multiple tokens for the same file. Since only authenticated clients can do so, multiple requests of these tokens do not affect overall security.
 
 Read [Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)) for an in-depth discussion on SAS tokens. Also see [Create a user delegation SAS](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas) to learn more about a user delegate SAS token.
 
@@ -97,7 +97,7 @@ When several clients are uploading in parallel, API Management serves multiple p
 
 ## Resiliency considerations
 
-For an extremely large number of events, Event Grid may fail to trigger the function, in spite of elaborate. Such missed events are typically added to a *dead letter container*. Consider making the architecture more resilient by having an additional *supervisor* function. This function can periodically wake up on a timer trigger. It then can find out and process missed events, either from the dead letter queue, or by comparing the files between the *upload* and *transcribe* containers. This pattern is similar to the [Scheduler Agent Supervisor pattern](https://docs.microsoft.com/azure/architecture/patterns/scheduler-agent-supervisor). Note that this reference architecture does not implement this pattern for simplicity. Read [Event Grid message delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry) for its policies on retries and failures.
+For an extremely large number of events, Event Grid may fail to trigger the function, in spite of elaborate. Such missed events are typically added to a *dead letter container*. Consider making the architecture more resilient by having an additional *supervisor* function. This function can periodically wake up on a timer trigger. It then can find out and process missed events, either from the dead letter queue, or by comparing the files between the *upload* and *transcribe* containers. This pattern is similar to the [Scheduler Agent Supervisor pattern](https://docs.microsoft.com/azure/architecture/patterns/scheduler-agent-supervisor). This reference architecture does not implement this pattern for simplicity. Read [Event Grid message delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry) for its policies on retries and failures.
 
 Another way to reduce such failures is to use Service Bus instead of the Event Grid. The architecture will change in that case to a sequential processing of events. In such a model, the client signals the Service Bus when an upload is completed. The Service Bus then invokes the function to transcribe the uploaded file. This model is more reliable, however it will also have less throughput than an event-based architecture. Carefully consider which architecture applies to your scenario and application.
 
