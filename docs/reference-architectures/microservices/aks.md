@@ -259,9 +259,11 @@ To learn more about the challenges, see [CI/CD for microservices architectures](
 
 For specific recommendations and best practices, see [CI/CD for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.md).
 
-## Cost Considerations
+## Cost considerations
 
 Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
+
+Here are some points to consider for some of the services used in this architecture.
 
 ### Azure Kubernetes Service (AKS)
 
