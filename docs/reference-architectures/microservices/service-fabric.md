@@ -397,6 +397,42 @@ Use Azure Monitor alerts to notify sysadmins when certain conditions occur in sp
 
 [Log search alert rules](/azure/azure-monitor/platform/alerts-unified-log) allow you to define and run a Kusto query against a Log Analytics workspace at regular intervals. An alert is created if the query result matches a certain condition.
 
+## Cost considerations
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
+
+Here are some points to consider for some of the services used in this architecture.
+
+### Azure Service Fabric
+
+You are charged for the compute instances, storage, networking resources, and IP addresses you choose when creating a Service Fabric cluster. There are deployment charges for Service Fabric.
+
+### Virtual machine scale sets
+
+In this architecture, the microservices are deployed into nodes that are virtual machine scale sets. You are charged for the Azure VMs that are deployed as part of the cluster and underlying infrastructure resources, such as storage and networking. There are no incremental charges for the virtual machine scale sets service.
+
+### Azure API Management (APIM)
+
+APIM is used as a gateway to route the requests from clients to your services in the cluster.
+
+There are different pricing options. The **Consumption** option is charged on a pay-per-use basis and includes a gateway component. Based on your workload, choose an option described in [Api Management pricing][Api-Management-pricing].
+
+### Azure Application Insights
+
+Application insights is used for collect telemetry for all services and also to view the traces and event logs in a structured way. The pricing for Azure Application Insights is a Pay-As-You-Go model based on data volume ingested and optionally for longer data retention. For more information, see [Manage Usage and Cost For Application Insights][ap-insight-cost].
+
+### Azure Monitor
+
+For Azure Monitor Log Analytics, you are charged for data ingestion and retention. For more information, see [Azure Monitor Pricing][az-monitor-pricing] for more information.
+
+### Azure Key Vault
+
+Azure Key Vault is used to store the Application Insight's instrumentation key as a secret. Azure Key Vault is offered in two service tiers. If you don't need HSM-protected keys, choose the **Standard**. For information about the features in each tier, see [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/).
+
+
+### Azure DevOps Services
+
+This reference architecture only uses Azure Pipelines. Azure offers the Azure Pipeline as an individual Service. You are allowed a free Microsoft-hosted job with 1,800 minutes per month for CI/CD and one self-hosted job with unlimited minutes per month, extra jobs have charges. For more information, see [Azure DevOps Services Pricing][DevOps-pricing].
+
 ## Deploy the solution
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][ri-deploy].
 
@@ -408,4 +444,11 @@ To deploy the reference implementation for this architecture, follow the steps i
 - [Using domain analysis to model microservices](../../microservices/model/domain-analysis.md)
 - [Designing a microservices architecture](../../microservices/design/index.md)
 
+
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[ap-insight-cost]: https://docs.microsoft.com/azure/azure-monitor/app/pricing
+[Api-Management-pricing]: https://azure.microsoft.com/pricing/details/api-management/
+[az-monitor-pricing]: https://azure.microsoft.com/pricing/details/monitor/
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services/
 [sfx]: /azure/service-fabric/service-fabric-visualizing-your-cluster
