@@ -335,7 +335,7 @@ items:
         - name: Artificial Intelligence
           items:
             - name: Ingestion for speech analysis
-              hreg: reference-architectures/ai/speech-ai-ingestion.md
+              href: reference-architectures/ai/speech-ai-ingestion.md
         - name: Machine Learning
           items:
             - name: Training and scoring Python models
