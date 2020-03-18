@@ -102,28 +102,28 @@ You can also use a VPN gateway to route traffic between spokes, although this wi
 Also consider what services are shared in the hub, to ensure the hub scales for a larger number of spokes. For instance, if your hub provides firewall services, consider the bandwidth limits of your firewall solution when adding multiple spokes. You might want to move some of these shared services to a second level of hubs.
 
 
-## Cost Considerations
+## Cost considerations
 
-### Azure firewall
+Centralizing services that can be shared by multiple workloads in a single location can be cost efficient.
 
-In this architecture, an Azure Firewall is deployed in the hub, which provides an additional layer of security. Azure Firewall is cost effective, especially if it's used as a shared solution consumed by multiple workloads. Azure Firewall pricing includes a fixed hourly cost ($1.25/firewall/hour) and a variable per GB processed cost to support auto scaling. You can save up to 30 percent – 50 percent in comparison to an NVA deployment model.  For more information see [Azure firewall vs NVA][Firewall-NVA].
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
+
+### Azure Firewall
+
+In this architecture, an Azure Firewall is deployed in the hub, which provides an additional layer of security. Azure Firewall is cost effective, especially if it's used as a shared solution consumed by multiple workloads. Azure Firewall pricing models:
+- Fixed rate per deployment hour.
+- Data processed per GB to support auto scaling. 
+
+When compared to network virtual appliances (NVAs), with Azure Firewall you can save up to 30-50%. For more information see [Azure Firewall vs NVA][Firewall-NVA].
 
 ### Virtual network peering
 
-In this architecture, you use virtual network peering to connect the hub to each spoke. Virtual network peering Enables you to route traffic between virtual networks using private IP addresses. Ingress and egress traffic is charged at both ends of the peered networks. Keep in mind that different zones have different transfer rates:
+You can use virtual network peering to route traffic between virtual networks by using private IP addresses. Here are some points:
 
-For instance, if data is being transferred from a VNET in zone 1 to a VNET in zone 2, customers will incur outbound data transfer rates for zone 1 and inbound data transfer rates for zone 2. See [Virtual network pricing][VN-pricing] For more info.
+- Ingress and egress traffic is charged at both ends of the peered networks. 
+- Different zones have different transfer rates.
 
-
-### VPN Gateway
-
-In this reference architecture a VPN gateway is used for connectivity between Azure and the on-premises network. Setting up a virtual network is free of charge and all Inboud data transfer is also free.
-
-
-Use the [Pricing calculator][Cost-Calculator] to estimate costs.
-
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
-
+   For instance, data transfer from a virtual network in zone 1 to another virtual network in zone 2, will incur outbound transfer rate for zone 1 and inbound rate for zone 2. For more information, see [Virtual network pricing][VN-pricing].
 
 ## Deploy the solution
 
