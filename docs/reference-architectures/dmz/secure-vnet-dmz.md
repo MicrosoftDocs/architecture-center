@@ -125,6 +125,32 @@ Traffic between tiers is restricted by using NSGs. The business tier blocks all 
 
 Use [RBAC][rbac] to restrict the operations that DevOps can perform on each tier. When granting permissions, use the [principle of least privilege][security-principle-of-least-privilege]. Log all administrative operations and perform regular audits to ensure any configuration changes were planned.
 
+## Cost Considerations
+
+### Azure firewall
+
+In this architecture, an Azure Firewall is deployed in the virtual network to control traffic between the gateway's subnet and the application tier's subnet. Azure Firewall is cost effective, especially if it's used as a shared solution consumed by multiple workloads. Azure Firewall pricing includes a fixed hourly cost ($1.25/firewall/hour) and a variable per GB processed cost to support auto scaling. You can save up to 30 percent – 50 percent in comparison to an NVA deployment model.  For more information see [Azure firewall vs NVA][Firewall-NVA].
+
+### Azure Bastion
+
+In this architecture, the Azure Bastion PaaS service is used to manage the VMs in the virtual network.
+
+Azure Bastion will cost the same as a basic, low-level VM that is acting as a jump box. Consider moving from management jump boxes to Azure Bastion, native security service for RDP. Azure bastion is cost effective since you don't have to pay for any storage costs as well as manage a separate server for each managed virtual network
+
+### Virtual Network
+
+Azure Virtual Network is free of charge. Every subscription is allowed to create up to 50 Virtual Networks across all regions.
+All traffic that occurs within the boundaries of a Virtual Network is free of charge. So if two VMs that are in the same VNET are talking each other then no charges will occur.
+
+### Internal load balancing
+
+Basic load balancing between virtual machines that reside in the same VNET is free of charge.
+
+Use the [Azure Pricing Calculator][Cost-Calculator] to get your estimates, that will help you get started.
+
+For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
+
+
 ## Deploy the solution
 
 A deployment for a reference architecture that implements these recommendations is available on [GitHub][github-folder].
@@ -194,9 +220,12 @@ In this step, you will connect the two local network gateways.
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [azure-forced-tunneling]: /azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [cloud-services-network-security]: /azure/best-practices-network-security
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances/
 [getting-started-with-azure-security]: /azure/security/azure-security-getting-started
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-hybrid
 [guidance-expressroute-availability]: ../hybrid-networking/expressroute.md#availability-considerations
