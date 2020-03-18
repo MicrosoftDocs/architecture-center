@@ -795,6 +795,8 @@ items:
         href: example-scenario/infrastructure/image-modeling.md
       - name: Linux virtual desktops
         href: example-scenario/infrastructure/linux-vdi-citrix.md
+      - name: Reservoir simulation and visualization
+        href: example-scenario/infrastructure/reservoir-simulation.md
     - name: Solution ideas
       items:
       - href: solution-ideas/articles/hpc-risk-analysis.md
@@ -857,6 +859,10 @@ items:
           href: multitenant-identity/client-assertion.md
         - name: Federate with a customer's AD FS
           href: multitenant-identity/adfs.md
+    - name: Example workloads
+      items:
+      - name: Secure access to IoT with Azure AD
+        href: example-scenario/iot-aad/iot-aad.md
   - name: Internet of Things (IoT)
     items:
     - name: Reference architectures
@@ -1051,6 +1057,8 @@ items:
         href: reference-architectures/sharepoint/index.md
       - name: WordPress
         href: example-scenario/infrastructure/wordpress.md
+      - name: Configuring Windows Update Services
+        href: example-scenario/wsus/index.md
   - name: Web apps
     items:
     - name: Reference architectures

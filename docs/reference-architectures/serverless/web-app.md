@@ -263,9 +263,9 @@ For updates that are not breaking API changes, deploy the new version to a stagi
 
 ## Cost considerations
 
-Consider these points to optimize cost of this architecture.
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Consider these points to optimize cost of this architecture.
 
-### Azure functions
+### Azure Functions
 
 Azure Functions supports two hosting models. 
 - **Consumption plan**. 
@@ -278,7 +278,7 @@ Azure Functions supports two hosting models.
 
 In this architecture, a function is invoked when a client makes an HTTP request. Because a constant high-volume throughput is not expected in this use case, **consumption plan** is recommended because you pay only for the compute resources you use.
 
-### Cosmos DB
+### Azure Cosmos DB
 
 Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations, such as inserts, reads. The price is based on the capacity in RU/s that you reserve. 
 
@@ -298,9 +298,7 @@ In this reference architecture the deployment resides in a single Azure region.
 To lower costs, consider increasing the cache TTL by caching resource files for a longer duration and setting the longest TTL possible on your content.
 
 
-Use the [Pricing calculator][Cost-Calculator] to estimate costs.
-
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
 
 
 
