@@ -17,7 +17,7 @@ Availability defines the proportion of time that the system is functional and wo
 
 |                            Pattern                             |                                                           Summary                                                            |
 |----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| [Geode](../geode.md) | Deploy backend services into a set of geographical nodes, each of which can service any client request in any region at any time. |
+| [Geodes](../geodes.md) | Deploy backend services into a set of geographical nodes, each of which can service any client request in any region at any time. |
 | [Health Endpoint Monitoring](../health-endpoint-monitoring.md) | Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals. |
 |  [Queue-Based Load Leveling](../queue-based-load-leveling.md)  | Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads.  |
 |                 [Throttling](../throttling.md)                 |   Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service.    |
