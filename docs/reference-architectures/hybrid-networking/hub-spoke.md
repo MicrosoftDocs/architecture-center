@@ -110,7 +110,7 @@ Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considera
 
 ### Azure Firewall
 
-In this architecture, an Azure Firewall is deployed in the hub, which provides an additional layer of security. Azure Firewall is cost effective, especially if it's used as a shared solution consumed by multiple workloads. Azure Firewall pricing models:
+In this architecture, Azure Firewall is deployed in the hub, which provides an additional layer of security. Azure Firewall is cost effective, especially if it's used as a shared solution consumed by multiple workloads. Here are the Azure Firewall pricing models:
 - Fixed rate per deployment hour.
 - Data processed per GB to support auto scaling. 
 
