@@ -202,7 +202,9 @@ For more information, see [VPN Gateway Pricing][azure-gateway-charges].
 ### Azure Virtual Network
 
 Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
-All traffic that occurs within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
+
+All traffic that occurs within the boundaries of a virtual network is free. So, communication between two virtual machines in the same virtual network is free.
+
 
 ### Azure Bastion
 
