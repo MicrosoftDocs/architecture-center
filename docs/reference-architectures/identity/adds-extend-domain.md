@@ -92,27 +92,25 @@ AD DS servers provide authentication services and are an attractive target for a
 Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD DS database.
 
 ## Cost considerations
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost]. 
 
-### AD Domain Services. 
+Here are cost considerations for the services used in this architecture.
 
-Having Active Directory Domain services as a shared service consumed by multiple workloads is cost effective. See [AD DS pricing][ADDS-pricing] for pricing info.
+### AD Domain Services
 
-### VPN Gateway
+Consider having Active Directory Domain Services as a shared service that is consumed by multiple workloads to lower costs. See [Active Directory Domain Services pricing][ADDS-pricing] for more information.
 
-You are charged based on the amount of time that the gateway is provisioned and available. See [VPN Gateway Pricing][azure-gateway-charges].
+### Azure VPN Gateway
 
-VPN Outboud traffic will be subjected to the internet bandwidth costs. The usual concept applies, all inbound traffic is free, all outbound traffic is billed.
+The main component of this architecture is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available. 
 
+All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.  
 
-### Virtual Network
+For more information, see [VPN Gateway Pricing][azure-gateway-charges].
 
-Azure Virtual Network is free of charge. Every subscription is allowed to create up to 50 Virtual Networks across all regions.
-All traffic that occurs within the boundaries of a Virtual Network is free of charge. So if two VMs that are in the same VNET are talking each other then no charges will occur.
+### Azure Virtual Network
 
-
-Use the [Pricing calculator][Cost-Calculator] to estimate costs.
-
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
 
 ## Deploy the solution
 

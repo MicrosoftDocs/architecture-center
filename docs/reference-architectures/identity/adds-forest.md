@@ -80,21 +80,21 @@ Forest level trusts are transitive. If you establish a forest level trust betwee
 For Active Directory-specific security considerations, see the security considerations section in [Extending Active Directory to Azure][adds-extend-domain].
 
 ## Cost considerations
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost]. 
 
-### AD Domain Services. 
+Here are cost considerations for the services used in this architecture.
 
-Having Active Directory Domain services as a shared service consumed by multiple workloads is cost effective. See [AD DS pricing][ADDS-pricing] for pricing info.
+### AD Domain Services
 
-### VPN Gateway
+Consider having Active Directory Domain Services as a shared service that is consumed by multiple workloads to lower costs. See [Active Directory Domain Services pricing][ADDS-pricing] for more information.
 
-You are charged based on the amount of time that the gateway is provisioned and available. See [VPN Gateway Pricing][azure-gateway-charges].
+### Azure VPN Gateway
 
-VPN Outboud traffic will be subjected to the internet bandwidth costs. The usual concept applies, all inbound traffic is free, all outbound traffic is billed.
+The main component of this architecture is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available. 
 
+All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.  
 
-Use the [Pricing calculator][Cost-Calculator] to estimate costs.
-
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see [VPN Gateway Pricing][azure-gateway-charges].
 
 ## Deploy the solution
 

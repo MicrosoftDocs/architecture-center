@@ -208,14 +208,18 @@ Use conditional access control to deny authentication requests from unexpected s
 For more information, see [Azure Active Directory conditional access][aad-conditional-access].
 
 ## Cost considerations
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost]. 
+
+Here are cost considerations for the services used in this architecture.
 
 ### Azure AD Connect
 
-Azure Active Directory comes in four editions—Free, Office 365 apps, Premium P1, and Premium P2. Azure AD Connect sync service is available in all of them. See [Azure AD pricing][Azure-AD-pricing] for more info. 
+For information about the editions offered by Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing] for more info. The AD Connect sync feature is available in all editions.
 
 ### VMs for N-Tier application 
 
-The deployment includes infrastructure for an N-tier application. For cost information about these resources see cost considerations section in the reference architecture: [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
+The deployment includes infrastructure for an N-tier application. For cost information about these resources, [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
+
 
 ## Deploy the solution
 
@@ -223,7 +227,7 @@ A deployment for a reference architecture that implements these recommendations 
 
 <!-- links -->
 
-[implementing-a-multi-tier-architecture-on-Azure]: ../virtual-machines-windows/n-tier.md
+[implementing-a-multi-tier-architecture-on-Azure]: ../virtual-machines-windows/n-tier.md#cost-considerations
 
 [aad-agent-installation]: /azure/active-directory/active-directory-aadconnect-health-agent-install
 [aad-application-proxy]: /azure/active-directory/active-directory-application-proxy-enable

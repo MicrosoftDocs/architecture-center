@@ -188,6 +188,42 @@ If the application in the virtual network sends data to the Internet, consider [
 > Forced tunneling can impact connectivity to Azure services (the Storage Service, for example) and the Windows license manager.
 >
 
+<<<<<<< Updated upstream
+=======
+## Cost considerations
+
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. For general considerations, see the Cost section in [Azure Architecture Framework][AAF-cost].
+
+The services used in this architecture are charged as follows:
+
+### Azure VPN Gateway
+
+The main component of this architecture is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available. 
+
+All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.  
+
+For more information, see [VPN Gateway Pricing][azure-gateway-charges].
+
+### Azure Virtual Network
+
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
+All traffic that occurs within the boundaries of a virtual network is free. So, communication between two virtual machines in the same virtual network is free.
+
+### Azure Bastion
+
+Azure Bastion securely connects to your virtual machine in the virtual network over RDP and SSH without having the need to configure a public IP on the virtual machine. You will need Bastion in every virtual network that contains virtual machines that you want to connect to. This solution is more economical and secure than using jumpboxes. 
+
+For examples, see [Azure Bastion Pricing][Bastion-pricing].
+
+### Virtual machine and internal load balancers
+
+In this architecture, internal load balancers are used to load balance traffic inside a virtual network. Basic load balancing between virtual machines that reside in the same virtual network is free.
+
+Virtual machine scale sets are available on all Linux and windows VM sizes. You are only charged for the Azure VMs you deploy and underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the virtual machine scale sets service.
+
+For more information, see [Azure VM pricing][linux-vms-pricing].
+
+>>>>>>> Stashed changes
 ## Deploy the solution
 
 To deploy this reference architecture, see the [GitHub readme][readme]. 

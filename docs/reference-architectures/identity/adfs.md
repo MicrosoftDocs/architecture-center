@@ -187,15 +187,17 @@ Restrict direct sign in access to the AD FS and WAP servers. Only DevOps staff s
 Consider using a set of network virtual appliances that logs detailed information on traffic traversing the edge of your virtual network for auditing purposes.
 
 ## Cost considerations
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost]. 
+
+Here are cost considerations for the services used in this architecture.
 
 ### AD Domain Services
 
-Having Active Directory Domain services as a shared service consumed by multiple workloads is cost effective. See [AD DS pricing][ADDS-pricing] for pricing info.
+Consider having Active Directory Domain Services as a shared service that is consumed by multiple workloads to lower costs. See [Active Directory Domain Services pricing][ADDS-pricing] for more information.
 
 ### Azure AD Federation Services
 
-Azure Active Directory comes in four editions—Free, Office 365 apps, Premium P1, and Premium P2. Azure AD Federation Service is available in all of them. See [Azure AD pricing][Azure-AD-pricing] for more info. 
-
+For information about the editions offered by Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing] for more info. The  AD Federation Services feature is available in all editions.
 
 ## Deploy the solution
 
