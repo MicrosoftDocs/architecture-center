@@ -21,6 +21,7 @@ Performance is an indication of the responsiveness of a system to execute any ac
 | [Choreography](../choreography.md) | Have each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control. |
 |                      [CQRS](../cqrs.md)                      |                           Segregate operations that read data from operations that update data by using separate interfaces.                           |
 |            [Event Sourcing](../event-sourcing.md)            |                     Use an append-only store to record the full series of events that describe actions taken on data in a domain.                      |
+| [Geodes](../geodes.md) | Deploy backend services into a set of geographical nodes, each of which can service any client request in any region. |
 |               [Index Table](../index-table.md)               |                                Create indexes over the fields in data stores that are frequently referenced by queries.                                |
 |         [Materialized View](../materialized-view.md)         |       Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations.        |
 |            [Priority Queue](../priority-queue.md)            | Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority. |

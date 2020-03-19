@@ -297,6 +297,8 @@ items:
     href: patterns/gateway-offloading.md
   - name: Gateway Routing
     href: patterns/gateway-routing.md
+  - name: Geodes
+    href: patterns/geodes.md
   - name: Health Endpoint Monitoring
     href: patterns/health-endpoint-monitoring.md
   - name: Index Table
