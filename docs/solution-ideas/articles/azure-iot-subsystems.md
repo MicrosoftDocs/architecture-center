@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Learn about our recommended IoT application architecture that supports hybrid cloud and edge computing. A flowchart details how the subsystems function within the IoT application.
 ms.custom: acom-architecture, IoT solution architecture, IoT application architecture, subsystem architecture, iot-architecture, 'https://azure.microsoft.com/solutions/architecture/azure-iot-subsystems/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # IoT Architecture – Azure IoT Subsystems
 
@@ -137,4 +139,4 @@ The links to the right provide documentation on deploying and managing the Azure
 * [Azure Blob Storage Documentation](/azure/storage/)
 * [Azure Active Directory application Documentation](/azure/active-directory/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

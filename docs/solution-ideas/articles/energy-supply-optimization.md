@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: In an energy grid, energy consumers are engaged with various types of energy supplying, trading, and storage components such as substations, batteries, windfarms and solar panels, micro-turbines, as well as demand response bids, to meet their respective demands and minimize the cost of energy commitment. To do so, the grid operator must determine how much energy each type of the resources should commit over a time frame, given the prices of soliciting different types of resources and the capacities and the physical characteristics of them.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/energy-supply-optimization/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Energy Supply Optimization
 
@@ -115,4 +117,4 @@ This solution provides an Azure-based smart solution, leveraging external open-s
   5. Azure SQL Database is used to store the optimization results received from the Azure Batch service. These results are then consumed in the Power BI dashboard.
   6. Finally, Power BI is used for results visualization.
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

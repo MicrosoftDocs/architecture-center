@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Oracle DB migrations can be accomplished in multiple ways. This architecture covers one of these options wherein Oracle Active Data Guard is used to migrate the Database.
 ms.custom: acom-architecture, data, Oracle, Oracle Database, Oracle DB, Oracle on Azure, Oracle DB architecture, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/reference-architecture-for-oracle-database-migration-to-azure/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Oracle Database Migration to Azure
 
@@ -307,19 +309,6 @@ Oracle DB migrations can be accomplished in multiple ways. This architecture cov
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Connect your Azure environment with your on-premises network via site-to-site VPN or ExpressRoute.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Use Azure Load Balancer to migrate and balance traffic between the on-prem AppServer and your Azure AppServer.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Use DataGuard to mark your OracleDB1 in Azure as your active stand-by.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Switch your OracleDB1 in Azure as primary and set up your OracleDB2 in Azure as your standby to finish your migration. NOTE: This method only works when migrating to and from the same OS version and DB version. Assumption: customer is using DataGuard on-premises.</p>
-</div>
-
 ## Data Flow
 
 1. Connect your Azure environment with your on-premises network via site-to-site VPN or ExpressRoute.
@@ -328,4 +317,4 @@ Oracle DB migrations can be accomplished in multiple ways. This architecture cov
 1. Switch your OracleDB1 in Azure as primary and set up your OracleDB2 in Azure as your standby to finish your migration. NOTE: This method only works when migrating to and from the same OS version and DB version. Assumption: customer is using DataGuard on-premises.
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

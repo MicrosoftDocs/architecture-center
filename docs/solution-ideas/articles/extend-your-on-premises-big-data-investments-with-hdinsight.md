@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Extend your on-premises big data investments to the cloud and transform your business using the advanced analytics capabilities of HDInsight.
 ms.custom: acom-architecture, data, HDInsight, ExpressRoute, 'https://azure.microsoft.com/solutions/architecture/extend-your-on-premises-big-data-investments-with-hdinsight/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Extend your on-premises big data investments with HDInsight
 
@@ -76,4 +78,4 @@ Extend your on-premises big data investments to the cloud and transform your bus
     <path d="M491.332 136.438h2.94a4.775 4.775 0 012.055-3.263l-1.491-2.538c-1.933 1.249-3.263 3.344-3.504 5.801z" fill="#8BC9E0"/>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

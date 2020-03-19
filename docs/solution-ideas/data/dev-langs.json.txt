@@ -1,0 +1,12 @@
+[
+    "azurecli",
+    "azurecli-interactive",
+    "bash",
+    "csharp",
+    "json",
+    "powershell",
+    "shell",
+    "sql",
+    "xml",
+    "yaml"
+]

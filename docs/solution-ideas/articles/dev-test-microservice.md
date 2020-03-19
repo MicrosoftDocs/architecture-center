@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: This architecture represents how to configure your infrastructure for development and testing of a microservices-based system.
 ms.custom: acom-architecture, devops, microservices, 'https://azure.microsoft.com/solutions/architecture/dev-test-microservice/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Dev-Test deployment for testing microservice solutions
 
@@ -298,4 +300,4 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 * [Create your first Azure Service Fabric application](/api/Redirect/documentation/articles/service-fabric-create-your-first-application-in-visual-studio/)
 * [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/api/Redirect/documentation/articles/sql-database-get-started/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

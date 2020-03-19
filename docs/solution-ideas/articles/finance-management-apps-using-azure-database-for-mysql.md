@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Securely store critical data and provide high-value analytics and insights over aggregated data to users, using in-built security and performance.
 ms.custom: acom-architecture, mysql, analytics, use cases, azure, solutions, 'https://azure.microsoft.com/solutions/architecture/finance-management-apps-using-azure-database-for-mysql/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Finance management apps using Azure Database for MySQL
 
@@ -155,4 +157,4 @@ Securely store critical data and provide high-value analytics and insights over 
     <path fill="#969696" d="M217.868 270.274l-5.235 9.067-5.236-9.067h10.471zM217.868 230.608l-5.235-9.067-5.236 9.067h10.471z"/>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

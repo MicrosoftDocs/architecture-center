@@ -101,6 +101,30 @@ You can also use a VPN gateway to route traffic between spokes, although this wi
 
 Also consider what services are shared in the hub, to ensure the hub scales for a larger number of spokes. For instance, if your hub provides firewall services, consider the bandwidth limits of your firewall solution when adding multiple spokes. You might want to move some of these shared services to a second level of hubs.
 
+
+## Cost considerations
+
+Centralizing services that can be shared by multiple workloads in a single location can be cost efficient.
+
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
+
+### Azure Firewall
+
+In this architecture, Azure Firewall is deployed in the hub, which provides an additional layer of security. Azure Firewall is cost effective, especially if it's used as a shared solution consumed by multiple workloads. Here are the Azure Firewall pricing models:
+- Fixed rate per deployment hour.
+- Data processed per GB to support auto scaling. 
+
+When compared to network virtual appliances (NVAs), with Azure Firewall you can save up to 30-50%. For more information see [Azure Firewall vs NVA][Firewall-NVA].
+
+### Virtual network peering
+
+You can use virtual network peering to route traffic between virtual networks by using private IP addresses. Here are some points:
+
+- Ingress and egress traffic is charged at both ends of the peered networks. 
+- Different zones have different transfer rates.
+
+   For instance, data transfer from a virtual network in zone 1 to another virtual network in zone 2, will incur outbound transfer rate for zone 1 and inbound rate for zone 2. For more information, see [Virtual network pricing][VN-pricing].
+
 ## Deploy the solution
 
 A deployment for this architecture is available on [GitHub][ref-arch-repo]. It uses VMs in each virtual network to test connectivity. Two instances of each jumpbox are deployed &mdash; one Linux VM and one Windows VM. In a real deployment, you would deploy a single type. 
@@ -273,16 +297,20 @@ For a version of this architecture that deploys shared identity and security ser
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [azure-cli-2]: /azure/install-azure-cli
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances/
 [guidance-expressroute]: ./expressroute.md
 [guidance-vpn]: ./vpn.md
 [linux-vm-ra]: ../virtual-machines-linux/index.md
 [hybrid-ha]: ./expressroute-vpn-failover.md
 [naming conventions]: /azure/guidance/guidance-naming-conventions
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
+[VN-pricing]: https://azure.microsoft.com/pricing/details/virtual-network
 [vnet-peering]: /azure/virtual-network/virtual-network-peering-overview
 [vnet-peering-limit]: /azure/azure-subscription-service-limits#networking-limits
 [vnet-peering-requirements]: /azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints

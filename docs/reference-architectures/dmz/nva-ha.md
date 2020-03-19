@@ -1,6 +1,5 @@
 ---
-title: Deploy highly available network virtual appliances
-titleSuffix: Azure Reference Architectures
+title: Deploy highly available NVAs
 description: Deploy network virtual appliances with high availability.
 author: telmosampaio
 ms.date: 12/08/2018

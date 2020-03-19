@@ -95,6 +95,26 @@ All NSGs contain a set of [default rules][nsg-default-rules], including a rule t
 
 **Deleting a VM**. If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [Blob storage][blob-storage]. To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as a VM.
 
+## Cost considerations
+
+There are various options for VM sizes depending on the usage and workload. The range includes most economical option of the Bs-series to the newest GPU VMs optimized for machine learning. For information about the available options, see [Azure Linux VM pricing][linux-vms-pricing].
+
+For workloads with no predictable time of completion or resource consumption, consider the **Pay as you go** option. 
+
+Consider using [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) if you can commit to using a virtual machine over a one-year or three-year term. VM reservations can reduce costs up to 72 % compared to pay-as-you-go prices.
+
+Use [Azure Spot VMs](/azure/virtual-machines/windows/spot-vms) to run workloads the can be interrupted and do not require completion within a predetermined timeframe or an SLA. Azure deploys Spot VMs if there is available capacity and evicts when it needs the capacity back. Costs associated with Spot virtual machines are significantly lower.  Consider Spot VMs for these workloads:
+
+- High-performance computing scenarios, batch processing jobs, or visual rendering applications.
+- Test environments, including continuous integration and continuous delivery workloads.
+- Large-scale stateless applications.
+
+Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs.
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+
+
+
 ## Security considerations
 
 Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues and provides a comprehensive picture of the security health of your deployment. Security Center is configured per Azure subscription. Enable security data collection as described in [Onboard your Azure subscription to Security Center Standard][security-center-get-started]. When data collection is enabled, Security Center automatically scans any VMs created under that subscription.
@@ -118,11 +138,14 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 - For a complete N-tier architecture on Linux VMs, see [Linux N-tier application in Azure with Apache Cassandra](./n-tier-cassandra.md).
 
 <!-- links -->
+
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-linux]: /azure/virtual-machines/virtual-machines-linux-azure-overview
 [azure-storage]: /azure/storage/storage-introduction
 [blob-storage]: /azure/storage/storage-introduction
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: /azure/virtual-machines/virtual-machines-linux-about-disks-vhds
 [disk-encryption]: /azure/security/fundamentals/azure-disk-encryption-vms-vmss
@@ -152,5 +175,6 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 [static-ip]: /azure/virtual-network/virtual-networks-reserved-public-ip
 [virtual-machine-sizes]: /azure/virtual-machines/virtual-machines-linux-sizes
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
+[linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
 [vm-size-tables]: /azure/virtual-machines/virtual-machines-linux-sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines

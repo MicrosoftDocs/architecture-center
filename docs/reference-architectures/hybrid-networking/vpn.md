@@ -1,6 +1,5 @@
 ---
-title: On-premises network connected to Azure using VPN
-titleSuffix: Azure Reference Architectures
+title: Extend an on-premises network using VPN
 description: A secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using a VPN.
 author: MikeWasson
 ms.date: 01/24/2020
@@ -94,8 +93,6 @@ Select the Azure VPN gateway SKU that most closely matches your throughput requi
 > The Basic SKU is not compatible with Azure ExpressRoute. You can [change the SKU][changing-SKUs] after the gateway has been created.
 >
 
-You are charged based on the amount of time that the gateway is provisioned and available. See [VPN Gateway Pricing][azure-gateway-charges].
-
 Create routing rules for the gateway subnet that direct incoming application traffic from the gateway to the internal load balancer, rather than allowing requests to pass directly to the application VMs.
 
 ### On-premises network connection
@@ -188,8 +185,6 @@ If the application in the virtual network sends data to the Internet, consider [
 > Forced tunneling can impact connectivity to Azure services (the Storage Service, for example) and the Windows license manager.
 >
 
-<<<<<<< Updated upstream
-=======
 ## Cost considerations
 
 Use the [Pricing calculator][Cost-Calculator] to estimate costs. For general considerations, see the Cost section in [Azure Architecture Framework][AAF-cost].
@@ -207,7 +202,9 @@ For more information, see [VPN Gateway Pricing][azure-gateway-charges].
 ### Azure Virtual Network
 
 Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
+
 All traffic that occurs within the boundaries of a virtual network is free. So, communication between two virtual machines in the same virtual network is free.
+
 
 ### Azure Bastion
 
@@ -223,7 +220,6 @@ Virtual machine scale sets are available on all Linux and windows VM sizes. You 
 
 For more information, see [Azure VM pricing][linux-vms-pricing].
 
->>>>>>> Stashed changes
 ## Deploy the solution
 
 To deploy this reference architecture, see the [GitHub readme][readme]. 
@@ -235,20 +231,25 @@ Although VPNs can be used to connect virtual networks within Azure, it's not alw
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [adds-extend-domain]: ../identity/adds-extend-domain.md
 [az-vpn]: /azure/azure-stack/azure-stack-connect-vpn
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway/
 [azure-gateway-skus]: /azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku
 [azure-virtual-network]: /azure/virtual-network/virtual-networks-overview
 [azure-vpn-gateway]: https://azure.microsoft.com/services/vpn-gateway/
+[Bastion-pricing]: https://azure.microsoft.com/pricing/details/azure-bastion/
 [changing-SKUs]: https://azure.microsoft.com/blog/azure-virtual-network-gateway-improvements/
 [CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [connect-to-an-Azure-vnet]: /office365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [forced-tunneling]: /azure/vpn-gateway/vpn-gateway-about-forced-tunneling
 [gateway-diagnostic-logs]: https://blogs.technet.microsoft.com/keithmayer/2016/10/12/step-by-step-capturing-azure-resource-manager-arm-vnet-gateway-diagnostic-logs/
 [linux-vm-ra]: ../virtual-machines-linux/index.md
+[linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
 [nagios]: https://www.nagios.org/
 [policy-based-routing]: https://en.wikipedia.org/wiki/Policy-based_routing
+[pricing]: https://azure.microsoft.com/pricing/calculator
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/hybrid-networking/vpn/README.md
 [route-based-routing]: https://en.wikipedia.org/wiki/Static_routing
 [rras-logging]: https://www.petri.com/enable-diagnostic-logging-in-windows-server-2012-r2-routing-and-remote-access

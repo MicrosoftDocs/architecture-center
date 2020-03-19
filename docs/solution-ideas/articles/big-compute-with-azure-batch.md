@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Explore Big Compute solutions with Azure Batch. Use HPC cloud systems for cloud-native application and batch processing.
 ms.custom: acom-architecture, hpc, big compute solutions, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/big-compute-with-azure-batch/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # HPC System and Big Compute Solutions
 
@@ -172,25 +174,6 @@ The links to the right provide documentation on deploying and managing the Azure
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Upload input files and the applications to your Azure Storage account.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Create a Batch pool of compute nodes, a job to run the workload on the pool, and the tasks in the job.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Batch downloads input files and applications.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Batch monitors task execution.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Batch uploads task output.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Download output files.</p>
-</div>
-
 ## Data Flow
 
 1. Upload input files and the applications to your Azure Storage account.
@@ -209,4 +192,4 @@ The links to the right provide documentation on deploying and managing the Azure
 * [Quickstart: Upload, download, and list blobs using the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal)
 * [Quickstart: Run your first Batch job in the Azure portal](/azure/batch/quick-create-portal)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+
