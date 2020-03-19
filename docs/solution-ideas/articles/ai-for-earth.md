@@ -10,13 +10,13 @@ ms.custom: FCP, AISchool
 
 In this article, you will get an introduction to what AI for Earth is at a high level, some of the projects that are already underway, and an overview of the public AI for Earth APIs.
 
-The world is currently facing environmental challenges so huge that the scale is almost impossible to comprehend. Climate change, biodiversity and habitat loss, pollution, population growth, and food and fresh water shortages are all speeding up, and science tells us that these problems will quickly grow worse without comprehensive mitigation. The problems are so significant that philosopher Timothy Morton has dubbed them *hyperobjects*: things that are all too real but impossible to truly comprehend. 
+The world is currently facing environmental challenges so huge that the scale is almost impossible to comprehend. Climate change, biodiversity and habitat loss, pollution, population growth, and food and fresh water shortages are all speeding up, and science tells us that these problems will quickly grow worse without comprehensive mitigation. The problems are so significant that philosopher Timothy Morton has dubbed them *hyperobjects*: things that are all too real but impossible to truly comprehend.
 
 AI is one tool that can help—both to understand these issues and to mitigate them.
 
 While it's true that technology has contributed to many of these problems, it is increasingly clear that technology will be required to help solve them. AI for Earth is a Microsoft initiative that puts AI and cloud tools into the hands of those who are addressing these global challenges.
 
-This article is designed to give you an introduction to AI for Earth, show you how to use the AI for Earth APIs, and inspire people—no matter who you are or what you do—to use these tools to help our planet. 
+This article is designed to give you an introduction to AI for Earth, show you how to use the AI for Earth APIs, and inspire people—no matter who you are or what you do—to use these tools to help our planet.
 
 ## What is AI for Earth?
 
@@ -28,8 +28,8 @@ Here are some of the ways AI for Earth is helping people solve and analyze envir
 
 - [**AI for Earth Grants**](https://www.microsoft.com/ai/ai-for-earth-grants)—In the form of Azure compute credits and/or data labeling services
 - [**AI for Earth APIs**](https://www.microsoft.com/ai/ai-for-earth-apis)—Dedicated APIs that cater to global needs such as land cover classification and species recognition
-- [**Tools and projects**](https://github.com/search?l=&q=user%3Amicrosoft+topic%3Aaiforearth&type=Repositories)—Open-source infrastructure, models, APIs, and code examples 
-- [**Data**](http://lila.science/)—Open data to drive innovation, for example, the [LILA BC repository](http://lila.science/) for data sets related to conservation
+- [**Tools and projects**](https://github.com/search?l=&q=user%3Amicrosoft+topic%3Aaiforearth&type=Repositories)—Open-source infrastructure, models, APIs, and code examples
+- [**Data**](http://lila.science/)—Open data to drive innovation, for example, the [LILA BC repository](http://lila.science/datasets) for data sets related to conservation
 
 ## AI for Earth Grants
 
@@ -37,7 +37,7 @@ There are four areas of focus for AI for Earth grants: agriculture, biodiversity
 
 The first grant type is for data labeling services, an important prerequisite for most AI projects. Microsoft provides the required resources, and the labeled datasets are then made publicly available, hosted on Azure.
 
-The second grant type is for Azure compute credits. It gives recipients free use of Azure cloud services and tools such as virtual machines and machine learning services. This grant ranges from USD $5,000-$15,000. Members of the AI for Earth grantee community also have access to additional resources, including technical advice and support, online Azure training materials, and invitations to the AI for Earth Summit for networking and education opportunities. 
+The second grant type is for Azure compute credits. It gives recipients free use of Azure cloud services and tools such as virtual machines and machine learning services. This grant ranges from USD $5,000-$15,000. Members of the AI for Earth grantee community also have access to additional resources, including technical advice and support, online Azure training materials, and invitations to the AI for Earth Summit for networking and education opportunities.
 
 In December 2019, Microsoft [partnered with the National Geographic Society](https://www.nationalgeographic.org/newsroom/eleven-changemakers-chosen-as-recipients-of-microsoft-and-national-geographic-ai-for-earth-innovation-grants/) to award special grants totaling over USD $1.2 million to 11 recipients, with each receiving between USD $45,000 and $200,000 to support their initiatives.
 
@@ -50,7 +50,7 @@ Besides directly supporting initiatives through grants, Microsoft endeavors to m
 
 ## AI for Earth projects
 
-AI for Earth already has already produced several exciting projects that are making an impact on the environment today. There is a full list of AI for Earth projects on the [AI for Earth projects page](https://www.microsoft.com/ai/ai-for-earth-projects?activetab=pivot1%3aprimaryr2), but this section will highlight a few to inspire readers by showing what AI for Earth can help achieve. 
+AI for Earth already has already produced several exciting projects that are making an impact on the environment today. There is a full list of AI for Earth projects on the [AI for Earth projects page](https://www.microsoft.com/ai/ai-for-earth-projects?activetab=pivot1%3aprimaryr2), but this section will highlight a few to inspire readers by showing what AI for Earth can help achieve.
 
 ### SilviaTerra
 
@@ -74,7 +74,7 @@ This project was the basis for the now-public Land CoverMapping  API that is cov
 
 Now you know what AI for Earth is. We've covered the grants, APIs, and projects taking place around this initiative. The next step is to see how you can help by working with some of these public APIs available today.
 
-# Land Cover Mapping API Tutorial
+## Land Cover Mapping API Tutorial
 
 This step serves as an introduction to the Land Cover Mapping APIs, its capabilities, and a hands-on experience using Azure Notebooks.
 
@@ -82,9 +82,9 @@ Understanding land use is critical to strategic conservation planning. As discus
 
 ## What is the AI for Earth Land Cover Mapping API?
 
-The Land Cover API comes in two versions, which are slightly different in scope. V1 can take a supplied aerial image (in tiff format at 1 m resolution) and return an image file that corresponds to the land cover of the provided image. V2 takes a latitude and longitude within the United States and returns the land cover data from the most recent aerial image available.
+The Land Cover API comes in two versions, which are slightly different in scope. One can take a supplied aerial image (in tiff or jpeg format at 1m resolution) and return an image file that corresponds to the land cover of the provided image. The second takes a latitude and longitude within the United States and returns the land cover data from the most recent aerial image available.
 
-Both versions of the API return an image containing land cover classifications with corresponding colors representing the different types of land cover:
+Both of the APsI return an image containing land cover classifications with corresponding colors representing the different types of land cover:
 
 - No Data - black (0, 0 ,0)
 - Water - blue (0, 0, 255)
@@ -96,7 +96,7 @@ Using this image, you can then analyze and make decisions based on the land cove
 
 ## Hands-on with an Azure Notebook
 
-Notebooks are quickly becoming the default way for data scientists and AI engineers to share and collaborate in the cloud. We have created a hands-on demo to showcase Land Cover Mapping API. 
+Notebooks are quickly becoming the default way for data scientists and AI engineers to share and collaborate in the cloud. We have created a hands-on demo to showcase Land Cover Mapping API.
 
 ### Prerequisites
 
@@ -107,39 +107,32 @@ To run the notebook, you will need to get a key for the Land Cover Mapping API b
 > **Note:** you will need to have a Microsoft or Organizational account to complete the following steps.
 
 1. [Open the notebook by clicking here](https://notebooks.azure.com/operations-manager/projects/ai-for-earth).
-2. Click *Sign In* in the top-right corner.
+1. Click *Sign In* in the top-right corner.
+    ![Screenshot of Microsoft Azure Notebooks. It shows the AI for Earth Apis notebook. The Sign In button is circled on the right of the menu bar.](../media/Sign In To Azure Notebooks.png)
+1. Follow the prompts to sign in with your Microsoft or Organizational account.
+1. Click *Clone* to clone the library.
+    ![Screenshot of Microsoft Azure Notebooks. It shows the AI for Earth Apis notebook. The Clone button is circled.](../media/Clone The Project In Azure Notebooks.png)
+1. Click *I trust the contents of this project* and click *Clone* again to clone the project.
+    ![Screenshot of Microsoft Azure Notebooks. A pop-up has been opened when clicking the Clone button. It details information for cloning a project. The field Project Name states AI for Earth Apis (2). The project ID field states /projects/ai-for-earth-apis-2. The project is marked as Public. The Clone button is circled.](../media/ClickOnClone2.png)
+1. Click *Run on Free Compute*.
+    ![Screenshot of Microsoft Azure Notebooks showing the page of AI Earth Apis (2). It states where the project has been cloned from. Status is Stopped. The button Run on Free Compute is circled.](../media/ClickOnRunOnFreeCompute2.png)
+1. Click on the *Land Cover.ipynb* notebook.
 
-![Screenshot of Microsoft Azure Notebooks. It shows the AI for Earth Apis notebook. The Sign In button is circled on the right of the menu bar.](../media/Sign In To Azure Notebooks.png)
-
-3. Follow the prompts to sign in with your Microsoft or Organizational account.
-
-4. Click *Clone* to clone the library.
-
-![Screenshot of Microsoft Azure Notebooks. It shows the AI for Earth Apis notebook. The Clone button is circled.](../media/Clone The Project In Azure Notebooks.png)
-
-5. Click *Clone* again to prepare cloning the project.
-
-![Screenshot of Microsoft Azure Notebooks. A pop-up has been opened when clicking the Clone button. It details information for cloning a project. The field Project Name states AI for Earth Apis (2). The project ID field states /projects/ai-for-earth-apis-2. The project is marked as Public. The Clone button is circled.](../media/ClickOnClone2.png)
-
-6. Click *Run on Free Compute*.
-
-![Screenshot of Microsoft Azure Notebooks showing the page of AI Earth Apis (2). It states where the project has been cloned from. Status is Stopped. The button Run on Free Compute is circled.](../media/ClickOnRunOnFreeCompute2.png)
-
-7. Click on the *Land Cover* notebook.
-
-![Screenshot of Microsoft Azure Notebooks showing the page of AI Earth Apis (2). Status is now Run on Free Compute. The Land Cover notebook is selected.](../media/Azure Notebooks Run Land Cover.png)
+    ![Screenshot of Microsoft Azure Notebooks showing the page of AI Earth Apis (2). Status is now Run on Free Compute. The Land Cover notebook is selected.](../media/Azure Notebooks Run Land Cover.png)
 
 Once you have completed these steps, follow the instructions in the notebook to complete see the API in action.
 
+> [!NOTE] The `pip` warnings issued when executing notebook are safe to ignore.  Not all US addresses work in the "Input target location"  If the one you entered doesn't work, try a different one.
+
 Now you know how to use the Land Cover Mapping API. Next, you will learn how to use the other AI for Earth API, the Species Classification API.
 
-# Species Classification API Tutorial
+## Species Classification API Tutorial
 
 This step is an introduction to the capabilities of the Species Classification API and a hands-on experience using it in Azure Notebooks.
 
 Wildlife conservation depends on accurate, up-to-date wildlife population estimates, but population surveys often depend on humans to annotate millions of images.  The [AI for Earth Species Classification API](https://www.microsoft.com/ai/ai-for-earth-apis?activetab=pivot1:primaryr4) can help automate the observation of animals and plants from citizen-science photographs by making predictions about what species are contained in an image.
 
-## What is the Species Classification API?
+### What is the Species Classification API?
 
 Microsoft has created a public API that can take an image containing an animal or plant and identify it; the API supports over 5000 species. The API contains a single endpoint that takes an image as input and returns a predicted species and the confidence of the prediction.
 
@@ -147,9 +140,9 @@ You can experience the API without writing any code, using the [Species Classifi
 
 ![Screenshot of the Species Classification API. It displays the classification results of a bird's picture. A bar chart shows the odds (in percentage) of the bird belonging to five species. It's given both the binomial nomenclature and the common name of each species.](../media/SpeciesClassificationScreenshot.png)
 
-## Hands-on with an Azure Notebook
+### Hands-on with an Azure Notebook
 
-Notebooks are quickly becoming the default way for data scientists and AI engineers to share and collaborate in the cloud. We have created a hands-on demo to showcase the Species Classification API. 
+Notebooks are quickly becoming the default way for data scientists and AI engineers to share and collaborate in the cloud. We have created a hands-on demo to showcase the Species Classification API.
 
 ### Prerequisites
 
@@ -160,36 +153,28 @@ To run the notebook, you will need to get a key for the Species Classification A
 > **Note:** you will need to have a Microsoft or Organizational account to complete the following steps.
 
 1. [Open the notebook by clicking here](https://notebooks.azure.com/operations-manager/projects/ai-for-earth-apis).
-
-2. Click **Sign In** on the top-right corner.
-
-![Screenshot of Microsoft Azure Notebooks showing the page of AI Earth Apis. The Sign In button is circled on the right of the menu bar.](../media/SignInToAzureNotebooks.png)
-
-3. Follow the prompts to sign in with your Microsoft or Organizational account.
-
-4. Click **Clone** to clone the library.
-
-![Screenshot of Microsoft Azure Notebooks. It shows the AI for Earth Apis notebook. The Clone button is circled.](../media/CloneTheProjectIn AzureNotebooks2.png)
-
-5. Click **Clone** again to finish cloning the project.
-
-![Screenshot of Microsoft Azure Notebooks. A pop-up has been opened when clicking the Clone button. It details information for cloning a project. The field Project Name states AI for Earth Apis (2). The project ID field states /projects/ai-for-earth-apis-2. The project is marked as Public. The Clone button is circled.](../media/ClickOnClone.png)
-
-6. Click **Run on Free Compute**.
-
-![Screenshot of Microsoft Azure Notebooks showing the page of AI Earth Apis (2). It states where the project has been cloned from. Status is Stopped. The button Run on Free Compute is circled.](../media/ClickOnRunOnFreeCompute.png)
-
-7. Click on the Species Classification notebook.
-
-![Screenshot of Microsoft Azure Notebooks. The Species Classification notebook is circled to be selected.](../media/ClickOnTheSpeciesClasificationNotebook.png)
+1. Click **Sign In** on the top-right corner.
+    ![Screenshot of Microsoft Azure Notebooks showing the page of AI Earth Apis. The Sign In button is circled on the right of the menu bar.](../media/SignInToAzureNotebooks.png)
+1. Follow the prompts to sign in with your Microsoft or Organizational account.
+1. Click **Clone** to clone the library.
+    ![Screenshot of Microsoft Azure Notebooks. It shows the AI for Earth Apis notebook. The Clone button is circled.](../media/CloneTheProjectIn AzureNotebooks2.png)
+1. Click *I trust the contents of this project* and click *Clone* again to clone the project.
+    ![Screenshot of Microsoft Azure Notebooks. A pop-up has been opened when clicking the Clone button. It details information for cloning a project. The field Project Name states AI for Earth Apis (2). The project ID field states /projects/ai-for-earth-apis-2. The project is marked as Public. The Clone button is circled.](../media/ClickOnClone.png)
+1. Click **Run on Free Compute**.
+    ![Screenshot of Microsoft Azure Notebooks showing the page of AI Earth Apis (2). It states where the project has been cloned from. Status is Stopped. The button Run on Free Compute is circled.](../media/ClickOnRunOnFreeCompute.png)
+1. Click on the Species Classification notebook.
+    ![Screenshot of Microsoft Azure Notebooks. The Species Classification notebook is circled to be selected.](../media/ClickOnTheSpeciesClasificationNotebook.png)
 
 Once you have completed these steps, follow the instructions in the notebook to complete see the API in action.
+
+> [!NOTE] The `pip` warnings issued when executing notebook are safe to ignore.
+
 Now you know how to use the Species Classification API. Next, we'll recap what this article has covered.
 
-# Summary
+## Summary
 
 In this step, we will summarize what you have learned and give you some ideas on how you could contribute to the AI for Earth project.
 
-Well done! By exploring these AI for Earth APIs, you've begun to learn how anyone can pitch in and use AI as a tool to measure and mitigate environmental impacts. 
+Well done! By exploring these AI for Earth APIs, you've begun to learn how anyone can pitch in and use AI as a tool to measure and mitigate environmental impacts.
 
 The environmental challenges facing the world are huge and complex, but that doesn't mean that they're insurmountable.  In fact, sustainable technology is one of the fastest-growing areas in the tech world today, and putting these tools in the hands of environmental scientists can provide critical information for both researchers and policy-makers.  With AI for Earth, Microsoft is committed to empowering people like you to make a positive difference in this area.
