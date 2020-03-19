@@ -125,30 +125,36 @@ Traffic between tiers is restricted by using NSGs. The business tier blocks all 
 
 Use [RBAC][rbac] to restrict the operations that DevOps can perform on each tier. When granting permissions, use the [principle of least privilege][security-principle-of-least-privilege]. Log all administrative operations and perform regular audits to ensure any configuration changes were planned.
 
-## Cost Considerations
+## Cost considerations
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
 
-### Azure firewall
+Here are cost considerations for the services used in this architecture.
 
-In this architecture, an Azure Firewall is deployed in the virtual network to control traffic between the gateway's subnet and the application tier's subnet. Azure Firewall is cost effective, especially if it's used as a shared solution consumed by multiple workloads. Azure Firewall pricing includes a fixed hourly cost ($1.25/firewall/hour) and a variable per GB processed cost to support auto scaling. You can save up to 30 percent – 50 percent in comparison to an NVA deployment model.  For more information see [Azure firewall vs NVA][Firewall-NVA].
+### Azure Firewall
+
+In this architecture, Azure Firewall is deployed in the virtual network to control traffic between the gateway's subnet and the subnet in which the application tier runs. In this way Azure Firewall is cost effective because it's used as a shared solution consumed by multiple workloads. Here are the Azure Firewall pricing models:
+- Fixed rate per deployment hour.
+- Data processed per GB to support auto scaling. 
+
+When compared to network virtual appliances (NVAs), with Azure Firewall you can save up to 30-50%. For more information see [Azure Firewall vs NVA][Firewall-NVA].
 
 ### Azure Bastion
 
-In this architecture, the Azure Bastion PaaS service is used to manage the VMs in the virtual network.
+Azure Bastion securely connects to your virtual machine over RDP and SSH without having the need to configure a public IP on the virtual machine. 
 
-Azure Bastion will cost the same as a basic, low-level VM that is acting as a jump box. Consider moving from management jump boxes to Azure Bastion, native security service for RDP. Azure bastion is cost effective since you don't have to pay for any storage costs as well as manage a separate server for each managed virtual network
+Bastion billing is comparable to a basic, low-level virtual machine configured as a jumpbox. Comparing Bastion to a jumbox, Bastion is more cost effective considering Bastion's built-in security features and no extra costs incurred for storage and managing a separate server. 
 
-### Virtual Network
+### Azure Virtual Network
 
-Azure Virtual Network is free of charge. Every subscription is allowed to create up to 50 Virtual Networks across all regions.
-All traffic that occurs within the boundaries of a Virtual Network is free of charge. So if two VMs that are in the same VNET are talking each other then no charges will occur.
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
+All traffic that occurs within the boundaries of a virtual network is free. So if two VMs that are in the same VNET are talking each other then no charges will occur.
 
-### Internal load balancing
+### Internal load balancer
 
-Basic load balancing between virtual machines that reside in the same VNET is free of charge.
+Basic load balancing between virtual machines that reside in the same virtual network is free.
 
-Use the [Azure Pricing Calculator][Cost-Calculator] to get your estimates, that will help you get started.
 
-For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost]
+In this architecture, internal load balancers are used to load balance traffic inside a virtual network. 
 
 
 ## Deploy the solution

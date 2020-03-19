@@ -83,8 +83,9 @@ You can use network virtual appliances (NVAs) in Azure to host different types o
 
 ## Cost considerations
 
-This reference architecture builds on the hub-spoke reference architecture (see [cost considerations](hub-spoke.md#cost-considerations) section), and includes shared services in the hub that can be consumed by all spokes. For example, having Active Directory Domain services as a shared service consumed by multiple workloads is cost effective. See [AD DS pricing][ADDS-pricing] for pricing info.
+This reference architecture builds on the [hub-spoke reference architecture](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). It includes shared services in the hub that can be consumed by all spokes. For example, having Active Directory Domain services as a shared service consumed by multiple workloads is cost effective. See [AD DS pricing][ADDS-pricing] for pricing info.
 
+For other cost considerations, see [Hub-spoke network topology - cost considerations](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#cost-considerations).
 
 ## Deploy the solution
 
