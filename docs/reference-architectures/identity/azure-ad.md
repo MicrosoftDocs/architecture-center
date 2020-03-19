@@ -214,7 +214,7 @@ Here are cost considerations for the services used in this architecture.
 
 ### Azure AD Connect
 
-For information about the editions offered by Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing] for more info. The AD Connect sync feature is available in all editions.
+For information about the editions offered by Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing]. The AD Connect sync feature is available in all editions.
 
 ### VMs for N-Tier application 
 
@@ -226,7 +226,7 @@ The deployment includes infrastructure for an N-tier application. For cost infor
 A deployment for a reference architecture that implements these recommendations and considerations is available on GitHub. This reference architecture deploys a simulated on-premises network in Azure that you can use to test and experiment. To deploy the solution, see the [readme](https://github.com/mspnp/identity-reference-architectures/tree/master/azure-ad) on GitHub.
 
 <!-- links -->
-
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [implementing-a-multi-tier-architecture-on-Azure]: ../virtual-machines-windows/n-tier.md#cost-considerations
 
 [aad-agent-installation]: /azure/active-directory/active-directory-aadconnect-health-agent-install
@@ -257,3 +257,4 @@ A deployment for a reference architecture that implements these recommendations 
 [considerations]: ./considerations.md
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/

@@ -193,11 +193,11 @@ Here are cost considerations for the services used in this architecture.
 
 ### AD Domain Services
 
-Consider having Active Directory Domain Services as a shared service that is consumed by multiple workloads to lower costs. See [Active Directory Domain Services pricing][ADDS-pricing] for more information.
+Consider having Active Directory Domain Services as a shared service that is consumed by multiple workloads to lower costs. For more information, see [Active Directory Domain Services pricing][ADDS-pricing].
 
 ### Azure AD Federation Services
 
-For information about the editions offered by Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing] for more info. The  AD Federation Services feature is available in all editions.
+For information about the editions offered by Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing]. The  AD Federation Services feature is available in all editions.
 
 ## Deploy the solution
 
@@ -378,7 +378,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 [vm-recommendations]: ../virtual-machines-windows/single-vm.md
 [hybrid-azure-on-prem-vpn]: ../hybrid-networking/vpn.md
-
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory/
 [azure-cli]: /azure/azure-resource-manager/xplat-cli-azure-resource-manager
 [DRS]: https://technet.microsoft.com/library/dn280945.aspx
@@ -409,3 +409,4 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [considerations]: ./considerations.md
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
 [psise]: /powershell/scripting/components/ise/windows-powershell-integrated-scripting-environment--ise-
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
