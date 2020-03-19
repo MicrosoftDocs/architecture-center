@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Medium Umbraco CMS web app configured to scale and optimal for high-traffic sites. It uses two web apps, one for your front-end app and the other for your back-office app, deployed in a single region with autoscaling enabled.
 ms.custom: acom-architecture, web-apps, app-dev, is-deployable, 'https://azure.microsoft.com/solutions/architecture/medium-umbraco-web-app/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Scalable Umbraco CMS web app
 
@@ -170,4 +172,4 @@ Use the following pre-built template to deploy this architecture to Azure
 ## Deploy to Azure
 * [Deploy to Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fumbraco-cms-webapp-redis-cache%2Fazuredeploy.json)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

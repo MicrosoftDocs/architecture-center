@@ -1,6 +1,5 @@
 ---
-title: Extend your on-premises Active Directory domain to Azure
-titleSuffix: Azure Reference Architectures
+title: Deploy AD DS in an Azure virtual network
 description: Deploy Active Directory Domain Services (AD DS) in an Azure virtual network.
 author: telmosampaio
 ms.date: 05/02/2018

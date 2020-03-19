@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Using SQL Server 2016 with R Services, lenders can predict a borrower's credit risk and default probability to help issue fewer unprofitable loans.
 ms.custom: acom-architecture, finance, analytics, sql-server, credit risk analyzer, credit risk modeling, probability of default, 'https://azure.microsoft.com/solutions/architecture/loan-credit-risk-analyzer-and-default-modeling/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Loan Credit Risk + Default Modeling
 
@@ -66,4 +68,4 @@ Data-driven credit-risk modeling reduces the number of loans offered to borrower
 * [Learn more about Machine Learning](/azure/machine-learning/machine-learning-what-is-machine-learning)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

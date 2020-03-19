@@ -1,0 +1,37 @@
+{
+    "mods": [
+        {
+            "file": "solution-ideas/articles/ai-at-the-edge.md",
+            "tags": [
+                "ai-ml"
+            ],
+            "updates": [
+                {
+                    "old": "Move AI models to the edge with a solution architecture that includes Azure Stack. A step-by-step workflow will help you harness the power of edge AI.",
+                    "new": "Move AI models to the edge with a solution architecture that includes Azure Stack."
+                }
+            ]
+        },
+        {
+            "file": "solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md",
+            "updates": [
+                {
+                    "old": "The links to the right give you.*$",
+                    "new": "Related Links:"
+                },
+                {
+                    "old": "The solution demonstrates a business process for monitoring and responding to customer feedback. This architecture shows how to easily connect multiple business systems to enable a nimbler customer support.",
+                    "new": "This architecture shows how to easily connect multiple business systems to enable customer support."
+                },
+                {
+                    "old": "The links to the right.*$",
+                    "new": ""
+                },
+                {
+                    "old": "^\\[",
+                    "new": "* ["
+                }
+            ]
+        }
+    ]
+}

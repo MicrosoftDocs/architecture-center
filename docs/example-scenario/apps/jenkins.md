@@ -6,7 +6,7 @@ author: njray
 ms.date: 04/30/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
+ms.subservice: example-scenario
 ms.custom:
   - seodec18
   - devops

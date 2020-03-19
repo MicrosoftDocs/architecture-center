@@ -1,6 +1,5 @@
 ---
 title: N-tier application with Apache Cassandra
-titleSuffix: Azure Reference Architectures
 description: Run Linux virtual machines for an N-tier architecture with Apache Cassandra in Microsoft Azure.
 author: MikeWasson
 ms.date: 08/21/2019
@@ -180,6 +179,24 @@ For more information about health probes, see:
 
 For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md).
 
+## Cost considerations
+
+Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs. Here are some other considerations.
+
+### Virtual machine scale sets
+
+Virtual machine scale sets are available on all Linux VM sizes. You are only charged for the Azure VMs you deploy, as well as any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the virtual machine scale sets service itself.
+
+For single VMs pricing options See [Linux VMs pricing][Linux-vm-pricing].
+
+
+### Load balancers
+
+You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+
+
 ## Security considerations
 
 Virtual networks are a traffic isolation boundary in Azure. VMs in one VNet can't communicate directly with VMs in a different VNet. VMs within the same VNet can communicate, unless you create [network security groups][nsg] (NSGs) to restrict traffic. For more information, see [Microsoft cloud services and network security][network-security].
@@ -222,6 +239,7 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [app-gw-scaling]: /azure/application-gateway/
 [azure-dns]: /azure/dns/dns-overview
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault
@@ -231,11 +249,13 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
 [cassandra-replication]: https://academy.datastax.com/planet-cassandra/data-replication-in-nosql-databases-explained
 [cassandra-consistency-usage]: https://medium.com/@foundev/cassandra-how-many-nodes-are-talked-to-with-quorum-also-should-i-use-it-98074e75d7d5#.b4pb4alb2
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [datastax]: https://www.datastax.com/products/datastax-enterprise
 [ddos-best-practices]: /azure/security/azure-ddos-best-practices
 [ddos]: /azure/virtual-network/ddos-protection-overview
 [dmz]: ../dmz/secure-vnet-dmz.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-linux
+[Linux-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
 [load-balancer-hashing]: /azure/load-balancer/concepts-limitations#load-balancer-concepts
 [load-balancer]: /azure/load-balancer/load-balancer-get-started-internet-arm-cli
 [network-security]: /azure/best-practices-network-security

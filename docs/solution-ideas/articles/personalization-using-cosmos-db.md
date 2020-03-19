@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Generate personalized recommendations for customers in real time, using low-latency and tunable consistency settings for immediate insights
 ms.custom: acom-architecture, Cosmos DB, ai-ml, data, 'https://azure.microsoft.com/solutions/architecture/personalization-using-cosmos-db/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Personalization using Cosmos DB
 
@@ -74,4 +76,4 @@ Generate personalized recommendations for customers in real time, using low-late
     <path d="M428.16 106.1v-7.4l1.4-.4v8.2l-1.4-.4zm-1.5-.4v-6.5l1.1-.3v7.1l-1.1-.3zm-1.3-.5v-5.8l.8-.3v6.3l-.8-.2zm-.2-6.4v7l5 1.9V97.1l-5 1.7z" fill="#804997"/>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: High performance computing (HPC) applications can scale to thousands of compute cores, extend on-premises big compute, or run as a 100% cloud native solution. This HPC solution including the head node, compute nodes, and storage nodes, runs in Azure with no hardware infrastructure to maintain.
 ms.custom: acom-architecture, hpc, 'https://azure.microsoft.com/solutions/architecture/hpc-cluster/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # HPC cluster deployed in the cloud
 
@@ -273,4 +275,4 @@ This solution is built on the Azure managed services: [Virtual Machine Scale Set
 * [Storage Accounts](https://azure.microsoft.com/services/storage/): Azure Storage blobs store the disks backing the virtual machines and provides long-term storage of unstructured data and executable files used by the HPC application.
 * [Azure Resource Manager templates](/api/Redirect/documentation/articles/virtual-machines-windows-cli-deploy-templates/): Resource Manager templates or script files are used to deploy your application to the HPC environment.
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+
