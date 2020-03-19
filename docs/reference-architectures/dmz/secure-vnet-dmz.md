@@ -125,7 +125,7 @@ Traffic between tiers is restricted by using NSGs. The business tier blocks all 
 
 Use [RBAC][rbac] to restrict the operations that DevOps can perform on each tier. When granting permissions, use the [principle of least privilege][security-principle-of-least-privilege]. Log all administrative operations and perform regular audits to ensure any configuration changes were planned.
 
-## Cost 
+## Cost considerations
 Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
 
 Here are cost considerations for the services used in this architecture.
@@ -142,12 +142,12 @@ When compared to network virtual appliances (NVAs), with Azure Firewall you can 
 
 Azure Bastion securely connects to your virtual machine over RDP and SSH without having the need to configure a public IP on the virtual machine. 
 
-Bastion billing is comparable to a basic, low-level virtual machine configured as a jumpbox. Considering Bastion's built-in security features and no extra costs for storage and managing a separate server for jumbox, Bastion is more cost effective. 
+Bastion billing is comparable to a basic, low-level virtual machine configured as a jumpbox. Comparing Bastion to a jumbox, Bastion is more cost effective considering Bastion's built-in security features and no extra costs incurred for storage and managing a separate server. 
 
 ### Azure Virtual Network
 
-Azure Virtual Network is free. Every subscription is allowed to create up to 50 Virtual Networks across all regions.
-All traffic that occurs within the boundaries of a Virtual Network is free of charge. So if two VMs that are in the same VNET are talking each other then no charges will occur.
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
+All traffic that occurs within the boundaries of a virtual network is free. So if two VMs that are in the same VNET are talking each other then no charges will occur.
 
 ### Internal load balancer
 
