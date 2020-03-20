@@ -207,13 +207,27 @@ Use conditional access control to deny authentication requests from unexpected s
 
 For more information, see [Azure Active Directory conditional access][aad-conditional-access].
 
+## Cost considerations
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost]. 
+
+Here are cost considerations for the services used in this architecture.
+
+### Azure AD Connect
+
+For information about the editions offered by Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing]. The AD Connect sync feature is available in all editions.
+
+### VMs for N-Tier application 
+
+The deployment includes infrastructure for an N-tier application. For cost information about these resources, [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
+
+
 ## Deploy the solution
 
 A deployment for a reference architecture that implements these recommendations and considerations is available on GitHub. This reference architecture deploys a simulated on-premises network in Azure that you can use to test and experiment. To deploy the solution, see the [readme](https://github.com/mspnp/identity-reference-architectures/tree/master/azure-ad) on GitHub.
 
 <!-- links -->
-
-[implementing-a-multi-tier-architecture-on-Azure]: ../virtual-machines-windows/n-tier.md
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[implementing-a-multi-tier-architecture-on-Azure]: ../virtual-machines-windows/n-tier.md#cost-considerations
 
 [aad-agent-installation]: /azure/active-directory/active-directory-aadconnect-health-agent-install
 [aad-application-proxy]: /azure/active-directory/active-directory-application-proxy-enable
@@ -238,7 +252,9 @@ A deployment for a reference architecture that implements these recommendations 
 [aad-user-sign-in]: /azure/active-directory/hybrid/plan-connect-user-signin
 [azure-active-directory]: /azure/active-directory-domain-services/active-directory-ds-overview
 [azure-ad-connect]: /azure/active-directory/hybrid/whatis-hybrid-identity
+[Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory/
 [azure-multifactor-authentication]: /azure/multi-factor-authentication/multi-factor-authentication
 [considerations]: ./considerations.md
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
