@@ -143,7 +143,7 @@ Relevant Azure service: [File Storage][file-storage]
 <!-- links -->
 
 [blob]: https://azure.microsoft.com/services/storage/blobs/
-[cosmos-db]: https://docs.microsoft.com/en-us/azure/cosmos-db/table-introduction/
+[cosmos-db]: /azure/cosmos-db/table-introduction/
 [data-lake]: https://azure.microsoft.com/solutions/data-lake/
 [file-storage]: https://azure.microsoft.com/services/storage/files/
 [hbase]: /azure/hdinsight/hdinsight-hbase-overview
