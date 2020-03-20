@@ -33,7 +33,7 @@ Modern cloud infrastructure has evolved to enable geographic load balancing of f
 
 Deploy the service into a number of satellite deployments spread around the globe, each of which is called a *geode*. The geode pattern harnesses key features of Azure to route traffic via the shortest path to a nearby geode, which improves latency and performance. Each geode is behind a global load balancer, and uses a geo-replicated read-write service like [Azure Cosmos DB](/en-us/azure/cosmos-db/introduction) to host the data plane, ensuring cross-geode data consistency. Data replication services ensure that data stores are identical across geodes, so *all* requests can be served from *all* geodes.
 
-The key difference between a deployment stamp and a geode is that geodes never exist in isolation. There should always be more than one geode in a production platform. 
+The key difference between a [deployment stamp](https://docs.microsoft.com/azure/architecture/best-practices/deployment-stamp) and a geode is that geodes never exist in isolation. There should always be more than one geode in a production platform. 
 
 ![Geode overview](./_images/geode-dist.png)
 
