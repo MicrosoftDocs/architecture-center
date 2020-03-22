@@ -1,11 +1,10 @@
 ---
-title: Deployment stamps
-titleSuffix: Azure Architecture Center
+title: Deployment stamps pattern
+titleSuffix: Cloud Design Patterns
 description: Deploy multiple independent copies of application components.
-keywords: best practice
 author: johndowns
 ms.date: 11/26/2019
-ms.topic: best-practice
+ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom: fasttrack-new, fcp
@@ -13,7 +12,7 @@ ms.custom: fasttrack-new, fcp
 
 # Deployment stamps
 
-The deployment stamp best practice involves deploying multiple independent copies of application components, including data stores. Each individual copy is called a *stamp*, or sometimes a *service unit* or *scale unit*. This approach can improve the scalability of your solution, allow you to deploy instances across multiple regions, and separate your customer data.
+The deployment stamp pattern involves deploying multiple independent copies of application components, including data stores. Each individual copy is called a *stamp*, or sometimes a *service unit* or *scale unit*. This approach can improve the scalability of your solution, allow you to deploy instances across multiple regions, and separate your customer data.
 
 When hosting an application in the cloud there are certain considerations to be made. One key thing to keep in mind is the performance and reliability of your application. If you host a single instance of your solution, you might be subject to the following limitations:
 
@@ -37,7 +36,7 @@ Stamps can be used to implement [deployment rings](https://docs.microsoft.com/az
 
 Because stamps run independently from each other, data is implicitly *sharded*. Furthermore, a single stamp can make use of further sharding to internally allow for scalability and elasticity within the stamp.
 
-The Deployment Stamp best practice is used internally by many Azure services, including [App Service](https://docs.microsoft.com/archive/msdn-magazine/2017/february/azure-inside-the-azure-app-service-architecture), [Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-capacity-planning-overview?view=azs-1910), and [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs).
+The deployment stamp pattern is used internally by many Azure services, including [App Service](https://docs.microsoft.com/archive/msdn-magazine/2017/february/azure-inside-the-azure-app-service-architecture), [Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-capacity-planning-overview?view=azs-1910), and [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs).
 
 ### Deployment
 
@@ -74,7 +73,7 @@ To enable geo-distribution of requests and geo-redundancy of the traffic routing
 
 ![Example traffic routing architecture](./images/deployment-stamp/deployment-stamp-traffic-routing.png)
 
-If a traffic routing service is included in your solution, consider whether it acts as a [gateway](../patterns/gateway-routing.md) and could therefore perform [gateway offloading](../patterns/gateway-offloading.md) for services such as token validation, throttling, and authorization.
+If a traffic routing service is included in your solution, consider whether it acts as a [gateway](gateway-routing.md) and could therefore perform [gateway offloading](gateway-offloading.md) for services such as token validation, throttling, and authorization.
 
 ## Issues and considerations
 
@@ -102,7 +101,7 @@ This solution is not suitable for:
 
 - Simple solutions that do not need to scale to a high degree.
 - Systems that can be easily scaled out or up within a single instance, such as by increasing the size of the application layer or by increasing the reserved capacity for databases and the storage tier.
-- Solutions in which only some components need to be scaled, but not others. For example, consider whether your solution could be scaled by [sharding the data store](../patterns/sharding.md) rather than deploying a new copy of all of the solution components.
+- Solutions in which only some components need to be scaled, but not others. For example, consider whether your solution could be scaled by [sharding the data store](sharding.md) rather than deploying a new copy of all of the solution components.
 - Solutions comprised solely of static content, such as a front-end JavaScript application. Consider storing such content in a [storage account](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website) and using [Azure CDN](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).
 
 ## Supporting technologies
@@ -135,5 +134,5 @@ Click the link below to deploy the solution.
 
 ## Next steps
 
-- Sharding can be used as another, simpler, approach to scale out your data tier. Stamps implicitly shard their data, but sharding does not require a Deployment Stamp. For more information, see [Sharding Pattern](../patterns/sharding.md).
-- If a traffic routing service is deployed, the [Gateway Routing](../patterns/gateway-routing.md) and [Gateway Offloading](../patterns/gateway-offloading.md) patterns can be used together to make the best use of this component.
+- Sharding can be used as another, simpler, approach to scale out your data tier. Stamps implicitly shard their data, but sharding does not require a Deployment Stamp. For more information, see [Sharding Pattern](sharding.md).
+- If a traffic routing service is deployed, the [Gateway Routing](gateway-routing.md) and [Gateway Offloading](gateway-offloading.md) patterns can be used together to make the best use of this component.

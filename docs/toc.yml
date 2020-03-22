@@ -81,8 +81,6 @@ items:
       href: best-practices/data-partitioning.md
     - name: Data partitioning strategies (by service)
       href: best-practices/data-partitioning-strategies.md
-    - name: Deployment stamp
-      href: best-practices/deployment-stamp.md
     - name: Monitoring and diagnostics
       href: best-practices/monitoring.md
     - name: Retry guidance for specific services
@@ -283,6 +281,8 @@ items:
     href: patterns/competing-consumers.md
   - name: Compute Resource Consolidation
     href: patterns/compute-resource-consolidation.md
+  - name: Deployment Stamps
+    href: patterns/deployment-stamps.md
   - name: Event Sourcing
     href: patterns/event-sourcing.md
   - name: External Configuration Store
