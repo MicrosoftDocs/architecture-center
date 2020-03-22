@@ -28,7 +28,7 @@ When hosting an application in the cloud there are certain considerations to be 
 
 To avoid these issues, consider deploying copies of your solution's components multiple times. Stamps operate independently of each other and can be deployed and updated independently. A single geographical region may contain a single stamp, or may contain multiple stamps to allow for horizontal scale-out within the region. Stamps contain a subset of your customers.
 
-![An example set of deployment stamps](./images/deployment-stamp/deployment-stamp.png)
+![An example set of deployment stamps](./_images/deployment-stamp/deployment-stamp.png)
 
 Deployment stamps can apply whether your solution uses infrastructure as a service (IaaS) or platform as a service (PaaS) components, or a mixture of both. Typically IaaS workloads require more intervention to scale, so the pattern may be useful for IaaS-heavy workloads to allow for scaling out.
 
@@ -71,7 +71,7 @@ For example, [Azure API Management](https://docs.microsoft.com/azure/api-managem
 
 To enable geo-distribution of requests and geo-redundancy of the traffic routing service, [API Management can be deployed across multiple regions](https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region), or [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/) can be used to direct traffic to the closest instance. Front Door can be configured with a [backend pool](https://docs.microsoft.com/azure/frontdoor/front-door-backend-pool#backend-pools), enabling requests to be directed to the closest available API Management instance. The [global distribution features of Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally) can be used to keep the mapping information updated across each region.
 
-![Example traffic routing architecture](./images/deployment-stamp/deployment-stamp-traffic-routing.png)
+![Example traffic routing architecture](./_images/deployment-stamp/deployment-stamp-traffic-routing.png)
 
 If a traffic routing service is included in your solution, consider whether it acts as a [gateway](gateway-routing.md) and could therefore perform [gateway offloading](gateway-offloading.md) for services such as token validation, throttling, and authorization.
 
