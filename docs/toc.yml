@@ -282,7 +282,7 @@ items:
   - name: Compute Resource Consolidation
     href: patterns/compute-resource-consolidation.md
   - name: Deployment Stamps
-    href: patterns/deployment-stamps.md
+    href: patterns/deployment-stamp.md
   - name: Event Sourcing
     href: patterns/event-sourcing.md
   - name: External Configuration Store

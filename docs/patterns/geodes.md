@@ -70,7 +70,7 @@ Use this pattern:
 
 This pattern might not be suitable for
 
-- Architectures that have constraints so that all geodes can't be equal for data storage. For example, there may be data residency requirements, an application that needs to maintain temporary state for a particular session, or a heavy weighting of requests towards a single region. In this case, consider using [deployment stamps](./deployment-stamps.md) in combination with a global routing plane that is aware of where a user’s data sits, such as the traffic routing component described within the [deployment stamps pattern](./deployment-stamp.md).
+- Architectures that have constraints so that all geodes can't be equal for data storage. For example, there may be data residency requirements, an application that needs to maintain temporary state for a particular session, or a heavy weighting of requests towards a single region. In this case, consider using [deployment stamps](./deployment-stamp.md) in combination with a global routing plane that is aware of where a user’s data sits, such as the traffic routing component described within the [deployment stamps pattern](./deployment-stamp.md).
 - Situations where there's no geographical distribution required. Instead, consider availability zones and paired regions for clustering.
 - Situations where a legacy platform needs to be retrofitted. This pattern works for cloud-native development only, and can be difficult to retrofit.
 - Simple architectures and requirements, where geo-redundancy and geo-distribution aren't required or advantageous.
