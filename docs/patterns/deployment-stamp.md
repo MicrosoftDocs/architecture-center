@@ -30,7 +30,7 @@ To avoid these issues, consider deploying copies of your solution's components m
 
 ![An example set of deployment stamps](./images/deployment-stamp/deployment-stamp.png)
 
-Deployment stamps can apply whether your solution uses infrastructure as a service (IaaS) or platform as a service (PaaS) components, or a mixture of both. Typically IaaS workloads require more intervention to scale, so the solution may be useful for IaaS-heavy workloads to allow for scaling out.
+Deployment stamps can apply whether your solution uses infrastructure as a service (IaaS) or platform as a service (PaaS) components, or a mixture of both. Typically IaaS workloads require more intervention to scale, so the pattern may be useful for IaaS-heavy workloads to allow for scaling out.
 
 Stamps can be used to implement [deployment rings](https://docs.microsoft.com/azure/devops/migrate/phase-rollout-with-rings?view=azure-devops). If different customers want to receive service updates at different frequencies, they can be grouped onto different stamps, and each stamp could have updates deployed at different cadences.
 
@@ -40,13 +40,13 @@ The deployment stamp pattern is used internally by many Azure services, includin
 
 ### Deployment
 
-Because of the complexity that is involved in deploying identical copies of the same components, good DevOps practices are critical to ensure the success of this solution. Consider describing your infrastructure as code, such as using [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) and scripts. With this approach, you can ensure that the deployment of each stamp is predictable. It also reduces the likelihood of human errors such as accidental mismatches in configuration between stamps.
+Because of the complexity that is involved in deploying identical copies of the same components, good DevOps practices are critical to ensure success when implementing this pattern. Consider describing your infrastructure as code, such as using [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) and scripts. With this approach, you can ensure that the deployment of each stamp is predictable. It also reduces the likelihood of human errors such as accidental mismatches in configuration between stamps.
 
 You can deploy updates automatically to all stamps in parallel, in which case you might consider technologies like Resource Manager templates or [Azure Deployment Manager](https://docs.microsoft.com/azure/azure-resource-manager/deployment-manager-overview) to coordinate the deployment of your infrastructure and applications. Alternatively, you may decide to gradually roll out updates to some stamps first, and then progressively to others. Azure Deployment Manager can also manage this type of staged rollout, or you could consider using a release management tool like [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) to orchestrate deployments to each stamp.
 
 Carefully consider the topology of the Azure subscriptions and resource groups for your deployments:
 
-- Typically a subscription will contain all resources for a single solution, so in general consider using a single subscription for all stamps. However, [some Azure services impose subscription-wide quotas](https://docs.microsoft.com/azure/azure-subscription-service-limits), so if you are using this solution to allow for a high degree of scale-out, you may need to consider deploying stamps across different subscriptions.
+- Typically a subscription will contain all resources for a single solution, so in general consider using a single subscription for all stamps. However, [some Azure services impose subscription-wide quotas](https://docs.microsoft.com/azure/azure-subscription-service-limits), so if you are using this pattern to allow for a high degree of scale-out, you may need to consider deploying stamps across different subscriptions.
 - Resource groups are generally used to deploy components with the same lifecycle. If you plan to deploy updates to all of your stamps at once, consider using a single resource group to contain all of the components for all of your stamps, and use resource naming conventions and tags to identify the components that belong to each stamp. Alternatively, if you plan to deploy updates to each stamp independently, consider deploying each stamp into its own resource group.
 
 ### Capacity planning
@@ -55,7 +55,7 @@ Use load and performance testing to determine the approximate load that a given 
 
 ### Traffic routing
 
-The Deployment Stamp solution works well if each stamp is addressed independently. For example, if Contoso deploys the same API application across multiple stamps, they might consider using DNS to route traffic to the relevant stamp:
+The Deployment Stamp pattern works well if each stamp is addressed independently. For example, if Contoso deploys the same API application across multiple stamps, they might consider using DNS to route traffic to the relevant stamp:
 
 * `unit1.aus.myapi.contoso.com` routes traffic to stamp `unit1` within an Australian region.
 * `unit2.aus.myapi.contoso.com` routes traffic to stamp `unit2` within an Australian region.
@@ -77,19 +77,19 @@ If a traffic routing service is included in your solution, consider whether it a
 
 ## Issues and considerations
 
-You should consider the following points when deciding how to implement this solution:
+You should consider the following points when deciding how to implement this pattern:
 
 - **Deployment process.** When deploying multiple stamps, it is highly advisable to have automated and fully repeatable deployment processes. Consider using Resource Manager templates or Terraform templates to declaratively define the stamp.
 - **Cross-stamp operations.** When your solution is deployed independently across multiple stamps, questions like "how many customers do we have across all of our stamps?" can become more complex to answer. Queries will need to be executed against each stamp and the results aggregated.
 - **Determining scale-out policies.** Stamps have a finite capacity, which might be defined using a proxy metric such as the number of tenants that can be deployed to the stamp. It is important to monitor the available capacity and used capacity for each stamp, and to proactively deploy additional stamps to allow for new tenants to be directed to them.
-- **Cost.** The Deployment Stamp solution involves deploying multiple copies of your infrastructure component, which will likely involve a substantial increase in the cost of operating your solution.
+- **Cost.** The Deployment Stamp pattern involves deploying multiple copies of your infrastructure component, which will likely involve a substantial increase in the cost of operating your solution.
 - **Moving between stamps.** As each stamp is deployed and operated independently, moving tenants between stamps can be difficult. Your application would need custom logic to transmit the information about a given customer to a different stamp, and then to remove the tenant's information from the original stamp. This process may require a backplane for communication between stamps, further increasing the complexity of the overall solution.
 - **Traffic routing.** As described above, routing traffic to the correct stamp for a given request can require an additional component to resolve tenants to stamps. This component, in turn, may need to be made highly available.
 - **Shared components.** You may have some components that can be shared across stamps. For example, if you have a shared single-page app for all tenants, consider deploying that into one region and using [Azure CDN](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website) to replicate it globally.
 
 ## When to use deployment stamps
 
-This solution is useful when you have:
+This pattern is useful when you have:
 
 - Natural limits on scalability. For example, if some components cannot or should not scale beyond a certain number of customers or requests, consider scaling out using stamps.
 - A requirement to separate certain tenants from others. If you have customers that cannot be deployed into a multi-tenant stamp with other customers due to security concerns, they can be deployed onto their own isolated stamp.
@@ -97,7 +97,7 @@ This solution is useful when you have:
 - Multi-region applications where each tenant's data and traffic should be directed to a specific region.
 - A desire to achieve resiliency during outages. As stamps are independent of one another, if an outage affects a single stamp then the tenants deployed to other stamps should not be affected. This isolation helps to contain the 'blast radius' of an incident or outage.
 
-This solution is not suitable for:
+This pattern is not suitable for:
 
 - Simple solutions that do not need to scale to a high degree.
 - Systems that can be easily scaled out or up within a single instance, such as by increasing the size of the application layer or by increasing the reserved capacity for databases and the storage tier.
