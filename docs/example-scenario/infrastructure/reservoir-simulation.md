@@ -36,7 +36,7 @@ Using an Azure VM spares the expense of a high-end visualization workstation. Th
 
 This diagram offers a high-level overview of the architecture used in the example. The workflow is as follows:
 
-1. Users sign in to the head node via SSH to prepare their models for the compute resources. The head node is an Azure HPC VM, such as a Standard_HC44rs or Standard_HC60rs, running the CentOS 7.6 Linux operating system.
+1. Users sign in to the head node via SSH to prepare their models for the compute resources.
 
 2. PBS Pro 19.1 runs on the head node and schedules the jobs on the compute nodes. 
 
@@ -47,6 +47,8 @@ This diagram offers a high-level overview of the architecture used in the exampl
 5. OPM ResInsight running on a Standard-NV6 Windows VM displays 3D visualizations of results. Users can access the visualization VM through RDP. 
 
 ## Considerations
+
+This example uses the HB-series of [high-performance VMs][vm-size]. The HB-series is optimized for applications driven by memory bandwidth, such as computational fluid dynamics (CFD), and the Standard_HB120rs_v2 VM is the latest in the series. For Intel-based hardware, the [Standard_HC44rs][hc-series] VM is an option.
 
 To test this OPM Flow architecture on Azure, the [GitHub example implementation][opm-flow] installs the Norne case, an open-benchmark case of a real Norwegian Sea oil field. To run this test case, you must:
 
@@ -103,6 +105,7 @@ Get an [example implementation of this OPM Flow architecture][opm-flow] on GitHu
 [checklist]: /azure/storage/common/storage-performance-checklist
 [data-storage]: /azure/architecture/topics/high-performance-computing#storage
 [disk]: /azure/virtual-machines/windows/disks-types#premium-ssd
+[hc-series]: /azure/virtual-machines/hc-series
 [hpc]: https://azure.microsoft.com/solutions/high-performance-computing/
 [intersect]: https://github.com/Azure/azurehpc/tree/master/tutorials/oil_and_gas_intersect
 [nsg]: /azure/virtual-network/security-overview
@@ -110,3 +113,4 @@ Get an [example implementation of this OPM Flow architecture][opm-flow] on GitHu
 [model]: https://techcommunity.microsoft.com/t5/azurecat/remote-visualization-in-azure/ba-p/745184
 [opm-flow]: https://github.com/Azure/azurehpc/tree/master/tutorials/oil_and_gas_opm
 [vmss]: /azure/virtual-machine-scale-sets/overview
+[vm-size]: /azure/virtual-machines/sizes-hpc
