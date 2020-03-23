@@ -10,111 +10,119 @@ ms.subservice: example-scenarios
 ms.custom:
   - fcp
 ---
-In a traditional on-premise application, most applications were written in a non distributed manner. The application was generally made up of a single executing and relevant dependencies. This executable would run under a single process space and would be installed onto a single virtual machine. If there were a need for additional performance, the application would be horizontally scaled across multiple machines. In each instance, logging and tracing and monitoring would be bound to the single process domain. 
+In a traditional on-premise application, most applications were written in a non distributed manner. The application was generally made up of a single executable and relevant dependencies. This executable would run under a single process space and would be installed onto a single virtual machine. If there were a need for additional performance, the application would be horizontally scaled across multiple machines. In each instance, logging and tracing and monitoring would be bound to the single process domain.
 
 With the advent of the cloud and adoption, cloud-native development differs somewhat from the on-premise methodology.
 
-Cloud-native applications, tend to be composed of one or more PaaS services built around the microservices architectural paradigm. This paradigm entails the creation of discrete loosely coupled microservices that work within their process boundary. This loosely distributed architecture brings many benefits – 
+Cloud-native applications, tend to be composed of one or more PaaS services built around the microservices architectural paradigm. This paradigm entails the creation of discrete, loosely-coupled microservices that work within their process boundary. This loosely distributed architecture brings many benefits:
 
-• the application is composed of discrete services that are easier to build and simpler to maintain
-• The Microservices focuses on business capabilities
-• Microservices naturally work well wit automated CI and CD Systems
-• Microservices being naturally independent are more fault-tolerant to failures, i.e. a single service failure will not bring down the application
-• Microservices can scale independently of each other and allow for better utilisation and cost optimisation
+* the application is composed of discrete services that are easier to build and simpler to maintain
+* The Microservices focuses on business capabilities
+* Microservices naturally work well with automated CI and CD Systems
+* Microservices being naturally independent are more fault-tolerant to failures, i.e. a single service failure will not bring down the application
+* Microservices can scale independently of each other and allow for better utilization and cost optimization
 
 Wherever an application will run, there is always a possibility that during the application lifetime that failures, transient or otherwise will occur. When these events happen, teams need to know the following:
-• Why did the application fail? 
-o When did the application exception occur?
-o Which method caused the exception?
-o Were the events recorded up to the point of application failure?
+
+* Why did the application fail?
+* When did the application exception occur?
+* Which method caused the exception?
+* What were the events recorded up to the point of application failure?
+* Did this exception lead to potential data corruption?
 
 To allow us to answer the above, we must rely on the process of logging, tracing and monitoring.
 
-Logging is the ability to track and report related data in a centralised way. These log events can be used to track errors in code, application failures, or purely informational messages. Logging focuses on providing an overview of the state of an application execution through the use of discrete messages, or, events. Through these logs, we can put automation in place in which events can be read, and relevant parties can be notified if a criterion or threshold has been met.
+Logging is the ability to track and report related data in a centralized way. These log events can be used to track errors in code, application failures, or purely informational messages. Logging focuses on providing an overview of the state of an application execution through the use of discrete messages, or, events. Through these logs, we can put automation in place in which events can be read, and relevant parties can be notified if a criterion or threshold has been met.
 
-Tracing, on the other hand, focuses on the continuous flow of the application, tracing allows us to trace the program execution from beginning to end through the various methods and services while understanding the state and transitions of data.
+Tracing, on the other hand, focuses on the continuous flow of the application. Tracing allows us to trace the program execution from beginning to end through the various methods and services while understanding the state and transitions of data.
 
-Monitoring can, at times, be used to mean tracing or logging. However, monitoring is the process in which application instrumentation is used to provide metrics in which a user can reason about and thus make informed decisions. These metrics can be aggregated data from logs or trace events into a dashboard view that allows operations teams a holistic view of the application health from utilisation to error count.
+Monitoring can, at times, be used to mean tracing or logging. However, monitoring is the process in which application instrumentation is used to provide metrics in which a user can reason about and thus make informed decisions. These metrics can be aggregated data from logs or trace events into a dashboard view that allows operations teams a holistic view of the application health from utilization to error count.
 
-For single-process applications that traditionally run on-premises, logging and tracing is a relatively straightforward process. 
+For single-process applications that traditionally run on-premises, logging and tracing is a relatively straightforward process. The application and its dependencies are deployed together, logging and tracing within a single execution context. All relevant calls within the application happen within the same process boundary, and there is no need to cross-application or process boundaries.
 
-The application and it's dependencies are deployed together, logging and tracing within a single execution context. All relevant calls within the application happen within the same process boundary, and there is no need to cross-application or process boundaries.
-
-When developing cloud-native distributed applications, this can be a somewhat complicated endeavour and at times. When troubleshooting a problem Monoliths are convenient as all code is bound withing a single execution context and so it is easier to track a request and trace the code path through the entirety of the request cycle. 
-
-A cloud-native application, being distributed by design, a single request can interact with many microservices. Each microservice will generate its own set of logs from their specific task, and it becomes problematic to determine the process flow of execution.
+When developing cloud-native distributed applications, this can be a somewhat complicated endeavour at times. A cloud-native application, being distributed by design, a single request can interact with many microservices. Each microservice will generate its own set of logs from their specific task, and it becomes problematic to determine the process flow of execution.
 
 Teams tend to process the log independently for each microservice, as services can handle hundreds of requests concurrently, this can become a laborious task of wading through logs and manually determining a correlation of events.
 
-The following practices can be adopted in a distributed architecture to help overcome the problems of logging in a Cloud Native Environment.
+The following practices can be adopted in a distributed architecture to help overcome the problems of logging in a cloud native environment.
 
-• All requests generated by the user application should have a unique identifier for the request. This unique identifier shall be passed through each microservice. Each microservice should be designed to accept this Correlation ID as part of the request and all logs emitted by the service should contain the correlation ID.
-• When the request is processed, and the response sent, the correlation ID should be returned as part of the response. The user application should then use the correlation ID when emitting its own logs.
-• All logs should be emitted to a single hub and stored in a central repository
-• Log data should be structured using JSON 
+* All requests generated by the user application should have a unique identifier, typically called a correlation ID, for the request. This unique identifier should be passed through each microservice. Each microservice should be designed to accept this correlation ID as part of the request and all logs emitted by the service should contain the correlation ID.
+* When the request is processed, and the response sent, the correlation ID should be returned as part of the response. The user application should then use the correlation ID when emitting its own logs.
+* All logs should be emitted to a single hub and stored in a central repository.
+* Log data should be structured using JSON.
 
-By incorporating the above changes to the distributed application, it now allows for any member of a team to retrieve logs from the complete lifecycle of the request through the correlation ID. 
+By incorporating the above changes to the distributed application, it now allows for any member of a team to retrieve logs from the complete lifecycle of the request through the correlation ID.
 
-All logs should be stored in long term storage; this allows for analysis and diagnosis of issues and also allows the team to determine if there have been changes to system behaviour over time.
+All logs should be stored in long term storage; this allows for analysis and diagnosis of issues and also allows the team to determine if there have been changes to system behavior over time.
 
 Context should be added to every request, and these objects can be:
-• Date and Time such as UTC
-• Service name
-• HTTP Codes
-• Browser Type
-• Severity of Event
-• Pertinent information from the request type that can be used to help diagnose problems, i.e. method name.
+
+* Date & Time in UTC
+* Service name
+* HTTP Codes
+* Browser Type
+* Severity of Event
+* Pertinent information from the request type that can be used to help diagnose problems
 
 Care must be taken to ensure the recorded information does not contain PII data and meets any regulatory guidelines such as GDPR.
 
+## Azure Services
+
 Azure provides rich services to implement an effective Logging/Tracing and Monitoring Strategy.
-• Event Hub
-• Data Lake
-• Azure Blob Storage
-• Stream Analytics
-• Logic Apps
-• Application Insights
-• Azure Monitor
 
-Azure Event Hub is a fully managed, real-time ingestion service that is able to stream large volumes of events per second. As such, Event Hubs is the perfect candidate for a central log ingestion pipeline. 
+### Event Hub
 
-Event hub can be configured to send all event message to Azure Data Lake, or, Azure Blob Storage for long term archival for analysis. [Azure Event Hubs for further inforamtion](https://azure.microsoft.com/services/event-hubs/)
-  
-Azure Blob Storage is a cloud scalable storage layer for storing unstructured object data. This data can be either text or binary. Event hub can be configured to store events as Avro files within Blob Storage. Azure Log Analytics can then be used to query the log data for insights. [Azure Blob Storage for further information](https://azure.microsoft.com/en-gb/services/storage/blobs/)
+[Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) is a fully managed, real-time ingestion service that is able to stream large volumes of events per second. As such, Event Hubs is the perfect candidate for a central log ingestion pipeline.
 
-Azure Data Lake is a cloud scalable storage repository that can be used to store data in any format and for long periods of time. Developers can then query the objects stored within the Data Lake for investigational purposes. [Azure Data Lake for Further information](https://azure.microsoft.com/services/storage/data-lake-storage/)
+Event hub can be configured to send all event message to Azure Data Lake, or, Azure Blob Storage for long term archival for analysis.
 
-Azure Stream Analytics is a real-time serverless analytics engine design for critical machine workloads. Stream analytics can be leveraged to process event messages if critical indicators are met [Azure Stream Anaylitics](https://azure.microsoft.com/services/stream-analytics/). 
+### Azure Blob Storage
 
-Azure Logic Apps is a serverless cloud service that allows developers to schedule, orchestrate common tasks through a series of workflows via a visual designer. The power of logic apps is through the connectors that be used to integrate with a number of first and third party services [with Azure Logic Appsrr](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
+[Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) is a cloud scalable storage layer for storing unstructured object data. This data can be either text or binary. Event hub can be configured to store events as Avro files within Blob Storage. Azure Log Analytics can then be used to query the log data for insights.
 
-These Stream Analytics Jobs can then be used to trigger a Logic App Workflow. The workflow can incorporate notification elements, to notify the development team as well as the ability to call RESTful APIs. 
+### Data Lake
 
-Application Insights is an extensible Application Performance Management service for Developers and the DevOps Team. Application Insights can be used to monitor live services, detect anomalies in performance and analytics tools to diagnose and trace problems and query log data as well as diagnose issues using telemetry from Application Insights within Visual Studio.[Debugging application with Application Insights and VS Studio for further information](https://docs.microsoft.com/en-us/azure/azure-monitor/app/visual-studio).
+[Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/) is a cloud scalable storage repository that can be used to store data in any format and for long periods of time. Developers can then query the objects stored within the Data Lake for investigational purposes.
 
-Application Insights can be leveraged to for distributed tracing through the use of the SDK for[Application Insights Distributed Tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing) 
+### Stream Analytics
 
-Azure Monitor is a service that maximises the availability and performance of cloud-native applications. Collecting, analysing and acting on telemetry from cloud-native applications. With Azure, Monitor Teams can create operational Dashboard and detect issues and the ability to Alert Teams of critical situations. [Azure Monitor for further information](https://docs.microsoft.com/azure/azure-monitor/overview).
+[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is a real-time, serverless analytics engine designed for critical machine workloads. Stream analytics can be leveraged to process event messages if critical indicators are met.
 
-If the team leverages an ITSM system, Logic Apps can be used to call the RESTful endpoint of the ITSM system and create the relevant issue with the appropriate severity level [Stream Analytics and Azure Logic Apps for further information](https://docs.microsoft.com/archive/blogs/vinaysin/consuming-azure-stream-analytics-output-in-azure-logic-apps). This allows for quicker notification to all relevant teams and ensures that triaging is more immediate and useful.
+### Logic Apps
 
-When building a cloud-native distributed microservices architecture, teams are able to leverage these Azure Services and build an effecting Logging; Tracing and Monitoring Solution. 
+[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) is a serverless cloud service that allows developers to schedule, orchestrate common tasks through a series of workflows via a visual designer. The power of logic apps is through the connectors that be used to integrate with a number of first and third party services in a low/no-code way.
 
-The development team is able to view near real-time metrics through Application Insights and gain insight into application health. For long term storage the events can either be stored in Azure Blob Store, or Azure Data Lake. Log Analytics can then be used to 
+For example, Stream Analytics Jobs can be used to trigger a Logic App workflow. The workflow can incorporate notification elements, to notify the development team as well as the ability to call RESTful APIs.
 
-The diagram below depicts an architecture in which the above services are leverages to build a logging and monitoring system. Application Events are emitted from both the API and the UI to Application Insights as well as Azure Event Hub. 
+### Application Insights
+
+[Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) is an extensible Application Performance Management service for Developers and the DevOps team. Application Insights can be used to monitor live services, detect anomalies in performance and analytics tools to diagnose and trace problems and query log data as well as diagnose issues using telemetry from Application Insights [within Visual Studio](https://docs.microsoft.com/azure/azure-monitor/app/visual-studio).
+
+Application Insights can be leveraged for [distributed tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing) through the use of the SDK.
+
+### Azure Monitor
+
+[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) is a service that maximizes the availability and performance of cloud-native applications. Collecting, analyzing and acting on telemetry from cloud-native applications. With Azure Monitor, teams can create operational dashboards and detect issues and the ability to Alert Teams of critical situations.
+
+If the team leverages an IT Service Management (ITSM) system, Logic Apps can be used to call the REST endpoint of the ITSM system and create the relevant issue with the appropriate severity level. See [Stream Analytics and Azure Logic Apps](https://docs.microsoft.com/archive/blogs/vinaysin/consuming-azure-stream-analytics-output-in-azure-logic-apps) for further information. This allows for quicker notification to all relevant teams and ensures that triaging is more immediate and useful.
+
+When building a cloud-native distributed microservices architecture, teams are able to leverage these Azure Services and build an effecting Logging, Tracing, and Monitoring Solution. The development team is able to view near real-time metrics through Application Insights and gain insight into application health. For long term storage the events can either be stored in Azure Blob Store, or Azure Data Lake. Log Analytics can then be used to 
+
+The diagram below depicts an architecture in which the above services are leverages to build a logging and monitoring system. Application Events are emitted from both the API and the UI to Application Insights as well as Azure Event Hub.
+
 ![](Paas_Tracing_Logg.jpeg)
 
-For architectures that leverage Azure Virtual Machines, the following architecture includes Azure Monitor. Azure Monitor for VM's monitors the performance and health of the Virtual Machines that are used to run the application.
+For architectures that leverage Azure Virtual Machines, the following architecture includes Azure Monitor. Azure Monitor for VMs monitors the performance and health of the Virtual Machines that are used to run the application.
 ![](Iaas_Tracing_Logg.jpeg)
 
-Once an application has been deployed, the focus moves to ensure that cloud-native applications are highly reliable, scalable, redundant, resiliency and security. 
+Once an application has been deployed, the focus moves to ensure that cloud-native applications are highly reliable, scalable, redundant, resiliency and security.
 
-From a security perspective, great work is invested in ensuring that the application is built as securely as possible using modern working methods and practices. However, cloud-Native applications are not immune to security issues. Cloud-native applications are a target of attack from rogue agents as much as traditional on-premise systems.
+## Security
 
-Azure Sentinel is a Security Information and Event Management (SIEM) tool. Sentinel provides a unified overview of the cloud estate, in which information is provided through the native integration of Azure Services. Not only is Sentinel able to collect information from the cloud, but it can also collect information from downstream dependant systems hosted within a customer's datacentre.
+From a security perspective, great work is invested in ensuring that the application is built as securely as possible using modern working methods and practices. However, cloud-native applications are not immune to security issues. Cloud-native applications are a target of attack from rogue agents as much as traditional on-premise systems.
+
+[Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) is a Security Information and Event Management (SIEM) tool. Sentinel provides a unified overview of the cloud estate, in which information is provided through the native integration of Azure Services. Not only is Sentinel able to collect information from the cloud, but it can also collect information from downstream dependant systems hosted within a customer's data center.
 
 Azure Sentinel provides a dashboard view of the current security posture and allows administrators a global view on potentially malicious events such as failed logins (suspicious credentials) and the relevant connections from these events. SRE teams can leverage Azure Log Analytics to perform further analysis.
 
-By creating a unified logging strategy, development and operations teams can gain deep and unified insight from within the application through application logging as well as gain insights from outside of the application domain through [Azure Sentinel](https://azure.microsoft.com/en-gb/services/azure-sentinel/)
-
+By creating a unified logging strategy, development and operations teams can gain deep and unified insight from within the application through application logging as well as gain insights from outside of the application domain through Azure Sentinel.
