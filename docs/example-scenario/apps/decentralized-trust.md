@@ -6,7 +6,7 @@ author: vitoc
 ms.date: 09/09/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
+ms.subservice: example-scenario
 ms.custom:
   - csa-team
   - blockchain

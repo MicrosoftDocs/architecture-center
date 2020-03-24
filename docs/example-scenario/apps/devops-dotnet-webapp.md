@@ -2,11 +2,11 @@
 title: Design a CI/CD pipeline using Azure DevOps
 titleSuffix: Azure Example Scenarios
 description: Build and release a .NET app to Azure Web Apps using Azure DevOps.
-author: christianreddington
+author: chrisreddington
 ms.date: 12/06/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
+ms.subservice: example-scenario
 ms.custom:
   - fasttrack
   - seodec18

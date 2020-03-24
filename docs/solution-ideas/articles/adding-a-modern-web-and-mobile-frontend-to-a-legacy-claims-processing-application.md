@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: The solution demonstrates modernizing an existing application by consolidating data from multiple business systems into one place and surfacing it through web and mobile frontends. This is targeted at improving employee productivity and to enable faster decision making.
 ms.custom: acom-architecture, line of business app, lob app, lift and shift cloud strategy, cloud migration, cloud innovation, lift and shift solution, lift and shift strategy, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Lift and Shift and Innovate - LOB Apps
 
@@ -258,31 +260,6 @@ This line-of-business application solution consolidates data from multiple busin
     </a>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Customer’s mobile app authenticates via Azure Active Directory B2C</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Customer’s mobile app connects to the back-end web service that aggregates data from different systems using asynchronous connection</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Web application connects to SQL database</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Power BI connects to SQL database and SharePoint</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Logic app pulls data from CRM (Salesforce)</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Logic app connects to SAP system (on-premises or in the cloud)</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Employee mobile app connects to the logic app that orchestrates the business process</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Employee mobile app authenticates via Azure Active Directory</p>
-</div>
-
 ## Data Flow
 
 1. Customer’s mobile app authenticates via Azure Active Directory B2C
@@ -303,4 +280,4 @@ This line-of-business application solution consolidates data from multiple busin
 * [Running SAP on Azure](/azure/virtual-machines/workloads/sap/get-started?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json)
 * [Running SQL server in Azure](/azure/sql-database/sql-database-get-started-portal/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

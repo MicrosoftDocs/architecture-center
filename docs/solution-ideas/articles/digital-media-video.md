@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: A basic video-on-demand solution that gives you the capability to stream recorded video content such as movies, news clips, sports segments, training videos, and customer support tutorials to any video-capable endpoint device, mobile application, or desktop browser. Video files are uploaded to Azure Blob storage, encoded to a multi-bitrate standard format, and then distributed via all major adaptive bit-rate streaming protocols (HLS, MPEG-DASH, Smooth) to the Azure Media Player client.
 ms.custom: acom-architecture, media, 'https://azure.microsoft.com/solutions/architecture/digital-media-video/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Video-on-demand digital media
 
@@ -150,4 +152,4 @@ This solution is built on the Azure managed services: [Blob Storage](https://azu
 * [Develop video player applications](/api/Redirect/documentation/articles/media-services-develop-video-players/)
 * [Deliver content securely](https://azure.microsoft.com/services/media-services/content-protection/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

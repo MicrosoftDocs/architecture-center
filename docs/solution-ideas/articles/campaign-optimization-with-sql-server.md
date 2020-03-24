@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: This solution demonstrates how to build and deploy a machine learning model with SQL Server 2016 with R Services to recommend actions to maximize the purchase rate of leads targeted by a campaign.
 ms.custom: acom-architecture, artificial intelligence, sql-server, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/campaign-optimization-with-sql-server/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Campaign Optimization with SQL Server
 
@@ -84,4 +86,4 @@ Please ensure that you stop your VM instance when not actively using the solutio
 
 Please delete the solution if you are not using it.
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

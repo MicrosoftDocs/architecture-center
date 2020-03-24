@@ -6,7 +6,7 @@ author: alexbuckgit
 ms.date: 07/10/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
+ms.subservice: example-scenario
 ms.custom:
   - fasttrack
   - web-apps

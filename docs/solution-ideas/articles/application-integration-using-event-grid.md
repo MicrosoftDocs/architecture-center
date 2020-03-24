@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Event Grid connects your app with other services. For example, create an application topic to send your app’s event data to Event Grid and take advantage of its reliable delivery, advanced routing, and direct integration with Azure. Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code.
 ms.custom: acom-architecture, application-development, event-grid, azure, 'https://azure.microsoft.com/solutions/architecture/application-integration-using-event-grid/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Application integration using Event Grid
 
@@ -58,4 +60,4 @@ Event Grid connects your app with other services. For example, create an applica
     <path fill="#969696" d="M22.046 74.723V70.75h-1.801v3.973h-4.723l5.236 7.066 5.235-7.066zM20.245 57.25h1.801v-4.5h-1.801zM20.245 63.25h1.801v-4.5h-1.801zM20.245 69.25h1.801v-4.5h-1.801zM99.291 104.131l-7.067-5.235v4.454h-4.079v1.801h4.079v4.215zM70.146 105.151h4.5v-1.801h-4.5zM76.146 105.151h4.5v-1.801h-4.5zM82.146 105.151h4.5v-1.801h-4.5z"/>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

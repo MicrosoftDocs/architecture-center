@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Learn how to use the Azure Blockchain Workbench. Build an asset tracking application for supply chain with a step-by-step flowchart.
 ms.custom: acom-architecture, Azure blockchain workbench, blockchain pattern, blockchain workbench, manufacturing, blockchain and IoT, interactive-diagram, is-deployable, 'https://azure.microsoft.com/solutions/architecture/supply-chain-track-and-trace/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Supply Chain Track and Trace
 
@@ -307,27 +309,6 @@ An Azure Logic App performs that transformation. It is triggered when a new mess
 
 The first service bus effectively serves as an "Outbox" for IoT Hub and the second one serves as an "Inbox" for Azure Blockchain Workbench.</p>
 </div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>DLT Consumer fetches the data from the message broker (Service Bus) and sends data to Transaction Builder - Signer.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Transaction Builder builds and signs the transaction.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>The signed transaction gets routed to the Blockchain (Private Ethereum Consortium Network).</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>DLT Watcher gets confirmation of the transaction commitment to the Blockchain and sends the confirmation to the message broker (Service Bus).</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>DB consumers send confirmed blockchain transactions to off-chain databases (Azure SQL Database).</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Information analyzed and visualized using tools such as Power BI by connecting to off-chain database (Azure SQL Database).</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Events from the ledger are delivered to Event Grid and Service Bus for use by downstream consumers. Examples of "downstream consumers" include logic apps, functions or other code that is designed to take action on the events. For example, an Azure Function could receive an event and then place that in a datastore such as SQL Server.</p>
-</div>
 
 ## Data Flow
 
@@ -374,4 +355,4 @@ The first service bus effectively serves as an "Outbox" for IoT Hub and the seco
 ## Deploy to Azure
 * [Deploy to Azure](https://aka.ms/tryworkbench)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

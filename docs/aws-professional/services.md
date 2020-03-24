@@ -171,6 +171,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 Dedicated network | [Direct Connect](https://aws.amazon.com/directconnect/) | [ExpressRoute](https://azure.microsoft.com/services/expressroute/) | Establishes a dedicated, private network connection from a location to the cloud provider (not over the Internet). |
 | Load balancing | [Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html) | [Load Balancer](https://azure.microsoft.com/services/load-balancer/)  | Azure Load Balancer load-balances traffic at layer 4 (TCP or UDP). |
 | &nbsp; |  [Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html) | [Application Gateway](https://azure.microsoft.com/services/application-gateway/) | Application Gateway is a layer 7 load balancer. It supports SSL termination, cookie-based session affinity, and round robin for load-balancing traffic. |
+| Network isolation | [PrivateLink](https://aws.amazon.com/privatelink/) | [Private Link](https://azure.microsoft.com/services/private-link/)  | Private access to services hosted on the Azure platform, keeping your data on the Microsoft network. |
 
 ## Security, identity, and access
 
@@ -277,4 +278,3 @@ Dedicated network | [Direct Connect](https://aws.amazon.com/directconnect/) | [E
 
 If you are new to Azure, review the interactive [Core Cloud Services - Introduction to Azure](/learn/modules/welcome-to-azure) module on [Microsoft Learn](/learn).
 
-[!INCLUDE [clicktale](../_js/clicktale.md)]

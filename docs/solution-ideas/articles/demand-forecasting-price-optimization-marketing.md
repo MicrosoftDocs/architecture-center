@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Predict future customer demand and optimize pricing to maximize profitability using big-data and advanced-analytics services from Microsoft Azure.
 ms.custom: acom-architecture, demand forecasting, price optimization, 'https://azure.microsoft.com/solutions/architecture/demand-forecasting-price-optimization-marketing/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Demand Forecasting + Price Optimization
 
@@ -79,4 +81,4 @@ By using this solution to ingest historical transaction data, predict future dem
 * [Learn more about Data Factory](/azure/data-factory/data-factory-introduction)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Lift and shift to containers with AKS
 ms.custom: acom-architecture, app-dev, devops, chat, signalr service, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/migrate-existing-applications-with-aks/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Lift and shift to containers with AKS
 
@@ -122,22 +124,6 @@ Easily migrate existing application to container(s) and run within the Azure man
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>User converts existing application to container(s) &amp; publishes container image(s)to the Azure Container Registry</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Using Azure Portal or command line, user deploys containers to AKS cluster</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Azure Active Directory is used to control access to AKS resources</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Easily access SLA-backed Azure Services such as Azure Database for MySQL using OSBA (Open Service Broker for Azure)</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Optionally, AKS can be deployed with a VNET virtual network</p>
-</div>
-
 ## Data Flow
 
 1. User converts existing application to container(s) &amp; publishes container image(s)to the Azure Container Registry
@@ -147,4 +133,4 @@ Easily migrate existing application to container(s) and run within the Azure man
 1. Optionally, AKS can be deployed with a VNET virtual network
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

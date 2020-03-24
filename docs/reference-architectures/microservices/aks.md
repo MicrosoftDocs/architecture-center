@@ -59,7 +59,7 @@ The Kubernetes Service object is a natural way to model microservices in Kuberne
 
 - Service discovery. Services are assigned internal DNS entries by the Kubernetes DNS service. That means the API gateway can call a backend service using the DNS name. The same mechanism can be used for service-to-service communication. The DNS entries are organized by namespace, so if your namespaces correspond to bounded contexts, then the DNS name for a service will map naturally to the application domain.
 
-The following diagram show the conceptual relation between services and pods. The actual mapping to endpoint IP addresses and ports is done by kube-proxy, the Kubernetes network proxy.
+The following diagram shows the conceptual relation between services and pods. The actual mapping to endpoint IP addresses and ports is done by kube-proxy, the Kubernetes network proxy.
 
 ![Services and pods](./_images/aks-services.png)
 
@@ -259,10 +259,52 @@ To learn more about the challenges, see [CI/CD for microservices architectures](
 
 For specific recommendations and best practices, see [CI/CD for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.md).
 
+## Cost considerations
+
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
+
+Here are some points to consider for some of the services used in this architecture.
+
+### Azure Kubernetes Service (AKS)
+
+There are no costs associated for AKS in deployment, management, and operations of the Kubernetes cluster. You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster.
+
+To estimate the cost of the required resources please see the [Container Services calculator][aks-Calculator].
+
+### Azure Load balancer
+
+You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
+
+See [Azure Load Balancer Pricing][az-lb-pricing] for more information.
+
+
+### Azure Application Gateway
+
+In this reference architecture,  Azure Application Gateway is used as the **Ingress** resource.  The gateway routes traffic to services inside the cluster. You are charged for the time that the gateway is provisioned and available and the amount of data processed by the gateway. For more information, see [Application Gateway pricing][AppGatewayPricing].
+
+### Azure DevOps Services
+
+This reference architecture only uses Azure Pipelines. Azure offers the Azure Pipeline as an individual Service. You are allowed  a free Microsoft-hosted job with 1,800 minutes per month for CI/CD and 1 self-hosted job with unlimited minutes per month, extra jobs have charges. For more information, see [Azure DevOps Services Pricing][DevOps-pricing].
+
+### Azure Monitor
+
+For Azure Monitor Log Analytics, you are charged for data ingestion and retention. For more information, see [Azure Monitor Pricing][az-monitor-pricing] for more information.
+
+
 ## Deploy the solution
 
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][ri-deploy].
 
+## Next steps
+
+- To learn about monitoring this architecture, see [Monitoring a microservices architecture in Azure Kubernetes Service (AKS)](../../microservices/logging-monitoring.md).
+- To learn how we measured the performance of this application, see [Performance tuning scenario: Distributed business transactions](../../performance/distributed-transaction.md).
+
 [ri]: https://github.com/mspnp/microservices-reference-implementation
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.md
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/aks-reference-architecture.vsdx
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services/
+[AppGatewayPricing]: https://azure.microsoft.com//pricing/details/application-gateway/
+[aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service

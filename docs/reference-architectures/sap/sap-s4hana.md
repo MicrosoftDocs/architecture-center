@@ -1,13 +1,12 @@
 ---
-title: SAP S/4HANA for Linux virtual machines on Azure
-titleSuffix: Azure Reference Architectures
+title: SAP S/4HANA in Linux on Azure
 description: Proven practices for running SAP S/4HANA in a Linux environment on Azure with high availability.
 author: lbrader
-ms.date: 12/19/2019
+ms.date: 02/19/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
-ms.custom: seodec18, SAP, Linux
+ms.custom: seodec18, SAP, Linux, fcp
 ---
 
 # SAP S/4HANA for Linux virtual machines on Azure
@@ -255,7 +254,7 @@ Place application servers on a separate subnet so you can secure them more
 easily by managing the subnet security policies, rather than the individual
 servers.
 
-When associated with a subnet, a NSG applies to all the servers within the subnet and offers fine-grained control over the servers. Set them up using the [portal](/azure/virtual-network/tutorial-filter-network-traffic), [PowerShell](/azure/virtual-network/tutorial-filter-network-traffic-powershell),
+When associated with a subnet, an NSG applies to all the servers within the subnet and offers fine-grained control over the servers. Set them up using the [portal](/azure/virtual-network/tutorial-filter-network-traffic), [PowerShell](/azure/virtual-network/tutorial-filter-network-traffic-powershell),
 or [Azure CLI](/azure/virtual-network/tutorial-filter-network-traffic-cli).
 
 ### ExpressRoute Global Reach
@@ -661,6 +660,47 @@ features and capabilities. See the [support
 matrix](/azure/site-recovery/azure-to-azure-support-matrix)
 for the latest information about Azure-to-Azure replication.
 
+## Cost considerations
+
+Use the [Pricing calculator][Cost-Calculator] to estimate costs.
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+
+### Virtual machines
+
+This architecture uses virtual machines running Linux, for the application tier and database tier. SAP NetWeaver tier uses Windows virtual machines to run SAP services and applications. The database tier runs AnyDB as the database, such as Microsoft SQL Server, Oracle, or IBM DB2. Virtual machines are also used as jump boxes for management.
+
+There are several payment options for virtual machines in general:
+
+For workloads with no predictable time of completion or resource consumption, consider the Pay-as-you-go option.
+
+Consider using [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) if you can commit to using a virtual machine over a one-year or three-year term. VM reservations can reduce costs up to 72% compared to pay-as-you-go prices.
+
+Use [Azure Spot VMs][az-spot-vms] to run workloads that can be interrupted and do not require completion within a predetermined timeframe or an SLA. Azure deploys Spot VMs if there is available capacity and evicts when it needs the capacity back. Costs associated with Spot virtual machines are significantly lower. Consider Spot VMs for these workloads:
+
+- High-performance computing scenarios, batch processing jobs, or visual rendering applications.
+- Test environments, including continuous integration and continuous delivery workloads.
+- Large-scale stateless applications.
+
+For more information [Linux Virtual Machines Pricing][linux-vms-pricing].
+
+### Virtual machines and availability sets
+
+For all pools and clusters (Web Dispatcher, SAP application servers, Central Services, and HANA) the virtual machines are grouped into separate availability sets. There is no cost for the availability set. You only pay for each VM instance that you create.
+
+### Azure Load Balancer
+
+In this scenario, Azure Load Balancers are used to distribute traffic to virtual machines in the application-tier subnet.
+
+You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
+
+### Express Route
+
+In this architecture, Express Route is the networking service used for creating private connections between an on-premises network and Azure virtual networks.
+
+All inbound data transfer is free. All outbound data transfer is charged based on a pre-determined rate. See [Azure ExpressRoute pricing][expressroute-pricing] For more info.
+
+
 ## Management and operations considerations
 
 ### Backup
@@ -787,4 +827,10 @@ workloads that use some of the same technologies:
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
+[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-s4hana.vsdx
+[az-spot-vms]: /azure/virtual-machines/windows/spot-vms
+
