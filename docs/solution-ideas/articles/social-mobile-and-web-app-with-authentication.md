@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: View a detailed, step-by-step diagram depicting the build process and implementation of the mobile client app architecture that offers social image sharing with a companion web app and authentication abilities, even while offline.
 ms.custom: acom-architecture, identity, web-app, Social Image Sharing, Image Processing App, Image Share App, Companion Web App, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/social-mobile-and-web-app-with-authentication/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Social App for Mobile and Web with Authentication
 
@@ -249,40 +251,6 @@ The links to the right provide documentation on deploying and managing the Azure
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Create the app using Visual Studio and Xamarin.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Add the Azure App Service Mobile Apps back end service to the app solution.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Implement authentication through social identity providers.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Store non-image data in CosmosDB and cache it in Azure Cache for Redis.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Store uploaded images in Azure Blob Storage.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Queue messages about newly uploaded images.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Use Azure Functions to dequeue messages and process images retrieved from blob storage.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Send push notifications to users through a notification hub.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>Build and test the app through Visual Studio App Center and publish it.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-10">
-<p>Control the distribution of user traffic to service endpoints in different datacenters.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-11">
-<p>Use Application Insights to monitor the app service.</p>
-</div>
-
 ## Data Flow
 
 1. Create the app using Visual Studio and Xamarin.
@@ -324,4 +292,4 @@ The links to the right provide documentation on deploying and managing the Azure
 * [Notification Hubs Documentation](/azure/notification-hubs/)
 * [Traffic Manager Documentation](/azure/traffic-manager/traffic-manager-overview)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

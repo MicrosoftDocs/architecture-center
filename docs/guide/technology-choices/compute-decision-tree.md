@@ -1,6 +1,5 @@
 ---
-title: Choose an Azure compute service for your application
-titleSuffix: Azure Application Architecture Guide
+title: Choosing an Azure compute service
 description: A flowchart for selecting a compute service.
 author: MikeWasson
 ms.date: 01/10/2020
@@ -38,7 +37,7 @@ If you're not familiar with the Azure service selected in the previous step, rea
 - [Container Instances](/azure/container-instances/container-instances-overview). The fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service.
 - [Functions](/azure/azure-functions/functions-overview). A managed FaaS service.
 - [Service Fabric](/azure/service-fabric/service-fabric-overview). A distributed systems platform that can run in many environments, including Azure or on premises.
-- [Virtual machines](/azure/virtual-machines/). Deploy and deploy and manage VMs inside an Azure virtual network.
+- [Virtual machines](/azure/virtual-machines/). Deploy and manage VMs inside an Azure virtual network.
 
 ## Understand the hosting models
 

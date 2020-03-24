@@ -165,6 +165,29 @@ In addition, it's always wise to plan for security hardening. Other recommendati
 - As an option, use IPsec policies for encryption of cleartext traffic between servers. If you are also doing subnet isolation, update your network security group rules to allow IPsec traffic.
 - Install anti-malware agents for the VMs.
 
+## Cost considerations
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some factors for optimizing cost for this architecture. 
+
+### Active Directory Domain Services
+
+Consider having Active Directory Domain Services as a shared service that is consumed by multiple workloads to lower costs. See [Active Directory Domain Services pricing][ADDS-pricing] for more information.
+
+### VPN Gateway
+
+The billing model is based on the amount of time the gateway is provisioned and available. See [VPN Gateway Pricing][azure-gateway-pricing].
+
+All inbound traffic is free. All outbound traffic is billed. Internet bandwidth costs are applied to VPN outbound traffic.
+
+
+### Virtual Network
+
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
+All traffic that originates within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
+
+This architecture builds on the architecture deployed in [Run Windows VMs for an N-tier application][windows-n-tier]. See [Cost considerations](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server#cost-considerations) for more information.
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+
 ## Deploy the solution
 
 A deployment for this reference architecture is available on [GitHub][github]. The entire deployment can take several hours to complete.
@@ -279,7 +302,12 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 
 <!-- links -->
 
+
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
 [availability-set]: /azure/virtual-machines/windows/manage-availability
+[azure-gateway-pricing]: https://azure.microsoft.com/pricing/details/vpn-gateway/
 [azure-portal]: https://portal.azure.com
 [azure-ps]: /powershell/azure/overview
 [azure-pricing]: https://azure.microsoft.com/pricing/calculator/
@@ -317,3 +345,4 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 [vm-sizes-general]: /azure/virtual-machines/windows/sizes-general
 [vm-sizes-memory]: /azure/virtual-machines/windows/sizes-memory
 [windows-n-tier]: ../virtual-machines-windows/n-tier.md
+

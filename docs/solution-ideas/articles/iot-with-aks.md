@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: IoT with AKS
 ms.custom: acom-architecture, iot, kubernetes, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/iot-with-aks/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # IoT device deployment and management on demand
 
@@ -122,16 +124,6 @@ IoT scenarios can potentially involve hundreds to thousands of IoT devices. AKS 
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>User initiates AKS deployment using a Helm Chart</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>IoT Edge Connector virtual node deploys to Edge devices via the IoT Hub.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Deployment is updated on Edge devices</p>
-</div>
-
 ## Data Flow
 
 1. User initiates AKS deployment using a Helm Chart
@@ -139,4 +131,4 @@ IoT scenarios can potentially involve hundreds to thousands of IoT devices. AKS 
 1. Deployment is updated on Edge devices
 
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

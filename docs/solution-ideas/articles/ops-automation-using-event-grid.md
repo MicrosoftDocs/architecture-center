@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Event Grid allows you to speed automation and simplify policy enforcement. For example, Event Grid can notify Azure Automation when a virtual machine is created, or a SQL Database is spun up. These events can be used to automatically check that service configurations are compliant, put metadata into operations tools, tag virtual machines, or file work items.
 ms.custom: acom-architecture, event-grid, ap-dev, devops, azure, 'https://azure.microsoft.com/solutions/architecture/ops-automation-using-event-grid/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Ops automation using Event Grid
 
@@ -54,4 +56,4 @@ Event Grid allows you to speed automation and simplify policy enforcement. For e
     </g>
 </svg>
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

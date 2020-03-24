@@ -5,6 +5,8 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Find essential technology to market your products with personalized offers. Individualize your marketing for greater customer response using big-data insights.
 ms.custom: acom-architecture, personalized marketing, ai-ml, marketing personalization, targeted marketing, 'https://azure.microsoft.com/solutions/architecture/personalized-marketing/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
 # Personalized marketing solutions
 
@@ -286,4 +288,4 @@ By personalizing your offers, you’ll deliver an individualized experience for 
 * [Learn how to use Azure Cache for Redis](/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache)
 * [Learn about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+

@@ -6,7 +6,7 @@ author: sujayt
 ms.date: 11/16/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
+ms.subservice: example-scenario
 ms.custom:
   - product-team
   - bcdr

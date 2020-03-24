@@ -238,7 +238,7 @@ def scrape_page(url):
 
 
     # Link to JS file for dynamic content
-    articletext += "\n\n[!INCLUDE [js_include_file](../../_js/index.md)]\n"
+    articletext += "\n\n\n"
 
     # URL Cleanup
     articletext = re.sub('\(/en-ca', '(https://azure.microsoft.com', articletext, flags=re.MULTILINE)

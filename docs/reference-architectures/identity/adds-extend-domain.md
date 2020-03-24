@@ -1,6 +1,5 @@
 ---
-title: Extend your on-premises Active Directory domain to Azure
-titleSuffix: Azure Reference Architectures
+title: Deploy AD DS in an Azure virtual network
 description: Deploy Active Directory Domain Services (AD DS) in an Azure virtual network.
 author: telmosampaio
 ms.date: 05/02/2018
@@ -91,6 +90,27 @@ AD DS servers provide authentication services and are an attractive target for a
 
 Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD DS database.
 
+## Cost considerations
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost]. 
+
+Here are cost considerations for the services used in this architecture.
+
+### AD Domain Services
+
+Consider having Active Directory Domain Services as a shared service that is consumed by multiple workloads to lower costs. For more information, see [Active Directory Domain Services pricing][ADDS-pricing].
+
+### Azure VPN Gateway
+
+The main component of this architecture is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available. 
+
+All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.  
+
+For more information, see [VPN Gateway Pricing][azure-gateway-charges].
+
+### Azure Virtual Network
+
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
+
 ## Deploy the solution
 
 A deployment for this architecture is available on [GitHub][github]. The entire deployment can take up to two hours, which includes creating the VPN gateway and running the scripts that configure AD DS.
@@ -168,6 +188,7 @@ After deployment completes, you can test connectivity from the simulated on-prem
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [adds-resource-forest]: adds-forest.md
 [adfs]: adfs.md
 [azure-cli-2]: /azure/install-azure-cli
@@ -177,11 +198,14 @@ After deployment completes, you can test connectivity from the simulated on-prem
 [adds-data-disks]: https://msdn.microsoft.com/library/mt674703.aspx
 [ad-ds-operations-masters]: https://technet.microsoft.com/library/cc779716(v=ws.10).aspx
 [ad-ds-ports]: https://technet.microsoft.com/library/dd772723(v=ws.11).aspx
+[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
 [availability-set]: /azure/virtual-machines/virtual-machines-windows-create-availability-set
 [azure-expressroute]: /azure/expressroute/expressroute-introduction
+[azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway/
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [capacity-planning-for-adds]: https://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
 [considerations]: ./considerations.md
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [GitHub]: https://github.com/mspnp/identity-reference-architectures/tree/master/adds-extend-domain
 [microsoft_systems_center]: https://www.microsoft.com/download/details.aspx?id=50013
 [monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx

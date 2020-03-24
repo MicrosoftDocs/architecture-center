@@ -169,4 +169,4 @@ We have also built a reference architecture that uses Spark and Azure Databricks
 [scale]: /azure/aks/tutorial-kubernetes-scale
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/
 [vm-size]: /azure/virtual-machines/virtual-machines-linux-change-vm-size
-[workspace]: https://docs.azuredatabricks.net/getting-started/index.html
+[workspace]: /azure/azure-databricks/
