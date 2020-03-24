@@ -12,7 +12,7 @@ ms.subservice: cloud-fundamentals
 
 Many cloud applications use asynchronous messages to exchange information between components of the system. An important aspect of messaging is the format used to encode the payload data. There are many options available, but the right choice depends on your use case. 
 
-After you [choose a messaging technology](../messaging.md), the next step is to define how the messages will be encoded. This article describes some of the considerations.
+After you [choose a messaging technology](guide\technology-choices\messaging.md), the next step is to define how the messages will be encoded. This article describes some of the considerations.
 , the next step is to define how the messages will be encoded. This article describes some of the considerations.
 
 ## Overview
@@ -106,9 +106,9 @@ As business requirements change, the shape is expected to change, and the schema
         - v2 consumers are unaffected. If v2 consumers want to read v1 messages, they might break.
     2. v2 producer will not generate the old field.
         - v1 consumers should not break.
-        - v2 consumers will be be unaffected.
+        - v2 consumers will be unaffected.
 
-   To achieve the preceding use case, the Service A must make sure the changes are backward compatible. That is, v2 consumers can still read v1 messages, say for archival pruposes. 
+   To achieve the preceding use case, the Service A must make sure the changes are backward compatible. That is, v2 consumers can still read v1 messages, say for archival purposes. 
     - v2 producer can choose to define new fields as optional or have a default value.
     - v2 consumer code should ignore fields it doesn't recognize.
 
