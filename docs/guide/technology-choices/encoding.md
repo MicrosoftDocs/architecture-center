@@ -12,7 +12,13 @@ ms.custom: seomar20
 
 # Message encoding considerations
 
-A message exchange between the producer and consumer needs:
+Many cloud applications use asynchronous messages to exchange information between components of the system. An important aspect of messaging is the format used to encode the payload data. There are many options available, but the right choice depends on your use case. 
+
+After you [choose a messaging technology](../messaging.md), the next step is to define how the messages will be encoded. This article describes some of the considerations.
+
+## Overview
+
+A message exchange between a producer and a consumer needs:
 
 -	A shape or structure that defines the payload of the message. 
 -	An encoding format to represent the payload. 
