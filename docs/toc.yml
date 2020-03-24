@@ -81,8 +81,6 @@ items:
       href: best-practices/data-partitioning.md
     - name: Data partitioning strategies (by service)
       href: best-practices/data-partitioning-strategies.md
-    - name: Deployment stamp
-      href: best-practices/deployment-stamp.md
     - name: Message encoding considerations
       href: best-practices/encoding.md
     - name: Monitoring and diagnostics
