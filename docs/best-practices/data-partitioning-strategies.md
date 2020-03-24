@@ -12,7 +12,7 @@ ms.custom: seodec18
 
 # Data partitioning strategies
 
-This article describes some strategies for partitioning data in various Azure data stores. For general guidance about when to partition data and best practices, see [Data partitioning](./data-partitioning.md)
+This article describes some strategies for partitioning data in various Azure data stores. For general guidance about when to partition data and best practices, see [Data partitioning](./data-partitioning.md).
 
 ## Partitioning Azure SQL Database
 
