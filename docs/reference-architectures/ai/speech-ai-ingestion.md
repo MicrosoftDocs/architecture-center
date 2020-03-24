@@ -65,7 +65,7 @@ Azure Blob Storage can throttle service requests [per blob](https://docs.microso
 
 ### Event Grid
 
-The function that transcribes the audio files is triggered when the upload is completed. This reference architecture uses Event Grid trigger instead of the Blob trigger, since the latter events might be missed as the number of blobs in a container increases significantly. Missed triggers negatively affects the application throughput and reliability. Read [Blob trigger bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#trigger) for more details.
+The function that transcribes the audio files is triggered when the upload is completed. This reference architecture uses Event Grid trigger instead of the Blob trigger, since the latter events might be missed as the number of blobs in a container increases significantly. Missed triggers negatively affects the application throughput and reliability. Read [Blob trigger alternatives](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger?tabs=csharp#alternatives) for more information.
 
 ### Azure Cognitive Services
 
