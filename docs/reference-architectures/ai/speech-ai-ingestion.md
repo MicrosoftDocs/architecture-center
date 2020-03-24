@@ -3,7 +3,7 @@ title: Speech to text conversion
 titleSuffix: Azure Reference Architectures
 description: Recommended way to upload audio files and process the speech content to text.
 author: dsk-2015
-ms.date: 03/12/2020
+ms.date: 03/25/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -17,7 +17,7 @@ This reference architecture shows how to build an audio ingestion and *speech-to
 
 This pipeline can later feed into the next phase of your Speech AI implementation, where transcribed text is processed for PII (or Personally Identifiable Information) recognition and deletion, sentiment analysis, and so on.
 
-The reference implementation for this architecture is available on GitHub (TBD link).
+The reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/cognitive-services-reference-implementation).
 
 ## Architecture
 
@@ -25,7 +25,7 @@ The reference implementation for this architecture is available on GitHub (TBD l
 
 Businesses can implement this architecture with their Azure account, and allow the client applications access to the pipeline through REST APIs. The application goes through a three-step process to upload an audio file:
 
-1. It first signs in with the client's Azure account, and gets authenticated with Azure API Management. Note that this is a required step for the very first file upload.
+1. It authenticates with Azure AD. Note that this is a required step for the very first file upload.
 2. It calls the REST API to get the SAS token required to access Azure Blob Storage.
 3. It then uploads the audio files to a blob container.
 
@@ -61,11 +61,11 @@ The reference architecture allows large audio files to be uploaded to the cloud,
 
 #### Scalability for storage
 
-Azure Blob Storage can throttle service requests [per blob](https://docs.microsoft.com/azure/storage/blobs/scalability-targets) or [per storage account](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#storage-limits). The blob-level throttling limits may not be a concern in this scenario, since every uploaded file corresponds to a single blob. However, multiple clients uploading multiple files to a single storage account, may soon exceed its limits. If that is a possibility, consider using multiple storage accounts and partitioning the data objects across them. For a detailed list of scalability considerations for the blob, read the [Performance and scalability checklist for Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-performance-checklist).
+Azure Blob Storage can throttle service requests [per blob](https://docs.microsoft.com/azure/storage/blobs/scalability-targets) or [per storage account](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#storage-limits). The blob-level throttling limits may not be a concern in this scenario, since every uploaded file corresponds to a single blob. However, multiple clients uploading multiple files to a single storage account, may exceed its limits. If that is a possibility, consider using multiple storage accounts and partitioning the data objects across them. For a detailed list of scalability considerations for the blob, read the [Performance and scalability checklist for Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-performance-checklist).
 
 ### Event Grid
 
-The function that transcribes the audio files is triggered when the upload is completed. This reference architecture uses Event Grid trigger instead of the Blob trigger, since the latter events might be missed as the number of blobs in a container increases significantly. Missed triggers negatively affects the application throughput and reliability. Read [Blob trigger bindings](https://web.archive.org/web/20190324011457/https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#trigger) for more details.
+The function that transcribes the audio files is triggered when the upload is completed. This reference architecture uses Event Grid trigger instead of the Blob trigger, since the latter events might be missed as the number of blobs in a container increases significantly. Missed triggers negatively affects the application throughput and reliability. Read [Blob trigger bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#trigger) for more details.
 
 ### Azure Cognitive Services
 
@@ -95,7 +95,7 @@ When several clients upload in parallel, API Management serves multiple purposes
 
 - Enforce usage quotas and rate limits
 - Validate [OAuth 2.0](https://docs.microsoft.com/azure/api-management/api-management-howto-oauth2) tokens for authentication
-- Enable [CORS or cross-origin resource sharing](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) 
+- Enable [CORS or cross-origin resource sharing](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS)
 - Cache responses
 - Monitor and log requests
 
@@ -107,7 +107,7 @@ Another way to improve resiliency is to use [Azure Service Bus](https://docs.mic
 
 ## Deploy the solution
 
-To deploy the reference implementation for this architecture, see the GitHub readme (TBD).
+To deploy the reference implementation for this architecture, see [the GitHub readme](https://github.com/mspnp/cognitive-services-reference-implementation).
 
 ## Next steps
 
