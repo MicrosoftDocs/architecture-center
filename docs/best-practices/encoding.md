@@ -12,7 +12,7 @@ ms.subservice: cloud-fundamentals
 
 Many cloud applications use asynchronous messages to exchange information between components of the system. An important aspect of messaging is the format used to encode the payload data. There are many options available, but the right choice depends on your use case. 
 
-After you [choose a messaging technology](guide\technology-choices\messaging.md), the next step is to define how the messages will be encoded. This article describes some of the considerations.
+After you [choose a messaging technology](../guide/technology-choices/messaging.md), the next step is to define how the messages will be encoded. This article describes some of the considerations.
 , the next step is to define how the messages will be encoded. This article describes some of the considerations.
 
 ## Overview
@@ -190,4 +190,4 @@ The preamble can hold the header or a schema identifier. Because of the smaller 
 
 ## Next steps
 
-- Understand [messaging design patterns](../../patterns/category/messaging.md) for cloud applications.
+- Understand [messaging design patterns](../patterns/category/messaging.md) for cloud applications.
