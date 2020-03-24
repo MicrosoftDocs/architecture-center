@@ -10,9 +10,9 @@ ms.subservice: cloud-fundamentals
 
 # Message encoding considerations
 
-Many cloud applications use asynchronous messages to exchange information between components of the system. An important aspect of messaging is the format used to encode the payload data. There are many options available, but the right choice depends on your use case. 
+Many cloud applications use asynchronous messages to exchange information between components of the system. An important aspect of messaging is the format used to encode the payload data. After you [choose a messaging technology](../guide/technology-choices/messaging.md), the next step is to define how the messages will be encoded. There are many options available, but the right choice depends on your use case. 
 
-After you [choose a messaging technology](../guide/technology-choices/messaging.md), the next step is to define how the messages will be encoded. This article describes some of the considerations.
+ This article describes some of the considerations.
 
 ## Overview
 
@@ -92,20 +92,20 @@ As business requirements change, the shape is expected to change, and the schema
     Service A sends v1 messages to services B,C, and D. Service A is updated to v2 and starts sending v2 messages. The teams that are responsible for consumer services are notified about the latest version. Services B, C, and D are eventually updated to read v2 messages while v1 consumers are able to read v2 messages.
 
     Suppose a field is added in v2. 
-    1. v1 producer will not generate the new field. 
+    1. v1 producer doesn't generate the new field. 
        - v1 consumers are unaffected. 
        - v2 consumers might break if they want to read v1 messages. 
-    2. v2 producer will generate the new field.
+    2. v2 producer generates the new field.
         - v1 consumers are not aware of the new field and remain unaffected.
-        - v2 consumers will use the new field.
+        - v2 consumers use the new field.
         
     Suppose a field is deleted in v2.
-    1. v1 producer will generate the old field.
+    1. v1 producer generates the old field.
         - v1 consumers are unaffected.
         - v2 consumers are unaffected. If v2 consumers want to read v1 messages, they might break.
-    2. v2 producer will not generate the old field.
+    2. v2 producer doesn't generate the old field.
         - v1 consumers should not break.
-        - v2 consumers will be unaffected.
+        - v2 consumers are unaffected.
 
    To achieve the preceding use case, the Service A must make sure the changes are backward compatible. That is, v2 consumers can still read v1 messages, say for archival purposes. 
     - v2 producer can choose to define new fields as optional or have a default value.
