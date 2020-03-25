@@ -129,7 +129,7 @@ These are just two examples of interoperability considerations. In general, stan
 Here are some popular encoding formats. Factor in the considerations before you choose a format.
 
 ### JSON
-[JSON](https://json.org/) is an open standard (IETF [RFC8259]https://tools.ietf.org/html/rfc8259()). It’s a text-based format that follows the array/dictionary/value model. 
+[JSON](https://json.org/) is an open standard (IETF [RFC8259](https://tools.ietf.org/html/rfc8259)). It’s a text-based format that follows the array/dictionary/value model. 
 
 JSON can be used for tagging metadata and you can parse the payload without a schema. JSON supports the option to specify optional fields, which helps with forward and backward compatibility. 
 

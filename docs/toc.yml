@@ -82,7 +82,7 @@ items:
     - name: Data partitioning strategies (by service)
       href: best-practices/data-partitioning-strategies.md
     - name: Message encoding considerations
-      href: best-practices/encoding.md
+      href: best-practices/message-encode.md
     - name: Monitoring and diagnostics
       href: best-practices/monitoring.md
     - name: Retry guidance for specific services
