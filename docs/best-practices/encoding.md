@@ -87,36 +87,11 @@ As business requirements change, the shape is expected to change, and the schema
     One way is for the consumer to check all fields to determine whether the schema has changed. Another way is for the producer to publish a schema version number with the message. When the schema evolves, the producer increments the version.
 
 - Changes must not affect or break the business logic of consumers. 
-    Consider a microservices architecture with four services, A, B, C, and D. Service A is the producer and other services are consumers.
-    
-    Service A sends v1 messages to services B,C, and D. Service A is updated to v2 and starts sending v2 messages. The teams that are responsible for consumer services are notified about the latest version. Services B, C, and D are eventually updated to read v2 messages while v1 consumers are able to read v2 messages.
 
-    Suppose a field is added in v2. 
-    1. v1 producer doesn't generate the new field. 
-       - v1 consumers are unaffected. 
-       - v2 consumers might break if they want to read v1 messages. 
-    2. v2 producer generates the new field.
-        - v1 consumers are not aware of the new field and remain unaffected.
-        - v2 consumers use the new field.
-        
-    Suppose a field is deleted in v2.
-    1. v1 producer generates the old field.
-        - v1 consumers are unaffected.
-        - v2 consumers are unaffected. If v2 consumers want to read v1 messages, they might break.
-    2. v2 producer doesn't generate the old field.
-        - v1 consumers should not break.
-        - v2 consumers are unaffected.
+    Suppose a field is added to an existing schema. If consumers using the new version get a payload as per the old version, their logic might break if they are not able to overlook the lack of the new field. Considering the reverse case, suppose a field is removed in the new schema. Consumers using the old schema might not be able to read the data.
 
-   To achieve the preceding use case, the Service A must make sure the changes are backward compatible. That is, v2 consumers can still read v1 messages, say for archival purposes. 
-    - v2 producer can choose to define new fields as optional or have a default value.
-    - v2 consumer code should ignore fields it doesn't recognize.
+    Encoding formats such as Avro offer the ability to define default values. In the preceding example, if the field is added with a default value, the missing field will be populated with the default value. Other formats such as protobuf provide similar functionality through required and optional fields.
 
-    The change must also be forward compatible allowing v1 consumers to read v2 messages. 
-    - v2 producer must not delete a required field.
-
-Encoding formats such as Avro offer the ability to define default values. Other formats such as protobuf provide similar functionality through required and optional fields.
-
-In the preceding example, if the field is added with a default value in v2 messages and v2 consumers want to read v1 messages, while parsing the message the missing field will be populated with the default value. If an optional field is deleted, v2 consumers won't break.
 
 ### Payload structure
 
@@ -158,7 +133,7 @@ Here are some popular encoding formats. Factor in the considerations before you 
 
 JSON can be used for tagging metadata and you can parse the payload without a schema. JSON supports the option to specify optional fields, which helps with forward and backward compatibility. 
 
-The biggest advantage is that its universally available. It’s most interoperable and the default encoding format for many messaging services such as [Azure Service Bus](/azure/service-bus-messaging/) and [Event Grid](/azure/event-grid/). 
+The biggest advantage is that its universally available. It’s most interoperable and the default encoding format for many messaging services. 
 
 Being a text-based format, it isn't efficient over the wire and not an ideal choice in cases where storage is a concern. If you're returning cached items directly to a client via HTTP, storing JSON could save the cost of deserializing from another format and then serializing to JSON.
 
