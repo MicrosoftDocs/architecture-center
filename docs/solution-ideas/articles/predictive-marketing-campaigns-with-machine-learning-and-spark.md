@@ -8,6 +8,7 @@ ms.custom: acom-architecture, predictive marketing, ai-ml, analytics, predictive
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Predictive Marketing with Machine Learning
 
 [!INCLUDE [header_file](../header.md)]
@@ -21,6 +22,9 @@ Optimizing your campaigns with predictive marketing helps improve both sales lea
 This architecture enables efficient handling of big data on Spark with Microsoft R Server.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="predictive-marketing-campaigns-with-machine-learning-and-spark" height="389.326" viewbox="0 0 920.306 389.326"  xmlns="http://www.w3.org/2000/svg">
     <text fill="#505050" font-family="SegoeUI, Segoe UI" font-size="14.805" style="isolation:isolate" transform="matrix(1.036 0 0 1 835.322 98.523)">
@@ -68,15 +72,15 @@ This architecture enables efficient handling of big data on Spark with Microsoft
 </svg>
 
 ## Components
-* Microsoft R Server on [HDInsight](https://azure.microsoft.com/services/hdinsight/) Spark clusters provides distributed and scalable machine learning capabilities for big data, combining the power of R Server and Apache Spark.
+
+* Microsoft R Server on [HDInsight](https://azure.microsoft.com/services/hdinsight) Spark clusters provides distributed and scalable machine learning capabilities for big data, combining the power of R Server and Apache Spark.
 * [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
-* [Storage Accounts](https://azure.microsoft.com/services/storage/): Azure Storage stores campaign and lead data.
-* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
+* [Storage Accounts](https://azure.microsoft.com/services/storage): Azure Storage stores campaign and lead data.
+* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
 
 ## Next Steps
-* [Learn more about Spark on HDInsight](/azure/hdinsight/hdinsight-apache-spark-overview)
-* [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
-* [Learn more about Azure storage](/azure/storage/storage-introduction)
-* [Learn more about Machine Learning](/azure/machine-learning/machine-learning-what-is-machine-learning)
 
-
+* [Learn more about Spark on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview)
+* [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
+* [Learn more about Azure storage](https://docs.microsoft.com/azure/storage/storage-introduction)
+* [Learn more about Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning)

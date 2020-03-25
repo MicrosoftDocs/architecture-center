@@ -8,6 +8,7 @@ ms.custom: acom-architecture, data, HDInsight, Data Lake Storage, Data Factory, 
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Extract, transform, and load (ETL) using HDInsight
 
 [!INCLUDE [header_file](../header.md)]
@@ -17,6 +18,3 @@ Extract, transform, and load your big data clusters on demand with Hadoop MapRed
 ## Architecture
 
 ![Architecture diagram](../media/extract-transform-and-load-using-hdinsight.svg)
-
-
-

@@ -7,8 +7,10 @@ ms.custom: fcp
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ---
+
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD026 -->
+<!-- cSpell:ignore fullheight neuro milliman hymans netapp gluster tibco cyclecloud hpcpack radioss ansys axioma alces slurm mdcs cntk -->
 
 # High Performance Computing (HPC) on Azure
 
@@ -131,7 +133,7 @@ Azure offers a range of sizes that are optimized for both CPU & GPU intensive wo
 #### CPU-based virtual machines
 
 - [Linux VMs](/azure/virtual-machines/linux/sizes-hpc)
-- [Windows VM's](/azure/virtual-machines/windows/sizes-hpc) VMs
+- [Windows VMs](/azure/virtual-machines/windows/sizes-hpc) VMs
   
 #### GPU-enabled virtual machines
 
@@ -256,7 +258,7 @@ SaaS providers or developers can use the Batch SDKs and tools to integrate HPC a
 
 ### Azure CycleCloud
 
-[Azure CycleCloud](/azure/cyclecloud/) Provides the simplest way to manage HPC workloads using any scheduler (like Slurm, Grid Engine, HPC Pack, HTCondor, LSF, PBS Pro, or Symphony), on Azure
+[Azure CycleCloud](/azure/cyclecloud) Provides the simplest way to manage HPC workloads using any scheduler (like Slurm, Grid Engine, HPC Pack, HTCondor, LSF, PBS Pro, or Symphony), on Azure
 
 CycleCloud allows you to:
 
@@ -276,7 +278,7 @@ The following are examples of cluster and workload managers that can run in Azur
 - [Bright Cluster Manager](http://www.brightcomputing.com/technology-partners/microsoft)
 - [IBM Spectrum Symphony and Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/)
 - [Altair PBS Works](https://web.altair.com/pbs-on-azure)
-- [Rescale](https://www.rescale.com/azure/)
+- [Rescale](https://www.rescale.com/azure)
 - [Microsoft HPC Pack](https://technet.microsoft.com/library/mt744885.aspx)
   - [HPC Pack for Windows](/azure/virtual-machines/windows/hpcpack-cluster-options)
   - [HPC Pack for Linux](/azure/virtual-machines/linux/hpcpack-cluster-options)

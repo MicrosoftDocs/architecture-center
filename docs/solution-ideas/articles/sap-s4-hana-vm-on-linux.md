@@ -8,6 +8,7 @@ ms.custom: acom-architecture, sap, linux, Azure linux vm, hana linux, sap hana o
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # SAP S/4 HANA VM on Azure and Linux| Microsoft Azure
 
 [!INCLUDE [header_file](../header.md)]
@@ -30,21 +31,16 @@ This SAP S/4HANA on Azure VM solution architecture illustrates how a user reques
 1. VMs on the DR region can be used for nonproduction to save costs by mounting both the non-production storage and DR replicated volume (read-only).
 1. SAP App Server with ASCS on the DR side can be in standby shutdown mode, and can be started when needed to save costs.
 
-
 ## Components
-* SAP on Azure requires that you run your SAP workloads on certified Microsoft Azure [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/). SAP requires at least two vCPUs and a ratio of 6:1 between memory and vCPU. 
 
-M-Series VMs, and GS5 VM are optimized to run demanding SAP HANA workloads.
-* Azure [Premium Storage](https://azure.microsoft.com/services/storage/disks/) provides improved throughput and less variability in I/O latencies. For improved performance, [Premium Storage](https://azure.microsoft.com/services/storage/disks/) uses SSD in Azure Storage nodes, and read cache that's backed by the local SSD of an Azure compute node.
-
-Azure Write Accelerator is a performance enhancement for M-Series VMs exclusively. It improves I/O latency of writes against Azure [Premium Storage](https://azure.microsoft.com/services/storage/disks/).
-* Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/) used on the front end (see diagram) provides a high bandwidth secure connectivity to establish reliable connections between your network and the Microsoft Azure network.
-* Azure [Virtual Network](https://azure.microsoft.com/services/virtual-network/)s provide the flexibility and security needed to establish reliable connections between your network and the Microsoft Azure network.
+* SAP on Azure requires that you run your SAP workloads on certified Microsoft Azure [Virtual Machines](https://azure.microsoft.com/services/virtual-machines). SAP requires at least two vCPUs and a ratio of 6:1 between memory and vCPU. M-Series VMs, and GS5 VM are optimized to run demanding SAP HANA workloads.
+* Azure [Premium Storage](https://azure.microsoft.com/services/storage/disks) provides improved throughput and less variability in I/O latencies. For improved performance, [Premium Storage](https://azure.microsoft.com/services/storage/disks) uses SSD in Azure Storage nodes, and read cache that's backed by the local SSD of an Azure compute node. Azure Write Accelerator is a performance enhancement for M-Series VMs exclusively. It improves I/O latency of writes against Azure [Premium Storage](https://azure.microsoft.com/services/storage/disks).
+* Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute) used on the front end (see diagram) provides a high bandwidth secure connectivity to establish reliable connections between your network and the Microsoft Azure network.
+* Azure [Virtual Network](https://azure.microsoft.com/services/virtual-network)s provide the flexibility and security needed to establish reliable connections between your network and the Microsoft Azure network.
 
 ## Next Steps
-* [SAP Certifications for Azure](/azure/virtual-machines/workloads/sap/sap-certifications)
-* [Premium Storage: high-performance storage for Azure Virtual Machine workloads](/azure/storage/storage-premium-storage)
-* [ExpressRoute overview](https://azure.microsoft.com/services/expressroute/)
-* [Virtual Network overview](/azure/virtual-network/virtual-networks-overview)
 
-
+* [SAP Certifications for Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
+* [Premium Storage: high-performance storage for Azure Virtual Machine workloads](https://docs.microsoft.com/azure/storage/storage-premium-storage)
+* [ExpressRoute overview](https://azure.microsoft.com/services/expressroute)
+* [Virtual Network overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)

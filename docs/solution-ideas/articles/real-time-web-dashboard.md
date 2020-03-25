@@ -8,6 +8,7 @@ ms.custom: acom-architecture, analytics, data, signalr service, interactive-diag
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Real-time Web Dashboard
 
 [!INCLUDE [header_file](../header.md)]
@@ -18,13 +19,9 @@ Securely monitor and control data streamed from Internet-connected devices.
 
 ![Architecture diagram](../media/real-time-web-dashboard.svg)
 
-
 ## Data Flow
 
 1. Web app connects to SignalR Service and receives token
 1. User connects to web app and gets SignalR endpoint and token
 1. User connects to SignalR Service
 1. Data from real-time source sent to SignalR Service and user
-
-
-

@@ -8,6 +8,7 @@ ms.custom: acom-architecture, artificial intelligence, solution architectures, A
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Demand Forecasting
 
 [!INCLUDE [header_file](../header.md)]
@@ -44,6 +45,4 @@ The 'Deploy' button will launch a workflow that will deploy an instance of the s
 
 ## Pricing Info
 
-Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution. For pricing details, visit the [Azure Pricing Page](https://azure.microsoft.com/pricing/calculator/).
-
-
+Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution. For pricing details, visit the [Azure Pricing Page](https://azure.microsoft.com/pricing/calculator).
