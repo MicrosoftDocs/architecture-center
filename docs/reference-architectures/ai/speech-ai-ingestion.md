@@ -9,7 +9,7 @@ ms.service: architecture-center
 ms.subservice: reference-architecture
 ---
 
-# Speech recognition with Azure Cognitive Services
+# Speech transcription with Azure Cognitive Services
 
 Customer care centers form an integral part of business success. Efficiency of these call centers can be improved using *Speech AI*. Speech recognition and analysis of high volumes of recorded customer calls can provide businesses with valuable information about current trends, product shortcomings as well as successes. Enterprise solutions using the Speech APIs of Azure Cognitive Services can be implemented to consume and process such high volumes of discrete data.
 
@@ -35,15 +35,15 @@ The architecture utilizes the following Azure services:
 
 [**Azure Blob Storage**](https://docs.microsoft.com/azure/storage/blobs/) stores objects on the cloud. Blob storage is optimized for storing massive amounts of unstructured data, such as text or binary data. Since sensitive information might be saved in the blob, its access must be secured using authentication methods such as SAS keys.
 
-[**Azure Event Grid**](https://docs.microsoft.com/azure/event-grid/) provides built-in support to build efficient event-driven architectures on Azure. When the audio file upload is completed, the Event Grid triggers a [*Blob Created*](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage#microsoftstorageblobcreated-event) event for the transcription function.
+[**Azure Event Grid**](https://docs.microsoft.com/azure/event-grid/) provides built-in support for efficient event-driven architectures on Azure. When the audio file upload is completed, the Event Grid triggers a [*Blob Created*](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage#microsoftstorageblobcreated-event) event for the transcription function.
 
 [**Azure Functions**](https://docs.microsoft.com/azure/azure-functions/) provides the event-driven compute capabilities, without the overhead of building the infrastructure. The function in this reference architecture transcribes the speech audio files to text. It is a *serverless* model, meaning the [consumption plan](https://docs.microsoft.com/azure/azure-functions/functions-consumption-costs) is used to host this function.
 
-[**Azure Cognitive Services**](https://docs.microsoft.com/azure/cognitive-services/) is a collection of APIs available to help developers build intelligent applications without the need for extensive AI or data science skills. The transcription function calls the [Cognitive Services Speech-to-text APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) for speech transcription. The output for a sample audio file transcription might look similar to `ResultId:19e70bee8b5348a6afb67817825a9586 Reason:RecognizedSpeech Recognized text:<Text for sample audio.>. Json:{"DisplayText":"Text for sample audio.","Duration":53700000,"Id":"28526a6304da4af1922fedd4edcdddbb","Offset":3900000,"RecognitionStatus":"Success"}`
+[**Azure Cognitive Services**](https://docs.microsoft.com/azure/cognitive-services/) is a collection of APIs available to help developers build intelligent applications without the need for extensive AI or data science skills. The transcription function calls the [Cognitive Services Speech-to-text APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text). The output for a sample audio file transcription might look similar to the following metadata: `ResultId:19e70bee8b5348a6afb67817825a9586 Reason:RecognizedSpeech Recognized text:<Text for sample audio.>. Json:{"DisplayText":"Text for sample audio.","Duration":53700000,"Id":"28526a6304da4af1922fedd4edcdddbb","Offset":3900000,"RecognitionStatus":"Success"}`.
 
 [**Azure API Management**](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) provides secure access to REST APIs. Since only clients authenticated with the API Management are able to request a SAS token, this service provides an additional layer of security in this architecture.
 
-[**Azure Active Directory**](https://docs.microsoft.com/azure/active-directory/) provides identity management and secured access to resources in Azure cloud. The access token for the blob storage is created using the Azure AD credentials of the owner of the Azure resources. The clients are given the minimum access privileges required to upload their audio files, using the [**Role-based Access Control**](https://docs.microsoft.com/azure/role-based-access-control/overview) feature of Azure AD.
+[**Azure Active Directory**](https://docs.microsoft.com/azure/active-directory/) or Azure AD provides identity management and secured access to resources in Azure cloud. The client in this architecture first needs to authenticate with Azure AD to be able to access the REST API. The REST API creates the access token for the blob storage, using the Azure AD credentials of the business owner. The client is given the minimum access privileges required to upload the audio files, using [**Role-based Access Control**](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 [**Azure Key Vault**](https://docs.microsoft.com/azure/key-vault/key-vault-overview) allows secure storage of secrets and keys. This reference architecture stores the account credentials and other secrets required to generate the SAS tokens in the Key Vault. Both the REST APIs and the speech transcription function access this vault to retrieve the secrets.
 
@@ -65,11 +65,11 @@ Azure Blob Storage can throttle service requests [per blob](https://docs.microso
 
 ### Event Grid
 
-The function that transcribes the audio files is triggered when the upload is completed. This reference architecture uses Event Grid trigger instead of the Blob trigger, since the latter events might be missed as the number of blobs in a container increases significantly. Missed triggers negatively affects the application throughput and reliability. Read [Blob trigger alternatives](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger?tabs=csharp#alternatives) for more information.
+The function that transcribes the audio files is triggered when the upload is completed. This reference architecture uses Event Grid trigger instead of the Blob trigger, since the latter events might be missed as the number of blobs in a container increases significantly. Missing triggers negatively affects the application throughput and reliability. Read [Blob trigger alternatives](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger?tabs=csharp#alternatives) for more information.
 
 ### Azure Cognitive Services
 
-The Cognitive Services APIs have [request limits for the text translation](https://docs.microsoft.com/azure/cognitive-services/translator/request-limits) based on the subscription tier. Consider containerizing these APIs to avoid throttling large volume processing. Containers give you flexibility of deployment, whether on cloud or on-premises. Side-effects of new version roll-outs can also be mitigated by using containers. Read [Container support in Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support) for more information.
+The Cognitive Services APIs may have request limits based on the subscription tier. Consider containerizing these APIs to avoid throttling large volume processing. Containers give you flexibility of deployment, whether on cloud or on-premises. Side-effects of new version roll-outs can also be mitigated by using containers. Read [Container support in Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support) for more information.
 
 ## Security considerations
 
@@ -93,22 +93,22 @@ In addition to restricting access to resources using SAS tokens, this reference 
 
 When several clients upload in parallel, API Management serves multiple purposes such as:
 
-- Enforce usage quotas and rate limits
-- Validate [OAuth 2.0](https://docs.microsoft.com/azure/api-management/api-management-howto-oauth2) tokens for authentication
-- Enable [CORS or cross-origin resource sharing](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS)
-- Cache responses
-- Monitor and log requests
+- Enforce usage quotas and rate limits.
+- Validate [OAuth 2.0](https://docs.microsoft.com/azure/api-management/api-management-howto-oauth2) tokens for authentication.
+- Enable [CORS or cross-origin resource sharing](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS).
+- Cache responses.
+- Monitor and log requests.
 
 ## Resiliency considerations
 
-For an extremely large number of events, Event Grid may fail to trigger the function. Such missed events are typically added to a *dead letter container*. Consider making the architecture more resilient by having an additional *supervisor* function. This function can periodically wake up on a timer trigger. It then can find out and process missed events, either from the dead letter container, or by comparing the blobs between the *upload* and *transcribe* containers. This pattern is similar to the [Scheduler Agent Supervisor pattern](https://docs.microsoft.com/azure/architecture/patterns/scheduler-agent-supervisor). This reference architecture does not implement this pattern for simplicity. Read the [Event Grid message delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry) policies for more information on how Event Grid handles such failures.
+For an extremely large number of events, Event Grid may fail to trigger the function. Such missed events are typically added to a *dead letter container*. Consider making the architecture more resilient by having an additional *supervisor* function. This function can periodically wake up on a timer trigger. It then can find out and process missed events, either from the dead letter container, or by comparing the blobs between the *upload* and *transcribe* containers. This pattern is similar to the [Scheduler Agent Supervisor pattern](https://docs.microsoft.com/azure/architecture/patterns/scheduler-agent-supervisor). This reference architecture does not implement this pattern for simplicity. Read the [Event Grid message delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry) policies for more information on how Event Grid handles failures.
 
 Another way to improve resiliency is to use [Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/) instead of Event Grid. This model will sequentially process the file uploads. The client will signal the Service Bus when an upload is completed. The Service Bus will then invoke the function to transcribe the uploaded file. This model is more reliable, however it will also have less throughput than an event-based architecture. Carefully consider which architecture applies to your scenario and application.
 
 ## Deploy the solution
 
-To deploy the reference implementation for this architecture, see [the GitHub readme](https://github.com/mspnp/cognitive-services-reference-implementation).
+To deploy the reference implementation for this architecture, see [the GitHub readme](https://github.com/mspnp/cognitive-services-reference-implementation/blob/master/README.md).
 
 ## Next steps
 
-The text transcribed from the audio files in this reference architecture can be processed with the built-in speech analysis provided by Azure Cognitive Services. To explore, read [the documentation on Speech APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+The transcribed speech can be processed with built-in speech analysis features provided by Azure Cognitive Services. To explore, read [the documentation on Speech APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
