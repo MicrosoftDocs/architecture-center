@@ -8,6 +8,7 @@ ms.custom: acom-architecture, hybrid-infrastructure, cross cloud architecture, c
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Cross Cloud Scaling Architecture
 
 [!INCLUDE [header_file](../header.md)]
@@ -26,15 +27,14 @@ Modern software is increasingly connected and distributed. The consistency of Az
 1. Once a threshold is reached, a function starts the Azure Web App and enables the Azure Traffic Manager route.
 1. Traffic is routed to Azure, which can automatically scale App Service.
 
-
 ## Components
-* [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/): Route incoming traffic for high performance and availability
-* [Azure Functions](https://azure.microsoft.com/services/functions/): Process events with serverless code
-* [Azure Stack](https://azure.microsoft.com/overview/azure-stack/): Build and run innovative hybrid applications across cloud boundaries
+
+* [Traffic Manager](https://azure.microsoft.com/services/traffic-manager): Route incoming traffic for high performance and availability
+* [Azure Functions](https://azure.microsoft.com/services/functions): Process events with serverless code
+* [Azure Stack](https://azure.microsoft.com/overview/azure-stack): Build and run innovative hybrid applications across cloud boundaries
 
 ## Next Steps
-* [Traffic Manager documentation](/azure/traffic-manager/)
-* [Azure Functions documentation](/azure/azure-functions/)
-* [Azure Stack documentation](/azure/azure-stack/user/azure-stack-solution-cloud-burst)
 
-
+* [Traffic Manager documentation](https://docs.microsoft.com/azure/traffic-manager)
+* [Azure Functions documentation](https://docs.microsoft.com/azure/azure-functions)
+* [Azure Stack documentation](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-cloud-burst)

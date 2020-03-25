@@ -8,29 +8,33 @@ ms.custom: acom-architecture, identity, web-app, Social Image Sharing, Image Pro
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Social App for Mobile and Web with Authentication
 
 [!INCLUDE [header_file](../header.md)]
 
-This mobile client app offers social image sharing with a companion web app. The app back end service does background image processing using an Azure Function and can notify users of progress via a notification hub. Non-image data is stored in CosmosDB. The web app accesses the back end service data and images via Traffic Manager. 
+This mobile client app offers social image sharing with a companion web app. The app back end service does background image processing using an Azure Function and can notify users of progress via a notification hub. Non-image data is stored in CosmosDB. The web app accesses the back end service data and images via Traffic Manager.
 
-The mobile client app works in offline mode, allowing you to view and upload images even when you don’t have a network connection.
+The mobile client app works in offline mode, allowing you to view and upload images even when you don't have a network connection.
 
 The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
 
-[Visual Studio Team Services](https://azure.microsoft.com/services/visual-studio-team-services/)
+[Visual Studio Team Services](https://azure.microsoft.com/services/visual-studio-team-services)
 
-[Visual Studio](https://www.visualstudio.com/vs/)
+[Visual Studio](https://www.visualstudio.com/vs)
 
-[Visual Studio Tools for Xamarin](https://www.visualstudio.com/xamarin/)
+[Visual Studio Tools for Xamarin](https://www.visualstudio.com/xamarin)
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/)
+[Application Insights](https://azure.microsoft.com/services/application-insights)
 
-[Visual Studio App Center](https://www.visualstudio.com/app-center/)
+[Visual Studio App Center](https://www.visualstudio.com/app-center)
 
-[App Service Mobile Apps](https://azure.microsoft.com/services/app-service/mobile/)
+[App Service Mobile Apps](https://azure.microsoft.com/services/app-service/mobile)
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="social-mobile-and-web-app-with-authentication" height="765" viewbox="0 0 1148 765"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
@@ -265,31 +269,30 @@ The links to the right provide documentation on deploying and managing the Azure
 1. Control the distribution of user traffic to service endpoints in different datacenters.
 1. Use Application Insights to monitor the app service.
 
-
 ## Components
-* Build the web front end, mobile apps, and back end services with C# in [Visual Studio](/visualstudio) 2017 or [Visual Studio](/visualstudio) for Mac.
-* [Xamarin](/xamarin): Create mobile apps for iOS and Android using C# and Azure SDKs.
-* [Visual Studio App Center](https://azure.microsoft.com/services/app-center/): App Center enables a continuous integration and deployment workflow by pulling code from BitBucket, GitHub, and Visual Studio Team Services.
-* An [App Service](https://azure.microsoft.com/services/app-service/) web app can host a customer-facing web app and a service that is used by both the web and mobile client.
-* Use [Azure Functions](https://azure.microsoft.com/services/functions/) for serverless background processing. For example, one Azure function can automatically resize new blobs when they're added to a container, while another function listens for messages on a queue in order to delete multiple background images.
+
+* Build the web front end, mobile apps, and back end services with C# in [Visual Studio](https://docs.microsoft.com/visualstudio) 2017 or [Visual Studio](https://docs.microsoft.com/visualstudio) for Mac.
+* [Xamarin](https://docs.microsoft.com/xamarin): Create mobile apps for iOS and Android using C# and Azure SDKs.
+* [Visual Studio App Center](https://azure.microsoft.com/services/app-center): App Center enables a continuous integration and deployment workflow by pulling code from BitBucket, GitHub, and Visual Studio Team Services.
+* An [App Service](https://azure.microsoft.com/services/app-service) web app can host a customer-facing web app and a service that is used by both the web and mobile client.
+* Use [Azure Functions](https://azure.microsoft.com/services/functions) for serverless background processing. For example, one Azure function can automatically resize new blobs when they're added to a container, while another function listens for messages on a queue in order to delete multiple background images.
 * Application Insights: Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle.
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a fully-managed NoSQL document database service. It offers querying and transaction-processing over schema-free data, predictable and reliable performance, and rapid development.
-* Azure [Queue storage](https://azure.microsoft.com/services/storage/queues/) is used for durable messaging between the App Service backend and Azure Functions.
-* [Blob storage](https://azure.microsoft.com/services/storage/blobs/): Images are stored in Azure Storage to take advantage of better scalability with lower cost. Communication between the web app and the Azure function is often performed using blob triggers and Azure Queue storage.
-* Azure [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) are used for scalable, cross-platform push notifications.
-* Azure [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) controls the distribution of user traffic for service endpoints in different datacenters in order to deliver a highly responsive and available application.
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully-managed NoSQL document database service. It offers querying and transaction-processing over schema-free data, predictable and reliable performance, and rapid development.
+* Azure [Queue storage](https://azure.microsoft.com/services/storage/queues) is used for durable messaging between the App Service backend and Azure Functions.
+* [Blob storage](https://azure.microsoft.com/services/storage/blobs): Azure Storage hosts image files to take advantage of better scalability with lower cost. Communication between the web app and the Azure function is often performed using blob triggers and Azure Queue storage.
+* Azure [Notification Hubs](https://azure.microsoft.com/services/notification-hubs) are used for scalable, cross-platform push notifications.
+* Azure [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) controls the distribution of user traffic for service endpoints in different datacenters in order to deliver a highly responsive and available application.
 
 ## Next Steps
-* [Visual Studio Documentation](/visualstudio)
-* [Xamarin Documentation](/xamarin)
-* [Visual Studio App Center Documentation](/appcenter)
-* [Azure App Service Overview](https://azure.microsoft.com/services/app-service/)
-* [Azure Functions Documentation](/azure/azure-functions/functions-triggers-bindings)
-* [Application Insights Documentation](/azure/application-insights/)
-* [Azure CosmosDB Documentation](/azure/cosmos-db/)
-* [Queue Storage Documentation](/azure/storage/queues/storage-dotnet-how-to-use-queues)
-* [Blob Storage Documentation](/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
-* [Notification Hubs Documentation](/azure/notification-hubs/)
-* [Traffic Manager Documentation](/azure/traffic-manager/traffic-manager-overview)
 
-
+* [Visual Studio Documentation](https://docs.microsoft.com/visualstudio)
+* [Xamarin Documentation](https://docs.microsoft.com/xamarin)
+* [Visual Studio App Center Documentation](https://docs.microsoft.com/appcenter)
+* [Azure App Service Overview](https://azure.microsoft.com/services/app-service)
+* [Azure Functions Documentation](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings)
+* [Application Insights Documentation](https://docs.microsoft.com/azure/application-insights)
+* [Azure CosmosDB Documentation](https://docs.microsoft.com/azure/cosmos-db)
+* [Queue Storage Documentation](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
+* [Blob Storage Documentation](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
+* [Notification Hubs Documentation](https://docs.microsoft.com/azure/notification-hubs)
+* [Traffic Manager Documentation](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)

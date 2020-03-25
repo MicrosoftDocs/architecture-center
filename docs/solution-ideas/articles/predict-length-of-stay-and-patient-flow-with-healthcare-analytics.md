@@ -8,6 +8,7 @@ ms.custom: acom-architecture, ai-ml, hospital length of stay, patient flow, leng
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Predict Length of Stay and Patient Flow
 
 [!INCLUDE [header_file](../header.md)]
@@ -19,6 +20,9 @@ This Azure solution helps hospital administrators use the power of machine learn
 Being able to predict length of stay at the time of admission helps hospitals provide higher quality care and streamline their operational workload. It also helps accurately plan for discharges, lowering other quality measures such as readmissions.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="predict-length-of-stay-and-patient-flow-with-healthcare-analytics" height="117.719" viewbox="0 0 915.875 117.719"  xmlns="http://www.w3.org/2000/svg">
     <text fill="#505050" font-family="SegoeUI, Segoe UI" font-size="15" style="isolation:isolate" transform="matrix(1.036 0 0 1 838.422 112.892)">
@@ -59,13 +63,13 @@ Being able to predict length of stay at the time of admission helps hospitals pr
 </svg>
 
 ## Components
+
 * [SQL Server R Services](https://www.microsoft.com/sql-server/sql-server-r-services): Stores the patient and hospital data. Provides training and predicted models and predicted results for consumption using R.
-* [Power BI](https://powerbi.microsoft.com/) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
-* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
+* [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
+* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
 
 ## Next Steps
+
 * [Learn more about SQL Server](https://www.microsoft.com/sql-server/sql-server-r-services)
-* [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
-* [Learn more about Machine Learning](/azure/machine-learning/machine-learning-what-is-machine-learning)
-
-
+* [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
+* [Learn more about Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning)

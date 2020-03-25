@@ -8,6 +8,7 @@ ms.custom: acom-architecture, artificial intelligence, analytics, solution archi
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Interactive Price Analytics
 
 [!INCLUDE [header_file](../header.md)]
@@ -21,6 +22,9 @@ Direct interaction with the pricing model in Excel lets you simply paste your sa
 The rich functionality is not confined to Excel. It is driven by web services that you, or your implementation partner, can call directly from your business applications, integrating price analysis into your business applications.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="interactive-price-analytics" height="492.967" viewbox="0 0 653.908 492.967"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <image height="468" opacity=".25" style="mix-blend-mode:multiply" transform="translate(0 22.854)" width="163" xlink:href="data:image/png;base64,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"/>
@@ -105,19 +109,19 @@ Data sparsity occurs because the optimal price varies at a fine grain: businesse
 
 This solution analyzes your historical prices and
 
-  * shows you in one glance at the dashboard how elastic your product demand is
-  * provides pricing recommendations for every product in your item catalog
-  * discovers related products (substitutes and complements)
-  * lets you simulate promotional scenarios in Excel.
+* shows you in one glance at the dashboard how elastic your product demand is
+* provides pricing recommendations for every product in your item catalog
+* discovers related products (substitutes and complements)
+* lets you simulate promotional scenarios in Excel.
 
 ## Estimated cost
 
 The estimated cost for the solution is approximately $10/day ($300/month)
 
-  * $100 for S1 standard ML service plan
-  * $75 for an S2 SQL database
-  * $75 for app hosting plan
-  * $50 in miscellaneous ADF data activities and storage costs
+* $100 for S1 standard ML service plan
+* $75 for an S2 SQL database
+* $75 for app hosting plan
+* $50 in miscellaneous ADF data activities and storage costs
 
 If you are just exploring the solution, you can delete it in a few days or hours. The costs are pro-rated and will cease to be charged when you delete the Azure components.
 
@@ -129,12 +133,12 @@ The solution deploys with the same example data set of orange juice prices that 
 
 While the solution is deploying, you can get a head start and
 
-  * see what is available in the Try-It-Now dashboard
-  * peruse the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md) for usage instructions from the perspective of a pricing analyst (MSFT login required)
-  * review the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a technical implementation view (MSFT login required)
-  * download the [interactive Excel Worksheet](https://aka.ms/pricingxls)
+* See what is available in the Try-It-Now dashboard
+* Peruse the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md) for usage instructions from the perspective of a pricing analyst (MSFT login required)
+* Review the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a technical implementation view (MSFT login required)
+* Download the [interactive Excel Worksheet](https://aka.ms/pricingxls)
 
-After the solution deploys, complete the [first walkthrough](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Walkthrough%201%20-%20Promotion%20Simulation/PromoSimulationWalkthrough.md) (MSFT login required). 
+After the solution deploys, complete the [first walkthrough](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Walkthrough%201%20-%20Promotion%20Simulation/PromoSimulationWalkthrough.md) (MSFT login required).
 
 ## Solution Dashboard
 
@@ -149,5 +153,3 @@ Other tabs provide supplemental information illuminating how the system arrived 
 The solution uses an Azure SQL server to store your transactional data and the generated model predictions. There are a dozen elasticity modeling core services, which are authored in AzureML using Python core libraries. Azure Data Factory schedules weekly model refreshes. The results display in a PowerBI dashboard. The provided [Excel spreadsheet](https://aka.ms/pricingxls) consumes the predictive Web Services.
 
 Please read the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a more detailed discussion of the architecture, connecting your own data and customization (Github login required).
-
-

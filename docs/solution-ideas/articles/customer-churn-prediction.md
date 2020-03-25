@@ -8,6 +8,7 @@ ms.custom: acom-architecture, artificial intelligence, solution architectures, A
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Customer Churn Prediction
 
 [!INCLUDE [header_file](../header.md)]
@@ -15,6 +16,9 @@ ms.subservice: solution-idea
 Customer Churn Prediction uses Cortana Intelligence Suite components to predict churn probability and helps find patterns in existing data associated with the predicted churn rate.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="customer-churn-prediction" height="235.303" viewbox="0 0 961.382 235.303"  xmlns="http://www.w3.org/2000/svg">
     <path d="M26.336 7.705v32.623c0 3.332 7.635 6.108 16.936 6.108V7.567H26.336z" fill="#3999c6"/>
@@ -101,5 +105,3 @@ The end-to-end solution is implemented in the cloud, using Microsoft Azure. The 
 The snapshot below shows an example PowerBI dashboard that gives insights into the the predicted churn rates across the customer base.
 
 ![Insights](//azurecomcdn.azureedge.net/cvt-add179e08f40a2f574f2c13e23c39140f82f2f0c5faf32b8e79061bb1ec3c7ca/images/shared/solutions/architectures/customer-churn-prediction/dashboard.png)
-
-

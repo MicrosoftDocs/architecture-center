@@ -8,6 +8,7 @@ ms.custom: acom-architecture, Mobile Workforce App, Mobile Workforce Management 
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Custom Mobile Workforce App
 
 [!INCLUDE [header_file](../header.md)]
@@ -20,17 +21,17 @@ The app is built with Visual Studio (PC or Mac) and Xamarin, sharing C# code acr
 
 The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
 
-[Visual Studio Team Services](https://azure.microsoft.com/services/visual-studio-team-services/)
+[Visual Studio Team Services](https://azure.microsoft.com/services/visual-studio-team-services)
 
-[Visual Studio](https://www.visualstudio.com/vs/)
+[Visual Studio](https://www.visualstudio.com/vs)
 
-[Visual Studio Tools for Xamarin](https://www.visualstudio.com/xamarin/)
+[Visual Studio Tools for Xamarin](https://www.visualstudio.com/xamarin)
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/)
+[Application Insights](https://azure.microsoft.com/services/application-insights)
 
-[Visual Studio App Center](https://www.visualstudio.com/app-center/)
+[Visual Studio App Center](https://www.visualstudio.com/app-center)
 
-[App Service Mobile Apps](https://azure.microsoft.com/services/app-service/mobile/)
+[App Service Mobile Apps](https://azure.microsoft.com/services/app-service/mobile)
 
 ## Architecture
 
@@ -49,21 +50,20 @@ The links to the right provide documentation on deploying and managing the Azure
 
 ## Components
 
-* Build the web front end, mobile apps, and back end services with C# in [Visual Studio](https://azure.microsoft.com/products/visual-studio/) 2017 or [Visual Studio](https://azure.microsoft.com/products/visual-studio/) for Mac.
-* [Xamarin](https://azure.microsoft.com/features/xamarin/): Create mobile apps for iOS and Android using C# and Azure SDKs.
-* [Visual Studio App Center](https://azure.microsoft.com/services/app-center/): App Center enables a continuous integration and deployment workflow by pulling code from BitBucket, GitHub, and Visual Studio Team Services.
-* An [App Service](https://azure.microsoft.com/services/app-service/) web app can host a customer-facing web app and a service that is used by both the web and mobile client.
+* Build the web front end, mobile apps, and back end services with C# in [Visual Studio](https://azure.microsoft.com/products/visual-studio) 2017 or [Visual Studio](https://azure.microsoft.com/products/visual-studio) for Mac.
+* [Xamarin](https://azure.microsoft.com/features/xamarin): Create mobile apps for iOS and Android using C# and Azure SDKs.
+* [Visual Studio App Center](https://azure.microsoft.com/services/app-center): App Center enables a continuous integration and deployment workflow by pulling code from BitBucket, GitHub, and Visual Studio Team Services.
+* An [App Service](https://azure.microsoft.com/services/app-service) web app can host a customer-facing web app and a service that is used by both the web and mobile client.
 * Application Insights: Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle.
-* [API Management](https://azure.microsoft.com/services/api-management/): Publish APIs to external, partner, and employee developers securely and at scale.
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) is used for secure, enterprise-grade authentication.
+* [API Management](https://azure.microsoft.com/services/api-management): Publish APIs to external, partner, and employee developers securely and at scale.
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory) is used for secure, enterprise-grade authentication.
 
 ## Next Steps
-* [Visual Studio Documentation](/visualstudio)
-* [Xamarin Documentation](/xamarin)
-* [Visual Studio App Center](/appcenter)
-* [App Service](https://azure.microsoft.com/services/app-service/)
-* [Application Insights Documentation](/azure/application-insights/)
-* [API Management documentation](/azure/api-management/)
-* [Azure Active Directory Documentation](/azure/active-directory/)
 
-
+* [Visual Studio Documentation](https://docs.microsoft.com/visualstudio)
+* [Xamarin Documentation](https://docs.microsoft.com/xamarin)
+* [Visual Studio App Center](https://docs.microsoft.com/appcenter)
+* [App Service](https://azure.microsoft.com/services/app-service)
+* [Application Insights Documentation](https://docs.microsoft.com/azure/application-insights)
+* [API Management documentation](https://docs.microsoft.com/azure/api-management)
+* [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory)

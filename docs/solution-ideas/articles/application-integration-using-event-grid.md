@@ -8,6 +8,7 @@ ms.custom: acom-architecture, application-development, event-grid, azure, 'https
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Application integration using Event Grid
 
 [!INCLUDE [header_file](../header.md)]
@@ -15,6 +16,9 @@ ms.subservice: solution-idea
 Event Grid connects your app with other services. For example, create an application topic to send your app’s event data to Event Grid and take advantage of its reliable delivery, advanced routing, and direct integration with Azure. Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="application-integration-using-event-grid" height="441" viewbox="0 0 268 147"  xmlns="http://www.w3.org/2000/svg">
     <path d="M48.213 130.917H7.412a6.266 6.266 0 01-6.266-6.267v-33.4h47.917v7.5l5.417.083v25.817a6.267 6.267 0 01-6.267 6.267" fill="#FFF4CD"/>
@@ -59,5 +63,3 @@ Event Grid connects your app with other services. For example, create an applica
     <path fill="#54B3DB" d="M10.063 13.938h19.062v-1.937H10.063zM10.063 18.875h19.062v-1.937H10.063zM10.063 24h19.062v-1.937H10.063zM10.063 28.875h19.062v-1.937H10.063zM10.062 33.938H20.75v-1.937H10.062z"/>
     <path fill="#969696" d="M22.046 74.723V70.75h-1.801v3.973h-4.723l5.236 7.066 5.235-7.066zM20.245 57.25h1.801v-4.5h-1.801zM20.245 63.25h1.801v-4.5h-1.801zM20.245 69.25h1.801v-4.5h-1.801zM99.291 104.131l-7.067-5.235v4.454h-4.079v1.801h4.079v4.215zM70.146 105.151h4.5v-1.801h-4.5zM76.146 105.151h4.5v-1.801h-4.5zM82.146 105.151h4.5v-1.801h-4.5z"/>
 </svg>
-
-

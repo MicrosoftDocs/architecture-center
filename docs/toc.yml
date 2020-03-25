@@ -336,38 +336,44 @@ items:
 - name: Technologies
   expanded: true
   items:
-  - name: AI and machine learning
+  - name: AI and ML
     items:
     - name: Overview
       href: data-guide/big-data/machine-learning-at-scale.md
     - name: Reference architectures
       items:
-      - name: Training and scoring Python models
-        items:
-        - name: Training of Python scikit-learn models
-          href: reference-architectures/ai/training-python-models.md
-        - name: Distributed training of deep learning models
-          href: reference-architectures/ai/training-deep-learning.md
-        - name: Batch scoring of Python models
-          href: reference-architectures/ai/batch-scoring-python.md
-        - name: Batch scoring of deep learning models
-          href: reference-architectures/ai/batch-scoring-deep-learning.md
-        - name: Real-time scoring of Python and deep learning models
-          href: reference-architectures/ai/realtime-scoring-python.md
-        - name: MLOps for Python models using Azure Machine Learning
-          href: reference-architectures/ai/mlops-python.md
-      - name: Scoring R models
-        items:
-        - name: Batch scoring of R models
-          href: reference-architectures/ai/batch-scoring-R-models.md
-        - name: Real-time scoring of R models
-          href: reference-architectures/ai/realtime-scoring-r.md
-      - name: Batch scoring of Spark models on Azure Databricks
-        href: reference-architectures/ai/batch-scoring-databricks.md
-      - name: Conversational bot
-        href: reference-architectures/ai/conversational-bot.md
-      - name: Real-time recommendation API
-        href: reference-architectures/ai/real-time-recommendation.md
+        - name: Artificial Intelligence
+          items:
+            - name: Ingestion for speech analysis
+              href: reference-architectures/ai/speech-ai-ingestion.md
+        - name: Machine Learning
+          items:
+            - name: Training and scoring Python models
+              items:
+                - name: Training of Python scikit-learn models
+                  href: reference-architectures/ai/training-python-models.md
+                - name: Distributed training of deep learning models
+                  href: reference-architectures/ai/training-deep-learning.md
+                - name: Batch scoring of Python models
+                  href: reference-architectures/ai/batch-scoring-python.md
+                - name: Batch scoring of deep learning models
+                  href: reference-architectures/ai/batch-scoring-deep-learning.md
+                - name: Real-time scoring of Python and deep learning models
+                  href: reference-architectures/ai/realtime-scoring-python.md
+                - name: MLOps for Python models using Azure Machine Learning
+                  href: reference-architectures/ai/mlops-python.md
+            - name: Scoring R models
+              items:
+                - name: Batch scoring of R models
+                  href: reference-architectures/ai/batch-scoring-R-models.md
+                - name: Real-time scoring of R models
+                  href: reference-architectures/ai/realtime-scoring-r.md
+            - name: Batch scoring of Spark models on Azure Databricks
+              href: reference-architectures/ai/batch-scoring-databricks.md
+            - name: Conversational bot
+              href: reference-architectures/ai/conversational-bot.md
+            - name: Real-time recommendation API
+              href: reference-architectures/ai/real-time-recommendation.md
     - name: Technology choices
       items:
       - name: Cognitive services

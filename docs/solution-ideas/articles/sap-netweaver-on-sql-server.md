@@ -8,6 +8,7 @@ ms.custom: acom-architecture, sap, SAP on Azure, Azure SQL Server, SAP NetWeaver
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # SAP NetWeaver on SQLServer
 
 [!INCLUDE [header_file](../header.md)]
@@ -30,13 +31,12 @@ This NetWeaver on SQL Server application solution illustrates how a user request
 1. VMs on the disaster recovery region can be used for nonproduction work to save costs.
 1. SAP app server with ASCS on disaster recovery side can be in standby shutdown mode, and can be started when needed to save costs.
 
-
 ## Components
-* Information on [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) for SAP application servers.
-* Microsoft Azure [Premium Storage](https://azure.microsoft.com/services/storage/disks/) provides improved throughput and less variability in I/O latencies. For improved performance, [Premium Storage](https://azure.microsoft.com/services/storage/disks/) uses solid state disk (SSD) in Azure Storage nodes, and read cache that's backed by the local SSD of an Azure compute node.
+
+* Information on [Virtual Machines](https://azure.microsoft.com/services/virtual-machines) for SAP application servers.
+* Microsoft Azure [Premium Storage](https://azure.microsoft.com/services/storage/disks) provides improved throughput and less variability in I/O latencies. For improved performance, [Premium Storage](https://azure.microsoft.com/services/storage/disks) uses solid state disk (SSD) in Azure Storage nodes, and read cache that's backed by the local SSD of an Azure compute node.
 
 ## Next Steps
-* [SAP Certifications for Azure](/azure/virtual-machines/workloads/sap/sap-certifications)
-* [Premium Storage: high-performance storage for Azure Virtual Machine workloads](/azure/storage/storage-premium-storage)
 
-
+* [SAP Certifications for Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
+* [Premium Storage: high-performance storage for Azure Virtual Machine workloads](https://docs.microsoft.com/azure/storage/storage-premium-storage)
