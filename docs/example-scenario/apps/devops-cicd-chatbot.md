@@ -25,8 +25,8 @@ This example also demonstrates *infrastructure as code*, which uses Azure Resour
 
 In this example:
 1. Developers check in the bot logic, test code, ARM infrastructure templates, and build pipeline code to a Git repository.
-1. Continuous integration triggers the Azure Pipelines Build pipeline to build and test the bot solution.
-1. Continuous deployment through an Azure Pipelines Release pipeline triggers automated deployment of the app and infrastructure to Azure App Service and Azure Bot Services.
+1. Continuous integration triggers the Azure Pipelines build pipeline to build and test the bot solution.
+1. Continuous deployment through an Azure Pipelines release pipeline triggers automated deployment of the app and infrastructure to Azure App Service and Azure Bot Services.
 1. Azure Bot Services runs the bot.
 1. Azure Application Insights collects telemetry on app and bot performance.
 
@@ -82,7 +82,9 @@ An Azure Pipelines [release pipeline](/azure/devops/pipelines/release) automates
 
 In the release pipeline, you define a number of tasks to deploy your app and underlying infrastructure. You can define many variables for the overall pipeline, so you don't have to input them for every task. 
 
-The release pipeline depends on the build pipeline to get the output for the bot logic, and it links to the Git repo to get the ARM templates to deploy the infrastructure. ARM templates don't need compilation, so they don't have to go through the build pipeline. However, for deployment, the templates need to be accessible from a public endpoint such as a Git repo or Azure Blob Storage account. 
+The release pipeline depends on the build pipeline to get the output for the bot logic, and it links to the Git repo to get the ARM templates to deploy the infrastructure. For deployment, the ARM templates need to be accessible from a public endpoint such as a Git repo or Azure Blob Storage account. 
+
+Although ARM templates don't need to be compiled, you can validate their quality. For example, you could do [linting](https://jsonlint.com/) on the ARM templates. See the [ARM template toolkit](https://github.com/Azure/arm-ttk) for more ARM template analysis and test tools from the Azure Resource Manager team. Consider which pipeline, build or release, is most appropriate for the tests, based on your development lifecycle.
 
 ### App Service Plan and App Service instance
 An Azure App Service Plan is the underlying server farm used to deploy an Azure App Service instance. The *appservicePlan.json* and *appservice.json* ARM templates create the App Service Plan and App Service instance for the chatbot app. 
