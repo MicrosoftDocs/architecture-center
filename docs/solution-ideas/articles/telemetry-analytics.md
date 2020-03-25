@@ -8,6 +8,7 @@ ms.custom: acom-architecture, analytics, hpc, artificial intelligence, solution 
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Telemetry Analytics
 
 [!INCLUDE [header_file](../header.md)]
@@ -26,7 +27,7 @@ The solution is implemented as a [lambda architecture pattern](https://en.wikipe
 
 ## Pricing Info
 
-Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution. For pricing details, visit the [Azure pricing page](https://azure.microsoft.com/pricing/calculator/). See the 'Services Used' section on the right pane for the list of the services used in this solution.
+Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution. For pricing details, visit the [Azure pricing page](https://azure.microsoft.com/pricing/calculator). See the 'Services Used' section on the right pane for the list of the services used in this solution.
 
 Please ensure you stop the data generator when not actively using the solution. Running the data generator (Vehicle Telematics Simulator) will incur higher costs.
 
@@ -34,12 +35,10 @@ Please delete the solution if you are not using it.
 
 ## Addional Reference
 
-[Playbook including technical guide](/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-vehicle-telemetry)
+[Playbook including technical guide](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-vehicle-telemetry)
 
 ## Prerequisite
 
-If you don't have an [Azure subscription](https://azure.microsoft.com/free/), get started with Azure free subscription.
+If you don't have an [Azure subscription](https://azure.microsoft.com/free), get started with Azure free subscription.
 
-You also need to download [Power BI desktop](/power-bi/desktop-get-the-desktop).
-
-
+You also need to download [Power BI desktop](https://docs.microsoft.com/power-bi//desktop-get-the-desktop).

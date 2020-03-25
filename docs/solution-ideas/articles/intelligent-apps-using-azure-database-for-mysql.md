@@ -8,6 +8,7 @@ ms.custom: acom-architecture, mysql, use cases, azure, solutions, app-dev, 'http
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Intelligent apps using Azure Database for MySQL
 
 [!INCLUDE [header_file](../header.md)]
@@ -17,6 +18,3 @@ Develop sophisticated, transformational apps using state of the art machine lear
 ## Architecture
 
 ![Architecture diagram](../media/intelligent-apps-using-azure-database-for-mysql.svg)
-
-
-

@@ -8,6 +8,7 @@ ms.custom: acom-architecture, sharepoint dev, sharepoint agile, sharepoint dev e
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # SharePoint Farm for Development Testing
 
 [!INCLUDE [header_file](../header.md)]
@@ -17,7 +18,6 @@ This solution provides a small scale deployment of SharePoint using a single Azu
 ## Architecture
 
 ![Architecture diagram](../media/sharepoint-farm-devtest.svg)
-
 
 ## Data Flow
 
@@ -33,27 +33,26 @@ This solution provides a small scale deployment of SharePoint using a single Azu
 1. On Premises users can access the SharePoint sites via the internet or Express Route or VPN Gateway.
 1. External users can be granted access as required to the SharePoint sites for testing.
 
-
 ## Components
-* [Azure Resource Group](https://azure.microsoft.com/features/resource-manager/): Container that holds related resources for an Azure solution
-* [Virtual Network](https://azure.microsoft.com/services/virtual-network/): Provision private networks, optionally connect to on-premises datacenters
-* [Storage Accounts](https://azure.microsoft.com/services/storage/): Durable, highly available, and massively scalable cloud storage
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory/): Synchronize on-premises directories and enable single sign-on
+
+* [Azure Resource Group](https://azure.microsoft.com/features/resource-manager): Container that holds related resources for an Azure solution
+* [Virtual Network](https://azure.microsoft.com/services/virtual-network): Provision private networks, optionally connect to on-premises datacenters
+* [Storage Accounts](https://azure.microsoft.com/services/storage): Durable, highly available, and massively scalable cloud storage
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
 * SharePoint Server: Microsoft's collaboration server product
-* Host enterprise [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) apps in the cloud
-* [Load Balancer](https://azure.microsoft.com/services/load-balancer/): Deliver high availability and network performance to your applications
-* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/): Dedicated private network fiber connections to Azure
-* [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/): Establish secure, cross-premises connectivity
+* Host enterprise [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server) apps in the cloud
+* [Load Balancer](https://azure.microsoft.com/services/load-balancer): Deliver high availability and network performance to your applications
+* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute): Dedicated private network fiber connections to Azure
+* [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway): Establish secure, cross-premises connectivity
 
 ## Next Steps
-* [Azure Resource Group Documentation](/azure/azure-resource-manager/resource-group-overview/)
-* [Virtual Network Documentation](/azure/virtual-network/virtual-networks-overview/)
-* [Storage Documentation](/azure/storage/blobs/storage-blobs-introduction/)
+
+* [Azure Resource Group Documentation](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
+* [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+* [Storage Documentation](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
 * [Active Directory Documentation](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
-* [SharePoint Server Documentation](/sharepoint/administration/intranet-sharepoint-server-2016-in-azure-dev-test-environment/)
-* [SQL Server Documentation](/sql/relational-databases/databases/deploy-a-sql-server-database-to-a-microsoft-azure-virtual-machine?view=sql-server-2017)
-* [Load Balancer Documentation](/azure/load-balancer/load-balancer-standard-overview)
-* [Express Route Documentation](/azure/expressroute/)
-* [VPN Gateway Documentation](/azure/vpn-gateway/)
-
-
+* [SharePoint Server Documentation](https://docs.microsoft.com/sharepoint/administration/intranet-sharepoint-server-2016-in-azure-dev-test-environment)
+* [SQL Server Documentation](https://docs.microsoft.com/sql/relational-databases/databases/deploy-a-sql-server-database-to-a-microsoft-azure-virtual-machine?view=sql-server-2017)
+* [Load Balancer Documentation](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
+* [Express Route Documentation](https://docs.microsoft.com/azure/expressroute)
+* [VPN Gateway Documentation](https://docs.microsoft.com/azure/vpn-gateway)

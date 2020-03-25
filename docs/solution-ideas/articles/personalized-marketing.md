@@ -8,17 +8,21 @@ ms.custom: acom-architecture, personalized marketing, ai-ml, marketing personali
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Personalized marketing solutions
 
 [!INCLUDE [header_file](../header.md)]
 
 Personalized marketing is essential for building customer loyalty and remaining profitable. Reaching customers and getting them to engage is harder than ever, and generic offers are easily missed or ignored. Current marketing systems fail to take advantage of data that can help solve this problem.
 
-Marketers using intelligent systems and analyzing massive amounts of data can deliver highly relevant and personalized offers to each user, cutting through the clutter and driving engagement. For example, retailers can provide offers and content based on each customer’s unique interests and preferences, putting products in front of the people most likely to buy them.
+Marketers using intelligent systems and analyzing massive amounts of data can deliver highly relevant and personalized offers to each user, cutting through the clutter and driving engagement. For example, retailers can provide offers and content based on each customer's unique interests and preferences, putting products in front of the people most likely to buy them.
 
-By personalizing your offers, you’ll deliver an individualized experience for every current or prospective customer, boosting engagement and improving customer conversion, lifetime value, and retention.
+By personalizing your offers, you'll deliver an individualized experience for every current or prospective customer, boosting engagement and improving customer conversion, lifetime value, and retention.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="personalized-marketing" height="632.636" viewbox="0 0 1079.374 632.636"  xmlns="http://www.w3.org/2000/svg">
     <path d="M0 314.01a3.55 3.55 0 003.609 3.49H86.44a3.55 3.55 0 003.61-3.489V259.52H0z" fill="#59b4d9"/>
@@ -269,23 +273,23 @@ By personalizing your offers, you’ll deliver an individualized experience for 
 </svg>
 
 ## Components
-* [Event Hubs](https://azure.microsoft.com/services/event-hubs/) ingests raw click-stream data from Functions and passes it on to Stream Analytics.
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): Stream Analytics aggregates clicks in near real-time by product, offer, and user to write to Azure Cosmos DB and also archives raw click-stream data to Azure Storage.
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) stores aggregated data of clicks by user, product, and offer as well as user-profile information.
-* [Storage Accounts](https://azure.microsoft.com/services/storage/): Azure Storage stores archived raw click-stream data from Stream Analytics.
-* [Azure Functions](https://azure.microsoft.com/services/functions/) takes in user clickstream data from website and reads existing user history from Azure Cosmos DB. These data are then run through the Machine Learning web service or used along with the cold-start data in Azure Cache for Redis to obtain product-affinity scores. Product-affinity scores are used with the personalized-offer logic to determine the most relevant offer to present to the user.
-* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
-* [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) stores pre-computed cold-start product affinity scores for users without history.
-* [Power BI](https://powerbi.microsoft.com/) Visualizes user activity data as well as offers presented by reading in data from Cosmos DB.
+
+* [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests raw click-stream data from Functions and passes it on to Stream Analytics.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics): Stream Analytics aggregates clicks in near real-time by product, offer, and user to write to Azure Cosmos DB and also archives raw click-stream data to Azure Storage.
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) stores aggregated data of clicks by user, product, and offer as well as user-profile information.
+* [Storage Accounts](https://azure.microsoft.com/services/storage): Azure Storage stores archived raw click-stream data from Stream Analytics.
+* [Azure Functions](https://azure.microsoft.com/services/functions) takes in user clickstream data from website and reads existing user history from Azure Cosmos DB. These data are then run through the Machine Learning web service or used along with the cold-start data in Azure Cache for Redis to obtain product-affinity scores. Product-affinity scores are used with the personalized-offer logic to determine the most relevant offer to present to the user.
+* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
+* [Azure Cache for Redis](https://azure.microsoft.com/services/cache) stores pre-computed cold-start product affinity scores for users without history.
+* [Power BI](https://powerbi.microsoft.com) Visualizes user activity data as well as offers presented by reading in data from Cosmos DB.
 
 ## Next Steps
-* [Learn more about Event Hubs](/azure/event-hubs/event-hubs-what-is-event-hubs)
-* [Learn more about Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
-* [Learn how to use Azure Cosmos DB](/azure/cosmos-db)
-* [Learn more about Azure Storage](/azure/storage/storage-introduction)
-* [Learn how to create functions](/azure/azure-functions)
-* [Learn more about machine learning](/azure/machine-learning/machine-learning-what-is-machine-learning)
-* [Learn how to use Azure Cache for Redis](/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache)
-* [Learn about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
 
-
+* [Learn more about Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
+* [Learn more about Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction)
+* [Learn how to use Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db)
+* [Learn more about Azure Storage](https://docs.microsoft.com/azure/storage/storage-introduction)
+* [Learn how to create functions](https://docs.microsoft.com/azure/azure-functions)
+* [Learn more about machine learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning)
+* [Learn how to use Azure Cache for Redis](https://docs.microsoft.com/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache)
+* [Learn about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)

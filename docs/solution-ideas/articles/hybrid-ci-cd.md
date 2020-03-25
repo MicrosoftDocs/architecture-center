@@ -8,6 +8,7 @@ ms.custom: acom-architecture, CI/CD, Azure CI/CD, Continuous Integration And Con
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Hybrid CI/CD
 
 [!INCLUDE [header_file](../header.md)]
@@ -26,17 +27,16 @@ Implementing a continuous integration/continuous development (CI/CD) approach to
 1. Continuous deployment trigger orchestrates deployment of application artifacts with environment-specific parameters.
 1. Deployment to App Service on both Azure and Azure Stack.
 
-
 ## Components
-* [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) is a hybrid cloud platform that lets you use Azure services on-premises
+
+* [Azure Stack](https://azure.microsoft.com/overview/azure-stack) is a hybrid cloud platform that lets you use Azure services on-premises
 * Step-by-step guidance: Step-by-step guidance
-* [Azure DevOps](https://azure.microsoft.com/services/devops/): Build and deploy multi-platform apps to get the most from Azure services
-* [Web Apps](https://azure.microsoft.com/services/app-service/web/): Quickly create and deploy mission critical Web apps at scale.
+* [Azure DevOps](https://azure.microsoft.com/services/devops): Build and deploy multi-platform apps to get the most from Azure services
+* [Web Apps](https://azure.microsoft.com/services/app-service/web): Quickly create and deploy mission critical Web apps at scale.
 
 ## Next Steps
-* [Azure Stack User Documentation](/azure/azure-stack/user)
-* [Deploy apps to Azure and Azure Stack](/azure/azure-stack/user/azure-stack-solution-pipeline)
-* [Azure DevOps](https://azure.microsoft.com/services/devops/)
-* [Use Azure DevOps to deploy to an Azure Web App](/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp)
 
-
+* [Azure Stack User Documentation](https://docs.microsoft.com/azure/azure-stack/user)
+* [Deploy apps to Azure and Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline)
+* [Azure DevOps](https://azure.microsoft.com/services/devops)
+* [Use Azure DevOps to deploy to an Azure Web App](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp)

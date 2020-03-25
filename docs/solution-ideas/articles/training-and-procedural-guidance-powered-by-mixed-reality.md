@@ -3,18 +3,22 @@ title: Training and procedural guidance powered by mixed reality
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
-description: Enable your team and employees to learn new processes and materials faster, with fewer errors, and greater confidence by providing persistent holographic instructions mapped to precise locations in their physical workspace. Jumpstart employee comprehension with head-up, hands-free experiences using HoloLens devices. And with Azure Spatial Anchors, you can place directions on the procedure’s most important objects and return to this content over time.
+description: Enable your team and employees to learn new processes and materials faster, with fewer errors, and greater confidence by providing persistent holographic instructions mapped to precise locations in their physical workspace. Jumpstart employee comprehension with head-up, hands-free experiences using HoloLens devices. And with Azure Spatial Anchors, you can place directions on the procedure's most important objects and return to this content over time.
 ms.custom: acom-architecture, ai-ml, Azure Spatial Anchors, Azure Active Directory, Azure Cosmos DB, Azure App Service, Media Services, Microsoft HoloLens, Video Indexer, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/training-and-procedural-guidance-powered-by-mixed-reality/'
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Training and procedural guidance powered by mixed reality
 
 [!INCLUDE [header_file](../header.md)]
 
-Enable your team and employees to learn new processes and materials faster, with fewer errors, and greater confidence by providing persistent holographic instructions mapped to precise locations in their physical workspace. Jumpstart employee comprehension with head-up, hands-free experiences using HoloLens devices. And with Azure Spatial Anchors, you can place directions on the procedure’s most important objects and return to this content over time.
+Enable your team and employees to learn new processes and materials faster, with fewer errors, and greater confidence by providing persistent holographic instructions mapped to precise locations in their physical workspace. Jumpstart employee comprehension with head-up, hands-free experiences using HoloLens devices. And with Azure Spatial Anchors, you can place directions on the procedure's most important objects and return to this content over time.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="training-and-procedural-guidance-powered-by-mixed-reality" height="1132" viewbox="0 0 857.38 1132.6"  xmlns="http://www.w3.org/2000/svg">
     <defs>
@@ -137,21 +141,20 @@ Enable your team and employees to learn new processes and materials faster, with
 1. The trainee scans the room to find the anchors indicating the real-world location of each step in the procedure. As soon as one is found, all anchors are retrieved and shown in the app.
 1. The trainee can then retrace the exact steps of the expert who recorded the procedure, and view holographic videos of each step at the right location in the lab.
 
-
 ## Components
-* [Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors/): Create multi-user, spatially aware mixed reality experiences
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory/): Synchronize on-premises directories and enable single sign-on
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Globally distributed, multi-model database for any scale
-* [App Service](https://azure.microsoft.com/services/app-service/): Quickly create powerful cloud apps for web and mobile
-* [Media Services](https://azure.microsoft.com/services/media-services/): Encode, store, and stream video and audio at scale
-* [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/): Make your media more discoverable and accessible
+
+* [Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors): Create multi-user, spatially aware mixed reality experiences
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Globally distributed, multi-model database for any scale
+* [App Service](https://azure.microsoft.com/services/app-service): Quickly create powerful cloud apps for web and mobile
+* [Media Services](https://azure.microsoft.com/services/media-services): Encode, store, and stream video and audio at scale
+* [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer): Make your media more discoverable and accessible
 
 ## Next Steps
-* [Share Spatial Anchors across devices](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices/)
-* [Create a new tenant in Azure Active Directory](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant/)
-* [Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal](/azure/cosmos-db/)
-* [Authenticate and authorize users end-to-end in Azure App Service](/azure/app-service/app-service-web-tutorial-auth-aad/)
-* [Upload, encode, and stream videos using .NET](/azure/media-services/latest/stream-files-tutorial-with-api/)
-* [What is Video Indexer?](/azure/media-services/latest/stream-files-tutorial-with-api/)
 
-
+* [Share Spatial Anchors across devices](https://docs.microsoft.com/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices)
+* [Create a new tenant in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal](https://docs.microsoft.com/azure/cosmos-db)
+* [Authenticate and authorize users end-to-end in Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-auth-aad)
+* [Upload, encode, and stream videos using .NET](https://docs.microsoft.com/azure/media-services/latest/stream-files-tutorial-with-api)
+* [What is Video Indexer?](https://docs.microsoft.com/azure/media-services/latest/stream-files-tutorial-with-api)

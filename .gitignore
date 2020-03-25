@@ -232,7 +232,6 @@ _themes*/
 
 .openpublishing.buildcore.ps1
 
-.vscode
 /_model
 /_viewmodel
 /build/architectures/acom_html

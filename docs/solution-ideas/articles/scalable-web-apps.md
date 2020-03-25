@@ -8,6 +8,7 @@ ms.custom: acom-architecture, web-app, scalability, 'https://azure.microsoft.com
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Scalable Web Apps
 
 [!INCLUDE [header_file](../header.md)]
@@ -17,6 +18,3 @@ Quickly save, retrieve, and update web session data such as user cookies and out
 ## Architecture
 
 ![Architecture diagram](../media/scalable-web-apps.svg)
-
-
-

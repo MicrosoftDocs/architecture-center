@@ -8,6 +8,7 @@ ms.custom: acom-architecture, app-dev, devops, chat, signalr service, interactiv
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Lift and shift to containers with AKS
 
 [!INCLUDE [header_file](../header.md)]
@@ -15,6 +16,9 @@ ms.subservice: solution-idea
 Easily migrate existing application to container(s) and run within the Azure managed Kubernetes service (AKS). Control access via integration with Azure Active Directory and access SLA-backed Azure Services such as Azure Database for MySQL using OSBA (Open Service Broker for Azure) for your data needs.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="migrate-existing-applications-with-aks" height="450" viewbox="0 0 825 450"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
@@ -131,6 +135,3 @@ Easily migrate existing application to container(s) and run within the Azure man
 1. Azure Active Directory is used to control access to AKS resources
 1. Easily access SLA-backed Azure Services such as Azure Database for MySQL using OSBA (Open Service Broker for Azure)
 1. Optionally, AKS can be deployed with a VNET virtual network
-
-
-

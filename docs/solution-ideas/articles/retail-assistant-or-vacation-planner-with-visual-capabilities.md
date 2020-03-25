@@ -8,11 +8,12 @@ ms.custom: acom-architecture, ai-ml, chatbot, ecommerce, retail assistant, cogni
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Retail Assistant with Visual Capabilities using Cognitive Services
 
 [!INCLUDE [header_file](../header.md)]
 
-The retail assistant or vacation planner can help your customers have interactions with your business bot and provide suggestions based on the visual information. 
+The retail assistant or vacation planner can help your customers have interactions with your business bot and provide suggestions based on the visual information.
 
 ## Architecture
 
@@ -24,6 +25,3 @@ The retail assistant or vacation planner can help your customers have interactio
 1. Assistant understands context from LUIS
 1. Assistant passes visual context to the Bing Visual Search API
 1. Optionally Bot gets more information for user queries exclusively from your domain using the Bing Custom Search API
-
-
-

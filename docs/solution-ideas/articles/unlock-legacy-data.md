@@ -8,6 +8,7 @@ ms.custom: acom-architecture, data, data preservation, legacy data integration, 
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Unlock Legacy Data with Azure Stack
 
 [!INCLUDE [header_file](../header.md)]
@@ -25,13 +26,12 @@ Use Azure Stack to update and extend your legacy application data with the lates
 1. Data is processed by applications running on a Kubernetes cluster on Azure Stack.
 1. Kubernetes cluster communicates with legacy system on corporate network.
 
-
 ## Components
-* [Virtual Network](https://azure.microsoft.com/services/virtual-network/): Provision private networks, optionally connect to on-premises datacenters
-* [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/): Establish secure, cross-premises connectivity
+
+* [Virtual Network](https://azure.microsoft.com/services/virtual-network): Provision private networks, optionally connect to on-premises datacenters
+* [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway): Establish secure, cross-premises connectivity
 
 ## Next Steps
-* [Virtual Network documentation](https://azure.microsoft.com/services/virtual-network/)
-* [VPN Gateway documentation](https://azure.microsoft.com/services/vpn-gateway/)
 
-
+* [Virtual Network documentation](https://azure.microsoft.com/services/virtual-network)
+* [VPN Gateway documentation](https://azure.microsoft.com/services/vpn-gateway)

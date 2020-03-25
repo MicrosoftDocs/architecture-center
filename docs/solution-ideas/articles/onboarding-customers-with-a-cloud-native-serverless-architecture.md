@@ -8,6 +8,7 @@ ms.custom: acom-architecture, line of business app, lob app, lift and shift clou
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Serverless Computing Solution for LOB Apps
 
 [!INCLUDE [header_file](../header.md)]
@@ -16,17 +17,20 @@ This serverless architecture enables you to build and run applications without h
 
 The links to the right give you detailed technical guidance on navigating a particular area of the architecture.
 
-[Decide which compute option to use for your apps](/azure/architecture/guide/technology-choices/compute-overview/)
+[Decide which compute option to use for your apps](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-overview)
 
-[Learn to build Serverless apps](/azure/azure-functions/)
+[Learn to build Serverless apps](https://docs.microsoft.com/azure/azure-functions)
 
 The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
 
-[Learn how you can use machine learning](/azure/machine-learning/preview/)
+[Learn how you can use machine learning](https://docs.microsoft.com/azure/machine-learning/preview)
 
-[Infuse intelligence into your apps with Cognitive Services](/azure/cognitive-services/)
+[Infuse intelligence into your apps with Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="onboarding-customers-with-a-cloud-native-serverless-architecture" height="405" viewbox="0 0 942 405"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd">
@@ -116,8 +120,6 @@ The links to the right provide documentation on deploying and managing the Azure
         </text>
     </a>
 </svg>
-
-
 <div class="architecture-tooltip-content" id="architecture-tooltip-2">
 <p>The customer's photo is posted to Cognitive Services Face API. Face API associates
 
@@ -132,6 +134,3 @@ the customer's photo and name.</p>
 1. The information about a new customer is sent to Power BI.
 1. The customer information is added to the mailing list (MailChimp).
 1. The solution creates a record of the member in SQL Database.
-
-
-

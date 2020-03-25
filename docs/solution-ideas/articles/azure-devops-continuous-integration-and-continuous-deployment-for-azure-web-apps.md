@@ -8,6 +8,7 @@ ms.custom: acom-architecture, devops, continuous integration, continuous deliver
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # CI/CD for Azure Web Apps
 
 [!INCLUDE [header_file](../header.md)]
@@ -29,23 +30,24 @@ Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, 
 1. Review health, performance, and usage information.
 1. Update backlog item.
 
-
 ## Components
+
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services.
-* [Web Apps](https://azure.microsoft.com/services/app-service/web/): Quickly create and deploy mission critical Web apps at scale.
-* [Azure DevOps](https://azure.microsoft.com/services/devops/): Services for teams to share code, track work, and ship software.
-* [Visual Studio](https://www.visualstudio.com/vs/azure/): A creative launch pad for viewing and editing code,  then debugging, building, and publishing apps for Android, iOS, Windows, the web, and the cloud.
+* [Web Apps](https://azure.microsoft.com/services/app-service/web): Quickly create and deploy mission critical Web apps at scale.
+* [Azure DevOps](https://azure.microsoft.com/services/devops): Services for teams to share code, track work, and ship software.
+* [Visual Studio](https://www.visualstudio.com/vs/azure): A creative launch pad for viewing and editing code,  then debugging, building, and publishing apps for Android, iOS, Windows, the web, and the cloud.
 
 ## Next Steps
-* [Performance monitoring with Application Insights](/azure/application-insights/app-insights-detect-triage-diagnose)
-* [Use Azure DevOps to deploy to an Azure Web App](/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp)
-* [Git on Azure DevOps](/vsts/git/gitquickstart?tabs=visual-studio)
-* [Deploy to Azure Web Apps using Visual Studio and Azure DevOps](/vsts/build-release/apps/cd/deploy-docker-webapp)
+
+* [Performance monitoring with Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-detect-triage-diagnose)
+* [Use Azure DevOps to deploy to an Azure Web App](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp)
+* [Git on Azure DevOps](https://docs.microsoft.com/vsts/git/gitquickstart?tabs=visual-studio)
+* [Deploy to Azure Web Apps using Visual Studio and Azure DevOps](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-docker-webapp)
 
 ## Pricing Calculator
+
 * [Customize and get pricing estimates](https://azure.com/e/b96a4a9dbf804edabc83d00b41ffb245)
 
 ## Deploy to Azure
+
 * [Deploy to Azure](https://ms.portal.azure.com/#create/Microsoft.AzureProject)
-
-

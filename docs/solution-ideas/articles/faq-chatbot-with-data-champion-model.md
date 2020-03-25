@@ -8,6 +8,7 @@ ms.custom: acom-architecture, chatbot, QnA, QnA Maker, FAQ, FAQ chatbot, interac
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # FAQ Chatbot with data champion model
 
 [!INCLUDE [header_file](../header.md)]
@@ -18,7 +19,6 @@ The QnA Maker tool makes it easy for the content owners to maintain their knowle
 
 ![Architecture diagram](../media/faq-chatbot-with-data-champion-model.svg)
 
-
 ## Data Flow
 
 1. Employee access FAQ Bot
@@ -28,6 +28,3 @@ The QnA Maker tool makes it easy for the content owners to maintain their knowle
 1. QnA Maker gives the best match to the incoming query
 1. The result is shown to the employee
 1. Data Champions manage and update their QnA Knowledge base based on the feedback from user traffic
-
-
-

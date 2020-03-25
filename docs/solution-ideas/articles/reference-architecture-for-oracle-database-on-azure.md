@@ -8,6 +8,7 @@ ms.custom: acom-architecture, data, Oracle, Oracle Database, Oracle DB, Oracle o
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Reference architecture for Oracle Database on Azure
 
 [!INCLUDE [header_file](../header.md)]
@@ -18,7 +19,6 @@ This solution architecture illustrates a canonical architecture to achieve high 
 
 ![Architecture diagram](../media/reference-architecture-for-oracle-database-on-azure.svg)
 
-
 ## Data Flow
 
 1. The client system accesses a custom application with Oracle DB backend via the web.
@@ -28,6 +28,3 @@ This solution architecture illustrates a canonical architecture to achieve high 
 1. Oracle Database has been configured using a HyperThreaded Virtual Machine with multiple Premium storage-based Managed Disks for performance and availability.
 1. Oracle databases are replicated with Oracle DataGuard (or Active DataGuard) or Oracle GoldenGate for HA and DR purposes.
 1. Oracle databases are monitored for uptime and performance by Oracle Enterprise Manager. OEM also allows you to generate various performance and usage reports.
-
-
-

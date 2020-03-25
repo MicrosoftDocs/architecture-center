@@ -8,15 +8,19 @@ ms.custom: acom-architecture, media, 'https://azure.microsoft.com/solutions/arch
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Live streaming digital media
 
 [!INCLUDE [header_file](../header.md)]
 
 A live streaming solution allows you to capture video in real-time and broadcast it to consumers in real time, such as streaming interviews, conferences, and sporting events online. In this solution, video is captured by a video camera and sent to a channel input endpoint. The channel receives the live input stream and makes it available for streaming through a streaming endpoint to a web browser or mobile app. The channel also provides a preview monitoring endpoint to preview and validate your stream before further processing and delivery. The channel can also record and store the ingested content in order to be streamed later (video-on-demand).
 
-This solution is built on the Azure managed services: [Media Services](https://azure.microsoft.com/services/media-services/) and [Content Delivery Network](https://azure.microsoft.com/services/cdn/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [Media Services](https://azure.microsoft.com/services/media-services) and [Content Delivery Network](https://azure.microsoft.com/services/cdn). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="digital-media-live-stream" height="353.645" viewbox="0 0 814.247 353.645"  xmlns="http://www.w3.org/2000/svg">
     <path fill="#ededee" opacity=".5" d="M129.255 103.645h156v124h-156z"/>
@@ -168,23 +172,23 @@ This solution is built on the Azure managed services: [Media Services](https://a
 </svg>
 
 ## Components
-* [Partner on-premises live encoder](/api/Redirect/documentation/articles/media-services-live-encoders-overview/): Outputs the live source for ingest into the cloud as RTMP, MPEG-Transport Stream, or fragmented mp4 formats.
-* Stores large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. You can use [Blob storage](https://azure.microsoft.com/services/storage/blobs/) to expose data publicly to the world, or to store application data privately.
-* [Media Services](https://azure.microsoft.com/services/media-services/): Provides the ability to ingest, encode, preview, store, and deliver your live streaming content. Channels, programs, and streaming endpoints handle the live streaming functions, including ingestion, formatting, DVR, security, scalability, and redundancy.
-* [Azure streaming endpoint](https://azure.microsoft.com/services/media-services/live-on-demand/): Represents a streaming service that can deliver content directly to a client player application, or to a content delivery network (CDN) for further distribution.
-* [Content Delivery Network](https://azure.microsoft.com/services/cdn/): Provides secure, reliable content delivery with broad global reach and a rich feature set.
-* [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/): Uses industry standards such as HTML5 (MSE/EME) to provide an enriched adaptive streaming experience. Regardless of the playback technology used, developers have a unified JavaScript interface to access APIs.
-* [Preview monitoring](/api/Redirect/documentation/articles/web-sites-monitor/): Provides the ability to preview and validate a live stream before further processing and delivery.
-* [Multi-DRM content protection](https://azure.microsoft.com/services/media-services/content-protection/): Delivers content securely using multi-DRM (PlayReady, Widevine, FairPlay Streaming) or AES clear key encryption.
+
+* [Partner on-premises live encoder](/api/Redirect/documentation/articles/media-services-live-encoders-overview): Outputs the live source for ingest into the cloud as RTMP, MPEG-Transport Stream, or fragmented mp4 formats.
+* Stores large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. You can use [Blob storage](https://azure.microsoft.com/services/storage/blobs) to expose data publicly to the world, or to store application data privately.
+* [Media Services](https://azure.microsoft.com/services/media-services): Provides the ability to ingest, encode, preview, store, and deliver your live streaming content. Channels, programs, and streaming endpoints handle the live streaming functions, including ingestion, formatting, DVR, security, scalability, and redundancy.
+* [Azure streaming endpoint](https://azure.microsoft.com/services/media-services/live-on-demand): Represents a streaming service that can deliver content directly to a client player application, or to a content delivery network (CDN) for further distribution.
+* [Content Delivery Network](https://azure.microsoft.com/services/cdn): Provides secure, reliable content delivery with broad global reach and a rich feature set.
+* [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player): Uses industry standards such as HTML5 (MSE/EME) to provide an enriched adaptive streaming experience. Regardless of the playback technology used, developers have a unified JavaScript interface to access APIs.
+* [Preview monitoring](/api/Redirect/documentation/articles/web-sites-monitor): Provides the ability to preview and validate a live stream before further processing and delivery.
+* [Multi-DRM content protection](https://azure.microsoft.com/services/media-services/content-protection): Delivers content securely using multi-DRM (PlayReady, Widevine, FairPlay Streaming) or AES clear key encryption.
 
 ## Next Steps
-* [Overview of live encoder](/api/Redirect/documentation/articles/media-services-live-encoders-overview/)
-* [How to use Azure Blob storage](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs/)
-* [Overview of live streaming](/api/Redirect/documentation/articles/media-services-manage-channels-overview/)
-* [How to manage streaming endpoints](/api/Redirect/documentation/articles/media-services-manage-origins/)
-* [Using Azure Content Delivery Network](/api/Redirect/documentation/articles/cdn-create-new-endpoint/)
-* [Develop video player applications](/api/Redirect/documentation/articles/media-services-develop-video-players/)
-* [How to monitor apps in Azure App Service](/api/Redirect/documentation/articles/media-services-develop-video-players/)
-* [Deliver content securely](https://azure.microsoft.com/services/media-services/content-protection/)
 
-
+* [Overview of live encoder](/api/Redirect/documentation/articles/media-services-live-encoders-overview)
+* [How to use Azure Blob storage](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs)
+* [Overview of live streaming](/api/Redirect/documentation/articles/media-services-manage-channels-overview)
+* [How to manage streaming endpoints](/api/Redirect/documentation/articles/media-services-manage-origins)
+* [Using Azure Content Delivery Network](/api/Redirect/documentation/articles/cdn-create-new-endpoint)
+* [Develop video player applications](/api/Redirect/documentation/articles/media-services-develop-video-players)
+* [How to monitor apps in Azure App Service](/api/Redirect/documentation/articles/media-services-develop-video-players)
+* [Deliver content securely](https://azure.microsoft.com/services/media-services/content-protection)

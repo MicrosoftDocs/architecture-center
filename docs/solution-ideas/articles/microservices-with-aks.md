@@ -8,6 +8,7 @@ ms.custom: acom-architecture, microservices, devops, kubernetes, interactive-dia
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Microservices with AKS
 
 [!INCLUDE [header_file](../header.md)]
@@ -15,6 +16,9 @@ ms.subservice: solution-idea
 Use AKS to simplify the deployment and management of microservices based architecture. AKS streamlines horizontal scaling, self-healing, load balancing, secret management.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="microservices-with-aks" height="674" viewbox="0 0 887 674"  xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(0 -1)" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
@@ -287,6 +291,3 @@ Use AKS to simplify the deployment and management of microservices based archite
 1. Azure Active Directory is used to secure access to the resources
 1. Microservices use databases to store and retrieve information
 1. Administrator accesses via a separate admin portal
-
-
-
