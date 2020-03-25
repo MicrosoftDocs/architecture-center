@@ -261,6 +261,5 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [azure-monitor]: https://azure.microsoft.com/services/monitor/
 [github]: https://github.com/mspnp/azure-stream-analytics-data-pipeline
 [monitoring-stream-analytics]: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts
+Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 
-
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/

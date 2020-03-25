@@ -281,13 +281,6 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [azure-monitor]: https://azure.microsoft.com/services/monitor/
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
-[AAF-cost]: /azure/architecture/framework/cost/overview
-[adf]: /azure/data-factory
-[adf-calculator]: https://azure.microsoft.com/pricing/calculator/?service=data-factory
-[az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services/
-[az-storage-reserved]: https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity
-[az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics/
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [github]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline
 [MergeLocation]: https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
 [synapse-analytics]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity

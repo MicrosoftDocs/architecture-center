@@ -397,20 +397,19 @@ For more information, see the cost section in [Azure Architecture Framework][AAF
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github].
 
-<<<<<<< HEAD
+
+<!-- links -->
+
+
 [AAF-devops]: /azure/architecture/framework/devops/overview
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azure-monitor]: https://azure.microsoft.com/services/monitor/
 [databricks=monitoring]: https://docs.microsoft.com/en-us/azure/architecture/databricks-monitoring/
-=======
-<!-- links -->
-
 [AAF-cost]: /azure/architecture/framework/cost/overview
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [event-hubs-pricing]: https://azure.microsoft.com/pricing/details/event-hubs/
->>>>>>> master
 [github]: https://github.com/mspnp/azure-databricks-streaming-analytics
 [azure-databricks-pricing]: https://azure.microsoft.com/pricing/details/databricks/
