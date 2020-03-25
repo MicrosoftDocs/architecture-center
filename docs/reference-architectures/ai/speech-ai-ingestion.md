@@ -111,4 +111,4 @@ To deploy the reference implementation for this architecture, see [the GitHub re
 
 ## Next steps
 
-The text transcribed from the audio files in this reference architecture can be processed with the built-in sentiment analysis provided by Azure Cognitive Services. To explore, read [the documentation on Speech APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+The text transcribed from the audio files in this reference architecture can be processed with the built-in speech analysis provided by Azure Cognitive Services. To explore, read [the documentation on Speech APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
