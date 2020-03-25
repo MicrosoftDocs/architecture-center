@@ -21,7 +21,7 @@ This example also demonstrates *infrastructure as code*, which uses Azure Resour
 
 ## Architecture
 
-![Diagram showing the deployment flow](./media/botvisio.jpg)
+![Diagram showing the deployment flow](./media/deployment-flow.png)
 
 In this example:
 1. Developers check in the bot logic, test code, ARM infrastructure templates, and build pipeline code to a Git repository.
@@ -56,7 +56,7 @@ In this example, the [deployment.json](https://github.com/mspnp/solution-archite
 
 If you want your chatbot to use Cognitive Services such as LUIS and QnA Maker, be sure to add them in the template as well.
 
-![Example Git repository structure](./media/ARMTemplateHierarchy.png)
+![Example Git repository structure](./media/arm-template-hierarchy.png)
 
 ### Bot development and testing
 
