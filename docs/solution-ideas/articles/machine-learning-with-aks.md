@@ -8,6 +8,7 @@ ms.custom: acom-architecture, chat, signalr service, interactive-diagram, devops
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Machine Learning model training with AKS
 
 [!INCLUDE [header_file](../header.md)]
@@ -18,7 +19,6 @@ Training of models using large datasets is a complex and resource intensive task
 
 ![Architecture diagram](../media/machine-learning-with-aks.svg)
 
-
 ## Data Flow
 
 1. Package ML model into a container and publish to ACR
@@ -27,6 +27,3 @@ Training of models using large datasets is a complex and resource intensive task
 1. Serve production model using Kubeflow, promoting a consistent environment across test, control and production
 1. AKS supports GPU enabled VM
 1. Developer can build features querying the model running in AKS cluster
-
-
-

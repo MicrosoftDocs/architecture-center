@@ -8,6 +8,7 @@ ms.custom: ai-ml, acom-architecture, ai at the edge, azure stack edge, edge ai, 
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # AI at the Edge with Azure Stack
 
 [!INCLUDE [header_file](../header.md)]
@@ -28,21 +29,20 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 1. Globally relevant and compliant insights are available in the global app.
 1. Data from edge scoring is used to improve the model.
 
-
 ## Components
-* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/): Easily build, deploy, and manage predictive analytics solutions
-* [HDInsight](https://azure.microsoft.com/services/hdinsight/): Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters
-* [Container Registry](https://azure.microsoft.com/services/container-registry/): Store and manage container images across all types of Azure deployments
-* [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/): Simplify the deployment, management, and operations of Kubernetes
-* [Storage](https://azure.microsoft.com/services/storage/): Durable, highly available, and massively scalable cloud storage
-* [Azure Stack](https://azure.microsoft.com/overview/azure-stack/): Build and run innovative hybrid applications across cloud boundaries
+
+* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Easily build, deploy, and manage predictive analytics solutions
+* [HDInsight](https://azure.microsoft.com/services/hdinsight): Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters
+* [Container Registry](https://azure.microsoft.com/services/container-registry): Store and manage container images across all types of Azure deployments
+* [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service): Simplify the deployment, management, and operations of Kubernetes
+* [Storage](https://azure.microsoft.com/services/storage): Durable, highly available, and massively scalable cloud storage
+* [Azure Stack](https://azure.microsoft.com/overview/azure-stack): Build and run innovative hybrid applications across cloud boundaries
 
 ## Next Steps
-* [Machine Learning Studio documentation](/azure/machine-learning/service/)
-* [HDInsight documentation](/azure/hdinsight/)
-* [Container Registry documentation](/azure/container-registry/)
-* [Azure Kubernetes Service (AKS) documentation](/azure/aks/)
-* [Storage documentation](/azure/storage/)
-* [Azure Stack documentation](/azure/azure-stack/user/azure-stack-solution-machine-learning)
 
-
+* [Machine Learning Studio documentation](https://docs.microsoft.com/azure/machine-learning/service)
+* [HDInsight documentation](https://docs.microsoft.com/azure/hdinsight)
+* [Container Registry documentation](https://docs.microsoft.com/azure/container-registry)
+* [Azure Kubernetes Service (AKS) documentation](https://docs.microsoft.com/azure/aks)
+* [Storage documentation](https://docs.microsoft.com/azure/storage)
+* [Azure Stack documentation](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-machine-learning)

@@ -8,6 +8,7 @@ ms.custom: acom-architecture, Azure DevTest Image Factory, devops, Image Managem
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # DevTest Image Factory
 
 [!INCLUDE [header_file](../header.md)]
@@ -27,15 +28,14 @@ The image factory provides a great way for organizations to create, maintain, an
 1. Specified images copied from image factory lab to team labs.
 1. Team lab users claim VMs or create VMs with the latest images.
 
-
 ## Components
-* [Azure Lab Services](https://azure.microsoft.com/services/lab-services/): Set up labs for classrooms, trials, development and testing, and other scenarios
-* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/): Provision Windows and Linux virtual machines in seconds
-* [Azure DevOps](https://azure.microsoft.com/services/devops/): Services for teams to share code, track work, and ship software
+
+* [Azure Lab Services](https://azure.microsoft.com/services/lab-services): Set up labs for classrooms, trials, development and testing, and other scenarios
+* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Provision Windows and Linux virtual machines in seconds
+* [Azure DevOps](https://azure.microsoft.com/services/devops): Services for teams to share code, track work, and ship software
 
 ## Next Steps
-* [Azure Lab Services documentation](/azure/lab-services/)
-* [Virtual Machines documentation](/azure/virtual-machines/)
-* [Azure Devops documentation](/azure/devops/)
 
-
+* [Azure Lab Services documentation](https://docs.microsoft.com/azure/lab-services)
+* [Virtual Machines documentation](https://docs.microsoft.com/azure/virtual-machines)
+* [Azure Devops documentation](https://docs.microsoft.com/azure/devops)

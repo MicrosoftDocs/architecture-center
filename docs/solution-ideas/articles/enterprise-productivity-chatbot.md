@@ -8,6 +8,7 @@ ms.custom: acom-architecture, bot service, luis, interactive-diagram, 'https://a
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Enterprise Productivity Chatbot
 
 [!INCLUDE [header_file](../header.md)]
@@ -15,6 +16,9 @@ ms.subservice: solution-idea
 Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Office 365 calendar, customer cases stored in Dynamics CRM and much more.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="enterprise-productivity-chatbot" height="473" viewbox="0 0 1193 473"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g data-name="Layer 2">
@@ -198,11 +202,8 @@ Azure Bot Service can be easily combined with Language Understanding to build po
 ## Data Flow
 
 1. Employee access Enterprise Productivity Bot
-1. Azure Active Directory validates the employee’s identity
-1. The Bot is able to query the employee’s Office 365 calendar via the Azure Graph
+1. Azure Active Directory validates the employee's identity
+1. The Bot is able to query the employee's Office 365 calendar via the Azure Graph
 1. Using data gathered from the calendar, the Bot access case information in Dynamics CRM
 1. Information is returned to the employee who can filter down the data without leaving the Bot
 1. Application insights gathers runtime telemetry to help the development with Bot performance and usage
-
-
-

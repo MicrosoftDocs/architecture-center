@@ -8,6 +8,7 @@ ms.custom: acom-architecture, chatbot, bot service, luis, interactive-diagram, '
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Commerce Chatbot
 
 [!INCLUDE [header_file](../header.md)]
@@ -27,6 +28,3 @@ Together, the Azure Bot Service and Language Understanding service enable develo
 1. Response is reviewed by customer who can refine the question using natural conversation
 1. Once the user is happy with the results, the Application Bot updates the customer's reservation
 1. Application insights gathers runtime telemetry to help development with Bot performance and usage
-
-
-

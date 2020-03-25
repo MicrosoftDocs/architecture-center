@@ -175,9 +175,9 @@ To reduce the amount of unnecessary processing, consider using partitions to div
 
 ## Security considerations
 
-### IP whitelisting of Analysis Services clients
+### IP allow list of Analysis Services clients
 
-Consider using the Analysis Services firewall feature to whitelist client IP addresses. If enabled, the firewall blocks all client connections other than those specified in the firewall rules. The default rules whitelist the Power BI service, but you can disable this rule if desired. For more information, see [Hardening Azure Analysis Services with the new firewall capability](https://azure.microsoft.com/blog/hardening-azure-analysis-services-with-the-new-firewall-capability/).
+Consider using the Analysis Services firewall feature to allow list client IP addresses. If enabled, the firewall blocks all client connections other than those specified in the firewall rules. The default rules allow list the Power BI service, but you can disable this rule if desired. For more information, see [Hardening Azure Analysis Services with the new firewall capability](https://azure.microsoft.com/blog/hardening-azure-analysis-services-with-the-new-firewall-capability/).
 
 ### Authorization
 
@@ -204,10 +204,42 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 
 
 For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+## Cost considerations
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
+
+### Azure Synapse
+
+- Choose **Compute Optimized Gen1** for frequent scaling operations. This option is priced as pay-as-you-go, based on Data warehouse units consumption (DWU). 
+
+- Choose **Compute Optimized Gen2** for intensive workloads with higher query performance and compute scalability needs. You can choose the pay-as-you-go model or use reserved plans of one year (37% savings) or 3 years (65% savings).
+
+Data storage is charged separately. Other services such as disaster recovery and threat detection are also charged separately.
+
+For more information, see [Azure Synapse Pricing][az-synapse-pricing].
+
+### Azure Analysis Services
+
+Pricing for Azure Analysis Services depends on the tier. The reference implementation of this architecture uses the **Developer** tier, which is recommended for evaluation, development, and test scenarios. Other tiers include, the **Basic** tier, which is recommended for small production environment; the **Standard** tier for mission-critical production applications. For more information, see [The right tier when you need it](/azure/analysis-services/analysis-services-overview#the-right-tier-when-you-need-it). 
+
+No charges apply when you pause your instance.
+
+For more information, see [Azure Analysis Services pricing][az-as-pricing].
+
+### Blob Storage
+
+Consider using the Azure Storage reserved capacity feature to lower cost on storage. With this model, you get a discount if you can commit to reservation for fixed storage capacity for one or three years. For more information, see [Optimize costs for Blob storage with reserved capacity][az-storage-reserved].
+
+### Power BI Embedded
+
+Power BI Embedded is a Platform-as-a-Service (PaaS) solution that offers a set of APIs to enable the integration of Power BI content into custom apps and websites. Users who publish BI content need to be licensed with [Power BI Pro][powerbi-pro-purchase]. For information about pricing, see [Power BI Embedded pricing][powerbi-embedded-pricing].
+
+
+For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
+
 
 ## Deploy the solution
 
-To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github-folder]. It deploys the following:
+To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github-folder]. It deploys the following resources:
 
 - A Windows VM to simulate an on-premises database server. It includes SQL Server 2017 and related tools, along with Power BI Desktop.
 - An Azure storage account that provides Blob storage to hold data exported from the SQL Server database.
@@ -238,3 +270,11 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw
 [synapse-analytics]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
+[powerbi-embedded-pricing]: https://azure.microsoft.com/pricing/details/power-bi-embedded/
+[powerbi-pro-purchase]: https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro
+[wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
+[az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics/
+[az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services/
+[az-storage-reserved]: https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[AAF-cost]: /azure/architecture/framework/cost/overview

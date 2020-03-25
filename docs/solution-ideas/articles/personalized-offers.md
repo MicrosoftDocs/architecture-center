@@ -8,6 +8,7 @@ ms.custom: acom-architecture, artificial intelligence, solution architectures, A
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Personalized Offers
 
 [!INCLUDE [header_file](../header.md)]
@@ -39,6 +40,3 @@ For post deployment instructions and more details on the technical implementatio
 1. Raw user activity data (Product and Offer Clicks), Offers made to users, and performance data (for Azure Functions and Azure Machine Learning) are sent to Azure Event Hub.
 1. The offer is returned to the User. In our simulation this is done by writing to an Azure Storage Queue and picked up by an Azure Function in order to produce the next user action.
 1. Azure Stream Analytics analyzes the data to provide near real-time analytics on the input stream from the Azure Event Hub. The aggregated data is sent to Azure DocumentDB. The raw data is sent to Azure Data Lake Storage.
-
-
-

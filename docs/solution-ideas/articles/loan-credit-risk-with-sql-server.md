@@ -8,6 +8,7 @@ ms.custom: acom-architecture, finance, analytics, sql-server, artificial intelli
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Loan Credit Risk with SQL Server
 
 [!INCLUDE [header_file](../header.md)]
@@ -15,6 +16,9 @@ ms.subservice: solution-idea
 Using SQL Server 2016 with R Services, a lending institution can make use of predictive analytics to reduce number of loans they offer to those borrowers most likely to default, increasing the profitability of their loan portfolio.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="loan-credit-risk-with-sql-server" height="71.778" viewbox="0 0 811.074 71.778"  xmlns="http://www.w3.org/2000/svg">
     <g data-name="Layer 2">
@@ -86,7 +90,7 @@ SQL Server R Services brings the compute to the data by running R on the compute
 
 This solution walks through the steps to create and refine data, train R models, and perform scoring on the SQL Server machine. The final scored database table in SQL Server gives a predicted score for each potential borrower. This data is then visualized in PowerBI.
 
-Data scientists who are testing and developing solutions can work from the convenience of their R IDE on their client machine, while [pushing the compute to the SQL Server machine](/sql/advanced-analytics/r/getting-started-with-sql-server-r-services/). The completed solutions are deployed to SQL Server 2016 by embedding calls to R in stored procedures. These solutions can then be further automated with SQL Server Integration Services and SQL Server agent.
+Data scientists who are testing and developing solutions can work from the convenience of their R IDE on their client machine, while [pushing the compute to the SQL Server machine](https://docs.microsoft.com/sql/advanced-analytics/r/getting-started-with-sql-server-r-services). The completed solutions are deployed to SQL Server 2016 by embedding calls to R in stored procedures. These solutions can then be further automated with SQL Server Integration Services and SQL Server agent.
 
 Use the "Deploy" button below to create a Virtual Machine that includes the data, R code, SQL code, and a SQL Server 2016 database (Loans) containingn the full solution.
 
@@ -97,5 +101,3 @@ Your Azure subscription used for the deployment will incur consumption charges o
 Please ensure that you stop your VM instance when not actively using the solution. Running the VM will incur higher costs.
 
 Please delete the solution if you are not using it.
-
-

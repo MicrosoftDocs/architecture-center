@@ -8,6 +8,7 @@ ms.custom: acom-architecture, artificial intelligence, anomaly-detection, soluti
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Predictive Maintenance
 
 [!INCLUDE [header_file](../header.md)]
@@ -38,5 +39,3 @@ The Deploy button will launch a workflow that will deploy an instance of the sol
   6. Azure SQL Database is used (managed by Azure Data Factory) to store the prediction results received from Azure Machine Learning. These results are then consumed in the Power BI dashboard. A stored procedure is deployed in the SQL Database and later invoked in Azure Data Factory pipeline to store the ML prediction results into the scoring result table.
   7. Azure Data Factory handles orchestration, scheduling, and monitoring of the batch processing pipeline.
   8. Finally, Power BI is used for results visualization, so that aircraft technicians can monitor the sensor data from an airplane or across the fleet in real time and use visualizations to schedule engine maintenance.
-
-

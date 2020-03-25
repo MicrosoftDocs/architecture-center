@@ -8,6 +8,7 @@ ms.custom: acom-architecture, devops, continuous integration, continuous deliver
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Immutable Infrastructure CI/CD using Jenkins and Terraform on Azure Virtual Architecture overview
 
 [!INCLUDE [header_file](../header.md)]
@@ -28,20 +29,20 @@ Azure is a world-class cloud for hosting virtual machines running Windows or Lin
 1. Azure Log Analytics collects and analyzes logs.
 1. Monitor application and make improvements.
 
-
 ## Components
-* [Managed Disks](https://azure.microsoft.com/services/managed-disks/): Persistent, secured disk storage for Azure virtual machines.
-* [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/): Manage and scale up to thousands of Linux and Windows virtual machines.
+
+* [Managed Disks](https://azure.microsoft.com/services/managed-disks): Persistent, secured disk storage for Azure virtual machines.
+* [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets): Manage and scale up to thousands of Linux and Windows virtual machines.
 * Log Analytics: Collect, search, and visualize machine data from on-premises and cloud.
-* [Visual Studio Code](https://azure.microsoft.com/products/visual-studio/): Build and deploy multi-platform apps to get the most from Azure services.
+* [Visual Studio Code](https://azure.microsoft.com/products/visual-studio): Build and deploy multi-platform apps to get the most from Azure services.
 
 ## Next Steps
-* [Use Terraform to create a Virtual Machine Scale Set from a Packer customer VM image](/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl)
-* [Use Terraform to plan and create a Virtual Machine Scale Set with Managed Disk](/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl)
-* [Use Log Analytics to collect data from Linux computers](/azure/log-analytics/log-analytics-quick-collect-linux-computer)
+
+* [Use Terraform to create a Virtual Machine Scale Set from a Packer customer VM image](https://docs.microsoft.com/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl)
+* [Use Terraform to plan and create a Virtual Machine Scale Set with Managed Disk](https://docs.microsoft.com/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl)
+* [Use Log Analytics to collect data from Linux computers](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-linux-computer)
 * [Get the Azure Extensions Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack)
 
 ## Deploy to Azure
-* [Deploy to Azure](https://azure.microsoft.com/resources/templates/jenkins-cicd-vmss/)
 
-
+* [Deploy to Azure](https://azure.microsoft.com/resources/templates/jenkins-cicd-vmss)
