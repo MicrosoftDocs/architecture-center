@@ -8,6 +8,7 @@ ms.custom: acom-architecture, bcdr, availability, strategy, interactive-diagram,
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Build high availability into your BCDR strategy
 
 [!INCLUDE [header_file](../header.md)]
@@ -15,6 +16,9 @@ ms.subservice: solution-idea
 Virtual machines (VMs) are physically separated across zones, and a virtual network is created using load balancers at each site. These locations are close enough for high availability replication, so your applications stay running, despite any issues at the physical locations.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="build-high-availability-into-your-bcdr-strategy" height="468" viewbox="0 0 558 468"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
@@ -132,15 +136,14 @@ Virtual machines (VMs) are physically separated across zones, and a virtual netw
 1. Add VMs to the load balancer’s back-end pool.
 1. Deploy your application on VMs for redundancy and high availability.
 
-
 ## Components
-* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/): Provision Windows and Linux virtual machines in seconds
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): Managed, intelligent SQL in the cloud
-* [Load Balancer](https://azure.microsoft.com/services/load-balancer/): Deliver high availability and network performance to your applications
+
+* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Provision Windows and Linux virtual machines in seconds
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database): Managed, intelligent SQL in the cloud
+* [Load Balancer](https://azure.microsoft.com/services/load-balancer): Deliver high availability and network performance to your applications
 
 ## Next Steps
-* [Virtual Machines documentation](/azure/virtual-machines)
-* [SQL Database documentation](/azure/sql-database)
-* [Load Balancer documentation](/azure/load-balancer)
 
-
+* [Virtual Machines documentation](https://docs.microsoft.com/azure/virtual-machines)
+* [SQL Database documentation](https://docs.microsoft.com/azure/sql-database)
+* [Load Balancer documentation](https://docs.microsoft.com/azure/load-balancer)

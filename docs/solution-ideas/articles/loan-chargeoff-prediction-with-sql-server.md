@@ -8,6 +8,7 @@ ms.custom: acom-architecture, finance, artificial intelligence, solution archite
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Loan ChargeOff Prediction with SQL Server
 
 [!INCLUDE [header_file](../header.md)]
@@ -15,6 +16,9 @@ ms.subservice: solution-idea
 This solution demonstrates how to build and deploy a machine learning model with SQL Server 2016 with R Services to predict if a Bank loan will need to be charged off within next 3 months.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="loan-chargeoff-prediction-with-sql-server" height="87.358" viewbox="0 0 465.249 87.358"  xmlns="http://www.w3.org/2000/svg">
     <g data-name="Layer 2">
@@ -81,7 +85,7 @@ SQL Server R Services brings the compute to the data by running R on the compute
 
 This solution walks through the steps to create and refine data, train R models, and perform scoring on the SQL Server machine. The final prediction results will be stored in SQL Server . This data is then visualized in PowerBI, which also contains a summary of the loan chargeoff analysis and chargeoff prediction for the next three months. (Simulated data is shown in this template to illustrate the feature)
 
-Data scientists who are testing and developing solutions can work from the convenience of their R IDE on their client machine, while [pushing the compute to the SQL Server machine](/sql/advanced-analytics/r/getting-started-with-sql-server-r-services). The completed solutions are deployed to SQL Server 2016 by embedding calls to R in stored procedures. These solutions can then be further automated with SQL Server Integration Services and SQL Server agent.
+Data scientists who are testing and developing solutions can work from the convenience of their R IDE on their client machine, while [pushing the compute to the SQL Server machine](https://docs.microsoft.com/sql/advanced-analytics/r/getting-started-with-sql-server-r-services). The completed solutions are deployed to SQL Server 2016 by embedding calls to R in stored procedures. These solutions can then be further automated with SQL Server Integration Services and SQL Server agent.
 
 Click on the Deploy button to test the automation and the entire solution will be made available in your Azure subscription.
 
@@ -92,5 +96,3 @@ Your Azure subscription used for the deployment will incur consumption charges o
 Please ensure that you stop your VM instance when not actively using the solution. Running the VM will incur higher costs.
 
 Please delete the solution if you are not using it.
-
-

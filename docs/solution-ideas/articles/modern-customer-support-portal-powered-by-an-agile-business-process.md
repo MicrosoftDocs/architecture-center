@@ -8,21 +8,22 @@ ms.custom: acom-architecture, line of business app, lob app, lift and shift clou
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Lift and Shift and Innovate - LOB Apps
 
-* [!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../header.md)]
 
 This line-of-business application solution provides a mechanism for monitoring and responding to customer feedback. Easily connect multiple business systems to enable nimbler customer support.
 
 Related Links:
 
-* [Matching the architecture to your business needs](/azure/architecture/guide/design-principles/build-for-business/)
+* [Matching the architecture to your business needs](https://docs.microsoft.com/azure/architecture/guide/design-principles/build-for-business)
 
-* [Managing identities in your applications](/azure/architecture/multitenant-identity/)
+* [Managing identities in your applications](https://docs.microsoft.com/azure/architecture/multitenant-identity)
 
-* [Automate access and use of data across applications with Logic Apps](/azure/logic-apps/)
+* [Automate access and use of data across applications with Logic Apps](https://docs.microsoft.com/azure/logic-apps)
 
-* [Infuse intelligence into your apps with Cognitive Services](/azure/cognitive-services/welcome)
+* [Infuse intelligence into your apps with Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/welcome)
 
 ## Architecture
 

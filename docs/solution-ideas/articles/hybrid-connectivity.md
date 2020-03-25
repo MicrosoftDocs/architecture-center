@@ -8,13 +8,14 @@ ms.custom: acom-architecture, Hybrid Connection, Azure Hybrid Connection, Hybrid
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Hybrid Connection
 
 [!INCLUDE [header_file](../header.md)]
 
-Azure Stack enables you to deploy Azure services on-premises or in the cloud with a consistent application logic, development paradigm, and operations methodology. 
+Azure Stack enables you to deploy Azure services on-premises or in the cloud with a consistent application logic, development paradigm, and operations methodology.
 
-Hybrid cloud applications are a single system that has components running in both Azure and Azure Stack. This solution blueprint is relevant to establishing connectivity for any application that involves communications between the Azure public cloud and on-premises Azure Stack components. Hybrid connectivity is a foundational blueprint that will be applicable to most Azure Stack solutions. 
+Hybrid cloud applications are a single system that has components running in both Azure and Azure Stack. This solution blueprint is relevant to establishing connectivity for any application that involves communications between the Azure public cloud and on-premises Azure Stack components. Hybrid connectivity is a foundational blueprint that will be applicable to most Azure Stack solutions.
 
 Note: This doesn't apply to Azure Stack deployments that are disconnected from the public internet.
 
@@ -29,17 +30,16 @@ Note: This doesn't apply to Azure Stack deployments that are disconnected from t
 1. Deploy virtual machines in each virtual network.
 1. Establish a VPN connection over the public internet between the network gateways.
 
-
 ## Components
-* [Virtual Network](https://azure.microsoft.com/services/virtual-network/): Provision private networks, optionally connect to on-premises datacenters.
-* [Virtual Network Gateway](https://azure.microsoft.com/services/vpn-gateway/): Learn how to configure VPN Gateway, a virtual private network gateway.
-* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/): Provision Windows and Linux virtual machines in seconds.
-* [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) is a hybrid cloud platform that lets you use Azure services on-premises.
+
+* [Virtual Network](https://azure.microsoft.com/services/virtual-network): Provision private networks, optionally connect to on-premises datacenters.
+* [Virtual Network Gateway](https://azure.microsoft.com/services/vpn-gateway): Learn how to configure VPN Gateway, a virtual private network gateway.
+* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Provision Windows and Linux virtual machines in seconds.
+* [Azure Stack](https://azure.microsoft.com/overview/azure-stack) is a hybrid cloud platform that lets you use Azure services on-premises.
 
 ## Next Steps
-* [Virtual Network](/azure/virtual-network)
-* [VPN Gateway Documentation](/azure/vpn-gateway)
-* [Virtual Machines Overview](https://azure.microsoft.com/services/virtual-machines/)
-* [Azure Stack User Documentation](/azure/azure-stack/user)
 
-
+* [Virtual Network](https://docs.microsoft.com/azure/virtual-network)
+* [VPN Gateway Documentation](https://docs.microsoft.com/azure/vpn-gateway)
+* [Virtual Machines Overview](https://azure.microsoft.com/services/virtual-machines)
+* [Azure Stack User Documentation](https://docs.microsoft.com/azure/azure-stack/user)

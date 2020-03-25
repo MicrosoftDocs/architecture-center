@@ -8,11 +8,16 @@ ms.custom: acom-architecture, ecommerce, scalability, web-app, architect scalabl
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Architect scalable e-commerce web app
 
 [!INCLUDE [header_file](../header.md)]
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
+<!-- cSpell:ignore helvetica -->
 
 <svg class="architecture-diagram" aria-labelledby="scalable-ecommerce-web-app" height="611" viewbox="0 0 1038 611"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" transform="translate(-2)">
@@ -159,17 +164,16 @@ ms.subservice: solution-idea
 1. Azure Functions processes order payment.
 1. Azure Functions makes payment to third party and records payment in SQL database.
 
-
 ## Components
-* [Web Apps](https://azure.microsoft.com/services/app-service/web/): An App Service Web App runs in a single region, accessible to web and mobile browsers
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): Managed, intelligent SQL in the cloud
-* [Azure Functions](https://azure.microsoft.com/services/functions/): Process events with serverless code
+
+* [Web Apps](https://azure.microsoft.com/services/app-service/web): An App Service Web App runs in a single region, accessible to web and mobile browsers
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database): Managed, intelligent SQL in the cloud
+* [Azure Functions](https://azure.microsoft.com/services/functions): Process events with serverless code
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
 
 ## Next Steps
-* [Get started easily with Web Apps using the five-minute quick starts](/azure/app-service/)
-* [Build an ASP.NET app in Azure with SQL Database](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
-* [Learn what can you do with Azure Functions](/azure/azure-functions/functions-overview)
-* [Application Performance Management with Application Insights](/azure/application-insights/app-insights-overview)
 
-
+* [Get started easily with Web Apps using the five-minute quick starts](https://docs.microsoft.com/azure/app-service)
+* [Build an ASP.NET app in Azure with SQL Database](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
+* [Learn what can you do with Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)
+* [Application Performance Management with Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)

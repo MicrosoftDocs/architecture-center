@@ -186,6 +186,19 @@ Restrict direct sign in access to the AD FS and WAP servers. Only DevOps staff s
 
 Consider using a set of network virtual appliances that logs detailed information on traffic traversing the edge of your virtual network for auditing purposes.
 
+## Cost considerations
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost]. 
+
+Here are cost considerations for the services used in this architecture.
+
+### AD Domain Services
+
+Consider having Active Directory Domain Services as a shared service that is consumed by multiple workloads to lower costs. For more information, see [Active Directory Domain Services pricing][ADDS-pricing].
+
+### Azure AD Federation Services
+
+For information about the editions offered by Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing]. The  AD Federation Services feature is available in all editions.
+
 ## Deploy the solution
 
 A deployment for this architecture is available on [GitHub][github]. Note that the entire deployment can take up to two hours, which includes creating the VPN gateway and running the scripts that configure Active Directory and AD FS.
@@ -365,10 +378,12 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 [vm-recommendations]: ../virtual-machines-windows/single-vm.md
 [hybrid-azure-on-prem-vpn]: ../hybrid-networking/vpn.md
-
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory/
 [azure-cli]: /azure/azure-resource-manager/xplat-cli-azure-resource-manager
 [DRS]: https://technet.microsoft.com/library/dn280945.aspx
 [where-to-place-an-fs-proxy]: https://technet.microsoft.com/library/dd807048.aspx
+[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/  
 [ADDRS]: https://technet.microsoft.com/library/dn486831.aspx
 [plan-your-adfs-deployment]: https://msdn.microsoft.com/library/azure/dn151324.aspx
 [ad_network_recommendations]: #network_configuration_recommendations_for_AD_DS_VMs
@@ -394,3 +409,4 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [considerations]: ./considerations.md
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
 [psise]: /powershell/scripting/components/ise/windows-powershell-integrated-scripting-environment--ise-
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/

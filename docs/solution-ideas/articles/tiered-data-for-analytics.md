@@ -8,6 +8,7 @@ ms.custom: acom-architecture, analytics, application tier, data tier, tier archi
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Tier Applications & Data for Analytics
 
 [!INCLUDE [header_file](../header.md)]
@@ -28,15 +29,14 @@ Easily tier data and applications on-premises and in Azure with architecture tha
 1. Function sends data from queue to Azure Storage.
 1. Globally-relevant and compliant insights are available in the global app.
 
-
 ## Components
-* [Storage](https://azure.microsoft.com/services/storage/): Durable, highly available, and massively scalable cloud storage
-* [Azure Functions](https://azure.microsoft.com/services/functions/): Process events with serverless code
-* [Azure Stack](https://azure.microsoft.com/overview/azure-stack/): Build and run innovative hybrid applications across cloud boundaries
+
+* [Storage](https://azure.microsoft.com/services/storage): Durable, highly available, and massively scalable cloud storage
+* [Azure Functions](https://azure.microsoft.com/services/functions): Process events with serverless code
+* [Azure Stack](https://azure.microsoft.com/overview/azure-stack): Build and run innovative hybrid applications across cloud boundaries
 
 ## Next Steps
-* [Storage documentation](/azure/storage/)
-* [Azure Functions documentation](/azure/azure-functions/)
-* [Azure Stack documentation](/azure/azure-stack/user/azure-stack-solution-staged-data-analytics)
 
-
+* [Storage documentation](https://docs.microsoft.com/azure/storage)
+* [Azure Functions documentation](https://docs.microsoft.com/azure/azure-functions)
+* [Azure Stack documentation](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-staged-data-analytics)

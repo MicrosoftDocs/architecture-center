@@ -6,7 +6,7 @@ author: randycampbell
 ms.date: 02/01/2020
 ms.topic: article
 ms.service: architecture-center
-ms.subservice:
+ms.subservice: reference-architecture
 ms.custom:
     - fcp
 ---

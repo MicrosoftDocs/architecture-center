@@ -8,15 +8,13 @@ ms.custom: acom-architecture, postgresql, use cases, azure, solutions, analytics
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Finance management apps using Azure Database for PostgreSQL
 
 [!INCLUDE [header_file](../header.md)]
 
-Securely store critical data and provide high-value analytics and insights over aggregated data to users, using in-built security and performance. 
+Securely store critical data and provide high-value analytics and insights over aggregated data to users, using in-built security and performance.
 
 ## Architecture
 
 ![Architecture diagram](../media/finance-management-apps-using-azure-database-for-postgresql.svg)
-
-
-

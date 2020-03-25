@@ -9,8 +9,8 @@ ms.custom: acom-architecture, ai-ml, visual assistant, cognitive services, visua
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
-# Visual Assistant
 
+# Visual Assistant
 
 [!INCLUDE [header_file](../header.md)]
 
@@ -19,7 +19,6 @@ Visual assistant provides rich information based on content of the image with ca
 ## Architecture
 
 ![Architecture diagram](../media/visual-assistant.svg)
-
 
 ## Data Flow
 
@@ -30,6 +29,3 @@ Visual assistant provides rich information based on content of the image with ca
 1. Bot gets additional information for barcodes.
 1. Optionally Bot gets more information on barcodes/queries exclusively from your domain through the Bing Custom Search API.
 1. Assistant renders similar products/destinations from your domain or provides more information around celebrity/place/monuments/artworks.
-
-
-

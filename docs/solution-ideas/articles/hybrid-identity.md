@@ -8,6 +8,7 @@ ms.custom: acom-architecture, Hybrid Identity, Azure Hybrid Identity, Service Pr
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Hybrid Identity
 
 [!INCLUDE [header_file](../header.md)]
@@ -27,15 +28,14 @@ The need to keep application components on-premises doesn't have to be a barrier
 1. Deploy with service principles.
 1. Application resources can communicate over network.
 
-
 ## Components
-* [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) is a hybrid cloud platform that lets you use Azure services on-premises.
-* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/): Provision Windows and Linux virtual machines in seconds.
-* Learn how to synchronize directories and enable single sign-on with [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) (Azure AD).
+
+* [Azure Stack](https://azure.microsoft.com/overview/azure-stack) is a hybrid cloud platform that lets you use Azure services on-premises.
+* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Provision Windows and Linux virtual machines in seconds.
+* Learn how to synchronize directories and enable single sign-on with [Azure Active Directory](https://azure.microsoft.com/services/active-directory) (Azure AD).
 
 ## Next Steps
-* [Azure Stack User Documentation](/azure/azure-stack/user)
-* [Virtual Machines Overview](https://azure.microsoft.com/services/virtual-machines/)
-* [Azure Active Directory Documentation](/azure/active-directory)
 
-
+* [Azure Stack User Documentation](https://docs.microsoft.com/azure/azure-stack/user)
+* [Virtual Machines Overview](https://azure.microsoft.com/services/virtual-machines)
+* [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory)

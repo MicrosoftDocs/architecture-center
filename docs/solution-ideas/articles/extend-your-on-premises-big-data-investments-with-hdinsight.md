@@ -8,6 +8,7 @@ ms.custom: acom-architecture, data, HDInsight, ExpressRoute, 'https://azure.micr
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Extend your on-premises big data investments with HDInsight
 
 [!INCLUDE [header_file](../header.md)]
@@ -15,6 +16,9 @@ ms.subservice: solution-idea
 Extend your on-premises big data investments to the cloud and transform your business using the advanced analytics capabilities of HDInsight.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="extend-your-on-premises-big-data-investments-with-hdinsight" fill="none" height="196" viewbox="0 0 626 196"  xmlns="http://www.w3.org/2000/svg">
     <path d="M225.286 3.398H57.97v180.474h167.316V3.398zM574.97 3.398H407.654v180.474H574.97V3.398z" fill="#F7F7F7"/>
@@ -77,5 +81,3 @@ Extend your on-premises big data investments to the cloud and transform your bus
     <path d="M491.332 136.438h2.94a4.775 4.775 0 012.055-3.263l-1.491-2.538c-1.933 1.249-3.263 3.344-3.504 5.801z" fill="#59B3D8"/>
     <path d="M491.332 136.438h2.94a4.775 4.775 0 012.055-3.263l-1.491-2.538c-1.933 1.249-3.263 3.344-3.504 5.801z" fill="#8BC9E0"/>
 </svg>
-
-

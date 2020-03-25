@@ -8,6 +8,7 @@ ms.custom: acom-architecture, Azure Spatial Anchors, Azure Active Directory, Cos
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Design Review Powered by Mixed Reality
 
 [!INCLUDE [header_file](../header.md)]
@@ -31,15 +32,14 @@ Businesses and teams across industries have to spend time and money on design re
 1. Device 2 fetches the hologram from Blob storage using the SAS key obtained from the app service.
 1. Device 1 and Device 2 exchange state information over a peer-to-peer networking channel (or through a service relay of your choice).
 
-
 ## Components
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory/): Synchronize on-premises directories and enable single sign-on
-* [Blob Storage](https://azure.microsoft.com/services/storage/blobs/): REST-based object storage for unstructured data
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Globally distributed, multi-model database for any scale
+
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
+* [Blob Storage](https://azure.microsoft.com/services/storage/blobs): REST-based object storage for unstructured data
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Globally distributed, multi-model database for any scale
 
 ## Next Steps
-* [Azure Active Directory documentation](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant/)
-* [Blob Storage documentation](/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows)
-* [Azure Cosmos DB documentation](/azure/cosmos-db/create-sql-api-dotnet/)
 
-
+* [Azure Active Directory documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [Blob Storage documentation](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows)
+* [Azure Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet)
