@@ -15,7 +15,7 @@ Customer care centers form an integral part of business success. Efficiency of t
 
 This reference architecture shows how to build an audio ingestion and *speech-to-text* transcription pipeline for such customer care centers. This pipeline processes batches of recorded audio files, and stores the transcribed text files in Azure Blob Storage. This architecture does not implement real-time speech processing.
 
-This pipeline can later feed into the next phase of your Speech AI implementation, where transcribed text is processed for PII (or Personally Identifiable Information) recognition and deletion, sentiment analysis, and so on.
+This pipeline can later feed into the next phase of your Speech AI implementation, where transcribed text can be processed for recognizing and removing sensitive information, sentiment analysis, and so on.
 
 The reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/cognitive-services-reference-implementation).
 
@@ -25,7 +25,7 @@ The reference implementation for this architecture is available on [GitHub](http
 
 Businesses can implement this architecture with their Azure account, and allow the client applications access to the pipeline through REST APIs. The application goes through a three-step process to upload an audio file:
 
-1. It authenticates with Azure AD. Note that this is a required step for the very first file upload.
+1. It authenticates with Azure AD. This is a required step for the first file upload.
 2. It calls the REST API to get the SAS token required to access Azure Blob Storage.
 3. It then uploads the audio files to a blob container.
 
@@ -57,7 +57,7 @@ For high-performing and cost-effective scalable solution, this reference archite
 
 #### Scalability for file size
 
-The reference architecture allows large audio files to be uploaded to the cloud, by dividing them into four-kilobyte chunks. *Chunking* is a common technique used to upload large blobs, as discussed in details in [this article](https://www.red-gate.com/simple-talk/cloud/platform-as-a-service/azure-blob-storage-part-4-uploading-large-blobs/). The maximum allowed file size that can be uploaded is dictated by the [maximum size limit of a blob](https://azure.microsoft.com/blog/general-availability-larger-block-blobs-in-azure-storage/), which can be up to 4.77 TB.
+The reference architecture allows large audio files to be uploaded to the cloud, by dividing them into 4 KB chunks. *Chunking* is a common technique used to upload large blobs, as discussed in details in [this article](https://www.red-gate.com/simple-talk/cloud/platform-as-a-service/azure-blob-storage-part-4-uploading-large-blobs/). The maximum allowed file size that can be uploaded is dictated by the [maximum size limit of a blob](https://azure.microsoft.com/blog/general-availability-larger-block-blobs-in-azure-storage/), which can be up to 4.77 TB.
 
 #### Scalability for storage
 
@@ -82,7 +82,7 @@ The audio files stored in the blob may contain sensitive customer data. If multi
 A SAS token allows you to control the following:
 
 - What resources clients can access, since it is created per resource.
-- What permissions clients can have while accessing these resources, using [role-based access control](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas#assign-permissions-with-rbac). It is recommended to give minimal required permissions. The clients in this architecture have *Write Only* access to the blobs. This prevents them from reading other clients' audio files, either accidentally or maliciously.
+- What permissions clients can have while accessing these resources, using [role-based access control](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas#assign-permissions-with-rbac). It is recommended to give minimal required permissions. The clients in this architecture have *Write-Only* access to the blobs. This prevents them from reading other clients' audio files, either accidentally or maliciously.
 - When do the individual tokens expire. This limits the window of exposure to the token, hence limiting the possibility of unauthorized access to the resource. For larger files, the SAS token may expire before the upload is completed. The client can request multiple tokens for the same file. Since only authenticated clients can do so, multiple requests of these tokens do not affect overall security.
 
 Read [Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) for an in-depth discussion on SAS tokens. Also see [Create a user delegation SAS](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas) to learn more about a user delegate SAS token.
