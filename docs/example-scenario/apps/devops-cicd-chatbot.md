@@ -1,7 +1,7 @@
 ---
-title: Build a CI/CD pipeline for chatbots
+title: Build a CI/CD pipeline for chatbots with ARM templates
 titleSuffix: Azure Example Scenarios
-description: Use Azure DevOps with ARM templates to set up a CI/CD pipeline to Azure App Service for a chatbot. 
+description: Use Azure Pipelines with ARM templates to set up a CI/CD pipeline to Azure App Service and Azure Bot Service for a chatbot app. 
 author: MariaVrabie
 ms.date: 03/25/2020
 ms.topic: example-scenario
@@ -13,11 +13,11 @@ ms.custom:
 
 # Azure DevOps CI/CD pipelines for chatbots
 
-This article presents a DevOps approach to setting up a continuous integration and continuous deployment (CI/CD) pipeline to Azure App Service and Azure Bot Service for a chatbot. 
+This article presents a DevOps approach to setting up a continuous integration and continuous deployment (CI/CD) pipeline that deploys a chatbot app and its *infrastructure as code*. 
 
-DevOps is a common development strategy for building custom applications, including bots. DevOps uses modern CI/CD processes to manage software builds, deployments, testing, and monitoring. Azure DevOps tools can help you accelerate your software delivery and focus on your code, rather than the supporting infrastructure and operations.
+DevOps is a common development strategy for building custom applications like bots. DevOps pipelines use modern CI/CD processes to manage software builds, deployments, testing, and monitoring. Azure DevOps tools can help you accelerate your software delivery and focus on your code, rather than the supporting infrastructure and operations.
 
-This example also demonstrates *infrastructure as code*, which uses Azure Resource Manager (ARM) templates or open-source alternatives to define and deploy underlying infrastructure for your app. You can co-locate the infrastructure and software code in the same source control repository, and deploy both through your pipelines.
+Infrastructure as code uses Azure Resource Manager (ARM) templates or open-source alternatives to define and deploy an app's underlying infrastructure. You can co-locate the software and infrastructure code in the same source control repository, and deploy both through your pipelines.
 
 ## Architecture
 
@@ -84,8 +84,6 @@ In the release pipeline, you define a number of tasks to deploy your app and und
 
 The release pipeline depends on the build pipeline to get the output for the bot logic, and it links to the Git repo to get the ARM templates to deploy the infrastructure. For deployment, the ARM templates need to be accessible from a public endpoint such as a Git repo or Azure Blob Storage account. 
 
-Although ARM templates don't need to be compiled, you can validate their quality. For example, you could do [linting](https://jsonlint.com/) on the ARM templates. See the [ARM template toolkit](https://github.com/Azure/arm-ttk) for more ARM template analysis and test tools from the Azure Resource Manager team. Consider which pipeline, build or release, is most appropriate for the tests, based on your development lifecycle.
-
 ### App Service Plan and App Service instance
 An Azure App Service Plan is the underlying server farm used to deploy an Azure App Service instance. The *appservicePlan.json* and *appservice.json* ARM templates create the App Service Plan and App Service instance for the chatbot app. 
 
@@ -99,9 +97,11 @@ Azure Application Insights can collect telemetry from the app about what the bot
 
 ## Issues and considerations
 
-- A common practice is to use [Azure KeyVault](/azure/key-vault/) instead of storing secrets in Azure DevOps. If the Service Principal connection to your Azure Subscription has appropriate access policies to the Azure KeyVault, it can download secrets from the KeyVault to use as variables in your pipeline, which avoids storing them in source control. The name of the secret will be set with the associated value. For example, a secret in the KeyVault called `botMicrosoftAppPassword` could be referenced by `$(botMicrosoftAppPassword)` in the release pipeline definition.
+- Although ARM templates don't need to be compiled, you can validate their quality. For example, you could do [linting](https://jsonlint.com/) on the ARM templates. See the [ARM template toolkit](https://github.com/Azure/arm-ttk) for more ARM template analysis and test tools from the Azure Resource Manager team. Consider which pipeline, build or release, is most appropriate for the tests, based on your development lifecycle.
 
 - The linked ARM templates for deploying the infrastructure need to be accessible from a public endpoint, like a Git repository or an Azure Blob Storage account. If you upload the templates to a storage account, they remain secure, as they are held in a private mode but can be accessed using some form of SAS token. 
+
+- A common practice is to use [Azure KeyVault](/azure/key-vault/) instead of storing secrets in Azure DevOps. If the Service Principal connection to your Azure Subscription has appropriate access policies to the Azure KeyVault, it can download secrets from the KeyVault to use as variables in your pipeline, which avoids storing them in source control. The name of the secret will be set with the associated value. For example, a secret in the KeyVault called `botMicrosoftAppPassword` could be referenced by `$(botMicrosoftAppPassword)` in the release pipeline definition.
 
 - You can set up [Bot Analytics](/azure/bot-service/bot-service-manage-analytics) to gain additional insight into the performance of your bot. To set up Bot Analytics, you need an API Key from Application Insights, but you can't create this key by using an ARM template. You can create the key manually from your Application Insights resource in the Azure portal.
 
