@@ -5,7 +5,10 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Use Azure Functions and Azure Cosmos DB to build globally distributed, scalable serverless applications.
 ms.custom: acom-architecture, serverless, Cosmos DB, 'https://azure.microsoft.com/solutions/architecture/serverless-apps-using-cosmos-db/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Serverless apps using Cosmos DB
 
 [!INCLUDE [header_file](../header.md)]
@@ -13,6 +16,9 @@ ms.custom: acom-architecture, serverless, Cosmos DB, 'https://azure.microsoft.co
 Use Azure Functions and Azure Cosmos DB to build globally distributed, scalable serverless applications.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="serverless-apps-using-cosmos-db" fill="none" height="460" viewbox="0 0 832 460"  xmlns="http://www.w3.org/2000/svg">
     <path d="M26.01 199.9v22.7c0 3.1 1.1 4.3 4.3 4.3h35.1c3.1 0 4.3-1.1 4.3-4.3v-22.7h-43.7z" fill="#59B3D8"/>
@@ -53,5 +59,3 @@ Use Azure Functions and Azure Cosmos DB to build globally distributed, scalable 
     <path d="M166.11 215.1l-9-5.3v4.5h-63.5v1.5h63.5v4.5l9-5.2zM338.11 215.1l-9-5.3v4.5h-63.5v1.5h63.5v4.5l9-5.2zM637.109 215.1l-9-5.3v4.5h-112.4v1.5h112.4v4.5l9-5.2zM638.909 73.9l-10.1 2.7 3.2 3.2-116.8 116.7 1.1 1.1 116.7-116.8 3.2 3.2 2.7-10.1zM638.909 360.1l-2.7-10.1-3.2 3.2-116.7-116.8-1.1 1.1 116.8 116.7-3.2 3.2 10.1 2.7z" fill="#959595"/>
     <path d="M707.61 304.9c1.4.1 2.4 1.2 2.4 2.6-.1 1.4-1.2 2.4-2.6 2.4-1.4-.1-2.4-1.2-2.4-2.6.1-1.4 1.2-2.5 2.6-2.4zM717.309 304.9c1.4.1 2.4 1.2 2.4 2.6-.1 1.4-1.2 2.4-2.6 2.4-1.4-.1-2.4-1.2-2.4-2.6 0-1.4 1.2-2.5 2.6-2.4zM725.91 304.9c1.4.1 2.4 1.2 2.4 2.6-.1 1.4-1.2 2.4-2.6 2.4-1.4-.1-2.4-1.2-2.4-2.6.1-1.4 1.3-2.5 2.6-2.4zM734.61 304.9c1.4.1 2.4 1.2 2.4 2.6-.1 1.4-1.2 2.4-2.6 2.4-1.4-.1-2.4-1.2-2.4-2.6.1-1.4 1.2-2.5 2.6-2.4zM743.309 304.9c1.4.1 2.4 1.2 2.4 2.6-.1 1.4-1.2 2.4-2.6 2.4-1.4-.1-2.4-1.2-2.4-2.6 0-1.4 1.2-2.5 2.6-2.4z" fill="#969696"/>
 </svg>
-
-[!INCLUDE [js_include_file](../../_js/index.md)]

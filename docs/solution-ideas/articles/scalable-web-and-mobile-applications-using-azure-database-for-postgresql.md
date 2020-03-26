@@ -5,14 +5,20 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
 ms.custom: acom-architecture, postgresql, web-app, scalability, use cases, azure, solutions, 'https://azure.microsoft.com/solutions/architecture/scalable-web-and-mobile-applications-using-azure-database-for-postgresql/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Scalable web and mobile applications using Azure Database for PostgreSQL
 
 [!INCLUDE [header_file](../header.md)]
 
-Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac. 
+Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="scalable-web-and-mobile-applications-using-azure-database-for-postgresql" height="126.994" viewbox="0 0 789.121 126.994"  xmlns="http://www.w3.org/2000/svg">
     <path d="M36.412 67.156a2.141 2.141 0 002.135 2.131h49.1a2.141 2.141 0 002.135-2.135V33.747H36.411z" fill="#59b4d9"/>
@@ -67,5 +73,3 @@ Rapidly build engaging, performant and scalable cross-platform and native apps f
         <path d="M504.1 47.575a9.2 9.2 0 014.464-15.423 7.474 7.474 0 012.976-.135 13.419 13.419 0 017.441-10.823 12.753 12.753 0 00-4.059-.676 13.24 13.24 0 00-12.582 9.2 10.554 10.554 0 00-2.976-.541 9.2 9.2 0 000 18.4h4.736z" fill="#fff"/>
     </g>
 </svg>
-
-[!INCLUDE [js_include_file](../../_js/index.md)]

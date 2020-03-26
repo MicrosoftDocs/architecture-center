@@ -5,16 +5,22 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Learn how car dealerships, manufacturers, and insurance companies can use Microsoft Azure to gain predictive insights on vehicle health and driving habits.
 ms.custom: acom-architecture, vehicle telematics, automotive telematics, anomaly-detection, ai-ml, 'https://azure.microsoft.com/solutions/architecture/predictive-insights-with-vehicle-telematics/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Predictive Insights with Vehicle Telematics
 
 [!INCLUDE [header_file](../header.md)]
 
 Learn how car dealerships, manufacturers, and insurance companies can use Microsoft Azure to gain predictive insights on vehicle health and driving habits.
 
-This solution is built on the Azure managed services: [Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/), [Storage Accounts](https://azure.microsoft.com/services/storage/), [HDInsight](https://azure.microsoft.com/services/hdinsight/), [Data Factory](https://azure.microsoft.com/services/data-factory/), [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [Event Hubs](https://azure.microsoft.com/services/event-hubs), [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics), [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio), [Storage Accounts](https://azure.microsoft.com/services/storage), [HDInsight](https://azure.microsoft.com/services/hdinsight), [Data Factory](https://azure.microsoft.com/services/data-factory), [Azure SQL Database](https://azure.microsoft.com/services/sql-database) and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="predictive-insights-with-vehicle-telematics" height="1091.3" viewbox="0 0 1091.3 772.609"  xmlns="http://www.w3.org/2000/svg">
     <path d="M793.775 46.935l-16.534-27.471-.023-11.135h.3a3.507 3.507 0 003.562-3.447 3.506 3.506 0 00-3.58-3.432l-17.977.037a3.506 3.506 0 00-3.562 3.447 3.506 3.506 0 003.576 3.432h.3l.023 11.134-16.42 27.54c-1.8 3.02-.318 5.486 3.3 5.478l43.765-.091c3.61-.007 5.083-2.479 3.27-5.492z" fill="#59b4d9"/>
@@ -188,23 +194,23 @@ This solution is built on the Azure managed services: [Event Hubs](https://azure
 </svg>
 
 ## Components
-* [Event Hubs](https://azure.microsoft.com/services/event-hubs/) ingests diagnostic events and passes them on to Stream Analytics and an Azure ML Web Service.
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): Stream Analytics accepts the input stream from Event Hubs, calls an Azure ML Web Service to do predictions, and sends the stream to Azure Storage and Power BI.
-* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud and deploy web services that can be called by Stream Analytics and Azure Data Factory.
-* [Storage Accounts](https://azure.microsoft.com/services/storage/): Azure Storage stores diagnostic events stream data from Stream Analytics.
-* Azure Data Factory uses [HDInsight](https://azure.microsoft.com/services/hdinsight/) to run Hive queries to process the data and load it into Azure SQL Database.
-* [Data Factory](https://azure.microsoft.com/services/data-factory/) uses HDInsight to process data and load it into Azure SQL Database.
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): SQL Database is used to store and data processed by Data Factory and HDInsight and is accessed by Power BI for analysis of the telemetry data.
+
+* [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests diagnostic events and passes them on to Stream Analytics and an Azure ML Web Service.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics): Stream Analytics accepts the input stream from Event Hubs, calls an Azure ML Web Service to do predictions, and sends the stream to Azure Storage and Power BI.
+* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud and deploy web services that can be called by Stream Analytics and Azure Data Factory.
+* [Storage Accounts](https://azure.microsoft.com/services/storage): Azure Storage stores diagnostic events stream data from Stream Analytics.
+* Azure Data Factory uses [HDInsight](https://azure.microsoft.com/services/hdinsight) to run Hive queries to process the data and load it into Azure SQL Database.
+* [Data Factory](https://azure.microsoft.com/services/data-factory) uses HDInsight to process data and load it into Azure SQL Database.
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database): SQL Database is used to store and data processed by Data Factory and HDInsight and is accessed by Power BI for analysis of the telemetry data.
 * This solution uses [Power BI](https://powerbi.microsoft.com), but others use [Power BI](https://powerbi.microsoft.com) Embedded to analyze the telemetry data.
 
 ## Next Steps
-* [Learn more about Event Hubs](/azure/event-hubs/event-hubs-what-is-event-hubs)
-* [Learn more about Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
-* [Learn more about Machine Learning](/azure/machine-learning/machine-learning-what-is-machine-learning)
-* [Learn more about Azure Storage](/azure/storage/storage-introduction)
-* [Learn more about HDInsight](/azure/hdinsight/)
-* [Learn more about Azure Data Factory](/azure/data-factory/data-factory-introduction)
-* [Learn more about SQL Database](/azure/sql-database/)
-* [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+* [Learn more about Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
+* [Learn more about Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction)
+* [Learn more about Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning)
+* [Learn more about Azure Storage](https://docs.microsoft.com/azure/storage/storage-introduction)
+* [Learn more about HDInsight](https://docs.microsoft.com/azure/hdinsight)
+* [Learn more about Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-introduction)
+* [Learn more about SQL Database](https://docs.microsoft.com/azure/sql-database)
+* [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)

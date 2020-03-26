@@ -5,7 +5,10 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Bursting from AKS with ACI
 ms.custom: acom-architecture, devops, kubernetes, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/scale-using-aks-with-aci/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Bursting from AKS with ACI
 
 [!INCLUDE [header_file](../header.md)]
@@ -13,6 +16,9 @@ ms.custom: acom-architecture, devops, kubernetes, interactive-diagram, 'https://
 Use the AKS virtual node to provision pods inside ACI that start in seconds. This enables AKS to run with just enough capacity for your average workload. As you run out of capacity in your AKS cluster, scale out additional pods in ACI without any additional servers to manage.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="scale-using-aks-with-aci" height="469" viewbox="0 0 1022 469"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd">
@@ -252,25 +258,9 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>User registers container in Azure Container Registry</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Container images are pulled from the Azure Container Registry</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>AKS virtual node, a Virtual Kubelet implementation, provisions pods inside ACI from AKS when traffic comes in spikes.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>AKS and ACI containers write to shared data store</p>
-</div>
-
 ## Data Flow
 
 1. User registers container in Azure Container Registry
 1. Container images are pulled from the Azure Container Registry
 1. AKS virtual node, a Virtual Kubelet implementation, provisions pods inside ACI from AKS when traffic comes in spikes.
 1. AKS and ACI containers write to shared data store
-
-
-[!INCLUDE [js_include_file](../../_js/index.md)]

@@ -5,16 +5,22 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: This architecture represents how to configure your infrastructure for development and testing of a microservices-based system.
 ms.custom: acom-architecture, devops, microservices, 'https://azure.microsoft.com/solutions/architecture/dev-test-microservice/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Dev-Test deployment for testing microservice solutions
 
 [!INCLUDE [header_file](../header.md)]
 
 This architecture represents how to configure your infrastructure for development and testing of a microservices-based system.
 
-This solution is built on the Azure managed services: [Azure DevOps](https://azure.microsoft.com/services/devops/), [Service Fabric](https://azure.microsoft.com/services/service-fabric/) and [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [Azure DevOps](https://azure.microsoft.com/services/devops), [Service Fabric](https://azure.microsoft.com/services/service-fabric) and [Azure SQL Database](https://azure.microsoft.com/services/sql-database). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="dev-test-microservice" height="591.775" viewbox="0 0 825.046 591.775"  xmlns="http://www.w3.org/2000/svg">
     <path fill="#ededed" opacity=".5" d="M280.048 150.108h265.376v441.667H280.048zM559.67 150.108h265.376v441.667H559.67z"/>
@@ -285,17 +291,17 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 </svg>
 
 ## Components
-* [Azure DevOps](https://azure.microsoft.com/services/devops/) manages the development process.
+
+* [Azure DevOps](https://azure.microsoft.com/services/devops) manages the development process.
 * The [Microsoft Release Management](https://www.visualstudio.com/docs/release/getting-started/configure-agents) build and release agents deploy the Azure Resource Manager template and associated code to the various environments.
 * [Azure DevOps resource groups](https://www.visualstudio.com/docs/release/getting-started/configure-agents) are used to define all the services required to deploy the solution into a dev-test or production environment.
-* [Service Fabric](https://azure.microsoft.com/services/service-fabric/) orchestrates all of the microservices used in the solution. In development, code is deployed directly from the development tools, while in test and production environments the code is deployed through the build and release agent using Resource Manager templates.
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) maintains data for the website. Copies are deployed in the dev, test, and production environments.
+* [Service Fabric](https://azure.microsoft.com/services/service-fabric) orchestrates all of the microservices used in the solution. In development, code is deployed directly from the development tools, while in test and production environments the code is deployed through the build and release agent using Resource Manager templates.
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database) maintains data for the website. Copies are deployed in the dev, test, and production environments.
 
 ## Next Steps
+
 * [Set up AzureDevOps](https://www.visualstudio.com/docs/setup-admin/get-started)
 * [Configure Microsoft Release Management agents](https://www.visualstudio.com/docs/release/getting-started/configure-agents)
 * [Deploy using Azure Resource Groups](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup)
-* [Create your first Azure Service Fabric application](/api/Redirect/documentation/articles/service-fabric-create-your-first-application-in-visual-studio/)
-* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/api/Redirect/documentation/articles/sql-database-get-started/)
-
-[!INCLUDE [js_include_file](../../_js/index.md)]
+* [Create your first Azure Service Fabric application](/api/Redirect/documentation/articles/service-fabric-create-your-first-application-in-visual-studio)
+* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/api/Redirect/documentation/articles/sql-database-get-started)

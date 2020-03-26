@@ -5,7 +5,10 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: This solution enables a predictive model for Length of Stay for in-hospital admissions. Length of Stay (LOS) is defined in number of days from the initial admit date to the date that the patient is discharged from any given hospital facility.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/predicting-length-of-stay-in-hospitals/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Predicting Length of Stay in Hospitals
 
 [!INCLUDE [header_file](../header.md)]
@@ -13,6 +16,9 @@ ms.custom: acom-architecture, artificial intelligence, solution architectures, A
 This solution enables a predictive model for Length of Stay for in-hospital admissions. Length of Stay (LOS) is defined in number of days from the initial admit date to the date that the patient is discharged from any given hospital facility.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="predicting-length-of-stay-in-hospitals" height="71.779" viewbox="0 0 811.074 71.779"  xmlns="http://www.w3.org/2000/svg">
     <g data-name="Layer 2">
@@ -80,8 +86,8 @@ This solution enables a predictive model for Length of Stay for in-hospital admi
 
 There are two different business users in hospital management who can expect to benefit from more reliable predictions of the Length of Stay. These are:
 
-  * The Chiefs Medical Information Officer (CMIO), who straddles the divide between informatics/technology and healthcare professionals in a healthcare organization. Their duties typically include using analytics to determine if resources are being allocated appropriately in a hospital network. As part of this, the CMIO needs to be able to determine which facilities are being overtaxed and, specifically, what resources at those facilities may need to be bolstered to realign such resources with demand.
-  * The Care Line Manager, who is directly involved with the care of patients. This role requires monitoring the status of individual patients as well as ensuring that staff is available to meet the specific care requirements of their patients. A Care Line Manager also needs to manage the discharge of their patients. The ability to predict LOS of a patient enables Care Line Managers to determine if staff resources will be adequate to handle the release of a patient.
+* The Chiefs Medical Information Officer (CMIO), who straddles the divide between informatics/technology and healthcare professionals in a healthcare organization. Their duties typically include using analytics to determine if resources are being allocated appropriately in a hospital network. As part of this, the CMIO needs to be able to determine which facilities are being overtaxed and, specifically, what resources at those facilities may need to be bolstered to realign such resources with demand.
+* The Care Line Manager, who is directly involved with the care of patients. This role requires monitoring the status of individual patients as well as ensuring that staff is available to meet the specific care requirements of their patients. A Care Line Manager also needs to manage the discharge of their patients. The ability to predict LOS of a patient enables Care Line Managers to determine if staff resources will be adequate to handle the release of a patient.
 
 ## Data Scientist Perspective
 
@@ -100,5 +106,3 @@ Your Azure subscription used for the deployment will incur consumption charges o
 Please ensure that you stop your VM instance when not actively using the solution. Running the VM will incur higher costs.
 
 Please delete the solution if you are not using it.
-
-[!INCLUDE [js_include_file](../../_js/index.md)]

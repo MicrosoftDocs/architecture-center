@@ -142,6 +142,6 @@ Deploy the performance monitoring dashboard that accompanies this code library t
 <!-- links -->
 
 [config-cluster]: https://github.com/mspnp/spark-monitoring/blob/master/README.md
-[log4j.properties]: https://github.com/mspnp/spark-monitoring/blob/master/src/spark-jobs/src/main/resources/com/microsoft/pnp/samplejob/log4j.properties
-[sample-app]: https://github.com/mspnp/spark-monitoring/tree/master/src/spark-jobs
+[log4j.properties]: https://github.com/mspnp/spark-monitoring/blob/master/sample/spark-sample-job/src/main/resources/com/microsoft/pnp/samplejob/log4j.properties
+[sample-app]: https://github.com/mspnp/spark-monitoring/tree/master/sample/spark-sample-job
 [spark-logging]: https://spark.apache.org/docs/2.3.0/api/java/org/apache/spark/internal/Logging.html

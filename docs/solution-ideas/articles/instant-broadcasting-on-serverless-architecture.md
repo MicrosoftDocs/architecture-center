@@ -5,7 +5,10 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Simplify one-to-many real-time communication and updates using serverless code
 ms.custom: acom-architecture, serverless, signalr service, media, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/instant-broadcasting-on-serverless-architecture/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Instant Broadcasting on Serverless Architecture
 
 [!INCLUDE [header_file](../header.md)]
@@ -13,6 +16,9 @@ ms.custom: acom-architecture, serverless, signalr service, media, interactive-di
 Simplify one-to-many real-time communication and updates using serverless code.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="instant-broadcasting-on-serverless-architecture" height="403.234" viewbox="0 0 593.754 403.234"  xmlns="http://www.w3.org/2000/svg">
     <mask height="19.514" id="a" maskunits="userSpaceOnUse" width="10.785" x="313.462" y="144.199">
@@ -203,25 +209,6 @@ Simplify one-to-many real-time communication and updates using serverless code.
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Client pulls web app content from blob storage</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Web app receives SignalR token and endpoint</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>User connects to web app</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Connection triggers database event via Functions</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Functions pushes data to SignalR Service</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>…which in turn pushes data to client</p>
-</div>
-
 ## Data Flow
 
 1. Client pulls web app content from blob storage
@@ -230,6 +217,3 @@ Simplify one-to-many real-time communication and updates using serverless code.
 1. Connection triggers database event via Functions
 1. Functions pushes data to SignalR Service
 1. …which in turn pushes data to client
-
-
-[!INCLUDE [js_include_file](../../_js/index.md)]

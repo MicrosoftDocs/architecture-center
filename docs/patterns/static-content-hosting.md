@@ -4,7 +4,7 @@ titleSuffix: Cloud Design Patterns
 description: Deploy static content to a cloud-based storage service that can deliver them directly to the client.
 keywords: design pattern
 author: dragon119
-ms.date: 01/04/2019
+ms.date: 02/24/2020
 ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -108,10 +108,9 @@ public class Settings
   {
     get
     {
-      var account = CloudStorageAccount.Parse(StaticContentStorageConnectionString);
+        var blobServiceClient = new BlobServiceClient(StaticContentStorageConnectionString);
 
-      return string.Format("{0}/{1}", account.BlobEndpoint.ToString().TrimEnd('/'),
-                                      StaticContentContainer.TrimStart('/'));
+        return string.Format("{0}/{1}", blobServiceClient.Uri.ToString().TrimEnd('/'), StaticContentContainer.TrimStart('/'));
     }
   }
 }

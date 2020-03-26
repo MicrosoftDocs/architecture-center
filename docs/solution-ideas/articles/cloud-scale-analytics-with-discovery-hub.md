@@ -5,7 +5,10 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Build a modern data estate that is ready for cloud scale analytics with a step-by-step flowchart from Microsoft Azure.
 ms.custom: acom-architecture, Azure Discovery Hub, Cloud Scale Analytics, data warehouse analytics, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/cloud-scale-analytics-with-discovery-hub/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Discovery Hub with Cloud Scale Analytics
 
 [!INCLUDE [header_file](../header.md)]
@@ -13,6 +16,9 @@ ms.custom: acom-architecture, Azure Discovery Hub, Cloud Scale Analytics, data w
 Use Discovery Hub to define a data estate using a graphical user interface, with definitions stored in a metadata repository. Code for building the data estate is generated automatically while remaining fully customizable. The resulting modern data warehouse is ready to support cloud scale analytics and AI.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="cloud-scale-analytics-with-discovery-hub" height="354" viewbox="0 0 1018 354"  xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(0 .25)" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
@@ -123,22 +129,6 @@ Use Discovery Hub to define a data estate using a graphical user interface, with
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Combine all your structured and semi-structured data in Azure Data Lake Storage using Discovery Hub’s data engineering pipeline with hundreds of native data connectors.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Clean and transform data using the powerful analytics and computational ability of Azure Databricks.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Move cleansed and transformed data to Azure Synapse Analytics, creating one hub for all your data. Take advantage of native connectors between Azure Databricks (Polybase) and Azure Synapse Analytics to access and move data at scale.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Build operational reports and analytical dashboards on top of SQL Database to derive insights from the data and use Azure Analysis Services to serve the data.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Run ad-hoc queries directly on data within Azure Databricks.</p>
-</div>
-
 ## Data Flow
 
 1. Combine all your structured and semi-structured data in Azure Data Lake Storage using Discovery Hub’s data engineering pipeline with hundreds of native data connectors.
@@ -147,19 +137,18 @@ Use Discovery Hub to define a data estate using a graphical user interface, with
 1. Build operational reports and analytical dashboards on top of SQL Database to derive insights from the data and use Azure Analysis Services to serve the data.
 1. Run ad-hoc queries directly on data within Azure Databricks.
 
-
 ## Components
-* [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/): Massively scalable, secure data lake functionality built on Azure Blob Storage
-* [Azure Databricks](https://azure.microsoft.com/services/databricks/): Fast, easy, and collaborative Apache Spark-based analytics platform
-* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/): Limitless analytics service with unmatched time to insight (formerly SQL Data Warehouse)
-* [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/): Enterprise-grade analytics engine as a service
-* [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/): Embed fully interactive, stunning data visualizations in your applications
+
+* [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage): Massively scalable, secure data lake functionality built on Azure Blob Storage
+* [Azure Databricks](https://azure.microsoft.com/services/databricks): Fast, easy, and collaborative Apache Spark-based analytics platform
+* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics): Limitless analytics service with unmatched time to insight (formerly SQL Data Warehouse)
+* [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services): Enterprise-grade analytics engine as a service
+* [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded): Embed fully interactive, stunning data visualizations in your applications
 
 ## Next Steps
-* [Azure Data Lake Storage documentation](https://azure.microsoft.com/services/storage/data-lake-storage/)
-* [Azure Databricks documentation](https://azure.microsoft.com/services/databricks/)
-* [Azure Synapse Analytics documentation](https://azure.microsoft.com/services/sql-data-warehouse/)
-* [Azure Analysis Services documentation](https://azure.microsoft.com/services/analysis-services/)
-* [Power BI Embedded documentation](https://azure.microsoft.com/services/power-bi-embedded/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+* [Azure Data Lake Storage documentation](https://azure.microsoft.com/services/storage/data-lake-storage)
+* [Azure Databricks documentation](https://azure.microsoft.com/services/databricks)
+* [Azure Synapse Analytics documentation](https://azure.microsoft.com/services/sql-data-warehouse)
+* [Azure Analysis Services documentation](https://azure.microsoft.com/services/analysis-services)
+* [Power BI Embedded documentation](https://azure.microsoft.com/services/power-bi-embedded)

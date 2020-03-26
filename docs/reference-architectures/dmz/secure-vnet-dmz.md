@@ -1,6 +1,5 @@
 ---
-title: Implement a secure hybrid network architecture
-titleSuffix: Azure Reference Architectures
+title: Implement a secure hybrid network
 description: Implement a secure hybrid network architecture in Azure.
 author: MikeWasson
 ms.date: 01/07/2020
@@ -35,7 +34,7 @@ The architecture consists of the following components.
 - **Virtual network routes**. [Virtual network routes][udr-overview] define the flow of IP traffic within the Azure virtual network. In the diagram shown above, there are two user-defined route tables. 
 
     - In the gateway subnet, traffic sent to the web-tier subnet (10.0.1.0/24) is routed through the Azure Firewall instance.
-    - In the web tier subnet, all traffic (0.0.0.0/0) is sent to the Azure Firewall.
+    - In the web tier subnet, Since there is no route for address space of the VNet itself to point to Azure firewall, web tier instances are able to communicate directly to each other, not via Azure Firewall.
 
     > [!NOTE]
     > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes to implement the forwarding rules that direct traffic back through the on-premises network.
@@ -75,7 +74,7 @@ We recommend creating the following resource groups:
 
 To accept inbound traffic from the internet, add a [Destination Network Address Translation](/azure/firewall/tutorial-firewall-dnat) (DNAT) rule to Azure Firewall. 
 
-- Destination address = Public IP address of the firewall instance
+- Destination address = Public IP address of the firewall instance.
 - Translated address = Private IP address within the virtual network.
 
 The example deployment routes internet traffic for port 80 to the web tier load balancer.
@@ -126,6 +125,38 @@ Traffic between tiers is restricted by using NSGs. The business tier blocks all 
 
 Use [RBAC][rbac] to restrict the operations that DevOps can perform on each tier. When granting permissions, use the [principle of least privilege][security-principle-of-least-privilege]. Log all administrative operations and perform regular audits to ensure any configuration changes were planned.
 
+## Cost considerations
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
+
+Here are cost considerations for the services used in this architecture.
+
+### Azure Firewall
+
+In this architecture, Azure Firewall is deployed in the virtual network to control traffic between the gateway's subnet and the subnet in which the application tier runs. In this way Azure Firewall is cost effective because it's used as a shared solution consumed by multiple workloads. Here are the Azure Firewall pricing models:
+- Fixed rate per deployment hour.
+- Data processed per GB to support auto scaling. 
+
+When compared to network virtual appliances (NVAs), with Azure Firewall you can save up to 30-50%. For more information see [Azure Firewall vs NVA][Firewall-NVA].
+
+### Azure Bastion
+
+Azure Bastion securely connects to your virtual machine over RDP and SSH without having the need to configure a public IP on the virtual machine. 
+
+Bastion billing is comparable to a basic, low-level virtual machine configured as a jumpbox. Comparing Bastion to a jumbox, Bastion is more cost effective considering Bastion's built-in security features and no extra costs incurred for storage and managing a separate server. 
+
+### Azure Virtual Network
+
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
+All traffic that occurs within the boundaries of a virtual network is free. So if two VMs that are in the same VNET are talking each other then no charges will occur.
+
+### Internal load balancer
+
+Basic load balancing between virtual machines that reside in the same virtual network is free.
+
+
+In this architecture, internal load balancers are used to load balance traffic inside a virtual network. 
+
+
 ## Deploy the solution
 
 A deployment for a reference architecture that implements these recommendations is available on [GitHub][github-folder].
@@ -136,7 +167,7 @@ A deployment for a reference architecture that implements these recommendations 
 
 ### Deploy resources
 
-1. Navigate to the `/dmz/secure-vnet-dmz` folder of the reference architectures GitHub repository.
+1. Navigate to the `/dmz/secure-vnet-hybrid` folder of the reference architectures GitHub repository.
 
 2. Run the following command:
 
@@ -147,7 +178,7 @@ A deployment for a reference architecture that implements these recommendations 
 3. Run the following command:
 
     ```bash
-    azbb -s <subscription_id> -g <resource_group_name> -l <region> -p secure-vnet-dmz.json --deploy
+    azbb -s <subscription_id> -g <resource_group_name> -l <region> -p secure-vnet-hybrid.json --deploy
     ```
 
 ### Connect the on-premises and Azure gateways
@@ -195,11 +226,14 @@ In this step, you will connect the two local network gateways.
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [azure-forced-tunneling]: /azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [cloud-services-network-security]: /azure/best-practices-network-security
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances/
 [getting-started-with-azure-security]: /azure/security/azure-security-getting-started
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-dmz
+[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-hybrid
 [guidance-expressroute-availability]: ../hybrid-networking/expressroute.md#availability-considerations
 [guidance-expressroute-manageability]: ../hybrid-networking/expressroute.md#manageability-considerations
 [guidance-expressroute-scalability]: ../hybrid-networking/expressroute.md#scalability-considerations

@@ -5,7 +5,10 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Predict future customer demand and optimize pricing to maximize profitability using big-data and advanced-analytics services from Microsoft Azure.
 ms.custom: acom-architecture, demand forecasting, price optimization, 'https://azure.microsoft.com/solutions/architecture/demand-forecasting-price-optimization-marketing/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Demand Forecasting + Price Optimization
 
 [!INCLUDE [header_file](../header.md)]
@@ -17,6 +20,9 @@ This solution addresses those challenges by using historical transaction data to
 By using this solution to ingest historical transaction data, predict future demand, and regularly optimize pricing, you’ll have the opportunity to save time and effort around the process and improve your company’s profitability.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="demand-forecasting-price-optimization-marketing" height="677.945" viewbox="0 0 1070.702 677.945"  xmlns="http://www.w3.org/2000/svg">
     <path fill="none" d="M495.052 0h101.182v101.182H495.052z"/>
@@ -68,15 +74,15 @@ By using this solution to ingest historical transaction data, predict future dem
 </svg>
 
 ## Components
-* [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/): Data Lake Store stores the weekly raw sales data, which is read by Spark on HDInsight.
-* Spark on [HDInsight](https://azure.microsoft.com/services/hdinsight/) ingests the data and executes data preprocessing, forecasting modeling, and price-optimization algorithms.
-* [Data Factory](https://azure.microsoft.com/services/data-factory/) handles orchestration and scheduling of the model retraining.
+
+* [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage): Data Lake Store stores the weekly raw sales data, which is read by Spark on HDInsight.
+* Spark on [HDInsight](https://azure.microsoft.com/services/hdinsight) ingests the data and executes data preprocessing, forecasting modeling, and price-optimization algorithms.
+* [Data Factory](https://azure.microsoft.com/services/data-factory) handles orchestration and scheduling of the model retraining.
 * [Power BI](https://powerbi.microsoft.com) visualizes sales results, the predicted future demand, and the recommended optimal prices for a variety of products sold in different stores.
 
 ## Next Steps
-* [Learn more about Data Lake Store](/azure/data-lake-store/data-lake-store-overview)
-* [Get started with HDInsight using a Spark cluster with R Server](/azure/hdinsight/hdinsight-apache-spark-overview)
-* [Learn more about Data Factory](/azure/data-factory/data-factory-introduction)
-* [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+* [Learn more about Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview)
+* [Get started with HDInsight using a Spark cluster with R Server](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview)
+* [Learn more about Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-introduction)
+* [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)

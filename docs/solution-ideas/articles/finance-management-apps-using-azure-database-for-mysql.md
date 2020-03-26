@@ -5,14 +5,20 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Securely store critical data and provide high-value analytics and insights over aggregated data to users, using in-built security and performance.
 ms.custom: acom-architecture, mysql, analytics, use cases, azure, solutions, 'https://azure.microsoft.com/solutions/architecture/finance-management-apps-using-azure-database-for-mysql/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Finance management apps using Azure Database for MySQL
 
 [!INCLUDE [header_file](../header.md)]
 
-Securely store critical data and provide high-value analytics and insights over aggregated data to users, using in-built security and performance. 
+Securely store critical data and provide high-value analytics and insights over aggregated data to users, using in-built security and performance.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="finance-management-apps-using-azure-database-for-mysql" height="388.214" viewbox="0 0 621 388.214"  xmlns="http://www.w3.org/2000/svg">
     <path fill="none" stroke="#969696" stroke-miterlimit="10" stroke-width="1.5" d="M386.349 107.679V30.162H79.169"/>
@@ -154,5 +160,3 @@ Securely store critical data and provide high-value analytics and insights over 
     <path fill="none" stroke="#969696" stroke-miterlimit="10" stroke-width="1.5" d="M212.633 271.806v-42.73"/>
     <path fill="#969696" d="M217.868 270.274l-5.235 9.067-5.236-9.067h10.471zM217.868 230.608l-5.235-9.067-5.236 9.067h10.471z"/>
 </svg>
-
-[!INCLUDE [js_include_file](../../_js/index.md)]

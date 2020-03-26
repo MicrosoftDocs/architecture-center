@@ -5,7 +5,10 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Learn how to build a machine-learning model with SQL Server 2016 with R Services to optimize and manage marketing campaigns.
 ms.custom: acom-architecture, machine learning r, ai-ml, machine learning in marketing, machine learning marketing, 'https://azure.microsoft.com/solutions/architecture/optimize-marketing-with-machine-learning/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Optimize Marketing with Machine Learning
 
 [!INCLUDE [header_file](../header.md)]
@@ -19,6 +22,9 @@ Optimizing your campaigns with machine learning helps improve both sales leads a
 In this solution, SQL Server R Services brings the compute to the data by running R on the computer that hosts the database.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="optimize-marketing-with-machine-learning" height="140.97" viewbox="0 0 920.904 140.97"  xmlns="http://www.w3.org/2000/svg">
     <text fill="#505050" font-family="SegoeUI, Segoe UI" font-size="16.653" style="isolation:isolate" transform="matrix(1.036 0 0 1 838.693 102.884)">
@@ -55,13 +61,13 @@ In this solution, SQL Server R Services brings the compute to the data by runnin
 </svg>
 
 ## Components
+
 * [SQL Server R Services](https://www.microsoft.com/sql-server/sql-server-r-services): SQL Server stores the campaign and lead data. R-based analytics provide training and predicted models and predicted results for consumption using R.
-* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
+* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
 * [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
 
 ## Next Steps
-* [Get started with SQL Server R Services](https://www.microsoft.com/sql-server/sql-server-r-services)
-* [Learn more about Machine Learning](/azure/machine-learning/machine-learning-what-is-machine-learning)
-* [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+* [Get started with SQL Server R Services](https://www.microsoft.com/sql-server/sql-server-r-services)
+* [Learn more about Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning)
+* [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)

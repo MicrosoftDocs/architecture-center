@@ -31,6 +31,7 @@
             "components": "components",
             "sample_code": true,
             "github_url": "https://github.com/azurebigcompute/BigComputeLabs/tree/master/Azure%20Batch%20Masterclass%20Labs",
+            "popularity": 209,
             "filter_text": "3d video rendering run native hpc workloads in azure using the azure batch service."
         },
         {
@@ -56,6 +57,7 @@
             "pricing_guidance": "pricing",
             "alternative_choices": "alternatives",
             "components": "components",
+            "popularity": 190,
             "filter_text": "a computer-aided engineering service provide a software-as-a-service (saas) platform for computer-aided engineering (cae) on azure."
         },
         {
@@ -85,6 +87,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 173,
             "filter_text": "ai at the edge with azure stack move ai models to the edge with a solution architecture that includes azure stack."
         },
         {
@@ -113,6 +116,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 133,
             "filter_text": "ai at the edge with azure stack - disconnected move ai models to the edge with a solution architecture that includes azure stack. a step-by-step workflow will help you harness the power of edge ai when disconnected from the internet."
         },
         {
@@ -144,6 +148,7 @@
             "components": "components",
             "sample_code": true,
             "github_url": "https://github.com/paulomarquesc/beegfs-template",
+            "popularity": 145,
             "filter_text": "accelerate digital image-based modeling on azure accelerate digital image-based modeling on azure using avere and agisoft photoscan"
         },
         {
@@ -175,6 +180,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 229,
             "filter_text": "advanced analytics architecture get near real-time data analytics on streaming services. this big data architecture allows you to combine any data at any scale with custom machine learning."
         },
         {
@@ -202,6 +208,7 @@
             "publish_date": "12/16/2019",
             "sample_code": true,
             "github_url": "https://github.com/Azure/itanomalyinsights-cortana-intelligence-preconfigured-solution",
+            "popularity": 150,
             "filter_text": "anomaly detection in real-time data streams cortana intelligence it anomaly insights solution helps it departments within large organizations quickly detect and fix issues based on underlying health metrics from it infrastructure (cpu, memory, etc.), services (timeouts, sla variations, brownouts, etc.), and other key performance indicators (kpis) (order backlog, login and payment failures, etc.) in an automated and scalable manner. this solution also offers an easy to 'try it now' experience that can be tried with customized data to realize the value offered by the solution. the 'deploy' experience allows to quickly get started with the solution on azure by deploying the end to end solution components into your azure subscription and providing full control for customization as needed."
         },
         {
@@ -229,6 +236,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 172,
             "filter_text": "anomaly detector process learn more about anomaly detector with a step-by-step flowchart that details the process. see how anomaly detection models are selected with time-series data."
         },
         {
@@ -250,6 +258,7 @@
             "description": "Event Grid connects your app with other services. For example, create an application topic to send your app\u2019s event data to Event Grid and take advantage of its reliable delivery, advanced routing, and direct integration with Azure. Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code.",
             "image": "/azure/architecture/solution-ideas/media/application-integration-using-event-grid.svg",
             "publish_date": "12/16/2019",
+            "popularity": 169,
             "filter_text": "application integration using event grid event grid connects your app with other services. for example, create an application topic to send your app\u2019s event data to event grid and take advantage of its reliable delivery, advanced routing, and direct integration with azure. alternatively, you can use event grid with logic apps to process data anywhere, without writing code."
         },
         {
@@ -282,6 +291,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 214,
             "filter_text": "architect scalable e-commerce web app the e-commerce website includes simple order processing workflows with the help of azure services. using azure functions and web apps, developers can focus on building personalized experiences and let azure take care of the infrastructure."
         },
         {
@@ -303,6 +313,7 @@
             "image": "/azure/architecture/solution-ideas/media/backup-archive-on-premises-applications.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 202,
             "filter_text": "archive on-premises data to cloud archive your on-premises data to azure blob storage."
         },
         {
@@ -328,6 +339,7 @@
             "code_languages": [
                 "sql"
             ],
+            "popularity": 232,
             "filter_text": "automated enterprise business intelligence (bi) automate an extract, load, and transform (elt) workflow in azure using azure data factory with azure synapse analytics."
         },
         {
@@ -339,8 +351,8 @@
             ],
             "type": "reference-architecture",
             "file_url": "reference-architectures/iot/index.md",
-            "http_url": "/azure/architecture/reference-architectures/iot/index",
-            "word_count": 2105,
+            "http_url": "/azure/architecture/reference-architectures/iot",
+            "word_count": 2104,
             "read_time": "9 min read",
             "title": "Azure IoT reference architecture",
             "description": "Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components",
@@ -348,6 +360,7 @@
             "publish_date": "1/09/2019",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/iot-guidance",
+            "popularity": 234,
             "filter_text": "azure iot reference architecture recommended architecture for iot applications on azure using paas (platform-as-a-service) components"
         },
         {
@@ -369,6 +382,7 @@
             "image": "/azure/architecture/solution-ideas/media/backup-archive-cloud-application.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 157,
             "filter_text": "back up cloud applications and data to cloud back up data and applications running in azure to another azure location by using azure backup or a partner solution."
         },
         {
@@ -390,6 +404,7 @@
             "image": "/azure/architecture/solution-ideas/media/backup-archive-on-premises-applications.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 197,
             "filter_text": "back up on-premises applications and data to cloud back up on-premises applications and data with azure backup and blob storage applications. read documentation on implementing these archiving solutions today."
         },
         {
@@ -407,6 +422,7 @@
             "description": "Recommended architecture for implementing a simple enterprise integration pattern using Azure Logic Apps and Azure API Management.",
             "image": "/azure/architecture/reference-architectures/enterprise-integration/_images/simple-enterprise-integration.png",
             "publish_date": "12/03/2018",
+            "popularity": 235,
             "filter_text": "basic enterprise integration using azure recommended architecture for implementing a simple enterprise integration pattern using azure logic apps and azure api management."
         },
         {
@@ -434,6 +450,7 @@
             "code_languages": [
                 "powershell"
             ],
+            "popularity": 237,
             "filter_text": "basic web application recommended architecture for a basic web application running in azure."
         },
         {
@@ -447,7 +464,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/ai/batch-scoring-deep-learning.md",
             "http_url": "/azure/architecture/reference-architectures/ai/batch-scoring-deep-learning",
-            "word_count": 1764,
+            "word_count": 1761,
             "read_time": "7 min read",
             "title": "Batch scoring for deep learning models",
             "description": "This reference architecture shows how to apply neural style transfer to a video, using Azure Machine Learning.",
@@ -455,6 +472,7 @@
             "publish_date": "2/06/2019",
             "sample_code": true,
             "github_url": "https://github.com/Azure/Batch-Scoring-Deep-Learning-Models-With-AML",
+            "popularity": 143,
             "filter_text": "batch scoring for deep learning models this reference architecture shows how to apply neural style transfer to a video, using azure machine learning."
         },
         {
@@ -469,15 +487,16 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/ai/batch-scoring-python.md",
             "http_url": "/azure/architecture/reference-architectures/ai/batch-scoring-python",
-            "word_count": 1213,
+            "word_count": 1206,
             "read_time": "5 min read",
             "title": "Batch scoring of Python models on Azure",
-            "description": "Build a scalable solution for batch scoring models on a schedule in parallel using Azure Machine Learning Service.",
+            "description": "Build a scalable solution for batch scoring models on a schedule in parallel using Azure Machine Learning.",
             "image": "/azure/architecture/reference-architectures/ai/_images/batch-scoring-python.png",
             "publish_date": "1/30/2019",
             "sample_code": true,
             "github_url": "https://github.com/Microsoft/AMLBatchScoringPipeline/blob/master/01_create_resources.ipynb",
-            "filter_text": "batch scoring of python models on azure build a scalable solution for batch scoring models on a schedule in parallel using azure machine learning service."
+            "popularity": 155,
+            "filter_text": "batch scoring of python models on azure build a scalable solution for batch scoring models on a schedule in parallel using azure machine learning."
         },
         {
             "tags": [
@@ -490,7 +509,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/ai/batch-scoring-databricks.md",
             "http_url": "/azure/architecture/reference-architectures/ai/batch-scoring-databricks",
-            "word_count": 1290,
+            "word_count": 1291,
             "read_time": "5 min read",
             "title": "Batch scoring of Spark models on Azure Databricks",
             "description": "Build a scalable solution for batch scoring an Apache Spark classification model on a schedule using Azure Databricks.",
@@ -498,6 +517,7 @@
             "publish_date": "11/20/2019",
             "sample_code": true,
             "github_url": "https://github.com/Azure/BatchSparkScoringPredictiveMaintenance",
+            "popularity": 165,
             "filter_text": "batch scoring of spark models on azure databricks build a scalable solution for batch scoring an apache spark classification model on a schedule using azure databricks."
         },
         {
@@ -510,7 +530,7 @@
             ],
             "type": "reference-architecture",
             "file_url": "reference-architectures/ai/batch-scoring-R-models.md",
-            "http_url": "/azure/architecture/reference-architectures/ai/batch-scoring-R-models",
+            "http_url": "/azure/architecture/reference-architectures/ai/batch-scoring-r-models",
             "word_count": 1275,
             "read_time": "6 min read",
             "title": "Batch scoring with R Models on Azure",
@@ -519,6 +539,7 @@
             "publish_date": "3/29/2019",
             "sample_code": true,
             "github_url": "https://github.com/Azure/doAzureParallel/blob/master/docs/32-autoscale.md",
+            "popularity": 78,
             "filter_text": "batch scoring with r models on azure perform batch scoring with r models using azure batch and a data set based on retail store sales forecasting."
         },
         {
@@ -547,6 +568,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 167,
             "filter_text": "blockchain workflow application explore how blockchain is used to digitize workflows and supply chains across organizations with the blockchain workflow application from microsoft azure."
         },
         {
@@ -560,7 +582,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/ai/real-time-recommendation.md",
             "http_url": "/azure/architecture/reference-architectures/ai/real-time-recommendation",
-            "word_count": 1418,
+            "word_count": 1417,
             "read_time": "6 min read",
             "title": "Build a Real-time Recommendation API on Azure",
             "description": "Use machine learning to automate recommendations using Azure Databricks and Azure Data Science Virtual Machines (DSVM) to train a model on Azure.",
@@ -568,6 +590,7 @@
             "publish_date": "12/12/2018",
             "sample_code": true,
             "github_url": "https://github.com/Microsoft/Recommenders/blob/master/notebooks/05_operationalize/als_movie_o16n.ipynb",
+            "popularity": 203,
             "filter_text": "build a real-time recommendation api on azure use machine learning to automate recommendations using azure databricks and azure data science virtual machines (dsvm) to train a model on azure."
         },
         {
@@ -593,6 +616,7 @@
             "sample_code": true,
             "github_url": "https://github.com/microsoft/botbuilder-dotnet",
             "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/conversational-bot.vsdx",
+            "popularity": 205,
             "filter_text": "build an enterprise-grade conversational bot how to build an enterprise-grade conversational bot (chatbot) using the azure bot framework."
         },
         {
@@ -620,6 +644,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 158,
             "filter_text": "build high availability into your bcdr strategy virtual machines (vms) are physically separated across zones, and a virtual network is created using load balancers at each site. these locations are close enough for high availability replication, so your applications stay running, despite any issues at the physical locations."
         },
         {
@@ -646,6 +671,7 @@
             "pricing_guidance": "pricing",
             "alternative_choices": "alternatives",
             "components": "components",
+            "popularity": 183,
             "filter_text": "building a telehealth system on azure a healthcare system connecting users, devices, and providers built using kubernetes and postgresql"
         },
         {
@@ -670,6 +696,7 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 120,
             "filter_text": "bursting from aks with aci bursting from aks with aci"
         },
         {
@@ -699,6 +726,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 201,
             "filter_text": "ci/cd for azure vms azure is a world-class cloud for hosting virtual machines running windows or linux. whether you use asp.net, java, node.js, or php to develop applications, you\u2019ll need a continuous integration and continuous deployment (ci/cd) pipeline to push changes to these virtual machines automatically."
         },
         {
@@ -733,6 +761,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 210,
             "filter_text": "ci/cd for azure web apps azure web apps is a fast and simple way to create web apps using asp.net, java, node.js, or php. deliver value faster to your customers with a continuous integration and continuous deployment (ci/cd) pipeline that pushes each of your changes automatically to web apps."
         },
         {
@@ -766,6 +795,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 192,
             "filter_text": "ci/cd for containers containers make it very easy for you to continuously build and deploy your applications. by orchestrating deployment of those containers using kubernetes in azure kubernetes service (aks), you can achieve replicable, manageable clusters of containers."
         },
         {
@@ -800,6 +830,7 @@
                 "azurecli-interactive"
             ],
             "sample_code": true,
+            "popularity": 196,
             "filter_text": "ci/cd pipeline for container-based workloads build a devops pipeline for a node.js web app with jenkins, azure container registry, azure kubernetes service, cosmos db, and grafana."
         },
         {
@@ -822,6 +853,7 @@
             "description": "This solution demonstrates how to build and deploy a machine learning model with Microsoft R Server on Azure HDInsight Spark clusters to recommend actions to maximize the purchase rate of leads targeted by a campaign. This solution enables efficient handling of big data on Spark with Microsoft R Server.",
             "image": "/azure/architecture/solution-ideas/media/campaign-optimization-with-azure-hdinsight-spark-clusters.svg",
             "publish_date": "12/16/2019",
+            "popularity": 16,
             "filter_text": "campaign optimization with azure hdinsight spark clusters this solution demonstrates how to build and deploy a machine learning model with microsoft r server on azure hdinsight spark clusters to recommend actions to maximize the purchase rate of leads targeted by a campaign. this solution enables efficient handling of big data on spark with microsoft r server."
         },
         {
@@ -847,6 +879,7 @@
             "image": "/azure/architecture/solution-ideas/media/campaign-optimization-with-sql-server.svg",
             "publish_date": "12/16/2019",
             "pricing_guidance": "pricing",
+            "popularity": 18,
             "filter_text": "campaign optimization with sql server this solution demonstrates how to build and deploy a machine learning model with sql server 2016 with r services to recommend actions to maximize the purchase rate of leads targeted by a campaign."
         },
         {
@@ -865,6 +898,7 @@
             "description": "Compares two ways to connect virtual networks in Azure.",
             "image": "/azure/architecture/_images/reference-architectures.svg",
             "publish_date": "12/13/2019",
+            "popularity": 206,
             "filter_text": "choose between virtual network peering and vpn gateways compares two ways to connect virtual networks in azure."
         },
         {
@@ -890,24 +924,8 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 59,
             "filter_text": "commerce chatbot together, the azure bot service and language understanding service enable developers to create conversational interfaces for various scenarios like banking, travel, and entertainment. for example, a hotel\u2019s concierge can use a bot to enhance traditional e-mail and phone call interactions by validating a customer via azure active directory and using cognitive services to better contextually process customer requests using text and voice. the speech recognition service can be added to support voice commands."
-        },
-        {
-            "tags": [
-                "all-items",
-                "networking",
-                "reference-architecture"
-            ],
-            "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/index.md",
-            "http_url": "/azure/architecture/reference-architectures/hybrid-networking/index",
-            "word_count": 576,
-            "read_time": "3 min read",
-            "title": "Connect an on-premises network to Azure",
-            "description": "Compare reference architectures for connecting an on-premises network to Azure.",
-            "image": "/azure/architecture/_images/reference-architectures.svg",
-            "publish_date": "7/02/2018",
-            "filter_text": "connect an on-premises network to azure compare reference architectures for connecting an on-premises network to azure."
         },
         {
             "tags": [
@@ -923,9 +941,9 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/hybrid-networking/expressroute-vpn-failover.md",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover",
-            "word_count": 1075,
+            "word_count": 1077,
             "read_time": "5 min read",
-            "title": "Connect an on-premises network to Azure",
+            "title": "Connect an on-premises network to Azure using ExpressRoute",
             "description": "Implement a highly available and secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using ExpressRoute with VPN gateway failover.",
             "image": "/azure/architecture/reference-architectures/hybrid-networking/images/expressroute-vpn-failover.png",
             "publish_date": "10/22/2017",
@@ -935,7 +953,8 @@
                 "powershell"
             ],
             "sample_code": true,
-            "filter_text": "connect an on-premises network to azure implement a highly available and secure site-to-site network architecture that spans an azure virtual network and an on-premises network connected using expressroute with vpn gateway failover."
+            "popularity": 212,
+            "filter_text": "connect an on-premises network to azure using expressroute implement a highly available and secure site-to-site network architecture that spans an azure virtual network and an on-premises network connected using expressroute with vpn gateway failover."
         },
         {
             "tags": [
@@ -966,30 +985,8 @@
             "code_languages": [
                 "powershell"
             ],
+            "popularity": 219,
             "filter_text": "connect an on-premises network to azure using expressroute implement a secure site-to-site network architecture that spans an azure virtual network and an on-premises network connected using azure expressroute."
-        },
-        {
-            "tags": [
-                "all-items",
-                "example-code",
-                "github",
-                "networking",
-                "reference-architecture",
-                "visio-diagram"
-            ],
-            "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/vpn.md",
-            "http_url": "/azure/architecture/reference-architectures/hybrid-networking/vpn",
-            "word_count": 2330,
-            "read_time": "9 min read",
-            "title": "Connect an on-premises network to Azure using VPN",
-            "description": "Implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using a VPN.",
-            "image": "/azure/architecture/reference-architectures/hybrid-networking/images/vpn.png",
-            "publish_date": "10/03/2019",
-            "sample_code": true,
-            "github_url": "https://github.com/mspnp/reference-architectures/blob/master/hybrid-networking/vpn/README.md",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx",
-            "filter_text": "connect an on-premises network to azure using vpn implement a secure site-to-site network architecture that spans an azure virtual network and an on-premises network connected using a vpn."
         },
         {
             "tags": [
@@ -1019,6 +1016,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 166,
             "filter_text": "container ci/cd using jenkins and kubernetes on azure kubernetes service (aks) containers make it easy for you to continuously build and deploy applications. by orchestrating the deployment of those containers using azure kubernetes service (aks), you can achieve replicable, manageable clusters of containers."
         },
         {
@@ -1053,6 +1051,7 @@
             "code_languages": [
                 "azurecli-interactive"
             ],
+            "popularity": 170,
             "filter_text": "conversational chatbot for hotel reservations build a conversational chatbot for commerce applications with azure bot service."
         },
         {
@@ -1081,6 +1080,7 @@
             "code_languages": [
                 "bash"
             ],
+            "popularity": 193,
             "filter_text": "create an ad ds resource forest in azure how to create a trusted active directory domain in azure."
         },
         {
@@ -1110,6 +1110,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 185,
             "filter_text": "cross cloud scaling architecture learn how to improve cross cloud scalability with solution architecture that includes azure stack. a step-by-step flowchart details instructions for implementation."
         },
         {
@@ -1134,6 +1135,7 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 89,
             "filter_text": "cross-platform chat accelerate development of reliable, high-performing chat applications"
         },
         {
@@ -1164,6 +1166,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 124,
             "filter_text": "custom data sovereignty & data gravity requirements learn how to set custom data sovereignty and data gravity requirements in the cloud with azure stack. find a step-by-step flow chart to implement this solution."
         },
         {
@@ -1192,6 +1195,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 116,
             "filter_text": "custom mobile workforce app learn how the custom mobile workforce management app architecture is built and implemented with a step-by-step diagram that illustrates the integration of active directory, sap, and azure app service."
         },
         {
@@ -1222,6 +1226,7 @@
             "sample_code": true,
             "github_url": "https://github.com/Azure/cortana-intelligence-customer360",
             "interactive_diagram": true,
+            "popularity": 85,
             "filter_text": "customer 360 a deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. this solution implements a process of aggregating customer data into a \u201c360 degree\u201d profile, and uses advanced machine learning models backed by the reliability and processing power of azure to provide predictive insights on simulated customers."
         },
         {
@@ -1248,6 +1253,7 @@
             "publish_date": "12/16/2019",
             "sample_code": true,
             "github_url": "https://github.com/Azure/cortana-intelligence-churn-prediction-solution",
+            "popularity": 94,
             "filter_text": "customer churn prediction customer churn prediction uses cortana intelligence suite components to predict churn probability and helps find patterns in existing data associated with the predicted churn rate."
         },
         {
@@ -1272,6 +1278,7 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 117,
             "filter_text": "data streaming scenario data streaming scenario"
         },
         {
@@ -1291,6 +1298,7 @@
             "description": "data cache, data cache with azure cache for redis, azure database, cosmos db",
             "image": "/azure/architecture/solution-ideas/media/data-cache-with-redis-cache.svg",
             "publish_date": "12/16/2019",
+            "popularity": 68,
             "filter_text": "data cache data cache, data cache with azure cache for redis, azure database, cosmos db"
         },
         {
@@ -1317,6 +1325,7 @@
             "pricing_guidance": "pricing",
             "alternative_choices": "alternatives",
             "components": "components",
+            "popularity": 200,
             "filter_text": "data warehousing and analytics for sales and marketing consolidate data from multiple sources and optimize data analytics."
         },
         {
@@ -1348,6 +1357,7 @@
             "components": "components",
             "sample_code": true,
             "github_url": "https://github.com/vitoc/creditscoreblockchain",
+            "popularity": 184,
             "filter_text": "decentralized trust between banks establish a trusted environment for communication and information sharing without resorting to a centralized database."
         },
         {
@@ -1372,6 +1382,7 @@
             "image": "/azure/architecture/solution-ideas/media/defect-prevention-with-predictive-maintenance.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 93,
             "filter_text": "defect prevention with predictive maintenance learn how to use azure machine learning to predict failures before they happen with real-time assembly line data."
         },
         {
@@ -1398,6 +1409,7 @@
             "publish_date": "12/16/2019",
             "pricing_guidance": "pricing-info",
             "data_flow": "technical-details-and-workflow",
+            "popularity": 110,
             "filter_text": "demand forecasting accurately forecasting spikes in demand for products and services can give a company a competitive advantage. this solution focuses on demand forecasting within the energy sector."
         },
         {
@@ -1422,6 +1434,7 @@
             "publish_date": "12/16/2019",
             "pricing_guidance": "pricing-is-pivotal-for-many-industries,-but-it-can-be-one-of-the-most-challenging-tasks.-companies-often-struggle-to-accurately-forecast-the-fiscal-impact-of-potential-tactics,-fully-consider-core-business-constraints,-and-fairly-validate-pricing-decisions-once-they\u2019ve-been-made.-as-product-offerings-expand-and-complicate-the-calculations-behind-real-time-pricing-decisions,-the-process-grows-even-more-difficult.",
             "components": "components",
+            "popularity": 61,
             "filter_text": "demand forecasting + price optimization predict future customer demand and optimize pricing to maximize profitability using big-data and advanced-analytics services from microsoft azure."
         },
         {
@@ -1453,6 +1466,7 @@
             "data_flow": "technical-details-and-workflow",
             "sample_code": true,
             "github_url": "https://github.com/Azure/cortana-intelligence-price-optimization/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md",
+            "popularity": 57,
             "filter_text": "demand forecasting and price optimization pricing is recognized as a pivotal determinant of success in many industries and can be one of the most challenging tasks. companies often struggle with several aspects of the pricing process, including accurately forecasting the financial impact of potential tactics, taking reasonable consideration of core business constraints, and fairly validating the executed pricing decisions. expanding product offerings add further computational requirements to make real-time pricing decisions, compounding the difficulty of this already overwhelming task."
         },
         {
@@ -1481,6 +1495,7 @@
             "pricing_guidance": "pricing-info",
             "sample_code": true,
             "github_url": "https://github.com/Azure/cortana-intelligence-shipping-and-distribution-forecasting/blob/master/Technical%20Deployment%20Guide/Technical-Solution-Guide.md",
+            "popularity": 33,
             "filter_text": "demand forecasting for shipping and distribution the demand forecasting for shipping and distribution solution uses historical demand data to forecast demand in future periods across varios customers, products and destinations. for instance, a shipping or delivery company wants to predict the quantities of the different products its customers want delivered at different locations at future times. a company can use these forecasts as input to an allocation tool that optimizes operations, such as delivery vehicles routing, or to plan capacity in the longer term."
         },
         {
@@ -1502,6 +1517,7 @@
             "image": "/azure/architecture/reference-architectures/sap/images/sap-netweaver.png",
             "publish_date": "8/03/2018",
             "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/sap-reference-architectures.vsdx",
+            "popularity": 176,
             "filter_text": "deploy sap netweaver (windows) for anydb on azure vms proven practices for running sap s/4hana in a linux environment on azure with high availability."
         },
         {
@@ -1524,6 +1540,7 @@
             "publish_date": "12/08/2018",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/ha-nva",
+            "popularity": 221,
             "filter_text": "deploy highly available network virtual appliances deploy network virtual appliances with high availability."
         },
         {
@@ -1554,6 +1571,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 130,
             "filter_text": "design review powered by mixed reality too often, product designers waste time and money with inefficient design review\u20142d images lose essential detail and context, and physical prototypes are extremely expensive. with this mixed reality scenario, clients, designers, and on-site engineers can easily share and review designs as 3d holograms in the context of their environment, accelerating design decisions and reducing time to market."
         },
         {
@@ -1582,6 +1600,7 @@
             "pricing_guidance": "pricing",
             "alternative_choices": "alternatives",
             "components": "components",
+            "popularity": 224,
             "filter_text": "design a ci/cd pipeline using azure devops build and release a .net app to azure web apps using azure devops."
         },
         {
@@ -1606,7 +1625,8 @@
             "publish_date": "12/16/2019",
             "components": "components",
             "sample_code": true,
-            "github_url": "https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup",
+            "github_url": "https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2",
+            "popularity": 126,
             "filter_text": "dev-test deployment for testing iaas solutions this architecture represents how to configure your infrastructure for development and testing of a standard iaas-based saas system."
         },
         {
@@ -1631,7 +1651,8 @@
             "publish_date": "12/16/2019",
             "components": "components",
             "sample_code": true,
-            "github_url": "https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzureResourceGroupDeployment",
+            "github_url": "https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2",
+            "popularity": 151,
             "filter_text": "dev-test deployment for testing paas solutions this architecture represents how to configure your infrastructure for development and testing of a standard paas-style system."
         },
         {
@@ -1658,6 +1679,7 @@
             "components": "components",
             "sample_code": true,
             "github_url": "https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup",
+            "popularity": 118,
             "filter_text": "dev-test deployment for testing microservice solutions this architecture represents how to configure your infrastructure for development and testing of a microservices-based system."
         },
         {
@@ -1684,6 +1706,7 @@
             "pricing_calculator": "https://azure.com/e/9d26b9612da9466bb7a800eab56e71d1",
             "pricing_guidance": "pricing",
             "components": "components",
+            "popularity": 119,
             "filter_text": "dev/test environments for sap workloads build a dev/test environment for sap workloads."
         },
         {
@@ -1712,6 +1735,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 43,
             "filter_text": "devtest image factory create, maintain, and distribute custom images with the devtest image factory, an automated image development and management solution from azure dev test labs."
         },
         {
@@ -1735,6 +1759,7 @@
             "description": "Engage with customers around the world with rich, personalized digital marketing experiences. Quickly build and launch digital campaigns that automatically scale based on customer demand.",
             "image": "/azure/architecture/solution-ideas/media/digital-marketing-using-azure-database-for-postgresql.svg",
             "publish_date": "12/16/2019",
+            "popularity": 63,
             "filter_text": "digital campaign management engage with customers around the world with rich, personalized digital marketing experiences. quickly build and launch digital campaigns that automatically scale based on customer demand."
         },
         {
@@ -1758,6 +1783,7 @@
             "description": "Engage with customers around the world with rich, personalized digital marketing experiences. Quickly build and launch digital campaigns that automatically scale based on customer demand.",
             "image": "/azure/architecture/solution-ideas/media/digital-marketing-using-azure-database-for-mysql.svg",
             "publish_date": "12/16/2019",
+            "popularity": 45,
             "filter_text": "digital marketing using azure database for mysql engage with customers around the world with rich, personalized digital marketing experiences. quickly build and launch digital campaigns that automatically scale based on customer demand."
         },
         {
@@ -1785,6 +1811,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 156,
             "filter_text": "discovery hub with cloud scale analytics build a modern data estate that is ready for cloud scale analytics with a step-by-step flowchart from microsoft azure."
         },
         {
@@ -1798,15 +1825,16 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/ai/training-deep-learning.md",
             "http_url": "/azure/architecture/reference-architectures/ai/training-deep-learning",
-            "word_count": 1613,
+            "word_count": 1612,
             "read_time": "7 min read",
             "title": "Distributed training of deep learning models on Azure",
-            "description": "This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs using Azure Machine Learning Services.",
+            "description": "This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs using Azure Machine Learning.",
             "image": "/azure/architecture/reference-architectures/ai/_images/distributed_dl_architecture.png",
             "publish_date": "6/05/2019",
             "sample_code": true,
             "github_url": "https://github.com/msalvaris/BatchAIHorovodBenchmark",
-            "filter_text": "distributed training of deep learning models on azure this reference architecture shows how to conduct distributed training of deep learning models across clusters of gpu-enabled vms using azure machine learning services."
+            "popularity": 161,
+            "filter_text": "distributed training of deep learning models on azure this reference architecture shows how to conduct distributed training of deep learning models across clusters of gpu-enabled vms using azure machine learning."
         },
         {
             "tags": [
@@ -1837,6 +1865,7 @@
             "components": "components",
             "sample_code": true,
             "github_url": "https://github.com/Azure/fta-customerfacingapps/tree/master/ecommerce/articles",
+            "popularity": 186,
             "filter_text": "e-commerce front end host an e-commerce site on azure."
         },
         {
@@ -1866,6 +1895,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 147,
             "filter_text": "e-commerce website running in secured app service environment secure your e-commerce website's sensitive user and payment data using the microsoft azure app service environment."
         },
         {
@@ -1894,6 +1924,7 @@
             "data_flow": "technical-details-and-workflow",
             "sample_code": true,
             "github_url": "https://github.com/Azure/cortana-intelligence-energy-supply-optimization",
+            "popularity": 15,
             "filter_text": "energy supply optimization in an energy grid, energy consumers are engaged with various types of energy supplying, trading, and storage components such as substations, batteries, windfarms and solar panels, micro-turbines, as well as demand response bids, to meet their respective demands and minimize the cost of energy commitment. to do so, the grid operator must determine how much energy each type of the resources should commit over a time frame, given the prices of soliciting different types of resources and the capacities and the physical characteristics of them."
         },
         {
@@ -1918,6 +1949,7 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 55,
             "filter_text": "enterprise productivity chatbot azure bot service can be easily combined with language understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as office 365 calendar, customer cases stored in dynamics crm and much more."
         },
         {
@@ -1939,6 +1971,7 @@
             "publish_date": "11/20/2019",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw",
+            "popularity": 230,
             "filter_text": "enterprise business intelligence use azure to gain business insights from relational data stored on-premises."
         },
         {
@@ -1956,6 +1989,7 @@
             "description": "Recommended architecture for implementing an enterprise integration pattern with Azure Logic Apps, Azure API Management, Azure Service Bus, and Azure Event Grid.",
             "image": "/azure/architecture/reference-architectures/enterprise-integration/_images/enterprise-integration-queues-events.png",
             "publish_date": "12/03/2018",
+            "popularity": 220,
             "filter_text": "enterprise integration using message queues and events recommended architecture for implementing an enterprise integration pattern with azure logic apps, azure api management, azure service bus, and azure event grid."
         },
         {
@@ -1977,7 +2011,33 @@
             "image": "/azure/architecture/solution-ideas/media/disaster-recovery-enterprise-scale-dr.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 188,
             "filter_text": "enterprise-scale disaster recovery a large enterprise architecture for sharepoint, dynamics crm, and linux web servers hosted on an on-premises datacenter with failover to azure infrastructure."
+        },
+        {
+            "tags": [
+                "all-items",
+                "example-code",
+                "github",
+                "json",
+                "reference-architecture"
+            ],
+            "type": "reference-architecture",
+            "file_url": "reference-architectures/serverless/cloud-automation.md",
+            "http_url": "/azure/architecture/reference-architectures/serverless/cloud-automation",
+            "word_count": 2267,
+            "read_time": "9 min read",
+            "title": "Event-based cloud automation | Microsoft Docs",
+            "description": "Recommended architecture for implementing cloud automation using serverless technologies.",
+            "image": "/azure/architecture/reference-architectures/serverless/_images/cloud-automation.png",
+            "publish_date": "10/30/2019",
+            "sample_code": true,
+            "github_url": "https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/deployment.md",
+            "code_languages": [
+                "json"
+            ],
+            "popularity": 208,
+            "filter_text": "event-based cloud automation | microsoft docs recommended architecture for implementing cloud automation using serverless technologies."
         },
         {
             "tags": [
@@ -2005,6 +2065,7 @@
             "code_languages": [
                 "powershell"
             ],
+            "popularity": 217,
             "filter_text": "extend on-premises ad fs to azure implement a secure hybrid network architecture with active directory federation service authorization in azure."
         },
         {
@@ -2033,6 +2094,7 @@
             "code_languages": [
                 "bash"
             ],
+            "popularity": 231,
             "filter_text": "extend your on-premises active directory domain to azure deploy active directory domain services (ad ds) in an azure virtual network."
         },
         {
@@ -2054,6 +2116,7 @@
             "description": "Extend your on-premises big data investments to the cloud and transform your business using the advanced analytics capabilities of HDInsight.",
             "image": "/azure/architecture/solution-ideas/media/extend-your-on-premises-big-data-investments-with-hdinsight.svg",
             "publish_date": "12/16/2019",
+            "popularity": 90,
             "filter_text": "extend your on-premises big data investments with hdinsight extend your on-premises big data investments to the cloud and transform your business using the advanced analytics capabilities of hdinsight."
         },
         {
@@ -2076,6 +2139,7 @@
             "description": "Extract, transform, and load your big data clusters on demand with Hadoop MapReduce and Apache Spark.",
             "image": "/azure/architecture/solution-ideas/media/extract-transform-and-load-using-hdinsight.svg",
             "publish_date": "12/16/2019",
+            "popularity": 123,
             "filter_text": "extract, transform, and load (etl) using hdinsight extract, transform, and load your big data clusters on demand with hadoop mapreduce and apache spark."
         },
         {
@@ -2103,6 +2167,7 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 25,
             "filter_text": "faq chatbox with data champion model the qna maker tool makes it super easy for the content owners to maintain their knowledge base of qnas. combined with bot service and luis, it's easy to setup an faq chatbot which responds from differnet knowledge bases depending on the intent of the query."
         },
         {
@@ -2136,6 +2201,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 140,
             "filter_text": "facilities management powered by mixed reality and iot improve uptime and operations in hospitality, manufacturing, retail, and more with mixed reality and iot. this scenario shows how you can visualize a virtual replica of your physical space with real-time data in the context of your environment. it is built on azure spatial anchors and azure digital twins. after reviewing this solution architecture, dive right in and explore our reference sample."
         },
         {
@@ -2159,6 +2225,7 @@
             "description": "Securely store critical data and provide high-value analytics and insights over aggregated data to users, using in-built security and performance.",
             "image": "/azure/architecture/solution-ideas/media/finance-management-apps-using-azure-database-for-mysql.svg",
             "publish_date": "12/16/2019",
+            "popularity": 103,
             "filter_text": "finance management apps using azure database for mysql securely store critical data and provide high-value analytics and insights over aggregated data to users, using in-built security and performance."
         },
         {
@@ -2182,6 +2249,7 @@
             "description": "Securely store critical data and provide high-value analytics and insights over aggregated data to users, using in-built security and performance.",
             "image": "/azure/architecture/solution-ideas/media/finance-management-apps-using-azure-database-for-postgresql.svg",
             "publish_date": "12/16/2019",
+            "popularity": 81,
             "filter_text": "finance management apps using azure database for postgresql securely store critical data and provide high-value analytics and insights over aggregated data to users, using in-built security and performance."
         },
         {
@@ -2206,6 +2274,7 @@
             "image": "/azure/architecture/solution-ideas/media/forecast-energy-power-demand.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 84,
             "filter_text": "forecast energy and power demand learn how microsoft azure can help accurately forecast spikes in demand for energy products and services to give your company a competitive advantage."
         },
         {
@@ -2230,6 +2299,7 @@
             "description": "Scale your databases elastically to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences.",
             "image": "/azure/architecture/solution-ideas/media/gaming-using-azure-database-for-mysql.svg",
             "publish_date": "12/16/2019",
+            "popularity": 36,
             "filter_text": "gaming using azure database for mysql scale your databases elastically to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences."
         },
         {
@@ -2251,6 +2321,7 @@
             "description": "Elastically scale your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale.",
             "image": "/azure/architecture/solution-ideas/media/gaming-using-cosmos-db.svg",
             "publish_date": "12/16/2019",
+            "popularity": 101,
             "filter_text": "gaming using cosmos db elastically scale your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale."
         },
         {
@@ -2271,6 +2342,7 @@
             "description": "Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft\u2019s global datacenters.",
             "image": "/azure/architecture/solution-ideas/media/globally-distributed-mission-critical-applications-using-cosmos-db.svg",
             "publish_date": "12/16/2019",
+            "popularity": 79,
             "filter_text": "globally distributed applications using cosmos db guarantee access to users around the world with the high-availability and low-latency capabilities built into microsoft\u2019s global datacenters."
         },
         {
@@ -2301,6 +2373,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 54,
             "filter_text": "hpc risk analysis template \u2013 solution architecture build an hpc risk analysis solution architecture with a step-by-step flowchart from microsoft azure that combines cyclecloud, avere vfxt and tibco gridserver."
         },
         {
@@ -2327,6 +2400,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 24,
             "filter_text": "hpc system and big compute solutions explore big compute solutions with azure batch. use hpc cloud systems for cloud-native application and batch processing."
         },
         {
@@ -2348,6 +2422,7 @@
             "image": "/azure/architecture/solution-ideas/media/hpc-cluster.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 60,
             "filter_text": "hpc cluster deployed in the cloud high performance computing (hpc) applications can scale to thousands of compute cores, extend on-premises big compute, or run as a 100% cloud native solution. this hpc solution including the head node, compute nodes, and storage nodes, runs in azure with no hardware infrastructure to maintain."
         },
         {
@@ -2377,6 +2452,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 52,
             "filter_text": "highly available sharepoint farm learn how to deploy a highly available sharepoint farm for intranet capabilities with a step-by-step solution architecture template from azure."
         },
         {
@@ -2396,6 +2472,7 @@
             "image": "/azure/architecture/reference-architectures/app-service-web-app/images/multi-region-web-app-diagram.png",
             "publish_date": "8/14/2019",
             "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx",
+            "popularity": 236,
             "filter_text": "highly available multi-region web application recommended architecture for a highly available web application running in multiple regions in azure."
         },
         {
@@ -2422,6 +2499,7 @@
             "pricing_guidance": "pricing",
             "alternative_choices": "alternatives",
             "components": "components",
+            "popularity": 163,
             "filter_text": "highly scalable and secure wordpress websites build a highly scalable and secure wordpress website for media events."
         },
         {
@@ -2451,6 +2529,7 @@
             "code_languages": [
                 "json"
             ],
+            "popularity": 241,
             "filter_text": "hub-spoke network topology in azure this reference architecture deploys a hub-spoke network topology in azure."
         },
         {
@@ -2481,6 +2560,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 109,
             "filter_text": "hybrid ci/cd easily implement the practice of ci/cd by using a consistent set of development tools and processes across the azure public cloud and on-premises azure stack environments."
         },
         {
@@ -2511,6 +2591,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 195,
             "filter_text": "hybrid connection azure's hybrid connection is a foundational blueprint that is applicable to most azure stack solutions, allowing you to establish connectivity for any application that involves communications between the azure public cloud and on-premises azure stack components."
         },
         {
@@ -2536,6 +2617,7 @@
             "pricing_guidance": "pricing",
             "alternative_choices": "alternatives",
             "components": "components",
+            "popularity": 182,
             "filter_text": "hybrid etl with existing on-premises ssis and azure data factory hybrid etl with existing on-premises sql server integration services (ssis) deployments and azure data factory."
         },
         {
@@ -2565,6 +2647,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 21,
             "filter_text": "hybrid hpc in azure with hpc pack get a hybrid high performance computing solution built with windows server technology. use azure hpc pack to create a hybrid hpc environment."
         },
         {
@@ -2595,6 +2678,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 114,
             "filter_text": "hybrid identity the hybrid identity blueprint enables teams to manage applications and user identity consistently across clouds with the utilization of azure stack"
         },
         {
@@ -2625,6 +2709,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 104,
             "filter_text": "hybrid sharepoint farm with office 365 deliver highly available intranet capability by deploying sharepoint and sharing hybrid workloads with office 365. setup this solution with step-by-step instructions."
         },
         {
@@ -2649,6 +2734,7 @@
             "pricing_guidance": "pricing",
             "alternative_choices": "alternatives",
             "components": "components",
+            "popularity": 106,
             "filter_text": "image classification for insurance claims build image processing into your azure applications."
         },
         {
@@ -2681,6 +2767,7 @@
             "components": "components",
             "sample_code": true,
             "github_url": "https://github.com/azure/mmlspark",
+            "popularity": 122,
             "filter_text": "image classification with convolutional neural networks explore transfer learning, convolutional neural networks, and gradient-boosting decision tree algorithms."
         },
         {
@@ -2711,6 +2798,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 144,
             "filter_text": "immutable infrastructure ci/cd using jenkins and terraform on azure virtual architecture overview azure is a world-class cloud for hosting virtual machines running windows or linux. whether you use java, node.js, go, or php to develop your applications, you\u2019ll need a continuous integration and continuous deployment (ci/cd) pipeline to push changes to these virtual machines automatically."
         },
         {
@@ -2740,6 +2828,7 @@
             "code_languages": [
                 "bash"
             ],
+            "popularity": 233,
             "filter_text": "implement a hub-spoke network topology implement a hub-spoke network topology with shared services in azure."
         },
         {
@@ -2756,18 +2845,19 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/dmz/secure-vnet-dmz.md",
             "http_url": "/azure/architecture/reference-architectures/dmz/secure-vnet-dmz",
-            "word_count": 1965,
+            "word_count": 1877,
             "read_time": "8 min read",
             "title": "Implement a secure hybrid network architecture",
             "description": "Implement a secure hybrid network architecture in Azure.",
             "image": "/azure/architecture/reference-architectures/dmz/images/dmz-private.png",
-            "publish_date": "10/10/2019",
+            "publish_date": "1/07/2020",
             "sample_code": true,
             "github_url": "https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT",
             "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/dmz-reference-architectures.vsdx",
             "code_languages": [
                 "bash"
             ],
+            "popularity": 238,
             "filter_text": "implement a secure hybrid network architecture implement a secure hybrid network architecture in azure."
         },
         {
@@ -2793,6 +2883,7 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 97,
             "filter_text": "information chatbot this informational bot can answer questions defined in a knowledge set or faq using cognitive services qna maker and answer more open-ended questions using azure cognitive search."
         },
         {
@@ -2821,6 +2912,7 @@
             "image": "/azure/architecture/solution-ideas/media/information-discovery-with-deep-learning-and-nlp.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 107,
             "filter_text": "information discovery with deep learning and nlp see how deep learning and natural language processing can be used effectively with the microsoft ai platform."
         },
         {
@@ -2849,6 +2941,7 @@
             "pricing_guidance": "pricing",
             "alternative_choices": "alternatives",
             "components": "components",
+            "popularity": 204,
             "filter_text": "ingestion and processing of real-time automotive iot data ingest and process real-time vehicle data using iot."
         },
         {
@@ -2874,6 +2967,7 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 77,
             "filter_text": "instant broadcasting on serverless architecture simplify one-to-many real-time communication and updates using serverless code"
         },
         {
@@ -2898,6 +2992,7 @@
             "sample_code": true,
             "github_url": "https://github.com/mspnp/identity-reference-architectures/tree/master/azure-ad",
             "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx",
+            "popularity": 239,
             "filter_text": "integrate on-premises ad domains with azure ad implement a secure hybrid network architecture using azure active directory (azure ad)."
         },
         {
@@ -2909,13 +3004,14 @@
             ],
             "type": "reference-architecture",
             "file_url": "reference-architectures/identity/index.md",
-            "http_url": "/azure/architecture/reference-architectures/identity/index",
+            "http_url": "/azure/architecture/reference-architectures/identity",
             "word_count": 974,
             "read_time": "4 min read",
             "title": "Integrate on-premises Active Directory with Azure",
             "description": "Compare reference architectures for integrating on-premises Active Directory with Azure.",
             "image": "/azure/architecture/_images/reference-architectures.svg",
             "publish_date": "7/30/2019",
+            "popularity": 239,
             "filter_text": "integrate on-premises active directory with azure compare reference architectures for integrating on-premises active directory with azure."
         },
         {
@@ -2939,6 +3035,7 @@
             "description": "Develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.",
             "image": "/azure/architecture/solution-ideas/media/intelligent-apps-using-azure-database-for-mysql.svg",
             "publish_date": "12/16/2019",
+            "popularity": 28,
             "filter_text": "intelligent apps using azure database for mysql develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics."
         },
         {
@@ -2962,6 +3059,7 @@
             "description": "Develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.",
             "image": "/azure/architecture/solution-ideas/media/intelligent-apps-using-azure-database-for-postgresql.svg",
             "publish_date": "12/16/2019",
+            "popularity": 26,
             "filter_text": "intelligent apps using azure database for postgresql develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics."
         },
         {
@@ -2993,6 +3091,7 @@
             "components": "components",
             "sample_code": true,
             "github_url": "https://github.com/Azure/fta-customerfacingapps/tree/master/ecommerce/articles",
+            "popularity": 113,
             "filter_text": "intelligent product search engine for e-commerce provide a world-class search experience in an e-commerce application."
         },
         {
@@ -3020,6 +3119,7 @@
             "publish_date": "12/16/2019",
             "sample_code": true,
             "github_url": "https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md",
+            "popularity": 29,
             "filter_text": "interactive price analytics the pricing analytics solution uses your transactional history data to show you how the demand for your products responds to the prices you offer, to recommend pricing changes, and allow you to simulate how changes in price would affect your demand, at a fine granularity."
         },
         {
@@ -3047,6 +3147,7 @@
             "publish_date": "12/16/2019",
             "sample_code": true,
             "github_url": "https://github.com/Azure/cortana-intelligence-call-center-solution",
+            "popularity": 71,
             "filter_text": "interactive voice response bot this solution creates an intelligent interactive voice response (ivr) application that processes customer order requests for bicycles and bicycle accessories. businesses with no existing ivr solution can easily get started automating requests, or, where existing human-operated systems exist, this solution can be extended to incorporate existing functionality and workflows."
         },
         {
@@ -3069,6 +3170,7 @@
             "description": "Perform fast, interactive SQL queries at scale over structured or unstructured data with Apache Hive LLAP.",
             "image": "/azure/architecture/solution-ideas/media/interactive-querying-with-hdinsight.svg",
             "publish_date": "12/16/2019",
+            "popularity": 86,
             "filter_text": "interactive querying with hdinsight perform fast, interactive sql queries at scale over structured or unstructured data with apache hive llap."
         },
         {
@@ -3093,6 +3195,7 @@
             "image": "/azure/architecture/solution-ideas/media/azure-iot-subsystems.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 142,
             "filter_text": "iot architecture \u2013 azure iot subsystems learn about our recommended iot application architecture that supports hybrid cloud and edge computing. a flowchart details how the subsystems function within the iot application."
         },
         {
@@ -3117,6 +3220,7 @@
             "pricing_guidance": "pricing",
             "alternative_choices": "alternatives",
             "components": "components",
+            "popularity": 131,
             "filter_text": "iot and data analytics in the construction industry use iot devices and data analytics to provide comprehensive management and operation of construction projects."
         },
         {
@@ -3141,6 +3245,7 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 102,
             "filter_text": "iot device deployment and management on demand iot with aks"
         },
         {
@@ -3166,6 +3271,7 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 149,
             "filter_text": "iot devices create seamless conversational interfaces with all of your internet-accessible devices\u2014from your connected television or fridge to devices in a connected power plant. luis is able to integrate up to 500 intents to translate commands into smart actions."
         },
         {
@@ -3186,6 +3292,7 @@
             "description": "Scale instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.",
             "image": "/azure/architecture/solution-ideas/media/iot-using-cosmos-db.svg",
             "publish_date": "12/16/2019",
+            "popularity": 121,
             "filter_text": "iot using cosmos db scale instantly and elastically to accommodate diverse and unpredictable iot workloads without sacrificing ingestion or query performance."
         },
         {
@@ -3216,6 +3323,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 74,
             "filter_text": "java ci/cd using jenkins and azure web apps azure app service is a fast and simple way to create web apps using java, node, php or asp.net, as well as support for custom language runtimes using docker. a continuous integration and continuous deployment (ci/cd) pipeline that pushes each of your changes automatically to azure app services allows you to deliver value faster to your customers."
         },
         {
@@ -3237,36 +3345,8 @@
             "image": "/azure/architecture/solution-ideas/media/digital-media-speech-text.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 27,
             "filter_text": "keyword search/speech-to-text/ocr digital media a speech-to-text solution allows you to identify speech in static video files so you can manage it as standard content, such as allowing employees to search within training videos for spoken words or phrases, and then enabling them to quickly navigate to the specific moment in the video."
-        },
-        {
-            "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-modern-customer-support-portal-powered-by-an-agile-business-process-'",
-                "acom-architecture",
-                "all-items",
-                "cloud-innovation",
-                "cloud-migration",
-                "data-flow",
-                "interactive-diagram",
-                "lift-and-shift-cloud-strategy",
-                "lift-and-shift-solution",
-                "lift-and-shift-strategy",
-                "line-of-business-app",
-                "lob-app",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process",
-            "word_count": 223,
-            "read_time": "1 min read",
-            "title": "Lift and Shift and Innovate - LOB Apps",
-            "description": "This architecture shows how to easily connect multiple business systems to enable customer support.",
-            "image": "/azure/architecture/solution-ideas/media/modern-customer-support-portal-powered-by-an-agile-business-process.svg",
-            "publish_date": "12/16/2019",
-            "data_flow": "data-flow",
-            "interactive_diagram": true,
-            "filter_text": "lift and shift and innovate - lob apps this architecture shows how to easily connect multiple business systems to enable customer support."
         },
         {
             "tags": [
@@ -3297,7 +3377,38 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 128,
             "filter_text": "lift and shift and innovate - lob apps the solution demonstrates modernizing an existing application by consolidating data from multiple business systems into one place and surfacing it through web and mobile frontends. this is targeted at improving employee productivity and to enable faster decision making."
+        },
+        {
+            "tags": [
+                "'https:--azure.microsoft.com-solutions-architecture-modern-customer-support-portal-powered-by-an-agile-business-process-'",
+                "acom-architecture",
+                "all-items",
+                "cloud-innovation",
+                "cloud-migration",
+                "data-flow",
+                "interactive-diagram",
+                "lift-and-shift-cloud-strategy",
+                "lift-and-shift-solution",
+                "lift-and-shift-strategy",
+                "line-of-business-app",
+                "lob-app",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process",
+            "word_count": 223,
+            "read_time": "1 min read",
+            "title": "Lift and Shift and Innovate - LOB Apps",
+            "description": "This architecture shows how to easily connect multiple business systems to enable customer support.",
+            "image": "/azure/architecture/solution-ideas/media/modern-customer-support-portal-powered-by-an-agile-business-process.svg",
+            "publish_date": "12/16/2019",
+            "data_flow": "data-flow",
+            "interactive_diagram": true,
+            "popularity": 160,
+            "filter_text": "lift and shift and innovate - lob apps this architecture shows how to easily connect multiple business systems to enable customer support."
         },
         {
             "tags": [
@@ -3323,6 +3434,7 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 137,
             "filter_text": "lift and shift to containers with aks lift and shift to containers with aks"
         },
         {
@@ -3352,6 +3464,7 @@
             "components": "components",
             "sample_code": true,
             "github_url": "https://github.com/MicrosoftDocs/azure-docs/edit/master/articles/storage/files/storage-sync-files-planning.md",
+            "popularity": 132,
             "filter_text": "linux virtual desktops with citrix build a vdi environment for linux desktops using citrix on azure."
         },
         {
@@ -3373,6 +3486,7 @@
             "image": "/azure/architecture/solution-ideas/media/digital-media-live-stream.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 115,
             "filter_text": "live streaming digital media a live streaming solution allows you to capture video in real-time and broadcast it to consumers in real time, such as streaming interviews, conferences, and sporting events online."
         },
         {
@@ -3396,6 +3510,7 @@
             "description": "A charged off loan is a loan that is declared by a creditor (usually a lending institution) that an amount of debt is unlikely to be collected, usually when the loan repayment is severely delinquent by the debtor. Given that high chargeoff has negative impact on lending institutions' year end financials, lending institutions often monitor loan chargeoff risk very closely to prevent loans from getting charged-off. Using Azure HDInsight R Server, a lending institution can leverage machine learning predictive analytics to predict the likelihood of loans getting charged off and run a report on the analytics result stored in HDFS and hive tables.",
             "image": "/azure/architecture/solution-ideas/media/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.svg",
             "publish_date": "12/16/2019",
+            "popularity": 10,
             "filter_text": "loan chargeoff prediction with azure hdinsight spark clusters a charged off loan is a loan that is declared by a creditor (usually a lending institution) that an amount of debt is unlikely to be collected, usually when the loan repayment is severely delinquent by the debtor. given that high chargeoff has negative impact on lending institutions' year end financials, lending institutions often monitor loan chargeoff risk very closely to prevent loans from getting charged-off. using azure hdinsight r server, a lending institution can leverage machine learning predictive analytics to predict the likelihood of loans getting charged off and run a report on the analytics result stored in hdfs and hive tables."
         },
         {
@@ -3421,6 +3536,7 @@
             "image": "/azure/architecture/solution-ideas/media/loan-chargeoff-prediction-with-sql-server.svg",
             "publish_date": "12/16/2019",
             "pricing_guidance": "pricing",
+            "popularity": 8,
             "filter_text": "loan chargeoff prediction with sql server this solution demonstrates how to build and deploy a machine learning model with sql server 2016 with r services to predict if a bank loan will need to be charged off within next 3 months"
         },
         {
@@ -3447,6 +3563,7 @@
             "image": "/azure/architecture/solution-ideas/media/loan-credit-risk-analyzer-and-default-modeling.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 88,
             "filter_text": "loan credit risk + default modeling using sql server 2016 with r services, lenders can predict a borrower's credit risk and default probability to help issue fewer unprofitable loans."
         },
         {
@@ -3474,6 +3591,7 @@
             "image": "/azure/architecture/solution-ideas/media/loan-credit-risk-with-sql-server.svg",
             "publish_date": "12/16/2019",
             "pricing_guidance": "pricing",
+            "popularity": 19,
             "filter_text": "loan credit risk with sql server using sql server 2016 with r services, a lending institution can make use of predictive analytics to reduce number of loans they offer to those borrowers most likely to default, increasing the profitability of their loan portfolio."
         },
         {
@@ -3488,7 +3606,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/ai/mlops-python.md",
             "http_url": "/azure/architecture/reference-architectures/ai/mlops-python",
-            "word_count": 1807,
+            "word_count": 1800,
             "read_time": "8 min read",
             "title": "MLOps for Python models using Azure Machine Learning",
             "description": "Implement continuous integration (CI), continuous delivery (CD), and retraining for Azure Machine Learning.",
@@ -3499,6 +3617,7 @@
             "code_languages": [
                 "yaml"
             ],
+            "popularity": 164,
             "filter_text": "mlops for python models using azure machine learning implement continuous integration (ci), continuous delivery (cd), and retraining for azure machine learning."
         },
         {
@@ -3526,6 +3645,7 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 91,
             "filter_text": "machine learning model training with aks machine learning with aks"
         },
         {
@@ -3554,6 +3674,7 @@
             "components": "components",
             "sample_code": true,
             "github_url": "https://github.com/Azure/cognitive-services",
+            "popularity": 69,
             "filter_text": "mass ingestion and analysis of news feeds on azure create a pipeline for ingesting and analyzing text, images, sentiment, and other data from rss news feeds using only azure services, including azure cosmos db and azure cognitive services."
         },
         {
@@ -3582,6 +3703,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 13,
             "filter_text": "media rendering \u2013 hpc solution architecture optimize the media rendering process with a step-by-step hpc solution architecture from azure that combines azure cyclecloud and avere vfxt."
         },
         {
@@ -3613,6 +3735,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 111,
             "filter_text": "medical data storage solutions store healthcare data effectively and affordably with cloud-based solutions from azure. manage medical records with the highest level of built-in security."
         },
         {
@@ -3644,6 +3767,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 92,
             "filter_text": "medical data storage solutions store healthcare data effectively and affordably with cloud-based solutions from azure. manage medical records with the highest level of built-in security."
         },
         {
@@ -3664,6 +3788,7 @@
             "description": "azure redis cache, web sockets, web communication frameworks, messaging publish and subscribe, azure cache for redis",
             "image": "/azure/architecture/solution-ideas/media/messaging.svg",
             "publish_date": "12/16/2019",
+            "popularity": 48,
             "filter_text": "messaging azure redis cache, web sockets, web communication frameworks, messaging publish and subscribe, azure cache for redis"
         },
         {
@@ -3678,15 +3803,16 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/microservices/aks.md",
             "http_url": "/azure/architecture/reference-architectures/microservices/aks",
-            "word_count": 3618,
+            "word_count": 3629,
             "read_time": "15 min read",
             "title": "Microservices architecture on Azure Kubernetes Service (AKS)",
             "description": "Deploy a microservices architecture on Azure Kubernetes Service (AKS)",
             "image": "/azure/architecture/reference-architectures/microservices/_images/aks.png",
-            "publish_date": "12/10/2018",
+            "publish_date": "12/10/2019",
             "sample_code": true,
             "github_url": "https://github.com/Azure/aad-pod-identity",
             "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/aks-reference-architecture.vsdx",
+            "popularity": 240,
             "filter_text": "microservices architecture on azure kubernetes service (aks) deploy a microservices architecture on azure kubernetes service (aks)"
         },
         {
@@ -3712,6 +3838,7 @@
             "code_languages": [
                 "xml"
             ],
+            "popularity": 216,
             "filter_text": "microservices architecture on azure service fabric deploy a microservices architecture on azure service fabric"
         },
         {
@@ -3737,6 +3864,7 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 153,
             "filter_text": "microservices with aks microservices with aks"
         },
         {
@@ -3764,6 +3892,7 @@
             "pricing_guidance": "pricing",
             "alternative_choices": "alternatives",
             "components": "components-and-security",
+            "popularity": 178,
             "filter_text": "migrating a web app to an api-based architecture use azure api management to modernize a legacy web application."
         },
         {
@@ -3796,6 +3925,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 228,
             "filter_text": "modern data warehouse architecture explore a cloud data warehouse that uses big data. modern data warehouse brings together all your data and scales easily as your data grows."
         },
         {
@@ -3813,7 +3943,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/ai/movie-recommendations.md",
             "http_url": "/azure/architecture/example-scenario/ai/movie-recommendations",
-            "word_count": 999,
+            "word_count": 997,
             "read_time": "4 min read",
             "title": "Movie recommendations on Azure",
             "description": "Use machine learning to automate movie, product, and other recommendations using machine learning and an Azure Data Science Virtual Machine (DSVM) to train a model on Azure.",
@@ -3826,6 +3956,7 @@
             "code_languages": [
                 "shell"
             ],
+            "popularity": 76,
             "filter_text": "movie recommendations on azure use machine learning to automate movie, product, and other recommendations using machine learning and an azure data science virtual machine (dsvm) to train a model on azure."
         },
         {
@@ -3851,6 +3982,7 @@
                 "azurecli"
             ],
             "sample_code": true,
+            "popularity": 213,
             "filter_text": "multi-region n-tier application for high availability deploy an application on azure virtual machines in multiple regions for high availability and resiliency."
         },
         {
@@ -3879,6 +4011,7 @@
             "pricing_guidance": "pricing",
             "alternative_choices": "alternatives",
             "components": "components",
+            "popularity": 191,
             "filter_text": "multi-tier web application built for ha/dr create a multitier web application built for high availability and disaster recovery on azure using azure virtual machines, availability sets, availability zones, azure site recovery, and azure traffic manager."
         },
         {
@@ -3906,6 +4039,7 @@
             "code_languages": [
                 "bash"
             ],
+            "popularity": 162,
             "filter_text": "n-tier application with apache cassandra run linux virtual machines for an n-tier architecture with apache cassandra in microsoft azure."
         },
         {
@@ -3936,7 +4070,32 @@
             "data_flow": "technical-details-and-workflow",
             "sample_code": true,
             "github_url": "https://github.com/Azure/cortana-intelligence-tank-level-forecast",
+            "popularity": 23,
             "filter_text": "oil and gas tank level forecasting today, most facilities operate reactively to problems in tank levels. this often leads to spills, emergency shutdowns, expensive remediation costs, regulatory issues, costly repairs and fines. tank level forecasting helps manage and abate these and other problems."
+        },
+        {
+            "tags": [
+                "all-items",
+                "example-code",
+                "github",
+                "networking",
+                "reference-architecture",
+                "visio-diagram"
+            ],
+            "type": "reference-architecture",
+            "file_url": "reference-architectures/hybrid-networking/vpn.md",
+            "http_url": "/azure/architecture/reference-architectures/hybrid-networking/vpn",
+            "word_count": 2469,
+            "read_time": "10 min read",
+            "title": "On-premises network connected to Azure using VPN",
+            "description": "A secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using a VPN.",
+            "image": "/azure/architecture/reference-architectures/hybrid-networking/images/vpn.png",
+            "publish_date": "1/24/2020",
+            "sample_code": true,
+            "github_url": "https://github.com/mspnp/reference-architectures/blob/master/hybrid-networking/vpn/README.md",
+            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx",
+            "popularity": 227,
+            "filter_text": "on-premises network connected to azure using vpn a secure site-to-site network architecture that spans an azure virtual network and an on-premises network connected using a vpn."
         },
         {
             "tags": [
@@ -3958,6 +4117,7 @@
             "description": "Event Grid allows you to speed automation and simplify policy enforcement. For example, Event Grid can notify Azure Automation when a virtual machine is created, or a SQL Database is spun up. These events can be used to automatically check that service configurations are compliant, put metadata into operations tools, tag virtual machines, or file work items.",
             "image": "/azure/architecture/solution-ideas/media/ops-automation-using-event-grid.svg",
             "publish_date": "12/16/2019",
+            "popularity": 40,
             "filter_text": "ops automation using event grid event grid allows you to speed automation and simplify policy enforcement. for example, event grid can notify azure automation when a virtual machine is created, or a sql database is spun up. these events can be used to automatically check that service configurations are compliant, put metadata into operations tools, tag virtual machines, or file work items."
         },
         {
@@ -3982,6 +4142,7 @@
             "image": "/azure/architecture/solution-ideas/media/optimize-marketing-with-machine-learning.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 17,
             "filter_text": "optimize marketing with machine learning learn how to build a machine-learning model with sql server 2016 with r services to optimize and manage marketing campaigns."
         },
         {
@@ -4010,6 +4171,7 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 53,
             "filter_text": "oracle database migration to azure oracle db migrations can be accomplished in multiple ways. this architecture covers one of these options wherein oracle active data guard is used to migrate the database."
         },
         {
@@ -4031,6 +4193,7 @@
             "description": "Generate personalized recommendations for customers in real time, using low-latency and tunable consistency settings for immediate insights",
             "image": "/azure/architecture/solution-ideas/media/personalization-using-cosmos-db.svg",
             "publish_date": "12/16/2019",
+            "popularity": 49,
             "filter_text": "personalization using cosmos db generate personalized recommendations for customers in real time, using low-latency and tunable consistency settings for immediate insights"
         },
         {
@@ -4061,6 +4224,7 @@
             "sample_code": true,
             "github_url": "https://github.com/Azure/cortana-intelligence-personalized-offers/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md",
             "interactive_diagram": true,
+            "popularity": 30,
             "filter_text": "personalized offers in today's highly competitive and connected environment, modern businesses can no longer survive with generic, static online content. furthermore, marketing strategies using traditional tools are often expensive, hard to implement, and do not produce the desired return on investment. these systems often fail to take full advantage of the data collected to create a more personalized experience for the user."
         },
         {
@@ -4085,6 +4249,7 @@
             "image": "/azure/architecture/solution-ideas/media/personalized-marketing.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 139,
             "filter_text": "personalized marketing solutions find essential technology to market your products with personalized offers. individualize your marketing for greater customer response using big-data insights."
         },
         {
@@ -4113,6 +4278,7 @@
             "publish_date": "12/16/2019",
             "sample_code": true,
             "github_url": "https://github.com/Azure/cortana-intelligence-population-health-management/blob/master/Azure%20Data%20Lake/AutomatedDeploymentGuide/Post%20Deployment%20Instructions.md",
+            "popularity": 31,
             "filter_text": "population health management for healthcare population health management is an important tool that is increasingly being used by health care providers to manage and control the escalating costs. the crux of population health management is to use data to improve health outcomes. tracking, monitoring, and bench marking are the three bastions of population health management, aimed at improving clinical and health outcomes while managing and reducing cost."
         },
         {
@@ -4141,6 +4307,7 @@
             "publish_date": "12/16/2019",
             "components": "components",
             "data_flow": "predict-length-of-stay-and-patient-flow",
+            "popularity": 41,
             "filter_text": "predict length of stay and patient flow learn how to predict capacity and patient flow for your hospital or healthcare facility to enhance the quality of care and improve operational efficiency."
         },
         {
@@ -4165,6 +4332,7 @@
             "image": "/azure/architecture/solution-ideas/media/predicting-length-of-stay-in-hospitals.svg",
             "publish_date": "12/16/2019",
             "pricing_guidance": "pricing",
+            "popularity": 14,
             "filter_text": "predicting length of stay in hospitals this solution enables a predictive model for length of stay for in-hospital admissions. length of stay (los) is defined in number of days from the initial admit date to the date that the patient is discharged from any given hospital facility."
         },
         {
@@ -4188,6 +4356,7 @@
             "image": "/azure/architecture/solution-ideas/media/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 73,
             "filter_text": "predictive aircraft engine monitoring microsoft azure\u2019s predictive maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health."
         },
         {
@@ -4212,6 +4381,7 @@
             "image": "/azure/architecture/solution-ideas/media/predictive-insights-with-vehicle-telematics.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 64,
             "filter_text": "predictive insights with vehicle telematics learn how car dealerships, manufacturers, and insurance companies can use microsoft azure to gain predictive insights on vehicle health and driving habits."
         },
         {
@@ -4237,6 +4407,7 @@
             "image": "/azure/architecture/solution-ideas/media/predictive-maintenance.svg",
             "publish_date": "12/16/2019",
             "data_flow": "technical-details-and-workflow",
+            "popularity": 34,
             "filter_text": "predictive maintenance this predictive maintenance solution monitors aircraft and predicts the remaining useful life of aircraft engine components."
         },
         {
@@ -4262,6 +4433,7 @@
             "image": "/azure/architecture/solution-ideas/media/predictive-marketing-campaigns-with-machine-learning-and-spark.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 138,
             "filter_text": "predictive marketing with machine learning learn how to build a machine-learning model with microsoft r server on azure hdinsight spark clusters to recommend actions to maximize the purchase rate."
         },
         {
@@ -4293,6 +4465,7 @@
             "components": "components",
             "sample_code": true,
             "github_url": "https://github.com/ssarwa/API-Management-ASE-AppGateway",
+            "popularity": 171,
             "filter_text": "publishing internal apis to external consumers use azure api management to modernize and expose intranet legacy web apis."
         },
         {
@@ -4322,6 +4495,7 @@
             "data_flow": "technical-details-and-workflow",
             "sample_code": true,
             "github_url": "https://github.com/Azure/cortana-intelligence-quality-assurance-manufacturing/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md#post-deployment-instructions",
+            "popularity": 39,
             "filter_text": "quality assurance quality assurance systems allow businesses to prevent defects throughout their processes of delivering goods or services to customers. building such a system that collects data and identifies potential problems along a pipeline can provide enormous advantages. for example, in digital manufacturing, quality assurance across the assembly line is imperative. identifying slowdowns and potential failures before they occur rather than after they are detected can help companies reduce costs for scrap and rework while improving productivity."
         },
         {
@@ -4353,6 +4527,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 181,
             "filter_text": "real time analytics on big data architecture get deep learning analytics and insights live from streaming data. review logs from website clickstream in near real-time for advanced analytics processing."
         },
         {
@@ -4378,6 +4553,7 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 154,
             "filter_text": "real-time web dashboard securely monitor and control data streamed from internet-connected devices"
         },
         {
@@ -4403,6 +4579,7 @@
             "pricing_guidance": "pricing",
             "alternative_choices": "alternatives",
             "components": "components",
+            "popularity": 146,
             "filter_text": "real-time fraud detection detect fraudulent activity in real-time using azure event hubs and stream analytics."
         },
         {
@@ -4416,7 +4593,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/ai/realtime-scoring-python.md",
             "http_url": "/azure/architecture/reference-architectures/ai/realtime-scoring-python",
-            "word_count": 1736,
+            "word_count": 1731,
             "read_time": "8 min read",
             "title": "Real-time scoring of Python models",
             "description": "This reference architecture shows how to deploy Python models as web services on Azure to make real-time predictions.",
@@ -4424,6 +4601,7 @@
             "publish_date": "1/28/2019",
             "sample_code": true,
             "github_url": "https://github.com/Microsoft/MLAKSDeployAML",
+            "popularity": 148,
             "filter_text": "real-time scoring of python models this reference architecture shows how to deploy python models as web services on azure to make real-time predictions."
         },
         {
@@ -4437,14 +4615,15 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/ai/realtime-scoring-r.md",
             "http_url": "/azure/architecture/reference-architectures/ai/realtime-scoring-r",
-            "word_count": 1260,
+            "word_count": 1180,
             "read_time": "5 min read",
             "title": "Real-time scoring of R machine learning models",
             "description": "Implement a real-time prediction service in R using Machine Learning Server running in Azure Kubernetes Service (AKS).",
             "image": "/azure/architecture/reference-architectures/ai/_images/realtime-scoring-r.png",
-            "publish_date": "12/12/2018",
+            "publish_date": "12/10/2019",
             "sample_code": true,
             "github_url": "https://github.com/microsoft/AMLSDKRModelsOperationalization",
+            "popularity": 50,
             "filter_text": "real-time scoring of r machine learning models implement a real-time prediction service in r using machine learning server running in azure kubernetes service (aks)."
         },
         {
@@ -4475,6 +4654,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 72,
             "filter_text": "remote patient monitoring solutions provide a high level of preventative medical care with remote patient monitoring from azure. analyze large amounts of medical data in a secure environment."
         },
         {
@@ -4504,6 +4684,7 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 11,
             "filter_text": "retail assistant with visual capabilities the retail assistant or vacation planner can help your customers have interactions with your business bot and provide suggestions based on the visual information."
         },
         {
@@ -4528,6 +4709,7 @@
             "description": "Build secure and scalable e-commerce solutions that meet the demands of both customers and business. Engage customers through customized products and offers, process transactions quickly and securely, and focus on fulfillment and customer service.",
             "image": "/azure/architecture/solution-ideas/media/retail-and-ecommerce-using-azure-database-for-mysql.svg",
             "publish_date": "12/16/2019",
+            "popularity": 44,
             "filter_text": "retail and e-commerce using azure mysql build secure and scalable e-commerce solutions that meet the demands of both customers and business. engage customers through customized products and offers, process transactions quickly and securely, and focus on fulfillment and customer service."
         },
         {
@@ -4552,6 +4734,7 @@
             "description": "Build secure and scalable e-commerce solutions that meet the demands of both customers and business. Engage customers through customized products and offers, process transactions quickly and securely, and focus on fulfillment and customer service.",
             "image": "/azure/architecture/solution-ideas/media/retail-and-ecommerce-using-azure-database-for-postgresql.svg",
             "publish_date": "12/16/2019",
+            "popularity": 35,
             "filter_text": "retail and e-commerce using azure postgresql build secure and scalable e-commerce solutions that meet the demands of both customers and business. engage customers through customized products and offers, process transactions quickly and securely, and focus on fulfillment and customer service."
         },
         {
@@ -4573,6 +4756,7 @@
             "description": "Support in-depth queries over diverse product catalogs, traffic spikes, and rapidly changing inventory.",
             "image": "/azure/architecture/solution-ideas/media/retail-and-e-commerce-using-cosmos-db.svg",
             "publish_date": "12/16/2019",
+            "popularity": 125,
             "filter_text": "retail and e-commerce using cosmos db support in-depth queries over diverse product catalogs, traffic spikes, and rapidly changing inventory."
         },
         {
@@ -4593,6 +4777,7 @@
             "image": "/azure/architecture/reference-architectures/sap/images/sap-hana-large-instances.png",
             "publish_date": "5/16/2018",
             "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/sap-reference-architectures.vsdx",
+            "popularity": 180,
             "filter_text": "run sap hana on azure large instances proven practices for running sap hana in a high availability environment on azure large instances."
         },
         {
@@ -4617,6 +4802,7 @@
             "sample_code": true,
             "github_url": "https://github.com/Azure/jenkins/tree/master/disaster_recovery",
             "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/Jenkins-architecture.vsdx",
+            "popularity": 175,
             "filter_text": "run a jenkins server on azure recommended architecture that shows how to deploy and operate a scalable, enterprise-grade jenkins server on azure secured with single sign-on (sso)."
         },
         {
@@ -4642,6 +4828,7 @@
                 "azurecli"
             ],
             "sample_code": true,
+            "popularity": 177,
             "filter_text": "run a linux vm on azure best practices for running a linux virtual machine on azure."
         },
         {
@@ -4666,6 +4853,7 @@
                 "azurecli"
             ],
             "sample_code": true,
+            "popularity": 207,
             "filter_text": "run a windows vm on azure best practices for running a windows virtual machine on azure."
         },
         {
@@ -4680,7 +4868,7 @@
             ],
             "type": "reference-architecture",
             "file_url": "reference-architectures/sharepoint/index.md",
-            "http_url": "/azure/architecture/reference-architectures/sharepoint/index",
+            "http_url": "/azure/architecture/reference-architectures/sharepoint",
             "word_count": 2931,
             "read_time": "12 min read",
             "title": "Run a highly available SharePoint Server 2016 farm in Azure",
@@ -4693,6 +4881,7 @@
             "code_languages": [
                 "bash"
             ],
+            "popularity": 135,
             "filter_text": "run a highly available sharepoint server 2016 farm in azure recommended architecture for deploying a high availability sharepoint server 2016 farm in azure."
         },
         {
@@ -4725,6 +4914,7 @@
             "components": "components",
             "sample_code": true,
             "github_url": "https://github.com/Azure/Avere/blob/master/README.md",
+            "popularity": 134,
             "filter_text": "running cfd simulations execute computational fluid dynamics (cfd) simulations on azure."
         },
         {
@@ -4753,6 +4943,7 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 32,
             "filter_text": "running oracle databases on azure this solution architecture illustrates a canonical architecture to achieve high availability for your oracle database enterprise edition in azure."
         },
         {
@@ -4785,6 +4976,7 @@
             "pricing_guidance": "pricing",
             "alternative_choices": "alternatives",
             "components": "components",
+            "popularity": 108,
             "filter_text": "running sap production workloads using an oracle database run an sap production deployment in azure using an oracle database."
         },
         {
@@ -4815,6 +5007,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 46,
             "filter_text": "sap netweaver on sqlserver the netweaver on sql server application solution illustrates how a user request flows through an sap landscape built on netweaver by utilizing azure virtual machines to host sap applications and a sql server database."
         },
         {
@@ -4844,6 +5037,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 99,
             "filter_text": "sap s/4 hana vm on azure and linux| microsoft azure learn more about the sap s/4 hana and linux solution architecture for user requests with a step-by-step flow chart. see how azure virtual machines power the entire system, and learn more about the advantages of this application solution."
         },
         {
@@ -4872,6 +5066,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 58,
             "filter_text": "sap s/4 hana for large instances learn more about sap hana on azure for large instances that includes high reliability and disaster recovery. find out how nfs storage is used for large instances of sap hana."
         },
         {
@@ -4893,6 +5088,7 @@
             "image": "/azure/architecture/reference-architectures/sap/images/sap-s4hana.png",
             "publish_date": "5/11/2018",
             "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/sap-reference-architectures.vsdx",
+            "popularity": 187,
             "filter_text": "sap s/4hana for linux virtual machines on azure proven practices for running sap s/4hana in a linux environment on azure with high availability."
         },
         {
@@ -4914,6 +5110,7 @@
             "image": "/azure/architecture/solution-ideas/media/disaster-recovery-smb-azure-site-recovery.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 159,
             "filter_text": "smb disaster recovery with azure site recovery small and medium businesses can inexpensively implement disaster recovery to the cloud by using azure site recovery or a partner solution like double-take dr."
         },
         {
@@ -4934,6 +5131,7 @@
             "image": "/azure/architecture/solution-ideas/media/disaster-recovery-smb-double-take-dr.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 65,
             "filter_text": "smb disaster recovery with double-take dr small and medium businesses can inexpensively implement disaster recovery to the cloud by using a partner solution like double-take dr."
         },
         {
@@ -4955,6 +5153,7 @@
             "image": "/azure/architecture/solution-ideas/media/digital-marketing-episerver.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 83,
             "filter_text": "scalable episerver marketing website let your business run multi-channel digital marketing websites on one platform and spin up and spin down campaigns on demand. take advantage of the comprehensive capabilities of episerver to manage every aspect of your site and campaign performance."
         },
         {
@@ -4976,6 +5175,7 @@
             "image": "/azure/architecture/solution-ideas/media/digital-marketing-sitecore.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 98,
             "filter_text": "scalable sitecore marketing website with the sitecore experience platform (xp), you have at your fingertips the complete data, integrated tools, and automation capabilities to engage your customers throughout an iterative life cycle\u2014the technology foundation necessary to win customers for life."
         },
         {
@@ -5000,6 +5200,7 @@
             "publish_date": "12/16/2019",
             "deployable": "https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fumbraco-cms-webapp-redis-cache%2Fazuredeploy.json",
             "components": "components",
+            "popularity": 56,
             "filter_text": "scalable umbraco cms web app medium umbraco cms web app configured to scale and optimal for high-traffic sites. it uses two web apps, one for your front-end app and the other for your back-office app, deployed in a single region with autoscaling enabled."
         },
         {
@@ -5020,6 +5221,7 @@
             "description": "scalable web apps, azure redis cache, session data cache, user cookie cache, azure cache for redis",
             "image": "/azure/architecture/solution-ideas/media/scalable-web-apps.svg",
             "publish_date": "12/16/2019",
+            "popularity": 152,
             "filter_text": "scalable web apps scalable web apps, azure redis cache, session data cache, user cookie cache, azure cache for redis"
         },
         {
@@ -5044,6 +5246,7 @@
             "pricing_calculator": "https://azure.com/e/3d43949ffbb945a88cc0a126dc3a0e6e",
             "pricing_guidance": "pricing",
             "components": "components",
+            "popularity": 82,
             "filter_text": "scalable order processing build a highly scalable order processing pipeline using azure cosmos db."
         },
         {
@@ -5061,7 +5264,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/ai/scalable-personalization.md",
             "http_url": "/azure/architecture/example-scenario/ai/scalable-personalization",
-            "word_count": 1621,
+            "word_count": 1618,
             "read_time": "7 min read",
             "title": "Scalable personalization on Azure",
             "description": "Use machine learning to automate content-based personalization for customers.",
@@ -5072,6 +5275,7 @@
             "components": "components",
             "sample_code": true,
             "github_url": "https://github.com/Microsoft/Recommenders/blob/master/SETUP.md#setup-guide-for-azure-databricks",
+            "popularity": 38,
             "filter_text": "scalable personalization on azure use machine learning to automate content-based personalization for customers."
         },
         {
@@ -5096,6 +5300,7 @@
             "description": "Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.",
             "image": "/azure/architecture/solution-ideas/media/scalable-web-and-mobile-applications-using-azure-database-for-mysql.svg",
             "publish_date": "12/16/2019",
+            "popularity": 70,
             "filter_text": "scalable web and mobile applications using azure database for mysql rapidly build engaging, performant and scalable cross-platform and native apps for ios, android, windows, or mac."
         },
         {
@@ -5120,6 +5325,7 @@
             "description": "Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.",
             "image": "/azure/architecture/solution-ideas/media/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.svg",
             "publish_date": "12/16/2019",
+            "popularity": 62,
             "filter_text": "scalable web and mobile applications using azure database for postgresql rapidly build engaging, performant and scalable cross-platform and native apps for ios, android, windows, or mac."
         },
         {
@@ -5143,6 +5349,7 @@
             "sample_code": true,
             "github_url": "https://github.com/mspnp/reference-architectures/tree/master/web-app",
             "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx",
+            "popularity": 225,
             "filter_text": "scalable web application improve scalability in a web application running in microsoft azure."
         },
         {
@@ -5167,6 +5374,7 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 141,
             "filter_text": "secure devops for aks implementing secure devops  with kubernetes on azure, you can achieve the balance between speed and security and deliver code faster at scale."
         },
         {
@@ -5198,6 +5406,7 @@
             "components": "components",
             "sample_code": true,
             "github_url": "https://github.com/Azure/fta-internalbusinessapps/blob/master/appmodernization/app-service-environment/ase-walkthrough.md",
+            "popularity": 179,
             "filter_text": "securely managed web applications securely deploy an expense application to azure app service environment."
         },
         {
@@ -5227,6 +5436,7 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 112,
             "filter_text": "serverless computing solution for lob apps the solution demonstrates a business process for customer onboarding. this serverless architecture enables you to build and run applications without having to worry about the underlying infrastructure and the associated management and maintenance. by using it, you can dramatically improve developer productivity."
         },
         {
@@ -5248,6 +5458,7 @@
             "description": "Event Grid connects data sources and event handlers. For example, use Event Grid to instantly trigger a serverless function to run image analysis each time a new photo is added to a blob storage container.",
             "image": "/azure/architecture/solution-ideas/media/serverless-application-architectures-using-event-grid.svg",
             "publish_date": "12/16/2019",
+            "popularity": 51,
             "filter_text": "serverless application architectures using event grid event grid connects data sources and event handlers. for example, use event grid to instantly trigger a serverless function to run image analysis each time a new photo is added to a blob storage container."
         },
         {
@@ -5268,6 +5479,7 @@
             "description": "Use Azure Functions and Azure Cosmos DB to build globally distributed, scalable serverless applications.",
             "image": "/azure/architecture/solution-ideas/media/serverless-apps-using-cosmos-db.svg",
             "publish_date": "12/16/2019",
+            "popularity": 67,
             "filter_text": "serverless apps using cosmos db use azure functions and azure cosmos db to build globally distributed, scalable serverless applications."
         },
         {
@@ -5294,6 +5506,7 @@
             "code_languages": [
                 "csharp"
             ],
+            "popularity": 194,
             "filter_text": "serverless event processing using azure functions reference architecture for serverless event ingestion and processing using azure functions."
         },
         {
@@ -5322,6 +5535,7 @@
             "code_languages": [
                 "csharp"
             ],
+            "popularity": 223,
             "filter_text": "serverless web application recommended architecture for a serverless web application and web api."
         },
         {
@@ -5352,6 +5566,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 37,
             "filter_text": "sharepoint farm for development testing learn how to deploy a sharepoint farm for use as a development testing environment with a step-by-step flowchart from azure."
         },
         {
@@ -5367,7 +5582,7 @@
             ],
             "type": "example-workload",
             "file_url": "example-scenario/signalr/index.md",
-            "http_url": "/azure/architecture/example-scenario/signalr/index",
+            "http_url": "/azure/architecture/example-scenario/signalr",
             "word_count": 1476,
             "read_time": "6 min read",
             "title": "Sharing location in real time using low-cost serverless Azure services",
@@ -5379,6 +5594,7 @@
             "components": "components",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/solution-architectures/tree/master/signalr",
+            "popularity": 47,
             "filter_text": "sharing location in real time using low-cost serverless azure services signalr configured in server-less mode to work with azure function triggered by service bus. all of it using .net core. this scenario is best used for real time messaging applications where users require a low-cost but robust messaging service."
         },
         {
@@ -5407,6 +5623,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 96,
             "filter_text": "simple branded website quickly build and launch digital campaigns that automatically scale based on customer demand."
         },
         {
@@ -5428,6 +5645,7 @@
             "image": "/azure/architecture/solution-ideas/media/digital-marketing-smb.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 105,
             "filter_text": "simple digital marketing website start simple with the content management system that enables you to easily maintain the messaging on your website in real-time, from a browser, with no coding skills."
         },
         {
@@ -5458,7 +5676,26 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 80,
             "filter_text": "social app for mobile and web with authentication view a detailed, step-by-step diagram depicting the build process and implementation of the mobile client app architecture that offers social image sharing with a companion web app and authentication abilities, even while offline."
+        },
+        {
+            "tags": [
+                "all-items",
+                "networking",
+                "reference-architecture"
+            ],
+            "type": "reference-architecture",
+            "file_url": "reference-architectures/hybrid-networking/index.md",
+            "http_url": "/azure/architecture/reference-architectures/hybrid-networking",
+            "word_count": 557,
+            "read_time": "3 min read",
+            "title": "Solutions for connecting an on-premises network to Azure",
+            "description": "Compare reference architectures for connecting an on-premises network to Azure.",
+            "image": "/azure/architecture/_images/reference-architectures.svg",
+            "publish_date": "7/02/2018",
+            "popularity": 241,
+            "filter_text": "solutions for connecting an on-premises network to azure compare reference architectures for connecting an on-premises network to azure."
         },
         {
             "tags": [
@@ -5483,6 +5720,7 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 22,
             "filter_text": "speech services with speech services, it's easy to transcribe every call. index the transcription for full-text search, or apply text analytics to detect sentiment, language, and key phrases for insights. if your call center recordings involve specialized terminology, such as product names or it jargon, create a custom language model to teach speech services the vocabulary. a custom acoustic model helps speech services understand speakers even with background noise or poor phone connections. for more information, read how batch transcription works with speech services."
         },
         {
@@ -5508,6 +5746,7 @@
             "code_languages": [
                 "csharp"
             ],
+            "popularity": 211,
             "filter_text": "stream processing with azure databricks create an end-to-end stream processing pipeline in azure using azure databricks."
         },
         {
@@ -5533,6 +5772,7 @@
             "code_languages": [
                 "csharp"
             ],
+            "popularity": 199,
             "filter_text": "stream processing with azure stream analytics create an end-to-end stream processing pipeline in azure."
         },
         {
@@ -5554,6 +5794,7 @@
             "description": "Ingest and process millions of streaming events per second with Apache Kafka, Apache Storm, and Apache Spark Streaming.",
             "image": "/azure/architecture/solution-ideas/media/streaming-using-hdinsight.svg",
             "publish_date": "12/16/2019",
+            "popularity": 42,
             "filter_text": "streaming using hdinsight ingest and process millions of streaming events per second with apache kafka, apache storm, and apache spark streaming."
         },
         {
@@ -5584,6 +5825,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 127,
             "filter_text": "supply chain track and trace learn how to use the azure blockchain workbench. build an asset tracking application for supply chain with a step-by-step flowchart."
         },
         {
@@ -5612,6 +5854,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 75,
             "filter_text": "task-based consumer mobile app learn how the task-based consumer mobile app architecture is created with a step-by-step flow chart that shows the integration with azure app service mobile apps, visual studio, and xamarin to simplify the build process."
         },
         {
@@ -5638,6 +5881,7 @@
             "image": "/azure/architecture/solution-ideas/media/telemetry-analytics.svg",
             "publish_date": "12/16/2019",
             "pricing_guidance": "pricing-info",
+            "popularity": 87,
             "filter_text": "telemetry analytics super computers have moved out of the lab and are now parked in our garage! these cutting-edge automobiles contain a myriad of sensors, giving them the ability to track and monitor millions of events every second. we expect that by 2020, most of these cars will be connected to the internet. imagine tapping into this wealth of data to provide best in class safety, reliability and driving experience. microsoft has made this imagination a reality via cortana intelligence. microsoft\u2019s cortana intelligence is a fully managed big data and advanced analytics suite that enables you to transform your data into intelligent action."
         },
         {
@@ -5669,6 +5913,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 129,
             "filter_text": "tier applications & data for analytics tier applications and data with a solution architecture that includes azure stack. optimize data analytics with a step-by-step flowchart and detailed instructions."
         },
         {
@@ -5701,6 +5946,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 66,
             "filter_text": "training and procedural guidance powered by mixed reality enable your team and employees to learn new processes and materials faster, with fewer errors, and greater confidence by providing persistent holographic instructions mapped to precise locations in their physical workspace. jumpstart employee comprehension with head-up, hands-free experiences using hololens devices. and with azure spatial anchors, you can place directions on the procedure\u2019s most important objects and return to this content over time."
         },
         {
@@ -5714,7 +5960,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/ai/training-python-models.md",
             "http_url": "/azure/architecture/reference-architectures/ai/training-python-models",
-            "word_count": 1509,
+            "word_count": 1494,
             "read_time": "6 min read",
             "title": "Training of Python scikit-learn and deep learning models on Azure",
             "description": "This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of a scikit-learn Python model.",
@@ -5722,6 +5968,7 @@
             "publish_date": "7/17/2019",
             "sample_code": true,
             "github_url": "https://github.com/Microsoft/MLHyperparameterTuning",
+            "popularity": 174,
             "filter_text": "training of python scikit-learn and deep learning models on azure this reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of a scikit-learn python model."
         },
         {
@@ -5745,6 +5992,7 @@
                 "powershell"
             ],
             "sample_code": true,
+            "popularity": 100,
             "filter_text": "troubleshoot a hybrid vpn connection troubleshoot a vpn gateway connection between an on-premises network and azure."
         },
         {
@@ -5774,6 +6022,7 @@
             "components": "components",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 95,
             "filter_text": "unlock legacy data with azure stack follow a step-by-step flowchart to unlock and preserve legacy data from mainframe applications using azure stack."
         },
         {
@@ -5797,6 +6046,7 @@
             "publish_date": "9/20/2018",
             "pricing_calculator": "https://azure.com/e/52dea096e5844d5495a7b22a9b2ccdde",
             "pricing_guidance": "pricing",
+            "popularity": 189,
             "filter_text": "using service fabric to decompose applications decompose a large monolithic application into microservices."
         },
         {
@@ -5818,6 +6068,7 @@
             "image": "/azure/architecture/solution-ideas/media/digital-media-video.svg",
             "publish_date": "12/16/2019",
             "components": "components",
+            "popularity": 136,
             "filter_text": "video-on-demand digital media a basic video-on-demand solution that gives you the capability to stream recorded video content such as movies, news clips, sports segments, training videos, and customer support tutorials to any video-capable endpoint device, mobile application, or desktop browser. video files are uploaded to azure blob storage, encoded to a multi-bitrate standard format, and then distributed via all major adaptive bit-rate streaming protocols (hls, mpeg-dash, smooth) to the azure media player client."
         },
         {
@@ -5845,6 +6096,7 @@
             "publish_date": "12/16/2019",
             "data_flow": "data-flow",
             "interactive_diagram": true,
+            "popularity": 12,
             "filter_text": "visual assistant visual assistant provides rich information based on content of the image with capabilities such as reading business card, identifying barcode, and recognizing popular people, places, objects, artworks, and monuments."
         },
         {
@@ -5868,6 +6120,7 @@
             "pricing_guidance": "pricing",
             "alternative_choices": "alternatives",
             "components": "components",
+            "popularity": 215,
             "filter_text": "web application monitoring on azure monitor a web application hosted in azure app service."
         },
         {
@@ -5894,6 +6147,7 @@
             "code_languages": [
                 "bash"
             ],
+            "popularity": 218,
             "filter_text": "windows n-tier application with sql server implement a multi-tier architecture on azure for availability, security, scalability, and manageability."
         }
     ]

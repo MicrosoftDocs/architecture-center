@@ -5,7 +5,10 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: This Informational Bot can answer questions defined in a knowledge set or FAQ using Cognitive Services QnA Maker and answer more open-ended questions using Azure Cognitive Search.
 ms.custom: acom-architecture, bot service, luis, interactive-diagram, ai-ml, 'https://azure.microsoft.com/solutions/architecture/information-chatbot/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Information Chatbot
 
 [!INCLUDE [header_file](../header.md)]
@@ -13,6 +16,9 @@ ms.custom: acom-architecture, bot service, luis, interactive-diagram, ai-ml, 'ht
 This Informational Bot can answer questions defined in a knowledge set or FAQ using Cognitive Services QnA Maker and answer more open-ended questions using Azure Cognitive Search.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="information-chatbot" height="494.675" viewbox="0 0 974.039 494.675"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g data-name="Layer 2">
@@ -199,37 +205,12 @@ This Informational Bot can answer questions defined in a knowledge set or FAQ us
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Employee starts the Application Bot</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Azure Active Directory validates the employee’s identity</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>The employee can ask the bot what type of queries are supported</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Cognitive Services returns a FAQ built with the QnA Maker</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>The employee defines a valid query</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>The Bot submits the query to Azure Cognitive Search which returns information about the application data</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Application insights gathers runtime telemetry to help development with Bot performance and usage</p>
-</div>
-
 ## Data Flow
 
 1. Employee starts the Application Bot
-1. Azure Active Directory validates the employee’s identity
+1. Azure Active Directory validates the employee's identity
 1. The employee can ask the bot what type of queries are supported
 1. Cognitive Services returns a FAQ built with the QnA Maker
 1. The employee defines a valid query
 1. The Bot submits the query to Azure Cognitive Search which returns information about the application data
 1. Application insights gathers runtime telemetry to help development with Bot performance and usage
-
-
-[!INCLUDE [js_include_file](../../_js/index.md)]

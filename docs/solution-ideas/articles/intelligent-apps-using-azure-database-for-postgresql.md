@@ -5,7 +5,10 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.
 ms.custom: acom-architecture, postgresql, use cases, azure, solutions, app-dev, 'https://azure.microsoft.com/solutions/architecture/intelligent-apps-using-azure-database-for-postgresql/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Intelligent apps using Azure Database for PostgreSQL
 
 [!INCLUDE [header_file](../header.md)]
@@ -13,6 +16,9 @@ ms.custom: acom-architecture, postgresql, use cases, azure, solutions, app-dev, 
 Develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="intelligent-apps-using-azure-database-for-postgresql" height="300" viewbox="0 0 799.309 300"  xmlns="http://www.w3.org/2000/svg">
     <g data-name="Layer 2">
@@ -245,5 +251,3 @@ Develop sophisticated, transformational apps using state of the art machine lear
         </g>
     </g>
 </svg>
-
-[!INCLUDE [js_include_file](../../_js/index.md)]

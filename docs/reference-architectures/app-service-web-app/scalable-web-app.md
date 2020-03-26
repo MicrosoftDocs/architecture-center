@@ -31,7 +31,7 @@ This architecture builds on the one shown in [Basic web application][basic-web-a
 - **Cache**. Store semi-static data in [Azure Cache for Redis][azure-redis].
 - **CDN**. Use [Azure Content Delivery Network][azure-cdn] (CDN) to cache publicly available content for lower latency and faster delivery of content.
 - **Data storage**. Use [Azure SQL Database][sql-db] for relational data. For non-relational data, consider [Cosmos DB][cosmosdb].
-- **Azure Search**. Use [Azure Search][azure-search] to add search functionality such as search suggestions, fuzzy search, and language-specific search. Azure Search is typically used in conjunction with another data store, especially if the primary data store requires strict consistency. In this approach, store authoritative data in the other data store and the search index in Azure Search. Azure Search can also be used to consolidate a single search index from multiple data stores.
+- **Azure Cognitive Search**. Use [Azure Cognitive Search][azure-search] to add search functionality such as search suggestions, fuzzy search, and language-specific search. Azure Search is typically used in conjunction with another data store, especially if the primary data store requires strict consistency. In this approach, store authoritative data in the other data store and the search index in Azure Search. Azure Search can also be used to consolidate a single search index from multiple data stores.
 - **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 
 ## Recommendations
@@ -82,6 +82,23 @@ Modern applications often process large amounts of data. In order to scale for t
 
 See [Choose the right data store][datastore].
 
+## Cost considerations
+
+Use caching to reduce the load on servers that serve content that doesn't change frequently. Every render cycle of a page can impact cost because it consumes compute, memory, and bandwidth. Those costs can be reduced significantly by using caching, especially for static content services, such as JavaScript single-page apps and media streaming content.
+
+If your app has static content, use CDN to decrease the load on the front end servers. For data that doesn't change frequently, use Azure Cache for Redis. 
+
+Stateless apps that are configured for autoscaling are more cost effective that stateful apps. For an ASP.NET application, store your session state in-memory with Azure Cache for Redis. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-aspnet-session-state-provider). Another option is to use CosmosDB as a backend state store through a session state provider. See [Support Azure Cosmos DB and Azure Redis](https://github.com/Microsoft/service-fabric-services-and-actors-dotnet/issues/32). 
+
+For more information, see the cost section in [Azure Architecture Framework](/azure/architecture/framework/cost/overview).
+
+
+Consider placing a function app into a dedicated App Service plan so that background tasks don't run on the same instances that handle HTTP requests. If background tasks run intermittently, consider using a [consumption plan](/azure/azure-functions/functions-scale#consumption-plan), which is billed based on the number of executions, rather than hourly.
+
+
+Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
+
+
 ## Scalability considerations
 
 A major benefit of Azure App Service is the ability to scale your application based on load. Here are some considerations to keep in mind when planning to scale your application.
@@ -90,7 +107,6 @@ A major benefit of Azure App Service is the ability to scale your application ba
 
 If your solution includes several App Service apps, consider deploying them to separate App Service plans. This approach enables you to scale them independently because they run on separate instances.
 
-Similarly, consider putting a function app into its own plan so that background tasks don't run on the same instances that handle HTTP requests. If background tasks run intermittently, consider using a [consumption plan][functions-consumption-plan], which is billed based on the number of executions, rather than hourly.
 
 ### SQL Database
 

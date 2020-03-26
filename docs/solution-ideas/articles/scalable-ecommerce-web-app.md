@@ -5,12 +5,19 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: The e-commerce website includes simple order processing workflows with the help of Azure services. Using Azure Functions and Web Apps, developers can focus on building personalized experiences and let Azure take care of the infrastructure.
 ms.custom: acom-architecture, ecommerce, scalability, web-app, architect scalable e-commerce web app, web apps, search for products, submits order, process order payment, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/scalable-ecommerce-web-app/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Architect scalable e-commerce web app
 
 [!INCLUDE [header_file](../header.md)]
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
+<!-- cSpell:ignore helvetica -->
 
 <svg class="architecture-diagram" aria-labelledby="scalable-ecommerce-web-app" height="611" viewbox="0 0 1038 611"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" transform="translate(-2)">
@@ -145,34 +152,6 @@ ms.custom: acom-architecture, ecommerce, scalability, web-app, architect scalabl
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>User accesses the web app in browser and signs in.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Browser pulls static resources such as images from Azure Content Delivery Network.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>User searches for products and queries SQL database.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Web site pulls product catalog from database.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Web app pulls product images from Blob Storage.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Page output is cached in Azure Cache for Redis for better performance.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>User submits order and order is placed in the queue.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Azure Functions processes order payment.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>Azure Functions makes payment to third party and records payment in SQL database.</p>
-</div>
-
 ## Data Flow
 
 1. User accesses the web app in browser and signs in.
@@ -185,17 +164,16 @@ ms.custom: acom-architecture, ecommerce, scalability, web-app, architect scalabl
 1. Azure Functions processes order payment.
 1. Azure Functions makes payment to third party and records payment in SQL database.
 
-
 ## Components
-* [Web Apps](https://azure.microsoft.com/services/app-service/web/): An App Service Web App runs in a single region, accessible to web and mobile browsers
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): Managed, intelligent SQL in the cloud
-* [Azure Functions](https://azure.microsoft.com/services/functions/): Process events with serverless code
+
+* [Web Apps](https://azure.microsoft.com/services/app-service/web): An App Service Web App runs in a single region, accessible to web and mobile browsers
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database): Managed, intelligent SQL in the cloud
+* [Azure Functions](https://azure.microsoft.com/services/functions): Process events with serverless code
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
 
 ## Next Steps
-* [Get started easily with Web Apps using the five-minute quick starts](/azure/app-service/)
-* [Build an ASP.NET app in Azure with SQL Database](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
-* [Learn what can you do with Azure Functions](/azure/azure-functions/functions-overview)
-* [Application Performance Management with Application Insights](/azure/application-insights/app-insights-overview)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+* [Get started easily with Web Apps using the five-minute quick starts](https://docs.microsoft.com/azure/app-service)
+* [Build an ASP.NET app in Azure with SQL Database](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
+* [Learn what can you do with Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)
+* [Application Performance Management with Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)

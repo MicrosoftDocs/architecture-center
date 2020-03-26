@@ -101,9 +101,6 @@ main_toc = {'items': [{'href': 'index.md', 'name': 'Azure Architecture Center'},
                                           'service)'},
                                  {'href': 'best-practices/monitoring.md',
                                   'name': 'Monitoring and diagnostics'},
-                                 {'href': 'best-practices/resource-naming.md',
-                                  'name': 'Naming rules and restrictions for '
-                                          'Azure resources'},
                                  {'href': 'best-practices/retry-service-specific.md',
                                   'name': 'Retry guidance for specific '
                                           'services'},

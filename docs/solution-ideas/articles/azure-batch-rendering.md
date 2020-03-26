@@ -5,7 +5,10 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Optimize the media rendering process with a step-by-step HPC solution architecture from Azure that combines Azure CycleCloud and Avere vFXT.
 ms.custom: acom-architecture, hpc architecture, hpc solution, cluster orchestration, media render, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/azure-batch-rendering/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Media Rendering – HPC Solution Architecture
 
 [!INCLUDE [header_file](../header.md)]
@@ -13,6 +16,9 @@ ms.custom: acom-architecture, hpc architecture, hpc solution, cluster orchestrat
 This HPC media rendering solution architecture shows Azure CycleCloud monitoring a Pixar Tractor pipeline manager and orchestrating burst compute node capacity on-demand using Azure low-priority Virtual Machines Scale Sets. An Avere vFXT cache makes data from the existing on-premises filesystem and Azure Blob storage available to compute nodes in Azure.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="azure-batch-rendering" height="553" viewbox="0 0 1186 553"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
@@ -260,7 +266,7 @@ This HPC media rendering solution architecture shows Azure CycleCloud monitoring
             </text>
         </a>
         <a class="architecture-tooltip-trigger" href="#">
-            <circle cx="705.32" cy="139.006" fill="#A5CE00" r="14.5"/>
+           <circle cx="705.32" cy="139.006" fill="#A5CE00" r="14.5"/>
             <text fill="#303030" font-family="SegoeUI, Segoe UI" font-size="15" transform="translate(701.311 143.506)">
                 6
             </text>
@@ -286,31 +292,6 @@ This HPC media rendering solution architecture shows Azure CycleCloud monitoring
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Operations team uses Azure CycleCloud to configure and launch rendering pipeline cluster.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Azure CycleCloud orchestrates virtual machine (VM) creation and software configuration for head nodes, license servers, and Avere vFXT Cache.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Artist submits a render job to the Pixar Tractor pipeline manager.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Azure CycleCloud detects the change in job queue depth and autostarts render farm nodes in Virtual Machines Scale Sets with location, SKU, and configuration customized by job requirements.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Render pipeline manager (head nodes) executes render jobs on the new render farm VMs.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Render jobs pull artifacts from on-premises and Azure Blob storage as needed from NFS-mounted Avere vFXT.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>As each job finishes rendering, resulting artifacts are written back to storage through the Avere vFXT.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>As job queue empties, Azure CycleCloud auto-stops render farm VMs to reduce cost.</p>
-</div>
-
 ## Data Flow
 
 1. Operations team uses Azure CycleCloud to configure and launch rendering pipeline cluster.
@@ -322,19 +303,18 @@ This HPC media rendering solution architecture shows Azure CycleCloud monitoring
 1. As each job finishes rendering, resulting artifacts are written back to storage through the Avere vFXT.
 1. As job queue empties, Azure CycleCloud auto-stops render farm VMs to reduce cost.
 
-
 ## Components
-* [N-Series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/): N-series virtual machines are ideal for compute and graphics-intensive workloads, helping customers to fuel innovation through scenarios like high-end remote visualization, deep learning, and predictive analytics.
-* [H-Series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/): The H-series is a new family specifically designed to handle high performance computing workloads such as financial risk modeling, seismic and reservoir simulation, molecular modeling, and genomic research.
-* Effectively manage common workloads with ease while creating and optimizing HPC clusters with Microsoft [Azure CycleCloud](https://azure.microsoft.com/features/azure-cyclecloud/).
-* [Avere vFXT](https://azure.microsoft.com/services/storage/avere-vfxt/): Faster, more accessible data storage for high-performance computing at the edge
-* [Azure Batch](https://azure.microsoft.com/services/batch/): Cloud-scale job scheduling and compute management
+
+* [N-Series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux): N-series virtual machines are ideal for compute and graphics-intensive workloads, helping customers to fuel innovation through scenarios like high-end remote visualization, deep learning, and predictive analytics.
+* [H-Series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux): The H-series is a new family specifically designed to handle high performance computing workloads such as financial risk modeling, seismic and reservoir simulation, molecular modeling, and genomic research.
+* Effectively manage common workloads with ease while creating and optimizing HPC clusters with Microsoft [Azure CycleCloud](https://azure.microsoft.com/features/azure-cyclecloud).
+* [Avere vFXT](https://azure.microsoft.com/services/storage/avere-vfxt): Faster, more accessible data storage for high-performance computing at the edge
+* [Azure Batch](https://azure.microsoft.com/services/batch): Cloud-scale job scheduling and compute management
 
 ## Next Steps
-* [N-Series Virtual Machines Documentation](/azure/virtual-machines/linux/sizes-gpu)
-* [H-Series Virtual Machines Documentation](/azure/virtual-machines/linux/sizes-hpc)
-* [Azure CycleCloud Documentation](/azure/cyclecloud)
-* [Avere vFXT Documentation](/azure/avere-vfxt)
-* [Azure Batch Documentation](/azure/batch)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+* [N-Series Virtual Machines Documentation](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)
+* [H-Series Virtual Machines Documentation](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc)
+* [Azure CycleCloud Documentation](https://docs.microsoft.com/azure/cyclecloud)
+* [Avere vFXT Documentation](https://docs.microsoft.com/azure/avere-vfxt)
+* [Azure Batch Documentation](https://docs.microsoft.com/azure/batch)

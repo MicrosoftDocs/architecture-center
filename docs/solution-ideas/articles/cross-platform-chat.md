@@ -5,7 +5,10 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Accelerate development of reliable, high-performing chat applications
 ms.custom: acom-architecture, chat, signalr service, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/cross-platform-chat/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Cross-platform Chat
 
 [!INCLUDE [header_file](../header.md)]
@@ -13,6 +16,9 @@ ms.custom: acom-architecture, chat, signalr service, interactive-diagram, 'https
 Accelerate development of reliable, high-performing chat applications.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="cross-platform-chat" height="410.755" viewbox="0 0 431.809 410.755"  xmlns="http://www.w3.org/2000/svg">
     <path d="M193.849 381.091a2.007 2.007 0 002.007 2.007h45.986a2.007 2.007 0 002.007-2.007v-31.329h-50z" fill="#59b4d9"/>
@@ -97,21 +103,8 @@ Accelerate development of reliable, high-performing chat applications.
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Web chat app connects to SignalR Service and receives token</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>User logs into app with multi-factor authentication; if passed, SignalR endpoint and bearer token returned</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>User connects to the SignalR Service with endpoint and token</p>
-</div>
-
 ## Data Flow
 
 1. Web chat app connects to SignalR Service and receives token
 1. User logs into app with multi-factor authentication; if passed, SignalR endpoint and bearer token returned
 1. User connects to the SignalR Service with endpoint and token
-
-
-[!INCLUDE [js_include_file](../../_js/index.md)]

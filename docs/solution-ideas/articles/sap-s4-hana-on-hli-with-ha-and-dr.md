@@ -5,7 +5,10 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Learn more about SAP HANA on Azure for large instances that includes high reliability and disaster recovery. Find out how NFS storage is used for large instances of SAP HANA.
 ms.custom: acom-architecture, sap, Azure hana large instances, sap hana large instances, sap hana on azure large instances, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/sap-s4-hana-on-hli-with-ha-and-dr/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # SAP S/4 HANA for Large Instances
 
 [!INCLUDE [header_file](../header.md)]
@@ -13,6 +16,9 @@ ms.custom: acom-architecture, sap, Azure hana large instances, sap hana large in
 This solution architecture illustrates how a user request flows through an SAP landscape built on high-performance Azure Virtual Machines and an in-memory HANA database running on HANA large instances for unparalleled scalability and performance. This system takes advantage of OS clustering for database performance, high availability using HANA system replication, and a full disaster recovery (DR) configuration for guaranteed system availability.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="sap-s4-hana-on-hli-with-ha-and-dr" height="747" viewbox="0 0 1163 747"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
@@ -221,34 +227,6 @@ This solution architecture illustrates how a user request flows through an SAP l
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>In this example, an on-premises SAP user executes a sales order via Fiori interface, custom interface, or other.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Azure high speed express route gateway is used to connect to Azure Virtual Machines.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Request flows into highly available ABAP SAP Central Services (ASCS) and then through application servers running on Azure Virtual Machines in an availability set offering a 99.95 percent uptime SLA.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Request is sent from App Server to SAP HANA running on primary large instance blades.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Primary and secondary blades are clustered at OS level for 99.99 percent availability, and data replication is handled through HANA System Replication in synchronous mode (HSR) from primary to secondary enabling zero RPO.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>In-memory data of SAP HANA is persisted to high-performance NFS storage.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Data from NFS storage is periodically backed up in seconds, using built-in storage snapshots on the local storage, with no impact to database performance.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Persistent data volume on secondary storage is replicated to dedicated DR system through a dedicated backbone network for HANA storage replication.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>Large instance on DR side can be used for nonproduction to save costs by mounting both the QA storage and DR replicated volume (read-only).</p>
-</div>
-
 ## Data Flow
 
 1. In this example, an on-premises SAP user executes a sales order via Fiori interface, custom interface, or other.
@@ -261,21 +239,20 @@ This solution architecture illustrates how a user request flows through an SAP l
 1. Persistent data volume on secondary storage is replicated to dedicated DR system through a dedicated backbone network for HANA storage replication.
 1. Large instance on DR side can be used for nonproduction to save costs by mounting both the QA storage and DR replicated volume (read-only).
 
-
 ## Components
-* [SAP HANA on Azure large instances](https://azure.microsoft.com/services/virtual-machines/sap-hana/): SAP HANA on Azure (large instances) run on dedicated blade servers located in a Microsoft Azure Datacenter. This is specific to the database server.
-* [NFS storage for Azure HANA large instances](https://azure.microsoft.com/services/storage/files/): The Azure high performance NFS storage system offers the unmatched capability to perform snapshot backups, and replication to secondary storage.  In addition, HANA Large Instance is the only cloud infrastructure to provide storage volume encryption.
-* SAP on Azure requires that you run your SAP workloads on certified Microsoft Azure [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/). SAP requires at least two vCPUs and a ratio of 6:1 between memory and vCPU.
-* Microsoft Azure [Premium Storage](https://azure.microsoft.com/services/storage/disks/) provides improved throughput and less variability in I/O latencies. For improved performance, [Premium Storage](https://azure.microsoft.com/services/storage/disks/) uses solid state disk (SSD) in Azure Storage nodes and read cache that's backed by the local SSD of an Azure compute node.
-* [ExpressRoute (front end)](https://azure.microsoft.com/services/expressroute/): Azure ExpressRoute used on the front end (see diagram) provides secure, high-bandwidth  connectivity to establish reliable connections between your network and the Microsoft Azure network.
-* [ExpressRoute (back end)](https://azure.microsoft.com/services/expressroute/): Azure ExpressRoute used on the back end (see diagram) enables you to communicate between your Azure components in the Azure Datacenter and your SAP HANA on Azure (large instance) systems. The cost of the back end ExpressRoute is included in your SAP HANA on Azure (large instance).
+
+* [SAP HANA on Azure large instances](https://azure.microsoft.com/services/virtual-machines/sap-hana): SAP HANA on Azure (large instances) run on dedicated blade servers located in a Microsoft Azure Datacenter. This is specific to the database server.
+* [NFS storage for Azure HANA large instances](https://azure.microsoft.com/services/storage/files): The Azure high performance NFS storage system offers the unmatched capability to perform snapshot backups, and replication to secondary storage.  In addition, HANA Large Instance is the only cloud infrastructure to provide storage volume encryption.
+* SAP on Azure requires that you run your SAP workloads on certified Microsoft Azure [Virtual Machines](https://azure.microsoft.com/services/virtual-machines). SAP requires at least two vCPUs and a ratio of 6:1 between memory and vCPU.
+* Microsoft Azure [Premium Storage](https://azure.microsoft.com/services/storage/disks) provides improved throughput and less variability in I/O latencies. For improved performance, [Premium Storage](https://azure.microsoft.com/services/storage/disks) uses solid state disk (SSD) in Azure Storage nodes and read cache that's backed by the local SSD of an Azure compute node.
+* [ExpressRoute (front end)](https://azure.microsoft.com/services/expressroute): Azure ExpressRoute used on the front end (see diagram) provides secure, high-bandwidth  connectivity to establish reliable connections between your network and the Microsoft Azure network.
+* [ExpressRoute (back end)](https://azure.microsoft.com/services/expressroute): Azure ExpressRoute used on the back end (see diagram) enables you to communicate between your Azure components in the Azure Datacenter and your SAP HANA on Azure (large instance) systems. The cost of the back end ExpressRoute is included in your SAP HANA on Azure (large instance).
 
 ## Next Steps
-* [Getting started](/azure/virtual-machines/workloads/sap/get-started)
-* [High performance NFS storage for SAP HANA large instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture#storage)
-* [SAP Certifications for Azure](/azure/virtual-machines/workloads/sap/sap-certifications)
-* [Premium Storage: high-performance storage for Azure Virtual Machine workloads](/azure/storage/storage-premium-storage)
-* [ExpressRoute overview](https://azure.microsoft.com/services/expressroute/)
-* [Back end Network to HANA large instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture#networking)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+* [Getting started](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)
+* [High performance NFS storage for SAP HANA large instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+* [SAP Certifications for Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
+* [Premium Storage: high-performance storage for Azure Virtual Machine workloads](https://docs.microsoft.com/azure/storage/storage-premium-storage)
+* [ExpressRoute overview](https://azure.microsoft.com/services/expressroute)
+* [Back end Network to HANA large instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)

@@ -5,6 +5,8 @@ keywords: serverless, biztalk, sequential convoy, fifo, functions, messaging
 author: brandonh-msft
 ms.date: 12/14/2019
 ms.author: hurlburb
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ---
 
 # Sequential Convoy pattern

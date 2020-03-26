@@ -5,7 +5,10 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Lift and shift to containers with AKS
 ms.custom: acom-architecture, app-dev, devops, chat, signalr service, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/migrate-existing-applications-with-aks/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Lift and shift to containers with AKS
 
 [!INCLUDE [header_file](../header.md)]
@@ -13,6 +16,9 @@ ms.custom: acom-architecture, app-dev, devops, chat, signalr service, interactiv
 Easily migrate existing application to container(s) and run within the Azure managed Kubernetes service (AKS). Control access via integration with Azure Active Directory and access SLA-backed Azure Services such as Azure Database for MySQL using OSBA (Open Service Broker for Azure) for your data needs.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="migrate-existing-applications-with-aks" height="450" viewbox="0 0 825 450"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
@@ -122,22 +128,6 @@ Easily migrate existing application to container(s) and run within the Azure man
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>User converts existing application to container(s) &amp; publishes container image(s)to the Azure Container Registry</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Using Azure Portal or command line, user deploys containers to AKS cluster</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Azure Active Directory is used to control access to AKS resources</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Easily access SLA-backed Azure Services such as Azure Database for MySQL using OSBA (Open Service Broker for Azure)</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Optionally, AKS can be deployed with a VNET virtual network</p>
-</div>
-
 ## Data Flow
 
 1. User converts existing application to container(s) &amp; publishes container image(s)to the Azure Container Registry
@@ -145,6 +135,3 @@ Easily migrate existing application to container(s) and run within the Azure man
 1. Azure Active Directory is used to control access to AKS resources
 1. Easily access SLA-backed Azure Services such as Azure Database for MySQL using OSBA (Open Service Broker for Azure)
 1. Optionally, AKS can be deployed with a VNET virtual network
-
-
-[!INCLUDE [js_include_file](../../_js/index.md)]

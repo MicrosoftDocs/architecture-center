@@ -5,7 +5,10 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: The solution demonstrates a business process for customer onboarding. This serverless architecture enables you to build and run applications without having to worry about the underlying infrastructure and the associated management and maintenance. By using it, you can dramatically improve developer productivity.
 ms.custom: acom-architecture, line of business app, lob app, lift and shift cloud strategy, cloud migration, cloud innovation, lift and shift solution, lift and shift strategy, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/onboarding-customers-with-a-cloud-native-serverless-architecture/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Serverless Computing Solution for LOB Apps
 
 [!INCLUDE [header_file](../header.md)]
@@ -14,17 +17,20 @@ This serverless architecture enables you to build and run applications without h
 
 The links to the right give you detailed technical guidance on navigating a particular area of the architecture.
 
-[Decide which compute option to use for your apps](/azure/architecture/guide/technology-choices/compute-overview/)
+[Decide which compute option to use for your apps](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-overview)
 
-[Learn to build Serverless apps](/azure/azure-functions/)
+[Learn to build Serverless apps](https://docs.microsoft.com/azure/azure-functions)
 
 The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
 
-[Learn how you can use machine learning](/azure/machine-learning/preview/)
+[Learn how you can use machine learning](https://docs.microsoft.com/azure/machine-learning/preview)
 
-[Infuse intelligence into your apps with Cognitive Services](/azure/#pivot=products&panel=cognitive)
+[Infuse intelligence into your apps with Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="onboarding-customers-with-a-cloud-native-serverless-architecture" height="405" viewbox="0 0 942 405"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd">
@@ -114,38 +120,17 @@ The links to the right provide documentation on deploying and managing the Azure
         </text>
     </a>
 </svg>
-
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Information about the new customer is posted to a web endpoint.</p>
-</div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>The customer’s photo is posted to Cognitive Services Face API. Face API associates
+<p>The customer's photo is posted to Cognitive Services Face API. Face API associates
 
-the customer’s photo and name.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>The customer information is recorded in Dynamics 365 or other CRM.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>The information about a new customer is sent to Power BI.</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>The customer information is added to the mailing list (MailChimp).</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>The solution creates a record of the member in SQL Database.</p>
+the customer's photo and name.</p>
 </div>
 
 ## Data Flow
 
 1. Information about the new customer is posted to a web endpoint.
-1. The customer’s photo is posted to Cognitive Services Face API. Face API associates
-
-the customer’s photo and name.
+1. The customer's photo is posted to Cognitive Services Face API. Face API associates the customer's photo and name.
 1. The customer information is recorded in Dynamics 365 or other CRM.
 1. The information about a new customer is sent to Power BI.
 1. The customer information is added to the mailing list (MailChimp).
 1. The solution creates a record of the member in SQL Database.
-
-
-[!INCLUDE [js_include_file](../../_js/index.md)]

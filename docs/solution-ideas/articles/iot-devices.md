@@ -5,7 +5,10 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Create seamless conversational interfaces with all of your internet-accessible devices—from your connected television or fridge to devices in a connected power plant. LUIS is able to integrate up to 500 intents to translate commands into smart actions.
 ms.custom: acom-architecture, bot service, luis, interactive-diagram, iot, 'https://azure.microsoft.com/solutions/architecture/iot-devices/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # IoT devices
 
 [!INCLUDE [header_file](../header.md)]
@@ -13,6 +16,9 @@ ms.custom: acom-architecture, bot service, luis, interactive-diagram, iot, 'http
 Create seamless conversational interfaces with all of your internet-accessible devices—from your connected television or fridge to devices in a connected power plant. LUIS is able to integrate up to 500 intents to translate commands into smart actions.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="iot-devices" height="473.058" viewbox="0 0 800.333 473.058"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g data-name="Layer 2">
@@ -149,22 +155,6 @@ Create seamless conversational interfaces with all of your internet-accessible d
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>User logs into Skype and accesses the IoT bot</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Using voice, the user asks the bot to turn on the lights via the IoT device</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>The request is relayed to a third-party service that has access to the IoT device network</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>The results of the command are returned to the user</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Application Insights gathers runtime telemetry to help development with bot performance and usage</p>
-</div>
-
 ## Data Flow
 
 1. User logs into Skype and accesses the IoT bot
@@ -172,6 +162,3 @@ Create seamless conversational interfaces with all of your internet-accessible d
 1. The request is relayed to a third-party service that has access to the IoT device network
 1. The results of the command are returned to the user
 1. Application Insights gathers runtime telemetry to help development with bot performance and usage
-
-
-[!INCLUDE [js_include_file](../../_js/index.md)]

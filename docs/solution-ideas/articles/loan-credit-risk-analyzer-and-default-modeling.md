@@ -5,7 +5,10 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Using SQL Server 2016 with R Services, lenders can predict a borrower's credit risk and default probability to help issue fewer unprofitable loans.
 ms.custom: acom-architecture, finance, analytics, sql-server, credit risk analyzer, credit risk modeling, probability of default, 'https://azure.microsoft.com/solutions/architecture/loan-credit-risk-analyzer-and-default-modeling/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Loan Credit Risk + Default Modeling
 
 [!INCLUDE [header_file](../header.md)]
@@ -17,6 +20,9 @@ This solution acts as a credit-risk analyzer, helping you score credit risk and 
 Data-driven credit-risk modeling reduces the number of loans offered to borrowers who are likely to default, increasing the profitability of your loan portfolio.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="loan-credit-risk-analyzer-and-default-modeling" height="117.719" viewbox="0 0 915.875 117.719"  xmlns="http://www.w3.org/2000/svg">
     <text fill="#505050" font-family="SegoeUI, Segoe UI" font-size="15" style="isolation:isolate" transform="matrix(1.036 0 0 1 838.422 112.892)">
@@ -57,13 +63,13 @@ Data-driven credit-risk modeling reduces the number of loans offered to borrower
 </svg>
 
 ## Components
+
 * [SQL Server R Services](https://www.microsoft.com/sql-server/sql-server-r-services): SQL Server stores the lender and borrower data. R-based analytics provide training and predicted models, as well as predicted results for consumption.
-* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
-* [Power BI](https://powerbi.microsoft.com/) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
+* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
+* [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
 
 ## Next Steps
-* [Get started with SQL Server R Services](/sql/advanced-analytics/r/getting-started-with-sql-server-r-services)
-* [Learn more about Machine Learning](/azure/machine-learning/machine-learning-what-is-machine-learning)
-* [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+* [Get started with SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/getting-started-with-sql-server-r-services)
+* [Learn more about Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning)
+* [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started)

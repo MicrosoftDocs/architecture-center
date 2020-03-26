@@ -5,7 +5,10 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Scale your databases elastically to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences.
 ms.custom: acom-architecture, mysql, use cases, azure, solutions, gaming, scalability, 'https://azure.microsoft.com/solutions/architecture/gaming-using-azure-database-for-mysql/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Gaming using Azure Database for MySQL
 
 [!INCLUDE [header_file](../header.md)]
@@ -13,6 +16,9 @@ ms.custom: acom-architecture, mysql, use cases, azure, solutions, gaming, scalab
 Scale your databases elastically to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="gaming-using-azure-database-for-mysql" height="248.39" viewbox="0 0 775.025 248.39"  xmlns="http://www.w3.org/2000/svg">
     <text fill="#5b5b5b" font-family="SegoeUI, Segoe UI" font-size="14" transform="translate(0 223.302)">
@@ -82,5 +88,3 @@ Scale your databases elastically to accommodate unpredictable bursts of traffic 
     <path fill="#fcd116" d="M703.603 31.4h12.6V39h-12.6zM718.603 31.4h12.6V39h-12.6zM733.603 31.4h12.6V39h-12.6z"/>
     <path d="M701.7 0a2.043 2.043 0 00-1.9 1.9v38.8a2.043 2.043 0 001.9 1.9h2.1L743.4 0z" fill="#fff" opacity=".2" style="isolation:isolate"/>
 </svg>
-
-[!INCLUDE [js_include_file](../../_js/index.md)]

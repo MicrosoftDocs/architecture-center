@@ -1,18 +1,17 @@
 ---
-title: Connect an on-premises network to Azure using VPN
-titleSuffix: Azure Reference Architectures
-description: Implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using a VPN.
+title: Extend an on-premises network using VPN
+description: A secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using a VPN.
 author: MikeWasson
-ms.date: 10/03/2019
+ms.date: 01/24/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.custom: networking
 ---
 
-# Connect an on-premises network to Azure using a VPN gateway
+# On-premises network connected to Azure using a VPN gateway
 
-This reference architecture shows how to extend a network on premises or on Azure Stack to Azure, using a site-to-site virtual private network (VPN). Traffic flows between the on-premises network and an Azure Virtual Network (VNet) through an IPSec VPN tunnel or through the Azure Stack multitenant VPN gateway. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows how to extend a network from on premises or from Azure Stack into an Azure virtual network, using a site-to-site virtual private network (VPN). Traffic flows between the on-premises network and Azure through an IPSec VPN tunnel or through the Azure Stack multitenant VPN gateway. [**Deploy this solution**](#deploy-the-solution).
 
 <img src="./images/vpn.png" alt="Hybrid network spanning on-premises and Azure infrastructures" aria-describedby="description-1">
 <p id="description-1" class="visually-hidden">A diagram of the VPN gateway architecture. An on-premises network connects to an Azure virtual network through a VPN gateway. A virtual network in Azure Stack also connects to the VPN gateway through public VIPs.</p>
@@ -27,16 +26,16 @@ The architecture consists of the following components.
 
 - **Azure Stack**. A network environment on an Azure Stack tenant subscription, running within an organization. The Azure Stack [VPN][az-vpn] gateway sends encrypted traffic across a public connection to virtual IP (VIP) addresses and includes the following components:
     - Gateway subnet. A special subnet required to deploy the VPN Gateway on Azure Stack.
-    - Local network gateway. Indicates the target IP of the VPN gateway in Azure, as well as the address space of the Azure VNet.
+    - Local network gateway. Indicates the target IP of the VPN gateway in Azure, as well as the address space of the Azure virtual network.
     - Site-to-site VPN tunnel. The connection type (IPSec) and the key shared with the Azure VPN Gateway to encrypt traffic.
 
 - **VPN appliance**. A device or service that provides external connectivity to the on-premises network. The VPN appliance may be a hardware device, or it can be a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For a list of supported VPN appliances and information on configuring them to connect to an Azure VPN gateway, see the instructions for the selected device in the article [About VPN devices for Site-to-Site VPN Gateway connections][vpn-appliance].
 
-- **Virtual network (VNet)**. The cloud application and the components for the Azure VPN gateway reside in the same [VNet][azure-virtual-network].
+- **Virtual network**. The cloud application and the components for the Azure VPN gateway reside in the same [virtual network][azure-virtual-network].
 
-- **Azure VPN gateway**. The [VPN gateway][azure-vpn-gateway] service enables you to connect the VNet to the on-premises network through a VPN appliance or to connect to Azure Stack through a site-to-site VPN tunnel. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet]. The VPN gateway includes the following elements:
+- **Azure VPN gateway**. The [VPN gateway][azure-vpn-gateway] service enables you to connect the virtual network to the on-premises network through a VPN appliance or to connect to Azure Stack through a site-to-site VPN tunnel. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet]. The VPN gateway includes the following elements:
 
-  - **Virtual network gateway**. A resource that provides a virtual VPN appliance for the VNet. It is responsible for routing traffic from the on-premises network to the VNet.
+  - **Virtual network gateway**. A resource that provides a virtual VPN appliance for the virtual network. It is responsible for routing traffic from the on-premises network to the virtual network.
   - **Local network gateway**. An abstraction of the on-premises VPN appliance. Network traffic from the cloud application to the on-premises network is routed through this gateway.
   - **Connection**. The connection has properties that specify the connection type (IPSec) and the key shared with the on-premises VPN appliance to encrypt traffic.
   - **Gateway subnet**. The virtual network gateway is held in its own subnet, which is subject to various requirements, described in the Recommendations section below.
@@ -45,20 +44,22 @@ The architecture consists of the following components.
 
 - **Internal load balancer**. Network traffic from the VPN gateway is routed to the cloud application through an internal load balancer. The load balancer is located in the front-end subnet of the application.
 
+- **Bastion**. [Azure Bastion](/azure/bastion/) allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. If you lose connectivity through the VPN, you can still use Bastion to manage the VMs in the virtual network.
+
 ## Recommendations
 
 The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
 
-### VNet and gateway subnet
+### Virtual network and gateway subnet
 
-Create an Azure VNet with an address space large enough for all of your required resources. Ensure that the VNet address space has sufficient room for growth if additional VMs are likely to be needed in the future. The address space of the VNet must not overlap with the on-premises network. For example, the diagram above uses the address space 10.20.0.0/16 for the VNet.
+Create an Azure virtual network with an address space large enough for all of your required resources. Ensure that the virtual network address space has sufficient room for growth if additional VMs are likely to be needed in the future. The address space of the virtual network must not overlap with the on-premises network. For example, the diagram above uses the address space 10.20.0.0/16 for the virtual network.
 
-Create a subnet named *GatewaySubnet*, with an address range of /27. This subnet is required by the virtual network gateway. Allocating 32 addresses to this subnet will help to prevent reaching gateway size limitations in the future. Also, avoid placing this subnet in the middle of the address space. A good practice is to set the address space for the gateway subnet at the upper end of the VNet address space. The example shown in the diagram uses 10.20.255.224/27.  Here is a quick procedure to calculate the [CIDR]:
+Create a subnet named *GatewaySubnet*, with an address range of /27. This subnet is required by the virtual network gateway. Allocating 32 addresses to this subnet will help to prevent reaching gateway size limitations in the future. Also, avoid placing this subnet in the middle of the address space. A good practice is to set the address space for the gateway subnet at the upper end of the virtual network address space. The example shown in the diagram uses 10.20.255.224/27.  Here is a quick procedure to calculate the [CIDR]:
 
-1. Set the variable bits in the address space of the VNet to 1, up to the bits being used by the gateway subnet, then set the remaining bits to 0.
+1. Set the variable bits in the address space of the virtual network to 1, up to the bits being used by the gateway subnet, then set the remaining bits to 0.
 2. Convert the resulting bits to decimal and express it as an address space with the prefix length set to the size of the gateway subnet.
 
-For example, for a VNet with an IP address range of 10.20.0.0/16, applying step #1 above becomes 10.20.0b11111111.0b11100000.  Converting that to decimal and expressing it as an address space yields 10.20.255.224/27.
+For example, for a virtual network with an IP address range of 10.20.0.0/16, applying step #1 above becomes 10.20.0b11111111.0b11100000.  Converting that to decimal and expressing it as an address space yields 10.20.255.224/27.
 
 > [!WARNING]
 > Do not deploy any VMs to the gateway subnet. Also, do not assign an NSG to this subnet, as it will cause the gateway to stop functioning.
@@ -72,7 +73,13 @@ Create the virtual network gateway in the gateway subnet and assign it the newly
 
 - Create a [policy-based gateway][policy-based-routing] if you need to closely control how requests are routed based on policy criteria such as address prefixes. Policy-based gateways use static routing, and only work with site-to-site connections.
 
-- Create a [route-based gateway][route-based-routing] if you connect to the on-premises network using RRAS, support multi-site or cross-region connections, or implement VNet-to-VNet connections (including routes that traverse multiple VNets). Route-based gateways use dynamic routing to direct traffic between networks. They can tolerate failures in the network path better than static routes because they can try alternative routes. Route-based gateways can also reduce the management overhead because routes might not need to be updated manually when network addresses change.
+- Create a [route-based gateway][route-based-routing] 
+
+    - You connect to the on-premises network using RRAS,
+    - You support multi-site or cross-region connections, or
+    - You have connections between virtual networks, including routes that traverse multiple virtual networks.
+
+    Route-based gateways use dynamic routing to direct traffic between networks. They can tolerate failures in the network path better than static routes because they can try alternative routes. Route-based gateways can also reduce the management overhead because routes might not need to be updated manually when network addresses change.
 
 For a list of supported VPN appliances, see [About VPN devices for Site-to-Site VPN Gateway connections][vpn-appliances].
 
@@ -86,8 +93,6 @@ Select the Azure VPN gateway SKU that most closely matches your throughput requi
 > The Basic SKU is not compatible with Azure ExpressRoute. You can [change the SKU][changing-SKUs] after the gateway has been created.
 >
 
-You are charged based on the amount of time that the gateway is provisioned and available. See [VPN Gateway Pricing][azure-gateway-charges].
-
 Create routing rules for the gateway subnet that direct incoming application traffic from the gateway to the internal load balancer, rather than allowing requests to pass directly to the application VMs.
 
 ### On-premises network connection
@@ -96,14 +101,14 @@ Create a local network gateway. Specify the public IP address of the on-premises
 
 Create a site-to-site connection for the virtual network gateway and the local network gateway. Select the site-to-site (IPSec) connection type, and specify the shared key. Site-to-site encryption with the Azure VPN gateway is based on the IPSec protocol, using preshared keys for authentication. You specify the key when you create the Azure VPN gateway. You must configure the VPN appliance running on-premises with the same key. Other authentication mechanisms are not currently supported.
 
-Ensure that the on-premises routing infrastructure is configured to forward requests intended for addresses in the Azure VNet to the VPN device.
+Ensure that the on-premises routing infrastructure is configured to forward requests intended for addresses in the Azure virtual network to the VPN device.
 
 Open any ports required by the cloud application in the on-premises network.
 
 Test the connection to verify that:
 
 - The on-premises VPN appliance correctly routes traffic to the cloud application through the Azure VPN gateway.
-- The VNet correctly routes traffic back to the on-premises network.
+- The virtual network correctly routes traffic back to the on-premises network.
 - Prohibited traffic in both directions is blocked correctly.
 
 ### Azure Stack network connection
@@ -116,7 +121,7 @@ In this architecture, network traffic flows through a VPN tunnel using the multi
 
 Both the Azure VPN Gateway and the Azure Stack VPN gateway support Border Gateway Protocol (BGP) for exchanging routing information between Azure and Azure Stack. Azure Stack does not support static routing for the multitenant gateway.
 
-Create an Azure Stack VNet with an assigned IP address space large enough for all your required resources. The address space of the VNet must not overlap with any other network that is going to be connected to this VNet.
+Create an Azure Stack virtual network with an assigned IP address space large enough for all your required resources. The address space of the virtual network must not overlap with any other network that is going to be connected to this virtual network.
 
 A public IP address is assigned to the multitenant gateway during the deployment of Azure Stack. It is taken from the public VIP pool. The Azure Stack operator has no control over what IP address is used but can determine its assignment.
 
@@ -127,17 +132,17 @@ A public IP address is assigned to the multitenant gateway during the deployment
 
 You can achieve limited vertical scalability by moving from the Basic or Standard VPN Gateway SKUs to the High Performance VPN SKU.
 
-For VNets that expect a large volume of VPN traffic, consider distributing the different workloads into separate smaller VNets and configuring a VPN gateway for each of them.
+For virtual networks that expect a large volume of VPN traffic, consider distributing the different workloads into separate smaller virtual networks and configuring a VPN gateway for each of them.
 
-You can partition the VNet either horizontally or vertically. To partition horizontally, move some VM instances from each tier into subnets of the new VNet. The result is that each VNet has the same structure and functionality. To partition vertically, redesign each tier to divide the functionality into different logical areas (such as handling orders, invoicing, customer account management, and so on). Each functional area can then be placed in its own VNet.
+You can partition the virtual network either horizontally or vertically. To partition horizontally, move some VM instances from each tier into subnets of the new virtual network. The result is that each virtual network has the same structure and functionality. To partition vertically, redesign each tier to divide the functionality into different logical areas (such as handling orders, invoicing, customer account management, and so on). Each functional area can then be placed in its own virtual network.
 
-Replicating an on-premises Active Directory domain controller in the VNet, and implementing DNS in the VNet, can help to reduce some of the security-related and administrative traffic flowing from on-premises to the cloud. For more information, see [Extending Active Directory Domain Services (AD DS) to Azure][adds-extend-domain].
+Replicating an on-premises Active Directory domain controller in the virtual network, and implementing DNS in the virtual network, can help to reduce some of the security-related and administrative traffic flowing from on-premises to the cloud. For more information, see [Extending Active Directory Domain Services (AD DS) to Azure][adds-extend-domain].
 
 ## Availability considerations
 
 If you need to ensure that the on-premises network remains available to the Azure VPN gateway, implement a failover cluster for the on-premises VPN gateway.
 
-If your organization has multiple on-premises sites, create [multi-site connections][vpn-gateway-multi-site] to one or more Azure VNets. This approach requires dynamic (route-based) routing, so make sure that the on-premises VPN gateway supports this feature.
+If your organization has multiple on-premises sites, create [multi-site connections][vpn-gateway-multi-site] to one or more Azure virtual networks. This approach requires dynamic (route-based) routing, so make sure that the on-premises VPN gateway supports this feature.
 
 For details about service level agreements, see [SLA for VPN Gateway][sla-for-vpn-gateway].
 
@@ -158,6 +163,8 @@ Monitor connectivity, and track connectivity failure events. You can use a monit
 
 To troubleshoot the connection, see [Troubleshoot a hybrid VPN connection](./troubleshoot-vpn.md).
 
+If gateway connectivity from your on-premises network to Azure is down, you can still reach the VMs in the Azure virtual network through Azure Bastion.
+
 ## Security considerations
 
 Generate a different shared key for each VPN gateway. Use a strong shared key to help resist brute-force attacks.
@@ -172,32 +179,77 @@ Ensure that the on-premises VPN appliance uses an encryption method that is [com
 
 If your on-premises VPN appliance is on a perimeter network (DMZ) that has a firewall between the perimeter network and the Internet, you might have to configure additional firewall rules to allow the site-to-site VPN connection.
 
-If the application in the VNet sends data to the Internet, consider [implementing forced tunneling][forced-tunneling] to route all Internet-bound traffic through the on-premises network. This approach enables you to audit outgoing requests made by the application from the on-premises infrastructure.
+If the application in the virtual network sends data to the Internet, consider [implementing forced tunneling][forced-tunneling] to route all Internet-bound traffic through the on-premises network. This approach enables you to audit outgoing requests made by the application from the on-premises infrastructure.
 
 > [!NOTE]
 > Forced tunneling can impact connectivity to Azure services (the Storage Service, for example) and the Windows license manager.
 >
 
+## Cost considerations
+
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. For general considerations, see the Cost section in [Azure Architecture Framework][AAF-cost].
+
+The services used in this architecture are charged as follows:
+
+### Azure VPN Gateway
+
+The main component of this architecture is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available. 
+
+All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.  
+
+For more information, see [VPN Gateway Pricing][azure-gateway-charges].
+
+### Azure Virtual Network
+
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
+
+All traffic that occurs within the boundaries of a virtual network is free. So, communication between two virtual machines in the same virtual network is free.
+
+
+### Azure Bastion
+
+Azure Bastion securely connects to your virtual machine in the virtual network over RDP and SSH without having the need to configure a public IP on the virtual machine. You will need Bastion in every virtual network that contains virtual machines that you want to connect to. This solution is more economical and secure than using jumpboxes. 
+
+For examples, see [Azure Bastion Pricing][Bastion-pricing].
+
+### Virtual machine and internal load balancers
+
+In this architecture, internal load balancers are used to load balance traffic inside a virtual network. Basic load balancing between virtual machines that reside in the same virtual network is free.
+
+Virtual machine scale sets are available on all Linux and windows VM sizes. You are only charged for the Azure VMs you deploy and underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the virtual machine scale sets service.
+
+For more information, see [Azure VM pricing][linux-vms-pricing].
+
 ## Deploy the solution
 
 To deploy this reference architecture, see the [GitHub readme][readme]. 
 
+## Next steps
+
+Although VPNs can be used to connect virtual networks within Azure, it's not always the best choice. For more information, see [Choose between virtual network peering and VPN gateways in Azure](./vnet-peering.md).
+
+
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [adds-extend-domain]: ../identity/adds-extend-domain.md
 [az-vpn]: /azure/azure-stack/azure-stack-connect-vpn
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway/
 [azure-gateway-skus]: /azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku
 [azure-virtual-network]: /azure/virtual-network/virtual-networks-overview
 [azure-vpn-gateway]: https://azure.microsoft.com/services/vpn-gateway/
+[Bastion-pricing]: https://azure.microsoft.com/pricing/details/azure-bastion/
 [changing-SKUs]: https://azure.microsoft.com/blog/azure-virtual-network-gateway-improvements/
 [CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [connect-to-an-Azure-vnet]: /office365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [forced-tunneling]: /azure/vpn-gateway/vpn-gateway-about-forced-tunneling
 [gateway-diagnostic-logs]: https://blogs.technet.microsoft.com/keithmayer/2016/10/12/step-by-step-capturing-azure-resource-manager-arm-vnet-gateway-diagnostic-logs/
 [linux-vm-ra]: ../virtual-machines-linux/index.md
+[linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
 [nagios]: https://www.nagios.org/
 [policy-based-routing]: https://en.wikipedia.org/wiki/Policy-based_routing
+[pricing]: https://azure.microsoft.com/pricing/calculator
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/hybrid-networking/vpn/README.md
 [route-based-routing]: https://en.wikipedia.org/wiki/Static_routing
 [rras-logging]: https://www.petri.com/enable-diagnostic-logging-in-windows-server-2012-r2-routing-and-remote-access

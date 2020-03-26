@@ -5,14 +5,20 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
 ms.custom: acom-architecture, mysql, web-app, scalability, use cases, azure, solutions, 'https://azure.microsoft.com/solutions/architecture/scalable-web-and-mobile-applications-using-azure-database-for-mysql/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Scalable web and mobile applications using Azure Database for MySQL
 
 [!INCLUDE [header_file](../header.md)]
 
-Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac. 
+Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="scalable-web-and-mobile-applications-using-azure-database-for-mysql" height="278.39" viewbox="0 0 612 251"  xmlns="http://www.w3.org/2000/svg">
     <text fill="#5b5b5b" font-family="SegoeUI, Segoe UI" font-size="14" style="isolation:isolate" transform="translate(15.977 85.064)">
@@ -107,5 +113,3 @@ Rapidly build engaging, performant and scalable cross-platform and native apps f
     <path d="M400.768 36.393a3.938 3.938 0 00-3.929-3.947h-.09l-.359-.421a10.476 10.476 0 00-20.155-5.661 8.321 8.321 0 00-2.347-.427 7.254 7.254 0 000 14.507h23.253a4.056 4.056 0 003.627-4.053" fill="#59b4d9"/>
     <path d="M378.1 40.446a6.8 6.8 0 013.3-11.4 5.525 5.525 0 012.2-.1 9.919 9.919 0 015.5-8 9.427 9.427 0 00-3-.5 9.787 9.787 0 00-9.3 6.8 7.8 7.8 0 00-2.2-.4 6.8 6.8 0 000 13.6h3.5z" fill="#fff" opacity=".2" style="isolation:isolate"/>
 </svg>
-
-[!INCLUDE [js_include_file](../../_js/index.md)]

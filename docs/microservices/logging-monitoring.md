@@ -1,5 +1,5 @@
 ---
-title: Monitoring a microservices architecture in Azure Kubernetes Service (AKS)
+title: Monitoring a microservices application in AKS
 description: Use metrics and logs in AKS to monitor a microservices architecture
 author: MikeWasson
 ms.date: 06/14/2019

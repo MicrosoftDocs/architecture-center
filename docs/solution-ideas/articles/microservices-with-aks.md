@@ -5,7 +5,10 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Microservices with AKS
 ms.custom: acom-architecture, microservices, devops, kubernetes, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/microservices-with-aks/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Microservices with AKS
 
 [!INCLUDE [header_file](../header.md)]
@@ -13,6 +16,9 @@ ms.custom: acom-architecture, microservices, devops, kubernetes, interactive-dia
 Use AKS to simplify the deployment and management of microservices based architecture. AKS streamlines horizontal scaling, self-healing, load balancing, secret management.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="microservices-with-aks" height="674" viewbox="0 0 887 674"  xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(0 -1)" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
@@ -275,31 +281,6 @@ Use AKS to simplify the deployment and management of microservices based archite
     </g>
 </svg>
 
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Developer uses IDE such as Visual Studio to commit changes to GitHub</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>GitHub triggers a new build on Azure DevOps</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Azure DevOps packages microservices as containers and pushes them to the Azure Container Registry</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Containers are deployed to AKS cluster</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Users access services via apps and website</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Azure Active Directory is used to secure access to the resources</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-7">
-<p>Microservices use databases to store and retrieve information</p>
-</div>
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>Administrator accesses via a separate admin portal</p>
-</div>
-
 ## Data Flow
 
 1. Developer uses IDE such as Visual Studio to commit changes to GitHub
@@ -310,6 +291,3 @@ Use AKS to simplify the deployment and management of microservices based archite
 1. Azure Active Directory is used to secure access to the resources
 1. Microservices use databases to store and retrieve information
 1. Administrator accesses via a separate admin portal
-
-
-[!INCLUDE [js_include_file](../../_js/index.md)]

@@ -5,7 +5,10 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft’s global datacenters.
 ms.custom: acom-architecture, app-dev, Cosmos DB, 'https://azure.microsoft.com/solutions/architecture/globally-distributed-mission-critical-applications-using-cosmos-db/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Globally distributed applications using Cosmos DB
 
 [!INCLUDE [header_file](../header.md)]
@@ -13,6 +16,9 @@ ms.custom: acom-architecture, app-dev, Cosmos DB, 'https://azure.microsoft.com/s
 Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft’s global datacenters.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="globally-distributed-mission-critical-applications-using-cosmos-db" fill="none" height="489" viewbox="0 0 819 489"  xmlns="http://www.w3.org/2000/svg">
     <path d="M804.5 15.5h-150v457.8h150V15.5z" fill="#F3F3F3"/>
@@ -52,5 +58,3 @@ Guarantee access to users around the world with the high-availability and low-la
     <path d="M641.3 85.8l-2.4 6.6-4.5-5.4 6.9-1.2zm1.5-1.3l-10.3 1.8 6.7 8 3.6-9.8zM635.7 400.8l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-3.9-3l-.8-.6.6-.8.8.6-.6.8zm-4-3.1l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-3.9-3.1l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-4-3.1l-.8-.6.6-.8.8.6-.6.8zm-3.9-3l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-4-3.1l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-3.9-3.1l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-3.9-3.1l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-4-3.1l-.8-.6.6-.8.8.6-.6.8zm-3.9-3l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-4-3.1l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-3.9-3l-.8-.6.6-.8.8.6-.6.8zm-4-3.1l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-3.9-3.1l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-4-3.1l-.8-.6.6-.8.8.6-.6.8zm-3.9-3l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-4-3.1l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-3.9-3l-.8-.6.6-.8.8.6-.6.8zm-4-3.1l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-3.9-3.1l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-4-3.1l-.8-.6.6-.8.8.6-.6.8zm-3.9-3l-.8-.6.6-.8.8.6-.6.8zm-4-3l-.8-.6.6-.8.8.6-.6.8zm-4-3.1l-.8-.6.6-.8.8.6-.6.8z" fill="#9F9F9F"/>
     <path d="M638.9 398.3l2.4 6.6-6.9-1.2 4.5-5.4zm.3-2l-6.7 8 10.3 1.8-3.6-9.8z" fill="#959595"/>
 </svg>
-
-[!INCLUDE [js_include_file](../../_js/index.md)]

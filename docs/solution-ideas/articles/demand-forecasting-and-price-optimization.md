@@ -5,7 +5,10 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Pricing is recognized as a pivotal determinant of success in many industries and can be one of the most challenging tasks. Companies often struggle with several aspects of the pricing process, including accurately forecasting the financial impact of potential tactics, taking reasonable consideration of core business constraints, and fairly validating the executed pricing decisions. Expanding product offerings add further computational requirements to make real-time pricing decisions, compounding the difficulty of this already overwhelming task.
 ms.custom: acom-architecture, anomaly-detection, artificial intelligence, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/demand-forecasting-and-price-optimization/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Demand Forecasting and Price Optimization
 
 [!INCLUDE [header_file](../header.md)]
@@ -17,6 +20,9 @@ This solution addresses the challenges raised above by utilizing historical tran
 The process described above is operationalized and deployed in the Cortana Intelligence Suite. This solution will enable companies to ingest historical transaction data, predict future demand, and obtain optimal pricing recommendations on a regular basis. As a result, the solution drives opportunities for improved profitability and reductions in time and effort allocated to pricing tasks.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="demand-forecasting-and-price-optimization" height="394.688" viewbox="0 0 402.691 394.688"  xmlns="http://www.w3.org/2000/svg">
     <path d="M12.729 56.644l-2.769 9.8H8.613L6.6 59.282a4.494 4.494 0 01-.157-1h-.031a5.06 5.06 0 01-.178.984L4.2 66.446H2.871L0 56.644h1.265l2.085 7.52a4.959 4.959 0 01.164.984h.034a5.785 5.785 0 01.212-.984l2.167-7.52h1.1l2.078 7.574a5.562 5.562 0 01.164.916H9.3a5.448 5.448 0 01.185-.943l2-7.547zM19.325 63.226h-4.942a2.618 2.618 0 00.629 1.8 2.169 2.169 0 001.654.637 3.439 3.439 0 002.174-.779v1.053a4.065 4.065 0 01-2.44.67 2.959 2.959 0 01-2.331-.954 3.9 3.9 0 01-.848-2.683 3.828 3.828 0 01.926-2.663 2.967 2.967 0 012.3-1.028 2.631 2.631 0 012.126.889 3.7 3.7 0 01.752 2.467zm-1.148-.949a2.283 2.283 0 00-.468-1.512 1.6 1.6 0 00-1.282-.539 1.811 1.811 0 00-1.347.566 2.577 2.577 0 00-.684 1.484zM22.169 65.435h-.027v1.012h-1.121V56.083h1.121v4.594h.027a2.651 2.651 0 012.42-1.395 2.564 2.564 0 012.109.939 3.885 3.885 0 01.762 2.52 4.337 4.337 0 01-.854 2.812 2.846 2.846 0 01-2.338 1.057 2.3 2.3 0 01-2.099-1.175zm-.027-2.824v.979a2.081 2.081 0 00.564 1.473 2.011 2.011 0 003.028-.174 3.579 3.579 0 00.578-2.168 2.824 2.824 0 00-.54-1.832 1.788 1.788 0 00-1.463-.662 1.987 1.987 0 00-1.572.68 2.5 2.5 0 00-.595 1.703zM40.824 66.446h-1.271L38.514 63.7h-4.157l-.978 2.748H32.1l3.76-9.8h1.189zm-2.687-3.781L36.6 58.489a4 4 0 01-.15-.656h-.027a3.69 3.69 0 01-.157.656l-1.526 4.176zM43.265 65.435h-.027v4.23h-1.122V59.446h1.121v1.23h.027a2.651 2.651 0 012.42-1.395 2.562 2.562 0 012.112.939 3.9 3.9 0 01.759 2.52 4.337 4.337 0 01-.854 2.812 2.846 2.846 0 01-2.338 1.057 2.343 2.343 0 01-2.098-1.174zm-.027-2.824v.979a2.081 2.081 0 00.564 1.473 2.011 2.011 0 003.028-.174 3.579 3.579 0 00.578-2.168 2.824 2.824 0 00-.54-1.832 1.788 1.788 0 00-1.463-.662 1.987 1.987 0 00-1.572.68 2.5 2.5 0 00-.596 1.703zM51.5 65.435h-.027v4.23h-1.126V59.446h1.121v1.23h.032a2.651 2.651 0 012.42-1.395 2.562 2.562 0 012.112.939 3.9 3.9 0 01.759 2.52 4.337 4.337 0 01-.854 2.812 2.846 2.846 0 01-2.338 1.057 2.343 2.343 0 01-2.099-1.174zm-.027-2.824v.979a2.081 2.081 0 00.564 1.473 2.011 2.011 0 003.028-.174 3.579 3.579 0 00.578-2.168 2.824 2.824 0 00-.54-1.832 1.788 1.788 0 00-1.463-.662 1.987 1.987 0 00-1.572.68 2.5 2.5 0 00-.6 1.703z" fill="#5b5b5b"/>
@@ -68,5 +74,3 @@ For post deployment instructions and more details on the technical implementatio
   3. Spark on HDInsight is used to ingest and preprocess the raw data, build and retrain the demand forecasting models, and execute price optimization algorithms.
   4. Azure Data Factory orchestrates and schedules the entire data flow.
   5. Finally, Power BI is used for results visualization, so that users can monitor the results of the sales, predicted future demand as well as recommended optimal prices for a variety of products sold in different stores.
-
-[!INCLUDE [js_include_file](../../_js/index.md)]

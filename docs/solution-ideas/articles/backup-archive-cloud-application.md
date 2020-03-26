@@ -5,16 +5,22 @@ author: adamboeglin
 ms.date: 12/16/2019
 description: Back up data and applications running in Azure to another Azure location by using Azure Backup or a partner solution.
 ms.custom: acom-architecture, bcdr, 'https://azure.microsoft.com/solutions/architecture/backup-archive-cloud-application/'
+ms.service: architecture-center
+ms.subservice: solution-idea
 ---
+
 # Back up cloud applications and data to cloud
 
 [!INCLUDE [header_file](../header.md)]
 
 Back up data and applications running in Azure to another Azure location by using Azure Backup or a partner solution.
 
-This solution is built on the Azure managed services: [Azure Backup](https://azure.microsoft.com/services/backup/) and [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [Azure Backup](https://azure.microsoft.com/services/backup) and [Blob Storage](https://azure.microsoft.com/services/storage/blobs). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="backup-archive-cloud-application" height="354" viewbox="0 0 1006 354"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
@@ -100,11 +106,11 @@ This solution is built on the Azure managed services: [Azure Backup](https://azu
 </svg>
 
 ## Components
-* [Azure Backup](https://azure.microsoft.com/services/backup/) service runs on the cloud and holds the recovery points, enforces policies, and enables you to manage data and application protection. You don’t need to create or manage an Azure Blob storage account when using [Azure Backup](https://azure.microsoft.com/services/backup/).
-* [Blob Storage](https://azure.microsoft.com/services/storage/blobs/): Blob storage that partner solutions such as Commvault connect to for backing up data and applications. You need to create and manage Azure Blob storage when using partner solutions.
+
+* [Azure Backup](https://azure.microsoft.com/services/backup) service runs on the cloud and holds the recovery points, enforces policies, and enables you to manage data and application protection. You don’t need to create or manage an Azure Blob storage account when using [Azure Backup](https://azure.microsoft.com/services/backup).
+* [Blob Storage](https://azure.microsoft.com/services/storage/blobs): Blob storage that partner solutions such as Commvault connect to for backing up data and applications. You need to create and manage Azure Blob storage when using partner solutions.
 
 ## Next Steps
-* [Back up files and folders using Azure Backup](/api/Redirect/documentation/articles/backup-try-azure-backup-in-10-mins/)
-* [Store backed up files in Blob storage](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs/)
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+* [Back up files and folders using Azure Backup](/api/Redirect/documentation/articles/backup-try-azure-backup-in-10-mins)
+* [Store backed up files in Blob storage](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs)
