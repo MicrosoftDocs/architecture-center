@@ -316,6 +316,31 @@ SparkMetric_CL
 
 For more information, see [Monitoring Azure Databricks](../../databricks-monitoring/index.md).
 
+## DevOps considerations
+
+- Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
+
+- Use [Azure Resource Manager template][arm-template] to deploy the Azure resources following the infrastructure as Code (IaC) Process. With templates, automating deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions is easier.
+
+- Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier. 
+
+  In this architecture, Azure Event Hubs, Log Analytics, and Cosmos DB are identified as a single workload. These resources are included in a single ARM template.
+
+- Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues.
+
+  In this architecture there are multiple deployment stages. Consider creating an Azure DevOps Pipeline and adding those stages. Here are some examples of stages that you can automate: 
+
+  - Start a Databricks Cluster
+  - Configure Databricks CLI
+  - Install Scala Tools
+  - Add the Databricks secrets
+
+  Also, consider writing automated integration tests to improve the quality and the reliability of the databricks code and its life cycle. 
+
+- Consider using [Azure Monitor][azure-monitor] to analyze the performance of your stream processing pipeline. For more information, see [Monitoring Azure Databricks][databricks-monitoring].
+
+For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+
 ## Cost considerations
 
 Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
@@ -375,8 +400,15 @@ For more information, see the cost section in [Azure Architecture Framework][AAF
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github].
 
+
 <!-- links -->
 
+
+[AAF-devops]: /azure/architecture/framework/devops/overview
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
+[databricks-monitoring]: https://docs.microsoft.com/azure/architecture/databricks-monitoring/
 [AAF-cost]: /azure/architecture/framework/cost/overview
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
