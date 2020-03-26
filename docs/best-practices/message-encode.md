@@ -66,7 +66,7 @@ A message payload arrives as a sequence of bytes. To parse this sequence, the co
 
 -	Store the schema as a preamble or header in the message but separate from the payload. 
 
--	Store the schema in externally. 
+-	Store the schema externally. 
 
 Some encoding formats define the schema and use tools that generate classes from the schema. The producer and consumer use those classes and libraries to serialize and deserialize the payload. The libraries also provide compatibility checks between the writer and reader schema. Both protobuf and Apache Avro follow that approach. The key difference is that protobuf has a language-agnostic schema definition but Avro uses compact JSON. Another difference is in the way both formats provide compatibility checks between reader and writer schemas.  
 
