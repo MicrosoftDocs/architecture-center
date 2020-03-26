@@ -221,7 +221,7 @@ After deployment completes, you can test connectivity from the simulated on-prem
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [availability-set]: /azure/virtual-machines/virtual-machines-windows-create-availability-set
 [azure-expressroute]: /azure/expressroute/expressroute-introduction
-[azure-monitor]: https://azure.microsoft.com/en-us/services/monitor/
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [az-pipelines]: https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops
 
