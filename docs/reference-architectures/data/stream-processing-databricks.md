@@ -337,7 +337,7 @@ For more information, see [Monitoring Azure Databricks](../../databricks-monitor
 
   Also, consider writing automated integration tests to improve the quality and the reliability of the databricks code and its life cycle. 
 
-- Consider using [Azure Monitor][azure-monitor] to analyze the performance of your stream processing pipeline. For more information, see [Monitoring Azure Databricks][databricks=monitoring].
+- Consider using [Azure Monitor][azure-monitor] to analyze the performance of your stream processing pipeline. For more information, see [Monitoring Azure Databricks][databricks-monitoring].
 
 For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
 
@@ -408,7 +408,7 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azure-monitor]: https://azure.microsoft.com/services/monitor/
-[databricks=monitoring]: https://docs.microsoft.com/azure/architecture/databricks-monitoring/
+[databricks-monitoring]: https://docs.microsoft.com/azure/architecture/databricks-monitoring/
 [AAF-cost]: /azure/architecture/framework/cost/overview
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/

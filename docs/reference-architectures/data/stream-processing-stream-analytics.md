@@ -244,7 +244,7 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 
 - Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues.
 
-- Consider using [Azure Monitor][azure-monitor] to analyze the performance of your stream processing pipeline. For more information, see [Monitoring Azure Databricks][databricks-monitoring].
+- Consider using [Azure Monitor][azure-monitor] to analyze the performance of your stream processing pipeline. For more information, see [Monitoring Azure Databricks][databricks=monitoring].
 
 
 For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
@@ -263,5 +263,5 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [azure-monitor]: https://azure.microsoft.com/services/monitor/
 [github]: https://github.com/mspnp/azure-stream-analytics-data-pipeline
 [monitoring-stream-analytics]: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts
-Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
-
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[databricks-monitoring]: https://docs.microsoft.com/azure/architecture/databricks-monitoring/
