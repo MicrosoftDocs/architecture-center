@@ -17,7 +17,7 @@ This article presents a DevOps approach to setting up a continuous integration a
 
 DevOps is a common development strategy for building custom applications, including bots. DevOps uses modern CI/CD processes to manage software builds, deployments, testing, and monitoring. Azure DevOps tools can help you accelerate your software delivery and focus on your code, rather than the supporting infrastructure and operations.
 
-This example also demonstrates *infrastructure as code*, which uses Azure Resource Manager (ARM) templates or open-source alternatives to define and deploy underlying infrastructure for your app. You can then co-locate the infrastructure and software code in the same source control repository, and deploy both through your pipelines.
+This example also demonstrates *infrastructure as code*, which uses Azure Resource Manager (ARM) templates or open-source alternatives to define and deploy underlying infrastructure for your app. You can co-locate the infrastructure and software code in the same source control repository, and deploy both through your pipelines.
 
 ## Architecture
 
