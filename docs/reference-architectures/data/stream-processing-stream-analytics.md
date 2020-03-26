@@ -232,6 +232,23 @@ For cost considerations about Azure Event Hubs and Cosmos DB, see Cost considera
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github].
 
+## DevOps considerations
+
+- Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
+
+- Use [Azure Resource Manager template][arm-template] to deploy the Azure resources following the infrastructure as Code (IaC) Process. With templates, automating deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions is easier.
+
+- Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier. 
+
+  In this architecture, Azure Event Hubs, Log Analytics, and Cosmos DB are identified as a single workload. These resources are included in a single ARM template.
+
+- Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues.
+
+- Consider using [Azure Monitor][azure-monitor] to analyze the performance of your stream processing pipeline. For more information, see [Monitoring Azure Databricks][databricks-monitoring].
+
+
+For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+
 ## Related resources
 
 You may wish to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
@@ -240,6 +257,11 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 - [Real-time fraud detection](/azure/architecture/example-scenario/data/fraud-detection)
 
 <!-- links -->
-
+[AAF-devops]: /azure/architecture/framework/devops/overview
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
 [github]: https://github.com/mspnp/azure-stream-analytics-data-pipeline
+[monitoring-stream-analytics]: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[databricks-monitoring]: https://docs.microsoft.com/azure/architecture/databricks-monitoring/
