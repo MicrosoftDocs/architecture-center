@@ -90,6 +90,7 @@ AD DS servers provide authentication services and are an attractive target for a
 
 Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD DS database.
 
+
 ## DevOps considerations
 
 Use Infrastructure as Code (IaC) practice, to provision and configure the network and security infrastructure. In this reference achitecture an [Azure Building Blocks (AZBB)][azbb] template is used, but you can use [Azure Resource Manager templates][arm-template] or any other declarative approach. 
@@ -104,6 +105,28 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 
 
 For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+
+## Cost considerations
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost]. 
+
+Here are cost considerations for the services used in this architecture.
+
+### AD Domain Services
+
+Consider having Active Directory Domain Services as a shared service that is consumed by multiple workloads to lower costs. For more information, see [Active Directory Domain Services pricing][ADDS-pricing].
+
+### Azure VPN Gateway
+
+The main component of this architecture is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available. 
+
+All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.  
+
+For more information, see [VPN Gateway Pricing][azure-gateway-charges].
+
+### Azure Virtual Network
+
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
+
 
 ## Deploy the solution
 
@@ -182,6 +205,7 @@ After deployment completes, you can test connectivity from the simulated on-prem
 
 <!-- links -->
 
+[AAF-cost]: /azure/architecture/framework/cost/overview
 [adds-resource-forest]: adds-forest.md
 [adfs]: adfs.md
 [azure-cli-2]: /azure/install-azure-cli
@@ -192,15 +216,23 @@ After deployment completes, you can test connectivity from the simulated on-prem
 [adds-data-disks]: https://msdn.microsoft.com/library/mt674703.aspx
 [ad-ds-operations-masters]: https://technet.microsoft.com/library/cc779716(v=ws.10).aspx
 [ad-ds-ports]: https://technet.microsoft.com/library/dd772723(v=ws.11).aspx
+
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [availability-set]: /azure/virtual-machines/virtual-machines-windows-create-availability-set
 [azure-expressroute]: /azure/expressroute/expressroute-introduction
 [azure-monitor]: https://azure.microsoft.com/en-us/services/monitor/
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [az-pipelines]: https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops
+
+[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
+[availability-set]: /azure/virtual-machines/virtual-machines-windows-create-availability-set
+[azure-expressroute]: /azure/expressroute/expressroute-introduction
+[azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway/
+
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [capacity-planning-for-adds]: https://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
 [considerations]: ./considerations.md
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [GitHub]: https://github.com/mspnp/identity-reference-architectures/tree/master/adds-extend-domain
 [microsoft_systems_center]: https://www.microsoft.com/download/details.aspx?id=50013
 [monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx

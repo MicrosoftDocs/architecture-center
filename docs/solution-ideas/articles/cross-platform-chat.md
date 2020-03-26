@@ -8,6 +8,7 @@ ms.custom: acom-architecture, chat, signalr service, interactive-diagram, 'https
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Cross-platform Chat
 
 [!INCLUDE [header_file](../header.md)]
@@ -15,6 +16,9 @@ ms.subservice: solution-idea
 Accelerate development of reliable, high-performing chat applications.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="cross-platform-chat" height="410.755" viewbox="0 0 431.809 410.755"  xmlns="http://www.w3.org/2000/svg">
     <path d="M193.849 381.091a2.007 2.007 0 002.007 2.007h45.986a2.007 2.007 0 002.007-2.007v-31.329h-50z" fill="#59b4d9"/>
@@ -104,6 +108,3 @@ Accelerate development of reliable, high-performing chat applications.
 1. Web chat app connects to SignalR Service and receives token
 1. User logs into app with multi-factor authentication; if passed, SignalR endpoint and bearer token returned
 1. User connects to the SignalR Service with endpoint and token
-
-
-

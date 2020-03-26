@@ -8,6 +8,7 @@ ms.custom: acom-architecture, bot service, luis, interactive-diagram, ai-ml, 'ht
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Information Chatbot
 
 [!INCLUDE [header_file](../header.md)]
@@ -15,6 +16,9 @@ ms.subservice: solution-idea
 This Informational Bot can answer questions defined in a knowledge set or FAQ using Cognitive Services QnA Maker and answer more open-ended questions using Azure Cognitive Search.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="information-chatbot" height="494.675" viewbox="0 0 974.039 494.675"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g data-name="Layer 2">
@@ -204,12 +208,9 @@ This Informational Bot can answer questions defined in a knowledge set or FAQ us
 ## Data Flow
 
 1. Employee starts the Application Bot
-1. Azure Active Directory validates the employee’s identity
+1. Azure Active Directory validates the employee's identity
 1. The employee can ask the bot what type of queries are supported
 1. Cognitive Services returns a FAQ built with the QnA Maker
 1. The employee defines a valid query
 1. The Bot submits the query to Azure Cognitive Search which returns information about the application data
 1. Application insights gathers runtime telemetry to help development with Bot performance and usage
-
-
-

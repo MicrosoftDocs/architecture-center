@@ -100,7 +100,7 @@ Create an ExpressRoute circuit as follows:
 
     3. Reserve another pool of valid public IP addresses to use for network address translation (NAT) for Microsoft peering. It is recommended to have a different pool for each peering. Specify the pool to your connectivity provider, so they can configure border gateway protocol (BGP) advertisements for those ranges.
 
-5. Run the following PowerShell commands to link your private VNet(s) to the ExpressRoute circuit. For more information,see [Link a virtual network to an ExpressRoute circuit][link-vnet-to-expressroute].
+5. Run the following PowerShell commands to link your private VNet(s) to the ExpressRoute circuit. For more information, see [Link a virtual network to an ExpressRoute circuit][link-vnet-to-expressroute].
 
     ```powershell
     $circuit = Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
@@ -234,6 +234,40 @@ If you must expose management endpoints for VMs to an external network, use NSGs
 > Azure VMs deployed through the Azure portal can include a public IP address that provides login access. However, it is a best practice not to permit this.
 >
 
+## Cost considerations
+
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. For general considerations, see the Cost section in [Azure Architecture Framework][AAF-cost].
+
+The services used in this architecture are charged as follows:
+
+### Azure ExpressRoute
+
+In this architecture, an ExpressRoute circuit is used to join the on-premises network with Azure through the edge routers. 
+
+There are two main plans. In the **Metered Data** plan, all inbound data transfer is free. All outbound data transfer is charged based on a pre-determined rate. 
+
+You can also opt for the **Unlimited Data** plan in which all inbound and outbound data transfer is free. Users are charged a fixed monthly port fee based on high availability dual ports.
+
+Calculate your utilization and choose a billing plan accordingly. The **Unlimited Data** plan  is recommended if you exceed about 68% of utilization.
+
+For more information, see [Azure ExpressRoute pricing][expressroute-pricing]. 
+
+### Azure Virtual Network
+
+All application tiers are hosted in a single virtual network and are segmented using subnets. 
+
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
+All traffic that occurs within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
+
+### Virtual machine and internal load balancers
+
+In this architecture, internal load balancers are used to load balance traffic inside a virtual network. Basic load balancing between virtual machines that reside in the same virtual network is free.
+
+Virtual machine scale sets are available on all Linux and windows VM sizes. You are only charged for the Azure VMs you deploy and underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the virtual machine scale sets service.
+
+For more information, see [Azure VM pricing][linux-vms-pricing].
+
+
 ## Deploy the solution
 
 **Prerequisites**. You must have an existing on-premises infrastructure already configured with a suitable network appliance.
@@ -271,12 +305,15 @@ To deploy the solution, perform the following steps.
 <!-- links -->
 
 [highly-available-network-architecture]: ./expressroute-vpn-failover.md
-
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [expressroute-technical-overview]: /azure/expressroute/expressroute-introduction
 [expressroute-prereqs]: /azure/expressroute/expressroute-prerequisites
 [configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
 [sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute
 [link-vnet-to-expressroute]: /azure/expressroute/expressroute-howto-linkvnet-arm
+[linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
+[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [ExpressRoute-provisioning]: /azure/expressroute/expressroute-workflows
 [expressroute-introduction]: /azure/expressroute/expressroute-introduction
 [expressroute-peering]: /azure/expressroute/expressroute-circuit-peerings

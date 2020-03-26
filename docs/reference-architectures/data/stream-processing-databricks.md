@@ -316,8 +316,103 @@ SparkMetric_CL
 
 For more information, see [Monitoring Azure Databricks](../../databricks-monitoring/index.md).
 
+## DevOps considerations
+
+- Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
+
+- Use [Azure Resource Manager template][arm-template] to deploy the Azure resources following the infrastructure as Code (IaC) Process. With templates, automating deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions is easier.
+
+- Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier. 
+
+  In this architecture, Azure Event Hubs, Log Analytics, and Cosmos DB are identified as a single workload. These resources are included in a single ARM template.
+
+- Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues.
+
+  In this architecture there are multiple deployment stages. Consider creating an Azure DevOps Pipeline and adding those stages. Here are some examples of stages that you can automate: 
+
+  - Start a Databricks Cluster
+  - Configure Databricks CLI
+  - Install Scala Tools
+  - Add the Databricks secrets
+
+  Also, consider writing automated integration tests to improve the quality and the reliability of the databricks code and its life cycle. 
+
+- Consider using [Azure Monitor][azure-monitor] to analyze the performance of your stream processing pipeline. For more information, see [Monitoring Azure Databricks][databricks-monitoring].
+
+For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+
+## Cost considerations
+
+Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
+
+### Event Hubs
+
+This reference architecture deploys Event Hubs in the **Standard** tier. The pricing model is based on throughput units, ingress events, and capture events. An ingress event is a unit of data 64 KB or less. Larger messages are billed in multiples of 64 KB. You specify throughput units either through the Azure portal or Event Hub management APIs.
+
+If you need more retention days, consider the **Dedicated** tier. This tier offers single-tenant deployments with most demanding requirements. This offering builds a cluster based on capacity units (CU) that is not bound by throughput units.
+
+The **Standard** tier is also billed based on ingress events and throughput units. 
+
+For information about Event Hubs pricing, see the [Event Hubs pricing][event-hubs-pricing].
+
+
+### Azure Databricks
+
+Azure Databricks offers two tiers **Standard** and  **Premium** each supports three workloads. This reference architecture deploys Azure Databricks workspace in the **Premium** tier.
+
+**Data Engineering** and **Data Engineering Light** workloads are for data engineers to build and execute jobs. The **Data Analytics** workload is intended for data scientists to explore, visualize, manipulate, and share data and insights interactively.
+
+Azure Databricks offers many pricing models. 
+
+- Pay-as-you-go plan
+
+  You are billed for virtual machines (VMs) provisioned in clusters and Databricks Units (DBUs) based on the VM instance selected. A DBU is a unit of processing capability, billed on a per-second usage. The DBU consumption depends on the size and type of instance running Azure Databricks. Pricing will depend on the selected workload and tier.
+
+- Pre-purchase plan
+
+  You commit to Azure Databricks Units (DBU) as Databricks Commit Units (DBCU) for either one or three years. When compared to the pay-as-you-go model, you can save up to 37%.
+
+For more information, see [Azure Databricks Pricing][azure-databricks-pricing].
+
+### Azure Cosmos DB
+
+In this architecture, a series of records are written to Cosmos DB by the Azure Databricks job. You are charged for the capacity that you reserve, expressed in Request Units per second (RU/s), used to perform insert operations. The unit for billing is 100 RU/sec per hour. For example, the cost of writing 100-KB items is 50 RU/s.
+
+For write operations, provision enough capacity to support the number of writes needed per second. You can increase the provisioned throughput by using the portal or Azure CLI before performing write operations and then reduce the throughput after those operations are complete. Your throughput for the write period is the minimum throughput needed for the given data plus the throughput required for the insert operation assuming no other workload is running.
+
+#### Example cost analysis
+
+Suppose you configure a throughput value of 1,000 RU/sec on a container. It's deployed for 24 hours for 30 days, a total of 720 hours.
+
+The container is billed at 10 units of 100 RU/sec per hour for each hour. 10 units at $0.008 (per 100 RU/sec per hour) are charged $0.08 per hour.
+
+For 720 hours or 7,200 units (of 100 RUs), you are billed $57.60 for the month.
+
+Storage is also billed, for each GB used for your stored data and index. For more information, see [Cosmos DB pricing model][cosmosdb-pricing].
+
+
+Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
+
+For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+
+
 ## Deploy the solution
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github].
 
+
+<!-- links -->
+
+
+[AAF-devops]: /azure/architecture/framework/devops/overview
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
+[databricks-monitoring]: https://docs.microsoft.com/azure/architecture/databricks-monitoring/
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
+[cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[event-hubs-pricing]: https://azure.microsoft.com/pricing/details/event-hubs/
 [github]: https://github.com/mspnp/azure-databricks-streaming-analytics
+[azure-databricks-pricing]: https://azure.microsoft.com/pricing/details/databricks/

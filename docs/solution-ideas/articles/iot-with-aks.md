@@ -8,6 +8,7 @@ ms.custom: acom-architecture, iot, kubernetes, interactive-diagram, 'https://azu
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # IoT device deployment and management on demand
 
 [!INCLUDE [header_file](../header.md)]
@@ -15,6 +16,9 @@ ms.subservice: solution-idea
 IoT scenarios can potentially involve hundreds to thousands of IoT devices. AKS provides scalable compute resources on demand for IoT solutions, running in the cloud or on-premises.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="iot-with-aks" height="382" viewbox="0 0 676 382"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
@@ -129,6 +133,3 @@ IoT scenarios can potentially involve hundreds to thousands of IoT devices. AKS 
 1. User initiates AKS deployment using a Helm Chart
 1. IoT Edge Connector virtual node deploys to Edge devices via the IoT Hub.
 1. Deployment is updated on Edge devices
-
-
-

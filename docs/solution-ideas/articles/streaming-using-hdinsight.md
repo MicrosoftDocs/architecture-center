@@ -8,6 +8,7 @@ ms.custom: acom-architecture, data, HDInsight, Data Lake Storage, 'https://azure
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Streaming using HDInsight
 
 [!INCLUDE [header_file](../header.md)]
@@ -15,6 +16,9 @@ ms.subservice: solution-idea
 Ingest and process millions of streaming events per second with Apache Kafka, Apache Storm, and Apache Spark Streaming.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="streaming-using-hdinsight" fill="none" height="228" viewbox="0 0 626 228"  xmlns="http://www.w3.org/2000/svg">
     <path d="M513.359 2.733H143.282v138.209h370.077V2.733z" fill="#F7F7F7"/>
@@ -59,5 +63,3 @@ Ingest and process millions of streaming events per second with Apache Kafka, Ap
     <path d="M97.156 33.409a2.03 2.03 0 100-4.06 2.03 2.03 0 000 4.06zM97.156 40.176a2.03 2.03 0 100-4.06 2.03 2.03 0 000 4.06z" fill="#137AD4"/>
     <path d="M90.22 46.604a2.03 2.03 0 100-4.06 2.03 2.03 0 000 4.06zM79.675 43.56a2.03 2.03 0 100-4.06 2.03 2.03 0 000 4.06z" fill="#58E6FD"/>
 </svg>
-
-

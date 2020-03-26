@@ -8,6 +8,7 @@ ms.custom: acom-architecture, bot service, luis, interactive-diagram, iot, 'http
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # IoT devices
 
 [!INCLUDE [header_file](../header.md)]
@@ -15,6 +16,9 @@ ms.subservice: solution-idea
 Create seamless conversational interfaces with all of your internet-accessible devices—from your connected television or fridge to devices in a connected power plant. LUIS is able to integrate up to 500 intents to translate commands into smart actions.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="iot-devices" height="473.058" viewbox="0 0 800.333 473.058"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g data-name="Layer 2">
@@ -158,6 +162,3 @@ Create seamless conversational interfaces with all of your internet-accessible d
 1. The request is relayed to a third-party service that has access to the IoT device network
 1. The results of the command are returned to the user
 1. Application Insights gathers runtime telemetry to help development with bot performance and usage
-
-
-

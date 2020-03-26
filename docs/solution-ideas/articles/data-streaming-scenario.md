@@ -8,6 +8,7 @@ ms.custom: acom-architecture, data streaming scenario, interactive-diagram, data
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Data Streaming scenario
 
 [!INCLUDE [header_file](../header.md)]
@@ -15,6 +16,9 @@ ms.subservice: solution-idea
 Use AKS to easily ingest & process a real-time data stream with millions of data points collected via sensors. Perform fast analysis and computations to develop insights into complex scenarios quickly.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="data-streaming-scenario" height="418" viewbox="0 0 823 418"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
@@ -184,6 +188,3 @@ Use AKS to easily ingest & process a real-time data stream with millions of data
 1. Data scientists can analyze the large big data for use in machine learning models using Splunk.
 1. Data is processed by the processing service which stores the result in Azure Database for PostgreSQL and caches the data in an Azure Cache for Redis.
 1. A web app running in Azure App Service is used to visualize the results.
-
-
-

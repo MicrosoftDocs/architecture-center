@@ -8,6 +8,7 @@ ms.custom: acom-architecture, devops, kubernetes, interactive-diagram, 'https://
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
+
 # Bursting from AKS with ACI
 
 [!INCLUDE [header_file](../header.md)]
@@ -15,6 +16,9 @@ ms.subservice: solution-idea
 Use the AKS virtual node to provision pods inside ACI that start in seconds. This enables AKS to run with just enough capacity for your average workload. As you run out of capacity in your AKS cluster, scale out additional pods in ACI without any additional servers to manage.
 
 ## Architecture
+
+<!-- markdownlint-disable MD033 -->
+<!-- cSpell:ignore viewbox segoe semibold dasharray linecap miterlimit tspan evenodd -->
 
 <svg class="architecture-diagram" aria-labelledby="scale-using-aks-with-aci" height="469" viewbox="0 0 1022 469"  xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd">
@@ -260,6 +264,3 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
 1. Container images are pulled from the Azure Container Registry
 1. AKS virtual node, a Virtual Kubelet implementation, provisions pods inside ACI from AKS when traffic comes in spikes.
 1. AKS and ACI containers write to shared data store
-
-
-

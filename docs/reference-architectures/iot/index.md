@@ -94,7 +94,7 @@ It is strongly recommended that device design incorporates features that defend 
 
 For example:
 
-- Choose microcontrollers/microprocessors or auxiliary hardware that provide secure storage and use of cryptographic key material, such as trusted platform module (TPM) integration.
+- Choose microcontrollers/microprocessors or auxiliary hardware that provides secure storage and use of cryptographic key material, such as trusted platform module (TPM) integration.
 - Secure boot loader and secure software loading, anchored in the TPM.
 - Use sensors to detect intrusion attempts and attempts to manipulate the device environment with alerting and potentially "digital self-destruction" of the device.
 
@@ -137,6 +137,54 @@ Logging systems are integral in understanding what actions or activities a solut
 
 Though plain-text logging is lower impact on upfront development costs, it is more challenging for a machine to parse/read. We recommend structured logging be used, as collected information is both machine parsable and human readable. Structured logging adds situational context and metadata to the log information. In structured logging, properties are first class citizens formatted as key/value pairs, or with a fixed schema, to enhance search and query capabilities.
 
+## Cost considerations
+In general, use the [Azure pricing calculator][cost-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
+
+There are ways to optimize costs associated the services used in this reference architecture. 
+
+### Azure IoT Hub
+
+In this architecture, IoT Hub is the cloud gateway that ingests events from devices. IoT Hub billing varies depending on the type of operation. Create, update, insert, delete are free. Successful operations such as device-to-cloud and cloud-to-device messages are charged. 
+
+Device-to-cloud messages sent successfully are charged in 4-KB chunks on ingress into IoT Hub. For example, a 6-KB message is charged as two messages.
+
+IoT Hub maintains state information about each connected device in a device twin JSON document. Read operations from a device twin document are charged. 
+
+IoT Hub offers two tiers: **Basic** and **Standard**. 
+
+Consider using the **Standard** tier if your IoT architecture uses bi-directional communication capabilities. This tier also offers a free edition that is most suited for testing purposes.
+
+If you only need uni-directional communication from devices to the cloud, use the **Basic** tier, which is cheaper.
+
+For more information, see [IoT Hub Pricing](/azure/iot-hub/iot-hub-devguide-pricing). 
+
+### Azure Stream Analytics
+
+Azure Stream Analytics is used for stream processing and rules evaluation. Azure Stream Analytics is priced by the number of Streaming Units (SU) per hour, which takes into compute, memory, and throughput required to process the data. Azure Stream Analytics on IoT Edge is billed per job. Billing starts when a Stream Analytics job is deployed to devices regardless of the job status, running, failed, or stopped.
+
+For more information about pricing, see [Stream Analytics pricing](https://azure.microsoft.com/pricing/details/stream-analytics/).
+
+### Azure Functions
+
+Azure Functions is used to transform data after it reaches the IoT Hub. From a cost perspective, the recommendation is to use **consumption plan** because you pay only for the compute resources you use. You are charged based on per-second resource consumption each time an event triggers the execution of the function. Processing several events in a single execution or batches can reduce cost.
+
+### Azure Logic Apps
+
+In this architecture, Logic Apps is used for business process integration.
+
+Logic apps pricing works on the pay-as-you-go model. Triggers, actions, and connector executions are metered each time a logic app runs. All successful and unsuccessful actions, including triggers, are considered as executions.
+
+For instance, your logic app processes 1000 messages a day. A workflow of five actions will cost less than $6. 
+
+For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+
+### Data Storage
+
+For cold path storage, Azure Blob Storage is the most cost-effective option.
+
+For warm path storage, consider using Azure Cosmos DB. For more information, see [Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
+
+
 ## Next steps
 
 - For a more detailed discussion of the recommended architecture and implementation choices, see [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (PDF).
@@ -144,3 +192,7 @@ Though plain-text logging is lower impact on upfront development costs, it is mo
 - For detailed documentation of the various Azure IoT services, see [Azure IoT Fundamentals](/azure/iot-fundamentals/).
 
 - A sample IoT implementation is available on [GitHub](https://github.com/mspnp/iot-guidance).
+
+
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[cost-calculator]: https://azure.microsoft.com/pricing/calculator
