@@ -210,19 +210,7 @@ For more information, see [Azure Active Directory conditional access][aad-condit
 
 ## DevOps considerations
 
-Use Infrastructure as Code (IaC) practice, to provision and configure the network and security infrastructure. In this reference achitecture an [Azure Building Blocks (AZBB)][azbb] template is used, but you can use [Azure Resource Manager templates][arm-template] or any other declarative approach. 
-
-In this reference architecture the entire virtual network that includes the different tiers and VMs is identified as a single isolated workload, so it's all declared in a single AZBB template. Workload isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD), since every workload is associated and managed by its corresponding DevOps team. 
-
-Consider using [Azure DevOps][az-devops] or any other CI/CD solutions to automate your deployments. [Azure Pipelines][az-pipelines] is the recommended component of Azure DevOps services that brings automation for solution builds and deployments, it's also highly integrated in the Azure ecosystem.
-
-In this sceanario you virtual machines are configured by using Virtual Machine Extensions, since they offer the possibility of installing certain additional software, such as Apache Cassandra. In particular, the Custom Script Extension allows the download and execution of arbitrary code on a Virtual Machine, allowing unlimited customization of the Operating System of an Azure VM. VM Extensions are installed and executed only at VM creation time. That means if the Operating System gets configured incorrectly at a later stage, it will require a manual intervention to move it back to its correct state. Configuration Management Tools can be used to address this issue.
-
-Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines. Application Insights is actually one of the components of Azure Monitor, which gives you rich metrics and logs to verify the state of your complete Azure landscape. Azure Monitor will help you to follow the state of your infrastructure.
-
-
-
-For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain#devops-considerations).
 
 
 ## Cost considerations
@@ -276,7 +264,7 @@ A deployment for a reference architecture that implements these recommendations 
 [az-pipelines]: https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops
 [azure-active-directory]: /azure/active-directory-domain-services/active-directory-ds-overview
 [azure-ad-connect]: /azure/active-directory/hybrid/whatis-hybrid-identity
-[azure-monitor]: https://azure.microsoft.com/en-us/services/monitor/
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
 [Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory/
 [azure-multifactor-authentication]: /azure/multi-factor-authentication/multi-factor-authentication
 [considerations]: ./considerations.md

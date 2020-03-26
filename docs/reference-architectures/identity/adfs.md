@@ -1,4 +1,4 @@
-----
+---
 title: Extend on-premises AD FS to Azure
 titleSuffix: Azure Reference Architectures
 description: Implement a secure hybrid network architecture with Active Directory Federation Service authorization in Azure.
@@ -188,7 +188,8 @@ Consider using a set of network virtual appliances that logs detailed informatio
 
 ## DevOps considerations
 
-For DevOps considerations, refer to DevOps section described in [Extending Active Directory Domain Services (AD DS) to Azure](./adds-extend-domain#devops-considerations) reference architecture.
+For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain#devops-considerations).
+
 
 ## Cost considerations
 Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost]. 
