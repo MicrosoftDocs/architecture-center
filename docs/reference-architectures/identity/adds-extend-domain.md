@@ -93,16 +93,17 @@ Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD
 
 ## DevOps considerations
 
-Use Infrastructure as Code (IaC) practice, to provision and configure the network and security infrastructure. In this reference achitecture an [Azure Building Blocks (AZBB)][azbb] template is used, but you can use [Azure Resource Manager templates][arm-template] or any other declarative approach. 
+- Use Infrastructure as Code (IaC) practice, to provision and configure the network and security infrastructure. This reference architecture uses an [Azure Building Blocks (AZBB)][azbb] template. Another option is [Azure Resource Manager templates][arm-template]. 
 
-In this reference architecture the entire virtual network that includes the different application tiers, management jump box, and Azure AD Domain Services is identified as a single isolated workload, so it's all declared in a single AZBB template. Workload isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD), since every workload is associated and managed by its corresponding DevOps team. 
+- Isolate workloads to enable DevOps to do continuous integration and continuous delivery (CI/CD), because every workload is associated and managed by its corresponding DevOps team. 
 
-Consider using [Azure DevOps][az-devops] or any other CI/CD solutions to automate your deployments. [Azure Pipelines][az-pipelines] is the recommended component of Azure DevOps services that brings automation for solution builds and deployments, it's also highly integrated in the Azure ecosystem.
+   In this architecture the entire virtual network that includes the different application tiers, management jumpbox, and Azure AD Domain Services is identified as a single isolated workload. That is declared in a single AZBB template. 
 
-In this sceanario you virtual machines are configured by using Virtual Machine Extensions and other tools such as [Desired State Configuration (DSC)][dsc-overview] which is used to configure ADDS on the virutal machines.
+   Virtual machines are configured by using Virtual Machine Extensions and other tools such as [Desired State Configuration (DSC)][dsc-overview], used to configure ADDS on the virtual machines.
 
-Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines. Application Insights is actually one of the components of Azure Monitor, which gives you rich metrics and logs to verify the state of your complete Azure landscape. Azure Monitor will help you to follow the state of your infrastructure.
+- Consider using [Azure DevOps][az-devops] or any other CI/CD solutions to automate your deployments. [Azure Pipelines][az-pipelines] is the recommended component of Azure DevOps Services that brings automation for solution builds and deployments, it's also highly integrated in the Azure ecosystem.
 
+- Use [Azure Monitor][azure-monitor] to analyze the performance of your infrastructure. It also allows you to  monitor and diagnose networking issues without logging into your virtual machines. Application Insights provides rich metrics and logs to verify the state of your infrastructure.
 
 For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
 
