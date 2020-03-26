@@ -244,7 +244,7 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 
 - Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues.
 
-- Consider using [Azure Monitor][azure-monitor] to analyze the performance of your stream processing pipeline. For more information, see [Monitoring Azure Databricks][databricks=monitoring].
+- Consider using [Azure Monitor][azure-monitor] to analyze the performance of your stream processing pipeline. For more information, see [Monitoring Azure Databricks][databricks-monitoring].
 
 
 For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
