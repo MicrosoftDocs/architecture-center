@@ -188,7 +188,7 @@ Consider using a set of network virtual appliances that logs detailed informatio
 
 ## DevOps considerations
 
-For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain#devops-considerations).
+For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.md#devops-considerations).
 
 
 ## Cost considerations

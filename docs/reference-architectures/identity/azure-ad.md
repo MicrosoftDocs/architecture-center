@@ -210,7 +210,7 @@ For more information, see [Azure Active Directory conditional access][aad-condit
 
 ## DevOps considerations
 
-For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain#devops-considerations).
+For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.md#devops-considerations).
 
 
 ## Cost considerations
