@@ -330,7 +330,7 @@ For more information, see [Monitoring Azure Databricks](../../databricks-monitor
 
   In this architecture there are multiple deployment stages. Consider creating an Azure DevOps Pipeline and adding those stages. Here are some examples of stages that you can automate: 
 
-  - Start a Databrick Cluster
+  - Start a Databricks Cluster
   - Configure Databricks CLI
   - Install Scala Tools
   - Add the Databricks secrets

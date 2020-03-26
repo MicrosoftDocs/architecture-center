@@ -195,7 +195,7 @@ Be aware of the following limitations:
     In this architecture, there are three main workloads:
     - The data warehouse server, Analysis Services, and related resources. 
     - Azure Data Factory.
-    - An on-premimses to cloud simulated scenario.
+    - An on-premises to cloud simulated scenario.
 
     Each workload has its own deployment template.
 
