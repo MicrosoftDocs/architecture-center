@@ -207,6 +207,12 @@ Use conditional access control to deny authentication requests from unexpected s
 
 For more information, see [Azure Active Directory conditional access][aad-conditional-access].
 
+
+## DevOps considerations
+
+For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.md#devops-considerations).
+
+
 ## Cost considerations
 Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost]. 
 
@@ -219,6 +225,7 @@ For information about the editions offered by Azure Active Directory, see [Azure
 ### VMs for N-Tier application 
 
 The deployment includes infrastructure for an N-tier application. For cost information about these resources, [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
+
 
 
 ## Deploy the solution
@@ -250,11 +257,18 @@ A deployment for a reference architecture that implements these recommendations 
 [aad-sync-requirements]: /azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements
 [aad-topologies]: /azure/active-directory/hybrid/plan-connect-topologies
 [aad-user-sign-in]: /azure/active-directory/hybrid/plan-connect-user-signin
+[AAF-devops]: /azure/architecture/framework/devops/overview
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[azbb]: https://github.com/mspnp/template-building-blocks/wiki/overview
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[az-pipelines]: https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops
 [azure-active-directory]: /azure/active-directory-domain-services/active-directory-ds-overview
 [azure-ad-connect]: /azure/active-directory/hybrid/whatis-hybrid-identity
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
 [Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory/
 [azure-multifactor-authentication]: /azure/multi-factor-authentication/multi-factor-authentication
 [considerations]: ./considerations.md
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[AAF-devops]: /azure/architecture/framework/devops/overview

@@ -186,6 +186,11 @@ Restrict direct sign in access to the AD FS and WAP servers. Only DevOps staff s
 
 Consider using a set of network virtual appliances that logs detailed information on traffic traversing the edge of your virtual network for auditing purposes.
 
+## DevOps considerations
+
+For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.md#devops-considerations).
+
+
 ## Cost considerations
 Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost]. 
 
@@ -198,6 +203,7 @@ Consider having Active Directory Domain Services as a shared service that is con
 ### Azure AD Federation Services
 
 For information about the editions offered by Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing]. The  AD Federation Services feature is available in all editions.
+
 
 ## Deploy the solution
 
@@ -410,3 +416,4 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
 [psise]: /powershell/scripting/components/ise/windows-powershell-integrated-scripting-environment--ise-
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[AAF-devops]: /azure/architecture/framework/devops/overview
