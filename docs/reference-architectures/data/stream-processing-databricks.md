@@ -318,23 +318,26 @@ For more information, see [Monitoring Azure Databricks](../../databricks-monitor
 
 ## DevOps considerations
 
-Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
+- Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
 
-Use the [Azure Resource Manager template][arm-template] to deploy the Azure resources which follows the infrastructure as Code (IaC) Process. Templates make it easier to automate deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions.
+- Use [Azure Resource Manager template][arm-template] to deploy the Azure resources following the infrastructure as Code (IaC) Process. With templates, automating deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions is easier.
 
-Identify your workloads and put every workload in a single deployment template. By using separate templates, you can store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier. In this architecture, the Azure event hubs, log analytics and CosmosDB are identified as a single workload, so they are included in a single ARM template.
+- Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier. 
 
-Consider staging your steps, which means deploying to various stages and running validations at each stage before moving on to the next one; that way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. In this architecture there are multiple deployment stages identified, you should consider creating a DevOps Pipeline and adding those stages. Some examples of the stages that you can automate with a DevOps pipeline are: 
+  In this architecture, Azure Event Hubs, Log Analytics, and Cosmos DB are identified as a single workload. These resources are included in a single ARM template.
 
-Start a Databrick Cluster
-Configure Databricks CLI
-Install Scala Tools
-Add the Databricks secrets
+- Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues.
 
-Also consider writing automated integration tests to improve the quality and the reliability of the databricks code and its life cycle. 
+  In this architecture there are multiple deployment stages. Consider creating an Azure DevOps Pipeline and adding those stages. Here are some examples of stages that you can automate: 
 
-Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your stream processing pipeline. See [Monitoring Azure Databricks][databricks=monitoring], for more information.
+  - Start a Databrick Cluster
+  - Configure Databricks CLI
+  - Install Scala Tools
+  - Add the Databricks secrets
 
+  Also, consider writing automated integration tests to improve the quality and the reliability of the databricks code and its life cycle. 
+
+- Consider using [Azure Monitor][azure-monitor] to analyze the performance of your stream processing pipeline. For more information, see [Monitoring Azure Databricks][databricks=monitoring].
 
 For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
 

@@ -190,22 +190,29 @@ For more information, see [Manage database roles and users](/azure/analysis-serv
 
 ## DevOps considerations
 
-Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
+- Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
 
-Use the [Azure Building blocks][azbb] template provided in this architecture or create an [Azure Resource Manager template][arm-template] to deploy the Azure resources which follows the infrastructure as Code (IaC) Process. Templates make it easier to automate deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions.
+- Use the [Azure Building blocks][azbb] templates provided in this architecture or create [Azure Resource Manager template][arm-template] to deploy the Azure resources following the infrastructure as Code (IaC) Process. With templates,  automating deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions is easier.
 
-Identify your workloads and put every workload in a single deployment template. By using separate templates, you can store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier. In this architecture, the Data warehouse server, analysis services PaaS and related resources are identified as a single workload, there is an on premimses in cloud simulated scenario, which is separate workload and included in its own deployment template.
+- Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier. 
 
-In this architecture the Data Warehouse server is setup and configured using Azure CLI commands which follows the imperative approach of the IaC practice, also consider using powershell scripts and integrate them in the automation process.
+    In this architecture, there are three main workloads:
+    - The data warehouse server, Analysis Services, and related resources. 
+    - Azure Data Factory.
+    - An on-premimses to cloud simulated scenario.
 
-Consider staging your workloads, which means deploying to various stages and running validations at each stage before moving on to the next one; that way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases] are recommended deployment strategies for updating live production environments. Also consider having a good rollback strategy for when a deployment fails; for example you could automatically redeploy an earlier, successful deployment from your deployment history, the --rollback-on-error flag parameter in Azure CLI is good example. 
+    Each workload has its own deployment template.
 
-Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your data warehouse but also your entire Azure analytics platform for an integrated monitoring experience. Also, [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to surface insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse as it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs. 
+    The data warehouse server is set up and configured by using Azure CLI commands which follows the imperative approach of the IaC practice. Consider using deployment scripts and integrate them in the automation process.
+
+- Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. Use [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases]  strategies for updating live production environments. 
+
+    Have a good rollback strategy for handling failed deployments. For example, you can automatically redeploy an earlier, successful deployment from your deployment history. See the --rollback-on-error flag parameter in Azure CLI. 
+
+- [Azure Monitor][azure-monitor] is the recommended option for analyzing the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse because it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs. 
 
 
 For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
-## Cost considerations
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
 
 ### Azure Synapse
 

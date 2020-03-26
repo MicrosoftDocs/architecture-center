@@ -234,15 +234,17 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 
 ## DevOps considerations
 
-Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
+- Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
 
-Use the [Azure Resource Manager template][arm-template] to deploy the Azure resources which follows the infrastructure as Code (IaC) Process. Templates make it easier to automate deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions.
+- Use [Azure Resource Manager template][arm-template] to deploy the Azure resources following the infrastructure as Code (IaC) Process. With templates, automating deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions is easier.
 
-Identify your workloads and put every workload in a single deployment template. By using separate templates, you can store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier. In this architecture, the Azure event hubs, stream analytics service, CosmosDB and related artifacts are identified as a single workload, so they are included in a single ARM template.
+- Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier. 
 
-Consider staging your workloads, which means deploying to various stages and running validations at each stage before moving on to the next one; that way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. Create an Azure DevOps pipeline and include those stages, so they are automated. 
+  In this architecture, Azure Event Hubs, Log Analytics, and Cosmos DB are identified as a single workload. These resources are included in a single ARM template.
 
-Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your entire Azure analytics platform for an integrated monitoring experience. See [this article][monitoring-stream-analytics] to learn how to Set up alerts for Azure Stream Analytics job.
+- Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues.
+
+- Consider using [Azure Monitor][azure-monitor] to analyze the performance of your stream processing pipeline. For more information, see [Monitoring Azure Databricks][databricks=monitoring].
 
 
 For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].

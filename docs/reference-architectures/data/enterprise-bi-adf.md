@@ -186,17 +186,26 @@ Be aware of the following limitations:
 
 ## DevOps considerations
 
-Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
+- Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
 
-Use the [Azure Building blocks][azbb] templates provided in this architecture or create [Azure Resource Manager template][arm-template] to deploy the Azure resources which follows the infrastructure as Code (IaC) Process. Templates make it easier to automate deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions.
+- Use the [Azure Building blocks][azbb] templates provided in this architecture or create [Azure Resource Manager template][arm-template] to deploy the Azure resources following the infrastructure as Code (IaC) Process. With templates,  automating deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions is easier.
 
-Identify your workloads and put every workload in a single deployment template. By using separate templates, you can store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier. In this architecture, the Data warehouse server, analysis services PaaS and related resources are identified as a single workload, the Azure Data Factory is a separate workload hence it has its own deployment template. there is also an on premimses in cloud simulated scenario, which is separate workload and included in its own deployment template.
+- Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier. 
 
-In this architecture the Data Warehouse server is setup and configured using Azure CLI commands which follows the imperative approach of the IaC practice, also consider using powershell scripts and integrate them in the automation process.
+    In this architecture, there are three main workloads:
+    - The data warehouse server, Analysis Services, and related resources. 
+    - Azure Data Factory.
+    - An on-premimses to cloud simulated scenario.
 
-Consider staging your workloads, which means deploying to various stages and running validations at each stage before moving on to the next one; that way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases] are recommended deployment strategies for updating live production environments. Also consider having a good rollback strategy for when a deployment fails; for example you could automatically redeploy an earlier, successful deployment from your deployment history, the --rollback-on-error flag parameter in Azure CLI is good example. 
+    Each workload has its own deployment template.
 
-Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your data warehouse but also your entire Azure analytics platform for an integrated monitoring experience. Also, [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to surface insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse as it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs. 
+    The data warehouse server is set up and configured by using Azure CLI commands which follows the imperative approach of the IaC practice. Consider using deployment scripts and integrate them in the automation process.
+
+- Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. Use [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases]  strategies for updating live production environments. 
+
+    Have a good rollback strategy for handling failed deployments. For example, you can automatically redeploy an earlier, successful deployment from your deployment history. See the --rollback-on-error flag parameter in Azure CLI. 
+
+- [Azure Monitor][azure-monitor] is the recommended option for analyzing the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse because it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs. 
 
 
 For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
@@ -285,5 +294,14 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [MergeLocation]: https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
 [synapse-analytics]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
-
-
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[adf]: /azure/data-factory
+[adf-calculator]: https://azure.microsoft.com/pricing/calculator/?service=data-factory
+[az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services/
+[az-storage-reserved]: https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity
+[az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics/
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[github]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline
+[MergeLocation]: https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
+[wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
