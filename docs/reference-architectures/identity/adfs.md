@@ -415,3 +415,4 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
 [psise]: /powershell/scripting/components/ise/windows-powershell-integrated-scripting-environment--ise-
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[AAF-devops]: /azure/architecture/framework/devops/overview

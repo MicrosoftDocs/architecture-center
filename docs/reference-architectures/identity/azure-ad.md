@@ -283,3 +283,4 @@ A deployment for a reference architecture that implements these recommendations 
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[AAF-devops]: /azure/architecture/framework/devops/overview

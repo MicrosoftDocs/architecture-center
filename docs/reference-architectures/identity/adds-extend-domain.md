@@ -97,7 +97,7 @@ Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD
 
 - Isolate workloads to enable DevOps to do continuous integration and continuous delivery (CI/CD), because every workload is associated and managed by its corresponding DevOps team. 
 
-   In this architecture the entire virtual network that includes the different application tiers, management jumpbox, and Azure AD Domain Services is identified as a single isolated workload. That is declared in a single AZBB template. 
+   In this architecture the entire virtual network that includes the different application tiers, management jumpbox, and Azure AD Domain Services is identified as a single isolated workload. That workload is declared in a single AZBB template. 
 
    Virtual machines are configured by using Virtual Machine Extensions and other tools such as [Desired State Configuration (DSC)][dsc-overview], used to configure ADDS on the virtual machines.
 
@@ -207,13 +207,13 @@ After deployment completes, you can test connectivity from the simulated on-prem
 <!-- links -->
 
 [AAF-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [adds-resource-forest]: adds-forest.md
 [adfs]: adfs.md
 [azure-cli-2]: /azure/install-azure-cli
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [dsc-overview]: https://docs.microsoft.com/powershell/scripting/dsc/overview/overview?view=powershell-7
 [dmz]: ../dmz/secure-vnet-dmz.md
-
 [adds-data-disks]: https://msdn.microsoft.com/library/mt674703.aspx
 [ad-ds-operations-masters]: https://technet.microsoft.com/library/cc779716(v=ws.10).aspx
 [ad-ds-ports]: https://technet.microsoft.com/library/dd772723(v=ws.11).aspx
