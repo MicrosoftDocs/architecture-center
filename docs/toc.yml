@@ -725,6 +725,8 @@ items:
           href: building-blocks/extending-templates/collector.md
     - name: Example workloads
       items:
+      - name: DevOps with ARM templates
+        href: example-scenario/apps/devops-cicd-chatbot.md
       - name: DevOps with Azure DevOps
         href: example-scenario/apps/devops-dotnet-webapp.md
       - name: DevOps with containers
