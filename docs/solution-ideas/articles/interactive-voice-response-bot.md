@@ -23,7 +23,7 @@ This solution creates an intelligent interactive voice response (IVR) applicatio
 
 Estimated Daily Cost: [$11.08](https://azure.github.io/Azure-CloudIntelligence-SolutionAuthoringWorkspace/solution-prices)
 
-For more details on this solution, including source code and data customization, please fork or explore this project on [GitHub](https://github.com/Azure/cortana-intelligence-call-center-solution).
+For more details on this solution, including source code and data customization, please fork or explore this project on [GitHub](https://github.com/ujjwalmsft/cortana-intelligence-call-center-solution).
 
 Automated customer interaction is essential to a business of any size. In fact, [61%](https://www.talkdesk.com/blog/10-customer-services-statistics-for-call-center-supervisors) of consumers prefer to communicate via speech, and most of them prefer self-service. Because customer satisfaction is a priority for all businesses, self-service is a critical facet of any customer-facing communications strategy.
 
