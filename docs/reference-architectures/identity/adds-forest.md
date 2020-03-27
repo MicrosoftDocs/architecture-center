@@ -79,6 +79,10 @@ Forest level trusts are transitive. If you establish a forest level trust betwee
 
 For Active Directory-specific security considerations, see the security considerations section in [Extending Active Directory to Azure][adds-extend-domain].
 
+## DevOps considerations
+
+For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.md#devops-considerations).
+
 ## Cost considerations
 Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost]. 
 
@@ -95,6 +99,7 @@ The main component of this architecture is the VPN gateway service. You are char
 All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.  
 
 For more information, see [VPN Gateway Pricing][azure-gateway-charges].
+
 
 ## Deploy the solution
 
@@ -180,7 +185,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [azure-cli-2]: /azure/install-azure-cli
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway/
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
-
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [running-VMs-for-an-N-tier-architecture-on-Azure]: ../virtual-machines-windows/n-tier.md
 
 [ad-azure-guidelines]: https://msdn.microsoft.com/library/azure/jj156090.aspx

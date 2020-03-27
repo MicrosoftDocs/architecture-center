@@ -263,7 +263,7 @@ Here is the network flow for the example infrastructure.
 ![Example infrastructure for containerizing apps](images/containersf-net.png)
 The key aspect of the ingress reverse proxy is inspecting inbound traffic and rewriting that traffic to the destination container. 
 
-For example, application A is registered with the Service Fabric DNS service with the domain name: appA.container.myorg.com. External users access the application with https://appA.myorg.com. Use public or organizational DNS and register appA.myorg.com to point to the public IP for the application node type.  
+For example, application A is registered with the Service Fabric DNS service with the domain name: appA.container.myorg.com. External users access the application with `https://appA.myorg.com`. Use public or organizational DNS and register appA.myorg.com to point to the public IP for the application node type.  
 1.	Requests for appA.myorg.com are routed to the Service Fabric cluster and handed off to the ARR container listening on port 443. Service Fabric and Azure Load Balancer set that configuration value when the ARR container is deployed.  
 2.	When ARR gets the request, it has a condition to look for any request with the pattern='*.*.*', and its action rewrites the request to https://{C:1}.container.{C:2}.{C:3}/{REQUEST_URI}. Because the ARR is running in the cluster, the Service Fabric DNS service is invoked. The service returns the destination container IP address. 
 3.	The request is routed to the destination container. Certificates can be used for the initial request to ARR and the rewrite to the destination container.

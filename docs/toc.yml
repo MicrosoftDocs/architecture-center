@@ -727,6 +727,8 @@ items:
       items:
       - name: DevOps with Azure DevOps
         href: example-scenario/apps/devops-dotnet-webapp.md
+      - name: DevOps with chatbots
+        href: example-scenario/apps/devops-cicd-chatbot.md
       - name: DevOps with containers
         href: example-scenario/apps/devops-with-aks.md
       - name: Jenkins server
