@@ -53,7 +53,7 @@ A collection of functional microservices in a serverless framework can be deploy
 
 ## Architecture
 
-![multi-cloud serverless architecture diagram](images/multi-cloud-serverless-architecture.png)
+![multi-cloud serverless architecture diagram](./media/multi-cloud-serverless-architecture.png)
 _Multi-cloud serverless architecture_
 
 The architecture developed for this solution is shown above. 
@@ -63,7 +63,7 @@ The architecture developed for this solution is shown above.
 
 A breakdown of the processing pipeline is shown in the figure below. Note that the middleware layers represent any intermediate functionality needed prior to reaching the handler.
 
-![multi-cloud processing pipeline diagram](images/multi-cloud-processing-pipeline.png)_Multi-cloud processing pipeline_
+![multi-cloud processing pipeline diagram](./media/multi-cloud-processing-pipeline.png)_Multi-cloud processing pipeline_
 
 ### Serverless Framework
 Serverless technology is a fundamental requirement of this approach, because of the use of microservices. The solution used here is the Serverless Framework, available from [Serverless, Inc](https://serverless.com/). The free version of the Serverless Framework includes a CLI, additional plugins, and limited monitoring services. The Pro edition features operational capabilities across clouds such as enhanced monitoring and alerts. The framework supports Node.js and Python languages, and both AWS and Azure as cloud hosts.
@@ -93,7 +93,7 @@ The key to making this multi-cloud deployment useful is the ability of the *Serv
 
 The goal is to allow user apps to interface with the cloud without ever knowing which cloud platform they're accessing. This is principally accomplished by the serverless framework deploying identical microservices that use the Serverless Multicloud Library to build a *normalized REST API* into the microservice code. Any microservice from within either cloud framework will respond to the normalized API. Because of this, user apps can employ a *cloud agnostic API* for interfacing with the platforms. The following illustration describes this concept:
 
-![cloud agnostic API diagram](images/cloud-agnostic-api.png "Cloud Agnostic API")_Cloud Agnostic API_
+![cloud agnostic API diagram](./media/cloud-agnostic-api.png "Cloud Agnostic API")_Cloud Agnostic API_
 
 ### API manager
 
@@ -134,11 +134,11 @@ In a traditional *Blue-Green Deployment*, an application is developed and deploy
 
 In the multi-cloud situation, blue-green deployment is implemented in each of the cloud platforms. In the serverless case, this means that two duplicate sets of microservices are deployed for each cloud platform, one as the production environment and the other as the failover environment. This active-passive setup within each cloud platform reduces the risk that this platform will be down, increasing its availability, which translates to having both platforms up and enabling the multi-cloud active-active high availability.
 
-![active-active blue-green deployment diagram](images/active-active-blue-green-deployment.png)_Active-Active Blue-Green Deployment_
+![active-active blue-green deployment diagram](./media/active-active-blue-green-deployment.png)_Active-Active Blue-Green Deployment_
 
 A secondary benefit of this type of blue-green deployment is that the fail-over deployment on each cloud platform can be used as a test environment for microservice updates for test and validation, prior to releasing them for use on the production deployment.
 
-## Resources
+## Related resources
 
 - [One-pager](https://aka.ms/01_Multicloud_1Pager): Multi-Cloud Functions with Serverless Framework
 - [Reference Architecture](https://aka.ms/01_Multicloud_ReferenceArchitecture): Multi-Cloud Functions with Serverless Framework
