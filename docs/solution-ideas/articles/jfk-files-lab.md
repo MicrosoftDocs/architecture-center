@@ -6,6 +6,7 @@ ms.date: 03/27/2020
 description: Convert large amounts of unstructured data such as the JFK Files into indexable, structured data with Azure Cognitive Search.
 ms.custom: Azure Cognitive Search, cognitive skills, JKF Files Lab, 'https://azure.microsoft.com/solutions/architecture/jfk-files-lab/'
 ---
+
 # AI-first approach to content understanding with Azure Cognitive Search
 
 [!INCLUDE [header_file](../header.md)]
