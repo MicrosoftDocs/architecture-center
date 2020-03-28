@@ -13,136 +13,127 @@ ms.custom:
 ---
 # Multi-cloud functions with Serverless Framework
 
-This article describes how the Microsoft Commercial Software Engineering (CSE) team partnered with a global retailer to build a highly available, *active-active* microservices deployment solution leveraging the [Serverless Framework](https://serverless.com) across both Azure and Amazon Web Services (AWS) cloud platforms. 
+This article describes how the Microsoft Commercial Software Engineering (CSE) team partnered with a global retailer to build a highly available microservices deployment solution that leverages the [Serverless Framework](https://serverless.com) across both Azure and Amazon Web Services (AWS) cloud platforms. 
 
-An internal partnership between CSE and the Azure product team led to the enhancement of the Azure implementation of the Serverless Framework. The teams collectively rewrote the Serverless CLI to support new features in Azure Functions, including Premium Functions, API Management, and KeyVault. With such enhancements, the Serverless CLI now provides a standard interface for GitOps deployment to both Azure and AWS. Also, the team developed the *Serverless Multicloud Library*, which provides a normalized runtime API for serverless applications that can be deployed to both AWS and Azure.
+Serverless computing abstracts app code from infrastructure implementation, code deployment, and operational aspects like planning and maintenance. Typically, each cloud provider has its own serverless computing implementation, and it's difficult for customers to use another vendor without considerable operational impact and costs. Potential customers may view this situation as weakening their bargaining position and agility. Vendor lock-in is one of the greatest obstacles to enterprise cloud adoption. 
 
-Serverless computing abstracts application code from infrastructure implementation, code deployment details, and other operational aspects like planning and maintenance operations. Apps that use  microservices are abstracted from the cloud platform that hosts the services. 
+The Serverless Framework addresses the problems of vendor lock-in and cross-cloud provider redundancy by abstracting development from cloud provider, based on common tools for developing and deploying serverless functions. This framework provides a universal cloud interface for deploying serverless computing solutions across cloud providers. 
 
-Typically, each cloud provider has its own serverless computing implementation, with its own process and practices. When a customer depends on a particular cloud provider, it's hard to switch to another vendor without considerable operational impact and costs. Potential customers may view this situation as weakening their bargaining position and agility. Vendor lock-in is one of the greatest obstacles to enterprise cloud adoption. 
+Serverless Framework code is open-sourced, which helps Microsoft teams and the customer and partner community to build cross-cloud provider solutions. Open sourcing reduces barriers to cloud adoption, and opens the door to using best-of-breed services like Cognitive Services across cloud providers. Customers can optimize their solutions based on cost, agility, and other considerations. 
 
-The Serverless Framework addresses the problem of vendor lock-in and cross-cloud provider redundancy by abstracting development across multiple cloud providers, based on common tools for developing and deploying serverless functions. In essence, this framework provides a universal cloud interface that enables deploying serverless computing solutions across multiple cloud providers. 
+CSE and the Azure product team collectively rewrote the Serverless CLI to support new Azure Functions features like Premium Functions, API Management, and KeyVault. The Serverless CLI now provides a standard interface for GitOps deployment to both Azure and AWS. The team also developed the *Serverless Multicloud Library*, which provides a normalized runtime API to deploy serverless apps to both AWS and Azure.
 
-The Serverless Framework code is open-sourced. Open sourcing helps Microsoft teams and the customer and partner community build cross-cloud provider solutions, which reduces barriers to cloud adoption. This opens the door for leveraging best of breed services like Cognitive Services across cloud providers, giving the customer the ability to optimize based on price, time, and other considerations. 
+This design also provides *active-active* failover between multiple cloud platforms, as opposed to *active-passive* failover. If the service of one cloud provider becomes unhealthy or unavailable, this solution can reroute requests to another cloud platform. 
 
-One goal of this design was to provide a serverless solution that is hosted, load-balanced, and whose codebase is deployable on multiple cloud platforms, such as AWS and Azure. 
-
-Another key goal of the design was to provide *active-active* failover between multiple cloud platforms, as opposed to *active-passive* failover. Because cloud platforms in the real world are occasionally unavailable for some reason, this capability enables cross-cloud redundancy. When the service of one cloud provider becomes unhealthy or unavailable, requests can be rerouted to an alternate cloud platform.
-
-The implementation also included the following technical goals:
+This project had the following technical goals:
 
 - Create a cross-industry solution.
-- Support a common API to the different clouds with the Multicloud Serverless Library.
-- Use API-based access via the authenticated cloud gateway.
-- Use a common API for users to interface with microservices, wherever they are deployed.
-- Use a third-party API Management Gateway as a router to load balance between cloud platforms.
+- Use the Multicloud Serverless Library to support a common API for users to interface with microservices wherever they are deployed.
+- Use API-based access via an authenticated cloud gateway, and load balance between cloud platforms by using the gateway as a router.
 - Support a GitOps CI/CD process workflow for development, testing, and deployment on all supported cloud platforms.
 
-The goals were accomplished using a serverless framework to unify the deployment and operations of the solution to both cloud platforms, thus reducing associated effort and risk. By using Azure Functions and AWS Lambda functions, both platforms can implement this mirrored functionality. 
+By using Azure Functions and AWS Lambda functions, both platforms can implement mirrored functionality. By using the Serverless Framework, the platforms can unify deployment and operations.
 
-The benefits of this approach include:
+Benefits of using the Serverless Framework to deploy microservice apps to multiple platforms include:
 
-- Greater uptime
-- High availability with active-active deployment on multiple cloud platforms
-- Ability to compare performance and analyze costs
-- Best of breed solutions that combine services offered by the different cloud providers
 - Prevention or reduction of vendor lock-in
 - Easier data sharing between platforms
-- Typically, 40-60+% code reduction during development with the Multicloud Serverless Library
-- Elimination of most platform/infrastructure complexity and maintenance requirements
+- Ability to compare performance, analyze costs, and take advantage of special offerings
+- Best of breed solutions that combine services offered by different cloud providers
+- 40-60+% code reduction during development by using the Multicloud Serverless Library
+- Ability to use GitOps for development and deployment
+- Active-active high availability
+- Elimination of most platform and infrastructure complexity and maintenance requirements
 
 ## Potential use cases
 
-A collection of functional microservices in a serverless framework can be deployed on two different cloud platforms. Client-side applications can access the functional microservices on either platform by using the same cloud-agnostic API, established by the Multicloud Library.
+- Deploy a collection of functional microservices in a serverless framework on multiple cloud platforms. 
+- Write client-side applications for multiple platforms by using the same cloud-agnostic API from the Multicloud Library.
 
 ## Architecture
 
 ![Multi-cloud serverless architecture](./media/multi-cloud-serverless-architecture.png)
 
-1. The user application can come from any source capable of logging into the cloud. In this implementation, the user logs into a gateway application that functions as a load balancer between the Azure and AWS clouds, initially set for 50/50 load sharing. 
-1. Any response generated is also routed through the API Manager Gateway, which then sends the response on to the requestor user app. 
+1. The user app can come from any source capable of logging into the cloud. In this implementation, the user logs into a gateway app that load balances requests 50-50 between the Azure and AWS clouds.
+1. Any response also routes through the API Manager gateway, which then sends the response to the requestor user app. 
 
-A breakdown of the processing pipeline is shown in the figure below. Note that the middleware layers represent any intermediate functionality needed prior to reaching the handler.
+The following figure shows the processing pipeline. The middleware layers represent any intermediate functionality needed before reaching the handler.
 
 ![Multi-cloud processing pipeline](./media/multi-cloud-processing-pipeline.png)
 
 ### Serverless Framework
-Serverless technology is a fundamental requirement of this approach, because of the use of microservices. The solution used here is the Serverless Framework, available from [Serverless, Inc](https://serverless.com/). The free version of the Serverless Framework includes a CLI, additional plugins, and limited monitoring services. The Pro edition features operational capabilities across clouds such as enhanced monitoring and alerts. The framework supports Node.js and Python languages, and both AWS and Azure as cloud hosts.
+Serverless technology is a fundamental requirement for an approach that uses microservices. This solution uses the Serverless Framework, available from [Serverless, Inc](https://serverless.com/). The free version of the Serverless Framework includes a CLI, additional plugins, and limited monitoring services. The Pro edition features operational capabilities across clouds, such as enhanced monitoring and alerts. The framework supports Node.js and Python languages, and both AWS and Azure cloud hosts.
 
-The current requirements to use Azure with the Serverless Framework include:
+To use Azure with the Serverless Framework, you need:
 
 - Node.js, to support microservice code
 - The Serverless Framework, to support multi-cloud deployment and monitoring
-- The Serverless Multicloud Library, to provide a normalized runtime API for developers building the microservices
-- Azure Functions, to host microservices functionality comparable to other cloud platforms used
-- The Azure Functions Serverless Plugin, to support multi-cloud deployment. This plugin wasn't initially up to parity with the comparable AWS Lambda plug-in, and was extended to meet the goals of this project. 
+- The Serverless Multicloud Library, to provide a normalized runtime API for developers
+- Azure Functions, to host microservices functionality comparable to other cloud platforms
+- The Azure Functions Serverless Plugin, to support multi-cloud deployment. This plugin wasn't initially up to parity with the comparable AWS Lambda plug-in, and was extended for this project. 
 
 ### Functions
-By using a serverless implementation on both platforms, individual functions can be treated as microservices that are supported one to each functional VM node. The generic processing functions are executed as needed by the platform. Each AWS Lambda function has a corresponding Azure Function element deployed. The microservices use identical code on each platform, and are addressed via the Serverless Multicloud Library's abstracted API layer, so that translation of each transaction isn't required.
+The serverless implementation on each platform supports individual functions as microservices, one to each functional VM node, and executes generic processing functions as needed. Each AWS Lambda function has a corresponding Azure Function element. The microservices use identical code on each platform, and are addressed via the Serverless Multicloud Library's abstracted API layer, so don't require translation of each transaction.
 
 ### CI/CD with GitOps
 
-A primary job of the Serverless Framework is to abstract away all the infrastructure concerns of deploying an application to the cloud. Using a manifest based approach, the Serverless Framework deals with all deployment issues, allowing deployment to be automated as needed to support GitOps. The goal is a manifest driven process for automating serverless deployments within one or more cloud platforms, aligned with GitOps process schemes. Care must be taken to find tools and solutions that support the GitOps model.
+A primary job of the Serverless Framework is to abstract away all the infrastructure concerns of deploying an app to the cloud. Using a manifest-based approach, the Serverless Framework deals with all deployment issues, allowing deployment to be automated as needed to support GitOps.
 
-For the initial engagement, all deployments were done manually. However, a manifest driven way of managing serverless build/test/deployments within the same, or across clouds is realistic, using the elements employed in this initial engagement. This process can take the form of a GitOps developer workflow focus, building from Git, using quality gates for test/evaluation, and pushing serverless solutions onto both cloud providers.
+Although this initial project used manual deployments, it's realistic to implement manifest-driven serverless builds, tests, and deployments within the same or across clouds. This process can use a GitOps developer workflow focus: building from Git, using quality gates for test and evaluation, and pushing serverless solutions onto both cloud providers. Performing all deployments using the Serverless Framework from the beginning of the project is the most efficient way to proceed.
 
-Performing all deployments using the Serverless Framework from the beginning of the project is the most efficient way to proceed.
+### Cloud-agnostic API
 
-### Server agnosticity
-
-The key to making this multi-cloud deployment useful is the ability of the *Serverless Multicloud Library* to normalize the API of the microservices on both cloud platforms. This normalization makes using the deployed microservices easy for client applications, because they use a cloud-agnostic API.
-
-The goal is to allow user apps to interface with the cloud without ever knowing which cloud platform they're accessing. This is principally accomplished by the serverless framework deploying identical microservices that use the Serverless Multicloud Library to build a *normalized REST API* into the microservice code. Any microservice from within either cloud framework will respond to the normalized API. Because of this, user apps can employ a *cloud agnostic API* for interfacing with the platforms. The following illustration describes this concept:
+Server agnosticity allows user apps to interface with the cloud without knowing or caring which cloud platform they're accessing. The *Serverless Multicloud Library* builds identical microservices into a *normalized REST API*. Microservices from within either cloud framework respond to the normalized API, so client apps can use the *cloud agnostic API* to interface with the platforms.
+The following diagram illustrates this concept:
 
 ![Cloud-agnostic API](./media/cloud-agnostic-api.png)
 
 ### API manager
 
-The API manager can be an existing application or a custom application. The API manager in this initial implementation was only used as a router to provide a 50-50 transaction load balance to the two cloud platforms. Apigee&trade; was used in the initial engagement with good success, but was underutilized for its capabilities. 
+The API manager can be an existing or custom application. The Apigee&trade; API manager in this implementation only acted as a router to provide a 50-50 transaction load balance to the two cloud platforms, and was underutilized for its capabilities. 
 
-The API manager must have the following capabilities:
+The API manager must be able to:
 
-- Can be deployed inside or outside a cloud platform as needed
-- Can route messages to and from both cloud platforms
-- Can relay requests and responses using the common REST API from and to the user application
-- Monitors the health of both cloud serverless framework deployments to validate their ability to receive requests
-- Logs traffic requests to coordinate asynchronous message traffic
-- Performs automated health checks and availability on each cloud platform, to enable routing requests accordingly and achieving high availability
+- Be deployed inside or outside a cloud platform as needed
+- Route messages to and from both cloud platforms
+- Relay requests and responses using the common REST API from and to the user application
+- Monitor the health of both cloud serverless framework deployments to validate their ability to receive requests
+- Log traffic requests to coordinate asynchronous message traffic
+- Perform automated health checks and availability on each cloud platform, to support routing and high availability
 
 ## Alternatives
 
-- A key design decision in the initial project was to use Node.js to package the microservices. The decision was made because the customer was comfortable with Node.js, and both AWS and Azure platforms support it. Other languages, such as Python, could be used to implement this solution, as long as they're supported by the serverless implementations of the cloud platforms, AWS Lambda and Azure Functions in this case.
+- Node.js was used to package the microservices, because the customer was comfortable with Node.js, and both AWS and Azure platforms support it. Other languages, such as Python, could implement this solution, as long as they're supported by the serverless implementations of the cloud platforms, AWS Lambda and Azure Functions in this case.
 
-- Any cloud platform can be used, not just Azure or AWS. However, the selected cloud platform must be able to support the Serverless Framework. Currently, the Serverless Framework reports compatibility with eight different cloud providers. The only caveat is to ensure that the elements to support the multi-cloud architecture or its equivalent are available on the target cloud platforms.
+- Any cloud platform can be used, not just Azure or AWS. The cloud platform must be able to support the Serverless Framework. Currently, the Serverless Framework reports compatibility with eight different cloud providers. The only caveat is to ensure that the elements that support the multi-cloud architecture or its equivalent are available on the target cloud platforms.
 
-- The API Manager in this initial implementation was only used as a router to provide a 50-50 transaction load balance to the two cloud platforms. Other business logic can be incorporated as needed in a specific scenario.
+- The API Manager in this initial implementation acted only as a router to provide a 50-50 transaction load balance to the two cloud platforms. The API Manager could incorporate other business logic for specific scenarios.
 
 ## Considerations
 
-- Because it's difficult to articulate the differences between AWS and Azure serverless functional offerings, early effort should focus on mapping the functions available on each cloud platform so that necessary transformation requirements can be identified. A platform-agnostic API can be developed from this information. Problems occur when functionality is missing from one platform and workarounds must be devised.
+- Because it's difficult to articulate the differences between AWS and Azure serverless functional offerings, early effort should focus on mapping the functions available on each cloud platform and identifying necessary transformation requirements. You can develop a platform-agnostic API from this information.
 
-- Using an open-source solution may introduce risks due to long-term maintenance and support challenges with open-source software.
+- Using an open-source solution may introduce risks, due to long-term maintenance and support challenges with open-source software.
 
-- Monitoring is limited in the free Serverless Framework, primarily in the administrative dashboard. However, monitoring is typically available in the paid enterprise offering. Currently, the Azure Functions Serverless Plugin doesn't include provisions for observability or monitoring, and would need modification to implement these functions.
+- In the free Serverless Framework, monitoring is limited primarily to the administrative dashboard. Monitoring is usually available in the paid enterprise offering. Currently, the Azure Functions Serverless Plugin doesn't include provisions for observability or monitoring, and would need modification to implement these capabilities.
 
-- Security concerns aren't included in this description of the solution, although they were present in the initial deployment. The security scheme used can vary based on the system designer's preference or tools. There are many possible security solutions available, some platform dependent, and this pattern should accommodate any reasonable solution. User authentication is the minimum security assumed.
+- This article doesn't describe security solutions, although the initial deployment included them. There are many possible security solutions, some platform dependent, and this pattern should accommodate any reasonable solution. User authentication is the minimum security assumed.
 
-- Metrics can be used to compare performance and costs between cloud platforms, enabling the customer to seamlessly optimize usage accordingly across cloud-platform and take advantage of special offerings by the cloud providers. Rich metrics gathering capability wasn't implemented in the early phases of this project.
+- This solution could use metrics to compare performance and costs between cloud platforms, enabling customers to seamlessly optimize usage accordingly across cloud platforms.
 
 ## Deploy the solution
 
-In a traditional *Blue-Green Deployment*, an application is developed and deployed to two separate but identical environments, blue and green, increasing availability and reducing risk. The blue environment is usually the production environment that normally handles live traffic, and the green environment is created as a fail-over deployment as needed. This is considered an *active-passive* configuration. Typically, the CI/CD pipeline automatically deploys both blue and green environments within the same cloud platform. However, this is only a partial solution.
+A traditional *Blue-Green Deployment* develops and deploys an app to two separate but identical environments, blue and green, increasing availability and reducing risk. The blue environment is usually the production environment that normally handles live traffic, and the green environment is a failover deployment as needed. Typically, the CI/CD pipeline automatically deploys both blue and green environments within the same cloud platform. This is considered an *active-passive* configuration, but is only a partial solution.
 
-In the multi-cloud situation, blue-green deployment is implemented in each of the cloud platforms. In the serverless case, this means that two duplicate sets of microservices are deployed for each cloud platform, one as the production environment and the other as the failover environment. This active-passive setup within each cloud platform reduces the risk that this platform will be down, increasing its availability, which translates to having both platforms up and enabling the multi-cloud active-active high availability.
+In the multi-cloud solution, blue-green deployment is implemented in both of the cloud platforms. In the serverless case, this means that two duplicate sets of microservices are deployed for each cloud platform, one as the production environment and the other as the failover environment. This active-passive setup within each cloud platform reduces the risk that this platform will be down, increasing its availability, which translates to having both platforms up, and enabling the multi-cloud active-active high availability.
 
 ![Active-active blue-green deployment](./media/active-active-blue-green-deployment.png)
 
-A secondary benefit of this type of blue-green deployment is that the fail-over deployment on each cloud platform can be used as a test environment for microservice updates for test and validation, prior to releasing them for use on the production deployment.
+A secondary benefit of blue-green deployment is using the failover deployment on each cloud platform as a test environment for microservice updates, before releasing them to the production deployment.
 
 ## Related resources
 
-- [One-pager](https://aka.ms/01_Multicloud_1Pager): Multi-Cloud Functions with Serverless Framework
-- [Reference Architecture](https://aka.ms/01_Multicloud_ReferenceArchitecture): Multi-Cloud Functions with Serverless Framework
-- [Sample Code](https://github.com/serverless/multicloud)
-- [Read Me](https://github.com/serverless/multicloud/blob/master/README.md)
+- [One-page version](https://aka.ms/01_Multicloud_1Pager) of this article
+- [Reference Architecture](https://aka.ms/01_Multicloud_ReferenceArchitecture) for this article
+- [Sample code](https://github.com/serverless/multicloud) and [README](https://github.com/serverless/multicloud/blob/master/README.md) for this implementation on GitHub
 - [Serverless Framework](https://serverless.com/)
