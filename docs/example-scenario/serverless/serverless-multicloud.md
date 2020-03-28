@@ -17,7 +17,7 @@ This article describes how the Microsoft Commercial Software Engineering (CSE) t
 
 *Serverless computing* abstracts app code from infrastructure implementation, code deployment, and operational aspects like planning and maintenance. Typically, each cloud provider has its own serverless computing implementation, and it's difficult for customers to use another vendor without considerable operational impact and costs. Potential customers may view this situation as weakening their bargaining position and agility. Vendor lock-in is one of the greatest obstacles to enterprise cloud adoption. 
 
-The *Serverless Framework* is a universal cloud interface for deploying serverless computing solutions across cloud providers. The Framework addresses the problems of vendor lock-in and cross-cloud provider redundancy by providing common tools for developing and deploying serverless functions.
+The *Serverless Framework* provides a universal cloud interface for deploying serverless computing solutions across cloud providers. The Framework addresses the problems of vendor lock-in and cross-cloud provider redundancy by providing common tools for developing and deploying serverless functions.
 
 Serverless Framework code is open-sourced, which helps Microsoft teams and the customer and partner community to build cross-cloud provider solutions. Open-sourcing reduces barriers to cloud adoption, and opens the door to using best-of-breed services like Cognitive Services across cloud providers. Customers can optimize their solutions based on cost, agility, and other considerations. 
 
@@ -28,7 +28,7 @@ This design also provides *active-active* failover between multiple cloud platfo
 This project had the following technical goals:
 
 - Create a cross-industry solution.
-- Use the Multicloud Serverless Library to support a common API for users to interface with microservices wherever they are deployed.
+- Use the Multicloud Serverless Library to support a cloud-agnostic API for users to interface with microservices wherever they are deployed.
 - Use API-based access via an authenticated cloud gateway, and load balance between cloud platforms by using the gateway as a router.
 - Support a GitOps CI/CD process workflow for development, testing, and deployment on all supported cloud platforms.
 
@@ -47,22 +47,22 @@ Benefits of using the Serverless Framework to deploy microservice apps to multip
 
 ## Potential use cases
 
-- Deploy a collection of functional microservices in a serverless framework on multiple cloud platforms. 
-- Write client-side applications for multiple platforms by using the same cloud-agnostic API from the Multicloud Library.
+- Deploy a collection of functional microservices in a serverless framework to multiple cloud platforms. 
+- Write client-side applications for multiple platforms by using a cloud-agnostic API from the Serverless Multicloud Library.
 
 ## Architecture
 
 ![Multi-cloud serverless architecture](./media/multi-cloud-serverless-architecture.png)
 
-1. The user app can come from any source capable of logging into the cloud. In this implementation, the user logs into a gateway app that load balances requests 50-50 between the Azure and AWS clouds.
-1. Any response also routes through the API Manager gateway, which then sends the response to the requestor user app. 
+- The user app can come from any source capable of logging into the cloud. In this implementation, the user logs into a gateway app that load balances requests 50-50 between the Azure and AWS clouds.
+- Any response also routes through the API Manager gateway, which then sends the response to the requestor user app. 
 
 The following figure shows the processing pipeline. The middleware layers represent any intermediate functionality needed before reaching the handler.
 
 ![Multi-cloud processing pipeline](./media/multi-cloud-processing-pipeline.png)
 
 ### The Serverless Framework
-Serverless technology is a fundamental requirement for an approach that uses microservices. This solution uses the Serverless Framework, available from [Serverless, Inc](https://serverless.com/). The free version of the Serverless Framework includes a CLI, additional plugins, and limited monitoring services. The Pro edition features operational capabilities across clouds, such as enhanced monitoring and alerts. The framework supports Node.js and Python languages, and both AWS and Azure cloud hosts.
+This solution uses the Serverless Framework, available from [Serverless, Inc](https://serverless.com/). The free version of the Serverless Framework includes a CLI, additional plugins, and limited monitoring services. The Pro edition features operational capabilities across clouds, such as enhanced monitoring and alerts. The framework supports Node.js and Python languages, and both AWS and Azure cloud hosts.
 
 To use Azure with the Serverless Framework, you need:
 
@@ -88,7 +88,7 @@ Although this initial project used manual deployments, it's realistic to impleme
 
 ### API manager
 
-The API Manager can be an existing or custom application. The Apigee&trade; API Manager in this implementation only acted as a router to provide a 50-50 transaction load balance to the two cloud platforms, and was underutilized for its capabilities. 
+The API Manager can be an existing or custom application. The Apigee&trade; API Manager in this implementation acted only as a router to provide a 50-50 transaction load balance to the two cloud platforms, and was underutilized for its capabilities. 
 
 The API Manager must be able to:
 
@@ -123,7 +123,7 @@ The API Manager must be able to:
 
 A traditional *Blue-Green Deployment* develops and deploys an app to two separate but identical environments, blue and green, increasing availability and reducing risk. The blue environment is usually the production environment that normally handles live traffic, and the green environment is a failover deployment as needed. Typically, the CI/CD pipeline automatically deploys both blue and green environments within the same cloud platform. This configuration is considered an *active-passive* configuration, but is only a partial solution.
 
-In the multi-cloud solution, blue-green deployment is implemented in both of the cloud platforms. In the serverless case, two duplicate sets of microservices are deployed for each cloud platform, one as the production environment and the other as the failover environment. This active-passive setup within each cloud platform reduces the risk that this platform will be down, increasing its availability, and enabling the multi-cloud active-active high availability.
+In the multi-cloud solution, blue-green deployment is implemented in both cloud platforms. In the serverless case, two duplicate sets of microservices are deployed for each cloud platform, one as the production environment and the other as the failover environment. This active-passive setup within each cloud platform reduces the risk that this platform will be down, increasing its availability, and enabling multi-cloud active-active high availability.
 
 ![Active-active blue-green deployment](./media/active-active-blue-green-deployment.png)
 
