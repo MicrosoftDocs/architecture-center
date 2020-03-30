@@ -9,7 +9,7 @@ ms.service: architecture-center
 ms.subservice: solution-idea
 ---
 
-# Medical Data Storage Solutions
+# HIPPA, HITRUST compliant health data AI
 
 [!INCLUDE [header_file](../header.md)]
 
