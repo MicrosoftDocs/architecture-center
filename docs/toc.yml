@@ -694,7 +694,7 @@ items:
       - href: solution-ideas/articles/extract-transform-and-load-using-hdinsight.md
         name: Extract, transform, and load (ETL) using HDInsight
       - href: solution-ideas/articles/security-compliance-blueprint-hippa-hitrust-health-data-ai.md
-        name: Medical Data Storage Solutions
+        name: Compliant health data AI
       - href: solution-ideas/articles/medical-data-storage.md
         name: Medical Data Storage Solutions
       - href: solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure.md
