@@ -11,7 +11,7 @@ ms.custom:
     - fcp
     - cse
 ---
-# Multicloud solutions with Serverless Framework
+# Serverless Framework multicloud solutions
 
 This article describes how the Microsoft Commercial Software Engineering (CSE) team partnered with a global retailer to deploy a highly-available serverless solution across both Azure and Amazon Web Services (AWS) cloud platforms, using the [Serverless Framework](https://serverless.com). 
 
