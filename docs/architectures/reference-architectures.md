@@ -8,9 +8,14 @@ ms.topic: landing-page
 ---
 
 # Reference Architectures
+
+<!-- markdownlint-disable MD033 -->
+
 <a class="button is-primary" href="/azure/architecture/architectures/reference-architectures">Reference Architectures</a>
 <a class="button" href="/azure/architecture/architectures/example-workloads">Example Workloads</a>
 <a class="button" href="/azure/architecture/architectures/index">Solution Ideas</a>
+
+<!-- markdownlint-enable MD033 -->
 
 Recommended architectures for Azure.
 
@@ -43,7 +48,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://archcenter.blob.core.windows.net/cdn/hybrid-network-hub-spoke.vsdx">Visio Diagram</a></li>
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -98,7 +103,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://archcenter.blob.core.windows.net/cdn/aks-reference-architecture.vsdx">Visio Diagram</a></li>
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/aad-pod-identity"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/aad-pod-identity"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -127,7 +132,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx">Visio Diagram</a></li>
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/identity-reference-architectures/tree/master/azure-ad"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/identity-reference-architectures/tree/master/azure-ad"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -182,7 +187,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://archcenter.blob.core.windows.net/cdn/dmz-reference-architectures.vsdx">Visio Diagram</a></li>
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -211,7 +216,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx">Visio Diagram</a></li>
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/reference-architectures/tree/master/managed-web-app/basic-web-app/Paas-Basic/Templates"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/reference-architectures/tree/master/managed-web-app/basic-web-app/Paas-Basic/Templates"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -293,7 +298,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/iot-guidance"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/iot-guidance"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -322,7 +327,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://archcenter.blob.core.windows.net/cdn/hybrid-network-hub-spoke.vsdx">Visio Diagram</a></li>
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -350,7 +355,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/citypopulation/%5BIntegration%5D.%5BMigrateExternalCityPopulationData%5D.sql"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/citypopulation/%5BIntegration%5D.%5BMigrateExternalCityPopulationData%5D.sql"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -379,7 +384,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx">Visio Diagram</a></li>
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/identity-reference-architectures"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/identity-reference-architectures"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -407,7 +412,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -436,7 +441,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx">Visio Diagram</a></li>
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/reference-architectures/blob/master/hybrid-networking/vpn/README.md"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/reference-architectures/blob/master/hybrid-networking/vpn/README.md"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -465,7 +470,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx">Visio Diagram</a></li>
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/reference-architectures/tree/master/web-app"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/reference-architectures/tree/master/web-app"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -493,7 +498,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0-update"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0-update"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/reference-architectures/serverless/web-app#protect-application-secrets">Alternate Configurations</a></li>
                             </ul>
                         </div>
@@ -522,7 +527,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/ha-nva"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/ha-nva"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -578,7 +583,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute%2Fazuredeploy.json">Deploy to Azure</a></li>
                                 <li class="tag is-small"><a class="black-link" href="https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx">Visio Diagram</a></li>
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -607,7 +612,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx">Visio Diagram</a></li>
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-windows"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-windows"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -636,7 +641,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx">Visio Diagram</a></li>
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/identity-reference-architectures"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/identity-reference-architectures"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -664,7 +669,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/App-vNext/Polly"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/App-vNext/Polly"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -779,7 +784,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/azure-databricks-streaming-analytics"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/azure-databricks-streaming-analytics"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -807,7 +812,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/deployment.md"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/deployment.md"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -890,7 +895,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://archcenter.blob.core.windows.net/cdn/conversational-bot.vsdx">Visio Diagram</a></li>
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/microsoft/botbuilder-dotnet"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/microsoft/botbuilder-dotnet"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/reference-architectures/ai/conversational-bot#user-message-flow">Data Flow</a></li>
                             </ul>
                         </div>
@@ -919,7 +924,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Microsoft/Recommenders/blob/master/notebooks/05_operationalize/als_movie_o16n.ipynb"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Microsoft/Recommenders/blob/master/notebooks/05_operationalize/als_movie_o16n.ipynb"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -947,7 +952,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/azure-stream-analytics-data-pipeline"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/azure-stream-analytics-data-pipeline"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -975,7 +980,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1004,7 +1009,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx">Visio Diagram</a></li>
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/identity-reference-architectures"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/identity-reference-architectures"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1144,7 +1149,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Microsoft/MLHyperparameterTuning"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Microsoft/MLHyperparameterTuning"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1172,7 +1177,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/BatchSparkScoringPredictiveMaintenance"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/BatchSparkScoringPredictiveMaintenance"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1200,7 +1205,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/microsoft/MLOpsPython/blob/master/code/scoring/score.py"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/microsoft/MLOpsPython/blob/master/code/scoring/score.py"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1229,7 +1234,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx">Visio Diagram</a></li>
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-linux"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-linux"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1257,7 +1262,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/msalvaris/BatchAIHorovodBenchmark"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/msalvaris/BatchAIHorovodBenchmark"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1285,7 +1290,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Microsoft/AMLBatchScoringPipeline/blob/master/01_create_resources.ipynb"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Microsoft/AMLBatchScoringPipeline/blob/master/01_create_resources.ipynb"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1313,7 +1318,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Microsoft/MLAKSDeployAML"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Microsoft/MLAKSDeployAML"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1341,7 +1346,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/Batch-Scoring-Deep-Learning-Models-With-AML"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/Batch-Scoring-Deep-Learning-Models-With-AML"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1370,7 +1375,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://archcenter.blob.core.windows.net/cdn/Sharepoint-2016.vsdx">Visio Diagram</a></li>
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/reference-architectures"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/reference-architectures"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1424,7 +1429,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/doAzureParallel/blob/master/docs/32-autoscale.md"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/doAzureParallel/blob/master/docs/32-autoscale.md"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1452,7 +1457,7 @@ Each architecture includes best practices, prescriptive steps, and a deployable 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/microsoft/AMLSDKRModelsOperationalization"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/microsoft/AMLSDKRModelsOperationalization"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>

@@ -3,7 +3,7 @@ title: DevTest Image Factory
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
-description: Create, maintain, and distribute custom images with the DevTest Image Factory, an automated image development and management solution from Azure Dev Test Labs.
+description: Create, maintain, and distribute custom images with the DevTest Image Factory, an automated image development and management solution from Azure DevTest Labs.
 ms.custom: acom-architecture, Azure DevTest Image Factory, devops, Image Management Solutions, Create Custom Image, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/dev-test-image-factory/'
 ms.service: architecture-center
 ms.subservice: solution-idea
@@ -13,7 +13,7 @@ ms.subservice: solution-idea
 
 [!INCLUDE [header_file](../header.md)]
 
-The image factory provides a great way for organizations to create, maintain, and distribute custom images with Azure Dev Test Labs. Whether you have globally distributed teams that need to work with a common set of custom images, need to centrally manage the configuration of images to ensure they meet regulatory compliance and security requirements, or complex software setup and configuration requirements, the image factory provides an automated solution to manage it
+The image factory provides a great way for organizations to create, maintain, and distribute custom images with Azure DevTest Labs. Whether you have globally distributed teams that need to work with a common set of custom images, need to centrally manage the configuration of images to ensure they meet regulatory compliance and security requirements, or complex software setup and configuration requirements, the image factory provides an automated solution to manage it
 
 ## Architecture
 
@@ -22,7 +22,7 @@ The image factory provides a great way for organizations to create, maintain, an
 ## Data Flow
 
 1. With config as code, define the images to push and select which labs will receive the image.
-1. IT admin checks into source code control of choice (such as Visual Studio Team Services or Github + Jenkins).
+1. IT admin checks into source code control of choice (such as Visual Studio Team Services or GitHub + Jenkins).
 1. Orchestrator triggers "golden image" creation based on configuration in source code control that goes to the image factory.
 1. Image factory lab receives commands to create virtual machines (VMs) and custom images.
 1. Specified images copied from image factory lab to team labs.

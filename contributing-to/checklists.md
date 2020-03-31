@@ -11,7 +11,7 @@ An item in a checklist should include these elements:
 
 ## Example
 
-``` markdown
+```markdown
 ### Ensure that all checklist items are consistent
 
 A consistent structure helps readers better navigate the guidance. By applying these rules to all checklist items we maintain a higher level of quality. The standard structure makes it easier for others to contribute.

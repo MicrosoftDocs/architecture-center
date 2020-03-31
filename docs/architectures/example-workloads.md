@@ -8,13 +8,19 @@ ms.topic: landing-page
 ---
 
 # Example Workloads
+
+<!-- markdownlint-disable MD033 -->
+
 <a class="button" href="reference-architectures">Reference Architectures</a>
 <a class="button is-primary" href="example-workloads">Example Workloads</a>
 <a class="button" href="index">Solution Ideas</a>
 
+<!-- markdownlint-enable MD033 -->
+
 Workload examples covering the implementation of specific business or technical challenges using Azure
 
 <!-- markdownlint-disable MD033 -->
+
 <div id="">
     <div class="">
         <ul class="grid">
@@ -71,7 +77,7 @@ Workload examples covering the implementation of specific business or technical 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fhpc%2Fbatchcreatewithpools.json">Deploy to Azure</a></li>
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/azurebigcompute/BigComputeLabs/tree/master/Azure%20Batch%20Masterclass%20Labs"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/azurebigcompute/BigComputeLabs/tree/master/Azure%20Batch%20Masterclass%20Labs"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/infrastructure/video-rendering#components">Component details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/infrastructure/video-rendering#pricing">Pricing Details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/infrastructure/video-rendering#alternatives">Alternate Configurations</a></li>
@@ -281,7 +287,7 @@ Workload examples covering the implementation of specific business or technical 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/fta-customerfacingapps/tree/master/ecommerce/articles"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/fta-customerfacingapps/tree/master/ecommerce/articles"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/apps/ecommerce-scenario#components">Component details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/apps/ecommerce-scenario#pricing">Pricing Details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/apps/ecommerce-scenario#alternatives">Alternate Configurations</a></li>
@@ -312,7 +318,7 @@ Workload examples covering the implementation of specific business or technical 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/vitoc/creditscoreblockchain"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/vitoc/creditscoreblockchain"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/apps/decentralized-trust#components">Component details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/apps/decentralized-trust#pricing">Pricing Details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/apps/decentralized-trust#alternatives">Alternate Configurations</a></li>
@@ -403,7 +409,7 @@ Workload examples covering the implementation of specific business or technical 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/fta-internalbusinessapps/blob/master/appmodernization/app-service-environment/ase-walkthrough.md"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/fta-internalbusinessapps/blob/master/appmodernization/app-service-environment/ase-walkthrough.md"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/apps/fully-managed-secure-apps#components">Component details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/apps/fully-managed-secure-apps#pricing">Pricing Details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/apps/fully-managed-secure-apps#alternatives">Alternate Configurations</a></li>
@@ -465,7 +471,7 @@ Workload examples covering the implementation of specific business or technical 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://archcenter.blob.core.windows.net/cdn/Jenkins-architecture.vsdx">Visio Diagram</a></li>
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/jenkins/tree/master/disaster_recovery"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/jenkins/tree/master/disaster_recovery"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -493,7 +499,7 @@ Workload examples covering the implementation of specific business or technical 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/ssarwa/API-Management-ASE-AppGateway"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/ssarwa/API-Management-ASE-AppGateway"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/apps/publish-internal-apis-externally#components">Component details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/apps/publish-internal-apis-externally#pricing">Pricing Details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/apps/publish-internal-apis-externally#alternatives">Alternate Configurations</a></li>
@@ -525,7 +531,7 @@ Workload examples covering the implementation of specific business or technical 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fcommerce-chatbot.json">Deploy to Azure</a></li>
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Microsoft/AzureBotServices-scenarios/tree/master/CSharp/Commerce/src"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Microsoft/AzureBotServices-scenarios/tree/master/CSharp/Commerce/src"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/ai/commerce-chatbot#components">Component details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/ai/commerce-chatbot#pricing">Pricing Details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/ai/commerce-chatbot#alternatives">Alternate Configurations</a></li>
@@ -616,7 +622,7 @@ Workload examples covering the implementation of specific business or technical 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/paulomarquesc/beegfs-template"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/paulomarquesc/beegfs-template"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/infrastructure/image-modeling#components">Component details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/infrastructure/image-modeling#pricing">Pricing Details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/infrastructure/image-modeling#alternatives">Alternate Configurations</a></li>
@@ -648,7 +654,7 @@ Workload examples covering the implementation of specific business or technical 
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
                                 <li class="tag is-small"><a class="black-link" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FCycleCloudCommunity%2Fcyclecloud_arm%2Fmaster%2Fazuredeploy.json">Deploy to Azure</a></li>
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/Avere/blob/master/README.md"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/Avere/blob/master/README.md"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/infrastructure/hpc-cfd#components">Component details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/infrastructure/hpc-cfd#pricing">Pricing Details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/infrastructure/hpc-cfd#alternatives">Alternate Configurations</a></li>
@@ -679,7 +685,7 @@ Workload examples covering the implementation of specific business or technical 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/MicrosoftDocs/azure-docs/edit/master/articles/storage/files/storage-sync-files-planning.md"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/MicrosoftDocs/azure-docs/edit/master/articles/storage/files/storage-sync-files-planning.md"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/infrastructure/linux-vdi-citrix#components">Component details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/infrastructure/linux-vdi-citrix#pricing">Pricing Details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/infrastructure/linux-vdi-citrix#alternatives">Alternate Configurations</a></li>
@@ -770,7 +776,7 @@ Workload examples covering the implementation of specific business or technical 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/fta-customerfacingapps/tree/master/ecommerce/articles"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/fta-customerfacingapps/tree/master/ecommerce/articles"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/apps/ecommerce-search#components">Component details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/apps/ecommerce-search#pricing">Pricing Details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/apps/ecommerce-search#alternatives">Alternate Configurations</a></li>
@@ -891,7 +897,7 @@ Workload examples covering the implementation of specific business or technical 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Microsoft/Recommenders"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Microsoft/Recommenders"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/ai/movie-recommendations#components">Component details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/ai/movie-recommendations#alternatives">Alternate Configurations</a></li>
                             </ul>
@@ -921,7 +927,7 @@ Workload examples covering the implementation of specific business or technical 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cognitive-services"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cognitive-services"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/ai/newsfeed-ingestion#components">Component details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/ai/newsfeed-ingestion#pricing">Pricing Details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/ai/newsfeed-ingestion#alternatives">Alternate Configurations</a></li>
@@ -952,7 +958,7 @@ Workload examples covering the implementation of specific business or technical 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/solution-architectures/tree/master/signalr"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/mspnp/solution-architectures/tree/master/signalr"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/signalr#components">Component details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/signalr#pricing-this-scenario">Pricing Details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/signalr#alternatives">Alternate Configurations</a></li>
@@ -983,7 +989,7 @@ Workload examples covering the implementation of specific business or technical 
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Microsoft/Recommenders/blob/master/SETUP.md#setup-guide-for-azure-databricks"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Microsoft/Recommenders/blob/master/SETUP.md#setup-guide-for-azure-databricks"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/ai/scalable-personalization#components">Component details</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/example-scenario/ai/scalable-personalization#pricing">Pricing Details</a></li>
                             </ul>

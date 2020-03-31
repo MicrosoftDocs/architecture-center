@@ -167,7 +167,7 @@ The number of successful tests performed each second reaches a plateau, and addi
 
 Data access statistics and other information provided by a data store can give useful information, such as which queries are repeated most frequently. For example, in Microsoft SQL Server, the `sys.dm_exec_query_stats` management view has statistical information for recently executed queries. The text for each query is available in the `sys.dm_exec-query_plan` view. You can use a tool such as SQL Server Management Studio to run the following SQL query and determine how frequently queries are performed.
 
-```SQL
+```sql
 SELECT UseCounts, Text, Query_Plan
 FROM sys.dm_exec_cached_plans
 CROSS APPLY sys.dm_exec_sql_text(plan_handle)
@@ -180,7 +180,7 @@ The `UseCount` column in the results indicates how frequently each query is run.
 
 Here is the SQL query that is causing so many database requests:
 
-```SQL
+```sql
 (@p__linq__0 int)SELECT TOP (2)
 [Extent1].[BusinessEntityId] AS [BusinessEntityId],
 [Extent1].[FirstName] AS [FirstName],
