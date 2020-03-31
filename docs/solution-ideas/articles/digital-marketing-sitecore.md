@@ -29,7 +29,7 @@ This solution is built on the Azure managed services: [Azure SQL Database](https
 * An [Azure Cognitive Search](https://azure.microsoft.com/services/search) service used for quick look up of data. All Sitecore search indexes are stored in [Azure Cognitive Search](https://azure.microsoft.com/services/search) for quick look up and scalability.
 * [Azure Monitor](https://azure.microsoft.com/services/monitor) provides service health and performance monitoring, and diagnostics. [Azure Monitor](https://azure.microsoft.com/services/monitor) provides Sitecore with a solution for its health and performance monitoring needs.
 
-## Next Steps
+## Next steps
 
 * [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-dotnet)
 * [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started)

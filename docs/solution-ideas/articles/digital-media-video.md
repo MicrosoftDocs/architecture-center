@@ -149,7 +149,7 @@ This solution is built on the Azure managed services: [Blob Storage](https://azu
 * [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player): Uses industry standards, such as HTML5 (MSE/EME), to provide a rich adaptive streaming experience. Regardless of the playback technology used, developers have a unified JavaScript interface to access APIs.
 * [Multi-DRM content protection](https://azure.microsoft.com/services/media-services/content-protection): Delivers content securely using multi-DRM (PlayReady, Widevine, FairPlay Streaming) or AES clear key encryption
 
-## Next Steps
+## Next steps
 
 * [How to use Azure Blob storage](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs)
 * [How to encode an asset using Media Encoder](/api/Redirect/documentation/articles/media-services-dotnet-encode-with-media-encoder-standard)

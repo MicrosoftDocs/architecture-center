@@ -38,7 +38,7 @@ This templated risk analysis solution uses Azure HPC compute and GPU virtual mac
 * [Avere vFXT](https://azure.microsoft.com/services/storage/avere-vfxt): Faster, more accessible data storage for high-performance computing at the edge
 * [TIBCO GridServer](https://www.tibco.com/resources/datasheet/tibco-gridserver)&reg; is a market-leading infrastructure platform for grid and elastic computing—and the backbone of businesses operating in the world's most demanding markets. More than a million CPUs spread across a thousand global installations form enterprise grids managed by GridServer.
 
-## Next Steps
+## Next steps
 
 * [N-Series Virtual Machines Documentation](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)
 * [H-Series Virtual Machines Documentation](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc)

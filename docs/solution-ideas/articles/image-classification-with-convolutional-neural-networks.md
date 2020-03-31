@@ -124,7 +124,7 @@ Using this solution to automate failure detection instead of relying solely on h
 * Azure Machine Learning Model Management Service: Azure Machine Learning Model Management service is used to deploy and manage the final model on a VM and to scale out using Azure Kubernetes Service to a Kubernetes managed Azure cluster. A predictive web service and a Java ETL service are also written onto the VM, each in its own container.
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service): Deployment for this solution uses Azure Kubernetes Service running a Kubernetes-managed cluster. The containers are deployed from images stored in Azure Container Registry.
 
-## Next Steps
+## Next steps
 
 * [Learn more about Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 * [Learn more about Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=Overview)

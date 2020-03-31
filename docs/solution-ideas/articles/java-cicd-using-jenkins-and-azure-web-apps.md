@@ -38,7 +38,7 @@ Azure App Service is a fast and simple way to create web apps using Java, Node, 
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
 * [Azure DevOps](https://azure.microsoft.com/services/devops): Build and deploy multi-platform apps to get the most from Azure services
 
-## Next Steps
+## Next steps
 
 * [Set up continuous integration and deployment to Azure Web Apps with Jenkins](https://docs.microsoft.com/azure/jenkins/java-deploy-webapp-tutorial)
 * [Use the Azure Container Agents plug-in for Jenkins for dynamic build agents](https://docs.microsoft.com/azure/jenkins/azure-container-agents-plugin-run-container-as-an-agent)

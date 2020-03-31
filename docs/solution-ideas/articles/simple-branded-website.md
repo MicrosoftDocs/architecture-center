@@ -112,7 +112,7 @@ Quickly build and launch digital campaigns that automatically scale based on cus
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache): Power applications with high-throughput, low-latency data access
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
 
-## Next Steps
+## Next steps
 
 * [Deploy web apps with CMS using pre-built templates](https://azure.microsoft.com/resources/templates/?term=CMS)
 * [Build an ASP.NET app in Azure with SQL Database](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)

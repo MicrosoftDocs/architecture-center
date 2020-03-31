@@ -311,7 +311,7 @@ This HPC media rendering solution architecture shows Azure CycleCloud monitoring
 * [Avere vFXT](https://azure.microsoft.com/services/storage/avere-vfxt): Faster, more accessible data storage for high-performance computing at the edge
 * [Azure Batch](https://azure.microsoft.com/services/batch): Cloud-scale job scheduling and compute management
 
-## Next Steps
+## Next steps
 
 * [N-Series Virtual Machines Documentation](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)
 * [H-Series Virtual Machines Documentation](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc)

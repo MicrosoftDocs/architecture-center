@@ -38,7 +38,7 @@ Businesses and teams across industries have to spend time and money on design re
 * [Blob Storage](https://azure.microsoft.com/services/storage/blobs): REST-based object storage for unstructured data
 * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Globally distributed, multi-model database for any scale
 
-## Next Steps
+## Next steps
 
 * [Azure Active Directory documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 * [Blob Storage documentation](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows)

@@ -33,7 +33,7 @@ Azure with Azure Stack enables organizations to make technology placement decisi
 * [Azure Functions](https://azure.microsoft.com/services/functions): Process events with serverless code
 * [Azure Stack](https://azure.microsoft.com/overview/azure-stack): Build and run innovative hybrid applications across cloud boundaries
 
-## Next Steps
+## Next steps
 
 * [Virtual Network documentation](https://docs.microsoft.com/azure/virtual-network)
 * [VPN Gateway documentation](https://docs.microsoft.com/azure/vpn-gateway)

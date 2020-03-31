@@ -35,7 +35,7 @@ Easily tier data and applications on-premises and in Azure with architecture tha
 * [Azure Functions](https://azure.microsoft.com/services/functions): Process events with serverless code
 * [Azure Stack](https://azure.microsoft.com/overview/azure-stack): Build and run innovative hybrid applications across cloud boundaries
 
-## Next Steps
+## Next steps
 
 * [Storage documentation](https://docs.microsoft.com/azure/storage)
 * [Azure Functions documentation](https://docs.microsoft.com/azure/azure-functions)

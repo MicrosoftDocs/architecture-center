@@ -182,7 +182,7 @@ This solution is built on the Azure managed services: [Media Services](https://a
 * [Preview monitoring](/api/Redirect/documentation/articles/web-sites-monitor): Provides the ability to preview and validate a live stream before further processing and delivery.
 * [Multi-DRM content protection](https://azure.microsoft.com/services/media-services/content-protection): Delivers content securely using multi-DRM (PlayReady, Widevine, FairPlay Streaming) or AES clear key encryption.
 
-## Next Steps
+## Next steps
 
 * [Overview of live encoder](/api/Redirect/documentation/articles/media-services-live-encoders-overview)
 * [How to use Azure Blob storage](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs)

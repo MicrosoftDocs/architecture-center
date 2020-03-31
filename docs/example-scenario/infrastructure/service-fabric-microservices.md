@@ -87,7 +87,7 @@ Other less costly components of cost are the storage charges for each node's vir
 
 To get an idea of cost, we have created an example using some default values for cluster size, networking, and storage: Take a look at the [pricing calculator](https://azure.com/e/52dea096e5844d5495a7b22a9b2ccdde). Feel free to update the values in this default calculator to those relevant to your situation.
 
-## Next Steps
+## Next steps
 
 Take some time to familiarize yourself with the platform by going through the [documentation](/azure/service-fabric/service-fabric-overview) and reviewing the many different [application scenarios](/azure/service-fabric/service-fabric-application-scenarios) for Service Fabric. The documentation will tell you what a cluster consists of, what it can run on, software architecture, and maintenance for it.
 

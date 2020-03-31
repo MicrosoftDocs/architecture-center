@@ -136,7 +136,7 @@ The links to the right provide documentation on deploying and managing the Azure
 * [Blob Storage](https://azure.microsoft.com/services/storage/blobs): Cold storage of device data.
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Used for authentication and authorization of the system.
 
-## Next Steps
+## Next steps
 
 * [IoT Hub Documentation](https://docs.microsoft.com/azure/iot-hub)
 * [Cosmos DB Documentation](https://docs.microsoft.com/azure/cosmos-db)

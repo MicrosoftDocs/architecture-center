@@ -167,7 +167,7 @@ Use the following pre-built template to deploy this architecture to Azure
 * Application Insights: Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle.
 * Store session state and output cache on [Azure Cache for Redis](https://azure.microsoft.com/services/cache) to improve performance and reduce the load on your web front ends.
 
-## Next Steps
+## Next steps
 
 * [Create a web app from the Azure Marketplace](/api/Redirect/documentation/articles/app-service-web-create-web-app-from-marketplace)
 * [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/api/Redirect/documentation/articles/sql-database-get-started)

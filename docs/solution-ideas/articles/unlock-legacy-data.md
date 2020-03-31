@@ -31,7 +31,7 @@ Use Azure Stack to update and extend your legacy application data with the lates
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network): Provision private networks, optionally connect to on-premises datacenters
 * [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway): Establish secure, cross-premises connectivity
 
-## Next Steps
+## Next steps
 
 * [Virtual Network documentation](https://azure.microsoft.com/services/virtual-network)
 * [VPN Gateway documentation](https://azure.microsoft.com/services/vpn-gateway)

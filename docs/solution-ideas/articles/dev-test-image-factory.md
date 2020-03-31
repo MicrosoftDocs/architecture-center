@@ -34,7 +34,7 @@ The image factory provides a great way for organizations to create, maintain, an
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Provision Windows and Linux virtual machines in seconds
 * [Azure DevOps](https://azure.microsoft.com/services/devops): Services for teams to share code, track work, and ship software
 
-## Next Steps
+## Next steps
 
 * [Azure Lab Services documentation](https://docs.microsoft.com/azure/lab-services)
 * [Virtual Machines documentation](https://docs.microsoft.com/azure/virtual-machines)

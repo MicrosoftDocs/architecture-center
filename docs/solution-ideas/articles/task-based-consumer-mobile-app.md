@@ -58,7 +58,7 @@ The links to the right provide documentation on deploying and managing the Azure
 * [Offline sync](https://docs.microsoft.com/azure/app-service-mobile/app-service-mobile-offline-data-sync): Use the offline data sync feature of the Azure Mobile App client SDKs to create responsive and robust apps that remain useful even when there are network issues.
 * [Identity Provider](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview): Use App Service authentication/authorization to integrate with a social or enterprise identity provider.
 
-## Next Steps
+## Next steps
 
 * [Visual Studio Documentation](https://docs.microsoft.com/visualstudio)
 * [Xamarin Documentation](https://docs.microsoft.com/xamarin)

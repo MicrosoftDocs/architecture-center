@@ -298,7 +298,7 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 * [Service Fabric](https://azure.microsoft.com/services/service-fabric) orchestrates all of the microservices used in the solution. In development, code is deployed directly from the development tools, while in test and production environments the code is deployed through the build and release agent using Resource Manager templates.
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database) maintains data for the website. Copies are deployed in the dev, test, and production environments.
 
-## Next Steps
+## Next steps
 
 * [Set up AzureDevOps](https://www.visualstudio.com/docs/setup-admin/get-started)
 * [Configure Microsoft Release Management agents](https://www.visualstudio.com/docs/release/getting-started/configure-agents)

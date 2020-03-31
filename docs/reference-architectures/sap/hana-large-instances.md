@@ -10,6 +10,8 @@ ms.subservice: reference-architecture
 ms.custom: seodec18, SAP
 ---
 
+<!-- cSpell:ignore lbrader -->
+
 # Run SAP HANA on Azure Large Instances
 
 This reference architecture shows a set of proven practices for running SAP HANA on Azure (Large Instances) with high availability and disaster recovery (DR). Called HANA Large Instances, this offering is deployed on physical servers in Azure regions.

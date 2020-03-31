@@ -78,7 +78,7 @@ This architecture enables efficient handling of big data on Spark with Microsoft
 * [Storage Accounts](https://azure.microsoft.com/services/storage): Azure Storage stores campaign and lead data.
 * [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
 
-## Next Steps
+## Next steps
 
 * [Learn more about Spark on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)

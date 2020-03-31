@@ -45,7 +45,7 @@ This solution provides a small scale deployment of SharePoint using a single Azu
 * [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute): Dedicated private network fiber connections to Azure
 * [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway): Establish secure, cross-premises connectivity
 
-## Next Steps
+## Next steps
 
 * [Azure Resource Group Documentation](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
 * [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)

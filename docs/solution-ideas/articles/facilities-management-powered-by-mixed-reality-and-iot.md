@@ -40,7 +40,7 @@ Improve uptime and operations in hospitality, manufacturing, retail, and more wi
 * [Event Hubs](https://azure.microsoft.com/services/event-hubs): Receive telemetry from millions of devices
 * [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins): Build next-generation IoT spatial intelligence solutions
 
-## Next Steps
+## Next steps
 
 * [Share Spatial Anchors across devices](https://docs.microsoft.com/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices)
 * [Create a new tenant in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)

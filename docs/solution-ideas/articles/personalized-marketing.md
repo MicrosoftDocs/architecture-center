@@ -283,7 +283,7 @@ By personalizing your offers, you'll deliver an individualized experience for ev
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache) stores pre-computed cold-start product affinity scores for users without history.
 * [Power BI](https://powerbi.microsoft.com) Visualizes user activity data as well as offers presented by reading in data from Cosmos DB.
 
-## Next Steps
+## Next steps
 
 * [Learn more about Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
 * [Learn more about Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction)

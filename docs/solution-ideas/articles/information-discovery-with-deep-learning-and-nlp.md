@@ -110,7 +110,7 @@ By combining deep learning and natural language processing (NLP) with data on si
 * Azure Container Registry: The Model Management Service creates and packages real-time web services as Docker containers. These containers are uploaded and registered via Azure Container Registry.
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service): Deployment for this solution uses Azure Kubernetes Service running a Kubernetes-managed cluster. The containers are deployed from images stored in Azure Container Registry.
 
-## Next Steps
+## Next steps
 
 * [Learn more about Microsoft SQL Server](https://www.microsoft.com/sql-server/sql-server-2017)
 * [Learn more about Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=Overview)

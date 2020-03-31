@@ -110,7 +110,7 @@ This solution is built on the Azure managed services: [Azure Backup](https://azu
 * [Azure Backup](https://azure.microsoft.com/services/backup) service runs on the cloud and holds the recovery points, enforces policies, and enables you to manage data and application protection. You don’t need to create or manage an Azure Blob storage account when using [Azure Backup](https://azure.microsoft.com/services/backup).
 * [Blob Storage](https://azure.microsoft.com/services/storage/blobs): Blob storage that partner solutions such as Commvault connect to for backing up data and applications. You need to create and manage Azure Blob storage when using partner solutions.
 
-## Next Steps
+## Next steps
 
 * [Back up files and folders using Azure Backup](/api/Redirect/documentation/articles/backup-try-azure-backup-in-10-mins)
 * [Store backed up files in Blob storage](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs)

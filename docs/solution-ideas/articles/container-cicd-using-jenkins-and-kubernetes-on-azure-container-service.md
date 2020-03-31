@@ -41,7 +41,7 @@ By setting up a continuous build to produce your container images and orchestrat
 * [Azure Monitor](https://azure.microsoft.com/services/monitor): Highly granular and real-time monitoring data for any Azure resource.
 * [Visual Studio Code](https://azure.microsoft.com/products/visual-studio): Build and deploy multi-platform apps to get the most from Azure services.
 
-## Next Steps
+## Next steps
 
 * [Integrating Jenkins with Azure Container Service and Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-jenkins)
 * [Pushing Docker images to Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli)

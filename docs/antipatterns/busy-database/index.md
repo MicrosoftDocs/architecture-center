@@ -10,6 +10,8 @@ ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
+<!-- cspell:ignore DTUs -->
+
 # Busy Database antipattern
 
 Offloading processing to a database server can cause it to spend a significant proportion of time running code, rather than responding to requests to store and retrieve data.

@@ -38,7 +38,7 @@ This SAP S/4HANA on Azure VM solution architecture illustrates how a user reques
 * Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute) used on the front end (see diagram) provides a high bandwidth secure connectivity to establish reliable connections between your network and the Microsoft Azure network.
 * Azure [Virtual Network](https://azure.microsoft.com/services/virtual-network)s provide the flexibility and security needed to establish reliable connections between your network and the Microsoft Azure network.
 
-## Next Steps
+## Next steps
 
 * [SAP Certifications for Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
 * [Premium Storage: high-performance storage for Azure Virtual Machine workloads](https://docs.microsoft.com/azure/storage/storage-premium-storage)

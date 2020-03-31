@@ -171,7 +171,7 @@ ms.subservice: solution-idea
 * [Azure Functions](https://azure.microsoft.com/services/functions): Process events with serverless code
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
 
-## Next Steps
+## Next steps
 
 * [Get started easily with Web Apps using the five-minute quick starts](https://docs.microsoft.com/azure/app-service)
 * [Build an ASP.NET app in Azure with SQL Database](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)

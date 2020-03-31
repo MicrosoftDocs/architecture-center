@@ -33,7 +33,7 @@ ms.subservice: solution-idea
 * [Power BI](https://powerbi.microsoft.com): Interactive data visualization BI tools
 * [Storage Accounts](https://azure.microsoft.com/services/storage): Durable, highly available, and massively scalable cloud storage
 
-## Next Steps
+## Next steps
 
 * [Service Bus Documentation](https://docs.microsoft.com/azure/service-bus)
 * [Azure Databricks Documentation](https://docs.microsoft.com/azure/azure-databricks)

@@ -23,7 +23,7 @@ Resource-intensive tasks can increase the response times for user requests and c
 
 This problem typically occurs when an application is developed as monolithic piece of code, with all of the business logic combined into a single tier shared with the presentation layer.
 
-Here’s an example using ASP.NET that demonstrates the problem. You can find the complete sample [here][code-sample].
+Here's an example using ASP.NET that demonstrates the problem. You can find the complete sample [here][code-sample].
 
 ```csharp
 public class WorkInFrontEndController : ApiController

@@ -47,7 +47,7 @@ This solution provides a highly available deployment of SharePoint using a load 
 * Active Directory Federation Services: Synchronize on-premises directories and enable single sign-on
 * Hybrid Workloads: Scales between on-premises environments and the cloud
 
-## Next Steps
+## Next steps
 
 * [Azure Resource Group Documentation](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
 * [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)

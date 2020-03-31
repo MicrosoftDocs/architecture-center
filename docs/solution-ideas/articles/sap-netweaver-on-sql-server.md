@@ -36,7 +36,7 @@ This NetWeaver on SQL Server application solution illustrates how a user request
 * Information on [Virtual Machines](https://azure.microsoft.com/services/virtual-machines) for SAP application servers.
 * Microsoft Azure [Premium Storage](https://azure.microsoft.com/services/storage/disks) provides improved throughput and less variability in I/O latencies. For improved performance, [Premium Storage](https://azure.microsoft.com/services/storage/disks) uses solid state disk (SSD) in Azure Storage nodes, and read cache that's backed by the local SSD of an Azure compute node.
 
-## Next Steps
+## Next steps
 
 * [SAP Certifications for Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
 * [Premium Storage: high-performance storage for Azure Virtual Machine workloads](https://docs.microsoft.com/azure/storage/storage-premium-storage)

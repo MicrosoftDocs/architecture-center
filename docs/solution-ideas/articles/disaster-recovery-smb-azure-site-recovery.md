@@ -190,7 +190,7 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network): The virtual network is where the failover site will be created when a disaster occurs.
 * [Blob storage](https://azure.microsoft.com/services/storage/blobs) stores the replica images of all machines that are protected by Site Recovery.
 
-## Next Steps
+## Next steps
 
 * [Configure Failover routing method](/api/Redirect/documentation/articles/traffic-manager-configure-failover-routing-method)
 * [How does Azure Site Recovery work?](/api/Redirect/documentation/articles/site-recovery-components)

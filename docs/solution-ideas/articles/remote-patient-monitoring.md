@@ -41,7 +41,7 @@ Predict and prevent future incidents by combining IoT and intelligence to optimi
 * [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Easily build, deploy, and manage predictive analytics solutions
 * [Azure Monitor](https://azure.microsoft.com/services/monitor): Full observability into your applications, infrastructure, and network
 
-## Next Steps
+## Next steps
 
 * [IoT Hub Documentation](https://docs.microsoft.com/azure/iot-hub)
 * [Azure Security Center Documentation](https://docs.microsoft.com/azure/security-center)

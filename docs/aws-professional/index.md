@@ -10,6 +10,8 @@ ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
+<!-- cSpell:ignore lbrader CDNs -->
+
 # Azure for AWS Professionals
 
 This article helps Amazon Web Services (AWS) experts understand the basics of Microsoft Azure accounts, platform, and services. It also covers key similarities and differences between the AWS and Azure platforms.
@@ -183,7 +185,7 @@ Similar to AWS' per second billing, Azure on-demand VMs are billed per second.
 
 #### EBS and Azure Storage for VM disks
 
-Durable data storage for Azure VMs is provided by [data disks](/azure/virtual-machines/linux/about-disks-and-vhds)
+Durable data storage for Azure VMs is provided by [data disks](https://docs.microsoft.com/azure/virtual-machines/linux/managed-disks-overview)
 residing in blob storage. This is similar to how EC2 instances store disk volumes on Elastic Block Store (EBS). [Azure temporary storage](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/) also provides VMs the same low-latency temporary read-write storage as EC2 Instance Storage (also called ephemeral storage).
 
 Higher performance disk IO is supported using [Azure premium storage](/azure/virtual-machines/windows/premium-storage). This is similar to the Provisioned IOPS storage options provided by AWS.
@@ -214,7 +216,7 @@ Azure offers several compute services that do not have direct equivalents in AWS
 
 - [Azure Batch](/azure/batch/batch-technical-overview) allows you to manage compute-intensive work across a scalable collection of virtual machines.
 
-- [Service Fabric](/azure/service-fabric/service-fabric-overview) is a platform for developing and hosting scalable [microservice](/azure/service-fabric/service-fabric-overview-microservices) solutions.
+- [Service Fabric](/azure/service-fabric/service-fabric-overview) is a platform for developing and hosting scalable [microservices-based](/azure/service-fabric/service-fabric-overview-microservices) solutions.
 
 #### See also
 
