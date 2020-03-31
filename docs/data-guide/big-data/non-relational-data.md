@@ -52,6 +52,7 @@ Read and write operations for a row are typically atomic within a single column 
 
 Relevant Azure service:  
 
+- [Cosmos DB Cassandra API](/azure/cosmos-db/cassandra-introduction)
 - [HBase in HDInsight](/azure/hdinsight/hdinsight-hbase-overview)
 
 ## Key/value data stores
