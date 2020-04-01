@@ -128,7 +128,5 @@ A secondary benefit of blue-green deployment is being able to use the failover d
 
 ## Related resources
 
-- [One-page version](https://aka.ms/01_Multicloud_1Pager) of this article
-- [Reference Architecture](https://aka.ms/01_Multicloud_ReferenceArchitecture) for this article
 - [Sample code](https://github.com/serverless/multicloud) and [README](https://github.com/serverless/multicloud/blob/master/README.md) for this implementation on GitHub
 - [Serverless Framework](https://serverless.com/)
