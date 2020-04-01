@@ -202,17 +202,13 @@ The following graph shows the results of a load test. The overall volume of requ
 - [Web Queue Worker architecture style][web-queue-worker]
 
 [AppDynamics]: https://www.appdynamics.com
-[autoscaling]: https://docs.microsoft.com/azure/architecture/best-practices/auto-scaling
-[background-jobs]: https://docs.microsoft.com/azure/architecture/best-practices/background-jobs
+[autoscaling]: ../../best-practices/auto-scaling.md
+[background-jobs]: ../../best-practices/background-jobs.md
 [code-sample]: https://github.com/mspnp/performance-optimization/tree/master/BusyFrontEnd
-[fullDemonstrationOfSolution]: https://github.com/mspnp/performance-optimization/tree/master/BusyFrontEnd
-[load-leveling]: https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling
+[load-leveling]: ../../patterns/queue-based-load-leveling.md
 [sync-io]: ../synchronous-io/index.md
-[web-queue-worker]: https://docs.microsoft.com/azure/architecture/guide/architecture-styles/web-queue-worker
+[web-queue-worker]: ../../guide/architecture-styles/web-queue-worker.md
 
-[WebJobs]: https://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx
-[ComputePartitioning]: https://msdn.microsoft.com/library/dn589773.aspx
-[ServiceBusQueues]: https://msdn.microsoft.com/library/azure/hh367516.aspx
 [AppDynamics-Transactions-Front-End-Requests]: ./_images/AppDynamicsPerformanceStats.jpg
 [AppDynamics-Metrics-Front-End-Requests]: ./_images/AppDynamicsFrontEndMetrics.jpg
 [Initial-Load-Test-Results-Front-End]: ./_images/InitialLoadTestResultsFrontEnd.jpg

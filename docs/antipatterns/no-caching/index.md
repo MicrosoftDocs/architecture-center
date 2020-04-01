@@ -209,7 +209,7 @@ The volume of successful tests still reaches a plateau, but at a higher user loa
 - [Circuit Breaker pattern][circuit-breaker]
 
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/NoCaching
-[cache-aside-pattern]: /azure/architecture/patterns/cache-aside
+[cache-aside-pattern]: ../../patterns/cache-aside.md
 [caching-guidance]: ../../best-practices/caching.md
 [circuit-breaker]: ../../patterns/circuit-breaker.md
 [api-implementation]: ../../best-practices/api-implementation.md#optimizing-client-side-data-access

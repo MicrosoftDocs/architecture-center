@@ -20,7 +20,7 @@ These recommendations are based on the results of performance tests, which you c
 
 ## Azure VM sizes and disk types
 
-Cassandra workloads on Azure commonly use either [Standard_DS14_v2][dsv2] or [Standard_DS13_v2][dsv2] virtual machines. Cassandra workloads benefit from having more memory in the VM, so consider [memory optimized](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) virtual machine sizes, such as Standard_DS14_v2, or [local-storage optimized](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-storage) sizes such as Standard_L16s_v2.
+Cassandra workloads on Azure commonly use either [Standard_DS14_v2][dsv2] or [Standard_DS13_v2][dsv2] virtual machines. Cassandra workloads benefit from having more memory in the VM, so consider [memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory) virtual machine sizes, such as Standard_DS14_v2, or [local-storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage) sizes such as Standard_L16s_v2.
 
 For durability, data and commit logs are commonly stored on a stripe set of two to four 1-TB [premium managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) (P30).
 
@@ -115,13 +115,13 @@ For more information, see [Observations on Cassandra usage of Linux page caching
 
 ## Multi-datacenter replication
 
-Cassandra natively supports the concept of multiple data centers, making it easy to configure one Cassandra ring across multiple [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) or across [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview) within one region.
+Cassandra natively supports the concept of multiple data centers, making it easy to configure one Cassandra ring across multiple [Azure regions](https://azure.microsoft.com/global-infrastructure/regions) or across [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview) within one region.
 
 For a multiregion deployment, use Azure Global VNet-peering to connect the virtual networks in the different regions. When VMs are deployed in the same region but in separate availability zones, the VMs can be in the same virtual network.
 
 It's important to measure the baseline roundtrip latency between regions. Network latency between regions can be 10-100 times higher than latency within a region. Expect a lag between data appearing in the second region when using LOCAL_QUORUM write consistency, or significantly decreased performance of writes when using EACH_QUORUM.
 
-When running Apache Cassandra at scale, and specifically in a multi-DC environment, [node repair](http://cassandra.apache.org/doc/latest/operating/repair.html) becomes challenging. Tools such as [Reaper](http://cassandra-reaper.io/) can help to coordinate repairs at scale (for example, across all the nodes in a data center, one data center at a time, to limit the load on the whole cluster). However, node repair for large clusters is not yet a fully solved problem and applies in all environments, whether on-premises or in the cloud.
+When running Apache Cassandra at scale, and specifically in a multi-DC environment, [node repair](http://cassandra.apache.org/doc/latest/operating/repair.html) becomes challenging. Tools such as [Reaper](http://cassandra-reaper.io) can help to coordinate repairs at scale (for example, across all the nodes in a data center, one data center at a time, to limit the load on the whole cluster). However, node repair for large clusters is not yet a fully solved problem and applies in all environments, whether on-premises or in the cloud.
 
 When nodes are added to a secondary region, performance will not scale linearly, because some bandwidth and CPU/disk resources are spent on receiving and sending replication traffic across regions.
 
@@ -149,8 +149,8 @@ The following reference architecture deploys Cassandra as part of an n-tier conf
 
 - [Linux N-tier application in Azure with Apache Cassandra](../reference-architectures/n-tier/n-tier-cassandra.md)
 
-[dsv2]: /azure/virtual-machines/dv2-dsv2-series-memory
-[dsv3]: /azure/virtual-machines/dv3-dsv3-series
-[lsv2]: /azure/virtual-machines/lsv2-series
+[dsv2]: https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series-memory
+[dsv3]: https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series
+[lsv2]: https://docs.microsoft.com/azure/virtual-machines/lsv2-series
 
 [repo]: https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments

@@ -125,7 +125,7 @@ Azure Container Registry offers **Basic**, **Standard** and **Premium**. Choose 
 
 In this architecture, Azure ML Compute is one of the main cost drivers. The implementation needs a cluster of GPU compute nodes and selected VM sizes can impact cost. For more information on the VM sizes that include GPUs, see [GPU-optimized virtual machine sizes][gpu-vm-sizes] and [Azure Virtual Machines Pricing][az-vm-pricing].
 
-For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
 
 ## Deployment
 
@@ -144,7 +144,7 @@ The output from this architecture is a trained model that is saved to blob stora
 [1]: ./_images/distributed_dl_flow.png
 [2]: ./_images/distributed_dl_tests.png
 [acr]: /azure/container-registry/container-registry-intro
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [ai]: /azure/application-insights/app-insights-overview
 [aml-compute]: /azure/machine-learning/service/how-to-set-up-training-targets#amlcompute
 [amls]: /azure/machine-learning/service/overview-what-is-azure-ml

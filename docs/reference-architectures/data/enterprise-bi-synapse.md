@@ -241,7 +241,7 @@ Consider using the Azure Storage reserved capacity feature to lower cost on stor
 Power BI Embedded is a Platform-as-a-Service (PaaS) solution that offers a set of APIs to enable the integration of Power BI content into custom apps and websites. Users who publish BI content need to be licensed with [Power BI Pro][powerbi-pro-purchase]. For information about pricing, see [Power BI Embedded pricing][powerbi-embedded-pricing].
 
 
-For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
 
 
 ## Deploy the solution
@@ -284,4 +284,4 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services/
 [az-storage-reserved]: https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview

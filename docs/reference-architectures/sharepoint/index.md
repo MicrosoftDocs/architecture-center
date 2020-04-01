@@ -186,7 +186,7 @@ All traffic that originates within the boundaries of a virtual network is free. 
 
 This architecture builds on the architecture deployed in [Run Windows VMs for an N-tier application][windows-n-tier]. See [Cost considerations](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server#cost-considerations) for more information.
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
 
 ## Deploy the solution
 
@@ -302,7 +302,7 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
 [availability-set]: /azure/virtual-machines/windows/manage-availability

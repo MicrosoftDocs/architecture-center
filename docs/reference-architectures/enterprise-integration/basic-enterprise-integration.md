@@ -184,7 +184,7 @@ You are charged for all API Management instances when they are running. If you h
 
 Logic Apps uses a [serverless](/azure/logic-apps/logic-apps-serverless-overview) model. Billing is calculated based on action and connector execution. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
 
 
 ## Next steps
@@ -194,7 +194,7 @@ For greater reliability and scalability, use message queues and events to decoup
 <!-- links -->
 
 [aad]: /azure/active-directory
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [apim]: /azure/api-management
 [apim-autoscale]: /azure/api-management/api-management-howto-autoscale
 [apim-backup]: /azure/api-management/api-management-howto-disaster-recovery-backup-restore

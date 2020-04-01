@@ -259,7 +259,7 @@ For more information, see [Azure Analysis Services pricing][az-as-pricing].
 Consider using the Azure Storage reserved capacity feature to lower cost on storage. With this model, you get a discount if you can commit to reservation for fixed storage capacity for one or three years. For more information, see [Optimize costs for Blob storage with reserved capacity][az-storage-reserved].
 
 
-For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
 
 
 ## Deploy the solution
@@ -295,7 +295,7 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [synapse-analytics]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [adf]: /azure/data-factory
 [adf-calculator]: https://azure.microsoft.com/pricing/calculator/?service=data-factory
 [az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services/

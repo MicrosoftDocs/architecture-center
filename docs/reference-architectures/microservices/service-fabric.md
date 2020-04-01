@@ -398,7 +398,7 @@ Use Azure Monitor alerts to notify sysadmins when certain conditions occur in sp
 [Log search alert rules](/azure/azure-monitor/platform/alerts-unified-log) allow you to define and run a Kusto query against a Log Analytics workspace at regular intervals. An alert is created if the query result matches a certain condition.
 
 ## Cost considerations
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
 
 Here are some points to consider for some of the services used in this architecture.
 
@@ -445,7 +445,7 @@ To deploy the reference implementation for this architecture, follow the steps i
 - [Designing a microservices architecture](../../microservices/design/index.md)
 
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [ap-insight-cost]: https://docs.microsoft.com/azure/azure-monitor/app/pricing
 [Api-Management-pricing]: https://azure.microsoft.com/pricing/details/api-management/
 [az-monitor-pricing]: https://azure.microsoft.com/pricing/details/monitor/

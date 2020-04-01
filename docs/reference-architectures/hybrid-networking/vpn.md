@@ -187,7 +187,7 @@ If the application in the virtual network sends data to the Internet, consider [
 
 ## Cost considerations
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. For general considerations, see the Cost section in [Azure Architecture Framework][AAF-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. For general considerations, see the Cost section in [Azure Architecture Framework][aaf-cost].
 
 The services used in this architecture are charged as follows:
 
@@ -231,7 +231,7 @@ Although VPNs can be used to connect virtual networks within Azure, it's not alw
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [adds-extend-domain]: ../identity/adds-extend-domain.md
 [az-vpn]: /azure/azure-stack/azure-stack-connect-vpn
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway/

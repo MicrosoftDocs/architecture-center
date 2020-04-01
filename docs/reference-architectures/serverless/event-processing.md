@@ -156,7 +156,7 @@ Storage is billed for each GB used for your stored data and index.
 
 Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
 
-For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
 
 ## Deploy the solution
 
@@ -168,7 +168,7 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
 [cosmosdb]: /azure/cosmos-db/introduction
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally

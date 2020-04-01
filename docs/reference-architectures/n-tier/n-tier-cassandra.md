@@ -194,7 +194,7 @@ For single VMs pricing options See [Linux VMs pricing][Linux-vm-pricing].
 
 You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
 
 
 ## Security considerations
@@ -239,7 +239,7 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [app-gw-scaling]: /azure/application-gateway/
 [azure-dns]: /azure/dns/dns-overview
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault

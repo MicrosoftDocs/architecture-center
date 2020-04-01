@@ -192,7 +192,7 @@ For DevOps considerations, see [DevOps: Extending Active Directory Domain Servic
 
 ## Cost considerations
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
 
 Here are cost considerations for the services used in this architecture.
 
@@ -383,7 +383,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 [vm-recommendations]: ../virtual-machines-windows/single-vm.md
 [hybrid-azure-on-prem-vpn]: ../hybrid-networking/vpn.md
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory/
 [azure-cli]: https://docs.microsoft.com/azure/azure-resource-manager/xplat-cli-azure-resource-manager
 [DRS]: https://technet.microsoft.com/library/dn280945.aspx

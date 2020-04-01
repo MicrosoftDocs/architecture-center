@@ -129,7 +129,7 @@ This architecture supports [disaster recovery][hli-dr] between HANA Large Instan
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
 
 SKUs can affect the billing model. Here are some cost considerations.
 
@@ -206,7 +206,7 @@ You may wish to review the following [Azure example scenarios](https://docs.micr
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [az-spot-vms]: https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms
 [azure-forum]: https://azure.microsoft.com/support/forums/
 [azure-large-instances]: /azure/virtual-machines/workloads/sap/hana-overview-architecture

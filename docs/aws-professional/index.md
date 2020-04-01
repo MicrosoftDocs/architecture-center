@@ -153,7 +153,7 @@ Azure [geo-redundant storage](https://docs.microsoft.com/azure/storage/common/st
 
 - [Availability options for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/availability)
 
-- [High availability for Azure applications](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
+- [High availability for Azure applications](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.md)
 
 - [Failure and disaster recovery for Azure applications](../framework/resiliency/backup-and-recovery.md)
 
@@ -219,11 +219,11 @@ Azure offers several compute services that do not have direct equivalents in AWS
 
 - [Create a Linux VM on Azure using the portal](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
 
-- [Azure Reference Architecture: Running a Linux VM on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm)
+- [Azure Reference Architecture: Running a Linux VM on Azure](../reference-architectures/n-tier/linux-vm.md)
 
 - [Get started with Node.js web apps in Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)
 
-- [Azure Reference Architecture: Basic web application](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app)
+- [Azure Reference Architecture: Basic web application](../reference-architectures/app-service-web-app/basic-web-app.md)
 
 - [Create your first Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function)
 
@@ -260,7 +260,7 @@ For data that is infrequently accessed but must be available immediately when ac
 
 - [Azure Storage security guide](https://docs.microsoft.com/azure/storage/common/storage-security-guide)
 
-- [Best practices for using content delivery networks (CDNs)](https://docs.microsoft.com/azure/architecture/best-practices/cdn)
+- [Best practices for using content delivery networks (CDNs)](../best-practices/cdn.md)
 
 ### Networking
 

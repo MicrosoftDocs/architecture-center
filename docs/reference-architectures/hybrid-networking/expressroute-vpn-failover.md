@@ -136,7 +136,7 @@ To deploy the solution, perform the following steps.
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [windows-vm-ra]: ../virtual-machines-windows/index.md
 [linux-vm-ra]: ../virtual-machines-linux/index.md

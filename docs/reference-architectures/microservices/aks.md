@@ -261,7 +261,7 @@ For specific recommendations and best practices, see [CI/CD for microservices on
 
 ## Cost considerations
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
 
 Here are some points to consider for some of the services used in this architecture.
 
@@ -303,7 +303,7 @@ To deploy the reference implementation for this architecture, follow the steps i
 [ri]: https://github.com/mspnp/microservices-reference-implementation
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.md
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/aks-reference-architecture.vsdx
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services/
 [AppGatewayPricing]: https://azure.microsoft.com//pricing/details/application-gateway/

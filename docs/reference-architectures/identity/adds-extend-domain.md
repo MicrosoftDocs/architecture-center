@@ -110,7 +110,7 @@ For more information, see the DevOps section in [Azure Architecture Framework][A
 
 ## Cost considerations
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
 
 Here are cost considerations for the services used in this architecture.
 
@@ -208,7 +208,7 @@ After deployment completes, you can test connectivity from the simulated on-prem
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [AAF-devops]: /azure/architecture/framework/devops/overview
 [adds-resource-forest]: adds-forest.md
 [adfs]: adfs.md

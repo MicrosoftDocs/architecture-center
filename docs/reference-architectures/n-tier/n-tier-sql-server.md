@@ -204,7 +204,7 @@ For SQL server VMs pricing options see [SQL VMs pricing][Managed-Sql-pricing].
 You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
 
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
 
 
 ## Security considerations
@@ -269,7 +269,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [app-gw-scaling]: /azure/application-gateway/application-gateway-autoscaling-zone-redundant
 [azure-dns]: /azure/dns/dns-overview
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault

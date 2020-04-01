@@ -395,7 +395,7 @@ Storage is also billed, for each GB used for your stored data and index. For mor
 
 Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
 
 ## Deploy the solution
 
@@ -408,7 +408,7 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azure-monitor]: https://azure.microsoft.com/services/monitor/
 [databricks-monitoring]: https://docs.microsoft.com/azure/architecture/databricks-monitoring/
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/

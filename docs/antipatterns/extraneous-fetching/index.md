@@ -242,7 +242,6 @@ Here is the corresponding telemetry for the `AggregateOnDatabaseAsync` method. T
 [Load-Test-Results-Client-Side2]:_images/LoadTestResultsClientSide2.jpg
 [Load-Test-Results-Database-Side1]:_images/LoadTestResultsDatabaseSide1.jpg
 [Load-Test-Results-Database-Side2]:_images/LoadTestResultsDatabaseSide2.jpg
-[QueryPerformanceZoomed]: _images/QueryPerformanceZoomed.jpg
 [QueryDetails]: _images/QueryDetails.jpg
 [TelemetryAllFields]: _images/TelemetryAllFields.jpg
 [TelemetryAggregateOnClient]: _images/TelemetryAggregateOnClient.jpg

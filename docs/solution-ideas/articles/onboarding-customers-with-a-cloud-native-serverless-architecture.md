@@ -17,7 +17,7 @@ This serverless architecture enables you to build and run applications without h
 
 The links to the right give you detailed technical guidance on navigating a particular area of the architecture.
 
-[Decide which compute option to use for your apps](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-overview)
+[Decide which compute option to use for your apps](../../guide/technology-choices/compute-decision-tree.md)
 
 [Learn to build Serverless apps](https://docs.microsoft.com/azure/azure-functions)
 

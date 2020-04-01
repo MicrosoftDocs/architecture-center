@@ -133,7 +133,7 @@ Azure Container Registry offers **Basic**, **Standard**, and **Premium**. Choose
 
 You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources, see the [Container Services calculator][aks-Calculator].
 
-For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
 
 ## Deployment
 
@@ -145,7 +145,7 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 <!-- links -->
 
 [aad-auth]: /azure/aks/aad-integration
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [acr]: /azure/container-registry/
 [something]: https://kubernetes.io/docs/reference/access-authn-authz/authentication/
 [aks]: /azure/aks/intro-kubernetes

@@ -111,7 +111,7 @@ Use [Azure Spot VMs](/azure/virtual-machines/windows/spot-vms) to run workloads 
 
 Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs.
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
 
 
 
@@ -139,7 +139,7 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-linux]: /azure/virtual-machines/virtual-machines-linux-azure-overview
 [azure-storage]: /azure/storage/storage-introduction
