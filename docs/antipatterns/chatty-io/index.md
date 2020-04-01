@@ -10,6 +10,8 @@ ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
+<!--cSpell:ignore dateofbirth -->
+
 # Chatty I/O antipattern
 
 The cumulative effect of a large number of I/O requests can have a significant impact on performance and responsiveness.
@@ -112,7 +114,7 @@ File I/O involves opening a file and moving to the appropriate point before read
 The following example uses a `FileStream` to write a `Customer` object to a file. Creating the `FileStream` opens the file, and disposing it closes the file. (The `using` statement automatically disposes the `FileStream` object.) If the application calls this method repeatedly as new customers are added, the I/O overhead can accumulate quickly.
 
 ```csharp
-private async Task SaveCustomerToFileAsync(Customer cust)
+private async Task SaveCustomerToFileAsync(Customer customer)
 {
     using (Stream fileStream = new FileStream(CustomersFileName, FileMode.Append))
     {
@@ -120,7 +122,7 @@ private async Task SaveCustomerToFileAsync(Customer cust)
         byte [] data = null;
         using (MemoryStream memStream = new MemoryStream())
         {
-            formatter.Serialize(memStream, cust);
+            formatter.Serialize(memStream, customer);
             data = memStream.ToArray();
         }
         await fileStream.WriteAsync(data, 0, data.Length);
@@ -180,12 +182,12 @@ private async Task SaveCustomerListToFileAsync(List<Customer> customers)
     using (Stream fileStream = new FileStream(CustomersFileName, FileMode.Append))
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        foreach (var cust in customers)
+        foreach (var customer in customers)
         {
             byte[] data = null;
             using (MemoryStream memStream = new MemoryStream())
             {
-                formatter.Serialize(memStream, cust);
+                formatter.Serialize(memStream, customer);
                 data = memStream.ToArray();
             }
             await fileStream.WriteAsync(data, 0, data.Length);
@@ -197,8 +199,8 @@ private async Task SaveCustomerListToFileAsync(List<Customer> customers)
 List<Customer> customers = new List<Customers>();
 
 // Create a new customer and add it to the buffer
-var cust = new Customer(...);
-customers.Add(cust);
+var customer = new Customer(...);
+customers.Add(customer);
 
 // Add more customers to the list as they are created
 ...
@@ -217,7 +219,7 @@ await SaveCustomerListToFileAsync(customers);
 
 - When writing data, avoid locking resources for longer than necessary, to reduce the chances of contention during a lengthy operation. If a write operation spans multiple data stores, files, or services, then adopt an eventually consistent approach. See [Data Consistency guidance][data-consistency-guidance].
 
-- If you buffer data in memory before writing it, the data is vulnerable if the process crashes. If the data rate typically has bursts or is relatively sparse, it may be safer to buffer the data in an external durable queue such as [Event Hubs](https://azure.microsoft.com/services/event-hubs/).
+- If you buffer data in memory before writing it, the data is vulnerable if the process crashes. If the data rate typically has bursts or is relatively sparse, it may be safer to buffer the data in an external durable queue such as [Event Hubs](https://azure.microsoft.com/services/event-hubs).
 
 - Consider caching data that you retrieve from a service or a database. This can help to reduce the volume of I/O by avoiding repeated requests for the same data. For more information, see [Caching best practices][caching-guidance].
 
@@ -308,7 +310,7 @@ Tracing the SQL statement shows that all the data is fetched in a single SELECT 
 [caching-guidance]: ../../best-practices/caching.md
 [code-sample]: https://github.com/mspnp/performance-optimization/tree/master/ChattyIO
 [data-consistency-guidance]: https://msdn.microsoft.com/library/dn589800.aspx
-[ef]: /ef/
+[ef]: https://docs.microsoft.com/ef
 [extraneous-fetching]: ../extraneous-fetching/index.md
 [new-relic]: https://newrelic.com/application-monitoring
 [no-cache]: ../no-caching/index.md

@@ -158,7 +158,7 @@ Test the resiliency of the system to failures. Here are some common failure scen
 Measure the recovery times and verify they meet your business requirements. Test combinations of failure modes, as well.
 
 ## Cost considerations
-Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs. Here are some other considerations.
+Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs. Here are some other considerations.
 
 ### Virtual machine scale sets
 
@@ -198,7 +198,7 @@ The following architecture uses some of the same technologies:
 [azure-sql-db]: /azure/sql-database/
 [health-endpoint-monitoring-pattern]: ../../patterns/health-endpoint-monitoring.md
 [azure-cli]: /cli/azure/
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [regional-pairs]: /azure/best-practices-availability-paired-regions
 [resource groups]: /azure/azure-resource-manager/resource-group-overview
 [resource-group-links]: /azure/resource-group-link-resources

@@ -283,5 +283,5 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics/
 [az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services/
 [az-storage-reserved]: https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [AAF-cost]: /azure/architecture/framework/cost/overview

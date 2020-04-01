@@ -174,7 +174,7 @@ If a logic app requires any sensitive values that you can't create within a conn
 API Management manages secrets by using objects called *named values* or *properties*. These objects securely store values that you can access through API Management policies. For more information, see [How to use Named Values in Azure API Management policies][apim-properties].
 
 ## Cost considerations
-In general, use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some other considerations.
+In general, use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
 
 ### API Management
 
@@ -214,7 +214,7 @@ For greater reliability and scalability, use message queues and events to decoup
 [apim-soap]: /azure/api-management/import-soap-api
 [apim-versions]: /azure/api-management/api-management-get-started-publish-versions
 [arm]: /azure/azure-resource-manager/resource-group-authoring-templates
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [dns]: /azure/dns/
 [integration-services]: https://azure.microsoft.com/product-categories/integration/
 [logic-apps]: /azure/logic-apps/logic-apps-overview

@@ -263,7 +263,7 @@ For updates that are not breaking API changes, deploy the new version to a stagi
 
 ## Cost considerations
 
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Consider these points to optimize cost of this architecture.
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Consider these points to optimize cost of this architecture.
 
 ### Azure Functions
 
@@ -340,7 +340,7 @@ Related guidance:
 [cosmosdb-input-binding]: /azure/azure-functions/functions-bindings-cosmosdb-v2-input
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [event-driven]: ../../guide/architecture-styles/event-driven.md
 [functions]: /azure/azure-functions/functions-overview
 [functions-bindings]: /azure/azure-functions/functions-triggers-bindings

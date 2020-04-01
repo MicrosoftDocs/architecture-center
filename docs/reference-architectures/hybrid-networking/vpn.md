@@ -187,7 +187,7 @@ If the application in the virtual network sends data to the Internet, consider [
 
 ## Cost considerations
 
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. For general considerations, see the Cost section in [Azure Architecture Framework][AAF-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. For general considerations, see the Cost section in [Azure Architecture Framework][AAF-cost].
 
 The services used in this architecture are charged as follows:
 
@@ -242,7 +242,7 @@ Although VPNs can be used to connect virtual networks within Azure, it's not alw
 [changing-SKUs]: https://azure.microsoft.com/blog/azure-virtual-network-gateway-improvements/
 [CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [connect-to-an-Azure-vnet]: /office365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [forced-tunneling]: /azure/vpn-gateway/vpn-gateway-about-forced-tunneling
 [gateway-diagnostic-logs]: https://blogs.technet.microsoft.com/keithmayer/2016/10/12/step-by-step-capturing-azure-resource-manager-arm-vnet-gateway-diagnostic-logs/
 [linux-vm-ra]: ../virtual-machines-linux/index.md

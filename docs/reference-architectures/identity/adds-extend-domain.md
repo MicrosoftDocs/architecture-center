@@ -9,6 +9,8 @@ ms.subservice: reference-architecture
 ms.custom: seodec18, identity
 ---
 
+<!-- cSpell:ignore UDRs sysvol AZBB jumpbox -->
+
 # Extend your on-premises Active Directory domain to Azure
 
 This architecture shows how to extend an on-premises Active Directory domain to Azure to provide distributed authentication services. [**Deploy this solution**](#deploy-the-solution).
@@ -90,25 +92,25 @@ AD DS servers provide authentication services and are an attractive target for a
 
 Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD DS database.
 
-
 ## DevOps considerations
 
-- Use Infrastructure as Code (IaC) practice, to provision and configure the network and security infrastructure. This reference architecture uses an [Azure Building Blocks (AZBB)][azbb] template. Another option is [Azure Resource Manager templates][arm-template]. 
+- Use Infrastructure as Code (IaC) practice, to provision and configure the network and security infrastructure. This reference architecture uses an [Azure Building Blocks (AZBB)][azbb] template. Another option is [Azure Resource Manager templates][arm-template].
 
-- Isolate workloads to enable DevOps to do continuous integration and continuous delivery (CI/CD), because every workload is associated and managed by its corresponding DevOps team. 
+- Isolate workloads to enable DevOps to do continuous integration and continuous delivery (CI/CD), because every workload is associated and managed by its corresponding DevOps team.
 
-   In this architecture the entire virtual network that includes the different application tiers, management jumpbox, and Azure AD Domain Services is identified as a single isolated workload. That workload is declared in a single AZBB template. 
+   In this architecture the entire virtual network that includes the different application tiers, management jumpbox, and Azure AD Domain Services is identified as a single isolated workload. That workload is declared in a single AZBB template.
 
    Virtual machines are configured by using Virtual Machine Extensions and other tools such as [Desired State Configuration (DSC)][dsc-overview], used to configure ADDS on the virtual machines.
 
 - Consider using [Azure DevOps][az-devops] or any other CI/CD solutions to automate your deployments. [Azure Pipelines][az-pipelines] is the recommended component of Azure DevOps Services that brings automation for solution builds and deployments, it's also highly integrated in the Azure ecosystem.
 
-- Use [Azure Monitor][azure-monitor] to analyze the performance of your infrastructure. It also allows you to  monitor and diagnose networking issues without logging into your virtual machines. Application Insights provides rich metrics and logs to verify the state of your infrastructure.
+- Use [Azure Monitor][azure-monitor] to analyze the performance of your infrastructure. It also allows you to monitor and diagnose networking issues without logging into your virtual machines. Application Insights provides rich metrics and logs to verify the state of your infrastructure.
 
 For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
 
 ## Cost considerations
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost]. 
+
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
 
 Here are cost considerations for the services used in this architecture.
 
@@ -233,7 +235,7 @@ After deployment completes, you can test connectivity from the simulated on-prem
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [capacity-planning-for-adds]: https://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
 [considerations]: ./considerations.md
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [GitHub]: https://github.com/mspnp/identity-reference-architectures/tree/master/adds-extend-domain
 [microsoft_systems_center]: https://www.microsoft.com/download/details.aspx?id=50013
 [monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx

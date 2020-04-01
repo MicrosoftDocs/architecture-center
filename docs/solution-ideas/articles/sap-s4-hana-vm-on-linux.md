@@ -21,8 +21,8 @@ This SAP S/4HANA on Azure VM solution architecture illustrates how a user reques
 
 ## Data Flow
 
-1. In this example, an on-premises SAP user  executes a sales order request via SAP's S/4HANA Fiori interface, custom application interface, or others.
-1. Azure high speed express route gateway is used to connect securely from On-premises network to Azure Virtual Machines and other Azure resources
+1. In this example, an on-premises SAP user executes a sales order request via SAP's S/4HANA Fiori interface, custom application interface, or others.
+1. Azure high-speed ExpressRoute gateway is used to connect securely from On-premises network to Azure Virtual Machines and other Azure resources
 1. Request flows into highly available SAP ABAP SAP Central Services ASCS and then through SAP application servers running on Azure Virtual Machines in a Azure VM Availability Set offering a 99.95 percent uptime SLA.
 1. Request is sent from app server to SAP HANA running on on an Azure Virtual Machine optimized for large memory SAP HANA workloads.
 1. Primary (active) and secondary (standby) running on SAP certified M-series virtual machines with Write Accelerator are clustered at OS level for 99.95 percent availability, and data replication is handled through HANA System Replication in synchronous mode (HSR) from primary to secondary enabling zero RPO.

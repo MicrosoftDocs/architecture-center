@@ -51,7 +51,7 @@ Get-AzureRmExpressRouteServiceProvider
 
 ExpressRoute connectivity providers connect your datacenter to Microsoft in the following ways:
 
-- **Co-located at a cloud exchange**. If you're co-located in a facility with a cloud exchange, you can order virtual cross-connections to Azure through the co-location provider’s Ethernet exchange. Co-location providers can offer either layer 2 cross-connections, or managed layer 3 cross-connections between your infrastructure in the co-location facility and Azure.
+- **Co-located at a cloud exchange**. If you're co-located in a facility with a cloud exchange, you can order virtual cross-connections to Azure through the co-location provider's Ethernet exchange. Co-location providers can offer either layer 2 cross-connections, or managed layer 3 cross-connections between your infrastructure in the co-location facility and Azure.
 - **Point-to-point Ethernet connections**. You can connect your on-premises datacenters/offices to Azure through point-to-point Ethernet links. Point-to-point Ethernet providers can offer layer 2 connections, or managed layer 3 connections between your site and Azure.
 - **Any-to-any (IPVPN) networks**. You can integrate your wide area network (WAN) with Azure. Internet protocol virtual private network (IPVPN) providers (typically a multiprotocol label switching VPN) offer any-to-any connectivity between your branch offices and datacenters. Azure can be interconnected to your WAN to make it look just like any other branch office. WAN providers typically offer managed layer 3 connectivity.
 
@@ -236,7 +236,7 @@ If you must expose management endpoints for VMs to an external network, use NSGs
 
 ## Cost considerations
 
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. For general considerations, see the Cost section in [Azure Architecture Framework][AAF-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. For general considerations, see the Cost section in [Azure Architecture Framework][AAF-cost].
 
 The services used in this architecture are charged as follows:
 
@@ -244,13 +244,13 @@ The services used in this architecture are charged as follows:
 
 In this architecture, an ExpressRoute circuit is used to join the on-premises network with Azure through the edge routers. 
 
-There are two main plans. In the **Metered Data** plan, all inbound data transfer is free. All outbound data transfer is charged based on a pre-determined rate. 
+There are two main plans. In the **Metered Data** plan, all inbound data transfer is free. All outbound data transfer is charged based on a pre-determined rate.
 
 You can also opt for the **Unlimited Data** plan in which all inbound and outbound data transfer is free. Users are charged a fixed monthly port fee based on high availability dual ports.
 
-Calculate your utilization and choose a billing plan accordingly. The **Unlimited Data** plan  is recommended if you exceed about 68% of utilization.
+Calculate your utilization and choose a billing plan accordingly. The **Unlimited Data** plan is recommended if you exceed about 68% of utilization.
 
-For more information, see [Azure ExpressRoute pricing][expressroute-pricing]. 
+For more information, see [Azure ExpressRoute pricing][expressroute-pricing].
 
 ### Azure Virtual Network
 
@@ -306,7 +306,7 @@ To deploy the solution, perform the following steps.
 
 [highly-available-network-architecture]: ./expressroute-vpn-failover.md
 [AAF-cost]: /azure/architecture/framework/cost/overview
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [expressroute-technical-overview]: /azure/expressroute/expressroute-introduction
 [expressroute-prereqs]: /azure/expressroute/expressroute-prerequisites
 [configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm

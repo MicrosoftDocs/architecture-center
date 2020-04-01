@@ -10,6 +10,8 @@ ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
+<!-- cSpell:ignore IQueryable LINQ -->
+
 # Extraneous Fetching antipattern
 
 Retrieving more data than needed for a business operation can result in unnecessary I/O overhead and reduce responsiveness.

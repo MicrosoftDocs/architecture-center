@@ -181,7 +181,7 @@ For considerations about designing a health probe endpoint, see [Health Endpoint
 
 ## Cost considerations
 
-Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs. Here are some other considerations.
+Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs. Here are some other considerations.
 
 ### Virtual machine scale sets
 
@@ -249,7 +249,7 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
 [cassandra-replication]: https://academy.datastax.com/planet-cassandra/data-replication-in-nosql-databases-explained
 [cassandra-consistency-usage]: https://medium.com/@foundev/cassandra-how-many-nodes-are-talked-to-with-quorum-also-should-i-use-it-98074e75d7d5#.b4pb4alb2
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [datastax]: https://www.datastax.com/products/datastax-enterprise
 [ddos-best-practices]: /azure/security/azure-ddos-best-practices
 [ddos]: /azure/virtual-network/ddos-protection-overview

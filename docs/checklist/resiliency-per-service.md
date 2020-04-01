@@ -10,7 +10,7 @@ ms.subservice: cloud-design-principles
 ms.custom: resiliency, checklist
 ---
 
-<!-- cspell:ignore BACPAC DTUs -->
+<!-- cSpell:ignore BACPAC DTUs -->
 
 # Resiliency checklist for specific Azure services
 

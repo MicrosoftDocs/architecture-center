@@ -10,7 +10,7 @@ ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
 
-<!-- cspell:ignore BACPAC DTUs -->
+<!-- cSpell:ignore BACPAC DTUs -->
 
 # Run a basic web application in Azure
 

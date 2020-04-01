@@ -106,7 +106,7 @@ Also consider what services are shared in the hub, to ensure the hub scales for 
 
 Centralizing services that can be shared by multiple workloads in a single location can be cost efficient.
 
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
 
 ### Azure Firewall
 
@@ -302,7 +302,7 @@ For a version of this architecture that deploys shared identity and security ser
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances/
 [guidance-expressroute]: ./expressroute.md
 [guidance-vpn]: ./vpn.md

@@ -10,6 +10,8 @@ ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
+<!-- cSpell:ignore workinfrontend workinbackground Hudgens userprofile -->
+
 # Busy Front End antipattern
 
 Performing asynchronous work on a large number of background threads can starve other concurrent foreground tasks of resources, decreasing response times to unacceptable levels.
@@ -199,14 +201,14 @@ The following graph shows the results of a load test. The overall volume of requ
 - [Queue-Based Load Leveling pattern][load-leveling]
 - [Web Queue Worker architecture style][web-queue-worker]
 
-[AppDyanamics]: https://www.appdynamics.com/
-[autoscaling]: /azure/architecture/best-practices/auto-scaling
-[background-jobs]: /azure/architecture/best-practices/background-jobs
+[AppDynamics]: https://www.appdynamics.com
+[autoscaling]: https://docs.microsoft.com/azure/architecture/best-practices/auto-scaling
+[background-jobs]: https://docs.microsoft.com/azure/architecture/best-practices/background-jobs
 [code-sample]: https://github.com/mspnp/performance-optimization/tree/master/BusyFrontEnd
 [fullDemonstrationOfSolution]: https://github.com/mspnp/performance-optimization/tree/master/BusyFrontEnd
-[load-leveling]: /azure/architecture/patterns/queue-based-load-leveling
+[load-leveling]: https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling
 [sync-io]: ../synchronous-io/index.md
-[web-queue-worker]: /azure/architecture/guide/architecture-styles/web-queue-worker
+[web-queue-worker]: https://docs.microsoft.com/azure/architecture/guide/architecture-styles/web-queue-worker
 
 [WebJobs]: https://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx
 [ComputePartitioning]: https://msdn.microsoft.com/library/dn589773.aspx

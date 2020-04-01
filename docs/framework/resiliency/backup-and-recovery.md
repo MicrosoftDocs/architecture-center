@@ -9,7 +9,7 @@ ms.subservice: cloud-design-principles
 ms.custom: How are you handling DR (Backup & Restore) for this workload? 
 ---
 
-<!-- cspell:ignore BACPAC DTUs -->
+<!-- cSpell:ignore BACPAC DTUs -->
 
 # Backup and disaster recover for Azure applications
 

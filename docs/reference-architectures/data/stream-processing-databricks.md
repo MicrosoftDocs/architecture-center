@@ -281,7 +281,7 @@ The methods in the StreamingMetricsListener are called by the Apache Spark runti
 ```shell
 taxijob_CL
 | where TimeGenerated > startofday(datetime(<date>)) and TimeGenerated < endofday(datetime(<date>))
-| project  mdc_inputRowsPerSecond_d, mdc_durationms_triggerExecution_d
+| project mdc_inputRowsPerSecond_d, mdc_durationms_triggerExecution_d
 | render timechart
 ```
 
@@ -345,7 +345,7 @@ For more information, see the DevOps section in [Azure Architecture Framework][A
 
 ## Cost considerations
 
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
 
 <!-- markdownlint-disable MD024 -->
 
@@ -411,7 +411,7 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 [AAF-cost]: /azure/architecture/framework/cost/overview
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [event-hubs-pricing]: https://azure.microsoft.com/pricing/details/event-hubs/
 [github]: https://github.com/mspnp/azure-databricks-streaming-analytics
 [azure-databricks-pricing]: https://azure.microsoft.com/pricing/details/databricks/

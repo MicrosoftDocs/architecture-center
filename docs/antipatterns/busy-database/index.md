@@ -10,7 +10,7 @@ ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
-<!-- cspell:ignore DTUs -->
+<!-- cSpell:ignore DTUs LTRIM RTRIM RDBMS Linq processingindatabasemonitor -->
 
 # Busy Database antipattern
 

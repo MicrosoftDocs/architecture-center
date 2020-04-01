@@ -171,4 +171,4 @@ The following guidelines will help you to design a suitable transient fault hand
 
 <!-- links -->
 
-[idempotency-patterns]: https://blog.jonathanoliver.com/idempotency-patterns/
+[idempotency-patterns]: https://blog.jonathanoliver.com/idempotency-patterns

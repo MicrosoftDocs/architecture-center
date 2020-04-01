@@ -10,6 +10,8 @@ ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
+<!-- cSpell:ignore linq -->
+
 # No Caching antipattern
 
 In a cloud application that handles many concurrent requests, repeatedly fetching the same data can reduce performance and scalability.
@@ -106,7 +108,7 @@ Notice that the `GetAsync` method now calls the `CacheService` class, rather tha
 
 - If the cache is unavailable, perhaps because of a transient failure, don't return an error to the client. Instead, fetch the data from the original data source. However, be aware that while the cache is being recovered, the original data store could be swamped with requests, resulting in timeouts and failed connections. (After all, this is one of the motivations for using a cache in the first place.) Use a technique such as the [Circuit Breaker pattern][circuit-breaker] to avoid overwhelming the data source.
 
-- Applications that cache nonstatic data should be designed to support eventual consistency.
+- Applications that cache dynamic data should be designed to support eventual consistency.
 
 - For web APIs, you can support client-side caching by including a Cache-Control header in request and response messages, and using ETags to identify versions of objects. For more information, see [API implementation][api-implementation].
 

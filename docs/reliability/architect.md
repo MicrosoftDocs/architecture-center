@@ -8,7 +8,7 @@ ms.service: architecture-center
 ms.subservice: cloud-design-principles
 ---
 
-<!-- cspell:ignore BACPAC DTUs architecting -->
+<!-- cSpell:ignore BACPAC DTUs architecting -->
 
 # Architecting Azure applications for resiliency and availability
 

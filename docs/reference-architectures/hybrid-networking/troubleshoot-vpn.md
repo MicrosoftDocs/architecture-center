@@ -10,6 +10,8 @@ ms.subservice: reference-architecture
 ms.custom: networking
 ---
 
+<!-- cSpell:ignore RRAS Russinovich sysinternals psping profx -->
+
 # Troubleshoot a hybrid VPN connection
 
 This article gives some tips for troubleshooting a VPN gateway connection between an on-premises network and Azure. For general information on troubleshooting common VPN-related errors, see [Troubleshooting common VPN related errors][troubleshooting-vpn-errors].
@@ -38,7 +40,7 @@ The *Message* property of each entry provides a description of the error. Some c
   EntryType          : Error
   Message            : RoutingDomainID- {00000000-0000-0000-0000-000000000000}: A demand dial connection to the remote
                           interface AzureGateway on port VPN2-4 was successfully initiated but failed to complete
-                          successfully because of the  following error: The network connection between your computer and
+                          successfully because of the following error: The network connection between your computer and
                           the VPN server could not be established because the remote server is not responding. This could
                           be because one of the network devices (for example, firewalls, NAT, routers, and so on) between your computer
                           and the remote server is not configured to allow VPN connections. Please contact your
@@ -70,7 +72,7 @@ The *Message* property of each entry provides a description of the error. Some c
   EntryType          : Error
   Message            : RoutingDomainID- {00000000-0000-0000-0000-000000000000}: A demand dial connection to the remote
                           interface AzureGateway on port VPN2-4 was successfully initiated but failed to complete
-                          successfully because of the  following error: Internet key exchange (IKE) authentication credentials are unacceptable.
+                          successfully because of the following error: Internet key exchange (IKE) authentication credentials are unacceptable.
 
   Source             : RemoteAccess
   ReplacementStrings : {{00000000-0000-0000-0000-000000000000}, AzureGateway, VPN2-4, IKE authentication credentials are
@@ -123,7 +125,7 @@ PsPing -t <<web-server-address>>:80
 If the on-premises machine can route traffic to the web server, you should see output similar to the following:
 
 ```console
-D:\PSTools>psping -t 10.20.0.5:80
+D:\PSTools> psping -t 10.20.0.5:80
 
 PsPing v2.01 - PsPing - ping, latency, bandwidth measurement utility
 Copyright (C) 2012-2014 Mark Russinovich

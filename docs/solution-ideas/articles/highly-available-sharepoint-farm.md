@@ -339,23 +339,21 @@ This solution provides a highly available deployment of SharePoint using a load 
 </svg>
 
 <div class="architecture-tooltip-content" id="architecture-tooltip-9">
-<p>Leverage Express Route or VPN Gateway for management access to resource
-
-group.</p>
+<p>Use ExpressRoute or VPN Gateway for management access to resource group.</p>
 </div>
 
 ## Data Flow
 
 1. Create resource group for the storage, network, and virtual machine, plus other dependent elements.
 1. Create virtual network to host the virtual machines and load balancers for the deployment. Ensure the network has appropriate network security groups implemented to protect network traffic flow.
-1. Create the storage accounts that will host the virtual hard disks (vhds) for the machine images.
-1. Create the Active Directory installation using either a new virtual machine or  Azure AD domain services. If using Azure AD domain services,  consider synchronizing identities to Azure AD with Azure AD Connect.
+1. Create the storage accounts that will host the virtual hard disks (VHDs) for the machine images.
+1. Create the Active Directory installation using either a new virtual machine or Azure AD domain services. If using Azure AD domain services,  consider synchronizing identities to Azure AD with Azure AD Connect.
 1. Create a Windows failover cluster and install a supported version of SQL Server on an Azure virtual machine (VM) or deploy pay-as-you-go instances of SQL Server.
 1. Deploy SharePoint onto multiple Azure VMs, or, use trial images from the gallery that already have SharePoint Server installed.
 1. Create the SharePoint farm.
 1. Set up an Azure external load balancer to direct incoming HTTPS traffic to the SharePoint server.
-1. Leverage Express Route or VPN Gateway for management access to resource group.
-1. On-premises users can access the SharePoint sites via the internet, Express Route, or VPN Gateway.
+1. Use ExpressRoute or VPN Gateway for management access to resource group.
+1. On-premises users can access the SharePoint sites via the internet, ExpressRoute, or VPN Gateway.
 1. External users can be granted access as required to the SharePoint sites for testing.
 
 ## Components
