@@ -10,6 +10,8 @@ ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
+<!-- cSpell:ignore CDNs -->
+
 # Best practices for using content delivery networks (CDNs)
 
 A content delivery network (CDN) is a distributed network of servers that can efficiently deliver web content to users. CDNs store cached content on edge servers that are close to end users to minimize latency.
@@ -20,7 +22,7 @@ CDNs are typically used to deliver static content such as images, style sheets, 
 
 In Azure, the [Azure Content Delivery Network](/azure/cdn/cdn-overview) is a global CDN solution for delivering high-bandwidth content that is hosted in Azure or any other location. Using Azure CDN, you can cache publicly available objects loaded from Azure blob storage, a web application, virtual machine, any publicly accessible web server.
 
-This topic describes some general best practices and considerations when using a CDN. For more information, see [Azure CDN](/azure/cdn/).
+This topic describes some general best practices and considerations when using a CDN. For more information, see [Azure CDN](https://docs.microsoft.com/azure/cdn).
 
 ## How and why a CDN is used
 
@@ -34,7 +36,7 @@ Typical uses for a CDN include:
 
 - Streaming video files to the client on demand. Video benefits from the low latency and reliable connectivity available from the globally located datacenters that offer CDN connections. Microsoft Azure Media Services (AMS) integrates with Azure CDN to deliver content directly to the CDN for further distribution. For more information, see [Streaming endpoints overview](/azure/media-services/media-services-streaming-endpoints-overview).
 
-- Generally improving the experience for users, especially those located far from the datacenter hosting the application. These users might otherwise suffer higher latency. A large proportion of the total size of the content in a web application is often static, and using the CDN can help to maintain performance and overall user experience while eliminating the requirement to deploy the application to multiple datacenters. For a list of Azure CDN node locations, see [Azure CDN POP Locations](/azure/cdn/cdn-pop-locations/).
+- Generally improving the experience for users, especially those located far from the datacenter hosting the application. These users might otherwise suffer higher latency. A large proportion of the total size of the content in a web application is often static, and using the CDN can help to maintain performance and overall user experience while eliminating the requirement to deploy the application to multiple datacenters. For a list of Azure CDN node locations, see [Azure CDN POP Locations](https://docs.microsoft.com/azure/cdn/cdn-pop-locations).
 
 - Supporting IoT (Internet of Things) solutions. The huge numbers of devices and appliances involved in an IoT solution could easily overwhelm an application if it had to distribute firmware updates directly to each device.
 
@@ -78,7 +80,7 @@ If you need to deploy the content to an additional location, this will be an ext
 
 Consider how you will handle local development and testing when some static content is expected to be served from a CDN. For example, you could predeploy the content to the CDN as part of your build script. Alternatively, use compile directives or flags to control how the application loads the resources. For example, in debug mode, the application could load static resources from a local folder. In release mode, the application would use the CDN.
 
-Consider the options for file compression, such as gzip (GNU zip). Compression may be performed on the origin server by the web application hosting or directly on the edge servers by the CDN. For more information, see [Improve performance by compressing files in Azure CDN](/azure/cdn/cdn-improve-performance).
+Consider the options for file compression, such as gzip (GNU zip). Compression may be performed on the origin server by the web application hosting or directly on the edge servers by the CDN. For more information, see [Improve performance by compressing files in Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-improve-performance).
 
 ### Routing and versioning
 
@@ -88,13 +90,13 @@ Do not use the query string to denote different versions of the application in l
 
 Deploying new versions of static content when you update an application can be a challenge if the previous resources are cached on the CDN. For more information, see the section on cache control, below.
 
-Consider restricting the CDN content access by country. Azure CDN allows you to filter requests based on the country of origin and restrict the content delivered. For more information, see [Restrict access to your content by country](/azure/cdn/cdn-restrict-access-by-country/).
+Consider restricting the CDN content access by country. Azure CDN allows you to filter requests based on the country of origin and restrict the content delivered. For more information, see [Restrict access to your content by country](https://docs.microsoft.com/azure/cdn/cdn-restrict-access-by-country).
 
 ### Cache control
 
 Consider how to manage caching within the system. For example, in Azure CDN, you can set global caching rules, and then set custom caching for particular origin endpoints. You can also control how caching is performed in a CDN by sending cache-directive headers at the origin.
 
-For more information, see [How caching works](/azure/cdn/cdn-how-caching-works).
+For more information, see [How caching works](https://docs.microsoft.com/azure/cdn/cdn-how-caching-works).
 
 To prevent objects from being available on the CDN, you can delete them from the origin, remove or delete the CDN endpoint, or in the case of blob storage, make the container or blob private. However, items are not removed from the CDN until the time-to-live expires. You can also manually purge a CDN endpoint.
 
@@ -104,11 +106,11 @@ The CDN can deliver content over HTTPS (SSL), by using the certificate provided 
 
 If you deliver static assets such as font files by using the CDN, you might encounter same-origin policy issues if you use an *XMLHttpRequest* call to request these resources from a different domain. Many web browsers prevent cross-origin resource sharing (CORS) unless the web server is configured to set the appropriate response headers. You can configure the CDN to support CORS by using one of the following methods:
 
-- Configure the CDN to add CORS headers to the responses. For more information, see [Using Azure CDN with CORS](/azure/cdn/cdn-cors).
+- Configure the CDN to add CORS headers to the responses. For more information, see [Using Azure CDN with CORS](https://docs.microsoft.com/azure/cdn/cdn-cors).
 
-- If the origin is Azure blob storage, add CORS rules to the storage endpoint. For more information, see [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).
+- If the origin is Azure blob storage, add CORS rules to the storage endpoint. For more information, see [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services](https://docs.microsoft.com/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).
 
-- Configure the application to set the CORS headers. For example, see [Enabling Cross-Origin Requests (CORS)](/aspnet/core/security/cors) in the ASP.NET Core documentation.
+- Configure the application to set the CORS headers. For example, see [Enabling Cross-Origin Requests (CORS)](https://docs.microsoft.com/aspnet/core/security/cors) in the ASP.NET Core documentation.
 
 ### CDN fallback
 

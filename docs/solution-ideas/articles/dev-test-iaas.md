@@ -421,7 +421,7 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Virtual machines are used to deploy all of the products used in the solution. Staging slots swap pre-production and production versions.
 * Application Insights: Application Insights monitors the web application during development and test runs, and then monitors the full production system when it’s released.
 
-## Next Steps
+## Next steps
 
 * [Set up Azure DevOps](https://www.visualstudio.com/docs/setup-admin/get-started)
 * [Configure Microsoft Release Management agents](https://www.visualstudio.com/docs/release/getting-started/configure-agents)

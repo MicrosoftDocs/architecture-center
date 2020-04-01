@@ -137,7 +137,7 @@ This solution is built on the Azure managed services: [Content Delivery Network]
 * [Web Apps](https://azure.microsoft.com/services/app-service/web): Hosts the website or web application.
 * [Azure Media Indexer](https://azure.microsoft.com/services/media-services/media-indexer): Enables you to make the content of your media files searchable and to generate a full-text transcript for closed-captioning and keywords. You can process one media file or multiple media files in a batch.
 
-## Next Steps
+## Next steps
 
 * [How to use Azure Blob storage](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs)
 * [How to encode an asset using Media Encoder](/api/Redirect/documentation/articles/media-services-dotnet-encode-with-media-encoder-standard)

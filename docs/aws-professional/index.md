@@ -10,6 +10,8 @@ ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
+<!-- cSpell:ignore lbrader CDNs -->
+
 # Azure for AWS Professionals
 
 This article helps Amazon Web Services (AWS) experts understand the basics of Microsoft Azure accounts, platform, and services. It also covers key similarities and differences between the AWS and Azure platforms.
@@ -79,13 +81,13 @@ Resources can also be organized using [tags](/azure/azure-resource-manager/resou
 
 Azure offers several ways to manage your resources:
 
-- [Web interface](/azure/azure-resource-manager/resource-group-portal).
+- [Web interface](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
     Like the AWS Dashboard, the Azure portal provides a full web-based management interface for Azure resources.
 
-- [REST API](/rest/api/).
+- [REST API](https://docs.microsoft.com/rest/api).
     The Azure Resource Manager REST API provides programmatic access to most of the features available in the Azure portal.
 
-- [Command Line](/azure/azure-resource-manager/cli-azure-resource-manager).
+- [Command Line](https://docs.microsoft.com/azure/azure-resource-manager/cli-azure-resource-manager).
     The Azure CLI provides a command-line interface capable of creating and managing Azure resources. The Azure CLI is available for [Windows, Linux, and Mac OS](https://docs.microsoft.com/cli/azure).
 
 - [PowerShell](/azure/azure-resource-manager/powershell-azure-resource-manager).
@@ -96,13 +98,13 @@ Azure offers several ways to manage your resources:
 
 In each of these interfaces, the resource group is central to how Azure resources get created, deployed, or modified. This is similar to the role a "stack" plays in grouping AWS resources during CloudFormation deployments.
 
-The syntax and structure of these interfaces are different from their AWS equivalents, but they provide comparable capabilities. In addition, many third-party management tools used on AWS, like [Hashicorp's Terraform](https://www.terraform.io/docs/providers/azurerm/) and [Netflix Spinnaker](https://www.spinnaker.io/), are also available on Azure.
+The syntax and structure of these interfaces are different from their AWS equivalents, but they provide comparable capabilities. In addition, many third-party management tools used on AWS, like [Hashicorp's Terraform](https://www.terraform.io/docs/providers/azurerm) and [Netflix Spinnaker](https://www.spinnaker.io), are also available on Azure.
 
 <!-- markdownlint-disable MD024 -->
 
 ### See also
 
-- [Azure resource group guidelines](/azure/azure-resource-manager/resource-group-overview#resource-groups)
+- [Azure resource group guidelines](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)
 
 ## Regions and zones (high availability)
 
@@ -183,7 +185,7 @@ Similar to AWS' per second billing, Azure on-demand VMs are billed per second.
 
 #### EBS and Azure Storage for VM disks
 
-Durable data storage for Azure VMs is provided by [data disks](/azure/virtual-machines/linux/about-disks-and-vhds)
+Durable data storage for Azure VMs is provided by [data disks](https://docs.microsoft.com/azure/virtual-machines/linux/managed-disks-overview)
 residing in blob storage. This is similar to how EC2 instances store disk volumes on Elastic Block Store (EBS). [Azure temporary storage](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/) also provides VMs the same low-latency temporary read-write storage as EC2 Instance Storage (also called ephemeral storage).
 
 Higher performance disk IO is supported using [Azure premium storage](/azure/virtual-machines/windows/premium-storage). This is similar to the Provisioned IOPS storage options provided by AWS.
@@ -214,7 +216,7 @@ Azure offers several compute services that do not have direct equivalents in AWS
 
 - [Azure Batch](/azure/batch/batch-technical-overview) allows you to manage compute-intensive work across a scalable collection of virtual machines.
 
-- [Service Fabric](/azure/service-fabric/service-fabric-overview) is a platform for developing and hosting scalable [microservice](/azure/service-fabric/service-fabric-overview-microservices) solutions.
+- [Service Fabric](/azure/service-fabric/service-fabric-overview) is a platform for developing and hosting scalable [microservices-based](/azure/service-fabric/service-fabric-overview-microservices) solutions.
 
 #### See also
 

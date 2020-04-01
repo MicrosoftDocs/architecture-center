@@ -123,7 +123,7 @@ foreach ($vNetPeering in $hubPeerings)
 
 There is a nominal charge for ingress and egress traffic that utilizes a virtual network peering. There is no change to existing pricing when adding an additional IP address space to an Azure virtual network.  For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network).
 
-## Next Steps
+## Next steps
 
 * Learn more about [managing Virtual Network peerings](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering)
 

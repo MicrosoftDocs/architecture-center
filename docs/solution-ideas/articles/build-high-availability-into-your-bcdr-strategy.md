@@ -142,7 +142,7 @@ Virtual machines (VMs) are physically separated across zones, and a virtual netw
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database): Managed, intelligent SQL in the cloud
 * [Load Balancer](https://azure.microsoft.com/services/load-balancer): Deliver high availability and network performance to your applications
 
-## Next Steps
+## Next steps
 
 * [Virtual Machines documentation](https://docs.microsoft.com/azure/virtual-machines)
 * [SQL Database documentation](https://docs.microsoft.com/azure/sql-database)

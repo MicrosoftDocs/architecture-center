@@ -238,3 +238,5 @@ _themes*/
 
 # MacOS
 .DS_Store
+.cspell.json
+*.bak

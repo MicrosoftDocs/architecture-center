@@ -158,7 +158,7 @@ Transform your data into actionable insights using the best-in-class machine lea
 * [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services) is an enterprise grade analytics as a service that lets you govern, deploy, test, and deliver your BI solution with confidence.
 * [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive ad hoc analysis. Produce beautiful reports, then publish them for your organization to consume on the web and across mobile devices.
 
-## Next Steps
+## Next steps
 
 * [Synapse Analytics Documentation](https://docs.microsoft.com/azure/sql-data-warehouse)
 * [Azure Data Factory V2 Preview Documentation](https://docs.microsoft.com/azure/data-factory)

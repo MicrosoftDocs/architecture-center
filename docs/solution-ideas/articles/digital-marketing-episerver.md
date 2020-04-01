@@ -118,7 +118,7 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 * [Azure Monitor](https://azure.microsoft.com/services/monitor): Application Insights provides service health, performance monitoring, and diagnostics.
 * [Identity provider](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview): An identity provider such as Azure Active Directory or Facebook handles authentication to the app.
 
-## Next Steps
+## Next steps
 
 * [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](/api/Redirect/documentation/articles/web-sites-dotnet-get-started)
 * [Configure Performance traffic routing method](/api/Redirect/documentation/articles/traffic-manager-configure-performance-routing-method)

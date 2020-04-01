@@ -41,7 +41,7 @@ Azure DevOps provides the CI/CD pipeline, starting with a Git repository for man
 * [Application Insights](https://azure.microsoft.com/services/monitor): Detect, triage, and diagnose issues in your web apps and services.
 * [Azure DevOps](https://azure.microsoft.com/services/devops): Build and deploy multi-platform apps to get the most from Azure services
 
-## Next Steps
+## Next steps
 
 * [Use Azure DevOps to Deploy to a Windows Virtual Machine](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups)
 * [Use Azure DevOps to manage a virtual machine in Azure DevTest Labs](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/deploy-provision-devtest-lab)

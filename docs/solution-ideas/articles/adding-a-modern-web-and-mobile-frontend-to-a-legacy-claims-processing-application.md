@@ -280,7 +280,7 @@ This line-of-business application solution consolidates data from multiple busin
 * Azure [Virtual Machines](https://azure.microsoft.com/services/virtual-machines) lets you deploy a Windows Server or Linux image in the cloud. You can select images from a marketplace or use your own customized images.
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a relational database service that lets you rapidly create, extend, and scale relational applications into the cloud.
 
-## Next Steps
+## Next steps
 
 * [Running SAP on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json)
 * [Running SQL server in Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal)

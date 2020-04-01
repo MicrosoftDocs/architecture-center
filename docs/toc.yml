@@ -1037,7 +1037,9 @@ items:
         href: serverless/guide/serverless-app-cicd-best-practices.md
     - name: Example workloads
       items:
-      - name: Sharing location in real time using Functions and SignalR
+      - name: Serverless Framework multicloud solutions
+        href: example-scenario/serverless/serverless-multicloud.md
+      - name: Share location in real time using Functions and SignalR
         href: example-scenario/signalr/index.md
     - name: Solution ideas
       items:

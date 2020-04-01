@@ -9,13 +9,15 @@ ms.service: architecture-center
 ms.subservice: solution-idea
 ---
 
+<!-- cSpell:ignore xlink -->
+
 # Interactive Price Analytics
 
 [!INCLUDE [header_file](../header.md)]
 
 The Pricing Analytics solution uses your transactional history data to show you how the demand for your products responds to the prices you offer, to recommend pricing changes, and allow you to simulate how changes in price would affect your demand, at a fine granularity.
 
-The solution provides a dashboard, where you can see optimal pricing recommendations, item elasticities at a item-site-channel-segment level, estimates of related-product effects such "as cannibalization", forecasts given current process, and model perfomance metrics.
+The solution provides a dashboard, where you can see optimal pricing recommendations, item elasticities at a item-site-channel-segment level, estimates of related-product effects such "as cannibalization", forecasts given current process, and model performance metrics.
 
 Direct interaction with the pricing model in Excel lets you simply paste your sales data there and analyze your prices without the need to integrate the data into the solution database first, simulate promotions and plot demand curves (showing demand response to price), and access dashboard data in numerical form.
 
@@ -136,7 +138,7 @@ While the solution is deploying, you can get a head start and
 * See what is available in the Try-It-Now dashboard
 * Peruse the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md) for usage instructions from the perspective of a pricing analyst (MSFT login required)
 * Review the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a technical implementation view (MSFT login required)
-* Download the [interactive Excel Worksheet](https://aka.ms/pricingxls)
+* Download the [interactive Excel worksheet](https://aka.ms/pricingxls)
 
 After the solution deploys, complete the [first walkthrough](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Walkthrough%201%20-%20Promotion%20Simulation/PromoSimulationWalkthrough.md) (MSFT login required).
 
@@ -152,4 +154,4 @@ Other tabs provide supplemental information illuminating how the system arrived 
 
 The solution uses an Azure SQL server to store your transactional data and the generated model predictions. There are a dozen elasticity modeling core services, which are authored in AzureML using Python core libraries. Azure Data Factory schedules weekly model refreshes. The results display in a PowerBI dashboard. The provided [Excel spreadsheet](https://aka.ms/pricingxls) consumes the predictive Web Services.
 
-Please read the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a more detailed discussion of the architecture, connecting your own data and customization (Github login required).
+Please read the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a more detailed discussion of the architecture, connecting your own data and customization (GitHub login required).

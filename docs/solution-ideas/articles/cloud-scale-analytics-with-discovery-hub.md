@@ -145,7 +145,7 @@ Use Discovery Hub to define a data estate using a graphical user interface, with
 * [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services): Enterprise-grade analytics engine as a service
 * [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded): Embed fully interactive, stunning data visualizations in your applications
 
-## Next Steps
+## Next steps
 
 * [Azure Data Lake Storage documentation](https://azure.microsoft.com/services/storage/data-lake-storage)
 * [Azure Databricks documentation](https://azure.microsoft.com/services/databricks)

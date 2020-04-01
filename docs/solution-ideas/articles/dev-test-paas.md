@@ -31,7 +31,7 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache) is used in each environment to improve performance of the website.
 * Application Insights: Application Insights monitors the web application during development and test runs, and then monitors the full production system when it's released.
 
-## Next Steps
+## Next steps
 
 * [Set up Azure DevOps](https://www.visualstudio.com/docs/setup-admin/get-started)
 * [Configure Microsoft Release Management agents](https://www.visualstudio.com/docs/release/getting-started/configure-agents)

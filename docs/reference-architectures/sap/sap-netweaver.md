@@ -9,6 +9,8 @@ ms.subservice: reference-architecture
 ms.custom: seodec18, SAP, Windows, fcp
 ---
 
+<!-- cSpell:ignore lbrader -->
+
 # Deploy SAP NetWeaver (Windows) for AnyDB on Azure virtual machines
 
 This reference architecture shows a set of proven practices for running SAP NetWeaver in a Windows environment on Azure with high availability. The database is AnyDB, the SAP term for any supported database management system (DBMS) besides SAP HANA.

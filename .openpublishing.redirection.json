@@ -1661,7 +1661,7 @@
     },
     {
       "source_path": "docs/cloud-adoption/ready/considerations/scaling-subscriptions.md",
-      "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/ready/considerations/scaling-subscriptions"
+      "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/ready/considerations/scale-subscriptions"
     },
     {
       "source_path": "docs/cloud-adoption/ready/considerations/storage-guidance.md",

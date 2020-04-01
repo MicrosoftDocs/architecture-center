@@ -283,7 +283,7 @@ The links to the right provide documentation on deploying and managing the Azure
 * Azure [Notification Hubs](https://azure.microsoft.com/services/notification-hubs) are used for scalable, cross-platform push notifications.
 * Azure [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) controls the distribution of user traffic for service endpoints in different datacenters in order to deliver a highly responsive and available application.
 
-## Next Steps
+## Next steps
 
 * [Visual Studio Documentation](https://docs.microsoft.com/visualstudio)
 * [Xamarin Documentation](https://docs.microsoft.com/xamarin)

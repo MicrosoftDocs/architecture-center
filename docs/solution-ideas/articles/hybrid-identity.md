@@ -34,7 +34,7 @@ The need to keep application components on-premises doesn't have to be a barrier
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Provision Windows and Linux virtual machines in seconds.
 * Learn how to synchronize directories and enable single sign-on with [Azure Active Directory](https://azure.microsoft.com/services/active-directory) (Azure AD).
 
-## Next Steps
+## Next steps
 
 * [Azure Stack User Documentation](https://docs.microsoft.com/azure/azure-stack/user)
 * [Virtual Machines Overview](https://azure.microsoft.com/services/virtual-machines)

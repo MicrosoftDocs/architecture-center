@@ -37,7 +37,7 @@ Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, 
 * [Azure DevOps](https://azure.microsoft.com/services/devops): Services for teams to share code, track work, and ship software.
 * [Visual Studio](https://www.visualstudio.com/vs/azure): A creative launch pad for viewing and editing code,  then debugging, building, and publishing apps for Android, iOS, Windows, the web, and the cloud.
 
-## Next Steps
+## Next steps
 
 * [Performance monitoring with Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-detect-triage-diagnose)
 * [Use Azure DevOps to deploy to an Azure Web App](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp)

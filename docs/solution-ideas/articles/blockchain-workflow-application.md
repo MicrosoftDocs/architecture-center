@@ -43,7 +43,7 @@ Businesses use blockchain to digitize workflows they share with other organizati
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network): Provision private networks, optionally connect to on-premises datacenters
 * [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded): Embed fully interactive, stunning data visualizations in your applications
 
-## Next Steps
+## Next steps
 
 * [Azure Blockchain documentation](https://docs.microsoft.com/azure/blockchain/service)
 * [Service Bus documentation](https://docs.microsoft.com/azure/service-bus)

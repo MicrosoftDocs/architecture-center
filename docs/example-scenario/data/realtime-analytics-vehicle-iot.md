@@ -97,7 +97,7 @@ Review [Azure Databricks pricing](https://azure.microsoft.com/pricing/details/da
 - [Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services) is available in developer, basic, and standard tiers. Instances are priced based on query processing units (QPUs) and available memory. To keep your costs lower, minimize the number of queries you run, how much data they process, and how often they run.
 - [Power BI](https://powerbi.microsoft.com/pricing) has different product options for different requirements. [Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded) provides an Azure-based option for embedding Power BI functionality inside your applications. A Power BI Embedded instance is included in the pricing sample above.
 
-## Next Steps
+## Next steps
 
 - Review the [Azure IoT reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/) that shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
 - Review the [Real-time analytics](https://azure.microsoft.com/solutions/architecture/real-time-analytics) reference architecture that includes big data pipeline flow.

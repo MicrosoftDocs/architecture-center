@@ -30,7 +30,7 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 * [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway): The VPN gateway maintains the communication between the on-premises network and the cloud network securely and privately.
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network): The virtual network is where the failover site will be created when a disaster occurs.
 
-## Next Steps
+## Next steps
 
 * [Configure Failover routing method](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method)
 * [How does Azure Site Recovery work?](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)

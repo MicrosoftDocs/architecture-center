@@ -68,7 +68,7 @@ Being able to predict length of stay at the time of admission helps hospitals pr
 * [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
 * [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
 
-## Next Steps
+## Next steps
 
 * [Learn more about SQL Server](https://www.microsoft.com/sql-server/sql-server-r-services)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)

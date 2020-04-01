@@ -218,7 +218,7 @@ def scrape_page(url):
                 articletext += "\n* " + description
                     
         if len(actions) >0:
-            articletext += "\n\n## Next Steps"
+            articletext += "\n\n## Next steps"
             for item in actions:
                 name=item[0]
                 action=item[1]

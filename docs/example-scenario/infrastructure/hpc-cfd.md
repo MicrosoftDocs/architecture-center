@@ -106,7 +106,7 @@ This scenario shows how CFD applications can be run in Azure, so the machines wi
 
 Review this [price estimate][pricing] for the hardware listed above.
 
-## Next Steps
+## Next steps
 
 Once you've deployed the sample, learn more about [Azure CycleCloud][cyclecloud].
 

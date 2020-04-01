@@ -338,7 +338,7 @@ The first service bus effectively serves as an "Outbox" for IoT Hub and the seco
 * [Service Bus](https://azure.microsoft.com/services/service-bus): Connect across private and public cloud environments
 * [Event Grid](https://azure.microsoft.com/services/event-grid): Get reliable event delivery at massive scale
 
-## Next Steps
+## Next steps
 
 * [Find run-time exceptions with Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions)
 * [Create a blockchain app with Azure Blockchain Workbench](https://docs.microsoft.com/azure/blockchain-workbench/blockchain-workbench-create-app)

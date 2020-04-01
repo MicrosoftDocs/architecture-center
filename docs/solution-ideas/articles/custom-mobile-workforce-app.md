@@ -58,7 +58,7 @@ The links to the right provide documentation on deploying and managing the Azure
 * [API Management](https://azure.microsoft.com/services/api-management): Publish APIs to external, partner, and employee developers securely and at scale.
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory) is used for secure, enterprise-grade authentication.
 
-## Next Steps
+## Next steps
 
 * [Visual Studio Documentation](https://docs.microsoft.com/visualstudio)
 * [Xamarin Documentation](https://docs.microsoft.com/xamarin)

@@ -110,9 +110,10 @@ For production deployments, consider deploying the cluster into a subnet of a vi
 
 ## Deployment
 
-To deploy the reference implementation for this architecture, follow the steps described in the Github repos:
--  [Regular Python models][github1] 
--  [Deep learning models][github2] 
+To deploy the reference implementation for this architecture, follow the steps described in the GitHub repos:
+
+- [Regular Python models][github1]
+- [Deep learning models][github2]
 
 ## Next steps
 

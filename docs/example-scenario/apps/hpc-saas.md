@@ -75,7 +75,7 @@ The following considerations will drive a substantial portion of the costs for t
 - Azure virtual machine costs increase linearly as additional instances are provisioned. Virtual machines that are deallocated will only incur storage costs, and not compute costs. These deallocated machines can then be reallocated when demand is high.
 - Azure Kubernetes Services costs are based on the VM type chosen to support the workload. The costs will increase linearly based on the number of VMs in the cluster.
 
-## Next Steps
+## Next steps
 
 - Read the [Altair customer story][source-document]. This example scenario is based on a version of their architecture.
 - Review other [Big Compute solutions](https://azure.microsoft.com/solutions/big-compute) available in Azure.

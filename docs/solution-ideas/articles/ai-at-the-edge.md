@@ -38,7 +38,7 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 * [Storage](https://azure.microsoft.com/services/storage): Durable, highly available, and massively scalable cloud storage
 * [Azure Stack](https://azure.microsoft.com/overview/azure-stack): Build and run innovative hybrid applications across cloud boundaries
 
-## Next Steps
+## Next steps
 
 * [Machine Learning Studio documentation](https://docs.microsoft.com/azure/machine-learning/service)
 * [HDInsight documentation](https://docs.microsoft.com/azure/hdinsight)

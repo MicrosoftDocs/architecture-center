@@ -189,7 +189,7 @@ The links to the right provide documentation on deploying and managing the Azure
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Create Linux and Windows virtual machines in seconds.
 * [Microsoft HPC Pack](https://www.visualstudio.com/vs): Free high performance computing (HPC) solution built on Microsoft Azure and Windows Server technologies.
 
-## Next Steps
+## Next steps
 
 * [Create a Windows virtual machine with the Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 * [Set up a hybrid high performance computing (HPC) cluster with Microsoft HPC Pack and on-demand Azure compute nodes](https://docs.microsoft.com/azure/cloud-services/cloud-services-setup-hybrid-hpcpack-cluster)

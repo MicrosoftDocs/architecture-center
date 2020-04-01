@@ -8,9 +8,14 @@ ms.topic: landing-page
 ---
 
 # Solution Ideas
+
+<!-- markdownlint-disable MD033 -->
+
 <a class="button" href="/azure/architecture/architectures/reference-architectures">Reference Architectures</a>
 <a class="button" href="/azure/architecture/architectures/example-workloads">Example Workloads</a>
 <a class="button is-primary" href="/azure/architecture/architectures/index">Solution Ideas</a>
+
+<!-- markdownlint-enable MD033 -->
 
 Architecture diagrams and overviews of workloads and solutions that can be built using Azure technologies.
 
@@ -180,7 +185,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>2 min read</li>
                         </ul>
-                        <p class="card-content-description">Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, you’ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically. </p>
+                        <p class="card-content-description">Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, you'll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
@@ -266,7 +271,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>2 min read</li>
                         </ul>
-                        <p class="card-content-description">Containers make it very easy for you to continuously build and deploy your applications. By orchestrating deployment of those containers using Kubernetes in Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers. </p>
+                        <p class="card-content-description">Containers make it easy for you to continuously build and deploy your applications. By orchestrating deployment of those containers using Kubernetes in Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
@@ -353,7 +358,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>3 min read</li>
                         </ul>
-                        <p class="card-content-description">Get deep learning analytics and insights live from streaming data. Review logs from website clickstream in near real-time for advanced analytics processing. </p>
+                        <p class="card-content-description">Get deep learning analytics and insights live from streaming data. Review logs from website clickstream in near-real-time for advanced analytics processing. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
@@ -441,7 +446,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>1 min read</li>
                         </ul>
-                        <p class="card-content-description">Event Grid connects your app with other services. For example, create an application topic to send your app’s event data to Event Grid and take advantage of its reliable delivery, advanced routing, and direct integration with Azure. Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code. </p>
+                        <p class="card-content-description">Event Grid connects your app with other services. For example, create an application topic to send your app's event data to Event Grid and take advantage of its reliable delivery, advanced routing, and direct integration with Azure. Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
@@ -756,7 +761,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/solution-ideas/articles/dev-test-paas#components">Component details</a></li>
                             </ul>
                         </div>
@@ -785,7 +790,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/itanomalyinsights-cortana-intelligence-preconfigured-solution"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/itanomalyinsights-cortana-intelligence-preconfigured-solution"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -863,7 +868,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>2 min read</li>
                         </ul>
-                        <p class="card-content-description">Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use Java, Node.js, Go, or PHP to develop your applications, you’ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically. </p>
+                        <p class="card-content-description">Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use Java, Node.js, Go, or PHP to develop your applications, you'll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
@@ -1118,7 +1123,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>2 min read</li>
                         </ul>
-                        <p class="card-content-description">Too often, product designers waste time and money with inefficient design review—2D images lose essential detail and context, and physical prototypes are extremely expensive. With this mixed reality scenario, clients, designers, and on-site engineers can easily share and review designs as 3D holograms in the context of their environment, accelerating design decisions and reducing time to market. </p>
+                        <p class="card-content-description">Too often, product designers waste time and money with inefficient design review—2D images lose essential detail and context, and physical prototypes are expensive. With this mixed reality scenario, clients, designers, and on-site engineers can easily share and review designs as 3D holograms in the context of their environment, accelerating design decisions and reducing time to market. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
@@ -1241,7 +1246,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/solution-ideas/articles/dev-test-iaas#components">Component details</a></li>
                             </ul>
                         </div>
@@ -1351,7 +1356,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/azure/mmlspark"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/azure/mmlspark"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/solution-ideas/articles/image-classification-with-convolutional-neural-networks#components">Component details</a></li>
                             </ul>
                         </div>
@@ -1434,7 +1439,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/solution-ideas/articles/dev-test-microservice#components">Component details</a></li>
                             </ul>
                         </div>
@@ -1513,7 +1518,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>2 min read</li>
                         </ul>
-                        <p class="card-content-description">A live streaming solution allows you to capture video in real-time and broadcast it to consumers in real time, such as streaming interviews, conferences, and sporting events online. </p>
+                        <p class="card-content-description">A live streaming solution allows you to capture video in real time and broadcast it to consumers in real time, such as streaming interviews, conferences, and sporting events online. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
@@ -1627,7 +1632,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>3 min read</li>
                         </ul>
-                        <p class="card-content-description">Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on demand forecasting within the energy sector. </p>
+                        <p class="card-content-description">Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on-demand forecasting within the energy sector. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
@@ -1713,7 +1718,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>2 min read</li>
                         </ul>
-                        <p class="card-content-description">Start simple with the content management system that enables you to easily maintain the messaging on your website in real-time, from a browser, with no coding skills. </p>
+                        <p class="card-content-description">Start simple with the content management system that enables you to easily maintain the messaging on your website in real time, from a browser, with no coding skills. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
@@ -1741,7 +1746,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>2 min read</li>
                         </ul>
-                        <p class="card-content-description">Deliver highly available intranet capability by deploying SharePoint and sharing hybrid workloads with Office 365. Setup this solution with step-by-step instructions. </p>
+                        <p class="card-content-description">Deliver highly available intranet capability by deploying SharePoint and sharing hybrid workloads with Office 365. Set up this solution with step-by-step instructions. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
@@ -2000,7 +2005,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-churn-prediction-solution"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-churn-prediction-solution"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -2188,7 +2193,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>3 min read</li>
                         </ul>
-                        <p class="card-content-description">Super computers have moved out of the lab and are now parked in our garage! These cutting-edge automobiles contain a myriad of sensors, giving them the ability to track and monitor millions of events every second. We expect that by 2020, most of these cars will be connected to the internet. Imagine tapping into this wealth of data to provide best in class safety, reliability and driving experience. Microsoft has made this imagination a reality via Cortana Intelligence. Microsoft’s Cortana Intelligence is a fully managed big data and advanced analytics suite that enables you to transform your data into intelligent action. </p>
+                        <p class="card-content-description">Supercomputers have moved out of the lab and are now parked in our garage! These cutting-edge automobiles contain a myriad of sensors, giving them the ability to track and monitor millions of events every second. We expect that by 2020, most of these cars will be connected to the internet. Imagine tapping into this wealth of data to provide best-in-class safety, reliability, and driving experience. Microsoft has made this imagination a reality via Cortana Intelligence. Microsoft's Cortana Intelligence is a fully managed big data and advanced analytics suite that enables you to transform your data into intelligent action. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
@@ -2242,14 +2247,14 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>2 min read</li>
                         </ul>
-                        <p class="card-content-description">A deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. This solution implements a process of aggregating customer data into a “360 degree” profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers. </p>
+                        <p class="card-content-description">A deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. This solution implements a process of aggregating customer data into a "360 degree" profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-customer360"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-customer360"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/solution-ideas/articles/customer-360#data-flow">Data Flow</a></li>
                             </ul>
                         </div>
@@ -2382,7 +2387,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>1 min read</li>
                         </ul>
-                        <p class="card-content-description">Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft’s global datacenters. </p>
+                        <p class="card-content-description">Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft's global datacenters. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
@@ -2465,7 +2470,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>2 min read</li>
                         </ul>
-                        <p class="card-content-description">Azure App Service is a fast and simple way to create web apps using Java, Node, PHP or ASP.NET, as well as support for custom language runtimes using Docker. A continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Azure app services allows you to deliver value faster to your customers. </p>
+                        <p class="card-content-description">Azure App Service is a fast and simple way to create web apps using Java, Node, PHP, or ASP.NET, as well as support for custom language runtimes using Docker. A continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Azure app services allows you to deliver value faster to your customers. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
@@ -2494,7 +2499,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>2 min read</li>
                         </ul>
-                        <p class="card-content-description">Microsoft Azure’s Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health. </p>
+                        <p class="card-content-description">Microsoft Azure's Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
@@ -2558,7 +2563,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-call-center-solution"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-call-center-solution"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -2579,7 +2584,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>1 min read</li>
                         </ul>
-                        <p class="card-content-description">Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac. </p>
+                        <p class="card-content-description">Rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
@@ -2657,7 +2662,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>3 min read</li>
                         </ul>
-                        <p class="card-content-description">Enable your team and employees to learn new processes and materials faster, with fewer errors, and greater confidence by providing persistent holographic instructions mapped to precise locations in their physical workspace. Jumpstart employee comprehension with head-up, hands-free experiences using HoloLens devices. And with Azure Spatial Anchors, you can place directions on the procedure’s most important objects and return to this content over time. </p>
+                        <p class="card-content-description">Enable your team and employees to learn new processes and materials faster, with fewer errors, and greater confidence by providing persistent holographic instructions mapped to precise locations in their physical workspace. Jumpstart employee comprehension with head-up, hands-free experiences using HoloLens devices. And with Azure Spatial Anchors, you can place directions on the procedure's most important objects and return to this content over time. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
@@ -2768,7 +2773,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>1 min read</li>
                         </ul>
-                        <p class="card-content-description">Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac. </p>
+                        <p class="card-content-description">Rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
@@ -2851,7 +2856,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>2 min read</li>
                         </ul>
-                        <p class="card-content-description">Together, the Azure Bot Service and Language Understanding service enable developers to create conversational interfaces for various scenarios like banking, travel, and entertainment. For example, a hotel’s concierge can use a bot to enhance traditional e-mail and phone call interactions by validating a customer via Azure Active Directory and using Cognitive Services to better contextually process customer requests using text and voice. The Speech recognition service can be added to support voice commands. </p>
+                        <p class="card-content-description">Together, the Azure Bot Service and Language Understanding service enable developers to create conversational interfaces for various scenarios like banking, travel, and entertainment. For example, a hotel's concierge can use a bot to enhance traditional e-mail and phone call interactions by validating a customer via Azure Active Directory and using Cognitive Services to better contextually process customer requests using text and voice. The Speech recognition service can be added to support voice commands. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
@@ -2915,7 +2920,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-price-optimization/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-price-optimization/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/solution-ideas/articles/demand-forecasting-and-price-optimization#technical-details-and-workflow">Data Flow</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/solution-ideas/articles/demand-forecasting-and-price-optimization">Pricing Details</a></li>
                             </ul>
@@ -3240,7 +3245,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>2 min read</li>
                         </ul>
-                        <p class="card-content-description">Create, maintain, and distribute custom images with the DevTest Image Factory, an automated image development and management solution from Azure Dev Test Labs. </p>
+                        <p class="card-content-description">Create, maintain, and distribute custom images with the DevTest Image Factory, an automated image development and management solution from Azure DevTest Labs. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
@@ -3357,7 +3362,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-quality-assurance-manufacturing/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md#post-deployment-instructions"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-quality-assurance-manufacturing/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md#post-deployment-instructions"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/solution-ideas/articles/quality-assurance#technical-details-and-workflow">Data Flow</a></li>
                             </ul>
                         </div>
@@ -3488,14 +3493,14 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>5 min read</li>
                         </ul>
-                        <p class="card-content-description">The Demand Forecasting for Shipping and Distribution Solution uses historical demand data to forecast demand in future periods across varios customers, products and destinations. For instance, a shipping or delivery company wants to predict the quantities of the different products its customers want delivered at different locations at future times. A company can use these forecasts as input to an allocation tool that optimizes operations, such as delivery vehicles routing, or to plan capacity in the longer term. </p>
+                        <p class="card-content-description">The Demand Forecasting for Shipping and Distribution Solution uses historical demand data to forecast demand in future periods across various customers, products, and destinations. For instance, a shipping or delivery company wants to predict the quantities of the different products its customers want delivered at different locations at future times. A company can use these forecasts as input to an allocation tool that optimizes operations, such as delivery vehicles routing, or to plan capacity in the longer term. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-shipping-and-distribution-forecasting/blob/master/Technical%20Deployment%20Guide/Technical-Solution-Guide.md"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-shipping-and-distribution-forecasting/blob/master/Technical%20Deployment%20Guide/Technical-Solution-Guide.md"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/solution-ideas/articles/demand-forecasting-for-shipping-and-distribution#pricing-info">Pricing Details</a></li>
                             </ul>
                         </div>
@@ -3552,7 +3557,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-population-health-management/blob/master/Azure%20Data%20Lake/AutomatedDeploymentGuide/Post%20Deployment%20Instructions.md"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-population-health-management/blob/master/Azure%20Data%20Lake/AutomatedDeploymentGuide/Post%20Deployment%20Instructions.md"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -3580,7 +3585,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-personalized-offers/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-personalized-offers/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/solution-ideas/articles/personalized-offers#data-flow">Data Flow</a></li>
                             </ul>
                         </div>
@@ -3609,7 +3614,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                             </ul>
                         </div>
                     </div>
@@ -3710,7 +3715,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                             <li>12/16/2019</li>
                             <li>1 min read</li>
                         </ul>
-                        <p class="card-content-description">The QnA Maker tool makes it super easy for the content owners to maintain their knowledge base of QnAs. Combined with Bot Service and LUIS, it's easy to setup an FAQ chatbot which responds from differnet knowledge bases depending on the intent of the query. </p>
+                        <p class="card-content-description">The QnA Maker tool makes it super easy for the content owners to maintain their knowledge base of QnAs. Combined with Bot Service and LUIS, it's easy to setup an FAQ chatbot which responds from different knowledge bases depending on the intent of the query. </p>
                         <div class="bottom-to-top-fade is-hidden-mobile"></div>
                         <p></p>
                                             </div>
@@ -3774,7 +3779,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-tank-level-forecast"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-tank-level-forecast"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/solution-ideas/articles/oil-and-gas-tank-level-forecasting#technical-details-and-workflow">Data Flow</a></li>
                             </ul>
                         </div>
@@ -3970,7 +3975,7 @@ Architecture diagrams and overviews of workloads and solutions that can be built
                     <div class="card-footer">
                         <div class="card-footer-item left-aligned">
                             <ul class="tags">
-                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-energy-supply-optimization"><span class="docon docon-brand-github"></span>&nbsp;Github Project</a></li>
+                                <li class="tag is-small"><a class="black-link" href="https://github.com/Azure/cortana-intelligence-energy-supply-optimization"><span class="docon docon-brand-github"></span>&nbsp;GitHub Project</a></li>
                                 <li class="tag is-small"><a class="black-link" href="/azure/architecture/solution-ideas/articles/energy-supply-optimization#technical-details-and-workflow">Data Flow</a></li>
                             </ul>
                         </div>

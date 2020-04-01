@@ -369,7 +369,7 @@ group.</p>
 * [Load Balancer](https://azure.microsoft.com/services/load-balancer): Deliver high availability and network performance to your applications
 * [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute): Dedicated private network fiber connections to Azure
 
-## Next Steps
+## Next steps
 
 * [Azure Resource Group Documentation](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
 * [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)

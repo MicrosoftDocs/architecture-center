@@ -9,6 +9,8 @@ ms.subservice: reference-architecture
 ms.custom: seodec18, SAP, Linux, fcp
 ---
 
+<!-- cSpell:ignore lbrader -->
+
 # SAP S/4HANA for Linux virtual machines on Azure
 
 This reference architecture shows a set of proven practices for running S/4HANA

@@ -37,7 +37,7 @@ Note: This doesn't apply to Azure Stack deployments that are disconnected from t
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Provision Windows and Linux virtual machines in seconds.
 * [Azure Stack](https://azure.microsoft.com/overview/azure-stack) is a hybrid cloud platform that lets you use Azure services on-premises.
 
-## Next Steps
+## Next steps
 
 * [Virtual Network](https://docs.microsoft.com/azure/virtual-network)
 * [VPN Gateway Documentation](https://docs.microsoft.com/azure/vpn-gateway)

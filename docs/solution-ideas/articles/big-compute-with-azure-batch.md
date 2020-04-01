@@ -192,7 +192,7 @@ The links to the right provide documentation on deploying and managing the Azure
 * [Storage Accounts](https://azure.microsoft.com/services/storage): Massively scalable object storage for unstructured data.
 * [Batch](https://azure.microsoft.com/services/batch): Cloud-scale job scheduling and compute management.
 
-## Next Steps
+## Next steps
 
 * [Quickstart: Upload, download, and list blobs using the Azure portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 * [Quickstart: Run your first Batch job in the Azure portal](https://docs.microsoft.com/azure/batch/quick-create-portal)

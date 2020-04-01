@@ -42,7 +42,7 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
 * [Machine Learning](https://docs.microsoft.com/azure/machine-learning): Easily build, deploy, and manage predictive analytics solutions
 * [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded): Embed fully interactive, stunning data visualizations in your applications
 
-## Next Steps
+## Next steps
 
 * [Azure Data Factory V2 Preview Documentation](https://docs.microsoft.com/azure/data-factory)
 * [Data Lake Store Documentation](https://docs.microsoft.com/azure/data-lake-store)

@@ -134,7 +134,7 @@ Azure Machine Learning Compute also supports low-priority virtual machines. This
 To deploy this reference architecture, follow the steps described in the [GitHub repo][deployment].
 
 > [!NOTE]
-> You can also deploy a batch scoring architecture for deep learning models using the Azure Kubernetes Service. Follow the steps described in this [Github repo][deployment2].
+> You can also deploy a batch scoring architecture for deep learning models using the Azure Kubernetes Service. Follow the steps described in this [GitHub repo][deployment2].
 
 <!-- links -->
 

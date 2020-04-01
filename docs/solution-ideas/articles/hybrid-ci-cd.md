@@ -34,7 +34,7 @@ Implementing a continuous integration/continuous development (CI/CD) approach to
 * [Azure DevOps](https://azure.microsoft.com/services/devops): Build and deploy multi-platform apps to get the most from Azure services
 * [Web Apps](https://azure.microsoft.com/services/app-service/web): Quickly create and deploy mission critical Web apps at scale.
 
-## Next Steps
+## Next steps
 
 * [Azure Stack User Documentation](https://docs.microsoft.com/azure/azure-stack/user)
 * [Deploy apps to Azure and Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline)

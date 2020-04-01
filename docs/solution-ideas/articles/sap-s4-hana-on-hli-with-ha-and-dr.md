@@ -248,7 +248,7 @@ This solution architecture illustrates how a user request flows through an SAP l
 * [ExpressRoute (front end)](https://azure.microsoft.com/services/expressroute): Azure ExpressRoute used on the front end (see diagram) provides secure, high-bandwidth  connectivity to establish reliable connections between your network and the Microsoft Azure network.
 * [ExpressRoute (back end)](https://azure.microsoft.com/services/expressroute): Azure ExpressRoute used on the back end (see diagram) enables you to communicate between your Azure components in the Azure Datacenter and your SAP HANA on Azure (large instance) systems. The cost of the back end ExpressRoute is included in your SAP HANA on Azure (large instance).
 
-## Next Steps
+## Next steps
 
 * [Getting started](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)
 * [High performance NFS storage for SAP HANA large instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)

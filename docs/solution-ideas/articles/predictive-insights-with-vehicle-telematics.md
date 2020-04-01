@@ -204,7 +204,7 @@ This solution is built on the Azure managed services: [Event Hubs](https://azure
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database): SQL Database is used to store and data processed by Data Factory and HDInsight and is accessed by Power BI for analysis of the telemetry data.
 * This solution uses [Power BI](https://powerbi.microsoft.com), but others use [Power BI](https://powerbi.microsoft.com) Embedded to analyze the telemetry data.
 
-## Next Steps
+## Next steps
 
 * [Learn more about Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
 * [Learn more about Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction)

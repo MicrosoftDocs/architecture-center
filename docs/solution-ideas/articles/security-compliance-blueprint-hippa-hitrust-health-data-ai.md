@@ -363,7 +363,7 @@ ms.subservice: solution-idea
 * [Operation Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite): A collection of management services that were designed in the cloud from the start
 * [RBAC and built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles): Role-based access control (RBAC) has several built-in role definitions that you can assign to users, groups, and service principals.
 
-## Next Steps
+## Next steps
 
 * [Azure Functions Documentation](https://docs.microsoft.com/azure/azure-functions)
 * [Azure Event Grid Documentation](https://docs.microsoft.com/azure/event-grid)

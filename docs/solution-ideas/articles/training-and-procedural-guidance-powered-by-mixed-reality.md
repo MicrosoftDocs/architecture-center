@@ -150,7 +150,7 @@ Enable your team and employees to learn new processes and materials faster, with
 * [Media Services](https://azure.microsoft.com/services/media-services): Encode, store, and stream video and audio at scale
 * [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer): Make your media more discoverable and accessible
 
-## Next Steps
+## Next steps
 
 * [Share Spatial Anchors across devices](https://docs.microsoft.com/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices)
 * [Create a new tenant in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
