@@ -129,7 +129,7 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 ## Cost considerations
 
-Use the [Azure Pricing calculator][Cost-Calculator] to estimates costs. Here are some other considerations.
+Use the [Azure Pricing calculator][azure-pricing-calculator] to estimates costs. Here are some other considerations.
 
 ### Azure Functions
 
@@ -156,7 +156,7 @@ Storage is billed for each GB used for your stored data and index.
 
 Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
 
-For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
 
 ## Deploy the solution
 
@@ -168,14 +168,14 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
 [cosmosdb]: /azure/cosmos-db/introduction
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
 [cosmosdb-sql]: /azure/cosmos-db/sql-api-introduction
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [eh]: /azure/event-hubs/
 [eh-autoscale]: /azure/event-hubs/event-hubs-auto-inflate
 [eh-dr]: /azure/event-hubs/event-hubs-geo-dr

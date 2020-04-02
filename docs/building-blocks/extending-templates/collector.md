@@ -323,9 +323,8 @@ az group deployment create -g <resource-group-name> \
 ```
 
 <!-- links -->
+
 [objects-as-parameters]: ./objects-as-parameters.md
-[resource-manager-linked-template]: /azure/azure-resource-manager/resource-group-linked-templates
-[resource-manager-variables]: /azure/azure-resource-manager/resource-group-template-functions-deployment
-[nsg]: /azure/virtual-network/virtual-networks-nsg
-[cli]: /cli/azure/?view=azure-cli-latest
+[nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
+[cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest
 [github]: https://github.com/mspnp/template-examples

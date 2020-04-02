@@ -84,7 +84,7 @@ For Active Directory-specific security considerations, see the security consider
 For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.md#devops-considerations).
 
 ## Cost considerations
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost]. 
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost]. 
 
 Here are cost considerations for the services used in this architecture.
 
@@ -178,7 +178,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [adds-extend-domain]: adds-extend-domain.md
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
 [adfs]: adfs.md
@@ -192,7 +192,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [azure-expressroute]: /azure/expressroute/expressroute-introduction
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [considerations]: ./considerations.md
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [creating-external-trusts]: https://technet.microsoft.com/library/cc816837(v=ws.10).aspx
 [creating-forest-trusts]: https://technet.microsoft.com/library/cc816810(v=ws.10).aspx
 [github]: https://github.com/mspnp/identity-reference-architectures/tree/master/adds-forest

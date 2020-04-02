@@ -43,7 +43,7 @@ A modern data warehouse lets you bring together all your data at any scale easil
 * [Introduction to object storage in Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
 * [Azure Databricks Documentation](https://docs.microsoft.com/azure/azure-databricks)
 * [Analysis Services Documentation](https://docs.microsoft.com/azure/analysis-services)
-* [Power BI Documentation](https://docs.microsoft.com/power-bi/)
+* [Power BI Documentation](https://docs.microsoft.com/power-bi)
 
 ## Pricing Calculator
 

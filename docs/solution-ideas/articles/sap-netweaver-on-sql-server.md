@@ -22,7 +22,7 @@ This NetWeaver on SQL Server application solution illustrates how a user request
 ## Data Flow
 
 1. Using Azure Active Directory synchronized with on-premises Active Directory, SAP application user authenticates from on-premises to SAP landscape on Azure with single sign-on credentials.
-1. Azure high speed Express Route Gateway connects on-premises network to Azure virtual machines and other resources securely.
+1. Azure high-speed ExpressRoute Gateway connects on-premises network to Azure virtual machines and other resources securely.
 1. Sales order request flows into highly available SAP ABAP SAP Central Services (ASCS), and then through SAP application servers running on Azure Virtual Machines scale out file server in an Azure VM
 1. The request moves from the SAP app server to SQL Server running on a primary high-performance Azure VM.
 1. Primary (active) and secondary (standby) servers running on SAP certified virtual machines are clustered at OS level for 99.95 percent availability.  Data replication is handled through SQL Server AlwaysOn in synchronous mode from primary to secondary, enabling zero Recovery Point Objective (RPO).

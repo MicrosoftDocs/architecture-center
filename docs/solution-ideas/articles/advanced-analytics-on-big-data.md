@@ -166,7 +166,7 @@ Transform your data into actionable insights using the best-in-class machine lea
 * [Azure Databricks Documentation](https://docs.microsoft.com/azure/azure-databricks)
 * [Azure Cosmos DB Documentation](https://docs.microsoft.com/azure/cosmos-db)
 * [Analysis Services Documentation](https://docs.microsoft.com/azure/analysis-services)
-* [Power BI Documentation](https://docs.microsoft.com/power-bi/)
+* [Power BI Documentation](https://docs.microsoft.com/power-bi)
 
 ## Pricing Calculator
 

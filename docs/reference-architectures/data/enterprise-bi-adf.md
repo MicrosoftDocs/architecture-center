@@ -211,7 +211,7 @@ Be aware of the following limitations:
 For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
 
 ## Cost considerations
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
 
 
 ### Azure Data Factory
@@ -259,7 +259,7 @@ For more information, see [Azure Analysis Services pricing][az-as-pricing].
 Consider using the Azure Storage reserved capacity feature to lower cost on storage. With this model, you get a discount if you can commit to reservation for fixed storage capacity for one or three years. For more information, see [Optimize costs for Blob storage with reserved capacity][az-storage-reserved].
 
 
-For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
 
 
 ## Deploy the solution
@@ -294,14 +294,14 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [MergeLocation]: https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
 [synapse-analytics]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [adf]: /azure/data-factory
 [adf-calculator]: https://azure.microsoft.com/pricing/calculator/?service=data-factory
 [az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services/
 [az-storage-reserved]: https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity
 [az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics/
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [github]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline
 [MergeLocation]: https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database

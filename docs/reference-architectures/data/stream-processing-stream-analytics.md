@@ -215,7 +215,7 @@ Auto-inflate was enabled at about the 06:35 mark. You can see the p drop in thro
 Interestingly, this had the side effect of increasing the SU utilization in the Stream Analytics job. By throttling, Event Hubs was artificially reducing the ingestion rate for the Stream Analytics job. It's actually common that resolving one performance bottleneck reveals another. In this case, allocating additional SU for the Stream Analytics job resolved the issue.
 
 ## Cost considerations
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
 
 ### Azure Stream Analytics
 
@@ -263,5 +263,5 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [azure-monitor]: https://azure.microsoft.com/services/monitor/
 [github]: https://github.com/mspnp/azure-stream-analytics-data-pipeline
 [monitoring-stream-analytics]: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [databricks-monitoring]: https://docs.microsoft.com/azure/architecture/databricks-monitoring/

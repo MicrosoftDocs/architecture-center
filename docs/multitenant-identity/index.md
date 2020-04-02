@@ -59,7 +59,7 @@ Compare this architecture with a single-tenant architecture, where each tenant h
 
 ### Multitenancy and horizontal scaling
 
-To achieve scale in the cloud, it’s common to add more physical instances. This is known as *horizontal scaling* or *scaling out*. Consider a web app. To handle more traffic, you can add more server VMs and put them behind a load balancer. Each VM runs a separate physical instance of the web app.
+To achieve scale in the cloud, it's common to add more physical instances. This is known as *horizontal scaling* or *scaling out*. Consider a web app. To handle more traffic, you can add more server VMs and put them behind a load balancer. Each VM runs a separate physical instance of the web app.
 
 ![Load balancing a web site](./images/load-balancing.png)
 

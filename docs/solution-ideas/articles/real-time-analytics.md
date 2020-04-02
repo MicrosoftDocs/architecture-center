@@ -191,7 +191,7 @@ Get insights from live streaming data with ease. Capture data continuously from 
 * [Azure HDInsight Documentation](https://docs.microsoft.com/azure/hdinsight)
 * [Azure Cosmos DB Documentation](https://docs.microsoft.com/azure/cosmos-db)
 * [Analysis Services Documentation](https://docs.microsoft.com/azure/analysis-services)
-* [Power BI Documentation](https://docs.microsoft.com/power-bi/)
+* [Power BI Documentation](https://docs.microsoft.com/power-bi)
 
 ## Pricing Calculator
 

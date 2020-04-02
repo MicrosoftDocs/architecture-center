@@ -281,7 +281,7 @@ The methods in the StreamingMetricsListener are called by the Apache Spark runti
 ```shell
 taxijob_CL
 | where TimeGenerated > startofday(datetime(<date>)) and TimeGenerated < endofday(datetime(<date>))
-| project  mdc_inputRowsPerSecond_d, mdc_durationms_triggerExecution_d
+| project mdc_inputRowsPerSecond_d, mdc_durationms_triggerExecution_d
 | render timechart
 ```
 
@@ -345,7 +345,7 @@ For more information, see the DevOps section in [Azure Architecture Framework][A
 
 ## Cost considerations
 
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
 
 <!-- markdownlint-disable MD024 -->
 
@@ -395,7 +395,7 @@ Storage is also billed, for each GB used for your stored data and index. For mor
 
 Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
 
 ## Deploy the solution
 
@@ -408,10 +408,10 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azure-monitor]: https://azure.microsoft.com/services/monitor/
 [databricks-monitoring]: https://docs.microsoft.com/azure/architecture/databricks-monitoring/
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [event-hubs-pricing]: https://azure.microsoft.com/pricing/details/event-hubs/
 [github]: https://github.com/mspnp/azure-databricks-streaming-analytics
 [azure-databricks-pricing]: https://azure.microsoft.com/pricing/details/databricks/

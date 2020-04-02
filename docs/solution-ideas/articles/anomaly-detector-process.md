@@ -37,5 +37,5 @@ ms.subservice: solution-idea
 
 * [Service Bus Documentation](https://docs.microsoft.com/azure/service-bus)
 * [Azure Databricks Documentation](https://docs.microsoft.com/azure/azure-databricks)
-* [Power BI Documentation](https://docs.microsoft.com/power-bi/)
+* [Power BI Documentation](https://docs.microsoft.com/power-bi)
 * [Storage Documentation](https://docs.microsoft.com/azure/storage)

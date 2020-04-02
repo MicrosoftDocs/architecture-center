@@ -214,7 +214,7 @@ For DevOps considerations, see [DevOps: Extending Active Directory Domain Servic
 
 
 ## Cost considerations
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost]. 
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost]. 
 
 Here are cost considerations for the services used in this architecture.
 
@@ -233,7 +233,7 @@ The deployment includes infrastructure for an N-tier application. For cost infor
 A deployment for a reference architecture that implements these recommendations and considerations is available on GitHub. This reference architecture deploys a simulated on-premises network in Azure that you can use to test and experiment. To deploy the solution, see the [readme](https://github.com/mspnp/identity-reference-architectures/tree/master/azure-ad) on GitHub.
 
 <!-- links -->
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [implementing-a-multi-tier-architecture-on-Azure]: ../virtual-machines-windows/n-tier.md#cost-considerations
 
 [aad-agent-installation]: /azure/active-directory/active-directory-aadconnect-health-agent-install
@@ -270,5 +270,5 @@ A deployment for a reference architecture that implements these recommendations 
 [considerations]: ./considerations.md
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [AAF-devops]: /azure/architecture/framework/devops/overview

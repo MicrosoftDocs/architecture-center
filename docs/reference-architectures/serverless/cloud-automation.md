@@ -184,13 +184,13 @@ Once the identity is assigned to the Azure function, assign it a role using [rol
 
 ## Cost considerations
 
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some considerations for lowering cost.
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some considerations for lowering cost.
 
 ### Azure Logic Apps
 
 Logic apps have a pay-as-you-go pricing model. Triggers, actions, and connector executions are metered each time a logic app runs. All successful and unsuccessful actions, including triggers, are considered as executions.
 
-Logic apps have also a fixed pricing model. If you need to run logic apps that  communicate with secured resources in an Azure virtual network, you can create them in an [Integration Service Environment (ISE)][az-logic-apps-ISE].
+Logic apps have also a fixed pricing model. If you need to run logic apps that communicate with secured resources in an Azure virtual network, you can create them in an [Integration Service Environment (ISE)][az-logic-apps-ISE].
 
 For details, see [Pricing model for Azure Logic Apps][logic-app-pricing].
 
@@ -245,7 +245,7 @@ To learn more about the serverless implementations, start [here](https://docs.mi
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [az-logic-apps-ISE]: https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview
 [cosmos-calculator]: https://cosmos.azure.com/capacitycalculator
-[cost-calculator]: https://azure.microsoft.com/pricing/calculator
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [logic-apps-pricing]: https://azure.microsoft.com/pricing/details/logic-apps
 [logic-app-pricing]: /azure/logic-apps/logic-apps-pricing
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db

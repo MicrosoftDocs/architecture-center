@@ -17,9 +17,9 @@ This line-of-business application solution provides a mechanism for monitoring a
 
 Related Links:
 
-* [Matching the architecture to your business needs](https://docs.microsoft.com/azure/architecture/guide/design-principles/build-for-business)
+* [Matching the architecture to your business needs](../../guide/design-principles/build-for-business.md)
 
-* [Managing identities in your applications](https://docs.microsoft.com/azure/architecture/multitenant-identity)
+* [Managing identities in your applications](../../multitenant-identity/index.md)
 
 * [Automate access and use of data across applications with Logic Apps](https://docs.microsoft.com/azure/logic-apps)
 

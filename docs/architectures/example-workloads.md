@@ -9,6 +9,7 @@ ms.topic: landing-page
 
 # Example Workloads
 
+<!-- cSpell:ignore DSVM newsfeed newsfeeds apim Grafana Agisoft wordpress docon ecommerce signalr -->
 <!-- markdownlint-disable MD033 -->
 
 <a class="button" href="reference-architectures">Reference Architectures</a>
