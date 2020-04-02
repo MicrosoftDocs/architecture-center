@@ -8,7 +8,7 @@ ms.subservice: cloud-fundamentals
 ms.workload: data-services
 ms.devlang: R
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 04/02/2020
 ms.author: jepeach
 ---
 
@@ -23,7 +23,7 @@ their existing skills with the [R programming language](https://www.r-project.or
 Microsoft has fully embraced the R programming language as a first-class tool for data scientists.  By providing many
 different options for R developers to run their code in Azure, the company is enabling data scientists to extend their data science workloads into the cloud when tackling large-scale projects.
 
-[R Server's New name](/machine-learning-server/rebranding-microsoft-r-server)
+[R Server's New name, **Microsoft Machine Learning Server**](/machine-learning-server/rebranding-microsoft-r-server)
 
 Let's examine the various options and the most compelling scenarios for each one.
 
