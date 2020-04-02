@@ -28,6 +28,7 @@ In Azure, all of the following data stores will meet the core requirements suppo
 - [HDInsight with Storm](/azure/hdinsight/storm/apache-storm-overview)
 - [Azure Functions](/azure/azure-functions/functions-overview)
 - [Azure App Service WebJobs](/azure/app-service/web-sites-create-web-jobs)
+- [Apache Kafka streams API](/azure/hdinsight/kafka/apache-kafka-streams-api)
 
 ## Key Selection Criteria
 
