@@ -111,7 +111,7 @@ Another option is to use active geo-replication for SQL Database, which automati
 
 You can also use a more manual approach for backup and restore:
 
-- Use the **DATABASE COPY** command to create a backup copy of the database with transactional consistency.
+- Use the [**Database Copy**](/azure/sql-database/sql-database-copy) capability to create a backup copy of the database with transactional consistency.
 - Use the Azure SQL Database Import/Export Service, which supports exporting databases to BACPAC files (compressed files containing your database schema and associated data) that are stored in Azure Blob storage. To protect against a region-wide service disruption, copy the BACPAC files to an alternate region.
 
 ### SQL Server on VMs
