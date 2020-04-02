@@ -2,12 +2,11 @@
 title: Overview of Azure load-balancing options
 titleSuffix: Azure Application Architecture Guide
 description: An overview of Azure load-balancing options.
-author: sharad4u
-ms.date: 08/23/2019
+author: doodlemania2
+ms.date: 04/2/2019
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture
-ms.custom: seojan19
 ---
 
 # Overview of load-balancing options in Azure
@@ -26,7 +25,7 @@ Azure load balancing services can be categorized along two dimensions: global ve
 
 ### HTTP(S) versus non-HTTP(S)
 
-- **HTTP(S)** load-balancing services are Layer 7 load balancers that only accept HTTP(S) traffic. They are intended for web applications or other HTTP(S) endpoints. They include features such as SSL offload, web application firewall, path-based load balancing, and session affinity.
+- **HTTP(S)** load-balancing services are [Layer 7](https://www.iso.org/ics/35.100/x) load balancers that only accept HTTP(S) traffic. They are intended for web applications or other HTTP(S) endpoints. They include features such as SSL offload, web application firewall, path-based load balancing, and session affinity.
 
 - **Non-HTTP/S** load-balancing services can handle non-HTTP(S) traffic and are recommended for non-web workloads. 
 
