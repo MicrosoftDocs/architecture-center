@@ -184,11 +184,9 @@ This solution is built on the Azure managed services: [Media Services](https://a
 
 ## Next steps
 
-* [Overview of live encoder](/api/Redirect/documentation/articles/media-services-live-encoders-overview)
-* [How to use Azure Blob storage](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs)
-* [Overview of live streaming](/api/Redirect/documentation/articles/media-services-manage-channels-overview)
-* [How to manage streaming endpoints](/api/Redirect/documentation/articles/media-services-manage-origins)
-* [Using Azure Content Delivery Network](/api/Redirect/documentation/articles/cdn-create-new-endpoint)
-* [Develop video player applications](/api/Redirect/documentation/articles/media-services-develop-video-players)
-* [How to monitor apps in Azure App Service](/api/Redirect/documentation/articles/media-services-develop-video-players)
-* [Deliver content securely](https://azure.microsoft.com/services/media-services/content-protection)
+* [Overview of live encoder](/azure/media-services/previous/media-services-live-encoders-overview)
+* [How to use Azure Blob storage](/azure/storage/blobs/storage-quickstart-blobs-dotnet)
+* [Overview of live streaming](/azure/media-services/previous/media-services-manage-channels-overview)
+* [Using Azure Content Delivery Network](/azure/cdn/cdn-create-new-endpoint)
+* [Azure Media Services documentation](/azure/media-services/)
+* [Media services content protection](https://azure.microsoft.com/services/media-services/content-protection)
