@@ -23,8 +23,6 @@ their existing skills with the [R programming language](https://www.r-project.or
 Microsoft has fully embraced the R programming language as a first-class tool for data scientists.  By providing many
 different options for R developers to run their code in Azure, the company is enabling data scientists to extend their data science workloads into the cloud when tackling large-scale projects.
 
-[R Server's New name, **Microsoft Machine Learning Server**](/machine-learning-server/rebranding-microsoft-r-server)
-
 Let's examine the various options and the most compelling scenarios for each one.
 
 ## Azure services with R language support
@@ -33,6 +31,7 @@ This article covers the following Azure services that support the R language:
 
 |Service                                                          |Description                                                                       |
 |-----------------------------------------------------------------|----------------------------------------------------------------------------------|
+|[Azure Machine Learning Server](/machine-learning-server/rebranding-microsoft-r-server)|enterprise software for data science, providing R and Python interpreters
 |[Data Science Virtual Machine](#data-science-virtual-machine)    |a customized VM to use as a data science workstation or as a custom compute target|
 |[ML Services on HDInsight](#ml-services-on-hdinsight)            |cluster-based system for running R analyses on large datasets across many nodes   |
 |[Azure Databricks](#azure-databricks)                            |collaborative Spark environment that supports R and other languages               |
