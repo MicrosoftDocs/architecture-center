@@ -29,6 +29,6 @@ Of course, your application may have specific requirements that make an IaaS app
 | MongoDB | [Cosmos DB](/azure/cosmos-db/introduction) |
 | Redis | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
 | SQL Server | [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) |
-| File share | [Azure NetApp Files](azure/azure-netapp-files/azure-netapp-files-introduction) |
+| File share | [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) |
 
 Please note that this is not meant to be an exhaustive list, but a subset of equivalent options.  
