@@ -1,6 +1,6 @@
 ---
 title: Choosing a data storage technology
-description: 
+description: Compare big data storage technology options in Azure, including key selection criteria and a capability matrix.
 author: MikeWasson
 ms.date: 11/20/2019
 ms.topic: guide

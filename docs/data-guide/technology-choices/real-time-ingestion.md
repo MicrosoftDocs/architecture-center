@@ -1,6 +1,6 @@
 ---
 title: Choosing a real-time message ingestion technology
-description: 
+description: Choose an Azure message ingestion store to support message buffering, scale-out processing, reliable delivery, and queuing semantics.
 author: zoinerTejada
 ms.date: 02/12/2018
 ms.topic: guide

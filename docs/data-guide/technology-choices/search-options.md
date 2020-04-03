@@ -1,6 +1,6 @@
 ---
 title: Choosing a search data store
-description: 
+description: Compare Azure search data store technologies that create and store specialized indexes for searching free-form text.
 author: zoinerTejada
 ms.date: 02/12/2018
 ms.topic: guide

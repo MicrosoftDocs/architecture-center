@@ -1,6 +1,6 @@
 ---
 title: Interactive data exploration
-description: 
+description: Learn about interactive data exploration tools and platforms that provide low-latency batch processing for ad-hoc queries and data visualizations.
 author: zoinerTejada
 ms.date: 02/12/2018
 ms.topic: guide

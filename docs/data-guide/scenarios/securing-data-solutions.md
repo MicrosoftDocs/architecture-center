@@ -1,6 +1,6 @@
 ---
 title: Securing data solutions
-description: 
+description: Learn about data protection, access control, auditing, and Azure services and tools that help you secure data assets.
 author: zoinerTejada
 ms.date: 11/20/2019
 ms.topic: guide
