@@ -8,7 +8,7 @@ ms.subservice: cloud-fundamentals
 ms.workload: data-services
 ms.devlang: R
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 04/02/2020
 ms.author: jepeach
 ---
 
@@ -31,6 +31,7 @@ This article covers the following Azure services that support the R language:
 
 |Service                                                          |Description                                                                       |
 |-----------------------------------------------------------------|----------------------------------------------------------------------------------|
+|[Azure Machine Learning Server](/machine-learning-server/rebranding-microsoft-r-server)|enterprise software for data science, providing R and Python interpreters
 |[Data Science Virtual Machine](#data-science-virtual-machine)    |a customized VM to use as a data science workstation or as a custom compute target|
 |[ML Services on HDInsight](#ml-services-on-hdinsight)            |cluster-based system for running R analyses on large datasets across many nodes   |
 |[Azure Databricks](#azure-databricks)                            |collaborative Spark environment that supports R and other languages               |
