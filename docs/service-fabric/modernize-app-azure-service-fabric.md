@@ -6,6 +6,9 @@ ms.date: 05/01/2019
 ms.topic: guide
 ms.author: pnp
 ms.service: architecture-center
+ms.category:
+  - migration
+  - management-and-governance
 ms.subservice: reference-architecture
 ---
 

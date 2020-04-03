@@ -4,6 +4,9 @@ titleSuffix: Azure Example Scenarios
 description: Provide a world-class search experience in an e-commerce application.
 author: jelledruyts
 ms.date: 09/14/2018
+ms.category:
+  - web
+  - analytics
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario

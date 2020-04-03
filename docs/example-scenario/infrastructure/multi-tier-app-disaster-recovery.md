@@ -4,6 +4,9 @@ titleSuffix: Azure Example Scenarios
 description: Create a multitier web application built for high availability and disaster recovery on Azure using Azure virtual machines, availability sets, availability zones, Azure Site Recovery, and Azure Traffic Manager.
 author: sujayt
 ms.date: 11/16/2018
+ms.category:
+  - web
+  - featured
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario

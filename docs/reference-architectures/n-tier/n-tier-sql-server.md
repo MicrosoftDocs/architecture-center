@@ -5,6 +5,10 @@ author: MikeWasson
 ms.date: 08/21/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - databases
+  - web
+  - management-and-governance
 ms.subservice: reference-architecture
 ---
 

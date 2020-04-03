@@ -4,6 +4,9 @@ titleSuffix: Azure Example Scenarios
 description: Decompose a large monolithic application into microservices.
 author: timomta
 ms.date: 09/20/2018
+ms.category:
+  - migration
+  - developer-tools
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario

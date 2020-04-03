@@ -4,12 +4,16 @@ description: Use machine learning to automate content-based personalization for 
 author: gramhagen
 ms.author: scgraham
 ms.date: 05/31/2019
+ms.category:
+  - ai-machine-learning
+  - featured
 ms.topic: example-scenario 
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - azcat-ai
   - AI
+social_image_url: /azure/architecture/example-scenario/ai/media/architecture-scalable-personalization.png
 ---
 # Scalable personalization on Azure
 

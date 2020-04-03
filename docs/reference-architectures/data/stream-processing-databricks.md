@@ -6,6 +6,9 @@ author: PeterTaylor9999
 ms.date: 11/30/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - analytics
+  - databases
 ms.subservice: reference-architecture
 ms.custom: seodec18
 ---

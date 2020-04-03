@@ -5,6 +5,9 @@ author: PeterTaylor9999
 ms.date: 10/31/2018
 ms.topic: article
 ms.service: architecture-center
+ms.category:
+  - developer-tools
+  - devops
 ms.subservice: reference-architecture
 ---
 

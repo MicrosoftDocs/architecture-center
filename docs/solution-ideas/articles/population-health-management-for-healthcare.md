@@ -6,7 +6,10 @@ ms.date: 12/16/2019
 description: Population Health Management is an important tool that is increasingly being used by health care providers to manage and control the escalating costs. The crux of Population Health Management is to use data to improve health outcomes. Tracking, monitoring, and bench marking are the three bastions of Population Health Management, aimed at improving clinical and health outcomes while managing and reducing cost.
 ms.custom: acom-architecture, artificial intelligence, healthcare, ai-ml, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/population-health-management-for-healthcare/'
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/population-health-management-for-healthcare.png
 ---
 
 # Population Health Management for Healthcare
@@ -19,7 +22,8 @@ In this solution, we will be leveraging the clinical and socioeconomic in-patien
 
 ## Architecture
 
-![Architecture diagram](../media/population-health-management-for-healthcare.svg)
+![Architecture diagram](../media/population-health-management-for-healthcare.png)
+*Download an [SVG](../media/population-health-management-for-healthcare.svg) of this architecture.*
 
 ## Description
 

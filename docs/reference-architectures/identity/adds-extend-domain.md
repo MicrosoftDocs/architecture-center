@@ -5,6 +5,8 @@ author: telmosampaio
 ms.date: 05/02/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - identity
 ms.subservice: reference-architecture
 ms.custom: seodec18, identity
 ---

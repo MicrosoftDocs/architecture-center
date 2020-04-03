@@ -1,0 +1,27 @@
+{
+    "categories": {
+        "ai-machine-learning": "AI + Machine Learning",
+        "analytics": "Analytics",
+        "blockchain": "Blockchain",
+        "compute": "Compute",
+        "containers": "Containers",
+        "databases": "Databases",
+        "developer-tools": "Developer Tools",
+        "devops": "DevOps",
+        "featured": "Featured",
+        "hybrid": "Hybrid",
+        "identity": "Identity",
+        "integration": "Integration",
+        "iot": "Internet of Things",
+        "management-and-governance": "Management and Governance",
+        "media": "Media",
+        "migration": "Migration",
+        "mixed-reality": "Mixed Reality",
+        "mobile": "Mobile",
+        "networking": "Networking",
+        "security": "Security",
+        "storage": "Storage",
+        "web": "Web",
+        "windows-virtual-desktop": "Windows Virtual Desktop"
+    }
+}

@@ -4,6 +4,9 @@ titleSuffix: Azure Example Scenarios
 description: Detect fraudulent activity in real-time using Azure Event Hubs and Stream Analytics.
 author: alexbuckgit
 ms.date: 07/05/2018
+ms.category:
+  - security
+  - analytics
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario

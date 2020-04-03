@@ -6,6 +6,8 @@ author: telmosampaio
 ms.date: 12/13/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - compute
 ms.subservice: reference-architecture
 ms.custom: seodec18
 ---

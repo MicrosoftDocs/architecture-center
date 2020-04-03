@@ -7,6 +7,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.date: 12/03/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - integration
+  - developer-tools
+  - management-and-governance
 ms.subservice: reference-architecture
 ms.custom: integration-services
 ---

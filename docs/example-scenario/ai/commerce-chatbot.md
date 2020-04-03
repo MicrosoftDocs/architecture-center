@@ -3,6 +3,9 @@ title: Chatbot for hotel reservations
 description: Build a conversational chatbot for commerce applications with Azure Bot Service.
 author: iainfoulds
 ms.date: 07/05/2018
+ms.category:
+  - ai-machine-learning
+  - web
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -55,7 +58,7 @@ This scenario covers a conversational bot that functions as a concierge for a ho
 
 ## Considerations
 
-### Availability
+### Availabilit'
 
 This scenario uses Azure SQL Database for storing customer reservations. SQL Database includes zone redundant databases, failover groups, and geo-replication. For more information, see [Azure SQL Database availability capabilities][sqlavailability-docs].
 

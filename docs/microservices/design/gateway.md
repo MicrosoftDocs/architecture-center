@@ -5,6 +5,9 @@ author: MikeWasson
 ms.date: 10/23/2018
 ms.topic: guide
 ms.service: architecture-center
+ms.category:
+  - web
+  - developer-tools
 ms.subservice: reference-architecture
 ms.custom: microservices
 ---

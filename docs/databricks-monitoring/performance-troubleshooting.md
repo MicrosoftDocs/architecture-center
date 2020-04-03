@@ -4,6 +4,9 @@ description: Use Grafana dashboards to troubleshoot performance issues in Azure 
 author: PeterTaylor9999
 ms.date: 04/02/2019
 ms.service: architecture-center
+ms.category:
+  - management-and-governance
+  - databases
 ms.subservice: reference-architecture
 ---
 

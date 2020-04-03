@@ -4,10 +4,14 @@ titleSuffix: Azure Example Scenarios
 description: An overview of how a developer can use Azure Active Directory to implement secure authentication and authorization for a SaaS app that manages cloud-connected IoT devices.
 author: knicholasa
 ms.date: 03/12/2020
+ms.category:
+  - iot
+  - security
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.custom:
     - fcp
+social_image_url: /azure/architecture/example-scenario/iot-aad/media/multi-tenant-iot.png
 ---
 # Secure access to IoT apps with Azure AD - Developer guide
 

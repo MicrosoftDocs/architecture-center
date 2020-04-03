@@ -5,6 +5,10 @@ author: MikeWasson
 ms.date: 01/07/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - networking
+  - security
+  - hybrid
 ms.subservice: reference-architecture
 ms.custom: seodec18, networking
 ---

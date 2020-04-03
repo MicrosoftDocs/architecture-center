@@ -6,6 +6,9 @@ author: telmosampaio
 ms.date: 10/08/2018
 ms.topic: article
 ms.service: architecture-center
+ms.category:
+  - hybrid
+  - networking
 ms.subservice: reference-architecture
 ms.custom: networking
 ---

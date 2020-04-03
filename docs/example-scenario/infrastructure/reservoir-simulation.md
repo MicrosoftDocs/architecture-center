@@ -4,10 +4,14 @@ titleSuffix: Azure Example Scenarios
 description: Run OPM Flow reservoir simulation software and OPM ResInsight visualization software on an Azure HPC compute cluster and visualization VM.
 author: EdPrice
 ms.date: 03/16/2020
+ms.category:
+  - compute
+  - windows-virtual-desktop
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: fcp
+social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-hpc-reservoir-simulation.png
 ---
 
 <!-- cSpell:ignore azurehpc Norne LAPACK Slurm -->

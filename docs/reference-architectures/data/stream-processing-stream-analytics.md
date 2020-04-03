@@ -5,6 +5,9 @@ author: MikeWasson
 ms.date: 11/06/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - analytics
+  - databases
 ms.subservice: reference-architecture
 ms.custom: seodec18
 ---

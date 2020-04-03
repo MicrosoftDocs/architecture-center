@@ -5,7 +5,11 @@ author: adamboeglin
 ms.date: 8/14/2019
 ms.custom: fcp
 ms.service: architecture-center
+ms.category:
+  - compute
+  - storage
 ms.subservice: reference-architecture
+social_image_url: /azure/architecture/topics/media/architecture-hpc-saas.png
 ---
 
 <!-- markdownlint-disable MD033 -->

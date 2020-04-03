@@ -6,6 +6,10 @@ author: MikeWasson
 ms.date: 08/19/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - hybrid
+  - networking
+  - developer-tools
 ms.subservice: reference-architecture
 ms.custom: seodec18, networking, fcp
 ---

@@ -6,7 +6,10 @@ ms.date: 12/16/2019
 description: With the Sitecore Experience Platform (xP), you have at your fingertips the complete data, integrated tools, and automation capabilities to engage your customers throughout an iterative life cycle—the technology foundation necessary to win customers for life.
 ms.custom: acom-architecture, web-apps, 'https://azure.microsoft.com/solutions/architecture/digital-marketing-sitecore/'
 ms.service: architecture-center
+ms.category:
+  - web
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/digital-marketing-sitecore.png
 ---
 
 # Scalable Sitecore marketing website
@@ -19,7 +22,8 @@ This solution is built on the Azure managed services: [Azure SQL Database](https
 
 ## Architecture
 
-![Architecture diagram](../media/digital-marketing-sitecore.svg)
+![Architecture diagram](../media/digital-marketing-sitecore.png)
+*Download an [SVG](../media/digital-marketing-sitecore.svg) of this architecture.*
 
 ## Components
 

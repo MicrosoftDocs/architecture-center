@@ -6,7 +6,10 @@ ms.date: 12/16/2019
 description: This solution creates an intelligent interactive voice response (IVR) application that processes customer order requests for bicycles and bicycle accessories. Businesses with no existing IVR solution can easily get started automating requests, or, where existing human-operated systems exist, this solution can be extended to incorporate existing functionality and workflows.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, chatbot, 'https://azure.microsoft.com/solutions/architecture/interactive-voice-response-bot/'
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/interactive-voice-response-bot.png
 ---
 
 # Interactive Voice Response Bot
@@ -17,7 +20,8 @@ This solution creates an intelligent interactive voice response (IVR) applicatio
 
 ## Architecture
 
-![Architecture diagram](../media/interactive-voice-response-bot.svg)
+![Architecture diagram](../media/interactive-voice-response-bot.png)
+*Download an [SVG](../media/interactive-voice-response-bot.svg) of this architecture.*
 
 ## Description
 

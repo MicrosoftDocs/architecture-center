@@ -5,6 +5,8 @@ author: MikeWasson
 ms.date: 01/10/2020
 ms.topic: guide
 ms.service: architecture-center
+ms.category:
+  - compute
 ms.subservice: reference-architecture
 ---
 

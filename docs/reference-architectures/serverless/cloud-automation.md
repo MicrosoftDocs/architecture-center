@@ -1,5 +1,5 @@
 ---
-title: Event-based cloud automation | Microsoft Docs
+title: Event-based cloud automation
 titleSuffix: Azure Reference Architectures
 description: Recommended architecture for implementing cloud automation using serverless technologies.
 author: dsk-2015
@@ -7,6 +7,8 @@ ms.author: dkshir
 ms.date: 1/14/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - developer-tools
 ms.subservice: reference-architecture
 ---
 

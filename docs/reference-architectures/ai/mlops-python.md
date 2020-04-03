@@ -7,6 +7,10 @@ ms.author: pnp
 ms.date: 05/09/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - devops
+  - featured
 ms.subservice: reference-architecture
 ms.custom: azcat-ai
 ---

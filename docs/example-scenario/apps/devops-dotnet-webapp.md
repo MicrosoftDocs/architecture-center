@@ -4,6 +4,11 @@ titleSuffix: Azure Example Scenarios
 description: Build and release a .NET app to Azure Web Apps using Azure DevOps.
 author: chrisreddington
 ms.date: 12/06/2018
+ms.category:
+  - developer-tools
+  - devops
+  - web
+  - featured
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario

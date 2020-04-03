@@ -3,10 +3,14 @@ title: Loan ChargeOff Prediction with Azure HDInsight Spark Clusters
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
-description: A charged off loan is a loan that is declared by a creditor (usually a lending institution) that an amount of debt is unlikely to be collected, usually when the loan repayment is severely delinquent by the debtor. Given that high chargeoff has negative impact on lending institutions' year end financials, lending institutions often monitor loan chargeoff risk very closely to prevent loans from getting charged-off. Using Azure HDInsight R Server, a lending institution can leverage machine learning predictive analytics to predict the likelihood of loans getting charged off and run a report on the analytics result stored in HDFS and hive tables.
+description: Using Azure HDInsight R Server, a lending institution can leverage machine learning predictive analytics to predict the likelihood of loans getting charged off and run a report on the analytics result stored in HDFS and hive tables.
 ms.custom: acom-architecture, artificial intelligence, finance, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters/'
 ms.service: architecture-center
+ms.category:
+  - databases
+  - analytics
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.png
 ---
 
 # Loan ChargeOff Prediction with Azure HDInsight Spark Clusters
@@ -17,7 +21,8 @@ A charged off loan is a loan that is declared by a creditor (usually a lending i
 
 ## Architecture
 
-![Architecture diagram](../media/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.svg)
+![Architecture diagram](../media/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.png)
+*Download an [SVG](../media/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.svg) of this architecture.*
 
 ## Description
 

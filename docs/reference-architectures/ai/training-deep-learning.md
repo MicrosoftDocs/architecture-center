@@ -5,6 +5,10 @@ author: msalvaris
 ms.date: 06/05/2019
 ms.custom: azcat-ai
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - compute
+  - media
 ms.subservice: reference-architecture
 ---
 

@@ -5,6 +5,9 @@ author: MikeWasson
 ms.date: 05/29/2019
 ms.topic: guide
 ms.service: architecture-center
+ms.category:
+  - migration
+  - management-and-governance
 ms.subservice: reference-architecture
 ---
 

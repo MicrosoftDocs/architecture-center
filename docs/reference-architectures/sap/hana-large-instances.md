@@ -6,6 +6,9 @@ author: lbrader
 ms.date: 05/16/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - databases
+  - compute
 ms.subservice: reference-architecture
 ms.custom: seodec18, SAP
 ---

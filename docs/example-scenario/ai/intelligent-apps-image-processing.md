@@ -3,6 +3,9 @@ title: Image classification on Azure
 description: Build image processing into your Azure applications.
 author: david-stanford
 ms.date: 07/05/2018
+ms.category:
+  - ai-machine-learning
+  - media
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario

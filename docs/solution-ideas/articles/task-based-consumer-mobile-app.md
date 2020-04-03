@@ -6,7 +6,11 @@ ms.date: 12/16/2019
 description: Learn how the task-based consumer mobile app architecture is created with a step-by-step flow chart that shows the integration with Azure App Service Mobile Apps, Visual Studio, and Xamarin to simplify the build process.
 ms.custom: acom-architecture, Consumer Mobile App, Offline Mobile App, Mobile App Authentication, app-dev, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/task-based-consumer-mobile-app/'
 ms.service: architecture-center
+ms.category:
+  - mobile
+  - developer-tools
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/task-based-consumer-mobile-app.png
 ---
 
 # Task-Based Consumer Mobile App
@@ -33,7 +37,8 @@ The links to the right provide documentation on deploying and managing the Azure
 
 ## Architecture
 
-![Architecture diagram](../media/task-based-consumer-mobile-app.svg)
+![Architecture diagram](../media/task-based-consumer-mobile-app.png)
+*Download an [SVG](../media/task-based-consumer-mobile-app.svg) of this architecture.*
 
 ## Data Flow
 

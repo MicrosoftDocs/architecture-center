@@ -6,6 +6,9 @@ author: anavinahar
 ms.date: 12/13/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - networking
+  - integration
 ms.subservice: reference-architecture
 ms.custom: networking, fcp
 ---

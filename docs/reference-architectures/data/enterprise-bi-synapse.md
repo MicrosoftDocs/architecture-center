@@ -6,6 +6,10 @@ author: MikeWasson
 ms.date: 11/20/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - integration
+  - analytics
+  - databases
 ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
@@ -121,7 +125,7 @@ Be aware of the following limitations:
 
 - Your source data schema might contain data types that are not supported in Azure Synapse.
 
-To work around these limitations, you can create a stored procedure that performs the necessary conversions. Reference this stored procedure when you run bcp. Alternatively, [Redgate Data Platform Studio](/azure/sql-data-warehouse/sql-data-warehouse-load-with-redgate) automatically converts data types that aren’t supported in Azure Synapse.
+To work around these limitations, you can create a stored procedure that performs the necessary conversions. Reference this stored procedure when you run bcp. Alternatively, [Redgate Data Platform Studio](/azure/sql-data-warehouse/sql-data-warehouse-load-with-redgate) automatically converts data types that aren't supported in Azure Synapse.
 
 For more information, see the following articles:
 

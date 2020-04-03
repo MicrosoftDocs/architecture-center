@@ -1,15 +1,19 @@
 ---
 title: Azure data platform end-to-end
 titleSuffix: Azure Example Scenarios
-description: Description
+description: Use Azure services to ingest, process, store, serve, and visualize data from different sources.
 author: fabragaMS
 ms.date: 01/31/2020
+ms.category:
+  - databases
+  - analytics
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fcp
   - data-analytics
+social_image_url: /azure/architecture/example-scenario/dataplate2e/media/azure-data-platform-end-to-end.jpg
 ---
 
 <!-- cSpell:ignore fabraga -->

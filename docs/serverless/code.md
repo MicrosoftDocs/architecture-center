@@ -6,6 +6,9 @@ ms.date: 06/13/2019
 ms.author: pnp
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - developer-tools
+  - featured
 ms.subservice: reference-architecture
 ---
 

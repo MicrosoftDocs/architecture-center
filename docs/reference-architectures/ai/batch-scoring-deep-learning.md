@@ -6,6 +6,9 @@ author: jiata
 ms.date: 02/06/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - media
 ms.subservice: reference-architecture
 ms.custom: azcat-ai
 ---

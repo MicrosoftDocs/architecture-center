@@ -4,6 +4,9 @@ titleSuffix: Azure Example Scenarios
 description: Execute computational fluid dynamics (CFD) simulations on Azure.
 author: mikewarr
 ms.date: 09/20/2018
+ms.category:
+  - compute
+  - storage
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario

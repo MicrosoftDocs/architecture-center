@@ -5,6 +5,10 @@ author: MikeWasson
 ms.date: 07/21/2017
 ms.topic: guide
 ms.service: architecture-center
+ms.category:
+  - security
+  - developer-tools
+  - identity
 ms.subservice: reference-architecture
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: authorize

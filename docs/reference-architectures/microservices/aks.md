@@ -5,6 +5,10 @@ author: MikeWasson
 ms.date: 12/10/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - containers
+  - developer-tools
+  - featured
 ms.subservice: reference-architecture
 ms.custom: microservices
 ---

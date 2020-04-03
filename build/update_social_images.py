@@ -12,7 +12,7 @@ from os.path import dirname
 import re
 
 # Set this as the base URL from docs
-www_path = "/azure/architecture/example-scenario/"
+www_path = "/azure/architecture/"
 
 # Directory you want to search for files in
 path = "./"
@@ -38,6 +38,9 @@ for path in pathlist:
             if line_num != 0 and section_end == "" and "---" in line:
                 section_end = line_num
 
+            if "social_image_url" in line:
+                break
+
             # Look for any line that contains the word "media" and common image formats
             r = re.compile('.*(media.*(?:png|jpg|svg)).*')
             image_match = re.search(r, line)
@@ -48,7 +51,7 @@ for path in pathlist:
             line_num = line_num + 1
         
         # If the article doesn't already have a social media_url, add one
-        if image_path != "" and "social_image_url" not in contents:
+        if image_path != "":
             print("Adding social URL to "+ str(path))
             contents.insert(section_end, "social_image_url: " + www_path + dirname(path) + "/" + image_path + "\n")
 

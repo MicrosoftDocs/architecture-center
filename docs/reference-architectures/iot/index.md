@@ -5,6 +5,9 @@ titleSuffix: Azure Reference Architectures
 author: MikeWasson
 ms.date: 01/09/2019
 ms.service: architecture-center
+ms.category:
+  - iot
+  - featured
 ms.subservice: reference-architecture
 ---
 

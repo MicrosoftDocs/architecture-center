@@ -7,6 +7,9 @@ ms.date: 11/04/2019
 ms.author: pnp
 ms.topic: guide
 ms.service: architecture-center
+ms.category:
+  - migration
+  - developer-tools
 ms.subservice: reference-architecture
 ms.custom: microservices
 ---

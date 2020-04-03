@@ -21,9 +21,15 @@
     - name: Manage Identity in Multitenant Applications
       tocHref: /azure/architecture/multitenant-identity/
       topicHref: /azure/architecture/multitenant-identity
-    - name: Reference Architectures
+    - name: Architectures
       tocHref: /azure/architecture/reference-architectures/
-      topicHref: /azure/architecture/reference-architectures
+      topicHref: /azure/architecture/browse
+    - name: Architectures
+      tocHref: /azure/architecture/example-scenario/
+      topicHref: /azure/architecture/browse
+    - name: Architectures
+      tocHref: /azure/architecture/solution-ideas/
+      topicHref: /azure/architecture/browse
     - name: Cloud Design Patterns
       tocHref: /azure/architecture/patterns/
       topicHref: /azure/architecture/patterns
@@ -52,9 +58,6 @@
       - name: Appendix
         tocHref: /azure/architecture/cloud-adoption/appendix/
         topicHref: /azure/architecture/cloud-adoption/appendix
-    - name: Example Scenarios
-      tocHref: /azure/architecture/example-scenario/
-      topicHref: /azure/architecture/example-scenario
     - name: Application Architecture Guide
       tocHref: /azure/architecture/guide/
       topicHref: /azure/architecture/guide

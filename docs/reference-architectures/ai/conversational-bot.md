@@ -5,6 +5,9 @@ author: roalexan
 ms.date: 01/24/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - featured
 ms.subservice: reference-architecture
 ms.custom: azcat-ai
 ---

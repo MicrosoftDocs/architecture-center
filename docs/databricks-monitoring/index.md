@@ -4,6 +4,9 @@ description: A scala library to enable monitoring of Azure Databricks in Azure L
 author: PeterTaylor9999
 ms.date: 03/26/2019
 ms.service: architecture-center
+ms.category:
+  - management-and-governance
+  - databases
 ms.subservice: reference-architecture
 ---
 

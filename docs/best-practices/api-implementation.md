@@ -8,6 +8,7 @@ ms.topic: best-practice
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom: seodec18
+social_image_url: /azure/architecture/best-practices/media types that the client can handle, such as `image/jpeg, image/gif, image/png
 ---
 
 <!-- cSpell:ignore CNAME HATEOAS WADL hashedOrderEtag nonMatchEtags matchEtags -->
