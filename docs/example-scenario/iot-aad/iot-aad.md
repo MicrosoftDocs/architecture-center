@@ -4,10 +4,14 @@ titleSuffix: Azure Example Scenarios
 description: An overview of how a developer can use Azure Active Directory to implement secure authentication and authorization for a SaaS app that manages cloud-connected IoT devices.
 author: knicholasa
 ms.date: 03/12/2020
+ms.category:
+  - iot
+  - security
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.custom:
     - fcp
+social_image_url: /azure/architecture/example-scenario/iot-aad/media/multi-tenant-iot.png
 ---
 # Secure access to IoT apps with Azure AD - Developer guide
 
@@ -129,7 +133,7 @@ With [Azure AD Conditional Access](https://docs.microsoft.com/azure/active-dire
 
 ## Getting the app to customers
 
-The developer may want to provide an e-commerce site for customers to purchase licenses for the app. This e-commerce site is separate from the IoT app itself. A sample workload describing how to build an [e-commerce front-end](https://docs.microsoft.com/azure/architecture/example-scenario/apps/ecommerce-scenario) is available on the Azure Reference Architecture Center.
+The developer may want to provide an e-commerce site for customers to purchase licenses for the app. This e-commerce site is separate from the IoT app itself. A sample workload describing how to build an [e-commerce front-end](../apps/ecommerce-scenario.md) is available on the Azure Reference Architecture Center.
 
 To increase the discoverability and adoption of your IoT app, the developer should publish the app to the [Azure AD App gallery](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing). The Azure AD application gallery is in the Azure Marketplace app store, where all application connectors are published for single sign-on and user provisioning. IT administrators can add connectors from the app gallery, and then configure and use the connectors for single sign-on and provisioning for additional convenience for the end user of the app.
 
@@ -157,7 +161,7 @@ Fabrikam, Inc.'s tenant administrators can set the enterprise app settings so th
 In addition, the admins can set up the tenant to require admin consent for certain permissions (e.g. the ability to write data to your Azure AD tenant) regardless of whether regular users can register or consent to new apps.
 
 > [!NOTE]
-> The [new admin consent workflow](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) gives tenant admins a secure way to grant access to applications that require admin approval while allowing them to disable their end-user’s ability to consent. When a user tries to access an app but is unable to provide consent, they can send a request for admin approval. Benefits of the admin consent workflow include the following:
+> The [new admin consent workflow](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) gives tenant admins a secure way to grant access to applications that require admin approval while allowing them to disable their end-user's ability to consent. When a user tries to access an app but is unable to provide consent, they can send a request for admin approval. Benefits of the admin consent workflow include the following:
 >
 >- Helps admins manage access to organizational data and regulate the enterprise apps within their organization.
 >- Gives administrators increased visibility into what app users need access to.
@@ -211,7 +215,7 @@ This has been an overview of how to use Azure AD to secure your application, foc
 
 - [Microsoft identity platform best practices and recommendations](https://docs.microsoft.com/azure/active-directory/develop/identity-platform-integration-checklist)
 
-- [Manage identity in multi-tenant applications](https://docs.microsoft.com/azure/architecture/multitenant-identity/)
+- [Manage identity in multi-tenant applications](../../multitenant-identity/index.md)
 
 - [Azure AD developer guidance](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
 

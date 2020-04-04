@@ -3,6 +3,10 @@ title: IoT and data analytics
 description: Use IoT devices and data analytics to provide comprehensive management and operation of construction projects.
 author: alexbuckgit
 ms.date: 08/29/2018
+ms.category:
+  - iot
+  - analytics
+  - management-and-governance
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario

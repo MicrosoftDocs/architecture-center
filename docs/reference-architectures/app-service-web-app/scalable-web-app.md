@@ -6,6 +6,8 @@ author: MikeWasson
 ms.date: 10/03/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - web
 ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
@@ -31,7 +33,7 @@ This architecture builds on the one shown in [Basic web application][basic-web-a
 - **Cache**. Store semi-static data in [Azure Cache for Redis][azure-redis].
 - **CDN**. Use [Azure Content Delivery Network][azure-cdn] (CDN) to cache publicly available content for lower latency and faster delivery of content.
 - **Data storage**. Use [Azure SQL Database][sql-db] for relational data. For non-relational data, consider [Cosmos DB][cosmosdb].
-- **Azure Search**. Use [Azure Search][azure-search] to add search functionality such as search suggestions, fuzzy search, and language-specific search. Azure Search is typically used in conjunction with another data store, especially if the primary data store requires strict consistency. In this approach, store authoritative data in the other data store and the search index in Azure Search. Azure Search can also be used to consolidate a single search index from multiple data stores.
+- **Azure Cognitive Search**. Use [Azure Cognitive Search][azure-search] to add search functionality such as search suggestions, fuzzy search, and language-specific search. Azure Search is typically used in conjunction with another data store, especially if the primary data store requires strict consistency. In this approach, store authoritative data in the other data store and the search index in Azure Search. Azure Search can also be used to consolidate a single search index from multiple data stores.
 - **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 
 ## Recommendations

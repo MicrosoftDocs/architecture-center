@@ -2,7 +2,7 @@
 
 2. Install [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-3. Install [Node and NPM](https://nodejs.org/en/download/)
+3. Install [Node and NPM](https://nodejs.org/en/download)
 
 4. Install the [Azure building blocks](https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks) npm package.
 

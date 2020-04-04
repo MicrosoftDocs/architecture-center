@@ -8,6 +8,8 @@ ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ---
 
+<!-- cSpell:ignore Oozie HDFS deduplicating -->
+
 # Extract, transform, and load (ETL)
 
 A common problem that organizations face is how to gather data from multiple sources, in multiple formats, and move it to one or more data stores. The destination may not be the same type of data store as the source, and often the format is different, or the data needs to be shaped or cleaned before loading it into its final destination.
@@ -26,7 +28,7 @@ Often, the three ETL phases are run in parallel to save time. For example, while
 
 Relevant Azure service:
 
-- [Azure Data Factory v2](https://azure.microsoft.com/services/data-factory/)
+- [Azure Data Factory v2](https://azure.microsoft.com/services/data-factory)
 
 Other tools:
 
@@ -48,10 +50,10 @@ The final phase of the ELT pipeline is typically to transform the source data in
 
 Relevant Azure service:
 
-- [Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
-- [HDInsight with Hive](/azure/hdinsight/hadoop/hdinsight-use-hive)
-- [Azure Data Factory v2](https://azure.microsoft.com/services/data-factory/)
-- [Oozie on HDInsight](/azure/hdinsight/hdinsight-use-oozie-linux-mac)
+- [Azure Synapse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
+- [HDInsight with Hive](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-hive)
+- [Azure Data Factory v2](https://azure.microsoft.com/services/data-factory)
+- [Oozie on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-oozie-linux-mac)
 
 Other tools:
 
@@ -69,7 +71,7 @@ In the diagram above, there are several tasks within the control flow, one of wh
 
 Relevant Azure service:
 
-- [Azure Data Factory v2](https://azure.microsoft.com/services/data-factory/)
+- [Azure Data Factory v2](https://azure.microsoft.com/services/data-factory)
 
 Other tools:
 

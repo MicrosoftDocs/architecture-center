@@ -5,6 +5,10 @@ author: msalvaris
 ms.date: 06/05/2019
 ms.custom: azcat-ai
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - compute
+  - media
 ms.subservice: reference-architecture
 ---
 
@@ -16,7 +20,7 @@ A reference implementation for this architecture is available on [GitHub][github
 
 ![Architecture for distributed deep learning][0]
 
-**Scenario**: Image classification is a widely applied technique in computer vision, often tackled by training a convolutional neural network (CNN). For particularly large models with large datasets, the training process can take weeks or months on a single GPU. In some situations, the models are so large that it's not possible to fit reasonable batch sizes onto the GPU. Using distributed training in these situations can shorten the training time.
+**Scenario**: Classifying images is a widely applied technique in computer vision, often tackled by training a convolutional neural network (CNN). For particularly large models with large datasets, the training process can take weeks or months on a single GPU. In some situations, the models are so large that it's not possible to fit reasonable batch sizes onto the GPU. Using distributed training in these situations can shorten the training time.
 
 In this specific scenario, a [ResNet50 CNN model][resnet] is trained using [Horovod][horovod] on the [Imagenet dataset][imagenet] and on synthetic data. The reference implementation shows how to accomplish this task using TensorFlow.
 
@@ -91,7 +95,7 @@ Azure Machine Learning Compute supports many storage options. For best performan
 
 ## Data format
 
-With large datasets it is often advisable to use data formats such as [TFRecords][tfrecords] and [parquet][petastorm] which provide better IO performance than multiple small image files.
+With large datasets it is often advisable to use data formats such as [TFRecords][tfrecords] and [parquet][petastorm] which provide better I/O performance than multiple small image files.
 
 ## Security considerations
 
@@ -110,7 +114,8 @@ While running your job, it's important to monitor the progress and make sure tha
 Azure Machine Learning offers many ways to [instrument your experiments][azureml-logging]. The stdout/stderr from your scripts are automatically logged. These logs are automatically synced to your workspace Blob storage. You can either view these files through the Azure portal, or download or stream them using the Python SDK or Azure Machine Learning CLI. If you log your experiments using Tensorboard, these logs are automatically synced and you can access them directly or use the Azure Machine Learning SDK to stream them to a [Tensorboard session][azureml-tensorboard].
 
 ## Cost considerations
-Use the  [Pricing calculator][Cost-Calculator] to estimate costs. Here are some other considerations. 
+
+Use the  [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
 
 ### Premium Blob Storage
 
@@ -124,7 +129,7 @@ Azure Container Registry offers **Basic**, **Standard** and **Premium**. Choose 
 
 In this architecture, Azure ML Compute is one of the main cost drivers. The implementation needs a cluster of GPU compute nodes and selected VM sizes can impact cost. For more information on the VM sizes that include GPUs, see [GPU-optimized virtual machine sizes][gpu-vm-sizes] and [Azure Virtual Machines Pricing][az-vm-pricing].
 
-For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
 
 ## Deployment
 
@@ -143,7 +148,7 @@ The output from this architecture is a trained model that is saved to blob stora
 [1]: ./_images/distributed_dl_flow.png
 [2]: ./_images/distributed_dl_tests.png
 [acr]: /azure/container-registry/container-registry-intro
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [ai]: /azure/application-insights/app-insights-overview
 [aml-compute]: /azure/machine-learning/service/how-to-set-up-training-targets#amlcompute
 [amls]: /azure/machine-learning/service/overview-what-is-azure-ml
@@ -155,7 +160,7 @@ The output from this architecture is a trained model that is saved to blob stora
 [blob]: https://azure.microsoft.com/blog/introducing-azure-premium-blob-storage-limited-public-preview/
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 [block-blob-pricing]: https://azure.microsoft.com/pricing/details/storage/blobs/
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [docker]: https://hub.docker.com/
 [endpoints]: /azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network
 [files]: /azure/storage/files/storage-files-introduction

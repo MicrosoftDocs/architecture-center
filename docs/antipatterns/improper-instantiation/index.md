@@ -171,7 +171,7 @@ The next graph shows a similar load test using a shared instance of the `Expensi
 ![Throughput of the sample application reusing the same instance of an HttpClient object for each request][throughput-single-ExpensiveToCreateService-instance]
 
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/ImproperInstantiation
-[service-bus-messaging]: /azure/service-bus-messaging/service-bus-performance-improvements
+[service-bus-messaging]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-performance-improvements
 [new-relic]: https://newrelic.com/application-monitoring
 [throughput-new-HTTPClient-instance]: _images/HttpClientInstancePerRequest.jpg
 [dashboard-new-HTTPClient-instance]: _images/HttpClientInstancePerRequestWebTransactions.jpg

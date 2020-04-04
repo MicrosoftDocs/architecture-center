@@ -6,8 +6,13 @@ ms.date: 12/16/2019
 description: Today, most facilities operate reactively to problems in tank levels. This often leads to spills, emergency shutdowns, expensive remediation costs, regulatory issues, costly repairs and fines. Tank level forecasting helps manage and abate these and other problems.
 ms.custom: acom-architecture, artificial intelligence, hpc, analytics, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/oil-and-gas-tank-level-forecasting/'
 ms.service: architecture-center
+ms.category:
+  - analytics
+  - compute
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/oil-and-gas-tank-level-forecasting.png
 ---
+
 # Oil and Gas Tank Level Forecasting
 
 [!INCLUDE [header_file](../header.md)]
@@ -16,12 +21,12 @@ Today, most facilities operate reactively to problems in tank levels. This often
 
 Forecasts are created by harnessing the power of real-time and historical data readily available from sensors, meters and records, which helps to:
 
-  * Prevent tank spillage and emergency shutdowns
-  * Discover hardware malfunction or failure
-  * Schedule maintenance, shutdowns, and logistics
-  * Optimize operations and facility efficiency
-  * Detect pipeline leaks and slugging
-  * Reduce costs, fines, and downtime
+* Prevent tank spillage and emergency shutdowns
+* Discover hardware malfunction or failure
+* Schedule maintenance, shutdowns, and logistics
+* Optimize operations and facility efficiency
+* Detect pipeline leaks and slugging
+* Reduce costs, fines, and downtime
 
 The tank level forecasting process starts at the well input. Oil is measured as it comes into the facility via meters and is sent to tanks. Levels are monitored and recorded in tanks during the refining process and then oil, gas, and water output are recorded via sensors, meters, and records. Forecasts are then made using data from the facility; for example, forecasts can be made every 15 minutes.
 
@@ -29,7 +34,8 @@ The Cortana Intelligence Suite is adaptable and can be customized to meet differ
 
 ## Architecture
 
-![Architecture diagram](../media/oil-and-gas-tank-level-forecasting.svg)
+![Architecture diagram](../media/oil-and-gas-tank-level-forecasting.png)
+*Download an [SVG](../media/oil-and-gas-tank-level-forecasting.svg) of this architecture.*
 
 ## Description
 
@@ -51,5 +57,3 @@ After deployment, see the post deployment instructions [here](https://github.com
   4. Azure Synapse Analytics is used to store the prediction results received from Azure Machine Learning. These results are then consumed in the Power BI dashboard.
   5. Azure Data Factory handles orchestration, and scheduling of the hourly model retraining.
   6. Finally, Power BI is used for results visualization, so that users can monitor the tank level from a facility in real time and use the forecast level to prevent spillage.
-
-

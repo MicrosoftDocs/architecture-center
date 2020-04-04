@@ -5,6 +5,8 @@ author: PageWriter-MSFT
 ms.date: 06/13/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - developer-tools
 ms.subservice: reference-architecture
 ms.custom: microservices
 ---
@@ -382,7 +384,7 @@ You can also view performance logs and telemetry data related to a Service Fabri
 
 In microservices architecture, several services often participate to complete a task. The telemetry from each of those services is correlated by using context fields (operation ID, request ID, and so forth) in a distributed trace. By using [Application Map](/azure/azure-monitor/app/app-map) in Application Insights, you can build the view of distributed logical operation and visualize the entire service graph of your application. You can also use transaction diagnostics in Application Insight to correlate server-side telemetry. For more information, see [Unified cross-component transaction diagnostics](/azure/application-insights/app-insights-transaction-diagnostics).
 
-[Application Insights Application Map](/azure/azure-monitor/app/app-map) provides the topology of the application by using HTTP dependency calls made between  services, with the installed Application Insights SDK. It's also important to correlate tasks that are dispatched asynchronously using a queue. For details about sending correlation telemetry in a queue message, see [Queue instrumentation](/azure/azure-monitor/app/custom-operations-tracking#queue-instrumentation).
+[Application Insights Application Map](/azure/azure-monitor/app/app-map) provides the topology of the application by using HTTP dependency calls made between services, with the installed Application Insights SDK. It's also important to correlate tasks that are dispatched asynchronously using a queue. For details about sending correlation telemetry in a queue message, see [Queue instrumentation](/azure/azure-monitor/app/custom-operations-tracking#queue-instrumentation).
 
 For more information, see:
 
@@ -398,7 +400,7 @@ Use Azure Monitor alerts to notify sysadmins when certain conditions occur in sp
 [Log search alert rules](/azure/azure-monitor/platform/alerts-unified-log) allow you to define and run a Kusto query against a Log Analytics workspace at regular intervals. An alert is created if the query result matches a certain condition.
 
 ## Cost considerations
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
 
 Here are some points to consider for some of the services used in this architecture.
 
@@ -445,10 +447,10 @@ To deploy the reference implementation for this architecture, follow the steps i
 - [Designing a microservices architecture](../../microservices/design/index.md)
 
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [ap-insight-cost]: https://docs.microsoft.com/azure/azure-monitor/app/pricing
 [Api-Management-pricing]: https://azure.microsoft.com/pricing/details/api-management/
 [az-monitor-pricing]: https://azure.microsoft.com/pricing/details/monitor/
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services/
 [sfx]: /azure/service-fabric/service-fabric-visualizing-your-cluster

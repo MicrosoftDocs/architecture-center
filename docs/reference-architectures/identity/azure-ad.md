@@ -6,6 +6,9 @@ author: MikeWasson
 ms.date: 08/28/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - identity
+  - hybrid
 ms.subservice: reference-architecture
 ms.custom: seodec18, identity
 ---
@@ -29,7 +32,7 @@ Typical uses for this reference architecture include:
 - Architectures in which the on-premises network and the application's Azure VNet are not connected using a VPN tunnel or ExpressRoute circuit.
 
 > [!NOTE]
-> Azure AD can authenticate the identity of users and applications that exist in an organization’s directory. Some applications and services, such as SQL Server, may require computer authentication, in which case this solution is not appropriate.
+> Azure AD can authenticate the identity of users and applications that exist in an organization's directory. Some applications and services, such as SQL Server, may require computer authentication, in which case this solution is not appropriate.
 >
 
 For additional considerations, see [Choose a solution for integrating on-premises Active Directory with Azure][considerations].
@@ -207,8 +210,14 @@ Use conditional access control to deny authentication requests from unexpected s
 
 For more information, see [Azure Active Directory conditional access][aad-conditional-access].
 
+
+## DevOps considerations
+
+For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.md#devops-considerations).
+
+
 ## Cost considerations
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost]. 
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost]. 
 
 Here are cost considerations for the services used in this architecture.
 
@@ -221,12 +230,13 @@ For information about the editions offered by Azure Active Directory, see [Azure
 The deployment includes infrastructure for an N-tier application. For cost information about these resources, [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
 
 
+
 ## Deploy the solution
 
 A deployment for a reference architecture that implements these recommendations and considerations is available on GitHub. This reference architecture deploys a simulated on-premises network in Azure that you can use to test and experiment. To deploy the solution, see the [readme](https://github.com/mspnp/identity-reference-architectures/tree/master/azure-ad) on GitHub.
 
 <!-- links -->
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [implementing-a-multi-tier-architecture-on-Azure]: ../virtual-machines-windows/n-tier.md#cost-considerations
 
 [aad-agent-installation]: /azure/active-directory/active-directory-aadconnect-health-agent-install
@@ -250,11 +260,18 @@ A deployment for a reference architecture that implements these recommendations 
 [aad-sync-requirements]: /azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements
 [aad-topologies]: /azure/active-directory/hybrid/plan-connect-topologies
 [aad-user-sign-in]: /azure/active-directory/hybrid/plan-connect-user-signin
+[AAF-devops]: /azure/architecture/framework/devops/overview
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[azbb]: https://github.com/mspnp/template-building-blocks/wiki/overview
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[az-pipelines]: https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops
 [azure-active-directory]: /azure/active-directory-domain-services/active-directory-ds-overview
 [azure-ad-connect]: /azure/active-directory/hybrid/whatis-hybrid-identity
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
 [Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory/
 [azure-multifactor-authentication]: /azure/multi-factor-authentication/multi-factor-authentication
 [considerations]: ./considerations.md
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
+[AAF-devops]: /azure/architecture/framework/devops/overview

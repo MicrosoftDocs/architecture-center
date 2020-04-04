@@ -5,15 +5,20 @@ author: MikeWasson
 ms.date: 06/14/2019
 ms.topic: guide
 ms.service: architecture-center
+ms.category:
+  - management-and-governance
+  - developer-tools
 ms.subservice: reference-architecture
 ms.custom: microservices
 ---
+
+<!-- cSpell:ignore kusto kube kubelet Backoff Fluentd Heapster Serilog Telegraf Dropoff Istio linkerd kubectl -->
 
 # Monitoring a microservices architecture in Azure Kubernetes Service (AKS)
 
 This article describes best practices for monitoring a microservices application that runs on Azure Kubernetes Service (AKS).
 
-In any complex application, at some point something will go wrong. In a microservices application, you need to track what's happening across dozens or even hundreds of services. To make sense of what's happening, you must collect telemetry from the application. Telemetry can be divided into *logs* and *metrics*. 
+In any complex application, at some point something will go wrong. In a microservices application, you need to track what's happening across dozens or even hundreds of services. To make sense of what's happening, you must collect telemetry from the application. Telemetry can be divided into *logs* and *metrics*.
 
 **Logs** are text-based records of events that occur while the application is running. They include things like application logs (trace statements) or web server logs. Logs are primarily useful for forensics and root cause analysis.
 
@@ -21,9 +26,9 @@ In any complex application, at some point something will go wrong. In a microser
 
 - **Node-level** metrics, including CPU, memory, network, disk, and file system usage. System metrics help you to understand resource allocation for each node in the cluster, and troubleshoot outliers.
 
-- **Container** metrics. For containerized applications, you need to collect metrics at the container level, not just at the VM level. 
+- **Container** metrics. For containerized applications, you need to collect metrics at the container level, not just at the VM level.
 
-- **Application** metrics. This includes any metrics that are relevant to understanding the behavior of a service. Examples include the number of queued inbound HTTP requests, request latency, or message queue length. Applications can also create custom metrics that are specific to the domain, such as the number of business transactions processed per minute. 
+- **Application** metrics. This includes any metrics that are relevant to understanding the behavior of a service. Examples include the number of queued inbound HTTP requests, request latency, or message queue length. Applications can also create custom metrics that are specific to the domain, such as the number of business transactions processed per minute.
 
 - **Dependent service** metrics. Services may call external services or endpoints, such as managed PaaS services or SaaS services. Third-party services may or may not provide any metrics. If not, you'll have to rely on your own application metrics to track statistics for latency and error rate.
 
@@ -35,11 +40,11 @@ Use [Azure Monitor][azure-monitor] to monitor the overall health of your cluster
 
 From here, you can drill in further to find the issue. For example, if the pod status is `ImagePullBackoff`, it means that Kubernetes could not pull the container image from the registry. This could be caused by an invalid container tag or an authentication error trying to pull from the registry.
 
-Note that a container crashing will put the container state into `State` = `Waiting`,with `Reason` = `CrashLoopBackOff`. For a typical scenario where a pod is part of a replica set and the retry policy is `Always`, this won’t show as an error in the cluster status. However, you can run queries or set up alerts for this condition. For more information, see [Understand AKS cluster performance with Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-analyze).
+Note that a container crashing will put the container state into `State` = `Waiting`,with `Reason` = `CrashLoopBackOff`. For a typical scenario where a pod is part of a replica set and the retry policy is `Always`, this won't show as an error in the cluster status. However, you can run queries or set up alerts for this condition. For more information, see [Understand AKS cluster performance with Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-analyze).
 
 ## Metrics
 
-We recommend using [Azure Monitor][azure-monitor] to collect and view metrics for your AKS clusters and any other dependent Azure services. 
+We recommend using [Azure Monitor][azure-monitor] to collect and view metrics for your AKS clusters and any other dependent Azure services.
 
 - For cluster and container metrics, enable [Azure Monitor for containers](/azure/monitoring/monitoring-container-insights-overview). When this feature is enabled, Azure Monitor collects memory and processor metrics from controllers, nodes, and containers via the Kubernetes metrics API. For more information about the metrics that are available through Azure Monitor for containers, see [Understand AKS cluster performance with Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-analyze).
 
@@ -88,8 +93,7 @@ Azure Monitor is billed per gigabyte (GB) of data ingested into the service (see
 
 ### Application Insights
 
-For richer log data, we recommend instrumenting your code with Application Insights. 
-This requires adding an Application Insights package to your code and configuring your code to send logging statements to Application Insights. The details depend on the platform, such as .NET, Java, or Node.js. The Application Insights package sends telemetry data to Azure Monitor.
+For richer log data, we recommend instrumenting your code with Application Insights. This requires adding an Application Insights package to your code and configuring your code to send logging statements to Application Insights. The details depend on the platform, such as .NET, Java, or Node.js. The Application Insights package sends telemetry data to Azure Monitor.
 
 If you are using .NET Core, we recommend also using the [Application Insights for Kubernetes](https://github.com/microsoft/ApplicationInsights-Kubernetes) library. This library enriches Application Insights traces with additional information such as the container, node, pod, labels, and replica set.
 
@@ -128,7 +132,7 @@ Here, the call to `LogInformation` includes an `Id` parameter and `DeliveryInfo`
 
 This is a JSON string, where the "@t" field is a timestamp, "@mt" is the message string, and the remaining key/value pairs are the parameters. Outputting JSON format makes it easier to query the data in a structured way. For example, the following Log Analytics query, written in the [Kusto query language](/azure/kusto/query/), searches for instances of this particular message from all containers named `fabrikam-delivery`:
 
-```Kusto
+```kusto
 traces
 | where customDimensions.["Kubernetes.Container.Name"] == "fabrikam-delivery"
 | where customDimensions.["{OriginalFormat}"] == "In Put action with delivery {Id}: {@DeliveryInfo}"

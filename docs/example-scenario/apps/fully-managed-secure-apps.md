@@ -5,6 +5,9 @@ description: Securely deploy an expense application to Azure App Service Environ
 author: fmustaf
 ms.date: 05/09/2019
 ms.author: faisalm
+ms.category:
+  - security
+  - web
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -52,7 +55,7 @@ Data flows through the scenario as follows:
 - Azure [Application Gateway][docs-appgw] is a web traffic load balancer operating at Layer 7 that manages traffic to the web application. It offers SSL offloading, which removes additional overhead from the web servers hosting the web app to decrypt traffic again.
 - [Web Application Firewall][docs-waf] (WAF) is a feature of Application Gateway. Enabling the WAF in the Application Gateway further enhances security. The WAF uses OWASP rules to protect the web application against attacks such as cross-site scripting, session hijacks, and SQL injection.
 - [Azure SQL Database][docs-sql-database] was selected because the majority of the data in this application is relational data, with some data as documents and Blobs.
-- [Azure Networking][azure-networking] provides a variety of networking capabilities in Azure, and the networks can be peered with other virtual networks in Azure Connectivity can also be established with on-premises datacenters via Express Route or site-to-site. In this case, a [service endpoint][sql-service-endpoint] is enabled on the virtual network to ensure the data is flowing only between the Azure virtual network and the SQL Database instance.
+- [Azure Networking][azure-networking] provides a variety of networking capabilities in Azure, and the networks can be peered with other virtual networks in Azure Connectivity can also be established with on-premises datacenters via ExpressRoute or site-to-site. In this case, a [service endpoint][sql-service-endpoint] is enabled on the virtual network to ensure the data is flowing only between the Azure virtual network and the SQL Database instance.
 - [Azure DevOps][docs-azure-devops] is used to help teams collaborate during many sprints, using features of Azure DevOps that support Agile Development, and to create build and release pipelines.
 - An Azure build [VM][docs-azure-vm] was created so that the installed agent can pull down the respective build, and deploy the web app to the ASE environment.
 
@@ -73,7 +76,7 @@ There are certain considerations to be aware of when dealing with certificates o
 
 You cannot issue a CSR from the Internal Load Balancer (ILB) of an ASE. The way to handle this is to use [this procedure][create-wildcard-cert-letsencrypt].
 
-The above allows you to use proof of DNS name ownership instead of a CSR. If you own a DNS namespace, you can put in special DNS TXT record, the above service checks that the record is there, and if found, knows that you own the DNS server because you have the right record. Based on that information, it issues a certificate that is signed up to a trusted root, which you can then upload to your ILB. You don’t need to do anything with the individual certificate stores on the Web Apps because you have a trusted root SSL certificate at the ILB.
+The above allows you to use proof of DNS name ownership instead of a CSR. If you own a DNS namespace, you can put in special DNS TXT record, the above service checks that the record is there, and if found, knows that you own the DNS server because you have the right record. Based on that information, it issues a certificate that is signed up to a trusted root, which you can then upload to your ILB. You don't need to do anything with the individual certificate stores on the Web Apps because you have a trusted root SSL certificate at the ILB.
 
 Make self-signed or internally issued SSL cert work if we want to make secure calls between services running in ILB ASE
 Another [solution to consider][ase-and-internally-issued-cert] on how to make ILB ASE work with internally issued SSL certificate and how to load the internal CA to the trusted root store.
@@ -91,7 +94,7 @@ Additionally, the custom domain name used for apps and the domain name used by t
 - abcd.def.contoso.com
 - abcd.contoso.com
 
-Choose a domain for the ILB ASE that won’t have a conflict with those custom domain names. You can use something like contoso-internal.com for the domain of your ASE for the example here, because that won't conflict with custom domain names that end in .contoso.com.
+Choose a domain for the ILB ASE that won't have a conflict with those custom domain names. You can use something like contoso-internal.com for the domain of your ASE for the example here, because that won't conflict with custom domain names that end in .contoso.com.
 
 Another point to consider is regarding DNS. In order to allow applications within the ASE to communicate with each other, for instance a web application to talk to an API, you will need to have DNS configured for your virtual network holding the ASE. You can either [bring your own DNS][bring-your-own-dns] or you can use [Azure DNS private zones][private-zones]
 

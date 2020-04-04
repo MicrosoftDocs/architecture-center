@@ -5,6 +5,10 @@ author: MikeWasson
 ms.date: 12/10/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - containers
+  - developer-tools
+  - featured
 ms.subservice: reference-architecture
 ms.custom: microservices
 ---
@@ -261,7 +265,7 @@ For specific recommendations and best practices, see [CI/CD for microservices on
 
 ## Cost considerations
 
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
 
 Here are some points to consider for some of the services used in this architecture.
 
@@ -284,7 +288,7 @@ In this reference architecture,  Azure Application Gateway is used as the **Ingr
 
 ### Azure DevOps Services
 
-This reference architecture only uses Azure Pipelines. Azure offers the Azure Pipeline as an individual Service. You are allowed  a free Microsoft-hosted job with 1,800 minutes per month for CI/CD and 1 self-hosted job with unlimited minutes per month, extra jobs have charges. For more information, see [Azure DevOps Services Pricing][DevOps-pricing].
+This reference architecture only uses Azure Pipelines. Azure offers the Azure Pipeline as an individual Service. You are allowed a free Microsoft-hosted job with 1,800 minutes per month for CI/CD and 1 self-hosted job with unlimited minutes per month, extra jobs have charges. For more information, see [Azure DevOps Services Pricing][DevOps-pricing].
 
 ### Azure Monitor
 
@@ -303,8 +307,8 @@ To deploy the reference implementation for this architecture, follow the steps i
 [ri]: https://github.com/mspnp/microservices-reference-implementation
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.md
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/aks-reference-architecture.vsdx
-[AAF-cost]: /azure/architecture/framework/cost/overview
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[aaf-cost]: /azure/architecture/framework/cost/overview
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services/
 [AppGatewayPricing]: https://azure.microsoft.com//pricing/details/application-gateway/
 [aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service

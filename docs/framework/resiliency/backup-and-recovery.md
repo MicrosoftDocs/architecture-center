@@ -9,6 +9,8 @@ ms.subservice: cloud-design-principles
 ms.custom: How are you handling DR (Backup & Restore) for this workload? 
 ---
 
+<!-- cSpell:ignore BACPAC DTUs -->
+
 # Backup and disaster recover for Azure applications
 
 *Disaster recovery* is the process of restoring application functionality in the wake of a catastrophic loss.
@@ -109,7 +111,7 @@ Another option is to use active geo-replication for SQL Database, which automati
 
 You can also use a more manual approach for backup and restore:
 
-- Use the **DATABASE COPY** command to create a backup copy of the database with transactional consistency.
+- Use the [**Database Copy**](/azure/sql-database/sql-database-copy) capability to create a backup copy of the database with transactional consistency.
 - Use the Azure SQL Database Import/Export Service, which supports exporting databases to BACPAC files (compressed files containing your database schema and associated data) that are stored in Azure Blob storage. To protect against a region-wide service disruption, copy the BACPAC files to an alternate region.
 
 ### SQL Server on VMs
@@ -157,13 +159,11 @@ If you're using [Azure Site Recovery](/azure/site-recovery/) to replicate virtua
 
 Many alternative strategies are available for implementing distributed compute across regions. These must be tailored to the specific business requirements and circumstances of the application. At a high level, the approaches can be divided into the following categories:
 
-- **Redeploy on disaster**: In this approach, the application is redeployed from scratch at the time of disaster. This is appropriate for non-critical applications that don’t require a guaranteed recovery time.
+- **Redeploy on disaster**: In this approach, the application is redeployed from scratch at the time of disaster. This is appropriate for non-critical applications that don’t require a guaranteed recovery time. [Redeploy to a new region](/azure/architecture/example-scenario/apps/devops-dotnet-webapp)
 
-- **Warm Spare (Active/Passive)**: A secondary hosted service is created in an alternate region, and roles are deployed to guarantee minimal capacity; however, the roles don’t receive production traffic. This approach is useful for applications that have not been designed to distribute traffic across regions.
+- **Warm Spare (Active/Passive)**: A secondary hosted service is created in an alternate region, and roles are deployed to guarantee minimal capacity; however, the roles don’t receive production traffic. This approach is useful for applications that have not been designed to distribute traffic across regions. [Basic Web Application example](/azure/architecture/reference-architectures/app-service-web-app/basic-web-app#availability-considerations), [Replicate VM to another region](/azure/site-recovery/azure-to-azure-quickstart)
 
-- **Hot Spare (Active/Active)**: The application is designed to receive production load in multiple regions. The cloud services in each region might be configured for higher capacity than required for disaster recovery purposes. Alternatively, the cloud services might scale out as necessary at the time of a disaster and failover. This approach requires substantial investment in application design, but it has significant benefits. These include low and guaranteed recovery time, continuous testing of all recovery locations, and efficient usage of capacity.
-
-A complete discussion of distributed design is outside the scope of this document. For more information, see [Disaster Recovery and High Availability for Azure Applications](https://aka.ms/drtechguide).
+- **Hot Spare (Active/Active)**: The application is designed to receive production load in multiple regions. The cloud services in each region might be configured for higher capacity than required for disaster recovery purposes. Alternatively, the cloud services might scale out as necessary at the time of a disaster and failover. This approach requires substantial investment in application design, but it has significant benefits. These include low and guaranteed recovery time, continuous testing of all recovery locations, and efficient usage of capacity. [Multi tier DR example](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
 
 ## Resource management
 
@@ -186,11 +186,11 @@ Regularly verify that your backup data is what you expect by running a script to
 
 ## Backup Storage
 
-Backups are about protecting data, applications, and systems that are important to the organization. In operations environments, it’s easy to provide backups: pick the workload that needs hyper-availability and back it up. Operations environments are relatively static – in that, the systems and applications used remain relatively consistent, with only the data changing daily.
+Backups are about protecting data, applications, and systems that are important to the organization. In operations environments, it's easy to provide backups: pick the workload that needs hyper-availability and back it up. Operations environments are relatively static – in that, the systems and applications used remain relatively consistent, with only the data changing daily.
 
 ## Application archives
 
-It’s important to remember, that a DR plan is more than just an ordered restoration from backup and validation process. Applications may require post-restoration configuration due to site changes, or reinstallation may be necessary with restored data imported after.
+It's important to remember, that a DR plan is more than just an ordered restoration from backup and validation process. Applications may require post-restoration configuration due to site changes, or reinstallation may be necessary with restored data imported after.
 
 ## Outage retrospectives
 

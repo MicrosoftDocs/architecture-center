@@ -7,6 +7,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.date: 12/03/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - integration
+  - developer-tools
+  - management-and-governance
 ms.subservice: reference-architecture
 ms.custom: integration-services
 ---
@@ -174,7 +178,7 @@ If a logic app requires any sensitive values that you can't create within a conn
 API Management manages secrets by using objects called *named values* or *properties*. These objects securely store values that you can access through API Management policies. For more information, see [How to use Named Values in Azure API Management policies][apim-properties].
 
 ## Cost considerations
-In general, use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some other considerations.
+In general, use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
 
 ### API Management
 
@@ -184,7 +188,7 @@ You are charged for all API Management instances when they are running. If you h
 
 Logic Apps uses a [serverless](/azure/logic-apps/logic-apps-serverless-overview) model. Billing is calculated based on action and connector execution. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
 
 
 ## Next steps
@@ -194,7 +198,7 @@ For greater reliability and scalability, use message queues and events to decoup
 <!-- links -->
 
 [aad]: /azure/active-directory
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [apim]: /azure/api-management
 [apim-autoscale]: /azure/api-management/api-management-howto-autoscale
 [apim-backup]: /azure/api-management/api-management-howto-disaster-recovery-backup-restore
@@ -214,7 +218,7 @@ For greater reliability and scalability, use message queues and events to decoup
 [apim-soap]: /azure/api-management/import-soap-api
 [apim-versions]: /azure/api-management/api-management-get-started-publish-versions
 [arm]: /azure/azure-resource-manager/resource-group-authoring-templates
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [dns]: /azure/dns/
 [integration-services]: https://azure.microsoft.com/product-categories/integration/
 [logic-apps]: /azure/logic-apps/logic-apps-overview

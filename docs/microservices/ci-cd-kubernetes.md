@@ -5,6 +5,8 @@ author: MikeWasson
 ms.date: 04/11/2019
 ms.topic: guide
 ms.service: architecture-center
+ms.category:
+  - containers
 ms.subservice: reference-architecture
 ms.custom: microservices
 ---

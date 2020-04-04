@@ -6,9 +6,13 @@ author: MikeWasson
 ms.date: 12/12/2017
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - web
 ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
+
+<!-- cSpell:ignore BACPAC DTUs -->
 
 # Run a basic web application in Azure
 
@@ -50,7 +54,6 @@ The architecture has the following components:
 
 Your requirements might differ from the architecture described here. Use the recommendations in this section as a starting point.
 
-
 ### App Service plan
 
 Use **Free** and **Shared** (preview) tiers for testing purposes because the shared resources cannot scale out. The two tiers provide different options within your budget.  Run your production workload on **Basic**, **Standard**, and **Premium** tiers because the app runs on dedicated virtual machine instances and has allocated resources that can scale out. App Service plans are billed on a per second basis.
@@ -58,14 +61,13 @@ Use **Free** and **Shared** (preview) tiers for testing purposes because the sha
 For more information, see [How much does my App Service plan cost?
 ](https://docs.microsoft.com/azure/app-service/overview-hosting-plans#how-much-does-my-app-service-plan-cost)
 
-
 Use the Standard or Premium tiers, because they support scale-out, autoscale, and secure sockets layer (SSL). Each tier supports several *instance sizes* that differ by number of cores and memory. You can change the tier or instance size after you create a plan. For more information about App Service plans, see [App Service Pricing][app-service-plans-tiers].
 
 You are charged for the instances in the App Service plan, even if the app is stopped. Make sure to delete plans that you aren't using (for example, test deployments).
 
 ### SQL Database
 
-A logical server group makes administrative tasks simple. Each database within the group is deployed with a specific  [service tier][sql-db-service-tiers]. Within each group, the databases cannot share resources. There are no compute costs for the server but for each database, you need to specify the tier. Therefore, because of the dedicated resources the performance might be better but the cost can be higher. 
+A logical server group makes administrative tasks simple. Each database within the group is deployed with a specific  [service tier][sql-db-service-tiers]. Within each group, the databases cannot share resources. There are no compute costs for the server but for each database, you need to specify the tier. Therefore, because of the dedicated resources the performance might be better but the cost can be higher.
 
 Use the [V12 version][sql-db-v12] of SQL Database. SQL Database supports Basic, Standard, and Premium [service tiers][sql-db-service-tiers], with multiple performance levels within each tier measured in [Database Transaction Units (DTUs)][sql-dtu]. Perform capacity planning and choose a tier and performance level that meets your requirements.
 
@@ -73,12 +75,11 @@ Use the [V12 version][sql-db-v12] of SQL Database. SQL Database supports Basic, 
 
 Provision the App Service plan and the SQL Database in the same region to minimize network latency. Generally, choose the region closest to your users.
 
-The resource group also has a region, which specifies where deployment metadata is stored. Put the resource group and its resources in the same region. This can improve availability during deployment. 
+The resource group also has a region, which specifies where deployment metadata is stored. Put the resource group and its resources in the same region. This can improve availability during deployment.
 
 Use the [pricing calculator][pricing] to estimate costs.
 
 For more information, see the cost section in [Azure Architecture Framework](/azure/architecture/framework/cost/overview).
-
 
 ## Scalability considerations
 

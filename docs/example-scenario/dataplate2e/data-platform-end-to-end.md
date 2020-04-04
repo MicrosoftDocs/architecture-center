@@ -1,20 +1,26 @@
 ---
 title: Azure data platform end-to-end
 titleSuffix: Azure Example Scenarios
-description: Description
+description: Use Azure services to ingest, process, store, serve, and visualize data from different sources.
 author: fabragaMS
 ms.date: 01/31/2020
+ms.category:
+  - databases
+  - analytics
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fcp
   - data-analytics
+social_image_url: /azure/architecture/example-scenario/dataplate2e/media/azure-data-platform-end-to-end.jpg
 ---
+
+<!-- cSpell:ignore fabraga -->
 
 # Azure data platform end-to-end
 
-This example scenario demonstrates how to leverage the extensive family of Azure Data Services to build a modern data platform capable of handling the most common data challenges in an organization.
+This example scenario demonstrates how to use the extensive family of Azure Data Services to build a modern data platform capable of handling the most common data challenges in an organization.
 
 The solution described in this article combines a range of Azure services that will ingest, process, store, serve, and visualize data from different sources, both structured and unstructured.
 
@@ -36,11 +42,11 @@ This approach can also be used to:
 
 ## Architecture
 
-[ ![Architecture for modern data platform using Azure data services](./media/azure-data-platform-end-to-end.jpg)](./media/azure-data-platform-end-to-end.jpg#lightbox)
+[![Architecture for a modern data platform using Azure data services](./media/azure-data-platform-end-to-end.jpg)](./media/azure-data-platform-end-to-end.jpg#lightbox)
 
 > [!NOTE]
 >
->- The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by leveraging other services and/or features not covered by this design.
+>- The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features not covered by this design.
 >- Specific business requirements for your analytics use case may also ask for the use of different services or features not considered in this design.
 
 The data flows through the solution as follows (from bottom-up):
@@ -51,11 +57,11 @@ The data flows through the solution as follows (from bottom-up):
 
 1. Still part of the Azure Data Factory pipeline, use Azure Data Lake Store Gen 2 to stage the data copied from the relational databases. You can save the data in delimited text format or compressed as Parquet files.
 
-1. Use Azure Synapse Polybase capabilities for fast ingestion into your data warehouse tables.
+1. Use Azure Synapse PolyBase capabilities for fast ingestion into your data warehouse tables.
 
 1. Load relevant data from the Azure Synapse data warehouse into Power BI datasets for data visualization. Power BI models implement a semantic model to simplify the analysis of business data and relationships.
 
-1. Business analysts use Power BI reports and dashboards to analyze  data and derive business insights.
+1. Business analysts use Power BI reports and dashboards to analyze data and derive business insights.
 
 ### Semi-structured data sources
 
@@ -63,13 +69,13 @@ The data flows through the solution as follows (from bottom-up):
 
 1. Still part of the Azure Data Factory pipeline, use Azure Data Lake Store Gen 2 to save the original data copied from the semi-structured data source.
 
-1. Azure Data Factory Mapping Dataflows or Azure Databricks notebooks can now be used to process the semi-structured data and apply the necessary transformations before data can be used for reporting. You can save the resulting dataset as Parquet files in the data lake.
+1. Azure Data Factory Mapping Data Flows or Azure Databricks notebooks can now be used to process the semi-structured data and apply the necessary transformations before data can be used for reporting. You can save the resulting dataset as Parquet files in the data lake.
 
-1. Use Azure Synapse Polybase capabilities for fast ingestion into your data warehouse tables.
+1. Use Azure Synapse PolyBase capabilities for fast ingestion into your data warehouse tables.
 
 1. Load relevant data from the Azure Synapse data warehouse into Power BI datasets for data visualization. Power BI models implement a semantic model to simplify the analysis of business data and relationships.
 
-1. Business analysts use Power BI reports and dashboards to analyze  data and derive business insights.
+1. Business analysts use Power BI reports and dashboards to analyze data and derive business insights.
 
 ### Non-structured data sources
 
@@ -79,11 +85,11 @@ The data flows through the solution as follows (from bottom-up):
 
 1. You can invoke Azure Databricks notebooks from your pipeline to process the unstructured data. The notebook can make use of Cognitive Services APIs or invoke custom Azure Machine Learning Service models to generate insights from the unstructured data. You can save the resulting dataset as Parquet files in the data lake.
 
-1. Use Azure Synapse Polybase capabilities for fast ingestion into your data warehouse tables.
+1. Use Azure Synapse PolyBase capabilities for fast ingestion into your data warehouse tables.
 
 1. Load relevant data from the Azure Synapse data warehouse into Power BI datasets for data visualization. Power BI models implement a semantic model to simplify the analysis of business data and relationships.
 
-1. Business analysts use Power BI reports and dashboards to analyze  data and derive business insights.
+1. Business analysts use Power BI reports and dashboards to analyze data and derive business insights.
 
 ### Streaming
 

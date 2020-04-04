@@ -5,6 +5,10 @@ author: MikeWasson
 ms.date: 01/07/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - networking
+  - security
+  - hybrid
 ms.subservice: reference-architecture
 ms.custom: seodec18, networking
 ---
@@ -126,7 +130,7 @@ Traffic between tiers is restricted by using NSGs. The business tier blocks all 
 Use [RBAC][rbac] to restrict the operations that DevOps can perform on each tier. When granting permissions, use the [principle of least privilege][security-principle-of-least-privilege]. Log all administrative operations and perform regular audits to ensure any configuration changes were planned.
 
 ## Cost considerations
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
 
 Here are cost considerations for the services used in this architecture.
 
@@ -226,11 +230,11 @@ In this step, you will connect the two local network gateways.
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-forced-tunneling]: /azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [cloud-services-network-security]: /azure/best-practices-network-security
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances/
 [getting-started-with-azure-security]: /azure/security/azure-security-getting-started
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-hybrid

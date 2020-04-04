@@ -7,6 +7,10 @@ ms.author: pnp
 ms.date: 05/09/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - devops
+  - featured
 ms.subservice: reference-architecture
 ms.custom: azcat-ai
 ---
@@ -57,9 +61,14 @@ The next sections describe each of these pipelines.
 
 The CI pipeline gets triggered every time code is checked in. It publishes an updated Azure Machine Learning pipeline after building the code and running a suite of tests. The build pipeline consists of the following tasks:
 
-- **Unit test.** These tests make sure the code works and is stable.
+- **Code quality.** These tests ensure that the code conforms to the standards of the team.
 
-- **Data test.** These tests verify that the data samples conform to the expected schema and distribution. Customize this test for other use cases and run it as a separate data sanity pipeline that gets triggered as new data arrives. For example, move the data test task to a data ingestion pipeline so you can test it earlier.
+- **Unit test.** These tests make sure the code works, has adequate code coverage, and is stable.
+
+- **Data test.** These tests verify that the data samples conform to the expected schema and distribution. Customize this test for other use cases and run it as a separate data sanity pipeline that gets triggered as new data arrives. For example, move the data test task to a *data ingestion pipeline* so you can test it earlier.
+
+> [NOTE]
+> You should consider enabling DevOps practices for the data used to train the machine learning models, but this is not covered in this article. For more information about the architecture and best practices for CI/CD of a data ingestion pipeline, see [DevOps for a data ingestion pipeline](https://docs.microsoft.com/azure/machine-learning/how-to-cicd-data-ingestion).
 
 The following one-time tasks occur when setting up the infrastructure for Azure Machine Learning and the Python SDK:
 
@@ -77,11 +86,11 @@ The machine learning pipeline orchestrates the process of retraining the model i
 
 This pipeline covers the following steps:
 
-- **Train model.** The training Python script is executed on the Azure Machine Learning Compute resource to get a new model. Since training is the most compute-intensive task in an AI project, the solution uses [Azure Machine Learning Compute](/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute).
+- **Train model.** The training Python script is executed on the Azure Machine Learning Compute resource to get a new [model](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#models) file which is stored in the [run history](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#runs). Since training is the most compute-intensive task in an AI project, the solution uses [Azure Machine Learning Compute](/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute).
 
-- **Evaluate model.** A simple evaluation test compares the new model with the existing model, and only when the new model is better does it get promoted.
+- **Evaluate model.** A simple evaluation test compares the new model with the existing model. Only when the new model is better does it get promoted. Otherwise, the model is not registered and the pipeline is canceled.
 
-- **Register model.** The retrained model is registered with the model management service. This service provides version control for the models along with metadata tags so they can be easily reproduced.
+- **Register model.** The retrained model is registered with the [Azure ML Model registry](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture). This service provides version control for the models along with metadata tags so they can be easily reproduced.
 
 ### Release pipeline
 
@@ -103,12 +112,9 @@ This pipeline shows how to operationalize the scoring image and promote it safel
 
 - **Test web service.** A simple API test makes sure the image is successfully deployed.
 
-To understand the end-to-end flow of the solution, see the project
-[readme](https://github.com/Microsoft/MLOpsPython#architecture-flow) on GitHub.
-
 ## Scalability considerations
 
-A build pipeline on Azure DevOps can be scaled for applications of any size. Build pipelines have a maximum timeout that varies depending on the agent they are run on. Builds can run forever on self-hosted agents (private agents). For Microsoft-hosted agents for a public project, builds can run for six hours. For private projects, 30 minutes.
+A build pipeline on Azure DevOps can be scaled for applications of any size. Build pipelines have a maximum timeout that varies depending on the agent they are run on. Builds can run forever on self-hosted agents (private agents). For Microsoft-hosted agents for a public project, builds can run for six hours. For private projects, the limit is 30 minutes.
 
 To use the maximum timeout, set the following property in your [Azure Pipelines YAML](/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml&viewFallbackFrom=vsts#timeouts) file:
 
@@ -130,7 +136,7 @@ Scale the retraining pipeline up and down depending on the number of nodes in yo
 
 - **Monitor retraining job.** Machine learning pipelines orchestrate retraining across a cluster of machines and provides an easy way to monitor them. Use the [Azure portal](https://portal.azure.com/), and go to the machine learning workspace, and look under pipelines section for the logs. Alternatively, these logs are also written to blob and can be read from there as well using tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-- **Logging.** Azure Machine Learning provides an easy way to log at each step of the machine learning life cycle. The logs are stored in a blob container. For more information, see [Enable logging in Azure Machine Learning](/azure/machine-learning/service/how-to-enable-logging). For richer monitoring, configure [Application Insights](/azure/machine-learning/service/how-to-enable-app-insights#use-the-azure-portal-to-configure) to use the logs.
+- **Logging.** Azure Machine Learning provides an easy way to log at each step of the machine learning life cycle. The logs are stored in a blob container. For more information, see [Enable logging in Azure Machine Learning](/azure/machine-learning/service/how-to-enable-logging). For richer monitoring, configure [Application Insights](/azure/machine-learning/how-to-enable-app-insights#use-azure-machine-learning-studio-to-configure) to use the logs.
 
 - **Security.** All secrets and credentials are stored in [Azure Key Vault](/azure/key-vault/) and accessed in Azure Pipelines using [variable groups](/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml#link-secrets-from-an-azure-key-vault).
 
@@ -144,6 +150,6 @@ The retraining pipeline also requires a form of compute. This architecture uses 
 
 ## Deploy the solution
 
-To deploy this reference architecture, follow the steps described in the [GitHub repo][repo].
+To deploy this reference architecture, follow the steps described in the [Getting Started](https://github.com/microsoft/MLOpsPython/blob/master/docs/getting_started.md) guide in the [GitHub repo][repo].
 
 [repo]: https://github.com/Microsoft/MLOpsPython

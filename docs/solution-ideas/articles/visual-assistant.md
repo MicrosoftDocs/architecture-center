@@ -1,16 +1,18 @@
 ---
 title: Visual Assistant
-
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
 description: Visual assistant provides rich information based on content of the image with capabilities such as reading business card, identifying barcode, and recognizing popular people, places, objects, artworks, and monuments.
 ms.custom: acom-architecture, ai-ml, visual assistant, cognitive services, visual capabilities, visual assistant scenarios, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/visual-assistant/'
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/visual-assistant.png
 ---
-# Visual Assistant
 
+# Visual Assistant
 
 [!INCLUDE [header_file](../header.md)]
 
@@ -18,8 +20,8 @@ Visual assistant provides rich information based on content of the image with ca
 
 ## Architecture
 
-![Architecture diagram](../media/visual-assistant.svg)
-
+![Architecture diagram](../media/visual-assistant.png)
+*Download an [SVG](../media/visual-assistant.svg) of this architecture.*
 
 ## Data Flow
 
@@ -30,6 +32,3 @@ Visual assistant provides rich information based on content of the image with ca
 1. Bot gets additional information for barcodes.
 1. Optionally Bot gets more information on barcodes/queries exclusively from your domain through the Bing Custom Search API.
 1. Assistant renders similar products/destinations from your domain or provides more information around celebrity/place/monuments/artworks.
-
-
-

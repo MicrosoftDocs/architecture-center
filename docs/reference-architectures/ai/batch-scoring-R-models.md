@@ -5,6 +5,9 @@ author: njray
 ms.date: 03/29/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - developer-tools
 ms.subservice: reference-architecture
 ms.custom: azcat-ai
 ---
@@ -63,7 +66,7 @@ Each node of the Batch cluster runs the worker container, which executes the sco
 
 ### Parallelizing the workload
 
-When batch scoring data with R models, consider how to parallelize the workload. The input data must be partitioned somehow so that the scoring operation can be distributed  across the cluster nodes. Try different approaches to discover the best choice for distributing your workload. On a case-by-case basis, consider the following:
+When batch scoring data with R models, consider how to parallelize the workload. The input data must be partitioned somehow so that the scoring operation can be distributed across the cluster nodes. Try different approaches to discover the best choice for distributing your workload. On a case-by-case basis, consider the following:
 
 - How much data can be loaded and processed in the memory of a single node.
 - The overhead of starting each batch job.

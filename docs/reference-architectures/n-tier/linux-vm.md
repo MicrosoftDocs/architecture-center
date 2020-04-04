@@ -6,6 +6,8 @@ author: telmosampaio
 ms.date: 12/13/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - compute
 ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
@@ -109,9 +111,9 @@ Use [Azure Spot VMs](/azure/virtual-machines/windows/spot-vms) to run workloads 
 - Test environments, including continuous integration and continuous delivery workloads.
 - Large-scale stateless applications.
 
-Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs.
+Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs.
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
 
 
 
@@ -139,13 +141,13 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-linux]: /azure/virtual-machines/virtual-machines-linux-azure-overview
 [azure-storage]: /azure/storage/storage-introduction
 [blob-storage]: /azure/storage/storage-introduction
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: /azure/virtual-machines/virtual-machines-linux-about-disks-vhds
 [disk-encryption]: /azure/security/fundamentals/azure-disk-encryption-vms-vmss

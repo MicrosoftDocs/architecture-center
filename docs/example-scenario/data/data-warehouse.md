@@ -3,6 +3,9 @@ title: Data warehousing and analytics
 description: Consolidate data from multiple sources and optimize data analytics.
 author: alexbuckgit
 ms.date: 11/20/2019
+ms.category:
+  - analytics
+  - databases
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -97,7 +100,7 @@ Review a [pricing sample for a data warehousing scenario][calculator] via the Az
 - [Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services) is available in developer, basic, and standard tiers. Instances are priced based on query processing units (QPUs) and available memory. To keep your costs lower, minimize the number of queries you run, how much data they process, and how often they run.
 - [Power BI](https://powerbi.microsoft.com/pricing) has different product options for different requirements. [Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded) provides an Azure-based option for embedding Power BI functionality inside your applications. A Power BI Embedded instance is included in the pricing sample above.
 
-## Next Steps
+## Next steps
 
 - Review the [Azure reference architecture for automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf), which includes instructions for deploying an instance of this architecture in Azure.
 - Read the [Maritz Motivation Solutions customer story][source-document]. That story describes a similar approach to managing customer data.

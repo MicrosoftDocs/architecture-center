@@ -15,7 +15,7 @@ Application design is critical to handling scale as load increases.
 
 ## Choosing the right database
 
-The choice of database and the overall design of the data tier can greatly affect an application's performance and scalability. Database reads and writes involve a network call and storage IO, both of which are expense operations. Choosing the right database service to store and retrieve data is therefore a critical decision and must be carefully considered to ensure overall application scalability. Azure has many first party database services that will fit most needs. In addition, there are a series of third-party options that can be considered from Azure Marketplace.
+The choice of database and the overall design of the data tier can greatly affect an application's performance and scalability. Database reads and writes involve a network call and storage I/O, both of which are expense operations. Choosing the right database service to store and retrieve data is therefore a critical decision and must be carefully considered to ensure overall application scalability. Azure has many first party database services that will fit most needs. In addition, there are a series of third-party options that can be considered from Azure Marketplace.
 
 The first decision to consider is whether the application storage requirements fit a relational design (SQL) vs a key-value/document/graph design (NO-SQL). Some applications may have both a relational database and a NO-SQL database for different storage needs.
 

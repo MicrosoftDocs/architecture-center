@@ -8,6 +8,8 @@ ms.service: architecture-center
 ms.subservice: cloud-design-principles
 ---
 
+<!-- cSpell:ignore BACPAC DTUs architecting -->
+
 # Architecting Azure applications for resiliency and availability
 
 After you've developed the requirements for your application, the next step is to build resiliency and availability into it. These qualities can't be added at the end &mdash; you must design them into the architecture.

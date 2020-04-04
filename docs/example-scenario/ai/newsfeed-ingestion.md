@@ -7,6 +7,9 @@ ms.custom:
   - azcat-ai
   - AI
 social_image_url: /azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png
+ms.category:
+  - analytics
+  - ai-machine-learning
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -75,7 +78,7 @@ The following list of Azure components is used in this example.
 
 * Use a different input mechanism instead of RSS feeds. Use multiple generators or ingestion processes to feed Azure Cosmos DB and Azure Storage.
 
-* [Azure Cognitive Search][cognitivesearch] is an AI feature in [Azure Search][azuresearch] that can also used to extract text from images, blobs, and other unstructured data sources. 
+* [Azure Cognitive Search](https://docs.microsoft.com/azure/search) is an AI feature in Azure Search that can also used to extract text from images, blobs, and other unstructured data sources.
 
 ## Considerations
 
@@ -154,5 +157,3 @@ All the code for this scenario is available in the [GitHub][github] repository. 
 [text-analytics]: /azure/cognitive-services/text-analytics/
 [translate-text]: /azure/cognitive-services/translator/translator-info-overview
 [vision]: /azure/cognitive-services/computer-vision/home
-[cognitivesearch]: https://docs.microsoft.com/azure/architecture/example-scenario/ai/newsfeed-ingestion
-[azuresearch]: https://azure.microsoft.com/services/search/

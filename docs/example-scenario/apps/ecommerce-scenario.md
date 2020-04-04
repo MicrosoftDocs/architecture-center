@@ -4,6 +4,8 @@ titleSuffix: Azure Example Scenarios
 description: Host an e-commerce site on Azure.
 author: chrismason
 ms.date: 07/13/2018
+ms.category:
+  - web
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -124,40 +126,41 @@ We have provided three sample cost profiles based on amount of traffic you expec
 - [eShop on Containers Reference Example][microservices-ecommerce]
 
 <!-- links -->
+
 [architecture]: ./media/architecture-ecommerce-scenario.png
 [small-pricing]: https://azure.com/e/90fbb6a661a04888a57322985f9b34ac
 [medium-pricing]: https://azure.com/e/38d5d387e3234537b6859660db1c9973
 [large-pricing]: https://azure.com/e/f07f99b6c3134803a14c9b43fcba3e2f
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.md
-[availability]: /azure/architecture/patterns/category/availability
-[circuit-breaker]: /azure/architecture/patterns/circuit-breaker
-[design-patterns-availability]: /azure/architecture/patterns/category/availability
-[design-patterns-resiliency]: /azure/architecture/patterns/category/resiliency
-[design-patterns-scalability]: /azure/architecture/patterns/category/performance-scalability
-[design-patterns-security]: /azure/architecture/patterns/category/security
-[docs-application-insights]: /azure/application-insights/app-insights-overview
-[docs-b2c]: /azure/active-directory-b2c/active-directory-b2c-overview
-[docs-cdn]: /azure/cdn/cdn-overview
-[docs-container-instances]: /azure/container-instances/
-[docs-kubernetes-service]: /azure/aks/
-[docs-functions]: /azure/azure-functions/functions-overview
-[docs-redis-cache]: /azure/redis-cache/cache-overview
-[docs-search]: /azure/search/search-what-is-azure-search
-[docs-service-fabric]: /azure/service-fabric/
-[docs-sentiment-analysis]: /azure/cognitive-services/welcome
-[docs-sql-database]: /azure/sql-database/sql-database-technical-overview
-[docs-storage-blobs]: /azure/storage/blobs/storage-blobs-introduction
-[docs-storage-queues]: /azure/storage/queues/storage-queues-introduction
-[docs-traffic-manager]: /azure/traffic-manager/traffic-manager-overview
-[docs-webapps]: /azure/app-service/app-service-web-overview
+[availability]: ../../patterns/category/availability.md
+[circuit-breaker]: ../../patterns/circuit-breaker.md
+[design-patterns-availability]: ../../patterns/category/availability.md
+[design-patterns-resiliency]: ../../patterns/category/resiliency.md
+[design-patterns-scalability]: ../../patterns/category/performance-scalability.md
+[design-patterns-security]: ../../patterns/category/security.md
+[docs-application-insights]: https://www.microsoft.com/azure/application-insights/app-insights-overview
+[docs-b2c]: https://www.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
+[docs-cdn]: https://www.microsoft.com/azure/cdn/cdn-overview
+[docs-container-instances]: https://www.microsoft.com/azure/container-instances
+[docs-kubernetes-service]: https://www.microsoft.com/azure/aks
+[docs-functions]: https://www.microsoft.com/azure/azure-functions/functions-overview
+[docs-redis-cache]: https://www.microsoft.com/azure/redis-cache/cache-overview
+[docs-search]: https://www.microsoft.com/azure/search/search-what-is-azure-search
+[docs-service-fabric]: https://www.microsoft.com/azure/service-fabric
+[docs-sentiment-analysis]: https://www.microsoft.com/azure/cognitive-services/welcome
+[docs-sql-database]: https://www.microsoft.com/azure/sql-database/sql-database-technical-overview
+[docs-storage-blobs]: https://www.microsoft.com/azure/storage/blobs/storage-blobs-introduction
+[docs-storage-queues]: https://www.microsoft.com/azure/storage/queues/storage-queues-introduction
+[docs-traffic-manager]: https://www.microsoft.com/azure/traffic-manager/traffic-manager-overview
+[docs-webapps]: https://www.microsoft.com/azure/app-service/app-service-web-overview
 [end-to-end-walkthrough]: https://github.com/Azure/fta-customerfacingapps/tree/master/ecommerce/articles
 [microservices-ecommerce]: https://github.com/dotnet-architecture/eShopOnContainers
-[multi-region-web-app]: /azure/architecture/reference-architectures/app-service-web-app/multi-region
-[pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
-[resiliency-app-service]: /azure/architecture/checklist/resiliency-per-service#app-service
-[resiliency]: /azure/architecture/framework/resiliency/overview
-[scalability]: /azure/architecture/checklist/scalability
+[multi-region-web-app]: ../../reference-architectures/app-service-web-app/multi-region.md
+[pci-dss-blueprint]: https://docs.microsoft.com/azure/security/blueprints/payment-processing-blueprint
+[resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service
+[resiliency]: ../../framework/resiliency/overview.md
+[scalability]: ../../checklist/scalability.md
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
-[service-bus]: /azure/service-bus-messaging/
-[sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview
-[storage-geo-redundancy]: /azure/storage/common/storage-redundancy-grs
+[service-bus]: https://docs.microsoft.com/azure/service-bus-messaging
+[sql-geo-replication]: https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview
+[storage-geo-redundancy]: https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs

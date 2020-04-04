@@ -4,6 +4,7 @@ description: <Article Description>
 author: <github username>
 ms.date: <publish or update date - mm/dd/yyyy>
 ---
+
 # Article Title
 
 The title is a noun phrase that describes the scenario.
@@ -86,18 +87,19 @@ Use this section to talk about alternative Azure services or architectures that 
 > Link to the pricing calculator with all of the components in the architecture included, even if they're a $0 or $1 usage.
 > If it makes sense, include a small/medium/large configurations.  Describe what needs to be changed as you move to larger sizes
 
-## Next Steps
+## Next steps
 
 > Where should I go next if I want to start building this?
 > Are there any reference architectures that help me build this?
 
-## Related Resources
+## Related resources
 
 > Are there any relevant case studies or customers doing something similar?
 > Is there any other documentation that might be useful?
 > Are there product documents that go into more detail on specific technologies not already linked
 
 <!-- links -->
+
 [calculator]: https://azure.com/e/
 [availability]: /azure/architecture/checklist/availability
 [resource-groups]: /azure/azure-resource-manager/resource-group-overview

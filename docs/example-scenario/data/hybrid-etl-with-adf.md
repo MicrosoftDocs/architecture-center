@@ -3,6 +3,9 @@ title: Hybrid ETL with Azure Data Factory
 description: Hybrid ETL with existing on-premises SQL Server Integration Services (SSIS) deployments and Azure Data Factory.
 author: alhieng
 ms.date: 11/20/2019
+ms.category:
+  - databases
+  - hybrid
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -78,7 +81,7 @@ Data Factory uses consumption-based billing. Therefore, cost is only incurred du
 
 When running a hybrid ETL workload, you must factor in the cost of the virtual machine used to host your SSIS packages. This cost is based on the size of the VM ranging from a D1v2 (1 core, 3.5 GB RAM, 50 GB Disk) to E64V3 (64 cores, 432 GB RAM, 1600 GB disk). If you need further guidance on selection the appropriate VM size, see [VM performance considerations](/azure/cloud-services/cloud-services-sizes-specs#performance-considerations).
 
-## Next Steps
+## Next steps
 
 - Learn more about [Azure Data Factory](https://azure.microsoft.com/services/data-factory/).
 - Get started with Azure Data Factory by following the [Step-by-step tutorial](/azure/data-factory/).

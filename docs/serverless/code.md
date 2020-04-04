@@ -6,20 +6,23 @@ ms.date: 06/13/2019
 ms.author: pnp
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - developer-tools
+  - featured
 ms.subservice: reference-architecture
 ---
 
 # Code walkthrough: Serverless application with Azure Functions
 
-This article walks through the code for a serverless web application that uses [Azure Functions](/azure/azure-functions/). It describes the design decisions, implementation details, and some of the "gotchas" that you might encounter. 
+This article walks through the code for a serverless web application that uses [Azure Functions](/azure/azure-functions). It describes the design decisions, implementation details, and some of the "gotchas" that you might encounter.
 
 ![GitHub logo](../_images/github.png) The source code for this application is available on [GitHub][github].
 
 This article assumes a basic level of familiarity with the following technologies:
 
-- [Azure Functions](/azure/azure-functions/)
-- [Azure Event Hubs](/azure/event-hubs/)
-- [.NET Core](/dotnet/core/)
+- [Azure Functions](https://docs.microsoft.com/azure/azure-functions)
+- [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs)
+- [.NET Core](https://docs.microsoft.com/dotnet/core)
 
 You don't need to be an expert in Functions or Event Hubs, but you should understand their features at a high level. Here are some good resources to get started:
 
@@ -32,7 +35,7 @@ You don't need to be an expert in Functions or Event Hubs, but you should unders
 
 Fabrikam manages a fleet of drones for a drone delivery service. The application consists of two main functional areas:
 
-- **Event ingestion**. During flight, drones send status messages to a cloud endpoint. The application ingests and processes these messages, and writes the results to a back-end database (Cosmos DB). The devices send messages in [protocol buffer](https://developers.google.com/protocol-buffers/) (protobuf) format. Protobuf is an efficient, self-describing serialization format.
+- **Event ingestion**. During flight, drones send status messages to a cloud endpoint. The application ingests and processes these messages, and writes the results to a back-end database (Cosmos DB). The devices send messages in [protocol buffer](https://developers.google.com/protocol-buffers) (protobuf) format. Protobuf is an efficient, self-describing serialization format.
 
     These messages contain partial updates. At a fixed interval, each drone sends a "key frame" message that contains all of the status fields. Between key frames, the status messages only include fields that changed since the last message. This behavior is typical of many IoT devices that need to conserve bandwidth and power.
 
@@ -82,7 +85,7 @@ This application is based on two reference architectures, corresponding to the t
 - [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.md)
 - [Serverless web application on Azure](../reference-architectures/serverless/web-app.md)
 
-You can read those articles to learn more about the high-level architecture, the Azure services that are used in the solution, and considerations for scalability, security, and reliability. 
+You can read those articles to learn more about the high-level architecture, the Azure services that are used in the solution, and considerations for scalability, security, and reliability.
 
 ## Drone telemetry function
 
@@ -136,7 +139,7 @@ The method takes the following parameters:
 
 - `messages` is an array of event hub messages.
 - `deadLetterMessages` is an Azure Storage Queue, used for storing dead letter messages.
-- `logging` provides a logging interface, for writing application logs. These logs are sent to Azure Monitor. 
+- `logging` provides a logging interface, for writing application logs. These logs are sent to Azure Monitor.
 
 The `EventHubTrigger` attribute on the `messages` parameter configures the trigger. The properties of the attribute specify an event hub name, a connection string, and a [consumer group](/azure/event-hubs/event-hubs-features#event-consumers). (A *consumer group* is an isolated view of the Event Hubs event stream. This abstraction allows for multiple consumers of the same event hub.)
 

@@ -6,6 +6,9 @@ author: telmosampaio
 ms.date: 12/18/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - identity
+  - hybrid
 ms.subservice: reference-architecture
 ms.custom: seodec18, identity
 ---
@@ -186,8 +189,13 @@ Restrict direct sign in access to the AD FS and WAP servers. Only DevOps staff s
 
 Consider using a set of network virtual appliances that logs detailed information on traffic traversing the edge of your virtual network for auditing purposes.
 
+## DevOps considerations
+
+For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.md#devops-considerations).
+
 ## Cost considerations
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost]. 
+
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
 
 Here are cost considerations for the services used in this architecture.
 
@@ -197,7 +205,7 @@ Consider having Active Directory Domain Services as a shared service that is con
 
 ### Azure AD Federation Services
 
-For information about the editions offered by Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing]. The  AD Federation Services feature is available in all editions.
+For information about the editions offered by Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing]. The AD Federation Services feature is available in all editions.
 
 ## Deploy the solution
 
@@ -378,9 +386,9 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 [vm-recommendations]: ../virtual-machines-windows/single-vm.md
 [hybrid-azure-on-prem-vpn]: ../hybrid-networking/vpn.md
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory/
-[azure-cli]: /azure/azure-resource-manager/xplat-cli-azure-resource-manager
+[azure-cli]: https://docs.microsoft.com/azure/azure-resource-manager/xplat-cli-azure-resource-manager
 [DRS]: https://technet.microsoft.com/library/dn280945.aspx
 [where-to-place-an-fs-proxy]: https://technet.microsoft.com/library/dd807048.aspx
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/  
@@ -391,22 +399,21 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [create_service_account_for_adfs_farm]: https://technet.microsoft.com/library/dd807078.aspx
 [adfs-configuration-database]: https://technet.microsoft.com/library/ee913581(v=ws.11).aspx
 [active-directory-federation-services]: /windows-server/identity/active-directory-federation-services
-[security-considerations]: #security-considerations
-[recommendations]: #recommendations
 [active-directory-federation-services-overview]: https://technet.microsoft.com/library/hh831502(v=ws.11).aspx
 [establishing-federation-trust]: https://blogs.msdn.microsoft.com/alextch/2011/06/27/establishing-federation-trust/
-[Deploying_a_federation_server_farm]:  /windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm
+[Deploying_a_federation_server_farm]: https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm
 [install_and_configure_the_web_application_proxy_server]: https://technet.microsoft.com/library/dn383662.aspx
 [publish_applications_using_AD_FS_preauthentication]: https://technet.microsoft.com/library/dn383640.aspx
 [managing-adfs-components]: https://technet.microsoft.com/library/cc759026.aspx
 [oms-adfs-pack]: https://www.microsoft.com/download/details.aspx?id=41184
-[azure-powershell-download]: /powershell/azure/overview
-[aad]: /azure/active-directory/
-[aadb2c]: /azure/active-directory-b2c/
-[adfs-intro]: /azure/active-directory/hybrid/whatis-hybrid-identity
+[azure-powershell-download]: https://docs.microsoft.com/powershell/azure/overview
+[aad]: https://docs.microsoft.com/azure/active-directory/
+[aadb2c]: https://docs.microsoft.com/azure/active-directory-b2c/
+[adfs-intro]: https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity
 [github]: https://github.com/mspnp/identity-reference-architectures/tree/master/adfs
 [adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
 [considerations]: ./considerations.md
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
-[psise]: /powershell/scripting/components/ise/windows-powershell-integrated-scripting-environment--ise-
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[psise]: https://docs.microsoft.com/powershell/scripting/components/ise/windows-powershell-integrated-scripting-environment--ise-
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
+[AAF-devops]: https://docs.microsoft.com/azure/architecture/framework/devops/overview

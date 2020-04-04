@@ -6,8 +6,13 @@ ms.date: 12/16/2019
 description: Machine Learning with AKS
 ms.custom: acom-architecture, chat, signalr service, interactive-diagram, devops, microservices, ai-ml, 'https://azure.microsoft.com/solutions/architecture/machine-learning-with-aks/'
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - containers
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/machine-learning-with-aks.png
 ---
+
 # Machine Learning model training with AKS
 
 [!INCLUDE [header_file](../header.md)]
@@ -16,8 +21,8 @@ Training of models using large datasets is a complex and resource intensive task
 
 ## Architecture
 
-![Architecture diagram](../media/machine-learning-with-aks.svg)
-
+![Architecture diagram](../media/machine-learning-with-aks.png)
+*Download an [SVG](../media/machine-learning-with-aks.svg) of this architecture.*
 
 ## Data Flow
 
@@ -27,6 +32,3 @@ Training of models using large datasets is a complex and resource intensive task
 1. Serve production model using Kubeflow, promoting a consistent environment across test, control and production
 1. AKS supports GPU enabled VM
 1. Developer can build features querying the model running in AKS cluster
-
-
-

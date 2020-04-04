@@ -5,6 +5,10 @@ author: njray
 ms.date: 12/10/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - developer-tools
+  - containers
 ms.subservice: reference-architecture
 ms.custom: azcat-ai
 ---
@@ -43,7 +47,7 @@ In general, open-source R models store all their data in memory, so ensure that 
 
 ### Network encryption
 
-In this reference architecture, HTTPS is enabled for communication with the cluster, and a staging certificate from [Let’s Encrypt][encrypt] is used. For production purposes, substitute your own certificate from an appropriate signing authority.
+In this reference architecture, HTTPS is enabled for communication with the cluster, and a staging certificate from [Let's Encrypt][encrypt] is used. For production purposes, substitute your own certificate from an appropriate signing authority.
 
 ### Authentication and authorization
 
@@ -57,9 +61,9 @@ This reference architecture bundles the application (R) and the data (model obje
 
 ## Monitoring and logging considerations
 
-Use the [Kubernetes dashboard][dashboard] to monitor the overall status of your AKS cluster. See the cluster’s overview blade in Azure portal for more details. The [GitHub][github] resources also show how to bring up the dashboard from R.
+Use the [Kubernetes dashboard][dashboard] to monitor the overall status of your AKS cluster. See the cluster's overview blade in Azure portal for more details. The [GitHub][github] resources also show how to bring up the dashboard from R.
 
-Although the dashboard gives you a view of the overall health of your cluster, it’s also important to track the status of individual containers. To do this, enable [Azure Monitor Insights][monitor] from the cluster overview blade in Azure portal, or consider [Azure Monitor for containers][monitor-containers] (in preview).
+Although the dashboard gives you a view of the overall health of your cluster, it's also important to track the status of individual containers. To do this, enable [Azure Monitor Insights][monitor] from the cluster overview blade in Azure portal, or consider [Azure Monitor for containers][monitor-containers] (in preview).
 
 ## Cost considerations
 
@@ -71,7 +75,7 @@ An alternative to Plumber is [Microsoft Machine Learning Server][mmls], which pr
 
 [Nginx][nginx] and [Cert-Manager][cert-manager] can be used rather than Traefik to provide the middleware layer.
 
-This architecture provides a pure R experience. It doesn't use the [Python](/python/api/overview/azure/ml/intro?view=azure-ml-py)-oriented [Azure Machine Learning](/azure/machine-learning/service/overview-what-is-azure-ml#what-is-machine-learning) (AzureML SDK), which is a mature cloud service for developing AI solutions at scale. AzureML SDK provides an easy path for developing and deploying containerized scoring scripts. We provide an [alternative solution](https://github.com/microsoft/AMLSDKRModelsOperationalization) that shows how to use [Conda](https://conda.io/en/latest/) to [install R](https://docs.anaconda.com/anaconda/user-guide/tasks/use-r-language/) and R packages to leverage AzureML SDK via the [rpy2](https://rpy2.bitbucket.io/) Python package. The value of using this alternative to operationalize R models is that you don't need to know Flask, and you can reuse AzureML SDK expertise, which can be useful for teams that are comfortable using both R and Python languages for their data science projects. The implementation of this alternative architecture is [available on GitHub](https://github.com/microsoft/AMLSDKRModelsOperationalization).
+This architecture provides a pure R experience. It doesn't use the [Python](/python/api/overview/azure/ml/intro?view=azure-ml-py)-oriented [Azure Machine Learning](/azure/machine-learning/service/overview-what-is-azure-ml#what-is-machine-learning) (AzureML SDK), which is a mature cloud service for developing AI solutions at scale. AzureML SDK provides an easy path for developing and deploying containerized scoring scripts. We provide an [alternative solution](https://github.com/microsoft/AMLSDKRModelsOperationalization) that shows how to use [Conda](https://conda.io/en/latest/) to [install R](https://docs.anaconda.com/anaconda/user-guide/tasks/use-r-language/) and R packages to leverage AzureML SDK via the [rpy2](https://pypi.org/project/rpy2/) Python package. The value of using this alternative to operationalize R models is that you don't need to know Flask, and you can reuse AzureML SDK expertise, which can be useful for teams that are comfortable using both R and Python languages for their data science projects. The implementation of this alternative architecture is [available on GitHub](https://github.com/microsoft/AMLSDKRModelsOperationalization).
 
 ## Deploy the solution
 

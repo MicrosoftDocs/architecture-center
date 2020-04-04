@@ -5,6 +5,10 @@ author: MikeWasson
 ms.date: 08/21/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - databases
+  - web
+  - management-and-governance
 ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
@@ -181,7 +185,7 @@ For considerations about designing a health probe endpoint, see [Health Endpoint
 
 ## Cost considerations
 
-Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs. Here are some other considerations.
+Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs. Here are some other considerations.
 
 ### Virtual machine scale sets
 
@@ -194,7 +198,7 @@ For single VMs pricing options See [Linux VMs pricing][Linux-vm-pricing].
 
 You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
 
 
 ## Security considerations
@@ -239,7 +243,7 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [app-gw-scaling]: /azure/application-gateway/
 [azure-dns]: /azure/dns/dns-overview
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault
@@ -249,7 +253,7 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
 [cassandra-replication]: https://academy.datastax.com/planet-cassandra/data-replication-in-nosql-databases-explained
 [cassandra-consistency-usage]: https://medium.com/@foundev/cassandra-how-many-nodes-are-talked-to-with-quorum-also-should-i-use-it-98074e75d7d5#.b4pb4alb2
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [datastax]: https://www.datastax.com/products/datastax-enterprise
 [ddos-best-practices]: /azure/security/azure-ddos-best-practices
 [ddos]: /azure/virtual-network/ddos-protection-overview

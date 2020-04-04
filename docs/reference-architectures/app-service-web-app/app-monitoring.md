@@ -5,6 +5,9 @@ author: adamboeglin
 ms.date: 12/12/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - web
+  - management-and-governance
 ms.subservice: reference-architecture
 ms.custom: azcat
 ---
@@ -100,7 +103,7 @@ After deployment, you can watch a [Live Metrics Stream][Live Metrics Stream] of 
 
 Log Analytics is billed per gigabyte (GB) of data ingested into the service. The first 5 GB of data ingested to the Azure Log Analytics service every month is offered free, and the data is retained at no charge for first 31 days in your Log Analytics workspace.
 
-For more guidance please refer to the cost section in [Azure Architecture Framework][AAF-cost].
+For more guidance please refer to the cost section in [Azure Architecture Framework][aaf-cost].
 
 ## Next steps
 
@@ -120,7 +123,7 @@ Check out these resources designed to help you get started with your own monitor
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [architecture]: ./images/architecture-diagram-app-monitoring.svg
 [availability-tests]: /azure/application-insights/app-insights-monitor-web-app-availability
 [application-insights]: /azure/application-insights/app-insights-overview

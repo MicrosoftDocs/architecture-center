@@ -3,6 +3,9 @@ title: Process real-time vehicle data using IoT
 description: Ingest and process real-time vehicle data using IoT.
 author: khilscher
 ms.date: 03/10/2020
+ms.category:
+  - iot
+  - analytics
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -80,7 +83,7 @@ The technologies in this architecture were chosen based on the scale needed to p
   - Integration with Azure Active Directory enables you to run complete Azure-based solutions using Azure Databricks.
   - Role-based access in Azure Databricks enables fine-grained user permissions for notebooks, clusters, jobs, and data.
   - Comes with Enterprise-grade SLAs.
-- Azure Cosmos DB is Microsoft’s globally distributed, multi-model database. Azure Cosmos DB was built from the ground up with global distribution and horizontal scale at its core. It offers turnkey global distribution across any number of Azure regions by transparently scaling and replicating your data wherever your users are. You can elastically scale throughput and storage worldwide, and pay only for the throughput and storage you need.
+- Azure Cosmos DB is Microsoft's globally distributed, multi-model database. Azure Cosmos DB was built from the ground up with global distribution and horizontal scale at its core. It offers turnkey global distribution across any number of Azure regions by transparently scaling and replicating your data wherever your users are. You can elastically scale throughput and storage worldwide, and pay only for the throughput and storage you need.
 - The massively parallel processing architecture of Azure Synapse provides scalability and high performance.
 - Azure Synapse has guaranteed SLAs and recommended practices for achieving high availability.
 - When analysis activity is low, the company can scale Azure Synapse on demand, reducing or even pausing compute to lower costs.
@@ -97,8 +100,8 @@ Review [Azure Databricks pricing](https://azure.microsoft.com/pricing/details/da
 - [Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services) is available in developer, basic, and standard tiers. Instances are priced based on query processing units (QPUs) and available memory. To keep your costs lower, minimize the number of queries you run, how much data they process, and how often they run.
 - [Power BI](https://powerbi.microsoft.com/pricing) has different product options for different requirements. [Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded) provides an Azure-based option for embedding Power BI functionality inside your applications. A Power BI Embedded instance is included in the pricing sample above.
 
-## Next Steps
+## Next steps
 
-- Review the [Azure IoT reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/) that shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
+- Review the [Azure IoT reference architecture](../../reference-architectures/iot/index.md) that shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
 - Review the [Real-time analytics](https://azure.microsoft.com/solutions/architecture/real-time-analytics) reference architecture that includes big data pipeline flow.
 - Review the [Advanced analytics on big data](https://azure.microsoft.com/solutions/architecture/advanced-analytics-on-big-data) reference architecture to get a peek on how different Azure components can help build a big data pipeline.

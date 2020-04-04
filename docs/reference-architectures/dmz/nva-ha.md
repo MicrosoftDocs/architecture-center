@@ -5,6 +5,9 @@ author: telmosampaio
 ms.date: 12/08/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - networking
+  - management-and-governance
 ms.subservice: reference-architecture
 ms.custom: seodec18, networking
 ---
@@ -31,6 +34,7 @@ The following architectures describe the resources and configuration necessary f
 
 | Solution | Benefits | Considerations |
 | --- | --- | --- |
+| [Load Balancer Standard & HA ports](https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview) |Balances all TCP and UDP flows |Confirm with NVA providers how to best use HA ports and to learn which scenarios are supported <br/> HA ports feature is available in all the global Azure regions <br/> Fast failover to healthy instances, with per-instance health probes <br/> Review [limitations](https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview#limitations)|
 | [Ingress with layer 7 NVAs][ingress-with-layer-7] |All NVA nodes are active |Requires an NVA that can terminate connections and use SNAT<br/> Requires a separate set of NVAs for traffic coming from the Internet and from Azure <br/> Can only be used for traffic originating outside Azure |
 | [Egress with layer 7 NVAs][egress-with-layer-7] |All NVA nodes are active | Requires an NVA that can terminate connections and implements source network address translation (SNAT)
 | [Ingress-Egress with layer 7 NVAs][ingress-egress-with-layer-7] |All nodes are active<br/>Able to handle traffic originated in Azure |Requires an NVA that can terminate connections and use SNAT<br/>Requires a separate set of NVAs for traffic coming from the Internet and from Azure |

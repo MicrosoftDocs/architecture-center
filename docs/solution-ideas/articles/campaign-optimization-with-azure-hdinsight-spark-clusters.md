@@ -6,8 +6,14 @@ ms.date: 12/16/2019
 description: This solution demonstrates how to build and deploy a machine learning model with Microsoft R Server on Azure HDInsight Spark clusters to recommend actions to maximize the purchase rate of leads targeted by a campaign. This solution enables efficient handling of big data on Spark with Microsoft R Server.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/campaign-optimization-with-azure-hdinsight-spark-clusters/'
 ms.service: architecture-center
+ms.category:
+  - databases
+  - analytics
+  - ai-machine-learning
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/campaign-optimization-with-azure-hdinsight-spark-clusters.png
 ---
+
 # Campaign Optimization with Azure HDInsight Spark Clusters
 
 [!INCLUDE [header_file](../header.md)]
@@ -16,11 +22,12 @@ This solution demonstrates how to build and deploy a machine learning model with
 
 ## Architecture
 
-![Architecture diagram](../media/campaign-optimization-with-azure-hdinsight-spark-clusters.svg)
+![Architecture diagram](../media/campaign-optimization-with-azure-hdinsight-spark-clusters.png)
+*Download an [SVG](../media/campaign-optimization-with-azure-hdinsight-spark-clusters.svg) of this architecture.*
 
 ## Description
 
-This solution will create an HDInisght Spark cluster with Microsoft R Server. This cluster will contain 2 head nodes, 2 worker nodes, and 1 edge node with a total of 32 cores. The approximate cost for this HDInsight Spark cluster is $8.29/hour. Billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. Use the Deployments page to delete the entire solution once you are done.
+This solution will create an HDInisght Spark cluster with Microsoft R Server. This cluster will contain two head nodes, two worker nodes, and one edge node with a total of 32 cores. The approximate cost for this HDInsight Spark cluster is $8.29/hour. Billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. Use the Deployments page to delete the entire solution once you are done.
 
 ## Overview
 
@@ -34,7 +41,7 @@ Microsoft R Server on HDInsight Spark clusters provides distributed and scalable
 
 Power BI also presents visual summaries of the effectiveness of the campaign recommendations (shown here with simulated data). You can try out this dashboard by clicking the Try it Now button to the right.
 
-The Recommendations tab of this dashboard shows the predicted recommendations. At the top is a table of individual leads for our new deployment. This includes fields for the lead ID, campaign and product, populated with leads on which our business rules are to be applied. This is followed by the model predictions for the leads, giving the optimal channel and time to contact each one, along with the estimated probabilities that the leads will buy our product using these recommendations. These probabilities can be used to increase the efficiency of the campaign by limiting the number of leads contacted to the subset most likely to buy.
+The Recommendations tab of this dashboard shows the predicted recommendations. At the top is a table of individual leads for our new deployment. This includes fields for the lead ID, campaign, and product, populated with leads on which our business rules are to be applied. This is followed by the model predictions for the leads, giving the optimal channel and time to contact each one, along with the estimated probabilities that the leads will buy our product using these recommendations. These probabilities can be used to increase the efficiency of the campaign by limiting the number of leads contacted to the subset most likely to buy.
 
 Also on the Recommendations tab are various summaries of recommendations and demographic information on the leads. The Campaign Summary tab of the dashboard shows summaries of the historical data used to create the predicted recommendations. While this tab also shows values of Day of Week, Time of Day, and Channel, these values are actual past observations, not to be confused with the recommendations from the model, shown on the Recommendations tab.
 
@@ -42,6 +49,4 @@ Also on the Recommendations tab are various summaries of recommendations and dem
 
 This solution demonstrates the end-to-end process of how to develop and deploy machine learning models for marketing campaign optimization. It contains sample data, R code for each step of building the model (including data processing, feature engineering, training and evaluating models along with sample data), deploying the model as a web service (on the edge node) and consuming the web service remotely with Microsoft R Server on Azure HDInsight Spark clusters.
 
-Data scientists who are testing this solution can work with the provided R code from the browser-based Open Source Edition of RStudio Server that runs on the Edge Node of the Azure HDInsight Spark cluster. By setting the compute context the user can decide where the computation will be performed: locally on the edge node, or distributed across the nodes in the Spark cluster. All the R code can also be found in public Github repository. Have fun!
-
-
+Data scientists who are testing this solution can work with the provided R code from the browser-based Open Source Edition of RStudio Server that runs on the Edge Node of the Azure HDInsight Spark cluster. By setting the compute context the user can decide where the computation will be performed: locally on the edge node, or distributed across the nodes in the Spark cluster. All the R code can also be found in public GitHub repository. Have fun!

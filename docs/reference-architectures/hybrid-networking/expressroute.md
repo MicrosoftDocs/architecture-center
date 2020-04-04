@@ -5,6 +5,9 @@ author: MikeWasson
 ms.date: 07/23/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - hybrid
+  - networking
 ms.subservice: reference-architecture
 ms.custom: seodec18, networking, fcp
 ---
@@ -51,7 +54,7 @@ Get-AzureRmExpressRouteServiceProvider
 
 ExpressRoute connectivity providers connect your datacenter to Microsoft in the following ways:
 
-- **Co-located at a cloud exchange**. If you're co-located in a facility with a cloud exchange, you can order virtual cross-connections to Azure through the co-location provider’s Ethernet exchange. Co-location providers can offer either layer 2 cross-connections, or managed layer 3 cross-connections between your infrastructure in the co-location facility and Azure.
+- **Co-located at a cloud exchange**. If you're co-located in a facility with a cloud exchange, you can order virtual cross-connections to Azure through the co-location provider's Ethernet exchange. Co-location providers can offer either layer 2 cross-connections, or managed layer 3 cross-connections between your infrastructure in the co-location facility and Azure.
 - **Point-to-point Ethernet connections**. You can connect your on-premises datacenters/offices to Azure through point-to-point Ethernet links. Point-to-point Ethernet providers can offer layer 2 connections, or managed layer 3 connections between your site and Azure.
 - **Any-to-any (IPVPN) networks**. You can integrate your wide area network (WAN) with Azure. Internet protocol virtual private network (IPVPN) providers (typically a multiprotocol label switching VPN) offer any-to-any connectivity between your branch offices and datacenters. Azure can be interconnected to your WAN to make it look just like any other branch office. WAN providers typically offer managed layer 3 connectivity.
 
@@ -236,28 +239,27 @@ If you must expose management endpoints for VMs to an external network, use NSGs
 
 ## Cost considerations
 
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. For general considerations, see the Cost section in [Azure Architecture Framework][AAF-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. For general considerations, see the Cost section in [Azure Architecture Framework][aaf-cost].
 
 The services used in this architecture are charged as follows:
 
 ### Azure ExpressRoute
 
-In this architecture, an ExpressRoute circuit is used to join the on-premises network with Azure through the edge routers. 
+In this architecture, an ExpressRoute circuit is used to join the on-premises network with Azure through the edge routers.
 
-There are two main plans. In the **Metered Data** plan, all inbound data transfer is free. All outbound data transfer is charged based on a pre-determined rate. 
+There are two main plans. In the **Metered Data** plan, all inbound data transfer is free. All outbound data transfer is charged based on a pre-determined rate.
 
 You can also opt for the **Unlimited Data** plan in which all inbound and outbound data transfer is free. Users are charged a fixed monthly port fee based on high availability dual ports.
 
-Calculate your utilization and choose a billing plan accordingly. The **Unlimited Data** plan  is recommended if you exceed about 68% of utilization.
+Calculate your utilization and choose a billing plan accordingly. The **Unlimited Data** plan is recommended if you exceed about 68% of utilization.
 
-For more information, see [Azure ExpressRoute pricing][expressroute-pricing]. 
+For more information, see [Azure ExpressRoute pricing][expressroute-pricing].
 
 ### Azure Virtual Network
 
-All application tiers are hosted in a single virtual network and are segmented using subnets. 
+All application tiers are hosted in a single virtual network and are segmented using subnets.
 
-Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
-All traffic that occurs within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
 
 ### Virtual machine and internal load balancers
 
@@ -266,7 +268,6 @@ In this architecture, internal load balancers are used to load balance traffic i
 Virtual machine scale sets are available on all Linux and windows VM sizes. You are only charged for the Azure VMs you deploy and underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the virtual machine scale sets service.
 
 For more information, see [Azure VM pricing][linux-vms-pricing].
-
 
 ## Deploy the solution
 
@@ -300,30 +301,28 @@ To deploy the solution, perform the following steps.
 
 1. Wait for the deployment to complete.
 
-<!-- markdownlint-enable MD033 -->
-
 <!-- links -->
 
 [highly-available-network-architecture]: ./expressroute-vpn-failover.md
-[AAF-cost]: /azure/architecture/framework/cost/overview
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
-[expressroute-technical-overview]: /azure/expressroute/expressroute-introduction
-[expressroute-prereqs]: /azure/expressroute/expressroute-prerequisites
-[configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
+[aaf-cost]: /azure/architecture/framework/cost/overview
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
+[expressroute-technical-overview]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
+[expressroute-prereqs]: https://docs.microsoft.com/azure/expressroute/expressroute-prerequisites
+[configure-expressroute-routing]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-arm
 [sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute
-[link-vnet-to-expressroute]: /azure/expressroute/expressroute-howto-linkvnet-arm
-[linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
-[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
-[ExpressRoute-provisioning]: /azure/expressroute/expressroute-workflows
-[expressroute-introduction]: /azure/expressroute/expressroute-introduction
-[expressroute-peering]: /azure/expressroute/expressroute-circuit-peerings
-[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
-[expressroute-limits]: /azure/azure-subscription-service-limits#networking-limits
+[link-vnet-to-expressroute]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm
+[linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
+[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
+[ExpressRoute-provisioning]: https://docs.microsoft.com/azure/expressroute/expressroute-workflows
+[expressroute-introduction]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
+[expressroute-peering]: https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings
+[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
+[expressroute-limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx
 [er-circuit-parameters]: https://github.com/mspnp/reference-architectures/tree/master/hybrid-networking/expressroute/parameters/expressRouteCircuit.parameters.json
-[azure-powershell-download]: /powershell/azure/overview
-[azure-cli]: /cli/azure/install-azure-cli
+[azure-powershell-download]: https://docs.microsoft.com/powershell/azure/overview
+[azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli
 
 [0]: ./images/expressroute.png "Hybrid network architecture using Azure ExpressRoute"
 [1]: ../_images/guidance-hybrid-network-expressroute/figure2.png "Using redundant routers with ExpressRoute primary and secondary circuits"

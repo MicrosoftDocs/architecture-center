@@ -4,6 +4,8 @@ description: This reference architecture shows recommended practices for tuning 
 author: fboylu
 ms.date: 07/17/2019
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
 ms.subservice: reference-architecture
 ms.custom: azcat-ai
 ---
@@ -110,9 +112,10 @@ For production deployments, consider deploying the cluster into a subnet of a vi
 
 ## Deployment
 
-To deploy the reference implementation for this architecture, follow the steps described in the Github repos:
--  [Regular Python models][github1] 
--  [Deep learning models][github2] 
+To deploy the reference implementation for this architecture, follow the steps described in the GitHub repos:
+
+- [Regular Python models][github1]
+- [Deep learning models][github2]
 
 ## Next steps
 

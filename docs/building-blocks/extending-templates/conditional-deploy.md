@@ -1,10 +1,13 @@
 ---
 title: Conditionally deploy a resource in an Azure Resource Manager template
 description: Describes how to extend the functionality of Azure Resource Manager templates to conditionally deploy a resource depending on the value of a parameter.
-author: petertay
+author: PeterTaylor9999
 ms.date: 10/30/2018
 ms.topic: article
 ms.service: architecture-center
+ms.category:
+  - developer-tools
+  - devops
 ms.subservice: reference-architecture
 ---
 
@@ -137,8 +140,7 @@ az group deployment create -g <resource-group-name> \
 * Use objects instead of scalar values as template parameters. See [Use an object as a parameter in an Azure Resource Manager template](./objects-as-parameters.md)
 
 <!-- links -->
-[azure-resource-manager-condition]: /azure/azure-resource-manager/resource-group-authoring-templates#resources
-[azure-resource-manager-variable]: /azure/azure-resource-manager/resource-group-authoring-templates#variables
-[vnet-peering-resource-schema]: /azure/templates/microsoft.network/virtualnetworks/virtualnetworkpeerings
-[cli]: /cli/azure/?view=azure-cli-latest
+[azure-resource-manager-condition]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#resources
+[vnet-peering-resource-schema]: https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks/virtualnetworkpeerings
+[cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest
 [github]: https://github.com/mspnp/template-examples

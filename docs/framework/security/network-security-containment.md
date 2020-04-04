@@ -197,32 +197,24 @@ firewall solutions don’t provide sufficient return on investment, you may
 consider using the native capabilities that are designed to be easy to configure
 and scale.
 
-## Discontinue legacy network security technology
+## Use of legacy network security technology
 
-Discontinue the use of signature-based Network Intrusion Detection/Network
-Intrusion Prevention (NIDS/NIPS) Systems and Network Data Leakage/Loss
-Prevention (DLP).
+Carefully plan your use of signature-based Network Intrusion Detection/Network Intrusion Prevention (NIDS/NIPS) Systems and Network Data Leakage/Loss Prevention (DLP) as you adopt cloud applications services. 
 
-The major cloud service providers already filter for malformed packets and
-common network layer attacks, so there’s no need for a NIDS/NIPS solution to
-detect those. In addition, traditional NIDS/NIPS solutions are typically driven
-by signature-based approaches (which are considered outdated) and are easily
-evaded by attackers and typically produce a high rate of false positives.
+IDS/IPS often generate an overwhelming number of false positive alerts that can contribute to SOC Analyst alert fatigue. While a well-tuned IDS/IPS system can be effective for classic application architectures, these systems do not work well for modern SaaS and PaaS application delivery models. 
 
-Network-based DLP is decreasingly effective at identifying both inadvertent and
-deliberate data loss. The reason for this is that most modern protocols and
-attackers use network-level encryption for inbound and outbound communications.
-The only viable workaround for this is “SSL-bridging” which provides an
-“authorized man-in-the-middle” that terminates and then reestablishes encrypted
-network connections. The SSL-bridging approach has fallen out of favor because
-of the level of trust required for the partner running the solution and the
-technologies that are being used.
+Network-based DLP is decreasingly effective at identifying both inadvertent and deliberate data loss. The reason for this is that most modern protocols and attackers use network-level encryption for inbound and outbound communications. While your organization can use “SSL-bridging” to provide an “authorized man-in-the-middle” that terminates and then reestablishes encrypted network connections, this can also introduce privacy, security and reliability challenges. 
 
-Based on this rationale, we offer an all-up recommendation that you discontinue
-use of these legacy network security technologies. However, if your
-organizational experience is that these technologies have had a palpable impact
-on preventing and detecting real attacks, you can consider porting them to your
-cloud environment.
+Because of how much is changing with network security, we recommend reviewing and updating your network security strategy focused on these considerations as you migrate existing workloads to Azure:
+- The major cloud service providers filter malformed packets and common network layer attacks.
+- Many traditional NIDS/NIPS solutions use signature-based approaches on a per packet basis and easily evaded by attackers and typically produce a high rate of false positives. 
+- Ensure your IDS/IPS system(s) are providing meaningful positive value from alerts they generate. 
+  - Measure alert quality by the percentage of true positives (real attacks detections) vs false positive alerts (false alarms) in the alerts raised by the system. 
+  - Avoid analyst fatigue by providing only high-quality alerts to security analysts who investigate them. Ideally, alerts should have a 90% true positive rate for creating incidents in the primary queue that triage (Tier 1) investigation teams must respond to, while lower quality alerts would go to proactive hunting exercises to reduce analyst fatigue and burnout. 
+- Adopt modern Zero Trust identity approaches for protecting modern SaaS and PaaS applications. See https://aka.ms/zero-trust for more information
+- For IaaS workloads, focus on network security solutions that provide per network context rather than per packet/session context. While the technology to achieve this is still evolving, software defined networks in the cloud are naturally instrumented and can achieve this much more easily than on-premises equipment.
+- Favor solutions that effectively apply machine learning techniques across these large volumes of traffic. ML technology is far superior to static/manual human analysis at rapidly identifying anomalies that could be attacker activity out of normal traffic patterns.
+
 
 ## Design virtual network subnet security 
 

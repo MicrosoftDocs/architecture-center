@@ -8,6 +8,8 @@ ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ---
 
+<!-- markdownlint-disable MD026 -->
+
 # What are the machine learning products at Microsoft?
 
 Machine learning is a data science technique that allows computers to use existing data to forecast future behaviors, outcomes, and trends. By using machine learning, computers learn without being explicitly programmed.
@@ -51,7 +53,7 @@ The following development platforms and tools are available for machine learning
 | [Azure Databricks](#azure-databricks) | Spark-based analytics platform | Build and deploy models and data workflows |
 | [ML.NET](#mlnet) | Open-source, cross-platform machine learning SDK | Develop machine learning solutions for .NET applications |
 | [Windows ML](#windows-ml) | Windows 10 machine learning platform | Evaluate trained models on a Windows 10 device |
-| [MMLSpark](#mmlspark) | Open-source, distributed, machine learning and microservice framework for Apache Spark | Create and deploy scalable machine learning applications for Scala and Python. |
+| [MMLSpark](#mmlspark) | Open-source, distributed, machine learning and microservices framework for Apache Spark | Create and deploy scalable machine learning applications for Scala and Python. |
 
 ## Azure Machine Learning
 
@@ -60,6 +62,8 @@ The following development platforms and tools are available for machine learning
 Use Azure Machine Learning to train, deploy, and manage machine learning models using Python and CLI at cloud scale. For a low-code or no-code option, use the interactive, [visual interface](/azure/machine-learning/service/ui-tutorial-automobile-price-train-score) (preview) to easily and quickly build, test, and deploy models using pre-built machine learning algorithms.
 
 Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+
+<!-- markdownlint-disable MD033 -->
 
 |||
 |-|-|
@@ -70,6 +74,7 @@ Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree)
 |**Considerations**         |Requires some familiarity with the model management model.|
 
 <a name="classic"></a>
+
 ## Azure ML Studio (Classic)
 
 [Studio (classic)](/azure/machine-learning/studio/) gives you an interactive, visual workspace that you can use to easily and quickly build, test, and deploy models using pre-built machine learning algorithms. Studio (classic) publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
@@ -133,9 +138,7 @@ Use Microsoft Machine Learning Server when you need to build and operationalize 
 
 The [Azure Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) is a customized virtual machine environment on the Microsoft Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics.
 
-The Data Science Virtual Machine is supported as a target for Azure Machine Learning.
-It is available in versions for both Windows and Linux Ubuntu.
-For specific version information and a list of what’s included, see [Introduction to the Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview).
+The Data Science Virtual Machine is supported as a target for Azure Machine Learning. It is available in versions for both Windows and Linux Ubuntu. For specific version information and a list of what's included, see [Introduction to the Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview).
 
 Use the Data Science VM when you need to run or host your jobs on a single node. Or if you need to remotely scale up your processing on a single machine.
 
@@ -188,7 +191,7 @@ MMLSpark also brings new networking capabilities to the Spark ecosystem. With th
 
 |||
 |-|-|
-|**Type**                    |Open-source, distributed machine learning and microservice framework for Apache Spark|
+|**Type**                    |Open-source, distributed machine learning and microservices framework for Apache Spark|
 |**Languages supported**     |Scala 2.11, Java, Python 3.5+, R (beta)|
 |**Machine learning phases** |Data preparation<br>Model training<br>Deployment|
 |**Key benefits**            |Scalability<br>Streaming + Serving compatible<br>Fault-tolerance|

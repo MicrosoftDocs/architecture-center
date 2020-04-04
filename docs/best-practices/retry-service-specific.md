@@ -1060,7 +1060,7 @@ Consider the following when accessing Azure or third-party services:
 
 - Use a systematic approach to managing retries, perhaps as reusable code, so that you can apply a consistent methodology across all clients and all solutions.
 
-- Consider using a retry framework such as [Polly][polly] to manage retries if the target service or client has no built-in retry mechanism. This will help you implement a consistent retry behavior, and it may provide a suitable default retry strategy for the target service. However, you may need to create custom retry code for services that have nonstandard behavior, that do not rely on exceptions to indicate transient failures, or if you want to use a **Retry-Response** reply to manage retry behavior.
+- Consider using a retry framework such as [Polly](http://thepollyproject.org) to manage retries if the target service or client has no built-in retry mechanism. This will help you implement a consistent retry behavior, and it may provide a suitable default retry strategy for the target service. However, you may need to create custom retry code for services that have nonstandard behavior, that do not rely on exceptions to indicate transient failures, or if you want to use a **Retry-Response** reply to manage retry behavior.
 
 - The transient detection logic will depend on the actual client API you use to invoke the REST calls. Some clients, such as the newer **HttpClient** class, will not throw exceptions for completed requests with a non-success HTTP status code.
 
@@ -1118,7 +1118,7 @@ The following are the typical types of retry strategy intervals:
 
 ### Transient fault handling with Polly
 
-[Polly][polly] is a library to programmatically handle retries and [circuit breaker](../patterns/circuit-breaker.md) strategies. The Polly project is a member of the [.NET Foundation][dotnet-foundation]. For services where the client does not natively support retries, Polly is a valid alternative and avoids the need to write custom retry code, which can be hard to implement correctly. Polly also provides a way to trace errors when they occur, so that you can log retries.
+[Polly](http://thepollyproject.org) is a library to programmatically handle retries and [circuit breaker](../patterns/circuit-breaker.md) strategies. The Polly project is a member of the [.NET Foundation][dotnet-foundation]. For services where the client does not natively support retries, Polly is a valid alternative and avoids the need to write custom retry code, which can be hard to implement correctly. Polly also provides a way to trace errors when they occur, so that you can log retries.
 
 ### More information
 
@@ -1127,11 +1127,10 @@ The following are the typical types of retry strategy intervals:
 
 <!-- links -->
 
-[adal]: /azure/active-directory/develop/active-directory-authentication-libraries
+[adal]: https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries
 [autorest]: https://github.com/Azure/autorest/tree/master/docs
 [ConnectionPolicy.RetryOptions]: https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.retryoptions.aspx
 [dotnet-foundation]: https://dotnetfoundation.org/
-[polly]: http://thepollyproject.org
-[redis-cache-troubleshoot]: /azure/redis-cache/cache-how-to-troubleshoot
+[redis-cache-troubleshoot]: https://docs.microsoft.com/azure/redis-cache/cache-how-to-troubleshoot
 [SearchIndexClient]: https://msdn.microsoft.com/library/azure/microsoft.azure.search.searchindexclient.aspx
 [SearchServiceClient]: https://msdn.microsoft.com/library/microsoft.azure.search.searchserviceclient.aspx

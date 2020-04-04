@@ -24,7 +24,7 @@ training of administrators for our cloud systems and IT systems:
 
 ![A screenshot of a cell phone Description automatically generated](images/ms-protecting-ms.png)
 
-Microsoft’s recommended core strategy for administrative privileges is to use
+Microsoft's recommended core strategy for administrative privileges is to use
 the available controls to reduce risk
 
 **Reduce risk exposure (scope and time) –** The principle of least privilege
@@ -82,9 +82,9 @@ business continuity in case something happens to an administrator:
 Ensure all critical impact admins in are managed by enterprise directory to
 follow organizational policy enforcement.
 
-Consumer accounts such as  Microsoft accounts like \@Hotmail.com,
-\@live.com, \@outlook.com, don’t offer sufficient security visibility and
-control to ensure the organization’s policies and any regulatory requirements
+Consumer accounts such as Microsoft accounts like \@Hotmail.com,
+\@live.com, \@outlook.com, don't offer sufficient security visibility and
+control to ensure the organization's policies and any regulatory requirements
 are being followed. Because Azure deployments often start small and informally
 before growing into enterprise-managed tenants, some consumer accounts remain as
 administrative accounts long afterward for example, original Azure project managers,
@@ -108,7 +108,7 @@ administrative tasks.
 
 ## No standing access / Just in Time privileges
 
-Avoid providing permanent “standing” access for any critical impact accounts
+Avoid providing permanent "standing" access for any critical impact accounts
 
 Permanent privileges increase business risk by increasing the time an attacker
 can use the account to do damage. Temporary privileges force attackers targeting
@@ -127,7 +127,7 @@ Grant privileges required only as required using one of these methods:
     that have little need for regular operational usage like members of global
     admin accounts.
 
-## Emergency access or ‘Break Glass’ accounts
+## Emergency access or 'Break Glass' accounts
 
 Ensure you have a mechanism for obtaining administrative access in case of an
 emergency
@@ -164,7 +164,7 @@ Choose level of admin workstation security based on the options available at
     Workstation)**  
     These configurations represent the ideal security state for critical impact
     admins as they heavily restrict access to phishing, browser, and
-    productivity application attack vectors. These workstations don’t allow
+    productivity application attack vectors. These workstations don't allow
     general internet browsing, only allow browser access to Azure portal and
     other administrative sites.
 
@@ -190,7 +190,7 @@ security dependencies for critical impact accounts
     -   Native Azure AD Accounts -*Create Native Azure AD Accounts that are
         not synchronized with on-premises active directory
 
-    -   Synchronize from On Premises Active Directory (Not Recommended see [Don’t synchronize on-premises admin accounts to cloud identity providers](/azure/architecture/security/identity#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers))- Leverage existing accounts hosted in the on premises active
+    -   Synchronize from On Premises Active Directory (Not Recommended see [Don't synchronize on-premises admin accounts to cloud identity providers](/azure/architecture/security/identity#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers))- Leverage existing accounts hosted in the on premises active
         directory.
 
 -   **Workstations** – Choose how you will manage and secure the workstations
@@ -204,7 +204,7 @@ security dependencies for critical impact accounts
     -   Manage with Existing Systems - Join existing AD domain & leverage
         existing management/security.
 
-This is related to the [Don’t synchronize on-premises admin accounts to cloud identity providers](/azure/architecture/security/identity#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers) to
+This is related to the [Don't synchronize on-premises admin accounts to cloud identity providers](/azure/architecture/security/identity#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers) to
 cloud identity providers guidance in the administration section that mitigates
 the inverse risk of pivoting from cloud assets to on-premises assets
 
@@ -245,7 +245,7 @@ Conditional Access can significantly reduce that risk by enforcing security
 hygiene before allowing access to Azure management.
 
 Configure [Conditional Access policy for Azure management](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
-that meets your organization’s risk appetite and operational needs.
+that meets your organization's risk appetite and operational needs.
 
 -   Require Multifactor Authentication and/or connection from designated work
     network
@@ -256,10 +256,10 @@ that meets your organization’s risk appetite and operational needs.
 
 Avoid permissions that specifically reference individual resources or users
 
-Specific permissions create unneeded complexity and confusion as they don’t
+Specific permissions create unneeded complexity and confusion as they don't
 carry the intention to new similar resources. This then accumulates into a
 complex legacy configuration that is difficult to maintain or change without
-fear of “breaking something” – negatively impacting both security and solution
+fear of "breaking something" – negatively impacting both security and solution
 agility.
 
 Instead of assigning specific resource-specific permissions, use either
@@ -269,7 +269,7 @@ Instead of assigning specific resource-specific permissions, use either
 -   Resource groups for permissions within subscriptions
 
 Instead of granting permissions to specific users, assign access to groups in
-Azure AD. If there isn’t an appropriate group, work with the identity team to
+Azure AD. If there isn't an appropriate group, work with the identity team to
 create one. This allows you to add and remove group members externally to Azure
 and ensure permissions are current, while also allowing the group to be used for
 other purposes such as mailing lists.
@@ -285,7 +285,7 @@ security
 We recommend that you evaluate the [built-in roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)
 designed to cover most normal scenarios. [Custom roles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)
 are a powerful and sometimes useful capability, but they should be reserved for
-cases when built in roles won’t work.
+cases when built in roles won't work.
 
 ## Establish lifecycle management for critical impact accounts
 

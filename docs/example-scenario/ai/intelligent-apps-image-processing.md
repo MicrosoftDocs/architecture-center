@@ -3,6 +3,9 @@ title: Image classification on Azure
 description: Build image processing into your Azure applications.
 author: david-stanford
 ms.date: 07/05/2018
+ms.category:
+  - ai-machine-learning
+  - media
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -55,9 +58,9 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 The majority of the components used in this example scenario are managed services that will automatically scale. A couple notable exceptions: Azure Functions has a limit of a maximum of 200 instances. If you need to scale beyond this limit, consider multiple regions or app plans.
 
-Cosmos DB doesn’t autoscale in terms of provisioned request units (RUs). For guidance on estimating your requirements, see [request units](/azure/cosmos-db/request-units) in our documentation. To fully take advantage of the scaling in Cosmos DB, understand how [partition keys](/azure/cosmos-db/partition-data) work in CosmosDB.
+Cosmos DB doesn't autoscale in terms of provisioned request units (RUs). For guidance on estimating your requirements, see [request units](/azure/cosmos-db/request-units) in our documentation. To fully take advantage of the scaling in Cosmos DB, understand how [partition keys](/azure/cosmos-db/partition-data) work in CosmosDB.
 
-NoSQL databases frequently trade consistency (in the sense of the CAP theorem) for availability, scalability, and partitioning. In this example scenario, a key-value data model is used and transaction consistency is rarely needed as most operations are by definition atomic. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the Azure Architecture Center. If your implementation requires high consistency, you can [choose your consistency level](/azure/cosmos-db/consistency-levels) in CosmosDB.
+NoSQL databases frequently trade consistency (in the sense of the CAP theorem) for availability, scalability, and partitioning. In this example scenario, a key-value data model is used and transaction consistency is rarely needed as most operations are by definition atomic. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the Azure Architecture Center. If your implementation requires high consistency, you can [choose your consistency level](https://docs.microsoft.com/azure/cosmos-db/consistency-levels) in CosmosDB.
 
 For general guidance on designing scalable solutions, see the [scalability checklist][scalability] in the Azure Architecture Center.
 

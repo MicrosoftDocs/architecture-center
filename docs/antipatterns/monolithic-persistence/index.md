@@ -10,13 +10,15 @@ ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
+<!-- cSpell:ignore DTUs -->
+
 # Monolithic Persistence antipattern
 
 Putting all of an application's data into a single data store can hurt performance, either because it leads to resource contention, or because the data store is not a good fit for some of the data.
 
 ## Problem description
 
-Historically, applications have often used a single data store, regardless of the different types of data that the application might need to store. Usually this was done to simplify the application design, or else to match the existing skillset of the development team.
+Historically, applications have often used a single data store, regardless of the different types of data that the application might need to store. Usually this was done to simplify the application design, or else to match the existing skill set of the development team.
 
 Modern cloud-based systems often have additional functional and nonfunctional requirements, and need to store many heterogeneous types of data, such as documents, images, cached data, queued messages, application logs, and telemetry. Following the traditional approach and putting all of this information into the same data store can hurt performance, for two main reasons:
 
@@ -141,8 +143,8 @@ Similarly, the maximum DTU utilization of the log database only reaches about 70
 - [Data partitioning][DataPartitioningGuidance]
 
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/MonolithicPersistence
-[CosmosDB]: https://azure.microsoft.com/services/cosmos-db/
-[azure-cache]: /azure/azure-cache-for-redis/cache-overview
+[CosmosDB]: https://azure.microsoft.com/services/cosmos-db
+[azure-cache]: https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview
 [Data-Access-Guide]: https://msdn.microsoft.com/library/dn271399.aspx
 [DataPartitioningGuidance]: ../../best-practices/data-partitioning.md
 [data-store-overview]: ../../guide/technology-choices/data-store-overview.md

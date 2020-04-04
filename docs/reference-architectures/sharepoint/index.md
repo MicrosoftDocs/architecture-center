@@ -6,6 +6,9 @@ author: njray
 ms.date: 07/26/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - management-and-governance
+  - web
 ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
@@ -40,7 +43,7 @@ The architecture consists of the following components:
 
 - **Windows Server Active Directory (AD) domain controllers**. This reference architecture deploys Windows Server AD domain controllers. These domain controllers run in the Azure VNet and have a trust relationship with the on-premises Windows Server AD forest. Client web requests for SharePoint farm resources are authenticated in the VNet rather than sending that authentication traffic across the gateway connection to the on-premises network. In DNS, intranet A or CNAME records are created so that intranet users can resolve the name of the SharePoint farm to the private IP address of the internal load balancer.
 
-  SharePoint Server 2016 also supports using [Azure Active Directory Domain Services](/azure/active-directory-domain-services/). Azure AD Domain Services provides managed domain services, so that you don't need to deploy and manage domain controllers in Azure.
+  SharePoint Server 2016 also supports using [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services). Azure AD Domain Services provides managed domain services, so that you don't need to deploy and manage domain controllers in Azure.
 
 - **SQL Server Always On availability group**. For high availability of the SQL Server database, we recommend [SQL Server Always On availability groups][sql-always-on]. Two virtual machines are used for SQL Server. One contains the primary database replica and the other contains the secondary replica.
 
@@ -166,7 +169,8 @@ In addition, it's always wise to plan for security hardening. Other recommendati
 - Install anti-malware agents for the VMs.
 
 ## Cost considerations
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some factors for optimizing cost for this architecture. 
+
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some factors for optimizing cost for this architecture.
 
 ### Active Directory Domain Services
 
@@ -178,7 +182,6 @@ The billing model is based on the amount of time the gateway is provisioned and 
 
 All inbound traffic is free. All outbound traffic is billed. Internet bandwidth costs are applied to VPN outbound traffic.
 
-
 ### Virtual Network
 
 Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
@@ -186,7 +189,7 @@ All traffic that originates within the boundaries of a virtual network is free. 
 
 This architecture builds on the architecture deployed in [Run Windows VMs for an N-tier application][windows-n-tier]. See [Cost considerations](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server#cost-considerations) for more information.
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
 
 ## Deploy the solution
 
@@ -302,9 +305,8 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 
 <!-- links -->
 
-
-[AAF-cost]: /azure/architecture/framework/cost/overview
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[aaf-cost]: /azure/architecture/framework/cost/overview
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
 [availability-set]: /azure/virtual-machines/windows/manage-availability
 [azure-gateway-pricing]: https://azure.microsoft.com/pricing/details/vpn-gateway/
@@ -345,4 +347,3 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 [vm-sizes-general]: /azure/virtual-machines/windows/sizes-general
 [vm-sizes-memory]: /azure/virtual-machines/windows/sizes-memory
 [windows-n-tier]: ../virtual-machines-windows/n-tier.md
-

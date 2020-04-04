@@ -6,6 +6,9 @@ author: sharad4u
 ms.date: 08/23/2019
 ms.topic: guide
 ms.service: architecture-center
+ms.category:
+  - web
+  - compute
 ms.subservice: reference-architecture
 ms.custom: seojan19
 ---

@@ -3,6 +3,9 @@ title: Chatbot for hotel reservations
 description: Build a conversational chatbot for commerce applications with Azure Bot Service.
 author: iainfoulds
 ms.date: 07/05/2018
+ms.category:
+  - ai-machine-learning
+  - web
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -35,12 +38,12 @@ This scenario covers a conversational bot that functions as a concierge for a ho
 2. Using Azure Active Directory (Azure AD) B2C (business-to-consumer), the user is authenticated.
 3. Interacting with the Bot Service, the user requests information about hotel availability.
 4. Cognitive Services processes the natural language request to understand the customer communication.
-5. After the user is happy with the results, the bot adds or updates the customer’s reservation in a SQL Database.
+5. After the user is happy with the results, the bot adds or updates the customer's reservation in a SQL Database.
 6. Application Insights gathers runtime telemetry throughout the process to help the DevOps team with bot performance and usage.
 
 ### Components
 
-- [Azure Active Directory (Azure AD)][aad-docs] is Microsoft’s multitenant cloud-based directory and identity management service. Azure AD supports a B2C connector allowing you to identify individuals using external IDs such as Google, Facebook, or a Microsoft Account.
+- [Azure Active Directory (Azure AD)][aad-docs] is Microsoft's multitenant cloud-based directory and identity management service. Azure AD supports a B2C connector allowing you to identify individuals using external IDs such as Google, Facebook, or a Microsoft Account.
 - [App Service][appservice-docs] enables you to build and host web applications in the programming language of your choice without managing infrastructure.
 - [Bot Service][botservice-docs] provides tools to build, test, deploy, and manage intelligent bots.
 - [Cognitive Services][cognitive-docs] lets you use intelligent algorithms to see, hear, speak, understand, and interpret your user needs through natural methods of communication.
@@ -55,7 +58,7 @@ This scenario covers a conversational bot that functions as a concierge for a ho
 
 ## Considerations
 
-### Availability
+### Availabilit'
 
 This scenario uses Azure SQL Database for storing customer reservations. SQL Database includes zone redundant databases, failover groups, and geo-replication. For more information, see [Azure SQL Database availability capabilities][sqlavailability-docs].
 
@@ -155,24 +158,24 @@ For a set of guided tutorials for the Azure Bot Service, see the [tutorial secti
 
 <!-- links -->
 
-[aadb2c-docs]: /azure/active-directory-b2c/active-directory-b2c-overview
-[aad-docs]: /azure/active-directory/
-[appinsights-docs]: /azure/application-insights/app-insights-overview
-[appservice-docs]: /azure/app-service/
+[aadb2c-docs]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
+[aad-docs]: https://docs.microsoft.com/azure/active-directory
+[appinsights-docs]: https://docs.microsoft.com/azure/application-insights/app-insights-overview
+[appservice-docs]: https://docs.microsoft.com/azure/app-service
 [architecture]: ./media/architecture-commerce-chatbot.png
 [autoscaling]: ../../best-practices/auto-scaling.md
-[botservice-docs]: /azure/bot-service/
-[cognitive-docs]: /azure/cognitive-services/
+[botservice-docs]: https://docs.microsoft.com/azure/bot-service
+[cognitive-docs]: https://docs.microsoft.com/azure/cognitive-services
 [resiliency]: ../../resiliency/index.md
-[resource-groups]: /azure/azure-resource-manager/resource-group-overview
-[security]: /azure/security/
+[resource-groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
+[security]: https://docs.microsoft.com/azure/security
 [scalability]: ../../checklist/scalability.md
 [sqlavailability-docs]: /azure/sql-database/sql-database-technical-overview#availability-capabilities
-[sqldatabase-docs]: /azure/sql-database/
-[sqlsecurity-docs]: /azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance
-[qna-maker]: /azure/cognitive-services/QnAMaker/Overview/overview
-[speech-api]: /azure/cognitive-services/speech/home
-[translator]: /azure/cognitive-services/translator/translator-info-overview
+[sqldatabase-docs]: https://docs.microsoft.com/azure/sql-database
+[sqlsecurity-docs]: https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance
+[qna-maker]: https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview
+[speech-api]: https://docs.microsoft.com/azure/cognitive-services/speech/home
+[translator]: https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview
 
 [small-pricing]: https://azure.com/e/dce05b6184904c50b38e1a8654f726b6
 [medium-pricing]: https://azure.com/e/304d17106afc480dbc414f9726078a03

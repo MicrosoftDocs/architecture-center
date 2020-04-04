@@ -11,9 +11,11 @@ ms.custom:
     - fcp
 ---
 
+<!-- cSpell:ignore randycampbell CIDR endregion -->
+
 # Add IP address spaces to peered virtual networks
 
-Many organizations deploy a virtual networking architecture that follows the [Hub and Spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) model. At some point, the hub virtual network might require additional IP address spaces.  However, address ranges can't be added or deleted from a virtual network's address space once it's peered with another virtual network.  To add or remove address ranges, delete the peering, add or remove the address ranges, then re-create the peering manually.  The scripts described in this article can make that process easier.
+Many organizations deploy a virtual networking architecture that follows the [Hub and Spoke](../../reference-architectures/hybrid-networking/hub-spoke.md) model. At some point, the hub virtual network might require additional IP address spaces.  However, address ranges can't be added or deleted from a virtual network's address space once it's peered with another virtual network.  To add or remove address ranges, delete the peering, add or remove the address ranges, then re-create the peering manually.  The scripts described in this article can make that process easier.
 
 ## Single subscription
 
@@ -109,11 +111,11 @@ foreach ($vNetPeering in $hubPeerings)
 
     if ((Get-AzContext).Subscription.Id -ne $HubVNetSubsID)
     {
-        # Set context so that we can recreate the peering
+        # Set context so that we can re-create the peering
         Set-AzContext -Subscription $HubVNetSubsID
     }
-    # Recreate peering on hub
-    Add-AzVirtualNetworkPeering -Name $vNetPeering.Name -VirtualNetwork $hubvnet -RemoteVirtualNetworkId $vNetFullId -AllowGatewayTransit
+    # Re-create peering on hub
+    Add-AzVirtualNetworkPeering -Name $vNetPeering.Name -VirtualNetwork $HubVNet -RemoteVirtualNetworkId $vNetFullId -AllowGatewayTransit
 
 }
 
@@ -123,7 +125,7 @@ foreach ($vNetPeering in $hubPeerings)
 
 There is a nominal charge for ingress and egress traffic that utilizes a virtual network peering. There is no change to existing pricing when adding an additional IP address space to an Azure virtual network.  For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network).
 
-## Next Steps
+## Next steps
 
 * Learn more about [managing Virtual Network peerings](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering)
 

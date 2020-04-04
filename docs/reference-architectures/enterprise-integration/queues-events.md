@@ -6,6 +6,9 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.date: 12/03/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - integration
+  - developer-tools
 ms.subservice: reference-architecture
 ms.custom: integration-services
 ---
@@ -78,7 +81,7 @@ If you need to expose a Service Bus queue as an HTTP endpoint, for example, to p
 The Event Grid service secures event delivery through a validation code. If you use Logic Apps to consume the event, validation is automatically performed. For more information, see [Event Grid security and authentication](/azure/event-grid/security-authentication).
 
 ## Cost Considerations
-In general, use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some other considerations.
+In general, use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
 
 ### API Management
 
@@ -100,14 +103,14 @@ Event Grid uses a serverless model. Billing is calculated based on the number of
 
 For more information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/). 
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
 
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [apim]: /azure/api-management
 [apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management/
 [apim-autoscale]: /azure/api-management/api-management-howto-autoscale
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [event-grid]: /azure/event-grid/
 [event-grid-sla]: https://azure.microsoft.com/support/legal/sla/event-grid
 [logic-apps]: /azure/logic-apps/logic-apps-overview

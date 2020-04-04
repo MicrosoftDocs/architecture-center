@@ -4,6 +4,8 @@ titleSuffix: Azure Example Scenarios
 description: Establish a trusted environment for communication and information sharing without resorting to a centralized database.
 author: vitoc
 ms.date: 09/09/2018
+ms.category:
+  - blockchain
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -100,7 +102,7 @@ We have provided three sample cost profiles based on the number of scale set VM 
 
 The above pricing is for one consortium member to start or join a blockchain network. Typically in a consortium where there are multiple companies or organizations involved, each member will get their own Azure subscription.
 
-## Next Steps
+## Next steps
 
 To see an example of this scenario, deploy the [Ethereum PoA blockchain demo application][deploy] on Azure. Then review the [README of the scenario source code][source].
 

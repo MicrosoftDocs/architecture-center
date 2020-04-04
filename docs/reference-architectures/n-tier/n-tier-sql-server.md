@@ -5,6 +5,10 @@ author: MikeWasson
 ms.date: 08/21/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - databases
+  - web
+  - management-and-governance
 ms.subservice: reference-architecture
 ---
 
@@ -185,7 +189,7 @@ For more information about health probes, see:
 For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md).
 
 ## Cost considerations
-Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs. Here are some other considerations.
+Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs. Here are some other considerations.
 
 ### Virtual machine scale sets
 
@@ -204,7 +208,7 @@ For SQL server VMs pricing options see [SQL VMs pricing][Managed-Sql-pricing].
 You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
 
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
 
 
 ## Security considerations
@@ -269,14 +273,14 @@ If you specify a region that supports availability zones, the VMs are deployed i
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [app-gw-scaling]: /azure/application-gateway/application-gateway-autoscaling-zone-redundant
 [azure-dns]: /azure/dns/dns-overview
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault
 [Azure-SQl-Pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed/
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [ddos-best-practices]: /azure/security/azure-ddos-best-practices
 [ddos]: /azure/virtual-network/ddos-protection-overview
 [dmz]: ../dmz/secure-vnet-dmz.md

@@ -5,6 +5,9 @@ titleSuffix: Azure Reference Architectures
 author: MikeWasson
 ms.date: 01/09/2019
 ms.service: architecture-center
+ms.category:
+  - iot
+  - featured
 ms.subservice: reference-architecture
 ---
 
@@ -138,7 +141,7 @@ Logging systems are integral in understanding what actions or activities a solut
 Though plain-text logging is lower impact on upfront development costs, it is more challenging for a machine to parse/read. We recommend structured logging be used, as collected information is both machine parsable and human readable. Structured logging adds situational context and metadata to the log information. In structured logging, properties are first class citizens formatted as key/value pairs, or with a fixed schema, to enhance search and query capabilities.
 
 ## Cost considerations
-In general, use the [Azure pricing calculator][cost-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
+In general, use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
 
 There are ways to optimize costs associated the services used in this reference architecture. 
 
@@ -194,5 +197,5 @@ For warm path storage, consider using Azure Cosmos DB. For more information, see
 - A sample IoT implementation is available on [GitHub](https://github.com/mspnp/iot-guidance).
 
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
-[cost-calculator]: https://azure.microsoft.com/pricing/calculator
+[aaf-cost]: /azure/architecture/framework/cost/overview
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator

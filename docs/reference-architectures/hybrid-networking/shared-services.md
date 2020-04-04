@@ -6,6 +6,10 @@ author: MikeWasson
 ms.date: 08/19/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - hybrid
+  - networking
+  - developer-tools
 ms.subservice: reference-architecture
 ms.custom: seodec18, networking, fcp
 ---
@@ -165,6 +169,7 @@ Test-NetConnection 10.2.0.36 -CommonTCPPort RDP
 
 [azure-cli-2]: /azure/install-azure-cli
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
+[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
 [guidance-hub-spoke]: ./hub-spoke.md
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx

@@ -7,9 +7,12 @@ ms.service: architecture-center
 ms.subservice: example-scenario
 ---
 
+<!-- cSpell:ignore DSVM newsfeed newsfeeds apim Grafana Agisoft wordpress -->
+<!-- markdownlint-disable MD033 MD041 -->
+
 ## AI Scenarios
 
-<ul  class="panelContent cardsC">
+<ul class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="~/example-scenario/ai/commerce-chatbot.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -107,10 +110,9 @@ ms.subservice: example-scenario
 </li>
 </ul>
 
-
 ## Application Scenarios
 
-<ul  class="panelContent cardsC">
+<ul class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="~/example-scenario/apps/apim-api-scenario.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -360,10 +362,9 @@ ms.subservice: example-scenario
 </li>
 </ul>
 
-
 ## Data Scenarios
 
-<ul  class="panelContent cardsC">
+<ul class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="~/example-scenario/data/big-data-with-iot.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -480,10 +481,9 @@ ms.subservice: example-scenario
 </li>
 </ul>
 
-
 ## Infrastructure Scenarios
 
-<ul  class="panelContent cardsC">
+<ul class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="~/example-scenario/infrastructure/hpc-cfd.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -618,4 +618,3 @@ ms.subservice: example-scenario
     </a>
 </li>
 </ul>
-

@@ -6,6 +6,8 @@ author: telmosampaio
 ms.date: 12/13/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - compute
 ms.subservice: reference-architecture
 ---
 
@@ -88,9 +90,9 @@ Use [Azure Spot VMs](/azure/virtual-machines/windows/spot-vms) to run workloads 
 - Test environments, including continuous integration and continuous delivery workloads.
 - Large-scale stateless applications.
 
-Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs.
+Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs.
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
 
 
 ## Security considerations
@@ -119,40 +121,40 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 <!-- links -->
 
-[Azure Architecture Framework]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
-[azure-storage]: /azure/storage/storage-introduction
-[blob-storage]: /azure/storage/storage-introduction
+[azure-storage]: https://docs.microsoft.com/azure/storage/storage-introduction
+[blob-storage]: https://docs.microsoft.com/azure/storage/storage-introduction
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator
-[data-disk]: /azure/virtual-machines/virtual-machines-windows-about-disks-vhds
-[disk-encryption]: /azure/security/fundamentals/azure-disk-encryption-vms-vmss
-[enable-monitoring]: /azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
-[fqdn]: /azure/virtual-machines/virtual-machines-windows-portal-create-fqdn
-[group-policy]: /windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates
-[manage-vm-availability]: /azure/virtual-machines/virtual-machines-windows-manage-availability
-[managed-disks]: /azure/storage/storage-managed-disks-overview
-[naming-conventions]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
-[nsg]: /azure/virtual-network/virtual-networks-nsg
-[nsg-default-rules]: /azure/virtual-network/security-overview#default-security-rules
-[planned-maintenance]: /azure/virtual-machines/virtual-machines-windows-planned-maintenance
-[premium-storage]: /azure/virtual-machines/windows/premium-storage
-[rbac]: /azure/active-directory/role-based-access-control-what-is
-[rbac-roles]: /azure/active-directory/role-based-access-built-in-roles
-[rbac-devtest]: /azure/active-directory/role-based-access-built-in-roles#devtest-labs-user
-[rbac-network]: /azure/active-directory/role-based-access-built-in-roles#network-contributor
+[data-disk]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds
+[disk-encryption]: https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss
+[enable-monitoring]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
+[fqdn]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-portal-create-fqdn
+[group-policy]: https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates
+[manage-vm-availability]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability
+[managed-disks]: https://docs.microsoft.com/azure/storage/storage-managed-disks-overview
+[naming-conventions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
+[nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
+[nsg-default-rules]: https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules
+[planned-maintenance]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance
+[premium-storage]: https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage
+[rbac]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
+[rbac-roles]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles
+[rbac-devtest]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#devtest-labs-user
+[rbac-network]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#network-contributor
 [reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
-[resize-os-disk]: /azure/virtual-machines/virtual-machines-windows-expand-os-disk
-[resource-lock]: /azure/resource-group-lock-resources
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
-[security-center]: /azure/security-center/security-center-intro
-[security-center-get-started]: /azure/security-center/security-center-get-started
-[select-vm-image]: /azure/virtual-machines/virtual-machines-windows-cli-ps-findimage
+[resize-os-disk]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-expand-os-disk
+[resource-lock]: https://docs.microsoft.com/azure/resource-group-lock-resources
+[resource-manager-overview]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
+[security-center]: https://docs.microsoft.com/azure/security-center/security-center-intro
+[security-center-get-started]: https://docs.microsoft.com/azure/security-center/security-center-get-started
+[select-vm-image]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-cli-ps-findimage
 [services-by-region]: https://azure.microsoft.com/regions/#services
-[static-ip]: /azure/virtual-network/virtual-networks-reserved-public-ip
+[static-ip]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-reserved-public-ip
 [virtual-machine-sizes]: /azure/virtual-machines/virtual-machines-windows-sizes
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
-[vm-size-tables]: /azure/virtual-machines/virtual-machines-windows-sizes
+[vm-size-tables]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [windows-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows/

@@ -5,6 +5,10 @@ author: MikeWasson
 ms.date: 11/20/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - analytics
+  - databases
+  - integration
 ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
@@ -184,9 +188,34 @@ Be aware of the following limitations:
 
 - To enable Analysis Services to read data from Azure Synapse, deploy a Windows VM to the virtual network that contains the Azure Synapse service endpoint. Install [Azure On-premises Data Gateway](/azure/analysis-services/analysis-services-gateway) on this VM. Then connect your Azure Analysis service to the data gateway.
 
+## DevOps considerations
+
+- Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
+
+- Use the [Azure Building blocks][azbb] templates provided in this architecture or create [Azure Resource Manager template][arm-template] to deploy the Azure resources following the infrastructure as Code (IaC) Process. With templates,  automating deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions is easier.
+
+- Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier. 
+
+    In this architecture, there are three main workloads:
+    - The data warehouse server, Analysis Services, and related resources. 
+    - Azure Data Factory.
+    - An on-premises to cloud simulated scenario.
+
+    Each workload has its own deployment template.
+
+    The data warehouse server is set up and configured by using Azure CLI commands which follows the imperative approach of the IaC practice. Consider using deployment scripts and integrate them in the automation process.
+
+- Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. Use [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases]  strategies for updating live production environments. 
+
+    Have a good rollback strategy for handling failed deployments. For example, you can automatically redeploy an earlier, successful deployment from your deployment history. See the --rollback-on-error flag parameter in Azure CLI. 
+
+- [Azure Monitor][azure-monitor] is the recommended option for analyzing the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse because it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs. 
+
+
+For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
 
 ## Cost considerations
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
 
 
 ### Azure Data Factory
@@ -234,7 +263,7 @@ For more information, see [Azure Analysis Services pricing][az-as-pricing].
 Consider using the Azure Storage reserved capacity feature to lower cost on storage. With this model, you get a discount if you can commit to reservation for fixed storage capacity for one or three years. For more information, see [Optimize costs for Blob storage with reserved capacity][az-storage-reserved].
 
 
-For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
 
 
 ## Deploy the solution
@@ -257,13 +286,26 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
+[adf]: /azure/data-factory
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[azbb]: https://github.com/mspnp/template-building-blocks/wiki
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
+[blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
+[cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
+[github]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline
+[MergeLocation]: https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
+[synapse-analytics]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity
+[wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [adf]: /azure/data-factory
 [adf-calculator]: https://azure.microsoft.com/pricing/calculator/?service=data-factory
 [az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services/
 [az-storage-reserved]: https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity
 [az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics/
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [github]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline
 [MergeLocation]: https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database

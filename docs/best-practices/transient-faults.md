@@ -46,7 +46,7 @@ Transient faults can have a huge effect on the perceived availability of an appl
 
 ## General guidelines
 
-The following guidelines will help you to design a suitable transient fault handing mechanism for your applications:
+The following guidelines will help you to design a suitable transient fault handling mechanism for your applications:
 
 - **Determine if there is a built-in retry mechanism:**
 
@@ -171,4 +171,4 @@ The following guidelines will help you to design a suitable transient fault hand
 
 <!-- links -->
 
-[idempotency-patterns]: https://blog.jonathanoliver.com/idempotency-patterns/
+[idempotency-patterns]: https://blog.jonathanoliver.com/idempotency-patterns

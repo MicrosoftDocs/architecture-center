@@ -6,27 +6,33 @@ ms.date: 12/16/2019
 description: This architecture shows how to easily connect multiple business systems to enable customer support.
 ms.custom: acom-architecture, line of business app, lob app, lift and shift cloud strategy, cloud migration, cloud innovation, lift and shift solution, lift and shift strategy, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/modern-customer-support-portal-powered-by-an-agile-business-process/'
 ms.service: architecture-center
+ms.category:
+  - migration
+  - hybrid
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/modern-customer-support-portal-powered-by-an-agile-business-process.png
 ---
+
 # Lift and Shift and Innovate - LOB Apps
 
-* [!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../header.md)]
 
 This line-of-business application solution provides a mechanism for monitoring and responding to customer feedback. Easily connect multiple business systems to enable nimbler customer support.
 
 Related Links:
 
-* [Matching the architecture to your business needs](/azure/architecture/guide/design-principles/build-for-business/)
+* [Matching the architecture to your business needs](../../guide/design-principles/build-for-business.md)
 
-* [Managing identities in your applications](/azure/architecture/multitenant-identity/)
+* [Managing identities in your applications](../../multitenant-identity/index.md)
 
-* [Automate access and use of data across applications with Logic Apps](/azure/logic-apps/)
+* [Automate access and use of data across applications with Logic Apps](https://docs.microsoft.com/azure/logic-apps)
 
-* [Infuse intelligence into your apps with Cognitive Services](/azure/cognitive-services/welcome)
+* [Infuse intelligence into your apps with Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/welcome)
 
 ## Architecture
 
-![Architecture diagram](../media/modern-customer-support-portal-powered-by-an-agile-business-process.svg)
+![Architecture diagram](../media/modern-customer-support-portal-powered-by-an-agile-business-process.png)
+*Download an [SVG](../media/modern-customer-support-portal-powered-by-an-agile-business-process.svg) of this architecture.*
 
 ## Data Flow
 

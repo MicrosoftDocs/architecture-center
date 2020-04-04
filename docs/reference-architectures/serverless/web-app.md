@@ -6,6 +6,9 @@ author: MikeWasson
 ms.date: 05/28/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - web
+  - developer-tools
 ms.subservice: reference-architecture
 ms.custom: seodec18, serverless
 ---
@@ -238,7 +241,7 @@ Alternatively, you can store application secrets in Key Vault. This allows you t
 
 The front end of this reference architecture is a single page application, with JavaScript accessing the serverless back-end APIs, and static content providing a fast user experience. The following are some important considerations for such an application:
 
-- Deploy the application uniformly to users over a wide geographical area with a global-ready CDN, with the static content hosted on the cloud. This avoids the need for a dedicated web server. Read [Integrate an Azure storage account with Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-create-a-storage-account-with-cdn) to get started. Secure your application with [HTTPS](https://docs.microsoft.com/azure/storage/blobs/storage-https-custom-domain-cdn). Read the [Best practices for using content delivery networks](https://docs.microsoft.com/azure/architecture/best-practices/cdn) for additional recommendations.
+- Deploy the application uniformly to users over a wide geographical area with a global-ready CDN, with the static content hosted on the cloud. This avoids the need for a dedicated web server. Read [Integrate an Azure storage account with Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-create-a-storage-account-with-cdn) to get started. Secure your application with [HTTPS](https://docs.microsoft.com/azure/storage/blobs/storage-https-custom-domain-cdn). Read the [Best practices for using content delivery networks](../../best-practices/cdn.md) for additional recommendations.
 - Use a fast and reliable CI/CD service such as [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops), to automatically build and deploy every source change. The source must reside in an online version control system. For more details, read [Create your first pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=tfs-2018-2).
 - Compress your website files to reduce the bandwidth consumption on the CDN and improve performance. Azure CDN allows [compression on the fly on the edge servers](https://docs.microsoft.com/azure/cdn/cdn-improve-performance). Alternatively, the deploy pipeline in this reference architecture compresses the files before deploying them to the Blob storage. This reduces the storage requirement, and gives you more freedom to choose the compression tools, regardless of any CDN limitations.
 - The CDN should be able to [purge its cache](https://docs.microsoft.com/azure/cdn/cdn-purge-endpoint) to ensure all users are served the freshest content. A cache purge is required if the build and deploy processes are not atomic, for example, if they replace old files with newly built ones in the same origin folder.
@@ -263,16 +266,17 @@ For updates that are not breaking API changes, deploy the new version to a stagi
 
 ## Cost considerations
 
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Consider these points to optimize cost of this architecture.
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Consider these points to optimize cost of this architecture.
 
 ### Azure Functions
 
-Azure Functions supports two hosting models. 
-- **Consumption plan**. 
+Azure Functions supports two hosting models.
 
-    Compute power is automatically allocated when your code is running. 
+- **Consumption plan**.
 
-- **App Service** plan. 
+    Compute power is automatically allocated when your code is running.
+
+- **App Service** plan.
 
     A set of VMs are allocated for your code. This plan defines the number of VMs and the VM size.
 
@@ -280,27 +284,23 @@ In this architecture, a function is invoked when a client makes an HTTP request.
 
 ### Azure Cosmos DB
 
-Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations, such as inserts, reads. The price is based on the capacity in RU/s that you reserve. 
+Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations, such as inserts, reads. The price is based on the capacity in RU/s that you reserve.
 
-Storage is billed for each GB used for your stored data and index. 
+Storage is billed for each GB used for your stored data and index.
 
 See [Cosmos DB pricing model][cosmosdb-pricing] for more information.
 
 In this architecture, the function application fetches documents from Cosmos DB in response to HTTP GET requests from the client. Cosmos DB is cost effective in this case because reading operations are significantly cheaper than write operations expressed on RU/s.
 
-
 ### Content Delivery Network
 
-Billing rate may differ depending on the billing region based on the location of the source server delivering the content to the end user. The physical location of the client is not the billing region. Any HTTP or HTTPS request that hits the CDN is a billable event, which includes all response types: success, failure, or other. Different responses may generate different traffic amounts. 
+Billing rate may differ depending on the billing region based on the location of the source server delivering the content to the end user. The physical location of the client is not the billing region. Any HTTP or HTTPS request that hits the CDN is a billable event, which includes all response types: success, failure, or other. Different responses may generate different traffic amounts.
 
-In this reference architecture the deployment resides in a single Azure region. 
+In this reference architecture the deployment resides in a single Azure region.
 
 To lower costs, consider increasing the cache TTL by caching resource files for a longer duration and setting the longest TTL possible on your content.
 
-
-For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
-
-
+For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
 
 ## Deploy the solution
 
@@ -311,12 +311,13 @@ To deploy the reference implementation for this architecture, see the [GitHub re
 To learn more about the reference implementation, read [Code walkthrough: Serverless application with Azure Functions](../../serverless/code.md).
 
 Related guidance:
+
 - [Best practices for using CDNs](../../best-practices/cdn.md)
 - [Static Content Hosting pattern](../../patterns/static-content-hosting.md)
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: https://docs.microsoft.com/azure/architecture/framework/cost/overview
 [api-versioning]: ../../best-practices/api-design.md#versioning-a-restful-web-api
 [apim]: /azure/api-management/api-management-key-concepts
 [apim-ip]: /azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services
@@ -340,7 +341,7 @@ Related guidance:
 [cosmosdb-input-binding]: /azure/azure-functions/functions-bindings-cosmosdb-v2-input
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [event-driven]: ../../guide/architecture-styles/event-driven.md
 [functions]: /azure/azure-functions/functions-overview
 [functions-bindings]: /azure/azure-functions/functions-triggers-bindings
