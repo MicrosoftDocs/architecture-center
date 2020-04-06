@@ -5,6 +5,10 @@ author: njray
 ms.date: 12/10/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - developer-tools
+  - containers
 ms.subservice: reference-architecture
 ms.custom: azcat-ai
 ---

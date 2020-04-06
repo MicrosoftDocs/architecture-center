@@ -4,6 +4,8 @@ description: This reference architecture shows recommended practices for tuning 
 author: fboylu
 ms.date: 07/17/2019
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
 ms.subservice: reference-architecture
 ms.custom: azcat-ai
 ---

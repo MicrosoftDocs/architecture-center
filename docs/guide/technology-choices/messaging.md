@@ -6,6 +6,9 @@ author: PageWriter-MSFT
 ms.date: 10/30/2019
 ms.topic: guide
 ms.service: architecture-center
+ms.category:
+  - integration
+  - developer-tools
 ms.subservice: reference-architecture
 ms.custom: seonov19
 ---

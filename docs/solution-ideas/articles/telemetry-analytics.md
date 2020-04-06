@@ -3,10 +3,15 @@ title: Telemetry Analytics
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
-description: Supercomputers have moved out of the lab and are now parked in our garage! These cutting-edge automobiles contain a myriad of sensors, giving them the ability to track and monitor millions of events every second. We expect that by 2020, most of these cars will be connected to the internet. Imagine tapping into this wealth of data to provide best-in-class safety, reliability, and driving experience. Microsoft has made this imagination a reality via Cortana Intelligence. Microsoft's Cortana Intelligence is a fully managed big data and advanced analytics suite that enables you to transform your data into intelligent action.
+description: Car dealerships, automobile manufacturers and insurance companies can use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits.
 ms.custom: acom-architecture, analytics, hpc, artificial intelligence, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/telemetry-analytics/'
 ms.service: architecture-center
+ms.category:
+  - iot
+  - analytics
+  - compute
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/telemetry-analytics.png
 ---
 
 # Telemetry Analytics
@@ -19,7 +24,8 @@ We want to introduce you to the Cortana Intelligence Vehicle Telemetry Analytics
 
 ## Architecture
 
-![Architecture diagram](../media/telemetry-analytics.svg)
+![Architecture diagram](../media/telemetry-analytics.png)
+*Download an [SVG](../media/telemetry-analytics.svg) of this architecture.*
 
 ## Description
 

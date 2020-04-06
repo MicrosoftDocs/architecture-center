@@ -6,6 +6,9 @@ author: doodlemania2
 ms.date: 04/2/2019
 ms.topic: guide
 ms.service: architecture-center
+ms.category:
+  - web
+  - compute
 ms.subservice: reference-architecture
 ---
 

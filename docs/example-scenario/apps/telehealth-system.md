@@ -4,6 +4,9 @@ description: A healthcare system connecting users, devices, and providers built 
 author: adamboeglin
 ms.author: jeanyd
 ms.date: 05/25/2019
+ms.category:
+  - containers
+  - databases
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario

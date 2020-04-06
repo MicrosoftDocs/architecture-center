@@ -6,7 +6,11 @@ ms.date: 12/16/2019
 description: Containers make it easy for you to continuously build and deploy applications. By orchestrating the deployment of those containers using Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
 ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, is-deployable, 'https://azure.microsoft.com/solutions/architecture/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service/'
 ms.service: architecture-center
+ms.category:
+  - devops
+  - containers
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.png
 ---
 
 # Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)
@@ -19,7 +23,8 @@ By setting up a continuous build to produce your container images and orchestrat
 
 ## Architecture
 
-![Architecture diagram](../media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.svg)
+![Architecture diagram](../media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.png)
+*Download an [SVG](../media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.svg) of this architecture.*
 
 ## Data Flow
 

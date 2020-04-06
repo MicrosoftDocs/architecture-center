@@ -4,6 +4,10 @@ titleSuffix: Azure Example Scenarios
 description: SignalR configured in server-less mode to work with Azure Function triggered by Service Bus. All of it using .NET Core. This scenario is best used for real time messaging applications where users require a low-cost but robust messaging service.
 author: talhanaveed
 ms.date: 12/09/2019
+ms.category:
+  - devops
+  - integration
+  - developer-tools
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario

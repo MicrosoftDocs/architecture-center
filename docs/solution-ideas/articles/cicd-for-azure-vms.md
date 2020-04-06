@@ -6,7 +6,12 @@ ms.date: 12/16/2019
 description: Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, you'll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
 ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/cicd-for-azure-vms/'
 ms.service: architecture-center
+ms.category:
+  - devops
+  - compute
+  - web
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/cicd-for-azure-vms.png
 ---
 
 # CI/CD for Azure VMs
@@ -19,7 +24,8 @@ Azure DevOps provides the CI/CD pipeline, starting with a Git repository for man
 
 ## Architecture
 
-![Architecture diagram](../media/cicd-for-azure-vms.svg)
+![Architecture diagram](../media/cicd-for-azure-vms.png)
+*Download an [SVG](../media/cicd-for-azure-vms.svg) of this architecture.*
 
 ## Data Flow
 

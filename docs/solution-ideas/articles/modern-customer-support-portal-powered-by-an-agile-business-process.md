@@ -6,7 +6,11 @@ ms.date: 12/16/2019
 description: This architecture shows how to easily connect multiple business systems to enable customer support.
 ms.custom: acom-architecture, line of business app, lob app, lift and shift cloud strategy, cloud migration, cloud innovation, lift and shift solution, lift and shift strategy, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/modern-customer-support-portal-powered-by-an-agile-business-process/'
 ms.service: architecture-center
+ms.category:
+  - migration
+  - hybrid
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/modern-customer-support-portal-powered-by-an-agile-business-process.png
 ---
 
 # Lift and Shift and Innovate - LOB Apps
@@ -27,7 +31,8 @@ Related Links:
 
 ## Architecture
 
-![Architecture diagram](../media/modern-customer-support-portal-powered-by-an-agile-business-process.svg)
+![Architecture diagram](../media/modern-customer-support-portal-powered-by-an-agile-business-process.png)
+*Download an [SVG](../media/modern-customer-support-portal-powered-by-an-agile-business-process.svg) of this architecture.*
 
 ## Data Flow
 

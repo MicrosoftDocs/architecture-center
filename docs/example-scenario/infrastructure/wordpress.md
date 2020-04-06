@@ -4,6 +4,8 @@ titleSuffix: Azure Example Scenarios
 description: Build a highly scalable and secure WordPress website for media events.
 author: david-stanford
 ms.date: 09/18/2018
+ms.category:
+  - web
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario

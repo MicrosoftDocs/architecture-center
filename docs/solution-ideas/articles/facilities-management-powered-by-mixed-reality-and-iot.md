@@ -6,7 +6,11 @@ ms.date: 12/16/2019
 description: Improve uptime and operations in hospitality, manufacturing, retail, and more with mixed reality and IoT. This scenario shows how you can visualize a virtual replica of your physical space with real-time data in the context of your environment. It is built on Azure Spatial Anchors and Azure Digital Twins. After reviewing this solution architecture, dive right in and explore our reference sample.
 ms.custom: acom-architecture, iot, Azure Spatial Anchors, Azure Digital Twins, Azure Active Directory, Cosmos DB, Event Hubs, Functions, Web Service, Microsoft HoloLens, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/facilities-management-powered-by-mixed-reality-and-iot/'
 ms.service: architecture-center
+ms.category:
+  - mixed-reality
+  - iot
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/facilities-management-powered-by-mixed-reality-and-iot.png
 ---
 
 # Facilities management powered by mixed reality and IoT
@@ -17,7 +21,8 @@ Improve uptime and operations in hospitality, manufacturing, retail, and more wi
 
 ## Architecture
 
-![Architecture diagram](../media/facilities-management-powered-by-mixed-reality-and-iot.svg)
+![Architecture diagram](../media/facilities-management-powered-by-mixed-reality-and-iot.png)
+*Download an [SVG](../media/facilities-management-powered-by-mixed-reality-and-iot.svg) of this architecture.*
 
 ## Data Flow
 

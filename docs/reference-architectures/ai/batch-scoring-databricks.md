@@ -5,6 +5,10 @@ author: njray
 ms.date: 11/20/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - analytics
+  - databases
 ms.subservice: reference-architecture
 ms.custom: azcat-ai
 ---
@@ -59,7 +63,7 @@ Because the scenario creates a batch pipeline, we provide a set of optional exam
 ## Recommendations
 
 Databricks is set up so you can load and deploy your trained models to make predictions with new data. We used Databricks for this scenario because it provides these additional advantages:
-
+'
 - Single sign-on support using Azure Active Directory credentials.
 - Job scheduler to execute jobs for production pipelines.
 - Fully interactive notebook with collaboration, dashboards, REST APIs.
@@ -74,7 +78,7 @@ You can monitor job execution through the Databricks user interface, the data st
 
 ## Performance considerations
 
-An Azure Databricks cluster enables autoscaling by default so that during runtime, Databricks dynamically reallocates workers to account for the characteristics of your job. Certain parts of your pipeline may be more computationally demanding than others. Databricks adds additional workers during these phases of your job (and removes them when they’re no longer needed). Autoscaling makes it easier to achieve high [cluster utilization][cluster], because you don’t need to provision the cluster to match a workload.
+An Azure Databricks cluster enables autoscaling by default so that during runtime, Databricks dynamically reallocates workers to account for the characteristics of your job. Certain parts of your pipeline may be more computationally demanding than others. Databricks adds additional workers during these phases of your job (and removes them when they're no longer needed). Autoscaling makes it easier to achieve high [cluster utilization][cluster], because you don't need to provision the cluster to match a workload.
 
 Additionally, more complex scheduled pipelines can be developed by using [Azure Data Factory][adf] with Azure Databricks.
 

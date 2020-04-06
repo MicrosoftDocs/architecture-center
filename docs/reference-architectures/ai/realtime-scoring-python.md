@@ -6,6 +6,9 @@ author: msalvaris
 ms.date: 01/28/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - developer-tools
 ms.subservice: reference-architecture
 ms.custom: azcat-ai
 ---

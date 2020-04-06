@@ -4,6 +4,8 @@ titleSuffix: Azure Example Scenarios
 description: A discussion of how best to configure your environment for Windows Server Update Services (WSUS).
 author: vpaulreed
 ms.date: 03/15/2020
+ms.category:
+  - management-and-governance
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario

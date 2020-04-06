@@ -5,6 +5,8 @@ author: doodlemania2
 ms.date: 04/02/2020
 ms.topic: guide
 ms.service: architecture-center
+ms.category:
+  - identity
 ms.subservice: reference-architecture
 ---
 

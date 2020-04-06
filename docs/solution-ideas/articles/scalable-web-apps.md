@@ -6,7 +6,10 @@ ms.date: 12/16/2019
 description: scalable web apps, azure redis cache, session data cache, user cookie cache, azure cache for redis
 ms.custom: acom-architecture, web-app, scalability, 'https://azure.microsoft.com/solutions/architecture/scalable-web-apps/'
 ms.service: architecture-center
+ms.category:
+  - web
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/scalable-web-apps.svg
 ---
 
 # Scalable Web Apps

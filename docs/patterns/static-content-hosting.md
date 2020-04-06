@@ -9,6 +9,7 @@ ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom: seodec18
+social_image_url: /azure/architecture/patterns/media/orderedList1.png
 ---
 
 # Static Content Hosting pattern

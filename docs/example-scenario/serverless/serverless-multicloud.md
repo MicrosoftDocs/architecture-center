@@ -10,6 +10,10 @@ ms.subservice: example-scenario
 ms.custom:
     - fcp
     - cse
+ms.category:
+    - developer-tools
+    - hybrid
+social_image_url: /azure/architecture/example-scenario/serverless/media/multi-cloud-serverless-architecture.png
 ---
 # Serverless Framework multicloud solutions
 

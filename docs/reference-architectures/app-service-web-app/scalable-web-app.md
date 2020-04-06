@@ -6,6 +6,8 @@ author: MikeWasson
 ms.date: 10/03/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - web
 ms.subservice: reference-architecture
 ms.custom: seodec18
 ---

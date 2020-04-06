@@ -6,6 +6,9 @@ author: njray
 ms.date: 07/26/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - management-and-governance
+  - web
 ms.subservice: reference-architecture
 ms.custom: seodec18
 ---

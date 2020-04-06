@@ -6,6 +6,9 @@ author: MikeWasson
 ms.date: 05/28/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - web
+  - developer-tools
 ms.subservice: reference-architecture
 ms.custom: seodec18, serverless
 ---

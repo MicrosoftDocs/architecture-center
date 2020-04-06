@@ -6,7 +6,11 @@ ms.date: 12/16/2019
 description: Learn how to deploy a SharePoint farm for use as a development testing environment with a step-by-step flowchart from Azure.
 ms.custom: acom-architecture, sharepoint dev, sharepoint agile, sharepoint dev environment, lob-app, azure sharepoint development environment, sharepoint farm solution, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/sharepoint-farm-devtest/'
 ms.service: architecture-center
+ms.category:
+  - devops
+  - web
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/sharepoint-farm-devtest.png
 ---
 
 # SharePoint Farm for Development Testing
@@ -17,7 +21,8 @@ This solution provides a small scale deployment of SharePoint using a single Azu
 
 ## Architecture
 
-![Architecture diagram](../media/sharepoint-farm-devtest.svg)
+![Architecture diagram](../media/sharepoint-farm-devtest.png)
+*Download an [SVG](../media/sharepoint-farm-devtest.svg) of this architecture.*
 
 ## Data Flow
 
