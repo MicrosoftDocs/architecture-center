@@ -6,6 +6,9 @@ author: telmosampaio
 ms.date: 12/18/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - identity
+  - hybrid
 ms.subservice: reference-architecture
 ms.custom: seodec18, identity
 ---

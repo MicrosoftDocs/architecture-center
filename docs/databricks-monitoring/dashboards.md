@@ -4,6 +4,10 @@ description: How to deploy a Grafana dashboard to monitor performance in Azure D
 author: PeterTaylor9999
 ms.date: 03/26/2019
 ms.service: architecture-center
+ms.category:
+  - databases
+  - management-and-governance
+
 ms.subservice: reference-architecture
 ---
 

@@ -3,6 +3,9 @@ title: Process real-time vehicle data using IoT
 description: Ingest and process real-time vehicle data using IoT.
 author: khilscher
 ms.date: 03/10/2020
+ms.category:
+  - iot
+  - analytics
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario

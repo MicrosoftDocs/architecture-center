@@ -5,6 +5,8 @@ author: PageWriter-MSFT
 ms.date: 06/13/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - developer-tools
 ms.subservice: reference-architecture
 ms.custom: microservices
 ---

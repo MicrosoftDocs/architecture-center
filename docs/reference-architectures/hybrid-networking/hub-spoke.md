@@ -6,6 +6,9 @@ author: MikeWasson
 ms.date: 01/29/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - networking
+  - management-and-governance
 ms.subservice: reference-architecture
 ms.custom: seodec18, networking, fcp
 ---

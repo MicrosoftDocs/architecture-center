@@ -5,6 +5,9 @@ author: lbrader
 ms.date: 02/19/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - databases
+  - management-and-governance
 ms.subservice: reference-architecture
 ms.custom: seodec18, SAP, Windows, fcp
 ---

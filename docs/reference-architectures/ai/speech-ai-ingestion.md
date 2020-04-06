@@ -7,6 +7,8 @@ ms.date: 03/25/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
+ms.category:
+  - ai-machine-learning
 ---
 
 # Speech transcription with Azure Cognitive Services

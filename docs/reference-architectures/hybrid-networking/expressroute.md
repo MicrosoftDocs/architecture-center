@@ -5,6 +5,9 @@ author: MikeWasson
 ms.date: 07/23/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - hybrid
+  - networking
 ms.subservice: reference-architecture
 ms.custom: seodec18, networking, fcp
 ---

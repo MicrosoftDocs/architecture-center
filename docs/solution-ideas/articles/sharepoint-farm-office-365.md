@@ -6,7 +6,11 @@ ms.date: 12/16/2019
 description: Deliver highly available intranet capability by deploying SharePoint and sharing hybrid workloads with Office 365. Setup this solution with step-by-step instructions.
 ms.custom: acom-architecture, hybrid-infrastructure, sharepoint hybrid, sharepoint hybrid architecture, sharepoint farm solution, office 365 sharepoint hybrid, sharepoint hybrid solution, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/sharepoint-farm-office-365/'
 ms.service: architecture-center
+ms.category:
+  - web
+  - hybrid
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/sharepoint-farm-office-365.png
 ---
 
 # Hybrid SharePoint Farm with Office 365
@@ -17,7 +21,8 @@ This solution provides a highly available deployment of SharePoint using a load 
 
 ## Architecture
 
-![Architecture diagram](../media/sharepoint-farm-office-365.svg)
+![Architecture diagram](../media/sharepoint-farm-office-365.png)
+*Download an [SVG](../media/sharepoint-farm-office-365.svg) of this architecture.*
 
 ## Data Flow
 

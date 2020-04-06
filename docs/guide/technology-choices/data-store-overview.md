@@ -6,6 +6,9 @@ author: MikeWasson
 ms.date: 11/20/2019
 ms.topic: guide
 ms.service: architecture-center
+ms.category:
+  - storage
+  - databases
 ms.subservice: reference-architecture
 ms.custom: seojan19
 ---

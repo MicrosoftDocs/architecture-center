@@ -5,6 +5,9 @@ description: Securely deploy an expense application to Azure App Service Environ
 author: fmustaf
 ms.date: 05/09/2019
 ms.author: faisalm
+ms.category:
+  - security
+  - web
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario

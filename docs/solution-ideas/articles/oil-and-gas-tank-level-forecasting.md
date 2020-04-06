@@ -6,7 +6,11 @@ ms.date: 12/16/2019
 description: Today, most facilities operate reactively to problems in tank levels. This often leads to spills, emergency shutdowns, expensive remediation costs, regulatory issues, costly repairs and fines. Tank level forecasting helps manage and abate these and other problems.
 ms.custom: acom-architecture, artificial intelligence, hpc, analytics, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/oil-and-gas-tank-level-forecasting/'
 ms.service: architecture-center
+ms.category:
+  - analytics
+  - compute
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/oil-and-gas-tank-level-forecasting.png
 ---
 
 # Oil and Gas Tank Level Forecasting
@@ -30,7 +34,8 @@ The Cortana Intelligence Suite is adaptable and can be customized to meet differ
 
 ## Architecture
 
-![Architecture diagram](../media/oil-and-gas-tank-level-forecasting.svg)
+![Architecture diagram](../media/oil-and-gas-tank-level-forecasting.png)
+*Download an [SVG](../media/oil-and-gas-tank-level-forecasting.svg) of this architecture.*
 
 ## Description
 

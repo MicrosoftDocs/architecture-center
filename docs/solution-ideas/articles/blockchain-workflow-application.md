@@ -6,7 +6,10 @@ ms.date: 12/16/2019
 description: Explore how blockchain is used to digitize workflows and supply chains across organizations with the Blockchain Workflow Application from Microsoft Azure.
 ms.custom: acom-architecture, blockchain, Blockchain Workflow Application, Azure Blockchain, Azure Blockchain Service, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/blockchain-workflow-application/'
 ms.service: architecture-center
+ms.category:
+  - blockchain
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/blockchain-workflow-application.png
 ---
 
 # Blockchain Workflow Application
@@ -17,7 +20,8 @@ Businesses use blockchain to digitize workflows they share with other organizati
 
 ## Architecture
 
-![Architecture diagram](../media/blockchain-workflow-application.svg)
+![Architecture diagram](../media/blockchain-workflow-application.png)
+*Download an [SVG](../media/blockchain-workflow-application.svg) of this architecture.*
 
 ## Data Flow
 

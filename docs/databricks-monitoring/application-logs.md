@@ -4,6 +4,11 @@ description: How to send custom logs and metrics from Azure Databricks to Azure 
 author: PeterTaylor9999
 ms.date: 03/26/2019
 ms.service: architecture-center
+ms.category:
+  - databases
+  - developer-tools
+  - management-and-governance
+  - featured
 ms.subservice: reference-architecture
 ---
 

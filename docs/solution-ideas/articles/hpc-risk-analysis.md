@@ -6,7 +6,13 @@ ms.date: 12/16/2019
 description: Build an HPC risk analysis solution architecture with a step-by-step flowchart from Microsoft Azure that combines CycleCloud, Avere vFXT and Tibco Gridserver.
 ms.custom: acom-architecture, risk analysis template, risk analysis solution, hpc risk analysis, hybrid risk analysis, interactive-diagram, hpc, finance, 'https://azure.microsoft.com/solutions/architecture/hpc-risk-analysis/'
 ms.service: architecture-center
+ms.category:
+  - compute
+  - storage
+  - hybrid
+  - integration
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/hpc-risk-analysis.png
 ---
 
 # HPC Risk Analysis Template – Solution Architecture
@@ -17,7 +23,8 @@ This templated risk analysis solution uses Azure HPC compute and GPU virtual mac
 
 ## Architecture
 
-![Architecture diagram](../media/hpc-risk-analysis.svg)
+![Architecture diagram](../media/hpc-risk-analysis.png)
+*Download an [SVG](../media/hpc-risk-analysis.svg) of this architecture.*
 
 ## Data Flow
 

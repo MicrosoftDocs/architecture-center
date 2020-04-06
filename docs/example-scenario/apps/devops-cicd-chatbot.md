@@ -9,6 +9,10 @@ ms.service: architecture-center
 ms.custom:
     - fasttrack
     - fcp
+ms.category:
+  - devops
+  - ai-machine-learning
+social_image_url: /azure/architecture/example-scenario/apps/media/deployment-flow.png
 ---
 
 # Azure DevOps CI/CD pipelines for chatbots

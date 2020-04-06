@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
-from collections import defaultdict
+from collections import defaultdict, OrderedDict
 from pathlib import Path, PurePath
+import os
 import re
 import pprint
 import json
@@ -9,10 +10,17 @@ import yaml
 from dateutil import parser
 import yaml
 import readtime
-from jinja2 import Environment, FileSystemLoader
+from jinja2 import Environment, FileSystemLoader, select_autoescape
 import os.path as path
 import logging
 import csv
+import markdown
+import frontmatter
+import shutil
+from urllib.parse import urljoin
+from PIL import Image
+import tempfile
+import cairosvg
 
 def find_all(iterable, searchtext, returned="key"):
     
@@ -45,14 +53,25 @@ def find_all(iterable, searchtext, returned="key"):
             for ret in find_all(el, searchtext, returned=returned):
                 yield ret
 
-def get_topic_name(article, tag_metadata):
-    for cat in tag_metadata['categories']:
-        if cat['stub'] == 'technologies':
-            for item in cat['items']:
-                if any(list(set(item['tags']) & set(article['tags']))):
-                    return item['name']
+def update_paths(text, base_path):
+    # Remove any markdown extensions
+    text = re.sub(r'href=".*\w(\.md)\W', '', text)
 
-    return "Other Technologies"
+    # Function to replace URLs with absolute docs paths
+    def url_update(match):
+        return match.group(1) + '="' + urljoin(urljoin("https://docs.microsoft.com", base_path), match.group(2)) + '"'
+
+    return re.sub(r'(src|href)=\"([\.|\/][^\"]*)\"',url_update,text)
+
+
+# def get_topic_name(article, tag_metadata):
+#     for cat in tag_metadata['categories']:
+#         if cat['stub'] == 'technologies':
+#             for item in cat['items']:
+#                 if any(list(set(item['tags']) & set(article['tags']))):
+#                     return item['name']
+
+#     return "Other Technologies"
 
 def type_to_title(article_type):
     types = {
@@ -63,28 +82,27 @@ def type_to_title(article_type):
     }
     return types.get(article_type, "Invalid Type")
 
-def update_toc(article, toc):
-    topic_name = get_topic_name(article, tag_metadata)
-    toc_item = { 'href': article['file_url'], 'name': article['title']}
-    topic_type = type_to_title(article['type'])
-    updated = False
-    if topic_name:
-        for i in toc['items']:
-            if i['name'] == 'Technologies':
-                for t in i['items']:
-                    if t['name'] == topic_name:
-                        for s in t['items']:
-                            if s['name'] == topic_type:
-                                s['items'].append(toc_item)
-                                updated=True
+# def update_toc(article, toc):
+#     topic_name = get_topic_name(article, tag_metadata)
+#     toc_item = { 'href': article['file_url'], 'name': article['title']}
+#     topic_type = type_to_title(article['type'])
+#     updated = False
+#     if topic_name:
+#         for i in toc['items']:
+#             if i['name'] == 'Technologies':
+#                 for t in i['items']:
+#                     if t['name'] == topic_name:
+#                         for s in t['items']:
+#                             if s['name'] == topic_type:
+#                                 s['items'].append(toc_item)
+#                                 updated=True
 
-    if not updated:
-        for i in toc['items']:
-            if i['name'] == 'Technologies':
-                i['items'].append({ 'name': topic_name, 'items':[{ 'name': topic_type, 'items':[toc_item]}]})
-                updated=True
-    
-    return toc
+    # if not updated:
+    #     for i in toc['items']:
+    #         if i['name'] == 'Technologies':
+    #             i['items'].append({ 'name': topic_name, 'items':[{ 'name': topic_type, 'items':[toc_item]}]})
+    #             updated=True
+    # return toc, topic_name
 
 def to_anchor(item):
     return item.strip()\
@@ -117,15 +135,44 @@ def is_excluded(file_path):
 
     return False
 
+def stepnum_letter(n):
+    letter = ""
+    while n > 0:
+        n, remainder = divmod(n - 1, 26)
+        letter = chr(65 + remainder) + letter
+    return letter.upper()
+
+def acom_json(item):
+    def_data = {}
+    if item.get("Title"):
+        def_data['titleLocKey'] = "Title"
+    if item.get("MetaDescription"):
+        def_data['MetaDescriptionLocKey'] = "MetaDescription"
+    if item.get("Summary"):
+        def_data['summaryLocKey'] = "Summary"
+    if item.get("Flow"):
+        def_data['flowStepLocKeys'] = list(item['Flow'].keys())
+
+    return def_data
+
+def expand2square(pil_img, background_color):
+    width, height = pil_img.size
+    if width == height:
+        return pil_img
+    elif width > height:
+        result = Image.new(pil_img.mode, (width, width), background_color)
+        result.paste(pil_img, (0, (width - height) // 2))
+        return result
+    else:
+        result = Image.new(pil_img.mode, (height, height), background_color)
+        result.paste(pil_img, ((height - width) // 2, 0))
+        return result
+
 logging.basicConfig(level=logging.INFO)
 
 root = path.dirname(path.abspath(__file__))
 doc_directory = path.normpath(path.join(root, "..", ".." , "docs"))
-
-pages=1
-count=0
-articles_per_page=9
-
+includes_dir = path.normpath(path.join(root, "..", ".." , "includes"))
 ew_dir=path.join(doc_directory, "example-scenario")
 ra_dir=path.join(doc_directory, "reference-architectures")
 acom_dir=path.join(doc_directory, "solution-ideas", "articles")
@@ -136,11 +183,15 @@ env = Environment (
     loader = FileSystemLoader(templates_dir),
     trim_blocks = True,
     lstrip_blocks = True,
-    keep_trailing_newline = True
+    keep_trailing_newline = True,
+    autoescape=select_autoescape(['resx'])
     )
 
-tag_file = open(path.join(index_dir, "metadata", "display-tags.json"), "r")
-tag_metadata=json.load(tag_file)
+# tag_file = open(path.join(index_dir, "metadata", "display-tags.json"), "r")
+# tag_metadata=json.load(tag_file)
+
+category_file = open(path.join(root, "categories.json"), "r")
+categories=json.load(category_file)['categories']
 
 acom_diagrams = Path(acom_dir).glob('**/*.md')
 example_workloads = Path(ew_dir).glob('**/*.md')
@@ -215,26 +266,19 @@ for file in all_architectures_list:
 
     # Strip SVG and convert to html
     logging.debug("Stripping tags")
-    contents = file_path.read_text(encoding="utf8")
+    with open(file, encoding="utf8") as f:
+        article_meta, contents = frontmatter.parse(f.read())
     htmltags = re.compile('<.*>')
     cleantext = re.sub(htmltags, '', contents)
     words=cleantext.lower().split()
-
     logging.debug("Getting word count")
     article['word_count'] = len(words)
 
+    includes = re.compile('\[\!INCLUDE.*')
+    contents = re.sub(includes, '', contents)
+
     logging.debug("Get reading time")
     article['read_time'] = str(readtime.of_markdown(cleantext))
-
-    logging.debug("Parsing Metadata")
-    headers = re.findall(r"---\n(.*)\n---", contents, re.MULTILINE | re.DOTALL)
-    if headers:
-        try:
-            logging.debug("Loadding YAML")
-            article_meta = yaml.load("\n".join(headers), Loader=yaml.SafeLoader)
-        except:
-            print("Broken headers for: " + str_path)
-            print("\n".join(headers))
 
     if article_meta.get('redirect_url'):
         logging.info("Found redirect for: " + str_path)
@@ -242,14 +286,18 @@ for file in all_architectures_list:
 
     logging.debug("Getting title")
     if article_meta['title']:
-        article['title'] = article_meta['title']
+        article['Title'] = article_meta['title']
     else:
         print("No title found for", str_path)
         continue
 
     logging.debug("Getting description")
     if article_meta['description']:
-        article['description'] = article_meta['description']
+        article['MetaDescription'] = article_meta['description']
+
+    logging.debug("Getting categories")
+    if article_meta['ms.category']:
+        article['category'] = article_meta['ms.category']
 
     logging.debug("Finding images")
     # Find the first image in the article
@@ -271,6 +319,7 @@ for file in all_architectures_list:
     if image:
         image=path.normpath(path.join(path.dirname(file_path), image))
         article['image'] = str(PurePath("/azure/architecture/" + str(Path(image).resolve().relative_to(doc_directory))).as_posix())
+        article['imagepath'] = str(Path(image).resolve())
     else:
         article['image'] = "/azure/architecture/_images/reference-architectures.svg"
 
@@ -293,6 +342,9 @@ for file in all_architectures_list:
         article.setdefault('tags', []).append("is-deployable")
         article['deployable'] = dp[0]
 
+    logging.debug("Finding any link definitions")
+    links = re.findall(r"^\[.*]:.*$", contents, re.MULTILINE)
+
     logging.debug("Looking for pricing calculator")
     pr = re.findall(r"http[s]*:\/\/(?:www.)*azure.com/e/[0-9a-zA-Z\-\/\#\?\.\%_]+", contents, re.MULTILINE)
     if pr:
@@ -312,16 +364,23 @@ for file in all_architectures_list:
         article['alternative_choices'] = to_anchor(ac[0])
 
     logging.debug("Looking for Component Information")
-    component = re.findall(r"^(?:#*\s*)(component.*)$", contents, re.MULTILINE | re.IGNORECASE)
+    component = re.findall(r"^#(.*component.*\n*)((?:\s[-|\*]\s[^#]*\n)+)", contents, re.MULTILINE | re.IGNORECASE)
     if component:
-        article.setdefault('tags', []).append("components")
-        article['components'] = to_anchor(component[0])
+        components = re.findall(r"^(?:\s*[-|\*]\s*)(.*$)", component[0][1], re.MULTILINE  | re.IGNORECASE)
+        components = [markdown.markdown((c + "\n" + "\n".join(links))) for c in components]
+        article['components'] = [update_paths(x, article['http_url']) for x in components]
 
-    logging.debug("Looking for Data Flow")
-    flow = re.findall(r"^(?:#*\s*)([a-z ]*flow*)$", contents, re.MULTILINE | re.IGNORECASE)
+    logging.debug("Looking for Introduction text")
+    introduction = re.findall(r"^(?:#[\s|\w][\w|\s]*\n)(.*?)^#", contents, re.MULTILINE | re.IGNORECASE | re.DOTALL)
+    if introduction:
+        article['Summary'] = update_paths(markdown.markdown(introduction[0] + "\n" + "\n".join(links)), article['http_url'])
+
+    logging.debug("Looking for Flow details")
+    flow = re.findall(r"^(.*flow.*\n*)((?:\s*\d\.\s[^#]*\n)+)", contents, re.MULTILINE  | re.IGNORECASE)
     if flow:
+        steps = re.findall(r"(?:\s*\d\. )(.*$)\n", flow[0][1], re.MULTILINE  | re.IGNORECASE)
         article.setdefault('tags', []).append("data-flow")
-        article['data_flow'] = to_anchor(flow[0])
+        article['Flow'] = {"FlowStep_" + str(stepnum_letter(k)): update_paths(v, article['http_url']) for k, v in enumerate(steps, start=1)}
 
     logging.debug("Looking for github")
     sc = re.findall(r"http[s]*:\/\/(?:www.)*github.com/(?!.*\/issues\/)(?!.*\/Azure\/)[0-9a-zA-Z\-\/\#\?\.\%_]+", contents, re.MULTILINE)
@@ -356,8 +415,11 @@ for file in all_architectures_list:
 
     logging.debug("Done parsing")
 
-    if article['title']:
+    if article.get('Title'):
         logging.debug("Finalize config")
+
+        # Set article short name
+        article['name'] = file_path.stem
 
         # Have an everything tag
         article.setdefault('tags', []).append("all-items")
@@ -379,7 +441,7 @@ for file in all_architectures_list:
         parsed_articles.append(article)
 
 # Sort by title
-parsed_articles = sorted(parsed_articles, key=lambda x: x['title'])
+parsed_articles = sorted(parsed_articles, key=lambda x: x['Title'])
 
 all_tags = []
 all_langs = []
@@ -387,13 +449,21 @@ all_langs = []
 with open( path.join(doc_directory, "toc.yml"), 'r') as stream:
     main_toc = yaml.safe_load(stream)
 
+all_topics = defaultdict(list)
+
 for article in parsed_articles:  
-    toc_link=list(find_all(main_toc,article['file_url'],'item'))
-    if len(toc_link) == 0:
-        main_toc = update_toc(article, main_toc)
+    # toc_link=list(find_all(main_toc,article['file_url'],'item'))
+    # if len(toc_link) == 0:
+    #     main_toc= update_toc(article, main_toc)
 
     # Sort the tags
     article['tags'] = sorted(article['tags'])
+
+    # Define the primnary topic for the article
+    article['topic'] = categories[article['category'][0]]
+
+    # Build topic array
+    all_topics[article['topic']].append(article)
 
     # Build tag list
     all_tags.extend(article['tags'])
@@ -403,26 +473,73 @@ for article in parsed_articles:
         article['code_languages'] = sorted(article['code_languages'])
         all_langs.extend(article['code_languages'])  
 
-    article['filter_text'] = article['title'].lower() + " " + article['description'].lower()
+    acom_def = acom_json(article)
+    output_file = open(path.join(root, "acom_data", "json", article['name'] + ".json"), "w")
+    output_file.write(json.dumps(acom_def, indent=4))
+    output_file.close()
+
+    template = env.get_template('acom_data.resx')
+    output_file = open(path.join(root, "acom_data", "resx", article['name'] + ".resx"), "w")
+    output_file.write(template.render(article))
+    output_file.close()
+
+    if article.get('imagepath'):
+        if os.path.splitext(article['imagepath'])[1] == ".svg":
+            imagefile = os.path.splitext(article['imagepath'])[0] + ".png"
+        else:
+            imagefile = article['imagepath']
+          
+        #TODO: Check if thumbnail exists before making one
+        # image = Image.open(imagefile)
+        # image_thumb = expand2square(image, (255, 255, 255))
+        # image_thumb.thumbnail((200,200), Image.ANTIALIAS)
+        # image_thumb.save(path.join(doc_directory, "browse", "thumbs", article['name'] + ".png"))
+        
+        acom_image = path.join(root, "acom_data", "images", article['name'] + os.path.splitext(article['imagepath'])[1])
+        shutil.copyfile(article['imagepath'], acom_image)
+
+    card_template = env.get_template('card.md')
+    card_file = open(path.join(includes_dir, "cards", article['name'] + ".md"), "w")
+    card_file.write(card_template.render(article=article, categories=categories))
+    card_file.close()
 
 all_langs = unique(all_langs)
 all_tags = unique(all_tags)
-#TODO Alert if a new tag was found
 
 articles={"articles": parsed_articles}
 
-output_file = open(path.join(doc_directory, "toc.yml"), "w")
-output_file.write(yaml.dump(main_toc, default_flow_style=False, sort_keys=False))
+# index_template = env.get_template('architecture_index.md')
+# index_file = open(path.join(doc_directory, "architectures", "browse.md"), "wb")
+# index_file.write(index_template.render(topics=all_topics.items()).encode('utf-8'))
+# index_file.close()
+
+# article_template = env.get_template('rough_index.yaml')
+# article_file = open(path.join(doc_directory, "architectures", "test", "index.yml"), "wb")
+# article_file.write(article_template.render(articles=articles, azure_categories=azure_categories).encode('utf-8'))
+# article_file.close()
+
+hub_template = env.get_template('browse_template.md')
+hub_file = open(path.join(doc_directory, "browse", "index.md"), "wb")
+hub_file.write(hub_template.render(articles=articles, topics=all_topics.items(), categories=categories).encode('utf-8'))
+hub_file.close()
+
+# toc_template = env.get_template('topic_toc.yaml')
+# toc_file = open(path.join(root_dir, "toc_stub.yaml"), "wb")
+# toc_file.write(toc_template.render(articles=articles, topics=all_topics.items(), categories=categories).encode('utf-8'))
+# toc_file.close()
+
+# output_file = open(path.join(doc_directory, "toc.yml"), "wb")
+# output_file.write(yaml.dump(main_toc, default_flow_style=False, sort_keys=False).encode('utf-8'))
+# output_file.close()
+
+output_file = open(path.join(doc_directory, "browse", "data", "architectures.json"), "wb")
+output_file.write(json.dumps(articles, indent=4).encode('utf-8'))
 output_file.close()
 
-output_file = open(path.join(index_dir, "data", "output.json"), "w")
-output_file.write(json.dumps(articles, indent=4))
-output_file.close()
+# output_file = open(path.join(root_dir, "data", "tags.json"), "wb")
+# output_file.write(json.dumps(sorted(all_tags), indent=4).encode('utf-8'))
+# output_file.close()
 
-output_file = open(path.join(index_dir, "data", "tags.json"), "w")
-output_file.write(json.dumps(sorted(all_tags), indent=4))
-output_file.close()
-
-output_file = open(path.join(index_dir, "data", "dev-langs.json"), "w")
-output_file.write(json.dumps(sorted(all_langs), indent=4))
-output_file.close()
+# output_file = open(path.join(root_dir, "data", "dev-langs.json"), "wb")
+# output_file.write(json.dumps(sorted(all_langs), indent=4).encode('utf-8'))
+# output_file.close()

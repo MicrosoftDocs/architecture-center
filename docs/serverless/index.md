@@ -1,11 +1,14 @@
 ---
-title: Overview of serverless applications in Azure | Microsoft Docs
+title: Overview of serverless applications in Azure
 description: This article is a starting point to explore serverless architectures in Azure. 
 author: dsk-2015
 ms.date: 07/26/2019
 ms.author: pnp
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - developer-tools
+  - compute
 ms.subservice: reference-architecture
 ---
 

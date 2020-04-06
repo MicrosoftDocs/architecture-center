@@ -6,7 +6,10 @@ ms.date: 12/16/2019
 description: Start simple with the content management system that enables you to easily maintain the messaging on your website in real-time, from a browser, with no coding skills.
 ms.custom: acom-architecture, web-apps,'https://azure.microsoft.com/solutions/architecture/digital-marketing-smb/'
 ms.service: architecture-center
+ms.category:
+  - web
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/digital-marketing-smb.png
 ---
 
 # Simple digital marketing website
@@ -19,7 +22,8 @@ This solution is built on the Azure managed services: [Azure SQL Database](https
 
 ## Architecture
 
-![Architecture diagram](../media/digital-marketing-smb.svg)
+![Architecture diagram](../media/digital-marketing-smb.png)
+*Download an [SVG](../media/digital-marketing-smb.svg) of this architecture.*
 
 ## Components
 

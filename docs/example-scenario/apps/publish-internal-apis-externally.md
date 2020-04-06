@@ -4,6 +4,9 @@ description: Use Azure API Management to modernize and expose intranet legacy we
 author: ssarwa
 ms.date: 03/12/2019
 ms.author: ssarwa
+ms.category:
+  - integration
+  - hybrid
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -125,15 +128,15 @@ The components deployed using the above Resource Manager template needs to be fu
    - Configure custom domains for APIM Services using SSL Cert
      - API portal (api.contoso.org)
      - Dev Portal (portal.contoso.org)
-     - In the APIs section, configure the ASE Apps using ASE’s DNS name added Policy for HOST Header for the Web app
+     - In the APIs section, configure the ASE Apps using ASE's DNS name added Policy for HOST Header for the Web app
      - Use the above created test VM to test the API Management service internal on the Virtual Network
 
 > [!NOTE]
-> The testing the APIM APIs from Azure portal will still NOT work as we don’t have api.contoso.org not be able to publicly resolve*
+> The testing the APIM APIs from Azure portal will still NOT work as we don't have api.contoso.org not be able to publicly resolve*
 
 8. Configure Application Gateway (WAF V1) to access the APU service: apim-gateway on Port 80. Add SSL Certs to the App Gateway and corresponding Health probes and Http settings. Also configure the Rules and Listeners to use SSL Cert
 
-Once the above steps are successfully completed, Configure the DNS entries in GoDaddy CNAME entries of api.contoso.org and portal.contoso.org with App Gateway’s public DNS name: ase-appgtwy.westus.cloudapp.azure.com and verify if you are able to reach the Dev Portal from Public and are able to test the APIM services APIs using Azure portal
+Once the above steps are successfully completed, Configure the DNS entries in GoDaddy CNAME entries of api.contoso.org and portal.contoso.org with App Gateway's public DNS name: ase-appgtwy.westus.cloudapp.azure.com and verify if you are able to reach the Dev Portal from Public and are able to test the APIM services APIs using Azure portal
 
 *It is not a good practice to use same URL for Internal and External endpoints for the APIM services (currently in the above demo, both URLs are same). If we want to choose to have different URLs for internal and external endpoints, we could make use of App Gateway WAF v2, which supports http redirection and much more.*
 
