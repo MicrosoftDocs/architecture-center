@@ -43,7 +43,7 @@
 		"master": ["Publish", "Pdf"]
   },
   "need_generate_pdf": true,
-  "need_generate_pdf_url_template": false,
+  "need_generate_pdf_url_template": true,
   "targets": {
     "PDF": {
 			"template_folder": "_themes.pdf"
