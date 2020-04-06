@@ -1,7 +1,7 @@
 ---
-title: Speech to text conversion 
-titleSuffix: Azure Reference Architectures
-description: Recommended way to upload audio files and process the speech content to text.
+title: Speech-to-text conversion 
+titleSuffix: Azure reference architectures
+description: This article describes the recommended way to upload audio files and convert the speech content to text.
 author: dsk-2015
 ms.date: 03/25/2020
 ms.topic: reference-architecture
@@ -13,7 +13,7 @@ ms.category:
 
 # Speech transcription with Azure Cognitive Services
 
-Customer care centers form an integral part of business success. Efficiency of these call centers can be improved using *Speech AI*. Speech recognition and analysis of high volumes of recorded customer calls can provide businesses with valuable information about current trends, product shortcomings as well as successes. Enterprise solutions using the Speech APIs of Azure Cognitive Services can be implemented to consume and process such high volumes of discrete data.
+Customer care centers are an integral part of the success of most businesses. You can improve the efficiency of your call centers by using speech AI. Speech recognition and the analysis of high volumes of recorded customer calls can provide businesses with valuable information about current trends, product shortcomings, and successes. Enterprise solutions that use the Speech APIs of Azure Cognitive Services can be implemented to consume and process such high volumes of discrete data.
 
 This reference architecture shows how to build an audio ingestion and *speech-to-text* transcription pipeline for such customer care centers. This pipeline processes batches of recorded audio files, and stores the transcribed text files in Azure Blob Storage. This architecture does not implement real-time speech processing.
 
