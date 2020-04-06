@@ -2,7 +2,7 @@ items:
 - name: Azure Architecture Center
   href: index.md
 - name: Browse all Architectures
-  href: https://docs.microsoft.com/azure/architecture/browse
+  href: browse/index.md
 - name: Application Architecture Guide
   items:
   - name: Introduction
