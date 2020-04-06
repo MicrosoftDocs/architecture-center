@@ -4900,46 +4900,6 @@
         },
         {
             "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-modern-customer-support-portal-powered-by-an-agile-business-process-'",
-                "acom-architecture",
-                "all-items",
-                "cloud-innovation",
-                "cloud-migration",
-                "data-flow",
-                "interactive-diagram",
-                "lift-and-shift-cloud-strategy",
-                "lift-and-shift-solution",
-                "lift-and-shift-strategy",
-                "line-of-business-app",
-                "lob-app",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process",
-            "word_count": 161,
-            "read_time": "1 min read",
-            "Title": "Lift and Shift and Innovate - LOB Apps",
-            "MetaDescription": "This architecture shows how to easily connect multiple business systems to enable customer support.",
-            "category": [
-                "migration",
-                "hybrid"
-            ],
-            "image": "/azure/architecture/solution-ideas/media/modern-customer-support-portal-powered-by-an-agile-business-process.png",
-            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\modern-customer-support-portal-powered-by-an-agile-business-process.png",
-            "publish_date": "12/16/2019",
-            "Flow": {
-                "FlowStep_A": "Customer submits feedback posted to a web endpoint.",
-                "FlowStep_B": "The feedback is posted to Microsoft Cognitive Services Text Analytics API to extract sentiment and keywords.",
-                "FlowStep_C": "The customer feedback creates a new case in Dynamics CRM or other CRM.",
-                "FlowStep_D": "The solution sends a text message to the customer, thanking them for the feedback."
-            },
-            "name": "modern-customer-support-portal-powered-by-an-agile-business-process",
-            "popularity": 160,
-            "topic": "Migration"
-        },
-        {
-            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application-'",
                 "acom-architecture",
                 "all-items",
@@ -4983,6 +4943,46 @@
             },
             "name": "adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application",
             "popularity": 128,
+            "topic": "Migration"
+        },
+        {
+            "tags": [
+                "'https:--azure.microsoft.com-solutions-architecture-modern-customer-support-portal-powered-by-an-agile-business-process-'",
+                "acom-architecture",
+                "all-items",
+                "cloud-innovation",
+                "cloud-migration",
+                "data-flow",
+                "interactive-diagram",
+                "lift-and-shift-cloud-strategy",
+                "lift-and-shift-solution",
+                "lift-and-shift-strategy",
+                "line-of-business-app",
+                "lob-app",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process",
+            "word_count": 161,
+            "read_time": "1 min read",
+            "Title": "Lift and Shift and Innovate - LOB Apps",
+            "MetaDescription": "This architecture shows how to easily connect multiple business systems to enable customer support.",
+            "category": [
+                "migration",
+                "hybrid"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/modern-customer-support-portal-powered-by-an-agile-business-process.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\modern-customer-support-portal-powered-by-an-agile-business-process.png",
+            "publish_date": "12/16/2019",
+            "Flow": {
+                "FlowStep_A": "Customer submits feedback posted to a web endpoint.",
+                "FlowStep_B": "The feedback is posted to Microsoft Cognitive Services Text Analytics API to extract sentiment and keywords.",
+                "FlowStep_C": "The customer feedback creates a new case in Dynamics CRM or other CRM.",
+                "FlowStep_D": "The solution sends a text message to the customer, thanking them for the feedback."
+            },
+            "name": "modern-customer-support-portal-powered-by-an-agile-business-process",
+            "popularity": 160,
             "topic": "Migration"
         },
         {
