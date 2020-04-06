@@ -518,7 +518,7 @@ articles={"articles": parsed_articles}
 # article_file.write(article_template.render(articles=articles, azure_categories=azure_categories).encode('utf-8'))
 # article_file.close()
 
-hub_template = env.get_template('browse_template.md')
+hub_template = env.get_template('architecture_index.md')
 hub_file = open(path.join(doc_directory, "browse", "index.md"), "wb")
 hub_file.write(hub_template.render(articles=articles, topics=all_topics.items(), categories=categories).encode('utf-8'))
 hub_file.close()
