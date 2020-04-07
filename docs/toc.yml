@@ -1004,6 +1004,8 @@ items:
         href: reference-architectures/hybrid-networking/vnet-peering.md
       - name: Deploy highly available NVAs
         href: reference-architectures/dmz/nva-ha.md
+      - name: High availability for IaaS apps
+        href: example-scenario/infrastructure/iaas-high-availability-disaster-recovery.md
       - name: Hub-spoke network topology in Azure
         href: reference-architectures/hybrid-networking/hub-spoke.md
       - name: Implement a secure hybrid network
