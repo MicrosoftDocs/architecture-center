@@ -84,11 +84,6 @@ If your workload fluctuates over time, consider using virtual machine scale sets
 
 If your Azure SQL Database tier isn't adequate to handle your application's Database Transaction Unit (DTU) requirements, your data use will be throttled. For more information on selecting the correct service plan, see [Azure SQL Database purchasing models](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
 
-
-Sample:
-
-This [reference implementation](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md) monitors a Cosmos DB database for throttling. Azure Monitor alerts are triggered when data access requests to CosmosDB exceed the capacity in Request Units (or RUs). For more context, see the [Reference Architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/cloud-automation) (Throttling response scenario)
-
 ## Instrumentation
 
 It's not practical to monitor your application directly, so instrumentation is key. A large-scale distributed system might run on dozens of virtual machines (VMs), which are added and removed over time. Likewise, a cloud application might use a number of data stores and a single user action might span multiple subsystems.
