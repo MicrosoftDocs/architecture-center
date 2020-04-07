@@ -171,7 +171,7 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 [monitor-containers]: /azure/monitoring/monitoring-container-insights-overview
 [permissions]: /azure/aks/concepts-identity
 [rbac]: /azure/active-directory/role-based-access-control-what-is
-[scale-cluster]: /azure/aks/scale-cluster'
+[scale-cluster]: /azure/aks/scale-cluster
 [scikit]: https://pypi.org/project/scikit-learn/
 [security-center]: /azure/security-center/security-center-intro
 [vm]: /azure/virtual-machines/
