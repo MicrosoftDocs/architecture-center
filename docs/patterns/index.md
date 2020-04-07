@@ -84,14 +84,13 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 
 | Pattern | Summary | Category |
 | ------- | ------- | -------- |
-| [Ambassador](./ambassador.md) | Create helper services that send network requests on behalf of a consumer service or application. | [Design and Implementation](/azure/architecture/patterns/category/design-implementation), 
-[Management and Monitoring](/azure/architecture/patterns/category/management-monitoring) |
+| [Ambassador](./ambassador.md) | Create helper services that send network requests on behalf of a consumer service or application. | [Design and Implementation](/azure/architecture/patterns/category/design-implementation), [Management and Monitoring](/azure/architecture/patterns/category/management-monitoring) |
 | [Anti-Corruption Layer](./anti-corruption-layer.md) | Implement a façade or adapter layer between a modern application and a legacy system. |[Design and Implementation](/azure/architecture/patterns/category/design-implementation), [Management and Monitoring](/azure/architecture/patterns/category/management-monitoring)|
 | [Asynchronous Request-Reply](./async-request-reply.md) | Decouple backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response. | [Messaging](/azure/architecture/patterns/category/messaging) |
 | [Backends for Frontends](./backends-for-frontends.md) | Create separate backend services to be consumed by specific frontend applications or interfaces. | [Design and Implementation](/azure/architecture/patterns/category/design-implementation) |
 | [Bulkhead](./bulkhead.md) | Isolate elements of an application into pools so that if one fails, the others will continue to function. | [Resiliency](/azure/architecture/patterns/category/resiliency) |
-| [Cache-Aside](./cache-aside.md) | Load data on demand into a cache from a data store |
-| [Choreography](./choreography.md)| Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.|
+| [Cache-Aside](./cache-aside.md) | Load data on demand into a cache from a data store | [Data Management](/azure/architecture/patterns/category/data-management), [Performance and Scalability](/azure/architecture/patterns/category/performance-scalability) |
+| [Choreography](./choreography.md)| Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.| [Messaging](/azure/architecture/patterns/category/messaging),[Performance and Scalability](/azure/architecture/patterns/category/performance-scalability) |
 | [Circuit Breaker](./circuit-breaker.md) | Handle faults that might take a variable amount of time to fix when connecting to a remote service or resource. |
 | [Claim Check](./claim-check.md) | Split a large message into a claim check and a payload to avoid overwhelming a message bus. |
 | [Compensating Transaction](./compensating-transaction.md) | Undo the work performed by a series of steps, which together define an eventually consistent operation. |
