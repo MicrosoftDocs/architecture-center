@@ -99,25 +99,25 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 | [CQRS](./cqrs.md) | Segregate operations that read data from operations that update data by using separate interfaces. | [Data Management](/azure/architecture/patterns/category/data-management), <hr> [Design and Implementation](/azure/architecture/patterns/category/design-implementation), <hr> [Performance and Scalability](/azure/architecture/patterns/category/performance-scalability) |
 | [Event Sourcing](./event-sourcing.md) | Use an append-only store to record the full series of events that describe actions taken on data in a domain. | [Data Management](/azure/architecture/patterns/category/data-management), <hr> [Performance and Scalability](/azure/architecture/patterns/category/performance-scalability) |
 | [External Configuration Store](./external-configuration-store.md) | Move configuration information out of the application deployment package to a centralized location. | [Design and Implementation](/azure/architecture/patterns/category/design-implementation), <hr> [Management and Monitoring](/azure/architecture/patterns/category/management-monitoring) |
-| [Federated Identity](./federated-identity.md) | Delegate authentication to an external identity provider. |
-| [Gatekeeper](./gatekeeper.md) | Protect applications and services by using a dedicated host instance that acts as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them. |
-| [Gateway Aggregation](./gateway-aggregation.md) | Use a gateway to aggregate multiple individual requests into a single request. |
-| [Gateway Offloading](./gateway-offloading.md) | Offload shared or specialized service functionality to a gateway proxy. |
-| [Gateway Routing](./gateway-routing.md) | Route requests to multiple services using a single endpoint. |
-| [Health Endpoint Monitoring](./health-endpoint-monitoring.md) | Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals. |
-| [Index Table](./index-table.md) | Create indexes over the fields in data stores that are frequently referenced by queries. |
-| [Leader Election](./leader-election.md) | Coordinate the actions performed by a collection of collaborating task instances in a distributed application by electing one instance as the leader that assumes responsibility for managing the other instances. |
-| [Materialized View](./materialized-view.md) | Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations. |
-| [Pipes and Filters](./pipes-and-filters.md) | Break down a task that performs complex processing into a series of separate elements that can be reused. |
-| [Priority Queue](./priority-queue.md) | Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority. |
-| [Publisher/Subscriber](./publisher-subscriber.md) | Enable an application to announce events to multiple interested consumers asynchronously, without coupling the senders to the receivers. |
-| [Queue-Based Load Leveling](./queue-based-load-leveling.md) | Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads. |
-| [Retry](./retry.md) | Enable an application to handle anticipated, temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that's previously failed. |
-| [Scheduler Agent Supervisor](./scheduler-agent-supervisor.md) | Coordinate a set of actions across a distributed set of services and other remote resources. |
-| [Sequential Convoy](./sequential-convoy.md) | Process a set of related messages in a defined order, without blocking processing of other groups of messages. |
-| [Sharding](./sharding.md) | Divide a data store into a set of horizontal partitions or shards. |
-| [Sidecar](./sidecar.md) | Deploy components of an application into a separate process or container to provide isolation and encapsulation. |
-| [Static Content Hosting](./static-content-hosting.md) | Deploy static content to a cloud-based storage service that can deliver them directly to the client. |
-| [Strangler](./strangler.md) | Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services. |
-| [Throttling](./throttling.md) | Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service. |
-| [Valet Key](./valet-key.md) | Use a token or key that provides clients with restricted direct access to a specific resource or service. |
+| [Federated Identity](./federated-identity.md) | Delegate authentication to an external identity provider. | [Security]/azure/architecture/patterns/category/security |
+| [Gatekeeper](./gatekeeper.md) | Protect applications and services by using a dedicated host instance that acts as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them. | 1 |
+| [Gateway Aggregation](./gateway-aggregation.md) | Use a gateway to aggregate multiple individual requests into a single request. | 2 |
+| [Gateway Offloading](./gateway-offloading.md) | Offload shared or specialized service functionality to a gateway proxy. | 3 |
+| [Gateway Routing](./gateway-routing.md) | Route requests to multiple services using a single endpoint. | 4 |
+| [Health Endpoint Monitoring](./health-endpoint-monitoring.md) | Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals. | 5 |
+| [Index Table](./index-table.md) | Create indexes over the fields in data stores that are frequently referenced by queries. | 6 |
+| [Leader Election](./leader-election.md) | Coordinate the actions performed by a collection of collaborating task instances in a distributed application by electing one instance as the leader that assumes responsibility for managing the other instances. | 7 |
+| [Materialized View](./materialized-view.md) | Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations. | 8 |
+| [Pipes and Filters](./pipes-and-filters.md) | Break down a task that performs complex processing into a series of separate elements that can be reused. | 9 |
+| [Priority Queue](./priority-queue.md) | Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority. | 10 |
+| [Publisher/Subscriber](./publisher-subscriber.md) | Enable an application to announce events to multiple interested consumers asynchronously, without coupling the senders to the receivers. | 11 |
+| [Queue-Based Load Leveling](./queue-based-load-leveling.md) | Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads. | 12 |
+| [Retry](./retry.md) | Enable an application to handle anticipated, temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that's previously failed. | 13 |
+| [Scheduler Agent Supervisor](./scheduler-agent-supervisor.md) | Coordinate a set of actions across a distributed set of services and other remote resources. | 14 |
+| [Sequential Convoy](./sequential-convoy.md) | Process a set of related messages in a defined order, without blocking processing of other groups of messages. | 15 |
+| [Sharding](./sharding.md) | Divide a data store into a set of horizontal partitions or shards. | 16 |
+| [Sidecar](./sidecar.md) | Deploy components of an application into a separate process or container to provide isolation and encapsulation. | 17 |
+| [Static Content Hosting](./static-content-hosting.md) | Deploy static content to a cloud-based storage service that can deliver them directly to the client. | 18 |
+| [Strangler](./strangler.md) | Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services. | 19 |
+| [Throttling](./throttling.md) | Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service. | 20 |
+| [Valet Key](./valet-key.md) | Use a token or key that provides clients with restricted direct access to a specific resource or service. | 21 |
