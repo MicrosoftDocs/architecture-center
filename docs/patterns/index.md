@@ -84,7 +84,7 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 
 | Pattern | Summary | Category |
 | ------- | ------- | -------- |
-| [Ambassador](./ambassador.md) | Create helper services that send network requests on behalf of a consumer service or application. | - [Design and Implementation](/azure/architecture/patterns/category/design-implementation),  - [Management and Monitoring](/azure/architecture/patterns/category/management-monitoring) |
+| [Ambassador](./ambassador.md) | Create helper services that send network requests on behalf of a consumer service or application. | 1. [Design and Implementation](/azure/architecture/patterns/category/design-implementation),  1. [Management and Monitoring](/azure/architecture/patterns/category/management-monitoring) |
 | [Anti-Corruption Layer](./anti-corruption-layer.md) | Implement a façade or adapter layer between a modern application and a legacy system. |[Design and Implementation](/azure/architecture/patterns/category/design-implementation), [Management and Monitoring](/azure/architecture/patterns/category/management-monitoring)|
 | [Asynchronous Request-Reply](./async-request-reply.md) | Decouple backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response. | [Messaging](/azure/architecture/patterns/category/messaging) |
 | [Backends for Frontends](./backends-for-frontends.md) | Create separate backend services to be consumed by specific frontend applications or interfaces. | [Design and Implementation](/azure/architecture/patterns/category/design-implementation) |
