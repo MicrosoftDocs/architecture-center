@@ -888,6 +888,8 @@ items:
       items:
       - name: Basic enterprise integration on Azure
         href: reference-architectures/enterprise-integration/basic-enterprise-integration.md
+      - name: Integration with App Services Environment
+        href: reference-architectures/enterprise-integration/ase-ra.md
       - name: Enterprise business intelligence
         href: reference-architectures/data/enterprise-bi-synapse.md
       - name: Enterprise integration using queues and events
