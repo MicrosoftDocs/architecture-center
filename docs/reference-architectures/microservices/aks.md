@@ -310,5 +310,7 @@ To deploy the reference implementation for this architecture, follow the steps i
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services/
-[AppGatewayPricing]: https://azure.microsoft.com//pricing/details/application-gateway/
+[AppGatewayPricing]: https://azure.microsoft.com/pricing/details/application-gateway/
 [aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service
+[az-lb-pricing]: https://azure.microsoft.com/pricing/details/load-balancer/
+[az-monitor-pricing]: https://azure.microsoft.com/pricing/details/monitor/
