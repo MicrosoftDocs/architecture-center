@@ -15,9 +15,9 @@ Chaos Engineering is a practice used for enabling developers to attain consisten
 
 ## Principles
 
-Following the practices of Chaos Engineering will increase your service's resiliency, promote ability to act, and improve team morale. Reduce the uncertainty of production by leaning into Chaos and transforming rare, unpredictable, and disruptive outcomes into controlled experiments you identify before your customers are impacted.
+Following the practices of Chaos Engineering will increase your service's resiliency, promote ability to act, and improve team morale. Reduce the uncertainty of production by leaning into Chaos and transforming rare, unpredictable, and disruptive outcomes into controlled experiments you identify during development and deployment before your customers are impacted.
 
-- Proactive​
+- Be Proactive​
 - Embrace failure​
 - Break the system​
 - Identify and address single points of failure early
@@ -29,15 +29,15 @@ Following the practices of Chaos Engineering will increase your service's resili
 
 #### Shifting left
 
-Experiment early, experiment often, incorporating fault injection configurations and creating resiliency validation gates in your development stages.  
+Experiment early, experiment often, incorporating fault injection configurations and creating resiliency validation gates in your development stages and deployment pipeline.  
 
 #### Shifting right
-Is an opportunity to verify that the service is resilient where it counts.  Enables a proactive as opposed to reactive approach improving DRI morale when done during business hours. Help with determining and controlling blast radius.  
+Is an opportunity to verify that the service is resilient where it counts in pre-production or production environment with actual customer load.  Enables a proactive as opposed to reactive approach improving DRI morale when done during business hours. Help with determining and controlling blast radius.  
 
 #### Blast radius
 Being able to quickly stop an experiment and contain it to specific services [Bulkhead pattern](/azure/architecture/patterns/bulkhead). Recognizing that experimentation means unknown results and strive to achieving balance between collecting substantial result data while affecting as few production users as possible.  
 
-#### Error (chaos) Budget
+#### Error Budget Testing
 Error budget can be used to invest in Chaos and Fault injection. Difference between 100% and agreed upon Service Level Objective(SLO) is your error budget.
 
 ### Best practices for chaos engineering
@@ -46,7 +46,8 @@ The following are best practices based on application of chaos engineering insid
 1. **The faults must matter to the development team**
     - This is about what is injected.
 
-        For a development team to spend bandwidth looking at failures from an artificial source the failures must meet a very high bar for relevance. A team acting outside of a dev group can't just inject hypothetical faults and expect them to be looked at. Work closely with the dev teams to ensure the importance of the failures injected.  
+        For a development team to spend bandwidth looking at failures from an artificial source the failures must meet a very high bar for relevance. A team acting outside of a dev group can't just inject hypothetical faults and expect them to be looked at. Work closely with the dev teams to ensure the importance of the failures injected. 
+        Use past incidents or issues as a guide. Examine dependencies and see what happens when they are removed.
 1. **The faults must be injected in a way that accurately reflects what would happen in production**
     - This is about how faults are injected.
 
@@ -69,8 +70,15 @@ The following are best practices based on application of chaos engineering insid
 
 1. **An incremental approach should be used to build confidence**
     - Starting with hardening the core and then expanding out in layers. At each point progress should be locked in with automated regression tests. Each team should have a long term strategy based on a progression that makes sense for their circumstances.
+    
+1. **Leverage scientific method**
+    - Start with a hypothesis, measure baseline behavior, inject a fault or faults, monitor the resulting behavior, document and act upon the findings
+    
 1. **Chaos engineering should be a part of the development team culture and an ongoing practice, not a short-term tactical effort in response to an outage**
     - Development team must be partners in the process. They must have resources committed to look at the issues found, and must be active partners who are willing to make product changes as necessary to implement testability required for Fault Injection.
+1. **Validate process in addition to architecture choices and code** 
+    - Fault injection experiments help confirm that monitoring is in place, alerting is happening, the DRI process is working, and that documentation and investigation steps are up to date.
+        
 1. **Chaos engineering requires specialized expertise, technology, and practices** 
     - Like security and performance teams, the model of a central team supporting the service teams works well.
 
@@ -119,7 +127,7 @@ Faults that can be leveraged to inject chaos.
 |  | Memory | *Physical* <hr> *Virtual* <hr> *bad checksum* |
 |  | Hard disk | *Capacity* <hr> *Read* <hr> *Write* <hr> *Availability* <hr> *Data corruption* <hr> *Read / Write Latency* |
 | **Network** | Layers | *Transport (TCP/UDP)* <hr> *Application layer (HTTP)* |
-|  | Types | *Disconnect* <hr> *Latency* <> *Alter response codes (HTTP)* <hr> *Packet reorder / loss (TCP/UDP)* <hr> *# of connections (active / passive)* <hr> *DOS attack* |
+|  | Types | *Disconnect* <hr> *Latency* <hr> *Alter response codes (HTTP)* <hr> *Packet reorder / loss (TCP/UDP)* <hr> *# of connections (active / passive)* <hr> *DOS attack* |
 |  | Filters | *Domain / IP / Subnet* <hr> *URL path* <hr> *Port / Protocol* <hr> *DNS Host Name resolution* |
 | **Process** | Stop / Kill |  |
 |  | Restart |  |
@@ -143,3 +151,7 @@ Faults that can be leveraged to inject chaos.
 |  | Rack |  |
 |  | UPS  |  |
 |  | Datacenter |  |
+
+> [!NOTE]
+> This is not intended to be an exhaustive list, but a representation of commonly injected faults.  
+
