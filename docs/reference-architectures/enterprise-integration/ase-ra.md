@@ -43,7 +43,15 @@ The following services show the key deployment pieces in this architecture:
 
 ![Reference architecture for high availability ASE deployment](./_images/ha-ase-deployment.png)
 
+Multiple ASE subnets can be deployed for multiple availability zones in the same virtual network. Only internal ASEs can be used in multiple zones. Availability zones are specific to a particular region, and ensure your apps are available despite partial failures in that region.
 
+- Zone-pinned ILB ASE ensures uptime for deployed apps, and resources/VMs used by them. However does not guarantee scaling, app creation/deployment, etc. when other zones are out.
+- Zonal ILB ASE must be created with an ARM template. After that, can be viewed/modified with CLI or portal. Creation ARM template must have the new zones property, set to 1,2, or 3 based on logical Availability zones.
+- For end-to-end zone resiliency, at least 2 zonal ILB ASE are required, each pinned to different zones. Customer's apps must be duplicated on both ASEs.
+    - Traffic bound to the apps must be load-balanced. It is recommended to use zone-redundant App Gateway( https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant ) upstream to the ASEs.
+- Same VNet is used for multiple ASE subnets since VNet by default is zone redundant.
+
+This reference implementation demonstrates the steps in [this TBD deployment readme], using two ASEs for two different availability zones. All three web application components are duplicated in the two ASE subnets. Since each app will need to use its own cache, two instances of Redis are deployed per availability zones. Each ASE subnet has its own URL. The inter-app communication within a single ASE is simple. However, more routing strategies may be required (TBD WHICH?) if either one of the six components fails. App Gateway can only detect if the web app is available, whereas only the web app can detect whether the API or the function is available.
 
 ## Design considerations
 
@@ -61,6 +69,8 @@ The ASE allows isolated backend apps, such as the private API and the function, 
 
 ### App Gateway
 
+TBD
+
 #### Traffic encryption
 
 The application gateway supports following SSL encryption levels:
@@ -75,13 +85,29 @@ A Web application firewall protects the app from common security threats such as
 
 (TBD, add a code snippet from the RI here)
 
-### Key Vault
-
 ### Firewall
+
+Firewall is used to control the outbound traffic, and currently allows traffic on ports recommended by the ASE documentation. 
+
+Azure services can communicate with the ASE subnet using either service endpoints or the firewall. Most of the services required by the web app in this architecture are accessed over service endpoints (WHY?), namely, Service Bus, Key Vault, SQL Server, and CosmosDB. The traffic from some Azure services using service endpoints needs to be left out of the firewall. Additionally following considerations are required:
+    - ASE internally uses SQL Server, Azure Storage and Event Hubs for its own infrastructure management. That traffic must pass through the ASE subnet and not blocked by the firewall. Even if your app environment does not use these services, you still need to create service endpoints for them, and leave out of the firewall.
+    - The way CosmosDB handles high availability makes it hard to express in the firewall. If it is instead routed as service endpoints in the ASE subnet, the traffic is handled by Azure and works fine.
+
+The firewall needs to allow some management IPs required by the ASE infrastructure to go through a separate routing table (TBD add the IPs article link here). All traffic needs to be driven through the firewall, except for the management IP addresses. The *firewall.json* on this reference deployment creates a list of routes for the route table from an array of IPs, obtained programmatically (insert link here TBD), then deploys the firewall, and then updates the route table to add the firewall IP. Caveat is that this list may change after the route table is deployed. This will need to be managed manually, by redeploying the route table after getting the notification about changed management IPs.
 
 ### Managed identities
 
+Instead of configuring access to resources using secrets in the connection strings, it is recommended to grant permission to the identity assigned to the web application, and then connect directly without any secrets using Managed Identities. For services that doesn't support MSI, keep the secrets required to access that service in a Key Vault, and then access it using managed identities. Avoid keeping secrets directly in the code.
+
+### Key Vault
+
+Key Vault is used to store the secrets for the services that do not support managed identities, either directly or indirectly.
+
+Although Service Bus supports managed identities, it uses RBAC to set up permissions for the app. Owner access to the subscription is required for granting those permission. To allow the deployment scripts in this reference architecture to be used by owner as well as contributor roles, connection strings are used to access the Service Bus. These strings are stored in the key vault. The Key Vault supports managed identities, but does not require RBAC to grant the permissions.This approach may be used for all services that support managed identities using RBAC. Set the access policy for these connection strings appropriately, for example, read-only for the backend, write-only for the frontend, instead of using the root access policy.
+
 ### Network security groups
+
+Network security groups are enabled on all subnets to control the rules per subnet. TBD
 
 ## Scalability considerations
 
@@ -89,7 +115,10 @@ A Web application firewall protects the app from common security threats such as
 
 App Gateway supports scalability at two levels:
 
-1. Application level - Multiple domains can be configured on the App Gateway to support multiple apps. The app gateway supports domain mapping and host name rewrites. TBD
+1. Application level - Multiple domains can be configured on the App Gateway to support multiple apps. The app gateway supports domain mapping and host name rewrites. For multiple apps, DNS configuration is needed to allow different domain names pointing to the App Gateway. Different rules are required for each domain since they will each have different certificates.
+
+Be aware while configuring DNS for multiple front ends, that you cannot use "Host Name Override" as that will confuse the ASE in driving the traffic to the appropriate service plan. You may need to set up custom domain names on the app service plans. The deployment scripts can be set up so that adding new sites to the infrastructure will be simple, using custom domains on public website and allowing App Gateway to pass the hostname as is. Same domain name will be used on the isolated ASE and on the internet, allowing App Gateway to be agnostic to what goes back to the ASE. * For multi-site hosting, this blog explains how to configure the App Gateway: https://chenlong.hu/blog/read?id=mea0oNMCWJKGOrf9wlaDDuDVKel4&category=Tech
+TBD.
 
 2. Infrastructure level - by enabling [Autoscaling](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant). This is only supported in the V2 sku. TBD
 
