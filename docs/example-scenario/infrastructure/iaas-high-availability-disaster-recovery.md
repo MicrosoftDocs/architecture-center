@@ -53,7 +53,7 @@ AZs are suitable for many clustered app scenarios, including [AlwaysOn SQL clust
 
 If you want to use a VM-based *cluster arbiter*, for example a *file-share witness*, place it in the third AZ, to ensure quorum isn't lost if any one zone fails. Alternatively, you might be able to use a cloud-based witness in another region.
 
-All VMs in an AZ are in a single *fault domain* (FD) and *update domain* (UD), meaning they share a common power source and network switch, and can all be rebooted at the same time. If you create VMs across different AZs, your VMs are effectively distributed across different FDs and UDs, so they won't all fail or be rebooted at the same time. If you want to have redundant in-zone VMs as well as cross-zone VMs, you should place the in-zone VMs in PPGs to ensure they won't all be rebooted at once. You can optionally use ASs in the PPGs, which allow for future growth and flexibility. 
+All VMs in an AZ are in a single *fault domain* (FD) and *update domain* (UD), meaning they share a common power source and network switch, and can all be rebooted at the same time. If you create VMs across different AZs, your VMs are effectively distributed across different FDs and UDs, so they won't all fail or be rebooted at the same time. If you want to have redundant in-zone VMs as well as cross-zone VMs, you should place the in-zone VMs in ASs in PPGs to ensure they won't all be rebooted at once. Even for single-instance VM workloads that aren't redundant today, you can still optionally use ASs in the PPGs to allow for future growth and flexibility. 
 
 For deploying virtual machine scale sets across AZs, consider using [Orchestration mode](https://docs.microsoft.com/azure/virtual-machine-scale-sets/orchestration-modes), currently in public preview, which allows combining FDs and AZs.
 
@@ -85,7 +85,7 @@ If your app supports Azure Site Recovery, you can provide a regional DR solution
 
 ## Alternatives
 
-- As an alternative to regional DR using Azure Site Recovery, if the app can replicate data natively, you can implement *multi-region DR* using hot/cold standby servers, such as a stretched cluster for DR only. This alternative isn't specifically detailed in the examples, but could be added to any of the solutions. This solution does not replace regional DR. Note that replication between regions is asynchronous, and some data loss is expected. 
+- As an alternative to regional DR using Azure Site Recovery, if the app can replicate data natively, you can implement *multi-region DR* using hot/cold standby servers, such as a stretched cluster for DR only. This alternative isn't specifically detailed in the examples, but could be added to any of the solutions. Note that replication between regions is asynchronous, and some data loss is expected. 
   
   Alternatively, if you have your own data replication technology, you can use it to create a secondary in-region zone for DR. Azure Site Recovery to an alternative zone isn't currently available, but may become an option in the future. [Recovery plans](/azure/site-recovery/site-recovery-create-recovery-plans) won't likely be supported for zone-to-zone replication.
 
