@@ -25,7 +25,7 @@ The reference implementation for this architecture is available on [GitHub](http
 
 ![Audio files upload](./_images/audio-files-upload.png)
 
-You can implement this architecture with your Azure account and allow client applications access to the pipeline through REST APIs. The application goes through a three-step process to upload an audio file:
+You can implement this architecture by using your Azure account and allow client applications access to the pipeline through REST APIs. The application goes through a three-step process to upload an audio file:
 
 1. It authenticates by using Azure AD. This step is required for the first file upload.
 2. It calls the REST API to get the SAS token required to access Azure Blob storage.
@@ -41,13 +41,15 @@ The architecture uses these Azure services:
 
 [**Azure Functions**](https://docs.microsoft.com/azure/azure-functions/) provides event-driven compute capabilities without requiring you to build the infrastructure. The function in this reference architecture transcribes the speech audio files to text. The model is a *serverless* model, which means the [Consumption plan](https://docs.microsoft.com/azure/azure-functions/functions-consumption-costs) is used to host the function.
 
-[**Azure Cognitive Services**](https://docs.microsoft.com/azure/cognitive-services/) is a collection of APIs that can help developers build intelligent applications without extensive AI or data science skills. The transcription function calls the [Cognitive Services speech-to-text APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text). The output for a sample audio file transcription might look similar to the following metadata: `ResultId:19e70bee8b5348a6afb67817825a9586 Reason:RecognizedSpeech Recognized text:<Text for sample audio.>. Json:{"DisplayText":"Text for sample audio.","Duration":53700000,"Id":"28526a6304da4af1922fedd4edcdddbb","Offset":3900000,"RecognitionStatus":"Success"}`.
+[**Azure Cognitive Services**](https://docs.microsoft.com/azure/cognitive-services/) is a collection of APIs that can help developers build intelligent applications without extensive AI or data science skills. The transcription function calls the [Cognitive Services speech-to-text APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text). The output for a sample audio file transcription might look similar to the following metadata: 
+
+`ResultId:19e70bee8b5348a6afb67817825a9586 Reason:RecognizedSpeech Recognized text:<Text for sample audio.>. Json:{"DisplayText":"Text for sample audio.","Duration":53700000,"Id":"28526a6304da4af1922fedd4edcdddbb","Offset":3900000,"RecognitionStatus":"Success"}`.
 
 [**Azure API Management**](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) provides secure access to REST APIs. Because only clients authenticated via API Management can request a SAS token, this service provides an additional layer of security in the architecture.
 
-[**Azure Active Directory**](https://docs.microsoft.com/azure/active-directory/) (Azure AD) provides identity management and secured access to resources in the Azure cloud platform. The client in this architecture first needs to authenticate by using Azure AD to be able to access the REST API. The REST API creates the access token for the blob storage by using the Azure AD credentials of the business owner. [Role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview) gives the client the minimum access privileges needed to upload audio files.
+[**Azure Active Directory**](https://docs.microsoft.com/azure/active-directory/) (Azure AD) provides identity management and secured access to resources on the Azure cloud platform. The client in this architecture first needs to authenticate by using Azure AD to be able to access the REST API. The REST API creates the access token for the blob storage by using the Azure AD credentials of the business owner. [Role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview) gives the client the minimum access privileges needed to upload audio files.
 
-[**Azure Key Vault**](https://docs.microsoft.com/azure/key-vault/key-vault-overview) provides secure storage of secrets and keys. This reference architecture stores the account credentials and other secrets needed to generate the SAS tokens in the key vault. Both the REST APIs and the speech transcription function access this vault to retrieve the secrets.
+[**Azure Key Vault**](https://docs.microsoft.com/azure/key-vault/key-vault-overview) provides secure storage of secrets and keys. This reference architecture stores the account credentials and other secrets needed to generate the SAS tokens in the key vault. The REST APIs and the speech transcription function access this vault to retrieve the secrets.
 
 ## Scalability considerations
 
@@ -75,7 +77,7 @@ Cognitive Services APIs might have request limits based on the subscription tier
 
 ## Security considerations
 
-Many of the [security considerations for a serverless web applications](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/web-app#security-considerations) apply to this reference architecture. The following sections discuss considerations specific to this architecture.
+Many of the [security considerations for serverless web applications](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/web-app#security-considerations) apply to this reference architecture. The following sections discuss considerations specific to this architecture.
 
 ### Azure Active Directory
 
@@ -107,7 +109,7 @@ In the case of an extremely large number of events, Event Grid might fail to tri
 
 This pattern is similar to the [Scheduler Agent Supervisor pattern](https://docs.microsoft.com/azure/architecture/patterns/scheduler-agent-supervisor). To keep things simple, we didn't implement this pattern in this reference architecture. For more information on how Event Grid handles failures, see the [Event Grid message delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry) policies.
 
-Another way to improve resiliency is to use [Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/) instead of Event Grid. This model will sequentially process file uploads. The client signals Service Bus when an upload finishes. Service Bus will then invoke the function to transcribe the uploaded file. This model is more reliable, but it will have less throughput than an event-based architecture. Carefully consider which architecture applies to your scenario and application.
+Another way to improve resiliency is to use [Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/) instead of Event Grid. This model sequentially processes file uploads. The client signals Service Bus when an upload finishes. Service Bus then invokes the function to transcribe the uploaded file. This model is more reliable, but it will have less throughput than an event-based architecture. Carefully consider which architecture applies to your scenario and application.
 
 ## Solution deployment
 
