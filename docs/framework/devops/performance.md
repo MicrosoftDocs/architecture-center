@@ -11,7 +11,7 @@ ms.custom: fasttrack-edit
 
 # Performance considerations for your deployment infrastructure
 
-Build status shows if your product is in a deployable state, so builds are the heartbeat of your continuous delivery system. It’s important to have a build process up and running from the first day of your product development. Since builds provide such a crucial information about the status of your product, you should always strive for fast builds.
+Build status shows if your product is in a deployable state, so builds are the heartbeat of your continuous delivery system. It's important to have a build process up and running from the first day of your product development. Since builds provide such a crucial information about the status of your product, you should always strive for fast builds.
 
 It will be hard to fix build problem if it takes longer to build, and the team will suffer from a broken window disorder. Eventually, nobody cares if the build is broken since it's always broken and it takes lot of effort to fix it.
 
@@ -43,6 +43,6 @@ It's important to select different builds for different purpose.
 
 * **CI builds:** Purpose of this build is to ensure it compiles and unit tests run. This build gets triggered at each commit or set of commits over a period of time. It serves as the heartbeat of the project, provides quality feedback to the team immediately. For more info see, [CI triggers or Batching CI builds](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=yaml).
 
-* **Nightly build:** Purpose of this build is not only to compile but also ensure necessary integration/regression tests are run. This build can take up some more time, because we need to do some extra steps to get additional information about the product. For example, metrics about the state of the software using SonarQube. It may also contain a set of regression tests and integration tests and it may also deploy the solution to a temporary machine to verify the solution is continuing to work. For more info see, [scheduling builds using cron syntax](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=yaml#scheduled-triggers)
+* **Nightly build:** Purpose of this build is not only to compile but also ensure necessary integration/regression tests are run. This build can take up some more time, because we need to do some extra steps to get additional information about the product. For example, metrics about the state of the software using SonarQube. It may also contain a set of regression tests and integration tests and it may also deploy the solution to a temporary machine to verify the solution is continuing to work. For more info see, [scheduling builds using cron syntax](/azure/devops/pipelines/process/scheduled-triggers)
 
 * **Release build:** Besides compiling, running test this build additionally compiles the API documentation, compliance reports, code signing, and other steps which are not required every time the code is built. Finally this build provide the golden copy that will be pushed to the release pipeline to finally deploy in the production environment. Generally release build is gets triggered manually instead of a CI trigger.

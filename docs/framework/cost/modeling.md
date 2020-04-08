@@ -23,7 +23,10 @@ There are a number of Azure resources you can reserve as prepaid capacity for a 
 
 ## Low-priority VMs
 
-Some workloads such as highly parallel Batch processing jobs can be run on low-priority VMs. These VMs take advantage of surplus capacity in Azure at a much lower cost. Development and testing of large-scale solutions, or supplementing baseline capacity are great uses for low-priority VMs.  
+Some workloads such as highly parallel Batch processing jobs can be run on low-priority VMs. These VMs take advantage of surplus capacity in Azure at a much lower cost. Development and testing of large-scale solutions, or supplementing baseline capacity are great uses for low-priority VMs. 
+
+## Spot VMs
+Spot VMs are ideal for workloads that can be interrupted, providing scalability while reducing costs. 
 
 ## Platform as a service
 

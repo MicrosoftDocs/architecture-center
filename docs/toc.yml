@@ -910,6 +910,8 @@ items:
         href: solution-ideas/articles/iot-devices.md
       - name: IoT using Cosmos DB
         href: solution-ideas/articles/iot-using-cosmos-db.md
+      - name: IoT using SQL DB
+        href: reference-architectures/iot-with-sql/index.md
       - name: Process real-time vehicle data using IoT
         href: example-scenario/data/realtime-analytics-vehicle-iot.md
       - name: Real-time web dashboard
@@ -1004,6 +1006,8 @@ items:
         href: reference-architectures/hybrid-networking/vnet-peering.md
       - name: Deploy highly available NVAs
         href: reference-architectures/dmz/nva-ha.md
+      - name: High availability for IaaS apps
+        href: example-scenario/infrastructure/iaas-high-availability-disaster-recovery.md
       - name: Hub-spoke network topology in Azure
         href: reference-architectures/hybrid-networking/hub-spoke.md
       - name: Implement a secure hybrid network
