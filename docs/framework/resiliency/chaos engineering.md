@@ -113,14 +113,35 @@ Ideally chaos should be applied all the time.  In todays services world there is
 
 Faults that can be leveraged to inject chaos.  
 
-| top | two | three|
-| --- | ---- | ---- |
-| **One** | Two | *three* <hr> *four* <hr> *nothing* |
-|  | test | testing <hr> one <hr> *five* |
-|  | Four | one <hr> only <hr> five dash |
-| **Two** | Two1 | three1 <hr> four <hr> nothing |
-|  | test1 | testing1 <hr> one <hr> five |
-|  | Four1 | one1 <hr> only <hr> five dash |
+| -- | -- | -- |
+| **Resource pressure** | CPU |  |
+|  | Memory | *Physical* <hr> *Virtual* <hr> *bad checksum* |
+|  | Hard disk | *Capacity* <hr> *Read* <hr> *Write* <hr> *Availability* <hr> *Data corruption* <hr> *Read / Write Latency* |
+| **Network** | Layers | *Transport (TCP/UDP)* <> *Application layer (HTTP)* |
+|  | Types | *Disconnect* <> *Latency* <> *Alter response codes (HTTP)* <> *Packet reorder / loss (TCP/UDP)* <> *# of connections (active / passive)* <> *DOS attack* |
+|  | Filters | *Domain / IP / Subnet* <> *URL path* <> *Port / Protocol* <> *DNS Host Name resolution* |
+| **Process** | Stop / Kill |  |
+|  | Restart |  |
+|  | Stop service  |  |
+|  | Start  |  |
+|  | Crash  |  |
+|  | Hang |  |
+| **Virtual Machine** | Stop |  |
+|  | Restart |  |
+|  | BSOD |  |
+|  | Change date |  |
+|  | Re-image  |  |
+|  | Live Migration  |  |
+| **Platform** | Quorum loss |  |
+|  | Data loss |  |
+|  | Move primary node |  |
+|  | Remove replica |  |
+| **Application specific** | Intercept / Re-route calls | *No access to service code* |
+| **Hardware** | Machine | *Storage* |
+|  | Network devices |  |
+|  | Rack |  |
+|  | UPS  |  |
+|  | Datacenter |  |
 
 :::row:::
    :::column span="":::
