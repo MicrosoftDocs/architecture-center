@@ -1,6 +1,6 @@
 ---
 title: Non-relational data and NoSQL
-description: 
+description: Learn about non-relational databases that store data as key/value pairs, graphs, time series, objects, and other storage models based on data requirements.
 author: zoinerTejada
 ms.date: 02/12/2018
 ms.topic: guide
