@@ -65,7 +65,7 @@ Azure Storage provides data resiliency through automated replicas. However, this
 
 - **Tables**. Use AzCopy to export the table data into another storage account in another region.
 
-![GitHub](../../_images/github.png) Samples related to storage resilience are [here](https://github.com/mspnp/samples/ResiliencyStorageSnapshotsSample). The scripts perform these tasks: 
+![GitHub](../../_images/github.png) Samples related to storage resilience are [here](https://github.com/mspnp/samples/tree/master/ResiliencyStorageSnapshotsSample). The scripts perform these tasks: 
 
 - ARM template to deploy a storage account and blob container. 
 - Copies file into the blob container. 

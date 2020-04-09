@@ -33,7 +33,7 @@ The [Circuit Breaker pattern](https://docs.microsoft.com/azure/architecture/patt
 
 [Health Endpoint Monitoring pattern](https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring). A circuit breaker might be able to test the health of a service by sending a request to an endpoint exposed by the service. The service should return information indicating its status.
 
-![GitHub](../../_images/github.png) Samples related to this pattern are [here](https://github.com/mspnp/samples/ResiliencyRetryPatternSample). 
+![GitHub](../../_images/github.png) Samples related to this pattern are [here](https://github.com/mspnp/samples/tree/master/ResiliencyRetryPatternSample). 
 
 ## Application Health Probes
 
