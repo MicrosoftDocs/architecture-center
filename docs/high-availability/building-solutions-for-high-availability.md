@@ -65,6 +65,7 @@ services supported by the foundation. The applications should be architected to
 support resiliency.
 
 <div style="text-align: center" align="center"> 
+<hr />
 
    ### Your applications
 
@@ -78,6 +79,7 @@ support resiliency.
 
    Azure capabilities **built into the platform**
 
+<hr />
 </div>
 
 When architecting for resilience, all three layers—foundation, services, and
@@ -157,7 +159,7 @@ Zones](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-ava
 The following is a summary of the zonal (Z) and zone-redundant (ZR) Azure
 services.
 
-<table >
+<table bgcolor="#171717">
   <tr valign="top">
     <td>
 
