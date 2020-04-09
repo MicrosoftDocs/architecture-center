@@ -159,7 +159,7 @@ Zones](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-ava
 The following is a summary of the zonal (Z) and zone-redundant (ZR) Azure
 services.
 
-<table bgcolor="#171717">
+<table>
   <tr valign="top">
     <td>
 
