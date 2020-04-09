@@ -2,9 +2,9 @@
 title: Building solutions for high availability using Availability Zones
 titleSuffix: High Availability
 description:  The Azure Availability Zones construct was developed to provide a software and networking solution to protect against datacenter failures and to provide increased high availability (HA) to our customers. 
-author: v-maleo
+author: maggsl
 ms.date: 04/07/2020
-ms.topic: tecnologies
+ms.topic: technologies
 ms.service: architecture-center
 ms.category:
   - management-and-governance
@@ -40,7 +40,7 @@ Availability Zones can be used to spread a solution across multiple zones within
 a region, allowing for an application to continue functioning when one zone
 fails. With Availability Zones, Azure offers industry best 99.99% [Virtual
 Machine (VM) uptime service-level agreement
-(SLA)](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_9/).
+(SLA)](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/).
 Zone-redundant services replicate your services and data across Availability
 Zones to protect from single points of failure.
 
@@ -48,7 +48,7 @@ Zones to protect from single points of failure.
 
 For additional information on Availability Zones, including service support by
 region and pricing, refer to [What are Availability Zones in
-Azure?](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview)
+Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview)
 in Microsoft Azure Documentation.
 
 ## Delivering reliability in Azure
@@ -152,7 +152,7 @@ traffic effectively across resources in the different Availability Zones. For
 information on how Availability Zones apply to the load balancer resources for
 both zonal and zone-redundant resources, refer to [Standard Load Balancer and
 Availability
-Zones](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-availability-zones).
+Zones](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
 
 The following is a summary of the zonal (Z) and zone-redundant (ZR) Azure
 services.
@@ -256,7 +256,7 @@ Dv3-series, ESv3-series, Ev3-series, F-series, FS-series, FSv2-series, M-series.
 
 For a list of Azure services that support Availability Zones, per Azure region,
 refer to the [Availability Zones
-documentation](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview#services-support-by-region).
+documentation](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region).
 
 ## SLA offered by Availability Zones
 
@@ -276,7 +276,7 @@ of Availability Sets can increase the level of SLA to 99.95% by protecting a set
 of VMs, ensuring they will not all be on the same hardware. Within a region, VM
 workloads can be distributed across Availability Zones to increase the SLA to
 99.99%. For more information, refer to [Availability options for VMs in
-Azure](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/availability).
+Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability).
 
 Every organization has unique requirements, and you should design your
 applications to best meet your complex business needs. Defining a target SLA
@@ -300,11 +300,11 @@ requirements. Some things to consider include:
 -   Does your application have specific latency requirements?
 
 For additional guidance, refer to [Azure Architecture Framework define
-requirements](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/overview#define-requirements).
+requirements](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview#define-requirements).
 
 Depending on the availability needs of an application, the cost and design
 complexity will vary. When building for a VM workload, there will be a cost
 associated with each VM. For example, two VMs per zone across three active zones
 will have a cost for six VMs. For pricing of VM workloads, refer to the [Azure
 pricing
-calculator](https://azure.microsoft.com/en-us/pricing/calculator/?service=virtual-machines).
+calculator](https://azure.microsoft.com/pricing/calculator/?service=virtual-machines).

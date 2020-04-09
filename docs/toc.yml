@@ -818,7 +818,7 @@ items:
           href: solution-ideas/articles/sharepoint-farm-devtest.md
         - name: Real time location sharing
           href: example-scenario/signalr/index.md
-  - name: High Availabitily
+  - name: High Availability
     items:
     - name: Architectures
       items:
