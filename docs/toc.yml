@@ -820,7 +820,7 @@ items:
           href: example-scenario/signalr/index.md
   - name: High Availability
     items:
-    - name: Architectures
+    - name: Overview
       items:
       - name: Building solutions for high availability using Availability Zones
         href: high-availability/building-solutions-for-high-availability.md
