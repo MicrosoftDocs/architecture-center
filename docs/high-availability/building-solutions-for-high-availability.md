@@ -64,7 +64,9 @@ replicates data across zones. The customer builds applications upon the enabled
 services supported by the foundation. The applications should be architected to
 support resiliency.
 
-<div style="text-align: center"> 
+<table align="center">
+  <tr valign="top" align="center">
+    <td>
 
    ### Your applications
 
@@ -78,7 +80,9 @@ support resiliency.
 
    Azure capabilities **built into the platform**
 
-</div>
+  </td> 
+  </tr> 
+</table>
 
 When architecting for resilience, all three layers—foundation, services, and
 applications—should be considered to achieve the highest level of reliability.
