@@ -818,6 +818,12 @@ items:
           href: solution-ideas/articles/sharepoint-farm-devtest.md
         - name: Real time location sharing
           href: example-scenario/signalr/index.md
+  - name: High Availabitily
+    items:
+    - name: Architectures
+      items:
+      - name: Building solutions for high availability using Availability Zones
+        href: high-availability/building-solutions-for-high-availability.md
   - name: Hybrid
     items:
     - name: Architectures
