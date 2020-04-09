@@ -910,6 +910,8 @@ items:
         href: solution-ideas/articles/iot-devices.md
       - name: IoT using Cosmos DB
         href: solution-ideas/articles/iot-using-cosmos-db.md
+      - name: IoT using SQL DB
+        href: reference-architectures/iot-with-sql/index.md
       - name: Process real-time vehicle data using IoT
         href: example-scenario/data/realtime-analytics-vehicle-iot.md
       - name: Real-time web dashboard
