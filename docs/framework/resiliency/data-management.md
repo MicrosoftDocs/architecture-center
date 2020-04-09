@@ -64,3 +64,11 @@ Azure Storage provides data resiliency through automated replicas. However, this
 - **Files**. Use [share snapshots](/azure/storage/files/storage-snapshots-files), or use AzCopy or PowerShell to copy your files to another storage account.
 
 - **Tables**. Use AzCopy to export the table data into another storage account in another region.
+
+![GitHub](../../_images/github.png) Samples related to storage resiliency are [here](https://github.com/mspnp/samples/tree/master/ResiliencyStorageSnapshotsSample). The scripts perform these tasks: 
+
+- ARM template to deploy a storage account and blob container. 
+- Copies file into the blob container. 
+- Creates the blob snapshot. 
+- Creates a share snapshot. 
+- Calls AzCopy for table storage
