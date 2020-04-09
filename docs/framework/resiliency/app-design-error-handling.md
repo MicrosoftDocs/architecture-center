@@ -25,7 +25,7 @@ When making a service call or a database call ensure that appropriate request ti
 
 Leverage design patterns that encapsulate robust timeout strategies like [Choreography pattern](https://docs.microsoft.com/azure/architecture/patterns/choreography) or [Compensating Transaction pattern](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction).
 
-This [example available on GitHub](https://github.com/mspnp/microservices-reference-implementation) shows the choreography pattern with the Drone Delivery application.
+![GitHub](../../_images/github.png) A reference implementation is available on [GitHub](https://github.com/mspnp/microservices-reference-implementation).
 
 ## Cascading Failures
 
