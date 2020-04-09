@@ -19,7 +19,8 @@ Track the number of transient exceptions and retries over time to uncover issues
 
 Use the [Retry pattern](https://docs.microsoft.com/azure/architecture/patterns/retry), paying particular attention to [issues and considerations](https://docs.microsoft.com/azure/architecture/patterns/retry#issues-and-considerations). Avoid overwhelming dependent services by implementing the [Circuit Breaker pattern](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker). Review and incorporate additional best practices guidance for [Transient fault handling](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults). While calling systems that have [Throttling pattern](https://docs.microsoft.com/azure/architecture/patterns/throttling) implemented, ensure that your retries are not counter productive.
 
-This [reference implementation](https://github.com/mspnp/microservices-reference-implementation/tree/master/src/shipping/workflow) implements the Circuit Breaker pattern with Polly and IHttpClientBuilder.
+
+![GitHub](../../_images/github.png) A reference implementation is available [here](https://github.com/mspnp/microservices-reference-implementation/tree/master/src/shipping/workflow). It uses [Polly](https://github.com/App-vNext/Polly/wiki/Circuit-Breaker) and [IHttpClientBuilder](/dotnet/api/microsoft.extensions.dependencyinjection.ihttpclientbuilder) to implement the Circuit Breaker pattern.
 
 ## Request timeouts
 
