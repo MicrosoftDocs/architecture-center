@@ -57,7 +57,9 @@ A variety of options are available for recovery and high availability for SQL Se
 
 ### SQL Server Always On Availability Groups across regions
 
-Alternatively you can use SQL Always On Availability Groups for high availability by Creating a single availability group that includes the SQL Server instances in both regions. As an example, this [Reference Architecture](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server) shows a set of practices for running an N-tier application in multiple Azure regions, by using a SQL Server Always On Availability Group and Azure Traffic Manager, in order to achieve availability and a robust disaster recovery infrastructure.
+Alternatively, you can use SQL Always On Availability Groups for high availability by creating a single availability group that includes the SQL Server instances in both regions. 
+
+As an example, [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server) reference architecture shows a set of practices for running an N-tier application in multiple Azure regions to achieve availability and a robust disaster recovery infrastructure. It uses a SQL Server Always On Availability Group and Azure Traffic Manager.
 
 
 ## Storage resiliency
