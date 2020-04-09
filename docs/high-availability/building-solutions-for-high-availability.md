@@ -4,7 +4,7 @@ titleSuffix: High Availability
 description:  The Azure Availability Zones construct was developed to provide a software and networking solution to protect against datacenter failures and to provide increased high availability (HA) to our customers. 
 author: maggsl
 ms.date: 04/07/2020
-ms.topic: technologies
+ms.topic: high-availability
 ms.service: architecture-center
 ms.category:
   - management-and-governance
@@ -262,7 +262,7 @@ documentation](https://docs.microsoft.com/azure/availability-zones/az-overview#s
 
 With Availability Zones, Azure offers industry best 99.99% VM uptime SLA. The
 full [Azure
-SLA](https://azure.microsoft.com/en-gb/support/legal/sla/virtual-machines/v1_9/)
+SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/)
 explains the guaranteed availability of Azure as a whole.
 
 The following diagram illustrates the different levels of HA offered by a single
