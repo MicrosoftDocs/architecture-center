@@ -25,6 +25,8 @@ When making a service call or a database call ensure that appropriate request ti
 
 Leverage design patterns that encapsulate robust timeout strategies like [Choreography pattern](https://docs.microsoft.com/azure/architecture/patterns/choreography) or [Compensating Transaction pattern](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction).
 
+![GitHub](../../_images/github.png) A reference implementation is available on [GitHub](https://github.com/mspnp/microservices-reference-implementation).
+
 ## Cascading Failures
 
 The [Circuit Breaker pattern](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker#related-patterns-and-guidance) provides stability while the system recovers from a failure and minimizes the impact on performance. It can help to maintain the response time of the system by quickly rejecting a request for an operation that's likely to fail, rather than waiting for the operation to time out, or never return.
