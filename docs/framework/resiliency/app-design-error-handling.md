@@ -13,17 +13,22 @@ ms.custom: How are you managing errors & failures?
 
 Ensuring your application can recover from errors is critical when working in a distributed system
 
-## Transient failure handling
+## Transient fault handling
 
 Track the number of transient exceptions and retries over time to uncover issues or failures in your application's retry logic. A trend of increasing exceptions over time may indicate that the service is having an issue and may fail. For more information, see [Retry service specific guidance](../../best-practices/retry-service-specific.md).
 
 Use the [Retry pattern](../../patterns/retry.md), paying particular attention to [issues and considerations](https://docs.microsoft.com/azure/architecture/patterns/retry#issues-and-considerations). Avoid overwhelming dependent services by implementing the [Circuit Breaker pattern](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker). Review and incorporate additional best practices guidance for [Transient fault handling](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults). While calling systems that have [Throttling pattern](https://docs.microsoft.com/azure/architecture/patterns/throttling) implemented, ensure that your retries are not counter productive.
+
+
+![GitHub](../../_images/github.png) A reference implementation is available [here](https://github.com/mspnp/microservices-reference-implementation/tree/master/src/shipping/workflow). It uses [Polly](https://github.com/App-vNext/Polly/wiki/Circuit-Breaker) and [IHttpClientBuilder](/dotnet/api/microsoft.extensions.dependencyinjection.ihttpclientbuilder) to implement the Circuit Breaker pattern.
 
 ## Request timeouts
 
 When making a service call or a database call ensure that appropriate request timeouts are set.  Database Connection timeouts are typically set to 30s. Use guidance on troubleshoot, diagnose, and prevent SQL connection errors and [transient errors for SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues).
 
 Leverage design patterns that encapsulate robust timeout strategies like [Choreography pattern](https://docs.microsoft.com/azure/architecture/patterns/choreography) or [Compensating Transaction pattern](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction).
+
+![GitHub](../../_images/github.png) A reference implementation is available on [GitHub](https://github.com/mspnp/microservices-reference-implementation).
 
 ## Cascading Failures
 
@@ -32,6 +37,8 @@ The [Circuit Breaker pattern](https://docs.microsoft.com/azure/architecture/patt
 [Retry pattern](https://docs.microsoft.com/azure/architecture/patterns/retry). Describes how an application can handle anticipated temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that has previously failed.
 
 [Health Endpoint Monitoring pattern](https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring). A circuit breaker might be able to test the health of a service by sending a request to an endpoint exposed by the service. The service should return information indicating its status.
+
+![GitHub](../../_images/github.png) Samples related to this pattern are [here](https://github.com/mspnp/samples/tree/master/ResiliencyRetryPatternSample). 
 
 ## Application Health Probes
 

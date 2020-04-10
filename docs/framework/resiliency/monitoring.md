@@ -58,6 +58,10 @@ Azure subscriptions have limits on certain resource types, such as number of res
 
 Address the following subscription limits with alerts.
 
+![GitHub](../../_images/github.png) A reference implementation is available on [GitHub](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md).
+
+For information about that implementation, see [Event-based cloud automation on Azure](/azure/architecture/reference-architectures/serverless/cloud-automation).
+
 ### Individual services
 
 Individual Azure services have consumption limits on storage, throughput, number of connections, requests per second, and other metrics. Your application will fail if it attempts to use resources beyond these limits, resulting in service throttling and possible downtime.

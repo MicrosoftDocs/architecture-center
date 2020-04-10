@@ -1,6 +1,6 @@
 ---
 title: Advanced analytics
-description: 
+description: Use mathematical, probabilistic, and statistical modeling techniques to enable predictive processing and automated decision making.
 author: zoinerTejada
 ms.date: 02/12/2018
 ms.topic: guide
