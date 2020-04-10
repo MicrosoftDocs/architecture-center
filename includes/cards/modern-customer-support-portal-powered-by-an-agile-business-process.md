@@ -8,7 +8,7 @@
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process">
-            <p>Lift and Shift and Innovate - LOB Apps</p>
+            <p>Modern Customer Support Portal</p>
         </a>
         <ul class="card-content-metadata">
             <li>12/16/2019</li>

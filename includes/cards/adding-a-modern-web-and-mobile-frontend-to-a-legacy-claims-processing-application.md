@@ -8,7 +8,7 @@
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application">
-            <p>Lift and Shift and Innovate - LOB Apps</p>
+            <p>Adding a mobile front-end to a legacy app</p>
         </a>
         <ul class="card-content-metadata">
             <li>12/16/2019</li>
