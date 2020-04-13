@@ -185,6 +185,53 @@
         },
         {
             "tags": [
+                "'https:--azure.microsoft.com-solutions-architecture-adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application-'",
+                "acom-architecture",
+                "all-items",
+                "cloud-innovation",
+                "cloud-migration",
+                "data-flow",
+                "interactive-diagram",
+                "lift-and-shift-cloud-strategy",
+                "lift-and-shift-solution",
+                "lift-and-shift-strategy",
+                "line-of-business-app",
+                "lob-app",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application",
+            "word_count": 213,
+            "read_time": "1 min read",
+            "Title": "Adding a mobile front-end to a legacy app",
+            "MetaDescription": "The solution demonstrates modernizing an existing application by consolidating data from multiple business systems into one place and surfacing it through web and mobile frontends. This is targeted at improving employee productivity and to enable faster decision making.",
+            "category": [
+                "migration"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.png",
+            "publish_date": "12/16/2019",
+            "components": [
+                "<p>Azure <a href=\"https://azure.microsoft.com/services/virtual-machines\">Virtual Machines</a> lets you deploy a Windows Server or Linux image in the cloud. You can select images from a marketplace or use your own customized images.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/sql-database\">Azure SQL Database</a> is a relational database service that lets you rapidly create, extend, and scale relational applications into the cloud.</p>"
+            ],
+            "Flow": {
+                "FlowStep_A": "Customer's mobile app authenticates via Azure Active Directory B2C",
+                "FlowStep_B": "Customer's mobile app connects to the back-end web service that aggregates data from different systems using asynchronous connection",
+                "FlowStep_C": "Web application connects to SQL database",
+                "FlowStep_D": "Power BI connects to SQL database and SharePoint",
+                "FlowStep_E": "Logic app pulls data from CRM (Salesforce)'''",
+                "FlowStep_F": "Logic app connects to SAP system (on-premises or in the cloud)",
+                "FlowStep_G": "Employee mobile app connects to the logic app that orchestrates the business process",
+                "FlowStep_H": "Employee mobile app authenticates via Azure Active Directory"
+            },
+            "name": "adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application",
+            "popularity": 128,
+            "topic": "Migration"
+        },
+        {
+            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-advanced-analytics-on-big-data-'",
                 "acom-architecture",
                 "all-items",
@@ -423,6 +470,34 @@
             "name": "backup-archive-on-premises",
             "popularity": 202,
             "topic": "Management and Governance"
+        },
+        {
+            "tags": [
+                "acom-architecture",
+                "all-items",
+                "data-flow",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/auditing-and-risk-compliance.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/auditing-and-risk-compliance",
+            "word_count": 330,
+            "read_time": "2 min read",
+            "Title": "Auditing, risk, and compliance management",
+            "MetaDescription": "Developers could use knowledge mining to help attorneys quickly identify entities of importance from discovery documents and flag important ideas across documents",
+            "category": [
+                "ai-machine-learning"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/auditing-and-risk-compliance.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\auditing-and-risk-compliance.png",
+            "publish_date": "12/16/2019",
+            "Flow": {
+                "FlowStep_A": "This content is enriched by using key phrase extraction, language detection, language translation,entity extraction (organizations and people) and custom models to identify certain regulatory obligations and custom models to identify specific legal terms and clauses",
+                "FlowStep_B": "And finally, the user can index data in a searchable internal application or leverage the data for a searchable web application for financial risks"
+            },
+            "name": "auditing-and-risk-compliance",
+            "popularity": 0,
+            "topic": "AI + Machine Learning"
         },
         {
             "tags": [
@@ -1054,6 +1129,35 @@
         },
         {
             "tags": [
+                "acom-architecture",
+                "all-items",
+                "data-flow",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/business-process-management.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/business-process-management",
+            "word_count": 291,
+            "read_time": "2 min read",
+            "Title": "Business Process Management",
+            "MetaDescription": "In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes",
+            "category": [
+                "ai-machine-learning"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/business-process-management.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\business-process-management.png",
+            "publish_date": "12/16/2019",
+            "Summary": "<p>This architecture demonstrates how to use Knowledge Mining for business process management.</p>\n<p>When organizations task employees with the review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these materials. In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/business-process-management.png\" /></p>",
+            "Flow": {
+                "FlowStep_A": "This content is enriched by using optical character recognition, forms recognition, layout understanding, table extraction, key-value pair extraction",
+                "FlowStep_B": "And finally, the user can automatically populate data from invoices into ELP systems or databases or compile enriched documents in the knowledge store and project them into tabular or object stores, then surface trends in an analytics dashboard, such as frequent issues, popular products, and much more"
+            },
+            "name": "business-process-management",
+            "popularity": 0,
+            "topic": "AI + Machine Learning"
+        },
+        {
+            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-cicd-for-azure-vms-'",
                 "acom-architecture",
                 "all-items",
@@ -1568,6 +1672,54 @@
         },
         {
             "tags": [
+                "acom-architecture",
+                "all-items",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/content-research.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/content-research",
+            "word_count": 280,
+            "read_time": "2 min read",
+            "Title": "Content Research",
+            "MetaDescription": "Knowledge mining with a search index makes it easy for customers and employees to locate what they are looking for faster.",
+            "category": [
+                "ai-machine-learning"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/content-research.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\content-research.png",
+            "publish_date": "12/16/2019",
+            "Summary": "<p>This architecture describes how knowledge mining can be used for content research.</p>\n<p>When organizations task employees to review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these dense materials. In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/content-research.png\" /></p>",
+            "name": "content-research",
+            "popularity": 0,
+            "topic": "AI + Machine Learning"
+        },
+        {
+            "tags": [
+                "acom-architecture",
+                "all-items",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/contract-management.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/contract-management",
+            "word_count": 242,
+            "read_time": "2 min read",
+            "Title": "Contract Management",
+            "MetaDescription": "Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid.",
+            "category": [
+                "ai-machine-learning"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/contract-management.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\contract-management.png",
+            "publish_date": "12/16/2019",
+            "Summary": "<p>Many companies create products for multiple sectors, hence the business opportunities with different vendors and buyers increases exponentially. Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid. Minor details in the bidding process can make the difference between a healthy profit or lost opportunity on a project.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/contract-management.png\" /></p>",
+            "name": "contract-management",
+            "popularity": 0,
+            "topic": "AI + Machine Learning"
+        },
+        {
+            "tags": [
                 "all-items",
                 "bash",
                 "example-code",
@@ -1838,6 +1990,30 @@
             "github_url": "https://github.com/Azure/cortana-intelligence-churn-prediction-solution",
             "name": "customer-churn-prediction",
             "popularity": 94,
+            "topic": "AI + Machine Learning"
+        },
+        {
+            "tags": [
+                "acom-architecture",
+                "all-items",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/customer-feedback-and-analytics.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/customer-feedback-and-analytics",
+            "word_count": 281,
+            "read_time": "2 min read",
+            "Title": "Customer Feedback and Analytics",
+            "MetaDescription": "Knowledge mining can help customer support teams quickly find the right answer for a customer inquiry or assess customer sentiment at scale.",
+            "category": [
+                "ai-machine-learning"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/customer-feedback-and-analytics.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\customer-feedback-and-analytics.png",
+            "publish_date": "12/16/2019",
+            "Summary": "<p>For many companies, customer support is costly and inefficient. Knowledge mining can help customer support teams quickly find the right answer for a customer inquiry or assess customer sentiment at scale.</p>\n<p>Every company is looking to enhance the customer experience. Knowledge mining can aggregate and analyze data to discover trends about what customers are saying and use that information to improve products and services</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/customer-feedback-and-analytics.png\" /></p>",
+            "name": "customer-feedback-and-analytics",
+            "popularity": 0,
             "topic": "AI + Machine Learning"
         },
         {
@@ -2513,6 +2689,109 @@
         },
         {
             "tags": [
+                "acom-architecture",
+                "all-items",
+                "data-flow",
+                "example-code",
+                "github",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/devops-in-a-hybrid-environment.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment",
+            "word_count": 482,
+            "read_time": "3 min read",
+            "Title": "DevOps in a hybrid environment",
+            "MetaDescription": "The tools provided in Azure allow for the implementation of a DevOps strategy that capably manages both cloud and on-premises environments in tandem.",
+            "category": [
+                "devops",
+                "hybrid"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/devops-in-a-hybrid-environment.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\devops-in-a-hybrid-environment.png",
+            "publish_date": "12/16/2019",
+            "components": [
+                "<p><a href=\"https://docs.microsoft.com/azure/devops/boards/github/connect-to-github?view=azure-devops\">Azure Boards</a>: Use Azure Board to plan work and track its progress, using Agile tools such as Kanban boards.</p>",
+                "<p>Source code is hosted on <a href=\"https://github.com/enterprise\">GitHub Enterprise</a>, where developers can collaborate within your organization and the open source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open source dependencies.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops\">Azure Pipelines</a>  runs Continuous Integration and Continuous Delivery jobs for your application, as well as the creation of your infrastructure with the integration with Terraform.</p>",
+                "<p>You can use <a href=\"https://docs.microsoft.com/azure/key-vault/basic-concepts\">Azure Key Vault</a> to store certificates, connection strings, tokens, and other secrets. These are read by your application at run-time, so they're abstracted away from your developers</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/terraform/terraform-install-configure\">Terraform</a> is a third-party product developed by HashiCorp that allows infrastructure automation on Azure, on-premises, and other environments</p>",
+                "<p>Using <a href=\"https://docs.microsoft.com/azure/azure-monitor/overview\">Azure Monitor</a> lets you get insights on the availability and performance of your application and infrastructure.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis\">Azure AD</a> provides identity and access management services for your application, both on-premises and on the cloud. Azure AD can synchronize with an on-premises Active Directory to seamlessly allow your users to authenticate everywhere.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/app-service/overview\">Azure Web Apps</a> is a managed platform for hosting web-based applications in the cloud.</p>"
+            ],
+            "Summary": "<p>In many scenarios, the adoption of the Azure cloud as a business solution involves the migration of an on-premises environment. It is usually not practical to deprecate the on-premises environment quickly, and in many cases the on-premises environment will need to persist alongside the cloud environment for a significant amount of time. The tools provided in Azure allow for the implementation of a DevOps strategy that capably manages both cloud and on-premises environments in tandem.</p>\n<p><img alt=\"Architecture\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/devops-in-a-hybrid-environment.png\" />\n<em>Download an <a href=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/devops-in-a-hybrid-environment.svg\">SVG</a> of this architecture.</em></p>",
+            "Flow": {
+                "FlowStep_A": "GitHub Enterprise is used as the code repository for the application",
+                "FlowStep_B": "Pull Requests trigger CI builds and automated testing in Azure Pipelines",
+                "FlowStep_C": "Continuous monitoring with Azure Monitor extends to release pipelines to gate or rollback releases based on monitoring data",
+                "FlowStep_D": "A release on Azure Pipelines integrates the Terraform tool, managing both cloud and on-premises infrastructure as code, provisioning resources such as Azure Web Apps, VMs, and databases in both locations",
+                "FlowStep_E": "Azure Pipelines define both Continuous Delivery (CD) to a development environment in the cloud, and release deployments to an on-premises production environment.",
+                "FlowStep_F": "Azure Key Vault is used to securely inject secrets and credentials into a deployment, abstracting secrets away from developers",
+                "FlowStep_G": "Azure Monitor can be configured to log analytics from both the cloud and on-premises environments. Application Insights as a part of Azure Monitor can be connected to both cloud and on-premises applications for monitoring",
+                "FlowStep_H": "Azure AD in the cloud can be used to provide identity services for the application, both running on Azure and on-premises."
+            },
+            "sample_code": true,
+            "github_url": "https://github.com/enterprise",
+            "name": "devops-in-a-hybrid-environment",
+            "popularity": 0,
+            "topic": "DevOps"
+        },
+        {
+            "tags": [
+                "acom-architecture",
+                "all-items",
+                "data-flow",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/devsecops-in-azure.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/devsecops-in-azure",
+            "word_count": 689,
+            "read_time": "3 min read",
+            "Title": "DevSecOps in Azure",
+            "MetaDescription": "DevSecOps involves utilizing security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning",
+            "category": [
+                "devops",
+                "hybrid"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/devsecops-in-azure.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\devsecops-in-azure.png",
+            "publish_date": "12/16/2019",
+            "components": [
+                "<p><a href=\"https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis\">Azure Active Directory</a> provides identity and access management services for your organization, allowing control over access to the resources inside Azure, GitHub Enterprise, and Azure DevOps.</p>",
+                "<p>Source code is hosted on <a href=\"https://help.github.com/en/github\">GitHub Enterprise</a>, where developers can collaborate within your organization and the open source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open source dependencies</p>",
+                "<p>Use <a href=\"https://docs.microsoft.com/azure/devops/boards/github/connect-to-github?view=azure-devops\">Azure Boards</a> to plan work and track its progress, using Agile tools such as Kanban boards.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops\">Azure Pipelines</a> is a service that provides Continuous Integration and Continuous Delivery jobs, to build and release your application automatically.</p>",
+                "<p>Host your Docker container images on <a href=\"https://docs.microsoft.com/azure/container-registry/container-registry-concepts\">Azure Container Registry</a>. This service includes container image scanning with the integration with Azure Security Center.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/aks/intro-kubernetes\">Azure Kubernetes Service</a> offers a Kubernetes cluster that is fully-managed by Azure, to ensure availability and security of your infrastructure.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks\">Terraform</a> is a third-party product developed by HashiCorp that allows infrastructure automation on Azure, as well as on other environments.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/governance/policy/overview\">Azure Policy</a> lets you create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. It integrates with Azure Kubernetes Service too.</p>",
+                "<p>You can use <a href=\"https://docs.microsoft.com/azure/key-vault/key-vault-overview\">Azure Key Vault</a> to store certificates, connection strings, tokens, and other secrets. These are read by your application at run-time, so they're abstracted away from your developers.</p>",
+                "<p>Azure <a href=\"https://docs.microsoft.com/azure/cosmos-db/introduction\">Cosmos DB</a> is a globally-distributed, multi-model database service, that is fully-managed and compatible with multiple APIs, including MongoDB, Cassandra, SQL.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/application-gateway/ingress-controller-overview\">Azure Application Gateway</a> is a Layer-7 load balancer with support for advanced routing rules and a Web Application Firewall (WAF).</p>",
+                "<p>Using <a href=\"https://docs.microsoft.com/azure/azure-monitor/overview\">Azure Monitor</a> lets you get insights on the availability and performance of your application and infrastructure. It also gives you access to signals to monitor your solution's health and spot abnormal activity early.</p>"
+            ],
+            "Summary": "<p>Security is a prime concern for business that are storing any sort of custom or client data. The solution that is covering the management and interface of this data should be developed with security in mind. DevSecOps involves utilizing security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning using a shift-left strategy.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/devsecops-in-azure.png\" />\n<em>Download an <a href=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/devsecops-in-azure.svg\">SVG</a> of this architecture.</em></p>",
+            "Flow": {
+                "FlowStep_A": "Azure Active Directory (AD) can be configured as the identity provider for GitHub. Multi-factory authentication can be enabled for extra security",
+                "FlowStep_B": "Developers commit to GitHub Enterprise, driven by work items and bugs tracked with Azure Boards",
+                "FlowStep_C": "GitHub Enterprise can integrate automatic security and dependency scanning through GitHub Advanced Security and GitHub Open Source Security",
+                "FlowStep_D": "Pull Requests trigger CI builds and automated testing in Azure Pipelines",
+                "FlowStep_E": "The CI build in Azure Pipelines generates a Docker container image that is stored to Azure Container Registry, which is to be used at release time by Azure Kubernetes Service",
+                "FlowStep_F": "A release on Azure Pipelines integrates the Terraform tool, managing both the cloud infrastructure as code, provisioning resources such as Azure Kubernetes Service, Application Gateway, and Azure Cosmos DB",
+                "FlowStep_G": "Azure Pipelines enable Continuous Delivery (CD) to Azure Kubernetes Service, by accessing the Container Registry through a secure service connection",
+                "FlowStep_H": "Azure Policy can be applied to Azure Pipelines to enforce post-deployment gateways, and can be applied directly to the AKS engine for policy enforcement",
+                "FlowStep_I": "Azure Key Vault is used to securely inject secrets and credentials into an application at runtime, abstracting sensitive information away from developers",
+                "FlowStep_J": "End users can authenticate with Azure AD B2C, required to use MFA for extra security, and be routed through an Application Gateway which can load balance and protect core services",
+                "FlowStep_K": "Continuous monitoring with Azure Monitor extends to release pipelines to gate or rollback releases based on monitoring data. Azure Monitor also ingests security logs and can alert on suspicious activity"
+            },
+            "name": "devsecops-in-azure",
+            "popularity": 0,
+            "topic": "DevOps"
+        },
+        {
+            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-dev-test-image-factory-'",
                 "acom-architecture",
                 "all-items",
@@ -2556,6 +2835,30 @@
             "name": "dev-test-image-factory",
             "popularity": 43,
             "topic": "DevOps"
+        },
+        {
+            "tags": [
+                "acom-architecture",
+                "all-items",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/digital-asset-management.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/digital-asset-management",
+            "word_count": 225,
+            "read_time": "2 min read",
+            "Title": "Digital Asset Management",
+            "MetaDescription": "Knowledge mining through a search index makes it easy for end customers and employees to locate what they are looking for faster.",
+            "category": [
+                "ai-machine-learning"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/digital-asset-management.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\digital-asset-management.png",
+            "publish_date": "12/16/2019",
+            "Summary": "<p>This architecture describes digital asset management for knowledge mining.</p>\n<p>Given the amount of unstructured data created daily, many companies are struggling to make use of or find information within their files. Knowledge mining through a search index makes it easy for end customers and employees to locate what they are looking for faster.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/digital-asset-management.png\" /></p>",
+            "name": "digital-asset-management",
+            "popularity": 0,
+            "topic": "AI + Machine Learning"
         },
         {
             "tags": [
@@ -3508,6 +3811,63 @@
         },
         {
             "tags": [
+                "'https:--azure.microsoft.com-solutions-architecture-security-compliance-blueprint-hippa-hitrust-health-data-ai-'",
+                "acom-architecture",
+                "all-items",
+                "cloud-storage-in-healthcare",
+                "data",
+                "data-flow",
+                "healthcare-data-storage",
+                "interactive-diagram",
+                "medical-data-solutions",
+                "medical-data-storage",
+                "medical-records-management",
+                "medical-records-storage",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/security-compliance-blueprint-hippa-hitrust-health-data-ai.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hippa-hitrust-health-data-ai",
+            "word_count": 360,
+            "read_time": "2 min read",
+            "Title": "HIPPA and HITRUST compliant health data AI",
+            "MetaDescription": "Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security.",
+            "category": [
+                "storage"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/security-compliance-blueprint-hippa-hitrust-health-data-ai.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\security-compliance-blueprint-hippa-hitrust-health-data-ai.png",
+            "publish_date": "12/16/2019",
+            "components": [
+                "<p><a href=\"https://azure.microsoft.com/services/functions\">Azure Functions</a>: Process events with serverless code</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/event-grid\">Event Grid</a>: Get reliable event delivery at massive scale</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/storage\">Storage Accounts</a>: Durable, highly available, and massively scalable cloud storage</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/sql-database\">Azure SQL Database</a>: Managed, intelligent SQL in the cloud</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/machine-learning\">Azure Machine Learning</a>: Bring AI to everyone with an end-to-end, scalable, trusted platform with experimentation and model management</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/power-bi-embedded\">Power BI Embedded</a>: Embed fully interactive, stunning data visualizations in your applications</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/security-center\">Security Center</a>: Unify security management and enable advanced threat protection across hybrid cloud workloads</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/active-directory\">Azure Active Directory</a>: Synchronize on-premises directories and enable single sign-on</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/key-vault\">Key Vault</a>: Safeguard and maintain control of keys and other secrets</p>",
+                "<p>Application Insights: Detect, triage, and diagnose issues in your web apps and services</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/monitor\">Azure Monitor</a>: Full observability into your applications, infrastructure, and network</p>",
+                "<p><a href=\"https://www.microsoft.com/cloud-platform/operations-management-suite\">Operation Management Suite</a>: A collection of management services that were designed in the cloud from the start</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/role-based-access-control/built-in-roles\">RBAC and built-in roles</a>: Role-based access control (RBAC) has several built-in role definitions that you can assign to users, groups, and service principals.</p>"
+            ],
+            "Summary": "",
+            "Flow": {
+                "FlowStep_A": "Securely ingest bulk patient data into Azure Blob storage.",
+                "FlowStep_B": "Event Grid publishes patient data to Azure Functions for processing, and securely stores patient data in SQL Database.",
+                "FlowStep_C": "Analyze patient data using Machine Learning, and create a Machine Learning-trained model.",
+                "FlowStep_D": "Ingest new patient data in HL7/FHIR format and publish to Azure Functions for processing. Store in SQL Database.",
+                "FlowStep_E": "Analyze newly ingested data using the trained Machine Learning model.",
+                "FlowStep_F": "Interact with patient data using PowerBI while preserving Role-Based Access Control (RBAC)."
+            },
+            "name": "security-compliance-blueprint-hippa-hitrust-health-data-ai",
+            "popularity": 111,
+            "topic": "Storage"
+        },
+        {
+            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-hpc-risk-analysis-'",
                 "acom-architecture",
                 "all-items",
@@ -3751,52 +4111,6 @@
             "name": "hub-spoke",
             "popularity": 241,
             "topic": "Networking"
-        },
-        {
-            "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-hybrid-ci-cd-'",
-                "acom-architecture",
-                "all-items",
-                "azure-ci-cd",
-                "azure-devops",
-                "ci-cd",
-                "continuous-integration-and-continuous-deployment",
-                "data-flow",
-                "devops",
-                "interactive-diagram",
-                "microsoft-devops",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/hybrid-ci-cd.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/hybrid-ci-cd",
-            "word_count": 228,
-            "read_time": "2 min read",
-            "Title": "Hybrid CI/CD",
-            "MetaDescription": "Easily implement the practice of CI/CD by using a consistent set of development tools and processes across the Azure public cloud and on-premises Azure Stack environments.",
-            "category": [
-                "devops",
-                "hybrid"
-            ],
-            "image": "/azure/architecture/solution-ideas/media/hybrid-ci-cd.png",
-            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\hybrid-ci-cd.png",
-            "publish_date": "12/16/2019",
-            "components": [
-                "<p><a href=\"https://azure.microsoft.com/overview/azure-stack\">Azure Stack</a> is a hybrid cloud platform that lets you use Azure services on-premises</p>",
-                "<p>Step-by-step guidance: Step-by-step guidance</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/devops\">Azure DevOps</a>: Build and deploy multi-platform apps to get the most from Azure services</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/app-service/web\">Web Apps</a>: Quickly create and deploy mission critical Web apps at scale.</p>"
-            ],
-            "Flow": {
-                "FlowStep_A": "Engineer makes changes to application code and ARM template.",
-                "FlowStep_B": "Code and ARM template are checked into Azure DevOps Git.",
-                "FlowStep_C": "Continuous integration triggers application build and unit tests.",
-                "FlowStep_D": "Continuous deployment trigger orchestrates deployment of application artifacts with environment-specific parameters.",
-                "FlowStep_E": "Deployment to App Service on both Azure and Azure Stack."
-            },
-            "name": "hybrid-ci-cd",
-            "popularity": 109,
-            "topic": "DevOps"
         },
         {
             "tags": [
@@ -4900,93 +5214,6 @@
         },
         {
             "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application-'",
-                "acom-architecture",
-                "all-items",
-                "cloud-innovation",
-                "cloud-migration",
-                "data-flow",
-                "interactive-diagram",
-                "lift-and-shift-cloud-strategy",
-                "lift-and-shift-solution",
-                "lift-and-shift-strategy",
-                "line-of-business-app",
-                "lob-app",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application",
-            "word_count": 207,
-            "read_time": "1 min read",
-            "Title": "Lift and Shift and Innovate - LOB Apps",
-            "MetaDescription": "The solution demonstrates modernizing an existing application by consolidating data from multiple business systems into one place and surfacing it through web and mobile frontends. This is targeted at improving employee productivity and to enable faster decision making.",
-            "category": [
-                "migration"
-            ],
-            "image": "/azure/architecture/solution-ideas/media/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.png",
-            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.png",
-            "publish_date": "12/16/2019",
-            "components": [
-                "<p>Azure <a href=\"https://azure.microsoft.com/services/virtual-machines\">Virtual Machines</a> lets you deploy a Windows Server or Linux image in the cloud. You can select images from a marketplace or use your own customized images.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/sql-database\">Azure SQL Database</a> is a relational database service that lets you rapidly create, extend, and scale relational applications into the cloud.</p>"
-            ],
-            "Flow": {
-                "FlowStep_A": "Customer's mobile app authenticates via Azure Active Directory B2C",
-                "FlowStep_B": "Customer's mobile app connects to the back-end web service that aggregates data from different systems using asynchronous connection",
-                "FlowStep_C": "Web application connects to SQL database",
-                "FlowStep_D": "Power BI connects to SQL database and SharePoint",
-                "FlowStep_E": "Logic app pulls data from CRM (Salesforce)'''",
-                "FlowStep_F": "Logic app connects to SAP system (on-premises or in the cloud)",
-                "FlowStep_G": "Employee mobile app connects to the logic app that orchestrates the business process",
-                "FlowStep_H": "Employee mobile app authenticates via Azure Active Directory"
-            },
-            "name": "adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application",
-            "popularity": 128,
-            "topic": "Migration"
-        },
-        {
-            "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-modern-customer-support-portal-powered-by-an-agile-business-process-'",
-                "acom-architecture",
-                "all-items",
-                "cloud-innovation",
-                "cloud-migration",
-                "data-flow",
-                "interactive-diagram",
-                "lift-and-shift-cloud-strategy",
-                "lift-and-shift-solution",
-                "lift-and-shift-strategy",
-                "line-of-business-app",
-                "lob-app",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process",
-            "word_count": 161,
-            "read_time": "1 min read",
-            "Title": "Lift and Shift and Innovate - LOB Apps",
-            "MetaDescription": "This architecture shows how to easily connect multiple business systems to enable customer support.",
-            "category": [
-                "migration",
-                "hybrid"
-            ],
-            "image": "/azure/architecture/solution-ideas/media/modern-customer-support-portal-powered-by-an-agile-business-process.png",
-            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\modern-customer-support-portal-powered-by-an-agile-business-process.png",
-            "publish_date": "12/16/2019",
-            "Flow": {
-                "FlowStep_A": "Customer submits feedback posted to a web endpoint.",
-                "FlowStep_B": "The feedback is posted to Microsoft Cognitive Services Text Analytics API to extract sentiment and keywords.",
-                "FlowStep_C": "The customer feedback creates a new case in Dynamics CRM or other CRM.",
-                "FlowStep_D": "The solution sends a text message to the customer, thanking them for the feedback."
-            },
-            "name": "modern-customer-support-portal-powered-by-an-agile-business-process",
-            "popularity": 160,
-            "topic": "Migration"
-        },
-        {
-            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-migrate-existing-applications-with-aks-'",
                 "acom-architecture",
                 "all-items",
@@ -5411,62 +5638,6 @@
         },
         {
             "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-security-compliance-blueprint-hippa-hitrust-health-data-ai-'",
-                "acom-architecture",
-                "all-items",
-                "cloud-storage-in-healthcare",
-                "data",
-                "data-flow",
-                "healthcare-data-storage",
-                "interactive-diagram",
-                "medical-data-solutions",
-                "medical-data-storage",
-                "medical-records-management",
-                "medical-records-storage",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/security-compliance-blueprint-hippa-hitrust-health-data-ai.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hippa-hitrust-health-data-ai",
-            "word_count": 359,
-            "read_time": "2 min read",
-            "Title": "Medical Data Storage Solutions",
-            "MetaDescription": "Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security.",
-            "category": [
-                "storage"
-            ],
-            "image": "/azure/architecture/solution-ideas/media/security-compliance-blueprint-hippa-hitrust-health-data-ai.png",
-            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\security-compliance-blueprint-hippa-hitrust-health-data-ai.png",
-            "publish_date": "12/16/2019",
-            "components": [
-                "<p><a href=\"https://azure.microsoft.com/services/functions\">Azure Functions</a>: Process events with serverless code</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/event-grid\">Event Grid</a>: Get reliable event delivery at massive scale</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/storage\">Storage Accounts</a>: Durable, highly available, and massively scalable cloud storage</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/sql-database\">Azure SQL Database</a>: Managed, intelligent SQL in the cloud</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/machine-learning\">Azure Machine Learning</a>: Bring AI to everyone with an end-to-end, scalable, trusted platform with experimentation and model management</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/power-bi-embedded\">Power BI Embedded</a>: Embed fully interactive, stunning data visualizations in your applications</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/security-center\">Security Center</a>: Unify security management and enable advanced threat protection across hybrid cloud workloads</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/active-directory\">Azure Active Directory</a>: Synchronize on-premises directories and enable single sign-on</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/key-vault\">Key Vault</a>: Safeguard and maintain control of keys and other secrets</p>",
-                "<p>Application Insights: Detect, triage, and diagnose issues in your web apps and services</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/monitor\">Azure Monitor</a>: Full observability into your applications, infrastructure, and network</p>",
-                "<p><a href=\"https://www.microsoft.com/cloud-platform/operations-management-suite\">Operation Management Suite</a>: A collection of management services that were designed in the cloud from the start</p>",
-                "<p><a href=\"https://docs.microsoft.com/azure/role-based-access-control/built-in-roles\">RBAC and built-in roles</a>: Role-based access control (RBAC) has several built-in role definitions that you can assign to users, groups, and service principals.</p>"
-            ],
-            "Flow": {
-                "FlowStep_A": "Securely ingest bulk patient data into Azure Blob storage.",
-                "FlowStep_B": "Event Grid publishes patient data to Azure Functions for processing, and securely stores patient data in SQL Database.",
-                "FlowStep_C": "Analyze patient data using Machine Learning, and create a Machine Learning-trained model.",
-                "FlowStep_D": "Ingest new patient data in HL7/FHIR format and publish to Azure Functions for processing. Store in SQL Database.",
-                "FlowStep_E": "Analyze newly ingested data using the trained Machine Learning model.",
-                "FlowStep_F": "Interact with patient data using PowerBI while preserving Role-Based Access Control (RBAC)."
-            },
-            "name": "security-compliance-blueprint-hippa-hitrust-health-data-ai",
-            "popularity": 111,
-            "topic": "Storage"
-        },
-        {
-            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-medical-data-storage-'",
                 "acom-architecture",
                 "all-items",
@@ -5683,6 +5854,47 @@
             "name": "apim-api-scenario",
             "popularity": 178,
             "topic": "Web"
+        },
+        {
+            "tags": [
+                "'https:--azure.microsoft.com-solutions-architecture-modern-customer-support-portal-powered-by-an-agile-business-process-'",
+                "acom-architecture",
+                "all-items",
+                "cloud-innovation",
+                "cloud-migration",
+                "data-flow",
+                "interactive-diagram",
+                "lift-and-shift-cloud-strategy",
+                "lift-and-shift-solution",
+                "lift-and-shift-strategy",
+                "line-of-business-app",
+                "lob-app",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process",
+            "word_count": 162,
+            "read_time": "1 min read",
+            "Title": "Modern Customer Support Portal",
+            "MetaDescription": "This architecture shows how to easily connect multiple business systems to enable customer support.",
+            "category": [
+                "migration",
+                "hybrid"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/modern-customer-support-portal-powered-by-an-agile-business-process.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\modern-customer-support-portal-powered-by-an-agile-business-process.png",
+            "publish_date": "12/16/2019",
+            "Flow": {
+                "FlowStep_A": "Customer submits feedback posted to a web endpoint.",
+                "FlowStep_B": "The feedback is posted to Microsoft Cognitive Services Text Analytics API to extract sentiment and keywords.",
+                "FlowStep_C": "The customer feedback creates a new case in Dynamics CRM or other CRM.",
+                "FlowStep_D": "The solution sends a text message to the customer, thanking them for the feedback.",
+                "FlowStep_E": "If the feedback sentiment scores lower than 0.3, the app posts this information to a customer service channel to respond."
+            },
+            "name": "modern-customer-support-portal-powered-by-an-agile-business-process",
+            "popularity": 160,
+            "topic": "Migration"
         },
         {
             "tags": [

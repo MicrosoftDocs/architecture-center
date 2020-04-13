@@ -1,5 +1,5 @@
 ---
-title: Lift and Shift and Innovate - LOB Apps
+title: Adding a mobile front-end to a legacy app
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
@@ -12,7 +12,7 @@ ms.subservice: solution-idea
 social_image_url: /azure/architecture/solution-ideas/articles/media/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.png
 ---
 
-# Lift and Shift and Innovate - LOB Apps
+# Lift and Shift and Innovate - Adding a mobile front-end to a legacy app
 
 [!INCLUDE [header_file](../header.md)]
 

@@ -350,6 +350,8 @@ items:
       items:
       - name: AI at the edge
         href: solution-ideas/articles/ai-at-the-edge.md
+      - name: Auditing and risk management
+        href: solution-ideas/articles/auditing-and-risk-compliance.md
       - name: Disconnected AI at the edge
         href: solution-ideas/articles/ai-at-the-edge-disconnected.md
       - name: Batch scoring for deep Learning
@@ -360,6 +362,8 @@ items:
         href: reference-architectures/ai/batch-scoring-databricks.md
       - name: Batch scoring with R
         href: reference-architectures/ai/batch-scoring-R-models.md
+      - name: Business Process Management
+        href: solution-ideas/articles/business-process-management.md
       - name: Real-time recommendation API
         href: reference-architectures/ai/real-time-recommendation.md
       - name: Enterprise-grade conversational bot
@@ -368,12 +372,20 @@ items:
         href: example-scenario/ai/commerce-chatbot.md
       - name: eCommerce chatbot
         href: solution-ideas/articles/commerce-chatbot.md
+      - name: Content Research
+        href: solution-ideas/articles/content-research.md
+      - name: Contract Management
+        href: solution-ideas/articles/contract-management.md
       - name: Customer churn prediction
         href: solution-ideas/articles/customer-churn-prediction.md
+      - name: Customer Feedback
+        href: solution-ideas/articles/customer-feedback-and-analytics.md
       - name: Defect prevention
         href: solution-ideas/articles/defect-prevention-with-predictive-maintenance.md
       - name: Distributed deep learning training
         href: reference-architectures/ai/training-deep-learning.md
+      - name: Digital Asset Management
+        href: solution-ideas/articles/digital-asset-management.md
       - name: Energy supply optimization
         href: solution-ideas/articles/energy-supply-optimization.md
       - name: Enterprise productivity chatbot
@@ -798,6 +810,8 @@ items:
           href: solution-ideas/articles/cicd-for-containers.md
         - name: CI/CD using Jenkins and AKS
           href: solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.md
+        - name: DevSecOps in Azure
+          href: solution-ideas/articles/devsecops-in-azure.md
         - name: Dev-Test for IaaS
           href: solution-ideas/articles/dev-test-iaas.md
         - name: Dev-Test for PaaS
@@ -806,10 +820,10 @@ items:
           href: solution-ideas/articles/dev-test-microservice.md
         - name: Dev-Test Image Factory
           href: solution-ideas/articles/dev-test-image-factory.md
-        - name: Hybrid CI/CD
-          href: solution-ideas/articles/hybrid-ci-cd.md
         - name: CI/CD using Jenkins and Terraform
           href: solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.md
+        - name: Hybrid DevOps
+          href: solution-ideas/articles/devops-in-a-hybrid-environment.md
         - name: Java CI/CD using Jenkins and Azure Web Apps
           href: solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps.md
         - name: Jenkins on Azure
@@ -818,6 +832,10 @@ items:
           href: solution-ideas/articles/sharepoint-farm-devtest.md
         - name: Real time location sharing
           href: example-scenario/signalr/index.md
+  - name: High Availability
+    items:
+    -  name: Overview
+       href: high-availability/building-solutions-for-high-availability.md       
   - name: Hybrid
     items:
     - name: Architectures
