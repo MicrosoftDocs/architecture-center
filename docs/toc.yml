@@ -1034,6 +1034,8 @@ items:
     items:
     - name: Architectures
       items:
+      - name: Cyber threat intelligence
+        href: example-scenario/data/sentinel-threat-intelligence.md
       - name: Real-time fraud detection
         href: example-scenario/data/fraud-detection.md
       - name: Securely managed web apps
