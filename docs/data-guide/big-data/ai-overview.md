@@ -14,7 +14,7 @@ ms.subservice: cloud-fundamentals
 intelligent human behavior. Through AI, machines can analyze images, comprehend
 speech, interact in natural ways, and make predictions using data.
 
-![Illustration depicting the relationship of artificial intelligence as a parent concept. Within AI is machine learning. Within machine learning is deep learning.](./images/ai-overview-im.png)
+![Illustration depicting the relationship of artificial intelligence as a parent concept. Within AI is machine learning. Within machine learning is deep learning.](./images/ai-overview-img-001.png)
 
 ## AI concepts
 
@@ -653,7 +653,7 @@ are a number of customer case studies and success stories:
 
 -   [AXA Global P&C: Global insurance firm models complex natural disasters with
     cloud-based
-    HPC](https://customers.microsoft.com/en-us/story/axa-global-p-and-c)
+    HPC](https://customers.microsoft.com/story/axa-global-p-and-c)
 
 [Browse more AI customer
 stories](https://customers.microsoft.com/search?sq=&ff=story_product_categories%26%3EArtificial%20Intelligence&p=2&so=story_publish_date%20desc)
