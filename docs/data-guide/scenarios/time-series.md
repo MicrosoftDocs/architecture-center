@@ -1,6 +1,6 @@
 ---
 title: Time series data
-description: 
+description: Analyze time series data like sensor data, stock prices, click stream data, or app telemetry for historical trends, real-time alerts, or predictive modeling.
 author: zoinerTejada
 ms.date: 02/12/2018
 ms.topic: guide
