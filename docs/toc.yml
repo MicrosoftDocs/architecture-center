@@ -335,6 +335,8 @@ items:
   - name: AI + Machine Learning
     items:
     - name: Overview
+      href: data-guide/big-data/ai-overview.md
+    - name: Machine learning at scale
       href: data-guide/big-data/machine-learning-at-scale.md
     - name: Technology choices
       items:
