@@ -144,8 +144,8 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-linux]: /azure/virtual-machines/virtual-machines-linux-azure-overview
-[azure-storage]: /azure/storage/storage-introduction
-[blob-storage]: /azure/storage/storage-introduction
+[azure-storage]: /azure/storage/common/storage-introduction
+[blob-storage]: /azure/storage/common/storage-introduction
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record

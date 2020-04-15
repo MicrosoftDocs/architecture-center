@@ -525,7 +525,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [RoleEnvironment.Stopping]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx
 [rm-locks]: /azure/azure-resource-manager/resource-group-lock-resources/
 [sb-dead-letter-queue]: /azure/service-bus-messaging/service-bus-dead-letter-queues/
-[sb-georeplication-sample]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/GeoReplication
+[sb-georeplication-sample]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/GeoReplication
 [sb-messagingexception-class]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
 [sb-messaging-exceptions]: /azure/service-bus-messaging/service-bus-messaging-exceptions/
 [sb-outages]: /azure/service-bus-messaging/service-bus-outages-disasters/#protecting-queues-and-topics-against-datacenter-outages-or-disasters
