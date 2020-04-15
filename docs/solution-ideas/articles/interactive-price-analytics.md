@@ -19,7 +19,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/interactive-
 
 [!INCLUDE [header_file](../header.md)]
 
-The Pricing Analytics solution uses your transactional history data to show you how the demand for your products responds to the prices you offer, to recommend pricing changes, and allow you to simulate how changes in price would affect your demand, at a fine granularity.
+The Price Analytics solution uses your transactional history data to show you how the demand for your products responds to the prices you offer, to recommend pricing changes, and allow you to simulate how changes in price would affect your demand, at a fine granularity.
 
 The solution provides a dashboard, where you can see optimal pricing recommendations, item elasticities at a item-site-channel-segment level, estimates of related-product effects such "as cannibalization", forecasts given current process, and model performance metrics.
 
