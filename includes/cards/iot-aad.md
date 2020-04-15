@@ -8,13 +8,13 @@
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/example-scenario/iot-aad/iot-aad">
-            <p>Secure access to IoT apps with Azure AD - Developer guide</p>
+            <p>Secure your IoT SaaS app with the Microsoft identity platform</p>
         </a>
         <ul class="card-content-metadata">
             <li>3/12/2020</li>
-            <li>11 min read</li>
+            <li>13 min read</li>
         </ul>
-        <p class="card-content-description">An overview of how a developer can use Azure Active Directory to implement secure authentication and authorization for a SaaS app that manages cloud-connected IoT devices.</p>
+        <p class="card-content-description">How a developer can use Azure Active Directory and the Microsoft identity platform to implement secure authentication and authorization for SaaS apps that manage cloud-connected IoT devices.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

@@ -452,7 +452,7 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/backup-archive-on-premises.md",
             "http_url": "/azure/architecture/solution-ideas/articles/backup-archive-on-premises",
-            "word_count": 148,
+            "word_count": 147,
             "read_time": "1 min read",
             "Title": "Archive on-premises data to cloud",
             "MetaDescription": "Archive your on-premises data to Azure Blob storage.",
@@ -465,7 +465,7 @@
             "publish_date": "12/16/2019",
             "components": [
                 "<p>Azure <a href=\"https://azure.microsoft.com/services/storsimple\">StorSimple</a> appliance running on-premises that can tier data to Azure Blob storage (both hot and cool tier). <a href=\"https://azure.microsoft.com/services/storsimple\">StorSimple</a> can be used to archive data from on-premises to Azure.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/storage/blobs\">Blob Storage</a>: A cool tier on Azure Blob storage is used to back up data that's less frequently accessed, while a hot tier on Azure Blob storage is used to store data that's frequently accessed.</p>"
+                "<p><a href=\"https://azure.microsoft.com/services/storage/blobs\">Blob Storage</a>: A cool or archive tier on Azure Blob storage is used to back up data that's less frequently accessed, while a hot tier is used to store data that's frequently accessed.</p>"
             ],
             "name": "backup-archive-on-premises",
             "popularity": 202,
@@ -544,13 +544,40 @@
         {
             "tags": [
                 "all-items",
+                "example-code",
+                "github",
+                "reference-architecture"
+            ],
+            "type": "reference-architecture",
+            "file_url": "reference-architectures/iot-with-sql.md",
+            "http_url": "/azure/architecture/reference-architectures/iot-with-sql",
+            "word_count": 2371,
+            "read_time": "10 min read",
+            "Title": "Azure IoT reference architecture",
+            "MetaDescription": "Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components",
+            "category": [
+                "iot"
+            ],
+            "image": "/azure/architecture/reference-architectures/_images/iot-with-sql.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\_images\\iot-with-sql.png",
+            "publish_date": "1/03/2020",
+            "Summary": "<p>This reference architecture shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.</p>\n<p><img alt=\"Diagram of the architecture\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/_images/iot-with-sql.png\" /></p>\n<p>IoT applications can be described as <strong>things</strong> (devices) sending data that generates <strong>insights</strong>. These insights generate <strong>actions</strong> to improve a business or process. An example is an engine (the thing) sending temperature data. This data is used to evaluate whether the engine is performing as expected (the insight). The insight is used to proactively prioritize the maintenance schedule for the engine (the action).</p>\n<p>This reference architecture uses Azure PaaS (platform-as-a-service) components. Other options for building IoT solutions on Azure include:</p>\n<ul>\n<li><a href=\"https://docs.microsoft.com/azure/iot-central/\">Azure IoT Central</a>. IoT Central is a fully managed SaaS (software-as-a-service) solution. It abstracts the technical choices and lets you focus on your solution exclusively. This simplicity comes with a tradeoff in being less customizable than a PaaS-based solution.</li>\n<li>Using OSS components such as the SMACK stack (Spark, Mesos, Akka, Cassandra, Kafka) deployed on Azure VMs. This approach offers a great deal of control but is more complex.</li>\n</ul>\n<p>At a high level, there are two ways to process telemetry data, hot path and cold path. The difference has to do with requirements for latency and data access.</p>\n<ul>\n<li>The <strong>hot path</strong> analyzes data in near-real-time, as it arrives. In the hot path, telemetry must be processed with very low latency. The hot path is typically implemented using a stream processing engine. The output may trigger an alert, or be written to a structured format that can be queried using analytical tools.</li>\n<li>The <strong>cold path</strong> performs batch processing at longer intervals (hourly or daily). The cold path typically operates over large volumes of data, but the results don't need to be as timely as the hot path. In the cold path, raw telemetry is captured and then fed into a batch process.</li>\n</ul>",
+            "sample_code": true,
+            "github_url": "https://github.com/mspnp/iot-guidance",
+            "name": "iot-with-sql",
+            "popularity": 0,
+            "topic": "Internet of Things"
+        },
+        {
+            "tags": [
+                "all-items",
                 "data-flow",
                 "example-code",
                 "github",
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/iot/index.md",
+            "file_url": "reference-architectures/iot.md",
             "http_url": "/azure/architecture/reference-architectures/iot",
             "word_count": 2520,
             "read_time": "10 min read",
@@ -560,8 +587,8 @@
                 "iot",
                 "featured"
             ],
-            "image": "/azure/architecture/reference-architectures/iot/_images/iot.png",
-            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\iot\\_images\\iot.png",
+            "image": "/azure/architecture/reference-architectures/_images/iot.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\_images\\iot.png",
             "publish_date": "1/09/2019",
             "Summary": "<p>This reference architecture shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.</p>\n<p><img alt=\"Diagram of the architecture\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/_images/iot.png\" /></p>\n<p>IoT applications can be described as <strong>things</strong> (devices) sending data that generates <strong>insights</strong>. These insights generate <strong>actions</strong> to improve a business or process. An example is an engine (the thing) sending temperature data. This data is used to evaluate whether the engine is performing as expected (the insight). The insight is used to proactively prioritize the maintenance schedule for the engine (the action).</p>\n<p>This reference architecture uses Azure PaaS (platform-as-a-service) components. Other options for building IoT solutions on Azure include:</p>\n<ul>\n<li><a href=\"https://docs.microsoft.com/azure/iot-central/\">Azure IoT Central</a>. IoT Central is a fully managed SaaS (software-as-a-service) solution. It abstracts the technical choices and lets you focus on your solution exclusively. This simplicity comes with a tradeoff in being less customizable than a PaaS-based solution.</li>\n<li>Using OSS components such as the SMACK stack (Spark, Mesos, Akka, Cassandra, Kafka) deployed on Azure VMs. This approach offers a great deal of control but is more complex.</li>\n</ul>\n<p>At a high level, there are two ways to process telemetry data, hot path and cold path. The difference has to do with requirements for latency and data access.</p>\n<ul>\n<li>The <strong>hot path</strong> analyzes data in near-real-time, as it arrives. In the hot path, telemetry must be processed with very low latency. The hot path is typically implemented using a stream processing engine. The output may trigger an alert, or be written to a structured format that can be queried using analytical tools.</li>\n<li>The <strong>cold path</strong> performs batch processing at longer intervals (hourly or daily). The cold path typically operates over large volumes of data, but the results don't need to be as timely as the hot path. In the cold path, raw telemetry is captured and then fed into a batch process.</li>\n</ul>",
             "Flow": {
@@ -569,7 +596,7 @@
             },
             "sample_code": true,
             "github_url": "https://github.com/mspnp/iot-guidance",
-            "name": "index",
+            "name": "iot",
             "popularity": 234,
             "topic": "Internet of Things"
         },
@@ -1717,6 +1744,45 @@
             "name": "contract-management",
             "popularity": 0,
             "topic": "AI + Machine Learning"
+        },
+        {
+            "tags": [
+                "'https:--azure.microsoft.com-solutions-architecture-iot-devices-'",
+                "acom-architecture",
+                "all-items",
+                "bot-service",
+                "data-flow",
+                "iot",
+                "luis",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/iot-devices.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/iot-devices",
+            "word_count": 346,
+            "read_time": "2 min read",
+            "Title": "Controlling IoT devices using a Voice Assistant",
+            "MetaDescription": "Create seamless conversational interfaces with all of your internet-accessible devices\u2014from your connected television or fridge to devices in a connected power plant. By combining Azure Speech Service, Language Understanding Service (LUIS) and Azure Bot Framework, developers can create natural, human-like conversational interfaces to control smart devices.",
+            "category": [
+                "iot"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/controlling-iot-devices-using-voice.svg",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\controlling-iot-devices-using-voice.svg",
+            "publish_date": "3/23/2020",
+            "Summary": "<p>Create seamless conversational interfaces with all of your internet-accessible devices\u2014from your connected television or fridge to devices in a connected power plant. By combining <a href=\"https://docs.microsoft.com/azure/cognitive-services/speech-service/overview\">Azure Speech Service</a>, <a href=\"https://docs.microsoft.com/azure/cognitive-services/luis/\">Language Understanding Service</a> (LUIS) and <a href=\"https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0\">Azure Bot Framework</a>, developers can create natural, human-like conversational interfaces to control smart devices using <a href=\"https://azure.microsoft.com/services/iot-hub/\">Azure IoT Hub</a>.</p>",
+            "Flow": {
+                "FlowStep_A": "Using voice, the user asks the voice assistant app to turn on the exterior house lights.",
+                "FlowStep_B": "Using the Speech SDK, the app connects to Direct Line Speech. If keywords are confirmed by Keyword Verification, the speech is transcribed to text and sent to the Bot Service.",
+                "FlowStep_C": "The Bot Service connects to Language Understanding service (LUIS). LUIS allows an application to understand what a person wants in their own words. The intent of the user's request (example: TurnOnLight) is returned to the Bot Service.",
+                "FlowStep_D": "The request is relayed to the device.",
+                "FlowStep_E": "The Bot returns the results of the command to the user by generating a response that includes the text to speak.",
+                "FlowStep_F": "The response is turned into audio using the Text-to-speech service and passed back to the voice assistant app by Direct Line Speech.",
+                "FlowStep_G": "Application Insights gathers runtime telemetry to help development with bot performance and usage",
+                "FlowStep_H": "Azure App Service hosts the Bot Service application."
+            },
+            "name": "iot-devices",
+            "popularity": 149,
+            "topic": "Internet of Things"
         },
         {
             "tags": [
@@ -3995,6 +4061,38 @@
         },
         {
             "tags": [
+                "all-items",
+                "alternative-choices",
+                "example-code",
+                "example-workload",
+                "fcp",
+                "github",
+                "pricing-guidance"
+            ],
+            "type": "example-workload",
+            "file_url": "example-scenario/infrastructure/iaas-high-availability-disaster-recovery.md",
+            "http_url": "/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery",
+            "word_count": 1638,
+            "read_time": "7 min read",
+            "Title": "High availability and disaster recovery scenarios for IaaS apps.",
+            "MetaDescription": "Choose among high-availability and disaster recovery options like availability sets, availability zones, and regional DR for deploying IaaS apps to the cloud.",
+            "category": [
+                "management-and-governance"
+            ],
+            "image": "/azure/architecture/example-scenario/infrastructure/media/ha-decision-tree.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\infrastructure\\media\\ha-decision-tree.png",
+            "publish_date": "4/06/2020",
+            "pricing_guidance": "pricing",
+            "alternative_choices": "alternatives",
+            "Summary": "<p>This article presents a decision tree and examples of high-availability (HA) and disaster recovery (DR) options when deploying multitier infrastructure-as-a-service (IaaS) apps to Azure.</p>\n<p>Multitier or <a href=\"https://docs.microsoft.com/azure/architecture/guide/architecture-styles/n-tier\">n-tier</a> architectures are common in traditional on-premises apps, so they're a natural choice for migrating on-premises apps to the cloud, or when developing apps for both on-premises and the cloud. N-tier architectures are typically implemented as IaaS apps divided into logical layers and physical tiers, with a top web or presentation tier, a middle business tier, and a data tier. </p>\n<p>In an IaaS n-tier app, each tier runs on a separate set of VMs. The web and business tiers are stateless, meaning any VM in the tier can handle any request for that tier. The data tier is a replicated database, object storage, or file storage. Multiple VMs in each tier provide resiliency if one VM fails, and load balancers distribute requests across the VMs. </p>\n<p>You can scale out tiers by adding more VMs to the pools, and use <a href=\"https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview\">virtual machine scale sets</a> to automatically scale out identical VMs. Because you use load balancers, you can scale out tiers without affecting app uptime.</p>\n<p>If the service-level agreement (SLA) for an IaaS app requires &gt; 99% availability, you can place VMs in <em>availability sets</em>, <em>availability zones</em>, and <em>proximity placement groups</em> to configure high availability for the app. The HA and DR solutions you choose depend on the required SLA, latency considerations, and regional DR requirements.</p>",
+            "sample_code": true,
+            "github_url": "https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test",
+            "name": "iaas-high-availability-disaster-recovery",
+            "popularity": 0,
+            "topic": "Management and Governance"
+        },
+        {
+            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-highly-available-sharepoint-farm-'",
                 "acom-architecture",
                 "all-items",
@@ -5063,64 +5161,41 @@
         },
         {
             "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-iot-devices-'",
-                "acom-architecture",
-                "all-items",
-                "bot-service",
-                "data-flow",
-                "interactive-diagram",
-                "iot",
-                "luis",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/iot-devices.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/iot-devices",
-            "word_count": 124,
-            "read_time": "1 min read",
-            "Title": "IoT devices",
-            "MetaDescription": "Create seamless conversational interfaces with all of your internet-accessible devices\u2014from your connected television or fridge to devices in a connected power plant. LUIS is able to integrate up to 500 intents to translate commands into smart actions.",
-            "category": [
-                "iot"
-            ],
-            "image": "/azure/architecture/solution-ideas/media/iot-devices.png",
-            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\iot-devices.png",
-            "publish_date": "12/16/2019",
-            "Summary": "<p>Create seamless conversational interfaces with all of your internet-accessible devices\u2014from your connected television or fridge to devices in a connected power plant. LUIS is able to integrate up to 500 intents to translate commands into smart actions.</p>",
-            "Flow": {
-                "FlowStep_A": "User logs into Skype and accesses the IoT bot",
-                "FlowStep_B": "Using voice, the user asks the bot to turn on the lights via the IoT device",
-                "FlowStep_C": "The request is relayed to a third-party service that has access to the IoT device network",
-                "FlowStep_D": "The results of the command are returned to the user"
-            },
-            "name": "iot-devices",
-            "popularity": 149,
-            "topic": "Internet of Things"
-        },
-        {
-            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-iot-using-cosmos-db-'",
                 "acom-architecture",
                 "all-items",
+                "alternative-choices",
                 "cosmos-db",
+                "data-flow",
                 "iot",
                 "solution-idea"
             ],
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/iot-using-cosmos-db.md",
             "http_url": "/azure/architecture/solution-ideas/articles/iot-using-cosmos-db",
-            "word_count": 34,
-            "read_time": "1 min read",
+            "word_count": 1236,
+            "read_time": "5 min read",
             "Title": "IoT using Cosmos DB",
             "MetaDescription": "Scale instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.",
             "category": [
                 "iot",
                 "databases"
             ],
-            "image": "/azure/architecture/solution-ideas/media/iot-using-cosmos-db.png",
-            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\iot-using-cosmos-db.png",
-            "publish_date": "12/16/2019",
-            "Summary": "<p>Scale instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.</p>",
+            "image": "/azure/architecture/solution-ideas/media/iot-using-cosmos-db.svg",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\iot-using-cosmos-db.svg",
+            "publish_date": "3/23/2020",
+            "alternative_choices": "alternatives",
+            "Summary": "<p>Scale instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.</p>\n<p>Azure Cosmos DB is Microsoft\u2019s globally distributed, multi-model database. Azure Cosmos DB was built from the ground up with global distribution and horizontal scale at its core. It offers turnkey global distribution across any number of Azure regions by transparently scaling and replicating your data wherever your users are. You can elastically scale throughput and storage worldwide, and pay only for the throughput and storage you need.</p>\n<p>Cosmos DB is ideally suited for IoT solutions. Cosmos DB can ingest device telemetry data at high rates and can serve indexed queries back with low latency and high availability.</p>\n<p>Cosmos DB is a multi-model database with wire protocol\u2013compatible API endpoints for Cassandra, MongoDB, SQL, Gremlin, Etcd, and Table along with built-in support for Jupyter notebooks.</p>",
+            "Flow": {
+                "FlowStep_A": "Events generated from IoT devices are sent to the analyze and transform layer through Azure IoT Hub as a stream of messages. Azure IoT Hub stores streams of data in partitions for a configurable amount of time.",
+                "FlowStep_B": "Azure Databricks, running Apache Spark Streaming, picks up the messages in real time from IoT Hub, processes the data based on the business logic and sends the data to Serving layer for storage. Spark Streaming can provide real time analytics such as calculating moving averages, min and max values over time periods.",
+                "FlowStep_C": "Device messages are stored in Cosmos DB as JSON documents. This is considered the **hot data store**. Different JSON schemas representing different device vendors can be stored in Cosmos DB or converted to a canonical JSON schema.",
+                "FlowStep_D": "The storage layer consists of:",
+                "FlowStep_E": "Microsoft Power BI can be used by your users to analyze warehoused data.",
+                "FlowStep_F": "Web, mobile and other applications can be built on the storage layer. For example, you can expose APIs based on the storage layer data for third-party uses.",
+                "FlowStep_G": "Use Cosmos DB Change Feed to execute an Azure Function each time a device message is added or updated in Cosmos DB.",
+                "FlowStep_H": "Some device messages (for example, a fault code) may require an action to be performed on the device. Using the Azure IoT Hub Service API, the Azure Function can connect to Azure IoT Hub and perform an action on the device (for example, reboot) using either:"
+            },
             "name": "iot-using-cosmos-db",
             "popularity": 121,
             "topic": "Internet of Things"
@@ -5730,7 +5805,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/microservices/aks.md",
             "http_url": "/azure/architecture/reference-architectures/microservices/aks",
-            "word_count": 3916,
+            "word_count": 3920,
             "read_time": "16 min read",
             "Title": "Microservices architecture on Azure Kubernetes Service (AKS)",
             "MetaDescription": "Deploy a microservices architecture on Azure Kubernetes Service (AKS)",
@@ -8221,10 +8296,10 @@
             "type": "example-workload",
             "file_url": "example-scenario/iot-aad/iot-aad.md",
             "http_url": "/azure/architecture/example-scenario/iot-aad/iot-aad",
-            "word_count": 2773,
-            "read_time": "11 min read",
-            "Title": "Secure access to IoT apps with Azure AD - Developer guide",
-            "MetaDescription": "An overview of how a developer can use Azure Active Directory to implement secure authentication and authorization for a SaaS app that manages cloud-connected IoT devices.",
+            "word_count": 3085,
+            "read_time": "13 min read",
+            "Title": "Secure your IoT SaaS app with the Microsoft identity platform",
+            "MetaDescription": "How a developer can use Azure Active Directory and the Microsoft identity platform to implement secure authentication and authorization for SaaS apps that manage cloud-connected IoT devices.",
             "category": [
                 "iot",
                 "security"
@@ -8232,8 +8307,9 @@
             "image": "/azure/architecture/example-scenario/iot-aad/media/multi-tenant-iot.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\iot-aad\\media\\multi-tenant-iot.png",
             "publish_date": "3/12/2020",
+            "Summary": "<p>IoT device manufacturers are creating custom apps and services to better serve their customers\u2019 device management needs. Developers building IoT apps and services want to provide secure, frictionless access to cloud-connected devices and the telemetry data sent by these devices to the cloud. </p>\n<p>In this article we explain how a developer can take advantage of <a href=\"https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis\">Azure Active Directory</a> and the <a href=\"https://docs.microsoft.com/azure/active-directory/develop/v2-overview\">Microsoft identity platform</a> to create a secure <a href=\"https://azure.microsoft.com/overview/what-is-saas/\">SaaS app</a>. We'll cover the basic how-tos and benefits of integrating your app with Azure AD , as well as two common customer scenarios IoT developers may encounter.</p>\n<p>By integrating with the Microsoft identity platform and configuring the app to be <a href=\"https://docs.microsoft.com/azure/active-directory/develop/single-and-multi-tenant-apps\">multi-tenant</a>, developers can:\n- Ensure isolation of customer resources and data\n- Enable access control by enforcing organizational policies and conditions based on time, location, and more \n- Support auditing and reporting of access\n- Allow users to sign in with existing work and social accounts, which in turn allows a <a href=\"https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on\">single sign-on</a> experience so that users sign in once and are able to access other corporate resources and apps without signing in again</p>\n<p>To learn more about the topics covered in this article, check out the <a href=\"https://docs.microsoft.com/azure/active-directory/develop/\">Microsoft identity platform homepage</a>. The quickstart guides there will help you get set up quickly to integrate your app with our platform. </p>\n<blockquote>\n<p>[!NOTE]\nPlease leave feedback on the document whether you found it helpful or not! Your input matters in helping us to create useful content. </p>\n</blockquote>",
             "sample_code": true,
-            "github_url": "https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/develop/consent-framework.md",
+            "github_url": "https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md",
             "name": "iot-aad",
             "popularity": 0,
             "topic": "Internet of Things"
@@ -8985,6 +9061,40 @@
             "name": "telemetry-analytics",
             "popularity": 87,
             "topic": "Internet of Things"
+        },
+        {
+            "tags": [
+                "all-items",
+                "alternative-choices",
+                "example-code",
+                "example-workload",
+                "fcp",
+                "github",
+                "json"
+            ],
+            "type": "example-workload",
+            "file_url": "example-scenario/data/sentinel-threat-intelligence.md",
+            "http_url": "/azure/architecture/example-scenario/data/sentinel-threat-intelligence",
+            "word_count": 3126,
+            "read_time": "13 min read",
+            "Title": "Threat indicators for cyber threat intelligence in Azure Sentinel",
+            "MetaDescription": "Import threat indicators, view logs, create rules to generate security alerts and incidents, and visualize threat intelligence data with Azure Sentinel.",
+            "category": [
+                "security"
+            ],
+            "image": "/azure/architecture/example-scenario/data/media/sentinel-threat-intelligence/sentinel-data-flow.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\data\\media\\sentinel-threat-intelligence\\sentinel-data-flow.png",
+            "publish_date": "4/13/2020",
+            "alternative_choices": "alternatives",
+            "Summary": "<p>This article describes how a cloud-based <em>Security Information and Event Management (SIEM)</em> solution like <a href=\"https://docs.microsoft.com/azure/sentinel/overview\">Azure Sentinel</a> can use <em>threat indicators</em> to detect, provide context, and inform responses to existing or potential cyber threats. </p>\n<p><em>Cyber threat intelligence (CTI)</em> can come from many sources, such as open-source data feeds, threat intelligence sharing communities, paid intelligence feeds, and security investigations within organizations. CTI can range from written reports on a threat actor's motivations, infrastructure, and techniques, to specific observations of IP addresses, domains, and file hashes. CTI provides essential context for unusual activity, so security personnel can act quickly to protect people and assets.</p>\n<p>The most utilized CTI in SIEM solutions like Azure Sentinel is threat indicator data, sometimes called <em>Indicators of Compromise (IoCs)</em>. Threat indicators associate URLs, file hashes, IP addresses, and other data with known threat activity like phishing, botnets, or malware. This form of threat intelligence is often called <em>tactical threat intelligence</em>, because security products and automation can use it in large scale to protect and detect potential threats. Azure Sentinel can help detect, respond to, and provide CTI context for malicious cyber activity. </p>",
+            "sample_code": true,
+            "github_url": "https://github.com/Azure/Azure-Sentinel",
+            "code_languages": [
+                "json"
+            ],
+            "name": "sentinel-threat-intelligence",
+            "popularity": 0,
+            "topic": "Security"
         },
         {
             "tags": [

@@ -8,6 +8,8 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.custom:
   - fcp
+ms.category:
+  - security
 ---
 
 # Cyber threat intelligence with Azure Sentinel

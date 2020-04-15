@@ -11,8 +11,8 @@
             <p>IoT using Cosmos DB</p>
         </a>
         <ul class="card-content-metadata">
-            <li>12/16/2019</li>
-            <li>1 min read</li>
+            <li>3/23/2020</li>
+            <li>5 min read</li>
         </ul>
         <p class="card-content-description">Scale instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

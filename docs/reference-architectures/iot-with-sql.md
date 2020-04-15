@@ -6,13 +6,15 @@ author: scoriani
 ms.date: 01/03/2020
 ms.service: architecture-center
 ms.subservice: reference-architecture
+ms.category:
+  - iot
 ---
 
 # Azure IoT reference architecture
 
 This reference architecture shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
 
-![Diagram of the architecture](./_images/iot.png)
+![Diagram of the architecture](./_images/iot-with-sql.png)
 
 IoT applications can be described as **things** (devices) sending data that generates **insights**. These insights generate **actions** to improve a business or process. An example is an engine (the thing) sending temperature data. This data is used to evaluate whether the engine is performing as expected (the insight). The insight is used to proactively prioritize the maintenance schedule for the engine (the action).
 
@@ -141,6 +143,10 @@ Tracing telemetry allows an operator to follow the journey of a piece of telemet
 Logging systems are integral in understanding what actions or activities a solution has performed, failures that have occurred, and can provide help in fixing those failures. Logs can be analyzed to help understand and remedy error conditions, enhance performance characteristics, and ensure compliance with governing rule and regulations.
 
 Though plain-text logging is lower impact on upfront development costs, it is more challenging for a machine to parse/read. We recommend structured logging be used, as collected information is both machine parsable and human readable. Structured logging adds situational context and metadata to the log information. In structured logging, properties are first class citizens formatted as key/value pairs, or with a fixed schema, to enhance search and query capabilities.
+
+## Sample Code
+
+A working end-to-end solution is available here: https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql. It provides scripts to deploy on Azure everything needed to have a working sample, including data generators, to test ingestion, processing and queriying of up to 10000 messages/secs.
 
 ## Next steps
 

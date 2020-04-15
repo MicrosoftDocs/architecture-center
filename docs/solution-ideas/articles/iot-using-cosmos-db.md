@@ -7,6 +7,9 @@ description: Scale instantly and elastically to accommodate diverse and unpredic
 ms.custom: acom-architecture, iot, Cosmos DB, 'https://azure.microsoft.com/solutions/architecture/iot-using-cosmos-db/'
 ms.service: architecture-center
 ms.subservice: solution-idea
+ms.category:
+  - iot
+  - databases
 ---
 # IoT using Cosmos DB
 
