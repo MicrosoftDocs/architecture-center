@@ -546,7 +546,7 @@ is the Microsoft implementation of Apache Spark in the cloud. Spark clusters in
 HDInsight are compatible with Azure Storage and Azure Data Lake Storage, so you
 can use HDInsight Spark clusters to process your data stored in Azure.
 
-The Microsoft Machine Learning library for Apache Spark is MMLSpark (Microsoft
+The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://github.com/Azure/mmlspark) (Microsoft
 ML for Apache Spark). It is an open-source library that adds many deep learning
 and data science tools, networking capabilities, and production-grade
 performance to the Spark ecosystem. [Learn more about MMLSpark features and
