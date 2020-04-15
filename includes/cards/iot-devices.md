@@ -8,13 +8,13 @@
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/iot-devices">
-            <p>IoT devices</p>
+            <p>Controlling IoT devices using a Voice Assistant</p>
         </a>
         <ul class="card-content-metadata">
-            <li>12/16/2019</li>
-            <li>1 min read</li>
+            <li>3/23/2020</li>
+            <li>2 min read</li>
         </ul>
-        <p class="card-content-description">Create seamless conversational interfaces with all of your internet-accessible devices—from your connected television or fridge to devices in a connected power plant. LUIS is able to integrate up to 500 intents to translate commands into smart actions.</p>
+        <p class="card-content-description">Create seamless conversational interfaces with all of your internet-accessible devices—from your connected television or fridge to devices in a connected power plant. By combining Azure Speech Service, Language Understanding Service (LUIS) and Azure Bot Framework, developers can create natural, human-like conversational interfaces to control smart devices.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

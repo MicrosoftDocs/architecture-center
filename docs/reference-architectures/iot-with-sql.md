@@ -6,13 +6,15 @@ author: scoriani
 ms.date: 01/03/2020
 ms.service: architecture-center
 ms.subservice: reference-architecture
+ms.category:
+  - iot
 ---
 
 # Azure IoT reference architecture
 
 This reference architecture shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
 
-![Diagram of the architecture](./_images/iot.png)
+![Diagram of the architecture](./_images/iot-with-sql.png)
 
 IoT applications can be described as **things** (devices) sending data that generates **insights**. These insights generate **actions** to improve a business or process. An example is an engine (the thing) sending temperature data. This data is used to evaluate whether the engine is performing as expected (the insight). The insight is used to proactively prioritize the maintenance schedule for the engine (the action).
 

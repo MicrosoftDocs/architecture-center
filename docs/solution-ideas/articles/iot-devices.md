@@ -7,6 +7,8 @@ description: Create seamless conversational interfaces with all of your internet
 ms.custom: acom-architecture, bot service, luis, iot, 'https://azure.microsoft.com/solutions/architecture/iot-devices/'
 ms.service: architecture-center
 ms.subservice: solution-idea
+ms.category:
+    - iot
 ---
 # Controlling IoT devices using a Voice Assistant
 

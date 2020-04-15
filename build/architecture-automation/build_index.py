@@ -490,10 +490,11 @@ for article in parsed_articles:
             imagefile = article['imagepath']
           
         #TODO: Check if thumbnail exists before making one
-        # image = Image.open(imagefile)
-        # image_thumb = expand2square(image, (255, 255, 255))
-        # image_thumb.thumbnail((200,200), Image.ANTIALIAS)
-        # image_thumb.save(path.join(doc_directory, "browse", "thumbs", article['name'] + ".png"))
+        image = Image.open(imagefile)
+        if not path.isfile(path.join(doc_directory, "browse", "thumbs", article['name'] + ".png")):
+            image_thumb = expand2square(image, (255, 255, 255))
+            image_thumb.thumbnail((200,200), Image.ANTIALIAS)
+            image_thumb.save(path.join(doc_directory, "browse", "thumbs", article['name'] + ".png"))
         
         acom_image = path.join(root, "acom_data", "images", article['name'] + os.path.splitext(article['imagepath'])[1])
         shutil.copyfile(article['imagepath'], acom_image)

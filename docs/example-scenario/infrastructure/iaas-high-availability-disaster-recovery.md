@@ -8,6 +8,8 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.custom:
   - fcp
+ms.category:
+  - management-and-governance
 ---
 
 # High availability and disaster recovery for IaaS apps
