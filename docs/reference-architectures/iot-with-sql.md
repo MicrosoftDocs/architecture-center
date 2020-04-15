@@ -144,6 +144,10 @@ Logging systems are integral in understanding what actions or activities a solut
 
 Though plain-text logging is lower impact on upfront development costs, it is more challenging for a machine to parse/read. We recommend structured logging be used, as collected information is both machine parsable and human readable. Structured logging adds situational context and metadata to the log information. In structured logging, properties are first class citizens formatted as key/value pairs, or with a fixed schema, to enhance search and query capabilities.
 
+## Sample Code
+
+A working end-to-end solution is available here: https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql. It provides scripts to deploy on Azure everything needed to have a working sample, including data generators, to test ingestion, processing and queriying of up to 10000 messages/secs.
+
 ## Next steps
 
 - For a more detailed discussion of the recommended architecture and implementation choices, see [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (PDF).
