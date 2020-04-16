@@ -69,6 +69,9 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## Analytics
 <ul class="grid">
@@ -99,6 +102,9 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## Blockchain
 <ul class="grid">
@@ -109,6 +115,9 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## Compute
 <ul class="grid">
@@ -127,6 +136,9 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## Containers
 <ul class="grid">
@@ -140,6 +152,9 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## Databases
 <ul class="grid">
@@ -187,6 +202,9 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## DevOps
 <ul class="grid">
@@ -210,6 +228,9 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## Developer Tools
 <ul class="grid">
@@ -223,6 +244,9 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## Hybrid
 <ul class="grid">
@@ -239,6 +263,9 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## Identity
 <ul class="grid">
@@ -252,6 +279,9 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## Integration
 <ul class="grid">
@@ -263,23 +293,30 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## Internet of Things
 <ul class="grid">
 
-[!INCLUDE [Azure IoT reference architecture](../../includes/cards/index.md)]
+[!INCLUDE [Azure IoT reference architecture](../../includes/cards/iot-with-sql.md)]
+[!INCLUDE [Azure IoT reference architecture](../../includes/cards/iot.md)]
+[!INCLUDE [Controlling IoT devices using a Voice Assistant](../../includes/cards/iot-devices.md)]
 [!INCLUDE [IoT Architecture – Azure IoT Subsystems](../../includes/cards/azure-iot-subsystems.md)]
 [!INCLUDE [IoT and data analytics](../../includes/cards/big-data-with-iot.md)]
 [!INCLUDE [IoT device deployment and management on demand](../../includes/cards/iot-with-aks.md)]
-[!INCLUDE [IoT devices](../../includes/cards/iot-devices.md)]
 [!INCLUDE [IoT using Cosmos DB](../../includes/cards/iot-using-cosmos-db.md)]
 [!INCLUDE [Process real-time vehicle data using IoT](../../includes/cards/realtime-analytics-vehicle-iot.md)]
 [!INCLUDE [Real-time Web Dashboard](../../includes/cards/real-time-web-dashboard.md)]
-[!INCLUDE [Secure access to IoT apps with Azure AD - Developer guide](../../includes/cards/iot-aad.md)]
+[!INCLUDE [Secure your IoT SaaS app with the Microsoft identity platform](../../includes/cards/iot-aad.md)]
 [!INCLUDE [Telemetry Analytics](../../includes/cards/telemetry-analytics.md)]
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## Management and Governance
 <ul class="grid">
@@ -290,6 +327,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Build high availability into your BCDR strategy](../../includes/cards/build-high-availability-into-your-bcdr-strategy.md)]
 [!INCLUDE [Custom Data Sovereignty & Data Gravity Requirements](../../includes/cards/data-sovereignty-and-gravity.md)]
 [!INCLUDE [Enterprise-scale disaster recovery](../../includes/cards/disaster-recovery-enterprise-scale-dr.md)]
+[!INCLUDE [High availability and disaster recovery scenarios for IaaS apps.](../../includes/cards/iaas-high-availability-disaster-recovery.md)]
 [!INCLUDE [Plan deployment for updating Windows VMs in Azure](../../includes/cards/index.md)]
 [!INCLUDE [Run a highly available SharePoint Server 2016 farm in Azure](../../includes/cards/index.md)]
 [!INCLUDE [SMB disaster recovery with Azure Site Recovery](../../includes/cards/disaster-recovery-smb-azure-site-recovery.md)]
@@ -297,6 +335,9 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## Media
 <ul class="grid">
@@ -307,6 +348,9 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## Migration
 <ul class="grid">
@@ -320,6 +364,9 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## Mixed Reality
 <ul class="grid">
@@ -330,6 +377,9 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## Mobile
 <ul class="grid">
@@ -342,6 +392,9 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## Networking
 <ul class="grid">
@@ -353,15 +406,22 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## Security
 <ul class="grid">
 
 [!INCLUDE [Real-time fraud detection](../../includes/cards/fraud-detection.md)]
 [!INCLUDE [Securely managed web applications](../../includes/cards/fully-managed-secure-apps.md)]
+[!INCLUDE [Threat indicators for cyber threat intelligence in Azure Sentinel](../../includes/cards/sentinel-threat-intelligence.md)]
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## Storage
 <ul class="grid">
@@ -372,6 +432,9 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## Web
 <ul class="grid">
@@ -402,6 +465,9 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|
 
 ## Windows Virtual Desktop
 <ul class="grid">
@@ -410,3 +476,6 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 </ul>
 
+||
+|--:|
+|<a href="#">back to top</a>|

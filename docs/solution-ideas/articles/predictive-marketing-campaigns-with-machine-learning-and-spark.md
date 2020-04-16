@@ -41,5 +41,5 @@ This architecture enables efficient handling of big data on Spark with Microsoft
 
 * [Learn more about Spark on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
-* [Learn more about Azure storage](https://docs.microsoft.com/azure/storage/storage-introduction)
+* [Learn more about Azure storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)
 * [Learn more about Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning)

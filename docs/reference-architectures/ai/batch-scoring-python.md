@@ -86,7 +86,7 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 [azure-files]: https://docs.microsoft.com/azure/storage/files/storage-files-introduction
 [batch-scoring]: https://docs.microsoft.com/azure/machine-learning/service/how-to-run-batch-predictions
 [cli]: https://docs.microsoft.com/cli/azure
-[create-resources]: https://github.com/Microsoft/AMLBatchScoringPipeline/blob/master/01_create_resources.ipynb
+[create-resources]: https://github.com/microsoft/az-ml-batch-score/blob/master/01_DataPrep.ipynb
 [deep]: /azure/architecture/reference-architectures/ai/batch-scoring-deep-learning
 [event-hubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr
 [explorer]: https://azure.microsoft.com/features/storage-explorer/

@@ -6,13 +6,15 @@ author: scoriani
 ms.date: 01/03/2020
 ms.service: architecture-center
 ms.subservice: reference-architecture
+ms.category:
+  - iot
 ---
 
 # Azure IoT reference architecture
 
 This reference architecture shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
 
-![Diagram of the architecture](./_images/iot.png)
+![Diagram of the architecture](./_images/iot-with-sql.png)
 
 IoT applications can be described as **things** (devices) sending data that generates **insights**. These insights generate **actions** to improve a business or process. An example is an engine (the thing) sending temperature data. This data is used to evaluate whether the engine is performing as expected (the insight). The insight is used to proactively prioritize the maintenance schedule for the engine (the action).
 
@@ -40,7 +42,7 @@ This architecture consists of the following components. Some applications may no
 
 **Machine learning** allows predictive algorithms to be executed over historical telemetry data, enabling scenarios such as predictive maintenance. For machine learning, we recommend [Azure Machine Learning](/azure/machine-learning/service/).
 
-**Warm path storage** holds data that must be available immediately from device for reporting and visualization. For warm path storage, we recommend [Azure SQL Database](/azure/azure/sql-database/). Azure SQL Database is a relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server.
+**Warm path storage** holds data that must be available immediately from device for reporting and visualization. For warm path storage, we recommend [Azure SQL Database](/azure/sql-database/). Azure SQL Database is a relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server.
 
 **Cold path storage** holds data that is kept longer-term and is used for batch processing. For cold path storage, we recommend [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction). Data can be archived in Blob storage indefinitely at low cost, and is easily accessible for batch processing.
 
@@ -141,6 +143,10 @@ Tracing telemetry allows an operator to follow the journey of a piece of telemet
 Logging systems are integral in understanding what actions or activities a solution has performed, failures that have occurred, and can provide help in fixing those failures. Logs can be analyzed to help understand and remedy error conditions, enhance performance characteristics, and ensure compliance with governing rule and regulations.
 
 Though plain-text logging is lower impact on upfront development costs, it is more challenging for a machine to parse/read. We recommend structured logging be used, as collected information is both machine parsable and human readable. Structured logging adds situational context and metadata to the log information. In structured logging, properties are first class citizens formatted as key/value pairs, or with a fixed schema, to enhance search and query capabilities.
+
+## Sample Code
+
+A working end-to-end solution is available here: https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql. It provides scripts to deploy on Azure everything needed to have a working sample, including data generators, to test ingestion, processing and queriying of up to 10000 messages/secs.
 
 ## Next steps
 
