@@ -135,7 +135,7 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 [design-patterns-security]: /azure/architecture/patterns/category/security
 [desired-state-configuration]: /azure/automation/automation-dsc-overview
 [devops-microsoft]: /azure/devops/devops-at-microsoft/
-[devops-with-vsts]: https://almvm.azurewebsites.net/labs/vsts/
+[devops-with-vsts]: https://www.azuredevopslabs.com/labs/vstsextend/azuredevopsprojectdotnet/
 [devops-checklist]: /azure/architecture/checklist/dev-ops
 [application-insights]: https://azure.microsoft.com/services/application-insights/
 [cloud-based-load-testing]: https://visualstudio.microsoft.com/team-services/cloud-load-testing/

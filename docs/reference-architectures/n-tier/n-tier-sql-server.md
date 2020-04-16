@@ -199,7 +199,7 @@ For single VMs pricing options See [Windows VMs pricing][Windows-vm-pricing]
 
 ### SQL server
 
-If you choose Azure SQL DBaas, you can save on cost because don't need to configure an Always On Availability Group and domain controller machines. There are several deployment options starting from single database up to managed instance, or elastic pools. For more information see [Azure SQL pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/). 
+If you choose Azure SQL DBaas, you can save on cost because don't need to configure an Always On Availability Group and domain controller machines. There are several deployment options starting from single database up to managed instance, or elastic pools. For more information see [Azure SQL pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
 For SQL server VMs pricing options see [SQL VMs pricing][Managed-Sql-pricing].
 

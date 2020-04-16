@@ -138,7 +138,7 @@ Check out these resources designed to help you get started with your own monitor
 [analyzing data across sources]: /azure/log-analytics/log-analytics-dashboards
 [sending proactive alerts]: /azure/log-analytics/log-analytics-alerts
 [the Azure portal]: /azure/log-analytics/log-analytics-tutorial-dashboards
-[Azure Log Analytics Query Language]: https://docs.loganalytics.io/docs/Learn
+[Azure Log Analytics Query Language]: /azure/azure-monitor/log-query/get-started-queries
 [cross-resource queries]: https://azure.microsoft.com/blog/query-across-resources/
 [alerts]: /azure/monitoring-and-diagnostics/monitoring-overview-alerts
 [Alerts (Preview)]: /azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts
