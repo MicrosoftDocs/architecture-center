@@ -14,7 +14,7 @@
             <li>12/16/2019</li>
             <li>2 min read</li>
         </ul>
-        <p class="card-content-description">Too often, product designers waste time and money with inefficient design review—2D images lose essential detail and context, and physical prototypes are extremely expensive. With this mixed reality scenario, clients, designers, and on-site engineers can easily share and review designs as 3D holograms in the context of their environment, accelerating design decisions and reducing time to market.</p>
+        <p class="card-content-description">Too often, product designers waste time and money with inefficient design review-2D images lose essential detail and context, and physical prototypes are extremely expensive. With this mixed reality scenario, clients, designers, and on-site engineers can easily share and review designs as 3D holograms in the context of their environment, accelerating design decisions and reducing time to market.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>
