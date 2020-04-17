@@ -8,7 +8,7 @@
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/azure-iot-subsystems">
-            <p>IoT Architecture – Azure IoT Subsystems</p>
+            <p>IoT Architecture - Azure IoT Subsystems</p>
         </a>
         <ul class="card-content-metadata">
             <li>12/16/2019</li>
