@@ -300,13 +300,15 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 ## Internet of Things
 <ul class="grid">
 
-[!INCLUDE [Azure IoT reference architecture](../../includes/cards/iot-with-sql.md)]
 [!INCLUDE [Azure IoT reference architecture](../../includes/cards/iot.md)]
+[!INCLUDE [Azure IoT reference architecture](../../includes/cards/iot-with-sql.md)]
+[!INCLUDE [Condition Monitoring for Industrial IoT](../../includes/cards/condition-monitoring.md)]
 [!INCLUDE [Controlling IoT devices using a Voice Assistant](../../includes/cards/iot-devices.md)]
 [!INCLUDE [IoT Architecture – Azure IoT Subsystems](../../includes/cards/azure-iot-subsystems.md)]
 [!INCLUDE [IoT and data analytics](../../includes/cards/big-data-with-iot.md)]
 [!INCLUDE [IoT device deployment and management on demand](../../includes/cards/iot-with-aks.md)]
 [!INCLUDE [IoT using Cosmos DB](../../includes/cards/iot-using-cosmos-db.md)]
+[!INCLUDE [Predictive Maintenance for Industrial IoT](../../includes/cards/iot-predictive-maintenance.md)]
 [!INCLUDE [Process real-time vehicle data using IoT](../../includes/cards/realtime-analytics-vehicle-iot.md)]
 [!INCLUDE [Real-time Web Dashboard](../../includes/cards/real-time-web-dashboard.md)]
 [!INCLUDE [Secure your IoT SaaS app with the Microsoft identity platform](../../includes/cards/iot-aad.md)]

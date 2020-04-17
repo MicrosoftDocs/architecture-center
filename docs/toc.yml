@@ -922,6 +922,8 @@ items:
         href: reference-architectures/iot.md
       - name: Azure IoT Subsystems
         href: solution-ideas/articles/azure-iot-subsystems.md
+      - name: Condition Monitoring
+        href: solution-idea/articles/condition-monitoring.md
       - name: IoT and data analytics
         href: example-scenario/data/big-data-with-iot.md
       - name: On-demand IoT device deployment
@@ -932,6 +934,8 @@ items:
         href: solution-ideas/articles/iot-using-cosmos-db.md
       - name: IoT using SQL DB
         href: reference-architectures/iot-with-sql.md
+      - name: Predictive Maintenance for Industrial IoT
+        href: solution-idea/articles/iot-predictive-maintenance.md
       - name: Process real-time vehicle data using IoT
         href: example-scenario/data/realtime-analytics-vehicle-iot.md
       - name: Real-time web dashboard
