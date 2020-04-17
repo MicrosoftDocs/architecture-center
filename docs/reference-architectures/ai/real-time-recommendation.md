@@ -161,7 +161,7 @@ We have also built a reference architecture that uses Spark and Azure Databricks
 [n-tier]: /azure/architecture/reference-architectures/n-tier/n-tier-cassandra
 [ndcg]: https://en.wikipedia.org/wiki/Discounted_cumulative_gain
 [nodes]: /azure/aks/scale-cluster
-[notebook]: https://github.com/Microsoft/Recommenders/notebooks/00_quick_start/als_pyspark_movielens.ipynb
+[notebook]: https://github.com/microsoft/recommenders/blob/master/notebooks/00_quick_start/als_movielens.ipynb
 [partition-data]: /azure/cosmos-db/partition-data
 [redis]: /azure/azure-cache-for-redis/cache-overview
 [regions]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all

@@ -116,7 +116,7 @@ The components deployed using the above Resource Manager template needs to be fu
    - Refer to the [deployment guidelines][dnsguide] for more information
 3. App Service Environment with Internal Load Balancer (ILB) option: aseinternal (DNS: aseinternal.contoso.org). Once the Deployment is complete, upload the wild-card cert for the ILB
 4. App Service Plan with ASE as location
-5. An API App (App Services for simplicity) - srasprest (URL: https://srasprest.contoso.org) – ASP.NET MVC-based web API. After the deployment, configure
+5. An API App (App Services for simplicity) - srasprest (URL: `https://srasprest.contoso.org`) – ASP.NET MVC-based web API. After the deployment, configure
    - web app to use the SSL certificate
    - Application Insights to the above apps: api-insights
    - Create a Cosmos DB service for web APIs hosted internal to VNet: noderestapidb

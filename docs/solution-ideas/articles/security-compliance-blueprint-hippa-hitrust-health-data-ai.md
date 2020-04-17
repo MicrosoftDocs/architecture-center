@@ -1,5 +1,5 @@
 ---
-title: Medical Data Storage Solutions
+title: HIPPA and HITRUST compliant health data AI
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
@@ -12,7 +12,7 @@ ms.subservice: solution-idea
 social_image_url: /azure/architecture/solution-ideas/articles/media/security-compliance-blueprint-hippa-hitrust-health-data-ai.png
 ---
 
-# HIPPA, HITRUST compliant health data AI
+# HIPPA and HITRUST compliant health data AI
 
 [!INCLUDE [header_file](../header.md)]
 

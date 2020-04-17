@@ -154,7 +154,7 @@ Large-scale Batch and HPC workloads have demands for data storage and access tha
 - [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction)
 - [BeeGFS](https://azure.microsoft.com/resources/implement-glusterfs-on-azure)
 - [Storage Optimized Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-storage)
-- [Blob, table, and queue storage](https://docs.microsoft.com/azure/storage/storage-introduction)
+- [Blob, table, and queue storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)
 - [Azure SMB File storage](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)
 
 For more information comparing Lustre, GlusterFS, and BeeGFS on Azure, review the [Parallel Files Systems on Azure](https://blogs.msdn.microsoft.com/azurecat/2018/06/11/azurecat-ebook-parallel-virtual-file-systems-on-microsoft-azure) e-book and the [Lustre on Azure](https://techcommunity.microsoft.com/t5/azurecat/lustre-on-azure/ba-p/1052536) blog.
@@ -281,7 +281,7 @@ The following are examples of cluster and workload managers that can run in Azur
 - [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace)
 - [Bright Cluster Manager](http://www.brightcomputing.com/technology-partners/microsoft)
 - [IBM Spectrum Symphony and Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf)
-- [Altair PBS Works](https://web.altair.com/pbs-on-azure)
+- [Altair PBS Works](https://www.altair.com/pbs-works/)
 - [Rescale](https://www.rescale.com/azure)
 - [Microsoft HPC Pack](https://technet.microsoft.com/library/mt744885.aspx)
   - [HPC Pack for Windows](/azure/virtual-machines/windows/hpcpack-cluster-options)

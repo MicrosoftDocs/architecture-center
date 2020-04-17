@@ -8,7 +8,7 @@
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hippa-hitrust-health-data-ai">
-            <p>Medical Data Storage Solutions</p>
+            <p>HIPPA and HITRUST compliant health data AI</p>
         </a>
         <ul class="card-content-metadata">
             <li>12/16/2019</li>

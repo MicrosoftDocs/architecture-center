@@ -102,6 +102,6 @@ Review [Azure Databricks pricing](https://azure.microsoft.com/pricing/details/da
 
 ## Next steps
 
-- Review the [Azure IoT reference architecture](../../reference-architectures/iot/index.md) that shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
+- Review the [Azure IoT reference architecture](../../reference-architectures/iot.md) that shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
 - Review the [Real-time analytics](https://azure.microsoft.com/solutions/architecture/real-time-analytics) reference architecture that includes big data pipeline flow.
 - Review the [Advanced analytics on big data](https://azure.microsoft.com/solutions/architecture/advanced-analytics-on-big-data) reference architecture to get a peek on how different Azure components can help build a big data pipeline.
