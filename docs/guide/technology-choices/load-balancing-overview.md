@@ -2,15 +2,14 @@
 title: Overview of Azure load-balancing options
 titleSuffix: Azure Application Architecture Guide
 description: An overview of Azure load-balancing options.
-author: sharad4u
-ms.date: 08/23/2019
+author: doodlemania2
+ms.date: 04/2/2019
 ms.topic: guide
 ms.service: architecture-center
 ms.category:
   - web
   - compute
 ms.subservice: reference-architecture
-ms.custom: seojan19
 ---
 
 # Overview of load-balancing options in Azure
@@ -29,7 +28,7 @@ Azure load balancing services can be categorized along two dimensions: global ve
 
 ### HTTP(S) versus non-HTTP(S)
 
-- **HTTP(S)** load-balancing services are Layer 7 load balancers that only accept HTTP(S) traffic. They are intended for web applications or other HTTP(S) endpoints. They include features such as SSL offload, web application firewall, path-based load balancing, and session affinity.
+- **HTTP(S)** load-balancing services are [Layer 7](https://www.iso.org/ics/35.100/x) load balancers that only accept HTTP(S) traffic. They are intended for web applications or other HTTP(S) endpoints. They include features such as SSL offload, web application firewall, path-based load balancing, and session affinity.
 
 - **Non-HTTP/S** load-balancing services can handle non-HTTP(S) traffic and are recommended for non-web workloads. 
 
@@ -47,6 +46,9 @@ The following table summarizes the Azure load balancing services by these catego
 Here are the main load-balancing services currently available in Azure:
 
 [Front Door](/azure/frontdoor/front-door-overview) is an application delivery network that provides global load balancing and site acceleration service for web applications. It offers Layer 7 capabilities for your application like SSL offload, path-based routing, fast failover, caching, etc. to improve performance and high-availability of your applications.
+
+[!NOTE]
+At this time, Azure Front Door does not support Web Sockets.
 
 [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. Because Traffic Manager is a DNS-based load-balancing service, it load balances only at the domain level. For that reason, it can't fail over as quickly as Front Door, because of common challenges around DNS caching and systems not honoring DNS TTLs. 
 

@@ -242,9 +242,7 @@ Every activity has an associated cost. Understand the pricing model and use the 
 
 ### Azure Synapse
 
-- Choose **Compute Optimized Gen1** for frequent scaling operations. This option is priced as pay-as-you-go, based on Data warehouse units consumption (DWU). 
-
-- Choose **Compute Optimized Gen2** for intensive workloads with higher query performance and compute scalability needs. You can choose the pay-as-you-go model or use reserved plans of one year (37% savings) or 3 years (65% savings).
+Azure Synapse is ideal for intensive workloads with higher query performance and compute scalability needs. You can choose the pay-as-you-go model or use reserved plans of one year (37% savings) or 3 years (65% savings).
 
 Data storage is charged separately. Other services such as disaster recovery and threat detection are also charged separately.
 
