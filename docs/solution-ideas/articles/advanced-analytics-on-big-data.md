@@ -25,6 +25,7 @@ Transform your 'ata into actionable insights using the best-in-class machine lea
 *Download an [SVG](../media/advanced-analytics-on-big-data.svg) of this architecture.*
 
 ## Data Flow
+> Either we update the diagram to show Azure blob store or update the text and replace references of blob storage with ADLS Gen2
 
 1. Bring together all your structured, unstructured and semi-structured data (logs, files, and media) using Azure Data Factory to Azure Blob Storage.
 1. Use Azure Databricks to clean and transform the structureless datasets and combine them with structured data from operational databases or data warehouses.
@@ -35,16 +36,18 @@ Transform your 'ata into actionable insights using the best-in-class machine lea
 1. Take the insights from Azure Databricks to Cosmos DB to make them accessible through web and mobile apps.
 
 ## Components
+> Either we update the diagram to show Azure blob store or update the text and replace references of blob storage with ADLS Gen2
 
 * [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is the fast, flexible and trusted cloud data warehouse that lets you scale, compute and store elastically and independently, with a massively parallel processing architecture.
 * Azure [Data Factory](https://azure.microsoft.com/services/data-factory) is a hybrid data integration service that allows you to create, schedule and orchestrate your ETL/ELT workflows.
 * [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs) is a Massively scalable object storage for any type of unstructured data—images, videos, audio, documents, and more—easily and cost-effectively.
 * [Azure Databricks](https://azure.microsoft.com/services/databricks) is a fast, easy, and collaborative Apache Spark-based analytics platform.
 * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a globally distributed, multi-model database service. Then learn how to replicate your data across any number of Azure regions and scale your throughput independent from your storage.
-* [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services) is an enterprise grade analytics as a service that lets you govern, deploy, test, and deliver your BI solution with confidence.
+* [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services) is an enterprise grade data model as a service that lets you govern, deploy, test, and deliver your BI solution with confidence.
 * [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive ad hoc analysis. Produce beautiful reports, then publish them for your organization to consume on the web and across mobile devices.
 
 ## Next steps
+> Either we update the diagram to show Azure blob store or update the text and replace references of blob storage with ADLS Gen2
 
 * [Synapse Analytics Documentation](https://docs.microsoft.com/azure/sql-data-warehouse)
 * [Azure Data Factory V2 Preview Documentation](https://docs.microsoft.com/azure/data-factory)
