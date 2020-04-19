@@ -150,7 +150,7 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 [resiliency]: ../framework/resiliency/overview.md
 [ad-subscriptions]: /azure/active-directory/active-directory-how-subscriptions-associated-directory
 [data-warehouse-encryption]: /azure/data-lake-store/data-lake-store-security-overview#data-protection
-[cosmos-db-encryption]: /azure/cosmos-db/database-security
+[cosmos-db-encryption]: https://docs.microsoft.com/azure/cosmos-db/database-security
 [rbac]: /azure/active-directory/role-based-access-control-what-is
 [paired-region]: /azure/best-practices-availability-paired-regions
 [resource-manager-auditing]: /azure/azure-resource-manager/resource-group-audit

@@ -173,11 +173,11 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
-[cosmosdb]: /azure/cosmos-db/introduction
-[cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
-[cosmosdb-scale]: /azure/cosmos-db/partition-data
+[cosmosdb]: https://docs.microsoft.com/azure/cosmos-db/introduction
+[cosmosdb-geo]: https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally
+[cosmosdb-scale]: https://docs.microsoft.com/azure/cosmos-db/partition-data
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
-[cosmosdb-sql]: /azure/cosmos-db/sql-api-introduction
+[cosmosdb-sql]: https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [eh]: /azure/event-hubs/
 [eh-autoscale]: /azure/event-hubs/event-hubs-auto-inflate
@@ -188,12 +188,12 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 [iot]: /azure/iot-hub/iot-hub-compare-event-hubs
 [log-analytics]: /azure/log-analytics/log-analytics-queries
 [monitor]: /azure/azure-monitor/overview
-[partition-key]: /azure/cosmos-db/partition-data
+[partition-key]: https://docs.microsoft.com/azure/cosmos-db/partition-data
 [pipelines]: /azure/devops/pipelines/index
 [queue]: /azure/storage/queues/storage-queues-introduction
 [queue-binding]: /azure/azure-functions/functions-bindings-storage-queue-output
 [ra-grs]: /azure/storage/common/storage-redundancy-grs
-[ru]: /azure/cosmos-db/request-units
+[ru]: https://docs.microsoft.com/azure/cosmos-db/request-units
 
 [github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0
 [readme]: https://github.com/mspnp/serverless-reference-implementation/blob/v0.1.0/README.md

@@ -506,7 +506,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [BrokeredMessage.TimeToLive]: https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx
 [cassandra-error-handling]: https://www.datastax.com/dev/blog/cassandra-error-handling-done-right
 [circuit-breaker]: https://msdn.microsoft.com/library/dn589784.aspx
-[cosmos-db-multi-region]: /azure/cosmos-db/tutorial-global-distribution-sql-api
+[cosmos-db-multi-region]: https://docs.microsoft.com/azure/cosmos-db/tutorial-global-distribution-sql-api
 [elasticsearch-azure]: ../elasticsearch/index.md
 [elasticsearch-client]: https://www.elastic.co/guide/en/elasticsearch/client/index.html
 [health-endpoint-monitoring-pattern]: ../patterns/health-endpoint-monitoring.md

@@ -13,6 +13,8 @@ ms.subservice: reference-architecture
 ms.custom: azcat-ai
 ---
 
+<!--cSpell:ignore njray precompute -->
+
 # Build a real-time recommendation API on Azure
 
 This reference architecture shows how to train a recommendation model using Azure Databricks and deploy it as an API by using Azure Cosmos DB, Azure Machine Learning, and Azure Kubernetes Service (AKS). This architecture can be generalized for most recommendation engine scenarios, including recommendations for products, movies, and news.
@@ -147,7 +149,7 @@ We have also built a reference architecture that uses Spark and Azure Databricks
 [blob]: /azure/storage/blobs/storage-blobs-introduction
 [blog]: https://blogs.technet.microsoft.com/machinelearning/2018/03/20/scaling-azure-container-service-cluster/
 [clusters]: https://docs.azuredatabricks.net/user-guide/clusters/configure.html
-[cosmosdb]: /azure/cosmos-db/introduction
+[cosmosdb]: https://docs.microsoft.com/azure/cosmos-db/introduction
 [data-source]: https://docs.azuredatabricks.net/spark/latest/data-sources/index.html
 [databricks]: /azure/azure-databricks/what-is-azure-databricks
 [dsvm]: /azure/machine-learning/data-science-virtual-machine/overview
@@ -157,20 +159,20 @@ We have also built a reference architecture that uses Spark and Azure Databricks
 [github]: https://github.com/Microsoft/Recommenders
 [guide]: https://github.com/Microsoft/Recommenders/blob/master/notebooks/01_prepare_data/data_split.ipynb
 [latency]: https://github.com/jessebenson/azure-performance
-[mls]: /azure/machine-learning/service/
+[mls]: /azure/machine-learning/service
 [n-tier]: /azure/architecture/reference-architectures/n-tier/n-tier-cassandra
 [ndcg]: https://en.wikipedia.org/wiki/Discounted_cumulative_gain
 [nodes]: /azure/aks/scale-cluster
 [notebook]: https://github.com/microsoft/recommenders/blob/master/notebooks/00_quick_start/als_movielens.ipynb
-[partition-data]: /azure/cosmos-db/partition-data
+[partition-data]: https://docs.microsoft.com/azure/cosmos-db/partition-data
 [redis]: /azure/azure-cache-for-redis/cache-overview
 [regions]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all
-[resiliency]: /azure/architecture/resiliency/
-[ru]: /azure/cosmos-db/request-units
-[sec-docs]: /azure/security/
+[resiliency]: /azure/architecture/resiliency
+[ru]: https://docs.microsoft.com/azure/cosmos-db/request-units
+[sec-docs]: https://docs.microsoft.com/azure/security
 [setup]: https://github.com/Microsoft/Recommenders/blob/master/SETUP.md#repository-installation
 [setupo16n]: https://github.com/Microsoft/Recommenders/blob/master/SETUP.md#prepare-azure-databricks-for-operationalization
 [scale]: /azure/aks/tutorial-kubernetes-scale
-[sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/
+[sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8
 [vm-size]: /azure/virtual-machines/virtual-machines-linux-change-vm-size
-[workspace]: /azure/azure-databricks/
+[workspace]: https://docs.microsoft.com/azure/azure-databricks

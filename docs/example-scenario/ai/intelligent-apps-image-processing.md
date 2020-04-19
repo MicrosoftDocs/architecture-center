@@ -45,7 +45,7 @@ This scenario covers the back-end components of a web or mobile application. Dat
 - [Azure Functions](/azure/azure-functions/functions-overview) provides the back-end API for the web application, as well as the event processing for uploaded images.
 - [Event Grid](/azure/event-grid/overview) triggers an event when a new image is uploaded to blob storage. The image is then processed with Azure functions.
 - [Blob storage](/azure/storage/blobs/storage-blobs-introduction) stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes.
-- [Cosmos DB](/azure/cosmos-db/introduction) stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
+- [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
 
 ## Alternatives
 
@@ -58,7 +58,7 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 The majority of the components used in this example scenario are managed services that will automatically scale. A couple notable exceptions: Azure Functions has a limit of a maximum of 200 instances. If you need to scale beyond this limit, consider multiple regions or app plans.
 
-Cosmos DB doesn't autoscale in terms of provisioned request units (RUs). For guidance on estimating your requirements, see [request units](/azure/cosmos-db/request-units) in our documentation. To fully take advantage of the scaling in Cosmos DB, understand how [partition keys](/azure/cosmos-db/partition-data) work in CosmosDB.
+Cosmos DB doesn't autoscale in terms of provisioned request units (RUs). For guidance on estimating your requirements, see [request units](https://docs.microsoft.com/azure/cosmos-db/request-units) in our documentation. To fully take advantage of the scaling in Cosmos DB, understand how [partition keys](https://docs.microsoft.com/azure/cosmos-db/partition-data) work in CosmosDB.
 
 NoSQL databases frequently trade consistency (in the sense of the CAP theorem) for availability, scalability, and partitioning. In this example scenario, a key-value data model is used and transaction consistency is rarely needed as most operations are by definition atomic. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the Azure Architecture Center. If your implementation requires high consistency, you can [choose your consistency level](https://docs.microsoft.com/azure/cosmos-db/consistency-levels) in CosmosDB.
 

@@ -126,7 +126,7 @@ Azure Front Door billing has three pricing tiers: outbound data transfers, inbou
 ### Azure Cosmos DB
 
 There are two factors that determine Azure Cosmos DB pricing:
-- The provisioned throughput or [Request Units per second (RU/s)](/azure/cosmos-db/request-units).
+- The provisioned throughput or [Request Units per second (RU/s)](https://docs.microsoft.com/azure/cosmos-db/request-units).
 
     Cosmos DB allocates the resources required to guarantee the RU/s that you specify. You are billed hourly for the maximum provisioned throughput per hour. Because of the resources dedicated to your container or database, you are charged for the specified throughput even if you don't run any workload.
 
@@ -143,7 +143,7 @@ If the primary database fails, perform a manual failover to the secondary databa
 
 [AFD-pricing]: https://azure.microsoft.com/pricing/details/frontdoor/
 [bandwidth-pricing]: https://azure.microsoft.com/pricing/details/bandwidth/
-[cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
+[cosmosdb-geo]: https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally
 [guidance-web-apps-scalability]: ./scalable-web-app.md
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [ra-grs]: /azure/storage/common/storage-designing-ha-apps-with-ragrs

@@ -635,7 +635,7 @@ Azure storage snapshot.
 Use a centralized identity management system to control access to resources at
 all levels:
 
-- Provide access to Azure resources through [role-based access     control](/azure/active-directory/role-based-access-control-what-is)(RBAC).
+- Provide access to Azure resources through [role-based access control](/azure/active-directory/role-based-access-control-what-is)(RBAC).
 
 - Grant access to Azure virtual machines through LDAP, Azure Active Directory, Kerberos, or another system.
 

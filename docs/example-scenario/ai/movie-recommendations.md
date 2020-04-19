@@ -116,7 +116,7 @@ For an in-depth guide to building and scaling a recommender service, see [Build 
 [autoscale]: https://docs.azuredatabricks.net/user-guide/clusters/sizing.html#autoscaling
 [blob]: /azure/storage/blobs/storage-blobs-introduction
 [clusters]: https://docs.azuredatabricks.net/user-guide/clusters/configure.html
-[cosmos-db]: /azure/cosmos-db/introduction
+[cosmos-db]: https://docs.microsoft.com/azure/cosmos-db/introduction
 [databricks]: /azure/azure-databricks/what-is-azure-databricks
 [dsvm]: /azure/machine-learning/data-science-virtual-machine/overview
 [dsvm-id]: /azure/machine-learning/data-science-virtual-machine/dsvm-common-identity

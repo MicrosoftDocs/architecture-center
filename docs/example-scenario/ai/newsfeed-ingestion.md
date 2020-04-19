@@ -128,10 +128,10 @@ All the code for this scenario is available in the [GitHub][github] repository. 
 [acs]: https://azure.microsoft.com/services/cognitive-services/directory/
 [collection]: /rest/api/cosmos-db/collections
 [compare]: /azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps
-[cosmos-db]: /azure/cosmos-db/introduction
+[cosmos-db]: https://docs.microsoft.com/azure/cosmos-db/introduction
 [db-cost]: https://azure.microsoft.com/pricing/details/cosmos-db/
-[db-practices]: /azure/cosmos-db/database-security
-[db-collection]: /azure/cosmos-db/databases-containers-items
+[db-practices]: https://docs.microsoft.com/azure/cosmos-db/database-security
+[db-collection]: https://docs.microsoft.com/azure/cosmos-db/databases-containers-items
 [english]: https://www.nasa.gov/rss/dyn/breaking_news.rss
 [face]: /azure/cognitive-services/face/overview
 [free]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
@@ -139,7 +139,7 @@ All the code for this scenario is available in the [GitHub][github] repository. 
 [function-plan]: /azure/azure-functions/functions-scale
 [german]: http://www.bamf.de/SiteGlobals/Functions/RSS/DE/Feed/RSSNewsfeed_Meldungen
 [github]: https://github.com/Azure/cognitive-services
-[keys]: /azure/cosmos-db/partition-data
+[keys]: https://docs.microsoft.com/azure/cosmos-db/partition-data
 [language]: /azure/cognitive-services/translator/reference/v3-0-languages
 [logic-app]: /azure/logic-apps/logic-apps-overview
 [queues-topics]: /azure/service-bus-messaging/service-bus-queues-topics-subscriptions
@@ -152,7 +152,7 @@ All the code for this scenario is available in the [GitHub][github] repository. 
 [russian]: http://government.ru/all/rss/
 [service-bus]: /azure/service-bus-messaging/
 [storage]: /azure/storage/common/storage-account-overview
-[throughput]: /azure/cosmos-db/scaling-throughput
+[throughput]: https://docs.microsoft.com/azure/cosmos-db/scaling-throughput
 [topics]: /azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions
 [text-analytics]: /azure/cognitive-services/text-analytics/
 [translate-text]: /azure/cognitive-services/translator/translator-info-overview

@@ -445,7 +445,7 @@ Azure Functions written for .NET can use the ASP.NET Core dependency injection f
 - *Scoped* objects are created once per function execution.
 - *Singleton* objects are reused across function executions, within the lifetime of the function host. 
 
-In this example, the `TelemetryProcessor` and `StateChangeProcessor` objects are declared as transient. This is appropriate for lightweight, stateless services. The `DocumentClient` class, on the other hand, should be a singleton for best performance. For more information, see [Performance tips for Azure Cosmos DB and .NET](/azure/cosmos-db/performance-tips#sdk-usage). 
+In this example, the `TelemetryProcessor` and `StateChangeProcessor` objects are declared as transient. This is appropriate for lightweight, stateless services. The `DocumentClient` class, on the other hand, should be a singleton for best performance. For more information, see [Performance tips for Azure Cosmos DB and .NET](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage). 
 
 If you refer back to the code for the [RawTelemetryFunction](#drone-telemetry-function), you'll see there another dependency that doesn't appear in DI setup code, namely the `TelemetryClient` class that is used to log application metrics. The Functions runtime automatically registers this class into the DI container, so you don't need to register it explicitly. 
 

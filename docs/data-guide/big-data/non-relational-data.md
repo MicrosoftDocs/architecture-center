@@ -52,7 +52,7 @@ Read and write operations for a row are typically atomic within a single column 
 
 Relevant Azure service:  
 
-- [Cosmos DB Cassandra API](/azure/cosmos-db/cassandra-introduction)
+- [Cosmos DB Cassandra API](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction)
 - [HBase in HDInsight](/azure/hdinsight/hdinsight-hbase-overview)
 
 ## Key/value data stores
@@ -73,7 +73,7 @@ A single key/value store can be extremely scalable, as the data store can easily
 
 Relevant Azure services:  
 
-- [Azure Cosmos DB Table API](/azure/cosmos-db/table-introduction)
+- [Azure Cosmos DB Table API](https://docs.microsoft.com/azure/cosmos-db/table-introduction)
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)  
 - [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/)
 
@@ -89,7 +89,7 @@ This structure makes it straightforward to perform queries such as "Find all emp
 
 Relevant Azure service:  
 
-- [Azure Cosmos DB Graph API](/azure/cosmos-db/graph-introduction)  
+- [Azure Cosmos DB Graph API](https://docs.microsoft.com/azure/cosmos-db/graph-introduction)  
 
 ## Time series data stores
 

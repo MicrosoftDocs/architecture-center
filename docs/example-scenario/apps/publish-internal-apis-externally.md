@@ -174,7 +174,7 @@ Check out the related scenario on [Migrating legacy web APIs to API Management][
 [vnet]: /azure/virtual-network/virtual-networks-overview
 [devops]: /azure/devops/index?view=azure-devops&viewFallbackFrom=vsts
 [appinsights]: /azure/azure-monitor/app/app-insights-overview
-[cosmos-db]: /azure/cosmos-db/introduction
+[cosmos-db]: https://docs.microsoft.com/azure/cosmos-db/introduction
 [dnsguide]: /azure/dns/private-dns-getstarted-cli
 [related-scenario]: /azure/architecture/example-scenario/apps/apim-api-scenario
 [apim-pricing]: https://azure.microsoft.com/pricing/details/api-management/

@@ -27,7 +27,7 @@ For SQL Server running on VMs, there are two options: traditional backups and lo
 
 ### Azure Cosmos DB
 
-Azure Cosmos DB automatically takes backups at regular intervals. Backups are stored separately in another storage service, and those backups are globally replicated for resiliency against regional disasters. If you accidentally delete your database or collection, you can file a support ticket or call Azure support to restore the data from the last automatic backup. For more information, see [Automatic online backup and restore with Azure Cosmos DB](/azure/cosmos-db/online-backup-and-restore).
+Azure Cosmos DB automatically takes backups at regular intervals. Backups are stored separately in another storage service, and those backups are globally replicated for resiliency against regional disasters. If you accidentally delete your database or collection, you can file a support ticket or call Azure support to restore the data from the last automatic backup. For more information, see [Automatic online backup and restore with Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore).
 
 ### Azure Database for MySQL, Azure Database for PostgreSQL
 

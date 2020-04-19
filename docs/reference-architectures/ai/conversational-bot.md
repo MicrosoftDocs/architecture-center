@@ -73,9 +73,9 @@ Before getting into the specifics of this architecture, let's start with the dat
 
 ### User message flow
 
-**Authentication**. Users start by authenticating themselves using whatever mechanism is provided by their channel of communication with the bot. The bot framework supports many communication channels, including Cortana, Microsoft Teams, Facebook Messenger, Kik, and Slack. For a list of channels, see [Connect a bot to channels](/azure/bot-service/bot-service-manage-channels). When you create a bot with Azure Bot Service, the [Web Chat][webchat] channel is automatically configured. This channel allows users to interact with your bot directly in a web page. You can also connect the bot to a custom app by using the [Direct Line](/azure/bot-service/bot-service-channel-connect-directline) channel. The user's identity is used to provide role-based access control, as well as to serve personalized content.
+**Authentication**. Users start by authenticating themselves using whatever mechanism is provided by their channel of communication with the bot. The bot framework supports many communication channels, including Cortana, Microsoft Teams, Facebook Messenger, Kik, and Slack. For a list of channels, see [Connect a bot to channels](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels). When you create a bot with Azure Bot Service, the [Web Chat][webchat] channel is automatically configured. This channel allows users to interact with your bot directly in a web page. You can also connect the bot to a custom app by using the [Direct Line](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directline) channel. The user's identity is used to provide role-based access control, as well as to serve personalized content.
 
-**User message**. Once authenticated, the user sends a message to the bot. The bot reads the message and routes it to a natural language understanding service such as [LUIS](/azure/cognitive-services/luis/). This step gets the **intents** (what the user wants to do) and **entities** (what things the user is interested in). The bot then builds a query that it passes to a service that serves information, such as [Azure Search][search] for document retrieval, [QnA Maker](https://www.qnamaker.ai/) for FAQs, or a custom knowledge base. The bot uses these results to construct a response. To give the best result for a given query, the bot might make several back-and-forth calls to these remote services.
+**User message**. Once authenticated, the user sends a message to the bot. The bot reads the message and routes it to a natural language understanding service such as [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/). This step gets the **intents** (what the user wants to do) and **entities** (what things the user is interested in). The bot then builds a query that it passes to a service that serves information, such as [Azure Search][search] for document retrieval, [QnA Maker](https://www.qnamaker.ai/) for FAQs, or a custom knowledge base. The bot uses these results to construct a response. To give the best result for a given query, the bot might make several back-and-forth calls to these remote services.
 
 **Response**. At this point, the bot has determined the best response and sends it to the user. If the confidence score of the best-matched answer is low, the response might be a disambiguation question or an acknowledgment that the bot could not reply adequately.
 
@@ -106,17 +106,17 @@ As you get started, it's reasonable to use the Azure portal to manually create A
 Once you have a specification and some data, it's time to start making your bot into reality. Let's focus on the core bot logic. This is the code that handles the conversation with the user, including the routing logic, disambiguation logic, and logging. Start by familiarizing yourself with the [Bot Framework][bot-framework], including:
 
 - Basic concepts and terminology used in the framework, especially [conversations], [turns], and [activities].
-- The [Bot Connector service](/azure/bot-service/rest-api/bot-framework-rest-connector-quickstart), which handles the networking between the bot and your channels.
-- How conversation [state](/azure/bot-service/bot-builder-concept-state) is maintained, either in memory or better yet in a store such as Azure Blob Storage or Azure Cosmos DB.
-- [Middleware](/azure/bot-service/bot-builder-basics#middleware), and how it can be used to hook up your bot with external services, such as Cognitive Services.
+- The [Bot Connector service](https://docs.microsoft.com/azure/bot-service/rest-api/bot-framework-rest-connector-quickstart), which handles the networking between the bot and your channels.
+- How conversation [state](https://docs.microsoft.com/azure/bot-service/bot-builder-concept-state) is maintained, either in memory or better yet in a store such as Azure Blob Storage or Azure Cosmos DB.
+- [Middleware](https://docs.microsoft.com/azure/bot-service/bot-builder-basics#middleware), and how it can be used to hook up your bot with external services, such as Cognitive Services.
 
-For a rich [user experience](/azure/bot-service/bot-service-design-user-experience), there are many options.
+For a rich [user experience](https://docs.microsoft.com/azure/bot-service/bot-service-design-user-experience), there are many options.
 
-- You can use [cards](/azure/bot-service/bot-service-design-user-experience#cards) to include buttons, images, carousels, and menus.
+- You can use [cards](https://docs.microsoft.com/azure/bot-service/bot-service-design-user-experience#cards) to include buttons, images, carousels, and menus.
 - A bot can support speech.
 - You can even embed your bot in an app or website and use the capabilities of the app hosting it.
 
-To get started, you can build your bot online using the [Azure Bot Service](/azure/bot-service/bot-service-quickstart), selecting from the available C# and Node.js templates. As your bot gets more sophisticated, however, you will need to create your bot locally then deploy it to the web. Choose an IDE, such as Visual Studio or Visual Studio Code, and a programming language. SDKs are available for the following languages:
+To get started, you can build your bot online using the [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart), selecting from the available C# and Node.js templates. As your bot gets more sophisticated, however, you will need to create your bot locally then deploy it to the web. Choose an IDE, such as Visual Studio or Visual Studio Code, and a programming language. SDKs are available for the following languages:
 
 - [C#](https://github.com/microsoft/botbuilder-dotnet)
 - [JavaScript](https://github.com/microsoft/botbuilder-js)
@@ -129,7 +129,7 @@ As a starting point, you can download the source code for the bot you created us
 
 For a simple bot with a well-defined list of commands, you might be able to use a rules-based approach to parse the user input via regex. This has the advantage of being deterministic and understandable. However, when your bot needs to understand the intents and entities of a more natural-language message, there are AI services that can help.
 
-- LUIS is specifically designed to understand user intents and entities. You train it with a moderately sized collection of relevant [user input](/azure/cognitive-services/luis/luis-concept-utterance) and desired responses, and it returns the intents and entities for a user's given message.
+- LUIS is specifically designed to understand user intents and entities. You train it with a moderately sized collection of relevant [user input](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-utterance) and desired responses, and it returns the intents and entities for a user's given message.
 
 - Azure Search can work alongside LUIS. Using Search, you create searchable indexes over all relevant data. The bot queries these indexes for the entities extracted by LUIS. Azure Search also supports [synonyms][synonyms], which can widen the net of correct word mappings.
 
@@ -177,7 +177,7 @@ The bot itself is only part of a larger system that provides it with the latest 
 
 ### Continuous bot deployment
 
-You can deploy the bot logic directly from your IDE or from a command line, such as the Azure CLI. As your bot matures, however, it's best to use a continual deployment process using a CI/CD solution such as Azure DevOps, as described in the article [Set up continuous deployment](/azure/bot-service/bot-service-build-continuous-deployment). This is a good way to ease the friction in testing new features and fixes in your bot in a near-production environment. It's also a good idea to have multiple deployment environments, typically at least staging and production. Azure DevOps supports this approach.
+You can deploy the bot logic directly from your IDE or from a command line, such as the Azure CLI. As your bot matures, however, it's best to use a continual deployment process using a CI/CD solution such as Azure DevOps, as described in the article [Set up continuous deployment](https://docs.microsoft.com/azure/bot-service/bot-service-build-continuous-deployment). This is a good way to ease the friction in testing new features and fixes in your bot in a near-production environment. It's also a good idea to have multiple deployment environments, typically at least staging and production. Azure DevOps supports this approach.
 
 ## Cost considerations
 
@@ -194,13 +194,15 @@ You are charged for the instances in the App Service plan, even when the app is 
 
 For more information, see [How much does my App Service plan cost?][app-service-cost].
 
+<!-- markdownlint-disable MD024 -->
+
 ### Data ingestion
 
 - Azure Data Factory
 
     In this architecture, Data Factory automates the data ingestion pipeline. Explore a range of data integration capabilities to fit your budget needs, from managed SQL Server Integration Services for seamless migration of SQL Server projects to the cloud (cost effective option), to large-scale, serverless data pipelines for integrating data of all shapes and sizes.
 
-    For an example, see [Azure Data Factory - example cost analysis](/azure/architecture/reference-architectures/data/enterprise-bi-adf#example-cost-analysis).
+    For an example, see [Azure Data Factory - example cost analysis](https://docs.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-adf#example-cost-analysis).
 
 - Azure Functions
 
@@ -219,25 +221,25 @@ For other cost considerations, see the Cost section in [Azure Architecture Frame
 <!-- links -->
 
 [0]: ./_images/conversational-bot.png
-[aad]: /azure/active-directory/
+[aad]: /azure/active-directory
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [activities]: /azure/bot-service/rest-api/bot-framework-rest-connector-concepts?#activity
-[aml]: /azure/machine-learning/service/
+[aml]: /azure/machine-learning/service
 [app-insights]: /azure/azure-monitor/app/app-insights-overview
-[app-service]: /azure/app-service/
+[app-service]: /azure/app-service
 [app-service-cost]: https://docs.microsoft.com/azure/app-service/overview-hosting-plans#how-much-does-my-app-service-plan-cost
 [blob]: /azure/storage/blobs/storage-blobs-introduction
 [bot-authentication]: /azure/bot-service/bot-builder-authentication
-[bot-framework]: https://dev.botframework.com/
+[bot-framework]: https://dev.botframework.com
 [bot-framework-service]: /azure/bot-service/bot-builder-basics
 [cognitive-services]: /azure/cognitive-services/welcome
 [conversations]: /azure/bot-service/bot-service-design-conversation-flow
-[cosmosdb]: /azure/cosmos-db/
+[cosmosdb]: https://docs.microsoft.com/azure/cosmos-db
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
-[data-factory]: /azure/data-factory/
+[data-factory]: /azure/data-factory
 [data-factory-ref-arch]: ../data/enterprise-bi-adf.md
-[devops]: https://azure.microsoft.com/solutions/devops/
-[functions]: /azure/azure-functions/
+[devops]: https://azure.microsoft.com/solutions/devops
+[functions]: /azure/azure-functions
 [functions-triggers]: /azure/azure-functions/functions-triggers-bindings
 [git-repo-appinsights-logger]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-app-insights
 [git-repo-base]: https://github.com/Microsoft/botbuilder-utils-js
@@ -245,19 +247,19 @@ For other cost considerations, see the Cost section in [Azure Architecture Frame
 [git-repo-feedback-util]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-feedback
 [git-repo-testing-util]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-http-test-recorder
 [testing-util]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-http-test-recorder
-[key-vault]: /azure/key-vault/
+[key-vault]: /azure/key-vault
 [lda]: https://wikipedia.org/wiki/Latent_Dirichlet_allocation
 [logic-apps]: /azure/logic-apps/logic-apps-overview
 [Logic-Apps-Pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
-[luis]: /azure/cognitive-services/luis/
-[power-bi]: /power-bi/
-[qna-maker]: /azure/cognitive-services/QnAMaker/
-[search]: /azure/search/
-[slots]: /azure/app-service/deploy-staging-slots/
+[luis]: /azure/cognitive-services/luis
+[power-bi]: /power-bi
+[qna-maker]: /azure/cognitive-services/QnAMaker
+[search]: /azure/search
+[slots]: /azure/app-service/deploy-staging-slots
 [synonyms]: /azure/search/search-synonyms
 [transcript-storage]: /azure/bot-service/bot-builder-howto-v4-storage
 [turns]: /azure/bot-service/bot-builder-basics#defining-a-turn
-[vscode]: https://azure.microsoft.com/products/visual-studio-code/
+[vscode]: https://azure.microsoft.com/products/visual-studio-code
 [webapp]: /azure/app-service/overview
 [webchat]: /azure/bot-service/bot-service-channel-connect-webchat?view=azure-bot-service-4.0/
 

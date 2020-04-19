@@ -26,7 +26,7 @@ Of course, your application may have specific requirements that make an IaaS app
 | Elasticsearch | [Azure Search](/azure/search/search-what-is-azure-search) |
 | Hadoop | [HDInsight](/azure/hdinsight/hdinsight-overview) |
 | IIS | [App Service](/azure/app-service/overview) |
-| MongoDB | [Cosmos DB](/azure/cosmos-db/introduction) |
+| MongoDB | [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) |
 | Redis | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
 | SQL Server | [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) |
 | File share | [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) |

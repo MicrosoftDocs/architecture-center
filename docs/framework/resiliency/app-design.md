@@ -20,7 +20,7 @@ Choose the right subscription and service features for your app by working throu
 - **Evaluate requirements against [Azure subscription and service limits](/azure/azure-subscription-service-limits/).** *Azure subscriptions* have limits on certain resource types, such as number of resource groups, cores, and storage accounts. If your application requirements exceed Azure subscription limits, create another Azure subscription and provision sufficient resources there. Individual Azure services have consumption limits &mdash; for example, limits on storage, throughput, number of connections, requests per second, and other metrics. Your application will fail if it attempts to use resources beyond these limits, resulting in service throttling and possible downtime for affected users. Depending on the specific service and your application requirements, you can often avoid these limits by scaling up (for example, choosing another pricing tier) or scaling out (such as adding new instances).
 - **Determine how many storage accounts you need.** Azure allows a specific number of storage accounts per subscription. For more information, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits/#storage-limits).
 - **Select the right service tier for Azure SQL Database.** If your application uses Azure SQL Database, select the appropriate service tier. If the tier cannot handle your application's database transaction unit (DTU) requirements, your data use will be throttled. For more information on selecting the correct service plan, see [SQL Database options and performance: Understand what's available in each service tier](/azure/sql-database/sql-database-service-tiers/).
-- **Provision sufficient request units (RUs) in Azure Cosmos DB**. With Azure Cosmos DB, you pay for the throughput you provision and the storage you consume on an hourly basis. The cost of all database operations is normalized as RUs, which abstracts the system resources such as CPU, IOPS, and memory. For more information, see [Request Units in Azure Cosmos DB](/azure/cosmos-db/request-units).
+- **Provision sufficient request units (RUs) in Azure Cosmos DB**. With Azure Cosmos DB, you pay for the throughput you provision and the storage you consume on an hourly basis. The cost of all database operations is normalized as RUs, which abstracts the system resources such as CPU, IOPS, and memory. For more information, see [Request Units in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/request-units).
 
 ## Resiliency strategies
 
@@ -42,7 +42,7 @@ This section describes some common resiliency strategies. Most of these strategi
   - Use separate thread pools to isolate calls to different services. This helps to prevent cascading failures if one of the services fails. For an example, see the Netflix [Hystrix library](https://medium.com/netflix-techblog/introducing-hystrix-for-resiliency-engineering-13531c1ab362).
   - Use [containers](https://en.wikipedia.org/wiki/Operating-system-level_virtualization) to limit the resources available to a particular subsystem.
 
-      ![Diagram of the Bulkhead pattern](/azure/architecture/framework/_images/bulkhead.png)
+      ![Diagram of the Bulkhead pattern](https://docs.microsoft.com/azure/architecture/framework/_images/bulkhead.png)
 
 - **Apply [*compensating transactions*](/azure/architecture/patterns/compensating-transaction)**. A compensating transaction is a transaction that undoes the effects of another completed transaction. In a distributed system, it can be difficult to achieve strong transactional consistency. Compensating transactions help to achieve consistency by using a series of smaller, individual transactions that can be undone at each step. For example, to book a trip, a customer might reserve a car, a hotel room, and a flight. If one of these steps fails, the entire operation fails. Instead of trying to use a single distributed transaction for the entire operation, you can define a compensating transaction for each step.
 - **Implement asynchronous operations, whenever possible.** Synchronous operations can monopolize resources and block other operations while the caller waits for the process to complete. Design each part of your application to allow for asynchronous operations, whenever possible. For more information on how to implement asynchronous programming in C\#, see [Asynchronous Programming](/dotnet/articles/csharp/async).
@@ -126,6 +126,8 @@ Many failures are manageable within the same Azure region. However, in the unlik
 
 > [!NOTE]
 > This process occurs only for region-wide service disruptions and is not within your control. Consider using [Azure Site Recovery](/azure/site-recovery/) to achieve better RPO and RTO. Using Site Recovery, you decide what is an acceptable outage and when to fail over to the replicated VMs.
+
+<!-- -->
 
 >[!NOTE]
 >The selection of the Resource Group location is important. In the event of a regional outage, you will be unable to control resources inside that Resource Group, regardless of what region those resources are actually in (i.e., the resources in the other region(s) will continue to function, but management plane operations will be unavailable.

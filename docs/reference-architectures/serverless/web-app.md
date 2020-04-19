@@ -336,11 +336,11 @@ Related guidance:
 [cdn-https]: /azure/cdn/cdn-custom-ssl
 [cors-policy]: /azure/api-management/api-management-cross-domain-policies
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
-[cosmosdb]: /azure/cosmos-db/introduction
-[cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
+[cosmosdb]: https://docs.microsoft.com/azure/cosmos-db/introduction
+[cosmosdb-geo]: https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally
 [cosmosdb-input-binding]: /azure/azure-functions/functions-bindings-cosmosdb-v2-input
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
-[cosmosdb-scale]: /azure/cosmos-db/partition-data
+[cosmosdb-scale]: https://docs.microsoft.com/azure/cosmos-db/partition-data
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [event-driven]: ../../guide/architecture-styles/event-driven.md
 [functions]: /azure/azure-functions/functions-overview
@@ -357,9 +357,9 @@ Related guidance:
 [microservices-domain-analysis]: ../../microservices/model/domain-analysis.md
 [monitor]: /azure/azure-monitor/overview
 [oauth-flow]: https://auth0.com/docs/api-auth/which-oauth-flow-to-use
-[partition-key]: /azure/cosmos-db/partition-data
+[partition-key]: https://docs.microsoft.com/azure/cosmos-db/partition-data
 [pipelines]: /azure/devops/pipelines/index
-[ru]: /azure/cosmos-db/request-units
+[ru]: https://docs.microsoft.com/azure/cosmos-db/request-units
 [scopes]: /azure/active-directory/develop/v2-permissions-and-consent
 [static-hosting]: /azure/storage/blobs/storage-blob-static-website
 [static-hosting-preview]: https://azure.microsoft.com/blog/azure-storage-static-web-hosting-public-preview/

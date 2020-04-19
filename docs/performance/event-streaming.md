@@ -20,7 +20,7 @@ This article describes how a development team used metrics to find bottlenecks a
 
 ![Diagram of an event streaming architecture](./images/streaming//event-streaming.png)
 
-In this scenario, a fleet of drones sends position data in real time to Azure IoT Hub. A Functions app receives the events, transforms the data into [GeoJSON](https://tools.ietf.org/html/rfc7946) format, and writes the transformed data to Cosmos DB. Cosmos DB has native support for [geospatial data](/azure/cosmos-db/geospatial), and Cosmos DB collections can be indexed for efficient spatial queries. For example, a client application could query for all drones within 1 km of a given location, or find all drones within a certain area. 
+In this scenario, a fleet of drones sends position data in real time to Azure IoT Hub. A Functions app receives the events, transforms the data into [GeoJSON](https://tools.ietf.org/html/rfc7946) format, and writes the transformed data to Cosmos DB. Cosmos DB has native support for [geospatial data](https://docs.microsoft.com/azure/cosmos-db/geospatial), and Cosmos DB collections can be indexed for efficient spatial queries. For example, a client application could query for all drones within 1 km of a given location, or find all drones within a certain area. 
 
 These processing requirements are simple enough that they don't require a full-fledged stream processing engine. In particular, the processing doesn't join streams, aggregate data, or process across time windows. Based on these requirements, Azure Functions is a good fit for processing the messages. Cosmos DB can also scale to support very high write throughput.
 
@@ -64,7 +64,7 @@ That was the clue. Looking at the partition heat map, it turned out that all of 
 
 ![Graph of Cosmos DB partition heat map](./images/streaming//cosmosdb-partitions.png)
 
-What you want to see in the heat map is an even distribution across all of the partitions. In this case, because every document was getting written to the same partition, adding RUs didn't help. The problem turned out to be a bug in the code. Although the Cosmos DB collection had a partition key, the Azure Function didn't actually include the partition key in the document. (For more information about the partition heat map, see [Determine the throughput distribution across partitions](/azure/cosmos-db/use-metrics#determine-the-throughput-distribution-across-partitions).)
+What you want to see in the heat map is an even distribution across all of the partitions. In this case, because every document was getting written to the same partition, adding RUs didn't help. The problem turned out to be a bug in the code. Although the Cosmos DB collection had a partition key, the Azure Function didn't actually include the partition key in the document. (For more information about the partition heat map, see [Determine the throughput distribution across partitions](https://docs.microsoft.com/azure/cosmos-db/use-metrics#determine-the-throughput-distribution-across-partitions).)
 
 ## Test 2: Fix partitioning issue
 

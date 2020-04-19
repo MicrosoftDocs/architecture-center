@@ -70,7 +70,7 @@ The data flows through the solution as follows:
 
 ### Alternatives
 
-- [Cosmos DB](/azure/cosmos-db/introduction) is an alternative NoSQL database technology. Cosmos DB provides [multi-master support at global scale](/azure/cosmos-db/multi-region-writers) with [multiple well-defined consistency levels](/azure/cosmos-db/consistency-levels) to meet various customer requirements. It also supports the [Cassandra API](/azure/cosmos-db/cassandra-introduction).
+- [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) is an alternative NoSQL database technology. Cosmos DB provides [multi-master support at global scale](https://docs.microsoft.com/azure/cosmos-db/multi-region-writers) with [multiple well-defined consistency levels](https://docs.microsoft.com/azure/cosmos-db/consistency-levels) to meet various customer requirements. It also supports the [Cassandra API](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction).
 - [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for Azure. It is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive collaborative workspace.
 - [Data Lake Storage](/azure/storage/data-lake-storage) is an alternative to Blob storage. For this scenario, Data Lake Storage was not available in the targeted region.
 - [Web Apps](/azure/app-service) could also be used to host the web services for ingesting construction results data.

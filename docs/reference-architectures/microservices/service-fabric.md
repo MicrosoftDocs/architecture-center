@@ -208,7 +208,7 @@ Here are some key points for securing your application on Service Fabric:
 
 Consider defining subnet boundaries for each virtual machine scale set to control the flow of communication. Each node type has its own virtual machine scale set in a subnet within the Service Fabric cluster's virtual network. Network Security Groups (NSGs) can be added to the subnets to allow or reject network traffic. For example, with front-end and back-end node types, you can add an NSG to the backend subnet to accept inbound traffic only the front-end subnet.
 
-When calling external Azure Services from the cluster, use [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) if the Azure service supports it. Using a service endpoint secures the service to only the cluster's Virtual Network. For example, if you are using Cosmos DB to store data, configure the Cosmos DB account with a service endpoint to allow access only from a specific subnet. See [Access Azure Cosmos DB resources from virtual networks](/azure/cosmos-db/vnet-service-endpoint).
+When calling external Azure Services from the cluster, use [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) if the Azure service supports it. Using a service endpoint secures the service to only the cluster's Virtual Network. For example, if you are using Cosmos DB to store data, configure the Cosmos DB account with a service endpoint to allow access only from a specific subnet. See [Access Azure Cosmos DB resources from virtual networks](https://docs.microsoft.com/azure/cosmos-db/vnet-service-endpoint).
 
 ### Endpoints and interservice communication
 

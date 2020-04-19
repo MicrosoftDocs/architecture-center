@@ -68,7 +68,7 @@ ASE can run regular web apps on Windows or, as in this example, the web apps dep
 
 Other options for the data tier include:
 
-- [Azure Cosmos DB](/azure/cosmos-db/introduction): If the majority of the data is in non-relational format, Cosmos DB is a good alternative. This service provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage.
+- [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction): If the majority of the data is in non-relational format, Cosmos DB is a good alternative. This service provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage.
 
 ## Considerations
 

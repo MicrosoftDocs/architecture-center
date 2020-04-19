@@ -187,7 +187,7 @@ Use the Stream Analytics [job diagram](/azure/stream-analytics/stream-analytics-
 
 ### Cosmos DB
 
-Throughput capacity for Cosmos DB is measured in [Request Units](/azure/cosmos-db/request-units) (RU). In order to scale a Cosmos DB container past 10,000 RU, you must specify a [partition key](/azure/cosmos-db/partition-data) when you create the container, and include the partition key in every document.
+Throughput capacity for Cosmos DB is measured in [Request Units](https://docs.microsoft.com/azure/cosmos-db/request-units) (RU). In order to scale a Cosmos DB container past 10,000 RU, you must specify a [partition key](https://docs.microsoft.com/azure/cosmos-db/partition-data) when you create the container, and include the partition key in every document.
 
 In this reference architecture, new documents are created only once per minute (the hopping window interval), so the throughput requirements are quite low. For that reason, there's no need to assign a partition key in this scenario.
 

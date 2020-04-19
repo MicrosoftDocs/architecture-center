@@ -26,7 +26,7 @@ There are several options for data serving storage in Azure, depending on your n
 - [HBase/Phoenix on HDInsight](/azure/hdinsight/hbase/apache-hbase-overview)
 - [Hive LLAP on HDInsight](/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
 - [Azure Analysis Services](/azure/analysis-services/analysis-services-overview)
-- [Azure Cosmos DB](/azure/cosmos-db/)
+- [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db)
 
 These options provide various database models that are optimized for different types of tasks:
 
