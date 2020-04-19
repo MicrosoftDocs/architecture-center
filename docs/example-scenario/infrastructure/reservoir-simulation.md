@@ -112,7 +112,7 @@ Get an [example implementation of this OPM Flow architecture][opm-flow] on GitHu
 [data-storage]: https://docs.microsoft.com/architecture/topics/high-performance-computing#storage
 [disk]: https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd
 [hc-series]: https://docs.microsoft.com/azure/virtual-machines/hc-series
-[hpc]: https://azure.microsoft.com/solutions/high-performance-computing/
+[hpc]: https://azure.microsoft.com/solutions/high-performance-computing
 [intersect]: https://github.com/Azure/azurehpc/tree/master/tutorials/oil_and_gas_intersect
 [nsg]: https://docs.microsoft.com/azure/virtual-network/security-overview
 [lsv2]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-storage

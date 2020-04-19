@@ -305,7 +305,7 @@ To deploy the solution, perform the following steps.
 
 [highly-available-network-architecture]: ./expressroute-vpn-failover.md
 [aaf-cost]: /azure/architecture/framework/cost/overview
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [expressroute-technical-overview]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
 [expressroute-prereqs]: https://docs.microsoft.com/azure/expressroute/expressroute-prerequisites
 [configure-expressroute-routing]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-arm

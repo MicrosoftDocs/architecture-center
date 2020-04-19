@@ -272,20 +272,20 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 
 [AAF-devops]: /azure/architecture/framework/devops/overview
 [adf-ra]: ./enterprise-bi-adf.md
-[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki
-[azure-monitor]: https://azure.microsoft.com/services/monitor/
+[azure-monitor]: https://azure.microsoft.com/services/monitor
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw
 [synapse-analytics]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
-[powerbi-embedded-pricing]: https://azure.microsoft.com/pricing/details/power-bi-embedded/
+[powerbi-embedded-pricing]: https://azure.microsoft.com/pricing/details/power-bi-embedded
 [powerbi-pro-purchase]: https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
-[az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics/
-[az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services/
+[az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics
+[az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services
 [az-storage-reserved]: https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [aaf-cost]: /azure/architecture/framework/cost/overview

@@ -139,9 +139,10 @@ In our case, we decided not to handle these two events.
 [**Next**][client-assertion]
 
 <!-- links -->
+
 [ADAL]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 [client-assertion]: ./client-assertion.md
-[data-protection]: /aspnet/core/security/data-protection/
+[data-protection]: /aspnet/core/security/data-protection
 [distributed-cache]: /aspnet/core/performance/caching/distributed
 [key-management]: /aspnet/core/security/data-protection/configuration/default-settings
 [in-memory-cache]: /aspnet/core/performance/caching/memory

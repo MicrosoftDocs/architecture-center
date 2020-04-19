@@ -263,6 +263,6 @@ For more information about using metrics for performance tuning, see see [Perfor
 
 <!-- links -->
 
-[azure-monitor]: /azure/azure-monitor
+[azure-monitor]: https://docs.microsoft.com/azure/azure-monitor
 [Tick stack]: https://github.com/influxdata/kube-influxdb
 [kube-state-metrics]: https://github.com/kubernetes/kube-state-metrics

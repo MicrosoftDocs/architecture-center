@@ -19,8 +19,6 @@ function Get-ExcludedSubfolders
     return @(
         '_bread',
         '_images',
-        # 'antipatterns',
-        'aws-professional',
         'best-practices',
         'browse',
         'building-blocks',

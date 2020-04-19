@@ -244,8 +244,8 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
 <!-- links -->
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
-[app-gw-scaling]: /azure/application-gateway/
-[azure-dns]: /azure/dns/dns-overview
+[app-gw-scaling]: https://docs.microsoft.com/azure/application-gateway
+[azure-dns]: https://docs.microsoft.com/azure/dns/dns-overview
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cassandra-in-azure]: https://academy.datastax.com/resources/deployment-guide-azure
@@ -253,22 +253,22 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
 [cassandra-replication]: https://academy.datastax.com/planet-cassandra/data-replication-in-nosql-databases-explained
 [cassandra-consistency-usage]: https://medium.com/@foundev/cassandra-how-many-nodes-are-talked-to-with-quorum-also-should-i-use-it-98074e75d7d5#.b4pb4alb2
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [datastax]: https://www.datastax.com/products/datastax-enterprise
-[ddos-best-practices]: /azure/security/azure-ddos-best-practices
-[ddos]: /azure/virtual-network/ddos-protection-overview
+[ddos-best-practices]: https://docs.microsoft.com/azure/security/azure-ddos-best-practices
+[ddos]: https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview
 [dmz]: ../dmz/secure-vnet-dmz.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-linux
-[Linux-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
-[load-balancer-hashing]: /azure/load-balancer/concepts-limitations#load-balancer-concepts
-[load-balancer]: /azure/load-balancer/load-balancer-get-started-internet-arm-cli
-[network-security]: /azure/best-practices-network-security
-[nsg]: /azure/virtual-network/virtual-networks-nsg
-[plan-network]: /azure/virtual-network/virtual-network-vnet-plan-design-arm
+[Linux-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
+[load-balancer-hashing]: https://docs.microsoft.com/azure/load-balancer/concepts-limitations#load-balancer-concepts
+[load-balancer]: https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-internet-arm-cli
+[network-security]: https://docs.microsoft.com/azure/best-practices-network-security
+[nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
+[plan-network]: https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm
 [private-ip-space]: https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces
-[public IP address]: /azure/virtual-network/virtual-network-ip-addresses-overview-arm
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
-[subscription-limits]: /azure/azure-subscription-service-limits
+[public IP address]: https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm
+[resource-manager-overview]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
+[subscription-limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
-[vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
-[vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
+[vmss-design]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
+[vmss]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview

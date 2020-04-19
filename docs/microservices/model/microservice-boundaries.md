@@ -85,6 +85,6 @@ At this point, you should have a clear understanding of the purpose and function
 
 <!-- links -->
 
-[event-grid]: /azure/event-grid/
-[functions]: /azure/azure-functions/functions-overview
-[functions-triggers]: /azure/azure-functions/functions-triggers-bindings
+[event-grid]: https://docs.microsoft.com/azure/event-grid
+[functions]: https://docs.microsoft.com/azure/azure-functions/functions-overview
+[functions-triggers]: https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings

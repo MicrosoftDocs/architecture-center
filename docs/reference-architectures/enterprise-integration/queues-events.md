@@ -107,15 +107,15 @@ For more information, see the cost section in [Azure Architecture Framework][aaf
 
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
-[apim]: /azure/api-management
-[apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management/
-[apim-autoscale]: /azure/api-management/api-management-howto-autoscale
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
-[event-grid]: /azure/event-grid/
+[apim]: https://docs.microsoft.com/azure/api-management
+[apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management
+[apim-autoscale]: https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[event-grid]: https://docs.microsoft.com/azure/event-grid
 [event-grid-sla]: https://azure.microsoft.com/support/legal/sla/event-grid
-[logic-apps]: /azure/logic-apps/logic-apps-overview
+[logic-apps]: https://docs.microsoft.com/azure/logic-apps/logic-apps-overview
 [logic-apps-sla]: https://azure.microsoft.com/support/legal/sla/logic-apps
-[sb-sla]: https://azure.microsoft.com/support/legal/sla/service-bus/
-[service-bus]: /azure/service-bus-messaging/
-[service-bus-pricing]: https://azure.microsoft.com/pricing/details/service-bus/
+[sb-sla]: https://azure.microsoft.com/support/legal/sla/service-bus
+[service-bus]: https://docs.microsoft.com/azure/service-bus-messaging
+[service-bus-pricing]: https://azure.microsoft.com/pricing/details/service-bus
 [basic-enterprise-integration]: ./basic-enterprise-integration.md

@@ -224,19 +224,19 @@ After deployment completes, you can test connectivity from the simulated on-prem
 [arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
 [availability-set]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-availability-set
 [azure-expressroute]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
-[azure-monitor]: https://azure.microsoft.com/services/monitor/
+[azure-monitor]: https://azure.microsoft.com/services/monitor
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [az-pipelines]: https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops
 
-[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
+[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
 [availability-set]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-availability-set
 [azure-expressroute]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
-[azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway/
+[azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway
 
 [azure-vpn-gateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
 [capacity-planning-for-adds]: https://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
 [considerations]: ./considerations.md
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [GitHub]: https://github.com/mspnp/identity-reference-architectures/tree/master/adds-extend-domain
 [microsoft_systems_center]: https://www.microsoft.com/download/details.aspx?id=50013
 [monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx

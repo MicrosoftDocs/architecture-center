@@ -141,17 +141,17 @@ If the primary database fails, perform a manual failover to the secondary databa
 
 <!-- links -->
 
-[AFD-pricing]: https://azure.microsoft.com/pricing/details/frontdoor/
-[bandwidth-pricing]: https://azure.microsoft.com/pricing/details/bandwidth/
+[AFD-pricing]: https://azure.microsoft.com/pricing/details/frontdoor
+[bandwidth-pricing]: https://azure.microsoft.com/pricing/details/bandwidth
 [cosmosdb-geo]: https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally
 [guidance-web-apps-scalability]: ./scalable-web-app.md
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[ra-grs]: /azure/storage/common/storage-designing-ha-apps-with-ragrs
-[regional-pairs]: /azure/best-practices-availability-paired-regions
-[resource groups]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[ra-grs]: https://docs.microsoft.com/azure/storage/common/storage-designing-ha-apps-with-ragrs
+[regional-pairs]: https://docs.microsoft.com/azure/best-practices-availability-paired-regions
+[resource groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
 [services-by-region]: https://azure.microsoft.com/regions/#services
-[sql-failover]: /azure/sql-database/sql-database-disaster-recovery
-[sql-replication]: /azure/sql-database/sql-database-geo-replication-overview
-[sql-rpo]: /azure/sql-database/sql-database-business-continuity#sql-database-features-that-you-can-use-to-provide-business-continuity
-[storage-outage]: /azure/storage/storage-disaster-recovery-guidance
+[sql-failover]: https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery
+[sql-replication]: https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview
+[sql-rpo]: https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity#sql-database-features-that-you-can-use-to-provide-business-continuity
+[storage-outage]: https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx

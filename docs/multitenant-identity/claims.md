@@ -122,8 +122,8 @@ For more information, see [Role-based and resource-based authorization in multit
 
 <!-- links -->
 
-[scope parameter]: https://nat.sakimura.org/2012/01/26/scopes-and-claims-in-openid-connect/
-[Supported Token and Claim Types]: /azure/active-directory/active-directory-token-and-claims/
+[scope parameter]: https://nat.sakimura.org/2012/01/26/scopes-and-claims-in-openid-connect
+[Supported Token and Claim Types]: https://docs.microsoft.com/azure/active-directory/active-directory-token-and-claims
 [issuer]: https://openid.net/specs/openid-connect-core-1_0.html#IDToken
 [Authentication events]: ./authenticate.md#authentication-events
 [signup]: ./signup.md

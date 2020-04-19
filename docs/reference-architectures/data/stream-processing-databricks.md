@@ -407,14 +407,14 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 <!-- links -->
 
 [AAF-devops]: /azure/architecture/framework/devops/overview
-[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
-[azure-monitor]: https://azure.microsoft.com/services/monitor/
-[databricks-monitoring]: https://docs.microsoft.com/azure/architecture/databricks-monitoring/
+[azure-monitor]: https://azure.microsoft.com/services/monitor
+[databricks-monitoring]: https://docs.microsoft.com/azure/architecture/databricks-monitoring
 [aaf-cost]: /azure/architecture/framework/cost/overview
-[Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
-[cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
-[event-hubs-pricing]: https://azure.microsoft.com/pricing/details/event-hubs/
+[Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator
+[cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[event-hubs-pricing]: https://azure.microsoft.com/pricing/details/event-hubs
 [github]: https://github.com/mspnp/azure-databricks-streaming-analytics
-[azure-databricks-pricing]: https://azure.microsoft.com/pricing/details/databricks/
+[azure-databricks-pricing]: https://azure.microsoft.com/pricing/details/databricks

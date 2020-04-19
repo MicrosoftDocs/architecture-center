@@ -167,23 +167,23 @@ Test-NetConnection 10.2.0.36 -CommonTCPPort RDP
 
 <!-- links -->
 
-[azure-cli-2]: /azure/install-azure-cli
+[azure-cli-2]: https://docs.microsoft.com/azure/install-azure-cli
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
-[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
+[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
 [guidance-hub-spoke]: ./hub-spoke.md
-[azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
+[azure-vpn-gateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
 [guidance-expressroute]: ./expressroute.md
 [guidance-vpn]: ./vpn.md
 [linux-vm-ra]: ../virtual-machines-linux/index.md
 [hybrid-ha]: ./expressroute-vpn-failover.md
-[naming conventions]: /azure/guidance/guidance-naming-conventions
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
+[naming conventions]: https://docs.microsoft.com/azure/guidance/guidance-naming-conventions
+[resource-manager-overview]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
 [virtual datacenter]: https://aka.ms/vdc
-[vnet-peering]: /azure/virtual-network/virtual-network-peering-overview
-[vnet-peering-limit]: /azure/azure-subscription-service-limits#networking-limits
-[vnet-peering-requirements]: /azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints
-[vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
+[vnet-peering]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview
+[vnet-peering-limit]: https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits
+[vnet-peering-requirements]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints
+[vpn-appliance]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [windows-vm-ra]: ../virtual-machines-windows/index.md
 
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-hub-spoke.vsdx

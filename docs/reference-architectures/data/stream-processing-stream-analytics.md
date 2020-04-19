@@ -261,10 +261,10 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 
 <!-- links -->
 [AAF-devops]: /azure/architecture/framework/devops/overview
-[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
-[azure-monitor]: https://azure.microsoft.com/services/monitor/
+[azure-monitor]: https://azure.microsoft.com/services/monitor
 [github]: https://github.com/mspnp/azure-stream-analytics-data-pipeline
 [monitoring-stream-analytics]: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
-[databricks-monitoring]: https://docs.microsoft.com/azure/architecture/databricks-monitoring/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[databricks-monitoring]: https://docs.microsoft.com/azure/architecture/databricks-monitoring

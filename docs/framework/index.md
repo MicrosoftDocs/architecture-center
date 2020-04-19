@@ -148,18 +148,18 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 [dr-guidance]: ./resiliency/backup-and-recovery.md
 [identity-ref-arch]: ../reference-architectures/identity/index.md
 [resiliency]: ../framework/resiliency/overview.md
-[ad-subscriptions]: /azure/active-directory/active-directory-how-subscriptions-associated-directory
-[data-warehouse-encryption]: /azure/data-lake-store/data-lake-store-security-overview#data-protection
+[ad-subscriptions]: https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory
+[data-warehouse-encryption]: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview#data-protection
 [cosmos-db-encryption]: https://docs.microsoft.com/azure/cosmos-db/database-security
-[rbac]: /azure/active-directory/role-based-access-control-what-is
-[paired-region]: /azure/best-practices-availability-paired-regions
-[resource-manager-auditing]: /azure/azure-resource-manager/resource-group-audit
-[security-blog]: https://azure.microsoft.com/blog/tag/security/
-[security-center]: https://azure.microsoft.com/services/security-center/
-[security-documentation]: /azure/security/
-[sql-db-encryption]: /azure/sql-database/sql-database-always-encrypted-azure-key-vault
-[storage-encryption]: /azure/storage/storage-service-encryption
-[trust-center]: https://azure.microsoft.com/support/trust-center/
+[rbac]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
+[paired-region]: https://docs.microsoft.com/azure/best-practices-availability-paired-regions
+[resource-manager-auditing]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit
+[security-blog]: https://azure.microsoft.com/blog/tag/security
+[security-center]: https://azure.microsoft.com/services/security-center
+[security-documentation]: https://docs.microsoft.com/azure/security
+[sql-db-encryption]: https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault
+[storage-encryption]: https://docs.microsoft.com/azure/storage/storage-service-encryption
+[trust-center]: https://azure.microsoft.com/support/trust-center
 
 <!-- patterns -->
 [availability-patterns]: ../patterns/category/availability.md

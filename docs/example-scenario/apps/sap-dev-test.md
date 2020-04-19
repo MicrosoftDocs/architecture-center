@@ -102,7 +102,7 @@ Click the link below to deploy the solution.
 <!-- links -->
 
 [resiliency]: /azure/architecture/framework/resiliency/overview
-[security]: /azure/security/
+[security]: https://docs.microsoft.com/azure/security
 [scalability]: /azure/architecture/checklist/scalability
 [sap-netweaver]: /azure/architecture/reference-architectures/sap/sap-netweaver
 [sap-hana]: /azure/architecture/reference-architectures/sap/sap-s4hana

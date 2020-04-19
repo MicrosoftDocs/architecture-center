@@ -107,7 +107,7 @@ Other related resources include:
 <!-- links -->
 
 [architecture]: ./media/architecture-ecommerce-order-processing.png
-[product-category]: https://azure.microsoft.com/product-categories/databases/
+[product-category]: https://azure.microsoft.com/product-categories/databases
 [source-document]: https://customers.microsoft.com/story/jet-com-powers-innovative-e-commerce-engine-on-azure-in-less-than-12-months
 [source-presentation]: https://channel9.msdn.com/events/Build/2018/BRK3602
 [small-pricing]: https://azure.com/e/3d43949ffbb945a88cc0a126dc3a0e6e
@@ -117,10 +117,10 @@ Other related resources include:
 [docs-cosmos-db-regional-failover]: https://docs.microsoft.com/azure/cosmos-db/regional-failover
 [docs-cosmos-db-guarantees]: https://docs.microsoft.com/azure/cosmos-db/high-availability#slas-for-availability
 [docs-cosmos-db-use-cases]: https://docs.microsoft.com/azure/cosmos-db/use-cases
-[docs-kafka-high-availability]: /azure/hdinsight/kafka/apache-kafka-high-availability
-[docs-event-hubs]: /azure/event-hubs/event-hubs-what-is-event-hubs
-[docs-stream-analytics]: /azure/stream-analytics/stream-analytics-introduction
+[docs-kafka-high-availability]: https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-high-availability
+[docs-event-hubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs
+[docs-stream-analytics]: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction
 [availability]: /azure/architecture/checklist/availability
 [scalability]: /azure/architecture/checklist/scalability
-[resiliency]: /azure/architecture/patterns/category/resiliency/
-[security]: /azure/security/
+[resiliency]: /azure/architecture/patterns/category/resiliency
+[security]: https://docs.microsoft.com/azure/security

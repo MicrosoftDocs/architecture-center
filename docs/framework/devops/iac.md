@@ -113,5 +113,5 @@ And lastly, do not forget to version-control your infrastructure code, and use c
 [azuredevops]: https://docs.microsoft.com/azure/devops
 [pipelines]: https://docs.microsoft.com/azure/devops/pipelines
 [repos]: https://docs.microsoft.com/azure/devops/repos/?view=azure-devops
-[git]: https://git-scm.com/
+[git]: https://git-scm.com
 [github]: https://github.com

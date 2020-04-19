@@ -96,17 +96,17 @@ We have provided three sample cost profiles based on amount of traffic you expec
 More complex fraud detection scenarios can benefit from a machine learning model. For scenarios built using Machine Learning Server, see [Fraud detection using Machine Learning Server][r-server-fraud-detection]. For other solution templates using Machine Learning Server, see [Data science scenarios and solution templates][docs-r-server-sample-solutions]. For an example solution using Azure Data Lake Analytics, see [Using Azure Data Lake and R for Fraud Detection][technet-fraud-detection].
 
 <!-- links -->
-[product-category]: https://azure.microsoft.com/product-categories/analytics/
-[tutorial]: /azure/stream-analytics/stream-analytics-real-time-fraud-detection
+[product-category]: https://azure.microsoft.com/product-categories/analytics
+[tutorial]: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-real-time-fraud-detection
 [small-pricing]: https://azure.com/e/74149ec312c049ccba79bfb3cfa67606
 [medium-pricing]: https://azure.com/e/4fc94f7376de484d8ae67a6958cae60a
 [large-pricing]: https://azure.com/e/7da8804396f9428a984578700003ba42
 [architecture]: ./media/architecture-fraud-detection.png
-[docs-event-hubs]: /azure/event-hubs/event-hubs-what-is-event-hubs
-[docs-event-hubs-security-model]: /azure/event-hubs/event-hubs-authentication-and-security-model-overview
-[docs-stream-analytics]: /azure/stream-analytics/stream-analytics-introduction
+[docs-event-hubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs
+[docs-event-hubs-security-model]: https://docs.microsoft.com/azure/event-hubs/event-hubs-authentication-and-security-model-overview
+[docs-stream-analytics]: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction
 [docs-r-server-sample-solutions]: /machine-learning-server/r/sample-solutions
-[r-server-fraud-detection]: https://microsoft.github.io/r-server-fraud-detection/
-[technet-fraud-detection]: https://blogs.technet.microsoft.com/machinelearning/2017/06/28/using-azure-data-lake-and-r-for-fraud-detection/
+[r-server-fraud-detection]: https://microsoft.github.io/r-server-fraud-detection
+[technet-fraud-detection]: https://blogs.technet.microsoft.com/machinelearning/2017/06/28/using-azure-data-lake-and-r-for-fraud-detection
 [scalability]: /azure/architecture/checklist/scalability
-[security]: /azure/security/
+[security]: https://docs.microsoft.com/azure/security

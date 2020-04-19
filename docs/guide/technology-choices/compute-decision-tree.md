@@ -166,24 +166,24 @@ Based on this analysis, you may find that the initial candidate isn't suitable f
 
 - [Core Cloud Services - Azure compute options](/learn/modules/intro-to-azure-compute/). This Microsoft Learn module explores how compute services can solve common business needs. 
 
-[cost-linux-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
-[cost-windows-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
-[cost-app-service]: https://azure.microsoft.com/pricing/details/app-service/
-[cost-service-fabric]: https://azure.microsoft.com/pricing/details/service-fabric/
-[cost-functions]: https://azure.microsoft.com/pricing/details/functions/
-[cost-acs]: https://azure.microsoft.com/pricing/details/kubernetes-service/
-[cost-batch]: https://azure.microsoft.com/pricing/details/batch/
+[cost-linux-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
+[cost-windows-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
+[cost-app-service]: https://azure.microsoft.com/pricing/details/app-service
+[cost-service-fabric]: https://azure.microsoft.com/pricing/details/service-fabric
+[cost-functions]: https://azure.microsoft.com/pricing/details/functions
+[cost-acs]: https://azure.microsoft.com/pricing/details/kubernetes-service
+[cost-batch]: https://azure.microsoft.com/pricing/details/batch
 
-[function-plans]: /azure/azure-functions/functions-scale
+[function-plans]: https://docs.microsoft.com/azure/azure-functions/functions-scale
 [sla-acs]: https://azure.microsoft.com/support/legal/sla/kubernetes-service
-[sla-app-service]: https://azure.microsoft.com/support/legal/sla/app-service/
-[sla-batch]: https://azure.microsoft.com/support/legal/sla/batch/
-[sla-functions]: https://azure.microsoft.com/support/legal/sla/functions/
-[sla-sf]: https://azure.microsoft.com/support/legal/sla/service-fabric/
-[sla-vm]: https://azure.microsoft.com/support/legal/sla/virtual-machines/
+[sla-app-service]: https://azure.microsoft.com/support/legal/sla/app-service
+[sla-batch]: https://azure.microsoft.com/support/legal/sla/batch
+[sla-functions]: https://azure.microsoft.com/support/legal/sla/functions
+[sla-sf]: https://azure.microsoft.com/support/legal/sla/service-fabric
+[sla-vm]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 
-[resource-manager-supported-services]: /azure/azure-resource-manager/resource-manager-supported-services
-[scale-acs]: /azure/container-service/kubernetes/container-service-scale#scaling-considerations
+[resource-manager-supported-services]: https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services
+[scale-acs]: https://docs.microsoft.com/azure/container-service/kubernetes/container-service-scale#scaling-considerations
 
 [n-tier]: ../architecture-styles/n-tier.md
 [w-q-w]: ../architecture-styles/web-queue-worker.md
@@ -192,4 +192,4 @@ Based on this analysis, you may find that the initial candidate isn't suitable f
 [big-date]: ../architecture-styles/big-data.md
 [big-compute]: ../architecture-styles/big-compute.md
 
-[app-service-hybrid]: /azure/app-service/app-service-hybrid-connections
+[app-service-hybrid]: https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections

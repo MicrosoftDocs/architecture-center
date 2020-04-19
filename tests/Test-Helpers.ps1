@@ -46,11 +46,14 @@ function Get-Subfolders(
     [bool] $addRootReference = $false
 ) {
 
-    $subfolders = [System.Collections.ArrayList](`
+    $array = (`
         Get-ChildItem ..\docs\* -Directory `
         | ForEach-Object { $_.Name } `
         | Where-Object { $excludedSubfolders -notcontains $_ })
     
+    # TODO: Handle the case with all but one subfolder excluded.
+    $subfolders = $([System.Collections.ArrayList]$array)
+
     if ($addRootReference)
     {
         $subfolders.Add("ROOT") | Out-Null

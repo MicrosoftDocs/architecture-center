@@ -148,15 +148,15 @@ We have provided three sample cost profiles based on amount of traffic you expec
 
 <!-- links -->
 
-[intro-to-app-svc-env]: /azure/app-service/environment/intro
-[create-wildcard-cert-letsencrypt]: https://blogs.msdn.microsoft.com/mihansen/2018/03/15/creating-wildcard-ssl-certificates-with-lets-encrypt/
-[ase-and-internally-issued-cert]: https://www.patrickob.com/2018/11/10/adding-ca-certs-to-the-trusted-root-store-for-web-apps-hosted-in-an-ase/
-[isolated-tier-pricing-and-ase-pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/
-[bring-your-own-dns]: /azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#specify-dns-servers
-[private-zones]: /azure/dns/private-dns-overview
-[create-ilb-ase]: /azure/app-service/environment/create-ilb-ase
-[azure-networking]: /azure/virtual-network/virtual-networks-overview
-[sql-service-endpoint]: /azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
+[intro-to-app-svc-env]: https://docs.microsoft.com/azure/app-service/environment/intro
+[create-wildcard-cert-letsencrypt]: https://blogs.msdn.microsoft.com/mihansen/2018/03/15/creating-wildcard-ssl-certificates-with-lets-encrypt
+[ase-and-internally-issued-cert]: https://www.patrickob.com/2018/11/10/adding-ca-certs-to-the-trusted-root-store-for-web-apps-hosted-in-an-ase
+[isolated-tier-pricing-and-ase-pricing]: https://azure.microsoft.com/pricing/details/app-service/windows
+[bring-your-own-dns]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#specify-dns-servers
+[private-zones]: https://docs.microsoft.com/azure/dns/private-dns-overview
+[create-ilb-ase]: https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase
+[azure-networking]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
+[sql-service-endpoint]: https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
 
 [architecture]: ./media/ilb-ase-architecture.png
 [small-pricing]: https://azure.com/e/22e2c9d300ee425a89a001726221c7b2
@@ -169,33 +169,33 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [design-patterns-resiliency]: /azure/architecture/patterns/category/resiliency
 [design-patterns-scalability]: /azure/architecture/patterns/category/performance-scalability
 [design-patterns-security]: /azure/architecture/patterns/category/security
-[design-geo-distributed-ase]: /azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
+[design-geo-distributed-ase]: https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
 [design-best-practice-cloud-apps-autoscale]: /azure/architecture/best-practices/auto-scaling
 
-[docs-b2c]: /azure/active-directory-b2c/active-directory-b2c-overview
-[docs-sql-database]: /azure/sql-database/sql-database-technical-overview
-[docs-storage-blobs]: /azure/storage/blobs/storage-blobs-introduction
-[docs-storage-queues]: /azure/storage/queues/storage-queues-introduction
+[docs-b2c]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
+[docs-sql-database]: https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview
+[docs-storage-blobs]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
+[docs-storage-queues]: https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction
 [docs-traffic-manager]: /azure/traffic-manager/traffic-manager-overview
-[docs-webapps]: /azure/app-service/app-service-web-overview
-[docs-apiapps]: /azure/app-service/app-service-web-tutorial-rest-api
-[docs-appgw]: /azure/application-gateway/overview
-[docs-waf]: /azure/application-gateway/waf-overview
-[docs-networking]: /azure/networking/networking-overview
-[docs-azure-devops]: /azure/devops/?view=vsts
-[docs-azure-vm]: /azure/virtual-machines/windows/overview
-[docs-azure-scale-ase]: /azure/app-service/environment/intro
-[docs-service-fabric]: /azure/service-fabric/
-[docs-kubernetes-service]: /azure/aks/
-[Azure Networking]: /azure/networking/networking-overview
+[docs-webapps]: https://docs.microsoft.com/azure/app-service/app-service-web-overview
+[docs-apiapps]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api
+[docs-appgw]: https://docs.microsoft.com/azure/application-gateway/overview
+[docs-waf]: https://docs.microsoft.com/azure/application-gateway/waf-overview
+[docs-networking]: https://docs.microsoft.com/azure/networking/networking-overview
+[docs-azure-devops]: https://docs.microsoft.com/azure/devops/?view=vsts
+[docs-azure-vm]: https://docs.microsoft.com/azure/virtual-machines/windows/overview
+[docs-azure-scale-ase]: https://docs.microsoft.com/azure/app-service/environment/intro
+[docs-service-fabric]: https://docs.microsoft.com/azure/service-fabric
+[docs-kubernetes-service]: https://docs.microsoft.com/azure/aks
+[Azure Networking]: https://docs.microsoft.com/azure/networking/networking-overview
 
 [end-to-end-walkthrough]: https://github.com/Azure/fta-internalbusinessapps/blob/master/appmodernization/app-service-environment/ase-walkthrough.md
 [use-app-svc-web-apps-with-appgw]: https://github.com/Azure/fta-internalbusinessapps/blob/webapp-appgateway/appmodernization/app-service/articles/app-gateway-web-apps.md
-[integrate-ilb-ase-with-appgw]: /azure/app-service/environment/integrate-with-application-gateway
-[pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
+[integrate-ilb-ase-with-appgw]: https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway
+[pci-dss-blueprint]: https://docs.microsoft.com/azure/security/blueprints/payment-processing-blueprint
 [resiliency-app-service]: /azure/architecture/checklist/resiliency-per-service#app-service
 [resiliency]: /azure/architecture/framework/resiliency/overview
 [scalability]: /azure/architecture/checklist/scalability
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
-[sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview
-[storage-geo-redudancy]: /azure/storage/common/storage-redundancy-grs
+[sql-geo-replication]: https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview
+[storage-geo-redudancy]: https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs

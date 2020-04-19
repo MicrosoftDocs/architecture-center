@@ -231,12 +231,12 @@ In this step, you will connect the two local network gateways.
 <!-- links -->
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
-[azure-forced-tunneling]: /azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
+[azure-forced-tunneling]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
-[cloud-services-network-security]: /azure/best-practices-network-security
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
-[Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances/
-[getting-started-with-azure-security]: /azure/security/azure-security-getting-started
+[cloud-services-network-security]: https://docs.microsoft.com/azure/best-practices-network-security
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances
+[getting-started-with-azure-security]: https://docs.microsoft.com/azure/security/azure-security-getting-started
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-hybrid
 [guidance-expressroute-availability]: ../hybrid-networking/expressroute.md#availability-considerations
 [guidance-expressroute-manageability]: ../hybrid-networking/expressroute.md#manageability-considerations
@@ -246,14 +246,14 @@ In this step, you will connect the two local network gateways.
 [guidance-vpn-gateway-manageability]: ../hybrid-networking/vpn.md#manageability-considerations
 [guidance-vpn-gateway-scalability]: ../hybrid-networking/vpn.md#scalability-considerations
 [guidance-vpn-gateway-security]: ../hybrid-networking/vpn.md#security-considerations
-[nsg]: /azure/virtual-network/security-overview
+[nsg]: https://docs.microsoft.com/azure/virtual-network/security-overview
 [ra-expressroute]: ../hybrid-networking/expressroute.md
 [ra-vpn-failover]: ../hybrid-networking/expressroute-vpn-failover.md
 [ra-vpn]: ../hybrid-networking/vpn.md
-[rbac-custom-roles]: /azure/active-directory/role-based-access-control-custom-roles
-[rbac]: /azure/active-directory/role-based-access-control-configure
+[rbac-custom-roles]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles
+[rbac]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure
 [routing-and-remote-access-service]: https://technet.microsoft.com/library/dd469790(v=ws.11).aspx
 [security-principle-of-least-privilege]: https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1
-[udr-overview]: /azure/virtual-network/virtual-networks-udr-overview
+[udr-overview]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/dmz-reference-architectures.vsdx
-[wireshark]: https://www.wireshark.org/
+[wireshark]: https://www.wireshark.org

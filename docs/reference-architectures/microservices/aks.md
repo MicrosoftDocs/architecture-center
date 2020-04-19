@@ -308,9 +308,9 @@ To deploy the reference implementation for this architecture, follow the steps i
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.md
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/aks-reference-architecture.vsdx
 [aaf-cost]: /azure/architecture/framework/cost/overview
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
-[DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services/
-[AppGatewayPricing]: https://azure.microsoft.com/pricing/details/application-gateway/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services
+[AppGatewayPricing]: https://azure.microsoft.com/pricing/details/application-gateway
 [aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service
-[az-lb-pricing]: https://azure.microsoft.com/pricing/details/load-balancer/
-[az-monitor-pricing]: https://azure.microsoft.com/pricing/details/monitor/
+[az-lb-pricing]: https://azure.microsoft.com/pricing/details/load-balancer
+[az-monitor-pricing]: https://azure.microsoft.com/pricing/details/monitor

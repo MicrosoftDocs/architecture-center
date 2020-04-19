@@ -140,15 +140,15 @@ To deploy the solution, perform the following steps.
 <!-- links -->
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [windows-vm-ra]: ../virtual-machines-windows/index.md
 [linux-vm-ra]: ../virtual-machines-linux/index.md
 [resource-manager-overview]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
 [vpn-appliance]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [azure-vpn-gateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
-[linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
-[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
+[linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
+[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
 [expressroute-prereq]: https://docs.microsoft.com/azure/expressroute/expressroute-prerequisites
 [implementing-expressroute]: ./expressroute.md
 [implementing-vpn]: ./vpn.md

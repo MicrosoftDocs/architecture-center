@@ -85,17 +85,6 @@ Describe Test-LinkTitles -Tag @("Review") {
 
 }
 
-Describe "Test-DisplayPotentialIssues" -Tags @("Review") {
-
-    It "Review results for potential issues" {
-
-        $files = Get-ContentFiles $(Get-ExcludedSubfolders)
-
-        Test-AllMatches $files $(Get-PotentialIssuesForReviewExpressions) Verbatim -ForceSuccess $true  `
-            | Should -Be 0
-    }
-} 
-
 Describe "Test-OneExpression" -Tags @("Review") {
 
     It "Testing one expression" {

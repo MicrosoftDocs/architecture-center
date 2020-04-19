@@ -104,10 +104,10 @@ We have provided a pre-configured [cost profile][pricing] based on the architect
 
 <!-- links -->
 [architecture]: ./media/architecture-secure-scalable-wordpress.png
-[mariadb-tutorial]: /azure/virtual-machines/linux/classic/mariadb-mysql-cluster
-[docs-vmss]: /azure/virtual-machine-scale-sets/overview
-[docs-vmss-autoscale]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
-[docs-nsg]: /azure/virtual-network/security-overview
-[security]: /azure/security/
+[mariadb-tutorial]: https://docs.microsoft.com/azure/virtual-machines/linux/classic/mariadb-mysql-cluster
+[docs-vmss]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview
+[docs-vmss-autoscale]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
+[docs-nsg]: https://docs.microsoft.com/azure/virtual-network/security-overview
+[security]: https://docs.microsoft.com/azure/security
 [availability]: ../../checklist/availability.md
 [pricing]: https://azure.com/e/a8c4809dab444c1ca4870c489fbb196b

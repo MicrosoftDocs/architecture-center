@@ -906,11 +906,11 @@ var context = new OperationContext();
 context.ClientRequestID = "some request id";
 context.Retrying += (sender, args) =>
 {
-    /* Collect retry information */
+    // Collect retry information
 };
 context.RequestCompleted += (sender, args) =>
 {
-    /* Collect operation completion information */
+    // Collect operation completion information
 };
 var stats = await client.GetServiceStatsAsync(null, context);
 ```
@@ -1035,11 +1035,11 @@ namespace RetryCodeSamples
                 context.ClientRequestID = "some request id";
                 context.Retrying += (sender, args) =>
                 {
-                    /* Collect retry information */
+                    // Collect retry information
                 };
                 context.RequestCompleted += (sender, args) =>
                 {
-                    /* Collect operation completion information */
+                    // Collect operation completion information
                 };
                 var stats = await client.GetServiceStatsAsync(null, context);
             }
@@ -1130,7 +1130,7 @@ The following are the typical types of retry strategy intervals:
 [adal]: https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries
 [autorest]: https://github.com/Azure/autorest/tree/master/docs
 [ConnectionPolicy.RetryOptions]: https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.retryoptions.aspx
-[dotnet-foundation]: https://dotnetfoundation.org/
+[dotnet-foundation]: https://dotnetfoundation.org
 [redis-cache-troubleshoot]: https://docs.microsoft.com/azure/redis-cache/cache-how-to-troubleshoot
 [SearchIndexClient]: https://msdn.microsoft.com/library/azure/microsoft.azure.search.searchindexclient.aspx
 [SearchServiceClient]: https://msdn.microsoft.com/library/microsoft.azure.search.searchserviceclient.aspx

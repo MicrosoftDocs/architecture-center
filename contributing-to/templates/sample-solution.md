@@ -34,7 +34,7 @@ These other uses cases have similar design patterns:
 
 ## Architecture
 
-*Architecture Diagram goes here*
+_Architecture Diagram goes here_
 
 > What does the solution look like at a high level?
 > Why did we build the solution this way?
@@ -102,7 +102,7 @@ Use this section to talk about alternative Azure services or architectures that 
 
 [calculator]: https://azure.com/e/
 [availability]: /azure/architecture/checklist/availability
-[resource-groups]: /azure/azure-resource-manager/resource-group-overview
-[resiliency]: /azure/architecture/resiliency/
-[security]: /azure/security/
+[resource-groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
+[resiliency]: /azure/architecture/resiliency
+[security]: https://docs.microsoft.com/azure/security
 [scalability]: /azure/architecture/checklist/scalability

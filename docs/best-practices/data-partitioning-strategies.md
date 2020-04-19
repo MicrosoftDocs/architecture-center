@@ -255,7 +255,7 @@ Consider the following points when deciding how to partition data with Azure Cac
 
 ![Suggested structure in Redis storage for recording customer orders and their details](./images/data-partitioning/RedisCustomersandOrders.png)
 
-*Figure 8. Suggested structure in Redis storage for recording customer orders and their details.*
+_Figure 8. Suggested structure in Redis storage for recording customer orders and their details._
 
 > [!NOTE]
 > In Redis, all keys are binary data values (like Redis strings) and can contain up to 512 MB of data. In theory, a key can contain almost any information. However, we recommend adopting a consistent naming convention for keys that is descriptive of the type of data and that identifies the entity, but is not excessively long. A common approach is to use keys of the form "entity_type:ID". For example, you can use "customer:99" to indicate the key for a customer with the ID 99.
@@ -312,14 +312,14 @@ For considerations about trade-offs between availability and consistency, see [A
 [event-hubs]: https://docs.microsoft.com/azure/event-hubs
 [Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
 [guidelines and recommendations for reliable collections in Azure Service Fabric]: https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections-guidelines
-[Multi-shard querying]: /azure/sql-database/sql-database-elastic-scale-multishard-querying
-[Overview of Azure Service Fabric]: /azure/service-fabric/service-fabric-overview
+[Multi-shard querying]: https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-multishard-querying
+[Overview of Azure Service Fabric]: https://docs.microsoft.com/azure/service-fabric/service-fabric-overview
 [Partition Service Fabric reliable services]: https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-partitioning
 [Partitioning: how to split data among multiple Redis instances]: https://redis.io/topics/partitioning
 [Performing Entity Group Transactions]: https://docs.microsoft.com/rest/api/storageservices/Performing-Entity-Group-Transactions
 [Redis cluster tutorial]: https://redis.io/topics/cluster-tutorial
 [Running Redis on a CentOS Linux VM in Azure]: https://blogs.msdn.microsoft.com/tconte/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure
-[Scaling using the Elastic Database split-merge tool]: /azure/sql-database/sql-database-elastic-scale-overview-split-and-merge
+[Scaling using the Elastic Database split-merge tool]: https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-overview-split-and-merge
 [Using Azure Content Delivery Network]: https://docs.microsoft.com/azure/cdn/cdn-create-new-endpoint
 [Service Bus quotas]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas
 [service-fabric-reliable-collections]: https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections
@@ -327,7 +327,7 @@ For considerations about trade-offs between availability and consistency, see [A
 [Sharding pattern]: ../patterns/sharding.md
 [Supported Data Types (Azure Search)]: https://msdn.microsoft.com/library/azure/dn798938.aspx
 [Transactions]: https://redis.io/topics/transactions
-[What is Event Hubs?]: /azure/event-hubs/event-hubs-what-is-event-hubs
-[What is Azure Search?]: /azure/search/search-what-is-azure-search
-[What is Azure SQL Database?]: /azure/sql-database/sql-database-technical-overview
-[scalability targets]: /azure/storage/common/storage-scalability-targets
+[What is Event Hubs?]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs
+[What is Azure Search?]: https://docs.microsoft.com/azure/search/search-what-is-azure-search
+[What is Azure SQL Database?]: https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview
+[scalability targets]: https://docs.microsoft.com/azure/storage/common/storage-scalability-targets

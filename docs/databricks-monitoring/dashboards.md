@@ -202,5 +202,5 @@ The final set of visualizations shows the data shuffle metrics associated with a
 <!-- links -->
 
 [config-cluster]: https://github.com/mspnp/spark-monitoring/blob/master/README.md
-[rm-cli]: /azure/azure-resource-manager/resource-group-template-deploy-cli
-[sku]: /azure/templates/Microsoft.OperationalInsights/2015-11-01-preview/workspaces#sku-object
+[rm-cli]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli
+[sku]: https://docs.microsoft.com/azure/templates/Microsoft.OperationalInsights/2015-11-01-preview/workspaces#sku-object

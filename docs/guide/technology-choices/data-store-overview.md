@@ -145,16 +145,16 @@ Relevant Azure service: [File Storage][file-storage]
 
 <!-- links -->
 
-[blob]: https://azure.microsoft.com/services/storage/blobs/
-[cosmos-db]: https://docs.microsoft.com/azure/cosmos-db/table-introduction/
-[data-lake]: https://azure.microsoft.com/solutions/data-lake/
-[file-storage]: https://azure.microsoft.com/services/storage/files/
-[hbase]: /azure/hdinsight/hdinsight-hbase-overview
-[mysql]: https://azure.microsoft.com/services/mysql/
-[postgres]: https://azure.microsoft.com/services/postgresql/
-[mariadb]: https://azure.microsoft.com/services/mariadb/
-[redis]: https://azure.microsoft.com/services/cache/
-[search]: https://azure.microsoft.com/services/search/
+[blob]: https://azure.microsoft.com/services/storage/blobs
+[cosmos-db]: https://docs.microsoft.com/azure/cosmos-db/table-introduction
+[data-lake]: https://azure.microsoft.com/solutions/data-lake
+[file-storage]: https://azure.microsoft.com/services/storage/files
+[hbase]: https://docs.microsoft.com/azure/hdinsight/hdinsight-hbase-overview
+[mysql]: https://azure.microsoft.com/services/mysql
+[postgres]: https://azure.microsoft.com/services/postgresql
+[mariadb]: https://azure.microsoft.com/services/mariadb
+[redis]: https://azure.microsoft.com/services/cache
+[search]: https://azure.microsoft.com/services/search
 [sql-db]: https://azure.microsoft.com/services/sql-database
-[sql-dw]: https://azure.microsoft.com/services/sql-data-warehouse/
-[time-series]: https://azure.microsoft.com/services/time-series-insights/
+[sql-dw]: https://azure.microsoft.com/services/sql-data-warehouse
+[time-series]: https://azure.microsoft.com/services/time-series-insights

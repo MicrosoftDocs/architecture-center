@@ -455,4 +455,4 @@ To deploy the reference implementation for this architecture, follow the steps i
 [az-monitor-pricing]: https://azure.microsoft.com/pricing/details/monitor
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services
-[sfx]: /azure/service-fabric/service-fabric-visualizing-your-cluster
+[sfx]: https://docs.microsoft.com/azure/service-fabric/service-fabric-visualizing-your-cluster

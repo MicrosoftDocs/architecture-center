@@ -44,7 +44,7 @@ Think of a cache as a snapshot of the original data at some point in the past. I
 
 ![Using an in-memory cache in different instances of an application](./images/caching/Figure1.png)
 
-*Figure 1: Using an in-memory cache in different instances of an application.*
+_Figure 1: Using an in-memory cache in different instances of an application._
 
 ### Shared caching
 
@@ -52,7 +52,7 @@ Using a shared cache can help alleviate concerns that data might differ in each 
 
 ![Using a shared cache](./images/caching/Figure2.png)
 
-*Figure 2: Using a shared cache.*
+_Figure 2: Using a shared cache._
 
 An important benefit of the shared caching approach is the scalability it provides. Many shared cache services are implemented by using a cluster of servers and use software to distribute the data across the cluster transparently. An application instance simply sends a request to the cache service. The underlying infrastructure determines the location of the cached data in the cluster. You can easily scale the cache by adding more servers.
 
@@ -150,7 +150,7 @@ This approach requires careful configuration to prevent the local cache from bec
 
 ![Using a local private cache with a shared cache](./images/caching/Caching3.png)
 
-*Figure 3: Using a local private cache with a shared cache.*
+_Figure 3: Using a local private cache with a shared cache._
 
 To support large caches that hold relatively long-lived data, some cache services provide a high-availability option that implements automatic failover if the cache becomes unavailable. This approach typically involves replicating the cached data that's stored on a primary cache server to a secondary cache server, and switching to the secondary server if the primary server fails or connectivity is lost.
 

@@ -97,11 +97,11 @@ Before deploying this example scenario in a production environment, review recom
 [small-pricing]: https://azure.com/e/f9b59d238b43423683db73f4a31dc380
 [medium-pricing]: https://azure.com/e/7c7fc474db344b87aae93bc29ae27108
 [large-pricing]: https://azure.com/e/cbadbca30f8640d6a061f8457a74ba7d
-[cognitive-search]: /azure/search/cognitive-search-concept-intro
-[serverless]: /azure/functions/tutorial-static-website-serverless-api-with-database
-[cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
+[cognitive-search]: https://docs.microsoft.com/azure/search/cognitive-search-concept-intro
+[serverless]: https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database
+[cv-categories]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy
 [resiliency]: /azure/architecture/framework/resiliency/overview
-[security]: /azure/security/
+[security]: https://docs.microsoft.com/azure/security
 [scalability]: /azure/architecture/checklist/scalability
-[functions-best-practices]: /azure/azure-functions/functions-best-practices
-[msi]: /azure/app-service/app-service-managed-service-identity
+[functions-best-practices]: https://docs.microsoft.com/azure/azure-functions/functions-best-practices
+[msi]: https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity

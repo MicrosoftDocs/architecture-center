@@ -89,16 +89,16 @@ When running a hybrid ETL workload, you must factor in the cost of the virtual m
 
 <!-- links -->
 [architecture-diagram]: ./media/architecture-diagram-hybrid-etl-with-adf.png
-[small-pricing]: https://azure.com/e/
-[medium-pricing]: https://azure.com/e/
-[large-pricing]: https://azure.com/e/
+[small-pricing]: https://azure.com/e
+[medium-pricing]: https://azure.com/e
+[large-pricing]: https://azure.com/e
 [availability]: /azure/architecture/checklist/availability
-[resource-groups]: /azure/azure-resource-manager/resource-group-overview
-[resiliency]: /azure/architecture/resiliency/
-[security]: /azure/security/
+[resource-groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
+[resiliency]: /azure/architecture/resiliency
+[security]: https://docs.microsoft.com/azure/security
 [scalability]: /azure/architecture/checklist/scalability
-[docs-blob-storage]: /azure/storage/blobs/storage-blobs-overview
-[docs-data-factory]: /azure/data-factory/introduction
-[docs-resource-groups]: /azure/azure-resource-manager/resource-group-overview
+[docs-blob-storage]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview
+[docs-data-factory]: https://docs.microsoft.com/azure/data-factory/introduction
+[docs-resource-groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
 [docs-ssis]: /sql/integration-services/sql-server-integration-services
-[docs-sql-data-warehouse]: /azure/sql-data-warehouse/sql-data-warehouse-overview-what-is
+[docs-sql-data-warehouse]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is

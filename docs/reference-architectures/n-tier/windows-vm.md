@@ -122,10 +122,10 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 <!-- links -->
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
-[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
+[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more
 [azure-storage]: https://docs.microsoft.com/azure/storage/common/storage-introduction
 [blob-storage]: https://docs.microsoft.com/azure/storage/common/storage-introduction
-[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [data-disk]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds
@@ -144,7 +144,7 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 [rbac-roles]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles
 [rbac-devtest]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#devtest-labs-user
 [rbac-network]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#network-contributor
-[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
+[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs
 [resize-os-disk]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-expand-os-disk
 [resource-lock]: https://docs.microsoft.com/azure/resource-group-lock-resources
 [resource-manager-overview]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
@@ -153,8 +153,8 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 [select-vm-image]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-cli-ps-findimage
 [services-by-region]: https://azure.microsoft.com/regions/#services
 [static-ip]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-reserved-public-ip
-[virtual-machine-sizes]: /azure/virtual-machines/virtual-machines-windows-sizes
+[virtual-machine-sizes]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
 [vm-size-tables]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
-[windows-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
+[windows-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
