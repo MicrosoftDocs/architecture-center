@@ -13,6 +13,8 @@ ms.author: pracjain
 social_image_url: /azure/architecture/solution-ideas/articles/media/auditing-and-risk-compliance.png
 ---
 
+<!-- cSpell:ignore pracjain -->
+
 # Auditing, risk, and compliance management
 
 In the ever-changing world of regulations, organizations face the challenge of staying on top of audits and compliance. Mistakes in contracts and record-keeping can have serious financial ramifications. At the enterprise level, teams of lawyers might not be enough to catch everything. Knowledge mining can provide helpful assistance for organizations looking to stay above board.
@@ -29,7 +31,7 @@ Ingest, Enrich and Exploration. First, the unstructured and structured data is i
 
 1. The user can ingest different types of content like affidavits, meeting minutes, operating agreements, non-disclosure agreements, privacy policies, terms of use, memorandums of understanding, licensing agreements, letters of intent, power of attorney, deeds, discovery documentation,company bylaws, operating agreements, bank statements, legal agreements, balance sheets, income statements, cash flow statements, company disclosures, SEC documents, annual reports, transcripts from shareholder meetings
 2. This content is enriched by using key phrase extraction, language detection, language translation,entity extraction (organizations and people) and custom models to identify certain regulatory obligations and custom models to identify specific legal terms and clauses
-3. And finally, the user can index data in a searchable internal application or leverage the data for a searchable web application for financial risks
+3. And finally, the user can index data in a searchable internal application or use the data for a searchable web application for financial risks
 
 ## Components
 
@@ -40,8 +42,8 @@ Key technologies used to implement tools for technical content review and resear
 - [Microsoft Translator Text API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
 - [Web API custom skill interface](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)
 
-## Next Steps
+## Next steps
 
-Using the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
+Using the [knowledge mining solution accelerator](https://docs.microsoft.com/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining) to build an initial knowledge mining prototype with Azure Cognitive Search.
 
-Building custom skills with Microsoft's [Custom Web API](/azure/search/cognitive-search-custom-skill-interface)
+Building custom skills with Microsoft's [Custom Web API](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)

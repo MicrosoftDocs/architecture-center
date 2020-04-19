@@ -13,6 +13,8 @@ ms.author: pracjain
 social_image_url: /azure/architecture/solution-ideas/articles/media/contract-management.png
 ---
 
+<!-- cSpell:ignore pracjain -->
+
 # Contract Management
 
 Many companies create products for multiple sectors, hence the business opportunities with different vendors and buyers increases exponentially. Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid. Minor details in the bidding process can make the difference between a healthy profit or lost opportunity on a project.
@@ -39,7 +41,7 @@ Key technologies used to implement tools for technical content review and resear
 - [Microsoft Form Recognizer](https://azure.microsoft.com/services/cognitive-services/form-recognizer/)
 - [Web API custom skill interface](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)
 
-## Next Steps
+## Next steps
 
 Using the [knowledge mining solution accelerator](https://docs.microsoft.com/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
 

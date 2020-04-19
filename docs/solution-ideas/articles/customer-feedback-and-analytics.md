@@ -13,6 +13,8 @@ ms.author: pracjain
 social_image_url: /azure/architecture/solution-ideas/articles/media/customer-feedback-and-analytics.png
 ---
 
+<!-- cSpell:ignore pracjain keyphrase -->
+
 # Customer Feedback and Analytics
 
 For many companies, customer support is costly and inefficient. Knowledge mining can help customer support teams quickly find the right answer for a customer inquiry or assess customer sentiment at scale.
@@ -40,7 +42,7 @@ Key technologies used to implement tools for technical content review and resear
 - [Microsoft Translator Text API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
 - [Web API custom skill interface](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)
 
-## Next Steps
+## Next steps
 
 Using the [knowledge mining solution accelerator](https://docs.microsoft.com/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
 

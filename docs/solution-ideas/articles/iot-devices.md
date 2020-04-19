@@ -10,6 +10,9 @@ ms.subservice: solution-idea
 ms.category:
     - iot
 ---
+
+<!-- cSpell:ignore khilscher -->
+
 # Controlling IoT devices using a Voice Assistant
 
 [!INCLUDE [header_file](../header.md)]

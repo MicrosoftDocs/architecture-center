@@ -12,6 +12,9 @@ pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: claims
 pnp.series.next: app-roles
 ---
+
+<!-- cSpell:ignore signup nameof -->
+
 # Tenant sign-up and onboarding
 
 [![GitHub](../_images/github.png) Sample code][sample application]
