@@ -181,7 +181,7 @@ Azure Batch also supports the use of low-priority VMs in the node pools, which c
 [hpc-est-low]: https://azure.com/e/e39afab4e71949f9bbabed99b428ba4a
 [batch-labs-masterclass]: https://github.com/azurebigcompute/BigComputeLabs/tree/master/Azure%20Batch%20Masterclass%20Labs
 [batch-scaling]: /azure/batch/batch-automatic-scaling
-[hpc-alt-solutions]: /azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fbatch%2ftoc.json
+[hpc-alt-solutions]: https://docs.microsoft.com/azure/virtual-machines/linux/high-performance-computing
 [batch-monitor]: /azure/batch/monitoring-overview
 [batch-pricing]: https://azure.microsoft.com/pricing/details/batch/
 [batch-doc]: /azure/batch/

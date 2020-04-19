@@ -107,7 +107,7 @@ Get an [example implementation of this OPM Flow architecture][opm-flow] on GitHu
 [avere-vfxt]: https://docs.microsoft.com/azure/avere-vfxt/avere-vfxt-overview
 [azure-naf]: https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction
 [blog]: https://techcommunity.microsoft.com/t5/azurecat/high-performance-computing-hpc-oil-and-gas-in-azure/ba-p/824926
-[cae]: https://docs.microsoft.com/azure/architecture/example-scenario/apps/hpc-saas
+[cae]: ../apps/hpc-saas.md
 [checklist]: https://docs.microsoft.com/azure/storage/common/storage-performance-checklist
 [data-storage]: https://docs.microsoft.com/architecture/topics/high-performance-computing#storage
 [disk]: https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd

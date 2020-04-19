@@ -129,7 +129,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
     </li>
     <!-- HPC Topic Page -->
     <li>
-        <a href="./topics/high-performance-computing/index.md">
+        <a href="./topics/high-performance-computing.md">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
@@ -270,7 +270,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
     </li>
     <!-- Azure Virtual Datacenter -->
     <li>
-        <a href="./vdc/index.md">
+        <a href="https://docs.microsoft.com/azure/cloud-adoption-framework/reference/vdc">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">

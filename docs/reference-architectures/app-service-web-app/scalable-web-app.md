@@ -92,11 +92,11 @@ Use caching to reduce the load on servers that serve content that doesn't change
 
 If your app has static content, use CDN to decrease the load on the front end servers. For data that doesn't change frequently, use Azure Cache for Redis.
 
-Stateless apps that are configured for autoscaling are more cost effective that stateful apps. For an ASP.NET application, store your session state in-memory with Azure Cache for Redis. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-aspnet-session-state-provider). Another option is to use CosmosDB as a backend state store through a session state provider. See [Support Azure Cosmos DB and Azure Redis](https://github.com/Microsoft/service-fabric-services-and-actors-dotnet/issues/32).
+Stateless apps that are configured for autoscaling are more cost effective that stateful apps. For an ASP.NET application, store your session state in-memory with Azure Cache for Redis. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-aspnet-session-state-provider). Another option is to use Cosmos DB as a backend state store through a session state provider. See [Support Azure Cosmos DB and Azure Redis](https://github.com/Microsoft/service-fabric-services-and-actors-dotnet/issues/32).
 
-For more information, see the cost section in [Azure Architecture Framework](/azure/architecture/framework/cost/overview).
+For more information, see the cost section in the [Azure Architecture Framework](../../framework/cost/overview.md).
 
-Consider placing a function app into a dedicated App Service plan so that background tasks don't run on the same instances that handle HTTP requests. If background tasks run intermittently, consider using a [consumption plan](/azure/azure-functions/functions-scale#consumption-plan), which is billed based on the number of executions, rather than hourly.
+Consider placing a function app into a dedicated App Service plan so that background tasks don't run on the same instances that handle HTTP requests. If background tasks run intermittently, consider using a [consumption plan](https://docs.microsoft.com/azure/azure-functions/functions-scale#consumption-plan), which is billed based on the number of executions, rather than hourly.
 
 Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
@@ -153,30 +153,30 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 <!-- links -->
 
 [api-guidance]: ../../best-practices/api-design.md
-[app-service-security]: /azure/app-service-web/web-sites-security
-[app-service-web-app]: /azure/app-service-web/app-service-web-overview
+[app-service-security]: https://docs.microsoft.com/azure/app-service-web/web-sites-security
+[app-service-web-app]: https://docs.microsoft.com/azure/app-service-web/app-service-web-overview
 [app-service-pricing]: https://azure.microsoft.com/pricing/details/app-service
 [azure-cdn]: https://azure.microsoft.com/services/cdn
-[azure-dns]: /azure/dns/dns-overview
+[azure-dns]: https://docs.microsoft.com/azure/dns/dns-overview
 [azure-redis]: https://azure.microsoft.com/services/cache
-[azure-search]: /azure/search
-[azure-search-scaling]: /azure/search/search-capacity-planning
-[basic-web-app]: basic-web-app.md
+[azure-search]: https://docs.microsoft.com/azure/search
+[azure-search-scaling]: https://docs.microsoft.com/azure/search/search-capacity-planning
+[basic-web-app]: ./basic-web-app.md
 [caching-guidance]: ../../best-practices/caching.md
-[cdn-app-service]: /azure/app-service-web/cdn-websites-with-cdn
-[cdn-storage-account]: /azure/cdn/cdn-create-a-storage-account-with-cdn
+[cdn-app-service]: https://docs.microsoft.com/azure/app-service-web/cdn-websites-with-cdn
+[cdn-storage-account]: https://docs.microsoft.com/azure/cdn/cdn-create-a-storage-account-with-cdn
 [cdn-guidance]: ../../best-practices/cdn.md
-[cors]: /azure/app-service-api/app-service-api-cors-consume-javascript
+[cors]: https://docs.microsoft.com/azure/app-service-api/app-service-api-cors-consume-javascript
 [cosmosdb]: https://docs.microsoft.com/azure/cosmos-db
 [datastore]: ../..//guide/technology-choices/data-store-overview.md
-[durable-functions]: /azure/azure-functions/durable-functions-overview
-[functions]: /azure/azure-functions/functions-overview
-[functions-consumption-plan]: /azure/azure-functions/functions-scale#consumption-plan
+[durable-functions]: https://docs.microsoft.com/azure/azure-functions/durable-functions-overview
+[functions]: https://docs.microsoft.com/azure/azure-functions/functions-overview
+[functions-consumption-plan]: https://docs.microsoft.com/azure/azure-functions/functions-scale#consumption-plan
 [github]: https://github.com/mspnp/reference-architectures/tree/master/web-app
-[queue-storage]: /azure/storage/storage-dotnet-how-to-use-queues
-[queues-compared]: /azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted
-[sql-db]: /azure/sql-database
-[sql-elastic]: /azure/sql-database/sql-database-elastic-scale-introduction
+[queue-storage]: https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-queues
+[queues-compared]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted
+[sql-db]: https://docs.microsoft.com/azure/sql-database
+[sql-elastic]: https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-introduction
 [sql-encryption]: https://msdn.microsoft.com/library/dn948096.aspx
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx
 [web-app-multi-region]: ./multi-region.md

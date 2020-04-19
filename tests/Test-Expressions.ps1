@@ -15,6 +15,7 @@ function Get-CasingExpressions
         "MariaDB",
         "MongoDB",
         # "MySQL",          # TODO: Ignore local link paths
+        "Patterns?\]",
         "PolyBase",
         "PostgreSQL",
         "Pluralsight",
@@ -129,8 +130,8 @@ function Get-MalformedLinkExpressions
 function Get-PunctuationExpressions
 {
     return @(
-        "\.\.\."                            # Don't use ellipses
-        "[a-z]\.  [A-Z]",                   # Use only one space after a sentence
+        "(?i)[a-z] {2,}[a-z]"               # One space between words
+        "(?<=[a-z])\.  (?=[A-Z])",          # Use only one space after a sentence
         "^ *\*\s",                          # Use hyphens for bullet lists
         "^[^#-].*vs\.",                     # Use "versus" in non-headings
         " & (?![A-Z])",
@@ -146,6 +147,11 @@ function Get-PunctuationExpressions
 function Get-FormattingExpressions
 {
     return @(
+        " {1,}$",               # No spaces at the end of a line.
+        "^ *\* ",               # Bullet lists should use hyphens.
+        "\[[a-z][^\]]*$",       # Fix link descriptions split across lines.
+        "[a-z]\) - ",           # TODO: Use colons after parentheses?
+        "toc=.*%2[Ff]",
 # TODO REINSTATE        "description: [A-Za-z-]*ing",
 # TODO REINSTATE        'title: "?[A-Za-z-]*ing',
         "Cloud [A-Z][a-z]* [Tt]eams?",
@@ -156,16 +162,6 @@ function Get-FormattingExpressions
         # \|([^\|]){600,}\|     # TODO: Find bullet lists and long sentences in tables
 # TODO REINSTATE        "^ *- .*: \[.*\):",     # End these headings with a period instead.
         "-w-",
-        "<endoflist>"
-    )
-}
-
-function Get-PotentialIssuesForReviewExpressions
-{
-    return @(
-        # "# [A-Za-z-]*ing",
-        "^#*( [A-Z]\w*){2,}",              # Use sentence casing in headings
-        "^( >)*(?!title|description|author|ms.|New-|-<!--)[^\|#:\[][ -]*.{25,}[a-fh-z][a-z,]$",     # Sentences should end with periods.
         "<endoflist>"
     )
 }

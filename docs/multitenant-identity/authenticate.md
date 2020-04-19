@@ -193,7 +193,7 @@ app.UseOpenIdConnectAuthentication(options =>
 
 [**Next**][claims]
 
-[claims]: claims.md
-[cookie-options]: /aspnet/core/security/authentication/cookie#absolute-cookie-expiration
-[session-cookie]: https://en.wikipedia.org/wiki/HTTP_cookie#Session_cookie
+[claims]: ./claims.md
+[cookie-options]: https://docs.microsoft.com/aspnet/core/security/authentication/cookie#absolute-cookie-expiration
+[session-cookie]: https://wikipedia.org/wiki/HTTP_cookie#Session_cookie
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance

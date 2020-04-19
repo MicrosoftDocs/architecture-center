@@ -98,7 +98,7 @@ Application_End logging will catch the app domain shutdown (soft process crash) 
 
 **Recovery:**
 
-The [Search .NET SDK][search-sdk] automatically retries after transient failures. Any exceptions thrown by the client SDK should be treated as non-transient errors.
+The [Search .NET SDK][search-sdk] automatically retries after transient failures. Any exceptions thrown by the client SDK should be treated as nontransient errors.
 
 The default retry policy uses exponential back-off. To use a different retry policy, call `SetRetryPolicy` on the `SearchIndexClient` or `SearchServiceClient` class. For more information, see [Automatic Retries][auto-rest-client-retry].
 
@@ -110,7 +110,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 **Recovery:**
 
-The [Search .NET SDK][search-sdk]  automatically retries after transient failures. Any exceptions thrown by the client SDK should be treated as non-transient errors.
+The [Search .NET SDK][search-sdk]  automatically retries after transient failures. Any exceptions thrown by the client SDK should be treated as nontransient errors.
 
 The default retry policy uses exponential back-off. To use a different retry policy, call `SetRetryPolicy` on the `SearchIndexClient` or `SearchServiceClient` class. For more information, see [Automatic Retries][auto-rest-client-retry].
 
@@ -126,7 +126,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 - Each [Cassandra client](https://cwiki.apache.org/confluence/display/CASSANDRA2/ClientOptions) has its own retry policies and capabilities. For more information, see [Cassandra error handling done right][cassandra-error-handling].
 - Use a rack-aware deployment, with data nodes distributed across the fault domains.
-- Deploy to multiple regions with local quorum consistency. If a non-transient failure occurs, fail over to another region.
+- Deploy to multiple regions with local quorum consistency. If a nontransient failure occurs, fail over to another region.
 
 **Diagnostics**. Application logs
 
@@ -231,7 +231,7 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 **Recovery:**
 
 1. Retry on transient failures. Azure Cache for Redis supports built-in retry. For more information, see [Azure Cache for Redis retry guidelines][redis-retry].
-2. Treat non-transient failures as a cache miss, and fall back to the original data source.
+2. Treat nontransient failures as a cache miss, and fall back to the original data source.
 
 **Diagnostics**. Use [Azure Cache for Redis diagnostics][redis-monitor].
 
@@ -242,7 +242,7 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 **Recovery:**
 
 1. Retry on transient failures. Azure Cache for Redis supports built-in retry. For more information, see [Azure Cache for Redis retry guidelines][redis-retry].
-2. If the error is non-transient, ignore it and let other transactions write to the cache later.
+2. If the error is nontransient, ignore it and let other transactions write to the cache later.
 
 **Diagnostics**. Use [Azure Cache for Redis diagnostics][redis-monitor].
 
@@ -408,7 +408,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 - Deploy at least two backend VMs in an availability set, behind a load balancer.
 - If the connection error is transient, sometimes TCP will successfully retry sending the message.
 - Implement a retry policy in the application.
-- For persistent or non-transient errors, implement the [Circuit Breaker][circuit-breaker] pattern.
+- For persistent or nontransient errors, implement the [Circuit Breaker][circuit-breaker] pattern.
 - If the calling VM exceeds its network egress limit, the outbound queue will fill up. If the outbound queue is consistently full, consider scaling out.
 
 **Diagnostics**. Log events at service boundaries.

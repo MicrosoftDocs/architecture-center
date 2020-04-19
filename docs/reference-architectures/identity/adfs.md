@@ -382,7 +382,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 1. Verify that the Contoso Corporation sign-in page appears. Sign in as **contoso\testuser**.
 
 <!-- links -->
-[extending-ad-to-azure]: adds-extend-domain.md
+[extending-ad-to-azure]: ./adds-extend-domain.md
 
 [vm-recommendations]: ../virtual-machines-windows/single-vm.md
 [hybrid-azure-on-prem-vpn]: ../hybrid-networking/vpn.md
@@ -391,7 +391,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [azure-cli]: https://docs.microsoft.com/azure/azure-resource-manager/xplat-cli-azure-resource-manager
 [DRS]: https://technet.microsoft.com/library/dn280945.aspx
 [where-to-place-an-fs-proxy]: https://technet.microsoft.com/library/dd807048.aspx
-[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/  
+[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
 [ADDRS]: https://technet.microsoft.com/library/dn486831.aspx
 [plan-your-adfs-deployment]: https://msdn.microsoft.com/library/azure/dn151324.aspx
 [ad_network_recommendations]: #network_configuration_recommendations_for_AD_DS_VMs

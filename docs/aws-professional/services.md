@@ -3,7 +3,7 @@ title: AWS to Azure services comparison
 titleSuffix: Azure Architecture Center
 description: Compare Azure cloud services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure. 
 keywords: cloud services comparison, cloud services compared, multicloud, compare Azure AWS, compare Azure and AWS, compare AWS and Azure, IT capabilities
-author: dermar
+author: doodlemania2
 ms.author: pnp
 ms.date: 04/08/2020
 ms.topic: article
@@ -43,7 +43,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [Lex](https://aws.amazon.com/lex/) | [Speech Services](https://azure.microsoft.com/services/cognitive-services/speech/) | API capable of converting speech to text, understanding intent, and converting text back to speech for natural responsiveness. |
 | [Lex](https://aws.amazon.com/lex/) | [Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) | Allows your applications to understand user commands contextually. |
 | [Polly](https://aws.amazon.com/polly/), [Transcribe](https://aws.amazon.com/transcribe/) | [Speech Services](https://azure.microsoft.com/services/cognitive-services/speech/) | Enables both Speech to Text, and Text into Speech capabilities. |
-| [Rekognition](https://aws.amazon.com/rekognition/) | [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) | [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/): Extract information from images to categorize and process visual data.<br/><br/> [Face](https://azure.microsoft.com/services/cognitive-services/face/): Detect, identy, and analyze faces in photos. <br/><br/> [Emotions](https://azure.microsoft.com/services/cognitive-services/emotion/): Recognize emotions in images. |
+| [Rekognition](https://aws.amazon.com/rekognition/) | [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) | [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/): Extract information from images to categorize and process visual data.<br/><br/> [Face](https://azure.microsoft.com/services/cognitive-services/face/): Detect, identify, and analyze faces in photos. <br/><br/> [Emotions](https://azure.microsoft.com/services/cognitive-services/emotion/): Recognize emotions in images. |
 | [Skills Kit](https://developer.amazon.com/alexa/alexa-skills-kit) | [Virtual Assistant](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction?view=azure-bot-service-4.0) | The Virtual Assistant Template brings together a number of best practices we've identified through the building of conversational experiences and automates integration of components that we've found to be highly beneficial to Bot Framework developers.
 
 ## Big data and analytics
@@ -69,7 +69,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | ----------- | ------------- | ----------- |
 | [Data Pipeline](https://aws.amazon.com/datapipeline/), [Glue](https://aws.amazon.com/glue/) | [Data Factory](https://azure.microsoft.com/services/data-factory/) | Processes and moves data between different compute and storage services, as well as on-premises data sources at specified intervals. Create, schedule, orchestrate, and manage data pipelines. |
 | [Glue](https://aws.amazon.com/glue/) | [Data Catalog](https://azure.microsoft.com/services/data-catalog/) | A fully managed service that serves as a system of registration and system of discovery for enterprise data sources |
-| [Dynamo DB](https://aws.amazon.com/dynamodb/)| [Table Storage](https://azure.microsoft.com/services/storage/tables/), [CosmosDB](https://azure.microsoft.com/services/cosmos-db/) | NoSQL key-value store for rapid development using massive semi-structured datasets.|
+| [Dynamo DB](https://aws.amazon.com/dynamodb)| [Table Storage](https://azure.microsoft.com/services/storage/tables), [Cosmos DB](https://azure.microsoft.com/services/cosmos-db) | NoSQL key-value store for rapid development using massive semi-structured datasets.|
 
 ### Analytics and visualization
 
@@ -126,7 +126,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [CodeBuild](https://aws.amazon.com/codebuild/) | [DevOps](https://azure.microsoft.com/services/devops/) | Fully managed build service that supports continuous integration and deployment. |
 | [Command Line Interface](https://aws.amazon.com/cli/) | [CLI](/cli/azure/install-azure-cli) <br/><br/>[PowerShell](/powershell/azure/overview) | Built on top of the native REST API across all cloud services, various programming language-specific wrappers provide easier ways to create solutions. |
 | [OpsWorks (Chef-based)](https://aws.amazon.com/opsworks/) | [Automation](https://azure.microsoft.com/services/automation/) | Configures and operates applications of all shapes and sizes, and provides templates to create and manage a collection of resources. |
-| [CloudFormation](https://aws.amazon.com/cloudformation/) | [Resource Manager](https://azure.microsoft.com/features/resource-manager/) <br/><br/>[VM extensions](/azure/virtual-machines/extensions/features-windows?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) <br/><br/>[Azure Automation](https://azure.microsoft.com/services/automation/) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks. 
+| [CloudFormation](https://aws.amazon.com/cloudformation/) | [Resource Manager](https://azure.microsoft.com/features/resource-manager/) <br/><br/>[VM extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows?toc=/azure/virtual-machines/windows/toc.json) <br/><br/>[Azure Automation](https://azure.microsoft.com/services/automation) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks.
 
 ## Internet of things (IoT)
 

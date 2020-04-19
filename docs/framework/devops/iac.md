@@ -40,7 +40,7 @@ Which of these frameworks is better for you will depend on factors such as wheth
 You can use imperative frameworks to deploy infrastructure to Azure. Imperative frameworks do not describe what to deploy, but indicate a prescriptive order of operations to execute. Examples of imperative frameworks for Azure automation are the following:
 
 * [Azure CLI][cli]: the Azure Command Line Interface is a multi-platform command line supported in Windows, Linux, and Mac OS X. It offers a series of commands that can be used to create, modify, and delete Azure resources.
-* [Azure Powershell][psh]: the Azure Powershell module for Azure includes a series of commandlets to interact with Azure. The object-oriented character of Powershell gives this tool a high degree of versatility. Thanks to the advent of Powershell Core, the Azure Powershell module can be used not only on Windows systems, but on Linux and Mac OS X too.
+* [Azure Powershell][psh]: the Azure Powershell module for Azure includes a series of cmdlets to interact with Azure. The object-oriented character of Powershell gives this tool a high degree of versatility. Thanks to the advent of Powershell Core, the Azure Powershell module can be used not only on Windows systems, but on Linux and Mac OS X too.
 * [Azure SDKs][sdks]: if you are writing an application that needs to interact with Azure, coding in the same programming language as the application itself would be more desirable than scripting frameworks such as the Azure CLI or Azure Powershell. Whether it is Python, Java, C# or Go, you can find Software Development Kits to manage Azure from many different languages.
 
 ## Configuration of Virtual Machines

@@ -212,25 +212,6 @@ function Remove-Urls(
     return $result
 }
 
-# function Remove-OtherUrls(
-#     [string]$text
-# )
-# {
-# #    return Remove-Matches $(Get-RegexForUrl) $text
-
-#     $result = $text
-#     $matches = [regex]::new($(Get-RegexForUrl)).Matches($text)
-
-#     foreach ($match in $matches)
-#     {
-#         $result = $result.Replace("$($match.Value))", "REMOVED_MATCH")
-#     }
-
-#     $expression
-
-#     return $result
-# }
-
 function Remove-ImagePaths(
     [string]$text) 
 {

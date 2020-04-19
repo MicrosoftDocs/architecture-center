@@ -87,7 +87,8 @@ For Active Directory-specific security considerations, see the security consider
 For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.md#devops-considerations).
 
 ## Cost considerations
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost]. 
+
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
 
 Here are cost considerations for the services used in this architecture.
 
@@ -97,12 +98,11 @@ Consider having Active Directory Domain Services as a shared service that is con
 
 ### Azure VPN Gateway
 
-The main component of this architecture is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available. 
+The main component of this architecture is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available.
 
 All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.  
 
 For more information, see [VPN Gateway Pricing][azure-gateway-charges].
-
 
 ## Deploy the solution
 
@@ -182,18 +182,18 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 <!-- links -->
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
-[adds-extend-domain]: adds-extend-domain.md
+[adds-extend-domain]: ./adds-extend-domain.md
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
-[adfs]: adfs.md
-[azure-cli-2]: /azure/install-azure-cli
+[adfs]: ./adfs.md
+[azure-cli-2]: https://docs.microsoft.com/azure/install-azure-cli
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway/
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [AAF-devops]: /azure/architecture/framework/devops/overview
 [running-VMs-for-an-N-tier-architecture-on-Azure]: ../virtual-machines-windows/n-tier.md
 
 [ad-azure-guidelines]: https://msdn.microsoft.com/library/azure/jj156090.aspx
-[azure-expressroute]: /azure/expressroute/expressroute-introduction
-[azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
+[azure-expressroute]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
+[azure-vpn-gateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
 [considerations]: ./considerations.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [creating-external-trusts]: https://technet.microsoft.com/library/cc816837(v=ws.10).aspx

@@ -302,7 +302,7 @@ requirements. Some things to consider include:
 -   Does your application have specific latency requirements?
 
 For additional guidance, refer to [Azure Architecture Framework define
-requirements](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview#define-requirements).
+requirements](../framework/resiliency/overview.md#define-requirements).
 
 Depending on the availability needs of an application, the cost and design
 complexity will vary. When building for a VM workload, there will be a cost

@@ -20,7 +20,7 @@ Automating workflows and repetitive tasks on the cloud using [serverless technol
 
 1. [Cost center tagging](https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/deployment.md) - This implementation tracks the cost centers of each Azure resource. The [Azure Policy](https://docs.microsoft.com/azure/governance/policy/) service [tags all new resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) in a group with a default cost center ID. The Event Grid monitors resource creation events, and then calls an [Azure function](https://docs.microsoft.com/azure/azure-functions/). The function interacts with Azure Active Directory, and validates the cost center ID for the new resource. If different, it updates the tag and sends out an email to the resource owner. The REST queries for Azure Active Directory are mocked out for simplicity. Azure AD can also be integrated using the [Azure AD PowerShell module](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0) or the [ADAL for Python library](https://pypi.org/project/adal/).
 
-1. [Throttling response](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md) - This implementation monitors a Cosmos DB database for throttling. [Azure Monitor alerts](https://docs.microsoft.com/azure/azure-monitor/overview#alerts) are triggered when data access requests to CosmosDB exceed the [capacity in Request Units (or RUs)](https://docs.microsoft.com/azure/cosmos-db/request-units). An [Azure Monitor action group](https://azure.microsoft.com/resources/videos/azure-friday-azure-monitor-action-groups/) is configured to call the automation function in response to these alerts. The function scales the RUs to a higher value, increasing the capacity and in turn stopping the alerts. Note that the [CosmosDB autopilot mode (Preview)](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autopilot) is an alternative to this implementation.
+1. [Throttling response](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md) - This implementation monitors a Cosmos DB database for throttling. [Azure Monitor alerts](https://docs.microsoft.com/azure/azure-monitor/overview#alerts) are triggered when data access requests to Cosmos DB exceed the [capacity in Request Units (or RUs)](https://docs.microsoft.com/azure/cosmos-db/request-units). An [Azure Monitor action group](https://azure.microsoft.com/resources/videos/azure-friday-azure-monitor-action-groups/) is configured to call the automation function in response to these alerts. The function scales the RUs to a higher value, increasing the capacity and in turn stopping the alerts. Note that the [Cosmos DB autopilot mode (Preview)](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autopilot) is an alternative to this implementation.
 
 ![Serverless cloud automation](./_images/cloud-automation.png)
 
@@ -41,7 +41,7 @@ Event-based automation scenarios are best implemented using Azure Functions. The
 - **Scheduled tasks**. These are typically maintenance tasks executed using [timer-triggered functions](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function). Examples of this pattern are:
 
   - stopping a VM at night, and starting in the morning,
-  - reading Blob Storage content at regular intervals, and converting to a CosmosDB document,
+  - reading Blob Storage content at regular intervals, and converting to a Cosmos DB document,
   - periodically scanning for resources no longer in use, and removing them, and
   - automated backups.
 
@@ -96,7 +96,7 @@ Event Grid simplifies the event-based automation with a [publish-subscribe model
 
 #### Handle HTTP timeouts
 
-To avoid HTTP timeouts for a longer automation task, queue this event in a [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview#queues), and handle the actual automation in another function. The throttling response automation scenario illustrates this pattern, even though the actual CosmosDB RU provisioning is fast.
+To avoid HTTP timeouts for a longer automation task, queue this event in a [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview#queues), and handle the actual automation in another function. The throttling response automation scenario illustrates this pattern, even though the actual Cosmos DB RU provisioning is fast.
 
 ![Reliability in automation function](./_images/automation-function-reliability.png)
 
@@ -220,7 +220,7 @@ In this architecture Azure Functions are used for tasks such as updating tags in
 
 Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations, such as inserts, reads. Storage is billed for each GB used for your stored data and index. See [Cosmos DB pricing model][cosmosdb-pricing] for more information.
 
-In this architecture, when data access requests to CosmosDB exceed the capacity in Request Units (or RUs), Azure Monitor triggers alerts. In response to those alerts, an Azure Monitor action group is configured to call the automation function. The function scales the RUs to a higher value. This helps to keep the cost down because you only pay for the resources that your workloads need on a per-hour basis.
+In this architecture, when data access requests to Cosmos DB exceed the capacity in Request Units (or RUs), Azure Monitor triggers alerts. In response to those alerts, an Azure Monitor action group is configured to call the automation function. The function scales the RUs to a higher value. This helps to keep the cost down because you only pay for the resources that your workloads need on a per-hour basis.
 
 To get a quick cost estimate of your workload, use the [Cosmos DB capacity calculator][cosmos-calculator].
 

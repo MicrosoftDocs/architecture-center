@@ -115,15 +115,15 @@ You choose the type of probe you want to use when you configure the function app
 
 <!-- links -->
 
-[cloud-security]: /azure/best-practices-network-security
-[dmz-on-premises]: secure-vnet-dmz.md
+[cloud-security]: https://docs.microsoft.com/azure/best-practices-network-security
+[dmz-on-premises]: ./secure-vnet-dmz.md
 [egress-with-layer-7]: #egress-with-layer-7-nvas
 [ingress-with-layer-7]: #ingress-with-layer-7-nvas
 [ingress-egress-with-layer-7]: #ingress-egress-with-layer-7-nvas
-[lb-overview]: /azure/load-balancer/load-balancer-overview/
-[nva-scenario]: /azure/virtual-network/virtual-network-scenario-udr-gw-nva/
+[lb-overview]: https://docs.microsoft.com/azure/load-balancer/load-balancer-overview/
+[nva-scenario]: https://docs.microsoft.com/azure/virtual-network/virtual-network-scenario-udr-gw-nva/
 [pip-udr-switch]: #pip-udr-switch-with-layer-4-nvas
-[udr-overview]: /azure/virtual-network/virtual-networks-udr-overview/
+[udr-overview]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview/
 [zookeeper]: https://zookeeper.apache.org/
 [pnp-ha-nva]: https://github.com/mspnp/ha-nva
 [ha-nva-fo]: https://aka.ms/ha-nva-fo

@@ -107,5 +107,5 @@ public class CertificateCredentialService : ICredentialService
 [azure-management-portal]: https://portal.azure.com
 [client assertion]: https://tools.ietf.org/html/rfc7521
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
-[Surveys]: tailspin.md
+[Surveys]: ./tailspin.md
 [using-certs-in-websites]: https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/

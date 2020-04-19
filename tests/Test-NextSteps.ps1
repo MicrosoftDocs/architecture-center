@@ -28,7 +28,7 @@ function Test-NextSteps([String] $docsPath)
         
         $name = $item[0]
         $href = $item[1]
-        write-host "NAME: $name :: $href"
+        Write-Host "NAME: $name :: $href"
 
         if ($href.StartsWith("http"))
         {
@@ -66,6 +66,7 @@ function Test-NextSteps([String] $docsPath)
             }
 
             $expression = "\> \[.*\]\((.*)\)"
+            
             $matches = ([regex]$expression).Matches($urlLine)
             if ($matches.Count -eq 1)
             {

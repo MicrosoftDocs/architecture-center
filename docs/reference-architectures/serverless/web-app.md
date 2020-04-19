@@ -94,6 +94,8 @@ Use Functions [bindings][functions-bindings] when possible. Bindings provide a d
 
 For example, the `GetStatus` function in the reference implementation uses the Cosmos DB [input binding][cosmosdb-input-binding]. This binding is configured to look up a document in Cosmos DB, using query parameters that are taken from the query string in the HTTP request. If the document is found, it is passed to the function as a parameter.
 
+<!-- cSpell:ignore CosmosDB -->
+
 ```csharp
 [FunctionName("GetStatusFunction")]
 public static Task<IActionResult> Run(
@@ -317,7 +319,7 @@ Related guidance:
 
 <!-- links -->
 
-[aaf-cost]: https://docs.microsoft.com/azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [api-versioning]: ../../best-practices/api-design.md#versioning-a-restful-web-api
 [apim]: /azure/api-management/api-management-key-concepts
 [apim-ip]: /azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services

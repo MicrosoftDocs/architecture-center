@@ -76,13 +76,6 @@ function Get-ContentFiles([string[]] $excludedSubfolders)
     return $files
 }
 
-# function Get-MarkdownFiles(
-#     [string] $subfolder = ''
-# )
-# {
-#         return $(Get-Files @("*.md") $subfolder)
-# }
-
 function Get-Files (
     [string[]] $include,
     [string[]] $excludedSubfolders = @()
@@ -177,18 +170,3 @@ function Get-ProcessStream
 
     $output
 }
-
-# function Get-StringChopStart(
-#     [string] $text,
-#     [string] $textToChop
-# )
-# {
-#     if ($text.StartsWith($textToChop, 'CurrentCultureIgnoreCase'))
-#     {
-#         return $text.Substring($textToChop.Length, $text.Length - $textToChop.Length)
-#     }
-#     else
-#     {
-#         return $text
-#     }
-# }

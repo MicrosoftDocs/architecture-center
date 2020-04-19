@@ -58,6 +58,8 @@ The architecture has the following components.
 
 Your requirements might differ from the architecture described here. Use these recommendations as a starting point.
 
+<!-- markdownlint-disable MD024 -->
+
 ### Virtual machines
 
 For recommendations on configuring the VMs, see [Run a Windows VM on Azure](./windows-vm.md).
@@ -189,6 +191,7 @@ For more information about health probes, see:
 For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md).
 
 ## Cost considerations
+
 Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs. Here are some other considerations.
 
 ### Virtual machine scale sets
@@ -207,9 +210,7 @@ For SQL server VMs pricing options see [SQL VMs pricing][Managed-Sql-pricing].
 
 You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
 
-
 For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
-
 
 ## Security considerations
 
@@ -287,8 +288,8 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-windows
 [load-balancer-hashing]: /azure/load-balancer/concepts-limitations#load-balancer-concepts
 [load-balancer]: /azure/load-balancer/load-balancer-standard-overview
-[multi-dc]: multi-region-sql-server.md
-[n-tier]: n-tier.md
+[multi-dc]: ./multi-region-sql-server.md
+[n-tier]: ./n-tier.md
 [network-security]: /azure/best-practices-network-security
 [nsg]: /azure/virtual-network/virtual-networks-nsg
 [plan-network]: /azure/virtual-network/virtual-network-vnet-plan-design-arm
@@ -308,4 +309,4 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
 [vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
 [vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
-[Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
+[Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
