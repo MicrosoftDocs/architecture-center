@@ -18,7 +18,7 @@ This scenario is relevant for businesses that need to process images.
 
 Potential applications include classifying images for a fashion website, analyzing text and images for insurance claims, or understanding telemetry data from game screenshots. Traditionally, companies would need to develop expertise in machine learning models, train the models, and finally run the images through their custom process to get the data out of the images.
 
-By using Azure services such as the Computer Vision API and Azure Functions, companies can eliminate the need to manage individual servers, while reducing costs and leveraging the expertise that Microsoft has already developed around processing images with Cognitive Services. This example scenario specifically addresses an image-processing use case. If you have different AI needs, consider the full suite of [Cognitive Services](/azure/#pivot=products&panel=ai).
+By using Azure services such as the Computer Vision API and Azure Functions, companies can eliminate the need to manage individual servers, while reducing costs and leveraging the expertise that Microsoft has already developed around processing images with Cognitive Services. This example scenario specifically addresses an image-processing use case. If you have different AI needs, consider the full suite of [Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai).
 
 ## Relevant use cases
 
@@ -41,16 +41,16 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 ### Components
 
-- [Computer Vision API](/azure/cognitive-services/computer-vision/home) is part of the Cognitive Services suite and is used to retrieve information about each image.
-- [Azure Functions](/azure/azure-functions/functions-overview) provides the back-end API for the web application, as well as the event processing for uploaded images.
-- [Event Grid](/azure/event-grid/overview) triggers an event when a new image is uploaded to blob storage. The image is then processed with Azure functions.
-- [Blob storage](/azure/storage/blobs/storage-blobs-introduction) stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes.
+- [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) is part of the Cognitive Services suite and is used to retrieve information about each image.
+- [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) provides the back-end API for the web application, as well as the event processing for uploaded images.
+- [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) triggers an event when a new image is uploaded to blob storage. The image is then processed with Azure functions.
+- [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes.
 - [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
 
 ## Alternatives
 
-- [Custom Vision Service](/azure/cognitive-services/custom-vision-service/home). The Computer Vision API returns a set of [taxonomy-based categories][cv-categories]. If you need to process information that isn't returned by the Computer Vision API, consider the Custom Vision Service, which lets you build custom image classifiers.
-- [Azure Search](/azure/search/search-what-is-azure-search). If your use case involves querying the metadata to find images that meet specific criteria, consider using Azure Search. Currently in preview, [Cognitive search](/azure/search/cognitive-search-concept-intro) seamlessly integrates this workflow.
+- [Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home). The Computer Vision API returns a set of [taxonomy-based categories][cv-categories]. If you need to process information that isn't returned by the Computer Vision API, consider the Custom Vision Service, which lets you build custom image classifiers.
+- [Azure Search](https://docs.microsoft.com/azure/search/search-what-is-azure-search). If your use case involves querying the metadata to find images that meet specific criteria, consider using Azure Search. Currently in preview, [Cognitive search](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) seamlessly integrates this workflow.
 
 ## Considerations
 

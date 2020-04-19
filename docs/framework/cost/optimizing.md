@@ -33,4 +33,4 @@ As we are talking about financial things - the way how you purchase cloud servic
 
 ## Act on recommendations
 
-Azure Advisor enables you to act on cost management recommendations from within the Azure portal, such as resizing virtual machines. [Act on recommendations](/azure/cost-management/tutorial-acm-opt-recommendations). Make sure that all stakeholders are in agreement regarding the implementation and timing of this change. Resizing a virtual machine does require the VM to be shut down and restarted, causing a period of time when it will be unavailable, so time this carefully for minimal business impact.
+Azure Advisor enables you to act on cost management recommendations from within the Azure portal, such as resizing virtual machines. [Act on recommendations](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations). Make sure that all stakeholders are in agreement regarding the implementation and timing of this change. Resizing a virtual machine does require the VM to be shut down and restarted, causing a period of time when it will be unavailable, so time this carefully for minimal business impact.

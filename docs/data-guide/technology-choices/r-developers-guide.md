@@ -1,6 +1,6 @@
 ---
 title: R developer's guide to Azure - R programming
-description: This article provides an overview of the various ways that data scientists can leverage their existing skills with the R programming language in Azure. Azure offers many services that R developers can use to extend their data science workloads into the cloud.
+description: This article provides an overview of the various ways that data scientists can use their existing skills with the R programming language in Azure. Azure offers many services that R developers can use to extend their data science workloads into the cloud.
 services: machine-learning
 author: AnalyticJeremy
 ms.service: architecture-center
@@ -12,12 +12,14 @@ ms.date: 04/02/2020
 ms.author: jepeach
 ---
 
+<!-- cSpell:ignore devlang jepeach Jupyter -->
+
 # R developer's guide to Azure
 
 <img src="../images/logo_r.svg" alt="R logo" align="right" width="200" />
 
 Many data scientists dealing with ever-increasing volumes of data are looking for ways to harness the power of cloud
-computing for their analyses.  This article provides an overview of the various ways that data scientists can leverage
+computing for their analyses.  This article provides an overview of the various ways that data scientists can use
 their existing skills with the [R programming language](https://www.r-project.org) in Azure.
 
 Microsoft has fully embraced the R programming language as a first-class tool for data scientists.  By providing many
@@ -31,7 +33,7 @@ This article covers the following Azure services that support the R language:
 
 |Service                                                          |Description                                                                       |
 |-----------------------------------------------------------------|----------------------------------------------------------------------------------|
-|[Azure Machine Learning Server](/machine-learning-server/rebranding-microsoft-r-server)|enterprise software for data science, providing R and Python interpreters
+|[Azure Machine Learning Server](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server)|enterprise software for data science, providing R and Python interpreters
 |[Data Science Virtual Machine](#data-science-virtual-machine)    |a customized VM to use as a data science workstation or as a custom compute target|
 |[ML Services on HDInsight](#ml-services-on-hdinsight)            |cluster-based system for running R analyses on large datasets across many nodes   |
 |[Azure Databricks](#azure-databricks)                            |collaborative Spark environment that supports R and other languages               |
@@ -158,7 +160,7 @@ in the cloud easily and economically.
 
 [Azure Notebooks](https://notebooks.azure.com) is a low-cost, low-friction method for R developers who prefer working with notebooks to bring their code to Azure.  It is a free service for anyone to develop and run code in their browser using [Jupyter](https://jupyter.org/), which is an open-source project that enables combing markdown prose, executable code, and graphics onto a single canvas.
 
-The free service tier of Azure Notebooks is a viable option for small-scale projects, as it limits each notebook's process to 4 GB of memory and 1 GB data sets. If you need compute and data power beyond these limitations, however, you can run notebooks in a Data Science Virtual Machine instance. For more information, see [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
+The free service tier of Azure Notebooks is a viable option for small-scale projects, as it limits each notebook's process to 4 GB of memory and 1 GB data sets. If you need compute and data power beyond these limitations, however, you can run notebooks in a Data Science Virtual Machine instance. For more information, see [Manage and configure Azure Notebooks projects - Compute tier](https://docs.microsoft.com/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## Azure SQL Database
 

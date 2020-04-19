@@ -97,7 +97,7 @@ This [decision tree for Azure compute services](/azure/architecture/guide/techno
 
 ### Walk-through
 
-[Azure DevOps Projects](/azure/devops-project/azure-devops-project-github) will deploy an App Service Plan, App Service, and an App Insights resource for you, as well as configure an Azure Pipelines pipeline for you.
+[Azure DevOps Projects](https://docs.microsoft.com/azure/devops-project/azure-devops-project-github) will deploy an App Service Plan, App Service, and an App Insights resource for you, as well as configure an Azure Pipelines pipeline for you.
 
 Once you've configure a pipeline with Azure DevOps Projects and the build is completed, review the associated code changes, work items, and test results. You will notice that no test results are displayed, because the code does not contain any tests to run.
 

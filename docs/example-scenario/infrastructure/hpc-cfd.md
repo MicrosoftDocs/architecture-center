@@ -55,8 +55,8 @@ This diagram shows a high-level overview of a typical hybrid design providing jo
 - [Avere vFXT on Azure][avere] is used to provide an enterprise-scale clustered file system built for the cloud.
 - [Azure Virtual Machines (VMs)][vms] are used to create a static set of compute instances.
 - [Virtual machine scale sets][vmss] provide a group of identical VMs capable of being scaled up or down by Azure CycleCloud.
-- [Azure Storage accounts](/azure/storage/common/storage-introduction) are used for synchronization and data retention.
-- [Virtual Networks](/azure/virtual-network/virtual-networks-overview) enable many types of Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
+- [Azure Storage accounts](https://docs.microsoft.com/azure/storage/common/storage-introduction) are used for synchronization and data retention.
+- [Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) enable many types of Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
 
 ### Alternatives
 

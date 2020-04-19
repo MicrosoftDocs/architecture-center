@@ -48,7 +48,7 @@ This architecture details key components of an order processing pipeline. The da
 ### Components
 
 - [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) is Microsoft's globally distributed, multi-model database that enables your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive service level agreements (SLAs). This scenario uses Cosmos DB for event stream storage and snapshot storage, and leverages [Cosmos DB's Change Feed][docs-cosmos-db-change-feed] features to provide data consistency and fault recovery.
-- [Apache Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is a managed service implementation of Apache Kafka, an open-source distributed streaming platform for building real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, for publishing and subscribing to named data streams. This scenario uses Kafka to process incoming as well as downstream events in the order processing pipeline.
+- [Apache Kafka on HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction) is a managed service implementation of Apache Kafka, an open-source distributed streaming platform for building real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, for publishing and subscribing to named data streams. This scenario uses Kafka to process incoming as well as downstream events in the order processing pipeline.
 
 ## Considerations
 
@@ -60,13 +60,13 @@ Microservices have become a popular architectural style for building cloud appli
 
 This scenario's event sourcing approach allows system components to be loosely coupled and deployed independently of one another. Cosmos DB offers [high availability][docs-cosmos-db-regional-failover] and helps organization manage the tradeoffs associated with consistency, availability, and performance, all with [corresponding guarantees][docs-cosmos-db-guarantees]. Apache Kafka on HDInsight is also designed for [high availability][docs-kafka-high-availability].
 
-Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](/azure/monitoring-and-diagnostics/monitoring-overview). Event Hubs and Stream Analytics are both integrated with Azure Monitor.
+Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview). Event Hubs and Stream Analytics are both integrated with Azure Monitor.
 
 For other availability considerations, see the [availability checklist][availability].
 
 ### Scalability
 
-Kafka on HDInsight allows [configuration of storage and scalability](/azure/hdinsight/kafka/apache-kafka-scalability) for Kafka clusters. Cosmos DB provides fast, predictable performance and [scales seamlessly](https://docs.microsoft.com/azure/cosmos-db/partition-data) as your application grows.
+Kafka on HDInsight allows [configuration of storage and scalability](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-scalability) for Kafka clusters. Cosmos DB provides fast, predictable performance and [scales seamlessly](https://docs.microsoft.com/azure/cosmos-db/partition-data) as your application grows.
 The event sourcing microservices-based architecture of this scenario also makes it easier to scale your system and expand its functionality.
 
 For other scalability considerations, see the [scalability checklist][scalability] available in the Azure Architecture Center.

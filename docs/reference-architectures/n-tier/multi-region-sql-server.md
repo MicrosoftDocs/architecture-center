@@ -39,7 +39,7 @@ This architecture builds on the one shown in [N-tier application with SQL Server
     > Also consider [Azure SQL Database][azure-sql-db], which provides a relational database as a cloud service. With SQL Database, you don't need to configure an availability group or manage failover.
     >
 
-- **Virtual network peering**. Peer the two virtual networks to allow data replication from the primary region to the secondary region. For more information, see [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
+- **Virtual network peering**. Peer the two virtual networks to allow data replication from the primary region to the secondary region. For more information, see [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
 ## Recommendations
 

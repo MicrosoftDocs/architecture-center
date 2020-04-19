@@ -20,7 +20,7 @@ Track the number of transient exceptions and retries over time to uncover issues
 Use the [Retry pattern](../../patterns/retry.md), paying particular attention to [issues and considerations](https://docs.microsoft.com/azure/architecture/patterns/retry#issues-and-considerations). Avoid overwhelming dependent services by implementing the [Circuit Breaker pattern](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker). Review and incorporate additional best practices guidance for [Transient fault handling](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults). While calling systems that have [Throttling pattern](https://docs.microsoft.com/azure/architecture/patterns/throttling) implemented, ensure that your retries are not counter productive.
 
 
-![GitHub](../../_images/github.png) A reference implementation is available [here](https://github.com/mspnp/microservices-reference-implementation/tree/master/src/shipping/workflow). It uses [Polly](https://github.com/App-vNext/Polly/wiki/Circuit-Breaker) and [IHttpClientBuilder](/dotnet/api/microsoft.extensions.dependencyinjection.ihttpclientbuilder) to implement the Circuit Breaker pattern.
+![GitHub](../../_images/github.png) A reference implementation is available [here](https://github.com/mspnp/microservices-reference-implementation/tree/master/src/shipping/workflow). It uses [Polly](https://github.com/App-vNext/Polly/wiki/Circuit-Breaker) and [IHttpClientBuilder](https://docs.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.ihttpclientbuilder) to implement the Circuit Breaker pattern.
 
 ## Request timeouts
 
@@ -44,8 +44,8 @@ The [Circuit Breaker pattern](https://docs.microsoft.com/azure/architecture/patt
 
 Configure and test health probes for your load balancers and traffic managers. Ensure that your health endpoint checks the critical parts of the system and responds appropriately.
 
-- For [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview/), the health probe determines whether to fail over to another region. Your health endpoint should check any critical dependencies that are deployed within the same region.
-- For [Azure Load Balancer](/azure/load-balancer/load-balancer-overview/), the health probe determines whether to remove a VM from rotation. The health endpoint should report the health of the VM. Don't include other tiers or external services. Otherwise, a failure that occurs outside the VM will cause the load balancer to remove the VM from rotation.
+- For [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview/), the health probe determines whether to fail over to another region. Your health endpoint should check any critical dependencies that are deployed within the same region.
+- For [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview/), the health probe determines whether to remove a VM from rotation. The health endpoint should report the health of the VM. Don't include other tiers or external services. Otherwise, a failure that occurs outside the VM will cause the load balancer to remove the VM from rotation.
 
 For guidance on implementing health monitoring in your application, see [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring).
 

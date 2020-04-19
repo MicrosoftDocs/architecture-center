@@ -44,7 +44,7 @@ if (firstMsgEnqueuedTicksUtc.HasValue)
 }
 ```
 
-The `TrackMetric` method writes a custom metric to Application Insights. For information about using `TrackMetric` inside an Azure Function, see [Custom telemetry in C# function](/azure/azure-functions/functions-monitoring#log-custom-telemetry-in-c-functions).
+The `TrackMetric` method writes a custom metric to Application Insights. For information about using `TrackMetric` inside an Azure Function, see [Custom telemetry in C# function](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#log-custom-telemetry-in-c-functions).
 
 If the function keeps up with the volume of messages, this metric should stay at a low steady state. Some latency is unavoidable, so the value will never be zero. But if the function falls behind, the delta between enqueued time and processing time will start to go up.
 
@@ -101,7 +101,7 @@ If the time to process a message is the bottleneck, one solution is to process m
 - Increase the number of IoT Hub partitions. Each IoT Hub partition gets assigned one function instance at a time, so we would expect throughput to scale linearly with the number of partitions.
 - Parallelize the document writes within the function. 
 
-To explore the second option, the team modified the function to support parallel writes. The original version of the function used the Cosmos DB [output binding](/azure/azure-functions/functions-bindings-cosmosdb#output). The optimized version calls the Cosmos DB client directly and performs the writes in parallel using [Task.WhenAll](/dotnet/api/system.threading.tasks.task.whenall):
+To explore the second option, the team modified the function to support parallel writes. The original version of the function used the Cosmos DB [output binding](https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb#output). The optimized version calls the Cosmos DB client directly and performs the writes in parallel using [Task.WhenAll](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.whenall):
 
 ```csharp
 private async Task<(long documentsUpserted,

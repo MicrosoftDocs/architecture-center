@@ -34,7 +34,7 @@ The architecture consists of the following components.
 - **On-premises network**. A private local-area network implemented in an organization.
 - **Azure virtual network**. The virtual network hosts the application and other resources running in Azure.
 - **Gateway**. The gateway provides connectivity between the routers in the on-premises network and the virtual network. The gateway is placed in its own subnet.
-- **Azure Firewall**. [Azure Firewall](/azure/firewall/) is a managed firewall as a service. The Firewall instance is placed in its own subnet.
+- **Azure Firewall**. [Azure Firewall](https://docs.microsoft.com/azure/firewall/) is a managed firewall as a service. The Firewall instance is placed in its own subnet.
 - **Virtual network routes**. [Virtual network routes][udr-overview] define the flow of IP traffic within the Azure virtual network. In the diagram shown above, there are two user-defined route tables. 
 
     - In the gateway subnet, traffic sent to the web-tier subnet (10.0.1.0/24) is routed through the Azure Firewall instance.
@@ -46,7 +46,7 @@ The architecture consists of the following components.
 
 - **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network. For example, in the deployment provided with this reference architecture, the web tier subnet allows TCP traffic from the on-premises network and from within the virtual network; the business tier allows traffic from the web tier; and the data tier allows traffic from the business tier.
 
-- **Bastion**. [Azure Bastion](/azure/bastion/) allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. Use Bastion to manage the VMs in the virtual network.
+- **Bastion**. [Azure Bastion](https://docs.microsoft.com/azure/bastion/) allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. Use Bastion to manage the VMs in the virtual network.
 
 ## Recommendations
 
@@ -76,7 +76,7 @@ We recommend creating the following resource groups:
 
 ### Networking recommendations
 
-To accept inbound traffic from the internet, add a [Destination Network Address Translation](/azure/firewall/tutorial-firewall-dnat) (DNAT) rule to Azure Firewall. 
+To accept inbound traffic from the internet, add a [Destination Network Address Translation](https://docs.microsoft.com/azure/firewall/tutorial-firewall-dnat) (DNAT) rule to Azure Firewall. 
 
 - Destination address = Public IP address of the firewall instance.
 - Translated address = Private IP address within the virtual network.
@@ -93,7 +93,7 @@ Consider using Application Gateway or Azure Front Door for SSL termination.
 
 ## Scalability considerations
 
-For details about the bandwidth limits of VPN Gateway, see [Gateway SKUs](/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). For higher bandwidths, consider upgrading to an ExpressRoute gateway. ExpressRoute provides up to 10 Gbps bandwidth with lower latency than a VPN connection.
+For details about the bandwidth limits of VPN Gateway, see [Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). For higher bandwidths, consider upgrading to an ExpressRoute gateway. ExpressRoute provides up to 10 Gbps bandwidth with lower latency than a VPN connection.
 
 For more information about the scalability of Azure gateways, see the scalability consideration section in [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-scalability] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-scalability].
 

@@ -33,13 +33,13 @@ The output from this flowchart is a **starting point** for consideration. Next, 
 
 If you're not familiar with the Azure service selected in the previous step, read the overview documentation to understand the basics of the service.
 
-- [App Service](/azure/app-service/). A managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
-- [Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS). A managed Kubernetes service for running containerized applications.
-- [Batch](/azure/batch/batch-technical-overview). A managed service for running large-scale parallel and high-performance computing (HPC) applications
-- [Container Instances](/azure/container-instances/container-instances-overview). The fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service.
-- [Functions](/azure/azure-functions/functions-overview). A managed FaaS service.
-- [Service Fabric](/azure/service-fabric/service-fabric-overview). A distributed systems platform that can run in many environments, including Azure or on premises.
-- [Virtual machines](/azure/virtual-machines/). Deploy and manage VMs inside an Azure virtual network.
+- [App Service](https://docs.microsoft.com/azure/app-service/). A managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
+- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes) (AKS). A managed Kubernetes service for running containerized applications.
+- [Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview). A managed service for running large-scale parallel and high-performance computing (HPC) applications
+- [Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-overview). The fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service.
+- [Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview). A managed FaaS service.
+- [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview). A distributed systems platform that can run in many environments, including Azure or on premises.
+- [Virtual machines](https://docs.microsoft.com/azure/virtual-machines/). Deploy and manage VMs inside an Azure virtual network.
 
 ## Understand the hosting models
 
@@ -59,7 +59,7 @@ In general, there is a tradeoff between control and ease of management. IaaS giv
 
 Next, perform a more detailed evaluation, looking at the following aspects of the service:
 
-- [Service limits](/azure/azure-subscription-service-limits)
+- [Service limits](https://docs.microsoft.com/azure/azure-subscription-service-limits)
 - [Cost](https://azure.microsoft.com/pricing/)
 - [SLA](https://azure.microsoft.com/support/legal/sla/)
 - [Regional availability](https://azure.microsoft.com/global-infrastructure/services/)
@@ -79,7 +79,7 @@ The following tables contain additional comparison points, which may be useful w
 | Minimum number of nodes | 1 <a href="#note2"><sup>2</sup></a>  | 1 | 5 <a href="#note3"><sup>3</sup></a> | Serverless <a href="#note1"><sup>1</sup></a> | 3 <a href="#note3"><sup>3</sup></a> | No dedicated nodes | 1 <a href="#note4"><sup>4</sup></a> |
 | State management | Stateless or Stateful | Stateless | Stateless or stateful | Stateless | Stateless or Stateful | Stateless | Stateless |
 | Web hosting | Agnostic | Built in | Agnostic | Not applicable | Agnostic | Agnostic | No |
-| Can be deployed to dedicated VNet? | Supported | Supported<a href="#note5"><sup>5</sup></a> | Supported | Supported <a href="#note5"><sup>5</sup></a> | [Supported](/azure/aks/networking-overview) | Not supported | Supported |
+| Can be deployed to dedicated VNet? | Supported | Supported<a href="#note5"><sup>5</sup></a> | Supported | Supported <a href="#note5"><sup>5</sup></a> | [Supported](https://docs.microsoft.com/azure/aks/networking-overview) | Not supported | Supported |
 | Hybrid connectivity | Supported | Supported <a href="#note6"><sup>6</sup></a>  | Supported | Supported <a href="#note7"><sup>7</sup></a> | Supported | Not supported | Supported |
 
 Notes
@@ -115,9 +115,9 @@ Notes
 
 Notes
 
-1. <span id="note1c">See [Autoscale pods](/azure/aks/tutorial-kubernetes-scale#autoscale-pods).</span>
-2. <span id="note2c">See [Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)](/azure/aks/cluster-autoscaler).</span>
-3. <span id="note3c">See [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits)</span>.
+1. <span id="note1c">See [Autoscale pods](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale#autoscale-pods).</span>
+2. <span id="note2c">See [Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/cluster-autoscaler).</span>
+3. <span id="note3c">See [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits)</span>.
 
 ### Availability
 
@@ -126,13 +126,13 @@ Notes
 | SLA | [SLA for Virtual Machines][sla-vm] | [SLA for App Service][sla-app-service] | [SLA for Service Fabric][sla-sf] | [SLA for Functions][sla-functions] | [SLA for AKS][sla-acs] | [SLA for Container Instances](https://azure.microsoft.com/support/legal/sla/container-instances/) | [SLA for Azure Batch][sla-batch] |
 | Multi region failover | Traffic manager | Traffic manager | Traffic manager, Multi-Region Cluster | Not supported | Traffic manager | Not supported | Not Supported |
 
-For guided learning on Service Guarantees, review [Core Cloud Services - Azure architecture and service guarantees](/learn/modules/explore-azure-infrastructure).
+For guided learning on Service Guarantees, review [Core Cloud Services - Azure architecture and service guarantees](https://docs.microsoft.com/learn/modules/explore-azure-infrastructure).
 
 ### Other criteria
 
 | Criteria | Virtual Machines | App Service | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
 |----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
-| SSL | Configured in VM | Supported | Supported  | Supported | [Ingress controller](/azure/aks/ingress) | Use [sidecar](../../patterns/sidecar.md) container | Supported |
+| SSL | Configured in VM | Supported | Supported  | Supported | [Ingress controller](https://docs.microsoft.com/azure/aks/ingress) | Use [sidecar](../../patterns/sidecar.md) container | Supported |
 | Cost | [Windows][cost-windows-vm], [Linux][cost-linux-vm] | [App Service pricing][cost-app-service] | [Service Fabric pricing][cost-service-fabric] | [Azure Functions pricing][cost-functions] | [AKS pricing][cost-acs] | [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) | [Azure Batch pricing][cost-batch]
 | Suitable architecture styles | [N-Tier][n-tier], [Big compute][big-compute] (HPC) | [Web-Queue-Worker][w-q-w], [N-Tier][n-tier] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], task automation, batch jobs  | [Big compute][big-compute] (HPC) |
 
@@ -142,19 +142,19 @@ The output from this flowchart is a **starting point** for consideration. Next, 
 
 If you're not familiar with the Azure service selected in the previous step, read one of the following overview articles:
 
-- [App Service](/azure/app-service/)
-- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
-- [Batch](/azure/batch/batch-technical-overview)
-- [Container Instances](/azure/container-instances/container-instances-overview)
-- [Functions](/azure/azure-functions/functions-overview)
-- [Service Fabric](/azure/service-fabric/service-fabric-overview)
-- [Virtual machines](/azure/virtual-machines/)
+- [App Service](https://docs.microsoft.com/azure/app-service/)
+- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+- [Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview)
+- [Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-overview)
+- [Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)
+- [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
+- [Virtual machines](https://docs.microsoft.com/azure/virtual-machines/)
 
 ## Consider limits and cost
 
 Next, perform a more detailed evaluation, looking at the following aspects of the service:
 
-- [Service limits](/azure/azure-subscription-service-limits)
+- [Service limits](https://docs.microsoft.com/azure/azure-subscription-service-limits)
 - [Cost](https://azure.microsoft.com/pricing/)
 - [SLA](https://azure.microsoft.com/support/legal/sla/)
 - [Regional availability](https://azure.microsoft.com/global-infrastructure/services/)
@@ -164,7 +164,7 @@ Based on this analysis, you may find that the initial candidate isn't suitable f
 
 ## Next steps
 
-- [Core Cloud Services - Azure compute options](/learn/modules/intro-to-azure-compute/). This Microsoft Learn module explores how compute services can solve common business needs. 
+- [Core Cloud Services - Azure compute options](https://docs.microsoft.com/learn/modules/intro-to-azure-compute/). This Microsoft Learn module explores how compute services can solve common business needs. 
 
 [cost-linux-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [cost-windows-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/windows

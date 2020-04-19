@@ -18,7 +18,7 @@ ms.custom: seodec18, networking, fcp
 
 This reference architecture builds on the [hub-spoke][guidance-hub-spoke] reference architecture to include shared services in the hub that can be consumed by all spokes.
 
-As a first step toward migrating a datacenter to the cloud, the first services that need to be shared are identity and security. This reference architecture shows how to extend Active Directory services from your on-premises datacenter to Azure, and how to add a network virtual appliance (NVA) that can act as a firewall. The firewall functionality can also be accomplished using [Azure Firewall](/azure/firewall/), a cloud-based network security service.
+As a first step toward migrating a datacenter to the cloud, the first services that need to be shared are identity and security. This reference architecture shows how to extend Active Directory services from your on-premises datacenter to Azure, and how to add a network virtual appliance (NVA) that can act as a firewall. The firewall functionality can also be accomplished using [Azure Firewall](https://docs.microsoft.com/azure/firewall/), a cloud-based network security service.
 
 ![Shared services topology in Azure](./images/shared-services.png)
 
@@ -62,7 +62,7 @@ The architecture consists of the following components.
 - **VNet peering**. Two VNets can be connected using a [peering connection][vnet-peering]. Peering connections are non-transitive, low latency connections between VNets. Once peered, the VNets exchange traffic by using the Azure backbone, without the need for a router. In a hub-spoke network topology, you use VNet peering to connect the hub to each spoke. You can peer virtual networks in the same region, or different regions (Global VNet Peering). For more information, see [Requirements and constraints][vnet-peering-requirements].
 
 > [!NOTE]
-> This article only covers [Resource Manager](/azure/azure-resource-manager/resource-group-overview) deployments, but you can also connect a classic VNet to a Resource Manager VNet in the same subscription. That way, your spokes can host classic deployments and still benefit from services shared in the hub.
+> This article only covers [Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) deployments, but you can also connect a classic VNet to a Resource Manager VNet in the same subscription. That way, your spokes can host classic deployments and still benefit from services shared in the hub.
 
 ## Recommendations
 

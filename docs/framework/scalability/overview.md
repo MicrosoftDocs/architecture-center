@@ -13,7 +13,7 @@ ms.custom:
 
 # Overview of the scalability pillar
 
-*Scalability* is the ability of a system to handle increased load. To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](/assessments/?mode=pre-assessment&id=azure-architecture-review).
+*Scalability* is the ability of a system to handle increased load. To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=azure-architecture-review).
 
 Scalability tasks during the architecting phase include:
 
@@ -26,12 +26,12 @@ Scalability tasks during the architecting phase include:
   If your application isn't configured to scale out automatically as load increases, it's possible that your application's services will fail if they become saturated with user requests. For more information, see the following articles:
 
   - General: [Scalability checklist](../../checklist/scalability.md)
-  - Azure App Service: [Scale instance count manually or automatically](/azure/monitoring-and-diagnostics/insights-how-to-scale/)
-  - Cloud Services: [How to autoscale a Cloud Service](/azure/cloud-services/cloud-services-how-to-scale/)
-  - Virtual machines: [Automatic scaling and virtual machine scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview/)
+  - Azure App Service: [Scale instance count manually or automatically](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-how-to-scale/)
+  - Cloud Services: [How to autoscale a Cloud Service](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-scale/)
+  - Virtual machines: [Automatic scaling and virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview/)
 
 - **Offload CPU-intensive and I/O-intensive tasks as background tasks.** If a request to a service is expected to take a long time to run or may absorb considerable resources, offload the processing to a separate task. Use background jobs to execute these tasks. This strategy enables the service to continue receiving further requests and to remain responsive. For more information, see [Background jobs guidance](../../best-practices/background-jobs.md).
 - **Distribute the workload for background tasks.** If there are many background tasks or if the tasks require considerable time or resources, spread the work across multiple compute units. For one possible solution, see the [Competing Consumers pattern](../../patterns/competing-consumers.md).
 - **Consider moving toward a *shared-nothing* architecture.** This architecture uses independent, self-sufficient nodes that have no single point of contention (such as shared services or storage). In theory, such a system can scale almost indefinitely. Although a fully shared-nothing approach is usually not practical, it may provide opportunities to design for better scalability. Good examples of moving toward a shared-nothing architecture include partitioning data and avoiding the use of server-side session state and client affinity.
 - **Design your application's storage requirements to fall within Azure Storage scalability and performance targets.** Azure Storage is designed to function within predefined scalability and performance targets, so design your application to use storage within those targets. If you exceed these targets, your application will experience storage throttling. To avoid throttling, provision additional storage accounts. If you run up against the storage account limit, provision additional Azure subscriptions and then provision additional storage accounts there. For more information, see [Azure Storage scalability and performance targets](https://docs.microsoft.com/azure/storage/storage-scalability-targets/).
-- **Select the right VM size for your application.** Measure the actual CPU, memory, disk, and I/O of your VMs in production, and verify that the VM size you've selected is sufficient. If not, your application may experience capacity issues as the VMs approach their limits. VM sizes are described in detail in [Sizes for virtual machines in Azure](/azure/virtual-machines/virtual-machines-windows-sizes/?toc=/azure/virtual-machines/windows/toc.json).
+- **Select the right VM size for your application.** Measure the actual CPU, memory, disk, and I/O of your VMs in production, and verify that the VM size you've selected is sufficient. If not, your application may experience capacity issues as the VMs approach their limits. VM sizes are described in detail in [Sizes for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes/?toc=/azure/virtual-machines/windows/toc.json).

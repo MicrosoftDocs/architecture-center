@@ -30,7 +30,7 @@ This reference architecture shows proven practices for a web application that us
 
 The architecture has the following components:
 
-- **Resource group**. A [resource group](/azure/azure-resource-manager/resource-group-overview) is a logical container for Azure resources.
+- **Resource group**. A [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) is a logical container for Azure resources.
 
 - **App Service app**. [Azure App Service][app-service] is a fully managed platform for creating and deploying cloud applications.
 
@@ -42,7 +42,7 @@ The architecture has the following components:
 
 - **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. To use a custom domain name (such as `contoso.com`) create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in Azure App Service][custom-domain-name].
 
-- **Azure SQL Database**. [SQL Database][sql-db] is a relational database-as-a-service in the cloud. SQL Database shares its code base with the Microsoft SQL Server database engine. Depending on your application requirements, you can also use [Azure Database for MySQL](/azure/mysql) or [Azure Database for PostgreSQL](/azure/postgresql). These are fully managed database services, based on the open-source MySQL Server and Postgres database engines, respectively.
+- **Azure SQL Database**. [SQL Database][sql-db] is a relational database-as-a-service in the cloud. SQL Database shares its code base with the Microsoft SQL Server database engine. Depending on your application requirements, you can also use [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql) or [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql). These are fully managed database services, based on the open-source MySQL Server and Postgres database engines, respectively.
 
 - **Logical server**. In Azure SQL Database, a logical server hosts your databases. You can create multiple databases per logical server.
 
@@ -137,7 +137,7 @@ When assigning resources to resource groups, consider the following:
 - Access. You can use [role-based access control][rbac] (RBAC) to apply access policies to the resources in a group.
 - Billing. You can view the rolled-up costs for the resource group.
 
-For more information, see [Azure Resource Manager overview](/azure/azure-resource-manager/resource-group-overview).
+For more information, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ### Deployment
 

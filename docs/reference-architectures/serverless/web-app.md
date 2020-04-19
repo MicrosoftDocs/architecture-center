@@ -167,7 +167,7 @@ In many applications, the back-end API must check whether a user has permission 
 
 The ID token that Azure AD returns to the client contains some of the user's claims. Within the function app, these claims are available in the X-MS-CLIENT-PRINCIPAL header of the request. However, it's simpler to read this information from binding data. For other claims, use [Microsoft Graph][graph] to query Azure AD. (The user must consent to this action when signing in.)
 
-For more information, see [Working with client identities](/azure/azure-functions/functions-bindings-http-webhook-trigger#working-with-client-identities
+For more information, see [Working with client identities](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger#working-with-client-identities
 ).
 
 ### CORS
@@ -340,29 +340,29 @@ Related guidance:
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator
 [cosmosdb]: https://docs.microsoft.com/azure/cosmos-db/introduction
 [cosmosdb-geo]: https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally
-[cosmosdb-input-binding]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb-v2-input
+[cosmosdb-input-binding]: /azure/azure-functions/functions-bindings-cosmosdb-v2-input
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
 [cosmosdb-scale]: https://docs.microsoft.com/azure/cosmos-db/partition-data
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [event-driven]: ../../guide/architecture-styles/event-driven.md
-[functions]: https://docs.microsoft.com/azure/azure-functions/functions-overview
-[functions-bindings]: https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings
+[functions]: /azure/azure-functions/functions-overview
+[functions-bindings]: /azure/azure-functions/functions-triggers-bindings
 [functions-cold-start]: https://blogs.msdn.microsoft.com/appserviceteam/2018/02/07/understanding-serverless-cold-start
 [functions-https]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl#enforce-https
-[functions-proxy]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
-[functions-run-from-package]: https://docs.microsoft.com/azure/azure-functions/run-functions-from-deployment-package
-[functions-scale]: https://docs.microsoft.com/azure/azure-functions/functions-scale
-[functions-timeout]: https://docs.microsoft.com/azure/azure-functions/functions-scale#consumption-plan
-[functions-zip-deploy]: https://docs.microsoft.com/azure/azure-functions/deployment-zip-push
+[functions-proxy]: /azure/azure-functions/functions-proxies
+[functions-run-from-package]: /azure/azure-functions/run-functions-from-deployment-package
+[functions-scale]: /azure/azure-functions/functions-scale
+[functions-timeout]: /azure/azure-functions/functions-scale#consumption-plan
+[functions-zip-deploy]: /azure/azure-functions/deployment-zip-push
 [graph]: https://developer.microsoft.com/graph/docs/concepts/overview
 [key-vault-web-app]: https://docs.microsoft.com/azure/key-vault/tutorial-web-application-keyvault
 [microservices-domain-analysis]: ../../microservices/model/domain-analysis.md
-[monitor]: https://docs.microsoft.com/azure/azure-monitor/overview
+[monitor]: /azure/azure-monitor/overview
 [oauth-flow]: https://auth0.com/docs/api-auth/which-oauth-flow-to-use
 [partition-key]: https://docs.microsoft.com/azure/cosmos-db/partition-data
 [pipelines]: https://docs.microsoft.com/azure/devops/pipelines/index
 [ru]: https://docs.microsoft.com/azure/cosmos-db/request-units
-[scopes]: https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent
+[scopes]: /azure/active-directory/develop/v2-permissions-and-consent
 [static-hosting]: https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website
 [static-hosting-preview]: https://azure.microsoft.com/blog/azure-storage-static-web-hosting-public-preview
 [storage-https]: https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer

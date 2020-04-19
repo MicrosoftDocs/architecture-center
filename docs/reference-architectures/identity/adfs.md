@@ -215,7 +215,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 1. Clone, fork, or download the zip file for the [GitHub repository](https://github.com/mspnp/identity-reference-architectures).
 
-1. Install [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 1. Install the [Azure building blocks](https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks) npm package.
 
@@ -304,7 +304,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
     At the `Get-Credential` prompt, enter the password that you specified in the deployment parameter file.
 
-1. Run the following command to monitor the progress of the [DSC](/powershell/scripting/dsc/overview/overview) configuration:
+1. Run the following command to monitor the progress of the [DSC](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview) configuration:
 
     ```powershell
     Get-DscConfigurationStatus
@@ -375,7 +375,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 1. From the jumpbox, open a remote desktop session to the VM named `ra-adfs-adfs-vm1`. The private IP address is 10.0.5.4.
 
-1. Follow the steps in [Enable the Idp-Initiated Sign on page](/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-initiatedsignon#enable-the-idp-initiated-sign-on-page) to enable the sign-on page.
+1. Follow the steps in [Enable the Idp-Initiated Sign on page](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-initiatedsignon#enable-the-idp-initiated-sign-on-page) to enable the sign-on page.
 
 1. From the jump box, browse to `https://adfs.contoso.com/adfs/ls/idpinitiatedsignon.htm`. You may receive a certificate warning that you can ignore for this test.
 

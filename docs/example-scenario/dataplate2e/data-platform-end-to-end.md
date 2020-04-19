@@ -148,11 +148,11 @@ Power BI | [Create and use analytics reports with Power BI][pbi-learn] | [Power 
 
 The technologies in this architecture were chosen because each of them provide the necessary functionality to handle the vast majority of data challenges in an organization. These services meet the requirements for scalability and availability, while helping them control costs.
 
-- The [massively parallel processing architecture](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture) of Azure Synapse provides scalability and high performance.
-- Azure Synapse has [guaranteed SLAs](https://azure.microsoft.com/support/legal/sla/sql-data-warehouse) and [recommended practices for achieving high availability](/azure/sql-data-warehouse/sql-data-warehouse-best-practices).
-- When analysis activity is low, the company can [scale Azure Synapse on demand](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview), reducing or even pausing compute to lower costs.
+- The [massively parallel processing architecture](https://docs.microsoft.com/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture) of Azure Synapse provides scalability and high performance.
+- Azure Synapse has [guaranteed SLAs](https://azure.microsoft.com/support/legal/sla/sql-data-warehouse) and [recommended practices for achieving high availability](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-best-practices).
+- When analysis activity is low, the company can [scale Azure Synapse on demand](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview), reducing or even pausing compute to lower costs.
 analysis-services-bcdr).
-- The [Azure Synapse security model](/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security) provides connection security, [authentication and authorization](/azure/sql-data-warehouse/sql-data-warehouse-authentication) via Azure AD or SQL Server authentication, and encryption.
+- The [Azure Synapse security model](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security) provides connection security, [authentication and authorization](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-authentication) via Azure AD or SQL Server authentication, and encryption.
 
 ## Pricing
 

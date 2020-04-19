@@ -119,7 +119,7 @@ For more information about these topologies, see [Topologies for Azure AD Connec
 
 By default, the Azure AD Connect sync server configures password hash synchronization between the on-premises domain and Azure AD, and the Azure AD service assumes that users authenticate by providing the same password that they use on-premises. For many organizations, this is appropriate, but you should consider your organization's existing policies and infrastructure. For example:
 
-- The security policy of your organization may prohibit synchronizing password hashes to the cloud. In this case, your organization should consider [pass-through authentication](/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
+- The security policy of your organization may prohibit synchronizing password hashes to the cloud. In this case, your organization should consider [pass-through authentication](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
 - You might require that users experience seamless single sign-on (SSO) when accessing cloud resources from domain-joined machines on the corporate network.
 - Your organization might already have Active Directory Federation Services (AD FS) or a third-party federation provider deployed. You can configure Azure AD to use this infrastructure to implement authentication and SSO rather than by using password information held in the cloud.
 

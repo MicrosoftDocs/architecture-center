@@ -103,7 +103,7 @@ Jenkins can scale to support very large workloads. For elastic builds, do not ru
 
 - Use the [Azure VM Agents][vm-agent] plugin to create Jenkins agents that run in Azure VMs. This plugin enables elastic scale-out for agents and can use distinct types of virtual machines. You can select a different base image from Azure Marketplace or use a custom image. For details about how the Jenkins agents scale, see [Architecting for Scale][scale] in the Jenkins documentation.
 
-- Use the [Azure Container Agents][container-agents] plugin to run a container as an agent in either [Azure Container Service with Kubernetes](/azure/container-service/kubernetes/), or [Azure Container Instances](/azure/container-instances/).
+- Use the [Azure Container Agents][container-agents] plugin to run a container as an agent in either [Azure Container Service with Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/), or [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/).
 
 Virtual machines generally cost more to scale than containers. To use containers for scaling, however, your build process must run with containers.
 

@@ -112,7 +112,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 1. Clone, fork, or download the zip file for the [GitHub repository](https://github.com/mspnp/identity-reference-architectures).
 
-2. Install [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
+2. Install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 3. Install the [Azure building blocks](https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks) npm package.
 

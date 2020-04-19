@@ -55,7 +55,7 @@ The architecture consists of the following components.
 - **Virtual network peering**. Two virtual networks can be connected using a [peering connection][vnet-peering]. Peering connections are non-transitive, low latency connections between virtual networks. Once peered, the virtual networks exchange traffic by using the Azure backbone, without the need for a router. In a hub-spoke network topology, you use virtual network peering to connect the hub to each spoke. You can peer virtual networks in the same region, or different regions. For more information, see [Requirements and constraints][vnet-peering-requirements].
 
 > [!NOTE]
-> This article only covers [Resource Manager](/azure/azure-resource-manager/resource-group-overview) deployments, but you can also connect a classic virtual network to a Resource Manager virtual network in the same subscription. That way, your spokes can host classic deployments and still benefit from services shared in the hub.
+> This article only covers [Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) deployments, but you can also connect a classic virtual network to a Resource Manager virtual network in the same subscription. That way, your spokes can host classic deployments and still benefit from services shared in the hub.
 
 ## Recommendations
 
@@ -243,7 +243,7 @@ To test connectivity from the simulated on-premises environment to the hub and s
 
 ### Add connectivity between spokes
 
-This step is optional. If you want to allow spokes to connect to each other, use [Azure Firewall](/azure/firewall/) to force traffic from spokes to the router when trying to connect to another spoke. Perform the following steps to deploy Azure Firewall, firewall rules to allow RDP and SSH, and user-defined routes (UDRs) to allow the two spoke virtual networks to connect:
+This step is optional. If you want to allow spokes to connect to each other, use [Azure Firewall](https://docs.microsoft.com/azure/firewall/) to force traffic from spokes to the router when trying to connect to another spoke. Perform the following steps to deploy Azure Firewall, firewall rules to allow RDP and SSH, and user-defined routes (UDRs) to allow the two spoke virtual networks to connect:
 
 1. Navigate to the `hybrid-networking/hub-spoke` folder of the reference architectures repository.
 

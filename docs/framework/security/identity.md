@@ -42,7 +42,7 @@ authoritative source, teams that need to make changes to the directory can do so
 in one place and have confidence that their change will take effect everywhere.
 
 For Azure, designate a single Azure Active Directory (Azure AD) instance
-directory as the authoritative source for corporate/organizational accounts. For more information on [hybrid identity providers](/azure/active-directory/hybrid/whatis-hybrid-identity).
+directory as the authoritative source for corporate/organizational accounts. For more information on [hybrid identity providers](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity).
 
 ## Synchronize identity systems
 

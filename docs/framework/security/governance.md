@@ -457,7 +457,7 @@ via an internal process)
 Regularly review roles that are assigned privileges with a business-critical impact. 
 
 Set up a recurring review pattern to ensure that accounts are removed from permissions as roles change.
-You can conduct the review manually or through an automated process by using tools such as [Azure AD access reviews](/azure/active-directory/governance/create-access-review).
+You can conduct the review manually or through an automated process by using tools such as [Azure AD access reviews](https://docs.microsoft.com/azure/active-directory/governance/create-access-review).
 
 
 ## Discover and remediate common risks 

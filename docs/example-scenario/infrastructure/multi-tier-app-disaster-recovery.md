@@ -38,7 +38,7 @@ Other relevant use cases include:
 
 ## Architecture
 
-This scenario demonstrates a multitier application that uses ASP.NET and Microsoft SQL Server. In [Azure regions that support availability zones](/azure/availability-zones/az-overview#services-support-by-region), you can deploy your virtual machines (VMs) in a source region across availability zones and replicate the VMs to the target region used for disaster recovery. In Azure regions that don't support availability zones, you can deploy your VMs within an availability set and replicate the VMs to the target region.
+This scenario demonstrates a multitier application that uses ASP.NET and Microsoft SQL Server. In [Azure regions that support availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region), you can deploy your virtual machines (VMs) in a source region across availability zones and replicate the VMs to the target region used for disaster recovery. In Azure regions that don't support availability zones, you can deploy your VMs within an availability set and replicate the VMs to the target region.
 
 ![Architecture overview of a highly resilient multitier web application][architecture]
 

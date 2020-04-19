@@ -89,22 +89,22 @@ A message broker can add resiliency to the consumers in your system. If a consum
 Azure provides several message broker services, each with a range of features. Before choosing a service, determine the intent and requirements of the message. 
 
 ### Azure Service Bus
-[Azure Service Bus](/azure/service-bus-messaging/) queues are well suited for transferring commands from producers to consumers. Here are some considerations.
+[Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/) queues are well suited for transferring commands from producers to consumers. Here are some considerations.
 
 #### Pull model
-A consumer of a Service Bus queue constantly polls Service Bus to check if new messages are available. The client SDKs and [Azure Functions trigger for Service Bus](/azure/azure-functions/functions-triggers-bindings#supported-bindings) abstract that model. When a new message is available, the consumer's callback is invoked, and the message is sent to the consumer. 
+A consumer of a Service Bus queue constantly polls Service Bus to check if new messages are available. The client SDKs and [Azure Functions trigger for Service Bus](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#supported-bindings) abstract that model. When a new message is available, the consumer's callback is invoked, and the message is sent to the consumer. 
 
 #### Guaranteed delivery
 Service Bus allows a consumer to peek the queue and lock a message from other consumers.
 
 It's the responsibility of the consumer to report the processing status of the message. Only when the consumer marks the message as consumed, Service Bus removes the message from the queue. If a failure, timeout, or crash occurs, Service Bus unlocks the message so that other consumers can retrieve it. This way messages aren't lost in transfer. 
 
-A producer might accidentally send the same message twice. For instance, a producer instance fails after sending a message. Another producer replaces the original instance and sends the message again. Azure Service Bus queues provide a [built-in de-duping capability](/azure/service-bus-messaging/duplicate-detection) that detects and removes duplicate messages. There's still a chance that a message is delivered twice. For example, if a consumer fails while processing, the message is returned to the queue and is retrieved by the same or another consumer. The message processing logic in the consumer should be idempotent so that even if the work is repeated, the state of the system isn't changed. For more information about idempotency, see [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns/) on Jonathon Oliver's blog.
+A producer might accidentally send the same message twice. For instance, a producer instance fails after sending a message. Another producer replaces the original instance and sends the message again. Azure Service Bus queues provide a [built-in de-duping capability](https://docs.microsoft.com/azure/service-bus-messaging/duplicate-detection) that detects and removes duplicate messages. There's still a chance that a message is delivered twice. For example, if a consumer fails while processing, the message is returned to the queue and is retrieved by the same or another consumer. The message processing logic in the consumer should be idempotent so that even if the work is repeated, the state of the system isn't changed. For more information about idempotency, see [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns/) on Jonathon Oliver's blog.
 
 #### Message ordering
 If you want consumers to get the messages in the order they are sent, Service Bus queues guarantee first-in-first-out (FIFO) ordered delivery by using sessions. A session can have one or more messages. The messages are correlated with the **SessionId** property. Messages that are part of a session, never expire. A session can be locked to a consumer to prevent its messages from being handled by a different consumer. 
 
-For more information, see [Message Sessions](/azure/service-bus-messaging/message-sessions).
+For more information, see [Message Sessions](https://docs.microsoft.com/azure/service-bus-messaging/message-sessions).
 
 #### Message persistence
 Service bus queues support temporal decoupling. Even when a consumer isn't available or unable to process the message, it remains in the queue.
@@ -112,10 +112,10 @@ Service bus queues support temporal decoupling. Even when a consumer isn't avail
 #### Checkpoint long-running transactions
 Business transactions can run for a long time. Each operation in the transaction can have multiple messages. Use checkpointing to coordinate the workflow and provide resiliency in case a transaction fails. 
 
-Service Bus queues allow checkpointing through the [session state capability](/azure/service-bus-messaging/message-sessions#message-session-state). State information is incrementally recorded in the queue ([**SetState**](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_)) for messages that belong to a session. For example, a consumer can track progress by checking the state ([**GetState**](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)) every now and then. If a consumer fails, another consumer can use state information to determine the last known checkpoint to resume the session.
+Service Bus queues allow checkpointing through the [session state capability](https://docs.microsoft.com/azure/service-bus-messaging/message-sessions#message-session-state). State information is incrementally recorded in the queue ([**SetState**](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_)) for messages that belong to a session. For example, a consumer can track progress by checking the state ([**GetState**](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)) every now and then. If a consumer fails, another consumer can use state information to determine the last known checkpoint to resume the session.
 
 #### Dead-letter queue (DLQ)
-A Service Bus queue has a default subqueue, called the [dead-letter queue (DLQ)](/azure/service-bus-messaging/service-bus-dead-letter-queues) to hold messages that couldn't be delivered or processed. Service Bus or the message processing logic in the consumer can add messages to the DLQ. The DLQ keeps the messages until they are retrieved from the queue. 
+A Service Bus queue has a default subqueue, called the [dead-letter queue (DLQ)](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dead-letter-queues) to hold messages that couldn't be delivered or processed. Service Bus or the message processing logic in the consumer can add messages to the DLQ. The DLQ keeps the messages until they are retrieved from the queue. 
 
 Here are examples when a message can end up being in the DLQ:
 
@@ -133,16 +133,16 @@ Service Bus supports the Publisher-Subscriber pattern through Service Bus topics
 
 This feature provides a way for the producer to broadcast messages to multiple consumers. When a topic receives a message, it's forwarded to all the subscribed consumers. Optionally, a subscription can have filter criteria that allows the consumer to get a subset of messages. Each consumer retrieves messages from a subscription in a similar way to a queue.
 
-For more information, see [Azure Service Bus topics](/azure/service-bus-messaging/service-bus-messaging-overview#topics). 
+For more information, see [Azure Service Bus topics](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview#topics). 
 
 ### Azure Event Grid
-[Azure Event Grid](/azure/event-grid/) is recommended for discrete events. Event Grid follows the Publisher-Subscriber pattern. When event sources trigger events, they are published to [Event grid topics](/azure/event-grid/concepts#topics). Consumers of those events create Event Grid subscriptions by specifying event types and event handler that will process the events. If there are no subscribers, the events are discarded. Each event can have multiple subscriptions. 
+[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) is recommended for discrete events. Event Grid follows the Publisher-Subscriber pattern. When event sources trigger events, they are published to [Event grid topics](https://docs.microsoft.com/azure/event-grid/concepts#topics). Consumers of those events create Event Grid subscriptions by specifying event types and event handler that will process the events. If there are no subscribers, the events are discarded. Each event can have multiple subscriptions. 
 
 #### Push Model
 Event Grid propagates messages to the subscribers in a push model. Suppose you have an event grid subscription with a webhook. When a new event arrives, Event Grid posts the event to the webhook endpoint. 
 
 #### Integrated with Azure
-Choose Event Grid if you want to get notifications about Azure resources. Many Azure services act as [event sources](/azure/event-grid/overview#event-sources) that have built-in Event Grid topics. Event Grid also supports various Azure services that can be configured as [event handlers](/azure/event-grid/overview#event-handlers). It's easy to subscribe to those topics to route events to event handlers of your choice. For example, you can use Event Grid to invoke an Azure Function when a blob storage is created or deleted.
+Choose Event Grid if you want to get notifications about Azure resources. Many Azure services act as [event sources](https://docs.microsoft.com/azure/event-grid/overview#event-sources) that have built-in Event Grid topics. Event Grid also supports various Azure services that can be configured as [event handlers](https://docs.microsoft.com/azure/event-grid/overview#event-handlers). It's easy to subscribe to those topics to route events to event handlers of your choice. For example, you can use Event Grid to invoke an Azure Function when a blob storage is created or deleted.
 
 #### Custom topics
 
@@ -152,24 +152,24 @@ For example, to see the progress of an entire business transaction, you want the
 
 #### Filtered events
 
-You can specify filters in a subscription to instruct Event Grid to route only a subset of events to a specific event handler. The filters are specified in the [subscription schema](/azure/event-grid/subscription-creation-schema). Any event sent to the topic with values that match the filter are automatically forwarded to that subscription. 
+You can specify filters in a subscription to instruct Event Grid to route only a subset of events to a specific event handler. The filters are specified in the [subscription schema](https://docs.microsoft.com/azure/event-grid/subscription-creation-schema). Any event sent to the topic with values that match the filter are automatically forwarded to that subscription. 
 
 For example, content in various formats are uploaded to Blob Storage. Each time a file is added, an event is raised and published to Event Grid. The event subscription might have a filter that only sends events for images so that an event handler can generate thumbnails. 
 
-For more information about filtering, see [Filter events for Event Grid](/azure/event-grid/how-to-filter-events).
+For more information about filtering, see [Filter events for Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
 #### High throughput
-Event Grid can route 10,000,000 events per second per region. The first 100,000 operations per month are free. For cost considerations, see [How much does Event Grid cost?](/azure/event-grid/overview#how-much-does-event-grid-cost)
+Event Grid can route 10,000,000 events per second per region. The first 100,000 operations per month are free. For cost considerations, see [How much does Event Grid cost?](https://docs.microsoft.com/azure/event-grid/overview#how-much-does-event-grid-cost)
 
 #### Resilient delivery
-Even though successful delivery for events isn't as crucial as commands, you might still want some guarantee depending on the type of event. Event Grid offers features that you can enable and customize, such as retry policies, expiration time, and dead lettering. For more information, see [Delivery and retry](/azure/event-grid/delivery-and-retry).
+Even though successful delivery for events isn't as crucial as commands, you might still want some guarantee depending on the type of event. Event Grid offers features that you can enable and customize, such as retry policies, expiration time, and dead lettering. For more information, see [Delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
 
-Event Grid's retry process can help resiliency but it's not fail-safe. In the retry process, Event Grid might deliver the message more than once, skip, or delay some retries if the endpoint is unresponsive for a long time. For more information, see [Retry schedule and duration](/azure/event-grid/delivery-and-retry#retry-schedule-and-duration). 
+Event Grid's retry process can help resiliency but it's not fail-safe. In the retry process, Event Grid might deliver the message more than once, skip, or delay some retries if the endpoint is unresponsive for a long time. For more information, see [Retry schedule and duration](https://docs.microsoft.com/azure/event-grid/delivery-and-retry#retry-schedule-and-duration). 
 
-You can persist undelivered events to a blob storage account by enabling dead-lettering. There's a delay in delivering the message to the blob storage endpoint and if that endpoint is unresponsive, then Event Grid discards the event. For more information, see [Dead letter and retry policies](/azure/event-grid/manage-event-delivery).
+You can persist undelivered events to a blob storage account by enabling dead-lettering. There's a delay in delivering the message to the blob storage endpoint and if that endpoint is unresponsive, then Event Grid discards the event. For more information, see [Dead letter and retry policies](https://docs.microsoft.com/azure/event-grid/manage-event-delivery).
 
 ### Azure Event Hubs
-When working with an event stream, [Azure Event Hubs](/azure/event-hubs/) is the recommended message broker. Essentially, it's a large buffer that's capable of receiving large volumes of data with low latency. The received data can be read quickly through concurrent operations. You can transform the received data by using any real-time analytics provider. Event Hubs also provides the capability to store events in a storage account. 
+When working with an event stream, [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) is the recommended message broker. Essentially, it's a large buffer that's capable of receiving large volumes of data with low latency. The received data can be read quickly through concurrent operations. You can transform the received data by using any real-time analytics provider. Event Hubs also provides the capability to store events in a storage account. 
 
 #### Fast ingestion
 Event Hubs is capable of ingesting millions of events per second. The events are only appended to the stream and are ordered by time. 
@@ -179,7 +179,7 @@ Like Event Grid, Event Hubs also offers Publisher-Subscriber capabilities. A key
 
 Stream processors are subscribers that pull data from Event Hubs for the purposes of transformation and statistical analysis. Use [Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics) and [Apache Spark](https://spark.apache.org/) for complex processing such as aggregation over time windows or anomaly detection. 
 
-If you want to act on each event per partition, you can pull the data by using [Event Processing Host](/azure/event-hubs/event-hubs-event-processor-host) or by using built in connector such as [Logic Apps](/azure/connectors/connectors-create-api-azure-event-hubs) to provide the transformation logic. Another option is to use [Azure Functions](/azure/azure-functions/).
+If you want to act on each event per partition, you can pull the data by using [Event Processing Host](https://docs.microsoft.com/azure/event-hubs/event-hubs-event-processor-host) or by using built in connector such as [Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-create-api-azure-event-hubs) to provide the transformation logic. Another option is to use [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
 
 #### Partitioning
 A partition is a portion of the event stream. The events are divided by using a partition key. For example, several IoT devices send device data to an event hub. The partition key is the device identifier. As events are ingested, Event Hubs moves them to separate partitions. Within each partition, all events are ordered by time.  
@@ -190,21 +190,21 @@ Instances of the same consumer make up a single consumer group. Multiple consume
 
 Event Hubs supports the Publisher-Subscriber pattern by allowing multiple consumer groups. Each consumer group is a subscriber. 
 
-For more information about Event Hub partitioning, see [Partitions](/azure/event-hubs/event-hubs-features#partitions).
+For more information about Event Hub partitioning, see [Partitions](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions).
 
 #### Event Hubs Capture
-The Capture feature allows you to store the event stream to an [Azure Blob storage](/azure/storage/blobs/storage-blobs-overview) or [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction). This way of storing events is reliable because even if the storage account isn't available, Capture keeps your data for a period, and then writes to the storage after it's available.
+The Capture feature allows you to store the event stream to an [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) or [Data Lake Storage](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction). This way of storing events is reliable because even if the storage account isn't available, Capture keeps your data for a period, and then writes to the storage after it's available.
 
 > Storage services can also offer additional features for analyzing events. For example, by taking advantage of the access tiers of a blob storage account, you can store events in a hot tier for data that needs frequent access. You might use that data for visualization. Alternately, you can store data in the archive tier and retrieve it occasionally for auditing purposes. 
 
 Capture stores _all_ events ingested by Event Hubs and is useful for [batch processing](/azure/architecture/data-guide/big-data/batch-processing). You can generate reports on the data by using a MapReduce function. Captured data can also serve as the source of truth. If certain facts were missed while aggregating the data, you can refer to the captured data.  
 
-For details about this feature, see [Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage](/azure/event-hubs/event-hubs-capture-overview).
+For details about this feature, see [Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).
 
 #### Support for Apache Kafka clients
 Event Hubs provides an endpoint for [Apache Kafka](https://kafka.apache.org/) clients. Existing clients can update their configuration to point to the endpoint and start sending events to Event Hubs. No code changes are required.  
 
-For more information, see [Event Hubs for Apache Kafka](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview).
+For more information, see [Event Hubs for Apache Kafka](https://docs.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview).
 
 
 ## Crossover scenarios
@@ -214,7 +214,7 @@ Combining services can increase the efficiency of your messaging system. For ins
 
 ![Azure Service Bus to Event Grid integration](./images/crossover1.png)
 
-For details about connecting Service Bus to Event Grid, see [Azure Service Bus to Event Grid integration overview](/azure/service-bus-messaging/service-bus-to-event-grid-integration-concept).
+For details about connecting Service Bus to Event Grid, see [Azure Service Bus to Event Grid integration overview](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-to-event-grid-integration-concept).
 
 The [Enterprise integration on Azure using message queues and events](/azure/architecture/reference-architectures/enterprise-integration/queues-events) reference architecture shows an implementation of Service Bus to Event Grid integration.
 

@@ -29,13 +29,13 @@ The architecture has the following components.
 
 - **Resource group**. [Resource groups][resource-manager-overview] are used to group Azure resources so they can be managed by lifetime, owner, or other criteria.
 
-- **Availability zones**. [Availability zones](/azure/availability-zones/az-overview) are physical locations within an Azure region. Each zone consists of one or more datacenters with independent power, cooling, and networking. By placing VMs across zones, the application becomes resilient to failures within a zone.
+- **Availability zones**. [Availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview) are physical locations within an Azure region. Each zone consists of one or more datacenters with independent power, cooling, and networking. By placing VMs across zones, the application becomes resilient to failures within a zone.
 
 ### Networking and load balancing
 
 - **Virtual network and subnets**. Every Azure VM is deployed into a virtual network that can be segmented into subnets. Create a separate subnet for each tier.
 
-- **Application gateway**. [Application Gateway](/azure/application-gateway/) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Application Gateway also provides a [web application firewall](/azure/application-gateway/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities.
+- **Application gateway**. [Application Gateway](https://docs.microsoft.com/azure/application-gateway/) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Application Gateway also provides a [web application firewall](https://docs.microsoft.com/azure/application-gateway/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities.
 
 - **Load balancers**. Use [Azure Standard Load Balancer][load-balancer] to distribute network traffic from the web tier to the business tier, and from the business tier to SQL Server.
 
@@ -71,7 +71,7 @@ Design subnets with functionality and security requirements in mind. All VMs wit
 
 ### Application Gateway
 
-For information about configuring Application Gateway, see [Application Gateway configuration overview](/azure/application-gateway/configuration-overview).
+For information about configuring Application Gateway, see [Application Gateway configuration overview](https://docs.microsoft.com/azure/application-gateway/configuration-overview).
 
 ### Load balancers
 
@@ -121,7 +121,7 @@ There are two basic ways to configure VMs deployed in a scale set:
 
 - Use extensions to configure the VM after it's deployed. With this approach, new VM instances may take longer to start up than a VM with no extensions.
 
-- Deploy a [managed disk](/azure/storage/storage-managed-disks-overview) with a custom disk image. This option may be quicker to deploy. However, it requires you to keep the image up-to-date.
+- Deploy a [managed disk](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview) with a custom disk image. This option may be quicker to deploy. However, it requires you to keep the image up-to-date.
 
 For more information, see [Design considerations for scale sets][vmss-design].
 
@@ -155,9 +155,9 @@ If you deploy this architecture to a region that does not support availability z
 
 When deploying to availability zones, use the Standard SKU of Azure Load Balancer and the v2 SKU of Application Gateway. These SKUs support cross-zone redundancy. For more information, see:
 
-- [Standard Load Balancer and Availability Zones](/azure/load-balancer/load-balancer-standard-availability-zones)
+- [Standard Load Balancer and Availability Zones](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
 - [Autoscaling and Zone-redundant Application Gateway v2][app-gw-scaling]
-- [How does Application Gateway support high availability and scalability?](/azure/application-gateway/application-gateway-faq#how-does-application-gateway-support-high-availability-and-scalability)
+- [How does Application Gateway support high availability and scalability?](https://docs.microsoft.com/azure/application-gateway/application-gateway-faq#how-does-application-gateway-support-high-availability-and-scalability)
 
 A single Application Gateway deployment can run multiple instances of the gateway. For production workloads, run at least two instances.
 
@@ -178,8 +178,8 @@ HTTP probes send an HTTP GET request to a specified path and listen for an HTTP 
 
 For more information about health probes, see:
 
-- [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview)
-- [Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
+- [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
+- [Application Gateway health monitoring overview](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview)
 
 For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md).
 
@@ -217,7 +217,7 @@ For incoming Internet traffic, the load balancer rules define which traffic can 
 
 A deployment for this reference architecture is available on [GitHub][github-folder].
 
-If you specify a region that supports availability zones, the VMs are deployed into availability zones. Otherwise, the VMs are deployed into availability sets. For a list of regions that support availability zones, see [Services support by region](/azure/availability-zones/az-overview#services-support-by-region).
+If you specify a region that supports availability zones, the VMs are deployed into availability zones. Otherwise, the VMs are deployed into availability sets. For a list of regions that support availability zones, see [Services support by region](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region).
 
 ### Prerequisites
 
@@ -239,7 +239,7 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
 
 ## Next steps
 
-- [Microsoft Learn module: Tour the N-tier architecture style](/learn/modules/n-tier-architecture/)
+- [Microsoft Learn module: Tour the N-tier architecture style](https://docs.microsoft.com/learn/modules/n-tier-architecture/)
 
 <!-- links -->
 

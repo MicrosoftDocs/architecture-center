@@ -48,21 +48,21 @@ Virtual network peering and VPN gateways both support the following connection t
 
 For more information, see the following articles:
 
-- [Create a virtual network peering - Resource Manager, different subscriptions](/azure/virtual-network/create-peering-different-subscriptions)
-- [Create a virtual network peering - different deployment models, same subscription](/azure/virtual-network/create-peering-different-deployment-models)
-- [Configure a VNet-to-VNet VPN gateway connection by using the Azure portal](/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal)
-- [Connect virtual networks from different deployment models using the portal](/azure/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal)
-- [VPN Gateway FAQ](/azure/vpn-gateway/vpn-gateway-vpn-faq)
+- [Create a virtual network peering - Resource Manager, different subscriptions](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions)
+- [Create a virtual network peering - different deployment models, same subscription](https://docs.microsoft.com/azure/virtual-network/create-peering-different-deployment-models)
+- [Configure a VNet-to-VNet VPN gateway connection by using the Azure portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal)
+- [Connect virtual networks from different deployment models using the portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal)
+- [VPN Gateway FAQ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq)
 
 
 ## Comparison of virtual network peering and VPN Gateway
 
 | Item | Virtual network peering | VPN Gateway |
 |------|--------------|--------------|
-| Limits | Up to 500 virtual network peerings per virtual network (see [Networking limits](/azure/azure-subscription-service-limits#networking-limits)). | One VPN gateway per virtual network. The maximum number of tunnels per gateway depends on the [gateway SKU](/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). |
+| Limits | Up to 500 virtual network peerings per virtual network (see [Networking limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)). | One VPN gateway per virtual network. The maximum number of tunnels per gateway depends on the [gateway SKU](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). |
 | Pricing model | [Ingress/Egress](https://azure.microsoft.com/pricing/details/virtual-network/) | [Hourly + Egress](https://azure.microsoft.com/pricing/details/vpn-gateway/) |
-| Encryption | Software-level encryption is recommended. | Custom IPsec/IKE policy can be applied to new or existing connections. See [About cryptographic requirements and Azure VPN gateways](/azure/vpn-gateway/vpn-gateway-about-compliance-crypto). |
-| Bandwidth limitations | No bandwidth limitations. | Varies based on SKU. See [Gateway SKUs by tunnel, connection, and throughput](/azure/vpn-gateway/vpn-gateway-about-vpngateways#benchmark). |
+| Encryption | Software-level encryption is recommended. | Custom IPsec/IKE policy can be applied to new or existing connections. See [About cryptographic requirements and Azure VPN gateways](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-compliance-crypto). |
+| Bandwidth limitations | No bandwidth limitations. | Varies based on SKU. See [Gateway SKUs by tunnel, connection, and throughput](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#benchmark). |
 | Private? | Yes. Routed through Microsoft backbone and private. No public internet involved. | Public IP involved. |
 | Transitive relationship | Peering connections are non-transitive. Transitive networking can be achieved using NVAs or gateways in the hub virtual network. See [Hub-spoke network topology](./hub-spoke.md) for an example. | If virtual networks are connected via VPN gateways and BGP is enabled in the virtual network connections, transitivity works. |
 | Initial setup time | Fast | ~30 minutes | 
@@ -70,5 +70,5 @@ For more information, see the following articles:
 
 ## Next steps
 
-- [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm)
+- [Plan virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)
 - [Choose a solution for connecting an on-premises network to Azure](./index.md)

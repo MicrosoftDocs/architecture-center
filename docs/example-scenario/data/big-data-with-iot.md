@@ -57,23 +57,23 @@ The data flows through the solution as follows:
 
 ### Components
 
-- [IoT Hub](/azure/iot-hub/about-iot-hub) acts as a central message hub for secure bi-directional communication with per-device identity between the cloud platform and the construction equipment and other site elements. IoT Hub can rapidly collect data for each device for ingestion into the data analytics pipeline.
-- [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) is an event-processing engine that can analyze high volumes of data streaming from devices and other data sources. It also supports extracting information from data streams to identify patterns and relationships. In this scenario, Stream Analytics ingests and analyzes data from IoT devices and stores the results in Azure SQL Database.
-- [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) contains the results of analyzed data from IoT devices and meters, which can be viewed by analysts and users via an Azure-based Web application.
-- [Blob storage](/azure/storage/blobs/storage-blobs-introduction) stores image data gathered from the IoT hub devices. The image data can be viewed via the web application.
-- [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) controls the distribution of user traffic for service endpoints in different Azure regions.
-- [Load Balancer](/azure/load-balancer/load-balancer-overview) distributes data submissions from construction equipment devices across the VM-based web services to provide high availability.
-- [Azure Virtual Machines](/azure/virtual-machines) host the web services that receive and ingest the construction results data into the Apache Cassandra database.
+- [IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) acts as a central message hub for secure bi-directional communication with per-device identity between the cloud platform and the construction equipment and other site elements. IoT Hub can rapidly collect data for each device for ingestion into the data analytics pipeline.
+- [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction) is an event-processing engine that can analyze high volumes of data streaming from devices and other data sources. It also supports extracting information from data streams to identify patterns and relationships. In this scenario, Stream Analytics ingests and analyzes data from IoT devices and stores the results in Azure SQL Database.
+- [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) contains the results of analyzed data from IoT devices and meters, which can be viewed by analysts and users via an Azure-based Web application.
+- [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) stores image data gathered from the IoT hub devices. The image data can be viewed via the web application.
+- [Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) controls the distribution of user traffic for service endpoints in different Azure regions.
+- [Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) distributes data submissions from construction equipment devices across the VM-based web services to provide high availability.
+- [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines) host the web services that receive and ingest the construction results data into the Apache Cassandra database.
 - [Apache Cassandra](https://cassandra.apache.org) is a distributed NoSQL database used to store construction data for later processing by Apache Spark.
-- [Web Apps](/azure/app-service/app-service-web-overview) hosts the end-user web application, which can be used to query and view source data and images. Users can also initiate batch jobs in Apache Spark via the application.
-- [Apache Spark on HDInsight](/azure/hdinsight/spark/apache-spark-overview) supports in-memory processing to boost the performance of big-data analytic applications. In this scenario, Spark is used to run complex algorithms over the data stored in Apache Cassandra.
+- [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) hosts the end-user web application, which can be used to query and view source data and images. Users can also initiate batch jobs in Apache Spark via the application.
+- [Apache Spark on HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-overview) supports in-memory processing to boost the performance of big-data analytic applications. In this scenario, Spark is used to run complex algorithms over the data stored in Apache Cassandra.
 
 ### Alternatives
 
 - [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) is an alternative NoSQL database technology. Cosmos DB provides [multi-master support at global scale](https://docs.microsoft.com/azure/cosmos-db/multi-region-writers) with [multiple well-defined consistency levels](https://docs.microsoft.com/azure/cosmos-db/consistency-levels) to meet various customer requirements. It also supports the [Cassandra API](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction).
-- [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for Azure. It is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive collaborative workspace.
-- [Data Lake Storage](/azure/storage/data-lake-storage) is an alternative to Blob storage. For this scenario, Data Lake Storage was not available in the targeted region.
-- [Web Apps](/azure/app-service) could also be used to host the web services for ingesting construction results data.
+- [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for Azure. It is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive collaborative workspace.
+- [Data Lake Storage](https://docs.microsoft.com/azure/storage/data-lake-storage) is an alternative to Blob storage. For this scenario, Data Lake Storage was not available in the targeted region.
+- [Web Apps](https://docs.microsoft.com/azure/app-service) could also be used to host the web services for ingesting construction results data.
 - Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](/azure/architecture/data-guide/technology-choices/real-time-ingestion) in the [Azure Data Architecture Guide](/azure/architecture/data-guide).
 
 ## Considerations

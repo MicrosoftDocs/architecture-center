@@ -54,7 +54,7 @@ For an example of using WS-Federation with ASP.NET 4, see the [active-directory-
 
 ## Limitations
 
-By default, the relying party application receives only a fixed set of claims available in the id_token, shown in the following table. With AD FS 2016, you can customize the id_token in OpenID Connect scenarios. For more information, see [Custom ID Tokens in AD FS](/windows-server/identity/ad-fs/development/customize-id-token-ad-fs-2016).
+By default, the relying party application receives only a fixed set of claims available in the id_token, shown in the following table. With AD FS 2016, you can customize the id_token in OpenID Connect scenarios. For more information, see [Custom ID Tokens in AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/development/customize-id-token-ad-fs-2016).
 
 | Claim | Description |
 | --- | --- |

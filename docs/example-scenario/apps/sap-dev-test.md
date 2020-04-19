@@ -45,11 +45,11 @@ This scenario demonstrates provisioning a single SAP system database and SAP app
 
 ### Components
 
-- [Virtual networks](/azure/virtual-network/virtual-networks-overview) are the basis of network communication within Azure.
-- [Azure Virtual Machines](/azure/virtual-machines/windows/overview) provide on-demand, high-scale, secure, virtualized infrastructure using Windows or Linux servers.
-- [ExpressRoute](/azure/expressroute/expressroute-introduction) extends your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.
-- [Network security groups](/azure/virtual-network/security-overview) limit network traffic to specific resources in a virtual network. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol.
-- [Resource groups](/azure/azure-resource-manager/resource-group-overview#resource-groups) act as logical containers for Azure resources.
+- [Virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) are the basis of network communication within Azure.
+- [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/overview) provide on-demand, high-scale, secure, virtualized infrastructure using Windows or Linux servers.
+- [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) extends your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.
+- [Network security groups](https://docs.microsoft.com/azure/virtual-network/security-overview) limit network traffic to specific resources in a virtual network. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol.
+- [Resource groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) act as logical containers for Azure resources.
 
 ## Considerations
 

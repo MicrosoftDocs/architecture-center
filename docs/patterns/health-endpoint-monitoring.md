@@ -197,7 +197,7 @@ In addition to routing requests, Traffic Manager pings a URL, port, and relative
 
 However, Traffic Manager will only wait ten seconds to receive a response from the monitoring URL. Therefore, you should ensure that your health verification code executes in this time, allowing for network latency for the round trip from Traffic Manager to your application and back again.
 
-> Read more information about using [Traffic Manager to monitor your applications](/azure/traffic-manager/). Traffic Manager is also discussed in [Multiple Datacenter Deployment Guidance](https://msdn.microsoft.com/library/dn589779.aspx).
+> Read more information about using [Traffic Manager to monitor your applications](https://docs.microsoft.com/azure/traffic-manager/). Traffic Manager is also discussed in [Multiple Datacenter Deployment Guidance](https://msdn.microsoft.com/library/dn589779.aspx).
 
 ## Related guidance
 
