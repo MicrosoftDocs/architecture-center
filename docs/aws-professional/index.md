@@ -268,9 +268,9 @@ For data that is infrequently accessed but must be available immediately when ac
 
 The Azure equivalents of the two Elastic Load Balancing services are:
 
-- [Load Balancer](https://azure.microsoft.com/documentation/articles/load-balancer-overview) - provides the same capabilities as the AWS Classic Load Balancer, allowing you to distribute traffic for multiple VMs at the network level. It also provides failover capability.
+- [Load Balancer](https://azure.microsoft.com/documentation/articles/load-balancer-overview): provides the same capabilities as the AWS Classic Load Balancer, allowing you to distribute traffic for multiple VMs at the network level. It also provides failover capability.
 
-- [Application Gateway](https://azure.microsoft.com/documentation/articles/application-gateway-introduction) - offers application-level rule-based routing comparable to the AWS Application Load Balancer.
+- [Application Gateway](https://azure.microsoft.com/documentation/articles/application-gateway-introduction): offers application-level rule-based routing comparable to the AWS Application Load Balancer.
 
 #### Route 53, Azure DNS, and Azure Traffic Manager
 
@@ -278,9 +278,7 @@ In AWS, Route 53 provides both DNS name management and DNS-level traffic routing
 
 - [Azure DNS](https://azure.microsoft.com/documentation/services/dns) provides domain and DNS management.
 
-- [Traffic
-    Manager][traffic-manager] provides DNS level traffic routing, load balancing, and failover
-    capabilities.
+- [Traffic Manager][traffic-manager] provides DNS level traffic routing, load balancing, and failover capabilities.
 
 #### Direct Connect and Azure ExpressRoute
 
@@ -289,14 +287,11 @@ Azure provides similar site-to-site dedicated connections through its
 
 #### See also
 
-- [Create a virtual network using the Azure
-    portal](https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal)
+- [Create a virtual network using the Azure portal](https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal)
 
-- [Plan and design Azure Virtual
-    Networks](https://azure.microsoft.com/documentation/articles/virtual-network-vnet-plan-design-arm)
+- [Plan and design Azure Virtual Networks](https://azure.microsoft.com/documentation/articles/virtual-network-vnet-plan-design-arm)
 
-- [Azure Network Security Best
-    Practices](https://azure.microsoft.com/documentation/articles/azure-security-network-security-best-practices)
+- [Azure Network Security Best Practices](https://azure.microsoft.com/documentation/articles/azure-security-network-security-best-practices)
 
 ### Database services
 
@@ -308,8 +303,7 @@ Azure provides several different relational database services that are the equiv
 - [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview)
 - [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview)
 
-Other database engines such as [SQL
-Server](https://azure.microsoft.com/services/virtual-machines/sql-server), [Oracle](https://azure.microsoft.com/campaigns/oracle), and [MySQL](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-classic-mysql-2008r2) can be deployed using Azure VM Instances.
+Other database engines such as [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server), [Oracle](https://azure.microsoft.com/campaigns/oracle), and [MySQL](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-classic-mysql-2008r2) can be deployed using Azure VM Instances.
 
 Costs for AWS RDS are determined by the amount of hardware resources that your instance uses, like CPU, RAM, storage, and network bandwidth. In the Azure database services, cost depends on your database size, concurrent connections, and throughput levels.
 
@@ -329,20 +323,13 @@ Costs for AWS RDS are determined by the amount of hardware resources that your i
 
 Azure splits up directory services into the following offerings:
 
-- [Azure Active
-    Directory](https://azure.microsoft.com/documentation/articles/active-directory-whatis) - cloud-based directory and identity management service.
+- [Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-whatis): cloud-based directory and identity management service.
 
-- [Azure Active Directory
-    B2B](https://azure.microsoft.com/documentation/articles/active-directory-b2b-collaboration-overview) - enables access to your corporate applications from partner-managed
-    identities.
+- [Azure Active Directory B2B](https://azure.microsoft.com/documentation/articles/active-directory-b2b-collaboration-overview): enables access to your corporate applications from partner-managed identities.
 
-- [Azure Active Directory
-    B2C](https://azure.microsoft.com/documentation/articles/active-directory-b2c-overview) - service offering support for single sign-on and user management for
-    consumer facing applications.
+- [Azure Active Directory B2C](https://azure.microsoft.com/documentation/articles/active-directory-b2c-overview): service offering support for single sign-on and user management for consumer-facing applications.
 
-- [Azure Active Directory Domain
-    Services](https://azure.microsoft.com/documentation/articles/active-directory-ds-overview) - hosted domain controller service, allowing Active Directory compatible
-    domain join and user management functionality.
+- [Azure Active Directory Domain Services](https://azure.microsoft.com/documentation/articles/active-directory-ds-overview): hosted domain controller service, allowing Active Directory compatible domain join and user management functionality.
 
 #### Web application firewall
 
@@ -384,48 +371,37 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 [The Cortana Intelligence Suite](https://azure.microsoft.com/suites/cortana-intelligence-suite) is Azure's package of products and services designed to capture, organize, analyze, and visualize large amounts of data. The Cortana suite consists of the following services:
 
-- [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight) - managed Apache distribution that includes Hadoop, Spark, Storm, or HBase.
+- [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight): managed Apache distribution that includes Hadoop, Spark, Storm, or HBase.
 
-- [Data
-    Factory](https://azure.microsoft.com/documentation/services/data-factory) - provides data orchestration and data pipeline functionality.
+- [Data Factory](https://azure.microsoft.com/documentation/services/data-factory): provides data orchestration and data pipeline functionality.
 
-- [SQL Data
-    Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse) - large-scale relational data storage.
+- [SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse): large-scale relational data storage.
 
-- [Data Lake
-    Store](https://azure.microsoft.com/documentation/services/data-lake-store) - large-scale storage optimized for big data analytics workloads.
+- [Data Lake Store](https://azure.microsoft.com/documentation/services/data-lake-store): large-scale storage optimized for big data analytics workloads.
 
-- [Machine
-    Learning](https://azure.microsoft.com/documentation/services/machine-learning) - used to build and apply predictive analytics on data.
+- [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning): used to build and apply predictive analytics on data.
 
-- [Stream
-    Analytics](https://azure.microsoft.com/documentation/services/stream-analytics) - real-time data analysis.
+- [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics): real-time data analysis.
 
-- [Data Lake
-    Analytics](https://azure.microsoft.com/documentation/articles/data-lake-analytics-overview) - large-scale analytics service optimized to work with Data Lake Store
+- [Data Lake Analytics](https://azure.microsoft.com/documentation/articles/data-lake-analytics-overview): large-scale analytics service optimized to work with Data Lake Store
 
-- [Power BI](https://powerbi.microsoft.com) - used to power data
-    visualization.
+- [Power BI](https://powerbi.microsoft.com): used to power data visualization.
 
 #### See also
 
 - [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com)
 
-- [Understanding Microsoft big data
-    solutions](https://msdn.microsoft.com/library/dn749804.aspx)
+- [Understanding Microsoft big data solutions](https://msdn.microsoft.com/library/dn749804.aspx)
 
-- [Azure Data Lake and Azure HDInsight
-    Blog](https://blogs.msdn.microsoft.com/azuredatalake)
+- [Azure Data Lake and Azure HDInsight Blog](https://blogs.msdn.microsoft.com/azuredatalake)
 
 ### Internet of Things
 
 #### See also
 
-- [Get started with Azure IoT
-    Hub](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted)
+- [Get started with Azure IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted)
 
-- [Comparison of IoT Hub and Event
-    Hubs](https://azure.microsoft.com/documentation/articles/iot-hub-compare-event-hubs)
+- [Comparison of IoT Hub and Event Hubs](https://azure.microsoft.com/documentation/articles/iot-hub-compare-event-hubs)
 
 ### Mobile services
 
@@ -435,37 +411,29 @@ Notification Hubs do not support sending SMS or email messages, so third-party s
 
 #### See also
 
-- [Create an Android
-    app](https://azure.microsoft.com/documentation/articles/app-service-mobile-android-get-started)
+- [Create an Android app](https://azure.microsoft.com/documentation/articles/app-service-mobile-android-get-started)
 
-- [Authentication and Authorization in Azure Mobile
-    Apps](https://azure.microsoft.com/documentation/articles/app-service-mobile-auth)
+- [Authentication and Authorization in Azure Mobile Apps](https://azure.microsoft.com/documentation/articles/app-service-mobile-auth)
 
-- [Sending push notifications with Azure Notification
-    Hubs](https://azure.microsoft.com/documentation/articles/notification-hubs-android-push-notification-google-fcm-get-started)
+- [Sending push notifications with Azure Notification Hubs](https://azure.microsoft.com/documentation/articles/notification-hubs-android-push-notification-google-fcm-get-started)
 
 ### Management and monitoring
 
 #### See also
 
-- [Monitoring and diagnostics
-    guidance](https://azure.microsoft.com/documentation/articles/best-practices-monitoring)
+- [Monitoring and diagnostics guidance](https://azure.microsoft.com/documentation/articles/best-practices-monitoring)
 
-- [Best practices for creating Azure Resource Manager
-    templates](https://azure.microsoft.com/documentation/articles/resource-manager-template-best-practices)
+- [Best practices for creating Azure Resource Manager templates](https://azure.microsoft.com/documentation/articles/resource-manager-template-best-practices)
 
-- [Azure Resource Manager Quickstart
-    templates](https://azure.microsoft.com/documentation/templates)
+- [Azure Resource Manager Quickstart templates](https://azure.microsoft.com/documentation/templates)
 
 ## Next steps
 
 - [Get started with Azure](https://azure.microsoft.com/get-started)
 
-- [Azure solution
-    architectures](https://azure.microsoft.com/solutions/architecture)
+- [Azure solution architectures](https://azure.microsoft.com/solutions/architecture)
 
-- [Azure Reference
-    Architectures](https://azure.microsoft.com/documentation/articles/guidance-architecture)
+- [Azure Reference Architectures](https://azure.microsoft.com/documentation/articles/guidance-architecture)
 
 <!-- links -->
 

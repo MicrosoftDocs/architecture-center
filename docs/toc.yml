@@ -666,7 +666,7 @@ items:
         href: solution-ideas/articles/interactive-querying-with-hdinsight.md
       - name: Loan charge-off prediction with HDInsight Spark
         href: solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.md
-      - name: Loan charge-off  prediction with SQL Server
+      - name: Loan charge-off prediction with SQL Server
         href: solution-ideas/articles/loan-chargeoff-prediction-with-sql-server.md
       - name: Loan credit risk modeling
         href: solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling.md

@@ -80,7 +80,7 @@ SMP systems are characterized by a single instance of a relational database mana
 
 MPP systems can be scaled out by adding more compute nodes (which have their own CPU, memory, and I/O subsystems). There are physical limitations to scaling up a server, at which point scaling out is more desirable, depending on the workload. However, the differences in querying, modeling, and data partitioning mean that MPP solutions require a different skill set.
 
-When deciding which SMP solution to use, see [A closer look at Azure SQL Database and SQL Server on Azure VMs](/azure/sql-database/sql-database-paas-vs-sql-server-iaas#business-motivations-for-choosing-databases-managed-instances-or-sql-virtual-machines).
+When deciding which SMP solution to use, see [A closer look at Azure SQL Database and SQL Server on Azure VMs](https://docs.microsoft.com/azure/sql-database/sql-database-paas-vs-sql-server-iaas#business-motivations-for-choosing-databases-managed-instances-or-sql-virtual-machines).
 
 Azure Synapse (formerly Azure SQL Data Warehouse) can also be used for small and medium datasets, where the workload is compute and memory intensive. Read more about Azure Synapse patterns and common scenarios:
 
@@ -114,11 +114,11 @@ To narrow the choices, start by answering these questions:
 
 - Do you need to support a large number of concurrent users and connections? The ability to support a number of concurrent users/connections depends on several factors.
 
-  - For Azure SQL Database, refer to the [documented resource limits](/azure/sql-database/sql-database-resource-limits) based on your service tier.
+  - For Azure SQL Database, refer to the [documented resource limits](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits) based on your service tier.
   
   - SQL Server allows a maximum of 32,767 user connections. When running on a VM, performance will depend on the VM size and other factors.
 
-  - Azure Synapse has limits on concurrent queries and concurrent connections. For more information, see [Concurrency and workload management in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-develop-concurrency). Consider using complementary services, such as [Azure Analysis Services](/azure/analysis-services/analysis-services-overview), to overcome limits in Azure Synapse.
+  - Azure Synapse has limits on concurrent queries and concurrent connections. For more information, see [Concurrency and workload management in Azure Synapse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-concurrency). Consider using complementary services, such as [Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview), to overcome limits in Azure Synapse.
 
 - What sort of workload do you have? In general, MPP-based warehouse solutions are best suited for analytical, batch-oriented workloads. If your workloads are transactional by nature, with many small read/write operations or multiple row-by-row operations, consider using one of the SMP options. One exception to this guideline is when using stream processing on an HDInsight cluster, such as Spark Streaming, and storing the data within a Hive table.
 
@@ -149,7 +149,7 @@ The following tables summarize the key differences in capabilities.
 
 [3] With Azure Synapse, you can restore a database to any available restore point within the last seven days. Snapshots start every four to eight hours and are available for seven days. When a snapshot is older than seven days, it expires and its restore point is no longer available.
 
-[4] Consider using an [external Hive metastore](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#metastore-settings) that can be backed up and restored as needed. Standard backup and restore options that apply to Blob Storage or Data Lake Storage can be used for the data, or third-party HDInsight backup and restore solutions, such as [Imanis Data](https://azure.microsoft.com/blog/imanis-data-cloud-migration-backup-for-your-big-data-applications-on-azure-hdinsight) can be used for greater flexibility and ease of use.
+[4] Consider using an [external Hive metastore](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#metastore-settings) that can be backed up and restored as needed. Standard backup and restore options that apply to Blob Storage or Data Lake Storage can be used for the data, or third-party HDInsight backup and restore solutions, such as [Imanis Data](https://azure.microsoft.com/blog/imanis-data-cloud-migration-backup-for-your-big-data-applications-on-azure-hdinsight) can be used for greater flexibility and ease of use.
 
 ### Scalability capabilities
 
@@ -162,7 +162,7 @@ The following tables summarize the key differences in capabilities.
 | Dynamic scalability | Yes | No | Yes <sup>1</sup> | No | No |
 | Supports in-memory caching of data | Yes |  Yes | Yes | Yes | Yes |
 
-[1] Azure Synapse allows you to scale up or down by adjusting the number of data warehouse units (DWUs). See [Manage compute power in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview).
+[1] Azure Synapse allows you to scale up or down by adjusting the number of data warehouse units (DWUs). See [Manage compute power in Azure Synapse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview).
 
 <!-- markdownlint-enable MD033 -->
 
@@ -182,18 +182,18 @@ The following tables summarize the key differences in capabilities.
 
 <!-- markdownlint-enable MD033 -->
 
-[1] Requires using a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
+[1] Requires using a [domain-joined HDInsight cluster](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
 
 [2] Requires using Transparent Data Encryption (TDE) to encrypt and decrypt your data at rest.
 
-[3] Supported when [used within an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).
+[3] Supported when [used within an Azure Virtual Network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).
 
 Read more about securing your data warehouse:
 
-- [Securing your SQL Database](/azure/sql-database/sql-database-security-overview#network-security)
+- [Securing your SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview#network-security)
 
-- [Secure a database in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security)
+- [Secure a database in Azure Synapse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security)
 
-- [Extend Azure HDInsight using an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
+- [Extend Azure HDInsight using an Azure Virtual Network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
 
-- [Enterprise-level Hadoop security with domain-joined HDInsight clusters](/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
+- [Enterprise-level Hadoop security with domain-joined HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)

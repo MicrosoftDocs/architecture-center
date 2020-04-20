@@ -137,7 +137,7 @@ az group deployment create -g <resource-group-name> \
 
 ## Next steps
 
-* Use objects instead of scalar values as template parameters. See [Use an object as a parameter in an Azure Resource Manager template](./objects-as-parameters.md)
+- Use objects instead of scalar values as template parameters. See [Use an object as a parameter in an Azure Resource Manager template](./objects-as-parameters.md)
 
 <!-- links -->
 [azure-resource-manager-condition]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#resources

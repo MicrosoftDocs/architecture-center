@@ -21,11 +21,11 @@ To activate resources on demand, deploy solutions rapidly, minimize human error,
 
 The most reliable deployment processes are automated and *idempotent* &mdash; that is, repeatable to produce the same results.
 
-- To automate provisioning of Azure resources, you can use [Terraform](/azure/virtual-machines/windows/infrastructure-automation#terraform),
-    [Ansible](/azure/virtual-machines/windows/infrastructure-automation#ansible), [Chef](/azure/virtual-machines/windows/infrastructure-automation#chef), [Puppet](/azure/virtual-machines/windows/infrastructure-automation#puppet),
-    [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure), or [Azure Resource Manager templates](/azure/azure-resource-manager/template-deployment-overview).
-- To configure VMs, you can use [cloud-init](/azure/virtual-machines/windows/infrastructure-automation#cloud-init) (for Linux VMs) or [Azure Automation State Configuration](/azure/automation/automation-dsc-overview) (DSC).
-- To automate application deployment, you can use [Azure DevOps Services](/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services), [Jenkins](/azure/virtual-machines/windows/infrastructure-automation#jenkins), or other CI/CD solutions.
+- To automate provisioning of Azure resources, you can use [Terraform](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#terraform),
+    [Ansible](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#ansible), [Chef](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#chef), [Puppet](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#puppet),
+    [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), [Azure CLI](https://docs.microsoft.com/cli/azure), or [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview).
+- To configure VMs, you can use [cloud-init](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#cloud-init) (for Linux VMs) or [Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-overview) (DSC).
+- To automate application deployment, you can use [Azure DevOps Services](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services), [Jenkins](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#jenkins), or other CI/CD solutions.
 
 As a best practice, create a repository of categorized automation scripts for quick access, documented with explanations of parameters and examples of script use. Keep this documentation in sync with your Azure deployments, and designate a primary person to manage the repository.
 
@@ -35,8 +35,8 @@ Automation scripts can also activate resources on demand for disaster recovery.
 
 This practice, called *infrastructure as code,* may use a declarative approach or an imperative approach (or a combination of both).
 
-- [Resource Manager templates](/azure/azure-resource-manager/template-deployment-overview) are an example of a declarative approach.
-- [PowerShell](/powershell/azure/overview) scripts are an example of an imperative approach.
+- [Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) are an example of a declarative approach.
+- [PowerShell](https://docs.microsoft.com/powershell/azure/overview) scripts are an example of an imperative approach.
 
 ### Practice immutable infrastructure
 
@@ -64,7 +64,7 @@ Deployment to various stages and running tests/validations at each stage before 
 
 With good use of staging and production environments, you can push updates to the production environment in a highly controlled way and minimize disruption from unanticipated deployment issues.
 
-- [*Blue-green deployment*](https://martinfowler.com/bliki/BlueGreenDeployment.html) involves deploying an update into a production environment that's separate from the live application. After you validate the deployment, switch the traffic routing to the updated version. One way to do this is to use the [staging slots](/azure/app-service/web-sites-staged-publishing) available in Azure App Service to stage a deployment before moving it to production.
+- [*Blue-green deployment*](https://martinfowler.com/bliki/BlueGreenDeployment.html) involves deploying an update into a production environment that's separate from the live application. After you validate the deployment, switch the traffic routing to the updated version. One way to do this is to use the [staging slots](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing) available in Azure App Service to stage a deployment before moving it to production.
 - [*Canary releases*](https://martinfowler.com/bliki/CanaryRelease.html) are similar to blue-green deployments. Instead of switching all traffic to the updated application, you route only a small portion of the traffic to the new deployment. If there's a problem, revert to the old deployment. If not, gradually route more traffic to the new version. If you're using Azure App Service, you can use the Testing in production feature to manage a canary release.
 
 ## Logging and auditing
@@ -73,9 +73,9 @@ To capture as much version-specific information as possible, implement a robust 
 
 ## Rollback plan
 
-Use App Service deployment slots to fall back on last-known good menu. 
+Use App Service deployment slots to fall back on last-known good menu.
 
-The most important step is to implement an architecture that supports the need to rollback. For instance, componentized, service-based architectures lend themselves well to this. Persistent message queues and asynchronous services allow you to bring components down for rollback without impacting the main user base. Work towards something like the Blue-Green release pattern such that your application can stay available whilst you are working on one half of the system.
+The most important step is to implement an architecture that supports the need to rollback. For instance, componentized, service-based architectures lend themselves well to this. Persistent message queues and asynchronous services allow you to bring components down for rollback without affecting the main user base. Work towards something like the Blue-Green release pattern such that your application can stay available whilst you are working on one half of the system.
 
 If a deployment fails, your application could become unavailable. To minimize downtime, design a rollback process to go back to a last-known good version. Include a strategy to roll back changes to databases and any other services your app depends on.
 
@@ -85,9 +85,9 @@ If you're using Azure App Service, you can set up a last-known good site slot an
 
 An application that depends on a single instance of a service creates a single point of failure. To improve resiliency and scalability, provision multiple instances.
 
-- For [Azure App Service](/azure/app-service/app-service-value-prop-what-is/), select an [App Service plan](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview/) that offers multiple instances.
-- For [Azure Cloud Services](/azure/cloud-services/cloud-services-choose-me), configure each of your roles to use [multiple instances](/azure/cloud-services/cloud-services-choose-me/#scaling-and-management).
-- For [Azure Virtual Machines](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), ensure that your architecture includes more than one VM and that each VM is included in an [availability set](/azure/virtual-machines/virtual-machines-windows-manage-availability/).
+- For [Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is/), select an [App Service plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview/) that offers multiple instances.
+- For [Azure Cloud Services](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me), configure each of your roles to use [multiple instances](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me/#scaling-and-management).
+- For [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), ensure that your architecture includes more than one VM and that each VM is included in an [availability set](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability/).
 
 ### Consider deploying across multiple regions
 
@@ -97,4 +97,4 @@ We recommend deploying all but the least critical applications and application s
 
 If you run applications and databases in a single, primary region with no replication, your recovery strategy might be to redeploy to another region. This solution is affordable but most appropriate for non-critical applications that can tolerate longer recovery times. If you choose this strategy, automate the redeployment process as much as possible and include redeployment scenarios in your disaster response testing.
 
-To automate your redeployment process, consider using [Azure Site Recovery](/azure/site-recovery/).
+To automate your redeployment process, consider using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).

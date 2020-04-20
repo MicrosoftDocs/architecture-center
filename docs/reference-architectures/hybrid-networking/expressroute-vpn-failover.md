@@ -103,9 +103,9 @@ For general Azure security considerations, see [Microsoft cloud services and net
 
 For ExpressRoute cost considerations, see these articles:
 
-- [Cost considerations in Implementing a Hybrid Network Architecture with Azure ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute#cost-considerations).
+- [Cost considerations in Implementing a Hybrid Network Architecture with Azure ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.md#cost-considerations).
 
-- [Cost considerations in Implementing a Hybrid Network Architecture with Azure and On-premises VPN](/azure/architecture/reference-architectures/hybrid-networking/vpn#cost-considerations).
+- [Cost considerations in Implementing a Hybrid Network Architecture with Azure and On-premises VPN](../../reference-architectures/hybrid-networking/vpn.md#cost-considerations).
 
 ## Deploy the solution
 
@@ -139,16 +139,10 @@ To deploy the solution, perform the following steps.
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
-[windows-vm-ra]: ../virtual-machines-windows/index.md
-[linux-vm-ra]: ../virtual-machines-linux/index.md
-[resource-manager-overview]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
+[windows-vm-ra]: ../n-tier/n-tier-sql-server.md
+[linux-vm-ra]: ../n-tier/n-tier-cassandra.md
 [vpn-appliance]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices
-[azure-vpn-gateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
-[linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
-[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [expressroute-prereq]: https://docs.microsoft.com/azure/expressroute/expressroute-prerequisites
 [implementing-expressroute]: ./expressroute.md
 [implementing-vpn]: ./vpn.md

@@ -13,6 +13,8 @@ ms.subservice: solution-idea
 social_image_url: /azure/architecture/solution-ideas/articles/media/anomaly-detection-in-real-time-data-streams.png
 ---
 
+<!-- cSpell:ignore Empired -->
+
 # Anomaly Detection in Real-time Data Streams
 
 [!INCLUDE [header_file](../header.md)]
@@ -32,13 +34,13 @@ Today, modern services generate large volumes of telemetry data to track various
 
 Cortana Intelligence IT Anomaly Insights solves this customer pain by providing a solution with a low barrier of entry that is based on Cortana Intelligence Solutions (for easy deployment of Azure services) and Azure Machine Learning [Anomaly Detection API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) (for fully automated tracking of historical and real-time data), making it easy for a business decision maker to evaluate and realize value within minutes, also allowing customers to bring their own data, customize and extend the solution in order to adapt it to their particular scenarios via quick proof of concepts. With this solution, organizations will be able to:
 
-* Leverage state-of-the-art Azure Machine Learning Anomaly Detection API to learn and react to anomalies from both historical and real-time data. This approach eliminates human-in-the-loop, otherwise needed for recalibrating thresholds for detect missing anomalies and minimize false positives.
+* Use state-of-the-art Azure Machine Learning Anomaly Detection API to learn and react to anomalies from both historical and real-time data. This approach eliminates human-in-the-loop, otherwise needed for recalibrating thresholds for detect missing anomalies and minimize false positives.
 * Quickly realize the potential of the solution by trying it out with their own data without any upfront investment. The 'Try it Now' experience also provides users the ability to determine the right set of sensitivity parameters for the use case in hand.
 * Deploy an end-to-end pipeline into their subscription to ingest data from on-premises and cloud data sources and report anomalous events to downstream monitoring and ticketing systems in a plug-and-play manner within a matter of minutes.
 
 ## Try It experience with Power BI
 
-![IT Anomaly Insights Preconfigured Solution Dashboard](//azurecomcdn.azureedge.net/cvt-add179e08f40a2f574f2c13e23c39140f82f2f0c5faf32b8e79061bb1ec3c7ca/images/shared/solutions/architecture-details/anomaly-detection-in-real-time-data-streams/power-bi-dashboard.png)
+![IT Anomaly Insights Preconfigured Solution Dashboard](https://azurecomcdn.azureedge.net/cvt-add179e08f40a2f574f2c13e23c39140f82f2f0c5faf32b8e79061bb1ec3c7ca/images/shared/solutions/architecture-details/anomaly-detection-in-real-time-data-streams/power-bi-dashboard.png)
 
 ## Solution Diagram
 

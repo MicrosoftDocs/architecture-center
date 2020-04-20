@@ -11,6 +11,8 @@ ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ---
 
+<!-- cSpell:ignore upsert typeof -->
+
 # Choreography
 
 Have each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control.
@@ -19,7 +21,7 @@ Have each component of the system participate in the decision-making process abo
 
 In microservices architecture, it’s often the case that a cloud-based application is divided into several small services that work together to process a business transaction end-to-end. To lower coupling between services, each service is responsible for a single business operation. Some benefits include faster development, smaller code base, and scalability. However, designing an efficient and scalable workflow is a challenge and often requires complex interservice communication.
 
-The services communicate with each other by using well-defined APIs. Even a single business operation can result in multiple point-to-point calls amongst all services. A common pattern for communication is to use a centralized service that acts as the orchestrator. It acknowledges all incoming requests and delegates operations to the respective services. In doing so, it also manages the workflow of the entire business transaction. Each service just completes an operation and is not aware of the overall workflow.
+The services communicate with each other by using well-defined APIs. Even a single business operation can result in multiple point-to-point calls among all services. A common pattern for communication is to use a centralized service that acts as the orchestrator. It acknowledges all incoming requests and delegates operations to the respective services. In doing so, it also manages the workflow of the entire business transaction. Each service just completes an operation and is not aware of the overall workflow.
 
 The orchestrator pattern reduces point-to-point communication between services but has some drawbacks because of the tight coupling between the orchestrator and other services that participate in processing of the business transaction. To execute tasks in a sequence, the orchestrator needs to have some domain knowledge about the responsibilities of those services. If you want to add or remove services, existing logic will break, and you'll need to rewire portions of the communication path. While you can configure the workflow, add or remove services easily with a well-designed orchestrator, such an implementation is complex and hard to maintain.
 
@@ -59,7 +61,7 @@ The choreography pattern becomes a challenge if the number of services grow rapi
 
 The orchestrator centrally manages the resiliency of the workflow and it can become a single point of failure. On the other hand, for choreography, the role is distributed between all services and resiliency becomes less robust.
 
-Each service isn't only responsible for the resiliency of its operation but also the workflow. This responsibility can be burdensome for the service and hard to implement. Each service must retry transient, non-transient, and time-out failures, so that the request terminates gracefully, if needed. Also, the service must be diligent about communicating the success or failure of the operation so that other services can act accordingly.
+Each service isn't only responsible for the resiliency of its operation but also the workflow. This responsibility can be burdensome for the service and hard to implement. Each service must retry transient, nontransient, and time-out failures, so that the request terminates gracefully, if needed. Also, the service must be diligent about communicating the success or failure of the operation so that other services can act accordingly.
 
 ## Example
 
@@ -69,7 +71,7 @@ This example shows the choreography pattern with the [Drone Delivery app](https:
 
 ![A close up of a map Description automatically generated](./_images/choreography-example.png)
 
-A single client business transaction requires three distinct business operations: creating or updating a package, assigning a drone to deliver the package, and checking the delivery status. Those operations are performed by three microservices: Package, Drone Scheduler, and Delivery services. Instead of a central orchestrator, the services use messaging to collaborate and coordinate the request amongst themselves.
+A single client business transaction requires three distinct business operations: creating or updating a package, assigning a drone to deliver the package, and checking the delivery status. Those operations are performed by three microservices: Package, Drone Scheduler, and Delivery services. Instead of a central orchestrator, the services use messaging to collaborate and coordinate the request among themselves.
 
 ### Design
 
@@ -79,9 +81,9 @@ When a client sends a delivery request through an HTTP endpoint, the Ingestion s
 
 This workflow continues until the entire request has been processed.
 
-The design uses multiple message buses to process the entire business transaction. [Microsoft Azure Event Grid](/azure/event-grid/) provides the messaging service. The app is deployed in an [Azure Kubernetes Service (AKS)](/azure/aks/) cluster with [two containers in the same pod](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/#creating-a-pod-that-runs-two-containers). One container runs the [ambassador](./ambassador.md) that interacts with Event Grid while the other runs a business service. The approach with two containers in the same pod improves performance and scalability. The ambassador and the business service share the same network allowing for low latency and high throughput.
+The design uses multiple message buses to process the entire business transaction. [Microsoft Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) provides the messaging service. The app is deployed in an [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/) cluster with [two containers in the same pod](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/#creating-a-pod-that-runs-two-containers). One container runs the [ambassador](./ambassador.md) that interacts with Event Grid while the other runs a business service. The approach with two containers in the same pod improves performance and scalability. The ambassador and the business service share the same network allowing for low latency and high throughput.
 
-To avoid cascading retry operations that might lead to multiple efforts, only Event Grid retries an operation instead of the business service. It flags a failed request by sending a messaging to a [dead letter queue (DLQ)](/azure/service-bus-messaging/service-bus-dead-letter-queues).
+To avoid cascading retry operations that might lead to multiple efforts, only Event Grid retries an operation instead of the business service. It flags a failed request by sending a messaging to a [dead letter queue (DLQ)](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
 The business services are idempotent to make sure retry operations don’t result in duplicate resources. For example, the Package service uses upsert operations to add data to the data store.
 
@@ -106,12 +108,12 @@ public async Task<IActionResult> Post([FromBody] EventGridEvent[] events)
 
    foreach(var e in events)
    {
-            
+
         List<EventGridEvent> listEvents = new List<EventGridEvent>();
         e.Topic = eventRepository.GetTopic();
         e.EventTime = DateTime.Now;
         switch (e.EventType)
-        {           
+        {
             case Operations.ChoreographyOperation.ScheduleDelivery:
             {
                 var packageGen = await packageServiceCaller.UpsertPackageAsync(delivery.PackageInfo).ConfigureAwait(false);
@@ -121,8 +123,8 @@ public async Task<IActionResult> Post([FromBody] EventGridEvent[] events)
                     return BadRequest("Package creation failed.");
                 }
 
-                //we set the eventype to the next choreography step
-                e.EventType = Operations.ChoreographyOperation.CreatePackage;                         
+                //we set the event type to the next choreography step
+                e.EventType = Operations.ChoreographyOperation.CreatePackage;
                 listEvents.Add(e);
                 await eventRepository.SendEventAsync(listEvents);
                 return Ok("Created Package Completed");
@@ -144,7 +146,7 @@ public async Task<IActionResult> Post([FromBody] EventGridEvent[] events)
             case Operations.ChoreographyOperation.GetDrone:
             {
                 var deliverySchedule = await deliveryServiceCaller.ScheduleDeliveryAsync(delivery, e.Subject);
-                return Ok("Delivery Completed");                         
+                return Ok("Delivery Completed");
             }
             return BadRequest();
     }
@@ -155,13 +157,13 @@ public async Task<IActionResult> Post([FromBody] EventGridEvent[] events)
 
 Consider these patterns in your design for choreography.
 
--   Modularize the business service by using the [ambassador design pattern](./ambassador.md).
+- Modularize the business service by using the [ambassador design pattern](./ambassador.md).
 
--   Implement [queue-based load leveling pattern](./queue-based-load-leveling.md)
+- Implement [queue-based load leveling pattern](./queue-based-load-leveling.md)
     to handle spikes of the workload.
 
--   Use asynchronous distributed messaging through the [publisher-subscriber pattern](./publisher-subscriber.md).
+- Use asynchronous distributed messaging through the [publisher-subscriber pattern](./publisher-subscriber.md).
 
--   Use [compensating transactions](./compensating-transaction.md) to undo a series of successful operations in case one or more related operation fails.
+- Use [compensating transactions](./compensating-transaction.md) to undo a series of successful operations in case one or more related operation fails.
 
--  For information about using a message broker in a messaging infrastructure, see [Asynchronous messaging options in Azure](/azure/architecture/guide/technology-choices/messaging).
+- For information about using a message broker in a messaging infrastructure, see [Asynchronous messaging options in Azure](../guide/technology-choices/messaging.md).

@@ -31,12 +31,12 @@ Another use case can be where the hub virtual network is in one subscription and
 
 ## Considerations
 
-* Running the script will result in outage or disconnections between the Hub and Spoke virtual networks.  Execute it during an approved maintenance window.
-* Run `Get-Module -ListAvailable Az` to find the installed version.  The script requires the Azure PowerShell module version 1.0.0 or later.  If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
-* If not already connected, run `Connect-AzAccount` to create a connection with Azure.
-* Consider assigning accounts, used for virtual network peering, to the [Network Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [Custom Role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) containing the necessary actions found under [virtual network peering permissions](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#permissions).
-* Assign accounts used to add IP address spaces, to the [Network Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [Custom Role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) containing the necessary actions found under [virtual network permissions](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#permissions).
-* The IP address space that you want to add to the hub virtual network must not overlap with any of the IP address spaces of the spoke virtual networks that you intend to peer with the hub virtual network.
+- Running the script will result in outage or disconnections between the Hub and Spoke virtual networks.  Execute it during an approved maintenance window.
+- Run `Get-Module -ListAvailable Az` to find the installed version.  The script requires the Azure PowerShell module version 1.0.0 or later.  If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- If not already connected, run `Connect-AzAccount` to create a connection with Azure.
+- Consider assigning accounts, used for virtual network peering, to the [Network Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [Custom Role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) containing the necessary actions found under [virtual network peering permissions](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#permissions).
+- Assign accounts used to add IP address spaces, to the [Network Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [Custom Role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) containing the necessary actions found under [virtual network permissions](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#permissions).
+- The IP address space that you want to add to the hub virtual network must not overlap with any of the IP address spaces of the spoke virtual networks that you intend to peer with the hub virtual network.
 
 ## Add the IP address range
 
@@ -127,6 +127,6 @@ There is a nominal charge for ingress and egress traffic that utilizes a virtual
 
 ## Next steps
 
-* Learn more about [managing Virtual Network peerings](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering)
+- Learn more about [managing Virtual Network peerings](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering).
 
-* Learn more about [managing IP Address ranges](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#add-or-remove-an-address-range) on Virtual Networks
+- Learn more about [managing IP Address ranges](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#add-or-remove-an-address-range) on Virtual Networks.

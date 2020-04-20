@@ -27,9 +27,9 @@ An enterprise can use Service Fabric as a platform to run a large set of existin
 This article describes the processes, capabilities, and Service Fabric features that enable containerizing in an optimal environment for a large enterprise. The guidance is scoped to web applications and Windows containers.
 Before reading this article, get familiar with core Windows container and Service Fabric concepts. For more information, see:
 
-- [Create your first Service Fabric container application on Windows](/azure/service-fabric/service-fabric-get-started-containers)
-- [Service Fabric terminology overview](/azure/service-fabric/service-fabric-technical-overview)
-- [Service Fabric best practices overview](/azure/service-fabric/service-fabric-best-practices-overview)
+- [Create your first Service Fabric container application on Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers)
+- [Service Fabric terminology overview](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview)
+- [Service Fabric best practices overview](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-overview)
 
 ## Resources
 
@@ -78,8 +78,8 @@ From an application development perspective, determine the workstation requireme
 
 Service Fabric orchestration provides a platform for hosting, deploying, scaling, and operating applications at enterprise scale. Most large enterprises that use Azure:
 
-- Extend their corporate network with a private address space to an Azure subscription. use either [ExpressRoute](https://azure.microsoft.com/services/expressroute/) or a [Site-to-Site VPN](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) to provide secure on-premises connectivity.
-- Want to control inbound and outbound network traffic through third-party firewall appliances and/or [Azure Network Security Group rules](/azure/virtual-network/security-overview).
+- Extend their corporate network with a private address space to an Azure subscription. use either [ExpressRoute](https://azure.microsoft.com/services/expressroute/) or a [Site-to-Site VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) to provide secure on-premises connectivity.
+- Want to control inbound and outbound network traffic through third-party firewall appliances and/or [Azure Network Security Group rules](https://docs.microsoft.com/azure/virtual-network/security-overview).
 - Want tight control over the address space requirements and subnets.
 
 Service Fabric is suitable as a containerization platform. It plugs into an existing cloud infrastructure and doesn't require open public ingress endpoints. You just need to carve out the necessary address space for Service Fabric's IP address requirements. For details, see the [Service Fabric Networking](#service-fabric-networking) section in this article.
@@ -111,9 +111,9 @@ Here are the basic steps for containerizing an application.
     # plugin into SF healthcheck ensuring the container website is running
     HEALTHCHECK --interval=30s --timeout=30s --start-period=60s --retries=3 CMD curl -f http://localhost/ || exit 1
     ```
-4. Test locally by using Docker For Windows. The application must successfully run in a Docker container by using the Visual Studio debug experience. For more information, see [Deploy a .NET app using Docker Compose](/azure/service-fabric/service-fabric-host-app-in-a-container).
+4. Test locally by using Docker For Windows. The application must successfully run in a Docker container by using the Visual Studio debug experience. For more information, see [Deploy a .NET app using Docker Compose](https://docs.microsoft.com/azure/service-fabric/service-fabric-host-app-in-a-container).
 
-5. Build (if needed), tag, and push the tested image to a Docker registry, like the [Azure Container Registry](/azure/container-registry/) service. This example uses an existing Azure Container Registry named MyAcr and Docker build/tag/push to build/deploy appA to the registry.
+5. Build (if needed), tag, and push the tested image to a Docker registry, like the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) service. This example uses an existing Azure Container Registry named MyAcr and Docker build/tag/push to build/deploy appA to the registry.
 
     ```
     docker login myacr.azurecr.io -u myacr -p <pwd>
@@ -130,9 +130,9 @@ The image is tagged with a version number that Service Fabric references when it
 Here are some considerations about the base images:
 
 - The base image could be a locked-down custom enterprise image that enforces enterprise requirements. For a shared application, isolation boundaries can be created through credentials or by using separate registry. It's recommended that enterprise-supported docker images be kept separately and stored in an isolated container registry.  
-- Avoid storing the registry login credentials in configuration files. Instead, use (role-based access control) RBAC and [Azure Active Directory service principals](/azure/active-directory/develop/app-objects-and-service-principals) with Azure Container Registry. Provide read-only access to registries depending on your enterprise requirements.
+- Avoid storing the registry login credentials in configuration files. Instead, use (role-based access control) RBAC and [Azure Active Directory service principals](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) with Azure Container Registry. Provide read-only access to registries depending on your enterprise requirements.
 
-For information about running an IIS ASP.net MVC application in a Windows container, see [Migrating ASP.NET MVC Applications to Windows Containers](/aspnet/mvc/overview/deployment/docker-aspnetmvc).
+For information about running an IIS ASP.net MVC application in a Windows container, see [Migrating ASP.NET MVC Applications to Windows Containers](https://docs.microsoft.com/aspnet/mvc/overview/deployment/docker-aspnetmvc).
 
 ## Service Fabric cluster configuration for enterprise deployments
 
@@ -140,7 +140,7 @@ To deploy a Service Fabric cluster, start with the sample Azure Resource Manager
 
 ### Service Fabric node types
 
-A Service Fabric cluster contains one or more [node types](/azure/service-fabric/service-fabric-cluster-nodetypes). A node type typically maps to an [Azure virtual machine scale set](/azure/virtual-machine-scale-sets/) which is a set of one or more VM instances with same properties. The cluster must have at least one node type—primary node type, which runs the Service Fabric system services. Do not run your application container on the primary node type because the container can compete with the system services for resources. Consider, designing a cluster with two or more node types depending on the types of applications. For example, if you have two node types, run HTTP web and application tier containers on a non-primary node type.
+A Service Fabric cluster contains one or more [node types](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-nodetypes). A node type typically maps to an [Azure virtual machine scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) which is a set of one or more VM instances with same properties. The cluster must have at least one node type—primary node type, which runs the Service Fabric system services. Do not run your application container on the primary node type because the container can compete with the system services for resources. Consider, designing a cluster with two or more node types depending on the types of applications. For example, if you have two node types, run HTTP web and application tier containers on a non-primary node type.
 
 This example infrastructure uses two Service Fabric node types: application and primary. You can scale in or scale out the scale set individually. It doesn't require extensive planning and testing up front to determine the correct application node type size (scale set instance count), because the actual size can grow and reduce in real time driven by monitoring and metrics.
 
@@ -164,7 +164,7 @@ Service Fabric supports with two networking modes for containerized applications
 
     By default, the cluster brings up containers by using a NAT-bridge mode to the host VM. The NAT bridge routes requests over a defined port to the container. With this mode, only one IP address is needed per host VM for the host's primary NIC.
 
-    To route traffic to each application container, a unique port is exposed through the load balancer. However, that port is exposed to end users. If you don't want the port exposed, provide a URL rewrite mechanism. Rewrite the application domain name with a unique application port. Traffic is routed to the load balancer that front ends the cluster. One option for the rewrite mechanism is [Azure Application Gateway](/azure/application-gateway/).
+    To route traffic to each application container, a unique port is exposed through the load balancer. However, that port is exposed to end users. If you don't want the port exposed, provide a URL rewrite mechanism. Rewrite the application domain name with a unique application port. Traffic is routed to the load balancer that front ends the cluster. One option for the rewrite mechanism is [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/).
 
     Another benefit of this approach is simplistic load balancing with Azure Load Balancer. The load balancer's probe mechanism balance traffic across the VM instances that are running the application's containers.
 
@@ -183,7 +183,7 @@ There are downsides:
 - The number of IP addresses must be set aside during cluster creation and that number is fixed. For example, if 10 IP addresses are assigned to each host, the host supports up to 9 application containers; one IP is reserved for the host VM's primary NIC, the remaining addresses for each container. The number of IP addresses to configure for each host is determined based on the hardware size for the node type, and the maximum number of containers on each host. Both factors depend on application size and needs. If you need more containers in the cluster, add more application node type VM instances. That is because you can't change the IP number per instance without rebuilding the cluster.
 - You need a reverse proxy to route traffic to the correct destination container. The Service Fabric DNS Service can be used by the reverse proxy to look up the application container and rewrite the HTTP request to this container. That solution is more complex to implement than the **nat** mode.
 
-For more information, see [Service Fabric container networking modes](/azure/service-fabric/service-fabric-networking-modes).
+For more information, see [Service Fabric container networking modes](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes).
 
 ### Service Fabric runtime and Windows versions
 
@@ -194,23 +194,23 @@ Also choose a version of the Service Fabric runtime to start the cluster. For a 
 Other considerations:
 
 - The host OS running Service Fabric can be built by using locked down enterprise images with antivirus and malware enforcement.
-- The host OS for all the Service Fabric cluster VMs can be domain joined. Domain joining isn't a requirement and can add complexity to any Azure virtual machine. However, there are benefits. For example, if an application requires Windows-integrated security to connect to domain-joined resources, then the domain service account is typically used at the process level. The account is used to execute the application instead of connection string credentials and secrets. Windows containers do not currently support direct domain joining but can be configured to use [Group Managed Storage Accounts (gMSA)](/azure/service-fabric/service-fabric-run-service-as-gmsa). The gMSA capability is supported by Service Fabric for Windows-integrated security requirements. Each containerized application in the cluster can have its own gMSA.  gMSA requires the Service Fabric host VMs that run containers to be Active Directory domain joined.
+- The host OS for all the Service Fabric cluster VMs can be domain joined. Domain joining isn't a requirement and can add complexity to any Azure virtual machine. However, there are benefits. For example, if an application requires Windows-integrated security to connect to domain-joined resources, then the domain service account is typically used at the process level. The account is used to execute the application instead of connection string credentials and secrets. Windows containers do not currently support direct domain joining but can be configured to use [Group Managed Storage Accounts (gMSA)](https://docs.microsoft.com/azure/service-fabric/service-fabric-run-service-as-gmsa). The gMSA capability is supported by Service Fabric for Windows-integrated security requirements. Each containerized application in the cluster can have its own gMSA.  gMSA requires the Service Fabric host VMs that run containers to be Active Directory domain joined.
 
 ### DNS service
 
-Service Fabric has an internal [DNS service](/azure/service-fabric/service-fabric-dnsservice) that maps a containerized application name to its location in the cluster. For the [**Open**](#service-fabric-networking) mode, the application's IP address is used instead. This service is enabled on the cluster. If you name each service with a DNS name, traffic is routed to the application by using a reverse proxy. For information about reverse proxy, see the [Reverse proxy for inbound traffic](#reverse-proxy-for-inbound-traffic) section.
+Service Fabric has an internal [DNS service](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice) that maps a containerized application name to its location in the cluster. For the [**Open**](#service-fabric-networking) mode, the application's IP address is used instead. This service is enabled on the cluster. If you name each service with a DNS name, traffic is routed to the application by using a reverse proxy. For information about reverse proxy, see the [Reverse proxy for inbound traffic](#reverse-proxy-for-inbound-traffic) section.
 
 ### Monitoring and diagnostics
 
-The Service Fabric Log Analytics workspace and Service Fabric solution provide detailed information about cluster events. For information about setting it up, see [Configure Azure Monitor logs to collect cluster events](/azure/service-fabric/service-fabric-diagnostics-oms-setup).
+The Service Fabric Log Analytics workspace and Service Fabric solution provide detailed information about cluster events. For information about setting it up, see [Configure Azure Monitor logs to collect cluster events](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup).
 
-- Install the [monitoring agent] for Azure Log Analytics in the Service Fabric cluster. You can then use the [container monitoring solution](/azure/log-analytics/log-analytics-containers) and view the running containers in the cluster.
+- Install the [monitoring agent] for Azure Log Analytics in the Service Fabric cluster. You can then use the [container monitoring solution](https://docs.microsoft.com/azure/log-analytics/log-analytics-containers) and view the running containers in the cluster.
 - Use Docker performance statistics to monitor memory and CPU use for each container.
-- Install the Azure Diagnostics extension that collects diagnostic data on a deployed application. For more information, see [What is Azure Diagnostics extension](/azure/azure-monitor/platform/diagnostics-extension-overview).
+- Install the Azure Diagnostics extension that collects diagnostic data on a deployed application. For more information, see [What is Azure Diagnostics extension](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview).
 
 ### Unused container images
 
-Docker images are downloaded to each Service Fabric host and can consume space on the host disk. To free up disk space, consider [image pruning](/azure/service-fabric/service-fabric-get-started-containers#configure-the-runtime-to-remove-unused-container-images) to remove images that are no longer referenced and used by running containers. Configure this option in the Host section of the cluster manifest.
+Docker images are downloaded to each Service Fabric host and can consume space on the host disk. To free up disk space, consider [image pruning](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-the-runtime-to-remove-unused-container-images) to remove images that are no longer referenced and used by running containers. Configure this option in the Host section of the cluster manifest.
 
 ### Secrets and certificates management with Key Vault
 
@@ -223,7 +223,7 @@ Avoid hardcoded secrets in the template. Modify the Azure Resource Manager templ
 
 ### Cluster capacity planning
 
-For an enterprise production cluster, start with 5-7 primary nodes, depending on the intended size of the overall cluster. For more information, see [Service Fabric cluster capacity planning considerations](/azure/service-fabric/service-fabric-cluster-capacity).
+For an enterprise production cluster, start with 5-7 primary nodes, depending on the intended size of the overall cluster. For more information, see [Service Fabric cluster capacity planning considerations](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
 For a large cluster that hosts stateless web applications, the typical hardware size for the primary node type can be Standard_D2s_v3. For the primary node type, a 5-node cluster with the Silver durability tier should scale to containers across 50 application VM instances. Consider doing simulation tests and add more node types as partitioning needs become apparent. Also perform tests to determine the VM size for application node type and the number of running containers on each VM instance. Typically, 10 or more containers run on each VM, but that number is dependent on these factors:
 
@@ -261,7 +261,7 @@ In the [example infrastructure](#service-fabric-node-types), application A has t
   > [!NOTE]
   > Docker statistics showing individual container resource utilization is sent to Log Analytics and can be analyzed in Azure Monitor.
 
-- Service Fabric offers constant monitoring and [heath checks](/azure/service-fabric/service-fabric-health-introduction) across the cluster. If a node is unhealthy, applications on that node automatically move to a healthy node and the bad node stops receiving requests. Regardless of the number of containers hosting an application, Service Fabric ensures that the application is healthy and running.
+- Service Fabric offers constant monitoring and [heath checks](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction) across the cluster. If a node is unhealthy, applications on that node automatically move to a healthy node and the bad node stops receiving requests. Regardless of the number of containers hosting an application, Service Fabric ensures that the application is healthy and running.
 
 For an application that is infrequently used and can be offline, run it in the cluster with just one container instance (such as application B and C). Service Fabric makes sure that the application is up and healthy during upgrades or when the container needs to move to a new VM. Heath checking can reduce cost compared to hosting that application on two redundant and overprovisioned VMs in the traditional IaaS model.  
 
@@ -273,7 +273,7 @@ To route web requests to an application, use an ingress reverse proxy. If applic
 
 ### Reverse proxy for inbound traffic
 
-Service Fabric has a built-in reverse proxy but is limited in its feature set.  Therefore, deploy a different reverse proxy. An option is the IIS Application Request Routing (ARR) extension for IIS hosted web applications. The ARR can be deployed to a container and configured to take inbound requests and route them to the appropriate application container. In this example, the ARR uses a NAT bridge over port 80/443, accepts all inbound web traffic, inspects the traffic, looks up the destination container using Service Fabric DNS service, and rewrites the request to the destination container. The traffic can be secured with SSL to the destination container. Follow the [IIS Application Request Routing sample](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/master/windows-container-samples/iis-arr) for building an ARR reverse proxy. For information, see [Using the Application Request Routing Module](/iis/extensions/planning-for-arr/using-the-application-request-routing-module).
+Service Fabric has a built-in reverse proxy but is limited in its feature set.  Therefore, deploy a different reverse proxy. An option is the IIS Application Request Routing (ARR) extension for IIS hosted web applications. The ARR can be deployed to a container and configured to take inbound requests and route them to the appropriate application container. In this example, the ARR uses a NAT bridge over port 80/443, accepts all inbound web traffic, inspects the traffic, looks up the destination container using Service Fabric DNS service, and rewrites the request to the destination container. The traffic can be secured with SSL to the destination container. Follow the [IIS Application Request Routing sample](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/master/windows-container-samples/iis-arr) for building an ARR reverse proxy. For information, see [Using the Application Request Routing Module](https://docs.microsoft.com/iis/extensions/planning-for-arr/using-the-application-request-routing-module).
 
 Here is the network flow for the example infrastructure.
 
@@ -323,9 +323,9 @@ Here is an example ApplicationManifest.xml for Container A in the example infras
 
 - Uses the **Open** mode for the containers.
 - Registers the application domain name **appA.container.myorg.com** with the [Azure DNS service](https://docs.microsoft.com/azure/dns/).
-- Optionally configures the container to use an [Active Directory gMSA](/virtualization/windowscontainers/manage-containers/manage-serviceaccounts) (commented).
+- Optionally configures the container to use an [Active Directory gMSA](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/manage-serviceaccounts) (commented).
 - Uses placement constraints to deploy the container to the application node type, named applicationNT. It instructs Service Fabric to run the container in the correct node type in the secured network subnet.
-- Optionally applies [resource constraints](/azure/service-fabric/service-fabric-resource-governance). Each container is resource governed to use 1 vCPU and 1 GB of memory on the VM host. Setting a resource governance policy is recommended because Service Fabric uses the policy to distribute containers across the cluster, as opposed to the default even distribution of containers across the cluster.
+- Optionally applies [resource constraints](https://docs.microsoft.com/azure/service-fabric/service-fabric-resource-governance). Each container is resource governed to use 1 vCPU and 1 GB of memory on the VM host. Setting a resource governance policy is recommended because Service Fabric uses the policy to distribute containers across the cluster, as opposed to the default even distribution of containers across the cluster.
 
 Here is the example ServiceManifest.xml for the containerized application appA.
 
@@ -361,11 +361,11 @@ Here is the example ServiceManifest.xml for the containerized application appA.
 
 The reverse proxy container uses similar manifests but isn't configured to use the **Open** mode. You can update containers by versioning the Docker image, then redeploying the versioned Service Fabric package with the **Start-ServiceFabricApplicationUpgrade** cmdlet.
 
-For information about manifests, see [Service Fabric application and service manifests](/azure/service-fabric/service-fabric-application-and-service-manifests).
+For information about manifests, see [Service Fabric application and service manifests](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-and-service-manifests).
 
 ### Environmental configuration
 
-Do not hardcode configuration values in the container image by using [environment variables](/azure/service-fabric/service-fabric-how-to-specify-environment-variables) to pass values to a container. A DevOps pipeline can build a Docker image, test in a test environment, promote to staging (or pre-production), and promote to production. Do not rebuild a docker image for each environment.
+Do not hardcode configuration values in the container image by using [environment variables](https://docs.microsoft.com/azure/service-fabric/service-fabric-how-to-specify-environment-variables) to pass values to a container. A DevOps pipeline can build a Docker image, test in a test environment, promote to staging (or pre-production), and promote to production. Do not rebuild a docker image for each environment.
 
 Docker can pass environment variables directly to a Docker container when running a container. In this example, Docker passes the eShopTitle variable to the eshopweb container:
 
@@ -375,21 +375,21 @@ docker run -p 80:80 -d --name eshoptest -e eShopTitle=SomeName eshopweb:1.0
 
 In a Service Fabric cluster, Service Fabric controls Docker execution and lists environment variables in the ServiceManifest. Those variables are passed automatically when Service Fabric runs the container. You can override the variables in ApplicationManifest.xml by using the *EnvironmentOverrides* element, which can be parameterized and built from Visual Studio publish profiles for each environment.
 
-For information about specifying environment variables in, see [How to specify environment variables for services in Service Fabric](/azure/service-fabric/service-fabric-how-to-specify-environment-variables).
+For information about specifying environment variables in, see [How to specify environment variables for services in Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-how-to-specify-environment-variables).
 
 ## Security considerations
 
 Here are some articles about container security:
 
-[Azure Service Fabric security](/azure/service-fabric/service-fabric-best-practices-security)
+[Azure Service Fabric security](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-security)
 
-[Service Fabric application and service security](/azure/service-fabric/service-fabric-application-and-service-security)
+[Service Fabric application and service security](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-and-service-security)
 
-[Set up an encryption certificate and encrypt secrets on Windows clusters](/azure/service-fabric/service-fabric-application-secret-management-windows) 
+[Set up an encryption certificate and encrypt secrets on Windows clusters](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management-windows) 
 
 ## Logging and monitoring
 
-Monitoring and logging are critical to operational success and is achieved through integration with [Azure Monitor](/azure/azure-monitor/overview) and [Log Analytics](/azure/azure-monitor/log-query/get-started-portal).
+Monitoring and logging are critical to operational success and is achieved through integration with [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) and [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
 
 Monitor the Service Fabric cluster and each executing containers by using the scale set extension agent for Log Analytics and its associated Container Monitoring Solution. Make sure that you configure and install the extension agent and solution during cluster creation. Docker statistics for container CPU and memory utilization are sent to Log Analytics and can be queried for proactive monitoring and alerting.
 Set up proactive alerts through Azure Monitor. Here are metrics that you should monitor.
@@ -432,14 +432,14 @@ Here are two approaches for getting application logs into Log Analytics.
 
     The automatic Container Monitoring Solution sends all logs to a single Log Analytics workspace. Different containerized applications running on the same host send application logs to that shared workspace. If you need to isolate logs such that each containerized application sends the log to a separate workspace, supply a custom solution. That content is outside the scope of this article.
 
-- Mount external storage to each running container by using a file management service such as [Azure Files](/azure/storage/files/storage-files-introduction). The container logs are sent to the external storage location and don't take up disk space on the host VM.
+- Mount external storage to each running container by using a file management service such as [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction). The container logs are sent to the external storage location and don't take up disk space on the host VM.
 
   - You don't need, a data disk attached to each VM to hold Docker logs; move Docker Enterprise to the data disk.
   - Create a job to monitor the Azure Files location and send logs to the appropriate Log Analytics workspace for each installed application. The job doesn't need to run in the container. It just observes the Azure Files location.
 
 ## DevOps and CI/CD
 
-Application containerization ensures consistency. It makes sure all Service Fabric-hosted applications use the latest approved corporate image and provides an automatable image updating process that is consistent through DevOps. Azure Pipelines provides the automation process. For more information, see [Tutorial: Deploy an application with CI/CD to a Service Fabric cluster](/azure/service-fabric/service-fabric-tutorial-deploy-app-with-cicd-vsts).
+Application containerization ensures consistency. It makes sure all Service Fabric-hosted applications use the latest approved corporate image and provides an automatable image updating process that is consistent through DevOps. Azure Pipelines provides the automation process. For more information, see [Tutorial: Deploy an application with CI/CD to a Service Fabric cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-with-cicd-vsts).
 
 ![Service Fabric scale set extensions](images/containersf-devops.png)
 

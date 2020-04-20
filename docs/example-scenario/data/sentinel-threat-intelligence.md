@@ -14,7 +14,7 @@ ms.category:
 
 # Cyber threat intelligence with Azure Sentinel
 
-This article describes how a cloud-based *Security Information and Event Management (SIEM)* solution like [Azure Sentinel](/azure/sentinel/overview) can use *threat indicators* to detect, provide context, and inform responses to existing or potential cyber threats. 
+This article describes how a cloud-based *Security Information and Event Management (SIEM)* solution like [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/overview) can use *threat indicators* to detect, provide context, and inform responses to existing or potential cyber threats. 
 
 *Cyber threat intelligence (CTI)* can come from many sources, such as open-source data feeds, threat intelligence sharing communities, paid intelligence feeds, and security investigations within organizations. CTI can range from written reports on a threat actor's motivations, infrastructure, and techniques, to specific observations of IP addresses, domains, and file hashes. CTI provides essential context for unusual activity, so security personnel can act quickly to protect people and assets.
 
@@ -50,7 +50,7 @@ For detailed instructions for importing STIX/TAXII threat indicator data into Az
 
 Many organizations use TIP solutions like MISP, Anomali ThreatStream, ThreatConnect, or Palo Alto Networks MineMeld to aggregate threat indicator feeds from a variety of sources. Organizations use the TIP to curate the data, then choose which threat indicators to apply to various security solutions like network devices, advanced threat protection solutions, or SIEMs like Azure Sentinel. The **Threat Intelligence Platforms** data connector lets organizations use their integrated TIP solution with Azure Sentinel.
 
-The Threat Intelligence Platforms data connector uses the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator?view=graph-rest-beta). Any organization that has a custom TIP can use this data connector to leverage the **tiIndicators** API and send indicators to Azure Sentinel, and to other Microsoft security solutions like [Defender ATP](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp).
+The Threat Intelligence Platforms data connector uses the [Microsoft Graph Security tiIndicators API](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta). Any organization that has a custom TIP can use this data connector to leverage the **tiIndicators** API and send indicators to Azure Sentinel, and to other Microsoft security solutions like [Defender ATP](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp).
 
 For detailed instructions for importing TIP data into Azure Sentinel, see [Import threat indicators with the Platforms data connector](#import-threat-indicators-with-the-platforms-data-connector). 
 
@@ -82,13 +82,13 @@ For detailed instructions for creating an analytics rule from a template, see [C
 
 In Azure Sentinel, enabled analytics rules are on the **Active rules** tab of the **Analytics** section. You can edit, enable, disable, duplicate, or delete active rules. 
 
-Generated security alerts are in the **SecurityAlert** table in the **Logs** section of Azure Sentinel. The security alerts also generate security incidents, which are in the **Incidents** section. Security operations teams can triage and investigate the incidents to determine appropriate responses. For more information, see [Tutorial: Investigate incidents with Azure Sentinel](/azure/sentinel/tutorial-investigate-cases). 
+Generated security alerts are in the **SecurityAlert** table in the **Logs** section of Azure Sentinel. The security alerts also generate security incidents, which are in the **Incidents** section. Security operations teams can triage and investigate the incidents to determine appropriate responses. For more information, see [Tutorial: Investigate incidents with Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-investigate-cases). 
 
-You can also designate automation to trigger when the rules generate security alerts. Automation in Azure Sentinel uses **Playbooks**, powered by Azure Logic Apps. For more information, see [Tutorial: Set up automated threat responses in Azure Sentinel](/azure/sentinel/tutorial-respond-threats-playbook).
+You can also designate automation to trigger when the rules generate security alerts. Automation in Azure Sentinel uses **Playbooks**, powered by Azure Logic Apps. For more information, see [Tutorial: Set up automated threat responses in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-respond-threats-playbook).
 
 ### Azure Sentinel Threat Intelligence Workbook
 
-Workbooks provide powerful interactive dashboards that give you insights into all aspects of Azure Sentinel. You can use an Azure Sentinel workbook to visualize key CTI information. The provided templates provide a starting point, and you can easily customize the templates for your business needs, create new dashboards that combine many different data sources, and visualize your data in unique ways. Azure Sentinel workbooks are based on [Azure Monitor workbooks](/azure/azure-monitor/app/usage-workbooks), so extensive documentation and templates are available. 
+Workbooks provide powerful interactive dashboards that give you insights into all aspects of Azure Sentinel. You can use an Azure Sentinel workbook to visualize key CTI information. The provided templates provide a starting point, and you can easily customize the templates for your business needs, create new dashboards that combine many different data sources, and visualize your data in unique ways. Azure Sentinel workbooks are based on [Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks), so extensive documentation and templates are available. 
 
 For detailed instructions on viewing and editing the Azure Sentinel Threat Intelligence Workbook, see [View and edit the Threat Intelligence Workbook](#view-and-edit-the-threat-intelligence-workbook).
 
@@ -96,7 +96,7 @@ For detailed instructions on viewing and editing the Azure Sentinel Threat Intel
 
 - The Azure Sentinel Threat Intelligence data connectors are currently in public preview. Certain features might not be supported, or might have constrained capabilities. 
 
-- Azure Sentinel uses *role-based access control (RBAC)* to assign built-in roles **Contributor**, **Reader**, and **Responder** to users, groups, and Azure services. These can interact with Azure roles (Owner, Contributor, Reader) and Log Analytics roles (Log Analytics reader, Log Analytics contributor). You can create custom RBAC roles, and use advanced RBAC on the data you store in Azure Sentinel. For more information, see [Permissions in Azure Sentinel](/azure/sentinel/roles).
+- Azure Sentinel uses *role-based access control (RBAC)* to assign built-in roles **Contributor**, **Reader**, and **Responder** to users, groups, and Azure services. These can interact with Azure roles (Owner, Contributor, Reader) and Log Analytics roles (Log Analytics reader, Log Analytics contributor). You can create custom RBAC roles, and use advanced RBAC on the data you store in Azure Sentinel. For more information, see [Permissions in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/roles).
 
 - Azure Sentinel is free for the first 31 days on any Azure Monitor Log Analytics workspace. After that, you can use Pay-As-You-Go or Capacity Reservations models for the data you ingest and store. For details, see [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/).
 
@@ -104,9 +104,9 @@ For detailed instructions on viewing and editing the Azure Sentinel Threat Intel
 
 - Threat indicators provide useful context in other Azure Sentinel experiences like **Hunting** and **Notebooks**. For more information about using CTI in **Notebooks**, see [Jupyter Notebooks in Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239).
 
-- Any organization that has a custom TIP can use the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator?view=graph-rest-beta) to send threat indicators to other Microsoft security solutions like [Defender ATP](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp).
+- Any organization that has a custom TIP can use the [Microsoft Graph Security tiIndicators API](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta) to send threat indicators to other Microsoft security solutions like [Defender ATP](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp).
 
-- Azure Sentinel provides many other built-in data connectors to Microsoft solutions like Microsoft Threat Protection, Microsoft 365 sources, and Microsoft Cloud App Security. There are also built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use common event format, Syslog, or REST API to connect your data sources with Azure Sentinel. For more information, see [Connect data sources](/azure/sentinel/connect-data-sources).
+- Azure Sentinel provides many other built-in data connectors to Microsoft solutions like Microsoft Threat Protection, Microsoft 365 sources, and Microsoft Cloud App Security. There are also built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use common event format, Syslog, or REST API to connect your data sources with Azure Sentinel. For more information, see [Connect data sources](https://docs.microsoft.com/azure/sentinel/connect-data-sources).
 
 ## Deployment
 
@@ -242,7 +242,7 @@ The example assumes you have used one or both of the threat intelligence data co
    
 1. Under **Incident settings (Preview)**, make sure that **Create incidents from alerts triggered by this analytics rule** is set to **Enabled**, and select **Next: Automated response**. 
    
-   This step lets you configure automation to trigger when the rule generates a security alert. Automation in Azure Sentinel uses **Playbooks**, powered by Azure Logic Apps. For more information, see [Tutorial: Set up automated threat responses in Azure Sentinel](/azure/sentinel/tutorial-respond-threats-playbook). For this example, just select **Next: Review**, and after reviewing the settings, select **Create**.
+   This step lets you configure automation to trigger when the rule generates a security alert. Automation in Azure Sentinel uses **Playbooks**, powered by Azure Logic Apps. For more information, see [Tutorial: Set up automated threat responses in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-respond-threats-playbook). For this example, just select **Next: Review**, and after reviewing the settings, select **Create**.
 
 Your rule activates immediately when created, and then triggers on the regular schedule going forward.
 
@@ -279,12 +279,12 @@ To add a new chart that shows threat indicators by threat type:
 ## Next steps
 Visit Azure Sentinel on [GitHub](https://github.com/Azure/Azure-Sentinel) to see contributions by both the community at large and by Microsoft. Here you'll find new ideas, templates, and conversations about all the feature areas of Azure Sentinel.
 
-Azure Sentinel workbooks are based on Azure Monitor workbooks, so extensive documentation and templates are available. A great place to start is [Create interactive reports with Azure Monitor workbooks](/azure/azure-monitor/app/usage-workbooks). There is a rich community of Azure Monitor workbook users on [GitHub](https://github.com/microsoft/Application-Insights-Workbooks), where you can download additional templates and contribute your own templates.
+Azure Sentinel workbooks are based on Azure Monitor workbooks, so extensive documentation and templates are available. A great place to start is [Create interactive reports with Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks). There is a rich community of Azure Monitor workbook users on [GitHub](https://github.com/microsoft/Application-Insights-Workbooks), where you can download additional templates and contribute your own templates.
 
 ## Related resources
-- [What is Azure Sentinel?](/azure/sentinel/overview)
-- [Quickstart: On-board Azure Sentinel](/azure/sentinel/quickstart-onboard)
-- [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator?view=graph-rest-beta)
-- [Tutorial: Investigate incidents with Azure Sentinel](/azure/sentinel/tutorial-investigate-cases)
-- [Tutorial: Set up automated threat responses in Azure Sentinel](/azure/sentinel/tutorial-respond-threats-playbook)
+- [What is Azure Sentinel?](https://docs.microsoft.com/azure/sentinel/overview)
+- [Quickstart: On-board Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Microsoft Graph Security tiIndicators API](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta)
+- [Tutorial: Investigate incidents with Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-investigate-cases)
+- [Tutorial: Set up automated threat responses in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-respond-threats-playbook)
 

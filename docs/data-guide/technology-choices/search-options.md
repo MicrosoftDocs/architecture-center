@@ -20,10 +20,10 @@ This article compares technology choices for search data stores in Azure. A sear
 
 In Azure, all of the following data stores will meet the core requirements for search against free-form text data by providing a search index:
 
-- [Azure Search](/azure/search/search-what-is-azure-search)
+- [Azure Search](https://docs.microsoft.com/azure/search/search-what-is-azure-search)
 - [Elasticsearch](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.elasticsearch?tab=Overview)
-- [HDInsight with Solr](/azure/hdinsight/hdinsight-hadoop-solr-install-linux)
-- [Azure SQL Database with full text search](/sql/relational-databases/search/full-text-search)
+- [HDInsight with Solr](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-solr-install-linux)
+- [Azure SQL Database with full text search](https://docs.microsoft.com/sql/relational-databases/search/full-text-search)
 
 ## Key selection criteria
 
