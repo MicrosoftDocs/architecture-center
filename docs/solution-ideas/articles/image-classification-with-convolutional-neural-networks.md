@@ -40,7 +40,6 @@ Using this solution to automate failure detection instead of relying solely on h
 ## Next steps
 
 * [Learn more about Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
-* [Learn more about Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=Overview)
 * [Learn more about Batch AI Training](https://azure.microsoft.com/roadmap/azure-batch-ai-training-for-deep-learning-models)
 * [Browse on GitHub](https://github.com/azure/mmlspark)
 * [Learn more about Azure Container Registry](https://azure.microsoft.com/services/container-registry)
