@@ -17,7 +17,7 @@ For example, look at a VM running the SAP on Azure project can show you how init
 
 ![](../_images/run-cost-optimization.png)
 
-It is easy to handle cost comparison when you are well equipped and for this Microsoft provides the set of specific services and tools that help you to understand and plan costs. These include the TCO Calculator, Azure Pricing Calculator, Azure Cost Management (Cloudyn), Azure Migrate, CosmosDB Sizing Calculator, and the Azure Site Recovery Deployment Planner.
+It is easy to handle cost comparison when you are well equipped and for this Microsoft provides the set of specific services and tools that help you to understand and plan costs. These include the TCO Calculator, Azure Pricing Calculator, Azure Cost Management (Cloudyn), Azure Migrate, Cosmos DB Sizing Calculator, and the Azure Site Recovery Deployment Planner.
 
 As we are talking about financial things - the way how you purchase cloud services, in which selling channel, may also bring the difference into the final cost. Consider the following methods of purchasing Azure and ways of modifying your pricing:
 
@@ -33,4 +33,4 @@ As we are talking about financial things - the way how you purchase cloud servic
 
 ## Act on recommendations
 
-Azure Advisor enables you to act on cost management recommendations from within the Azure portal, such as resizing virtual machines. [Act on recommendations](/azure/cost-management/tutorial-acm-opt-recommendations). Make sure that all stakeholders are in agreement regarding the implementation and timing of this change. Resizing a virtual machine does require the VM to be shut down and restarted, causing a period of time when it will be unavailable, so time this carefully for minimal business impact.
+Azure Advisor enables you to act on cost management recommendations from within the Azure portal, such as resizing virtual machines. [Act on recommendations](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations). Make sure that all stakeholders are in agreement regarding the implementation and timing of this change. Resizing a virtual machine does require the VM to be shut down and restarted, causing a period of time when it will be unavailable, so time this carefully for minimal business impact.

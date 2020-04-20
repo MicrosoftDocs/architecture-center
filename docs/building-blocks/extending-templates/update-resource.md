@@ -145,7 +145,7 @@ The original `firstVNet` has been updated instead of re-created. If `firstVNet` 
 
 ## Next steps
 
-* Learn how deploy a resource based on a condition, such as whether a parameter value is present. See [Conditionally deploy a resource in an Azure Resource Manager template](./conditional-deploy.md).
+- Learn how deploy a resource based on a condition, such as whether a parameter value is present. See [Conditionally deploy a resource in an Azure Resource Manager template](./conditional-deploy.md).
 
 [cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest
 [github]: https://github.com/mspnp/template-examples

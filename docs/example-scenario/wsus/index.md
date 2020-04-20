@@ -12,6 +12,9 @@ ms.subservice: example-scenario
 ms.custom:
   - fcp
 ---
+
+<!-- cSpell:ignore vpaulreed WSUS NSGs VM's -->
+
 # Plan your deployment for updating Windows Virtual Machines in Azure
 
 If you've locked down your Azure virtual network from the internet, you can still get Windows updates without jeopardizing security and opening up access to the internet as a whole. This article contains recommendations on how you can set up a perimeter network, also called a DMZ, to host a Windows Server Update Service (WSUS) instance to securely update virtual networks without internet connectivity.
@@ -36,10 +39,10 @@ In this image:
 
 You can reuse an existing server or deploy a new one that will be the WSUS server. For the WSUS VM, we recommend the following, at a minimum:
 
-- **Operating system:** Windows Server 2016 or later
-- **Processor:** Dual core, 2 GHz or faster
-- **Memory:** 2 GB of RAM, in addition to the RAM required by the server and all other running services and software
-- **Storage:** 40 GB or more
+- **Operating system:** Windows Server 2016 or later.
+- **Processor:** Dual core, 2 GHz or faster.
+- **Memory:** 2 GB of RAM, in addition to the RAM required by the server and all other running services and software.
+- **Storage:** 40 GB or more.
 - **Access**: Access this virtual machine more securely by using just-in-time (JIT). See [Manage virtual machine access using just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
 
 Your network will have more than one Azure virtual network, which can be in the same region or in different regions. You'll need to evaluate all Windows Server VMs to see if one can be used as a WSUS server. If you have thousands of VMs to update, we recommend dedicating a Windows Server VM to the WSUS role.
@@ -48,13 +51,13 @@ If all your virtual networks are in the same region, we suggest having one WSUS 
 
 You can determine the cost of these configurations by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). You'll need to provide the following information:
 
-- Virtual machine
+- Virtual machine:
   - Region: The region where your Azure virtual network is deployed.
   - Operating system: **Windows**
   - Tier: **Standard**
   - Instance: **D4 configuration**
   - Managed disks: **Standard HDD**, **64 GB**
-- Virtual network
+- Virtual network:
   - Type
     - **Same Region** if transfer is in the same region.
     - **Across Region** if you're moving data from one region to another.
@@ -70,9 +73,9 @@ Note that prices will vary by region.
 
 After you either identify the Azure virtual network to use as the hub or determine you need to create a new Windows Server instance, you need to create an NSG rule. The rule will allow internet traffic, which allows Windows Update metadata and content to sync with the WSUS server that you'll create. Here are the rules that you need to add:
 
-- Inbound/outbound NSG rule to allow traffic to and from the internet on port 80 (for content)
-- Inbound/outbound NSG rule to allow traffic to and from the internet on port 443 (for metadata)
-- Inbound/outbound NSG rule to allow traffic from the client VMs on port 8530 (default unless configured)
+- Inbound/outbound NSG rule to allow traffic to and from the internet on port 80 (for content).
+- Inbound/outbound NSG rule to allow traffic to and from the internet on port 443 (for metadata).
+- Inbound/outbound NSG rule to allow traffic from the client VMs on port 8530 (default unless configured).
 
 ## Set up WSUS
 
@@ -160,8 +163,8 @@ Next, set up Azure virtual network peering or global virtual network peering to 
 
 On each Azure virtual network that's a spoke, you'll need to create an NSG policy that has these rules:
 
-- An inbound/outbound NSG rule to allow traffic from the WSUS VM on port 8530 (default unless configured)
-- An inbound/outbound NSG rule to deny traffic from the internet
+- An inbound/outbound NSG rule to allow traffic from the WSUS VM on port 8530 (default unless configured).
+- An inbound/outbound NSG rule to deny traffic from the internet.
 
 Next, create the Azure virtual network peering from the spoke to the hub.
 
@@ -179,7 +182,7 @@ WSUS can be used to update any virtual machine that runs Windows (except for the
 1. Open Local Group Policy Editor (or Group Policy Management Editor).
 2. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Windows Update**.
 3. Enable **Specify intranet Microsoft update service location**.
-4. Enter the URL **http://\<WSUS name>:8530**. (You can find your WSUS name (for example, WsusVM) on the Update Services page.) It might take some time (up to few hours) for this setting to be reflected.
+4. Enter the URL `http://\<WSUS name>:8530`. (You can find your WSUS name (for example, WsusVM) on the Update Services page.) It might take some time (up to few hours) for this setting to be reflected.
 5. Go to **Settings** > **Update & Security** > **Windows Update**.
 6. Select **Check for updates**.
 

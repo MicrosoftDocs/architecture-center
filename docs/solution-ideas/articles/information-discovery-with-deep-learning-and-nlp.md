@@ -42,7 +42,7 @@ By combining deep learning and natural language processing (NLP) with data on si
 * [Learn more about Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=Overview)
 * [Learn more about Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/quickstart-installation)
 * [Learn more about Azure Machine Learning Experimentation Service](https://docs.microsoft.com/azure/machine-learning/preview)
-* [Learn More about Azure Machine Learning Model Management](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+* [Learn More about Azure Machine Learning Model Management](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment)
 * [Learn more about Jupyter Notebooks](https://jupyter.org)
 * [Learn more about Azure Container Registry](https://azure.microsoft.com/services/container-registry)
 * [Learn more about Azure Kubernetes Service](https://azure.microsoft.com/services/hdinsight)

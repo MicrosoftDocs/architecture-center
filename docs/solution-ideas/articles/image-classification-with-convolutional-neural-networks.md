@@ -44,5 +44,5 @@ Using this solution to automate failure detection instead of relying solely on h
 * [Learn more about Batch AI Training](https://azure.microsoft.com/roadmap/azure-batch-ai-training-for-deep-learning-models)
 * [Browse on GitHub](https://github.com/azure/mmlspark)
 * [Learn more about Azure Container Registry](https://azure.microsoft.com/services/container-registry)
-* [Learn more about Model Management](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+* [Learn more about Model Management](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment)
 * [Learn more about Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)

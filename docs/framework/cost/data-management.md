@@ -31,7 +31,7 @@ This way the majority of your data capacity is consumed with fast, cost-effectiv
 
 You **don't need to make all of your decisions up-front** and cost-design is more than just an app-dev concern, many Azure services can be used to enhance applications ability to scale dynamically, even where they may not have been originally designed to do so.
 
-For example, many asp.net stateful web applications can be made stateless (and hence can be auto scaled for a dramatic cost-benefit) by using [Azure Redis Cache](/azure/azure-cache-for-redis/cache-aspnet-session-state-provider), or CosmosDB as a back-end session state store via a [Session State Provider](https://github.com/aspnet/AspNetSessionState).
+For example, many asp.net stateful web applications can be made stateless (and hence can be auto scaled for a dramatic cost-benefit) by using [Azure Redis Cache](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-aspnet-session-state-provider), or Cosmos DB as a back-end session state store via a [Session State Provider](https://github.com/aspnet/AspNetSessionState).
 
 Consider also, that you can reduce load on servers that repeatedly serve the same content, intelligent use of CDN and caching services can dramatically decrease load on front-end servers that are continually rendering dynamic content which doesn't change frequently. Every render cycle of a page or payload consumes both compute and memory, and with CDN you trade this off for pre-canned storage and bandwidth costs, and the savings can be dramatic, especially for static content services (such as JavaScript Single-Page apps and media streaming content), refer to the [Static Content Hosting Pattern](../../patterns/static-content-hosting.md).
 

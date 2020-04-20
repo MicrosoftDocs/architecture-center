@@ -73,6 +73,6 @@ The following patterns and guidance might also be relevant when implementing thi
 
 - [Throttling pattern](./throttling.md). A simple way to implement throttling with a service is to use queue-based load leveling and route all requests to a service through a message queue. The service can process requests at a rate that ensures that resources required by the service aren't exhausted, and to reduce the amount of contention that could occur.
 
-- [Choose between Azure messaging services](/azure/event-grid/compare-messaging-services). Information about choosing a messaging and queuing mechanism in Azure applications.
+- [Choose between Azure messaging services](https://docs.microsoft.com/azure/event-grid/compare-messaging-services). Information about choosing a messaging and queuing mechanism in Azure applications.
 
 - [Improve scalability in an Azure web application](../reference-architectures/app-service-web-app/scalable-web-app.md). This reference architecture includes queue-based load leveling as part of the architecture.

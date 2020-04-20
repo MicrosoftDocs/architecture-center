@@ -1,6 +1,6 @@
 ---
-title: Overview of the cost pillar 
-description: Describes the cost pillar
+title: Overview of the cost pillar
+description: Describes the cost pillar.
 author: david-stanford
 ms.date: 11/04/2019
 ms.topic: overview
@@ -13,7 +13,7 @@ ms.custom:
 
 This is an introduction to cloud cost management, which covers a series of important considerations that need to be applied to achieve both business objectives and cost justification.
 
-To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](/assessments/?mode=pre-assessment&id=azure-architecture-review).
+To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=azure-architecture-review).
 
 ## Introduction
 
@@ -33,7 +33,7 @@ Cost, being an absolute metric, is easy to grasp and work with, but the "best us
 
 ### Organization
 
-**Develop a Cloud Operating Model.** When adopting the cloud, one of the main considerations is the shift from static (or purchased) infrastructure to dynamic (or rented) infrastructure. This has implications across four facets of building software: Specifically, how you provision, secure, connect, and run your applications. If you are just starting in this process review [enable success during a cloud adoption journey ](/azure/cloud-adoption-framework/getting-started/enable).
+**Develop a Cloud Operating Model.** When adopting the cloud, one of the main considerations is the shift from static (or purchased) infrastructure to dynamic (or rented) infrastructure. This has implications across four facets of building software: Specifically, how you provision, secure, connect, and run your applications. If you are just starting in this process review [enable success during a cloud adoption journey ](https://docs.microsoft.com/azure/cloud-adoption-framework/getting-started/enable).
 
 ### Architecture
 

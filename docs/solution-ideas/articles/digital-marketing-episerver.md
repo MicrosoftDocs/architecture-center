@@ -38,11 +38,11 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 
 ## Next steps
 
-* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](/api/Redirect/documentation/articles/web-sites-dotnet-get-started)
-* [Configure Performance traffic routing method](/api/Redirect/documentation/articles/traffic-manager-configure-performance-routing-method)
-* [Use Azure CDN in Azure App Service](/api/Redirect/documentation/articles/cdn-websites-with-cdn)
-* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/api/Redirect/documentation/articles/sql-database-get-started)
-* [How to create a Web App with Azure Cache for Redis](/api/Redirect/documentation/articles/cache-web-app-howto)
-* [Get started with Azure Blob storage using .NET](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs)
+* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](https://docs.microsoft.com/api/Redirect/documentation/articles/web-sites-dotnet-get-started)
+* [Configure Performance traffic routing method](https://docs.microsoft.com/api/Redirect/documentation/articles/traffic-manager-configure-performance-routing-method)
+* [Use Azure CDN in Azure App Service](https://docs.microsoft.com/api/Redirect/documentation/articles/cdn-websites-with-cdn)
+* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](https://docs.microsoft.com/api/Redirect/documentation/articles/sql-database-get-started)
+* [How to create a Web App with Azure Cache for Redis](https://docs.microsoft.com/api/Redirect/documentation/articles/cache-web-app-howto)
+* [Get started with Azure Blob storage using .NET](https://docs.microsoft.com/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs)
 * [Application Performance Management with Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
-* [How to configure your App Service application to use Facebook login](/api/Redirect/documentation/articles/app-service-mobile-how-to-configure-facebook-authentication)
+* [How to configure your App Service application to use Facebook login](https://docs.microsoft.com/api/Redirect/documentation/articles/app-service-mobile-how-to-configure-facebook-authentication)

@@ -153,7 +153,6 @@ This scenario used Azure Container Registry and Azure Kubernetes Service to stor
 
 <!-- links -->
 [architecture]: ./media/architecture-devops-with-aks.png
-[autoscaling]: ../../best-practices/auto-scaling.md
 [docs-aci]: https://docs.microsoft.com/azure/container-instances/container-instances-overview
 [docs-acr]: https://docs.microsoft.com/azure/container-registry/container-registry-intro
 [docs-aks]: https://docs.microsoft.com/azure/aks/intro-kubernetes
@@ -163,7 +162,6 @@ This scenario used Azure Container Registry and Azure Kubernetes Service to stor
 [createsp]: https://docs.microsoft.com/cli/azure/ad/sp#az-ad-sp-create
 [grafana]: https://grafana.com
 [jenkins]: https://jenkins.io
-[resource-groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
 [security]: https://docs.microsoft.com/azure/security
 [scalability]: ../../checklist/scalability.md
 [sshkeydocs]: https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys

@@ -33,5 +33,5 @@ This solution is built on the Azure managed services: [Azure Backup](https://azu
 
 ## Next steps
 
-* [Back up files and folders using Azure Backup](/api/Redirect/documentation/articles/backup-try-azure-backup-in-10-mins)
-* [Store backed up files in Blob storage](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs)
+* [Back up files and folders using Azure Backup](https://docs.microsoft.com/azure/backup/backup-configure-vault)
+* [Store backed up files in Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet)

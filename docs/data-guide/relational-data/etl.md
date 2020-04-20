@@ -1,6 +1,6 @@
 ---
 title: Extract, transform, and load (ETL)
-description: 
+description: Learn about extract-transform-load (ETL) and extract-load-transform (ELT) data transformation pipelines, and how to use control flows and data flows.
 author: zoinerTejada
 ms.date: 11/20/2019
 ms.topic: guide
@@ -32,7 +32,7 @@ Relevant Azure service:
 
 Other tools:
 
-- [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
+- [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
 
 ## Extract, load, and transform (ELT)
 
@@ -57,7 +57,7 @@ Relevant Azure service:
 
 Other tools:
 
-- [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
+- [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
 
 ## Data flow and control flow
 
@@ -75,7 +75,7 @@ Relevant Azure service:
 
 Other tools:
 
-- [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
+- [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
 
 ## Technology choices
 

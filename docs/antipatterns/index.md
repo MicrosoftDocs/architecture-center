@@ -41,6 +41,12 @@ Here is the list of the antipatterns that we've identified:
 | [No Caching][NoCaching] | Failing to cache data. |
 | [Synchronous I/O][SynchronousIO] | Blocking the calling thread while I/O completes. |
 
+## Next steps
+
+For more about performance tuning, see [Performance tuning a distributed application](../performance/index.md)
+
+<!-- links -->
+
 [BusyDatabase]: ./busy-database/index.md
 [BusyFrontEnd]: ./busy-front-end/index.md
 [ChattyIO]: ./chatty-io/index.md
@@ -49,7 +55,3 @@ Here is the list of the antipatterns that we've identified:
 [MonolithicPersistence]: ./monolithic-persistence/index.md
 [NoCaching]: ./no-caching/index.md
 [SynchronousIO]: ./synchronous-io/index.md
-
-## Next steps
-
-For more about performance tuning, see [Performance tuning a distributed application](../performance/index.md).

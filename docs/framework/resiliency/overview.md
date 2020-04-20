@@ -1,5 +1,5 @@
 ---
-title: Overview of the resiliency pillar 
+title: Overview of the resiliency pillar
 description: Describes the resiliency pillar
 author: david-stanford
 ms.date: 10/21/2019
@@ -13,7 +13,7 @@ ms.custom:
 
 Building a reliable application in the cloud is different from traditional application development. While historically you may have purchased levels of redundant higher-end hardware to minimize the chance of an entire application platform failing.  In the cloud, we acknowledge up front that failures will happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component.
 
-To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](/assessments/?mode=pre-assessment&id=azure-architecture-review).
+To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=azure-architecture-review).
 
 Reliable applications are:
 

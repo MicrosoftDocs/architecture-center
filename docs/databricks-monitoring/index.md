@@ -16,7 +16,7 @@ ms.subservice: reference-architecture
 
 Monitoring is a critical part of any production-level solution, and Azure Databricks offers robust functionality for monitoring custom application metrics, streaming query events, and application log messages. Azure Databricks can send this monitoring data to different logging services.
 
-The following articles show how to send monitoring data from Azure Databricks to [Azure Monitor](/azure/azure-monitor/overview), the monitoring data platform for Azure.
+The following articles show how to send monitoring data from Azure Databricks to [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview), the monitoring data platform for Azure.
 
 - [Send Azure Databricks application logs to Azure Monitor](./application-logs.md)
 - [Use dashboards to visualize Azure Databricks metrics](./dashboards.md)

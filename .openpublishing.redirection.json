@@ -1894,6 +1894,11 @@
     {
       "source_path": "docs/architectures/reference-architectures.md",
       "redirect_url": "/azure/architecture/browse"
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/hybrid-ci-cd.md",
+      "redirect_url": "docs/solution-ideas/articles/devops-in-a-hybrid-environment.md",
+      "redirect_document_id": false
     }
   ]
 }

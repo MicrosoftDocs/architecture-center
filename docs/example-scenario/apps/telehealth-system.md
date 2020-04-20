@@ -93,7 +93,7 @@ We recommend using a traffic manager in front of the different clusters to optim
 
 ### Deployment
 
-The most important aspect to consider when deploying this scenario is the coordination of deployments across the cloud-based backend and the frontend (phones/devices). Consider using the concept of a [feature flag](/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops) to achieve this.
+The most important aspect to consider when deploying this scenario is the coordination of deployments across the cloud-based backend and the frontend (phones/devices). Consider using the concept of a [feature flag](https://docs.microsoft.com/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops) to achieve this.
 
 ### Management
 
@@ -125,7 +125,7 @@ For a deployment in a single region, example pricing information is available in
 
 ## Next steps
 
-To get started with implementing a comparable architecture for your business, consider building skills around web services, databases (such as [Azure Database for PostgreSQL](/azure/postgresql/)), and mobile/phone application development techniques and technologies (such as [Xamarin](/xamarin/), [.Net Core](/dotnet/core/), etc.).
+To get started with implementing a comparable architecture for your business, consider building skills around web services, databases such as [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql), and mobile application development techniques and technologies such as [Xamarin](https://docs.microsoft.com/xamarin) and [.Net Core](https://docs.microsoft.com/dotnet/core).
 
 ## Related resources
 

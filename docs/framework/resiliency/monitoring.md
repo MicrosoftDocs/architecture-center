@@ -38,7 +38,7 @@ Long-running workflows often include multiple steps, each of which should be ind
 Track the progress of long-running processes to minimize the likelihood that the entire workflow will need to be rolled back or that multiple compensating transactions will need to be executed.
 
 >[!TIP]
-> Monitor and manage the progress of long-running workflows by implementing a pattern such as [Scheduler Agent Supervisor](https://docs.microsoft.com/azure/architecture/patterns/scheduler-agent-supervisor).
+> Monitor and manage the progress of long-running workflows by implementing a pattern such as [Scheduler Agent Supervisor](../../patterns/scheduler-agent-supervisor.md).
 
 ## Visualization and alerts
 
@@ -46,7 +46,7 @@ Present telemetry data in a format that makes it easy for an operator to notice 
 
 Get a full-stack view of application state by using [Azure dashboards](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) to create a consolidated view of monitoring graphs from Application Insights, Log Analytics, Azure Monitor metrics, and Service Health. And use [Azure Monitor alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview) to create notifications on Service Health, resource health, Azure Monitor metrics, logs in Log Analytics, and Application Insights.
 
-For more information about monitoring and diagnostics, see [Monitoring and diagnostics](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).
+For more information about monitoring and diagnostics, see [Monitoring and diagnostics](../../best-practices/monitoring.md).
 
 ## Test Monitoring
 
@@ -57,6 +57,10 @@ Include monitoring systems in your test plan. Automated failover and failback sy
 Azure subscriptions have limits on certain resource types, such as number of resource groups, cores, and storage accounts. To ensure that your application doesn't run up against Azure subscription limits, create alerts that poll for services nearing their limits and quotas.
 
 Address the following subscription limits with alerts.
+
+![GitHub](../../_images/github.png) A reference implementation is available on [GitHub](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md).
+
+For information about that implementation, see [Event-based cloud automation on Azure](../../reference-architectures/serverless/cloud-automation.md).
 
 ### Individual services
 

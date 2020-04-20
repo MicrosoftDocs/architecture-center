@@ -12,6 +12,9 @@ pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: claims
 pnp.series.next: app-roles
 ---
+
+<!-- cSpell:ignore signup nameof -->
+
 # Tenant sign-up and onboarding
 
 [![GitHub](../_images/github.png) Sample code][sample application]
@@ -266,9 +269,9 @@ Here is a summary of the entire sign-up flow in the Surveys application:
 
 <!-- links -->
 
-[app roles]: app-roles.md
-[Tailspin]: tailspin.md
+[app roles]: ./app-roles.md
+[Tailspin]: ./tailspin.md
 
 [state]: https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
-[Authentication]: authenticate.md
+[Authentication]: ./authenticate.md
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance

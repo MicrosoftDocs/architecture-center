@@ -71,7 +71,7 @@ server {
 }
 ```
 
-On Azure, multiple services can be set up behind an [Application Gateway instance](/azure/application-gateway/tutorial-multiple-sites-cli), which provides layer-7 routing.
+On Azure, multiple services can be set up behind an [Application Gateway instance](https://docs.microsoft.com/azure/application-gateway/tutorial-multiple-sites-cli), which provides layer-7 routing.
 
 ## Related guidance
 

@@ -1,6 +1,6 @@
 ---
 title: Choosing a batch processing technology
-description: 
+description: Compare technology choices for big data batch processing in Azure, including key selection criteria and a capability matrix.
 author: zoinerTejada
 ms.date: 11/20/2019
 ms.topic: guide
@@ -18,19 +18,19 @@ The key requirement of such batch processing engines is the ability to scale out
 
 ### Azure Synapse Analytics
 
-[Azure Synapse](/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics. Consider Azure Synapse when you have large amounts of data (more than 1 TB) and are running an analytics workload that will benefit from parallelism.
+[Azure Synapse](https://docs.microsoft.com/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics. Consider Azure Synapse when you have large amounts of data (more than 1 TB) and are running an analytics workload that will benefit from parallelism.
 
 ### Azure Data Lake Analytics
 
-[Data Lake Analytics](/azure/data-lake-analytics/data-lake-analytics-overview) is an on-demand analytics job service. It is optimized for distributed processing of very large data sets stored in Azure Data Lake Store.
+[Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-overview) is an on-demand analytics job service. It is optimized for distributed processing of very large data sets stored in Azure Data Lake Store.
 
-- Languages: [U-SQL](/azure/data-lake-analytics/data-lake-analytics-u-sql-get-started) (including Python, R, and C# extensions).
+- Languages: [U-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-get-started) (including Python, R, and C# extensions).
 - Integrates with Azure Data Lake Store, Azure Storage blobs, Azure SQL Database, and Azure Synapse.
 - Pricing model is per-job.
 
 ### HDInsight
 
-HDInsight is a managed Hadoop service. Use it deploy and manage Hadoop clusters in Azure. For batch processing, you can use [Spark](/azure/hdinsight/spark/apache-spark-overview), [Hive](/azure/hdinsight/hadoop/hdinsight-use-hive), [Hive LLAP](/azure/hdinsight/interactive-query/apache-interactive-query-get-started), [MapReduce](/azure/hdinsight/hadoop/hdinsight-use-mapreduce).
+HDInsight is a managed Hadoop service. Use it deploy and manage Hadoop clusters in Azure. For batch processing, you can use [Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-overview), [Hive](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-hive), [Hive LLAP](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started), [MapReduce](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-mapreduce).
 
 - Languages: R, Python, Java, Scala, SQL
 - Kerberos authentication with Active Directory, Apache Ranger based access control
@@ -38,7 +38,7 @@ HDInsight is a managed Hadoop service. Use it deploy and manage Hadoop clusters 
 
 ### Azure Databricks
 
-[Azure Databricks](/azure/azure-databricks/) is an Apache Spark-based analytics platform. You can think of it as "Spark as a service." It's the easiest way to use Spark on the Azure platform.
+[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) is an Apache Spark-based analytics platform. You can think of it as "Spark as a service." It's the easiest way to use Spark on the Azure platform.
 
 - Languages: R, Python, Java, Scala, Spark SQL
 - Fast cluster start times, autotermination, autoscaling.
@@ -105,8 +105,8 @@ The following tables summarize the key differences in capabilities.
 
 <!-- markdownlint-enable MD033 -->
 
-[1] Requires using a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
+[1] Requires using a [domain-joined HDInsight cluster](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
 
-[2] Filter predicates only. See [Row-Level Security](/sql/relational-databases/security/row-level-security)
+[2] Filter predicates only. See [Row-Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)
 
-[3] Supported when [used within an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).
+[3] Supported when [used within an Azure Virtual Network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).

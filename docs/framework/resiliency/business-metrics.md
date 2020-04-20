@@ -76,7 +76,7 @@ What is the maximum downtime you would expect for this application? If either se
 
 You can improve the composite SLA by creating independent fallback paths. For example, if SQL Database is unavailable, put transactions into a queue to be processed later.
 
-![Composite SLA](/azure/architecture/framework/_images/composite-sla.png)
+![Composite SLA](../../framework/_images/composite-sla.png)
 
 With this design, the application is still available even if it can't connect to the database. However, it fails if the database and the queue both fail at the same time. The expected percentage of time for a simultaneous failure is 0.0001 × 0.001, so the composite SLA for this combined path is:
 
@@ -102,4 +102,4 @@ The expected chance that the application fails in all regions at the same time i
 - The combined SLA for two regions = (1 − (1 − 0.9995) \^ 2) = 99.999975%
 - The combined SLA for four regions =  (1 − (1 − 0.9995) \^ 4)  = 99.999999%
 
-The [SLA for Traffic Manager](https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/) is also a factor. Failing over is not instantaneous in active-passive configurations, which can result in downtime during a failover. See [Traffic Manager endpoint monitoring and failover](/azure/traffic-manager/traffic-manager-monitoring).
+The [SLA for Traffic Manager](https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/) is also a factor. Failing over is not instantaneous in active-passive configurations, which can result in downtime during a failover. See [Traffic Manager endpoint monitoring and failover](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring).
