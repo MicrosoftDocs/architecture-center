@@ -15,6 +15,8 @@ ms.service: architecture-center
 ms.subservice: example-scenario
 ---
 
+<!-- cSpell:ignore newsfeeds njray Redlock -->
+
 # Mass ingestion and analysis of news feeds on Azure
 
 This example scenario describes a pipeline for mass ingestion and near real-time analysis of documents using public RSS news feeds.  It uses Azure Cognitive Services to offer useful insights including text translation, facial recognition, and sentiment detection.
@@ -25,10 +27,10 @@ This scenario contains examples for [English][english], [Russian][russian], and 
 
 While this scenario is based on processing of RSS feeds, it's relevant to any document, website, or article where you would need to:
 
-* Translate any text to the language of choice.
-* Find key phrases, entities, and user sentiment in digital content.
-* Detect objects, text, and landmarks in images associated with a digital article.
-* Detect people by their gender and age in any image associated with digital content.
+- Translate any text to the language of choice.
+- Find key phrases, entities, and user sentiment in digital content.
+- Detect objects, text, and landmarks in images associated with a digital article.
+- Detect people by their gender and age in any image associated with digital content.
 
 ## Architecture
 
@@ -56,29 +58,29 @@ At each processing step, the function writes the results to Azure Cosmos DB. Ult
 
 The following list of Azure components is used in this example.
 
-* [Azure Storage][storage] is used to hold raw image and video files associated with an article. A secondary storage account is created with Azure App Service and is used to host the Azure Function code and logs.
+- [Azure Storage][storage] is used to hold raw image and video files associated with an article. A secondary storage account is created with Azure App Service and is used to host the Azure Function code and logs.
 
-* [Azure Cosmos DB][cosmos-db] holds article text, image, and video tracking information. The results of the Cognitive Services steps are also stored here.
+- [Azure Cosmos DB][cosmos-db] holds article text, image, and video tracking information. The results of the Cognitive Services steps are also stored here.
 
-* [Azure Functions][functions] executes the function code used to respond to queue messages and transform the incoming content. [Azure App Service][aas] hosts the function code and processes the records serially. This scenario includes five functions: Ingest, Transform, Detect Object, Face, and Notify.
+- [Azure Functions][functions] executes the function code used to respond to queue messages and transform the incoming content. [Azure App Service][aas] hosts the function code and processes the records serially. This scenario includes five functions: Ingest, Transform, Detect Object, Face, and Notify.
 
-* [Azure Service Bus][service-bus] hosts the Azure Service Bus queues used by the functions.
+- [Azure Service Bus][service-bus] hosts the Azure Service Bus queues used by the functions.
 
-* [Azure Cognitive Services][acs] provides the AI for the pipeline based on implementations of the [Computer Vision][vision] service, [Face API][face], and [Translate Text][translate-text] machine translation service.
+- [Azure Cognitive Services][acs] provides the AI for the pipeline based on implementations of the [Computer Vision][vision] service, [Face API][face], and [Translate Text][translate-text] machine translation service.
 
-* [Azure Application Insights][aai] provides analytics to help you diagnose issues and to understand functionality of your application.
+- [Azure Application Insights][aai] provides analytics to help you diagnose issues and to understand functionality of your application.
 
 ### Alternatives
 
-* Instead of using a pattern based on queue notification and Azure Functions, use another pattern for this data flow. For example, [Azure Service Bus Topics][topics] can be used to processes the various parts of the article in parallel as opposed to the serial processing done in this example. For more information, compare [queues and topics][queues-topics].
+- Instead of using a pattern based on queue notification and Azure Functions, use another pattern for this data flow. For example, [Azure Service Bus Topics][topics] can be used to processes the various parts of the article in parallel as opposed to the serial processing done in this example. For more information, compare [queues and topics][queues-topics].
 
-* Use [Azure Logic App][logic-app] to implement the function code and implement record-level locking such as [Redlock][redlock] (needed for parallel processing until Azure Cosmos DB supports [partial document updates][partial]). For more information, [compare Functions and Logic Apps][compare].
+- Use [Azure Logic Apps][logic-app] to implement the function code and implement record-level locking such as [Redlock][redlock] (needed for parallel processing until Azure Cosmos DB supports [partial document updates][partial]). For more information, [compare Functions and Logic Apps][compare].
 
-* Implement this architecture using customized AI components rather than existing Azure services. For example, extend the pipeline using a customized model that detects certain people in an image as opposed to the generic people count, gender, and age data collected in this example. To use customized machine learning or AI models with this architecture, build the models as RESTful endpoints so they can be called from Azure Functions.
+- Implement this architecture using customized AI components rather than existing Azure services. For example, extend the pipeline using a customized model that detects certain people in an image as opposed to the generic people count, gender, and age data collected in this example. To use customized machine learning or AI models with this architecture, build the models as RESTful endpoints so they can be called from Azure Functions.
 
-* Use a different input mechanism instead of RSS feeds. Use multiple generators or ingestion processes to feed Azure Cosmos DB and Azure Storage.
+- Use a different input mechanism instead of RSS feeds. Use multiple generators or ingestion processes to feed Azure Cosmos DB and Azure Storage.
 
-* [Azure Cognitive Search](https://docs.microsoft.com/azure/search) is an AI feature in Azure Search that can also used to extract text from images, blobs, and other unstructured data sources.
+- [Azure Cognitive Search](https://docs.microsoft.com/azure/search) is an AI feature in Azure Search that can also used to extract text from images, blobs, and other unstructured data sources.
 
 ## Considerations
 

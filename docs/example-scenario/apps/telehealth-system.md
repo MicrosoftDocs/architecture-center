@@ -125,7 +125,7 @@ For a deployment in a single region, example pricing information is available in
 
 ## Next steps
 
-To get started with implementing a comparable architecture for your business, consider building skills around web services, databases (such as [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/)), and mobile/phone application development techniques and technologies (such as [Xamarin](https://docs.microsoft.com/xamarin/), [.Net Core](https://docs.microsoft.com/dotnet/core/), etc.).
+To get started with implementing a comparable architecture for your business, consider building skills around web services, databases such as [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql), and mobile application development techniques and technologies such as [Xamarin](https://docs.microsoft.com/xamarin) and [.Net Core](https://docs.microsoft.com/dotnet/core).
 
 ## Related resources
 

@@ -1,5 +1,5 @@
 ---
-title: Overview of the security pillar 
+title: Overview of the security pillar
 description: Describes the security pillar
 author: david-stanford
 ms.date: 10/21/2019

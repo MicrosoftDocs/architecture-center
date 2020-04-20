@@ -13,6 +13,8 @@ ms.subservice: reference-architecture
 ms.custom: seodec18, identity
 ---
 
+<!-- cSpell:ignore writeback MSOL -->
+
 # Integrate on-premises Active Directory domains with Azure Active Directory
 
 Azure Active Directory (Azure AD) is a cloud-based multi-tenant directory and identity service. This reference architecture shows best practices for integrating on-premises Active Directory domains with Azure AD to provide cloud-based identity authentication. [**Deploy this solution**](#deploy-the-solution).
@@ -135,7 +137,7 @@ For more information, see [Publish applications using Azure AD Application proxy
 
 ### Object synchronization
 
-Azure AD Connect's default configuration synchronizes objects from your local Active Directory directory based on the rules specified in the article [Azure AD Connect sync: Understanding the default configuration][aad-connect-sync-default-rules]. Objects that satisfy these rules are synchronized while all other objects are ignored. Some example rules:
+The default configuration for Azure AD Connect synchronizes objects from your local Active Directory directory based on the rules specified in the article [Azure AD Connect sync: Understanding the default configuration][aad-connect-sync-default-rules]. Objects that satisfy these rules are synchronized while all other objects are ignored. Some example rules:
 
 - User objects must have a unique *sourceAnchor* attribute and the *accountEnabled* attribute must be populated.
 - User objects must have a *sAMAccountName* attribute and cannot start with the text *Azure AD_* or *MSOL_*.
@@ -198,7 +200,7 @@ For more information and tips for managing Azure AD Connect, see [Azure AD Conne
 
 Use conditional access control to deny authentication requests from unexpected sources:
 
-- Trigger [Azure Multi-Factor Authentication (MFA)][azure-multifactor-authentication] if a user attempts to connect from a nontrusted location such as across the Internet instead of a trusted network.
+- Trigger [Azure Multi-Factor Authentication (MFA)][azure-multifactor-authentication] if a user attempts to connect from a untrusted location such as across the Internet instead of a trusted network.
 
 - Use the device platform type of the user (iOS, Android, Windows Mobile, Windows) to determine access policy to applications and features.
 
@@ -210,14 +212,13 @@ Use conditional access control to deny authentication requests from unexpected s
 
 For more information, see [Azure Active Directory conditional access][aad-conditional-access].
 
-
 ## DevOps considerations
 
 For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.md#devops-considerations).
 
-
 ## Cost considerations
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost]. 
+
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
 
 Here are cost considerations for the services used in this architecture.
 
@@ -225,17 +226,16 @@ Here are cost considerations for the services used in this architecture.
 
 For information about the editions offered by Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing]. The AD Connect sync feature is available in all editions.
 
-### VMs for N-Tier application 
+### VMs for N-Tier application
 
 The deployment includes infrastructure for an N-tier application. For cost information about these resources, [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
-
-
 
 ## Deploy the solution
 
 A deployment for a reference architecture that implements these recommendations and considerations is available on GitHub. This reference architecture deploys a simulated on-premises network in Azure that you can use to test and experiment. To deploy the solution, see the [readme](https://github.com/mspnp/identity-reference-architectures/tree/master/azure-ad) on GitHub.
 
 <!-- links -->
+
 [aaf-cost]: ../../framework/cost/overview.md
 [implementing-a-multi-tier-architecture-on-Azure]: ../n-tier/n-tier-sql-server.md#cost-considerations
 

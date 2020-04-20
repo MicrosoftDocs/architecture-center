@@ -98,7 +98,7 @@ This example scenario though talks more about configuration, the APIs hosted on 
 3. This specific deployment uses the domain name contoso.org and a wild-card SSL certificate for the domain.
 4. The deployment is using the resource names and address spaces mentioned in the deployment section, which can be configured.
 
-### Deployment and putting the pieces together  
+### Deployment and putting the pieces together
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.svg)](https://deploy.azure.com/?repository=https://github.com/ssarwa/API-Management-ASE-AppGateway)
 

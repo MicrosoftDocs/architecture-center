@@ -13,7 +13,7 @@ The title is a noun phrase that describes the scenario.
 
 Avoid naming the scenario after the Azure technologies that are used.
 
-<Introductory section (no heading)>
+(Introductory section - no heading)
 
 > This should be an introduction of the business problem and why this scenario was built to solve it.
 >> What industry is the customer in?
@@ -30,7 +30,7 @@ Avoid naming the scenario after the Azure technologies that are used.
 
 These other uses cases have similar design patterns:
 
-* List of example use cases
+- List of example use cases
 
 ## Architecture
 
@@ -48,7 +48,7 @@ A bullet list of components in the architecture (including all relevant Azure se
 > Why is each component there?
 > What does it do and why was it necessary?
 
-* Example: [Resource Groups][resource-groups] is a logical container for Azure resources.  We use resource groups to organize everything related to this project in the Azure console.
+- Example: [Resource Groups][resource-groups] is a logical container for Azure resources.  We use resource groups to organize everything related to this project in the Azure console.
 
 ### Alternatives
 

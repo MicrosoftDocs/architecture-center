@@ -14,7 +14,7 @@ ms.custom:
 social_image_url: /azure/architecture/example-scenario/iot-aad/media/multi-tenant-iot.png
 ---
 
-<!-- cSpell:ignore knicholasa Woodgrove Gmail SAML -->
+<!--cSpell:ignore knicholasa ISV's Woodgrove ecommerce SAML Gmail -->
 
 # Secure your IoT SaaS app with the Microsoft identity platform
 

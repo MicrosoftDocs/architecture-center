@@ -6,7 +6,7 @@ ms.date: 11/01/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
-ms.custom: fasttrack-edit 
+ms.custom: fasttrack-edit
 ---
 
 # Application design for DevOps

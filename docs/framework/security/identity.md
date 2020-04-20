@@ -1,6 +1,6 @@
 ---
 title: Identity and Access Management in Azure | Microsoft Docs
-description: Manage access based on identity authentication and authorization 
+description: Manage access based on identity authentication and authorization.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
 ms.topic: article
@@ -177,8 +177,7 @@ For Azure, enable modern protections in Azure AD by
     them based on a report:
 
     1.  **Automatic Enforcement -** Automatically remediate high risk passwords
-        with Conditional Access [leveraging Azure AD Identity Protection risk
-        assessments](https://docs.microsoft.com/azure/active-directory/identity-protection/overview)
+        with Conditional Access [using Azure AD Identity Protection risk assessments](https://docs.microsoft.com/azure/active-directory/identity-protection/overview)
 
     2.  **Report & Manually Remediate -** View reports and manually remediate
         accounts

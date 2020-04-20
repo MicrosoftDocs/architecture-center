@@ -1,6 +1,6 @@
 ---
-title: Overview of the devops pillar 
-description: Describes the devops pillar
+title: Overview of the DevOps pillar
+description: Describes the DevOps pillar.
 author: david-stanford
 ms.date: 10/21/2019
 ms.topic: overview

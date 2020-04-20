@@ -148,7 +148,7 @@ Not all regions support availability zones, and not all VM sizes are supported i
 
 ```bash
 az vm list-skus --resource-type virtualMachines --zone false --location <location> \
-    --query "[].{Name:name, Zones:locationInfo[].zones[] | join(','@)}" -o table  
+    --query "[].{Name:name, Zones:locationInfo[].zones[] | join(','@)}" -o table
 ```
 
 If you deploy this architecture to a region that does not support availability zones, put the VMs for each tier inside an *availability set*. VMs within the same availability are deployed across multiple physical servers, compute racks, storage units, and network switches for redundancy. Scale sets automatically use *placement groups*, which act as an implicit availability set.

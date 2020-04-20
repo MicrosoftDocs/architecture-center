@@ -1,6 +1,6 @@
 ---
-title: Overview of the cost pillar 
-description: Describes the cost pillar
+title: Overview of the cost pillar
+description: Describes the cost pillar.
 author: david-stanford
 ms.date: 11/04/2019
 ms.topic: overview

@@ -73,9 +73,9 @@ To capture as much version-specific information as possible, implement a robust 
 
 ## Rollback plan
 
-Use App Service deployment slots to fall back on last-known good menu. 
+Use App Service deployment slots to fall back on last-known good menu.
 
-The most important step is to implement an architecture that supports the need to rollback. For instance, componentized, service-based architectures lend themselves well to this. Persistent message queues and asynchronous services allow you to bring components down for rollback without impacting the main user base. Work towards something like the Blue-Green release pattern such that your application can stay available whilst you are working on one half of the system.
+The most important step is to implement an architecture that supports the need to rollback. For instance, componentized, service-based architectures lend themselves well to this. Persistent message queues and asynchronous services allow you to bring components down for rollback without affecting the main user base. Work towards something like the Blue-Green release pattern such that your application can stay available whilst you are working on one half of the system.
 
 If a deployment fails, your application could become unavailable. To minimize downtime, design a rollback process to go back to a last-known good version. Include a strategy to roll back changes to databases and any other services your app depends on.
 

@@ -51,9 +51,7 @@ The following components are required.
 
 **Zone-redundant gateway.** Azure ExpressRoute or virtual private network (VPN) gateways can be deployed across zones to guard against zone failures. This architecture uses [zone-redundant](https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways) VNet gateways for resiliency rather than a zonal deployment based on the same Availability Zone.
 
-**Proximity placement group.** This logical group places a constraint on VMs deployed in an availability set or a Virtual Machine Scale Set. A 
-[proximity placement group](https://azure.microsoft.com/blog/introducing-proximity-placement-groups/)
-favors colocation, meaning that virtual machines reside in the same datacenter to minimize application latency.  
+**Proximity placement group.** This logical group places a constraint on VMs deployed in an availability set or a Virtual Machine Scale Set. A [proximity placement group](https://azure.microsoft.com/blog/introducing-proximity-placement-groups/) favors colocation, meaning that virtual machines reside in the same datacenter to minimize application latency.  
 
 **Network security groups.** To restrict incoming, outgoing, and intra-subnet
 traffic in the virtual network, you can create [network security groups](https://docs.microsoft.com/azure/virtual-network/security-overview)
@@ -81,42 +79,23 @@ is recommended.
 
 ## Recommendations
 
-This architecture describes a small, production-level deployment. Your
-deployment will differ based on your business requirements, so consider these
-recommendations as a starting point.
+This architecture describes a small, production-level deployment. Your deployment will differ based on your business requirements, so consider these recommendations as a starting point.
 
 ### Virtual machines
 
-In application server pools and clusters, adjust the number of virtual machines
-based on your requirements. The [Azure Virtual Machines planning and implementation guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
-includes details about running SAP NetWeaver on virtual machines, and this
-information also applies to SAP S/4HANA deployment.
+In application server pools and clusters, adjust the number of virtual machines based on your requirements. The [Azure Virtual Machines planning and implementation guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) includes details about running SAP NetWeaver on virtual machines, and this information also applies to SAP S/4HANA deployment.
 
-For details about SAP support for Azure virtual machine types and throughput
-metrics (SAPS), see [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533). (To access the SAP
-notes, you must have an SAP Service Marketplace account.) The [SAP Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
-has a list of certified Azure virtual machines for the HANA database.
+For details about SAP support for Azure virtual machine types and throughput metrics (SAPS), see [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533). (To access the SAP notes, you must have an SAP Service Marketplace account.) The [SAP Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) has a list of certified Azure virtual machines for the HANA database.
 
 ### SAP Web Dispatcher
 
-The Web Dispatcher component is used as a load balancer for SAP traffic among
-the SAP application servers. To achieve [high availability of the SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/9a9a6b48c673e8e10000000a42189b/frameset.htm), Azure Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup.
+The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of the SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/9a9a6b48c673e8e10000000a42189b/frameset.htm), Azure Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup.
 
 ### Fiori Front-end Server (FES)
 
-This architecture addresses broad base requirements and assumes that the Embedded
-Fiori FES model is used. All the technology components are installed on the S/4
-system itself, meaning that each S/4 system has its own Fiori Launchpad. The
-high availability setup for this deployment model is that of the S/4 system—no
-additional clustering or virtual machines are required. That's why the
-architecture diagram does not show the FES component.
+This architecture addresses broad base requirements and assumes that the Embedded Fiori FES model is used. All the technology components are installed on the S/4 system itself, meaning that each S/4 system has its own Fiori Launchpad. The high availability setup for this deployment model is that of the S/4 system—no additional clustering or virtual machines are required. That's why the architecture diagram does not show the FES component.
 
-The [SAP Fiori Deployment Options and System Landscape Recommendations](https://www.sap.com/documents/2018/02/f0148939-f27c-0010-82c7-eda71af511fa.html)
-document describes the primary deployment options—either embedded or hub,
-depending on the scenarios. In achieving simplification and performance, the
-software releases between the Fiori technology components and the S/4
-applications are tightly coupled, making a hub deployment fitting for only a
-few, narrow use cases.
+The [SAP Fiori Deployment Options and System Landscape Recommendations](https://www.sap.com/documents/2018/02/f0148939-f27c-0010-82c7-eda71af511fa.html) document describes the primary deployment options—either embedded or hub, depending on the scenarios. In achieving simplification and performance, the software releases between the Fiori technology components and the S/4 applications are tightly coupled, making a hub deployment fitting for only a few, narrow use cases.
 
 If you use the FES hub deployment, the FES is an add-on component to the classic
 SAP NetWeaver ABAP stack. Set up high availability in the same way you protect a
@@ -500,11 +479,9 @@ If zone 1 goes offline, the ASCS and database services will fail over to zone 2.
 The dormant application servers can be brought online to provide full capacity
 for application processing.
 
-## Disaster recovery considerations 
+## Disaster recovery considerations
 
-Every tier in the SAP application stack uses a different approach to provide DR
-protection. 
-
+Every tier in the SAP application stack uses a different approach to provide DR protection.
 ### Application servers tier
 
 SAP application servers do not contain business data. On Azure, a simple DR

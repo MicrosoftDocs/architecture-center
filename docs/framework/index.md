@@ -1,5 +1,5 @@
 ---
-title: Azure Architecture Framework 
+title: Azure Architecture Framework
 titleSuffix: Azure Architecture Framework introduction
 description: Describes five pillars of software quality, scalability, devops, resiliency, cost, and security.
 author: MikeWasson

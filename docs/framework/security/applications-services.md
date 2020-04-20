@@ -1,6 +1,6 @@
 ---
 title: Application security in Azure | Microsoft Docs
-description: How to secure your applications and services in Azure 
+description: How to secure your applications and services in Azure.
 author: dsk-2015
 ms.date: 07/08/2019
 ms.topic: article
@@ -15,11 +15,8 @@ store of business value on a cloud platform. While the platform components like
 identity and storage are critical elements of the security environment,
 applications play an outsize role in risks to the business because:
 
-- **Business Processes** are encapsulated and executed by applications and
-    services need to be available and provided with high integrity
-
-- **Business Data** is stored and processed by application workloads and
-    requires high assurances of confidentiality, integrity, and availability.
+- **Business Processes** are encapsulated and executed by applications and services need to be available and provided with high integrity.
+- **Business Data** is stored and processed by application workloads and requires high assurances of confidentiality, integrity, and availability.
 
 This section focuses on applications written by your organization or by others
 on behalf of your organization vs. SaaS or commercially available applications
@@ -30,42 +27,20 @@ installed on IaaS VMs.
 Modern cloud platforms like Azure can host both legacy and modern generations of
 applications
 
-- **Legacy** applications are hosted on Infrastructure as a Service (IaaS)
-    virtual machines that typically include all dependencies including OS,
-    middleware, and other components.
+- **Legacy** applications are hosted on Infrastructure as a Service (IaaS) virtual machines that typically include all dependencies including OS, middleware, and other components.
 
-- **Modern** Platform as a Service (PaaS) applications don’t require the
-    application owner to manage and secure the underlying server operating
-    systems (OSes) and are sometimes fully “Serverless” and built primarily
-    using functions as a service.
+- **Modern** Platform as a Service (PaaS) applications don’t require the application owner to manage and secure the underlying server operating systems (OSes) and are sometimes fully “Serverless” and built primarily using functions as a service.
 
-    **Notes:** Popular forms of modern applications are application code hosted
-    on Azure App Services and containerized applications (though containers can
-    also be hosted on IaaS VMs or on-premises as well).
+    **Notes:** Popular forms of modern applications are application code hosted on Azure App Services and containerized applications (though containers can also be hosted on IaaS VMs or on-premises as well).
 
-- **Hybrid** – While hybrid applications can take many forms, the most common
-    is an “IaaS plus” state where legacy applications are transitioning to a
-    modern architecture with modern services replacing legacy components or
-    being added a legacy application.
+- **Hybrid:** While hybrid applications can take many forms, the most common is an “IaaS plus” state where legacy applications are transitioning to a modern architecture with modern services replacing legacy components or being added a legacy application.
 
 Securing an application requires security assurances for three different
 component types:
 
-- **Application Code** – This is the logic that defines the custom application
-    that you write. The security of this code is the application owners’
-    responsibility in all generations of application architecture including any
-    open-source snippets or components included in the code. Securing the code
-    requires identifying and mitigating risks from the design and implementation
-    of the application as well as assessing supply chain risk of included
-    components. Note that the evolution of applications into [microservices
-    architectures](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview-microservices)
-    will break various aspects of application code into smaller services vs. a
-    single monolithic codebase.
+- **Application Code:** This is the logic that defines the custom application that you write. The security of this code is the application owners’ responsibility in all generations of application architecture including any open-source snippets or components included in the code. Securing the code requires identifying and mitigating risks from the design and implementation of the application as well as assessing supply chain risk of included components. Note that the evolution of applications into [microservices architectures](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview-microservices) will break various aspects of application code into smaller services vs. a single monolithic codebase.
 
-- **Application Services** – These are the various standardized components
-    that the application uses such as databases, identity providers, event hubs,
-    IoT device management, and so on. For cloud services this is a shared
-    responsibility:
+- **Application Services:** These are the various standardized components that the application uses such as databases, identity providers, event hubs, IoT device management, and so on. For cloud services this is a shared responsibility:
 
     -   **Cloud Provider -** The security of the underlying service is the
         responsibility of the cloud provider
@@ -159,7 +134,7 @@ exposure to risk.
     frequently target them because they know these legacy applications often
     have vulnerabilities that are difficult to fix.
 
-## Adopt the DevOps approach 
+## Adopt the DevOps approach
 
 Organizations should shift from a ‘Waterfall’ development cycle to DevOps
 lifecycle of continuous integration, continuous delivery (CI/CD) for
@@ -374,22 +349,19 @@ measures to minimize time investment while maximizing security value:
         threat modeling on a best effort basis with what application
         knowledge/expertise you have available.
 
-### Simple questions method 
+### Simple questions method
 
->   This simple questioning method is designed to get security professionals and
->   developers started on threat modelling before moving on to a more advanced
->   method like STRIDE or OWASP’s method (see, [Top-down approach through threat modeling](#top-down-approach-through-threat-modeling)).
-
->   For each application or component, ask and answer these questions
+> This simple questioning method is designed to get security professionals and developers started on threat modelling before moving on to a more advanced method like STRIDE or OWASP’s method (see, [Top-down approach through threat modeling](#top-down-approach-through-threat-modeling)).
+> For each application or component, ask and answer these questions
 
 - Are you authenticating connections using Azure AD, TLS (with mutual
     authentication), or another modern security protocol approved by your
     security team? This protects against unauthorized access to the application
     and data
 
-    -   Between users and the application (if applicable)
+    - Between users and the application (if applicable)
 
-    -   Between different application components and services (if applicable)
+    - Between different application components and services (if applicable)
 
 - Do you limit which accounts have access to write or modify data in the
     application to only those required to do so? This reduces risk of
@@ -406,10 +378,7 @@ measures to minimize time investment while maximizing security value:
 - Is inbound and outbound network traffic encrypted using TLS? This helps
     protect against unauthorized copying of data while in transit.
 
-- Is the application protected against Distributed Denial of Service (DDoS)
-    attacks using services like Azure DDoS protection, Akamai, or similar? This
-    protects against attacks designed to overload the application so it can’t be
-    used
+- Is the application protected against Distributed Denial of Service (DDoS) attacks using services like Azure DDoS protection, Akamai, or similar? This protects against attacks designed to overload the application so it can’t be used.
 
 - Does the application store any sign in credentials or keys to access other
     applications, databases, or services? This helps identify whether an attack
@@ -418,17 +387,12 @@ measures to minimize time investment while maximizing security value:
 - Do the application controls allow you to fulfill security and privacy
     requirements for the localities you operate in? (This helps protect user’s private data and avoid compliance fines)
 
->   **Important:** Security is a complex topic and the potential risks are
->   limited only by the imagination of smart motivated attackers. These
->   questions are designed to help identify readily discoverable gaps that are
->   easily exploited by attackers. As you develop comfort and competencies with
->   this method, you can look to grow your ability to threat model by
->   progressing to advanced threat modelling techniques.
+> **Important:** Security is a complex topic and the potential risks are
+limited only by the imagination of smart motivated attackers. These questions are designed to help identify readily discoverable gaps that are easily exploited by attackers. As you develop comfort and competencies with this method, you can look to grow your ability to threat model by progressing to advanced threat modelling techniques.
 
 ### Advanced threat modeling techniques
 
->   A more comprehensive threat model can identify more potential risks, two
->   popular techniques are STRIDE and OWASP
+> A more comprehensive threat model can identify more potential risks, two popular techniques are STRIDE and OWASP 
 
 - **Microsoft** Security Development Lifecycle has documented a process of
     threat modeling in and released a free tool to assist with this process

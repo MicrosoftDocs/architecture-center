@@ -45,8 +45,7 @@ administrative accounts and published prioritized roadmaps for protecting privil
 access that can be used as references for prioritizing mitigations for
 accounts with privileged access.
 
-- [Securing Privileged Access (SPA) roadmap for administrators of on premises
-    Active Directory](https://aka.ms/SPARoadmap)
+- [Securing Privileged Access (SPA) roadmap for administrators of on-premises Active Directory](https://aka.ms/SPARoadmap)
 
 - [Guidance for securing administrators of Azure Active Directory](https://aka.ms/securitysteps)
 
@@ -190,13 +189,12 @@ security dependencies for critical impact accounts
 - **Workstations** – Choose how you will manage and secure the workstations
     used by critical admin accounts:
 
-    -  Native Cloud Management & Security (Recommended) - Join workstations
+    -  Native Cloud Management and Security (Recommended): Join workstations
         to Azure AD & Manage/Patch them with Intune or other cloud services.
         Protect and Monitor with Windows Microsoft Defender ATP or another cloud
         service not managed by on premises based accounts.
 
-    -   Manage with Existing Systems - Join existing AD domain & leverage
-        existing management/security.
+    -   Manage with Existing Systems: Join existing AD domain and use existing management/security.
 
 This is related to the [Don't synchronize on-premises admin accounts to cloud identity providers](/identity.md#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers) to
 cloud identity providers guidance in the administration section that mitigates

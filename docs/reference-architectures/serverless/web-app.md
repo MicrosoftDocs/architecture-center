@@ -1,5 +1,5 @@
 ---
-title: Serverless web application 
+title: Serverless web application
 titleSuffix: Azure Reference Architectures
 description: Recommended architecture for a serverless web application and web API.
 author: MikeWasson

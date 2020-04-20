@@ -25,9 +25,9 @@ Recommendations can be useful in various industries from retail to news to media
 
 Consider this scenario for the following use cases:
 
-* Movie recommendations on a website.
-* Consumer product recommendations in a mobile app.
-* News recommendations on streaming media.
+- Movie recommendations on a website.
+- Consumer product recommendations in a mobile app.
+- News recommendations on streaming media.
 
 ## Architecture
 
@@ -51,15 +51,15 @@ For an in-depth guide to building and scaling a recommender service, see [Build 
 
 ### Components
 
-* [Data Science Virtual Machine][dsvm] (DSVM) is an Azure virtual machine with deep learning frameworks and tools for machine learning and data science. The DSVM has a standalone Spark environment that can be used to run ALS.
+- [Data Science Virtual Machine][dsvm] (DSVM) is an Azure virtual machine with deep learning frameworks and tools for machine learning and data science. The DSVM has a standalone Spark environment that can be used to run ALS.
 
-* [Azure Blob storage][blob] stores the dataset for movie recommendations.
+- [Azure Blob storage][blob] stores the dataset for movie recommendations.
 
-* [Azure Machine Learning][mls] is used to accelerate the building, managing, and deploying of machine learning models.
+- [Azure Machine Learning][mls] is used to accelerate the building, managing, and deploying of machine learning models.
 
-* [Azure Cosmos DB][cosmos-db] enables globally distributed and multi-model database storage.
+- [Azure Cosmos DB][cosmos-db] enables globally distributed and multi-model database storage.
 
-* [Azure Container Instances][aci] is used to deploy the trained models to web or app services, optionally using [Azure Kubernetes Service][aks].
+- [Azure Container Instances][aci] is used to deploy the trained models to web or app services, optionally using [Azure Kubernetes Service][aks].
 
 ### Alternatives
 

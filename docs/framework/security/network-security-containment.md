@@ -215,8 +215,7 @@ Because of how much is changing with network security, we recommend reviewing an
 - For IaaS workloads, focus on network security solutions that provide per network context rather than per packet/session context. While the technology to achieve this is still evolving, software defined networks in the cloud are naturally instrumented and can achieve this much more easily than on-premises equipment.
 - Favor solutions that effectively apply machine learning techniques across these large volumes of traffic. ML technology is far superior to static/manual human analysis at rapidly identifying anomalies that could be attacker activity out of normal traffic patterns.
 
-
-## Design virtual network subnet security 
+## Design virtual network subnet security
 
 Design virtual networks and subnets for growth.
 

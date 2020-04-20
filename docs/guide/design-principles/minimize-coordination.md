@@ -1,5 +1,5 @@
 ---
-title: Minimize coordination 
+title: Minimize coordination
 titleSuffix: Azure Application Architecture Guide
 description: Minimize coordination between application services to achieve scalability.
 author: MikeWasson
@@ -10,6 +10,8 @@ ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.custom: seojan19
 ---
+
+<!--cSpell:ignore CQRS Etags -->
 
 # Minimize coordination
 

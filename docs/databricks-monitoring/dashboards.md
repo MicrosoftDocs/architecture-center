@@ -34,10 +34,10 @@ To deploy the Azure Log Analytics workspace, follow these steps:
 1. Navigate to the `/perftools/deployment/loganalytics` directory.
 1. Deploy the **logAnalyticsDeploy.json** Azure Resource Manager template. For more information about deploying Resource Manager templates, see [Deploy resources with Resource Manager templates and Azure CLI][rm-cli]. The template has the following parameters:
 
-    * **location**: The region where the Log Analytics workspace and dashboards are deployed.
-    * **serviceTier**: Rhe workspace pricing tier. See [here][sku] for a list of valid values.
-    * **dataRetention** (optional): The number of days the log data is retained in the Log Analytics workspace. The default value is 30 days. If the pricing tier is `Free`, the data retention must be seven days.
-    * **workspaceName** (optional): A name for the workspace. If not specified, the template generates a name.
+    - **location**: The region where the Log Analytics workspace and dashboards are deployed.
+    - **serviceTier**: Rhe workspace pricing tier. See [here][sku] for a list of valid values.
+    - **dataRetention** (optional): The number of days the log data is retained in the Log Analytics workspace. The default value is 30 days. If the pricing tier is `Free`, the data retention must be seven days.
+    - **workspaceName** (optional): A name for the workspace. If not specified, the template generates a name.
 
     ```bash
     az group deployment create --resource-group <resource-group-name> --template-file logAnalyticsDeploy.json --parameters location='East US' serviceTier='Standalone'
@@ -117,10 +117,10 @@ Next, change the Grafana administrator password by following these steps:
 1. In the **Settings** section, enter a name for the data source in the **Name** textbox.
 1. In the **Azure Monitor API Details** section, enter the following information:
 
-    * Subscription Id: Your Azure subscription ID.
-    * Tenant Id: The tenant ID from earlier.
-    * Client Id: The value of "appId" from earlier.
-    * Client Secret: The value of "password" from earlier.
+    - Subscription Id: Your Azure subscription ID.
+    - Tenant Id: The tenant ID from earlier.
+    - Client Id: The value of "appId" from earlier.
+    - Client Secret: The value of "password" from earlier.
 
 1. In the **Azure Log Analytics API Details** section, check the **Same Details as Azure Monitor API** checkbox.
 1. Click **Save & Test**. If the Log Analytics data source is correctly configured, a success message is displayed.

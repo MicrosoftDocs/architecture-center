@@ -664,9 +664,9 @@ Retry support is provided when accessing SQL Database using Entity Framework 6.0
   - Defines classes that can be used directly or can be configured on a database context as a default strategy, mapped to provider name, or mapped to a provider name and server name. When configured on a context, retries occur at the level of individual database operations, of which there might be several for a given context operation.
   - Defines when to retry a failed connection, and how.
 - It includes several built-in implementations of the **IDbExecutionStrategy** interface:
-  - Default - no retrying.
-  - Default for SQL Database (automatic) - no retrying, but inspects exceptions and wraps them with suggestion to use the SQL Database strategy.
-  - Default for SQL Database - exponential (inherited from base class) plus SQL Database detection logic.
+  - Default: no retrying.
+  - Default for SQL Database (automatic): no retrying, but inspects exceptions and wraps them with suggestion to use the SQL Database strategy.
+  - Default for SQL Database: exponential (inherited from base class) plus SQL Database detection logic.
 - It implements an exponential back-off strategy that includes randomization.
 - The built-in retry classes are stateful and are not thread-safe. However, they can be reused after the current operation is completed.
 - If the specified retry count is exceeded, the results are wrapped in a new exception. It does not bubble up the current exception.

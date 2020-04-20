@@ -100,8 +100,7 @@ Availability sets distribute servers to different physical infrastructures and u
 
 All virtual machines in a set must perform the same role. Do not mix servers of different roles in the same availability set. For example, don't place an ASCS node in the same availability set with the application servers.
 
-You can deploy Azure availability sets within [Azure Availability
-Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) when you use a [proximity placement group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
+You can deploy Azure availability sets within [Azure Availability Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) when you use a [proximity placement group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
 
 ### Networking
 

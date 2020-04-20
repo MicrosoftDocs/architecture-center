@@ -12,7 +12,7 @@ ms.category:
 ms.subservice: reference-architecture
 ---
 
-<!-- cSpell:disable deadletterqueue -->
+<!--cSpell:ignore Gyrometer upsert deadletterqueue -->
 
 # Code walkthrough: Serverless application with Azure Functions
 
@@ -361,7 +361,7 @@ public async Task RunAsync(
 
 Here the `Queue` attribute specifies the output binding, and the `StorageAccount` attribute specifies the name of an app setting that holds the connection string for the storage account.
 
-**Deployment tip:** In the Resource Manager template that creates the storage account, you can automatically populate an app setting with the connection string. The trick is to use the [listkeys](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions-resource#listkeys) function.
+**Deployment tip:** In the Resource Manager template that creates the storage account, you can automatically populate an app setting with the connection string. The trick is to use the [listKeys](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions-resource#listkeys) function.
 
 Here is the section of the template that creates the storage account for the queue:
 
@@ -405,7 +405,7 @@ Here is the section of the template that creates the function app.
 
 ```
 
-This defines an app setting named `DeadLetterStorage` whose value is populated using the `listkeys` function. It's important to make the function app resource depend on the storage account resource (see the `dependsOn` element). This guarantees that the storage account is created first and the connection string is available.
+This defines an app setting named `DeadLetterStorage` whose value is populated using the `listKeys` function. It's important to make the function app resource depend on the storage account resource (see the `dependsOn` element). This guarantees that the storage account is created first and the connection string is available.
 
 ## Setting up dependency injection
 

@@ -8,33 +8,21 @@ ms.service: architecture-center
 ms.subservice: cloud-design-principles
 ---
 
+<!-- cSpell:ignore NIST -->
+
 # Governance, risk, and compliance
 
-
 Organizations of all sizes are constrained by their available resources;
-financial, people, and time. To achieve an effective return on investment (ROI)
-organizations must prioritize where they will invest. Implementation of security
-across the organization is also constrained by this, so to achieve an
-appropriate ROI on security the organization needs to first understand and
-define its security priorities.
+financial, people, and time. To achieve an effective return on investment (ROI) organizations must prioritize where they will invest. Implementation of security across the organization is also constrained by this, so to achieve an appropriate ROI on security the organization needs to first understand and define its security priorities.
 
-**Governance** – How is the organization’s security going to be monitored,
-audited, and reported? Design and implementation of security controls within
-an organization is only the beginning of the story. How does the
-organization know that things are actually working? Are they improving? Are
-there new requirements? Is there mandatory reporting? Similar to compliance
-there may be external industry, government or regulatory standards that need
-to be considered.
+**Governance:** How is the organization’s security going to be monitored, audited, and reported? Design and implementation of security controls within an organization is only the beginning of the story. How does the organization know that things are actually working? Are they improving? Are there new requirements? Is there mandatory reporting? Similar to compliance there may be external industry, government or regulatory standards that need to be considered.
 
-**Risk** – What types of risks does the organization face while trying to
-protect identifiable information, Intellectual Property
-(IP), financial information? Who may be interested or could leverage this
-information if stolen, including external and internal threats as well as
-unintentional or malicious? A commonly forgotten but extremely important
+**Risk:** What types of risks does the organization face while trying to
+protect identifiable information, Intellectual Property (IP), financial information? Who may be interested or could use this information if stolen, including external and internal threats as well as unintentional or malicious? A commonly forgotten but extremely important
 consideration within risk is addressing Disaster Recovery and Business
 Continuity.
 
-**Compliance** – Are there specific industry, government, or regulatory requirements that dictate or provide recommendation on criteria that your organization’s security controls must meet? Examples of such standards, organizations, controls, and legislation are [ISO27001]( https://www.iso.org/isoiec-27001-information-security.html), [NIST]( https://www.nist.gov/), [PCI-DSS]( https://www.pcicomplianceguide.org/faq/).
+**Compliance:** Are there specific industry, government, or regulatory requirements that dictate or provide recommendation on criteria that your organization’s security controls must meet? Examples of such standards, organizations, controls, and legislation are [ISO27001]( https://www.iso.org/isoiec-27001-information-security.html), [NIST]( https://www.nist.gov), [PCI-DSS]( https://www.pcicomplianceguide.org/faq).
 
 The collective role of organization(s) is to manage the security standards of
 the organization through their lifecycle:
@@ -65,25 +53,12 @@ then working to retrofit any gaps over time as you mature your security program.
 We recommend evaluating the following considerations when prioritizing which to
 follow first:
 
-- **High business impact and highly exposed systems –** These include systems
-    with direct intrinsic value as well as the systems that provide attackers a
-    path to them. For more information, see [Identify and classify business critical applications](./applications-services.md#identify-and-classify-business-critical-applications).
+- **High business impact and highly exposed systems:** These include systems with direct intrinsic value as well as the systems that provide attackers a path to them. For more information, see [Identify and classify business critical applications](https://docs.microsoft.com/azure/architecture/security/applications-services#identify-and-classify-business-critical-applications).
 
-- **Easiest to implement Mitigations**– Identify quick wins by prioritizing
-    the best practices, which your organization can execute quickly because you
-    already have the required skills, tools, and knowledge to do it (for example,
-    implementing a Web App Firewall (WAF) to protect a legacy application).  
-    Be careful not to exclusively use (or overuse) this short-term
-    prioritization method. Doing so can increase your risk by preventing your
-    program from growing and leaving critical risks exposed for extended
-    periods.
+- **Easiest to implement mitigations:** Identify quick wins by prioritizing the best practices, which your organization can execute quickly because you already have the required skills, tools, and knowledge to do it (for example, implementing a Web App Firewall (WAF) to protect a legacy application). Be careful not to exclusively use (or overuse) this short-term prioritization method. Doing so can increase your risk by preventing your program from growing and leaving critical risks exposed for extended periods.
 
-Microsoft has provided some prioritized lists of security initiatives to help
-organizations start with these decisions based on our experience with threats
-and mitigation initiatives in our own environments and across our customers. See
-[Module
-4a](https://docs.microsoft.com/office365/securitycompliance/ciso-workshop-module-4a)
-of the [Microsoft CISO Workshop](https://aka.ms/cisoworkshop)
+Microsoft has provided some prioritized lists of security initiatives to help organizations start with these decisions based on our experience with threats and mitigation initiatives in our own environments and across our customers. See [Module 4a](https://docs.microsoft.com/office365/securitycompliance/ciso-workshop-module-4a)
+of the [Microsoft CISO Workshop](https://aka.ms/cisoworkshop).
 
 ## Manage connected tenants
 
@@ -103,7 +78,7 @@ for security. You can discover existing connected tenants using a
 you may assign to security is in the [Assign privileges for managing the
 environment](#assign-privileges-for-managing-the-environment) section.
 
-## Clear lines of responsibility 
+## Clear lines of responsibility
 
 Designate the parties responsible for specific functions in Azure
 
@@ -354,8 +329,7 @@ and negatively impacts both operations and security (as illustrated by overly
 complex Organizational Unit (OU) and Group Policy Object (GPO) designs for
 Active Directory).
 
-Microsoft recommends aligning the top level of management groups (MGs) into a
-simple [enterprise segmentation strategy](./governance.md#enterprise-segmentation-strategy) limited to 1 or 2 levels.
+Microsoft recommends aligning the top level of management groups (MGs) into a simple [enterprise segmentation strategy](./governance.md#enterprise-segmentation-strategy) limited to 1 or 2 levels.
 
 ## Use root management group carefully
 
@@ -457,8 +431,7 @@ Regularly review roles that are assigned privileges with a business-critical imp
 Set up a recurring review pattern to ensure that accounts are removed from permissions as roles change.
 You can conduct the review manually or through an automated process by using tools such as [Azure AD access reviews](https://docs.microsoft.com/azure/active-directory/governance/create-access-review).
 
-
-## Discover and remediate common risks 
+## Discover and remediate common risks
 
 Identity well known risks for your Azure tenants, remediate those risks, and
 track your progress using Secure Score.

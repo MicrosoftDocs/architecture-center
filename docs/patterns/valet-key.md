@@ -134,7 +134,7 @@ public class ValuesController : ApiController
       return new StorageEntitySas
       {
           BlobUri = blob.Uri,
-          Credentials = sas        
+          Credentials = sas
       };
   }
   public struct StorageEntitySas
