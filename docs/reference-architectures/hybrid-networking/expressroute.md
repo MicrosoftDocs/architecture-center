@@ -304,9 +304,8 @@ To deploy the solution, perform the following steps.
 <!-- links -->
 
 [highly-available-network-architecture]: ./expressroute-vpn-failover.md
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[expressroute-technical-overview]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
 [expressroute-prereqs]: https://docs.microsoft.com/azure/expressroute/expressroute-prerequisites
 [configure-expressroute-routing]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-arm
 [sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute
@@ -317,15 +316,10 @@ To deploy the solution, perform the following steps.
 [expressroute-introduction]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
 [expressroute-peering]: https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
-[expressroute-limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx
-[er-circuit-parameters]: https://github.com/mspnp/reference-architectures/tree/master/hybrid-networking/expressroute/parameters/expressRouteCircuit.parameters.json
-[azure-powershell-download]: https://docs.microsoft.com/powershell/azure/overview
-[azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli
 
 [0]: ./images/expressroute.png "Hybrid network architecture using Azure ExpressRoute"
 [1]: ../_images/guidance-hybrid-network-expressroute/figure2.png "Using redundant routers with ExpressRoute primary and secondary circuits"
 [2]: ../_images/guidance-hybrid-network-expressroute/figure3.png "Adding security devices to the on-premises network"
 [3]: ../_images/guidance-hybrid-network-expressroute/figure4.png "Using forced tunneling to audit Internet-bound traffic"
-[4]: ../_images/guidance-hybrid-network-expressroute/figure5.png "Locating the ServiceKey of an ExpressRoute circuit"

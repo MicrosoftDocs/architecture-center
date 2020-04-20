@@ -55,7 +55,7 @@ The architecture utilizes the following Azure services:
 
 #### Scalability during upload
 
-For high-performing and cost-effective scalable solution, this reference architecture uses the [Valet Key design pattern](https://docs.microsoft.com/azure/architecture/patterns/valet-key). The client application is responsible for the actual data upload. Access to the blob storage is restricted by requiring the SAS token. The client needs to first acquire this token using the REST API. The API in the reference implementation generates a [user delegate SAS token](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas), created using Azure Active Directory credentials of the business owner. For most scenarios, this is more secure and recommended over SAS tokens created using an account key. Read [Types of Shared Access Signatures](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature#types-of-shared-access-signatures) for more information on the SAS tokens.
+For high-performing and cost-effective scalable solution, this reference architecture uses the [Valet Key design pattern](../../patterns/valet-key.md). The client application is responsible for the actual data upload. Access to the blob storage is restricted by requiring the SAS token. The client needs to first acquire this token using the REST API. The API in the reference implementation generates a [user delegate SAS token](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas), created using Azure Active Directory credentials of the business owner. For most scenarios, this is more secure and recommended over SAS tokens created using an account key. Read [Types of Shared Access Signatures](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature#types-of-shared-access-signatures) for more information on the SAS tokens.
 
 #### Scalability for file size
 
@@ -75,7 +75,7 @@ The Cognitive Services APIs may have request limits based on the subscription ti
 
 ## Security considerations
 
-Many of the [security considerations for a serverless web applications](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/web-app#security-considerations) apply to this reference architecture. The following sections discuss the differences.
+Many of the [security considerations for a serverless web applications](../../reference-architectures/serverless/web-app.md#security-considerations) apply to this reference architecture. The following sections discuss the differences.
 
 ### Azure Active Directory
 
@@ -103,7 +103,7 @@ When several clients upload in parallel, API Management serves multiple purposes
 
 ## Resiliency considerations
 
-For an extremely large number of events, Event Grid may fail to trigger the function. Such missed events are typically added to a *dead letter container*. Consider making the architecture more resilient by having an additional *supervisor* function. This function can periodically wake up on a timer trigger. It then can find out and process missed events, either from the dead letter container, or by comparing the blobs between the *upload* and *transcribe* containers. This pattern is similar to the [Scheduler Agent Supervisor pattern](https://docs.microsoft.com/azure/architecture/patterns/scheduler-agent-supervisor). This reference architecture does not implement this pattern for simplicity. Read the [Event Grid message delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry) policies for more information on how Event Grid handles failures.
+For an extremely large number of events, Event Grid may fail to trigger the function. Such missed events are typically added to a *dead letter container*. Consider making the architecture more resilient by having an additional *supervisor* function. This function can periodically wake up on a timer trigger. It then can find out and process missed events, either from the dead letter container, or by comparing the blobs between the *upload* and *transcribe* containers. This pattern is similar to the [Scheduler Agent Supervisor pattern](../../patterns/scheduler-agent-supervisor.md). This reference architecture does not implement this pattern for simplicity. Read the [Event Grid message delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry) policies for more information on how Event Grid handles failures.
 
 Another way to improve resiliency is to use [Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/) instead of Event Grid. This model will sequentially process the file uploads. The client will signal the Service Bus when an upload is completed. The Service Bus will then invoke the function to transcribe the uploaded file. This model is more reliable, however it will also have less throughput than an event-based architecture. Carefully consider which architecture applies to your scenario and application.
 

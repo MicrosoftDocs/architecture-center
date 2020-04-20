@@ -104,7 +104,6 @@ public class CertificateCredentialService : ICredentialService
 <!-- links -->
 
 [configure-web-app]: https://docs.microsoft.com/azure/app-service-web/web-sites-configure
-[azure-management-portal]: https://portal.azure.com
 [client assertion]: https://tools.ietf.org/html/rfc7521
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
 [Surveys]: ./tailspin.md

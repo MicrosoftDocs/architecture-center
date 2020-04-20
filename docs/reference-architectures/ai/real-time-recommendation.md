@@ -136,43 +136,28 @@ To deploy this architecture, follow the **Azure Databricks** instructions in the
 We have also built a reference architecture that uses Spark and Azure Databricks to execute scheduled [batch-scoring processes][batch-scoring]. See that reference architecture to understand a recommended approach for generating new recommendations routinely.
 
 <!-- links -->
-[aci]: https://docs.microsoft.com/azure/container-instances/container-instances-overview
-[aad]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
+
 [adbauthentication]: https://docs.azuredatabricks.net/api/latest/authentication.html#generate-a-token
 [aks]: https://docs.microsoft.com/azure/aks/intro-kubernetes
 [als]: https://spark.apache.org/docs/latest/ml-collaborative-filtering.html
 [als-example]: https://github.com/Microsoft/Recommenders/blob/master/notebooks/05_operationalize/als_movie_o16n.ipynb
 [autoscaling]: https://docs.azuredatabricks.net/user-guide/clusters/sizing.html
-[autoscale]: https://docs.azuredatabricks.net/user-guide/clusters/sizing.html#autoscaling
-[availability]: /azure/architecture/checklist/availability
-[batch-scoring]: /azure/architecture/reference-architectures/ai/batch-scoring-databricks
-[blob]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
+[batch-scoring]: ../../reference-architectures/ai/batch-scoring-databricks.md
 [blog]: https://blogs.technet.microsoft.com/machinelearning/2018/03/20/scaling-azure-container-service-cluster
-[clusters]: https://docs.azuredatabricks.net/user-guide/clusters/configure.html
 [cosmosdb]: https://docs.microsoft.com/azure/cosmos-db/introduction
 [data-source]: https://docs.azuredatabricks.net/spark/latest/data-sources/index.html
 [databricks]: https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks
 [dsvm]: https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview
-[dsvm-ubuntu]: https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro
 [eval-guide]: https://github.com/Microsoft/Recommenders/blob/master/notebooks/03_evaluate/evaluation.ipynb
-[free]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [github]: https://github.com/Microsoft/Recommenders
 [guide]: https://github.com/Microsoft/Recommenders/blob/master/notebooks/01_prepare_data/data_split.ipynb
 [latency]: https://github.com/jessebenson/azure-performance
 [mls]: https://docs.microsoft.com/azure/machine-learning/service
-[n-tier]: /azure/architecture/reference-architectures/n-tier/n-tier-cassandra
-[ndcg]: https://en.wikipedia.org/wiki/Discounted_cumulative_gain
 [nodes]: https://docs.microsoft.com/azure/aks/scale-cluster
-[notebook]: https://github.com/microsoft/recommenders/blob/master/notebooks/00_quick_start/als_movielens.ipynb
 [partition-data]: https://docs.microsoft.com/azure/cosmos-db/partition-data
 [redis]: https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview
-[regions]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all
-[resiliency]: /azure/architecture/resiliency
 [ru]: https://docs.microsoft.com/azure/cosmos-db/request-units
-[sec-docs]: https://docs.microsoft.com/azure/security
 [setup]: https://github.com/Microsoft/Recommenders/blob/master/SETUP.md#repository-installation
 [setupo16n]: https://github.com/Microsoft/Recommenders/blob/master/SETUP.md#prepare-azure-databricks-for-operationalization
 [scale]: https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale
-[sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8
-[vm-size]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-change-vm-size
 [workspace]: https://docs.microsoft.com/azure/azure-databricks

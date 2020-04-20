@@ -38,7 +38,7 @@ Azure Resource Manager (ARM) enforces limits and quotas on how many resources of
 
 Organizing cloud-based assets in ways that aid operational management and support accounting requirements is a common challenge that faces large cloud adoption efforts. By applying well-defined naming and metadata tagging conventions to cloud-hosted resources, IT staff can quickly find and manage resources. Well-defined names and tags also help to align cloud usage costs with business teams by using chargeback and showback accounting mechanisms.
 
-The Azure Architecture Center's [naming rules and restrictions for Azure resources](/azure/architecture/best-practices/resource-naming) guidance provides general recommendations and platform limitations.
+[Naming rules and restrictions for Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules) guidance provides general recommendations and platform limitations.
 
 [Recommended naming and tagging conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)
 
@@ -60,4 +60,4 @@ Containers make it easy for you to continuously build and deploy applications. B
 
 By setting up a continuous build to produce your container images and orchestration, Azure DevOps increases the speed and reliability of your deployment.
 
-[CI/CD for Containers](https://azure.microsoft.com/solutions/architecture/cicd-for-containers/)
+[CI/CD for Containers](https://azure.microsoft.com/solutions/architecture/cicd-for-containers)

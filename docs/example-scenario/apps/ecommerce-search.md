@@ -116,7 +116,7 @@ To learn more about Azure Search, visit the [documentation center][docs-search],
 
 <!-- links -->
 [architecture]: ./media/architecture-ecommerce-search.png
-[docs-sql-fts]: /sql/relational-databases/search/query-with-full-text-search
+[docs-sql-fts]: https://docs.microsoft.com/sql/relational-databases/search/query-with-full-text-search
 [docs-search]: https://docs.microsoft.com/azure/search/search-what-is-azure-search
 [docs-sql-database]: https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview
 [docs-webapps]: https://docs.microsoft.com/azure/app-service/app-service-web-overview
@@ -130,9 +130,9 @@ To learn more about Azure Search, visit the [documentation center][docs-search],
 [search-capacity]: https://docs.microsoft.com/azure/search/search-capacity-planning
 [search-security]: https://docs.microsoft.com/azure/search/search-security-overview
 [search-analysis]: https://docs.microsoft.com/azure/search/search-traffic-analytics
-[search-languages]: /rest/api/searchservice/language-support
-[search-analyzers]: /rest/api/searchservice/custom-analyzers-in-azure-search
-[search-scoring]: /rest/api/searchservice/add-scoring-profiles-to-a-search-index
+[search-languages]: https://docs.microsoft.com/rest/api/searchservice/language-support
+[search-analyzers]: https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search
+[search-scoring]: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
 [search-samples]: https://azure.microsoft.com/resources/samples/?service=search&sort=0
 [search-demo]: https://azjobsdemo.azurewebsites.net
 [small-pricing]: https://azure.com/e/db2672a55b6b4d768ef0060a8d9759bd

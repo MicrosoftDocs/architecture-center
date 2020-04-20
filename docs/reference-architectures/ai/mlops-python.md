@@ -47,7 +47,7 @@ This architecture consists of the following components:
 
 ## MLOps Pipeline
 
-This solution demonstrates an end-to-end automation of various stages of an AI project using tools that are already familiar to software engineers. The machine learning problem is simple to keep the focus on the DevOps pipeline. The solution uses the [scikit-learn diabetes dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html) and builds a ridge linear regression model to predict the likelihood of diabetes. See [Training of Python scikit-learn models](/azure/architecture/reference-architectures/ai/training-python-models) for details.
+This solution demonstrates an end-to-end automation of various stages of an AI project using tools that are already familiar to software engineers. The machine learning problem is simple to keep the focus on the DevOps pipeline. The solution uses the [scikit-learn diabetes dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html) and builds a ridge linear regression model to predict the likelihood of diabetes. See [Training of Python scikit-learn models](./training-python-models.md) for details.
 
 This solution is based on the following three pipelines:
 

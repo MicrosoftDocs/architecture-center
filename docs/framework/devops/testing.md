@@ -86,7 +86,7 @@ Most companies use a controlled way of injecting faults in the system, although 
 In order to deploy software quickly and reliably, testing is a fundamental component of the development and deployment life cycle. Not only application code should be tested, but infrastructure automation and resiliency should equally be put to the test, to make sure that the application is going to perform as expected in every situation.
 
 <!-- testing -->
-[iac]: /azure/architecture/framework/devops/iac
+[iac]: ../../framework/devops/iac.md
 [pipelines]: https://docs.microsoft.com/azure/devops/pipelines
 [devopstests]: https://docs.microsoft.com/azure/devops/test
 [telemetry]: https://docs.microsoft.com/azure/azure-monitor/app/usage-overview

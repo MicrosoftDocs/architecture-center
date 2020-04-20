@@ -110,7 +110,6 @@ For an in-depth guide to building and scaling a recommender service, see [Build 
 
 [architecture]: ./media/architecture-movie-recommender.png
 [aci]: https://docs.microsoft.com/azure/container-instances/container-instances-overview
-[aad]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
 [aks]: https://docs.microsoft.com/azure/aks/intro-kubernetes
 [als]: https://spark.apache.org/docs/latest/ml-collaborative-filtering.html
 [autoscale]: https://docs.azuredatabricks.net/user-guide/clusters/sizing.html#autoscaling
@@ -126,13 +125,10 @@ For an in-depth guide to building and scaling a recommender service, see [Build 
 [ha]: https://docs.microsoft.com/azure/aks/container-service-quotas
 [map]: https://en.wikipedia.org/wiki/Evaluation_measures_(information_retrieval)
 [mls]: https://docs.microsoft.com/azure/machine-learning/service
-[n-tier]: /azure/architecture/reference-architectures/n-tier/n-tier-cassandra
 [ndcg]: https://en.wikipedia.org/wiki/Discounted_cumulative_gain
 [notebook]: https://github.com/microsoft/recommenders/blob/master/notebooks/00_quick_start/als_movielens.ipynb
-[ref-arch]: /azure/architecture/reference-architectures/ai/real-time-recommendation
+[ref-arch]: ../../reference-architectures/ai/real-time-recommendation.md
 [regions]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all
-[resiliency]: /azure/architecture/resiliency
-[sec-docs]: https://docs.microsoft.com/azure/security
 [setup]: https://github.com/Microsoft/Recommenders/blob/master/SETUP.md
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8
 [sla-aks]: https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_0

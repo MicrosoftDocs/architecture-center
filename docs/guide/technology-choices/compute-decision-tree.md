@@ -158,7 +158,7 @@ Next, perform a more detailed evaluation, looking at the following aspects of th
 - [Cost](https://azure.microsoft.com/pricing/)
 - [SLA](https://azure.microsoft.com/support/legal/sla/)
 - [Regional availability](https://azure.microsoft.com/global-infrastructure/services/)
-- [Compute comparison tables](./compute-comparison.md)
+- [Compute comparison tables](./compute-decision-tree.md)
 
 Based on this analysis, you may find that the initial candidate isn't suitable for your particular application or workload. In that case, expand your analysis to include other compute services. 
 
@@ -183,13 +183,11 @@ Based on this analysis, you may find that the initial candidate isn't suitable f
 [sla-vm]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 
 [resource-manager-supported-services]: https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services
-[scale-acs]: https://docs.microsoft.com/azure/container-service/kubernetes/container-service-scale#scaling-considerations
 
 [n-tier]: ../architecture-styles/n-tier.md
 [w-q-w]: ../architecture-styles/web-queue-worker.md
 [microservices]: ../architecture-styles/microservices.md
 [event-driven]: ../architecture-styles/event-driven.md
-[big-date]: ../architecture-styles/big-data.md
 [big-compute]: ../architecture-styles/big-compute.md
 
 [app-service-hybrid]: https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections

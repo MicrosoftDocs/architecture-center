@@ -11,7 +11,7 @@ ms.subservice: reference-architecture
 ms.custom: microservices
 ---
 
-<!-- cSpell:ignore CosmosDB Kusto APIM executable's microservice Serilog Traefik SPOF NSGs appsettings Dynatrace -->
+<!-- cSpell:ignore CosmosDB Kusto APIM executable's Serilog Traefik SPOF NSGs appsettings Dynatrace -->
 
 # Microservices architecture on Azure Service Fabric
 
@@ -449,7 +449,7 @@ To deploy the reference implementation for this architecture, follow the steps i
 - [Using domain analysis to model microservices](../../microservices/model/domain-analysis.md)
 - [Designing a microservices architecture](../../microservices/design/index.md)
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [ap-insight-cost]: https://docs.microsoft.com/azure/azure-monitor/app/pricing
 [Api-Management-pricing]: https://azure.microsoft.com/pricing/details/api-management
 [az-monitor-pricing]: https://azure.microsoft.com/pricing/details/monitor

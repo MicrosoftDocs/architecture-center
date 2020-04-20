@@ -126,7 +126,7 @@ Typical uses for this architecture:
 [aad]: ./azure-ad.md
 [ad-ds]: ./adds-extend-domain.md
 [ad-ds-forest]: ./adds-forest.md
-[ad-forest-defn]: /windows/desktop/AD/forests
+[ad-forest-defn]: https://docs.microsoft.com/windows/desktop/AD/forests
 [adfs]: ./adfs.md
 [azure-active-directory]: https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview
 [azure-ad-connect]: https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity

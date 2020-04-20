@@ -93,5 +93,5 @@ For more information, see [Deciding when to use Azure Blob storage, Azure Files,
 
 This article focused on hybrid data solutions, but another consideration is how to extend your on-premises network to Azure. For more information about this aspect of hybrid solutions, see:
 
-- [Choose a solution for connecting an on-premises network to Azure](../../reference-architectures/hybrid-networking/considerations.md)
+- [Choose a solution for connecting an on-premises network to Azure](../../reference-architectures/hybrid-networking/index.md)
 - [Hybrid network reference architectures](../../reference-architectures/hybrid-networking/index.md)

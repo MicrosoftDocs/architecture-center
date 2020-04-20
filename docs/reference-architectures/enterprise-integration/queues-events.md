@@ -106,7 +106,7 @@ For more information, see [Event Grid pricing](https://azure.microsoft.com/prici
 For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
 
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [apim]: https://docs.microsoft.com/azure/api-management
 [apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management
 [apim-autoscale]: https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale

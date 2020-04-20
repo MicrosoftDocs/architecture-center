@@ -120,22 +120,13 @@ Once you've deployed the sample, learn more about [Azure CycleCloud][cyclecloud]
 
 <!-- links -->
 [architecture]: ./media/architecture-hpc-cfd.png
-[calculator]: https://azure.com/e
-[availability]: /azure/architecture/checklist/availability
-[resource-groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
-[resiliency]: /azure/architecture/resiliency
 [security]: https://docs.microsoft.com/azure/security
-[scalability]: /azure/architecture/checklist/scalability
 [vmss]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview
 [cyclecloud]: https://docs.microsoft.com/azure/cyclecloud
 [rdma]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances
-[gpu]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu
-[hpcsizes]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc
 [vms]: https://docs.microsoft.com/azure/virtual-machines
-[low-pri]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority
 [batch]: https://docs.microsoft.com/azure/batch
 [avere]: https://github.com/Azure/Avere/blob/master/README.md
-[cycle-prereq]: https://docs.microsoft.com/azure/cyclecloud/quickstart-install-cyclecloud#prerequisites
 [cycle-svcprin]: https://docs.microsoft.com/azure/cyclecloud/quickstart-install-cyclecloud#service-principal
 [cycle-ssh]: https://docs.microsoft.com/azure/cyclecloud/quickstart-install-cyclecloud#ssh-keypair
 [cycle-login]: https://docs.microsoft.com/azure/cyclecloud/quickstart-install-cyclecloud#log-into-the-cyclecloud-application-server

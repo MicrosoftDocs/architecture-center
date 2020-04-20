@@ -34,11 +34,11 @@ doing things they were not designed to do.
 One overarching lesson this history teaches us is that the security of complex
 systems depends on understanding the:
 
--   Business context,
+- Business context,
 
--   Social context, and
+- Social context, and
 
--   Technical context.
+- Technical context.
 
 Understanding an IT solution as it interacts with its surrounding environment
 holds the key to preventing unauthorized activity and to identifying anomalous
@@ -47,7 +47,7 @@ adopting a mindset of assuming failure of security controls so that you design
 compensating controls that limit risk and damage in the event a primary control
 fails. Assuming failures is sometimes referred to as “assume breach” or “assume
 compromise” and is closely related to the “Zero Trust” approach of continuously
-validating security assurances. The “Zero Trust” approach is described in the [Security Design Principles](/azure/architecture/security/security-principles) section in more detail.
+validating security assurances. The “Zero Trust” approach is described in the [Security Design Principles](../../framework/security/security-principles.md) section in more detail.
 
 Cloud architectures can help simplify the complex task of securing an enterprise
 estate through specialization and shared responsibilities:
@@ -96,7 +96,7 @@ risks tend to increase dynamically over time.
 
 This results in three key strategies
 
--   **Establish a Modern Perimeter** – for the elements that your organization
+- **Establish a Modern Perimeter** – for the elements that your organization
     controls to ensure you have a consistent set of controls (a perimeter)
     between those assets and the threats to them. This should be designed based
     on intercepting authentication requests for the resources (identity
@@ -104,9 +104,9 @@ This results in three key strategies
     enterprise networks, which isn’t feasible for enterprise assets outside the
     network.  
     More on this and how it relates to Zero Trust and Enterprise Segmentation
-    are in the [Governance, Risk, and Compliance](/azure/architecture/security/governance#enterprise-segmentation-strategy) and [Network Security & Containment](/azure/architecture/security/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy) sections.
+    are in the [Governance, Risk, and Compliance](./governance.md#enterprise-segmentation-strategy) and [Network Security & Containment](./network-security-containment.md#align-network-segmentation-with-enterprise-segmentation-strategy) sections.
 
--   **Modernize Infrastructure Security** – for operating systems and middleware
+- **Modernize Infrastructure Security** – for operating systems and middleware
     elements that are required by legacy applications; take advantage of cloud
     technology to reduce security risk to the organization. For example, knowing
     whether all servers in a physical datacenter are updated with security
@@ -115,7 +115,7 @@ This results in three key strategies
     resources, enabling technology like Azure Security Center to quickly and
     accurately measure the patch state of all servers and remediate them.
 
--   **“Trust but Verify” each cloud provider** – for the elements, which are
+- **“Trust but Verify” each cloud provider** – for the elements, which are
     under the control of the cloud provider. You should ensure the security
     practices and regulatory compliance of each cloud provider (large and small)
     meet your requirements.

@@ -202,7 +202,7 @@ For more information, see [How much does my App Service plan cost?][app-service-
 
     In this architecture, Data Factory automates the data ingestion pipeline. Explore a range of data integration capabilities to fit your budget needs, from managed SQL Server Integration Services for seamless migration of SQL Server projects to the cloud (cost effective option), to large-scale, serverless data pipelines for integrating data of all shapes and sizes.
 
-    For an example, see [Azure Data Factory - example cost analysis](https://docs.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-adf#example-cost-analysis).
+    For an example, see [Azure Data Factory - example cost analysis](../../reference-architectures/data/enterprise-bi-adf.md#example-cost-analysis).
 
 - Azure Functions
 
@@ -222,7 +222,7 @@ For other cost considerations, see the Cost section in [Azure Architecture Frame
 
 [0]: ./_images/conversational-bot.png
 [aad]: https://docs.microsoft.com/azure/active-directory
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [activities]: https://docs.microsoft.com/azure/bot-service/rest-api/bot-framework-rest-connector-concepts?#activity
 [aml]: https://docs.microsoft.com/azure/machine-learning/service
 [app-insights]: https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview
@@ -237,22 +237,16 @@ For other cost considerations, see the Cost section in [Azure Architecture Frame
 [cosmosdb]: https://docs.microsoft.com/azure/cosmos-db
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [data-factory]: https://docs.microsoft.com/azure/data-factory
-[data-factory-ref-arch]: ../data/enterprise-bi-adf.md
 [devops]: https://azure.microsoft.com/solutions/devops
 [functions]: https://docs.microsoft.com/azure/azure-functions
 [functions-triggers]: https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings
-[git-repo-appinsights-logger]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-app-insights
 [git-repo-base]: https://github.com/Microsoft/botbuilder-utils-js
-[git-repo-cosmosdb-logger]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-cosmosdb
-[git-repo-feedback-util]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-feedback
-[git-repo-testing-util]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-http-test-recorder
-[testing-util]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-http-test-recorder
 [key-vault]: https://docs.microsoft.com/azure/key-vault
 [lda]: https://wikipedia.org/wiki/Latent_Dirichlet_allocation
 [logic-apps]: https://docs.microsoft.com/azure/logic-apps/logic-apps-overview
 [Logic-Apps-Pricing]: https://azure.microsoft.com/pricing/details/logic-apps
 [luis]: https://docs.microsoft.com/azure/cognitive-services/luis
-[power-bi]: /power-bi
+[power-bi]: https://docs.microsoft.com/power-bi
 [qna-maker]: https://docs.microsoft.com/azure/cognitive-services/QnAMaker
 [search]: https://docs.microsoft.com/azure/search
 [slots]: https://docs.microsoft.com/azure/app-service/deploy-staging-slots

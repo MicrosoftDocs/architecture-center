@@ -382,38 +382,28 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 1. Verify that the Contoso Corporation sign-in page appears. Sign in as **contoso\testuser**.
 
 <!-- links -->
-[extending-ad-to-azure]: ./adds-extend-domain.md
 
-[vm-recommendations]: ../virtual-machines-windows/single-vm.md
-[hybrid-azure-on-prem-vpn]: ../hybrid-networking/vpn.md
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[extending-ad-to-azure]: ./adds-extend-domain.md
+[aaf-cost]: ../../framework/cost/overview.md
 [Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory
-[azure-cli]: https://docs.microsoft.com/azure/azure-resource-manager/xplat-cli-azure-resource-manager
-[DRS]: https://technet.microsoft.com/library/dn280945.aspx
 [where-to-place-an-fs-proxy]: https://technet.microsoft.com/library/dd807048.aspx
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
 [ADDRS]: https://technet.microsoft.com/library/dn486831.aspx
 [plan-your-adfs-deployment]: https://msdn.microsoft.com/library/azure/dn151324.aspx
 [ad_network_recommendations]: #network_configuration_recommendations_for_AD_DS_VMs
 [adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
-[create_service_account_for_adfs_farm]: https://technet.microsoft.com/library/dd807078.aspx
 [adfs-configuration-database]: https://technet.microsoft.com/library/ee913581(v=ws.11).aspx
-[active-directory-federation-services]: /windows-server/identity/active-directory-federation-services
+[active-directory-federation-services]: https://docs.microsoft.com/windows-server/identity/active-directory-federation-services
 [active-directory-federation-services-overview]: https://technet.microsoft.com/library/hh831502(v=ws.11).aspx
 [establishing-federation-trust]: https://blogs.msdn.microsoft.com/alextch/2011/06/27/establishing-federation-trust
 [Deploying_a_federation_server_farm]: https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm
 [install_and_configure_the_web_application_proxy_server]: https://technet.microsoft.com/library/dn383662.aspx
 [publish_applications_using_AD_FS_preauthentication]: https://technet.microsoft.com/library/dn383640.aspx
-[managing-adfs-components]: https://technet.microsoft.com/library/cc759026.aspx
 [oms-adfs-pack]: https://www.microsoft.com/download/details.aspx?id=41184
-[azure-powershell-download]: https://docs.microsoft.com/powershell/azure/overview
-[aad]: https://docs.microsoft.com/azure/active-directory
-[aadb2c]: https://docs.microsoft.com/azure/active-directory-b2c
 [adfs-intro]: https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity
 [github]: https://github.com/mspnp/identity-reference-architectures/tree/master/adfs
 [adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
-[considerations]: ./considerations.md
+[considerations]: ./index.md
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
 [psise]: https://docs.microsoft.com/powershell/scripting/components/ise/windows-powershell-integrated-scripting-environment--ise-
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[AAF-devops]: https://docs.microsoft.com/azure/architecture/framework/devops/overview

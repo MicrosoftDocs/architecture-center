@@ -25,8 +25,8 @@ Right sizing your infrastructure to meet the needs of your applications can save
 
 ## Choosing metrics for scaling policies
 
-Autoscaling rules that use a detection mechanism based on a measured trigger attribute (such as CPU usage or queue length) use an aggregated value over time, rather than instantaneous values, to trigger an autoscaling action. By default, the aggregate is an average of the values. This prevents the system from reacting too quickly, or causing rapid oscillation. To learn more [review autoscaling guidance](/azure/architecture/best-practices/auto-scaling).
+Autoscaling rules that use a detection mechanism based on a measured trigger attribute (such as CPU usage or queue length) use an aggregated value over time, rather than instantaneous values, to trigger an autoscaling action. By default, the aggregate is an average of the values. This prevents the system from reacting too quickly, or causing rapid oscillation. To learn more [review autoscaling guidance](../../best-practices/auto-scaling.md).
 
 ## Preemptively scaling based on trends
 
-Preemptively scaling based on historical data can ensure your application has consistent performance, even though your metrics have not yet indicated the need to scale. If you can predict the load on the application, consider using scheduled autoscaling, which adds and removes instances to meet anticipated peaks in demand. To learn more [review autoscaling guidance](/azure/architecture/best-practices/auto-scaling).
+Preemptively scaling based on historical data can ensure your application has consistent performance, even though your metrics have not yet indicated the need to scale. If you can predict the load on the application, consider using scheduled autoscaling, which adds and removes instances to meet anticipated peaks in demand. To learn more [review autoscaling guidance](../../best-practices/auto-scaling.md).

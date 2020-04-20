@@ -16,7 +16,7 @@ ms.subservice: reference-architecture
 
 # Event-based cloud automation on Azure
 
-Automating workflows and repetitive tasks on the cloud using [serverless technologies](https://azure.microsoft.com/solutions/serverless/), can dramatically improve productivity of an organization's DevOps team. A serverless model is best suited for automation scenarios that fit an [event driven approach](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/event-driven). This reference architecture illustrates two such cloud automation scenarios:
+Automating workflows and repetitive tasks on the cloud using [serverless technologies](https://azure.microsoft.com/solutions/serverless/), can dramatically improve productivity of an organization's DevOps team. A serverless model is best suited for automation scenarios that fit an [event driven approach](../../guide/architecture-styles/event-driven.md). This reference architecture illustrates two such cloud automation scenarios:
 
 1. [Cost center tagging](https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/deployment.md) - This implementation tracks the cost centers of each Azure resource. The [Azure Policy](https://docs.microsoft.com/azure/governance/policy/) service [tags all new resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) in a group with a default cost center ID. The Event Grid monitors resource creation events, and then calls an [Azure function](https://docs.microsoft.com/azure/azure-functions/). The function interacts with Azure Active Directory, and validates the cost center ID for the new resource. If different, it updates the tag and sends out an email to the resource owner. The REST queries for Azure Active Directory are mocked out for simplicity. Azure AD can also be integrated using the [Azure AD PowerShell module](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0) or the [ADAL for Python library](https://pypi.org/project/adal/).
 
@@ -78,7 +78,7 @@ Multiple executions of an idempotent function create the same results. To mainta
 
 Read the [Optimize the performance and reliability of Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-best-practices) for best practices when writing your functions.
 
-**Logic Apps**. Logic Apps can be used to perform simpler tasks, easily implemented using [the built-in connectors](https://docs.microsoft.com/azure/connectors/apis-list). These tasks can range from email notifications, to integrating with external management applications. To learn how to use Logic Apps with third-party applications, read [basic enterprise integration in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration).
+**Logic Apps**. Logic Apps can be used to perform simpler tasks, easily implemented using [the built-in connectors](https://docs.microsoft.com/azure/connectors/apis-list). These tasks can range from email notifications, to integrating with external management applications. To learn how to use Logic Apps with third-party applications, read [basic enterprise integration in Azure](../../reference-architectures/enterprise-integration/basic-enterprise-integration.md).
 
 Logic Apps provides a *no code* or *low code* visual designer, and may be used alone in some automation scenarios. Read [this comparison between Azure Functions and Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps) to see which service can fit your scenario.
 
@@ -228,7 +228,7 @@ For more information, see the Cost section in [Azure Architecture Framework][aaf
 
 ## Deployment considerations
 
-For critical automation workflows that manage behavior of your application, zero downtime deployment must be achieved using an efficient DevOps pipeline. For more information, read [serverless backend deployment](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/web-app#back-end-deployment).
+For critical automation workflows that manage behavior of your application, zero downtime deployment must be achieved using an efficient DevOps pipeline. For more information, read [serverless backend deployment](../../reference-architectures/serverless/web-app.md#back-end-deployment).
 
 If the automation covers multiple applications, keep the resources required by the automation in a [separate resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). A single resource group can be shared between automation and application resources, if the automation covers a single application.
 
@@ -240,11 +240,11 @@ To deploy the reference implementations for this architecture, see the [deployme
 
 ## Next steps
 
-To learn more about the serverless implementations, start [here](https://docs.microsoft.com/azure/architecture/serverless).
+Learn more about the [serverless implementations](../../serverless/index.md).
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [az-logic-apps-ISE]: https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview
 [cosmos-calculator]: https://cosmos.azure.com/capacitycalculator
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator

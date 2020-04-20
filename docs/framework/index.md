@@ -145,7 +145,6 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 
 <!-- links -->
 
-[dr-guidance]: ./resiliency/backup-and-recovery.md
 [identity-ref-arch]: ../reference-architectures/identity/index.md
 [resiliency]: ../framework/resiliency/overview.md
 [ad-subscriptions]: https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory
@@ -154,7 +153,6 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 [rbac]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
 [paired-region]: https://docs.microsoft.com/azure/best-practices-availability-paired-regions
 [resource-manager-auditing]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit
-[security-blog]: https://azure.microsoft.com/blog/tag/security
 [security-center]: https://azure.microsoft.com/services/security-center
 [security-documentation]: https://docs.microsoft.com/azure/security
 [sql-db-encryption]: https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault
@@ -162,7 +160,6 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 [trust-center]: https://azure.microsoft.com/support/trust-center
 
 <!-- patterns -->
-[availability-patterns]: ../patterns/category/availability.md
 [management-patterns]: ../patterns/category/management-monitoring.md
 [resiliency-patterns]: ../patterns/category/resiliency.md
 [scalability-patterns]: ../patterns/category/performance-scalability.md

@@ -159,11 +159,11 @@ If you're using [Azure Site Recovery](https://docs.microsoft.com/azure/site-reco
 
 Many alternative strategies are available for implementing distributed compute across regions. These must be tailored to the specific business requirements and circumstances of the application. At a high level, the approaches can be divided into the following categories:
 
-- **Redeploy on disaster**: In this approach, the application is redeployed from scratch at the time of disaster. This is appropriate for non-critical applications that don’t require a guaranteed recovery time. [Redeploy to a new region](/azure/architecture/example-scenario/apps/devops-dotnet-webapp)
+- **Redeploy on disaster**: In this approach, the application is redeployed from scratch at the time of disaster. This is appropriate for non-critical applications that don’t require a guaranteed recovery time. [Redeploy to a new region](../../example-scenario/apps/devops-dotnet-webapp.md)
 
-- **Warm Spare (Active/Passive)**: A secondary hosted service is created in an alternate region, and roles are deployed to guarantee minimal capacity; however, the roles don’t receive production traffic. This approach is useful for applications that have not been designed to distribute traffic across regions. [Basic Web Application example](/azure/architecture/reference-architectures/app-service-web-app/basic-web-app#availability-considerations), [Replicate VM to another region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
+- **Warm Spare (Active/Passive)**: A secondary hosted service is created in an alternate region, and roles are deployed to guarantee minimal capacity; however, the roles don’t receive production traffic. This approach is useful for applications that have not been designed to distribute traffic across regions. [Basic Web Application example](../../reference-architectures/app-service-web-app/basic-web-app.md#availability-considerations), [Replicate VM to another region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
 
-- **Hot Spare (Active/Active)**: The application is designed to receive production load in multiple regions. The cloud services in each region might be configured for higher capacity than required for disaster recovery purposes. Alternatively, the cloud services might scale out as necessary at the time of a disaster and failover. This approach requires substantial investment in application design, but it has significant benefits. These include low and guaranteed recovery time, continuous testing of all recovery locations, and efficient usage of capacity. [Multi tier DR example](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
+- **Hot Spare (Active/Active)**: The application is designed to receive production load in multiple regions. The cloud services in each region might be configured for higher capacity than required for disaster recovery purposes. Alternatively, the cloud services might scale out as necessary at the time of a disaster and failover. This approach requires substantial investment in application design, but it has significant benefits. These include low and guaranteed recovery time, continuous testing of all recovery locations, and efficient usage of capacity. [Multi tier DR example](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.md)
 
 ## Resource management
 
@@ -202,7 +202,7 @@ Azure is divided physically and logically into units called regions. A region co
 
 Under rare circumstances, it is possible that facilities in an entire region can become inaccessible, for example due to network failures. Or facilities can be lost entirely, for example due to a natural disaster. This section explains the capabilities of Azure for creating applications that are distributed across regions. Such distribution helps to minimize the possibility that a failure in one region could affect other regions.
 
-Review [Recover from loss of an Azure region](/azure/architecture/resiliency/recovery-loss-azure-region) for guidance on specific Azure services.
+Review [Recover from loss of an Azure region](../../resiliency/recovery-loss-azure-region.md) for guidance on specific Azure services.
 
 ## Service-specific guidance
 

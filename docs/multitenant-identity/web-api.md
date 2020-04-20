@@ -314,7 +314,7 @@ At startup, the application reads settings from every registered configuration p
 [IdentityServer4]: https://github.com/IdentityServer/IdentityServer4
 [JwtBearer]: https://www.nuget.org/packages/Microsoft.AspNet.Authentication.JwtBearer
 [KeyVault]: https://azure.microsoft.com/services/key-vault
-[options]: /aspnet/core/fundamentals/configuration/options
+[options]: https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options
 [tenant sign-up]: ./signup.md
 [Token caching]: ./token-cache.md
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance

@@ -124,10 +124,8 @@ To operationalize the model, see [Machine learning operationalization (MLOps) fo
 [0]: ./_images//training-python-models.png
 [1]: ./_images/run-object.png
 [acr]: https://docs.microsoft.com/azure/container-registry/container-registry-intro
-[ai]: https://docs.microsoft.com/azure/application-insights/app-insights-overview
 [aml]: https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml
 [aml-compute]: https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target
-[amls]: https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml
 [blob]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
 [dsvm]: https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview
 [endpoints]: https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network
@@ -144,4 +142,4 @@ To operationalize the model, see [Machine learning operationalization (MLOps) fo
 [storage]: https://docs.microsoft.com/azure/storage/common/storage-introduction
 [storage-security]: https://docs.microsoft.com/azure/storage/common/storage-security-guide
 [target]: https://docs.microsoft.com/azure/machine-learning/service/how-to-auto-train-remote
-[training-deep-learning]: /azure/architecture/reference-architectures/ai/training-deep-learning
+[training-deep-learning]: ./training-deep-learning.md

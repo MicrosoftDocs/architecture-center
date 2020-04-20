@@ -220,7 +220,7 @@ Download and run the disaster recovery scripts from [GitHub][disaster].
 
 You may wish to review the following [Azure example scenario](/azure/architecture/example-scenario) that demonstrates specific solutions using some of the same technologies:
 
-- [CI/CD pipeline for container-based workloads](/azure/architecture/example-scenario/apps/devops-with-aks)
+- [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.md)
 
 <!-- links -->
 
@@ -247,7 +247,7 @@ You may wish to review the following [Azure example scenario](/azure/architectur
 [managed-disk]: https://docs.microsoft.com/azure/virtual-machines/linux/managed-disks-overview
 [matrix]: https://plugins.jenkins.io/matrix-auth
 [monitor]: https://docs.microsoft.com/azure/monitoring-and-diagnostics
-[monitoring-diag]: /azure/architecture/best-practices/monitoring
+[monitoring-diag]: ../../best-practices/monitoring.md
 [multi-master]: https://jenkins.io/doc/book/architecting-for-scale
 [nginx]: https://www.digitalocean.com/community/tutorials/how-to-create-an-ssl-certificate-on-nginx-for-ubuntu-14-04
 [nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg

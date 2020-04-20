@@ -100,7 +100,7 @@ From the standpoint of your current application, begin to think about its differ
 
 ## Related resources
 
-- [Building Microservices on Azure](/azure/architecture/microservices)
+- [Building Microservices on Azure](../../microservices/index.md)
 - [Service Fabric Overview](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
 - [Service Fabric Programming Model](https://docs.microsoft.com/azure/service-fabric/service-fabric-choose-framework)
 - [Service Fabric Availability](https://docs.microsoft.com/azure/service-fabric/service-fabric-availability-services)

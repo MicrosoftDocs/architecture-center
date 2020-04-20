@@ -243,7 +243,7 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [app-gw-scaling]: https://docs.microsoft.com/azure/application-gateway
 [azure-dns]: https://docs.microsoft.com/azure/dns/dns-overview
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault

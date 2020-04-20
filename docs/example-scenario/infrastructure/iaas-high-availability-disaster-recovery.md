@@ -16,7 +16,7 @@ ms.category:
 
 This article presents a decision tree and examples of high-availability (HA) and disaster recovery (DR) options when deploying multitier infrastructure-as-a-service (IaaS) apps to Azure.
 
-Multitier or [n-tier](/azure/architecture/guide/architecture-styles/n-tier) architectures are common in traditional on-premises apps, so they're a natural choice for migrating on-premises apps to the cloud, or when developing apps for both on-premises and the cloud. N-tier architectures are typically implemented as IaaS apps divided into logical layers and physical tiers, with a top web or presentation tier, a middle business tier, and a data tier. 
+Multitier or [n-tier](../../guide/architecture-styles/n-tier.md) architectures are common in traditional on-premises apps, so they're a natural choice for migrating on-premises apps to the cloud, or when developing apps for both on-premises and the cloud. N-tier architectures are typically implemented as IaaS apps divided into logical layers and physical tiers, with a top web or presentation tier, a middle business tier, and a data tier. 
 
 In an IaaS n-tier app, each tier runs on a separate set of VMs. The web and business tiers are stateless, meaning any VM in the tier can handle any request for that tier. The data tier is a replicated database, object storage, or file storage. Multiple VMs in each tier provide resiliency if one VM fails, and load balancers distribute requests across the VMs. 
 
@@ -91,7 +91,7 @@ If your app supports Azure Site Recovery, you can provide a regional DR solution
   
   Alternatively, if you have your own data replication technology, you can use it to create a secondary in-region zone for DR. Azure Site Recovery to an alternative zone isn't currently available, but may become an option in the future. [Recovery plans](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans) won't likely be supported for zone-to-zone replication.
 
-- Multi-region HA is possible, but requires a global load balancer such as Front Door or Traffic Manager. For more information, see [Run an N-tier application in multiple Azure regions for high availability](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server).
+- Multi-region HA is possible, but requires a global load balancer such as Front Door or Traffic Manager. For more information, see [Run an N-tier application in multiple Azure regions for high availability](../../reference-architectures/n-tier/multi-region-sql-server.md).
 
 ## Considerations
 
@@ -107,5 +107,5 @@ If your app supports Azure Site Recovery, you can provide a regional DR solution
 There's no additional cost for VMs deployed in AZs. There may be additional inter-AZ VM-to-VM data transfer charges. For more information, see the [Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## Related resources
-- [Multitier web application built for high availability and disaster recovery on Azure](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
-- [Run a web application in multiple Azure regions for high availability](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+- [Multitier web application built for high availability and disaster recovery on Azure](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.md)
+- [Run a web application in multiple Azure regions for high availability](../../reference-architectures/app-service-web-app/multi-region.md)

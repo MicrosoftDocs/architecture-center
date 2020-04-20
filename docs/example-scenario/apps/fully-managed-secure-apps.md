@@ -163,25 +163,20 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [medium-pricing]: https://azure.com/e/c280777e16bd4fd5bc9c23f3b8caf91f
 [large-pricing]: https://azure.com/e/294d5b09fa064ced87d6422826f2a0fc
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.md
-[availability]: /azure/architecture/patterns/category/availability
+[availability]: ../../patterns/category/availability.md
 
-[design-patterns-availability]: /azure/architecture/patterns/category/availability
-[design-patterns-resiliency]: /azure/architecture/patterns/category/resiliency
-[design-patterns-scalability]: /azure/architecture/patterns/category/performance-scalability
-[design-patterns-security]: /azure/architecture/patterns/category/security
+[design-patterns-availability]: ../../patterns/category/availability.md
+[design-patterns-resiliency]: ../../patterns/category/resiliency.md
+[design-patterns-scalability]: ../../patterns/category/performance-scalability.md
+[design-patterns-security]: ../../patterns/category/security.md
 [design-geo-distributed-ase]: https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
-[design-best-practice-cloud-apps-autoscale]: /azure/architecture/best-practices/auto-scaling
+[design-best-practice-cloud-apps-autoscale]: ../../best-practices/auto-scaling.md
 
-[docs-b2c]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
 [docs-sql-database]: https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview
-[docs-storage-blobs]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
-[docs-storage-queues]: https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction
-[docs-traffic-manager]: /azure/traffic-manager/traffic-manager-overview
 [docs-webapps]: https://docs.microsoft.com/azure/app-service/app-service-web-overview
 [docs-apiapps]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api
 [docs-appgw]: https://docs.microsoft.com/azure/application-gateway/overview
 [docs-waf]: https://docs.microsoft.com/azure/application-gateway/waf-overview
-[docs-networking]: https://docs.microsoft.com/azure/networking/networking-overview
 [docs-azure-devops]: https://docs.microsoft.com/azure/devops/?view=vsts
 [docs-azure-vm]: https://docs.microsoft.com/azure/virtual-machines/windows/overview
 [docs-azure-scale-ase]: https://docs.microsoft.com/azure/app-service/environment/intro
@@ -193,9 +188,9 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [use-app-svc-web-apps-with-appgw]: https://github.com/Azure/fta-internalbusinessapps/blob/webapp-appgateway/appmodernization/app-service/articles/app-gateway-web-apps.md
 [integrate-ilb-ase-with-appgw]: https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway
 [pci-dss-blueprint]: https://docs.microsoft.com/azure/security/blueprints/payment-processing-blueprint
-[resiliency-app-service]: /azure/architecture/checklist/resiliency-per-service#app-service
-[resiliency]: /azure/architecture/framework/resiliency/overview
-[scalability]: /azure/architecture/checklist/scalability
+[resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service
+[resiliency]: ../../framework/resiliency/overview.md
+[scalability]: ../../checklist/scalability.md
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
 [sql-geo-replication]: https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview
 [storage-geo-redudancy]: https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs

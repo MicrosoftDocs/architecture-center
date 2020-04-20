@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 # Stream processing pipeline with Azure Stream Analytics
 
-This reference architecture shows an end-to-end [stream processing](/azure/architecture/data-guide/big-data/real-time-processing) pipeline. The pipeline ingests data from two sources, correlates records in the two streams, and calculates a rolling average across a time window. The results are stored for further analysis.
+This reference architecture shows an end-to-end [stream processing](../../data-guide/big-data/real-time-processing.md) pipeline. The pipeline ingests data from two sources, correlates records in the two streams, and calculates a rolling average across a time window. The results are stored for further analysis.
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
 
@@ -256,15 +256,14 @@ For more information, see the DevOps section in [Azure Architecture Framework][A
 
 You may wish to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
 
-- [IoT and data analytics in the construction industry](/azure/architecture/example-scenario/data/big-data-with-iot)
-- [Real-time fraud detection](/azure/architecture/example-scenario/data/fraud-detection)
+- [IoT and data analytics in the construction industry](../../example-scenario/data/big-data-with-iot.md)
+- [Real-time fraud detection](../../example-scenario/data/fraud-detection.md)
 
 <!-- links -->
-[AAF-devops]: /azure/architecture/framework/devops/overview
+[AAF-devops]: ../../framework/devops/overview.md
 [arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azure-monitor]: https://azure.microsoft.com/services/monitor
 [github]: https://github.com/mspnp/azure-stream-analytics-data-pipeline
-[monitoring-stream-analytics]: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[databricks-monitoring]: https://docs.microsoft.com/azure/architecture/databricks-monitoring
+[databricks-monitoring]: ../../databricks-monitoring/index.md

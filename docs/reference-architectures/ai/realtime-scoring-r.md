@@ -82,7 +82,7 @@ This architecture provides a pure R experience. It doesn't use the [Python](http
 The reference implementation of this architecture is available on [GitHub][github]. Follow the steps described there to deploy a simple predictive model as a service.
 
 <!-- links -->
-[azure-ad]: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis
+
 [API]: https://docs.microsoft.com/azure/api-management/api-management-key-concepts
 [ACR]: https://docs.microsoft.com/azure/container-registry/container-registry-intro
 [AKS]: https://docs.microsoft.com/azure/aks/intro-kubernetes
@@ -95,10 +95,10 @@ The reference implementation of this architecture is available on [GitHub][githu
 [encrypt]: https://letsencrypt.org
 [gitHub]: https://github.com/Azure/RealtimeRDeployment
 [K-API]: https://kubernetes.io/docs/reference
-[MMLS]: /machine-learning-server/what-is-machine-learning-server
+[MMLS]: https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server
 [monitor-containers]: https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview
 [nginx]: https://www.nginx.com
-[operationalization]: /machine-learning-server/what-is-operationalization
+[operationalization]: https://docs.microsoft.com/machine-learning-server/what-is-operationalization
 [plumber]: https://www.rplumber.io
 [RBAC]: https://docs.microsoft.com/azure/role-based-access-control/overview
 [storage]: https://docs.microsoft.com/azure/storage/common/storage-introduction

@@ -76,7 +76,7 @@ This example workload deploys the VMs within different subnets. For additional s
 
 ### Storage
 
-[Data storage](/azure/architecture/topics/high-performance-computing#storage) and access needs vary widely, depending on workload scale. Azure supports several approaches for managing the speed and capacity of HPC applications. The [azurehpc][azurehpc] GitHub repository includes example Azure HPC scripts.
+[Data storage](../../topics/high-performance-computing.md#storage) and access needs vary widely, depending on workload scale. Azure supports several approaches for managing the speed and capacity of HPC applications. The [azurehpc][azurehpc] GitHub repository includes example Azure HPC scripts.
 
 The following approaches are common in the oil and gas industry. Choose the solution best suited to your unique I/O and capacity requirements.
 
@@ -101,6 +101,7 @@ Get an [example implementation of this OPM Flow architecture][opm-flow] on GitHu
 - Learn about [HPC on Azure][hpc].
 
 <!-- links -->
+
 [architecture]: ./media/architecture-hpc-reservoir-simulation.png
 [azurehpc]: https://github.com/Azure/azurehpc/tree/master/examples
 [azure-cyclecloud]: https://docs.microsoft.com/azure/cyclecloud/overview
@@ -109,7 +110,6 @@ Get an [example implementation of this OPM Flow architecture][opm-flow] on GitHu
 [blog]: https://techcommunity.microsoft.com/t5/azurecat/high-performance-computing-hpc-oil-and-gas-in-azure/ba-p/824926
 [cae]: ../apps/hpc-saas.md
 [checklist]: https://docs.microsoft.com/azure/storage/common/storage-performance-checklist
-[data-storage]: https://docs.microsoft.com/architecture/topics/high-performance-computing#storage
 [disk]: https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd
 [hc-series]: https://docs.microsoft.com/azure/virtual-machines/hc-series
 [hpc]: https://azure.microsoft.com/solutions/high-performance-computing

@@ -280,13 +280,13 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 
 You may want to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
 
-- [Data warehousing and analytics for sales and marketing](/azure/architecture/example-scenario/data/data-warehouse)
-- [Hybrid ETL with existing on-premises SSIS and Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)
-- [Enterprise BI in Azure with Azure Synapse](/azure/architecture/reference-architectures/data/enterprise-bi-sqldw).
+- [Data warehousing and analytics for sales and marketing](../../example-scenario/data/data-warehouse.md)
+- [Hybrid ETL with existing on-premises SSIS and Azure Data Factory](../../example-scenario/data/hybrid-etl-with-adf.md)
+- [Enterprise BI in Azure with Azure Synapse](./enterprise-bi-synapse.md).
 
 <!-- links -->
 
-[AAF-devops]: /azure/architecture/framework/devops/overview
+[AAF-devops]: ../../framework/devops/overview.md
 [adf]: https://docs.microsoft.com/azure/data-factory
 [arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
@@ -297,9 +297,9 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [github]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline
 [MergeLocation]: https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
 [synapse-analytics]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity
-[wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
+[wwi]: https://docs.microsoft.com/sql/sample/world-wide-importers/wide-world-importers-oltp-database
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [adf]: https://docs.microsoft.com/azure/data-factory
 [adf-calculator]: https://azure.microsoft.com/pricing/calculator/?service=data-factory
 [az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services
@@ -308,4 +308,4 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [github]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline
 [MergeLocation]: https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
-[wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
+[wwi]: https://docs.microsoft.com/sql/sample/world-wide-importers/wide-world-importers-oltp-database

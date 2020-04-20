@@ -35,14 +35,13 @@ The architecture consists of the following components.
 - **Azure virtual network**. The virtual network hosts the application and other resources running in Azure.
 - **Gateway**. The gateway provides connectivity between the routers in the on-premises network and the virtual network. The gateway is placed in its own subnet.
 - **Azure Firewall**. [Azure Firewall](https://docs.microsoft.com/azure/firewall/) is a managed firewall as a service. The Firewall instance is placed in its own subnet.
-- **Virtual network routes**. [Virtual network routes][udr-overview] define the flow of IP traffic within the Azure virtual network. In the diagram shown above, there are two user-defined route tables. 
+- **Virtual network routes**. [Virtual network routes][udr-overview] define the flow of IP traffic within the Azure virtual network. In the diagram shown above, there are two user-defined route tables.
 
-    - In the gateway subnet, traffic sent to the web-tier subnet (10.0.1.0/24) is routed through the Azure Firewall instance.
-    - In the web tier subnet, Since there is no route for address space of the VNet itself to point to Azure firewall, web tier instances are able to communicate directly to each other, not via Azure Firewall.
+  - In the gateway subnet, traffic sent to the web-tier subnet (10.0.1.0/24) is routed through the Azure Firewall instance.
+  - In the web tier subnet, Since there is no route for address space of the VNet itself to point to Azure firewall, web tier instances are able to communicate directly to each other, not via Azure Firewall.
 
-    > [!NOTE]
-    > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes to implement the forwarding rules that direct traffic back through the on-premises network.
-    >
+  > [!NOTE]
+  > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes to implement the forwarding rules that direct traffic back through the on-premises network.
 
 - **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network. For example, in the deployment provided with this reference architecture, the web tier subnet allows TCP traffic from the on-premises network and from within the virtual network; the business tier allows traffic from the web tier; and the data tier allows traffic from the business tier.
 
@@ -130,6 +129,7 @@ Traffic between tiers is restricted by using NSGs. The business tier blocks all 
 Use [RBAC][rbac] to restrict the operations that DevOps can perform on each tier. When granting permissions, use the [principle of least privilege][security-principle-of-least-privilege]. Log all administrative operations and perform regular audits to ensure any configuration changes were planned.
 
 ## Cost considerations
+
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
 
 Here are cost considerations for the services used in this architecture.
@@ -137,6 +137,7 @@ Here are cost considerations for the services used in this architecture.
 ### Azure Firewall
 
 In this architecture, Azure Firewall is deployed in the virtual network to control traffic between the gateway's subnet and the subnet in which the application tier runs. In this way Azure Firewall is cost effective because it's used as a shared solution consumed by multiple workloads. Here are the Azure Firewall pricing models:
+
 - Fixed rate per deployment hour.
 - Data processed per GB to support auto scaling. 
 
@@ -157,9 +158,7 @@ All traffic that occurs within the boundaries of a virtual network is free. So i
 
 Basic load balancing between virtual machines that reside in the same virtual network is free.
 
-
 In this architecture, internal load balancers are used to load balance traffic inside a virtual network. 
-
 
 ## Deploy the solution
 
@@ -230,7 +229,7 @@ In this step, you will connect the two local network gateways.
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [azure-forced-tunneling]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [cloud-services-network-security]: https://docs.microsoft.com/azure/best-practices-network-security

@@ -79,15 +79,11 @@ Automatic scaling may not be appropriate for batch jobs that happen too close to
 To deploy this reference architecture, follow the steps described in the [GitHub repo][github].
 
 [acr]: https://docs.microsoft.com/azure/container-registry/container-registry-intro
-[ai]: https://docs.microsoft.com/azure/application-insights/app-insights-overview
-[aml-compute]: https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute
 [amls]: https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml
-[automatic-scaling]: https://docs.microsoft.com/azure/batch/batch-automatic-scaling
-[azure-files]: https://docs.microsoft.com/azure/storage/files/storage-files-introduction
 [batch-scoring]: https://docs.microsoft.com/azure/machine-learning/service/how-to-run-batch-predictions
 [cli]: https://docs.microsoft.com/cli/azure
 [create-resources]: https://github.com/microsoft/az-ml-batch-score/blob/master/01_DataPrep.ipynb
-[deep]: /azure/architecture/reference-architectures/ai/batch-scoring-deep-learning
+[deep]: ../../reference-architectures/ai/batch-scoring-deep-learning.md
 [event-hubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr
 [explorer]: https://azure.microsoft.com/features/storage-explorer
 [github]: https://github.com/Microsoft/AMLBatchScoringPipeline
@@ -96,7 +92,6 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 [python-sdk]: https://docs.microsoft.com/python/api/overview/azure/ml/intro
 [ml-workspace]: https://docs.microsoft.com/azure/machine-learning/studio/create-workspace
 [pipeline]: https://docs.microsoft.com/azure/machine-learning/service/concept-ml-pipelines
-[python-script]: https://github.com/Azure/BatchAIAnomalyDetection/blob/master/batchai/predict.py
 [pyscript]: https://github.com/Microsoft/AMLBatchScoringPipeline/blob/master/scripts/predict.py
 [storage]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview
 [stream-analytics]: https://docs.microsoft.com/azure/stream-analytics

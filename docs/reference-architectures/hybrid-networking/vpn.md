@@ -234,7 +234,7 @@ Although VPNs can be used to connect virtual networks within Azure, it's not alw
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [adds-extend-domain]: ../identity/adds-extend-domain.md
 [az-vpn]: https://docs.microsoft.com/azure/azure-stack/azure-stack-connect-vpn
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway
@@ -244,15 +244,14 @@ Although VPNs can be used to connect virtual networks within Azure, it's not alw
 [Bastion-pricing]: https://azure.microsoft.com/pricing/details/azure-bastion
 [changing-SKUs]: https://azure.microsoft.com/blog/azure-virtual-network-gateway-improvements
 [CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
-[connect-to-an-Azure-vnet]: /office365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network
+[connect-to-an-Azure-vnet]: https://docs.microsoft.com/office365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [forced-tunneling]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling
 [gateway-diagnostic-logs]: https://blogs.technet.microsoft.com/keithmayer/2016/10/12/step-by-step-capturing-azure-resource-manager-arm-vnet-gateway-diagnostic-logs
-[linux-vm-ra]: ../virtual-machines-linux/index.md
+[linux-vm-ra]: ../n-tier/n-tier-cassandra.md
 [linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [nagios]: https://www.nagios.org
 [policy-based-routing]: https://en.wikipedia.org/wiki/Policy-based_routing
-[pricing]: https://azure.microsoft.com/pricing/calculator
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/hybrid-networking/vpn/README.md
 [route-based-routing]: https://en.wikipedia.org/wiki/Static_routing
 [rras-logging]: https://www.petri.com/enable-diagnostic-logging-in-windows-server-2012-r2-routing-and-remote-access
@@ -262,4 +261,4 @@ Although VPNs can be used to connect virtual networks within Azure, it's not alw
 [vpn-appliance]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [vpn-appliances]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [vpn-gateway-multi-site]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site
-[windows-vm-ra]: ../virtual-machines-windows/index.md
+[windows-vm-ra]: ../n-tier/n-tier-sql-server.md

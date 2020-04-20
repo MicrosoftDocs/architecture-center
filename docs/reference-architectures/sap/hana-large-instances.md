@@ -202,29 +202,26 @@ Communities can answer questions and help you set up a successful deployment. Co
 
 ## Related resources
 
-You may wish to review the following [Azure example scenarios](https://docs.microsoft.com/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
+You may wish to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
 
-- [Running SAP production workloads using an Oracle Database on Azure](https://docs.microsoft.com/azure/architecture/example-scenario/apps/sap-production)
-- [Dev/test environments for SAP workloads on Azure](https://docs.microsoft.com/azure/architecture/example-scenario/apps/sap-dev-test)
+- [Running SAP production workloads using an Oracle Database on Azure](../../example-scenario/apps/sap-production.md)
+- [Dev/test environments for SAP workloads on Azure](../../example-scenario/apps/sap-dev-test.md)
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [az-spot-vms]: https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms
 [azure-forum]: https://azure.microsoft.com/support/forums
-[azure-large-instances]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture
 [classes]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [cross-connected]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
 [dr-site]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery
-[expressroute]: /azure/architecture/reference-architectures/hybrid-networking/expressroute
+[expressroute]: ../../reference-architectures/hybrid-networking/expressroute.md
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
-[filter-network]: https://azure.microsoft.com/blog/multiple-vm-nics-and-network-virtual-appliances-in-azure
 [hli-dr]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
 [hli-backup]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore
 [hli-hadr]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
 [hli-infrastructure]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity
-[hli-overview]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture
 [HLI-SKUs]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus
 [hli-troubleshoot]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring
 [HLI-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
@@ -233,10 +230,6 @@ You may wish to review the following [Azure example scenarios](https://docs.micr
 [nfs]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs
 [os-hardening]: https://docs.microsoft.com/azure/security/azure-security-iaas
 [physical]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture
-[planning]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design
-[protecting-sap]: https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/06/protecting-sap-systems-running-on-vmware-with-azure-site-recovery
-[ref-arch]: /azure/architecture/reference-architectures
-[running-SAP]: https://blogs.msdn.microsoft.com/saponsqlserver/2016/06/07/sap-on-sql-general-update-for-customers-partners-june-2016
 [region]: https://azure.microsoft.com/global-infrastructure/services
 [running-sap-blog]: https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/04/sap-on-azure-general-update-for-customers-partners-april-2017
 [quick-sizer]: https://service.sap.com/quicksizing

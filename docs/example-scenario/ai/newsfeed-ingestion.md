@@ -126,12 +126,11 @@ All the code for this scenario is available in the [GitHub][github] repository. 
 [aai]: https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview
 [aas]: https://azure.microsoft.com/try/app-service
 [acs]: https://azure.microsoft.com/services/cognitive-services/directory
-[collection]: /rest/api/cosmos-db/collections
+[collection]: https://docs.microsoft.com/rest/api/cosmos-db/collections
 [compare]: https://docs.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps
 [cosmos-db]: https://docs.microsoft.com/azure/cosmos-db/introduction
 [db-cost]: https://azure.microsoft.com/pricing/details/cosmos-db
 [db-practices]: https://docs.microsoft.com/azure/cosmos-db/database-security
-[db-collection]: https://docs.microsoft.com/azure/cosmos-db/databases-containers-items
 [english]: https://www.nasa.gov/rss/dyn/breaking_news.rss
 [face]: https://docs.microsoft.com/azure/cognitive-services/face/overview
 [free]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F

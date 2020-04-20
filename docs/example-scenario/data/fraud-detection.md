@@ -20,7 +20,7 @@ This example scenario is relevant to organizations that need to analyze data in 
 
 Potential applications include identifying fraudulent credit card activity or mobile phone calls. Traditional online analytical systems might take hours to transform and analyze the data to identify anomalous activity.
 
-By using fully managed Azure services such as Event Hubs and Stream Analytics, companies can eliminate the need to manage individual servers, while reducing costs and leveraging Microsoft's expertise in cloud-scale data ingestion and real-time analytics. This scenario specifically addresses the detection of fraudulent activity. If you have other needs for data analytics, you should review the list of available [Azure Analytics services][product-category].
+By using fully managed Azure services such as Event Hubs and Stream Analytics, companies can eliminate the need to manage individual servers, while reducing costs and using Microsoft's expertise in cloud-scale data ingestion and real-time analytics. This scenario specifically addresses the detection of fraudulent activity. If you have other needs for data analytics, you should review the list of available [Azure Analytics services][product-category].
 
 This sample represents one part of a broader data processing architecture and strategy. Other options for this aspect of an overall architecture are discussed later in this article.
 
@@ -53,9 +53,9 @@ This scenario covers the back-end components of a real-time analytics pipeline. 
 
 ### Alternatives
 
-Many technology choices are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](/azure/architecture/data-guide/technology-choices/real-time-ingestion) in the Azure Data Architecture Guide.
+Many technology choices are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](../../data-guide/technology-choices/real-time-ingestion.md) in the Azure Data Architecture Guide.
 
-Additionally, more complex algorithms for fraud detection can be produced by various machine learning services in Azure. For an overview of these options, see [Technology choices for machine learning](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning) in the [Azure Data Architecture Guide](../../data-guide/index.md).
+Additionally, more complex algorithms for fraud detection can be produced by various machine learning services in Azure. For an overview of these options, see [Technology choices for machine learning](../../data-guide/technology-choices/data-science-and-machine-learning.md) in the [Azure Data Architecture Guide](../../data-guide/index.md).
 
 ### Availability
 
@@ -105,8 +105,8 @@ More complex fraud detection scenarios can benefit from a machine learning model
 [docs-event-hubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs
 [docs-event-hubs-security-model]: https://docs.microsoft.com/azure/event-hubs/event-hubs-authentication-and-security-model-overview
 [docs-stream-analytics]: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction
-[docs-r-server-sample-solutions]: /machine-learning-server/r/sample-solutions
+[docs-r-server-sample-solutions]: https://docs.microsoft.com/machine-learning-server/r/sample-solutions
 [r-server-fraud-detection]: https://microsoft.github.io/r-server-fraud-detection
 [technet-fraud-detection]: https://blogs.technet.microsoft.com/machinelearning/2017/06/28/using-azure-data-lake-and-r-for-fraud-detection
-[scalability]: /azure/architecture/checklist/scalability
+[scalability]: ../../checklist/scalability.md
 [security]: https://docs.microsoft.com/azure/security

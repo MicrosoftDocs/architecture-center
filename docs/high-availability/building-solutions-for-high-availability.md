@@ -165,89 +165,89 @@ services.
 
  **Analytics** 
 
--   **Azure Data Explorer (ZR)**
+- **Azure Data Explorer (ZR)**
 
--   **Azure Event Hubs (ZR)**
+- **Azure Event Hubs (ZR)**
 
 **Compute**
 
--   **Linux virtual machines (Z)**
+- **Linux virtual machines (Z)**
 
--   **Windows virtual machines (Z)**
+- **Windows virtual machines (Z)**
 
--   **Virtual machine scale sets (Z, ZR)**
+- **Virtual machine scale sets (Z, ZR)**
 
--   **Azure App Service (Z)**
+- **Azure App Service (Z)**
 
 **Containers**
 
--   **Azure Kubernetes Service (AKS) (Z)**
+- **Azure Kubernetes Service (AKS) (Z)**
 
--   **Azure Service Fabric (Z)**
+- **Azure Service Fabric (Z)**
 
 **Databases**
 
--   **Azure SQL Database (ZR)**
+- **Azure SQL Database (ZR)**
 
--   **Azure Cache for Redis (Z, ZR)**
+- **Azure Cache for Redis (Z, ZR)**
 
--   **Azure Cosmos DB (ZR)**
+- **Azure Cosmos DB (ZR)**
 
 **DevOps**
 
--   **Azure DevOps (ZR)**
+- **Azure DevOps (ZR)**
 
 **Identity**
 
--   **Azure Active Directory Domain Services (ZR)**
+- **Azure Active Directory Domain Services (ZR)**
 
 **Integration**
 
--   **Azure Event Grid (ZR)**
+- **Azure Event Grid (ZR)**
 
--   **Azure Service Bus (ZR)** 
+- **Azure Service Bus (ZR)** 
     </td>
     <td> 
 
 **Management and governance** 
 
--   **Azure Traffic Manager (ZR)** 
+- **Azure Traffic Manager (ZR)** 
 
 **Networking**
 
--   **Azure Load Balancer (Z, ZR)**
+- **Azure Load Balancer (Z, ZR)**
 
--   **VPN gateway (ZR)**
+- **VPN gateway (ZR)**
 
--   **Azure ExpressRoute (ZR)**
+- **Azure ExpressRoute (ZR)**
 
--   **Azure Application Gateway (ZR)**
+- **Azure Application Gateway (ZR)**
 
--   **Azure Firewall (ZR)**
+- **Azure Firewall (ZR)**
 
--   **Azure Virtual WAN (ZR)**
+- **Azure Virtual WAN (ZR)**
 
 **Security**
 
--   **Azure Active Directory Domain Services (ZR)**
+- **Azure Active Directory Domain Services (ZR)**
 
 **Storage**
 
--   **Azure Data Lake Storage (ZRS)**
+- **Azure Data Lake Storage (ZRS)**
 
--   **Azure Blob storage (ZRS, ZR)**
+- **Azure Blob storage (ZRS, ZR)**
 
--   **Azure Managed Disks (Z)**
+- **Azure Managed Disks (Z)**
 
 **Additional capabilities**
 
--   **Azure Premium Files (ZRS)**
+- **Azure Premium Files (ZRS)**
 
--   **Zone-redundant storage (ZRS)**
+- **Zone-redundant storage (ZRS)**
 
--   **Standard IP address (ZR)**
+- **Standard IP address (ZR)**
 
--   **Azure Traffic Analytics (ZR)**
+- **Azure Traffic Analytics (ZR)**
 
        </td> 
     </tr> 
@@ -285,21 +285,21 @@ applications to best meet your complex business needs. Defining a target SLA
 will make it possible to evaluate whether the architecture meets your business
 requirements. Some things to consider include:
 
--   What are the availability requirements?
+- What are the availability requirements?
 
--   How much downtime is acceptable?
+- How much downtime is acceptable?
 
--   How much will potential downtime cost your business?
+- How much will potential downtime cost your business?
 
--   How much should you invest in making the application highly available?
+- How much should you invest in making the application highly available?
 
--   What are the data backup requirements?
+- What are the data backup requirements?
 
--   What are the data replication requirements?
+- What are the data replication requirements?
 
--   What are the monitoring requirements?
+- What are the monitoring requirements?
 
--   Does your application have specific latency requirements?
+- Does your application have specific latency requirements?
 
 For additional guidance, refer to [Azure Architecture Framework define
 requirements](../framework/resiliency/overview.md#define-requirements).

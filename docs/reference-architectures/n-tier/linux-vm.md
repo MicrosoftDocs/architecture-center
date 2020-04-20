@@ -141,7 +141,7 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more
 [azure-linux]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-azure-overview
 [azure-storage]: https://docs.microsoft.com/azure/storage/common/storage-introduction
@@ -153,7 +153,7 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 [disk-encryption]: https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss
 [enable-monitoring]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
 [fqdn]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-portal-create-fqdn
-[group-policy]: /windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates
+[group-policy]: https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates
 [iostat]: https://en.wikipedia.org/wiki/Iostat
 [manage-vm-availability]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-manage-availability
 [managed-disks]: https://docs.microsoft.com/azure/storage/storage-managed-disks-overview
@@ -176,7 +176,6 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 [ssh-linux]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys
 [static-ip]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-reserved-public-ip
 [virtual-machine-sizes]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
 [linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [vm-size-tables]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines

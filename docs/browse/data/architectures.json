@@ -6120,8 +6120,8 @@
                 "web",
                 "featured"
             ],
-            "image": "/azure/architecture/example-scenario/infrastructure/media/arhitecture-disaster-recovery-multi-tier-app.png",
-            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\infrastructure\\media\\arhitecture-disaster-recovery-multi-tier-app.png",
+            "image": "/azure/architecture/example-scenario/infrastructure/media/architecture-disaster-recovery-multi-tier-app.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\infrastructure\\media\\architecture-disaster-recovery-multi-tier-app.png",
             "publish_date": "11/16/2018",
             "pricing_calculator": "https://azure.com/e/6835332265044d6d931d68c917979e6d/",
             "pricing_guidance": "pricing",

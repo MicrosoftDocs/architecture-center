@@ -82,9 +82,3 @@ At this point, you should have a clear understanding of the purpose and function
 
 > [!div class="nextstepaction"]
 > [Design a microservices architecture](../design/index.md)
-
-<!-- links -->
-
-[event-grid]: https://docs.microsoft.com/azure/event-grid
-[functions]: https://docs.microsoft.com/azure/azure-functions/functions-overview
-[functions-triggers]: https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings

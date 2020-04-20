@@ -144,10 +144,7 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 [aml-compute]: https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target
 [aml-pipeline]: https://docs.microsoft.com/azure/machine-learning/service/concept-ml-pipelines
 [amls]: https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml
-[azcopy]: https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux
 [blob-storage]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
-[container-instances]: https://docs.microsoft.com/azure/container-instances
-[container-registry]: https://docs.microsoft.com/azure/container-registry
 [deployment]: https://github.com/Azure/Batch-Scoring-Deep-Learning-Models-With-AML
 [deployment2]: https://github.com/Azure/Batch-Scoring-Deep-Learning-Models-With-AKS
 [ffmpeg]: https://www.ffmpeg.org
@@ -155,5 +152,4 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 [logic-apps]: https://docs.microsoft.com/azure/logic-apps
 [source-video]: https://happypathspublic.blob.core.windows.net/videos/orangutan.mp4
 [storage-security]: https://docs.microsoft.com/azure/storage/common/storage-security-guide
-[vm-sizes-gpu]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu
 [virtual-network]: https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-virtual-network

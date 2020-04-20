@@ -121,7 +121,7 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more
 [azure-storage]: https://docs.microsoft.com/azure/storage/common/storage-introduction
 [blob-storage]: https://docs.microsoft.com/azure/storage/common/storage-introduction
@@ -154,7 +154,6 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 [services-by-region]: https://azure.microsoft.com/regions/#services
 [static-ip]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-reserved-public-ip
 [virtual-machine-sizes]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
 [vm-size-tables]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [windows-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows

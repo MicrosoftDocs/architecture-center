@@ -31,11 +31,11 @@ These are the topics we cover in the security pillar of the Azure Architecture F
 | [Governance, risk, and compliance][compliance] | How is the organization’s security going to be monitored, audited, and reported? What types of risks does the organization face while trying to protect identifiable information, Intellectual Property (IP), financial information? Are there specific industry, government, or regulatory requirements that dictate or provide recommendation on criteria that your organization’s security controls must meet? |
 | [Identity and access management][identity] | Identity provides the basis of a large percentage of security assurances. |
 | [Info protection and storage][info] | Protecting data at rest is required to maintain confidentiality, integrity, and availability assurances across all workloads. |
-| [Network security and containment][network] | Network security has been the traditional lynchpin of enterprise security efforts. However, cloud computing has increased the requirement for network perimeters to be more porous and many attackers have mastered the art of attacks on identity system elements (which nearly always bypass network controls). |
+| [Network security and containment][network] | Network security has been the traditional linchpin of enterprise security efforts. However, cloud computing has increased the requirement for network perimeters to be more porous and many attackers have mastered the art of attacks on identity system elements (which nearly always bypass network controls). |
 | [Security Operations][sec-ops] | Security operations maintain and restores the security assurances of the system as live adversaries attack it. The tasks of security operations are described well by the NIST Cybersecurity Framework functions of Detect, Respond, and Recover. |
 
 <!-- security links -->
-[monitoring]: ./monitoring.md
+
 [role]: ./role-of-security.md
 [app]: ./applications-services.md
 [compliance]: ./governance.md

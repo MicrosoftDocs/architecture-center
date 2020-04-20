@@ -236,8 +236,8 @@ The deployment includes infrastructure for an N-tier application. For cost infor
 A deployment for a reference architecture that implements these recommendations and considerations is available on GitHub. This reference architecture deploys a simulated on-premises network in Azure that you can use to test and experiment. To deploy the solution, see the [readme](https://github.com/mspnp/identity-reference-architectures/tree/master/azure-ad) on GitHub.
 
 <!-- links -->
-[aaf-cost]: /azure/architecture/framework/cost/overview
-[implementing-a-multi-tier-architecture-on-Azure]: ../virtual-machines-windows/n-tier.md#cost-considerations
+[aaf-cost]: ../../framework/cost/overview.md
+[implementing-a-multi-tier-architecture-on-Azure]: ../n-tier/n-tier-sql-server.md#cost-considerations
 
 [aad-agent-installation]: https://docs.microsoft.com/azure/active-directory/active-directory-aadconnect-health-agent-install
 [aad-application-proxy]: https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable
@@ -260,18 +260,13 @@ A deployment for a reference architecture that implements these recommendations 
 [aad-sync-requirements]: https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements
 [aad-topologies]: https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies
 [aad-user-sign-in]: https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin
-[AAF-devops]: /azure/architecture/framework/devops/overview
-[arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
-[azbb]: https://github.com/mspnp/template-building-blocks/wiki/overview
-[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
-[az-pipelines]: https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops
+[AAF-devops]: ../../framework/devops/overview.md
 [azure-active-directory]: https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview
 [azure-ad-connect]: https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity
-[azure-monitor]: https://azure.microsoft.com/services/monitor
 [Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory
 [azure-multifactor-authentication]: https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication
-[considerations]: ./considerations.md
+[considerations]: ./index.md
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[AAF-devops]: /azure/architecture/framework/devops/overview
+[AAF-devops]: ../../framework/devops/overview.md

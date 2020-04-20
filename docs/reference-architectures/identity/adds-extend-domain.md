@@ -209,15 +209,12 @@ After deployment completes, you can test connectivity from the simulated on-prem
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
-[AAF-devops]: /azure/architecture/framework/devops/overview
+[aaf-cost]: ../../framework/cost/overview.md
+[AAF-devops]: ../../framework/devops/overview.md
 [adds-resource-forest]: ./adds-forest.md
 [adfs]: ./adfs.md
-[azure-cli-2]: https://docs.microsoft.com/azure/install-azure-cli
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [dsc-overview]: https://docs.microsoft.com/powershell/scripting/dsc/overview/overview?view=powershell-7
-[dmz]: ../dmz/secure-vnet-dmz.md
-[adds-data-disks]: https://msdn.microsoft.com/library/mt674703.aspx
 [ad-ds-operations-masters]: https://technet.microsoft.com/library/cc779716(v=ws.10).aspx
 [ad-ds-ports]: https://technet.microsoft.com/library/dd772723(v=ws.11).aspx
 
@@ -235,7 +232,7 @@ After deployment completes, you can test connectivity from the simulated on-prem
 
 [azure-vpn-gateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
 [capacity-planning-for-adds]: https://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
-[considerations]: ./considerations.md
+[considerations]: ./index.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [GitHub]: https://github.com/mspnp/identity-reference-architectures/tree/master/adds-extend-domain
 [microsoft_systems_center]: https://www.microsoft.com/download/details.aspx?id=50013
@@ -245,5 +242,3 @@ After deployment completes, you can test connectivity from the simulated on-prem
 [standby-operations-masters]: https://technet.microsoft.com/library/cc794737(v=ws.10).aspx
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
 [vm-windows-sizes]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes
-
-[0]: ./images/adds-extend-domain.png "Secure hybrid network architecture with Active Directory"

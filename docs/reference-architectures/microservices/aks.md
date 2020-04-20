@@ -91,7 +91,7 @@ On the other hand, if you need complete control over the settings, you may want 
 
 ### Data storage
 
-In a microservices architecture, services should not share data storage. Each service should own its own private data in a separate logical storage, to avoid hidden dependencies among services. The reason is to avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements. For more information, see [Designing microservices: Data considerations](/azure/architecture/microservices/data-considerations).
+In a microservices architecture, services should not share data storage. Each service should own its own private data in a separate logical storage, to avoid hidden dependencies among services. The reason is to avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements. For more information, see [Designing microservices: Data considerations](../../microservices/design/data-considerations.md).
 
 Avoid storing persistent data in local cluster storage, because that ties the data to the node. Instead,
 
@@ -165,7 +165,7 @@ Here are some considerations when designing probes:
 
 ### Resource constraints
 
-Resource contention can affect the availability of a service. Define resource constraints for containers, so that a single container cannot overwhelm the cluster resources (memory and CPU). For non-container resources, such as threads or network connections, consider using the [Bulkhead Pattern](/azure/architecture/patterns/bulkhead) to isolate resources.
+Resource contention can affect the availability of a service. Define resource constraints for containers, so that a single container cannot overwhelm the cluster resources (memory and CPU). For non-container resources, such as threads or network connections, consider using the [Bulkhead Pattern](../../patterns/bulkhead.md) to isolate resources.
 
 Use resource quotas to limit the total resources allowed for a namespace. That way, the front end can't starve the backend services for resources or vice-versa.
 
@@ -307,7 +307,7 @@ To deploy the reference implementation for this architecture, follow the steps i
 [ri]: https://github.com/mspnp/microservices-reference-implementation
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.md
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/aks-reference-architecture.vsdx
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services
 [AppGatewayPricing]: https://azure.microsoft.com/pricing/details/application-gateway

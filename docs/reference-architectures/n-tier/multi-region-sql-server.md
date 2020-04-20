@@ -191,12 +191,11 @@ For more information, see the cost section in [Azure Architecture Framework][aaf
 
 The following architecture uses some of the same technologies:
 
-- [Multitier web application built for high availability and disaster recovery on Azure](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
+- [Multitier web application built for high availability and disaster recovery on Azure](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.md)
 
 <!-- links -->
 
 [Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
-[Sql-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise
 [Managed-Sql-pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed
 [aaf-cost]: ../../framework/cost/overview.md
 [azure-sql-db]: https://docs.microsoft.com/azure/sql-database

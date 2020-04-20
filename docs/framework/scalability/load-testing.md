@@ -29,7 +29,7 @@ Knowing the typical and maximum loads on your system help you understand when so
 
 ## Caching
 
-Applications should implement a strategy that helps to ensure that the data in the cache is as up-to-date as possible but can also detect and handle situations that arise when the data in the cache has become stale. Review the [Cache-Aside pattern](/azure/architecture/patterns/cache-aside) to learn how to load data on demand into a cache from a data store. This can improve performance and also helps to maintain consistency between data held in the cache and data in the underlying data store.
+Applications should implement a strategy that helps to ensure that the data in the cache is as up-to-date as possible but can also detect and handle situations that arise when the data in the cache has become stale. Review the [Cache-Aside pattern](../../patterns/cache-aside.md) to learn how to load data on demand into a cache from a data store. This can improve performance and also helps to maintain consistency between data held in the cache and data in the underlying data store.
 
 ## Availability of SKUs
 

@@ -98,17 +98,15 @@ Review the extensive Azure API Management [documentation and reference articles]
 
 [architecture]: ./media/architecture-apim-api-scenario.png
 [apim-create]: https://docs.microsoft.com/azure/api-management/get-started-create-service-instance
-[apim-git]: https://docs.microsoft.com/azure/api-management/api-management-configuration-repository-git
 [apim-multi-regions]: https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region
 [apim-autoscale]: https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale
 [apim-scaleout]: https://docs.microsoft.com/azure/api-management/upgrade-and-scale
 [azure-apim-ai]: https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights
-[azure-ai]: https://docs.microsoft.com/azure/application-insights
 [azure-mon]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview
 [azure-appgw]: https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
 [apim-vnet-internal]: https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
 [apim-vnet]: https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet
-[azure-hybrid]: /azure/architecture/reference-architectures/hybrid-networking
+[azure-hybrid]: ../../reference-architectures/hybrid-networking/index.md
 [azure-er]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
 [azure-vpn]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
 [azure-vnet]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
@@ -119,13 +117,8 @@ Review the extensive Azure API Management [documentation and reference articles]
 [apim-ssl]: https://docs.microsoft.com/azure/api-management/api-management-howto-manage-protocols-ciphers
 [apim-mutualcert-auth]: https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates
 [apim-whitelist-ip]: https://docs.microsoft.com/azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services
-[anti-corruption-layer-pattern]: /azure/architecture/patterns/anti-corruption-layer
 [apim]: https://docs.microsoft.com/azure/api-management/api-management-key-concepts
-[apim-api-design-guidance]: /azure/architecture/best-practices/api-design
-[visualstudio-youtube-solid-design]: https://youtu.be/agkWYPUcLpg
 [azure-vm-lift-shift]: https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide
-[standard-pricing-calc]: https://azure.com/e
-[premium-pricing-calc]: https://azure.com/e
 [apim-pricing]: https://azure.microsoft.com/pricing/details/api-management
 [azure-quickstart-templates-apim]: https://azure.microsoft.com/resources/templates/?term=API+Management&pageNumber=1
 [soap]: https://en.wikipedia.org/wiki/SOAP

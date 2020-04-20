@@ -196,6 +196,5 @@ For warm path storage, consider using Azure Cosmos DB. For more information, see
 
 - A sample IoT implementation is available on [GitHub](https://github.com/mspnp/iot-guidance).
 
-
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator

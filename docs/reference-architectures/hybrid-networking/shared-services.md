@@ -87,9 +87,9 @@ You can use network virtual appliances (NVAs) in Azure to host different types o
 
 ## Cost considerations
 
-This reference architecture builds on the [hub-spoke reference architecture](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). It includes shared services in the hub that can be consumed by all spokes. For example, having Active Directory Domain services as a shared service consumed by multiple workloads is cost effective. See [AD DS pricing][ADDS-pricing] for pricing info.
+This reference architecture builds on the [hub-spoke reference architecture](../../reference-architectures/hybrid-networking/hub-spoke.md). It includes shared services in the hub that can be consumed by all spokes. For example, having Active Directory Domain services as a shared service consumed by multiple workloads is cost effective. See [AD DS pricing][ADDS-pricing] for pricing info.
 
-For other cost considerations, see [Hub-spoke network topology - cost considerations](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#cost-considerations).
+For other cost considerations, see [Hub-spoke network topology - cost considerations](../../reference-architectures/hybrid-networking/hub-spoke.md#cost-considerations).
 
 ## Deploy the solution
 
@@ -167,24 +167,16 @@ Test-NetConnection 10.2.0.36 -CommonTCPPort RDP
 
 <!-- links -->
 
-[azure-cli-2]: https://docs.microsoft.com/azure/install-azure-cli
-[azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
 [guidance-hub-spoke]: ./hub-spoke.md
-[azure-vpn-gateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
-[guidance-expressroute]: ./expressroute.md
-[guidance-vpn]: ./vpn.md
-[linux-vm-ra]: ../virtual-machines-linux/index.md
-[hybrid-ha]: ./expressroute-vpn-failover.md
+[linux-vm-ra]: ../n-tier/n-tier-cassandra.md
 [naming conventions]: https://docs.microsoft.com/azure/guidance/guidance-naming-conventions
-[resource-manager-overview]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
 [virtual datacenter]: https://aka.ms/vdc
 [vnet-peering]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview
-[vnet-peering-limit]: https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits
 [vnet-peering-requirements]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints
 [vpn-appliance]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices
-[windows-vm-ra]: ../virtual-machines-windows/index.md
+[windows-vm-ra]: ../n-tier/n-tier-sql-server.md
 
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-hub-spoke.vsdx
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures

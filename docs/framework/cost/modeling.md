@@ -57,4 +57,4 @@ Consider onboarding offerings that may be available for free for your organizati
 
 ## Governance
 
-You will need to think about how to implement cloud cost governance controls (Azure Policy, Resource Tags, Budgets), including the Enterprise Scaffold (more details and links to [docs](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets?toc=/azure/billing/TOC.json)
+You will need to think about how to implement cloud cost governance controls (Azure Policy, Resource Tags, Budgets), including the Enterprise Scaffold (more details and links to [docs](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets)

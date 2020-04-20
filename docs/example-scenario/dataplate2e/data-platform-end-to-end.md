@@ -139,10 +139,10 @@ Power BI | [Create and use analytics reports with Power BI][pbi-learn] | [Power 
 
 - For comparisons of other alternatives, see:
 
-  - [Choosing a data pipeline orchestration technology in Azure](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)
-  - [Choosing a batch processing technology in Azure](/azure/architecture/data-guide/technology-choices/batch-processing)
-  - [Choosing an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
-  - [Choosing a data analytics technology in Azure](/azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting)
+  - [Choosing a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
+  - [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
+  - [Choosing an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
+  - [Choosing a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
 
 ## Considerations
 
@@ -164,12 +164,10 @@ The ideal individual pricing tier and the total overall cost of each service inc
 
 ## Next steps
 
-- Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](/azure/architecture/data-guide).
+- Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](../../data-guide/index.md).
 
 <!-- links -->
 
-[source-document]: https://customers.microsoft.com/story/maritz
-[calculator]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
 [adf-learn]: https://docs.microsoft.com/learn/modules/data-ingestion-with-azure-data-factory
 [adf-techdoc]: https://docs.microsoft.com/azure/data-factory
 [synapse-learn]: https://docs.microsoft.com/learn/paths/implement-sql-data-warehouse

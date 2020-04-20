@@ -119,6 +119,6 @@ The following resources will provide more information on the components used in 
 - [Agisoft PhotoScan](https://www.agisoft.com/) home page
 - [Azure Storage Performance and Scalability Checklist](https://docs.microsoft.com/azure/storage/common/storage-performance-checklist)
 - [Parallel Virtual File Systems on Microsoft Azure: Performance tests of Lustre, GlusterFS, and BeeGFS](https://azure.microsoft.com/mediahandler/files/resourcefiles/parallel-virtual-file-systems-on-microsoft-azure/Parallel_Virtual_File_Systems_on_Microsoft_Azure.pdf) (PDF)
-- An example scenario for [computer-aided engineering (CAE) on Azure](/azure/architecture/example-scenario/apps/hpc-saas)
+- An example scenario for [computer-aided engineering (CAE) on Azure](../../example-scenario/apps/hpc-saas.md)
 - [HPC on Azure](https://azure.microsoft.com/solutions/high-performance-computing/) home page
 - Overview of [Big Compute: HPC &amp; Microsoft Batch](https://azure.microsoft.com/solutions/big-compute)

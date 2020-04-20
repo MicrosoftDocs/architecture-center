@@ -171,7 +171,6 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [datastore]: ../..//guide/technology-choices/data-store-overview.md
 [durable-functions]: https://docs.microsoft.com/azure/azure-functions/durable-functions-overview
 [functions]: https://docs.microsoft.com/azure/azure-functions/functions-overview
-[functions-consumption-plan]: https://docs.microsoft.com/azure/azure-functions/functions-scale#consumption-plan
 [github]: https://github.com/mspnp/reference-architectures/tree/master/web-app
 [queue-storage]: https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-queues
 [queues-compared]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted

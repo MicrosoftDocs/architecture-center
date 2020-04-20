@@ -123,8 +123,7 @@ Check out these resources designed to help you get started with your own monitor
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
-[architecture]: ./images/architecture-diagram-app-monitoring.svg
+[aaf-cost]: ../../framework/cost/overview.md
 [availability-tests]: https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability
 [application-insights]: https://docs.microsoft.com/azure/application-insights/app-insights-overview
 [azure-monitor]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor
@@ -153,7 +152,7 @@ Check out these resources designed to help you get started with your own monitor
 [pricing]: https://azure.microsoft.com/pricing/calculator
 [Sampling in Application Insights]: https://docs.microsoft.com/azure/application-insights/app-insights-sampling
 [Live Metrics Stream]: https://docs.microsoft.com/azure/application-insights/app-insights-live-stream
-[Basic web application reference architecture]: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app#scalability-considerations
+[Basic web application reference architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.md#scalability-considerations
 [Start monitoring your ASP.NET Web Application]: https://docs.microsoft.com/azure/application-insights/quick-monitor-portal
 [Collect data about Azure Virtual Machines]: https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm
 [Monitoring Azure applications and resources]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview

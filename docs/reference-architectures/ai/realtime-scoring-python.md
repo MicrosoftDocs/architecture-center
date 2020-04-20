@@ -148,15 +148,13 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 <!-- links -->
 
 [aad-auth]: https://docs.microsoft.com/azure/aks/aad-integration
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [acr]: https://docs.microsoft.com/azure/container-registry
-[something]: https://kubernetes.io/docs/reference/access-authn-authz/authentication
 [aks]: https://docs.microsoft.com/azure/aks/intro-kubernetes
 [aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service
 [autoscaler]: https://docs.microsoft.com/azure/aks/autoscaler
 [autoscale-pods]: https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale#autoscale-pods
 [az-container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry
-[azcopy]: https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [ddos]: https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview
 [get-started]: https://docs.microsoft.com/azure/security-center/security-center-get-started

@@ -10,6 +10,8 @@ ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
+<!-- cSpell:ignore shardlet shardlets MGET MSET -->
+
 # Data partitioning strategies
 
 This article describes some strategies for partitioning data in various Azure data stores. For general guidance about when to partition data and best practices, see [Data partitioning](./data-partitioning.md).
@@ -130,7 +132,7 @@ Azure storage queues enable you to implement asynchronous messaging between proc
 
 Each storage queue has a unique name within the storage account that contains it. Azure partitions queues based on the name. All messages for the same queue are stored in the same partition, which is controlled by a single server. Different queues can be managed by different servers to help balance the load. The allocation of queues to servers is transparent to applications and users.
 
-In a large-scale application, don't use the same storage queue for all instances of the application because this approach might cause the server that's hosting the queue to become a hotspot. Instead, use different queues for different functional areas of the application. Azure storage queues do not support transactions, so directing messages to different queues should have little effect on messaging consistency.
+In a large-scale application, don't use the same storage queue for all instances of the application because this approach might cause the server that's hosting the queue to become a hot spot. Instead, use different queues for different functional areas of the application. Azure storage queues do not support transactions, so directing messages to different queues should have little effect on messaging consistency.
 
 An Azure storage queue can handle up to 2,000 messages per second. If you need to process messages at a greater rate than this, consider creating multiple queues. For example, in a global application, create separate storage queues in separate storage accounts to handle application instances that are running in each region.
 
@@ -253,7 +255,7 @@ Consider the following points when deciding how to partition data with Azure Cac
 
 - The aggregate types enable you to associate many related values with the same key. A Redis key identifies a list, set, or hash rather than the data items that it contains. These types are all available with Azure Cache for Redis and are described by the [Data types] page on the Redis website. For example, in part of an e-commerce system that tracks the orders that are placed by customers, the details of each customer can be stored in a Redis hash that is keyed by using the customer ID. Each hash can hold a collection of order IDs for the customer. A separate Redis set can hold the orders, again structured as hashes, and keyed by using the order ID. Figure 8 shows this structure. Note that Redis does not implement any form of referential integrity, so it is the developer's responsibility to maintain the relationships between customers and orders.
 
-![Suggested structure in Redis storage for recording customer orders and their details](./images/data-partitioning/RedisCustomersandOrders.png)
+![Suggested structure in Redis storage for recording customer orders and their details](./images/data-partitioning/RedisCustomersAndOrders.png)
 
 _Figure 8. Suggested structure in Redis storage for recording customer orders and their details._
 

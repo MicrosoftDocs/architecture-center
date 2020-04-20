@@ -187,7 +187,7 @@ All inbound traffic is free. All outbound traffic is billed. Internet bandwidth 
 Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
 All traffic that originates within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
 
-This architecture builds on the architecture deployed in [Run Windows VMs for an N-tier application][windows-n-tier]. See [Cost considerations](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server#cost-considerations) for more information.
+This architecture builds on the architecture deployed in [Run Windows VMs for an N-tier application][windows-n-tier]. See [Cost considerations](../../reference-architectures/n-tier/n-tier-sql-server.md#cost-considerations) for more information.
 
 For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
 
@@ -305,16 +305,14 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
 [availability-set]: https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability
 [azure-gateway-pricing]: https://azure.microsoft.com/pricing/details/vpn-gateway
 [azure-portal]: https://portal.azure.com
-[azure-ps]: /powershell/azure/overview
-[azure-pricing]: https://azure.microsoft.com/pricing/calculator
 [bastion-host]: https://en.wikipedia.org/wiki/Bastion_host
-[create-availability-group]: /SharePoint/administration/sharepoint-intranet-farm-in-azure-phase-5-create-the-availability-group-and-add
+[create-availability-group]: https://docs.microsoft.com/sharepoint/administration/sharepoint-intranet-farm-in-azure-phase-5-create-the-availability-group-and-add
 [connect-to-vm]: https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine
 [github]: https://github.com/mspnp/reference-architectures
 [hybrid-ra]: ../hybrid-networking/index.md
@@ -325,7 +323,6 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 [nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
 [office-web-apps]: https://support.microsoft.com/help/3199955/office-web-apps-and-office-online-server-supportability-in-azure
 [paired-regions]: https://docs.microsoft.com/azure/best-practices-availability-paired-regions
-[readme]: https://github.com/mspnp/reference-architectures/tree/master/sharepoint/sharepoint-2016
 [resource-group]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
 [quotas]: https://docs.microsoft.com/azure/azure-subscription-service-limits
 [sharepoint-accounts]: https://technet.microsoft.com/library/ee662513(v=office.16).aspx
@@ -336,14 +333,14 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 [sharepoint-ops]: https://technet.microsoft.com/library/cc262289(v=office.16).aspx
 [sharepoint-reqs]: https://technet.microsoft.com/library/cc262485(v=office.16).aspx
 [sharepoint-search]: https://technet.microsoft.com/library/dn342836.aspx
-[sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server
+[sql-always-on]: https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server
 [sql-performance]: https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance
 [sql-server-capacity-planning]: https://technet.microsoft.com/library/cc298801(v=office.16).aspx
 [sql-quorum]: https://technet.microsoft.com/library/cc731739(v=ws.11).aspx
 [sql-sharepoint-best-practices]: https://technet.microsoft.com/library/hh292622(v=office.16).aspx
-[tempdb]: /sql/relational-databases/databases/tempdb-database
+[tempdb]: https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database
 [virtual-networks-nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/Sharepoint-2016.vsdx
 [vm-sizes-general]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general
 [vm-sizes-memory]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory
-[windows-n-tier]: ../virtual-machines-windows/n-tier.md
+[windows-n-tier]: ../n-tier/n-tier-sql-server.md

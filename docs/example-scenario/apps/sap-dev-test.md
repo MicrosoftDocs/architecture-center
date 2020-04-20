@@ -101,10 +101,10 @@ Click the link below to deploy the solution.
 
 <!-- links -->
 
-[resiliency]: /azure/architecture/framework/resiliency/overview
+[resiliency]: ../../framework/resiliency/overview.md
 [security]: https://docs.microsoft.com/azure/security
-[scalability]: /azure/architecture/checklist/scalability
-[sap-netweaver]: /azure/architecture/reference-architectures/sap/sap-netweaver
-[sap-hana]: /azure/architecture/reference-architectures/sap/sap-s4hana
-[sap-large]: /azure/architecture/reference-architectures/sap/hana-large-instances
-[hub-spoke]: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+[scalability]: ../../checklist/scalability.md
+[sap-netweaver]: ../../reference-architectures/sap/sap-netweaver.md
+[sap-hana]: ../../reference-architectures/sap/sap-s4hana.md
+[sap-large]: ../../reference-architectures/sap/hana-large-instances.md
+[hub-spoke]: ../../reference-architectures/hybrid-networking/hub-spoke.md

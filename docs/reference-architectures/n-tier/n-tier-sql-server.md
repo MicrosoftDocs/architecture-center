@@ -274,11 +274,10 @@ If you specify a region that supports availability zones, the VMs are deployed i
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [app-gw-scaling]: https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant
 [azure-dns]: https://docs.microsoft.com/azure/dns/dns-overview
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault
-[Azure-SQl-Pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
@@ -289,7 +288,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [load-balancer-hashing]: https://docs.microsoft.com/azure/load-balancer/concepts-limitations#load-balancer-concepts
 [load-balancer]: https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview
 [multi-dc]: ./multi-region-sql-server.md
-[n-tier]: ./n-tier.md
+[n-tier]: ../../guide/architecture-styles/n-tier.md
 [network-security]: https://docs.microsoft.com/azure/best-practices-network-security
 [nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
 [plan-network]: https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm
@@ -303,8 +302,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [sql-alwayson-read-only-routing]: https://technet.microsoft.com/library/hh213417.aspx#ConnectToSecondary
 [sql-alwayson]: https://msdn.microsoft.com/library/hh510230.aspx
 [sql-keyvault]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault
-[Sql-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise
-[Managed-Sql-pricing]: /azure.microsoft.com/pricing/details/sql-database/managed
+[Managed-Sql-pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed
 [subscription-limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
 [vmss-design]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview

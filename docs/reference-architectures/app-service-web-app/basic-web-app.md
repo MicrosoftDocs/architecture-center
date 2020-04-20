@@ -79,7 +79,7 @@ The resource group also has a region, which specifies where deployment metadata 
 
 Use the [pricing calculator][pricing] to estimate costs.
 
-For more information, see the cost section in [Azure Architecture Framework](/azure/architecture/framework/cost/overview).
+For more information, see the cost section in [Azure Architecture Framework](../../framework/cost/overview.md).
 
 ## Scalability considerations
 
@@ -266,12 +266,9 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [perf-analysis]: https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md
 [pricing]: https://azure.microsoft.com/pricing/calculator
 [rbac]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
-[resource-group]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
-[sla]: https://azure.microsoft.com/support/legal/sla
 [sql-audit]: https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started
 [sql-backup]: https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity
 [sql-db]: https://docs.microsoft.com/azure/sql-database
-[sql-db-overview]: https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview
 [sql-db-scale]: https://docs.microsoft.com/azure/sql-database/sql-database-single-database-scale
 [sql-db-service-tiers]: https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers
 [sql-db-v12]: https://docs.microsoft.com/azure/sql-database/sql-database-features
@@ -279,7 +276,6 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [sql-human-error]: https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity#recover-a-database-within-the-same-azure-region
 [sql-outage-recovery]: https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore
 [ssl-redirect]: https://docs.microsoft.com/azure/app-service-web/web-sites-configure-ssl-certificate
-[sql-resource-limits]: https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits
 [ssl-cert]: https://docs.microsoft.com/azure/app-service-web/web-sites-purchase-ssl-web-site
 [troubleshoot-blade]: https://azure.microsoft.com/updates/self-service-troubleshooting-for-app-service-web-apps-customers
 [tfs]: https://docs.microsoft.com/azure/devops/server/tfs-is-now-azure-devops-server

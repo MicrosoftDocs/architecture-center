@@ -168,8 +168,6 @@ For a set of guided tutorials for the Azure Bot Service, see the [tutorial secti
 [autoscaling]: ../../best-practices/auto-scaling.md
 [botservice-docs]: https://docs.microsoft.com/azure/bot-service
 [cognitive-docs]: https://docs.microsoft.com/azure/cognitive-services
-[resiliency]: ../../resiliency/index.md
-[resource-groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
 [security]: https://docs.microsoft.com/azure/security
 [scalability]: ../../checklist/scalability.md
 [sqlavailability-docs]: https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview#availability-capabilities

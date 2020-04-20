@@ -16,6 +16,8 @@ ms.custom:
 social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-video-rendering.png
 ---
 
+<!-- cSpell:ignore infiniband haswell cuda -->
+
 # 3D video rendering on Azure
 
 3D video rendering is a time consuming process that requires a significant amount of CPU time to complete. On a single machine, the process of generating a video file from static assets can take hours or even days depending on the length and complexity of the video you are producing. Many companies will purchase either expensive high end desktop computers to perform these tasks, or invest in large render farms that they can submit jobs to. However, by taking advantage of Azure Batch, that power is available to you when you need it and shuts itself down when you don't, all without any capital investment.
@@ -159,22 +161,14 @@ Azure Batch also supports the use of low-priority VMs in the node pools, which c
 [Using containers on Azure Batch][batch-containers]
 
 <!-- links -->
+
 [architecture]: ./media/architecture-video-rendering.png
-[resource-groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
 [security]: https://docs.microsoft.com/azure/security
-[resiliency]: /azure/architecture/resiliency
-[scalability]: /azure/architecture/checklist/scalability
 [vmss]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview
-[storage]: https://azure.microsoft.com/services/storage
-[batch]: https://azure.microsoft.com/services/batch
-[batch-arch]: https://azure.microsoft.com/solutions/architecture/big-compute-with-azure-batch
 [compute-hpc]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc
 [compute-gpu]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu
-[compute-compute]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute
 [compute-memory]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory
 [compute-general]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general
-[compute-storage]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-storage
-[compute-acu]: https://docs.microsoft.com/azure/virtual-machines/windows/acu
 [compute=benchmark]: https://docs.microsoft.com/azure/virtual-machines/windows/compute-benchmark-scores
 [hpc-est-high]: https://azure.com/e/9ac25baf44ef49c3a6b156935ee9544c
 [hpc-est-med]: https://azure.com/e/0286f1d6f6784310af4dcda5aec8c893

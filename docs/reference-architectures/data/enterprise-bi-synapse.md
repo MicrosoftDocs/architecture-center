@@ -94,7 +94,7 @@ Don't run AzCopy on the same machine that runs your production workloads, becaus
 
 Test the upload first to see what the upload speed is like. You can use the /NC option in AzCopy to specify the number of concurrent copy operations. Start with the default value, then experiment with this setting to tune the performance. In a low-bandwidth environment, too many concurrent operations can overwhelm the network connection and prevent the operations from completing successfully.
 
-AzCopy moves data to storage over the public internet. If this isn't fast enough, consider setting up an [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) circuit. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. Another option, if your network connection is too slow, is to physically ship the data on disk to an Azure datacenter. For more information, see [Transferring data to and from Azure](/azure/architecture/data-guide/scenarios/data-transfer).
+AzCopy moves data to storage over the public internet. If this isn't fast enough, consider setting up an [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) circuit. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. Another option, if your network connection is too slow, is to physically ship the data on disk to an Azure datacenter. For more information, see [Transferring data to and from Azure](../../data-guide/scenarios/data-transfer.md).
 
 During a copy operation, AzCopy creates a temporary journal file, which enables AzCopy to restart the operation if it gets interrupted (for example, due to a network error). Make sure there is enough disk space to store the journal files. You can use the /Z option to specify where the journal files are written.
 
@@ -265,12 +265,12 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 
 You may want to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
 
-- [Data warehousing and analytics for sales and marketing](/azure/architecture/example-scenario/data/data-warehouse)
-- [Hybrid ETL with existing on-premises SSIS and Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)
+- [Data warehousing and analytics for sales and marketing](../../example-scenario/data/data-warehouse.md)
+- [Hybrid ETL with existing on-premises SSIS and Azure Data Factory](../../example-scenario/data/hybrid-etl-with-adf.md)
 
 <!-- links -->
 
-[AAF-devops]: /azure/architecture/framework/devops/overview
+[AAF-devops]: ../../framework/devops/overview.md
 [adf-ra]: ./enterprise-bi-adf.md
 [arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
@@ -280,12 +280,11 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw
 [synapse-analytics]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity
-[wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
+[wwi]: https://docs.microsoft.com/sql/sample/world-wide-importers/wide-world-importers-oltp-database
 [powerbi-embedded-pricing]: https://azure.microsoft.com/pricing/details/power-bi-embedded
 [powerbi-pro-purchase]: https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro
-[wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
+[wwi]: https://docs.microsoft.com/sql/sample/world-wide-importers/wide-world-importers-oltp-database
 [az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics
 [az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services
 [az-storage-reserved]: https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md

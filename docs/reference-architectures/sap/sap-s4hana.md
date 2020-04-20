@@ -33,7 +33,7 @@ The network layout is greatly simplified to demonstrate architectural principals
 
 The following components are required.
 
-**Azure Virtual Network.** The [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (VNet) service securely connects Azure resources to each other. In this architecture, a VNet connects to an on-premises environment through a gateway deployed in the hub of a [hub-spoke topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). The spoke is the VNet used for the SAP applications and the database tiers.
+**Azure Virtual Network.** The [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (VNet) service securely connects Azure resources to each other. In this architecture, a VNet connects to an on-premises environment through a gateway deployed in the hub of a [hub-spoke topology](../../reference-architectures/hybrid-networking/hub-spoke.md). The spoke is the VNet used for the SAP applications and the database tiers.
 
 **Virtual network peering.** This architecture uses multiple virtual networks that are [peered together](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). This topology offers network segmentation and isolation for services deployed on Azure. Peering connects networks transparently through the Microsoft backbone network and does not incur a performance penalty if implemented within a single region. Separate subnets are used for each tier—application (SAP NetWeaver), database, and shared services (such as the jumpbox and Active Directory).
 
@@ -66,10 +66,10 @@ secure applications by filtering traffic from trusted segments of your network.
 
 **Gateway.** A gateway connects distinct networks, extending your
 on-premises network to the Azure VNet.
-[ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute)
+[ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.md)
 is the recommended Azure service for creating private connections that do not go
 over the public internet, but a
-[site-to-site](/azure/architecture/reference-architectures/hybrid-networking/vpn)
+[site-to-site](../../reference-architectures/hybrid-networking/vpn.md)
 connection can also be used. To reduce latency,
 [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach)
 and [ExpressRoute FastPath](https://docs.microsoft.com/azure/expressroute/about-fastpath)
@@ -652,7 +652,7 @@ To provide SAP-based monitoring of resources and service performance of the SAP 
 SAP has its own Users Management Engine (UME) to control role-based access and
 authorization within the SAP application and databases. For details, see [SAP HANA Security: An Overview](https://archive.sap.com/documents/docs/DOC-62943).
 
-For additional network security, consider implementing a [network DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid), which uses a network virtual appliance to create a firewall in front of the subnet for the Web Dispatcher and Fiori Front-End Server pools.
+For additional network security, consider implementing a [network DMZ](../../reference-architectures/dmz/secure-vnet-dmz.md), which uses a network virtual appliance to create a firewall in front of the subnet for the Web Dispatcher and Fiori Front-End Server pools.
 
 For infrastructure security, data is encrypted in transit and at rest. The "Security considerations" section of the [SAP NetWeaver on Azure Virtual Machines–Planning and Implementation Guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) begins to address network security and applies to S/4HANA. The guide also specifies the network ports you must open on the firewalls to allow application communication.
 
@@ -685,9 +685,9 @@ See the following articles for more information and for examples of SAP workload
 
 - [Use Azure to host and run SAP workload scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)
 
-- [Running SAP production workloads using an Oracle Database on Azure](/azure/architecture/example-scenario/apps/sap-production)
+- [Running SAP production workloads using an Oracle Database on Azure](../../example-scenario/apps/sap-production.md)
 
-- [Dev/test environments for SAP workloads on Azure](/azure/architecture/example-scenario/apps/sap-dev-test)
+- [Dev/test environments for SAP workloads on Azure](../../example-scenario/apps/sap-dev-test.md)
 
 <!-- links -->
 
