@@ -107,10 +107,10 @@ function Get-MalformedLinkExpressions
             "\([^~\.][^\)]*\.(md|yml|png|jpg|svg)\)",
             "\]\(\.[a-zA-Z0-9-\/\._]*\)(?<!(md|ml|ng|vg|pg)\))",
             "\[[^\]]*\]\(/azure",
-            ": /azure/architecture",
+            "(?<!social_image_url): /azure/architecture",
             "\(/azure/architecture",
             "\(\/",
-            "\/\)",
+            # "/\)",                            # TODO: Re-evaluate.
             "(?<!portal|account|cloudapp|cosmos|notebooks)[\./]azure\.com(?!mands)",      # Use 'azure.microsoft.com'
             "ms\.portal",                                       # Don't use internal "ms." prefix
             "toc=[^/]",                                         # Use a relative reference for a contextual TOC.

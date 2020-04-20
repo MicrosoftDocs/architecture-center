@@ -12,11 +12,31 @@ function Get-HerePath {
 
 function Get-DocsPath {
     $path = Resolve-Path (Join-Path $(Get-HerePath) "\..\docs")
+    if (-not (Test-Path $path))
+    {   
+        Write-Host "PATH NOT FOUND: $path"
+    }
+
     return $path
 }
 
 function Get-TocFilePath {
     $path = Resolve-Path (Join-Path $(Get-DocsPath) "toc.yml")
+    if (-not (Test-Path $path))
+    {   
+        Write-Host "PATH NOT FOUND: $path"
+    }
+    
+    return $path
+}
+
+function Get-RedirectFilePath {
+    $path = Resolve-Path (Join-Path $(Get-HerePath) "..\.openpublishing.redirection.json")
+    if (-not (Test-Path $path))
+    {   
+        Write-Host "PATH NOT FOUND: $path"
+    }
+    
     return $path
 }
 

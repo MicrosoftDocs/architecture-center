@@ -18,37 +18,39 @@ function Get-ExcludedSubfolders
 {
     return @(
         '_bread',
-        '_images'
-        # , 'best-practices',
-        # 'browse',
-        # 'building-blocks',
+        '_images',
+        'aws-professional',
+        # 'best-practices',
+        'browse',
+        'building-blocks',
         # 'checklist',
-        # 'data-guide',
-        # 'databricks-monitoring',
-        # 'example-scenario',
-        # 'framework',
-        # 'guide',
-        # 'high-availability',
-        # 'includes',
-        # 'microservices',
-        # 'multitenant-identity',
-        # 'networking',
-        # 'patterns',
-        # 'performance',
-        # 'reference-architectures',
-        # 'reliability',
-        # 'resiliency',
-        # 'resources',
-        # 'serverless',
-        # 'service-fabric',
-        # 'solution-ideas',
-        # 'topics'
+        'data-guide',
+        'databricks-monitoring',
+        'example-scenario',
+        'framework',
+        'guide',
+        'high-availability',
+        'includes',
+        'microservices',
+        'multitenant-identity',
+        'networking',
+        'patterns',
+        'performance',
+        'reference-architectures',
+        'reliability',
+        'resiliency',
+        'resources',
+        'serverless',
+        'service-fabric',
+        'solution-ideas',
+        'topics'
     )
 }
 
 function Get-UrlPrefixesToIgnore {
     return @(
-        "aka.ms",
+        "https://aka.ms",
+        "https://adventure-works.com",
         "<endoflist>"
     )
 }

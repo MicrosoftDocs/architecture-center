@@ -357,18 +357,16 @@ If you are just getting started with [Azure Service Fabric][service-fabric], fir
 <!-- links -->
 
 [application-gateway]: https://docs.microsoft.com/azure/application-gateway
-[aspnet-core]: /aspnet/core
 [aspnet-webapi]: https://www.asp.net/web-api
-[aspnet-migration]: /aspnet/core/migration/mvc
+[aspnet-migration]: https://docs.microsoft.com/aspnet/core/migration/mvc
 [aspnet-webapi]: https://www.asp.net/web-api
 [azure-deployment-models]: https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model
 [azure-sdk]: https://azure.microsoft.com/downloads/archive-net-downloads
 [cloud-service-autoscale]: https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-scale-portal
 [cloud-service-config]: https://docs.microsoft.com/azure/cloud-services/cloud-services-model-and-package
 [cloud-service-endpoints]: https://docs.microsoft.com/azure/cloud-services/cloud-services-enable-communication-role-instances#worker-roles-vs-web-roles
-[kestrel]: /aspnet/core/fundamentals/servers/kestrel
+[kestrel]: https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel
 [monitoring-diagnostics]: https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview
-[owin]: https://www.asp.net/aspnet/overview/owin-and-katana
 [reliable-concurrent-queue]: https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-concurrent-queue
 [reverse-proxy]: https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy
 [sample-code]: https://github.com/mspnp/cloud-services-to-service-fabric

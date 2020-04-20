@@ -507,7 +507,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [cassandra-error-handling]: https://www.datastax.com/dev/blog/cassandra-error-handling-done-right
 [circuit-breaker]: https://msdn.microsoft.com/library/dn589784.aspx
 [cosmos-db-multi-region]: https://docs.microsoft.com/azure/cosmos-db/tutorial-global-distribution-sql-api
-[elasticsearch-azure]: ../elasticsearch/index.md
+[elasticsearch-azure]: ../index.md
 [elasticsearch-client]: https://www.elastic.co/guide/en/elasticsearch/client/index.html
 [health-endpoint-monitoring-pattern]: ../patterns/health-endpoint-monitoring.md
 [onstop-events]: https://azure.microsoft.com/blog/the-right-way-to-handle-azure-onstop-events
@@ -528,7 +528,6 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [sb-georeplication-sample]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/GeoReplication
 [sb-messagingexception-class]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
 [sb-messaging-exceptions]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions
-[sb-outages]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-outages-disasters/#protecting-queues-and-topics-against-datacenter-outages-or-disasters
 [sb-partition]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning
 [sb-poison-message]: https://docs.microsoft.com/azure/app-service/webjobs-sdk-how-to#automatic-triggers
 [sb-retry]: ../best-practices/retry-service-specific.md#service-bus
@@ -542,7 +541,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [sql-db-replication]: https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview
 [storage-metrics]: https://msdn.microsoft.com/library/dn782843.aspx
 [storage-replication]: https://docs.microsoft.com/azure/storage/storage-redundancy
-[Storage.RetryPolicies]: /dotnet/api/microsoft.azure.storage.retrypolicies
+[Storage.RetryPolicies]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.retrypolicies
 [sys.event_log]: https://msdn.microsoft.com/library/dn270018.aspx
 [throttling-pattern]: https://msdn.microsoft.com/library/dn589798.aspx
 [web-jobs]: https://docs.microsoft.com/azure/app-service-web/web-sites-create-web-jobs

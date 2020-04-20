@@ -58,8 +58,16 @@ function Test-Uri([string] $uri)
     $uri = $uri.Replace('https://wikipedia.org', 'https://en.wikipedia.org')
     $uri = $uri.Replace('https://cloudamize.com', 'https://cloudamize.com/en')
     
-    $uriObject = New-Object System.Uri $uri
-
+    try {
+        $uriObject = New-Object System.Uri $uri
+    }
+    catch {
+        Write-TestVerbose "URI FAILED: $uri"
+        Write-TestVerbose $_
+        $result = -1
+        return $result
+    }
+    
     try {
         $request = Invoke-WebRequest $uri -MaximumRedirection 0 -ErrorAction Ignore
     }
@@ -67,7 +75,7 @@ function Test-Uri([string] $uri)
         $result = -1
         return $result
     }
-    
+
     if ($request.StatusCode -eq 200)
     {
         $result = 200

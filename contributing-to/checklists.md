@@ -18,6 +18,6 @@ A consistent structure helps readers better navigate the guidance. By applying t
 
 _We recommend using the standard format for all checklist items. If an item doesn't fit the structure, exceptions should be discussed and approved by the content development team._
 
-* [The Checklist Manifesto](http://atulgawande.com/book/the-checklist-manifesto/) by Atul Gawande
+* [The Checklist Manifesto](http://atulgawande.com/book/the-checklist-manifesto) by Atul Gawande
 * [Design Review Checklists](../index.md)
 ```

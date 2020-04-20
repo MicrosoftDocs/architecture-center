@@ -343,7 +343,7 @@ For more examples, see [Configuration](https://github.com/StackExchange/StackExc
 
 ### More information
 
-- [Redis website](https://redis.io/)
+- [Redis website](https://redis.io)
 
 ## Azure Search
 
@@ -810,7 +810,7 @@ More examples of using the Entity Framework retry mechanism can be found in [Con
 
 ## SQL Database using Entity Framework Core
 
-[Entity Framework Core](https://docs.microsoft.com/ef/core/) is an object-relational mapper that enables .NET Core developers to work with data using domain-specific objects. It eliminates the need for most of the data-access code that developers usually need to write. This version of Entity Framework was written from the ground up, and doesn't automatically inherit all the features from EF6.x.
+[Entity Framework Core](https://docs.microsoft.com/ef/core) is an object-relational mapper that enables .NET Core developers to work with data using domain-specific objects. It eliminates the need for most of the data-access code that developers usually need to write. This version of Entity Framework was written from the ground up, and doesn't automatically inherit all the features from EF6.x.
 
 ### Retry mechanism
 
@@ -1050,9 +1050,9 @@ namespace RetryCodeSamples
 
 ### More information
 
-- [Azure Storage client Library retry policy recommendations](https://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations/)
+- [Azure Storage client Library retry policy recommendations](https://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations)
 
-- [Storage Client Library 2.0 – Implementing retry policies](https://gauravmantri.com/2012/12/30/storage-client-library-2-0-implementing-retry-policies/)
+- [Storage Client Library 2.0 – Implementing retry policies](https://gauravmantri.com/2012/12/30/storage-client-library-2-0-implementing-retry-policies)
 
 ## General REST and retry guidelines
 

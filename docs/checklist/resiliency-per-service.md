@@ -122,13 +122,13 @@ If you are using Azure Cache for Redis as a temporary data cache and not as a pe
 
 ## SQL Server running in a VM
 
-**Replicate the database.** Use SQL Server Always On availability groups to replicate the database. Provides high availability if one SQL Server instance fails. For more information, see [Run Windows VMs for an N-tier application](../reference-architectures/virtual-machines-windows/n-tier.md)
+**Replicate the database.** Use SQL Server Always On availability groups to replicate the database. Provides high availability if one SQL Server instance fails. For more information, see [Run Windows VMs for an N-tier application](../reference-architectures/n-tier/n-tier-sql-server.md)
 
 **Back up the database**. If you are already using [Azure Backup](https://docs.microsoft.com/azure/backup) to back up your VMs, consider using [Azure Backup for SQL Server workloads using DPM](https://docs.microsoft.com/azure/backup/backup-azure-backup-sql). With this approach, there is one backup administrator role for the organization and a unified recovery procedure for VMs and SQL Server. Otherwise, use [SQL Server Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx).
 
 ## Traffic Manager
 
-**Perform manual failback.** After a Traffic Manager failover, perform manual failback, rather than automatically failing back. Before failing back, verify that all application subsystems are healthy.  Otherwise, you can create a situation where the application flips back and forth between datacenters. For more information, see [Run VMs in multiple regions for high availability](../reference-architectures/virtual-machines-windows/multi-region-application.md).
+**Perform manual failback.** After a Traffic Manager failover, perform manual failback, rather than automatically failing back. Before failing back, verify that all application subsystems are healthy.  Otherwise, you can create a situation where the application flips back and forth between datacenters. For more information, see [Run VMs in multiple regions for high availability](../reference-architectures/n-tier/multi-region-sql-server.md).
 
 **Create a health probe endpoint.** Create a custom endpoint that reports on the overall health of the application. This enables Traffic Manager to fail over if any critical path fails, not just the front end. The endpoint should return an HTTP error code if any critical dependency is unhealthy or unreachable. Don't report errors for non-critical services, however. Otherwise, the health probe might trigger failover when it's not needed, creating false positives. For more information, see [Traffic Manager endpoint monitoring and failover](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring).
 

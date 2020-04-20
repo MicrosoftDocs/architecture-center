@@ -43,8 +43,8 @@ One of the primary differences between an on-premises HPC system and one in the 
 
 The following articles provide more detail about this dynamic scaling capability.
 
-- [Big Compute Architecture Style](/azure/architecture/guide/architecture-styles/big-compute)
-- [Autoscaling best practices](/azure/architecture/best-practices/auto-scaling)
+- [Big Compute Architecture Style](../guide/architecture-styles/big-compute.md)
+- [Autoscaling best practices](../best-practices/auto-scaling.md)
 
 ## Implementation checklist
 
@@ -281,7 +281,7 @@ The following are examples of cluster and workload managers that can run in Azur
 - [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace)
 - [Bright Cluster Manager](http://www.brightcomputing.com/technology-partners/microsoft)
 - [IBM Spectrum Symphony and Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf)
-- [Altair PBS Works](https://www.altair.com/pbs-works/)
+- [Altair PBS Works](https://www.altair.com/pbs-works)
 - [Rescale](https://www.rescale.com/azure)
 - [Microsoft HPC Pack](https://technet.microsoft.com/library/mt744885.aspx)
   - [HPC Pack for Windows](https://docs.microsoft.com/azure/virtual-machines/windows/hpcpack-cluster-options)

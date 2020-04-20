@@ -28,7 +28,7 @@ For more information about elastic pools, see [Scaling out with Azure SQL Databa
 
 To reduce latency and improve availability, you can replicate the global shard map manager database. With the Premium pricing tiers, you can configure active geo-replication to continuously copy data to databases in different regions.
 
-Alternatively, use [Azure SQL Data Sync](https://docs.microsoft.com/azure/sql-database/sql-database-sync-data) or [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) to replicate the shard map manager database across regions. This form of replication runs periodically and is more suitable if the shard map changes infrequently, and does not require Premium tier.
+Alternatively, use [Azure SQL Data Sync](https://docs.microsoft.com/azure/sql-database/sql-database-sync-data) or [Azure Data Factory](https://docs.microsoft.com/azure/data-factory) to replicate the shard map manager database across regions. This form of replication runs periodically and is more suitable if the shard map changes infrequently, and does not require Premium tier.
 
 Elastic Database provides two schemes for mapping data to shardlets and storing them in shards:
 

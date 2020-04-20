@@ -101,8 +101,3 @@ Use this section to talk about alternative Azure services or architectures that 
 <!-- links -->
 
 [calculator]: https://azure.com/e/
-[availability]: /azure/architecture/checklist/availability
-[resource-groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
-[resiliency]: /azure/architecture/resiliency
-[security]: https://docs.microsoft.com/azure/security
-[scalability]: /azure/architecture/checklist/scalability

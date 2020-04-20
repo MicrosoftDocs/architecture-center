@@ -62,7 +62,7 @@ Use the following tasks to meet redundancy requirements:
 
 ## Ensure that availability meets SLAs
 
-*Availability* is the proportion of time that a system is functional and working, and it is one of the [pillars of software quality](../guide/pillars.md). Use the tasks in this section to review your application architecture from an availability standpoint to make sure that your availability meets your SLAs.
+*Availability* is the proportion of time that a system is functional and working, and it is one of the [pillars of software quality](../framework/index.md). Use the tasks in this section to review your application architecture from an availability standpoint to make sure that your availability meets your SLAs.
 
 - **Avoid any single point of failure.** All components, services, resources, and compute instances should be deployed as multiple instances to prevent a single point of failure from affecting availability. Authentication mechanisms can also be a single point of failure. Design the application to be configurable to use multiple instances and to automatically detect failures and redirect requests to non-failed instances, if the platform doesn't do this automatically.
 - **Decompose workloads by service-level objective.** If a service is composed of critical and less-critical workloads, manage them differently and specify the service features and number of instances to meet their availability requirements.
