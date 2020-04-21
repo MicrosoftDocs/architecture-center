@@ -30,7 +30,7 @@ The process described above is operationalized and deployed in the Cortana Intel
 
 ## Description
 
-Save time and let one of these [trained SI partners](https://aka.ms/priceoptimization-sipartners) help you with a proof of concept, deployment & integration of this solution.
+Save time and let one of these trained SI partners help you with a proof of concept, deployment & integration of this solution.
 
 The Cortana Intelligence Suite provides advanced analytics tools through Microsoft Azure - data ingestion, data storage, data processing and advanced analytics components - all of the essential elements for building a demand forecasting and price optimization solution.
 
