@@ -115,6 +115,8 @@ items:
         href: antipatterns/synchronous-io/index.md
   - name: Responsible Innovation
     items:
+    - name: Overview
+      href: guide/responsible-innovation/index.md
     - name: Harms Modeling
       items:
       - name: Introduction
