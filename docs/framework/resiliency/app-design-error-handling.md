@@ -48,6 +48,12 @@ Configure and test health probes for your load balancers and traffic managers. E
 
 For guidance on implementing health monitoring in your application, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md).
 
+![GitHub](../../_images/github.png) Samples related to heath probes are [here](https://github.com/mspnp/samples/tree/master/ResiliencyHealthProbesSample). 
+
+- ARM template that deploys an Azure Load Balancer and health probes that detect the  health of the sample service endpoint.
+
+- An ASP.Net Core Web API that shows configuration of health checks at startup.
+
 ## Command and Query Responsibility Segregation (CQRS)
 
 Achieve levels of scale and performance needed for your solution by segregating read and write interfaces by implementing the [CQRS pattern](../../patterns/cqrs.md).  

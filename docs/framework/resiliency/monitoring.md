@@ -48,6 +48,8 @@ Get a full-stack view of application state by using [Azure dashboards](https://
 
 For more information about monitoring and diagnostics, see [Monitoring and diagnostics](../../best-practices/monitoring.md).
 
+![GitHub](../../_images/github.png) A sample about creating resource-level health activity log alerts is [here](https://github.com/mspnp/samples/tree/master/ResiliencyHealthAlerts). The sample uses Azure Resource Manager to create alerts.
+
 ## Test Monitoring
 
 Include monitoring systems in your test plan. Automated failover and failback systems depend on the correct functioning of monitoring and instrumentation. Dashboards to visualize system health and operator alerts also depend on having accurate monitoring and instrumentation. If these elements fail, miss critical information, or report inaccurate data, an operator might not realize that the system is unhealthy or failing.
