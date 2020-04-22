@@ -50,8 +50,6 @@ For guidance on implementing health monitoring in your application, see [Health 
 
 ![GitHub](../../_images/github.png) Samples related to heath probes are [here](https://github.com/mspnp/samples/tree/master/ResiliencyHealthProbesSample). 
 
-This sample includes two elements:
-
 - ARM template that deploys an Azure Load Balancer and health probes that detect the  health of the sample service endpoint.
 
 - An ASP.Net Core Web API that shows configuration of health checks at startup.
