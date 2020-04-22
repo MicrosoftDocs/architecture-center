@@ -57,7 +57,7 @@ This group comprises owners who will bring the product to market, representative
         - Competitive analyses​
         - Academic or popular media reports​
     :::column-end:::
-::row-end:::
+:::row-end:::
 
 ### Moderator
 
@@ -70,13 +70,13 @@ Bring on a neutral user researcher to ensure everyone is heard, avoiding dominat
         - Structure the sessions so that there is ample time for learning, deliberation, and co-creation. This could mean having multiple sessions that go in-depth on different topics or having longer sessions. ​
         - Pilot the jury with a smaller sample of community members to work out the procedural and content issues prior to the actual sessions. ​​
    :::column-end:::
-   :::column span="":::
+   :::column span="1":::
        **During the Session**
 
         - Ensure that all perspectives are heard (minimizing group-thinking as well as one or two individuals dominating the discussion), including those of the project team and those of the jury members. ​
         - Reinforce the value of the juror participation by communicating the plan for integrating jury feedback into the product planning process. Also ensure that the project team is prepared to hear criticisms from the jury.
     :::column-end:::
-::row-end:::
+:::row-end:::
 
 ### Jury members
 
