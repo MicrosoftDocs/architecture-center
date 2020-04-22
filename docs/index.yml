@@ -44,6 +44,8 @@ productDirectory:
       links:
         - url: ./guide/design-principles/index.md
           text: Principals of a well designed application
+        - url: ./guide/responsible-innovation/index.md
+          text: Responsible innovation
         - url: ./best-practices/api-design.md
           text: Web API design
         - url: ./microservices/index.md
