@@ -11,9 +11,7 @@ ms.category:
 ms.subservice: reference-architecture
 ---
 
-## Type of harm: Denial of consequential services
-
-![](E&S_BP_toolkit_content_4.22_html_4103ff292045f364.jpg)
+# Type of harm: Denial of consequential services
 
 _Online retailer Amazon, whose global workforce was 60 percent male and where men hold 74 percent of the company's managerial positions, discontinued use of a recruiting algorithm after discovering gender bias. Image: job seekers lined up at a career fair in NY (Reuters / Shannon Stapleton)_
 

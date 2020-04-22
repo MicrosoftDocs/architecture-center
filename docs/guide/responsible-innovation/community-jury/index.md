@@ -11,7 +11,7 @@ ms.category:
 ms.subservice: reference-architecture
 ---
 
-## Best Practice: Community Jury
+# Community Jury
 
 Community jury, an adaptation of the [citizen jury](https://jefferson-center.org/about-us/how-we-work/), is a technique where diverse stakeholders impacted by a technology are provided an opportunity to learn about a project, deliberate together, and give feedback on use cases and product design. This technique allows project teams to understand the perceptions and concerns of impacted stakeholders.
 

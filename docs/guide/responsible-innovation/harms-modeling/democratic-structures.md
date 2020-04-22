@@ -11,9 +11,7 @@ ms.category:
 ms.subservice: reference-architecture
 ---
 
-## Type of harm: Erosion of social & democratic structures
-
-![](E&S_BP_toolkit_content_4.22_html_c2d941e23279f31b.jpg)
+# Type of harm: Erosion of social & democratic structures
 
 _This mask's curvature blocks facial recognition from all angles. The "surveillance exclusion" mask was designed by Jip van Leeuwenstein while he was a student of Utrecht School of the Arts in the Netherlands. (Leeuwenstein)_
 

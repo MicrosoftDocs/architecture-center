@@ -11,9 +11,7 @@ ms.category:
 ms.subservice: reference-architecture
 ---
 
-## Type of harm: Infringement on human rights
-
-![](E&S_BP_toolkit_content_4.22_html_c2679cb712b2d892.jpg)
+# Type of harm: Infringement on human rights
 
 _Children do much of the work in India's informal e-waste recycling industry. An estimated 45,000 children work in the industry in Delhi alone. (National Geographic)_
 
