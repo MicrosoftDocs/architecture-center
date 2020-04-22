@@ -1038,6 +1038,8 @@ items:
       items:
       - name: Cyber threat intelligence
         href: example-scenario/data/sentinel-threat-intelligence.md
+      - name: Highly-secure IaaS apps
+        href: reference-architectures/n-tier/high-security-iaas.md
       - name: Real-time fraud detection
         href: example-scenario/data/fraud-detection.md
       - name: Securely managed web apps

@@ -118,6 +118,8 @@ Here are some examples of failure modes and detection strategies for a specific 
 
 For more information about the FMA process, with specific recommendations for Azure, see [Failure mode analysis][failure-mode-analysis].
 
+![GitHub](../../_images/github.png) Related samples are [here](https://github.com/mspnp/samples/tree/master/ResiliencyFailureModeAnalysisSample). 
+
 ## Operating in multiple regions
 
 If your application is deployed to a single region, in the rare event the entire region becomes unavailable, your application will also be unavailable. This may be unacceptable under the terms of your application's SLA. If so, consider deploying your application and its services across multiple regions. A multi-region deployment can use an active-active pattern (distributing requests across multiple active instances) or an active-passive pattern (keeping a "warm" instance in reserve, in case the primary instance fails)
