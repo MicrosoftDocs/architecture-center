@@ -1,6 +1,6 @@
 items:
 - name: Azure Architecture Center
-  href: index.md
+  href: /azure/architecture/
 - name: Browse all Architectures
   href: browse/index.md
 - name: Application Architecture Guide
