@@ -113,6 +113,24 @@ items:
         href: antipatterns/no-caching/index.md
       - name: Synchronous I/O
         href: antipatterns/synchronous-io/index.md
+  - name: Responsible Innovation
+    items:
+    - name: Harms Modeling
+      items:
+      - name: Introduction
+        href: guide/responsible-innovation/harms-modeling/index.md
+      - name: Human Understanding
+        href: guide/responsible-innovation/harms-modeling/human-understanding.md
+      - name: Assessing Harm
+        href: guide/responsible-innovation/harms-modeling/risk-of-injury.md
+      - name: Denial of consequential services
+        href: guide/responsible-innovation/harms-modeling/denial-of-services.md
+      - name: Infringement on human rights
+        href: guide/responsible-innovation/harms-modeling/human-rights.md
+      - name: Erosion of social & democratic structures
+        href: guide/responsible-innovation/harms-modeling/democratic-structures.md
+    - name: Community Jury
+      href: guide/responsible-innovation/community-jury/index.md
   - name: Azure for AWS Professionals
     items:
     - name: Overview
