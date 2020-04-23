@@ -27,8 +27,8 @@ The reference implementation for this architecture is available on [GitHub](http
 
 You can implement this architecture by using your Azure account and allow client applications access to the pipeline through REST APIs. The application goes through a three-step process to upload an audio file:
 
-1. It authenticates by using Azure AD. This step is required for the first file upload.
-2. It calls the REST API to get the SAS token required to access Azure Blob storage.
+1. It authenticates by using Azure Active Directory (Azure AD). This step is required for the first file upload.
+2. It calls the REST API to get the shared access signature (SAS) token required to access Azure Blob storage.
 3. It uploads the audio files to a blob container.
 
 The reference client application uses JavaScript to upload the files, as shown in [this example](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-nodejs#upload-blobs-to-a-container). After the file is uploaded, an Azure Event Grid trigger is generated that invokes an Azure function. The function processes the file by using the Azure Cognitive Services Speech APIs. The transcribed text is stored in a separate blob container, ready for consumption into the next phase of the pipeline: speech analysis and storage in a database.
@@ -47,7 +47,7 @@ The architecture uses these Azure services:
 
 [**Azure API Management**](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) provides secure access to REST APIs. Because only clients authenticated via API Management can request a SAS token, this service provides an additional layer of security in the architecture.
 
-[**Azure Active Directory**](https://docs.microsoft.com/azure/active-directory/) (Azure AD) provides identity management and secured access to resources on the Azure cloud platform. The client in this architecture first needs to authenticate by using Azure AD to be able to access the REST API. The REST API creates the access token for the blob storage by using the Azure AD credentials of the business owner. [Role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview) gives the client the minimum access privileges needed to upload audio files.
+[**Azure Active Directory**](https://docs.microsoft.com/azure/active-directory/) provides identity management and secured access to resources on the Azure cloud platform. The client in this architecture first needs to authenticate by using Azure AD to be able to access the REST API. The REST API creates the access token for the blob storage by using the Azure AD credentials of the business owner. [Role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview) gives the client the minimum access privileges needed to upload audio files.
 
 [**Azure Key Vault**](https://docs.microsoft.com/azure/key-vault/key-vault-overview) provides secure storage of secrets and keys. This reference architecture stores the account credentials and other secrets needed to generate the SAS tokens in the key vault. The REST APIs and the speech transcription function access this vault to retrieve the secrets.
 
@@ -69,7 +69,7 @@ Azure Blob storage can throttle service requests [per blob](https://docs.microso
 
 ### Azure Event Grid
 
-The function that transcribes the audio files is triggered when the upload finishes. This reference architecture uses an Event Grid trigger instead of the Blob storage trigger. This is because the Blob trigger events can be missed as the number of blobs in a container increases significantly. Missing triggers negatively affects application throughput and reliability. For more information, see [Blob trigger alternatives](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger?tabs=csharp#alternatives).
+The function that transcribes the audio files is triggered when the upload finishes. This reference architecture uses an Event Grid trigger instead of the Blob storage trigger. This is because the blob trigger events can be missed as the number of blobs in a container increases significantly. Missing triggers negatively affect application throughput and reliability. For more information, see [Blob trigger alternatives](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger?tabs=csharp#alternatives).
 
 ### Azure Cognitive Services
 
