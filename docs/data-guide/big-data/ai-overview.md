@@ -546,7 +546,7 @@ Different industries are applying AI in innovative and inspiring ways. Following
 
 - [AXA Global P&C: Global insurance firm models complex natural disasters with cloud-based HPC](https://customers.microsoft.com/story/axa-global-p-and-c)
 
-[Browse more AI customer stories](https://customers.microsoft.com/search?sq=&ff=story_product_categories%26%3EArtificial%20Intelligence&p=2&so=story_publish_date%20desc)
+[Browse more AI customer stories](https://customers.microsoft.com/en-us/search?sq=&ff=story_product_categories%26%3EArtificial%20Intelligence&p=0&so=story_publish_date%20desc)
 
 ## Next steps
 

@@ -37,7 +37,7 @@ This architecture consists of the following components:
 
 **[Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)**. Blob containers are used to store the logs from the scoring service. In this case, both the input data and the model prediction are collected. After some transformation, these logs can be used for model retraining.
 
-**[Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro)**. The scoring Python [script](https://github.com/microsoft/MLOpsPython/blob/master/code/scoring/score.py) is packaged as a Docker image and versioned in the registry.
+**[Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro)**. The scoring Python script is packaged as a Docker image and versioned in the registry.
 
 **[Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-overview)**. As part of release pipeline, the QA and staging environment is mimicked by deploying the scoring webservice image to Container Instances, which provides an easy, serverless way to run a container.
 

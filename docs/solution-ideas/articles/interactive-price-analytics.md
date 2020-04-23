@@ -69,7 +69,7 @@ While the solution is deploying, you can get a head start and
 * See what is available in the Try-It-Now dashboard
 * Peruse the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md) for usage instructions from the perspective of a pricing analyst (MSFT login required)
 * Review the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a technical implementation view (MSFT login required)
-* Download the [interactive Excel worksheet](https://aka.ms/pricingxls)
+* Download the interactive Excel worksheet
 
 After the solution deploys, complete the [first walkthrough](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Walkthrough%201%20-%20Promotion%20Simulation/PromoSimulationWalkthrough.md) (MSFT login required).
 
@@ -83,6 +83,6 @@ Other tabs provide supplemental information illuminating how the system arrived 
 
 ## Solution Architecture
 
-The solution uses an Azure SQL server to store your transactional data and the generated model predictions. There are a dozen elasticity modeling core services, which are authored in AzureML using Python core libraries. Azure Data Factory schedules weekly model refreshes. The results display in a PowerBI dashboard. The provided [Excel spreadsheet](https://aka.ms/pricingxls) consumes the predictive Web Services.
+The solution uses an Azure SQL server to store your transactional data and the generated model predictions. There are a dozen elasticity modeling core services, which are authored in AzureML using Python core libraries. Azure Data Factory schedules weekly model refreshes. The results display in a PowerBI dashboard. The provided Excel spreadsheet](https://aka.ms/pricingxls) consumes the predictive Web Services.
 
 Please read the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a more detailed discussion of the architecture, connecting your own data and customization (GitHub login required).
