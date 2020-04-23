@@ -65,11 +65,11 @@ The reference architecture allows large audio files to be uploaded to the cloud 
 
 #### Scalability for storage
 
-Azure Blob storage can throttle service requests [per blob](https://docs.microsoft.com/azure/storage/blobs/scalability-targets) or [per storage account](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#storage-limits). The blob-level throttling limits might not be a concern in this scenario because every uploaded file corresponds to a single blob. But multiple clients uploading multiple files to a single storage account might exceed the account's limits. If that's a possibility, consider using multiple storage accounts and partitioning the data objects across them. For a detailed list of scalability considerations for the blob, see [Performance and scalability checklist for Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-performance-checklist).
+Azure Blob storage can throttle service requests [per blob](https://docs.microsoft.com/azure/storage/blobs/scalability-targets) or [per storage account](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#storage-limits). The blob-level throttling limits might not be a concern in this scenario because every uploaded file corresponds to a single blob. However, multiple clients uploading multiple files to a single storage account might exceed the account's limits. If that's a possibility, consider using multiple storage accounts and partitioning the data objects across them. For a detailed list of scalability considerations for the blob, see [Performance and scalability checklist for Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-performance-checklist).
 
 ### Azure Event Grid
 
-The function that transcribes the audio files is triggered when the upload finishes. This reference architecture uses an Event Grid trigger instead of the Blob storage trigger because Blob storage trigger events might be missed as the number of blobs in a container increases significantly. Missing triggers negatively affects application throughput and reliability. For more information, see [Blob trigger alternatives](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger?tabs=csharp#alternatives).
+The function that transcribes the audio files is triggered when the upload finishes. This reference architecture uses an Event Grid trigger instead of the Blob storage trigger. This is because the Blob trigger events can be missed as the number of blobs in a container increases significantly. Missing triggers negatively affects application throughput and reliability. For more information, see [Blob trigger alternatives](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger?tabs=csharp#alternatives).
 
 ### Azure Cognitive Services
 
@@ -81,7 +81,7 @@ Many of the [security considerations for a serverless web applications](../../re
 
 ### Azure Active Directory
 
-The audio files stored in the blob might contain sensitive customer data. If multiple clients are using this solution, you need to restrict access to these files. This reference architecture uses SAS tokens to protect these files from outside attacks. These tokens, called user delegation SAS tokens, are created by using the service owner's Azure AD credentials.
+The audio files stored in the blob might contain sensitive customer data. If multiple clients are using this solution, it's important to restrict access to these files. This reference architecture uses SAS tokens to protect these files from outside attacks. These tokens, called user delegation SAS tokens, are created by using the service owner's Azure AD credentials.
 
 A SAS token allows you to control:
 
@@ -107,9 +107,9 @@ When several clients upload files in parallel, API Management serves multiple pu
 
 In the case of an extremely large number of events, Event Grid might fail to trigger the function. Such missed events are typically added to a *dead letter container*. Consider making the architecture more resilient by adding an additional *supervisor* function. This function can periodically wake up on a timer trigger. It can then find and process missed events, either from the dead letter container or by comparing the blobs in the *upload* and *transcribe* containers.
 
-This pattern is similar to the [Scheduler Agent Supervisor pattern](../../patterns/scheduler-agent-supervisor.md). To keep things simple, we didn't implement this pattern in this reference architecture. For more information on how Event Grid handles failures, see the [Event Grid message delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry) policies.
+This pattern is similar to the [Scheduler Agent Supervisor pattern](../../patterns/scheduler-agent-supervisor.md). This pattern isn't implemented in this reference architecture for the sake of simplicity. For more information on how Event Grid handles failures, see the [Event Grid message delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry) policies.
 
-Another way to improve resiliency is to use [Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/) instead of Event Grid. This model sequentially processes file uploads. The client signals Service Bus when an upload finishes. Service Bus then invokes the function to transcribe the uploaded file. This model is more reliable, but it will have less throughput than an event-based architecture. Carefully consider which architecture applies to your scenario and application.
+Another way to improve resiliency is to use [Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/) instead of Event Grid. This model sequentially processes file uploads. The client signals Service Bus when an upload finishes. Service Bus then invokes the function to transcribe the uploaded file. This model is more reliable. However, it will have less throughput than an event-based architecture. Carefully consider which architecture applies to your scenario and application.
 
 ## Solution deployment
 
