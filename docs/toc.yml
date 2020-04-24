@@ -177,6 +177,8 @@ items:
       href: framework/resiliency/backup-and-recovery.md
     - name: Business metrics
       href: framework/resiliency/business-metrics.md
+    - name: Chaos engineering
+      href: framework/resiliency/chaos-engineering.md
     - name: Data management
       href: framework/resiliency/data-management.md
     - name: Monitoring and disaster recovery
