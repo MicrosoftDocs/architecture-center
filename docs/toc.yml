@@ -119,6 +119,12 @@ items:
       href: aws-professional/index.md
     - name: Services comparison
       href: aws-professional/services.md
+  - name: Azure for GCP Professionals
+    items:
+    - name: Overview
+      href: gcp-professional/index.md
+    - name: Services comparison
+      href: gcp-professional/services.md
 - name: Azure Architecture Framework
   items:
   - name: Overview
