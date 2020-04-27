@@ -119,6 +119,12 @@ items:
       href: aws-professional/index.md
     - name: Services comparison
       href: aws-professional/services.md
+  - name: Azure for GCP Professionals
+    items:
+    - name: Overview
+      href: gcp-professional/index.md
+    - name: Services comparison
+      href: gcp-professional/services.md
 - name: Azure Architecture Framework
   items:
   - name: Overview
@@ -177,6 +183,8 @@ items:
       href: framework/resiliency/backup-and-recovery.md
     - name: Business metrics
       href: framework/resiliency/business-metrics.md
+    - name: Chaos engineering
+      href: framework/resiliency/chaos-engineering.md
     - name: Data management
       href: framework/resiliency/data-management.md
     - name: Monitoring and disaster recovery
