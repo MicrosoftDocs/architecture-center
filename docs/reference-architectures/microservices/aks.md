@@ -74,7 +74,7 @@ Avoid storing persistent data in local cluster storage, because that ties the da
 
 
 ## Service object
-The Kubernetes Service object provides a set of capabilities that match the microservices requirements for service discoverability:
+The Kubernetes **Service** object provides a set of capabilities that match the microservices requirements for service discoverability:
 
 - IP address. The Service object provides a static internal IP address for a group of pods (ReplicaSet). As pods are created or moved around, the service is always reachable at this internal IP address.
 
@@ -88,19 +88,19 @@ The following diagram shows the conceptual relation between services and pods. T
 
 ## Ingress
 
-The Kubernetes **Ingress** resource type maps to the API gateway pattern. Ingress abstracts the configuration settings for a proxy server. Functionality provided by Ingress is as follows:
+The Kubernetes **Ingress** resource implements the API gateway pattern. Ingress abstracts the configuration settings for a proxy server. Functionality provided by Ingress is as follows:
 
 - Routing client requests to the right backend services. This provides a single endpoint for clients, and helps to decouple clients from services.
 
 - Aggregation of multiple requests into a single request, to reduce chattiness between the client and the backend.
 
-- A gateway can offload functionality from the backend services, such as SSL termination, authentication, IP whitelisting, or client rate limiting (throttling).
+- Offloading functionality from the backend services, such as SSL termination, authentication, IP whitelisting, or client rate limiting (throttling).
 
-Ingress can be implemented using a number of different technologies. Probably the most common implementation is to deploy an edge router or reverse proxy, such as Nginx, HAProxy, or Traefik, inside the cluster. A reverse proxy server is a potential bottleneck or single point of failure, so always deploy at least two replicas for high availability.
+Ingress can be implemented with a number of different technologies. Probably the most common implementation is to deploy an edge router or reverse proxy, such as Nginx, HAProxy, or Traefik, inside the cluster. A reverse proxy server is a potential bottleneck or single point of failure, so always deploy at least two replicas for high availability.
 
 You also need an **Ingress controller**, which provides the underlying implementation of the Ingress. There are ingress controllers for Nginx, HAProxy, Traefik, and Application Gateway, among others.
 
-The Ingress controller handles configuring the proxy server. Often these require complex configuration files, which can be hard to tune if you aren't an expert, so the ingress controller is a nice abstraction. In addition, the Ingress Controller has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
+The Ingress controller handles configuring the proxy server. Often these require complex configuration files, which can be hard to tune if you aren't an expert, so the ingress controller is a nice abstraction. In addition, the Ingress controller has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
 
 On the other hand, if you need complete control over the settings, you may want to bypass this abstraction and configure the proxy server manually.
 
@@ -285,9 +285,9 @@ You are charged only for the number of configured load-balancing and outbound ru
 See [Azure Load Balancer Pricing][az-lb-pricing] for more information.
 
 
-### Azure Application Gateway
+### Azure DevOps Services
 
-In this reference architecture,  Azure Application Gateway is used as the **Ingress** resource.  The gateway routes traffic to services inside the cluster. You are charged for the time that the gateway is provisioned and available and the amount of data processed by the gateway. For more information, see [Application Gateway pricing][AppGatewayPricing].
+This reference architecture only uses Azure Pipelines. Azure offers the Azure Pipeline as an individual Service. You are allowed a free Microsoft-hosted job with 1,800 minutes per month for CI/CD and 1 self-hosted job with unlimited minutes per month, extra jobs have charges. For more information, [see Azure DevOps Services Pricing](https://azure.microsoft.com/pricing/details/devops/azure-devops-services).
 
 ### Azure Monitor
 
