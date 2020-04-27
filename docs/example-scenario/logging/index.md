@@ -16,7 +16,7 @@ With the advent of the cloud and adoption, cloud-native development differs some
 
 Cloud-native applications, tend to be composed of one or more PaaS services built around the microservices architectural paradigm. This paradigm entails the creation of discrete, loosely-coupled microservices that work within their process boundary. This loosely distributed architecture brings many benefits:
 
-* the application is composed of discrete services that are easier to build and simpler to maintain
+* The application is composed of discrete services that are easier to build and simpler to maintain
 * The Microservices focuses on business capabilities
 * Microservices naturally work well with automated CI and CD Systems
 * Microservices being naturally independent are more fault-tolerant to failures, i.e. a single service failure will not bring down the application
@@ -51,12 +51,47 @@ The following practices can be adopted in a distributed architecture to help ove
 * All logs should be emitted to a single hub and stored in a central repository.
 * Log data should be structured using JSON.
 
-By incorporating the above changes to the distributed application, it now allows for any member of a team to retrieve logs from the complete lifecycle of the request through the correlation ID.
+Consideration should also be taken to ensure the common [logging levels](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.logging.loglevel?view=dotnet-plat-ext-3.1) are being used appropriately once the application has been deployed, as well as during development.
 
-All logs should be stored in long term storage; this allows for analysis and diagnosis of issues and also allows the team to determine if there have been changes to system behavior over time.
+* Trace
+  * This is the most finest of detail and as such should never be used in a Pre Production or Production Environment 
+  * Log data can contain sensitive application state.
+  * The most verbose of log levels and can affect application performance.
+  * The Trace level outputs very detailed data of the application state during program execution. As such, this should only be enabled sparingly and locally during development time.
+* Debug
+  * The Debug Logging level is most used during software development and used when debugging code and should be used when developing locally and tends to have no long term value.
+* Info
+  * This logging level is generally used in production which describes the general application flow when users are interacting with the system.
+* Warn
+  * A logging level that is used in production that should be used when an event could be potentially problematic. This allows automated alerting tools to pick up Warn events and notify the relevant teams to begin investigation.
+* Error
+  * This level should be used to log errors within the application, this could be logic errors, and, should be used in production.
+* Critical/Fatal
+  * This level should be used when an application event occurs when it is unable to fulfil the request and has resulted in an unrecoverable error.
 
-Context should be added to every request, and these objects can be:
+Most applications are created to meet the demand, or, potential demand of the user. As such, application traffic is somewhat variable and to that end, so are the logs that are generated. 
 
+Application Development is a continuous process and at times, features and updates are released continuously. 
+
+For applications that do not generate high volumes of traffic, which could be harder to diagnose issues, a process such as Synthetic Logging can be leveraged.
+
+Synthetic Logging is the process of leveraging the monitoring systems of the application by emulating the behaviour of the user using automation tools. 
+
+Using an automation tool such as [Selenium](https://docs.microsoft.com/en-us/azure/devops/pipelines/test/continuous-test-selenium?view=azure-devops) the development team can create a test suite of user interactions. 
+
+These tests can be scheduled, or run on an ad hoc basis. This allows for the continued monitoring of availability; response time and functionality. 
+
+Synthetic logging is a valuable tool as it helps the Development and Operations Team to identify problems and through the analysis of the provided telemetry data ascertain whether the application is running slow, or experiencing other issues.
+
+Synthetic logging being a simulation of behaviour, should be leveraged to augment established traffic patterns as well as critical application processes and is able to ensure that the non functional requirements of availability; performance and resilience are met.
+
+Another key aspect that should be considered when logging, is the structure of the log itself. Log data is essentially unstructured data, due to the unstructured nature, it can be hard to query for specific events; implement automated alerting when an event condition occurs and correlate related events. 
+
+For event data to be readable by automated systems, a structured format should be leveraged so that an event can be more easily passed. JSON is the current data interchange format used by most web services today, as such it has a well known schema and is well suited for structured logging.
+
+When defining the structure of the log, context should be added to every request, and these objects can be:
+* Correlation ID for the request
+  * The ID can be used to chain related log events together and provide a narrative for event and help establish where issues occur when dealing with distributed systems. This should be a globally unique value.
 * Date & Time in UTC
 * Service name
 * HTTP Codes
@@ -64,7 +99,37 @@ Context should be added to every request, and these objects can be:
 * Severity of Event
 * Pertinent information from the request type that can be used to help diagnose problems
 
+<pre>
+<code>
+
+{
+  "CorrelationId": "715eec8f-fefc-45e2-a352-95aa389ddb8f"
+  "Environment": "Live",
+  "StatusCode: 500,
+  "Severity: "Error",
+  "Application": "Contso Web Shop",
+  "Service": "PaymentsService",
+  "EventTimeUTC:" "2020-04-27T13:19Z",
+  "BrowserType": "Chromium",
+  "Data":{
+      "Runtime":"Net Core",
+      "Message": "System.NullReferenceException: Object reference not set to an instance of an object.",
+      "Method": "PaymentProcesser"
+  } 
+}
+
+</code>
+</pre>
+
+With structured logging, it becomes easier to search through logs when issues occur as well as allow automated alerting to action on the severity of the message.
+
 Care must be taken to ensure the recorded information does not contain PII data and meets any regulatory guidelines such as GDPR.
+
+
+
+By incorporating the above changes to the distributed application, it now allows for any member of a team to retrieve logs from the complete lifecycle of the request through the correlation ID.
+
+All logs should be stored in long term storage; this allows for analysis and diagnosis of issues and also allows the team to determine if there have been changes to system behaviour over time.
 
 ## Azure Services
 
@@ -102,7 +167,7 @@ Application Insights can be leveraged for [distributed tracing](https://docs.mic
 
 ### Azure Monitor
 
-[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) is a service that maximizes the availability and performance of cloud-native applications. Collecting, analyzing and acting on telemetry from cloud-native applications. With Azure Monitor, teams can create operational dashboards and detect issues and the ability to Alert Teams of critical situations.
+[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) is a service that maximizes the availability and performance of cloud-native applications. Collecting, analysing and acting on telemetry from cloud-native applications. With Azure Monitor, teams can create operational dashboards and detect issues and the ability to Alert Teams of critical situations.
 
 If the team leverages an IT Service Management (ITSM) system, Logic Apps can be used to call the REST endpoint of the ITSM system and create the relevant issue with the appropriate severity level. See [Stream Analytics and Azure Logic Apps](https://docs.microsoft.com/archive/blogs/vinaysin/consuming-azure-stream-analytics-output-in-azure-logic-apps) for further information. This allows for quicker notification to all relevant teams and ensures that triaging is more immediate and useful.
 
@@ -121,7 +186,7 @@ Once an application has been deployed, the focus moves to ensure that cloud-nati
 
 From a security perspective, great work is invested in ensuring that the application is built as securely as possible using modern working methods and practices. However, cloud-native applications are not immune to security issues. Cloud-native applications are a target of attack from rogue agents as much as traditional on-premise systems.
 
-[Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) is a Security Information and Event Management (SIEM) tool. Sentinel provides a unified overview of the cloud estate, in which information is provided through the native integration of Azure Services. Not only is Sentinel able to collect information from the cloud, but it can also collect information from downstream dependant systems hosted within a customer's data center.
+[Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) is a Security Information and Event Management (SIEM) tool. Sentinel provides a unified overview of the cloud estate, in which information is provided through the native integration of Azure Services. Not only is Sentinel able to collect information from the cloud, but it can also collect information from downstream dependant systems hosted within a customer's data centre.
 
 Azure Sentinel provides a dashboard view of the current security posture and allows administrators a global view on potentially malicious events such as failed logins (suspicious credentials) and the relevant connections from these events. SRE teams can leverage Azure Log Analytics to perform further analysis.
 
