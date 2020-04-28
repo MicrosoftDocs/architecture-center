@@ -9,8 +9,6 @@ ms.subservice: well-architected
 ms.custom: How do you test your applications to ensure they're fault tolerant?
 ---
 
-# Chaos engineering
-Hardening your services against failures in production to attain consistent reliability by adopting [chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering).
 
 # Testing Azure applications for resiliency and availability
 
@@ -20,11 +18,15 @@ Run tests in production using both synthetic and real user data. Test and produc
 
 As part of your test plan, include:
 
+- Chaos engineering
 - Automated predeployment testing
 - Fault injection testing
 - Peak load testing
 - Disaster recovery testing
 - Third-party service testing
+
+## Chaos engineering
+Hardening your services against failures in production to attain consistent reliability by adopting [chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering).
 
 ## Simulation testing
 
