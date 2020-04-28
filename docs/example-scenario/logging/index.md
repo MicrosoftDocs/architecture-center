@@ -82,7 +82,7 @@ Event hub can be configured to send all event message to Azure Data Lake, or, Az
 
 ### Data Lake
 
-[Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/) is a cloud scalable storage repository that can be used to store data in any format and for long periods of time. Developers can then query the objects stored within the Data Lake for investigational purposes.
+[Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/) is a cloud scalable storage repository that can be used to store data in any format and for long periods of time. Developers can then query the objects stored within the Data Lake for investigational purposes. 
 
 ### Stream Analytics
 
