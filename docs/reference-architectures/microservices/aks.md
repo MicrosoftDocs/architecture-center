@@ -60,7 +60,7 @@ A microservice is a loosely coupled, independently deployable unit of code. Micr
 ### API gateway
 API gateways are a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). An *API gateway* sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting. For more information, see [Using API gateways in microservices](/azure/architecture/microservices/design/gateway).
 
-In Kubernetes, the functionality of an API gateway is mostly handled by the **Ingress** resource type.
+In Kubernetes, the functionality of an API gateway is mostly handled by the **Ingress** resource and the **Ingress controller**.
 
 ### Data storage
 
