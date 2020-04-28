@@ -53,6 +53,7 @@ Your test plan should incorporate possible failure points identified during the 
 - Measure the recovery times, and be sure that your business requirements are met.
 - Verify that failures don't cascade and are handled in an isolated way.
 
+Best practices for [Chaos Engineering](/azure/architecture/framework/resiliency/chaos-engineering#best-practices)
 For more information about failure scenarios, see [Failure and disaster recovery for Azure applications](../../framework/resiliency/backup-and-recovery.md).
 
 ## Test under peak loads
