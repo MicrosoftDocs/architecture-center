@@ -22,6 +22,6 @@ The list of required actions is categorized by persona to drive a successful dep
 
 - [Validate and commit the serverless adoption](./validate-commit-serverless-adoption.md)
 - [Application development and deployment](./application-development.md)
-- Azure functions app operations.
+- [Azure functions app operations](./functions-app-operations.md)
 - Azure functions app security.
 
