@@ -20,8 +20,8 @@ Azure Functions allows you to run small pieces of code (called "functions" writt
 This Functions adoption guide is a prescriptive framework that includes the tools, programs, and content (best practices, configuration templates, and architecture guidance) to simplify adoption of Azure Functions and serverless practices at scale.
 The list of required actions is categorized by persona to drive a successful deployment of applications on Functions, from proof of concept to production, then scaling and optimization. As part of the cloud adoption lifecycle, use the following exercises:
 
-- Validate and commit the serverless adoption.
-- Application development and deployment.
+- [Validate and commit the serverless adoption](./validate-commit-serverless-adoption.md)
+- [Application development and deployment](./application-development.md)
 - Azure functions app operations.
 - Azure functions app security.
 
