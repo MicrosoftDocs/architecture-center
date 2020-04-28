@@ -2,7 +2,7 @@
 title: Computer forensics Chain of Custody in Azure
 titleSuffix: Azure Example Scenarios
 description: Create an infrastructure and workflow to ensure a valid digital evidence Chain of Custody (CoC) for computer forensics in Azure.
-author: v-thepet
+author: simonesavi
 ms.date: 04/27/2020
 ms.topic: example-scenario
 ms.service: architecture-center
