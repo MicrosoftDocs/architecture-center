@@ -2,7 +2,7 @@
 title: Serverless - Functions Adoption Guide
 titleSuffix: Azure Example Scenarios
 description: Description
-author: GitHubAlias
+author: rogeriohc
 ms.date: 04/28/2020
 ms.topic: example-scenario
 ms.service: architecture-center
