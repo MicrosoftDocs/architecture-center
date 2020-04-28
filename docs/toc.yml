@@ -958,6 +958,8 @@ items:
         href: solution-ideas/articles/backup-archive-cloud-application.md
       - name: Back up on-premises applications
         href: solution-ideas/articles/backup-archive-on-premises-applications.md
+      - name: Computer forensics
+        href: example-scenario/forensics/computer-forensics.md
       - name: High availability for BCDR
         href: solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.md
       - name: Data Sovereignty & Data Gravity
