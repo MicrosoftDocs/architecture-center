@@ -399,9 +399,29 @@ Overreliance on automation leads to atrophy of manual skills.
 
 *Example: Overreliance on automation could lead to an inability to gauge the airplane's true orientation because the pilots have been trained to rely on instruments only.*
 
+## Evaluate harms
+
+Once you have generated a broad list of potential harms, you should complete your Harms Model by evaluating the potential magnitude for each category of harm. This will allow you to prioritize your areas of focus. See the following example harms model for reference:
+
+|Contributing factor   |Definition       |
+|----------------------|-----------------|
+|Severity        |How acutely could an individual or group’s well-being be impacted by the technology?        |
+|Scale           |How broadly could the impact to well-being be experienced across populations or groups?    |
+|Probability     |How likely is it that individual or group's well-being will be impacted be the technology? |
+|Frequency       |How often would an individual or group experience an impact to their well-being from the technology? |
+
+
 ## Next Steps
 
-- [Community Jury](../community-jury/index.md)
+Use the Harms Model you developed to guide your product development work:
+
+- Seek more information from stakeholders that you identified as potentially experiencing harm 
+- Develop and validate hypothesis for addressing the areas you identified as having the highest potential for harm 
+- Integrate the insights into your decisions throughout the technology development process: data collection and model training, system architecture, user experience design, product documentation, feedback loops, and communication capabilities and limitations of the technology. 
+- [Community Jury](../community-jury/index.md) 
+ 
+Read the additional references if required:
+
 - [Responsible AI resource center](../index.md)
 - [Value Sensitive Design](https://vsdesign.org/)
 - [Assessing Harms booklet](downloadable)
