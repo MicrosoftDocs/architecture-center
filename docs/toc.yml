@@ -119,18 +119,10 @@ items:
       href: guide/responsible-innovation/index.md
     - name: Harms Modeling
       items:
-      - name: Introduction
+      - name: Understand Harm
         href: guide/responsible-innovation/harms-modeling/index.md
-      - name: Human Understanding
-        href: guide/responsible-innovation/harms-modeling/human-understanding.md
-      - name: Assessing Harm
-        href: guide/responsible-innovation/harms-modeling/risk-of-injury.md
-      - name: Denial of consequential services
-        href: guide/responsible-innovation/harms-modeling/denial-of-services.md
-      - name: Infringement on human rights
-        href: guide/responsible-innovation/harms-modeling/human-rights.md
-      - name: Erosion of social & democratic structures
-        href: guide/responsible-innovation/harms-modeling/democratic-structures.md
+      - name: Assess Types of Harm
+        href: guide/responsible-innovation/harms-modeling/type-of-harm.md
     - name: Community Jury
       href: guide/responsible-innovation/community-jury/index.md
   - name: Azure for AWS Professionals
