@@ -60,7 +60,7 @@ A microservice is a loosely coupled, independently deployable unit of code. Micr
 ### API gateway
 API gateways are a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). An *API gateway* sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting. For more information, see [Using API gateways in microservices](/azure/architecture/microservices/design/gateway).
 
-In Kubernetes, the functionality of an API gateway is mostly handled by the **Ingress** resource and the **Ingress controller**.
+In Kubernetes, the functionality of an API gateway is mostly handled by the **Ingress** resource and the **Ingress controller**. The considerations are described in the [Ingress](#ingress) section.
 
 ### Data storage
 
@@ -88,21 +88,21 @@ The following diagram shows the conceptual relation between services and pods. T
 
 ## Ingress
 
-The Kubernetes **Ingress** resource implements the API gateway pattern. Ingress abstracts the configuration settings for a proxy server. Functionality provided by Ingress is as follows:
+In Kubernetes, both the **Ingress** and **Ingress controller** implement the API gateway pattern. Together, they do these tasks:
 
-- Routing client requests to the right backend services. This provides a single endpoint for clients, and helps to decouple clients from services.
+- Route client requests to the right backend services. This provides a single endpoint for clients, and helps to decouple clients from services.
 
-- Aggregation of multiple requests into a single request, to reduce chattiness between the client and the backend.
+- Aggregate multiple requests into a single request, to reduce chattiness between the client and the backend.
 
-- Offloading functionality from the backend services, such as SSL termination, authentication, IP whitelisting, or client rate limiting (throttling).
+- Offload functionality from the backend services, such as SSL termination, authentication, IP whitelisting, or client rate limiting (throttling).
 
-Ingress can be implemented with a number of different technologies. Probably the most common implementation is to deploy an edge router or reverse proxy, such as Nginx, HAProxy, or Traefik, inside the cluster. A reverse proxy server is a potential bottleneck or single point of failure, so always deploy at least two replicas for high availability.
+Ingress abstracts the configuration settings for a proxy server. You also need an Ingress controller, which provides the underlying implementation of the Ingress. There are Ingress controllers for Nginx, HAProxy, Traefik, and Azure Application Gateway, among others.
 
-You also need an **Ingress controller**, which provides the underlying implementation of the Ingress. There are ingress controllers for Nginx, HAProxy, Traefik, and Application Gateway, among others.
+The Ingress resource can be fulfilled with a number of different technologies. Probably the most common implementation is to deploy an Ingress controller inside the cluster. It operates as the edge router or reverse proxy. A reverse proxy server is a potential bottleneck or single point of failure, so always deploy at least two replicas for high availability.
 
-The Ingress controller handles configuring the proxy server. Often these require complex configuration files, which can be hard to tune if you aren't an expert, so the ingress controller is a nice abstraction. In addition, the Ingress controller has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
+Often configuring the proxy server requires complex files, which can be hard to tune if you aren't an expert. So, the Ingress controller provides a nice abstraction. The Ingress controller also has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
 
-On the other hand, if you need complete control over the settings, you may want to bypass this abstraction and configure the proxy server manually.
+On the other hand, if you need complete control over the settings, you may want to bypass this abstraction and configure the proxy server manually. For more information, see [Deploying Nginx or HAProxy to Kubernetes](/azure/architecture/microservices/design/gateway#deploying-nginx-or-haproxy-to-kubernetes).
 
 > For AKS, you can also use Azure Application Gateway, using the [Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/). This option requires [CNI networking](https://docs.microsoft.com/azure/aks/configure-azure-cni) to be enabled when you configure the AKS cluster, because Application Gateway is deployed into a subnet of the AKS virtual network. For more information about load-balancing services in Azure, see [Overview of load-balancing options in Azure](../../guide/technology-choices/load-balancing-overview.md).
 
@@ -226,7 +226,7 @@ Even with managed identities, you'll probably need to store some credentials or 
 
     The pod authenticates itself by using either a pod identity (described above) or by using an Azure AD Service Principal along with a client secret. Using pod identities is recommended because the client secret isn't needed in that case.
 
-- HashiCorp Vault. Kubernetes applications can authenticate with HashiCorp Vault using Azure AD managed identities. See [HashiCorp Vault speaks Azure Active Directory](https://open.microsoft.com/2018/04/10/scaling-tips-hashicorp-vault-azure-active-directory/). You can deploy Vault itself to Kubernetes, but it's recommend to run it in a separate dedicated cluster from your application cluster.
+- HashiCorp Vault. Kubernetes applications can authenticate with HashiCorp Vault using Azure AD managed identities. See [HashiCorp Vault speaks Azure Active Directory](https://open.microsoft.com/2018/04/10/scaling-tips-hashicorp-vault-azure-active-directory/). You can deploy Vault itself to Kubernetes, consider running it in a separate dedicated cluster from your application cluster.
 
 - Kubernetes secrets. Another option is simply to use Kubernetes secrets. This option is the easiest to configure but has some challenges. Secrets are stored in etcd, which is a distributed key-value store. AKS [encrypts etcd at rest](https://github.com/Azure/kubernetes-kms#azure-kubernetes-service-aks). Microsoft manages the encryption keys.
 
@@ -299,6 +299,7 @@ For Azure Monitor Log Analytics, you are charged for data ingestion and retentio
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][ri-deploy].
 
 ## Next steps
+
 
 - To learn about monitoring this architecture, see [Monitoring a microservices architecture in Azure Kubernetes Service (AKS)](../../microservices/logging-monitoring.md).
 - To learn how we measured the performance of this application, see [Performance tuning scenario: Distributed business transactions](../../performance/distributed-transaction.md).
