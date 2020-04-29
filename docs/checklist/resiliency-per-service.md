@@ -6,7 +6,7 @@ author: PeterTaylor9999
 ms.date: 11/26/2018
 ms.topic: checklist
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ms.custom: resiliency, checklist
 ---
 

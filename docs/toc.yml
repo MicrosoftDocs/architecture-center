@@ -3,6 +3,8 @@ items:
   href: /azure/architecture/
 - name: Browse all Architectures
   href: browse/index.md
+- name: What's new
+  href: changelog.md
 - name: Application Architecture Guide
   items:
   - name: Introduction
@@ -958,6 +960,8 @@ items:
         href: solution-ideas/articles/backup-archive-cloud-application.md
       - name: Back up on-premises applications
         href: solution-ideas/articles/backup-archive-on-premises-applications.md
+      - name: Computer forensics
+        href: example-scenario/forensics/index.md
       - name: High availability for BCDR
         href: solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.md
       - name: Data Sovereignty & Data Gravity

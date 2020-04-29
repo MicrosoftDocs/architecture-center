@@ -5,7 +5,7 @@ author: PageWriter-MSFT
 ms.date: 07/15/2019
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ---
 
 # What do the law, authorities, and regulators require?
