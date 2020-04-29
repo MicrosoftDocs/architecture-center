@@ -3,6 +3,8 @@ items:
   href: /azure/architecture/
 - name: Browse all Architectures
   href: browse/index.md
+- name: What's new
+  href: changelog.md
 - name: Application Architecture Guide
   items:
   - name: Introduction
