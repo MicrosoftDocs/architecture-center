@@ -42,7 +42,7 @@
           "**/*.js",
           "**/*.json",
           "**/*.docx",
-          "feed.xml"
+          "feed.atom"
         ],
         "exclude": [
           "**/obj/**",

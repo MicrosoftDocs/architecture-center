@@ -3,6 +3,8 @@ items:
   href: /azure/architecture/
 - name: Browse all Architectures
   href: browse/index.md
+- name: What's new
+  href: changelog.md
 - name: Application Architecture Guide
   items:
   - name: Introduction
@@ -131,6 +133,12 @@ items:
       href: aws-professional/index.md
     - name: Services comparison
       href: aws-professional/services.md
+  - name: Azure for GCP Professionals
+    items:
+    - name: Overview
+      href: gcp-professional/index.md
+    - name: Services comparison
+      href: gcp-professional/services.md
 - name: Azure Architecture Framework
   items:
   - name: Overview
@@ -189,6 +197,8 @@ items:
       href: framework/resiliency/backup-and-recovery.md
     - name: Business metrics
       href: framework/resiliency/business-metrics.md
+    - name: Chaos engineering
+      href: framework/resiliency/chaos-engineering.md
     - name: Data management
       href: framework/resiliency/data-management.md
     - name: Monitoring and disaster recovery
@@ -962,6 +972,8 @@ items:
         href: solution-ideas/articles/backup-archive-cloud-application.md
       - name: Back up on-premises applications
         href: solution-ideas/articles/backup-archive-on-premises-applications.md
+      - name: Computer forensics
+        href: example-scenario/forensics/index.md
       - name: High availability for BCDR
         href: solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.md
       - name: Data Sovereignty & Data Gravity

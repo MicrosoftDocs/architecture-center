@@ -5,7 +5,7 @@ author: nimccoll
 ms.date: 10/21/2019
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ms.custom: fasttrack-edit
 ---
 

@@ -29,9 +29,9 @@ highlightedContent:
       url: ./framework/index.md
       itemType: how-to-guide
     # Card
-    #- title: See what's new
-    #  url: ./changelog.md
-    #  itemType: whats-new
+    - title: See what's new
+      url: ./changelog.md
+      itemType: whats-new
 
 # productDirectory section (optional)
 productDirectory:

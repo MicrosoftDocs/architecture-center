@@ -6,7 +6,7 @@ author: MikeWasson
 ms.date: 11/20/2019
 ms.topic: guide
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: well-architected
 ms.custom: seojan19
 ---
 
