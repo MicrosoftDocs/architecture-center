@@ -55,26 +55,7 @@ This reference architecture is focused on microservices architectures, although 
 
 ### Microservices
 
-A microservice is a loosely coupled, independently deployable unit of code. Microservices typically communicate through well-defined APIs and are discoverable through some form of service discovery. The service should always be reachable even when the pods move around. The Kubernetes **Service** object is a natural way to model microservices in Kubernetes.
-
-### API gateway
-API gateways are a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). An *API gateway* sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting. For more information, see [Using API gateways in microservices](/azure/architecture/microservices/design/gateway).
-
-In Kubernetes, the functionality of an API gateway is mostly handled by the **Ingress** resource and the **Ingress controller**.
-
-### Data storage
-
-In a microservices architecture, services should not share data storage. Each service should own its own private data in a separate logical storage, to avoid hidden dependencies among services. The reason is to avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements. For more information, see [Designing microservices: Data considerations](../../microservices/design/data-considerations.md).
-
-Avoid storing persistent data in local cluster storage, because that ties the data to the node. Instead,
-
-- Use an external service such as Azure SQL Database or Cosmos DB, *or*
-
-- Mount a persistent volume using Azure Disks or Azure Files. Use Azure Files if the same volume needs to be shared by multiple pods.
-
-
-## Service object
-The Kubernetes **Service** object provides a set of capabilities that match the microservices requirements for service discoverability:
+The Kubernetes Service object is a natural way to model microservices in Kubernetes. A microservice is a loosely coupled, independently deployable unit of code. Microservices typically communicate through well-defined APIs, and are discoverable through some form of service discovery. The Kubernetes Service object provides a set of capabilities that match these requirements:
 
 - IP address. The Service object provides a static internal IP address for a group of pods (ReplicaSet). As pods are created or moved around, the service is always reachable at this internal IP address.
 
@@ -86,27 +67,39 @@ The following diagram shows the conceptual relation between services and pods. T
 
 ![Services and pods](./_images/aks-services.png)
 
-## Ingress
+### API Gateway
 
-The Kubernetes **Ingress** resource implements the API gateway pattern. Ingress abstracts the configuration settings for a proxy server. Functionality provided by Ingress is as follows:
+An *API gateway* is a gateway that sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting.
 
-- Routing client requests to the right backend services. This provides a single endpoint for clients, and helps to decouple clients from services.
+Functionality provided by a gateway can be grouped as follows:
 
-- Aggregation of multiple requests into a single request, to reduce chattiness between the client and the backend.
+- [Gateway Routing](../../patterns/gateway-routing.md): Routing client requests to the right backend services. This provides a single endpoint for clients, and helps to decouple clients from services.
 
-- Offloading functionality from the backend services, such as SSL termination, authentication, IP whitelisting, or client rate limiting (throttling).
+- [Gateway Aggregation](../../patterns/gateway-aggregation.md): Aggregation of multiple requests into a single request, to reduce chattiness between the client and the backend.
 
-Ingress can be implemented with a number of different technologies. Probably the most common implementation is to deploy an edge router or reverse proxy, such as Nginx, HAProxy, or Traefik, inside the cluster. A reverse proxy server is a potential bottleneck or single point of failure, so always deploy at least two replicas for high availability.
+- [Gateway Offloading](../../patterns/gateway-offloading.md). A gateway can offload functionality from the backend services, such as SSL termination, authentication, IP whitelisting, or client rate limiting (throttling).
 
-You also need an **Ingress controller**, which provides the underlying implementation of the Ingress. There are ingress controllers for Nginx, HAProxy, Traefik, and Application Gateway, among others.
+API gateways are a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). They can be implemented using a number of different technologies. Probably the most common implementation is to deploy an edge router or reverse proxy, such as Nginx, HAProxy, or Traefik, inside the cluster. A reverse proxy server is a potential bottleneck or single point of failure, so always deploy at least two replicas for high availability.
 
-The Ingress controller handles configuring the proxy server. Often these require complex configuration files, which can be hard to tune if you aren't an expert, so the ingress controller is a nice abstraction. In addition, the Ingress controller has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
+For AKS, you can also use Azure Application Gateway, using the [Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/). This option requires [CNI networking](https://docs.microsoft.com/azure/aks/configure-azure-cni) to be enabled when you configure the AKS cluster, because Application Gateway is deployed into a subnet of the AKS virtual network. For more information about load-balancing services in Azure, see [Overview of load-balancing options in Azure](../../guide/technology-choices/load-balancing-overview.md).
+
+The Kubernetes **Ingress** resource type abstracts the configuration settings for a proxy server. It works in conjunction with an ingress controller, which provides the underlying implementation of the Ingress. There are ingress controllers for Nginx, HAProxy, Traefik, and Application Gateway, among others.
+
+The ingress controller handles configuring the proxy server. Often these require complex configuration files, which can be hard to tune if you aren't an expert, so the ingress controller is a nice abstraction. In addition, the Ingress Controller has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
 
 On the other hand, if you need complete control over the settings, you may want to bypass this abstraction and configure the proxy server manually.
 
-> For AKS, you can also use Azure Application Gateway, using the [Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/). This option requires [CNI networking](https://docs.microsoft.com/azure/aks/configure-azure-cni) to be enabled when you configure the AKS cluster, because Application Gateway is deployed into a subnet of the AKS virtual network. For more information about load-balancing services in Azure, see [Overview of load-balancing options in Azure](../../guide/technology-choices/load-balancing-overview.md).
+### Data storage
 
-## Namespaces
+In a microservices architecture, services should not share data storage. Each service should own its own private data in a separate logical storage, to avoid hidden dependencies among services. The reason is to avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements. For more information, see [Designing microservices: Data considerations](../../microservices/design/data-considerations.md).
+
+Avoid storing persistent data in local cluster storage, because that ties the data to the node. Instead,
+
+- Use an external service such as Azure SQL Database or Cosmos DB, *or*
+
+- Mount a persistent volume using Azure Disks or Azure Files. Use Azure Files if the same volume needs to be shared by multiple pods.
+
+### Namespaces
 
 Use namespaces to organize services within the cluster. Every object in a Kubernetes cluster belongs to a namespace. By default, when you create a new object, it goes into the `default` namespace. But it's a good practice to create namespaces that are more descriptive to help organize the resources in the cluster.
 
@@ -120,7 +113,7 @@ For a microservices architecture, considering organizing the microservices into 
 
 Place utility services into their own separate namespace. For example, you might deploy Elasticsearch or Prometheus for cluster monitoring, or Tiller for Helm.
 
-## Autoscaling
+## Scalability considerations
 
 Kubernetes supports scale-out at two levels:
 
@@ -146,7 +139,9 @@ Whereas HPA looks at actual resources consumed or other metrics from running pod
 
 You can't change the VM size after you create the cluster, so you should do some initial capacity planning to choose an appropriate VM size for the agent nodes when you create the cluster.
 
-## Health probes
+## Availability considerations
+
+### Health probes
 
 Kubernetes defines two types of health probe that a pod can expose:
 
@@ -168,13 +163,15 @@ Here are some considerations when designing probes:
 
 - Sometimes readiness probes are used to check dependent services. For example, if a pod has a dependency on a database, the probe might check the database connection. However, this approach can create unexpected problems. An external service might be temporarily unavailable for some reason. That will cause the readiness probe to fail for all the pods in your service, causing all of them to be removed from load balancing, and thus creating cascading failures upstream. A better approach is to implement retry handling within your service, so that your service can recover correctly from transient failures.
 
-## Resource constraints
+### Resource constraints
 
 Resource contention can affect the availability of a service. Define resource constraints for containers, so that a single container cannot overwhelm the cluster resources (memory and CPU). For non-container resources, such as threads or network connections, consider using the [Bulkhead Pattern](../../patterns/bulkhead.md) to isolate resources.
 
 Use resource quotas to limit the total resources allowed for a namespace. That way, the front end can't starve the backend services for resources or vice-versa.
 
-## Role based access control (RBAC)
+## Security considerations
+
+### Role based access control (RBAC)
 
 Kubernetes and Azure both have mechanisms for role-based access control (RBAC):
 
@@ -212,7 +209,7 @@ It's a good practice to scope Kubernetes RBAC permissions by namespace, using Ro
 
 Finally, there is the question of what permissions the AKS cluster has to create and manage Azure resources, such as load balancers, networking, or storage. To authenticate itself with Azure APIs, the cluster uses an Azure AD service principal. If you don't specify a service principal when you create the cluster, one is created automatically. However, it's a good security practice to create the service principal first and assign the minimal RBAC permissions to it. For more information, see [Service principals with Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/kubernetes-service-principal).
 
-## Secrets management and application credentials
+### Secrets management and application credentials
 
 Applications and services often need credentials that allow them to connect to external services such as Azure Storage or SQL Database. The challenge is to keep these credentials safe and not leak them.
 
@@ -238,7 +235,7 @@ Using a system like HashiCorp Vault or Azure Key Vault provides several advantag
 - Access control of secrets.
 - Auditing
 
-## Pod and container security
+### Pod and container security
 
 This list is certainly not exhaustive, but here are some recommended practices for securing your pods and containers:
 
@@ -285,9 +282,13 @@ You are charged only for the number of configured load-balancing and outbound ru
 See [Azure Load Balancer Pricing][az-lb-pricing] for more information.
 
 
+### Azure Application Gateway
+
+In this reference architecture,  Azure Application Gateway is used as the **Ingress** resource.  The gateway routes traffic to services inside the cluster. You are charged for the time that the gateway is provisioned and available and the amount of data processed by the gateway. For more information, see [Application Gateway pricing][AppGatewayPricing].
+
 ### Azure DevOps Services
 
-This reference architecture only uses Azure Pipelines. Azure offers the Azure Pipeline as an individual Service. You are allowed a free Microsoft-hosted job with 1,800 minutes per month for CI/CD and 1 self-hosted job with unlimited minutes per month, extra jobs have charges. For more information, [see Azure DevOps Services Pricing](https://azure.microsoft.com/pricing/details/devops/azure-devops-services).
+This reference architecture only uses Azure Pipelines. Azure offers the Azure Pipeline as an individual Service. You are allowed a free Microsoft-hosted job with 1,800 minutes per month for CI/CD and 1 self-hosted job with unlimited minutes per month, extra jobs have charges. For more information, see [Azure DevOps Services Pricing][DevOps-pricing].
 
 ### Azure Monitor
 
