@@ -15,6 +15,9 @@ ms.subservice: reference-architecture
 
 As technology builders, your work is global. It has the power to shape society and profoundly impact the planet. Responsible innovation means taking care of the future through collective stewardship of research and innovation in the present. In the process of designing and building your technologies, it is essential to evaluate not only ideal outcomes, but possible negative ones as well. By assessing potential harms, you can identify gaps in products that could put people at risk, and ultimately create mitigation strategies.
 
+![Stakeholder process table](../images/stakeholder-process-table.png)
+*Download in [Microsoft Word](../images/stakeholder-process-table.docx)*
+
 ## Foundations of assessing harm
 
 Microsoft has made a commitment to building principled technology and helping the community to do the same. Collectively, we have the ability to create trustworthy systems that augment human ingenuity, and are built on foundational freedoms, core to human rights.
@@ -76,7 +79,10 @@ This category is comprised of those frequently considered a minority, vulnerable
 
 Once you have defined the technology purpose, use cases, and stakeholders, conduct a Harms Modeling exercise to evaluate potential ways that use of a technology you are building could result in negative outcomes for people and society. 
 
-TBD: Insert the Visio here. 
+![Harms modeling overview](../images/harms-modeling.png)
+*Download in [Microsoft Word](../images/harms-modeling.docx)*
+
+The diagram above is an example of a Harms evaluation. This is a qualitative approach used as part of an engagement to identify general risk areas.
 
 You can complete this ideation activity individually, but ideally it is conducted as collaboration between developers, data scientists, designers, user researcher, business decision-makers, and other disciplines that are involved in building the technology. 
   
