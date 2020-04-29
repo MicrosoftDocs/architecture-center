@@ -90,4 +90,4 @@ Use the categories, questions, and examples described in the [Types of harm](./r
 
 ## Next Steps
 
-Read [Types of harm](./risk-of-injury.md) for further harms analysis.
+Read [Types of harm](./type-of-harm.md) for further harms analysis.
