@@ -2,24 +2,16 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>the Azure Architecture Center</title>
-    <updated>2020-04-29T17:13:19.871Z</updated>
+    <updated>2020-04-29T22:04:08.199Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for the Azure Architecture Center</subtitle>
     <category term="new"/>
     <category term="updated"/>
     <entry>
-        <title type="html"><![CDATA[Computer forensics Chain of Custody in Azure]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/example-scenario/forensics/computer-forensics</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/forensics/computer-forensics"/>
-        <updated>2020-04-28T20:17:49.000Z</updated>
-        <summary type="html"><![CDATA[Create an infrastructure and workflow to ensure a valid digital evidence Chain of Custody (CoC) for computer forensics in Azure.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Chaos engineering]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/chaos-engineering</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/chaos-engineering"/>
-        <updated>2020-04-27T17:10:31.000Z</updated>
+        <updated>2020-04-24T22:49:47.000Z</updated>
         <summary type="html"><![CDATA[Chaos engineering fundamentals for improving reliability of a service built on Azure]]></summary>
         <category label="new" term="new"/>
     </entry>
@@ -27,7 +19,7 @@
         <title type="html"><![CDATA[Azure for GCP professionals]]></title>
         <id>https://docs.microsoft.com/azure/architecture/gcp-professional</id>
         <link href="https://docs.microsoft.com/azure/architecture/gcp-professional"/>
-        <updated>2020-04-27T17:10:31.000Z</updated>
+        <updated>2020-04-24T20:14:46.000Z</updated>
         <summary type="html"><![CDATA[Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the GCP and Azure platforms. Take advantage of your GCP experience in Azure.]]></summary>
         <category label="new" term="new"/>
     </entry>
@@ -35,7 +27,7 @@
         <title type="html"><![CDATA[GCP to Azure Services Comparison]]></title>
         <id>https://docs.microsoft.com/azure/architecture/gcp-professional/services</id>
         <link href="https://docs.microsoft.com/azure/architecture/gcp-professional/services"/>
-        <updated>2020-04-27T17:10:31.000Z</updated>
+        <updated>2020-04-24T20:14:46.000Z</updated>
         <summary type="html"><![CDATA[Understand the differences between specific GCP and Azure services.]]></summary>
         <category label="new" term="new"/>
     </entry>
@@ -146,7 +138,7 @@
         <title type="html"><![CDATA[Overview of the resiliency pillar]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/overview</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/overview"/>
-        <updated>2020-04-28T20:17:49.000Z</updated>
+        <updated>2020-04-27T20:48:15.000Z</updated>
         <summary type="html"><![CDATA[Describes the resiliency pillar]]></summary>
         <category label="updated" term="updated"/>
     </entry>
@@ -358,27 +350,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Message encoding considerations]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/best-practices/message-encode</id>
-        <link href="https://docs.microsoft.com/azure/architecture/best-practices/message-encode"/>
-        <updated>2020-03-31T22:16:59.000Z</updated>
-        <summary type="html"><![CDATA[How to choose an encoding format for asynchronous messaging.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[CI/CD for a serverless Azure frontend]]></title>
         <id>https://docs.microsoft.com/azure/architecture/serverless/guide/serverless-app-cicd-best-practices</id>
         <link href="https://docs.microsoft.com/azure/architecture/serverless/guide/serverless-app-cicd-best-practices"/>
         <updated>2020-03-31T22:16:59.000Z</updated>
         <summary type="html"><![CDATA[Learn best practices for a robust CI/CD pipeline for your serverless frontend on Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Secure your IoT SaaS app with the Microsoft identity platform]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/example-scenario/iot-aad/iot-aad</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/iot-aad/iot-aad"/>
-        <updated>2020-03-28T00:27:41.000Z</updated>
-        <summary type="html"><![CDATA[How a developer can use Azure Active Directory and the Microsoft identity platform to implement secure authentication and authorization for SaaS apps that manage cloud-connected IoT devices.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
