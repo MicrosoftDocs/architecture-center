@@ -7,8 +7,6 @@ ms.topic: reference-architecture
 ms.service: architecture-center
 ms.category:
   - containers
-  - developer-tools
-  - featured
 ms.subservice: reference-architecture
 ms.custom: microservices
 ---
@@ -88,7 +86,7 @@ The following diagram shows the conceptual relation between services and pods. T
 
 ## Ingress
 
-In Kubernetes, both the **Ingress** and **Ingress controller** implement the API gateway pattern. Together, they do these tasks:
+In Kubernetes, the **Ingress controller** might implement the API gateway pattern. In that case, **Ingress** and **Ingress controller** work in conjuction to provide these features:
 
 - Route client requests to the right backend services. This provides a single endpoint for clients, and helps to decouple clients from services.
 
@@ -98,7 +96,7 @@ In Kubernetes, both the **Ingress** and **Ingress controller** implement the API
 
 Ingress abstracts the configuration settings for a proxy server. You also need an Ingress controller, which provides the underlying implementation of the Ingress. There are Ingress controllers for Nginx, HAProxy, Traefik, and Azure Application Gateway, among others.
 
-The Ingress resource can be fulfilled with a number of different technologies. Probably the most common implementation is to deploy an Ingress controller inside the cluster. It operates as the edge router or reverse proxy. A reverse proxy server is a potential bottleneck or single point of failure, so always deploy at least two replicas for high availability.
+The Ingress resource can be fulfilled by different technologies. To work together, they need to be deployed as the Ingress controller inside the cluster. It operates as the edge router or reverse proxy. A reverse proxy server is a potential bottleneck or single point of failure, so always deploy at least two replicas for high availability.
 
 Often, configuring the proxy server requires complex files, which can be hard to tune if you aren't an expert. So, the Ingress controller provides a nice abstraction. The Ingress controller also has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
 
