@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/interactive-
 
 # Interactive querying with HDInsight
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Perform fast, interactive SQL queries at scale over structured or unstructured data with Apache Hive LLAP.
 

@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/cross-platfo
 
 # Cross-platform Chat
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Accelerate development of reliable, high-performing chat applications.
 

@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/information-
 
 # Information Chatbot
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This Informational Bot can answer questions defined in a knowledge set or FAQ using Cognitive Services QnA Maker and answer more open-ended questions using Azure Cognitive Search.
 

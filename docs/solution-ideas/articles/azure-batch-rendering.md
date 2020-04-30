@@ -16,7 +16,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/azure-batch-
 
 # Media Rendering – HPC Solution Architecture
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This HPC media rendering solution architecture shows Azure CycleCloud monitoring a Pixar Tractor pipeline manager and orchestrating burst compute node capacity on-demand using Azure low-priority Virtual Machines Scale Sets. An Avere vFXT cache makes data from the existing on-premises filesystem and Azure Blob storage available to compute nodes in Azure.
 

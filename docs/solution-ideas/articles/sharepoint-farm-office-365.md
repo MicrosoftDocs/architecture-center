@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/sharepoint-f
 
 # Hybrid SharePoint Farm with Office 365
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This solution provides a highly available deployment of SharePoint using a load balanced Azure Active Directory (Azure AD), highly available SQL always on instance, and highly available SharePoint resources. It addresses the need to deliver highly available intranet capability using the latest and greatest supported platforms.
 

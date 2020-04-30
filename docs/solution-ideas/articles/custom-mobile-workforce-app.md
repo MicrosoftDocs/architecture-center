@@ -16,7 +16,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/custom-mobil
 
 # Custom Mobile Workforce App
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This mobile workforce app architecture uses Active Directory to secure corporate data from an SAP back end system, delivered to devices via Azure App Service API Management.
 

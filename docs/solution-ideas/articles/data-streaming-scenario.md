@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/data-streami
 
 # Data Streaming scenario
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Use AKS to easily ingest & process a real-time data stream with millions of data points collected via sensors. Perform fast analysis and computations to develop insights into complex scenarios quickly.
 

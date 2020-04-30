@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/modern-data-
 
 # Modern Data Warehouse Architecture
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 A modern data warehouse lets you bring together all your data at any scale easily, and to get insights through analytical dashboards, operational reports, or advanced analytics for all your users.
 

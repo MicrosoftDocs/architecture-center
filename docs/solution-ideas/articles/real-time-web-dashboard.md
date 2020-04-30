@@ -16,7 +16,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/real-time-we
 
 # Real-time Web Dashboard
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Securely monitor and control data streamed from Internet-connected devices.
 

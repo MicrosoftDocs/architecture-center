@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/serverless-a
 
 # Serverless apps using Cosmos DB
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Use Azure Functions and Azure Cosmos DB to build globally distributed, scalable serverless applications.
 

@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/predictive-m
 
 # Predictive Marketing with Machine Learning
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Marketing campaigns are about more than the message being delivered; when and how that message is delivered is just as important. Without a data-driven, analytical approach, campaigns can easily miss opportunities or struggle to gain traction.
 

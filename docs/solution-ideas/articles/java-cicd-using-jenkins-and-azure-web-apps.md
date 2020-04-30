@@ -16,7 +16,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/java-cicd-us
 
 # Java CI/CD using Jenkins and Azure Web Apps
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Azure App Service is a fast and simple way to create web apps using Java, Node, PHP or ASP.NET, as well as support for custom language runtimes using Docker. A continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Azure app services allows you to deliver value faster to your customers.
 

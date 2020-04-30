@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/forecast-ene
 
 # Forecast Energy and Power Demand
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Learn how Microsoft Azure can help accurately forecast spikes in demand for energy products and services to give your company a competitive advantage.
 
