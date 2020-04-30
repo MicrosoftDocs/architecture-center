@@ -423,7 +423,7 @@ Use the Harms Model you developed to guide your product development work:
  
 Additional references:
 
-- [Responsible AI resource center](../index.md)
+- [Responsible AI resource center](https://www.microsoft.com/ai/responsible-ai-resources?activetab=pivot1%3aprimaryr4)
 - [Value Sensitive Design](https://vsdesign.org/)
 - [Assessing Harms booklet](downloadable)
 
