@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/iot-with-aks
 
 # IoT device deployment and management on demand
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 IoT scenarios can potentially involve hundreds to thousands of IoT devices. AKS provides scalable compute resources on demand for IoT solutions, running in the cloud or on-premises.
 

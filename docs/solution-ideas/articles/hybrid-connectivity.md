@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/hybrid-conne
 
 # Hybrid Connection
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Azure Stack enables you to deploy Azure services on-premises or in the cloud with a consistent application logic, development paradigm, and operations methodology.
 

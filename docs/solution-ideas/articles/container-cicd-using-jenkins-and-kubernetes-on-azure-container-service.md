@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/container-ci
 
 # Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Containers make it easy for you to continuously build and deploy applications. By orchestrating the deployment of those containers using Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
 

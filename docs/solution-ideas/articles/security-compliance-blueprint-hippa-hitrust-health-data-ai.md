@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/security-com
 
 # HIPPA and HITRUST compliant health data AI
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 ## Architecture
 

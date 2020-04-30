@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/retail-and-e
 
 # Retail and e-commerce using Cosmos DB
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Support in-depth queries over diverse product catalogs, traffic spikes, and rapidly changing inventory.
 

@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/faq-chatbot-
 
 # FAQ Chatbot with data champion model
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 The QnA Maker tool makes it easy for the content owners to maintain their knowledge base of Questions and Answers. Combined with Bot Service and Language Understanding, it becomes simple to setup a FAQ chatbot which responds from different knowledge bases depending on the intent of the query.
 

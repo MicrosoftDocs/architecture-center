@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/dev-test-iaa
 
 # Dev-Test deployment for testing IaaS solutions
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This architecture represents how to configure your infrastructure for development and testing of a standard IaaS-based SaaS system.
 

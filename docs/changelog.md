@@ -2,7 +2,7 @@
 title: What's New in the Azure Architecture Center
 description: New and updated articles in the Azure Architecture Center
 author: adamboeglin
-ms.date: 04/29/2020
+ms.date: 04/30/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: meta

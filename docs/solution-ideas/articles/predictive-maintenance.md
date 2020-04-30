@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/predictive-m
 
 # Predictive Maintenance
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This Predictive Maintenance solution monitors aircraft and predicts the remaining useful life of aircraft engine components.
 

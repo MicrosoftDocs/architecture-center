@@ -17,7 +17,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/interactive-
 
 # Interactive Price Analytics
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 The Price Analytics solution uses your transactional history data to show you how the demand for your products responds to the prices you offer, to recommend pricing changes, and allow you to simulate how changes in price would affect your demand, at a fine granularity.
 

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>the Azure Architecture Center</title>
-    <updated>2020-04-29T22:04:08.199Z</updated>
+    <updated>2020-04-30T15:56:14.871Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for the Azure Architecture Center</subtitle>
     <category term="new"/>
@@ -10,7 +10,7 @@
     <entry>
         <title type="html"><![CDATA[Chaos engineering]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/chaos-engineering</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/chaos-engineering"/>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/chaos-engineering?referrer=atom"/>
         <updated>2020-04-24T22:49:47.000Z</updated>
         <summary type="html"><![CDATA[Chaos engineering fundamentals for improving reliability of a service built on Azure]]></summary>
         <category label="new" term="new"/>
@@ -18,7 +18,7 @@
     <entry>
         <title type="html"><![CDATA[Azure for GCP professionals]]></title>
         <id>https://docs.microsoft.com/azure/architecture/gcp-professional</id>
-        <link href="https://docs.microsoft.com/azure/architecture/gcp-professional"/>
+        <link href="https://docs.microsoft.com/azure/architecture/gcp-professional?referrer=atom"/>
         <updated>2020-04-24T20:14:46.000Z</updated>
         <summary type="html"><![CDATA[Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the GCP and Azure platforms. Take advantage of your GCP experience in Azure.]]></summary>
         <category label="new" term="new"/>
@@ -26,7 +26,7 @@
     <entry>
         <title type="html"><![CDATA[GCP to Azure Services Comparison]]></title>
         <id>https://docs.microsoft.com/azure/architecture/gcp-professional/services</id>
-        <link href="https://docs.microsoft.com/azure/architecture/gcp-professional/services"/>
+        <link href="https://docs.microsoft.com/azure/architecture/gcp-professional/services?referrer=atom"/>
         <updated>2020-04-24T20:14:46.000Z</updated>
         <summary type="html"><![CDATA[Understand the differences between specific GCP and Azure services.]]></summary>
         <category label="new" term="new"/>
@@ -34,7 +34,7 @@
     <entry>
         <title type="html"><![CDATA[Security considerations for highly sensitive IaaS apps in Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/high-security-iaas</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/high-security-iaas"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/high-security-iaas?referrer=atom"/>
         <updated>2020-04-21T20:03:03.000Z</updated>
         <summary type="html"><![CDATA[Learn about VM security, encryption, NSGs, DMZs, access control, and other security considerations for highly sensitive IaaS and hybrid apps.]]></summary>
         <category label="new" term="new"/>
@@ -42,14 +42,14 @@
     <entry>
         <title type="html"><![CDATA[Artificial intelligence (AI)]]></title>
         <id>https://docs.microsoft.com/azure/architecture/data-guide/big-data/ai-overview</id>
-        <link href="https://docs.microsoft.com/azure/architecture/data-guide/big-data/ai-overview"/>
+        <link href="https://docs.microsoft.com/azure/architecture/data-guide/big-data/ai-overview?referrer=atom"/>
         <updated>2020-04-15T23:48:32.000Z</updated>
         <category label="new" term="new"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Threat indicators for cyber threat intelligence in Azure Sentinel]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/data/sentinel-threat-intelligence</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/data/sentinel-threat-intelligence"/>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/data/sentinel-threat-intelligence?referrer=atom"/>
         <updated>2020-04-14T14:42:32.000Z</updated>
         <summary type="html"><![CDATA[Import threat indicators, view logs, create rules to generate security alerts and incidents, and visualize threat intelligence data with Azure Sentinel.]]></summary>
         <category label="new" term="new"/>
@@ -57,7 +57,7 @@
     <entry>
         <title type="html"><![CDATA[Auditing, risk, and compliance management]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/auditing-and-risk-compliance</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/auditing-and-risk-compliance"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/auditing-and-risk-compliance?referrer=atom"/>
         <updated>2020-04-10T19:47:57.000Z</updated>
         <summary type="html"><![CDATA[Developers could use knowledge mining to help attorneys quickly identify entities of importance from discovery documents and flag important ideas across documents]]></summary>
         <category label="new" term="new"/>
@@ -65,7 +65,7 @@
     <entry>
         <title type="html"><![CDATA[Business Process Management]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/business-process-management</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/business-process-management"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/business-process-management?referrer=atom"/>
         <updated>2020-04-10T19:47:57.000Z</updated>
         <summary type="html"><![CDATA[In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes]]></summary>
         <category label="new" term="new"/>
@@ -73,7 +73,7 @@
     <entry>
         <title type="html"><![CDATA[Content Research]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/content-research</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/content-research"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/content-research?referrer=atom"/>
         <updated>2020-04-10T19:47:57.000Z</updated>
         <summary type="html"><![CDATA[Knowledge mining with a search index makes it easy for customers and employees to locate what they are looking for faster.]]></summary>
         <category label="new" term="new"/>
@@ -81,7 +81,7 @@
     <entry>
         <title type="html"><![CDATA[Contract Management]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/contract-management</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/contract-management"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/contract-management?referrer=atom"/>
         <updated>2020-04-10T19:47:57.000Z</updated>
         <summary type="html"><![CDATA[Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid.]]></summary>
         <category label="new" term="new"/>
@@ -89,7 +89,7 @@
     <entry>
         <title type="html"><![CDATA[Customer Feedback and Analytics]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/customer-feedback-and-analytics</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/customer-feedback-and-analytics"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/customer-feedback-and-analytics?referrer=atom"/>
         <updated>2020-04-10T19:47:57.000Z</updated>
         <summary type="html"><![CDATA[Knowledge mining can help customer support teams quickly find the right answer for a customer inquiry or assess customer sentiment at scale.]]></summary>
         <category label="new" term="new"/>
@@ -97,7 +97,7 @@
     <entry>
         <title type="html"><![CDATA[DevOps in a hybrid environment]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment?referrer=atom"/>
         <updated>2020-04-10T19:47:57.000Z</updated>
         <summary type="html"><![CDATA[The tools provided in Azure allow for the implementation of a DevOps strategy that capably manages both cloud and on-premises environments in tandem.]]></summary>
         <category label="new" term="new"/>
@@ -105,7 +105,7 @@
     <entry>
         <title type="html"><![CDATA[DevSecOps in Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/devsecops-in-azure</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/devsecops-in-azure"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/devsecops-in-azure?referrer=atom"/>
         <updated>2020-04-10T19:47:57.000Z</updated>
         <summary type="html"><![CDATA[DevSecOps involves utilizing security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning]]></summary>
         <category label="new" term="new"/>
@@ -113,7 +113,7 @@
     <entry>
         <title type="html"><![CDATA[Digital Asset Management]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-asset-management</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-asset-management"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-asset-management?referrer=atom"/>
         <updated>2020-04-10T19:47:57.000Z</updated>
         <summary type="html"><![CDATA[Knowledge mining through a search index makes it easy for end customers and employees to locate what they are looking for faster.]]></summary>
         <category label="new" term="new"/>
@@ -121,7 +121,7 @@
     <entry>
         <title type="html"><![CDATA[Building solutions for high availability using Availability Zones]]></title>
         <id>https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability</id>
-        <link href="https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability"/>
+        <link href="https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability?referrer=atom"/>
         <updated>2020-04-10T17:50:01.000Z</updated>
         <summary type="html"><![CDATA[The Azure Availability Zones construct was developed to provide a software and networking solution to protect against datacenter failures and to provide increased high availability (HA) to our customers.]]></summary>
         <category label="new" term="new"/>
@@ -129,7 +129,7 @@
     <entry>
         <title type="html"><![CDATA[High availability and disaster recovery scenarios for IaaS apps.]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery"/>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery?referrer=atom"/>
         <updated>2020-04-07T20:56:43.000Z</updated>
         <summary type="html"><![CDATA[Choose among high-availability and disaster recovery options like availability sets, availability zones, and regional DR for deploying IaaS apps to the cloud.]]></summary>
         <category label="new" term="new"/>
@@ -137,7 +137,7 @@
     <entry>
         <title type="html"><![CDATA[Overview of the resiliency pillar]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/overview</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/overview"/>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/overview?referrer=atom"/>
         <updated>2020-04-27T20:48:15.000Z</updated>
         <summary type="html"><![CDATA[Describes the resiliency pillar]]></summary>
         <category label="updated" term="updated"/>
@@ -145,7 +145,7 @@
     <entry>
         <title type="html"><![CDATA[Error handling for resilient applications in Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling"/>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling?referrer=atom"/>
         <updated>2020-04-22T00:37:12.000Z</updated>
         <summary type="html"><![CDATA[Best practices for handling errors in a resilient way]]></summary>
         <category label="updated" term="updated"/>
@@ -153,7 +153,7 @@
     <entry>
         <title type="html"><![CDATA[Build a CI/CD pipeline for chatbots with ARM templates]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-cicd-chatbot</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-cicd-chatbot"/>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-cicd-chatbot?referrer=atom"/>
         <updated>2020-04-20T04:22:31.000Z</updated>
         <summary type="html"><![CDATA[Use Azure Pipelines with ARM templates to set up a CI/CD pipeline to Azure App Service and Azure Bot Service for a chatbot app.]]></summary>
         <category label="updated" term="updated"/>
@@ -161,7 +161,7 @@
     <entry>
         <title type="html"><![CDATA[Controlling IoT devices using a Voice Assistant]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-devices</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-devices"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-devices?referrer=atom"/>
         <updated>2020-04-13T17:49:41.000Z</updated>
         <summary type="html"><![CDATA[Create seamless conversational interfaces with all of your internet-accessible devices—from your connected television or fridge to devices in a connected power plant. By combining Azure Speech Service, Language Understanding Service (LUIS) and Azure Bot Framework, developers can create natural, human-like conversational interfaces to control smart devices.]]></summary>
         <category label="updated" term="updated"/>
@@ -169,7 +169,7 @@
     <entry>
         <title type="html"><![CDATA[IoT using Cosmos DB]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-using-cosmos-db</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-using-cosmos-db"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-using-cosmos-db?referrer=atom"/>
         <updated>2020-04-13T17:49:41.000Z</updated>
         <summary type="html"><![CDATA[Scale instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.]]></summary>
         <category label="updated" term="updated"/>
@@ -177,7 +177,7 @@
     <entry>
         <title type="html"><![CDATA[AWS to Azure services comparison]]></title>
         <id>https://docs.microsoft.com/azure/architecture/aws-professional/services</id>
-        <link href="https://docs.microsoft.com/azure/architecture/aws-professional/services"/>
+        <link href="https://docs.microsoft.com/azure/architecture/aws-professional/services?referrer=atom"/>
         <updated>2020-04-09T21:24:16.000Z</updated>
         <summary type="html"><![CDATA[Compare Azure cloud services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.]]></summary>
         <category label="updated" term="updated"/>
@@ -185,14 +185,14 @@
     <entry>
         <title type="html"><![CDATA[Data Management]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/data-management</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/data-management"/>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/data-management?referrer=atom"/>
         <updated>2020-04-09T20:44:40.000Z</updated>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[CI/CD for Azure Web Apps]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps?referrer=atom"/>
         <updated>2020-04-03T22:56:12.000Z</updated>
         <summary type="html"><![CDATA[Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, Node.js, or PHP. Deliver value faster to your customers with a continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Web Apps.]]></summary>
         <category label="updated" term="updated"/>
@@ -200,7 +200,7 @@
     <entry>
         <title type="html"><![CDATA[Campaign Optimization with Azure HDInsight Spark Clusters]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters?referrer=atom"/>
         <updated>2020-04-03T22:56:12.000Z</updated>
         <summary type="html"><![CDATA[This solution demonstrates how to build and deploy a machine learning model with Microsoft R Server on Azure HDInsight Spark clusters to recommend actions to maximize the purchase rate of leads targeted by a campaign. This solution enables efficient handling of big data on Spark with Microsoft R Server.]]></summary>
         <category label="updated" term="updated"/>
@@ -208,7 +208,7 @@
     <entry>
         <title type="html"><![CDATA[CI/CD for Azure VMs]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cicd-for-azure-vms</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cicd-for-azure-vms"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cicd-for-azure-vms?referrer=atom"/>
         <updated>2020-04-03T22:56:12.000Z</updated>
         <summary type="html"><![CDATA[Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, you'll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.]]></summary>
         <category label="updated" term="updated"/>
@@ -216,7 +216,7 @@
     <entry>
         <title type="html"><![CDATA[Custom Mobile Workforce App]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/custom-mobile-workforce-app</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/custom-mobile-workforce-app"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/custom-mobile-workforce-app?referrer=atom"/>
         <updated>2020-04-03T22:56:12.000Z</updated>
         <summary type="html"><![CDATA[Learn how the custom mobile workforce management app architecture is built and implemented with a step-by-step diagram that illustrates the integration of Active Directory, SAP, and Azure App Service.]]></summary>
         <category label="updated" term="updated"/>
@@ -224,7 +224,7 @@
     <entry>
         <title type="html"><![CDATA[DevTest Image Factory]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/dev-test-image-factory</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/dev-test-image-factory"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/dev-test-image-factory?referrer=atom"/>
         <updated>2020-04-03T22:56:12.000Z</updated>
         <summary type="html"><![CDATA[Create, maintain, and distribute custom images with the DevTest Image Factory, an automated image development and management solution from Azure DevTest Labs.]]></summary>
         <category label="updated" term="updated"/>
@@ -232,7 +232,7 @@
     <entry>
         <title type="html"><![CDATA[Dev-Test deployment for testing PaaS solutions]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/dev-test-paas</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/dev-test-paas"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/dev-test-paas?referrer=atom"/>
         <updated>2020-04-03T22:56:12.000Z</updated>
         <summary type="html"><![CDATA[This architecture represents how to configure your infrastructure for development and testing of a standard PaaS-style system.]]></summary>
         <category label="updated" term="updated"/>
@@ -240,7 +240,7 @@
     <entry>
         <title type="html"><![CDATA[HPC Risk Analysis Template – Solution Architecture]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/hpc-risk-analysis</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/hpc-risk-analysis"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/hpc-risk-analysis?referrer=atom"/>
         <updated>2020-04-03T22:56:12.000Z</updated>
         <summary type="html"><![CDATA[Build an HPC risk analysis solution architecture with a step-by-step flowchart from Microsoft Azure that combines CycleCloud, Avere vFXT and Tibco Gridserver.]]></summary>
         <category label="updated" term="updated"/>
@@ -248,7 +248,7 @@
     <entry>
         <title type="html"><![CDATA[Java CI/CD using Jenkins and Azure Web Apps]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps?referrer=atom"/>
         <updated>2020-04-03T22:56:12.000Z</updated>
         <summary type="html"><![CDATA[Azure App Service is a fast and simple way to create web apps using Java, Node, PHP or ASP.NET, as well as support for custom language runtimes using Docker. A continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Azure app services allows you to deliver value faster to your customers.]]></summary>
         <category label="updated" term="updated"/>
@@ -256,7 +256,7 @@
     <entry>
         <title type="html"><![CDATA[Real-time Web Dashboard]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/real-time-web-dashboard</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/real-time-web-dashboard"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/real-time-web-dashboard?referrer=atom"/>
         <updated>2020-04-03T22:56:12.000Z</updated>
         <summary type="html"><![CDATA[Securely monitor and control data streamed from Internet-connected devices]]></summary>
         <category label="updated" term="updated"/>
@@ -264,7 +264,7 @@
     <entry>
         <title type="html"><![CDATA[Telemetry Analytics]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/telemetry-analytics</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/telemetry-analytics"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/telemetry-analytics?referrer=atom"/>
         <updated>2020-04-03T22:56:12.000Z</updated>
         <summary type="html"><![CDATA[Car dealerships, automobile manufacturers and insurance companies can use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits.]]></summary>
         <category label="updated" term="updated"/>
@@ -272,7 +272,7 @@
     <entry>
         <title type="html"><![CDATA[Modernize enterprise applications - Azure Service Fabric]]></title>
         <id>https://docs.microsoft.com/azure/architecture/service-fabric/modernize-app-azure-service-fabric</id>
-        <link href="https://docs.microsoft.com/azure/architecture/service-fabric/modernize-app-azure-service-fabric"/>
+        <link href="https://docs.microsoft.com/azure/architecture/service-fabric/modernize-app-azure-service-fabric?referrer=atom"/>
         <updated>2020-04-01T19:12:57.000Z</updated>
         <summary type="html"><![CDATA[Best practices about moving Windows applications to an Azure compute platform without rewriting. This migration uses container support in Azure Service Fabric.]]></summary>
         <category label="updated" term="updated"/>
@@ -280,7 +280,7 @@
     <entry>
         <title type="html"><![CDATA[Multicloud solutions with the Serverless Framework]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/serverless/serverless-multicloud</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/serverless/serverless-multicloud"/>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/serverless/serverless-multicloud?referrer=atom"/>
         <updated>2020-03-31T19:05:20.000Z</updated>
         <summary type="html"><![CDATA[Develop and deploy serverless microservices across cloud providers with the open-source Serverless Framework and Serverless Multicloud Library.]]></summary>
         <category label="new" term="new"/>
@@ -288,7 +288,7 @@
     <entry>
         <title type="html"><![CDATA[Build a CI/CD pipeline for chatbots with ARM templates]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-cicd-chatbot</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-cicd-chatbot"/>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-cicd-chatbot?referrer=atom"/>
         <updated>2020-03-26T18:44:53.000Z</updated>
         <summary type="html"><![CDATA[Use Azure Pipelines with ARM templates to set up a CI/CD pipeline to Azure App Service and Azure Bot Service for a chatbot app.]]></summary>
         <category label="new" term="new"/>
@@ -296,7 +296,7 @@
     <entry>
         <title type="html"><![CDATA[Message encoding considerations]]></title>
         <id>https://docs.microsoft.com/azure/architecture/best-practices/message-encode</id>
-        <link href="https://docs.microsoft.com/azure/architecture/best-practices/message-encode"/>
+        <link href="https://docs.microsoft.com/azure/architecture/best-practices/message-encode?referrer=atom"/>
         <updated>2020-03-25T23:32:48.000Z</updated>
         <summary type="html"><![CDATA[How to choose an encoding format for asynchronous messaging.]]></summary>
         <category label="new" term="new"/>
@@ -304,7 +304,7 @@
     <entry>
         <title type="html"><![CDATA[Speech-to-text conversion]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/ai/speech-ai-ingestion</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/ai/speech-ai-ingestion"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/ai/speech-ai-ingestion?referrer=atom"/>
         <updated>2020-03-25T03:26:01.000Z</updated>
         <summary type="html"><![CDATA[This article describes the recommended way to upload audio files and process the speech content to text.]]></summary>
         <category label="new" term="new"/>
@@ -312,7 +312,7 @@
     <entry>
         <title type="html"><![CDATA[Geode pattern]]></title>
         <id>https://docs.microsoft.com/azure/architecture/patterns/geodes</id>
-        <link href="https://docs.microsoft.com/azure/architecture/patterns/geodes"/>
+        <link href="https://docs.microsoft.com/azure/architecture/patterns/geodes?referrer=atom"/>
         <updated>2020-03-19T15:27:39.000Z</updated>
         <summary type="html"><![CDATA[Deploy backend services into a set of geographical nodes, each of which can service any client request in any region.]]></summary>
         <category label="new" term="new"/>
@@ -320,7 +320,7 @@
     <entry>
         <title type="html"><![CDATA[Run reservoir simulation software on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/reservoir-simulation</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/reservoir-simulation"/>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/reservoir-simulation?referrer=atom"/>
         <updated>2020-03-16T21:55:00.000Z</updated>
         <summary type="html"><![CDATA[Run OPM Flow reservoir simulation software and OPM ResInsight visualization software on an Azure HPC compute cluster and visualization VM.]]></summary>
         <category label="new" term="new"/>
@@ -328,7 +328,7 @@
     <entry>
         <title type="html"><![CDATA[Plan deployment for updating Windows VMs in Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/wsus</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/wsus"/>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/wsus?referrer=atom"/>
         <updated>2020-03-09T17:43:10.000Z</updated>
         <summary type="html"><![CDATA[A discussion of how best to configure your environment for Windows Server Update Services (WSUS).]]></summary>
         <category label="new" term="new"/>
@@ -336,7 +336,7 @@
     <entry>
         <title type="html"><![CDATA[Secure your IoT SaaS app with the Microsoft identity platform]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/iot-aad/iot-aad</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/iot-aad/iot-aad"/>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/iot-aad/iot-aad?referrer=atom"/>
         <updated>2020-03-09T15:19:27.000Z</updated>
         <summary type="html"><![CDATA[How a developer can use Azure Active Directory and the Microsoft identity platform to implement secure authentication and authorization for SaaS apps that manage cloud-connected IoT devices.]]></summary>
         <category label="new" term="new"/>
@@ -344,7 +344,7 @@
     <entry>
         <title type="html"><![CDATA[Busy Database antipattern]]></title>
         <id>https://docs.microsoft.com/azure/architecture/antipatterns/busy-database</id>
-        <link href="https://docs.microsoft.com/azure/architecture/antipatterns/busy-database"/>
+        <link href="https://docs.microsoft.com/azure/architecture/antipatterns/busy-database?referrer=atom"/>
         <updated>2020-03-31T22:16:59.000Z</updated>
         <summary type="html"><![CDATA[Offloading processing to a database server can cause performance and scalability problems.]]></summary>
         <category label="updated" term="updated"/>
@@ -352,7 +352,7 @@
     <entry>
         <title type="html"><![CDATA[CI/CD for a serverless Azure frontend]]></title>
         <id>https://docs.microsoft.com/azure/architecture/serverless/guide/serverless-app-cicd-best-practices</id>
-        <link href="https://docs.microsoft.com/azure/architecture/serverless/guide/serverless-app-cicd-best-practices"/>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless/guide/serverless-app-cicd-best-practices?referrer=atom"/>
         <updated>2020-03-31T22:16:59.000Z</updated>
         <summary type="html"><![CDATA[Learn best practices for a robust CI/CD pipeline for your serverless frontend on Azure.]]></summary>
         <category label="updated" term="updated"/>
@@ -360,7 +360,7 @@
     <entry>
         <title type="html"><![CDATA[Deploy AD DS in an Azure virtual network]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain?referrer=atom"/>
         <updated>2020-03-26T21:13:11.000Z</updated>
         <summary type="html"><![CDATA[Deploy Active Directory Domain Services (AD DS) in an Azure virtual network.]]></summary>
         <category label="updated" term="updated"/>
@@ -368,7 +368,7 @@
     <entry>
         <title type="html"><![CDATA[Extend on-premises AD FS to Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adfs</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adfs"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adfs?referrer=atom"/>
         <updated>2020-03-26T21:13:11.000Z</updated>
         <summary type="html"><![CDATA[Implement a secure hybrid network architecture with Active Directory Federation Service authorization in Azure.]]></summary>
         <category label="updated" term="updated"/>
@@ -376,7 +376,7 @@
     <entry>
         <title type="html"><![CDATA[Integrate on-premises AD domains with Azure AD]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad?referrer=atom"/>
         <updated>2020-03-26T21:13:11.000Z</updated>
         <summary type="html"><![CDATA[Implement a secure hybrid network architecture using Azure Active Directory (Azure AD).]]></summary>
         <category label="updated" term="updated"/>
@@ -384,7 +384,7 @@
     <entry>
         <title type="html"><![CDATA[Automated enterprise BI]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-adf</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-adf"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-adf?referrer=atom"/>
         <updated>2020-03-26T17:32:29.000Z</updated>
         <summary type="html"><![CDATA[Automate an extract, load, and transform (ELT) workflow in Azure using Azure Data Factory with Azure Synapse Analytics.]]></summary>
         <category label="updated" term="updated"/>
@@ -392,7 +392,7 @@
     <entry>
         <title type="html"><![CDATA[Enterprise business intelligence]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-synapse</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-synapse"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-synapse?referrer=atom"/>
         <updated>2020-03-26T17:32:29.000Z</updated>
         <summary type="html"><![CDATA[Use Azure to gain business insights from relational data stored on-premises.]]></summary>
         <category label="updated" term="updated"/>
@@ -400,7 +400,7 @@
     <entry>
         <title type="html"><![CDATA[Stream processing with Azure Databricks]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/data/stream-processing-databricks</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/data/stream-processing-databricks"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/data/stream-processing-databricks?referrer=atom"/>
         <updated>2020-03-26T17:32:29.000Z</updated>
         <summary type="html"><![CDATA[Create an end-to-end stream processing pipeline in Azure using Azure Databricks.]]></summary>
         <category label="updated" term="updated"/>
@@ -408,7 +408,7 @@
     <entry>
         <title type="html"><![CDATA[Stream processing with Azure Stream Analytics]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/data/stream-processing-stream-analytics</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/data/stream-processing-stream-analytics"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/data/stream-processing-stream-analytics?referrer=atom"/>
         <updated>2020-03-26T17:32:29.000Z</updated>
         <summary type="html"><![CDATA[Create an end-to-end stream processing pipeline in Azure.]]></summary>
         <category label="updated" term="updated"/>
@@ -416,7 +416,7 @@
     <entry>
         <title type="html"><![CDATA[Scalable Umbraco CMS web app]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/medium-umbraco-web-app</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/medium-umbraco-web-app"/>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/medium-umbraco-web-app?referrer=atom"/>
         <updated>2020-03-25T14:39:27.000Z</updated>
         <summary type="html"><![CDATA[Medium Umbraco CMS web app configured to scale and optimal for high-traffic sites. It uses two web apps, one for your front-end app and the other for your back-office app, deployed in a single region with autoscaling enabled.]]></summary>
         <category label="updated" term="updated"/>
@@ -424,7 +424,7 @@
     <entry>
         <title type="html"><![CDATA[Create an AD DS resource forest in Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-forest</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-forest"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-forest?referrer=atom"/>
         <updated>2020-03-19T21:48:34.000Z</updated>
         <summary type="html"><![CDATA[How to create a trusted Active Directory domain in Azure.]]></summary>
         <category label="updated" term="updated"/>
@@ -432,7 +432,7 @@
     <entry>
         <title type="html"><![CDATA[Implement a secure hybrid network]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?referrer=atom"/>
         <updated>2020-03-19T17:48:01.000Z</updated>
         <summary type="html"><![CDATA[Implement a secure hybrid network architecture in Azure.]]></summary>
         <category label="updated" term="updated"/>
@@ -440,7 +440,7 @@
     <entry>
         <title type="html"><![CDATA[Connect an on-premises network to Azure using ExpressRoute]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover?referrer=atom"/>
         <updated>2020-03-19T17:39:12.000Z</updated>
         <summary type="html"><![CDATA[Implement a highly available and secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using ExpressRoute with VPN gateway failover.]]></summary>
         <category label="updated" term="updated"/>
@@ -448,7 +448,7 @@
     <entry>
         <title type="html"><![CDATA[Extend an on-premises network using ExpressRoute]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute?referrer=atom"/>
         <updated>2020-03-19T17:39:12.000Z</updated>
         <summary type="html"><![CDATA[Implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using Azure ExpressRoute.]]></summary>
         <category label="updated" term="updated"/>
@@ -456,7 +456,7 @@
     <entry>
         <title type="html"><![CDATA[Extend an on-premises network using VPN]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vpn</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vpn"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vpn?referrer=atom"/>
         <updated>2020-03-19T17:39:12.000Z</updated>
         <summary type="html"><![CDATA[A secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using a VPN.]]></summary>
         <category label="updated" term="updated"/>
@@ -464,7 +464,7 @@
     <entry>
         <title type="html"><![CDATA[Microservices architecture on Azure Kubernetes Service (AKS)]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/aks</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/aks"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/aks?referrer=atom"/>
         <updated>2020-03-17T23:54:09.000Z</updated>
         <summary type="html"><![CDATA[Deploy a microservices architecture on Azure Kubernetes Service (AKS)]]></summary>
         <category label="updated" term="updated"/>
@@ -472,7 +472,7 @@
     <entry>
         <title type="html"><![CDATA[Microservices architecture on Azure Service Fabric]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric?referrer=atom"/>
         <updated>2020-03-17T23:54:09.000Z</updated>
         <summary type="html"><![CDATA[Deploy a microservices architecture on Azure Service Fabric]]></summary>
         <category label="updated" term="updated"/>
@@ -480,7 +480,7 @@
     <entry>
         <title type="html"><![CDATA[Hub-spoke network topology in Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?referrer=atom"/>
         <updated>2020-03-17T23:34:05.000Z</updated>
         <summary type="html"><![CDATA[This reference architecture deploys a hub-spoke network topology in Azure.]]></summary>
         <category label="updated" term="updated"/>
@@ -488,7 +488,7 @@
     <entry>
         <title type="html"><![CDATA[Build an enterprise-grade conversational bot]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/ai/conversational-bot</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/ai/conversational-bot"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/ai/conversational-bot?referrer=atom"/>
         <updated>2020-03-12T23:09:37.000Z</updated>
         <summary type="html"><![CDATA[How to build an enterprise-grade conversational bot (chatbot) using the Azure Bot Framework.]]></summary>
         <category label="updated" term="updated"/>
@@ -496,7 +496,7 @@
     <entry>
         <title type="html"><![CDATA[Real-time scoring of Python models]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/ai/realtime-scoring-python</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/ai/realtime-scoring-python"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/ai/realtime-scoring-python?referrer=atom"/>
         <updated>2020-03-12T23:09:37.000Z</updated>
         <summary type="html"><![CDATA[This reference architecture shows how to deploy Python models as web services on Azure to make real-time predictions.]]></summary>
         <category label="updated" term="updated"/>
@@ -504,7 +504,7 @@
     <entry>
         <title type="html"><![CDATA[Distributed training of deep learning models on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning?referrer=atom"/>
         <updated>2020-03-12T23:09:37.000Z</updated>
         <summary type="html"><![CDATA[This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs using Azure Machine Learning.]]></summary>
         <category label="updated" term="updated"/>
@@ -512,7 +512,7 @@
     <entry>
         <title type="html"><![CDATA[Basic enterprise integration on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration?referrer=atom"/>
         <updated>2020-03-09T21:13:55.000Z</updated>
         <summary type="html"><![CDATA[Recommended architecture for implementing a simple enterprise integration pattern using Azure Logic Apps and Azure API Management.]]></summary>
         <category label="updated" term="updated"/>
@@ -520,7 +520,7 @@
     <entry>
         <title type="html"><![CDATA[Enterprise integration using queues and events]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/queues-events</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/queues-events"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/queues-events?referrer=atom"/>
         <updated>2020-03-09T21:13:55.000Z</updated>
         <summary type="html"><![CDATA[Recommended architecture for implementing an enterprise integration pattern with Azure Logic Apps, Azure API Management, Azure Service Bus, and Azure Event Grid.]]></summary>
         <category label="updated" term="updated"/>
@@ -528,7 +528,7 @@
     <entry>
         <title type="html"><![CDATA[Run a highly available SharePoint Server 2016 farm in Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sharepoint</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sharepoint"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sharepoint?referrer=atom"/>
         <updated>2020-03-05T19:14:39.000Z</updated>
         <summary type="html"><![CDATA[Recommended architecture for deploying a high availability SharePoint Server 2016 farm in Azure.]]></summary>
         <category label="updated" term="updated"/>
@@ -536,7 +536,7 @@
     <entry>
         <title type="html"><![CDATA[Run SAP HANA on Azure Large Instances]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances?referrer=atom"/>
         <updated>2020-03-05T19:08:43.000Z</updated>
         <summary type="html"><![CDATA[Proven practices for running SAP HANA in a high availability environment on Azure Large Instances.]]></summary>
         <category label="updated" term="updated"/>
@@ -544,7 +544,7 @@
     <entry>
         <title type="html"><![CDATA[Run SAP NetWeaver in Windows on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-netweaver</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-netweaver"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-netweaver?referrer=atom"/>
         <updated>2020-03-05T19:08:43.000Z</updated>
         <summary type="html"><![CDATA[Proven practices for running SAP NetWeaver in a Windows environment on Azure with high availability.]]></summary>
         <category label="updated" term="updated"/>
@@ -552,7 +552,7 @@
     <entry>
         <title type="html"><![CDATA[SAP S/4HANA in Linux on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-s4hana</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-s4hana"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-s4hana?referrer=atom"/>
         <updated>2020-03-05T19:08:43.000Z</updated>
         <summary type="html"><![CDATA[Proven practices for running SAP S/4HANA in a Linux environment on Azure with high availability.]]></summary>
         <category label="updated" term="updated"/>
@@ -560,7 +560,7 @@
     <entry>
         <title type="html"><![CDATA[Azure data platform end-to-end]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end"/>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end?referrer=atom"/>
         <updated>2020-02-25T18:57:48.000Z</updated>
         <summary type="html"><![CDATA[Use Azure services to ingest, process, store, serve, and visualize data from different sources.]]></summary>
         <category label="new" term="new"/>
@@ -568,7 +568,7 @@
     <entry>
         <title type="html"><![CDATA[Add IP address spaces to peered virtual networks]]></title>
         <id>https://docs.microsoft.com/azure/architecture/networking/prefixes/add-ip-space-peered-vnet</id>
-        <link href="https://docs.microsoft.com/azure/architecture/networking/prefixes/add-ip-space-peered-vnet"/>
+        <link href="https://docs.microsoft.com/azure/architecture/networking/prefixes/add-ip-space-peered-vnet?referrer=atom"/>
         <updated>2020-02-14T17:47:13.000Z</updated>
         <summary type="html"><![CDATA[Automation of IP address space additions to peered vNets]]></summary>
         <category label="new" term="new"/>
@@ -576,7 +576,7 @@
     <entry>
         <title type="html"><![CDATA[Event-based cloud automation]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/cloud-automation</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/cloud-automation"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/cloud-automation?referrer=atom"/>
         <updated>2020-02-25T23:44:42.000Z</updated>
         <summary type="html"><![CDATA[Recommended architecture for implementing cloud automation using serverless technologies.]]></summary>
         <category label="updated" term="updated"/>
@@ -584,7 +584,7 @@
     <entry>
         <title type="html"><![CDATA[Serverless event processing]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing?referrer=atom"/>
         <updated>2020-02-25T23:44:42.000Z</updated>
         <summary type="html"><![CDATA[Reference architecture for serverless event ingestion and processing using Azure Functions.]]></summary>
         <category label="updated" term="updated"/>
@@ -592,7 +592,7 @@
     <entry>
         <title type="html"><![CDATA[Serverless web application]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/web-app</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/web-app"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/web-app?referrer=atom"/>
         <updated>2020-02-25T23:44:42.000Z</updated>
         <summary type="html"><![CDATA[Recommended architecture for a serverless web application and web API.]]></summary>
         <category label="updated" term="updated"/>
@@ -600,7 +600,7 @@
     <entry>
         <title type="html"><![CDATA[Choosing a natural language processing technology]]></title>
         <id>https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/natural-language-processing</id>
-        <link href="https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/natural-language-processing"/>
+        <link href="https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/natural-language-processing?referrer=atom"/>
         <updated>2020-02-25T21:40:41.000Z</updated>
         <summary type="html"><![CDATA[Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.]]></summary>
         <category label="updated" term="updated"/>
@@ -608,7 +608,7 @@
     <entry>
         <title type="html"><![CDATA[Run SAP NetWeaver in Windows on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-netweaver</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-netweaver"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-netweaver?referrer=atom"/>
         <updated>2020-02-18T22:38:05.000Z</updated>
         <summary type="html"><![CDATA[Proven practices for running SAP NetWeaver in a Windows environment on Azure with high availability.]]></summary>
         <category label="updated" term="updated"/>
@@ -616,7 +616,7 @@
     <entry>
         <title type="html"><![CDATA[SAP S/4HANA in Linux on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-s4hana</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-s4hana"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-s4hana?referrer=atom"/>
         <updated>2020-02-18T22:38:05.000Z</updated>
         <summary type="html"><![CDATA[Proven practices for running SAP S/4HANA in a Linux environment on Azure with high availability.]]></summary>
         <category label="updated" term="updated"/>
@@ -624,7 +624,7 @@
     <entry>
         <title type="html"><![CDATA[Choosing an Azure compute service]]></title>
         <id>https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree</id>
-        <link href="https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree"/>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree?referrer=atom"/>
         <updated>2020-02-13T21:58:32.000Z</updated>
         <summary type="html"><![CDATA[A flowchart for selecting a compute service.]]></summary>
         <category label="updated" term="updated"/>
@@ -632,7 +632,7 @@
     <entry>
         <title type="html"><![CDATA[Run a Linux VM on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm?referrer=atom"/>
         <updated>2020-02-12T00:32:28.000Z</updated>
         <summary type="html"><![CDATA[Best practices for running a Linux virtual machine on Azure.]]></summary>
         <category label="updated" term="updated"/>
@@ -640,7 +640,7 @@
     <entry>
         <title type="html"><![CDATA[Multi-region N-tier application]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server?referrer=atom"/>
         <updated>2020-02-12T00:32:28.000Z</updated>
         <summary type="html"><![CDATA[Deploy an application on Azure virtual machines in multiple regions for high availability and resiliency.]]></summary>
         <category label="updated" term="updated"/>
@@ -648,7 +648,7 @@
     <entry>
         <title type="html"><![CDATA[N-tier application with Apache Cassandra]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra?referrer=atom"/>
         <updated>2020-02-12T00:32:28.000Z</updated>
         <summary type="html"><![CDATA[Run Linux virtual machines for an N-tier architecture with Apache Cassandra in Microsoft Azure.]]></summary>
         <category label="updated" term="updated"/>
@@ -656,7 +656,7 @@
     <entry>
         <title type="html"><![CDATA[Windows N-tier application on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server?referrer=atom"/>
         <updated>2020-02-12T00:32:28.000Z</updated>
         <summary type="html"><![CDATA[Implement a multi-tier architecture on Azure for availability, security, scalability, and manageability.]]></summary>
         <category label="updated" term="updated"/>
@@ -664,7 +664,7 @@
     <entry>
         <title type="html"><![CDATA[Run a Windows VM on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm?referrer=atom"/>
         <updated>2020-02-12T00:32:28.000Z</updated>
         <summary type="html"><![CDATA[Best practices for running a Windows virtual machine on Azure.]]></summary>
         <category label="updated" term="updated"/>
@@ -672,7 +672,7 @@
     <entry>
         <title type="html"><![CDATA[Basic web application]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app?referrer=atom"/>
         <updated>2020-02-11T20:56:22.000Z</updated>
         <summary type="html"><![CDATA[Recommended architecture for a basic web application running in Azure.]]></summary>
         <category label="updated" term="updated"/>
@@ -680,7 +680,7 @@
     <entry>
         <title type="html"><![CDATA[Highly available multi-region web application]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region?referrer=atom"/>
         <updated>2020-02-11T20:56:22.000Z</updated>
         <summary type="html"><![CDATA[Recommended architecture for a highly available web application running in multiple regions in Azure.]]></summary>
         <category label="updated" term="updated"/>
@@ -688,7 +688,7 @@
     <entry>
         <title type="html"><![CDATA[Scalable web application]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app?referrer=atom"/>
         <updated>2020-02-11T20:56:22.000Z</updated>
         <summary type="html"><![CDATA[Improve scalability in a web application running in Microsoft Azure.]]></summary>
         <category label="updated" term="updated"/>
@@ -696,7 +696,7 @@
     <entry>
         <title type="html"><![CDATA[Implement a secure hybrid network]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?referrer=atom"/>
         <updated>2020-02-11T20:16:17.000Z</updated>
         <summary type="html"><![CDATA[Implement a secure hybrid network architecture in Azure.]]></summary>
         <category label="updated" term="updated"/>
@@ -704,7 +704,7 @@
     <entry>
         <title type="html"><![CDATA[Hub-spoke network topology in Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?referrer=atom"/>
         <updated>2020-02-11T20:16:17.000Z</updated>
         <summary type="html"><![CDATA[This reference architecture deploys a hub-spoke network topology in Azure.]]></summary>
         <category label="updated" term="updated"/>
@@ -712,7 +712,7 @@
     <entry>
         <title type="html"><![CDATA[Implement a hub-spoke network topology]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/shared-services</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/shared-services"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/shared-services?referrer=atom"/>
         <updated>2020-02-11T20:16:17.000Z</updated>
         <summary type="html"><![CDATA[Implement a hub-spoke network topology with shared services in Azure.]]></summary>
         <category label="updated" term="updated"/>
@@ -720,7 +720,7 @@
     <entry>
         <title type="html"><![CDATA[Run SAP HANA on Azure Large Instances]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances?referrer=atom"/>
         <updated>2020-02-11T20:08:43.000Z</updated>
         <summary type="html"><![CDATA[Proven practices for running SAP HANA in a high availability environment on Azure Large Instances.]]></summary>
         <category label="updated" term="updated"/>
@@ -728,7 +728,7 @@
     <entry>
         <title type="html"><![CDATA[Basic enterprise integration on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration?referrer=atom"/>
         <updated>2020-02-10T15:38:11.000Z</updated>
         <summary type="html"><![CDATA[Recommended architecture for implementing a simple enterprise integration pattern using Azure Logic Apps and Azure API Management.]]></summary>
         <category label="updated" term="updated"/>
@@ -736,7 +736,7 @@
     <entry>
         <title type="html"><![CDATA[Enterprise integration using queues and events]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/queues-events</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/queues-events"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/queues-events?referrer=atom"/>
         <updated>2020-02-10T15:38:11.000Z</updated>
         <summary type="html"><![CDATA[Recommended architecture for implementing an enterprise integration pattern with Azure Logic Apps, Azure API Management, Azure Service Bus, and Azure Event Grid.]]></summary>
         <category label="updated" term="updated"/>
@@ -744,7 +744,7 @@
     <entry>
         <title type="html"><![CDATA[Extend an on-premises network using VPN]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vpn</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vpn"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vpn?referrer=atom"/>
         <updated>2020-01-24T21:45:58.000Z</updated>
         <summary type="html"><![CDATA[A secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using a VPN.]]></summary>
         <category label="updated" term="updated"/>
@@ -752,7 +752,7 @@
     <entry>
         <title type="html"><![CDATA[Basic web application]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app?referrer=atom"/>
         <updated>2020-01-24T20:26:56.000Z</updated>
         <summary type="html"><![CDATA[Recommended architecture for a basic web application running in Azure.]]></summary>
         <category label="updated" term="updated"/>
@@ -760,7 +760,7 @@
     <entry>
         <title type="html"><![CDATA[Highly available multi-region web application]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region?referrer=atom"/>
         <updated>2020-01-24T20:26:56.000Z</updated>
         <summary type="html"><![CDATA[Recommended architecture for a highly available web application running in multiple regions in Azure.]]></summary>
         <category label="updated" term="updated"/>
@@ -768,7 +768,7 @@
     <entry>
         <title type="html"><![CDATA[Scalable web application]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app"/>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app?referrer=atom"/>
         <updated>2020-01-24T20:26:56.000Z</updated>
         <summary type="html"><![CDATA[Improve scalability in a web application running in Microsoft Azure.]]></summary>
         <category label="updated" term="updated"/>
@@ -776,7 +776,7 @@
     <entry>
         <title type="html"><![CDATA[Choosing an Azure compute service]]></title>
         <id>https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree</id>
-        <link href="https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree"/>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree?referrer=atom"/>
         <updated>2020-01-10T04:58:08.000Z</updated>
         <summary type="html"><![CDATA[A flowchart for selecting a compute service.]]></summary>
         <category label="updated" term="updated"/>
@@ -784,7 +784,7 @@
     <entry>
         <title type="html"><![CDATA[Azure Application Architecture Guide]]></title>
         <id>https://docs.microsoft.com/azure/architecture/guide</id>
-        <link href="https://docs.microsoft.com/azure/architecture/guide"/>
+        <link href="https://docs.microsoft.com/azure/architecture/guide?referrer=atom"/>
         <updated>2020-01-09T02:09:12.000Z</updated>
         <summary type="html"><![CDATA[A structured approach for designing applications on Azure that are scalable, resilient, and highly available]]></summary>
         <category label="updated" term="updated"/>
@@ -792,7 +792,7 @@
     <entry>
         <title type="html"><![CDATA[Azure Architecture Framework]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework"/>
+        <link href="https://docs.microsoft.com/azure/architecture/framework?referrer=atom"/>
         <updated>2020-01-06T23:51:12.000Z</updated>
         <summary type="html"><![CDATA[Describes five pillars of software quality, scalability, devops, resiliency, cost, and security.]]></summary>
         <category label="updated" term="updated"/>

@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/retail-assis
 
 # Retail Assistant with Visual Capabilities using Cognitive Services
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 The retail assistant or vacation planner can help your customers have interactions with your business bot and provide suggestions based on the visual information.
 

@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/azure-iot-su
 
 # IoT Architecture – Azure IoT Subsystems
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
 

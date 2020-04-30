@@ -16,7 +16,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/scalable-web
 
 # Scalable web and mobile applications using Azure Database for PostgreSQL
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
 
