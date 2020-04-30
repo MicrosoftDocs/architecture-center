@@ -11,18 +11,15 @@ ms.category:
 ms.subservice: reference-architecture
 ---
 
-# Understanding Harms Modeling
+# Why harms?
 
-As technology builders, your work is global. It has the power to shape society and profoundly impact the planet. Responsible innovation means taking care of the future through collective stewardship of research and innovation in the present. In the process of designing and building your technologies, it is essential to evaluate not only ideal outcomes, but possible negative ones as well. By assessing potential harms, you can identify gaps in products that could put people at risk, and ultimately create mitigation strategies.
-
-[![Stakeholder process table](../images/stakeholder-process-table.png)](../images/stakeholder-process-table.png#lightbox)
-*Download in [Microsoft Word](../images/stakeholder-process-table.docx)*
+As technology builders, your work is global. Designing AI to be trustworthy requires creating solutions that reflect ethical principles that are deeply rooted in important and timeless values. In the process of designing and building your technologies, it is essential to evaluate not only ideal outcomes, but possible negative ones as well. By assessing potential harms, you can identify gaps in products that could put people at risk, and ultimately create mitigation strategies.
 
 ## Foundations of assessing harm
 
 Microsoft has made a commitment to building principled technology and helping the community to do the same. Collectively, we have the ability to create trustworthy systems that augment human ingenuity, and are built on foundational freedoms, core to human rights.
 
-### Responsible AI Principles
+### Responsible AI Principles at Microsoft
 
 * **Fairness** - Treat all stakeholders equitably and prevent stereotypes and biases.
 * **Reliability & safety** - Build systems to perform safely even in the worst-case scenario.
@@ -36,6 +33,9 @@ Microsoft has made a commitment to building principled technology and helping th
 It is as important as ever to be aware of how digital technology could impact human rights. In addition to continuing to protect privacy and security, we must address the risks of AI and other emerging technologies, such as facial recognition. History teaches us that human rights violations not only result from the nefarious use of technology, but also from a lack of awareness amongst those with good intentions. As a part of our company's dedication to the protection of human rights, Microsoft forged a partnership with important stakeholders outside of our industry, including the United Nations (UN).
 
 An important set of UN principles that our company firmly supports, which was ratified by over 250 nations, is the Universal Declaration of Human Rights (UDHR). The UDHR is a milestone document. Drafted by a diverse global group of legal and cultural experts, the Declaration was proclaimed by the United Nations General Assembly in 1948 as a common standard of achievements for all peoples and all nations. It sets out, for the first time, fundamental human rights to be universally protected. It has been translated into over 500 languages. Additionally, Microsoft is one of 4,700 corporate signatories to the UN Global Compact, an international business initiative designed to promote responsible corporate citizenship.
+
+[![Stakeholder process table](../images/stakeholder-process-table.png)](../images/stakeholder-process-table.png#lightbox)
+*Download in [Microsoft Word](../images/stakeholder-process-table.docx)*
 
 ## Human understanding
 
@@ -82,16 +82,18 @@ Once you have defined the technology purpose, use cases, and stakeholders, condu
 [![Harms modeling overview](../images/harms-modeling.png)](../images/harms-modeling.png#lightbox)
 *Download in [Microsoft Word](../images/harms-modeling.docx)*
 
-The diagram above is an example of a Harms evaluation. This is a qualitative approach used as part of an engagement to identify general risk areas.
+The diagram above is an example of a harms evaluation. This is a qualitative approach used to understand potential magnitude of harm.
 
 You can complete this ideation activity individually, but ideally it is conducted as collaboration between developers, data scientists, designers, user researcher, business decision-makers, and other disciplines that are involved in building the technology. 
   
+
 Suggestions for harm description statements: 
-Intended use: If [feature] was used for [use case], [stakeholder] could experience [harm description]. 
-Unintended use: If [user] tried to use [feature] for [use case], [stakeholder] could experience [harm description]. 
-System error: If [feature] failed to function properly when used for [use case], [stakeholder] could experience [harm description]. 
-Misuse: [malicious actor] could potentially use [feature], to cause [harm description] to [stakeholder]. 
+- Intended use: If [feature] was used for [use case], [stakeholder] could experience [harm description]. 
+- Unintended use: If [user] tried to use [feature] for [use case], [stakeholder] could experience [harm description]. 
+- System error: If [feature] failed to function properly when used for [use case], [stakeholder] could experience [harm description]. 
+- Misuse: [malicious actor] could potentially use [feature], to cause [harm description] to [stakeholder]. 
   
+
 Use the categories, questions, and examples described in the [Types of harm](./risk-of-injury.md) to generate specific ideas for how harm could occur. The article lists categories of harms, that is based upon common negative impact areas. Adapt and adopt additional categories that are relevant to you. 
 
 ## Next Steps
