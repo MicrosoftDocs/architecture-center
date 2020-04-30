@@ -86,7 +86,7 @@ The following diagram shows the conceptual relation between services and pods. T
 
 ## Ingress
 
-In Kubernetes, the **Ingress controller** might implement the API gateway pattern. In that case, **Ingress** and **Ingress controller** work in conjuction to provide these features:
+In Kubernetes, the **Ingress controller** might implement the API gateway pattern. In that case, **Ingress** and **Ingress controller** work in conjunction to provide these features:
 
 - Route client requests to the right backend services. This provides a single endpoint for clients, and helps to decouple clients from services.
 
