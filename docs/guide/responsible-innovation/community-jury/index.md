@@ -15,7 +15,7 @@ ms.subservice: reference-architecture
 
 Community jury, an adaptation of the [citizen jury](https://jefferson-center.org/about-us/how-we-work/), is a technique where diverse stakeholders impacted by a technology are provided an opportunity to learn about a project, deliberate together, and give feedback on use cases and product design. This technique allows project teams to understand the perceptions and concerns of impacted stakeholders.
 
-A Community jury is different from a focus group or market research in that it co-creates solutions with a product team and delivers a consensus and recommendation at its conclusion.
+A Community jury is different from a focus group or market research in that  it allows the impacted stakeholders to hear directly from the subject matter experts in the product team and co-create solutions to challenging problems with them.
 
 ## Benefits
 
@@ -61,7 +61,7 @@ Relevant artifacts could include:
 
 ### Moderator
 
-Bring on a neutral user researcher to ensure everyone is heard, avoiding domination of the communications by any one member. The moderator will facilitate brainstorms and deliberations, as well as educating jury members in uncovering bias, and ways to ask difficult questions. If a neutral user researcher is not available, choose a moderator who is skilled at leading group discussions. Following the session, the moderator is responsible for the following steps: ensure that the agreed-upon compensation is provided to the jury members; send notes to the jury members thanking them for their time and communicating next steps, and produce a summary report uncovering key insights, concerns and recommendations that emerged from the session.
+Bring on a neutral user researcher to ensure everyone is heard, avoiding domination of the communications by any one member. The moderator will facilitate brainstorms and deliberations, as well as educating jury members in uncovering bias, and ways to ask difficult questions. If a user researcher is not available, choose a moderator who is skilled at facilitating group discussions. Following the session, the moderator is responsible for the following: ensure that the agreed-upon compensation is provided to the jury members; produce a report that describes key insights, concerns, and recommendations, and share key insights and next steps with the jury and thank them for their participation.
 
 #### Preparation
 
@@ -98,13 +98,15 @@ Sessions typically last 2-3 hours. Add more or longer deep dive sessions, as nee
     - **Deliberation and co-creation** - This option is preferable. Jury members deliberate and co-create solutions with the project team. This is typically 30 to 60 minutes long.
     - **Individual anonymous survey** - Alternatively, conduct an anonymous survey of jury members. Anonymity may allow issues to be raised that would not otherwise be expressed. Use this 30 minute long session if there are time constraints.
 
-1. **Following the Session** - Ideally, the different value tensions among jury participants are resolved during the deliberation session. However, if those tensions are not resolved, the product team can continue to iterate after the session to develop additional resolution ideas, then reach back to the jury members to gauge if their concerns are adequately addressed.
+1. **Following the Session** - The moderator produces a study report that describes key insights, concerns, and potential solutions to the concerns.
+
+If the values of different stakeholders were in conflict with each other during the session and the value tensions were left unresolved, the product team would need to brainstorm solutions, and conduct a follow-up session with the jury to determine if the solutions adequately assuage their concerns. 
 
 ## Tips to run a successful jury
 
 - Ensure alignment of goals and outcomes with the project team before planning begins (including deliverables, recruitment strategy, and timeline). Consider including additional subject-matter experts who may be relevant to the project to address open questions/concerns.
 - The consent to audio and video recording of the jury should follow your company's standard procedures for non-disclosure and consent that is obtained from participants during user research studies.
-- Provide fair compensation to participants for their time. A recruiter can help determine fair compensation practices and related issues such as accounting for travel. For example, fair compensation is typically $150 for a one- to two-hour session, however highly specialized occupations in medicine, science and technology may need a higher compensation rate.
+- Provide fair compensation to participants for the time they devote to participation. Whenever possible, participants should also be reimbursed for costs incurred as a result of study participation (e.g., parking and transportation costs). Experienced user research recruiters can help determine fair gratuities for various participant profiles. 
 - Ensure that all perspectives are heard (minimizing group-thinking as well as one or two individuals dominating the discussion), including those of the project team and those of the jury members.
 - Structure the sessions so that there is ample time for learning, deliberation, and co-creation. This could mean having multiple sessions going in-depth on different topics or having longer sessions.
 - Pilot the jury with a smaller sample of community members to work out the procedural and content issues prior to the actual sessions.
