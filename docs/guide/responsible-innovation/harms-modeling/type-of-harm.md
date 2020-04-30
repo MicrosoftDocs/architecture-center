@@ -65,7 +65,7 @@ When intentionally misused, technology can undermine trust and distort someone's
 
 - Could this be used to modify digital media or physical environments?
 
-*Example: An IoT device could enable monitoring and controlling of an ex-girlfriend from afar.*
+*Example: An IoT device could enable monitoring and controlling of an ex-intimate partner from afar.*
 
 ### Reduced self-esteem/reputation damage
 
