@@ -2,16 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>the Azure Architecture Center</title>
-    <updated>2020-04-30T15:56:14.871Z</updated>
+    <updated>2020-04-30T21:22:35.938Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for the Azure Architecture Center</subtitle>
     <category term="new"/>
     <category term="updated"/>
     <entry>
+        <title type="html"><![CDATA[Computer forensics Chain of Custody in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/forensics</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/forensics?referrer=atom"/>
+        <updated>2020-04-30T21:22:11.000Z</updated>
+        <summary type="html"><![CDATA[Create an infrastructure and workflow to ensure a valid digital evidence Chain of Custody (CoC) for computer forensics in Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Chaos engineering]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/chaos-engineering</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/chaos-engineering?referrer=atom"/>
-        <updated>2020-04-24T22:49:47.000Z</updated>
+        <updated>2020-04-30T21:22:11.000Z</updated>
         <summary type="html"><![CDATA[Chaos engineering fundamentals for improving reliability of a service built on Azure]]></summary>
         <category label="new" term="new"/>
     </entry>
@@ -19,7 +27,7 @@
         <title type="html"><![CDATA[Azure for GCP professionals]]></title>
         <id>https://docs.microsoft.com/azure/architecture/gcp-professional</id>
         <link href="https://docs.microsoft.com/azure/architecture/gcp-professional?referrer=atom"/>
-        <updated>2020-04-24T20:14:46.000Z</updated>
+        <updated>2020-04-30T21:22:11.000Z</updated>
         <summary type="html"><![CDATA[Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the GCP and Azure platforms. Take advantage of your GCP experience in Azure.]]></summary>
         <category label="new" term="new"/>
     </entry>
@@ -27,7 +35,7 @@
         <title type="html"><![CDATA[GCP to Azure Services Comparison]]></title>
         <id>https://docs.microsoft.com/azure/architecture/gcp-professional/services</id>
         <link href="https://docs.microsoft.com/azure/architecture/gcp-professional/services?referrer=atom"/>
-        <updated>2020-04-24T20:14:46.000Z</updated>
+        <updated>2020-04-30T21:22:11.000Z</updated>
         <summary type="html"><![CDATA[Understand the differences between specific GCP and Azure services.]]></summary>
         <category label="new" term="new"/>
     </entry>
@@ -35,8 +43,32 @@
         <title type="html"><![CDATA[Security considerations for highly sensitive IaaS apps in Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/high-security-iaas</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/high-security-iaas?referrer=atom"/>
-        <updated>2020-04-21T20:03:03.000Z</updated>
+        <updated>2020-04-30T21:22:11.000Z</updated>
         <summary type="html"><![CDATA[Learn about VM security, encryption, NSGs, DMZs, access control, and other security considerations for highly sensitive IaaS and hybrid apps.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[API-first SaaS business model]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/aks-api-first</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/aks-api-first?referrer=atom"/>
+        <updated>2020-04-17T22:53:09.000Z</updated>
+        <summary type="html"><![CDATA[Adapt, evolve, and allow faster innovation to turn opportunities into strategic advantages.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Elastic demand handling with AKS]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/aks-demand-spikes</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/aks-demand-spikes?referrer=atom"/>
+        <updated>2020-04-17T22:53:09.000Z</updated>
+        <summary type="html"><![CDATA[Achieve fast and reliable service quality during seasonal and other high-traffic demand periods]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Instant IoT data streaming with AKS]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/aks-iot-data-streaming</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/aks-iot-data-streaming?referrer=atom"/>
+        <updated>2020-04-17T22:53:09.000Z</updated>
+        <summary type="html"><![CDATA[Ingest and analyze high volumes of IoT data and generate real-time recommendations]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -135,27 +167,19 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Overview of the resiliency pillar]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/overview</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/overview?referrer=atom"/>
-        <updated>2020-04-27T20:48:15.000Z</updated>
-        <summary type="html"><![CDATA[Describes the resiliency pillar]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Error handling for resilient applications in Azure]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling?referrer=atom"/>
-        <updated>2020-04-22T00:37:12.000Z</updated>
-        <summary type="html"><![CDATA[Best practices for handling errors in a resilient way]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Build a CI/CD pipeline for chatbots with ARM templates]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-cicd-chatbot</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-cicd-chatbot?referrer=atom"/>
-        <updated>2020-04-20T04:22:31.000Z</updated>
+        <updated>2020-04-30T21:22:11.000Z</updated>
         <summary type="html"><![CDATA[Use Azure Pipelines with ARM templates to set up a CI/CD pipeline to Azure App Service and Azure Bot Service for a chatbot app.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Overview of the resiliency pillar]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/overview?referrer=atom"/>
+        <updated>2020-04-30T21:22:11.000Z</updated>
+        <summary type="html"><![CDATA[Describes the resiliency pillar]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

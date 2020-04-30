@@ -185,6 +185,37 @@
         },
         {
             "tags": [
+                "acom-architecture",
+                "all-items",
+                "data-flow",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/aks-api-first.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/aks-api-first",
+            "word_count": 308,
+            "read_time": "2 min read",
+            "Title": "API-first SaaS business model",
+            "MetaDescription": "Adapt, evolve, and allow faster innovation to turn opportunities into strategic advantages.",
+            "category": [
+                "containers"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/aks-api-first.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\aks-api-first.png",
+            "publish_date": "4/17/2020",
+            "Flow": {
+                "FlowStep_A": "API is defined by API developers and published via the API Management portal",
+                "FlowStep_B": "Application developers define the microservices and associated logic and deploy to Kubernetes",
+                "FlowStep_C": "API users (internal and/or external) use the API developer portal to learn about the API and use them in their applications",
+                "FlowStep_D": "Applications access APIs via the API Gateway",
+                "FlowStep_E": "API Gateway, after ensuring the API request meets security and other policies e.g. throttling, forwards the request to service running in Kubernetes"
+            },
+            "name": "aks-api-first",
+            "popularity": 0,
+            "topic": "Containers"
+        },
+        {
+            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application-'",
                 "acom-architecture",
                 "all-items",
@@ -544,33 +575,6 @@
         {
             "tags": [
                 "all-items",
-                "example-code",
-                "github",
-                "reference-architecture"
-            ],
-            "type": "reference-architecture",
-            "file_url": "reference-architectures/iot-with-sql.md",
-            "http_url": "/azure/architecture/reference-architectures/iot-with-sql",
-            "word_count": 2371,
-            "read_time": "10 min read",
-            "Title": "Azure IoT reference architecture",
-            "MetaDescription": "Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components",
-            "category": [
-                "iot"
-            ],
-            "image": "/azure/architecture/reference-architectures/_images/iot-with-sql.png",
-            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\_images\\iot-with-sql.png",
-            "publish_date": "1/03/2020",
-            "Summary": "<p>This reference architecture shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.</p>\n<p><img alt=\"Diagram of the architecture\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/_images/iot-with-sql.png\" /></p>\n<p>IoT applications can be described as <strong>things</strong> (devices) sending data that generates <strong>insights</strong>. These insights generate <strong>actions</strong> to improve a business or process. An example is an engine (the thing) sending temperature data. This data is used to evaluate whether the engine is performing as expected (the insight). The insight is used to proactively prioritize the maintenance schedule for the engine (the action).</p>\n<p>This reference architecture uses Azure PaaS (platform-as-a-service) components. Other options for building IoT solutions on Azure include:</p>\n<ul>\n<li><a href=\"https://docs.microsoft.com/azure/iot-central/\">Azure IoT Central</a>. IoT Central is a fully managed SaaS (software-as-a-service) solution. It abstracts the technical choices and lets you focus on your solution exclusively. This simplicity comes with a tradeoff in being less customizable than a PaaS-based solution.</li>\n<li>Using OSS components such as the SMACK stack (Spark, Mesos, Akka, Cassandra, Kafka) deployed on Azure VMs. This approach offers a great deal of control but is more complex.</li>\n</ul>\n<p>At a high level, there are two ways to process telemetry data, hot path and cold path. The difference has to do with requirements for latency and data access.</p>\n<ul>\n<li>The <strong>hot path</strong> analyzes data in near-real-time, as it arrives. In the hot path, telemetry must be processed with very low latency. The hot path is typically implemented using a stream processing engine. The output may trigger an alert, or be written to a structured format that can be queried using analytical tools.</li>\n<li>The <strong>cold path</strong> performs batch processing at longer intervals (hourly or daily). The cold path typically operates over large volumes of data, but the results don't need to be as timely as the hot path. In the cold path, raw telemetry is captured and then fed into a batch process.</li>\n</ul>",
-            "sample_code": true,
-            "github_url": "https://github.com/mspnp/iot-guidance",
-            "name": "iot-with-sql",
-            "popularity": 0,
-            "topic": "Internet of Things"
-        },
-        {
-            "tags": [
-                "all-items",
                 "data-flow",
                 "example-code",
                 "github",
@@ -598,6 +602,33 @@
             "github_url": "https://github.com/mspnp/iot-guidance",
             "name": "iot",
             "popularity": 234,
+            "topic": "Internet of Things"
+        },
+        {
+            "tags": [
+                "all-items",
+                "example-code",
+                "github",
+                "reference-architecture"
+            ],
+            "type": "reference-architecture",
+            "file_url": "reference-architectures/iot-with-sql.md",
+            "http_url": "/azure/architecture/reference-architectures/iot-with-sql",
+            "word_count": 2410,
+            "read_time": "10 min read",
+            "Title": "Azure IoT reference architecture",
+            "MetaDescription": "Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components",
+            "category": [
+                "iot"
+            ],
+            "image": "/azure/architecture/reference-architectures/_images/iot-with-sql.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\_images\\iot-with-sql.png",
+            "publish_date": "1/03/2020",
+            "Summary": "<p>This reference architecture shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.</p>\n<p><img alt=\"Diagram of the architecture\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/_images/iot-with-sql.png\" /></p>\n<p>IoT applications can be described as <strong>things</strong> (devices) sending data that generates <strong>insights</strong>. These insights generate <strong>actions</strong> to improve a business or process. An example is an engine (the thing) sending temperature data. This data is used to evaluate whether the engine is performing as expected (the insight). The insight is used to proactively prioritize the maintenance schedule for the engine (the action).</p>\n<p>This reference architecture uses Azure PaaS (platform-as-a-service) components. Other options for building IoT solutions on Azure include:</p>\n<ul>\n<li><a href=\"https://docs.microsoft.com/azure/iot-central/\">Azure IoT Central</a>. IoT Central is a fully managed SaaS (software-as-a-service) solution. It abstracts the technical choices and lets you focus on your solution exclusively. This simplicity comes with a tradeoff in being less customizable than a PaaS-based solution.</li>\n<li>Using OSS components such as the SMACK stack (Spark, Mesos, Akka, Cassandra, Kafka) deployed on Azure VMs. This approach offers a great deal of control but is more complex.</li>\n</ul>\n<p>At a high level, there are two ways to process telemetry data, hot path and cold path. The difference has to do with requirements for latency and data access.</p>\n<ul>\n<li>The <strong>hot path</strong> analyzes data in near-real-time, as it arrives. In the hot path, telemetry must be processed with very low latency. The hot path is typically implemented using a stream processing engine. The output may trigger an alert, or be written to a structured format that can be queried using analytical tools.</li>\n<li>The <strong>cold path</strong> performs batch processing at longer intervals (hourly or daily). The cold path typically operates over large volumes of data, but the results don't need to be as timely as the hot path. In the cold path, raw telemetry is captured and then fed into a batch process.</li>\n</ul>",
+            "sample_code": true,
+            "github_url": "https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql.",
+            "name": "iot-with-sql",
+            "popularity": 0,
             "topic": "Internet of Things"
         },
         {
@@ -813,7 +844,7 @@
             "publish_date": "1/30/2019",
             "Summary": "<p>This reference architecture shows how to build a scalable solution for batch scoring many models on a schedule in parallel using <a href=\"https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml\">Azure Machine Learning</a>. The solution can be used as a template and can generalize to different problems.</p>\n<p>A reference implementation for this architecture is available on <a href=\"https://github.com/Microsoft/AMLBatchScoringPipeline\">GitHub</a>.</p>\n<p><img alt=\"Batch scoring of Python models on Azure\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/batch-scoring-python.png\" /></p>\n<p><strong>Scenario</strong>: This solution monitors the operation of a large number of devices in an IoT setting where each device sends sensor readings continuously. Each device is assumed to be associated with pretrained anomaly detection models that need to be used to predict whether a series of measurements, that are aggregated over a predefined time interval, correspond to an anomaly or not. In real-world scenarios, this could be a stream of sensor readings that need to be filtered and aggregated before being used in training or real-time scoring. For simplicity, this solution uses the same data file when executing scoring jobs.</p>\n<p>This reference architecture is designed for workloads that are triggered on a schedule. Processing involves the following steps:</p>\n<ol>\n<li>Send sensor readings for ingestion to Azure Event Hubs.</li>\n<li>Perform stream processing and store the raw data.</li>\n<li>Send the data to a Machine Learning cluster that is ready to start taking work. Each node in the cluster runs a scoring job for a specific sensor.</li>\n<li>Execute the <a href=\"https://docs.microsoft.com/azure/machine-learning/service/how-to-run-batch-predictions\">scoring pipeline</a>, which runs the scoring jobs in parallel using machine learning Python scripts. The pipeline is created, published, and scheduled to run on a predefined interval of time.</li>\n<li>Generate predictions and store them in Blob storage for later consumption.</li>\n</ol>",
             "sample_code": true,
-            "github_url": "https://github.com/Microsoft/AMLBatchScoringPipeline/blob/master/01_create_resources.ipynb",
+            "github_url": "https://github.com/microsoft/az-ml-batch-score/blob/master/01_DataPrep.ipynb",
             "name": "batch-scoring-python",
             "popularity": 155,
             "topic": "AI + Machine Learning"
@@ -2705,7 +2736,7 @@
                 "<p><a href=\"https://azure.microsoft.com/services/sql-database\">Azure SQL Database</a> maintains data for the website. Copies are deployed in the dev, test, and production environments.</p>"
             ],
             "sample_code": true,
-            "github_url": "https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup",
+            "github_url": "https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2",
             "name": "dev-test-microservice",
             "popularity": 118,
             "topic": "DevOps"
@@ -3229,6 +3260,38 @@
             "name": "ecommerce-website-running-in-secured-ase",
             "popularity": 147,
             "topic": "Web"
+        },
+        {
+            "tags": [
+                "acom-architecture",
+                "all-items",
+                "data-flow",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/aks-demand-spikes.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/aks-demand-spikes",
+            "word_count": 341,
+            "read_time": "2 min read",
+            "Title": "Elastic demand handling with AKS",
+            "MetaDescription": "Achieve fast and reliable service quality during seasonal and other high-traffic demand periods",
+            "category": [
+                "containers",
+                "web"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/aks-demand-spikes.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\aks-demand-spikes.png",
+            "publish_date": "4/17/2020",
+            "Summary": "<p>This example shows how to achieve fast and reliable service quality during seasonal and other high-traffic demand periods. This approach can be used to manage:</p>\n<ul>\n<li>Elastic scaling handles traffic and sales bursts without managing infrastructures</li>\n<li>Low-latency data access from anywhere in the world for fast, robust user experiences</li>\n<li>High availability across multiple data centers</li>\n</ul>",
+            "Flow": {
+                "FlowStep_A": "Azure Traffic Manager routes incoming requests to Azure API management Gateway",
+                "FlowStep_B": "API Gateway ensures requests meet security and other policies, and then routes them to service running in Azure Kubernetes Service",
+                "FlowStep_C": "Services use Azure Cosmos DB, Azure CDN, and Azure Functions to achieve low-latency data access data as needed from anywhere in the world",
+                "FlowStep_D": "When demand spikes past current capacity, AKS uses virtual nodes to dynamically scales up the service"
+            },
+            "name": "aks-demand-spikes",
+            "popularity": 0,
+            "topic": "Containers"
         },
         {
             "tags": [
@@ -4780,6 +4843,42 @@
         },
         {
             "tags": [
+                "acom-architecture",
+                "all-items",
+                "data-flow",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/aks-iot-data-streaming.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/aks-iot-data-streaming",
+            "word_count": 439,
+            "read_time": "2 min read",
+            "Title": "Instant IoT data streaming with AKS",
+            "MetaDescription": "Ingest and analyze high volumes of IoT data and generate real-time recommendations",
+            "category": [
+                "containers",
+                "iot",
+                "analytics"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/aks-iot-data-streaming.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\aks-iot-data-streaming.png",
+            "publish_date": "4/17/2020",
+            "Summary": "",
+            "Flow": {
+                "FlowStep_A": "Sensor data is generated and streamed to Azure API Management",
+                "FlowStep_B": "AKS cluster runs microservices that are deployed as containers behind a service mesh; containers are built using a DevOps process and stored in Azure Container Registry",
+                "FlowStep_C": "Ingest service stores data in an Azure Cosmos DB",
+                "FlowStep_D": "Asynchronously, the analysis service receives the data and streams it to Apache Kafka and Azure HDInsight",
+                "FlowStep_E": "Data scientists can analyze the big data for use in machine learning models using Splunk",
+                "FlowStep_F": "Data is processed by the processing service, which stores the result in Azure Database for PostgreSQL and caches the data in an Azure Cache for Redis",
+                "FlowStep_G": "A web app running in Azure App Service is used to visualize the results"
+            },
+            "name": "aks-iot-data-streaming",
+            "popularity": 0,
+            "topic": "Containers"
+        },
+        {
+            "tags": [
                 "all-items",
                 "example-code",
                 "github",
@@ -4966,7 +5065,7 @@
             "image": "/azure/architecture/solution-ideas/media/interactive-price-analytics.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\interactive-price-analytics.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>The Pricing Analytics solution uses your transactional history data to show you how the demand for your products responds to the prices you offer, to recommend pricing changes, and allow you to simulate how changes in price would affect your demand, at a fine granularity.</p>\n<p>The solution provides a dashboard, where you can see optimal pricing recommendations, item elasticities at a item-site-channel-segment level, estimates of related-product effects such \"as cannibalization\", forecasts given current process, and model performance metrics.</p>\n<p>Direct interaction with the pricing model in Excel lets you simply paste your sales data there and analyze your prices without the need to integrate the data into the solution database first, simulate promotions and plot demand curves (showing demand response to price), and access dashboard data in numerical form.</p>\n<p>The rich functionality is not confined to Excel. It is driven by web services that you, or your implementation partner, can call directly from your business applications, integrating price analysis into your business applications.</p>",
+            "Summary": "<p>The Price Analytics solution uses your transactional history data to show you how the demand for your products responds to the prices you offer, to recommend pricing changes, and allow you to simulate how changes in price would affect your demand, at a fine granularity.</p>\n<p>The solution provides a dashboard, where you can see optimal pricing recommendations, item elasticities at a item-site-channel-segment level, estimates of related-product effects such \"as cannibalization\", forecasts given current process, and model performance metrics.</p>\n<p>Direct interaction with the pricing model in Excel lets you simply paste your sales data there and analyze your prices without the need to integrate the data into the solution database first, simulate promotions and plot demand curves (showing demand response to price), and access dashboard data in numerical form.</p>\n<p>The rich functionality is not confined to Excel. It is driven by web services that you, or your implementation partner, can call directly from your business applications, integrating price analysis into your business applications.</p>",
             "sample_code": true,
             "github_url": "https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md",
             "name": "interactive-price-analytics",
