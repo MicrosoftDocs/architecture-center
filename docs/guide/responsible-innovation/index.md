@@ -13,13 +13,15 @@ ms.subservice: reference-architecture
 
 # Responsible Innovation: Best Practices Toolkit
 
-Responsible Innovation is a commitment to put people first in the development of technology by understanding the stakeholders and impact of your technology. It means always considering the individual and societal impact of your technology and intentionally designing, developing and deploying your innovations with a genuine concern for the well-being of the people impacted by that innovation.
+Responsible Innovation is a people-first commitment to develop technology by anticipating at each stage of the product lifecycle how people’s lives might be negatively impacted by technology, and by bringing diverse stakeholders together to understand impacted stakeholders’ concerns so you can responsibly design, develop and deploy technology.
 
-Building technology with consideration for context of use and potential impacts requires the application of new techniques for all phases of the software development lifecycle. This includes data collection, governance, model training, system architecture, user experience design, product documentation, feedback loops, and communication about the value and limitations of the technology.
+Designing trustworthy AI is the same: it requires creating solutions that reflect ethical principles that are deeply rooted in important and timeless values. 
 
-It takes much more than great tools and technology to innovate responsibly. We also need to have practices that ensure our products are designed with consideration of all the people they could impact.
+That involves applying practices for all phases of the software development lifecycle: data collection, data governance, model training, system architecture, user experience design, product documentation, feedback loops, and communication about the value and limitations of the technology. 
 
-Today we're launching a toolkit of Responsible Innovation Practices based on our own experiences developing AI inside of Microsoft. We're launching this toolkit with these two best practices and will be adding more for you in the coming months:
+To help developers ensure their products are designed with consideration of all the people they could impact, we’re launching a toolkit of Responsible Innovation Practices based on our own experiences developing AI inside of Microsoft. We’re including these two best practices and are adding more for you in the coming months.
+Use the links in this table to learn more about applying the best practices to your technology development scenarios:
+
 
 ## [Harms Modeling](./harms-modeling/index.md)
 
