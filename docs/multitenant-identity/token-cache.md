@@ -7,6 +7,7 @@ ms.topic: guide
 ms.service: architecture-center
 ms.category:
   - identity
+ms.custom: has-adal-ref
 ms.subservice: reference-architecture
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: web-api
