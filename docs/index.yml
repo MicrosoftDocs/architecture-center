@@ -340,7 +340,7 @@ conceptualContent:
         - text: Highly available network virtual appliances
           itemType: architecture
           url: reference-architectures/dmz/nva-ha.md
-        - text : Network Level Segmentation to Secure Virtual Networks
+        - text : Segmenting Virtual Networks
           itemType: architecture
           url: reference-architectures/hybrid-networking/network-level-segmentation.md
 
