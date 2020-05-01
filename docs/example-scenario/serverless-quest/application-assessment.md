@@ -28,7 +28,7 @@ The goal of application assessment questionnaire is to certify if the main aspec
 | Do you have pressing timeline (DC shutdown, EoL licensing, DC contract expiration, M&A)? The fastest way to get the application to Azure may be to Rehost, followed by Refactoring to take advantage of Cloud capabilities.| - | - | - | - |
 | If you were to decide on a migration/modernization strategy, which one would you pick?| - | - | Yes = 1 | Yes = 1 |
 | Is “functionality” the least efficient aspects of this application (functionality, cost, infra, processes)? | - | - | - | Yes = 1 |
-| **TOTAL (sum all the answers values you have chosen and write down the result here).**|  |  |  |  |
+| **TOTAL (sum all the answers values you have chosen and write down the result here).**|total=  |total=  |total=  |total=  |
 
 ## Application Architecture
 Describe the high-level architecture. Web Application, Web Services, Data storage, Caching, etc.
@@ -38,7 +38,7 @@ Describe the high-level architecture. Web Application, Web Services, Data storag
 | Do application components translate directly to Azure? If true, no code changes are needed to move the application to Azure. So, you can implement Refactor strategy.  | No = 1 | No = 1 | - | - |
 | Level of complexity for changes needed to get to Azure. If changes are needed, how extensive are they to get the application running in Azure? If no changes you can implement Refactor strategy.| Minor = 1 <br/> Major = 2 | Minor = 1 <br/> Major = 2 | Minor Changes = 1 | Major Changes = 1 | 
 | What's the next architectural milestone you want to achieve for this app? Good with monolithic for this app, you can implement Refactor strategy.| - | - | Multi-tier <br/> Micro-services = 1 | Micro-services = 1 |
-| **TOTAL (sum all the answers values you have chosen and write down the result here).**| | | | |
+| **TOTAL (sum all the answers values you have chosen and write down the result here).**|total= |total= |total= |total= |
 
 ## Technology
 | Question | Complexity | Risk | Rearchitect | Rebuild |
@@ -55,14 +55,14 @@ Describe the high-level architecture. Web Application, Web Services, Data storag
 | Does the application use SQL Server as its data store?| Yes =1 | - | Yes =1 | - |
 | Does the application stores data on local disk? The application requires access to a local disk to store information to operate properly.| Yes =1 | - | Yes =1 | - |
 | Does the application use Windows Services to process asynchronous operations? The application requires external services to process data or to process operations.| Yes =1 | - | Yes =1 | - |
-| **TOTAL (sum all the answers values you have chosen and write down the result here).**| | | | |
+| **TOTAL (sum all the answers values you have chosen and write down the result here).**|total= |total= |total= |total= |
 
 ## Deployment
 Number of daily users: <br/>
 Number of concurrent users (average): <br/>
 Expected traffic. Bandwidth in Gbps: <br/>
 Requests per second: <br/>
-Amount of Memory needed: <br/>
+Amount of Memory needed:
 | Question | Complexity | Risk | Rearchitect | Rebuild |
 |------------------------------------------------------------------|---|---|---|---|
 | Is the application code under source control? The team has access to the application code, and it is stored in a Version Control system such as Git, TFS, SVN, etc.| - | No = 1 | - | - |
@@ -74,7 +74,7 @@ Amount of Memory needed: <br/>
 | Does application experiences peak usage times or days? The load on application usage changes throughout the day, week, or month.| - | Yes = 1 | Yes = 1 | Yes = 1|
 | Is session state managed in-process? The web application saves its session-state in process rather than an external data store (Applicable for web applications).| Yes = 1 | - | Yes = 1 | - |
 | Do you expect this application to handle large traffic?| - | - | Yes = 1 | Yes = 1 |
-| **TOTAL (sum all the answers values you have chosen and write down the result here).**| | | | |
+| **TOTAL (sum all the answers values you have chosen and write down the result here).**|total= |total= |total= |total= |
 
 ## Operations
 | Question | Complexity | Risk | Rearchitect | Rebuild |
@@ -84,7 +84,7 @@ Amount of Memory needed: <br/>
 | Has the application measured SLA in place? The application’s Operation team monitors the application's performance.| - | Yes = 1 | - | - |
 | Does the application write to a log store? Event Log, log file, log database, App Insights.| Yes = 1 | No = 1 | - | - |
 | Is the application part of the organization's Disaster Recovery plans? The organization's DR plan includes this application.| - | Yes = 1 | - | - |
-| **TOTAL (sum all the answers values you have chosen and write down the result here).**| | | | |
+| **TOTAL (sum all the answers values you have chosen and write down the result here).**|total= |total= |total= |total= |
 
 ## Security
 | Question | Complexity | Risk | Rearchitect | Rebuild |
@@ -94,7 +94,7 @@ Amount of Memory needed: <br/>
 | Does the application require access to internal resources? This would require VPN connectivity from Azure.| Yes = 1 | - | - | - |
 |Has the organization already configured a VPN connection between Azure and their on-prem environment? VPN is configured.| No = 1 | No = 1 | - | - |
 | Does the application use SSL certificate? SSL is required to run the application.| Yes = 1 | Yes = 1 | - | - |
-| **TOTAL (sum all the answers values you have chosen and write down the result here).**| | | | |
+| **TOTAL (sum all the answers values you have chosen and write down the result here).**|total= |total= |total= |total= |
 
 ## Results
 |  | Complexity | Risk | Rearchitect | Rebuild |
