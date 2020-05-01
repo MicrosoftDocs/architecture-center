@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/visual-assis
 
 # Visual Assistant
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Visual assistant provides rich information based on content of the image with capabilities such as reading business card, identifying barcode, and recognizing popular people, places, objects, artworks, and monuments.
 

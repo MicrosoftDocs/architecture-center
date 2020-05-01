@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/data-soverei
 
 # Custom Data Sovereignty & Data Gravity Requirements
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Azure with Azure Stack enables organizations to make technology placement decisions based on business needs—simplifying meeting custom compliance, sovereignty, and data gravity requirements.
 

@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/oil-and-gas-
 
 # Oil and Gas Tank Level Forecasting
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Today, most facilities operate reactively to problems in tank levels. This often leads to spills, emergency shutdowns, expensive remediation costs, regulatory issues, costly repairs and fines. Tank level forecasting helps manage and abate these and other problems.
 

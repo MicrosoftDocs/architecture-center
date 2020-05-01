@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/hybrid-hpc-i
 
 # Hybrid HPC in Azure with HPC Pack
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Microsoft HPC Pack is a free high performance computing (HPC) solution built on Microsoft Azure and Windows Server technologies. HPC Pack combines a comprehensive set of deployment, administration, job scheduling, and monitoring tools for your Windows and Linux HPC cluster environment, providing a flexible platform for developing and running HPC applications on premises and in Azure.
 

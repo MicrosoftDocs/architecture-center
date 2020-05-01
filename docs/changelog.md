@@ -2,7 +2,7 @@
 title: What's New in the Azure Architecture Center
 description: New and updated articles in the Azure Architecture Center
 author: adamboeglin
-ms.date: 04/29/2020
+ms.date: 04/30/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: meta
@@ -22,10 +22,14 @@ New and updated articles in the Azure Architecture Center
 
 ### New Articles
 
+- [Computer forensics Chain of Custody in Azure](https://docs.microsoft.com/azure/architecture/example-scenario/forensics)
 - [Chaos engineering](https://docs.microsoft.com/azure/architecture/framework/resiliency/chaos-engineering)
 - [Azure for GCP professionals](https://docs.microsoft.com/azure/architecture/gcp-professional)
 - [GCP to Azure Services Comparison](https://docs.microsoft.com/azure/architecture/gcp-professional/services)
 - [Security considerations for highly sensitive IaaS apps in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/high-security-iaas)
+- [API-first SaaS business model](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/aks-api-first)
+- [Elastic demand handling with AKS](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/aks-demand-spikes)
+- [Instant IoT data streaming with AKS](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/aks-iot-data-streaming)
 - [Artificial intelligence (AI)](https://docs.microsoft.com/azure/architecture/data-guide/big-data/ai-overview)
 - [Threat indicators for cyber threat intelligence in Azure Sentinel](https://docs.microsoft.com/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
 - [Auditing, risk, and compliance management](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/auditing-and-risk-compliance)
@@ -41,9 +45,8 @@ New and updated articles in the Azure Architecture Center
 
 ### Updated Articles
 
-- [Overview of the resiliency pillar](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)  ([#1a7b3f98](https://github.com/MicrosoftDocs/architecture-center/commit/1a7b3f98))
-- [Error handling for resilient applications in Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling)  ([#f5151b16](https://github.com/MicrosoftDocs/architecture-center/commit/f5151b16))
-- [Build a CI/CD pipeline for chatbots with ARM templates](https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-cicd-chatbot)  ([#4dcf80bb](https://github.com/MicrosoftDocs/architecture-center/commit/4dcf80bb))
+- [Build a CI/CD pipeline for chatbots with ARM templates](https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-cicd-chatbot)  ([#dae94ba5](https://github.com/MicrosoftDocs/architecture-center/commit/dae94ba5))
+- [Overview of the resiliency pillar](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)  ([#dae94ba5](https://github.com/MicrosoftDocs/architecture-center/commit/dae94ba5))
 - [Controlling IoT devices using a Voice Assistant](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-devices)  ([#e05cdf17](https://github.com/MicrosoftDocs/architecture-center/commit/e05cdf17))
 - [IoT using Cosmos DB](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-using-cosmos-db)  ([#e05cdf17](https://github.com/MicrosoftDocs/architecture-center/commit/e05cdf17))
 - [AWS to Azure services comparison](https://docs.microsoft.com/azure/architecture/aws-professional/services)  ([#e6e1f84e](https://github.com/MicrosoftDocs/architecture-center/commit/e6e1f84e))

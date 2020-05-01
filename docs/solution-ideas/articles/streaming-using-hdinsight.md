@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/streaming-us
 
 # Streaming using HDInsight
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Ingest and process millions of streaming events per second with Apache Kafka, Apache Storm, and Apache Spark Streaming.
 

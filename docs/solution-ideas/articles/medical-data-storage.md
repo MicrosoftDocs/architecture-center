@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/medical-data
 
 # Medical Data Storage Solutions
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Cloud and hybrid solutions from Microsoft help you manage medical data storage efficiently and cost effectively, while infusing intelligence and maintaining compliance.
 

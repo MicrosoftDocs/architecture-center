@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/advanced-ana
 
 # Advanced Analytics Architecture
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Transform your 'ata into actionable insights using the best-in-class machine learning tools. This architecture allows you to combine any data at any scale, and to build and deploy custom machine learning models at scale.
 

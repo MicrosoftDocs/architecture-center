@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/hpc-cluster.
 
 # HPC cluster deployed in the cloud
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 High performance computing (HPC) applications can scale to thousands of compute cores, extend on-premises big compute, or run as a 100% cloud native solution. This HPC solution including the head node, compute nodes, and storage nodes, runs in Azure with no hardware infrastructure to maintain.
 

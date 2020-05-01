@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/aircraft-eng
 
 # Predictive Aircraft Engine Monitoring
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Microsoft Azure's Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health.
 

@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/digital-mark
 
 # Digital Marketing using Azure Database for MySQL
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Engage with customers around the world with rich, personalized digital marketing experiences. Quickly build and launch digital campaigns that automatically scale based on customer demand.
 

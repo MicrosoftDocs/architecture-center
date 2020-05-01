@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/cloud-scale-
 
 # Discovery Hub with Cloud Scale Analytics
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Use Discovery Hub to define a data estate using a graphical user interface, with definitions stored in a metadata repository. Code for building the data estate is generated automatically while remaining fully customizable. The resulting modern data warehouse is ready to support cloud scale analytics and AI.
 
