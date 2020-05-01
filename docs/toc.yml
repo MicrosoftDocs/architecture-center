@@ -1050,6 +1050,8 @@ items:
         href: reference-architectures/hybrid-networking/hub-spoke.md
       - name: Implement a secure hybrid network
         href: reference-architectures/dmz/secure-vnet-dmz.md
+      - name: Network Level Segmentation to Secure Virtual networks
+        href: reference-architectures/hybrid-networking/network-level-segmentation.md
   - name: Security
     items:
     - name: Architectures
