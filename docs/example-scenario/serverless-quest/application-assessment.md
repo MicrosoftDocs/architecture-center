@@ -58,11 +58,12 @@ Describe the high-level architecture. Web Application, Web Services, Data storag
 | **TOTAL (sum all the answers values you have chosen and write down the result here).**|total= |total= |total= |total= |
 
 ## Deployment
-Number of daily users: <br/>
-Number of concurrent users (average): <br/>
-Expected traffic. Bandwidth in Gbps: <br/>
-Requests per second: <br/>
+Number of daily users:
+Number of concurrent users (average):
+Expected traffic. Bandwidth in Gbps:
+Requests per second:
 Amount of Memory needed:
+
 | Question | Complexity | Risk | Rearchitect | Rebuild |
 |------------------------------------------------------------------|---|---|---|---|
 | Is the application code under source control? The team has access to the application code, and it is stored in a Version Control system such as Git, TFS, SVN, etc.| - | No = 1 | - | - |
