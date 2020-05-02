@@ -9,9 +9,9 @@ ms.service: architecture-center
 ms.subservice: reference-architecture
 ---
 
-# High availability app deployment using App Services Environment
+# Highly available app deployment in App Services Environment
 
-This reference architecture shows a highly available deployment of an enterprise web application in Azure App Services Environment. TBD: Add description of availability zones and what it means for a subscription.
+[Availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview) are physically separated collections of datacenters within a given region. Replicating your deployments across multiple zones, ensures that local outages limited to a zone do not negatively impact your application availability. This architecture shows how you can improve the resiliency of an ASE deployment by deploying in multiple availability zones. Availability zones are not related to proximity. Availability zones can map to different physical locations for different subscriptions. This architecture assumes a single subscription deployment.
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/App-Services-Environment-ILB-HA).
 
@@ -19,7 +19,7 @@ This reference architecture shows a highly available deployment of an enterprise
 
 ## Architecture
 
-The contents of the ASE subnets used in this reference implementation are the same as the ones in the standard ASE deployment architecture [described here](./ase-standard-deployment.md). This architecture shows how you can improve the resiliency of an ASE deployment by deploying in multiple [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview). Availability zones are physically separated collections of datacenters within a given region. Replicating your deployments across multiple zones, ensures that local outages limited to a zone do not negatively impact your application availability. This reference implementation replicates the deployment in two ASE subnets. Each subnet has its own web app, API, and function instances running in their individual App Service Plans. The Redis cache required by the applications are also replicated for better performance. Note that availability zones are per region. As such, the scope of this reference architecture is limited for a single region. Availability zones are logically mapped to different physical zones for each subscription independently. It is worth noting that an availability zone *n* for two subscriptions may be mapped to two completely different physical zones.
+The contents of the ASE subnets used in this reference implementation are the same as the ones in the standard ASE deployment architecture [described here](./ase-standard-deployment.md). This reference implementation replicates the deployment in two ASE subnets. Each subnet has its own web app, API, and function instances running in their individual App Service Plans. The Redis cache required by the applications are also replicated for better performance. Note that availability zones are per region. As such, the scope of this reference architecture is limited for a single region. Availability zones are logically mapped to different physical zones for each subscription independently. It is worth noting that an availability zone *n* for two subscriptions may be mapped to two completely different physical zones.
 
 The following section shows how the role of some services changes in this architecture, compared to the standard deployment:
 
