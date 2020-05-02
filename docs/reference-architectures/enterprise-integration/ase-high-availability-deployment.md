@@ -19,7 +19,7 @@ ms.subservice: reference-architecture
 
 ## Architecture
 
-The contents of the ASE subnets used in this reference implementation are the same as the ones in the standard ASE deployment architecture [described here](./ase-standard-deployment.md). This reference implementation replicates the deployment in two ASE subnets. Each subnet has its own web app, API, and function instances running in their individual App Service Plans. The Redis cache required by the applications are also replicated for better performance. Note that availability zones are per region. As such, the scope of this reference architecture is limited for a single region. Availability zones are logically mapped to different physical zones for each subscription independently. It is worth noting that an availability zone *n* for two subscriptions may be mapped to two completely different physical zones.
+The contents of the ASE subnets used in this reference implementation are the same as the ones in the standard ASE deployment architecture [described here](./ase-standard-deployment.md). This reference implementation replicates the deployment in two ASE subnets. Each subnet has its own web app, API, and function instances running in their individual App Service Plans. The Redis cache required by the applications are also replicated for better performance. Note that availability zones are per region. As such, the scope of this reference architecture is limited for a single region.
 
 The following section shows how the role of some services changes in this architecture, compared to the standard deployment:
 
@@ -29,13 +29,13 @@ The following section shows how the role of some services changes in this archit
 
 [**Application Gateway**](https://docs.microsoft.com/azure/application-gateway/overview) **v2** is *zone-redundant*. Like the virtual network, it spans multiple availability zones per region. This in turn means, a single application gateway is sufficient for a highly available system, as shown in this reference architecture. Note that the v1 SKU does not support this. For more details, read [Autoscaling and Zone-redundant Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
 
-[**Azure Firewall**](https://docs.microsoft.com/azure/firewall/overview) has built-in support for high availability. It can span across multiple zones without any additional configuration. This allows the usage of a single firewall for applications deployed in more than one zone, as done in this reference architecture. Although not used in this architecture, if required you can also configure a specific availability zone when deploying the firewall. Read [Azure Firewall and Availability Zones](https://docs.microsoft.com/azure/firewall/overview#availability-zones) for more information.
+[**Azure Firewall**](https://docs.microsoft.com/azure/firewall/overview) has built-in support for high availability. It can span across multiple zones without any additional configuration. This allows the usage of a single firewall for applications deployed in more than one zone, as done in this reference architecture. Although not used in this architecture, if necessary you can also configure a specific availability zone when deploying the firewall. Read [Azure Firewall and Availability Zones](https://docs.microsoft.com/azure/firewall/overview#availability-zones) for more information.
 
 [**Azure Active Directory**](https://docs.microsoft.com/azure/active-directory/) is a highly available, highly redundant, global service, spanning availability zones as well as regions. Read [Advancing Azure Active Directory availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/) for more insights.
 
-[**Azure Pipelines**](https://docs.microsoft.com/azure/devops/pipelines/) supports [parallel processing of CI/CD activities](https://docs.microsoft.com/azure/devops/pipelines/licensing/concurrent-jobs?view=azure-devops). Use this in the deployment phase, to simultaneously deploy the built applications to multiple ASE subnets, through multiple Jumpbox VMs or Bastian subnets. This architecture uses two Jumpbox virtual machines to help with the simultaneous deployment. Note the number of parallel jobs is tied to the pricing tier. The basic free tier of a Microsoft-hosted CI/CD allows up to 10 tasks to be parallelized, each running up to 6 hours.
+[**Azure Pipelines**](https://docs.microsoft.com/azure/devops/pipelines/) supports [parallel processing of CI/CD activities](https://docs.microsoft.com/azure/devops/pipelines/licensing/concurrent-jobs?view=azure-devops). Use this in the deployment phase, to simultaneously deploy the built applications to multiple ASE subnets, through multiple Jumpbox VMs or Bastion subnets. This architecture uses two Jumpbox virtual machines to help with the simultaneous deployment. Note the number of parallel jobs is tied to the pricing tier. The basic free tier of a Microsoft-hosted CI/CD allows up to 10 tasks to be parallelized, each running up to 6 hours.
 
-[**Azure Cache for Redis**](https://docs.microsoft.com/azure/azure-cache-for-redis/) is not a zone-aware service. This architecture creates two subnets to hold the Redis Cache, each pinned down to the Availability zone of an ASE subnet. This is recommended since the closer the cache to the application, the better is the app performance. Note that this is a new *preview* feature, available only for Premium tier.
+[**Azure Cache for Redis**](https://docs.microsoft.com/azure/azure-cache-for-redis/) is not a zone-aware service. This architecture creates two subnets to hold the Redis Cache, each pinned down to the Availability zone of an ASE subnet. This is recommended since the closer the cache to the application, the better the app performance. Note that this is a new *preview* feature, available only for Premium tier.
 
 ## Availability considerations
 
@@ -53,7 +53,7 @@ Some additional points to consider:
 - An ILB ASE deployed to a zone ensures uptime for already deployed apps and resources used by them. However, app service plan scaling, app creation and deployment may still be affected by outages in other zones.
 - An ARM template must be used for initial deployment of ILB ASE to an availability zone. Thereafter, it can be accessed through portal or command line. The *zones* property must be set to 1, 2, or 3 denoting the logical zones.
 - Virtual network by default is zone-redundant, hence all zone-deployed ASE subnets can reside in the same virtual network.
-- External-facing ASEs can not be pinned to an availability zone.
+- External-facing ASEs cannot be pinned to an availability zone.
 
 For more details, read [App Service Environment Support for Availability Zones](https://azure.github.io/AppService/2019/12/12/App-Service-Environment-Support-for-Availability-Zones.html).
 
@@ -117,8 +117,8 @@ The cost considerations for the high availability architecture are mostly simila
 
 The following differences can affect the cost:
 
-- Multiple deployment of App Service environments.
-- Multiple deployment of Azure Cache for Redis Premium tier instances, in the *Premium Tier*. This reference architecture uses Premium tier, since:
+- Multiple deployments of App Service environments.
+- Multiple deployments of Azure Cache for Redis Premium tier instances, in the *Premium Tier*. This reference architecture uses Premium tier, since:
   - Only Premium tier Redis Cache can be used from within the virtual network, and
   - Zonal pinning of Redis Cache, a public preview feature, is available only in the *Premium Tier*.
 
