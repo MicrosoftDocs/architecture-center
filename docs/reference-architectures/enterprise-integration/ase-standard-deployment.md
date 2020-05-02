@@ -377,8 +377,8 @@ Apps can be deployed to an internal ASE only from within the virtual network. Th
     
     Here is some additional information:
 
-        - Discussion on the self-hosted build agent between Pipelines and the ASE VNet: https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=azure-devops&viewFallbackFrom=vsts
-        - DevOps on ASE: https://devopsandcloud.wordpress.com/2018/04/27/deploy-to-azure-ilb-ase-using-visual-studio-online-services/
+    - Discussion on the self-hosted build agent between Pipelines and the ASE VNet: https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=azure-devops&viewFallbackFrom=vsts
+    - DevOps on ASE: https://devopsandcloud.wordpress.com/2018/04/27/deploy-to-azure-ilb-ase-using-visual-studio-online-services/
     
     The [azure-pipelines.yml](TBD) implements such a CI/CD pipeline using YAML script, which allows a programmatic deployment. Explore this CI/CD script, with the help of [YAML schema reference documentation](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema%2Cparameter-schema).
 
