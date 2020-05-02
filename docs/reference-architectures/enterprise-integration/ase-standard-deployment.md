@@ -376,6 +376,7 @@ Apps can be deployed to an internal ASE only from within the virtual network. Th
 1. **Through Azure Pipelines** - This implements a complete CI/CD pipeline, ending in an agent located inside the ILB ASE VNet. This is ideal for production environments requiring high throughput of deployment. The build pipeline remains entirely outside the VNet. The deploy pipeline copies the built objects to the build agent inside the VNet, and then deploys to the ASE subnet.
     
     Here is some additional information:
+
         - Discussion on the self-hosted build agent between Pipelines and the ASE VNet: https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=azure-devops&viewFallbackFrom=vsts
         - DevOps on ASE: https://devopsandcloud.wordpress.com/2018/04/27/deploy-to-azure-ilb-ase-using-visual-studio-online-services/
     
