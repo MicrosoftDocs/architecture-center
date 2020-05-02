@@ -374,9 +374,11 @@ The function also accesses the Service Bus listener connection string in a simil
 Apps can be deployed to an internal ASE only from within the virtual network. The following three methods are widely used to deploy ASE apps:
 
 1. **Through Azure Pipelines** - This implements a complete CI/CD pipeline, ending in an agent located inside the ILB ASE VNet. This is ideal for production environments requiring high throughput of deployment. The build pipeline remains entirely outside the VNet. The deploy pipeline copies the built objects to the build agent inside the VNet, and then deploys to the ASE subnet.
-    Here is additional information:
+    
+    Here is some additional information:
         - Discussion on the self-hosted build agent between Pipelines and the ASE VNet: https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=azure-devops&viewFallbackFrom=vsts
         - DevOps on ASE: https://devopsandcloud.wordpress.com/2018/04/27/deploy-to-azure-ilb-ase-using-visual-studio-online-services/
+    
     The [azure-pipelines.yml](TBD) implements such a CI/CD pipeline using YAML script, which allows a programmatic deployment. Explore this CI/CD script, with the help of [YAML schema reference documentation](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema%2Cparameter-schema).
 
 1. **Manually inside the Virtual Network** - Create a virtual machine inside the ASE VNet with the required tools for the deployment. Open up the RDP connection to the VM using an NSG configuration, copy your code artifacts to the VM, build and deploy to the ASE subnet. This is a simple way to set up an initial build and test development environment. It is however not recommended for production environment since it cannot scale the throughput required.
