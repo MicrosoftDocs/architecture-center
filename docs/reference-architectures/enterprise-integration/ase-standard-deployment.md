@@ -3,7 +3,7 @@ title: Enterprise deployment using App Services Environment
 titleSuffix: Azure Reference Architectures
 description: Recommended architecture for deploying an enterprise application using App Services Environment.
 author: dsk-2015
-ms.date: 04/10/2020
+ms.date: 05/06/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -11,11 +11,11 @@ ms.subservice: reference-architecture
 
 # Enterprise app deployment using App Service Environment
 
-[Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/overview) is a PAAS service used to host a variety of apps on Azure: web apps, API apps, functions, and mobile apps. [App Service Environment or ASE](https://docs.microsoft.com/en-us/azure/app-service/environment/intro) allows enterprises to deploy their App Service apps in a subnet in their own Azure Virtual Network, providing an isolated, highly scalable, and dedicated environment for their cloud workloads.
+[Azure App Service](https://docs.microsoft.com/azure/app-service/overview) is a PaaS service used to host a variety of apps on Azure: web apps, API apps, functions, and mobile apps. [App Service Environment or ASE](https://docs.microsoft.com/azure/app-service/environment/intro) allows enterprises to deploy their App Service apps in a subnet in their own Azure Virtual Network, providing an isolated, highly scalable, and dedicated environment for their cloud workloads.
 
 This reference architecture demonstrates a common enterprise workload using ASE, and best practices to tighten security of this workload.
 
-![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub](TBD).
+![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/App-Services-Environment-ILB-HA).
 
 ![Reference architecture for standard ASE deployment](./_images/standard-ase-deployment.png)
 
@@ -28,7 +28,7 @@ The main component of this architecture is the [**App Service environment**](htt
 - Host apps in the cloud that aren't listed in public DNS servers.
 - Create internet-isolated back-end apps, which your front-end apps can securely integrate with.
 
-An ASE must be always deployed in its own subnet within the enterprise' virtual network, allowing a tight control of the incoming and outgoing traffic. Within this subnet, App Service applications are deployed in one or more [App Service plans](https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans), which is a collection of physical resources required to run the app. Depending on the complexity and resource requirement, an App Service plan can be shared between multiple apps. This reference implementation deploys a web app named *Voting App*, that interacts with a private web API and a function. It also deploys a dummy web app named *Test App* to demonstrate multi-app deployments. Each App Service app is hosted in its own App Service plan, allowing each to be scaled independently if required. All resources required by these hosted apps, such as storage and compute, as well as scaling needs are fully managed by the App Service Environment infrastructure.
+An ASE must be always deployed in its own subnet within the enterprise' virtual network, allowing a tight control of the incoming and outgoing traffic. Within this subnet, App Service applications are deployed in one or more [App Service plans](https://docs.microsoft.com/azure/app-service/overview-hosting-plans), which is a collection of physical resources required to run the app. Depending on the complexity and resource requirement, an App Service plan can be shared between multiple apps. This reference implementation deploys a web app named *Voting App*, that interacts with a private web API and a function. It also deploys a dummy web app named *Test App* to demonstrate multi-app deployments. Each App Service app is hosted in its own App Service plan, allowing each to be scaled independently if required. All resources required by these hosted apps, such as storage and compute, as well as scaling needs are fully managed by the App Service Environment infrastructure.
 
 The simple voting app in this implementation, allows users to view existing or create new entries, as well as vote on the existing entries. The web API is used for creation and retrieval of entries and votes. The data itself is stored in a SQL Server database. To demonstrate asynchronous data updates, the web app queues newly added votes in a Service Bus instance. The function picks up queued votes and updates the SQL database. CosmosDB is used to store a mock-up ad, that the web app retrieves to display on the browser. The application uses Azure Cache for Redis for cache management. A Premium tier Azure Cache for Redis is used, which allows configuration to the same virtual network as the ASE, in its own subnet. This provides enhanced security and isolation to the cache.
 
@@ -38,15 +38,23 @@ The following services are key to locking down the ASE in this architecture:
 
 [**Azure Virtual Network**](https://docs.microsoft.com/azure/virtual-network/) or VNet is a private Azure cloud network owned by the enterprise. It provides network-based security and isolation. Since the ASE is an App Service deployment into a subnet of the enterprise-owned VNet. It allows the enterprise to tightly control that network space and the resources it accesses, using *Network Security groups* and *Service Endpoints*.
 
-[**Application Gateway**](https://docs.microsoft.com/azure/application-gateway/overview) is an application-level web traffic load balancer, with TLS/SSL offloading, and web application firewall (WAF) protection. It listens on a public IP address and routes traffic to the application endpoint in the ILB ASE. Since it's application-level routine, it can route traffic to multiple apps within the same ILB ASE. See [Application Gateway multiple site hosting](https://docs.microsoft.com/en-us/azure/application-gateway/multiple-site-overview) to learn how App Gateway supports multiple sites. The reference implementation deploys the empty *test app* to demonstrate this scenario.
+[**Application Gateway**](https://docs.microsoft.com/azure/application-gateway/overview) is an application-level web traffic load balancer, with TLS/SSL offloading, and web application firewall (WAF) protection. It listens on a public IP address and routes traffic to the application endpoint in the ILB ASE. Since this is application-level routing, it can route traffic to multiple apps within the same ILB ASE. See [Application Gateway multiple site hosting](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview) to learn how App Gateway supports multiple sites. This reference implementation deploys an empty *test app* to demonstrate this scenario.
 
-[**Azure Firewall**](https://docs.microsoft.com/azure/firewall/overview) is used to restrict the outbound traffic from the web application. Outgoing traffic that does not go to through the service endpoint channel, is directed to the firewall subnet. Although it is recommended for [service endpoints to be configured on the firewall subnet](https://docs.microsoft.com/en-us/azure/firewall/firewall-faq#how-do-i-set-up-azure-firewall-with-my-service-endpoints) for traceability, it may not be always feasible, for example, for services such as those required by ASE infrastructure. For simplicity, this architecture configures all service endpoints on the ASE subnet.
+[**Azure Firewall**](https://docs.microsoft.com/azure/firewall/overview) is used to restrict the outbound traffic from the web application. Outgoing traffic that does not go to through the service endpoint channel, is directed to the firewall subnet. Although it is recommended for [service endpoints to be configured on the firewall subnet](https://docs.microsoft.com/azure/firewall/firewall-faq#how-do-i-set-up-azure-firewall-with-my-service-endpoints) for traceability, it may not be always feasible, for example, for services such as those required by ASE infrastructure. For simplicity, this architecture configures all service endpoints on the ASE subnet.
 
 **Azure Active Directory** or AAD provides access rights and permissions management to Azure resources and services. [*Managed Identities*](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) assigns identities to services and apps, automatically managed by AAD. This identity can be used to authenticate to any service that supports Azure AD authentication. This removes the need to explicitly configure credentials for these apps. This architecture assigns a managed identity to the web app.
 
 [**Key Vault**](https://docs.microsoft.com/azure/key-vault/) stores any secrets and credentials required by the apps. Use this option over storing secrets directly in the application.
 
-[**Azure Pipelines**](https://docs.microsoft.com/azure/devops/pipelines/) provides *Continuous Integration and Continuous Deployment* capabilities in this architecture. Since the ASE is internal to the virtual network, to deploy the apps in the App Service plans, a **virtual machine** is used as a *jumpbox* inside the VNet. The pipeline builds the apps outside the VNet, and then deploys using this jumpbox. For enhanced security and seamless RDP/SSH connectivity, consider using the recently released [Azure Bastion](https://docs.microsoft.com/en-us/azure/bastion/bastion-overview) as the jumpbox.
+[**Azure Pipelines**](https://docs.microsoft.com/azure/devops/pipelines/) provides *Continuous Integration and Continuous Deployment* capabilities in this architecture. Since the ASE is internal to the virtual network, to deploy the apps in the App Service plans, a **virtual machine** is used as a *jumpbox* inside the VNet. The pipeline builds the apps outside the VNet, and then deploys using this jumpbox. For enhanced security and seamless RDP/SSH connectivity, consider using the recently released [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) as the jumpbox.
+
+## Multi-site configuration
+
+![Multi-site deployment](./_images/ase-multi-site.png)
+
+Internal ASE can host several web apps and APIs with HTTP endpoints. These applications are locked down from the public internet as the ILB IP is only accessible from within the Virtual Network. The Application Gateway is used to make selectively expose these applications from the internet. ASE assigns a default URL to each App Service application as `<default-appName>.<ASE-domain>.appserviceenvironment.net`. A [private DNS zone](https://docs.microsoft.com/en-us/azure/dns/private-dns-overview) is created that maps the ASE domain name to the ASE ILB IP address. This avoid using a custom DNS to access the apps within the VNet.
+
+The App Gateway is configured such that a [listener](https://docs.microsoft.com/en-us/azure/application-gateway/configuration-overview#listeners) listening on HTTPS port for requests to the Gateway's IP address. Note that, for the sake of simplicity, this implementation does not have a public DNS name registration, and requires you to modify the localhost file on your computer to point an arbitrarily chosen URL to the App Gateway's IP address. The listener uses a certificate to process these requests, which is self-signed for simplicity. The App Gateway has [backend pools](https://docs.microsoft.com/en-us/azure/application-gateway/configuration-overview#back-end-pool) for each App Service application's default URL. A [routing rule](https://docs.microsoft.com/en-us/azure/application-gateway/configuration-overview#request-routing-rules) is configured to connect the listener to the backend pool. [HTTP settings](https://docs.microsoft.com/en-us/azure/application-gateway/configuration-overview#http-settings) are created that determines whether the connection between the gateway and the ASE will be encrypted, as well as whether we can *override with new host name* from the backend pool. This implementation uses default certificates created for the default ASE app URLs, which are trusted by the gateway. The request is redirected to the default URL of the corresponding app. The private [DNS linked to the VNet](https://docs.microsoft.com/en-us/azure/dns/private-dns-virtual-network-links) forwards this request to the ILB IP. The ASE then forward this to the requested App service. Note that any HTTP communication within the the ASE apps, goes through the private DNS.
 
 ## Security considerations
 
@@ -58,7 +66,7 @@ Default certificates are created for each App service for the default domain nam
 
 ### App Gateway
 
-The reference implementation configures the App Gateway programmatically in the [deployment/template/appgw.json](TBD). The file [deploy_std.sh](TBD) uses this configuration when deploying the gateway:
+The reference implementation configures the App Gateway programmatically in the [appgw.json](https://github.com/mspnp/App-Services-Environment-ILB-HA/blob/master/deployment/templates/appgw.json). The file [deploy_std.sh](https://github.com/mspnp/App-Services-Environment-ILB-HA/blob/master/deployment/deploy_std.sh) uses this configuration when deploying the gateway:
 
 ```azurecli
 az deployment group create --resource-group $RGNAME --template-file templates/appgw.json --parameters vnetName=$VNET_NAME appgwSubnetAddressPrefix=$APPGW_PREFIX appgwApplications=@appgwApps.parameters.json
@@ -67,13 +75,13 @@ APPGW_PUBLIC_IP=$(az deployment group show -g $RGNAME -n appgw --query propertie
 
 #### Encryption
 
-As described in the [Overview of TLS termination and end to end TLS with Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/ssl-overview), App Gateway can use *Transport Layer Security (TLS)/Secure Sockets Layer (SSL)* to encrypt and protect all traffic from web browsers. Encryption can be configured in the following ways:
+As described in the [Overview of TLS termination and end to end TLS with Application Gateway](https://docs.microsoft.com/azure/application-gateway/ssl-overview), App Gateway can use *Transport Layer Security (TLS)/Secure Sockets Layer (SSL)* to encrypt and protect all traffic from web browsers. Encryption can be configured in the following ways:
 
 1. **Encryption terminated at the gateway**.  The backend pools in this case are configured for HTTP. The encryption stops at the gateway, and traffic between the gateway and the app service is un-encrypted. Since encryption is CPU-intensive, un-encrypted traffic at the backend improves performance and simpler certificate management. This is a reasonable since the backend is secured by virtue of the network configuration.
 
 1. **End to end encryption**. In some scenarios, such as specific security or compliance requirements, the traffic might be required to be encrypted between the gateway and the app. This is achieved by using HTTPS connection, and configuring certificates at the backend pool.
 
-This reference implementation uses self-signed certificates for App Gateway, for demonstration purposes. For production code, a certificate issued by a *Certificate Authority* should be used. For a list of supported certificate types, read [Certificates supported for TLS termination](https://docs.microsoft.com/en-us/azure/application-gateway/ssl-overview#certificates-supported-for-tls-termination). Read [Configure an application gateway with TLS termination using the Azure portal](https://docs.microsoft.com/en-us/azure/application-gateway/create-ssl-portal) to learn how to create Gateway-terminated encryption. The following lines of code in the appgw.json configures this programmatically:
+This reference implementation uses self-signed certificates for App Gateway, for demonstration purposes. For production code, a certificate issued by a *Certificate Authority* should be used. For a list of supported certificate types, read [Certificates supported for TLS termination](https://docs.microsoft.com/azure/application-gateway/ssl-overview#certificates-supported-for-tls-termination). Read [Configure an application gateway with TLS termination using the Azure portal](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal) to learn how to create Gateway-terminated encryption. The following lines of code in the appgw.json configures this programmatically:
 
 ```json
           {
@@ -99,7 +107,7 @@ This reference implementation uses self-signed certificates for App Gateway, for
           },
 ```
 
-For traffic between the web apps on the ASE and the gateway, the default SSL certificates are used. The backend pools in this implementation are configured with default domain names associated to the web apps and the host names are overridden. Read [Configure App Service with Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/configure-web-app-portal) to know how these configurations are made. The following lines in the appgw.json shows how this is configured in the reference implementation:
+For traffic between the web apps on the ASE and the gateway, the default SSL certificates are used. The backend pools in this implementation are configured with default domain names associated to the web apps and the host names are overridden. Read [Configure App Service with Application Gateway](https://docs.microsoft.com/azure/application-gateway/configure-web-app-portal) to know how these configurations are made. The following lines in the appgw.json shows how this is configured in the reference implementation:
 
 ```json
          {
@@ -123,7 +131,7 @@ For traffic between the web apps on the ASE and the gateway, the default SSL cer
 
 #### Web Application Firewall
 
-[Web Application Firewall (WAF) on the Application Gateway](https://docs.microsoft.com/en-us/azure/web-application-firewall/ag/ag-overview) protects the web apps from malicious attacks, such as SQL injection. It is also integrated with Azure Monitor, to monitor attacks against using a real-time log. WAF needs to be enabled on the gateway, as described in [Create an application gateway with a Web Application Firewall using the Azure portal](https://docs.microsoft.com/en-us/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal). The reference implementation enables WAF programmatically in the appgw.json file with the following snippet:
+[Web Application Firewall (WAF) on the Application Gateway](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) protects the web apps from malicious attacks, such as SQL injection. It is also integrated with Azure Monitor, to monitor attacks against using a real-time log. WAF needs to be enabled on the gateway, as described in [Create an application gateway with a Web Application Firewall using the Azure portal](https://docs.microsoft.com/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal). The reference implementation enables WAF programmatically in the appgw.json file with the following snippet:
 
 ```json
         "webApplicationFirewallConfiguration": {
@@ -136,7 +144,7 @@ For traffic between the web apps on the ASE and the gateway, the default SSL cer
 
 ### Virtual Network
 
-[Network security groups](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#how-traffic-is-evaluated) can be associated with one or more subnets in the VNet. These are security rules that allow or deny traffic to flow between various Azure resources. This architecture associates a separate NSG for each subnet. This allows a better fine-tuning of these rules, as required by the service contained in that subnet. For example, the following snippet in the [ase.json](TBD) configures the NSG for the ASE subnet:
+[Network security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#how-traffic-is-evaluated) can be associated with one or more subnets in the VNet. These are security rules that allow or deny traffic to flow between various Azure resources. This architecture associates a separate NSG for each subnet. This allows a better fine-tuning of these rules, as required by the service contained in that subnet. For example, the following snippet in the [ase.json](https://github.com/mspnp/App-Services-Environment-ILB-HA/blob/master/deployment/templates/ase.json) configures the NSG for the ASE subnet:
 
 ```json
       "type": "Microsoft.Network/networkSecurityGroups",
@@ -144,7 +152,7 @@ For traffic between the web apps on the ASE and the gateway, the default SSL cer
       "name": "[variables('aseNSGName')]",
 ```
 
-[Service endpoints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) extend your VNet's private address space and identity to supporting Azure services, allowing these service resources to be secured to only your VNet. For improved security, service endpoints should be enabled on the ASE subnet for any Azure service that supports it. The service can then by secured to the enterprise VNet by setting virtual network rules on the service, effectively blocking access from public internet. ASE infrastructure sets up service endpoints for Event Hub, SQL Server, and Storage, for its own management, even if the architecture itself may not use them, as mentioned in the [System Architecture section of this article](https://docs.microsoft.com/en-us/azure/app-service/environment/firewall-integration#system-architecture). This architecture configures service endpoints for all services that support this: Service Bus, SQL Server, Key Vault, and CosmosDB. The following snippet in the [ase.json](TBD) shows these endpoints enabled in the ASE subnet:
+[Service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) extend your VNet's private address space and identity to supporting Azure services, allowing these service resources to be secured to only your VNet. For improved security, service endpoints should be enabled on the ASE subnet for any Azure service that supports it. The service can then by secured to the enterprise VNet by setting virtual network rules on the service, effectively blocking access from public internet. ASE infrastructure sets up service endpoints for Event Hub, SQL Server, and Storage, for its own management, even if the architecture itself may not use them, as mentioned in the [System Architecture section of this article](https://docs.microsoft.com/azure/app-service/environment/firewall-integration#system-architecture). This architecture configures service endpoints for all services that support this: Service Bus, SQL Server, Key Vault, and CosmosDB. The following snippet in the [ase.json](https://github.com/mspnp/App-Services-Environment-ILB-HA/blob/master/deployment/templates/ase.json) shows these endpoints enabled in the ASE subnet:
 
 ```json
         "serviceEndpoints": [
@@ -187,26 +195,26 @@ For traffic between the web apps on the ASE and the gateway, the default SSL cer
         ]
 ```
 
-Note that [enabling service endpoints on a subnet](https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) is a two step process. The resources themselves need to be configured to receive traffic on the service endpoints from this virtual network. For more information, read [Restrict network access to a resource
-](https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-restrict-network-access-to-resources#restrict-network-access-to-a-resource).
+Note that [enabling service endpoints on a subnet](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) is a two step process. The resources themselves need to be configured to receive traffic on the service endpoints from this virtual network. For more information, read [Restrict network access to a resource
+](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#restrict-network-access-to-a-resource).
 
 ### Firewall
 
-Azure Firewall and service endpoints complement each other. While service endpoints protect the resources by restricting incoming traffic to originate from your virtual network, Azure Firewall allows you to restrict the outbound traffic from your applications. It is recommended to let all outbound traffic to pass through the firewall subnet, including service endpoint traffic. This allows better monitoring of the outbound traffic. However, ASE infrastructure requires service endpoints for SQL Server, Storage, and Event Hubs to be configured for the ASE subnet. See the [Locking down an App Service Environment](https://docs.microsoft.com/en-us/azure/app-service/environment/firewall-integration) for discussion on firewall integration. Additionally, this implementation uses [CosmosDB in direct connection mode](https://docs.microsoft.com/en-us/azure/cosmos-db/performance-tips#networking), which requires a range of ports to be opened up, which was found to be problematic in firewall configuration. For these reasons, it is preferable to configure all service endpoints on the ASE subnet instead of the firewall subnet. In this implementation, this includes endpoints for Service Bus, CosmosDB, and Key Vault, in addition to those required by the ASE infrastructure.
+Azure Firewall and service endpoints complement each other. While service endpoints protect the resources by restricting incoming traffic to originate from your virtual network, Azure Firewall allows you to restrict the outbound traffic from your applications. It is recommended to let all outbound traffic to pass through the firewall subnet, including service endpoint traffic. This allows better monitoring of the outbound traffic. However, ASE infrastructure requires service endpoints for SQL Server, Storage, and Event Hubs to be configured for the ASE subnet. See the [Locking down an App Service Environment](https://docs.microsoft.com/azure/app-service/environment/firewall-integration) for discussion on firewall integration. Additionally, this implementation uses [CosmosDB in direct connection mode](https://docs.microsoft.com/azure/cosmos-db/performance-tips#networking), which requires a range of ports to be opened up, which was found to be problematic in firewall configuration. For these reasons, it is preferable to configure all service endpoints on the ASE subnet instead of the firewall subnet. In this implementation, this includes endpoints for Service Bus, CosmosDB, and Key Vault, in addition to those required by the ASE infrastructure.
 
-See [Configuring Azure Firewall with your ASE](https://docs.microsoft.com/en-us/azure/app-service/environment/firewall-integration#configuring-azure-firewall-with-your-ase) to learn how firewall is integrated with the ASE. Any traffic not going over the service endpoints and virtual network route table, will be monitored and gated by the firewall. The need for the route table is described in the following section.
+See [Configuring Azure Firewall with your ASE](https://docs.microsoft.com/azure/app-service/environment/firewall-integration#configuring-azure-firewall-with-your-ase) to learn how firewall is integrated with the ASE. Any traffic not going over the service endpoints and virtual network route table, will be monitored and gated by the firewall. The need for the route table is described in the following section.
 
 #### ASE Management IPs
 
-The ASE management traffic flows through the enterprise virtual network. This traffic should be routed directly to the dedicated IP addresses outside the virtual network, avoiding the firewall. This is achieved by creating a [user-defined virtual network route table](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview#user-defined). The article [App Service Environment management addresses](https://docs.microsoft.com/en-us/azure/app-service/environment/management-addresses#list-of-management-addresses) lists these IP addresses. This list can get too long to be configured in the firewall manually. We recommend it to be populated programmatically. The following line in the [deploy_std.sh](TBD) obtains this list using Azure CLI and [jq](https://stedolan.github.io/jq/manual/), a command line JSON parser:
+The ASE management traffic flows through the enterprise virtual network. This traffic should be routed directly to the dedicated IP addresses outside the virtual network, avoiding the firewall. This is achieved by creating a [user-defined virtual network route table](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined). The article [App Service Environment management addresses](https://docs.microsoft.com/azure/app-service/environment/management-addresses#list-of-management-addresses) lists these IP addresses. This list can get too long to be configured in the firewall manually. We recommend it to be populated programmatically. The following line in the [deploy_std.sh](https://github.com/mspnp/App-Services-Environment-ILB-HA/blob/master/deployment/deploy_std.sh) obtains this list using Azure CLI and [jq](https://stedolan.github.io/jq/manual/), a command line JSON parser:
 
 ```azurecli
 ENDPOINTS_LIST=$(az rest --method get --uri $ASE_ID/inboundnetworkdependenciesendpoints?api-version=2016-09-01 | jq '.value[0].endpoints | join(", ")' -j)
 ```
 
-This is equivalent to the documented method of [getting the management addresses from API](https://docs.microsoft.com/en-us/azure/app-service/environment/management-addresses#get-your-management-addresses-from-api).
+This is equivalent to the documented method of [getting the management addresses from API](https://docs.microsoft.com/azure/app-service/environment/management-addresses#get-your-management-addresses-from-api).
 
-The commands in the [deploy_std.sh](TBD) create the virtual network along with the route table, as configured in the [network.json](TBD):
+The commands in the [deploy_std.sh](https://github.com/mspnp/App-Services-Environment-ILB-HA/blob/master/deployment/deploy_std.sh) create the virtual network along with the route table, as configured in the [network.json](https://github.com/mspnp/App-Services-Environment-ILB-HA/blob/master/deployment/templates/network.json):
 
 ```azurecli
 VNET_NAME=$(az network vnet list -g $RGNAME --query "[?contains(addressSpace.addressPrefixes, '${NET_PREFIX}')]" --query [0].name -o tsv)
@@ -221,7 +229,7 @@ When the ASE subnet is created, the route table is associated with it:
 az deployment group create --resource-group $RGNAME --template-file templates/ase.json -n ase --parameters vnetName=$VNET_NAME vnetRouteName=$VNET_ROUTE_NAME aseSubnetAddressPrefix=$ASE_PREFIX
 ```
 
-Finally, when the firewall is created, the [firewall.json](TBD) configuration file updates this route table with the ASE management IPs, driving the remaining traffic through the firewall IP:
+Finally, when the firewall is created, the [firewall.json](https://github.com/mspnp/App-Services-Environment-ILB-HA/blob/master/deployment/templates/firewall.json) configuration file updates this route table with the ASE management IPs, driving the remaining traffic through the firewall IP:
 
 ```json
 "variables": {
@@ -269,7 +277,7 @@ Azure Active Directory provides security features to authenticate applications a
 
 When building cloud applications, the credentials required to authenticate to cloud services, must be secured. Ideally, the credentials should never appear on developer workstations or checked into source control. Azure Key Vault provides a way to securely store credentials and secrets, but app has to authenticate to Key Vault to retrieve them. **Managed Identities for Azure resources** provides Azure services with an automatically managed identity in Azure AD. This identity can be used to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in the application.
 
-[**Role based access control](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) manages access to Azure resources, which includes:
+[**Role based access control](https://docs.microsoft.com/azure/role-based-access-control/overview) manages access to Azure resources, which includes:
 
 - which entity has the access: user, managed identity, security principal.
 - what type of access it has: owner, contributor, reader, admin.
@@ -277,14 +285,14 @@ When building cloud applications, the credentials required to authenticate to cl
 
 ### Key Vault
 
-Some services support managed identities, however they use RBAC to set up permissions for the app. For example, see Service Bus' [built-in RBAC roles](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-managed-service-identity#built-in-rbac-roles-for-azure-service-bus), as well as [RBAC in CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/role-based-access-control). Owner access to the subscription is required for granting these permission. Since developers of your workload may not always be owners of the subscription, contributors should be able to run the deployment scripts. Granting permissions for these services require higher privilege access to the subscription: it allows only *owner* but not a *contributor*. In that case the next best option is to use native access control policies of the service:
+Some services support managed identities, however they use RBAC to set up permissions for the app. For example, see Service Bus' [built-in RBAC roles](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-managed-service-identity#built-in-rbac-roles-for-azure-service-bus), as well as [RBAC in CosmosDB](https://docs.microsoft.com/azure/cosmos-db/role-based-access-control). Owner access to the subscription is required for granting these permission. Since developers of your workload may not always be owners of the subscription, contributors should be able to run the deployment scripts. Granting permissions for these services require higher privilege access to the subscription: it allows only *owner* but not a *contributor*. In that case the next best option is to use native access control policies of the service:
 
-- For Service Bus, it is [Shared Access Signatures](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature),
-- For CosmosDB, it is the [Master Keys](https://docs.microsoft.com/en-us/azure/cosmos-db/secure-access-to-data#master-keys).
+- For Service Bus, it is [Shared Access Signatures](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature),
+- For CosmosDB, it is the [Master Keys](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#master-keys).
 
 The connection strings for these access control policies are then stored in the Key Vault. The vault itself is accessed through managed identities, which does not also require RBAC. Set the access policy for these connection strings appropriately. For example, read-only for the backend, write-only for the frontend, and so on, instead of using default root access policy.
 
-The following snippet in [services.json](TBD) shows the KeyVault configuration for these services:
+The following snippet in [services.json](https://github.com/mspnp/App-Services-Environment-ILB-HA/blob/master/deployment/templates/services.json) shows the KeyVault configuration for these services:
 
 ```json
     {
@@ -325,7 +333,7 @@ The following snippet in [services.json](TBD) shows the KeyVault configuration f
     },
 ```
 
-These connection string values are accessed by the apps, by referencing the Key Vault key/value pair. This is done in the [site.json](TBD) file as the following snippet shows for the Voting App:
+These connection string values are accessed by the apps, by referencing the Key Vault key/value pair. This is done in the [sites.json](https://github.com/mspnp/App-Services-Environment-ILB-HA/blob/master/deployment/templates/sites.json) file as the following snippet shows for the Voting App:
 
 ```json
    "properties": {
@@ -367,10 +375,10 @@ Apps can be deployed to an internal ASE only from within the virtual network. Th
 This implements a complete CI/CD pipeline, ending in an agent located inside the ILB ASE VNet. This is ideal for production environments requiring high throughput of deployment. The build pipeline remains entirely outside the VNet. The deploy pipeline copies the built objects to the build agent inside the VNet, and then deploys to the ASE subnet.
 
 Here is additional information:
-    - Discussion on the self-hosted build agent between Pipelines and the ASE VNet: https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows?view=azure-devops&viewFallbackFrom=vsts
+    - Discussion on the self-hosted build agent between Pipelines and the ASE VNet: https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=azure-devops&viewFallbackFrom=vsts
     - DevOps on ASE: https://devopsandcloud.wordpress.com/2018/04/27/deploy-to-azure-ilb-ase-using-visual-studio-online-services/
 
-The [azure-pipelines.yml](TBD) implements such a CI/CD pipeline using YAML script, which allows a programmatic deployment. Explore this CI/CD script, with the help of [YAML schema reference documentation](https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema%2Cparameter-schema).
+The [azure-pipelines.yml](TBD) implements such a CI/CD pipeline using YAML script, which allows a programmatic deployment. Explore this CI/CD script, with the help of [YAML schema reference documentation](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema%2Cparameter-schema).
 
 1. **Manually inside the Virtual Network**
 Create a virtual machine inside the ASE VNet with the required tools for the deployment. Open up the RDP connection to the VM using an NSG configuration, copy your code artifacts to the VM, build and deploy to the ASE subnet. This is a simple way to set up an initial build and test development environment. It is however not recommended for production environment since it cannot scale the throughput required.
@@ -386,35 +394,35 @@ Some enterprises may not want to maintain a permanent build agent inside the VNe
 
 ## Cost considerations
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework](https://docs.microsoft.com/en-us/azure/architecture/framework/cost/overview).
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework](https://docs.microsoft.com/azure/architecture/framework/cost/overview).
 
-Azure Reservations help you save money by committing to one-year or three-years plans for many Azure resources. Read more in the article [Buy a reservation](https://docs.microsoft.com/en-us/azure/cost-management-billing/reservations/prepare-buy-reservation).
+Azure Reservations help you save money by committing to one-year or three-years plans for many Azure resources. Read more in the article [Buy a reservation](https://docs.microsoft.com/azure/cost-management-billing/reservations/prepare-buy-reservation).
 
 Here are some points to consider for some of the key services used in this architecture.
 
 ### App Service Environment
 
-There are various [pricing options available for App Service](https://azure.microsoft.com/en-us/pricing/details/app-service/windows/). An App Service environment is deployed using the [Isolated Service Plan](https://docs.microsoft.com/en-us/azure/cost-management-billing/reservations/prepay-app-service-isolated-stamp). Within this plan, there are three option for CPU sizes - I1, I2, and I3. This reference implementation is using three I1's per instance.  
+There are various [pricing options available for App Service](https://azure.microsoft.com/pricing/details/app-service/windows/). An App Service environment is deployed using the [Isolated Service Plan](https://docs.microsoft.com/azure/cost-management-billing/reservations/prepay-app-service-isolated-stamp). Within this plan, there are three option for CPU sizes - I1, I2, and I3. This reference implementation is using three I1's per instance.  
 
 ### Application Gateway
 
-[Application Gateway pricing](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) provides various pricing options for App Gateway. We are using the *Application Gateway Standard_v2 and WAF_v2 SKU*, that supports auto scaling and zone redundancy. Read [this article](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing) to know more about the pricing model used for V2 SKU.
+[Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/) provides various pricing options for App Gateway. We are using the *Application Gateway Standard_v2 and WAF_v2 SKU*, that supports auto scaling and zone redundancy. Read [this article](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing) to know more about the pricing model used for V2 SKU.
 
 ### Azure Cache for Redis
 
-[Azure Cache for Redis pricing](https://azure.microsoft.com/en-us/pricing/details/cache/) provides the various pricing options for this service. This architecture uses the *Premium SKU*, for the virtual network support.
+[Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/) provides the various pricing options for this service. This architecture uses the *Premium SKU*, for the virtual network support.
 
 The following are pricing pages for other services:
 
-- [Azure Firewall pricing](https://azure.microsoft.com/en-us/pricing/details/azure-firewall/)
+- [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/)
 
-- [Key Vault pricing](https://azure.microsoft.com/en-us/pricing/details/key-vault/)
+- [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/)
 
-- [Azure Active Directory pricing](https://azure.microsoft.com/en-us/pricing/details/active-directory/)
+- [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/)
 
 ## Deploy the solution
 
-To deploy the reference implementation for this architecture, see the [GitHub readme](TBD).
+To deploy the reference implementation for this architecture, see the [GitHub readme](Thttps://github.com/mspnp/App-Services-Environment-ILB-HA/blob/master/deployment/readme.md), and follow the script for *standard deployment*.
 
 ## Next steps
 
