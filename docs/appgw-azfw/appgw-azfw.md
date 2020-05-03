@@ -3,7 +3,7 @@ title: Azure Application Gateway and Azure Firewall in a Virtual Network
 titleSuffix: Best practices for cloud applications
 description: Guidance on using App Gateway and Azure Firewall together
 author: erjosito
-ms.date: 28/04/2020
+ms.date: 04/28/2020
 ms.topic: scenario
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -177,7 +177,7 @@ Additionally, the Azure Firewall plays an important role in AKS cluster security
 
 When using the Application and Azure Firewall together with an AKS cluster, the recommendation is using the design option with both appliances in parallel: the Application Gateway (with Web Application Firewall) will process inbound connection requests to the cluster, and the Azure Firewall will only allow those outbound connections that are desired.
 
-# Azure Front Door
+## Azure Front Door
 
 Azure Front Door is a service that provide functionality partially overlapping with the Azure Application Gateway: for example, both services offer Web Application Firewalling, SSL offload or URL routing. One main difference is that while Azure Application Gateway is deployed inside of a Virtual Network, Azure Front Door is a global, decentralized service.
 
