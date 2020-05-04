@@ -251,7 +251,7 @@ Using a system like HashiCorp Vault or Azure Key Vault provides several advantag
 
 This list is certainly not exhaustive, but here are some recommended practices for securing your pods and containers:
 
-Don't run containers in privileged mode. Privileged mode gives a container access to all devices on the host. You can set Pod Security Policy to disallow containers from running in privileged mode.
+Don't run containers in privileged mode. Privileged mode gives a container access to all devices on the host. 
 
 When possible, avoid running processes as root inside containers. Containers do not provide complete isolation from a security standpoint, so it's better to run a container process as a non-privileged user.
 
