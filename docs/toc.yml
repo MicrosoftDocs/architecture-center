@@ -950,7 +950,7 @@ items:
         href: example-scenario/iot-aad/iot-aad.md
       - name: Telemetry Analytics
         href: solution-ideas/articles/telemetry-analytics.md
-    - name: IoT process patterns
+    - name: IoT patterns
       items:
         - name: Measure and control loop
           href: example-scenario/iot/measure-and-control-loop.md
