@@ -85,10 +85,10 @@ Depending on the requirements, the scenario can be mapped using common IoT patte
 
 Use case | Proposed solution | Process pattern
 --- | --- | ---
-Measuring temperature over time across the different greenhouses. Adjust temperature when it goes past limits. | Temperature sensors sending data at set interval to an application. Trigger thermostat to adjust automatically. | Measure and control loop
-Measuring humidity over time across the different greenhouses. Set humidifying system when it goes past limits. | Hygrometer sending data at set interval to an application. Trigger an alert when it goes past thresholds. | Measure and control loop
-Measuring soil moisture over time across the different greenhouses. Adjust moisture level when it goes past limits. | Soil moisture sensor sending data at set interval to an application. Trigger an alert when it goes pass thresholds. | Measure and control loop
-Measuring soil acidity over time across the different greenhouses. Adjust acidity when it goes past limits. | pH sensor sending data at set interval to an application. Trigger an alert when it goes past thresholds. | Measure and control loop
+Measuring temperature over time across the different greenhouses. Adjust temperature when it goes past limits. | Temperature sensors sending data at set interval to an application. Trigger thermostat to adjust automatically. | [Measure and control loop](./measure-and-control-loop.md)
+Measuring humidity over time across the different greenhouses. Set humidifying system when it goes past limits. | Hygrometer sending data at set interval to an application. Trigger an alert when it goes past thresholds. | [Measure and control loop](./measure-and-control-loop.md)
+Measuring soil moisture over time across the different greenhouses. Adjust moisture level when it goes past limits. | Soil moisture sensor sending data at set interval to an application. Trigger an alert when it goes pass thresholds. | [Measure and control loop](./measure-and-control-loop.md)
+Measuring soil acidity over time across the different greenhouses. Adjust acidity when it goes past limits. | pH sensor sending data at set interval to an application. Trigger an alert when it goes past thresholds. | [Measure and control loop](./measure-and-control-loop.md)
 Ability to see the status and conditions of the all the greenhouses remotely. | Application shows the status of all the greenhouses with the ability to drill down to detailed information. | Monitor and manage loop
 Monitor the conditions over time and across greenhouse to understand how conditions impact production and quality. | Monitor all the conditions of the greenhouses and cross reference to output quality and quantity. Analyze optimum growth conditions. | Analyze and optimize loop
 
