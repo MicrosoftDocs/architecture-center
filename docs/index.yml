@@ -9,7 +9,7 @@ metadata:
   google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 
 title: Azure Architecture Center # < 60 chars
-summary: Guidance for architecting solutions on Azure using established patterns and practices.. # < 160 chars
+summary: Guidance for architecting solutions on Azure using established patterns and practices. # < 160 chars
 brand: azure
 
 # highlightedContent section (optional)
@@ -43,7 +43,7 @@ productDirectory:
       imageSrc: https://docs.microsoft.com/media/common/i_design.svg
       links:
         - url: ./guide/design-principles/index.md
-          text: Principals of a well designed application
+          text: Principles of a well-designed application
         - url: ./best-practices/api-design.md
           text: Web API design
         - url: ./microservices/index.md
@@ -340,6 +340,9 @@ conceptualContent:
         - text: Highly available network virtual appliances
           itemType: architecture
           url: reference-architectures/dmz/nva-ha.md
+        - text : Segmenting Virtual Networks
+          itemType: architecture
+          url: reference-architectures/hybrid-networking/network-level-segmentation.md
 
     - title: Serverless applications
       links:
