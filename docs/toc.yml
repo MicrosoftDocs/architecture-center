@@ -954,6 +954,10 @@ items:
       items:
         - name: Measure and control loop
           href: example-scenario/iot/measure-and-control-loop.md
+    - name: Scenarios
+      items:
+        - name: Observe and make changes to a strawberry farm in real-time
+          href: example-scenario/iot/observe-strawberry-farm.md
   - name: Management and Governance
     items:
     - name: Architectures
