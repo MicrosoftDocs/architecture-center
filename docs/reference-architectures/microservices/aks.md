@@ -106,6 +106,15 @@ On the other hand, if you need complete control over the settings, you may want 
 
 For information about load-balancing services in Azure, see [Overview of load-balancing options in Azure](../../guide/technology-choices/load-balancing-overview.md).
 
+### TLS/SSL encryption
+
+In common implementations, the Ingress controller is used for SSL termination. So, as part of deploying the Ingress controller, you need to create a TLS certificate. Only use self-signed certificates for dev/test purposes. For more information, see 
+[Create an HTTPS ingress controller and use your own TLS certificates on Azure Kubernetes Service (AKS)](/azure/aks/ingress-own-tls).
+
+For production workloads, get signed certificates from trusted certificate authorities (CA). For information about generating and configuring [Let's Encrypt](https://letsencrypt.org/) certificates, see [Create an ingress controller with a static public IP address in Azure Kubernetes Service (AKS)](/azure/aks/ingress-static-ip).
+
+You may also need to rotate your certificates as per the organization's policies. For information, see, [Rotate certificates in Azure Kubernetes Service (AKS)](/azure/aks/certificate-rotation). 
+
 ## Namespaces
 
 Use namespaces to organize services within the cluster. Every object in a Kubernetes cluster belongs to a namespace. By default, when you create a new object, it goes into the `default` namespace. But it's a good practice to create namespaces that are more descriptive to help organize the resources in the cluster.
@@ -251,6 +260,7 @@ Store images in a trusted private registry, such as Azure Container Registry or 
 Scan images and running containers for known vulnerabilities, using a scanning solution such as Twistlock and Aqua, which are available through the Azure Marketplace.
 
 Automate image patching using ACR Tasks, a feature of Azure Container Registry. A container image is built up from layers. The base layers include the OS image and application framework images, such as ASP.NET Core or Node.js. The base images are typically created upstream from the application developers, and are maintained by other project maintainers. When these images are patched upstream, it's important to update, test, and redeploy your own images, so that you don't leave any known security vulnerabilities. ACR Tasks can help to automate this process.
+
 
 ## Deployment (CI/CD) considerations
 
