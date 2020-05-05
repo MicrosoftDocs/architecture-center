@@ -56,7 +56,10 @@ This reference architecture is focused on microservices architectures, although 
 A microservice is a loosely coupled, independently deployable unit of code. Microservices typically communicate through well-defined APIs and are discoverable through some form of service discovery. The service should always be reachable even when the pods move around. The Kubernetes **Service** object is a natural way to model microservices in Kubernetes.
 
 ### API gateway
-API gateways are a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). An *API gateway* sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting. For more information, see [Using API gateways in microservices](/azure/architecture/microservices/design/gateway).
+API gateways are a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). An *API gateway* sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting. For more information, see 
+
+- [Using API gateways in microservices](/azure/architecture/microservices/design/gateway)
+- [Choosing a gateway technology](/azure/architecture/microservices/design/gateway#choosing-a-gateway-technology)
 
 In Kubernetes, the functionality of an API gateway is mostly handled by the **Ingress** resource and the **Ingress controller**. The considerations are described in the [Ingress](#ingress) section.
 
@@ -103,6 +106,7 @@ Often, configuring the proxy server requires complex files, which can be hard to
 On the other hand, if you need complete control over the settings, you may want to bypass this abstraction and configure the proxy server manually. For more information, see [Deploying Nginx or HAProxy to Kubernetes](/azure/architecture/microservices/design/gateway#deploying-nginx-or-haproxy-to-kubernetes).
 
 > For AKS, you can also use Azure Application Gateway, using the [Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/). This option requires [CNI networking](https://docs.microsoft.com/azure/aks/configure-azure-cni) to be enabled when you configure the AKS cluster, because Application Gateway is deployed into a subnet of the AKS virtual network. 
+Azure Application Gateway can perform layer-7 routing and SSL termination and has built-in support for web application firewall (WAF).
 
 For information about load-balancing services in Azure, see [Overview of load-balancing options in Azure](../../guide/technology-choices/load-balancing-overview.md).
 
