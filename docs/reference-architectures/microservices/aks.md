@@ -106,7 +106,7 @@ Often, configuring the proxy server requires complex files, which can be hard to
 On the other hand, if you need complete control over the settings, you may want to bypass this abstraction and configure the proxy server manually. For more information, see [Deploying Nginx or HAProxy to Kubernetes](/azure/architecture/microservices/design/gateway#deploying-nginx-or-haproxy-to-kubernetes).
 
 > For AKS, you can also use Azure Application Gateway, using the [Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/). This option requires [CNI networking](https://docs.microsoft.com/azure/aks/configure-azure-cni) to be enabled when you configure the AKS cluster, because Application Gateway is deployed into a subnet of the AKS virtual network. 
-Azure Application Gateway can perform layer-7 routing and SSL termination and has built-in support for web application firewall (WAF).
+Azure Application Gateway can perform layer-7 routing and SSL termination. It also has built-in support for web application firewall (WAF).
 
 For information about load-balancing services in Azure, see [Overview of load-balancing options in Azure](../../guide/technology-choices/load-balancing-overview.md).
 
