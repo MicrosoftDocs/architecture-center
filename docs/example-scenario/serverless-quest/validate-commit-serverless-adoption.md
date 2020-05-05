@@ -13,7 +13,8 @@ ms.custom:
 # Validate and commit the serverless adoption
 Perform application assessment, conduct or attend technical workshops that foster learning and adoption, identify a PoC or pilot project to execute, conduct architectural designs sessions to validate requirements.
 As you get started, the checklist and resources below will help you validate and commit the serverless adoption. You should be able to answer these questions:
-- Have you verified the main characteristics of the application? How complex or risky is this application to use serverless technologies?
+- Have you verified the main characteristics of the application? 
+- How complex or risky is this application to use serverless technologies?
 - Have the application technical team prepared to use serverless technologies?
 - Have you validated business requirements and transform to functional and no-functional requirements?
 
