@@ -566,7 +566,7 @@ items:
         href: solution-ideas/articles/aks-iot-data-streaming.md
       - name: Microservices on AKS
         href: reference-architectures/microservices/aks.md
-      - name: Microservices with AKS and Azure Devops
+      - name: Microservices with AKS and Azure DevOps
         href: solution-ideas/articles/microservices-with-aks.md
       - name: Secure DevOps for AKS
         href: solution-ideas/articles/secure-devops-for-kubernetes.md
@@ -1073,7 +1073,7 @@ items:
       - name: Medical data storage
         href: solution-ideas/articles/medical-data-storage.md
       - name: HIPAA/HITRUST Health Data and AI
-        href: solution-ideas/articles/security-compliance-blueprint-hippa-hitrust-health-data-ai.md
+        href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.md
   - name: Web
     items:
     - name: Architectures

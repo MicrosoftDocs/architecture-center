@@ -429,7 +429,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 ## Storage
 <ul class="grid">
 
-[!INCLUDE [HIPPA and HITRUST compliant health data AI](../../includes/cards/security-compliance-blueprint-hippa-hitrust-health-data-ai.md)]
+[!INCLUDE [HIPAA and HITRUST compliant health data AI](../../includes/cards/security-compliance-blueprint-hipaa-hitrust-health-data-ai.md)]
 [!INCLUDE [Media Rendering – HPC Solution Architecture](../../includes/cards/azure-batch-rendering.md)]
 [!INCLUDE [Medical Data Storage Solutions](../../includes/cards/medical-data-storage.md)]
 
