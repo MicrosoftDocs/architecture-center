@@ -1073,7 +1073,7 @@ items:
       - name: Medical data storage
         href: solution-ideas/articles/medical-data-storage.md
       - name: HIPAA/HITRUST Health Data and AI
-        href: solution-ideas/articles/security-compliance-blueprint-hippa-hitrust-health-data-ai.md
+        href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.md
   - name: Web
     items:
     - name: Architectures

@@ -1896,8 +1896,12 @@
       "redirect_url": "/azure/architecture/browse"
     },
     {
+      "source_path": "docs/solution-ideas/articles/security-compliance-blueprint-hippa-hitrust-health-data-ai.md",
+      "redirect_url": "/azure/architecture/security-compliance-blueprint-hipaa-hitrust-health-data-ai"
+    },
+    {
       "source_path": "docs/solution-ideas/articles/hybrid-ci-cd.md",
-      "redirect_url": "docs/solution-ideas/articles/devops-in-a-hybrid-environment.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment",
       "redirect_document_id": false
     }
   ]
