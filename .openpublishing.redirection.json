@@ -1897,7 +1897,11 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/security-compliance-blueprint-hippa-hitrust-health-data-ai.md",
+<<<<<<< HEAD
       "redirect_url": "/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hippa-hitrust-health-data-ai"
+=======
+      "redirect_url": "/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai"
+>>>>>>> 08b58a3570e08e7da955f7fcbd5de7e592d42c8b
     },
     {
       "source_path": "docs/solution-ideas/articles/hybrid-ci-cd.md",
