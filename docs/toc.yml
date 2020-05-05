@@ -926,6 +926,14 @@ items:
         href: example-scenario/apps/publish-internal-apis-externally.md
   - name: Internet of Things
     items:
+    - name: Concepts
+      items:
+        - name: Introduction to Azure Iot Solutions
+          href: example-scenario/iot/introduction-to-solutions.md
+        - name: Devices, IoT Platform, and Application
+          href: example-scenario/iot/devices-platform-application.md
+        - name: Application Stamping
+          href: example-scenario/iot/application-stamps.md
     - name: IoT patterns
       items:
         - name: Measure and control loop
