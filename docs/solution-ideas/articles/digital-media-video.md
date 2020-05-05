@@ -37,8 +37,8 @@ This solution is built on the Azure managed services: [Blob Storage](https://azu
 
 ## Next steps
 
-* [How to use Azure Blob storage](https://docs.microsoft.com/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs)
-* [How to encode an asset using Media Encoder](https://docs.microsoft.com/api/Redirect/documentation/articles/media-services-dotnet-encode-with-media-encoder-standard)
+* [How to use Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+* [How to encode an asset using Media Encoder](https://docs.microsoft.com/azure/media-services/media-services-rest-encode-asset)
 * [How to manage streaming endpoints](https://docs.microsoft.com/azure/media-services/media-services-portal-manage-streaming-endpoints)
 * [Using Azure Content Delivery Network](https://docs.microsoft.com/api/Redirect/documentation/articles/cdn-create-new-endpoint)
 * [Develop video player applications](https://docs.microsoft.com/api/Redirect/documentation/articles/media-services-develop-video-players)
