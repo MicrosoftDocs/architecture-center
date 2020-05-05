@@ -13,9 +13,9 @@ ms.custom:
 # Conducting a Proof of Concept or Pilot
 ## Introduction
 When driving the technical and security decision for your company or customer, conducting a Proof of Concept (PoC) or pilot is an opportunity to deliver evidence that the Microsoft solution will solve business problems. 
-The likelihood of success and a sale is higher when a PoC or pilot is conducted.
+The likelihood of success and an adoption is higher when a PoC or pilot is conducted.
 
-A PoC:
+A PoC is:
 - Is evidence that demonstrates that a business model or idea is feasible.
 - Is a quick demonstration that the solution will work to solve the business problem.
 - Usually involves one to three features or capabilities that you prove to work.
