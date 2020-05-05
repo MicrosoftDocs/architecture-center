@@ -28,7 +28,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/security-com
 1. Analyze patient data using Machine Learning, and create a Machine Learning-trained model.
 1. Ingest new patient data in HL7/FHIR format and publish to Azure Functions for processing. Store in SQL Database.
 1. Analyze newly ingested data using the trained Machine Learning model.
-1. Interact with patient data using PowerBI while preserving Role-Based Access Control (RBAC).
+1. Interact with patient data using Power BI while preserving Role-Based Access Control (RBAC).
 
 ## Components
 
