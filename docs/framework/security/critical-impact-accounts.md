@@ -196,7 +196,7 @@ security dependencies for critical impact accounts
 
     -   Manage with Existing Systems: Join existing AD domain and use existing management/security.
 
-This is related to the [Don't synchronize on-premises admin accounts to cloud identity providers](/identity.md#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers) to
+This is related to the [Don't synchronize on-premises admin accounts to cloud identity providers](./identity.md#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers) to
 cloud identity providers guidance in the administration section that mitigates
 the inverse risk of pivoting from cloud assets to on-premises assets
 

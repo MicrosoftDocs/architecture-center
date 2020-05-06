@@ -91,8 +91,8 @@ Proper load-balancing allows you to meet availability requirements and to minimi
 
   You can use Azure Load Balancer to:
 
-  - Load-balance incoming Internet traffic to your VMs. This configuration is known as a [*public Load Balancer*](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#public-load-balancer).
-  - Load-balance traffic across VMs inside a virtual network. You can also reach a Load Balancer front end from an on-premises network in a hybrid scenario. Both scenarios use a configuration that is known as an [*internal Load Balancer*](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#internalloadbalancer).
+  - Load-balance incoming Internet traffic to your VMs. This configuration is known as a [*public Load Balancer*](https://docs.microsoft.com/en-us/azure/load-balancer/components#frontend-ip-configurations).
+  - Load-balance traffic across VMs inside a virtual network. You can also reach a Load Balancer front end from an on-premises network in a hybrid scenario. Both scenarios use a configuration that is known as an [*internal Load Balancer*](https://docs.microsoft.com/en-us/azure/load-balancer/components#frontend-ip-configurations).
   - Port forward traffic to an itemized port on specific VMs with inbound network address translation (NAT) rules.
   - Provide [outbound connectivity](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) for VMs inside your virtual network by using a public Load Balancer.
 
