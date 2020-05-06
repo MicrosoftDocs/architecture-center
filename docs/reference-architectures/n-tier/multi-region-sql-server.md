@@ -39,7 +39,7 @@ This architecture builds on the one shown in [N-tier application with SQL Server
     > Also consider [Azure SQL Database][azure-sql-db], which provides a relational database as a cloud service. With SQL Database, you don't need to configure an availability group or manage failover.
     >
 
-- **Virtual network peering**. Peer the two virtual networks to allow data replication from the primary region to the secondary region. For more information, see [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
+- **Virtual network peering**. Peer the two virtual networks to allow data replication from the primary region to the secondary region. For more information, see [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
 ## Recommendations
 
@@ -191,18 +191,17 @@ For more information, see the cost section in [Azure Architecture Framework][aaf
 
 The following architecture uses some of the same technologies:
 
-- [Multitier web application built for high availability and disaster recovery on Azure](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
+- [Multitier web application built for high availability and disaster recovery on Azure](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.md)
 
 <!-- links -->
 
-[Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
-[Sql-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/
+[Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
 [Managed-Sql-pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed
-[aaf-cost]: https://docs.microsoft.com/azure/architecture/framework/cost/overview
-[azure-sql-db]: https://docs.microsoft.com/azure/sql-database/
+[aaf-cost]: ../../framework/cost/overview.md
+[azure-sql-db]: https://docs.microsoft.com/azure/sql-database
 [health-endpoint-monitoring-pattern]: ../../patterns/health-endpoint-monitoring.md
-[azure-cli]: https://docs.microsoft.com/cli/azure/
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-cli]: https://docs.microsoft.com/cli/azure
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [regional-pairs]: https://docs.microsoft.com/azure/best-practices-availability-paired-regions
 [resource groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
 [resource-group-links]: https://docs.microsoft.com/azure/resource-group-link-resources

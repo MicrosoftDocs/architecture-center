@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/backup-archi
 
 # Archive on-premises data to cloud
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Archive your on-premises data to Azure Blob storage.
 

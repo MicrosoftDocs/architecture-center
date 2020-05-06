@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/sharepoint-f
 
 # SharePoint Farm for Development Testing
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This solution provides a small scale deployment of SharePoint using a single Azure Active Directory (Azure AD), SQL, and SharePoint resources. It address the capability to deliver agile development architecture to teams within your business using the latest and greatest support platforms.
 

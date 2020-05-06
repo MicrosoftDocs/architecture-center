@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/unlock-legac
 
 # Unlock Legacy Data with Azure Stack
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Use Azure Stack to update and extend your legacy application data with the latest cloud technology such as Azure web services, containers, serverless computing, and microservices architectures. This is a solution to create new applications while integrating and preserving legacy data in mainframe and core business process applications.
 

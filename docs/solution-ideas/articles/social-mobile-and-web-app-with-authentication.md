@@ -16,9 +16,9 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/social-mobil
 
 # Social App for Mobile and Web with Authentication
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This mobile client app offers social image sharing with a companion web app. The app back end service does background image processing using an Azure Function and can notify users of progress via a notification hub. Non-image data is stored in CosmosDB. The web app accesses the back end service data and images via Traffic Manager.
+This mobile client app offers social image sharing with a companion web app. The app back end service does background image processing using an Azure Function and can notify users of progress via a notification hub. Non-image data is stored in Cosmos DB. The web app accesses the back end service data and images via Traffic Manager.
 
 The mobile client app works in offline mode, allowing you to view and upload images even when you don't have a network connection.
 
@@ -46,7 +46,7 @@ The links to the right provide documentation on deploying and managing the Azure
 1. Create the app using Visual Studio and Xamarin.
 1. Add the Azure App Service Mobile Apps back end service to the app solution.
 1. Implement authentication through social identity providers.
-1. Store non-image data in CosmosDB and cache it in Azure Cache for Redis.
+1. Store non-image data in Cosmos DB and cache it in Azure Cache for Redis.
 1. Store uploaded images in Azure Blob Storage.
 1. Queue messages about newly uploaded images.
 1. Use Azure Functions to dequeue messages and process images retrieved from blob storage.
@@ -77,7 +77,7 @@ The links to the right provide documentation on deploying and managing the Azure
 * [Azure App Service Overview](https://azure.microsoft.com/services/app-service)
 * [Azure Functions Documentation](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings)
 * [Application Insights Documentation](https://docs.microsoft.com/azure/application-insights)
-* [Azure CosmosDB Documentation](https://docs.microsoft.com/azure/cosmos-db)
+* [Azure Cosmos DB Documentation](https://docs.microsoft.com/azure/cosmos-db)
 * [Queue Storage Documentation](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 * [Blob Storage Documentation](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
 * [Notification Hubs Documentation](https://docs.microsoft.com/azure/notification-hubs)

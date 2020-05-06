@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/oil-and-gas-
 
 # Oil and Gas Tank Level Forecasting
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Today, most facilities operate reactively to problems in tank levels. This often leads to spills, emergency shutdowns, expensive remediation costs, regulatory issues, costly repairs and fines. Tank level forecasting helps manage and abate these and other problems.
 
@@ -47,7 +47,7 @@ This solution combines several Azure services to provide powerful advantages. Ev
 
 The 'Deploy' button will launch a workflow that will deploy an instance of the solution within a Resource Group in the Azure subscription you specify. The solution includes multiple Azure services (described below) along with a web job that simulates data so that immediately after deployment you have a working end-to-end solution.
 
-After deployment, see the post deployment instructions [here](https://github.com/Azure/cortana-intelligence-tank-level-forecast/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md).
+After deployment, see the post deployment instructions.
 
 ## Technical details and workflow
 

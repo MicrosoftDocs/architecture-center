@@ -43,7 +43,6 @@ There are three main roles in the trust relation:
 > For OpenID Connect, the SaaS provider must use AD FS 2016, running in Windows Server 2016. AD FS 3.0 does not support OpenID Connect.
 >
 
-
 For an example of using WS-Federation with ASP.NET 4, see the [active-directory-dotnet-webapp-wsfederation sample][active-directory-dotnet-webapp-wsfederation].
 
 ## Authentication flow
@@ -55,7 +54,7 @@ For an example of using WS-Federation with ASP.NET 4, see the [active-directory-
 
 ## Limitations
 
-By default, the relying party application receives only a fixed set of claims available in the id_token, shown in the following table. With AD FS 2016, you can customize the id_token in OpenID Connect scenarios. For more information, see [Custom ID Tokens in AD FS](/windows-server/identity/ad-fs/development/customize-id-token-ad-fs-2016).
+By default, the relying party application receives only a fixed set of claims available in the id_token, shown in the following table. With AD FS 2016, you can customize the id_token in OpenID Connect scenarios. For more information, see [Custom ID Tokens in AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/development/customize-id-token-ad-fs-2016).
 
 | Claim | Description |
 | --- | --- |
@@ -96,7 +95,7 @@ Typically you might combine this with other OpenID Connect endpoints (such as Az
 
 ## Configure the AD FS Resource Partner
 
-The SaaS provider must do the following for each customer that wants to connect via ADFS:
+The SaaS provider must do the following for each customer that wants to connect via AD FS:
 
 1. Add a claims provider trust.
 2. Add claims rules.
@@ -131,7 +130,7 @@ Here are the steps in more detail.
 Run the following PowerShell script:
 
 ```powershell
-Set-ADFSClaimsProviderTrust -TargetName "name" -OrganizationalAccountSuffix @("suffix")
+Set-AdfsClaimsProviderTrust -TargetName "name" -OrganizationalAccountSuffix @("suffix")
 ```
 
 where "name" is the friendly name of the claims provider trust, and "suffix" is the UPN suffix for the customer's AD (example, "corp.fabrikam.com").
@@ -188,7 +187,7 @@ The customer must do the following:
 
 <!-- links -->
 
-[Azure AD Connect]: /azure/active-directory/hybrid/whatis-hybrid-identity
+[Azure AD Connect]: https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity
 [federation trust]: https://technet.microsoft.com/library/cc770993(v=ws.11).aspx
 [account partner]: https://technet.microsoft.com/library/cc731141(v=ws.11).aspx
 [resource partner]: https://technet.microsoft.com/library/cc731141(v=ws.11).aspx
@@ -196,8 +195,8 @@ The customer must do the following:
 [Expiration time]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25#section-4.1.
 [Name identifier]: https://msdn.microsoft.com/library/system.security.claims.claimtypes.nameidentifier(v=vs.110).aspx
 [active-directory-on-azure]: https://msdn.microsoft.com/library/azure/jj156090.aspx
-[blog post]: https://www.cloudidentity.com/blog/2015/08/21/OPENID-CONNECT-WEB-SIGN-ON-WITH-ADFS-IN-WINDOWS-SERVER-2016-TP3/
+[blog post]: https://www.cloudidentity.com/blog/2015/08/21/openid-connect-web-sign-on-with-adfs-in-windows-server-2016-tp3
 [Customizing the AD FS Sign-in Pages]: https://technet.microsoft.com/library/dn280950.aspx
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
-[client assertion]: client-assertion.md
+[client assertion]: ./client-assertion.md
 [active-directory-dotnet-webapp-wsfederation]: https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation

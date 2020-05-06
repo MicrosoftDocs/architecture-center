@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/customer-chu
 
 # Customer Churn Prediction
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Customer Churn Prediction uses Cortana Intelligence Suite components to predict churn probability and helps find patterns in existing data associated with the predicted churn rate.
 
@@ -41,4 +41,4 @@ The end-to-end solution is implemented in the cloud, using Microsoft Azure. The 
 
 The snapshot below shows an example PowerBI dashboard that gives insights into the the predicted churn rates across the customer base.
 
-![Insights](//azurecomcdn.azureedge.net/cvt-add179e08f40a2f574f2c13e23c39140f82f2f0c5faf32b8e79061bb1ec3c7ca/images/shared/solutions/architectures/customer-churn-prediction/dashboard.png)
+![Insights](https://azurecomcdn.azureedge.net/cvt-add179e08f40a2f574f2c13e23c39140f82f2f0c5faf32b8e79061bb1ec3c7ca/images/shared/solutions/architectures/customer-churn-prediction/dashboard.png)

@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/defect-preve
 
 # Defect prevention with predictive maintenance
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Learn how to use Azure Machine Learning to predict failures before they happen with real-time assembly line data.
 

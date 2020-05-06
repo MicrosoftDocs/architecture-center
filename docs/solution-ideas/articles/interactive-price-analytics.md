@@ -17,7 +17,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/interactive-
 
 # Interactive Price Analytics
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 The Price Analytics solution uses your transactional history data to show you how the demand for your products responds to the prices you offer, to recommend pricing changes, and allow you to simulate how changes in price would affect your demand, at a fine granularity.
 
@@ -69,7 +69,7 @@ While the solution is deploying, you can get a head start and
 * See what is available in the Try-It-Now dashboard
 * Peruse the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md) for usage instructions from the perspective of a pricing analyst (MSFT login required)
 * Review the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a technical implementation view (MSFT login required)
-* Download the [interactive Excel worksheet](https://aka.ms/pricingxls)
+* Download the interactive Excel worksheet
 
 After the solution deploys, complete the [first walkthrough](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Walkthrough%201%20-%20Promotion%20Simulation/PromoSimulationWalkthrough.md) (MSFT login required).
 
@@ -77,12 +77,12 @@ After the solution deploys, complete the [first walkthrough](https://github.com/
 
 The solution dashboard's most actionable part is the Pricing Suggestion tab. It tells you which of your items are underpriced, overpriced, and suggests an optimal price for each item, as well as the predicted impact of adopting the suggestion. The suggestions are prioritized by the largest opportunity to earn incremental gross margin.
 
-![Suggestion Tab of Dashboard](//azurecomcdn.azureedge.net/cvt-add179e08f40a2f574f2c13e23c39140f82f2f0c5faf32b8e79061bb1ec3c7ca/images/shared/solutions/architectures/interactive-price-analytics/dashboard.png)
+![Suggestion Tab of Dashboard](https://azurecomcdn.azureedge.net/cvt-add179e08f40a2f574f2c13e23c39140f82f2f0c5faf32b8e79061bb1ec3c7ca/images/shared/solutions/architectures/interactive-price-analytics/dashboard.png)
 
 Other tabs provide supplemental information illuminating how the system arrived at the suggestions and are discussed in more detail in the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md). (You must be logged into Github with a MSFT Azure account while solution is in private preview.)
 
 ## Solution Architecture
 
-The solution uses an Azure SQL server to store your transactional data and the generated model predictions. There are a dozen elasticity modeling core services, which are authored in AzureML using Python core libraries. Azure Data Factory schedules weekly model refreshes. The results display in a PowerBI dashboard. The provided [Excel spreadsheet](https://aka.ms/pricingxls) consumes the predictive Web Services.
+The solution uses an Azure SQL server to store your transactional data and the generated model predictions. There are a dozen elasticity modeling core services, which are authored in AzureML using Python core libraries. Azure Data Factory schedules weekly model refreshes. The results display in a PowerBI dashboard. The provided Excel spreadsheet consumes the predictive Web Services.
 
 Please read the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a more detailed discussion of the architecture, connecting your own data and customization (GitHub login required).

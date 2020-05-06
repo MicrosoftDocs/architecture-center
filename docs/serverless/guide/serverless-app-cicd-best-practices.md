@@ -205,7 +205,7 @@ There are two ways to do this:
     3. Pre-compressing in the deployment pipeline results in less storage required at the origin.
     4. This is faster and more efficient than the CDN compression.
 
-For more information, see [Improve performance by compressing files in Azure CDN](/azure/cdn/cdn-improve-performance).
+For more information, see [Improve performance by compressing files in Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-improve-performance).
 
 ### Dynamic site acceleration
 

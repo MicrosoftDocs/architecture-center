@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/anomaly-dete
 
 # Anomaly Detector Process
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 ## Architecture
 

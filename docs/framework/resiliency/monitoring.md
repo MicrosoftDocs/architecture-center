@@ -5,7 +5,7 @@ author: david-stanford
 ms.date: 10/16/2019
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ms.custom: How are you ensuring failures are resolved quickly? 
 ---
 
@@ -38,7 +38,7 @@ Long-running workflows often include multiple steps, each of which should be ind
 Track the progress of long-running processes to minimize the likelihood that the entire workflow will need to be rolled back or that multiple compensating transactions will need to be executed.
 
 >[!TIP]
-> Monitor and manage the progress of long-running workflows by implementing a pattern such as [Scheduler Agent Supervisor](https://docs.microsoft.com/azure/architecture/patterns/scheduler-agent-supervisor).
+> Monitor and manage the progress of long-running workflows by implementing a pattern such as [Scheduler Agent Supervisor](../../patterns/scheduler-agent-supervisor.md).
 
 ## Visualization and alerts
 
@@ -46,7 +46,9 @@ Present telemetry data in a format that makes it easy for an operator to notice 
 
 Get a full-stack view of application state by using [Azure dashboards](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) to create a consolidated view of monitoring graphs from Application Insights, Log Analytics, Azure Monitor metrics, and Service Health. And use [Azure Monitor alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview) to create notifications on Service Health, resource health, Azure Monitor metrics, logs in Log Analytics, and Application Insights.
 
-For more information about monitoring and diagnostics, see [Monitoring and diagnostics](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).
+For more information about monitoring and diagnostics, see [Monitoring and diagnostics](../../best-practices/monitoring.md).
+
+![GitHub](../../_images/github.png) A sample about creating resource-level health activity log alerts is [here](https://github.com/mspnp/samples/tree/master/ResiliencyHealthAlerts). The sample uses Azure Resource Manager to create alerts.
 
 ## Test Monitoring
 
@@ -60,7 +62,7 @@ Address the following subscription limits with alerts.
 
 ![GitHub](../../_images/github.png) A reference implementation is available on [GitHub](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md).
 
-For information about that implementation, see [Event-based cloud automation on Azure](/azure/architecture/reference-architectures/serverless/cloud-automation).
+For information about that implementation, see [Event-based cloud automation on Azure](../../reference-architectures/serverless/cloud-automation.md).
 
 ### Individual services
 

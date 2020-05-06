@@ -8,6 +8,8 @@ ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ---
 
+<!-- cSpell:ignore HDFS -->
+
 # Choosing a stream processing technology in Azure
 
 This article compares technology choices for real-time stream processing in Azure.
@@ -22,13 +24,13 @@ Real-time stream processing consumes messages from either queue or file-based st
 
 In Azure, all of the following data stores will meet the core requirements supporting real-time processing:
 
-- [Azure Stream Analytics](/azure/stream-analytics/)
-- [HDInsight with Spark Streaming](/azure/hdinsight/spark/apache-spark-streaming-overview)
-- [Apache Spark in Azure Databricks](/azure/azure-databricks/)
-- [HDInsight with Storm](/azure/hdinsight/storm/apache-storm-overview)
-- [Azure Functions](/azure/azure-functions/functions-overview)
-- [Azure App Service WebJobs](/azure/app-service/web-sites-create-web-jobs)
-- [Apache Kafka streams API](/azure/hdinsight/kafka/apache-kafka-streams-api)
+- [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/)
+- [HDInsight with Spark Streaming](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-streaming-overview)
+- [Apache Spark in Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/)
+- [HDInsight with Storm](https://docs.microsoft.com/azure/hdinsight/storm/apache-storm-overview)
+- [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)
+- [Azure App Service WebJobs](https://docs.microsoft.com/azure/app-service/web-sites-create-web-jobs)
+- [Apache Kafka streams API](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-streams-api)
 
 ## Key Selection Criteria
 
@@ -58,8 +60,8 @@ The following tables summarize the key differences in capabilities.
 
 | Capability | Azure Stream Analytics | HDInsight with Spark Streaming | Apache Spark in Azure Databricks | HDInsight with Storm | Azure Functions | Azure App Service WebJobs |
 | --- | --- | --- | --- | --- | --- | --- |
-| Inputs | Azure Event Hubs, Azure IoT Hub, Azure Blob storage  | Event Hubs, IoT Hub, Kafka, HDFS, Storage Blobs, Azure Data Lake Store  | Event Hubs, IoT Hub, Kafka, HDFS, Storage Blobs, Azure Data Lake Store  | Event Hubs, IoT Hub, Storage Blobs, Azure Data Lake Store  | [Supported bindings](/azure/azure-functions/functions-triggers-bindings#supported-bindings) | Service Bus, Storage Queues, Storage Blobs, Event Hubs, WebHooks, Cosmos DB, Files |
-| Sinks |  Azure Data Lake Store, Azure SQL Database, Storage Blobs, Event Hubs, Power BI, Table Storage, Service Bus Queues, Service Bus Topics, Cosmos DB, Azure Functions  | HDFS, Kafka, Storage Blobs, Azure Data Lake Store, Cosmos DB | HDFS, Kafka, Storage Blobs, Azure Data Lake Store, Cosmos DB | Event Hubs, Service Bus, Kafka | [Supported bindings](/azure/azure-functions/functions-triggers-bindings#supported-bindings) | Service Bus, Storage Queues, Storage Blobs, Event Hubs, WebHooks, Cosmos DB, Files |
+| Inputs | Azure Event Hubs, Azure IoT Hub, Azure Blob storage  | Event Hubs, IoT Hub, Kafka, HDFS, Storage Blobs, Azure Data Lake Store  | Event Hubs, IoT Hub, Kafka, HDFS, Storage Blobs, Azure Data Lake Store  | Event Hubs, IoT Hub, Storage Blobs, Azure Data Lake Store  | [Supported bindings](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#supported-bindings) | Service Bus, Storage Queues, Storage Blobs, Event Hubs, WebHooks, Cosmos DB, Files |
+| Sinks |  Azure Data Lake Store, Azure SQL Database, Storage Blobs, Event Hubs, Power BI, Table Storage, Service Bus Queues, Service Bus Topics, Cosmos DB, Azure Functions  | HDFS, Kafka, Storage Blobs, Azure Data Lake Store, Cosmos DB | HDFS, Kafka, Storage Blobs, Azure Data Lake Store, Cosmos DB | Event Hubs, Service Bus, Kafka | [Supported bindings](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#supported-bindings) | Service Bus, Storage Queues, Storage Blobs, Event Hubs, WebHooks, Cosmos DB, Files |
 
 ### Processing capabilities
 
@@ -67,7 +69,7 @@ The following tables summarize the key differences in capabilities.
 | --- | --- | --- | --- | --- | --- | --- |
 | Built-in temporal/windowing support | Yes | Yes | Yes | Yes | No | No |
 | Input data formats | Avro, JSON or CSV, UTF-8 encoded | Any format using custom code | Any format using custom code | Any format using custom code | Any format using custom code | Any format using custom code |
-| Scalability | [Query partitions](/azure/stream-analytics/stream-analytics-parallelization) | Bounded by cluster size | Bounded by Databricks cluster scale configuration | Bounded by cluster size | Up to 200 function app instances processing in parallel | Bounded by app service plan capacity |
+| Scalability | [Query partitions](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization) | Bounded by cluster size | Bounded by Databricks cluster scale configuration | Bounded by cluster size | Up to 200 function app instances processing in parallel | Bounded by app service plan capacity |
 | Late arrival and out of order event handling support | Yes | Yes | Yes | Yes | No | No |
 
 See also:
@@ -75,5 +77,6 @@ See also:
 - [Choosing a real-time message ingestion technology](./real-time-ingestion.md)
 - [Real time processing](../big-data/real-time-processing.md)
 
+<!-- links -->
 
 [dotnet-spark]: https://github.com/dotnet/spark

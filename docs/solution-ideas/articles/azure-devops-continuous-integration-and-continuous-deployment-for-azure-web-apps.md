@@ -16,7 +16,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/azure-devops
 
 # CI/CD for Azure Web Apps
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, Node.js, or PHP. Deliver value faster to your customers with a continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Web Apps.
 
