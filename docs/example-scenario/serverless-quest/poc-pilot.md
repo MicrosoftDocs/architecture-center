@@ -98,3 +98,13 @@ The pilot includes a detailed follow up that is achieved through surveys or focu
 
 ### References
 Prosci® change management training (http://portal.prosci.com) 
+
+## Next steps
+
+To move forward with the exercise 'validate and commit the serverless adoption', see the following resources:
+
+- [Execute an application assessment](./application-assessment.md)
+- [Promote a technical workshop](./technical-workshops.md)
+- [Conduct architectural design session(s)](./ads.md)
+- [Plan technical trainings for the project team](./technical-training.md)
+- [Deliver a technical implementation with the team or customer](./code-with.md)
