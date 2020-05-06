@@ -53,4 +53,11 @@ As you prepare the application for production, you should implement a minimum se
 | **Monitor 3rd-party dependencies.** tbc. Continuously monitor dependencies and their versions throughout the system using OWASP Dependency Track or any other system. Obtain components only from official sources over secure links. Prefer signed packages to reduce the chance of including a modified, malicious component. Continuously monitor packages with vulnerability databases like MITRE CVE and NVD. It is recommended to scan dependencies for known vulnerabilities using tools such as OWASP Dependency Check or a commercial solution.For dotnet, Use dotnet-retire. A tool to check dependencies for versions with known vulnerabilities. Check NuGet package vulnerabilities with OWASP SafeNuGet. Use runtime-dependent security databases such as pyup for Python and npm Security Advisories For Node. Use Audit.NET which integrates with VS to identify known vulnerabilities in .Net NuGet dependencies
 | tbd|
 
+## Next steps
+
+To move forward with serverless - Azure Functions adoption, see the following resources:
+
+- [Validate and commit the serverless adoption](./validate-commit-serverless-adoption.md)
+- [Application development and deployment](./application-development.md)
+- [Azure functions app operations](./functions-app-operations.md)
 
