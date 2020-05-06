@@ -60,3 +60,12 @@ Now that the application is in production, how can you optimize your workflow an
 |------------------------------------------------------------------|-----------------------------------------------------------------|
 | **Ensure optimal scalability of your function app.** There are several factors that impact how instances of your function app scale.| [Scalability best practices](https://docs.microsoft.com/azure/azure-functions/functions-best-practices#scalability-best-practices) <br/> [Performance and scale in Durable Functions](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-perf-and-scale)|
 | **Implement site reliability engineering (SRE) practices.** Site Reliability Engineering (SRE) is a proven approach to maintain crucial system and application reliability while iterating at the speed demanded by the marketplace. | [Introduction to Site Reliability Engineering (SRE)](https://docs.microsoft.com/learn/modules/intro-to-site-reliability-engineering) <br/> [DevOps at Microsoft: Game streaming SRE](https://azure.microsoft.com/resources/devops-at-microsoft-game-streaming-sre)|
+
+## Next steps
+
+To move forward with serverless - Azure Functions adoption, see the following resources:
+
+- [Validate and commit the serverless adoption](./validate-commit-serverless-adoption.md)
+- [Azure functions app operations](./functions-app-operations.md)
+- [Azure functions app security](./functions-app-security.md)
+
