@@ -49,4 +49,12 @@ Registration: To attend a public event, view and register at http://openhack.mic
 - [Building a serverless web app](https://docs.microsoft.com/labs/build2018/serverlesswebapp/) (Build 2018)
 - [Building a Serverless IoT Solution with Python Azure Functions and SignalR](https://dev.to/azure/building-a-serverless-iot-solution-with-python-azure-functions-and-signalr-4ljp) (dev.to)
 
+## Next steps
 
+To move forward with the exercise 'validate and commit the serverless adoption', see the following resources:
+
+- [Execute an application assessment](./application-assessment.md)
+- [Promote a technical workshop](./technical-workshops.md)
+- [Conduct architectural design session(s)](./ads.md)
+- [Identify and execute a PoC or Pilot project](./poc-pilot.md)
+- [Deliver a technical implementation with the team or customer](./code-with.md)
