@@ -11,7 +11,7 @@ ms.custom:
 - fcp
 ---
 # Architectural Design Sessions
-tbc too much internal information 
+
 ## Introduction
 
 Architecture is a term applied to both the process and the outcome of thinking out and specifying:
@@ -33,7 +33,8 @@ Before you set up an ADS, you need to work with your stakeholders to identify ne
 - If you are interested in collaborating on a solution around an opportunity, that’s the right time for an ADS.
 
 ## Architectural design session process
-include image
+
+![](./images/ads-process.svg)
 
 ### Planning
 Prior to conducting an ADS:
@@ -44,14 +45,45 @@ Prior to conducting an ADS:
 - Schedule: local resources, delivery owners.
 
 ### Agenda
-On a call with the customer, confirm that they are ready for an ADS. The outcome of the call should be a mutual understanding of:
+On a meeting with the customer, confirm that they are ready for an ADS. The outcome of the meeting should be a mutual understanding of:
 - Goals and requirements for the solution.
 - Logistics of the project.
 - A high-level agenda for the ADS.
 - A list of participants for the ADS (6 to 8 people for optimal decision-making).
 
-The ADS usually runs over two days. During the session, four main topics—business capabilities, data flow, technology, and information flow—should be discussed. Review the table below to learn more about the structure, activities, and timeline of the ADS.
+The ADS usually runs over two days. During the session, four main topics should be discussed:
+- Business capabilities
+- Data flow 
+- Technology
+- and information flow
 
+To learn more about the structure, activities, and timeline of the ADS, review the table below suggested.
 
+| Activities | Two-day session |
+|------------------------------------------------------------------|-----------------------------------------------------------------|
+| **Gather requirements.** Customer context, business background, business goals and objectives, business scenarios and user stores, security requirements, operational requirements, and customer environment. </br> **Make sure all information is relevant.** Stated and unstated. </br> **Prioritize what you want to achieve.**|Day one (four hours) |
+| **Present reference architecture.** <br/> **Discuss how to blend the reference architecture into the customer’s reality.**  Customer goals and requirements of their current environment.| Day one/two (eight hours) |
+| **Validate that the customer’s business goals were achieved.** <br/> **Define next steps.**| Day two (four hours) |
 
+### Deliver your ADS
+Lead your ADS as a facilitator, not as a presenter. Make sure the your team or customer’s voice is heard throughout the conversation. Take notes to capture their thoughts on the whiteboard. Here are the typical steps of delivering an ADS:
+- **Confirm the objectives.** Validate agenda.
+- **Discover the situation.** Learn customer’s challenge and opportunity. Record the current state and future vision.
+- **Explore Options.** Help your customer envision potential solutions with Microsoft technical capabilities.
+- **Drive to consensus on the solution.** Customer confirmation and engagement for next steps.
 
+### Next steps
+After the architecture is agreed upon by the customer, clearly define the next steps. These next steps are dependent upon the opportunity and the strategy documented in the technical plan. Make sure that:
+- The next steps are documented.
+- You include all stakeholders, both internal and external.
+- You actively hand it over to another resource, such as a partner or your team, if needed.
+
+The last step in an ADS is to send a follow-up email that includes the agreed-upon:
+- Project goal.
+- Requirements and concerns.
+- Existing situation and proposed solution.
+- Next steps and action items per the key decisions.
+- Formalized illustration from whiteboard (Visio, PowerPoint, etc.).
+
+### References
+(serverless architecture references)
