@@ -21,3 +21,12 @@ Below you can see workshops related to application development workload:
 - [Cloud-native applications](https://github.com/microsoft/MCW-Cloud-native-applications). Using DevOps best practices, build a proof of concept to transform a PaaS application to a container-based application with multi-tenant web app hosting.
 - [Continuous delivery in Azure DevOps](https://github.com/Microsoft/MCW-Continuous-Delivery-in-Azure-DevOps). Set up and configure continuous delivery within Azure to reduce manual errors using Azure Resource Manager templates, Azure DevOps, and Git repositories for source control.
 
+## Next steps
+
+To move forward with the exercise 'validate and commit the serverless adoption', see the following resources:
+
+- [Execute an application assessment](./application-assessment.md)
+- [Conduct architectural design session(s)](./ads.md)
+- [Identify and execute a PoC or Pilot project](./poc-pilot.md)
+- [Plan technical trainings for the project team](./technical-training.md)
+- [Deliver a technical implementation with the team or customer](./code-with.md)
