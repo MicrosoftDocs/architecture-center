@@ -87,3 +87,13 @@ The last step in an ADS is to send a follow-up email that includes the agreed-up
 
 ### References
 (serverless architecture references)
+
+## Next steps
+
+To move forward with the exercise 'validate and commit the serverless adoption', see the following resources:
+
+- [Execute an application assessment](./application-assessment.md)
+- [Promote a technical workshop](./technical-workshops.md)
+- [Identify and execute a PoC or Pilot project](./poc-pilot.md)
+- [Plan technical trainings for the project team](./technical-training.md)
+- [Deliver a technical implementation with the team or customer](./code-with.md)
