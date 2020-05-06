@@ -36,11 +36,11 @@ There are three steps: Ingest, Enrich and Exploration. First, the unstructured a
 Key technologies used to implement tools for technical content review and research
 
 - [Azure Cognitive Search](https://docs.microsoft.com/azure/search/)
-- [Microsoft Form Recognizer](https://azure.microsoft.com/services/cognitive-services/form-recognizer)
+- [Microsoft Form Recognizer](https://azure.microsoft.com/services/cognitive-services/form-recognizer/)
 - [Web API custom skill interface](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)
 
-## Next steps
+## Next Steps
 
-Using the [knowledge mining solution accelerator](https://docs.microsoft.com/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
+Using the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
 
-Building custom skills with Microsoft's [Custom Web API](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)
+Building custom skills with Microsoft's [Custom Web API](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface)
