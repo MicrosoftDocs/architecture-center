@@ -421,9 +421,16 @@ Use the Harms Model you developed to guide your product development work:
 - [Community Jury](../community-jury/index.md) 
 - Assess and mitigate unfairness using Azure Machine Learning and the open-source [FairLearn package](https://docs.microsoft.com/azure/machine-learning/concept-fairness-ml)
  
-Additional references:
+Additional Responsible AI tools:
 
 - [Responsible AI resource center](https://www.microsoft.com/ai/responsible-ai-resources?activetab=pivot1%3aprimaryr4)
+- [Guidelines for Human AI interaction](https://www.microsoft.com/en-us/research/project/guidelines-for-human-ai-interaction/)
+- [Conversational AI guidelines](https://www.microsoft.com/en-us/research/publication/responsible-bots/)
+- [Inclusive Design guidelines](https://www.microsoft.com/design/inclusive/)
+- [AI Fairness checklist](https://www.microsoft.com/en-us/research/publication/co-designing-checklists-to-understand-organizational-challenges-and-opportunities-around-fairness-in-ai/)
+
+Additional references:
+
 - [Value Sensitive Design](https://vsdesign.org/)
 - [Assessing Harms booklet](downloadable)
 
