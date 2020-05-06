@@ -342,7 +342,7 @@ To view the traces and event logs, use [Application Insights](https://docs.micro
 
 If your service does not expose HTTP endpoints, you need to write a custom extension that sends traces to Application Insights. For an example, see the Workflow service in the reference implementation.
 
-ASP.NET Core services use the [ILogger interface](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2) for application logging. To make these application logs available in Azure Monitor, send the `ILogger` events to Application Insights. For more information, see [ILogger in an ASP.NET Core application](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/tree/master/src/ILogger#aspnet-core-application). Application Insights can add correlation properties to ILogger events, useful for visualizing distributed tracing.
+ASP.NET Core services use the [ILogger interface](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2) for application logging. To make these application logs available in Azure Monitor, send the `ILogger` events to Application Insights. For more information, see [ILogger in an ASP.NET Core application](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/tree/master/src/ILogger#aspnet-core-application). Application Insights can add correlation properties to ILogger events, useful for visualizing distributed tracing.
 
 For more information, see:
 

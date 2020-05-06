@@ -2,7 +2,7 @@
 title: Azure for AWS professionals
 description: Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the AWS and Azure platforms. Take advantage of your AWS experience in Azure.
 keywords: AWS experts, Azure comparison, AWS comparison, difference between Azure and AWS, Azure and AWS
-author: author
+author: doodlemania2
 ms.date: 03/15/2020
 ms.topic: reference
 ms.service: architecture-center
@@ -112,7 +112,7 @@ Failures can vary in the scope of their impact. Some hardware failures, such as 
 
 One of the main ways to make an application resilient is through redundancy. But you need to plan for this redundancy when you design the application. Also, the level of redundancy that you need depends on your business requirements&mdash;not every application needs redundancy across regions to guard against a regional outage. In general, a tradeoff exists between greater redundancy and reliability versus higher cost and complexity.
 
-In AWS, a region is divided into two or more Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has numerous features for providing application redundancy at every level of potential failure, including **availability sets**, **availability zones**, and **paired regions**.
+In Azure, a region is divided into two or more Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has numerous features for providing application redundancy at every level of potential failure, including **availability sets**, **availability zones**, and **paired regions**.
 
 ![Redundancy](../resiliency/images/redundancy.svg)
 
@@ -127,7 +127,7 @@ The following table summarizes each option.
 
 ### Availability sets
 
-To protect against localized hardware failures, such as a disk or network switch failing, deploy two or more VMs in an availability set. An availability set consists of two or more *fault domains* that share a common power source and network switch. VMs in an availability set are distributed across the fault domains, so if a hardware failure affects one fault domain, network traffic can still be routed the VMs in the other fault domains. For more information about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
+To protect against localized hardware failures, such as a disk or network switch failing, deploy two or more VMs in an availability set. An availability set consists of two or more *fault domains* that share a common power source and network switch. VMs in an availability set are distributed across the fault domains, so if a hardware failure affects one fault domain, network traffic can still be routed to the VMs in the other fault domains. For more information about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
 
 When VM instances are added to availability sets, they are also assigned an [update domain](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-manage-availability). An update domain is a group of VMs that are set for planned maintenance events at the same time. Distributing VMs across multiple update domains ensures that planned update and patching events affect only a subset of these VMs at any given time.
 
@@ -207,13 +207,13 @@ Autoscaling in Azure is handled by two services:
 
 The [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes) supports Docker containers managed through Kubernetes.
 
-#### Other compute services
+#### Distributed Systems Platform
 
-Azure offers several compute services that do not have direct equivalents in AWS:
+[Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) is a platform for developing and hosting scalable [microservices-based](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview-microservices) solutions.
 
-- [Azure Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview) allows you to manage compute-intensive work across a scalable collection of virtual machines.
+#### Batch Processing
 
-- [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) is a platform for developing and hosting scalable [microservices-based](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview-microservices) solutions.
+[Azure Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview) allows you to manage compute-intensive work across a scalable collection of virtual machines.
 
 #### See also
 

@@ -285,7 +285,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [ddos]: https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview
 [dmz]: ../dmz/secure-vnet-dmz.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-windows
-[load-balancer-hashing]: https://docs.microsoft.com/azure/load-balancer/concepts-limitations#load-balancer-concepts
+[load-balancer-hashing]: https://docs.microsoft.com/azure/load-balancer/components#load-balancing-rules
 [load-balancer]: https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview
 [multi-dc]: ./multi-region-sql-server.md
 [n-tier]: ../../guide/architecture-styles/n-tier.md

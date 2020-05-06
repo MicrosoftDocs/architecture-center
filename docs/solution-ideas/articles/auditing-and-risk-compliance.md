@@ -42,8 +42,8 @@ Key technologies used to implement tools for technical content review and resear
 - [Microsoft Translator Text API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
 - [Web API custom skill interface](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)
 
-## Next steps
+## Next Steps
 
-Using the [knowledge mining solution accelerator](https://docs.microsoft.com/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining) to build an initial knowledge mining prototype with Azure Cognitive Search.
+Using the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
 
-Building custom skills with Microsoft's [Custom Web API](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)
+Building custom skills with Microsoft's [Custom Web API](/azure/search/cognitive-search-custom-skill-interface)
