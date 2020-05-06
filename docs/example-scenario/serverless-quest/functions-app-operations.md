@@ -55,3 +55,11 @@ Now that the application is in production, how can you optimize your workflow an
 | **Implement availability requirements.** Azure Functions run in a specific region. To get higher availability, you can deploy the same functions to multiple regions. When in multiple regions you can have your functions running in the active/active pattern or active/passive pattern.| [Azure Functions geo-disaster recovery](https://docs.microsoft.com/azure/azure-functions/functions-geo-disaster-recovery)|
 | **Monitoring logging, application monitoring, and alerting.** Application Insights automatically collects log, performance, error data, detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. It's designed to help you continuously improve performance and usability.| [Monitor Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring) <br/> [Monitoring Azure Functions with Azure Monitor Logs](https://docs.microsoft.com/azure/azure-functions/functions-monitor-log-analytics) <br/> [Application Insights for Azure Functions supported features](https://docs.microsoft.com/azure/azure-monitor/app/azure-functions-supported-features)|
 
+## Next steps
+
+To move forward with serverless - Azure Functions adoption, see the following resources:
+
+- [Validate and commit the serverless adoption](./validate-commit-serverless-adoption.md)
+- [Application development and deployment](./application-development.md)
+- [Azure functions app security](./functions-app-security.md)
+
