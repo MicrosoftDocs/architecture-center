@@ -160,7 +160,7 @@ Presenting people with only information that conforms to and reinforces their ow
 
 *Example: News feed could only present information that confirms existing beliefs.*
 
-Economic loss
+## Economic loss
 
 Automating decisions related to financial instruments, economic opportunity, and resources can amplify existing societal inequities and obstruct well-being.
 
