@@ -39,5 +39,5 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 * [Set up AzureDevOps](https://www.visualstudio.com/docs/setup-admin/get-started)
 * [Configure Microsoft Release Management agents](https://www.visualstudio.com/docs/release/getting-started/configure-agents)
 * [Deploy using Azure Resource Groups](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2)
-* [Create your first Azure Service Fabric application](https://docs.microsoft.com/api/Redirect/documentation/articles/service-fabric-create-your-first-application-in-visual-studio)
-* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](https://docs.microsoft.com/api/Redirect/documentation/articles/sql-database-get-started)
+* [Create your first Azure Service Fabric application](/api/Redirect/documentation/articles/service-fabric-create-your-first-application-in-visual-studio)
+* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/api/Redirect/documentation/articles/sql-database-get-started)

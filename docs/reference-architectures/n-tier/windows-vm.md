@@ -121,11 +121,11 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
-[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more
+[aaf-cost]: /azure/architecture/framework/cost/overview
+[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-storage]: https://docs.microsoft.com/azure/storage/common/storage-introduction
 [blob-storage]: https://docs.microsoft.com/azure/storage/common/storage-introduction
-[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2
+[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [data-disk]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds

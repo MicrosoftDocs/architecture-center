@@ -200,7 +200,7 @@ This is related to the [Don't synchronize on-premises admin accounts to cloud id
 cloud identity providers guidance in the administration section that mitigates
 the inverse risk of pivoting from cloud assets to on-premises assets
 
-## Passwordless Or multi-factor authentication for admins
+## Passwordless or multi-factor authentication for admins
 
 Require all critical impact admins to use passwordless authentication or
 multi-factor authentication (MFA).
