@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/disaster-rec
 
 # SMB disaster recovery with Azure Site Recovery
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Small and medium businesses can inexpensively implement disaster recovery to the cloud by using Azure Site Recovery or a partner solution like Double-Take DR.
 

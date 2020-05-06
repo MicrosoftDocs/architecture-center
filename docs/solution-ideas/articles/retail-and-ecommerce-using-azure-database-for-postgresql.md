@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/retail-and-e
 
 # Retail and e-commerce using Azure Database for PostgreSQL
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Build secure and scalable e-commerce solutions that meet the demands of both customers and business. Engage customers through customized products and offers, process transactions quickly and securely, and focus on fulfillment and customer service.
 

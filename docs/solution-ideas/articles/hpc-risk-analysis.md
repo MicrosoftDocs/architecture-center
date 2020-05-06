@@ -17,7 +17,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/hpc-risk-ana
 
 # HPC Risk Analysis Template – Solution Architecture
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This templated risk analysis solution uses Azure HPC compute and GPU virtual machines (VMs) to expand on-premises Tibco GridServer compute to Azure using Azure CycleCloud for auto-scaling integration. The job executes both on-premises and in the cloud by using Avere vFXT fast caching and native NFS access to market data available on-premises.
 

@@ -181,7 +181,7 @@ Consider the following points when you design a data partitioning scheme:
 
 **Consider how queries locate the correct partition**. If a query must scan all partitions to locate the required data, there is a significant impact on performance, even when multiple parallel queries are running. With vertical and functional partitioning, queries can naturally specify the partition. Horizontal partitioning, on the other hand, can make locating an item difficult, because every shard has the same schema. A typical solution to maintain a map that is used to look up the shard location for specific items. This map can be implemented in the sharding logic of the application, or maintained by the data store if it supports transparent sharding.
 
-**Consider periodically rebalancing shards**. With horizontal partitioning, rebalancing shards can help distribute the data evenly by size and by workload to minimize hot spots, maximize query performance, and work around physical storage limitations. However, this is a complex task that often requires the use of a custom tool or process.
+**Consider periodically rebalancing shards**. With horizontal partitioning, rebalancing shards can help distribute the data evenly by size and by workload to minimize hotspots, maximize query performance, and work around physical storage limitations. However, this is a complex task that often requires the use of a custom tool or process.
 
 **Replicate partitions.** If you replicate each partition, it provides additional protection against failure. If a single replica fails, queries can be directed toward a working copy.
 

@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/scalable-eco
 
 # Architect scalable e-commerce web app
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 ## Architecture
 

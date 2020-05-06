@@ -55,7 +55,7 @@ A third option is to keep all data on-premises, but use cloud computing to host 
 
 ## Azure Stack
 
-For a complete hybrid cloud solution, consider using [Microsoft Azure Stack](/azure/azure-stack/). Azure Stack is a hybrid cloud platform that lets you provide Azure services from your datacenter. This helps maintain consistency between on-premises and Azure, by using identical tools and requiring no code changes.
+For a complete hybrid cloud solution, consider using [Microsoft Azure Stack](https://docs.microsoft.com/azure/azure-stack/). Azure Stack is a hybrid cloud platform that lets you provide Azure services from your datacenter. This helps maintain consistency between on-premises and Azure, by using identical tools and requiring no code changes.
 
 The following are some use cases for Azure and Azure Stack:
 
@@ -67,13 +67,13 @@ The following are some use cases for Azure and Azure Stack:
 
 ## SQL Server data stores
 
-If you are running SQL Server on-premises, you can use Microsoft Azure Blob Storage service for backup and restore. For more information, see [SQL Server Backup and Restore with Microsoft Azure Blob Storage Service](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service). This capability gives you limitless offsite storage, and the ability to share the same backups between SQL Server running on-premises and SQL Server running in a virtual machine in Azure.
+If you are running SQL Server on-premises, you can use Microsoft Azure Blob Storage service for backup and restore. For more information, see [SQL Server Backup and Restore with Microsoft Azure Blob Storage Service](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service). This capability gives you limitless offsite storage, and the ability to share the same backups between SQL Server running on-premises and SQL Server running in a virtual machine in Azure.
 
-[Azure SQL Database](/azure/sql-database/) is a managed relational database-as-a service. Because Azure SQL Database uses the Microsoft SQL Server Engine, applications can access data in the same way with both technologies. Azure SQL Database can also be combined with SQL Server in useful ways. For example, the [SQL Server Stretch Database](/sql/sql-server/stretch-database/stretch-database) feature lets an application access what looks like a single table in a SQL Server database while some or all rows of that table might be stored in Azure SQL Database. This technology automatically moves data that's not accessed for a defined period of time to the cloud. Applications reading this data are unaware that any data has been moved to the cloud.
+[Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) is a managed relational database-as-a service. Because Azure SQL Database uses the Microsoft SQL Server Engine, applications can access data in the same way with both technologies. Azure SQL Database can also be combined with SQL Server in useful ways. For example, the [SQL Server Stretch Database](https://docs.microsoft.com/sql/sql-server/stretch-database/stretch-database) feature lets an application access what looks like a single table in a SQL Server database while some or all rows of that table might be stored in Azure SQL Database. This technology automatically moves data that's not accessed for a defined period of time to the cloud. Applications reading this data are unaware that any data has been moved to the cloud.
 
-Maintaining data stores on-premises and in the cloud can be challenging when you desire to keep the data synchronized. You can address this with [SQL Data Sync](/azure/sql-database/sql-database-sync-data), a service built on Azure SQL Database that lets you synchronize the data you select, bi-directionally across multiple Azure SQL databases and SQL Server instances. While Data Sync makes it easy to keep your data up-to-date across these various data stores, it should not be used for disaster recovery or for migrating from on-premises SQL Server to Azure SQL Database.
+Maintaining data stores on-premises and in the cloud can be challenging when you desire to keep the data synchronized. You can address this with [SQL Data Sync](https://docs.microsoft.com/azure/sql-database/sql-database-sync-data), a service built on Azure SQL Database that lets you synchronize the data you select, bi-directionally across multiple Azure SQL databases and SQL Server instances. While Data Sync makes it easy to keep your data up-to-date across these various data stores, it should not be used for disaster recovery or for migrating from on-premises SQL Server to Azure SQL Database.
 
-For disaster recovery and business continuity, you can use [AlwaysOn Availability Groups](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) to replicate data across two or more instances of SQL Server, some of which can be running on Azure virtual machines in another geographic region.
+For disaster recovery and business continuity, you can use [AlwaysOn Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) to replicate data across two or more instances of SQL Server, some of which can be running on Azure virtual machines in another geographic region.
 
 ## Network shares and file-based data stores
 
@@ -81,17 +81,17 @@ In a hybrid cloud architecture, it is common for an organization to keep newer f
 
 Organizations may also wish to move their network shares entirely to the cloud. This would be desirable, for example, if the applications that access them are also located in the cloud. This procedure can be done using [data orchestration](../technology-choices/pipeline-orchestration-data-movement.md) tools.
 
-[Azure StorSimple](/azure/storsimple/) offers the most complete integrated storage solution for managing storage tasks between your on-premises devices and Azure cloud storage. StorSimple is an efficient, cost-effective, and easily manageable storage area network (SAN) solution that eliminates many of the issues and expenses associated with enterprise storage and data protection. It uses the proprietary StorSimple 8000 series device, integrates with cloud services, and provides a set of integrated management tools.
+[Azure StorSimple](https://docs.microsoft.com/azure/storsimple/) offers the most complete integrated storage solution for managing storage tasks between your on-premises devices and Azure cloud storage. StorSimple is an efficient, cost-effective, and easily manageable storage area network (SAN) solution that eliminates many of the issues and expenses associated with enterprise storage and data protection. It uses the proprietary StorSimple 8000 series device, integrates with cloud services, and provides a set of integrated management tools.
 
-Another way to use on-premises network shares alongside cloud-based file storage is with [Azure Files](/azure/storage/files/storage-files-introduction). Azure Files offers fully managed file shares that you can access with the standard [Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx?f=255&MSPPError=-2147217396) (SMB) protocol (sometimes referred to as CIFS). You can mount Azure Files as a file share on your local computer, or use them with existing applications that access local or network share files.
+Another way to use on-premises network shares alongside cloud-based file storage is with [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction). Azure Files offers fully managed file shares that you can access with the standard [Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx?f=255&MSPPError=-2147217396) (SMB) protocol (sometimes referred to as CIFS). You can mount Azure Files as a file share on your local computer, or use them with existing applications that access local or network share files.
 
-To synchronize file shares in Azure Files with your on-premises Windows Servers, use [Azure File Sync](/azure/storage/files/storage-sync-files-planning). One major benefit of Azure File Sync is the ability to tier files between your on-premises file server and Azure Files. This lets you keep only the newest and most recently accessed files locally.
+To synchronize file shares in Azure Files with your on-premises Windows Servers, use [Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning). One major benefit of Azure File Sync is the ability to tier files between your on-premises file server and Azure Files. This lets you keep only the newest and most recently accessed files locally.
 
-For more information, see [Deciding when to use Azure Blob storage, Azure Files, or Azure Disks](/azure/storage/common/storage-decide-blobs-files-disks).
+For more information, see [Deciding when to use Azure Blob storage, Azure Files, or Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ## Hybrid networking
 
 This article focused on hybrid data solutions, but another consideration is how to extend your on-premises network to Azure. For more information about this aspect of hybrid solutions, see:
 
-- [Choose a solution for connecting an on-premises network to Azure](../../reference-architectures/hybrid-networking/considerations.md)
+- [Choose a solution for connecting an on-premises network to Azure](../../reference-architectures/hybrid-networking/index.md)
 - [Hybrid network reference architectures](../../reference-architectures/hybrid-networking/index.md)

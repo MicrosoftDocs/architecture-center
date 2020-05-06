@@ -13,7 +13,7 @@ ms.subservice: reference-architecture
 ms.custom: seodec18, SAP
 ---
 
-<!-- cSpell:ignore lbrader -->
+<!-- cSpell:ignore lbrader HANA MSEE Xeon CIDR STONITH VLAN -->
 
 # Run SAP HANA on Azure Large Instances
 
@@ -148,7 +148,7 @@ In this reference architecture, virtual machines are used for hosting SAP applic
 
 [HANA Large Instances SKUs][HLI-SKUs] are available as reserved VM instances. [Azure Reservations](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations) can lower your cost if you can commit to one-year or three-year term. VM reservations can reduce costs up to 72 percent when compared to pay-as-you-go prices. You get a purpose-built SAP HANA infrastructure with compute, storage, and network. HANA Large Instances is coupled with NFS storage and networking and provides built-in support for backups through storage snapshots, high availability and disaster recovery and scale-out configurations. If your workload doesn't have a predictable time of completion or resource consumption, consider the pay-as-you-go option.
 
-Use [Azure Spot VMs][az-spot-vms] to run workloads that can be interrupted and do not require completion within a predetermined timeframe or an SLA.
+Use [Azure Spot VMs][az-spot-vms] to run workloads that can be interrupted and do not require completion within a predetermined time frame or an SLA.
 
 For more information, see the "SAP HANA on Azure Large Instances" section in [HLI for SAP HANA Virtual Machines Pricing][HLI-vms-pricing].
 
@@ -204,30 +204,30 @@ Communities can answer questions and help you set up a successful deployment. Co
 - [Running SAP Applications on the Microsoft Platform Blog][running-sap-blog]
 - [Stack Overflow SAP][stack-overflow]
 
+## Related resources
+
+You may wish to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
+
+- [Running SAP production workloads using an Oracle Database on Azure](../../example-scenario/apps/sap-production.md)
+- [Dev/test environments for SAP workloads on Azure](../../example-scenario/apps/sap-dev-test.md)
+
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [az-spot-vms]: https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms
-[azure-forum]: https://azure.microsoft.com/support/forums/
-[azure-large-instances]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
-[backup-restore]: /azure/virtual-machines/workloads/sap/hana-backup-restore
-[classes]: /azure/virtual-machines/workloads/sap/hana-supported-scenario#overview
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
-[cross-connected]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
-[directory]: https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure
-[dr-site]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery
-[expressroute]: /azure/architecture/reference-architectures/hybrid-networking/expressroute
-[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
-[fastpath]: /azure/expressroute/expressroute-about-virtual-network-gateways#fastpath
-[filter-network]: https://azure.microsoft.com/blog/multiple-vm-nics-and-network-virtual-appliances-in-azure/
-[globalreach]: /azure/expressroute/expressroute-global-reach
-[hli-dr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
-[hli-backup]: /azure/virtual-machines/workloads/sap/hana-backup-restore
-[hli-hadr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-[hli-infrastructure]: /azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity
-[hli-overview]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
+[azure-forum]: https://azure.microsoft.com/support/forums
+[classes]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[cross-connected]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
+[dr-site]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery
+[expressroute]: ../../reference-architectures/hybrid-networking/expressroute.md
+[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
+[hli-dr]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
+[hli-backup]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore
+[hli-hadr]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+[hli-infrastructure]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity
 [HLI-SKUs]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus
-[hli-troubleshoot]: /azure/virtual-machines/workloads/sap/troubleshooting-monitoring
+[hli-troubleshoot]: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring
 [HLI-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [ip]: https://blogs.msdn.microsoft.com/saponsqlserver/2018/02/10/setting-up-hana-system-replication-on-azure-hana-large-instances/
 [monitor]: /azure/virtual-machines/workloads/sap/troubleshooting-monitoring

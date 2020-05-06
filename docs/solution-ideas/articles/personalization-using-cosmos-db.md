@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/personalizat
 
 # Personalization using Cosmos DB
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Generate personalized recommendations for customers in real time, using low-latency and tunable consistency settings for immediate insights
 

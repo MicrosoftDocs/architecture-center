@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/disaster-rec
 
 # Enterprise-scale disaster recovery
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 A large enterprise architecture for SharePoint, Dynamics CRM, and Linux web servers hosted on an on-premises datacenter with failover to Azure infrastructure.
 

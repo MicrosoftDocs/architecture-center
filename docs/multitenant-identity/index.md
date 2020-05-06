@@ -41,7 +41,7 @@ Example: Tailspin sells subscriptions to its SaaS application. Contoso and Fabri
 - Alice *should* have access to Contoso data.
 - Alice *should not* have access to Fabrikam data.
 
-This guidance will show you how to manage user identities in a multitenant application, using [Azure Active Directory (Azure AD)](/azure/active-directory) to handle sign-in and authentication.
+This guidance will show you how to manage user identities in a multitenant application, using [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory) to handle sign-in and authentication.
 
 <!-- markdownlint-disable MD026 -->
 
@@ -87,7 +87,7 @@ In a multitenant app, you must consider users in the context of tenants.
 In this guidance, we'll look specifically at using Azure AD for identity management.
 
 - We assume the customer stores their user profiles in Azure AD (including Office365 and Dynamics CRM tenants)
-- Customers with on-premises Active Directory can use [Azure AD Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) to sync their on-premises Active Directory with Azure AD. If a customer with on-premises Active Directory cannot use Azure AD Connect (due to corporate IT policy or other reasons), the SaaS provider can federate with the customer's directory through Active Directory Federation Services (AD FS). This option is described in [Federating with a customer's AD FS](adfs.md).
+- Customers with on-premises Active Directory can use [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity) to sync their on-premises Active Directory with Azure AD. If a customer with on-premises Active Directory cannot use Azure AD Connect (due to corporate IT policy or other reasons), the SaaS provider can federate with the customer's directory through Active Directory Federation Services (AD FS). This option is described in [Federating with a customer's AD FS](adfs.md).
 
 This guidance does not consider other aspects of multitenancy such as data partitioning, per-tenant configuration, and so forth.
 

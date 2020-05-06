@@ -139,20 +139,20 @@ Power BI | [Create and use analytics reports with Power BI][pbi-learn] | [Power 
 
 - For comparisons of other alternatives, see:
 
-  - [Choosing a data pipeline orchestration technology in Azure](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)
-  - [Choosing a batch processing technology in Azure](/azure/architecture/data-guide/technology-choices/batch-processing)
-  - [Choosing an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
-  - [Choosing a data analytics technology in Azure](/azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting)
+  - [Choosing a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
+  - [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
+  - [Choosing an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
+  - [Choosing a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
 
 ## Considerations
 
 The technologies in this architecture were chosen because each of them provide the necessary functionality to handle the vast majority of data challenges in an organization. These services meet the requirements for scalability and availability, while helping them control costs.
 
-- The [massively parallel processing architecture](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture) of Azure Synapse provides scalability and high performance.
-- Azure Synapse has [guaranteed SLAs](https://azure.microsoft.com/support/legal/sla/sql-data-warehouse) and [recommended practices for achieving high availability](/azure/sql-data-warehouse/sql-data-warehouse-best-practices).
-- When analysis activity is low, the company can [scale Azure Synapse on demand](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview), reducing or even pausing compute to lower costs.
+- The [massively parallel processing architecture](https://docs.microsoft.com/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture) of Azure Synapse provides scalability and high performance.
+- Azure Synapse has [guaranteed SLAs](https://azure.microsoft.com/support/legal/sla/sql-data-warehouse) and [recommended practices for achieving high availability](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-best-practices).
+- When analysis activity is low, the company can [scale Azure Synapse on demand](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview), reducing or even pausing compute to lower costs.
 analysis-services-bcdr).
-- The [Azure Synapse security model](/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security) provides connection security, [authentication and authorization](/azure/sql-data-warehouse/sql-data-warehouse-authentication) via Azure AD or SQL Server authentication, and encryption.
+- The [Azure Synapse security model](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security) provides connection security, [authentication and authorization](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-authentication) via Azure AD or SQL Server authentication, and encryption.
 
 ## Pricing
 
@@ -164,27 +164,25 @@ The ideal individual pricing tier and the total overall cost of each service inc
 
 ## Next steps
 
-- Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](/azure/architecture/data-guide).
+- Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](../../data-guide/index.md).
 
 <!-- links -->
 
-[source-document]: https://customers.microsoft.com/story/maritz
-[calculator]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
 [adf-learn]: https://docs.microsoft.com/learn/modules/data-ingestion-with-azure-data-factory
-[adf-techdoc]: https://docs.microsoft.com/azure/data-factory/
-[synapse-learn]: https://docs.microsoft.com/learn/paths/implement-sql-data-warehouse/
-[synapse-techdoc]: https://docs.microsoft.com/azure/sql-data-warehouse/
-[adls-learn]: https://docs.microsoft.com/learn/paths/data-processing-with-azure-adls/
+[adf-techdoc]: https://docs.microsoft.com/azure/data-factory
+[synapse-learn]: https://docs.microsoft.com/learn/paths/implement-sql-data-warehouse
+[synapse-techdoc]: https://docs.microsoft.com/azure/sql-data-warehouse
+[adls-learn]: https://docs.microsoft.com/learn/paths/data-processing-with-azure-adls
 [adls-techdoc]: https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction
 [cognitive-learn]: https://docs.microsoft.com/learn/browse/?term=cognitive
-[cognitive-techdoc]: https://docs.microsoft.com/azure/cognitive-services/
-[cosmos-learn]: https://docs.microsoft.com/learn/paths/work-with-nosql-data-in-azure-cosmos-db/
-[cosmos-techdoc]: https://docs.microsoft.com/azure/cosmos-db/
-[databricks-learn]: https://docs.microsoft.com/learn/paths/data-engineering-with-databricks/
-[databricks-techdoc]: https://docs.microsoft.com/azure/azure-databricks/
-[eventhubs-learn]: https://docs.microsoft.com/learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
-[eventhubs-techdoc]: https://docs.microsoft.com/azure/event-hubs/
-[asa-learn]: https://docs.microsoft.com/learn/paths/implement-data-streaming-with-asa/
-[asa-techdoc]: https://docs.microsoft.com/azure/stream-analytics/
-[pbi-learn]: https://docs.microsoft.com/learn/paths/create-use-analytics-reports-power-bi/
-[pbi-techdoc]: https://docs.microsoft.com/power-bi/
+[cognitive-techdoc]: https://docs.microsoft.com/azure/cognitive-services
+[cosmos-learn]: https://docs.microsoft.com/learn/paths/work-with-nosql-data-in-azure-cosmos-db
+[cosmos-techdoc]: https://docs.microsoft.com/azure/cosmos-db
+[databricks-learn]: https://docs.microsoft.com/learn/paths/data-engineering-with-databricks
+[databricks-techdoc]: https://docs.microsoft.com/azure/azure-databricks
+[eventhubs-learn]: https://docs.microsoft.com/learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs
+[eventhubs-techdoc]: https://docs.microsoft.com/azure/event-hubs
+[asa-learn]: https://docs.microsoft.com/learn/paths/implement-data-streaming-with-asa
+[asa-techdoc]: https://docs.microsoft.com/azure/stream-analytics
+[pbi-learn]: https://docs.microsoft.com/learn/paths/create-use-analytics-reports-power-bi
+[pbi-techdoc]: https://docs.microsoft.com/power-bi

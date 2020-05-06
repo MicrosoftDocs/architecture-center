@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/predict-leng
 
 # Predict Length of Stay and Patient Flow
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 For the people running a healthcare facility, length of stay—the number of days from patient admission to discharge—matters. However, that number can vary across facilities and across disease conditions and specialties, even within the same healthcare system, making it harder to track patient flow and plan accordingly.
 

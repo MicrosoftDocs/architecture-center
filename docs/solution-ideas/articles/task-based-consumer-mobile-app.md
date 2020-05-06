@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/task-based-c
 
 # Task-Based Consumer Mobile App
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This consumer mobile app architecture uses Azure App Service Mobile Apps to simplify authentication with multiple social identity providers, store data and sync it for offline access, and send push notifications.
 

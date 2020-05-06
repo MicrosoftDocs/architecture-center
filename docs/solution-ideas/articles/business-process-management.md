@@ -13,6 +13,8 @@ ms.author: pracjain
 social_image_url: /azure/architecture/solution-ideas/articles/media/business-process-management.png
 ---
 
+<!-- cSpell:ignore pracjain -->
+
 # Business Process Management
 
 This architecture demonstrates how to use Knowledge Mining for business process management.

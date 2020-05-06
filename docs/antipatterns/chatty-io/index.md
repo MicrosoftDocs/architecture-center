@@ -309,10 +309,10 @@ Tracing the SQL statement shows that all the data is fetched in a single SELECT 
 [api-design]: ../../best-practices/api-design.md
 [caching-guidance]: ../../best-practices/caching.md
 [code-sample]: https://github.com/mspnp/performance-optimization/tree/master/ChattyIO
-[data-consistency-guidance]: https://msdn.microsoft.com/library/dn589800.aspx
+[data-consistency-guidance]: https://aka.ms/data-consistency-primer
 [ef]: https://docs.microsoft.com/ef
 [extraneous-fetching]: ../extraneous-fetching/index.md
-[new-relic]: https://newrelic.com/application-monitoring
+[new-relic]: https://newrelic.com/products/application-monitoring
 [no-cache]: ../no-caching/index.md
 
 [key-indicators-chatty-io]: _images/ChattyIO.jpg

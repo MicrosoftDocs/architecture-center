@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/training-and
 
 # Training and procedural guidance powered by mixed reality
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Enable your team and employees to learn new processes and materials faster, with fewer errors, and greater confidence by providing persistent holographic instructions mapped to precise locations in their physical workspace. Jumpstart employee comprehension with head-up, hands-free experiences using HoloLens devices. And with Azure Spatial Anchors, you can place directions on the procedure's most important objects and return to this content over time.
 

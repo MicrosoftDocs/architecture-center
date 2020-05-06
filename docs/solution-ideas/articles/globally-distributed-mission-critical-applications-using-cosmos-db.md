@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/globally-dis
 
 # Globally distributed applications using Cosmos DB
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft's global datacenters.
 

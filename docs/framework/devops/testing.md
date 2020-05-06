@@ -5,7 +5,7 @@ author: jose-moreno
 ms.date: 10/21/2019
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ms.custom: 
 ---
 
@@ -37,7 +37,6 @@ Smoke tests are more exhaustive than unit tests, but still not as much as integr
 
 Smoke tests usually involve building the application code, and if infrastructure, possibly testing the deployment in a test environment.
 
-
 ### Integration Testing
 
 After making sure that the different application components operate correctly individually, integration testing has as goal determine whether they can interact with each other as they should. Integration tests usually take longer than smoke testing, and as a consequence they are sometimes executed not as frequently. For example, running integration tests every night still offers a good compromise, detecting interoperability issues between application components no later than one day after they were introduced.
@@ -48,7 +47,7 @@ Manual testing is much more expensive than automated testing, and as a consequen
 
 ### Acceptance Testing
 
-There are many different ways of confirming that the application is doing what it should. 
+There are many different ways of confirming that the application is doing what it should.
 
 * **Blue/Green deployments**: when deploying a new application version, you can deploy it in parallel to the existing one. This way you can start redirecting clients to the new version, and if everything goes well you will decommission the old version. If there is any problem with the new deployment, you can always redirect the users back to the old one.
 * **Canary releases**: you can expose new functionality of your application (ideally using feature flags) to a select group of users. If users are satisfied with the new functionality, you can extend it to the rest of the user community. In this case we are talking about releasing functionality, and not necessarily about deploying a new version of the application.
@@ -87,8 +86,8 @@ Most companies use a controlled way of injecting faults in the system, although 
 In order to deploy software quickly and reliably, testing is a fundamental component of the development and deployment life cycle. Not only application code should be tested, but infrastructure automation and resiliency should equally be put to the test, to make sure that the application is going to perform as expected in every situation.
 
 <!-- testing -->
-[iac]: /azure/architecture/framework/devops/iac
-[pipelines]: /azure/devops/pipelines
-[devopstests]: /azure/devops/test
-[telemetry]: /azure/azure-monitor/app/usage-overview
-[slots]: /azure/app-service/deploy-staging-slots
+[iac]: ../../framework/devops/iac.md
+[pipelines]: https://docs.microsoft.com/azure/devops/pipelines
+[devopstests]: https://docs.microsoft.com/azure/devops/test
+[telemetry]: https://docs.microsoft.com/azure/azure-monitor/app/usage-overview
+[slots]: https://docs.microsoft.com/azure/app-service/deploy-staging-slots

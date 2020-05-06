@@ -15,6 +15,8 @@ ms.custom:
     - scalability
 ---
 
+<!-- cSpell:ignore wordpress rsync CDNs -->
+
 # Highly scalable and secure WordPress website
 
 This example scenario is applicable to companies that need a highly scalable and secure installation of WordPress. This scenario is based on a deployment that was used for a large convention and was successfully able to scale to meet the spike traffic that sessions drove to the site.
@@ -52,19 +54,19 @@ The second workflow is how authors contribute new content:
 
 ### Components
 
-- [Azure Content Delivery Network (CDN)](/azure/cdn/cdn-overview) is a distributed network of servers that efficiently delivers web content to users. CDNs minimize latency by storing cached content on edge servers in point-of-presence locations near to end users.
-- [Virtual networks](/azure/virtual-network/virtual-networks-overview) allow resources such as VMs to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. The two networks are connected via Vnet peering.
-- [Network security groups](/azure/virtual-network/security-overview) contain a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this scenario are secured with network security group rules that restrict the flow of traffic between the application components.
-- [Load balancers](/azure/load-balancer/load-balancer-overview) distribute inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. A load balancer is used in this scenario to distribute traffic from the content deliver network to the front-end web servers.
-- [Virtual machine scale sets][docs-vmss] let you create and manage a group of identical load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Two separate virtual machine scale sets are used in this scenario - one for the front-end web-servers serving content, and one for the front-end webservers used to author new content.
-- [Azure Files](/azure/storage/files/storage-files-introduction) provides a fully managed file share in the cloud that hosts all of the WordPress content in this scenario, so that all of the VMs have access to the data.
-- [Azure Key Vault](/azure/key-vault/key-vault-overview) is used to store and tightly control access to passwords, certificates, and keys.
-- [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) is a multitenant, cloud-based directory and identity management service. In this scenario, Azure AD provides authentication services for the website and the VPN tunnels.
+- [Azure Content Delivery Network (CDN)](https://docs.microsoft.com/azure/cdn/cdn-overview) is a distributed network of servers that efficiently delivers web content to users. CDNs minimize latency by storing cached content on edge servers in point-of-presence locations near to end users.
+- [Virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) allow resources such as VMs to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. The two networks are connected via Vnet peering.
+- [Network security groups](https://docs.microsoft.com/azure/virtual-network/security-overview) contain a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this scenario are secured with network security group rules that restrict the flow of traffic between the application components.
+- [Load balancers](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) distribute inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. A load balancer is used in this scenario to distribute traffic from the content deliver network to the front-end web servers.
+- [Virtual machine scale sets][docs-vmss] let you create and manage a group of identical load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Two separate virtual machine scale sets are used in this scenario - one for the front-end web-servers serving content, and one for the front-end web servers used to author new content.
+- [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) provides a fully managed file share in the cloud that hosts all of the WordPress content in this scenario, so that all of the VMs have access to the data.
+- [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) is used to store and tightly control access to passwords, certificates, and keys.
+- [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) is a multitenant, cloud-based directory and identity management service. In this scenario, Azure AD provides authentication services for the website and the VPN tunnels.
 
 ### Alternatives
 
-- [SQL Server for Linux](/azure/virtual-machines/linux/sql/sql-server-linux-virtual-machines-overview) can replace the MariaDB data store.
-- [Azure database for MySQL](/azure/mysql/overview) can replace the MariaDB data store if you prefer a fully managed solution.
+- [SQL Server for Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sql/sql-server-linux-virtual-machines-overview) can replace the MariaDB data store.
+- [Azure database for MySQL](https://docs.microsoft.com/azure/mysql/overview) can replace the MariaDB data store if you prefer a fully managed solution.
 
 ## Considerations
 
@@ -103,11 +105,10 @@ We have provided a pre-configured [cost profile][pricing] based on the architect
 - How much of your content is dynamic? How much is static? The variance around dynamic and static content influences how much data has to be retrieved from the database tier versus how much will be cached in the CDN.
 
 <!-- links -->
-[architecture]: ./media/architecture-secure-scalable-wordpress.png
-[mariadb-tutorial]: /azure/virtual-machines/linux/classic/mariadb-mysql-cluster
-[docs-vmss]: /azure/virtual-machine-scale-sets/overview
-[docs-vmss-autoscale]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
-[docs-nsg]: /azure/virtual-network/security-overview
-[security]: /azure/security/
-[availability]: ../../checklist/availability.md
+
+[mariadb-tutorial]: https://docs.microsoft.com/azure/virtual-machines/linux/classic/mariadb-mysql-cluster
+[docs-vmss]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview
+[docs-vmss-autoscale]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
+[docs-nsg]: https://docs.microsoft.com/azure/virtual-network/security-overview
+[security]: https://docs.microsoft.com/azure/security
 [pricing]: https://azure.com/e/a8c4809dab444c1ca4870c489fbb196b

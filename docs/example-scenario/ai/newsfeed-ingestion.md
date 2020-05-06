@@ -15,6 +15,8 @@ ms.service: architecture-center
 ms.subservice: example-scenario
 ---
 
+<!-- cSpell:ignore newsfeeds njray Redlock -->
+
 # Mass ingestion and analysis of news feeds on Azure
 
 This example scenario describes a pipeline for mass ingestion and near real-time analysis of documents using public RSS news feeds.  It uses Azure Cognitive Services to offer useful insights including text translation, facial recognition, and sentiment detection.
@@ -25,10 +27,10 @@ This scenario contains examples for [English][english], [Russian][russian], and 
 
 While this scenario is based on processing of RSS feeds, it's relevant to any document, website, or article where you would need to:
 
-* Translate any text to the language of choice.
-* Find key phrases, entities, and user sentiment in digital content.
-* Detect objects, text, and landmarks in images associated with a digital article.
-* Detect people by their gender and age in any image associated with digital content.
+- Translate any text to the language of choice.
+- Find key phrases, entities, and user sentiment in digital content.
+- Detect objects, text, and landmarks in images associated with a digital article.
+- Detect people by their gender and age in any image associated with digital content.
 
 ## Architecture
 
@@ -40,7 +42,7 @@ The data flows through the solution as follows:
 
 2. A generator or ingestion process inserts the article and any associated images into an Azure Cosmos DB [Collection][collection].
 
-3. A notification triggers an ingest function in Azure Functions that stores the article text in CosmosDB and the article images (if any) in Azure Blob Storage.  The article is then passed to the next queue.
+3. A notification triggers an ingest function in Azure Functions that stores the article text in Cosmos DB and the article images (if any) in Azure Blob Storage.  The article is then passed to the next queue.
 
 4. A translate function is triggered by the queue event. It uses the [Translate Text API][translate-text] of Azure Cognitive Services to detect the language, translate if necessary, and collect the sentiment, key phrases, and entities from the body and the title. Then it passes the article to the next queue.
 
@@ -56,29 +58,29 @@ At each processing step, the function writes the results to Azure Cosmos DB. Ult
 
 The following list of Azure components is used in this example.
 
-* [Azure Storage][storage] is used to hold raw image and video files associated with an article. A secondary storage account is created with Azure App Service and is used to host the Azure Function code and logs.
+- [Azure Storage][storage] is used to hold raw image and video files associated with an article. A secondary storage account is created with Azure App Service and is used to host the Azure Function code and logs.
 
-* [Azure Cosmos DB][cosmos-db] holds article text, image, and video tracking information. The results of the Cognitive Services steps are also stored here.
+- [Azure Cosmos DB][cosmos-db] holds article text, image, and video tracking information. The results of the Cognitive Services steps are also stored here.
 
-* [Azure Functions][functions] executes the function code used to respond to queue messages and transform the incoming content. [Azure App Service][aas] hosts the function code and processes the records serially. This scenario includes five functions: Ingest, Transform, Detect Object, Face, and Notify.
+- [Azure Functions][functions] executes the function code used to respond to queue messages and transform the incoming content. [Azure App Service][aas] hosts the function code and processes the records serially. This scenario includes five functions: Ingest, Transform, Detect Object, Face, and Notify.
 
-* [Azure Service Bus][service-bus] hosts the Azure Service Bus queues used by the functions.
+- [Azure Service Bus][service-bus] hosts the Azure Service Bus queues used by the functions.
 
-* [Azure Cognitive Services][acs] provides the AI for the pipeline based on implementations of the [Computer Vision][vision] service, [Face API][face], and [Translate Text][translate-text] machine translation service.
+- [Azure Cognitive Services][acs] provides the AI for the pipeline based on implementations of the [Computer Vision][vision] service, [Face API][face], and [Translate Text][translate-text] machine translation service.
 
-* [Azure Application Insights][aai] provides analytics to help you diagnose issues and to understand functionality of your application.
+- [Azure Application Insights][aai] provides analytics to help you diagnose issues and to understand functionality of your application.
 
 ### Alternatives
 
-* Instead of using a pattern based on queue notification and Azure Functions, use another pattern for this data flow. For example, [Azure Service Bus Topics][topics] can be used to processes the various parts of the article in parallel as opposed to the serial processing done in this example. For more information, compare [queues and topics][queues-topics].
+- Instead of using a pattern based on queue notification and Azure Functions, use another pattern for this data flow. For example, [Azure Service Bus Topics][topics] can be used to processes the various parts of the article in parallel as opposed to the serial processing done in this example. For more information, compare [queues and topics][queues-topics].
 
-* Use [Azure Logic App][logic-app] to implement the function code and implement record-level locking such as [Redlock][redlock] (needed for parallel processing until Azure Cosmos DB supports [partial document updates][partial]). For more information, [compare Functions and Logic Apps][compare].
+- Use [Azure Logic Apps][logic-app] to implement the function code and implement record-level locking such as [Redlock][redlock] (needed for parallel processing until Azure Cosmos DB supports [partial document updates][partial]). For more information, [compare Functions and Logic Apps][compare].
 
-* Implement this architecture using customized AI components rather than existing Azure services. For example, extend the pipeline using a customized model that detects certain people in an image as opposed to the generic people count, gender, and age data collected in this example. To use customized machine learning or AI models with this architecture, build the models as RESTful endpoints so they can be called from Azure Functions.
+- Implement this architecture using customized AI components rather than existing Azure services. For example, extend the pipeline using a customized model that detects certain people in an image as opposed to the generic people count, gender, and age data collected in this example. To use customized machine learning or AI models with this architecture, build the models as RESTful endpoints so they can be called from Azure Functions.
 
-* Use a different input mechanism instead of RSS feeds. Use multiple generators or ingestion processes to feed Azure Cosmos DB and Azure Storage.
+- Use a different input mechanism instead of RSS feeds. Use multiple generators or ingestion processes to feed Azure Cosmos DB and Azure Storage.
 
-* [Azure Cognitive Search](https://docs.microsoft.com/azure/search) is an AI feature in Azure Search that can also used to extract text from images, blobs, and other unstructured data sources.
+- [Azure Cognitive Search](https://docs.microsoft.com/azure/search) is an AI feature in Azure Search that can also used to extract text from images, blobs, and other unstructured data sources.
 
 ## Considerations
 
@@ -123,37 +125,36 @@ Pricing for Azure Functions varies depending on the [plan][function-plan] it run
 All the code for this scenario is available in the [GitHub][github] repository. This repository contains the source code used to build the generator application that feeds the pipeline for this demo.
 
 [architecture]: ./media/mass-ingestion-newsfeeds-architecture.png
-[aai]: /azure/azure-monitor/app/app-insights-overview
-[aas]: https://azure.microsoft.com/try/app-service/
-[acs]: https://azure.microsoft.com/services/cognitive-services/directory/
-[collection]: /rest/api/cosmos-db/collections
-[compare]: /azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps
-[cosmos-db]: /azure/cosmos-db/introduction
-[db-cost]: https://azure.microsoft.com/pricing/details/cosmos-db/
-[db-practices]: /azure/cosmos-db/database-security
-[db-collection]: /azure/cosmos-db/databases-containers-items
+[aai]: https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview
+[aas]: https://azure.microsoft.com/try/app-service
+[acs]: https://azure.microsoft.com/services/cognitive-services/directory
+[collection]: https://docs.microsoft.com/rest/api/cosmos-db/collections
+[compare]: https://docs.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps
+[cosmos-db]: https://docs.microsoft.com/azure/cosmos-db/introduction
+[db-cost]: https://azure.microsoft.com/pricing/details/cosmos-db
+[db-practices]: https://docs.microsoft.com/azure/cosmos-db/database-security
 [english]: https://www.nasa.gov/rss/dyn/breaking_news.rss
-[face]: /azure/cognitive-services/face/overview
+[face]: https://docs.microsoft.com/azure/cognitive-services/face/overview
 [free]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
-[functions]: /azure/azure-functions/functions-overview
-[function-plan]: /azure/azure-functions/functions-scale
+[functions]: https://docs.microsoft.com/azure/azure-functions/functions-overview
+[function-plan]: https://docs.microsoft.com/azure/azure-functions/functions-scale
 [german]: http://www.bamf.de/SiteGlobals/Functions/RSS/DE/Feed/RSSNewsfeed_Meldungen
 [github]: https://github.com/Azure/cognitive-services
-[keys]: /azure/cosmos-db/partition-data
-[language]: /azure/cognitive-services/translator/reference/v3-0-languages
-[logic-app]: /azure/logic-apps/logic-apps-overview
-[queues-topics]: /azure/service-bus-messaging/service-bus-queues-topics-subscriptions
+[keys]: https://docs.microsoft.com/azure/cosmos-db/partition-data
+[language]: https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages
+[logic-app]: https://docs.microsoft.com/azure/logic-apps/logic-apps-overview
+[queues-topics]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions
 [partial]: https://feedback.azure.com/forums/263030-azure-cosmos-db/suggestions/6693091-be-able-to-do-partial-updates-on-document
-[plan]: /azure/azure-functions/functions-scale
-[plan-aas]: /azure/azure-functions/functions-scale#app-service-plan
-[plan-c]: /azure/azure-functions/functions-scale#consumption-plan
+[plan]: https://docs.microsoft.com/azure/azure-functions/functions-scale
+[plan-aas]: https://docs.microsoft.com/azure/azure-functions/functions-scale#app-service-plan
+[plan-c]: https://docs.microsoft.com/azure/azure-functions/functions-scale#consumption-plan
 [portal]: https://portal.azure.com
 [redlock]: https://redis.io/topics/distlock
-[russian]: http://government.ru/all/rss/
-[service-bus]: /azure/service-bus-messaging/
-[storage]: /azure/storage/common/storage-account-overview
-[throughput]: /azure/cosmos-db/scaling-throughput
-[topics]: /azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions
-[text-analytics]: /azure/cognitive-services/text-analytics/
-[translate-text]: /azure/cognitive-services/translator/translator-info-overview
-[vision]: /azure/cognitive-services/computer-vision/home
+[russian]: http://government.ru/all/rss
+[service-bus]: https://docs.microsoft.com/azure/service-bus-messaging
+[storage]: https://docs.microsoft.com/azure/storage/common/storage-account-overview
+[throughput]: https://docs.microsoft.com/azure/cosmos-db/scaling-throughput
+[topics]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions
+[text-analytics]: https://docs.microsoft.com/azure/cognitive-services/text-analytics
+[translate-text]: https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview
+[vision]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/home

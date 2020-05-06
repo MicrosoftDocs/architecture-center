@@ -16,7 +16,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/dev-test-ima
 
 # DevTest Image Factory
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 The image factory provides a great way for organizations to create, maintain, and distribute custom images with Azure DevTest Labs. Whether you have globally distributed teams that need to work with a common set of custom images, need to centrally manage the configuration of images to ensure they meet regulatory compliance and security requirements, or complex software setup and configuration requirements, the image factory provides an automated solution to manage it
 

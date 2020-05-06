@@ -20,7 +20,7 @@ CDNs are typically used to deliver static content such as images, style sheets, 
 
 ![CDN diagram](./images/cdn/CDN.png)
 
-In Azure, the [Azure Content Delivery Network](/azure/cdn/cdn-overview) is a global CDN solution for delivering high-bandwidth content that is hosted in Azure or any other location. Using Azure CDN, you can cache publicly available objects loaded from Azure blob storage, a web application, virtual machine, any publicly accessible web server.
+In Azure, the [Azure Content Delivery Network](https://docs.microsoft.com/azure/cdn/cdn-overview) is a global CDN solution for delivering high-bandwidth content that is hosted in Azure or any other location. Using Azure CDN, you can cache publicly available objects loaded from Azure blob storage, a web application, virtual machine, any publicly accessible web server.
 
 This topic describes some general best practices and considerations when using a CDN. For more information, see [Azure CDN](https://docs.microsoft.com/azure/cdn).
 
@@ -34,7 +34,7 @@ Typical uses for a CDN include:
 
 - Serving entire websites that consist of only public static content to clients, without requiring any dedicated compute resources.
 
-- Streaming video files to the client on demand. Video benefits from the low latency and reliable connectivity available from the globally located datacenters that offer CDN connections. Microsoft Azure Media Services (AMS) integrates with Azure CDN to deliver content directly to the CDN for further distribution. For more information, see [Streaming endpoints overview](/azure/media-services/media-services-streaming-endpoints-overview).
+- Streaming video files to the client on demand. Video benefits from the low latency and reliable connectivity available from the globally located datacenters that offer CDN connections. Microsoft Azure Media Services (AMS) integrates with Azure CDN to deliver content directly to the CDN for further distribution. For more information, see [Streaming endpoints overview](https://docs.microsoft.com/azure/media-services/media-services-streaming-endpoints-overview).
 
 - Generally improving the experience for users, especially those located far from the datacenter hosting the application. These users might otherwise suffer higher latency. A large proportion of the total size of the content in a web application is often static, and using the CDN can help to maintain performance and overall user experience while eliminating the requirement to deploy the application to multiple datacenters. For a list of Azure CDN node locations, see [Azure CDN POP Locations](https://docs.microsoft.com/azure/cdn/cdn-pop-locations).
 
@@ -48,13 +48,13 @@ There are several challenges to take into account when planning to use a CDN.
 
 - **Deployment**. Decide the origin from which the CDN fetches the content, and whether you need to deploy the content in more than one storage system. Take into account the process for deploying static content and resources. For example, you may need to implement a separate step to load content into Azure blob storage.
 
-- **Versioning and cache-control**. Consider how you will update static content and deploy new versions. Understand how the CDN performs caching and time-to-live (TTL). For Azure CDN, see [How caching works](/azure/cdn/cdn-how-caching-works).
+- **Versioning and cache-control**. Consider how you will update static content and deploy new versions. Understand how the CDN performs caching and time-to-live (TTL). For Azure CDN, see [How caching works](https://docs.microsoft.com/azure/cdn/cdn-how-caching-works).
 
 - **Testing**. It can be difficult to perform local testing of your CDN settings when developing and testing an application locally or in a staging environment.
 
 - **Search engine optimization (SEO)**. Content such as images and documents are served from a different domain when you use the CDN. This can have an effect on SEO for this content.
 
-- **Content security**. Not all CDNs offer any form of access control for the content. Some CDN services, including Azure CDN, support token-based authentication to protect CDN content. For more information, see [Securing Azure Content Delivery Network assets with token authentication](/azure/cdn/cdn-token-auth).
+- **Content security**. Not all CDNs offer any form of access control for the content. Some CDN services, including Azure CDN, support token-based authentication to protect CDN content. For more information, see [Securing Azure Content Delivery Network assets with token authentication](https://docs.microsoft.com/azure/cdn/cdn-token-auth).
 
 - **Client security**. Clients might connect from an environment that does not allow access to resources on the CDN. This could be a security-constrained environment that limits access to only a set of known sources, or one that prevents loading of resources from anything other than the page origin. A fallback implementation is required to handle these cases.
 

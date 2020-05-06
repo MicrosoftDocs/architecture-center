@@ -548,7 +548,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="~/example-scenario/infrastructure/media/arhitecture-disaster-recovery-multi-tier-app.png" alt="Architecture diagram for Multi-tier web application built for HA/DR" height="140px" />
+                            <img src="~/example-scenario/infrastructure/media/architecture-disaster-recovery-multi-tier-app.png" alt="Architecture diagram for Multi-tier web application built for HA/DR" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">

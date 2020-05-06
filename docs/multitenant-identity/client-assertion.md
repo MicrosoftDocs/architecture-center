@@ -7,6 +7,7 @@ ms.topic: guide
 ms.service: architecture-center
 ms.category:
   - identity
+ms.custom: has-adal-ref
 ms.subservice: reference-architecture
 ---
 
@@ -66,7 +67,7 @@ At run time, the web application reads the certificate from the certificate stor
 
 ## Implementing client assertion
 
-The Surveys application includes a helper class that creates a [ClientAssertionCertificate](/dotnet/api/microsoft.identitymodel.clients.activedirectory.clientassertioncertificate) that you can pass to the [AuthenticationContext.AcquireTokenSilentAsync](/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokensilentasync) method to acquire a token from Azure AD.
+The Surveys application includes a helper class that creates a [ClientAssertionCertificate](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory.clientassertioncertificate) that you can pass to the [AuthenticationContext.AcquireTokenSilentAsync](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokensilentasync) method to acquire a token from Azure AD.
 
 ```csharp
 public class CertificateCredentialService : ICredentialService
@@ -102,9 +103,8 @@ public class CertificateCredentialService : ICredentialService
 
 <!-- links -->
 
-[configure-web-app]: /azure/app-service-web/web-sites-configure/
-[azure-management-portal]: https://portal.azure.com
+[configure-web-app]: https://docs.microsoft.com/azure/app-service-web/web-sites-configure
 [client assertion]: https://tools.ietf.org/html/rfc7521
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
-[Surveys]: tailspin.md
-[using-certs-in-websites]: https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/
+[Surveys]: ./tailspin.md
+[using-certs-in-websites]: https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications

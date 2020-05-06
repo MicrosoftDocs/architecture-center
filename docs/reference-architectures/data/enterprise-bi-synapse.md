@@ -38,13 +38,13 @@ The architecture consists of the following components.
 
 **Blob Storage**. Blob storage is used as a staging area to copy the data before loading it into Azure Synapse.
 
-**Azure Synapse**. [Azure Synapse](/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics.
+**Azure Synapse**. [Azure Synapse](https://docs.microsoft.com/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics.
 
 ### Analysis and reporting
 
-**Azure Analysis Services**. [Analysis Services](/azure/analysis-services/) is a fully managed service that provides data modeling capabilities. Use Analysis Services to create a semantic model that users can query. Analysis Services is especially useful in a BI dashboard scenario. In this architecture, Analysis Services reads data from the data warehouse to process the semantic model, and efficiently serves dashboard queries. It also supports elastic concurrency, by scaling out replicas for faster query processing.
+**Azure Analysis Services**. [Analysis Services](https://docs.microsoft.com/azure/analysis-services/) is a fully managed service that provides data modeling capabilities. Use Analysis Services to create a semantic model that users can query. Analysis Services is especially useful in a BI dashboard scenario. In this architecture, Analysis Services reads data from the data warehouse to process the semantic model, and efficiently serves dashboard queries. It also supports elastic concurrency, by scaling out replicas for faster query processing.
 
-Currently, Azure Analysis Services supports tabular models but not multidimensional models. Tabular models use relational modeling constructs (tables and columns), whereas multidimensional models use OLAP modeling constructs (cubes, dimensions, and measures). If you require multidimensional models, use SQL Server Analysis Services (SSAS). For more information, see [Comparing tabular and multidimensional solutions](/sql/analysis-services/comparing-tabular-and-multidimensional-solutions-ssas).
+Currently, Azure Analysis Services supports tabular models but not multidimensional models. Tabular models use relational modeling constructs (tables and columns), whereas multidimensional models use OLAP modeling constructs (cubes, dimensions, and measures). If you require multidimensional models, use SQL Server Analysis Services (SSAS). For more information, see [Comparing tabular and multidimensional solutions](https://docs.microsoft.com/sql/analysis-services/comparing-tabular-and-multidimensional-solutions-ssas).
 
 **Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it queries the semantic model stored in Analysis Services.
 
@@ -54,7 +54,7 @@ Currently, Azure Analysis Services supports tabular models but not multidimensio
 
 ## Data pipeline
 
-This reference architecture uses the [WorldWideImporters](/sql/sample/world-wide-importers/wide-world-importers-oltp-database) sample database as a data source. The data pipeline has the following stages:
+This reference architecture uses the [WorldWideImporters](https://docs.microsoft.com/sql/sample/world-wide-importers/wide-world-importers-oltp-database) sample database as a data source. The data pipeline has the following stages:
 
 1. Export the data from SQL Server to flat files (bcp utility).
 2. Copy the flat files to Azure Blob Storage (AzCopy).
@@ -65,14 +65,14 @@ This reference architecture uses the [WorldWideImporters](/sql/sample/world-wide
 ![Diagram of the enterprise BI pipeline](./images/enterprise-bi-sqldw-pipeline.png)
 
 > [!NOTE]
-> For steps 1 &ndash; 3, consider using Redgate Data Platform Studio. Data Platform Studio applies the most appropriate compatibility fixes and optimizations, so it's the quickest way to get started with Azure Synapse. For more information, see [Load data with Redgate Data Platform Studio](/azure/sql-data-warehouse/sql-data-warehouse-load-with-redgate).
+> For steps 1 &ndash; 3, consider using Redgate Data Platform Studio. Data Platform Studio applies the most appropriate compatibility fixes and optimizations, so it's the quickest way to get started with Azure Synapse. For more information, see [Load data with Redgate Data Platform Studio](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-with-redgate).
 >
 
 The next sections describe these stages in more detail.
 
 ### Export data from SQL Server
 
-The [bcp](/sql/tools/bcp-utility) (bulk copy program) utility is a fast way to create flat text files from SQL tables. In this step, you select the columns that you want to export, but don't transform the data. Any data transformations should happen in Azure Synapse.
+The [bcp](https://docs.microsoft.com/sql/tools/bcp-utility) (bulk copy program) utility is a fast way to create flat text files from SQL tables. In this step, you select the columns that you want to export, but don't transform the data. Any data transformations should happen in Azure Synapse.
 
 **Recommendations:**
 
@@ -84,7 +84,7 @@ You can speed up the network transfer by saving the exported data in Gzip compre
 
 ### Copy flat files into blob storage
 
-The [AzCopy](/azure/storage/common/storage-use-azcopy) utility is designed for high-performance copying of data into Azure blob storage.
+The [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) utility is designed for high-performance copying of data into Azure blob storage.
 
 **Recommendations:**
 
@@ -94,13 +94,13 @@ Don't run AzCopy on the same machine that runs your production workloads, becaus
 
 Test the upload first to see what the upload speed is like. You can use the /NC option in AzCopy to specify the number of concurrent copy operations. Start with the default value, then experiment with this setting to tune the performance. In a low-bandwidth environment, too many concurrent operations can overwhelm the network connection and prevent the operations from completing successfully.
 
-AzCopy moves data to storage over the public internet. If this isn't fast enough, consider setting up an [ExpressRoute](/azure/expressroute/) circuit. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. Another option, if your network connection is too slow, is to physically ship the data on disk to an Azure datacenter. For more information, see [Transferring data to and from Azure](/azure/architecture/data-guide/scenarios/data-transfer).
+AzCopy moves data to storage over the public internet. If this isn't fast enough, consider setting up an [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) circuit. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. Another option, if your network connection is too slow, is to physically ship the data on disk to an Azure datacenter. For more information, see [Transferring data to and from Azure](../../data-guide/scenarios/data-transfer.md).
 
 During a copy operation, AzCopy creates a temporary journal file, which enables AzCopy to restart the operation if it gets interrupted (for example, due to a network error). Make sure there is enough disk space to store the journal files. You can use the /Z option to specify where the journal files are written.
 
 ### Load data into Azure Synapse
 
-Use [PolyBase](/sql/relational-databases/polybase/polybase-guide) to load the files from blob storage into the data warehouse. PolyBase is designed to leverage the MPP (Massively Parallel Processing) architecture of Azure Synapse, which makes it the fastest way to load data into Azure Synapse.
+Use [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) to load the files from blob storage into the data warehouse. PolyBase is designed to leverage the MPP (Massively Parallel Processing) architecture of Azure Synapse, which makes it the fastest way to load data into Azure Synapse.
 
 Loading the data is a two-step process:
 
@@ -125,24 +125,24 @@ Be aware of the following limitations:
 
 - Your source data schema might contain data types that are not supported in Azure Synapse.
 
-To work around these limitations, you can create a stored procedure that performs the necessary conversions. Reference this stored procedure when you run bcp. Alternatively, [Redgate Data Platform Studio](/azure/sql-data-warehouse/sql-data-warehouse-load-with-redgate) automatically converts data types that aren't supported in Azure Synapse.
+To work around these limitations, you can create a stored procedure that performs the necessary conversions. Reference this stored procedure when you run bcp. Alternatively, [Redgate Data Platform Studio](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-with-redgate) automatically converts data types that aren't supported in Azure Synapse.
 
 For more information, see the following articles:
 
-- [Best practices for loading data into Azure Synapse](/azure/sql-data-warehouse/guidance-for-loading-data).
-- [Migrate your schemas to Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-migrate-schema)
-- [Guidance for defining data types for tables in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-tables-data-types)
+- [Best practices for loading data into Azure Synapse](https://docs.microsoft.com/azure/sql-data-warehouse/guidance-for-loading-data).
+- [Migrate your schemas to Azure Synapse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-migrate-schema)
+- [Guidance for defining data types for tables in Azure Synapse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-data-types)
 
 ### Transform the data
 
 Transform the data and move it into production tables. In this step, the data is transformed into a star schema with dimension tables and fact tables, suitable for semantic modeling.
 
-Create the production tables with clustered columnstore indexes, which offer the best overall query performance. Columnstore indexes are optimized for queries that scan many records. Columnstore indexes don't perform as well for singleton lookups (that is, looking up a single row). If you need to perform frequent singleton lookups, you can add a non-clustered index to a table. Singleton lookups can run significantly faster using a non-clustered index. However, singleton lookups are typically less common in data warehouse scenarios than OLTP workloads. For more information, see [Indexing tables in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-tables-index).
+Create the production tables with clustered columnstore indexes, which offer the best overall query performance. Columnstore indexes are optimized for queries that scan many records. Columnstore indexes don't perform as well for singleton lookups (that is, looking up a single row). If you need to perform frequent singleton lookups, you can add a non-clustered index to a table. Singleton lookups can run significantly faster using a non-clustered index. However, singleton lookups are typically less common in data warehouse scenarios than OLTP workloads. For more information, see [Indexing tables in Azure Synapse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index).
 
 > [!NOTE]
 > Clustered columnstore tables do not support `varchar(max)`, `nvarchar(max)`, or `varbinary(max)` data types. In that case, consider a heap or clustered index. You might put those columns into a separate table.
 
-Because the sample database is not very large, we created replicated tables with no partitions. For production workloads, using distributed tables is likely to improve query performance. See [Guidance for designing distributed tables in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute). Our example scripts run the queries using a static [resource class](/azure/sql-data-warehouse/resource-classes-for-workload-management).
+Because the sample database is not very large, we created replicated tables with no partitions. For production workloads, using distributed tables is likely to improve query performance. See [Guidance for designing distributed tables in Azure Synapse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute). Our example scripts run the queries using a static [resource class](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management).
 
 ### Load the semantic model
 
@@ -155,7 +155,7 @@ Power BI supports two options for connecting to Azure Analysis Services:
 - Import. The data is imported into the Power BI model.
 - Live Connection. Data is pulled directly from Analysis Services.
 
-We recommend Live Connection because it doesn't require copying data into the Power BI model. Also, using DirectQuery ensures that results are always consistent with the latest source data. For more information, see [Connect with Power BI](/azure/analysis-services/analysis-services-connect-pbi).
+We recommend Live Connection because it doesn't require copying data into the Power BI model. Also, using DirectQuery ensures that results are always consistent with the latest source data. For more information, see [Connect with Power BI](https://docs.microsoft.com/azure/analysis-services/analysis-services-connect-pbi).
 
 **Recommendations:**
 
@@ -167,15 +167,15 @@ Azure Analysis Services is designed to handle the query requirements of a BI das
 
 ### Azure Synapse
 
-With Azure Synapse, you can scale out your compute resources on demand. The query engine optimizes queries for parallel processing based on the number of compute nodes, and moves data between nodes as necessary. For more information, see [Manage compute in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview).
+With Azure Synapse, you can scale out your compute resources on demand. The query engine optimizes queries for parallel processing based on the number of compute nodes, and moves data between nodes as necessary. For more information, see [Manage compute in Azure Synapse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview).
 
 ### Analysis Services
 
-For production workloads, we recommend the Standard Tier for Azure Analysis Services, because it supports partitioning and DirectQuery. Within a tier, the instance size determines the memory and processing power. Processing power is measured in Query Processing Units (QPUs). Monitor your QPU usage to select the appropriate size. For more information, see [Monitor server metrics](/azure/analysis-services/analysis-services-monitor).
+For production workloads, we recommend the Standard Tier for Azure Analysis Services, because it supports partitioning and DirectQuery. Within a tier, the instance size determines the memory and processing power. Processing power is measured in Query Processing Units (QPUs). Monitor your QPU usage to select the appropriate size. For more information, see [Monitor server metrics](https://docs.microsoft.com/azure/analysis-services/analysis-services-monitor).
 
-Under high load, query performance can become degraded due to query concurrency. You can scale out Analysis Services by creating a pool of replicas to process queries, so that more queries can be performed concurrently. The work of processing the data model always happens on the primary server. By default, the primary server also handles queries. Optionally, you can designate the primary server to run processing exclusively, so that the query pool handles all queries. If you have high processing requirements, you should separate the processing from the query pool. If you have high query loads, and relatively light processing, you can include the primary server in the query pool. For more information, see [Azure Analysis Services scale-out](/azure/analysis-services/analysis-services-scale-out).
+Under high load, query performance can become degraded due to query concurrency. You can scale out Analysis Services by creating a pool of replicas to process queries, so that more queries can be performed concurrently. The work of processing the data model always happens on the primary server. By default, the primary server also handles queries. Optionally, you can designate the primary server to run processing exclusively, so that the query pool handles all queries. If you have high processing requirements, you should separate the processing from the query pool. If you have high query loads, and relatively light processing, you can include the primary server in the query pool. For more information, see [Azure Analysis Services scale-out](https://docs.microsoft.com/azure/analysis-services/analysis-services-scale-out).
 
-To reduce the amount of unnecessary processing, consider using partitions to divide the tabular model into logical parts. Each partition can be processed separately. For more information, see [Partitions](/sql/analysis-services/tabular-models/partitions-ssas-tabular).
+To reduce the amount of unnecessary processing, consider using partitions to divide the tabular model into logical parts. Each partition can be processed separately. For more information, see [Partitions](https://docs.microsoft.com/sql/analysis-services/tabular-models/partitions-ssas-tabular).
 
 ## Security considerations
 
@@ -190,7 +190,7 @@ Azure Analysis Services uses Azure Active Directory (Azure AD) to authenticate u
 - Protect tables or individual columns.
 - Protect individual rows based on filter expressions.
 
-For more information, see [Manage database roles and users](/azure/analysis-services/analysis-services-database-users).
+For more information, see [Manage database roles and users](https://docs.microsoft.com/azure/analysis-services/analysis-services-database-users).
 
 ## DevOps considerations
 
@@ -230,7 +230,7 @@ For more information, see [Azure Synapse Pricing][az-synapse-pricing].
 
 ### Azure Analysis Services
 
-Pricing for Azure Analysis Services depends on the tier. The reference implementation of this architecture uses the **Developer** tier, which is recommended for evaluation, development, and test scenarios. Other tiers include, the **Basic** tier, which is recommended for small production environment; the **Standard** tier for mission-critical production applications. For more information, see [The right tier when you need it](/azure/analysis-services/analysis-services-overview#the-right-tier-when-you-need-it). 
+Pricing for Azure Analysis Services depends on the tier. The reference implementation of this architecture uses the **Developer** tier, which is recommended for evaluation, development, and test scenarios. Other tiers include, the **Basic** tier, which is recommended for small production environment; the **Standard** tier for mission-critical production applications. For more information, see [The right tier when you need it](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview#the-right-tier-when-you-need-it). 
 
 No charges apply when you pause your instance.
 
@@ -265,27 +265,26 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 
 You may want to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
 
-- [Data warehousing and analytics for sales and marketing](/azure/architecture/example-scenario/data/data-warehouse)
-- [Hybrid ETL with existing on-premises SSIS and Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)
+- [Data warehousing and analytics for sales and marketing](../../example-scenario/data/data-warehouse.md)
+- [Hybrid ETL with existing on-premises SSIS and Azure Data Factory](../../example-scenario/data/hybrid-etl-with-adf.md)
 
 <!-- links -->
 
-[AAF-devops]: /azure/architecture/framework/devops/overview
+[AAF-devops]: ../../framework/devops/overview.md
 [adf-ra]: ./enterprise-bi-adf.md
-[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki
-[azure-monitor]: https://azure.microsoft.com/services/monitor/
+[azure-monitor]: https://azure.microsoft.com/services/monitor
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw
 [synapse-analytics]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity
-[wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
-[powerbi-embedded-pricing]: https://azure.microsoft.com/pricing/details/power-bi-embedded/
+[wwi]: https://docs.microsoft.com/sql/sample/world-wide-importers/wide-world-importers-oltp-database
+[powerbi-embedded-pricing]: https://azure.microsoft.com/pricing/details/power-bi-embedded
 [powerbi-pro-purchase]: https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro
-[wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
-[az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics/
-[az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services/
+[wwi]: https://docs.microsoft.com/sql/sample/world-wide-importers/wide-world-importers-oltp-database
+[az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics
+[az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services
 [az-storage-reserved]: https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md

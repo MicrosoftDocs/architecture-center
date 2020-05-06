@@ -41,7 +41,7 @@
           "**/*.svg",
           "**/*.js",
           "**/*.json",
-          "feed.xml"
+          "feed.atom"
         ],
         "exclude": [
           "**/obj/**",
