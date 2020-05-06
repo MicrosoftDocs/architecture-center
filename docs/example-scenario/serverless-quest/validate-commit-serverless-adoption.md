@@ -26,3 +26,11 @@ As you get started, the checklist and resources below will help you validate and
 | **Identify and execute a PoC or Pilot project.** Proof of Concept (PoC) or pilot is an opportunity to deliver evidence that the Azure Functions will solve your business problems. With the right technical resource, you can identify pilot project and execute PoC to modernize an existing app or build a new cloud-native app. | [PoC or Pilot](./poc-pilot.md) |
 | **Plan technical trainings for the project team.** Ensure application team completes requisite technical trainings for app modernization or cloud native apps. | [Technical training plan](./technical-training.md) |
 | **Deliver a technical implementation with the team or customer.** Code-with enable teams to be successful with building and operating their application. Deliver a technical implementation with the team or customer to modernize and/or build a new application to their specification can accelerate a deployment to production environment. | [Deliver Technical Implementation](./code-with.md) |
+
+## Next steps
+
+To move forward with serverless - Azure Functions adoption, see the following resources:
+
+- [Application development and deployment](./application-development.md)
+- [Azure functions app operations](./functions-app-operations.md)
+- [Azure functions app security](./functions-app-security.md)
