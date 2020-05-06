@@ -182,7 +182,7 @@ Offering goods or services at different prices for reasons unrelated to the cost
 
 *Example: More could be charged for products based on designation for men or women.*
 
-### Economic slavery
+### Economic exploitation
 
 Compelling or misleading people to work on something that impacts their dignity or wellbeing.
 
