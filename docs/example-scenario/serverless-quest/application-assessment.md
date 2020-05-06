@@ -104,3 +104,12 @@ Amount of Memory needed:
 | Scoring Weight| 25 | 19 | | |
 | The expected level of complexity to migrate this application to Azure is: **TOTAL / Scoring Weight (<0.3 = LOW, <0.7 = MEDIUM, >0.7 = HIGH)** <br/> The expected risk involved as part of the migration is: **TOTAL / Scoring Weight (<0.3 = LOW, <0.7 = MEDIUM, >0.7 = HIGH)** <br/> For the Rearchitect and Rebuild, the largest scoring result defines your strategy.| | | | |
 
+## Next steps
+
+To move forward with the exercise 'validate and commit the serverless adoption', see the following resources:
+
+- [Promote a technical workshop](./technical-workshops.md)
+- [Conduct architectural design session(s)](./ads.md)
+- [Identify and execute a PoC or Pilot project](./poc-pilot.md)
+- [Plan technical trainings for the project team](./technical-training.md)
+- [Deliver a technical implementation with the team or customer](./code-with.md)
