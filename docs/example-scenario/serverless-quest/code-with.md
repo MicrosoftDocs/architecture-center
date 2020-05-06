@@ -29,3 +29,13 @@ The playbook will cover this general guidance list:
 - Keep backlog item details up to date to communicate the state of things with the rest of your team.
 - Report product issues found and provide clear and repeatable engineering feedback!
 - We all own our code and each one of us has an obligation to make all parts of the solution great.
+
+## Next steps
+
+To move forward with the exercise 'validate and commit the serverless adoption', see the following resources:
+
+- [Execute an application assessment](./application-assessment.md)
+- [Promote a technical workshop](./technical-workshops.md)
+- [Conduct architectural design session(s)](./ads.md)
+- [Identify and execute a PoC or Pilot project](./poc-pilot.md)
+- [Plan technical trainings for the project team](./technical-training.md)
