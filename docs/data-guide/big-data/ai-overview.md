@@ -105,7 +105,7 @@ Learn more about Microsoft AI, and keep up-to-date with related news:
 - [Microsoft AI on GitHub: Samples, reference architectures, and best
     practices](https://github.com/microsoft/AI)
 
-- [Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/)
+- [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)
 
 ## High-level architectural types
 

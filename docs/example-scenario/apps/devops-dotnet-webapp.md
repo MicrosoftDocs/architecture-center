@@ -123,12 +123,12 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 
 <!-- links -->
 
-[ansible]: https://docs.microsoft.com/en-us/azure/developer/ansible/
+[ansible]: https://docs.microsoft.com/azure/developer/ansible/
 [application-insights]: https://docs.microsoft.com/azure/application-insights/app-insights-overview
 [arm-templates]: https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview
 [architecture]: ./media/architecture-devops-dotnet-webapp.svg
 [chef]: https://docs.microsoft.com/azure/chef
-[desired-state-configuration]: https://docs.microsoft.com/en-us/azure/automation/automation-dsc-overview
+[desired-state-configuration]: https://docs.microsoft.com/azure/automation/automation-dsc-overview
 [devops-microsoft]: https://docs.microsoft.com/azure/devops/devops-at-microsoft
 [devops-with-vsts]: https://www.azuredevopslabs.com/labs/vstsextend/azuredevopsprojectdotnet
 [devops-checklist]: ../../checklist/dev-ops.md

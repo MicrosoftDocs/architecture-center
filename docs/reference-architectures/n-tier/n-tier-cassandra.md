@@ -260,7 +260,7 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
 [dmz]: ../dmz/secure-vnet-dmz.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-linux
 [Linux-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
-[load-balancer-hashing]: https://docs.microsoft.com/en-us/azure/load-balancer/components#load-balancing-rules
+[load-balancer-hashing]: https://docs.microsoft.com/azure/load-balancer/components#load-balancing-rules
 [load-balancer]: https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-internet-arm-cli
 [network-security]: https://docs.microsoft.com/azure/best-practices-network-security
 [nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg

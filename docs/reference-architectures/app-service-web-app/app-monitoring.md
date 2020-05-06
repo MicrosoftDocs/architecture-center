@@ -142,7 +142,7 @@ Check out these resources designed to help you get started with your own monitor
 [alerts]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-alerts
 [Alerts (Preview)]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts
 [Azure Monitor Data Source For Grafana]: https://grafana.com/plugins/grafana-azure-monitor-datasource
-[Azure Automation]: https://docs.microsoft.com/en-us/azure/automation/automation-intro
+[Azure Automation]: https://docs.microsoft.com/azure/automation/automation-intro
 [ITSM solutions]: https://azure.microsoft.com/blog/itsm-connector-for-azure-is-now-generally-available
 [management solution]: https://docs.microsoft.com/azure/monitoring/monitoring-solutions
 [SLA]: https://azure.microsoft.com/support/legal/sla/app-service/v1_4
