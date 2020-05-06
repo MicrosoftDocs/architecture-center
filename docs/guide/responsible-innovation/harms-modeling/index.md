@@ -11,22 +11,24 @@ ms.category:
 ms.subservice: reference-architecture
 ---
 
-# Why harms?
+# Foundations of assessing harm
 
-As technology builders, your work is global. Designing AI to be trustworthy requires creating solutions that reflect ethical principles that are deeply rooted in important and timeless values. In the process of designing and building your technologies, it is essential to evaluate not only ideal outcomes, but possible negative ones as well. By assessing potential harms, you can identify gaps in products that could put people at risk, and ultimately create mitigation strategies.
+Microsoft has made a commitment to building principled technology and providing tools including the Human AI Interaction Guidelines, Conversational AI Guidelines, and AI Fairness Checklist. Harms Modeling is another available tool; it is designed to help you anticipate the potential for harm, identify gaps in product that could put people at risk, and ultimately create approaches that proactively address harm. We do not have all the answers and we expect our tools to continue to evolve based on learnings from the global tech builder community.  Collectively, we have the ability to create trustworthy systems that augment human ingenuity, and are built on foundational freedoms, core to human rights.
 
-## Foundations of assessing harm
 
-Microsoft has made a commitment to building principled technology and helping the community to do the same. Collectively, we have the ability to create trustworthy systems that augment human ingenuity, and are built on foundational freedoms, core to human rights.
+## Why harms?
+
+As technology builders, your work is global. Designing AI to be trustworthy requires creating solutions that reflect ethical principles that are deeply rooted in important and timeless values. In the process of designing and building your technologies, it is essential to evaluate not only ideal outcomes, but possible negative ones as well. 
+
 
 ### Responsible AI Principles at Microsoft
 
-* **Fairness** - Treat all stakeholders equitably and prevent stereotypes and biases.
-* **Reliability & safety** - Build systems to perform safely even in the worst-case scenario.
-* **Privacy & security** - Protect data from misuse and unintentional access to ensure privacy rights.
-* **Inclusion** - Empower everyone, regardless of ability, and engage people by providing channels for feedback.
-* **Transparency** - Create systems and outputs that are easily understandable.
-* **Accountability** - Take responsibility for how systems operate and their impact on society.
+* **Fairness** - AI systems should treat all people fairly
+* **Reliability & safety** - AI systems should perform Reliably and Safely
+* **Privacy & security** - AI systems should be Secure and respect Privacy
+* **Inclusiveness** - AI systems should empower everyone and engage people
+* **Transparency** - AI systems should be understandable 
+* **Accountability** - People should be accountable for AI systems
 
 ### Technology and human rights
 
