@@ -12,12 +12,14 @@ ms.custom: fasttrack-new
 
 # Using Azure Application Gateway and Azure Firewall in your Virtual Network
 
-Azure offers a variety of security appliances that protect workloads on Virtual Networks:
+Making sure that the application and the data is secure is of paramount importance when deploying application workloads into Azure. Multiple mechanisms exist that can protect your application and your data, depending on the technology that you choose to support your application: you can implement protective measures in the application itself such as authentication or encryption, and you can introduce additional layers of security in the network that contains the workload to further reduce the attack surface. This document focuses on the latter, that is, network security controls that you can implement in a Virtual Network where you have deployed an application, for example on Azure Virtual Machines, Virtual Machine Scale Sets or Azure Kubernetes Services.
+
+Regarding network security, your first choice will be whether implementing generic security valid for all workloads like the functionality that the Azure Firewall provides, or mechanisms such as the Azure Web Application Firewall (a service that can be deployed on the Azure Application Gateway) that address attacks exploiting application-specific vulnerabilities:
 
 * The [Azure Firewall][azfw-overview] is a managed next-generation firewall that offers Network Address Translation (NAT) functionality as well as packet filtering capabilities based on Layer 4 packet attributes (IP addresses and TCP/UDP ports) or application-based attributes for HTTP(S) or SQL. Additionally, the Azure Firewall leverages Microsoft threat intelligence to more effectively identify malicious IP addresses. For more details please refer to the [Azure Firewal Documentation][azfw-docs].
 * The [Azure Application Gateway][appgw-overview] is a managed HTTP(S) full reverse proxy that can be used for offloading SSL encryption and decryption or to inspect web payloads to detect attacks at the HTTP layer with its Web Application Firewall capabilities. For more details please refer to the [Application Gateway Documentation][appgw-docs] and the [Web Application Firewall Documentation][waf-docs].
 
-Both Azure services are often complementary to each other, so it can be difficult at times choosing how to integrate both in the same Virtual Network to achieve an optimal protection against attacks at both the network and the application layer. This document will explain when to use each component, and when to use the different design options that combine both. Here a quick summary of the different designs that will be discussed:
+Both Azure services are often complementary to each other, so it can be difficult choosing the best for your workloads, or in case you need both (as it is typically the case), how to integrate them in the same Virtual Network to achieve an optimal protection against attacks at both the network and the application layer. This document will explain when to use each component, and when to use the different design options that combine both. Here a quick summary of the different designs that will be discussed:
 
 * **Azure Firewall only**: this design is often used when there are no web applications in the Virtual Network
 * **Application Gateway only**: this design is appropriate when there are only web applications in the Virtual Network, and Network Security Groups are enough for egress filtering
@@ -31,7 +33,7 @@ There are many variations to the previous basic designs: whether the application
 
 This design option is to be used if there are no web-based workloads deployed in the Azure Virtual Network that can benefit from the extra protection of the Azure Web Application Firewall, and hence there is no need to deploy an Azure Application Gateway in the Virtual Network. The design in this case is straight forward, but still we will describe the source and destination IP addresses involved in each stage.
 
-![FW only](./images/design1.png)
+![FW only](./images/design1.png =250x)
 
 1. This packet walk example corresponds to a user accessing the application hosted in virtual machines from the public Internet. Note that the diagram includes only one virtual machine for simplicity, but typically you would have multiple application instances behind a load balancer for a higher availability and scalability. The application client will initiate the connection to the public IP address of the Azure Firewall:
    * Source IP address: ClientPIP
