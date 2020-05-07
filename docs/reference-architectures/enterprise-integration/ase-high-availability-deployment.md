@@ -127,3 +127,7 @@ The tradeoff for high availability, resilient, and secure system will be increas
 ## Deploy the solution
 
 To deploy the reference implementation for this architecture, see the [GitHub readme](https://github.com/mspnp/App-Services-Environment-ILB-HA/blob/master/deployment/readme.md), and follow the script for *high availability deployment*.
+
+## Next steps
+
+You can expand on the learnings demonstrated in this reference architecture, and horizontally scale your applications within the same region or across several regions, based on the expected peak load capacity. Replicating your applications on multiple regions may help mitigate the risks of wider geographical data center failures, such as due to earthquakes or other natural disasters. To learn more on horizontal scaling, read [Geo Distributed Scale with App Service Environments](https://docs.microsoft.com/en-us/azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale). For a global and highly-available routing solution, consider using [Azure Front Door](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview).

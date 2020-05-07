@@ -232,11 +232,15 @@ Azure Active Directory provides security features to authenticate applications a
 
 When building cloud applications, the credentials required to authenticate to cloud services, must be secured. Ideally, the credentials should never appear on developer workstations or checked into source control. Azure Key Vault provides a way to securely store credentials and secrets, but the app still has to authenticate to Key Vault to retrieve them. **Managed Identities for Azure resources** provides Azure services with an automatically managed identity in Azure AD. This identity can be used to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in the application.
 
-[Role based access control](https://docs.microsoft.com/azure/role-based-access-control/overview) manages access to Azure resources. This includes:
+[Role-based access control or RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) manages access to Azure resources. This includes:
 
 - which entity has the access: user, managed identity, security principal.
 - what type of access it has: owner, contributor, reader, admin.
 - scope of the access: resource, resource group, subscription, or management group.
+
+By tightly controlling the role required and the type of access, access to ASE applications can be locked down, allowing multiple apps to be deployed seamlessly from different teams. For example, one team might be focused on the frontend, while another one is dedicated for the backend APIs. RBAC can be used to limit each team's access to the app(s) it is working on.
+
+This reference architecture requires a *Contributor* role to deploy the scripts and the apps. You can also explore [Custom roles in Azure RBAC](https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles) to create roles suitable to your organization.
 
 ### Key Vault
 
@@ -322,7 +326,19 @@ These connection string values are accessed by the apps, by referencing the Key 
 
 The function also accesses the Service Bus listener connection string in a similar manner.
 
+## Scalability considerations
+
+### Design scalable apps
+
+The application in this reference architecture is structured so that individual components can be scaled based on usage. Each web app, API, and function is deployed in its own App Service plan. You can monitor each app for any performance bottlenecks, and then [scale it up](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-up) if required. Read [Improve scalability in an Azure web application](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app) to learn how to design scalable web applications using Azure App Service.
+
+### Auto-scaling App Gateway
+
+Auto-scaling can be enabled on Azure Application Gateway V2. This allows App Gateway to scale up or down based on the traffic load patterns. This reference architecture configures `autoscaleConfiguration` in the file [appgw.json](https://github.com/mspnp/App-Services-Environment-ILB-HA/blob/master/deployment/templates/appgw.json) to scale between zero and ten additional instances. See [Scaling Application Gateway and WAF v2](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant#scaling-application-gateway-and-waf-v2) for more details.
+
 ## Deployment considerations
+
+The deployment scripts in this reference architecture are used to deploy ASE, other services, and the applications inside the ASE. Once these applications are deployed, enterprises might want to have a plan for continuous integration and deployment for app maintenance and upgrades. This section shows some of the common ways developers use for CI/CD of ASE applications.
 
 Apps can be deployed to an internal ASE only from within the virtual network. The following three methods are widely used to deploy ASE apps:
 
@@ -344,6 +360,8 @@ Some enterprises may not want to maintain a permanent build agent inside the VNe
 - There is a disconnect between the DevOps and the actual deployment process, leading to difficulties in monitoring and tracing any deployment issues.
 - In a locked down environment with secured traffic, you may need to change the rules to access the zipped file on the storage.
 - You will need to install specific extensions and tools on the ASE to be able to deploy from the zip.
+
+To know some more ways the apps can be deployed to the App Service plans, read [the App Service articles focusing on deployment strategies](https://docs.microsoft.com/azure/app-service/deploy-run-package).
 
 ## Cost considerations
 
