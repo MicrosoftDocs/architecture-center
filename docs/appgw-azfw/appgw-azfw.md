@@ -54,7 +54,7 @@ Note that in this design the Azure Firewall not only inspects incoming connectio
 
 This design option is convenient when you only have web applications, and inspecting outbound connections from the Virtual Network with Network Security Groups is enough protection. This design is very similar to the option with only the Azure Firewall:
 
-![AppGW only](./images/design2.png)
+![AppGW only](./images/design2_500.png)
 
 1. This packet walk example corresponds to a user accessing a web application hosted in virtual machines from the public Internet. The application client will initiate the connection to the public IP address of the Azure Application Gateway:
    * Source IP address: ClientPIP
@@ -76,9 +76,9 @@ In some situations filtering outbound connections from the Virtual Machines with
 
 The following two diagrams illustrate the traffic flows for both types of traffic: inbound connections initiated by an application user outside of the Virtual network, and outbound connections to the public Internet initiated for the Virtual Machines, for example to connect to backend systems or get operating system updates:
 
-![AppGW and FW in parallel - ingress](./images/design3_ingress.png)
+![AppGW and FW in parallel - ingress](./images/design3_ingress_500.png)
 
-![AppGW and FW in parallel - egress](./images/design3_egress.png)
+![AppGW and FW in parallel - egress](./images/design3_egress_500.png)
 
 This document will not go in detail over the packet walks of these flows, since they are exactly the same as for design options 1 and 2.
 
@@ -86,7 +86,7 @@ This document will not go in detail over the packet walks of these flows, since 
 
 Some organizations have as requirement having all traffic go both trough a Web Application Firewall and through a Next-Generation Firewall. The WAF would provide protection against attacks at the application layer, and the firewall would use its complementary technologies to address other types of attacks, for example in the case of the Azure Firewall, through its threat intelligence features.
 
-![AppGW in front of FW](./images/design4.png)
+![AppGW in front of FW](./images/design4_500.png)
 
 Here the packet walk for inbound traffic from the public Internet:
 
@@ -119,7 +119,7 @@ This design is mainly motivated by the desire of having the Azure Firewall filte
 
 However, a significant drawback of this design is that the application servers will not see the original source IP address of the client, since the Azure Firewall will Source-NAT the packets as they come into the Virtual Network.
 
-![AzFW in front of AppGW](./images/design5.png)
+![AzFW in front of AppGW](./images/design5_500.png)
 
 Here the packet walk for inbound traffic from the public Internet:
 
@@ -150,7 +150,7 @@ The previous designs have shown examples where the application clients were comi
 * A VPN Gateway or an ExpressRoute Gateway is deployed in front of the Azure Firewall and the Application Gateway (depending on the chosen topology)
 * The Azure Firewall does not support Destination NAT (DNAT) at this time for private IP addresses. Hence, if ingress traffic is to be sent to the Azure Firewall from the VPN or ExpressRoute Gateways, User-Defined Routes are to be used.
 
-![Hybrid design with VPN/ER Gateway](./images/hybrid.png)
+![Hybrid design with VPN/ER Gateway](./images/hybrid_500.png)
 
 Note that even if all clients are located on-premises or in Azure, both the Azure Application Gateway and the Azure Firewall will require to keep their public IP addresses, so that Microsoft can manage the service.
 
@@ -161,7 +161,7 @@ If using a hub and spoke topology where shared resources are deployed in a centr
 * Typically all network components described in this article would go to the hub Vritual Network
 * Special attention needs to be put on User-Defined Routes in the spokes: traffic coming from the Application Gateway instance or from the Azure Firewall should not be sent back to the main IP address of those services, but to the individual IP address of the specific instance sending the traffic. In other words, routing in the application subnet should send traffic addressed to the Azure Firewall and Application Gateway subnets to a next hop of type Virtual Network (and not Virtual Network Appliance). Otherwise asymmetric routing will break communication.
 
-![Hybrid design with VPN/ER Gateway and Hub and Spoke](./images/hubnspoke.png)
+![Hybrid design with VPN/ER Gateway and Hub and Spoke](./images/hubnspoke_500.png)
 
 The previous document does not imply that the route table is always needed, but you need to verify that the next hop for the Azure Application Gateway subnet and the Azure Firewall subnet is the virtual network.
 
