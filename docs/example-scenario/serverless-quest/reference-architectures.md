@@ -56,14 +56,14 @@ Before implementing a solution, use a reference architecture to visualize the id
         <h3>Real-time file processing</h3>
         <p>Healthcare scenario: Patient records are securely uploaded as PDF files. That data is then decomposed, processed using OCR detection, and added to a database for easy queries.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/web-app-backends.png" width="550"/></td>
+        <td style="vertical-align: middle;"><img src="./images/real-time-file-processing.png" width="550"/></td>
 </tr>
 <tr>
     <td style="width: 250px;">
         <h3>Real-time stream processing</h3>
         <p>ISV scenario: Huge amounts of telemetry data is collected from a massive cloud app. That data is processed in near real-time and stored in a DB for use in an analytics dashboard.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/real-time-file-processing.png" width="550"/></td>
+        <td style="vertical-align: middle;"><img src="./images/real-time-stream-processing.png" width="550"/></td>
 </tr>
 <tr>
     <td style="width: 250px;">
