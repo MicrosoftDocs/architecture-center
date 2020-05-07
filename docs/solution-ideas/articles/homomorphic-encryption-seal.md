@@ -9,23 +9,23 @@ ms.custom: encryption, homomorphic encryption, Microsoft SEAL, security, 'https:
 ---
 # Homomorphic encryption with SEAL
 
-Companies often send and receive their data, and store it in the cloud, in encrypted form. But to take advantage of cloud computing services, companies need to provide either unencrypted data, or the keys to decrypt it, which puts their data at increased risk. *Homomorphic encryption* allows computation directly on encrypted data, making it easier to leverage the potential of the cloud for privacy-critical data.
+Companies often send, receive, and store their data in the cloud, in encrypted form. But to take advantage of cloud computing services, companies must provide either unencrypted data, or the keys to decrypt it, which puts their data at increased risk. *Homomorphic encryption* allows computation directly on encrypted data, making it easier to leverage the potential of the cloud for privacy-critical data.
 
 This article discusses how and when to use homomorphic encryption, and walks through creating an example app that implements homomorphic encryption with the open-source [Microsoft Simple Encrypted Arithmetic Library (SEAL)](https://github.com/microsoft/SEAL#introduction).
 
 ## Use cases
-- Lightweight cloud computations like addition and multiplication on privacy-critical data and parts of programs.
+- Lightweight computations like addition and multiplication on privacy-critical data and parts of programs.
 - Outsourced cloud computing, where a single owner owns all the data and has sole access to the decryption keys.
 
 ## Architecture
 
 ![Traditional and SEAL encryption](../media/seal.png)
 
-Most encryption schemes consist of three functionalities: key generation, encryption, and decryption. *Symmetric-key* encryption schemes use the same secret key for both encryption and decryption, and enable efficient encryption of large amounts of data for secure outsourced cloud storage. *Public-key* encryption schemes use a public key for encryption plus a separate secret key for decryption. Anyone who knows the public key can encrypt data, but only those who know the secret key can decrypt and read the data. Public-key encryption enables secure online communication, but is typically less efficient than symmetric-key encryption.
+Traditional encryption schemes consist of three functionalities: key generation, encryption, and decryption. *Symmetric-key* encryption schemes use the same secret key for both encryption and decryption, and enable efficient encryption of large amounts of data for secure outsourced cloud storage. *Public-key* encryption schemes use a public key for encryption, plus a separate secret key for decryption. Anyone who knows the public key can encrypt data, but only those who know the secret key can decrypt and read the data. Public-key encryption enables secure online communication, but is typically less efficient than symmetric-key encryption.
 
 While traditional encryption can be used for secure storage and communication, outsourced computation has necessarily required the encryption layers to be removed. Cloud services that provide outsourced computation must implement access policies to prevent unauthorized access to the data and keys. Data privacy relies on the access control policies imposed by the cloud provider and trusted by the customer.
 
-With SEAL homomorphic encryption, cloud providers never have unencrypted access to the data they store and compute on. Computations can be performed directly on encrypted data. The results of such encrypted computations remain encrypted, and can be only decrypted by the data owner by using the secret key. Most homomorphic encryption uses public-key encryption schemes, although the public-key functionality may not always be needed.
+With SEAL homomorphic encryption, cloud providers never have unencrypted access to the data they store and compute on. Computations can be performed directly on encrypted data. The results of such encrypted computations remain encrypted, and can be decrypted only by the data owner by using the secret key. Most homomorphic encryption uses public-key encryption schemes, although the public-key functionality may not always be needed.
 
 ## Considerations
 
@@ -76,14 +76,11 @@ To build and run the unencrypted sample app:
    - **FitnessTracker.Common** The .NET Core library project that holds some useful model definitions and a utility class to be shared in the other two projects.
 1. After the solution finishes building, right-click the **FitnessTracker** solution and select **Set StartUp Projects**.
 1. On the **Startup Project** property page, select **Multiple startup projects**.
-1. Under **Action** next to both **FitnessTrackerAPI** and **FitnessTrackerClient**, select **Start**.
-1. Select **OK**. 
+1. Under **Action** next to both **FitnessTrackerAPI** and **FitnessTrackerClient**, select **Start**, and then select **OK**. 
 1. On the Visual Studio toolbar, select **Start** and wait for the app to run.
-1. In the console window, type *1* and press Enter to send a new record to the API.
-1. Provide the requested information:
+1. In the console window, type *1* and press Enter to send a new record to the API. Provide the requested information:
    - Running distance (km): *10*.
    - Running time (hours): *2*.
-   
 1. Type *2*  and press Enter to retrieve the running statistics from the API.
    
    The response from the API is a `SummaryItem` containing three properties: `TotalRuns`, `TotalDistance`, and `TotalHours`. Here, the data is *unencrypted* in a base 64 value.
@@ -98,7 +95,7 @@ Now that the app is running, you can add encryption.
 
 First, add the Microsoft SEAL library, and then set the private and public keys for each project.
 
-To add the SEAL library to your projects:
+#### Add the SEAL library to your projects
 
 1. Right-click on the **FitnessTrackerClient** project and select **Add** > **Reference**.
 1. Select **Browse**, and browse to and select *SEALNet.dll* from the *encryption-lab/Resources* folder, or the folder where you built the library, and then select **OK**.
@@ -107,7 +104,7 @@ To add the SEAL library to your projects:
 1. Repeat the preceding steps for the **FitnessTrackerAPI** project.
 1. Right-click the **FitnessTracker** solution and select **Rebuild Solution**.
 
-To set the private and public keys in both projects:
+#### Set up encryption context
 
 1. In the **FitnessTracker.Common** project, open the *Utils/SEALUtils.cs* file.
 1. Find the `GetContext` method at the end of the file and replace the contents with the following code snippet:
@@ -126,9 +123,12 @@ To set the private and public keys in both projects:
    return SEALContext.Create(encryptionParameters);
    ```
    
-   This code initializes the encryption parameters. Once you populate an instance of [EncryptionParameters](https://github.com/microsoft/SEAL/blob/master/dotnet/src/EncryptionParameters.cs) with appropriate parameters, you can use it to create an instance of the **SEALContext**. Both projects will use this method to create the **SealContext**. 
-   
 1. Save the file.
+   
+This code initializes the encryption parameters. Once you populate an instance of [EncryptionParameters](https://github.com/microsoft/SEAL/blob/master/dotnet/src/EncryptionParameters.cs) with appropriate parameters, you can use it to create an instance of the **SEALContext**. Both projects will use this method to create the **SealContext**. 
+
+#### Set the private and public keys in the FitnessTrackerAPI project
+
 1. In the **FitnessTrackerAPI** project, open the *MetricsController.cs* file.
 1. Add the following import at the beginning of the file:
    
@@ -181,6 +181,9 @@ To set the private and public keys in both projects:
    This method generates an object containing the public key and secret key as base64 strings, using the key generator you created earlier. You use *base64 encoding* to handle the data, as it's easier to load and save the encrypted values later on.
    
 1. Save your changes.
+   
+#### Set the private and public keys in the FitnessTrackerClient project
+
 1. In the **FitnessTrackerClient** project, open the *Program.cs* file.
 1. Add the following import at the beginning of the file:
    
@@ -222,14 +225,15 @@ Now that you added the SEAL library and have your public and private keys, you c
 
 In this section, you encrypt and send data to the API from the client.
 
-1. In *FitnessTrackerClient\Program.cs*, look for the `// Create encryptor` comment and replace it with the following code snippet to initialize the encryptor:
-   
-   ```cs
-   var publicKey = SEALUtils.BuildPublicKeyFromBase64String(keys.PublicKey, _context);
-   _encryptor = new Encryptor(_context, publicKey);
-   ```
-   You use the public key you receive from the API to initialize the encryptor.
-   
+First, in *FitnessTrackerClient\Program.cs*, look for the `// Create encryptor` comment and replace it with the following code snippet to initialize the encryptor:
+
+```cs
+var publicKey = SEALUtils.BuildPublicKeyFromBase64String(keys.PublicKey, _context);
+_encryptor = new Encryptor(_context, publicKey);
+```
+
+You use the public key you receive from the API to initialize the encryptor.
+
 Convert the distance and time values the user provides to hexadecimal, because that's how they're used by the evaluator in the server. Then, encrypt the values to ciphers to be sent in the request as base 64. 
 
 1. Find the `// Encrypt distance` comment in the `SendNewRun` method, and add the following code snippet:
@@ -352,7 +356,7 @@ Use a basic `add` method to aggregate the metrics in the API without actually de
 In this section, you decrypt the data from the API response to display it to the user.
 
 1. Open the `FitnessTrackerClient\Program.cs` file.
-1. To initialize the decryptor, look for the `// Create decryptor` comment and replace it with the following code snippet:
+1. To initialize the decrypter, look for the `// Create decryptor` comment and replace it with the following code snippet:
    
    ```cs
    var secretKey = SEALUtils.BuildSecretKeyFromBase64String(keys.SecretKey, _context);
@@ -396,12 +400,10 @@ Now that you've added SEAL encryption to your app, you can test that it works as
 Run the app and check the flow to see how you encrypt and decrypt data. Use the app client to send and receive requests to the API, and see SEAL encryption in action.
 
 1. On the Visual Studio toolbar, select **Start** and wait for the app to run. This might take a few minutes, as it takes some time to initialize the SEALContext.
-1. In the console window, type *1* and press Enter to send a new record to the API.
-1. Provide the requested information:
+1. In the console window, type *1* and press Enter to send a new record to the API. Provide the requested information:
    - Running distance (km): *10*.
    - Running time (hours): *2*.
-1. Type *1* and press Enter to send another record to the API.
-1. Provide the requested information:
+1. Type *1* and press Enter to send another record to the API. Provide the requested information:
    - Running distance (km): *5*.
    - Running time (hours): *1*.
 1. Type *2*  and press Enter to retrieve the running statistics from the API.
@@ -410,12 +412,12 @@ The results displayed are the calculations performed by the API. Review that the
 
 ### Run Fiddler to see traffic
 
-You can use Fiddler to view how data is being exchanged in this solution. Fiddler lets you see the raw traffic and check what's being sent and received between the API and the client. This way, you can verify that the encryption is secure.
+You can use [Fiddler](https://www.telerik.com/fiddler) to view how data is being exchanged in this solution. Fiddler lets you see the raw traffic and check what's being sent and received between the API and the client. This way, you can verify that the encryption is secure.
 
-To use Fiddler to test the actual results of the encryption, see [Capturing traffic with Fiddler](https://docs.myget.org/docs/reference/capturing-traffic-with-fiddler). Fiddler works only on Windows.
+To use Fiddler to test the actual results of the encryption, see [Capturing traffic with Fiddler](https://docs.myget.org/docs/reference/capturing-traffic-with-fiddler).
 
 ## Summary and resources
 
 In this article, you learned how to add homomorphic encryption to your projects using the Microsoft SEAL library, and when it's best to choose this encryption solution.
 
-To learn more about homomorphic encryption and the Microsoft SEAL library, see [Microsoft SEAL](https://www.microsoft.com/research/project/microsoft-seal/) and the [SEAL code project](https://github.com/microsoft/SEAL) on GitHub.
+To learn more about homomorphic encryption and the Microsoft SEAL library, see [Microsoft SEAL](https://www.microsoft.com/research/project/microsoft-seal/) from Microsoft Research, and the [SEAL code project](https://github.com/microsoft/SEAL) on GitHub.
