@@ -33,7 +33,7 @@ There are many variations to the previous basic designs: whether the application
 
 This design option is to be used if there are no web-based workloads deployed in the Azure Virtual Network that can benefit from the extra protection of the Azure Web Application Firewall, and hence there is no need to deploy an Azure Application Gateway in the Virtual Network. The design in this case is straight forward, but still we will describe the source and destination IP addresses involved in each stage.
 
-![FW only](./images/design1.png =250x)
+![FW only](./images/design1_500.png)
 
 1. This packet walk example corresponds to a user accessing the application hosted in virtual machines from the public Internet. Note that the diagram includes only one virtual machine for simplicity, but typically you would have multiple application instances behind a load balancer for a higher availability and scalability. The application client will initiate the connection to the public IP address of the Azure Firewall:
    * Source IP address: ClientPIP
