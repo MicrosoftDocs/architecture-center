@@ -28,56 +28,56 @@ Before implementing a solution, use a reference architecture to visualize the id
         <h3>Web application backends</h3>
         <p>Retail scenario: Online orders are picked up from a queue, processed and the resulting data is stored in a database</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/web-app-backends.png" width="400"/></td>
+        <td style="vertical-align: middle;"><img src="./images/web-app-backends.png" width="2500"/></td>
 </tr>
 <tr>
     <td style="width: 100px;">
         <h3>Mobile application backends</h3>
         <p>Financial services scenario: Colleagues use mobile banking to reimburse each other for lunch: the person who paid for lunch requests payment through his mobile app, triggering a notification on his colleagues’ phones.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/mobile-app-backends.png" width="400"/></td>
+        <td style="vertical-align: middle;"><img src="./images/mobile-app-backends.png" width="2500"/></td>
 </tr>
 <tr>
     <td style="width: 100px;">
         <h3>IoT – connected backends</h3>
         <p>Manufacturing scenario: A manufacturing company uses IoT to monitor its machines. Functions detects anomalous data and triggers a message to Service department when repair is required.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/iot-connected-backends.png" width="400"/></td>
+        <td style="vertical-align: middle;"><img src="./images/iot-connected-backends.png" width="2500"/></td>
 </tr>
 <tr>
     <td style="width: 100px;">
         <h3>Conversational bot processing</h3>
         <p>Hospitality scenario: Customer asks for available vacation accommodations on her smartphone. A serverless bot deciphers the request and returns vacation options.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/conversational-bot-processing.png" width="400"/></td>
+        <td style="vertical-align: middle;"><img src="./images/conversational-bot-processing.png" width="2500"/></td>
 </tr>
 <tr>
     <td style="width: 100px;">
         <h3>Real-time file processing</h3>
         <p>Healthcare scenario: Patient records are securely uploaded as PDF files. That data is then decomposed, processed using OCR detection, and added to a database for easy queries.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/web-app-backends.png" width="400"/></td>
+        <td style="vertical-align: middle;"><img src="./images/web-app-backends.png" width="2500"/></td>
 </tr>
 <tr>
     <td style="width: 100px;">
         <h3>Real-time stream processing</h3>
         <p>ISV scenario: Huge amounts of telemetry data is collected from a massive cloud app. That data is processed in near real-time and stored in a DB for use in an analytics dashboard.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/real-time-file-processing.png" width="400"/></td>
+        <td style="vertical-align: middle;"><img src="./images/real-time-file-processing.png" width="2500"/></td>
 </tr>
 <tr>
     <td style="width: 100px;">
         <h3>Automation of scheduled tasks</h3>
         <p>Financial services scenario: A customer database is analyzed for duplicate entries every 15 minutes, to avoid multiple communications being sent out to same customers.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/automation-scheduled-tasks.png" width="400"/></td>
+        <td style="vertical-align: middle;"><img src="./images/automation-scheduled-tasks.png" width="2500"/></td>
 </tr>
 <tr>
     <td style="width: 100px;">
         <h3>Extending SaaS applications</h3>
         <p>Professional services scenario: A SaaS solution provides extensibility through webhooks, which can be implemented through Functions, to automate certain workflows.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/extending-saas-app.png" width="400"/></td>
+        <td style="vertical-align: middle;"><img src="./images/extending-saas-app.png" width="2500"/></td>
 </tr>
 </table>
 
