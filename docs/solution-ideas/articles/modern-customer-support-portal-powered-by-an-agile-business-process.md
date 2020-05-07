@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/modern-custo
 
 # Lift and Shift - Modern Customer Support Portal
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This line-of-business application solution provides a mechanism for monitoring and responding to customer feedback. Easily connect multiple business systems to enable nimbler customer support.
 

@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/demand-forec
 
 # Demand Forecasting
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on demand forecasting within the energy sector.
 

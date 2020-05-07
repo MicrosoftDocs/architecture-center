@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/serverless-a
 
 # Serverless application architectures using Event Grid
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Event Grid connects data sources and event handlers. For example, use Event Grid to instantly trigger a serverless function to run image analysis each time a new photo is added to a blob storage container.
 

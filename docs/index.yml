@@ -9,7 +9,7 @@ metadata:
   google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 
 title: Azure Architecture Center # < 60 chars
-summary: Guidance for architecting solutions on Azure using established patterns and practices.. # < 160 chars
+summary: Guidance for architecting solutions on Azure using established patterns and practices. # < 160 chars
 brand: azure
 
 # highlightedContent section (optional)
@@ -342,6 +342,9 @@ conceptualContent:
         - text: Highly available network virtual appliances
           itemType: architecture
           url: reference-architectures/dmz/nva-ha.md
+        - text : Segmenting Virtual Networks
+          itemType: architecture
+          url: reference-architectures/hybrid-networking/network-level-segmentation.md
 
     - title: Serverless applications
       links:

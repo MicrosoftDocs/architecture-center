@@ -1,0 +1,3 @@
+example-scenario/ai/commerce-chatbot.md
+example-scenario/apps/devops-with-aks.md
+example-scenario/infrastructure/regulated-multitier-app.md

@@ -16,7 +16,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/social-mobil
 
 # Social App for Mobile and Web with Authentication
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This mobile client app offers social image sharing with a companion web app. The app back end service does background image processing using an Azure Function and can notify users of progress via a notification hub. Non-image data is stored in Cosmos DB. The web app accesses the back end service data and images via Traffic Manager.
 

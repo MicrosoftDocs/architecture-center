@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/backup-archi
 
 # Back up cloud applications and data to cloud
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Back up data and applications running in Azure to another Azure location by using Azure Backup or a partner solution.
 

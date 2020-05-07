@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/intelligent-
 
 # Intelligent apps using Azure Database for MySQL
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.
 

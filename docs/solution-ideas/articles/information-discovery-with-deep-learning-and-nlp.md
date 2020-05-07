@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/information-
 
 # Information discovery with deep learning and NLP
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Social sites, forums, and other text-heavy Q&A services rely heavily on tagging, which enables indexing and user search. Without appropriate tagging, these sites are far less effective. Often, however, tagging is left to the users' discretion. And since users don't have lists of commonly searched terms or a deep understanding of the categorization or information architecture of a site, posts are frequently mislabeled. This makes it difficult or impossible to find that content when it's needed later.
 
@@ -41,7 +41,7 @@ By combining deep learning and natural language processing (NLP) with data on si
 * [Learn more about Microsoft SQL Server](https://www.microsoft.com/sql-server/sql-server-2017)
 * [Learn more about Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/quickstart-installation)
 * [Learn more about Azure Machine Learning Experimentation Service](https://docs.microsoft.com/azure/machine-learning/preview)
-* [Learn More about Azure Machine Learning Model Management](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment)
+* [Learn More about Azure Machine Learning Model Management](/azure/machine-learning/concept-model-management-and-deployment)
 * [Learn more about Jupyter Notebooks](https://jupyter.org)
 * [Learn more about Azure Container Registry](https://azure.microsoft.com/services/container-registry)
 * [Learn more about Azure Kubernetes Service](https://azure.microsoft.com/services/hdinsight)

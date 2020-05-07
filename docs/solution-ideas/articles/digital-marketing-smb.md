@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/digital-mark
 
 # Simple digital marketing website
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Start simple with the content management system that enables you to easily maintain the messaging on your website in real-time, from a browser, with no coding skills.
 

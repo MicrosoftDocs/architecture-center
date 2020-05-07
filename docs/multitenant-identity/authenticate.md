@@ -137,7 +137,7 @@ Here is the authentication process:
 
 ### Authentication ticket
 
-If authentication succeeds, the OIDC middleware creates an authentication ticket, which contains a claims principal that holds the user's claims. You can access the ticket inside the **AuthenticationValidated** or **TicketReceived** event.
+If authentication succeeds, the OIDC middleware creates an authentication ticket, which contains a claims principal that holds the user's claims.
 
 > [!NOTE]
 > Until the entire authentication flow is completed, `HttpContext.User` still holds an anonymous principal, **not** the authenticated user. The anonymous principal has an empty claims collection. After authentication completes and the app redirects, the cookie middleware deserializes the authentication cookie and sets `HttpContext.User` to a claims principal that represents the authenticated user.
