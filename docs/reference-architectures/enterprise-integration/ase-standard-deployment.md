@@ -238,7 +238,7 @@ When building cloud applications, the credentials required to authenticate to cl
 - what type of access it has: owner, contributor, reader, admin.
 - scope of the access: resource, resource group, subscription, or management group.
 
-You can lock down access to ASE applications by tightly controlling the role required and the type of access for each app. This way multiple apps can to be deployed on the same ASE from different development teams. For example, the frontend might be handled by one team, and the backend by another. RBAC can be used to limit each team's access to the app(s) it is working on. Explore [Custom roles in Azure RBAC](https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles) to create roles suitable to your organization.
+You can lock down access to ASE applications by tightly controlling the role required and the type of access for each app. This way multiple apps can to be deployed on the same ASE from different development teams. For example, the frontend might be handled by one team, and the backend by another. RBAC can be used to limit each team's access to the app(s) it is working on. Explore [Custom roles in Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) to create roles suitable to your organization.
 
 ### Key Vault
 
@@ -328,11 +328,11 @@ The function also accesses the Service Bus listener connection string in a simil
 
 ### Design scalable apps
 
-The application in this reference architecture is structured so that individual components can be scaled based on usage. Each web app, API, and function is deployed in its own App Service plan. You can monitor each app for any performance bottlenecks, and then [scale it up](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-up) if required. Read [Improve scalability in an Azure web application](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app) to learn how to design scalable web applications using Azure App Service.
+The application in this reference architecture is structured so that individual components can be scaled based on usage. Each web app, API, and function is deployed in its own App Service plan. You can monitor each app for any performance bottlenecks, and then [scale it up](https://docs.microsoft.com/azure/app-service/manage-scale-up) if required. Read [Improve scalability in an Azure web application](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app) to learn how to design scalable web applications using Azure App Service.
 
 ### Auto-scaling App Gateway
 
-Auto-scaling can be enabled on Azure Application Gateway V2. This allows App Gateway to scale up or down based on the traffic load patterns. This reference architecture configures `autoscaleConfiguration` in the file [appgw.json](https://github.com/mspnp/App-Services-Environment-ILB-HA/blob/master/deployment/templates/appgw.json) to scale between zero and ten additional instances. See [Scaling Application Gateway and WAF v2](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant#scaling-application-gateway-and-waf-v2) for more details.
+Auto-scaling can be enabled on Azure Application Gateway V2. This allows App Gateway to scale up or down based on the traffic load patterns. This reference architecture configures `autoscaleConfiguration` in the file [appgw.json](https://github.com/mspnp/App-Services-Environment-ILB-HA/blob/master/deployment/templates/appgw.json) to scale between zero and ten additional instances. See [Scaling Application Gateway and WAF v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#scaling-application-gateway-and-waf-v2) for more details.
 
 ## Deployment considerations
 
