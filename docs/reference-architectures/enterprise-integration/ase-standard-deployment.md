@@ -3,7 +3,7 @@ title: Enterprise deployment using App Services Environment
 titleSuffix: Azure Reference Architectures
 description: Recommended architecture for deploying an enterprise application using App Services Environment.
 author: dsk-2015
-ms.date: 05/06/2020
+ms.date: 05/08/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -238,9 +238,7 @@ When building cloud applications, the credentials required to authenticate to cl
 - what type of access it has: owner, contributor, reader, admin.
 - scope of the access: resource, resource group, subscription, or management group.
 
-By tightly controlling the role required and the type of access, access to ASE applications can be locked down, allowing multiple apps to be deployed seamlessly from different teams. For example, one team might be focused on the frontend, while another one is dedicated for the backend APIs. RBAC can be used to limit each team's access to the app(s) it is working on.
-
-This reference architecture requires a *Contributor* role to deploy the scripts and the apps. You can also explore [Custom roles in Azure RBAC](https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles) to create roles suitable to your organization.
+You can lock down access to ASE applications by tightly controlling the role required and the type of access for each app. This way multiple apps can to be deployed on the same ASE from different development teams. For example, the frontend might be handled by one team, and the backend by another. RBAC can be used to limit each team's access to the app(s) it is working on. Explore [Custom roles in Azure RBAC](https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles) to create roles suitable to your organization.
 
 ### Key Vault
 

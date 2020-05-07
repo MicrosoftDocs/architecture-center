@@ -3,7 +3,7 @@ title: High availability enterprise deployment using App Services Environment
 titleSuffix: Azure Reference Architectures
 description: Recommended architecture for deploying an enterprise application using App Services Environment in multiple availability zones.
 author: dsk-2015
-ms.date: 05/06/2020
+ms.date: 05/08/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
