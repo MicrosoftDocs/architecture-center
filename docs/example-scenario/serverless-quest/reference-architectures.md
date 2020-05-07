@@ -28,7 +28,7 @@ Before implementing a solution, use a reference architecture to visualize the id
         <h3>Web application backends</h3>
         <p>Retail scenario: Online orders are picked up from a queue, processed and the resulting data is stored in a database</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/web-app-backends.png"/></td>
+        <td style="vertical-align: middle; width: 300px;"><img src="./images/web-app-backends.png"/></td>
 </tr>
 <tr>
     <td style="width: 100px;">
