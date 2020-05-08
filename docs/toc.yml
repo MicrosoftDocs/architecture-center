@@ -536,7 +536,7 @@ items:
         href: example-scenario/apps/devops-with-aks.md
       - name: Microservices on AKS
         href: reference-architectures/microservices/aks.md
-      - name: Microservices with AKS and Azure DevOps
+      - name: Microservices with AKS and Azure Devops
         href: solution-ideas/articles/microservices-with-aks.md
       - name: Secure DevOps for AKS
         href: solution-ideas/articles/secure-devops-for-kubernetes.md
