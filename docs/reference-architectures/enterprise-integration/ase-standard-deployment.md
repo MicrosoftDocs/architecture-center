@@ -46,7 +46,7 @@ The following services are key to locking down the ASE in this architecture:
 
 [**Key Vault**](https://docs.microsoft.com/azure/key-vault/) stores any secrets and credentials required by the apps. Use this option over storing secrets directly in the application.
 
-[**Azure Pipelines**](https://docs.microsoft.com/azure/devops/pipelines/) provides *Continuous Integration and Continuous Deployment* capabilities in this architecture. Since the ASE is internal to the virtual network, a **virtual machine** is used as a *jumpbox* inside the VNet to deploy apps in the App Service plans. The pipeline builds the apps outside the VNet. For enhanced security and seamless RDP/SSH connectivity, consider using the recently-released [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) as the jumpbox.
+[**Azure Pipelines**](https://docs.microsoft.com/azure/devops/pipelines/) provides *Continuous Integration and Continuous Deployment* capabilities in this architecture. Since the ASE is internal to the virtual network, a **virtual machine** is used as a *jumpbox* inside the VNet to deploy apps in the App Service plans. The pipeline builds the apps outside the VNet. For enhanced security and seamless RDP/SSH connectivity, consider using the recently released [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) as the jumpbox.
 
 ## Multi-site configuration
 
@@ -109,7 +109,7 @@ This reference implementation uses self-signed certificates for App Gateway. For
           },
 ```
 
-For traffic between the web apps on the ASE and the gateway, the default SSL certificates are used. The backend pools in this implementation are configured to redirect HTTPS traffic with host name overriden by the default domain names associated to the web apps. The App Gateway trusts the default SSL certificates since they are issued by Microsoft. Read [Configure App Service with Application Gateway](https://docs.microsoft.com/azure/application-gateway/configure-web-app-portal) to know how these configurations are made. The following lines in the appgw.json show how this is configured in the reference implementation:
+For traffic between the web apps on the ASE and the gateway, the default SSL certificates are used. The backend pools in this implementation are configured to redirect HTTPS traffic with host name overridden by the default domain names associated to the web apps. The App Gateway trusts the default SSL certificates since they are issued by Microsoft. Read [Configure App Service with Application Gateway](https://docs.microsoft.com/azure/application-gateway/configure-web-app-portal) to know how these configurations are made. The following lines in the appgw.json show how this is configured in the reference implementation:
 
 ```json
          {
@@ -238,7 +238,7 @@ When building cloud applications, the credentials required to authenticate to cl
 - what type of access it has: owner, contributor, reader, admin.
 - scope of the access: resource, resource group, subscription, or management group.
 
-You can lock down access to ASE applications by tightly controlling the role required and the type of access for each app. This way multiple apps can to be deployed on the same ASE from different development teams. For example, the frontend might be handled by one team, and the backend by another. RBAC can be used to limit each team's access to the app(s) it is working on. Explore [Custom roles in Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) to create roles suitable to your organization.
+You can lock down access to ASE applications by tightly controlling the role required and the type of access for each app. This way, multiple apps can be deployed on the same ASE from different development teams. For example, the frontend might be handled by one team, and the backend by another. RBAC can be used to limit each team's access to the app(s) it is working on. Explore [Custom roles in Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) to create roles suitable to your organization.
 
 ### Key Vault
 
@@ -330,9 +330,9 @@ The function also accesses the Service Bus listener connection string in a simil
 
 The application in this reference architecture is structured so that individual components can be scaled based on usage. Each web app, API, and function is deployed in its own App Service plan. You can monitor each app for any performance bottlenecks, and then [scale it up](https://docs.microsoft.com/azure/app-service/manage-scale-up) if required. Read [Improve scalability in an Azure web application](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app) to learn how to design scalable web applications using Azure App Service.
 
-### Auto-scaling App Gateway
+### Autoscaling App Gateway
 
-Auto-scaling can be enabled on Azure Application Gateway V2. This allows App Gateway to scale up or down based on the traffic load patterns. This reference architecture configures `autoscaleConfiguration` in the file [appgw.json](https://github.com/mspnp/App-Services-Environment-ILB-HA/blob/master/deployment/templates/appgw.json) to scale between zero and ten additional instances. See [Scaling Application Gateway and WAF v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#scaling-application-gateway-and-waf-v2) for more details.
+Autoscaling can be enabled on Azure Application Gateway V2. This allows App Gateway to scale up or down based on the traffic load patterns. This reference architecture configures `autoscaleConfiguration` in the file [appgw.json](https://github.com/mspnp/App-Services-Environment-ILB-HA/blob/master/deployment/templates/appgw.json) to scale between zero and 10 additional instances. See [Scaling Application Gateway and WAF v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#scaling-application-gateway-and-waf-v2) for more details.
 
 ## Deployment considerations
 
@@ -349,7 +349,7 @@ Apps can be deployed to an internal ASE only from within the virtual network. Th
     
     The [azure-pipelines.yml](TBD) implements such a CI/CD pipeline using YAML script, which allows a programmatic deployment. Explore this CI/CD script, with the help of [YAML schema reference documentation](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema%2Cparameter-schema).
 
-1. **Manually inside the Virtual Network** - Create a virtual machine inside the ASE VNet with the required tools for the deployment. Open up the RDP connection to the VM using an NSG configuration. Copy your code artifacts to the VM, build and deploy to the ASE subnet. This is a simple way to set up an initial build and test development environment. It is however not recommended for production environment since it cannot scale the required deployment throughput.
+1. **Manually inside the Virtual Network** - Create a virtual machine inside the ASE VNet with the required tools for the deployment. Open up the RDP connection to the VM using an NSG configuration. Copy your code artifacts to the VM, build, and deploy to the ASE subnet. This is a simple way to set up an initial build and test development environment. It is however not recommended for production environment since it cannot scale the required deployment throughput.
 
 1. **Point to site connection from local workstation** - This allows you to extend your ASE VNet to your development machine, and deploy from there. This is another way to set up an initial dev environment, and not recommended for production.
 
