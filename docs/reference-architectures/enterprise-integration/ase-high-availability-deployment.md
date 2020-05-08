@@ -27,7 +27,7 @@ The following section shows the nature of availability for services used in this
 
 [**Azure Virtual Network**](https://docs.microsoft.com/azure/virtual-network/) or *Vnet* spans all availability zones limited to a single region. The subnets within the VNet also span across availability zones. This reference architecture creates a subnet for each ASE deployment created for an availability zone. For more information, read [the network requirements for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/network-info#ase-subnet-size).
 
-[**Application Gateway**](https://docs.microsoft.com/azure/application-gateway/overview) **_v2_** is *zone-redundant*. Like the virtual network, it spans multiple availability zones per region. This in turn means, a single application gateway is sufficient for a highly available system, as shown in this reference architecture. Note that the v1 SKU does not support this. For more details, read [Autoscaling and Zone-redundant Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+[**Application Gateway**](https://docs.microsoft.com/azure/application-gateway/overview) **_v2_** is *zone-redundant*. Like the virtual network, it spans multiple availability zones per region. This in turn means, a single application gateway is sufficient for a highly available system, as shown in this reference architecture. The v1 SKU does not support this. For more details, read [Autoscaling and Zone-redundant Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
 
 [**Azure Firewall**](https://docs.microsoft.com/azure/firewall/overview) has built-in support for high availability. It can span across multiple zones without any additional configuration. This allows the usage of a single firewall for applications deployed in more than one zone, as done in this reference architecture. Although not used in this architecture, if necessary you can also configure a specific availability zone when deploying the firewall. Read [Azure Firewall and Availability Zones](https://docs.microsoft.com/azure/firewall/overview#availability-zones) for more information.
 
@@ -100,7 +100,7 @@ cat <<EOF > appgwApps.parameters.json
 
 If either of the components fail in this health probe, that is the web frontend, the API, or the cache, the Application Gateway will route the request to the other application from the backend pool. This makes sure that the request is always routed to the application in a completely available ASE subnet.
 
-Note that the health probe is also implemented in the standard reference implementation. There the gateway simply returns error if the health probe fails. However, in the highly available implementation, it improves the resiliency of the application and the quality of the user experience.
+The health probe is also implemented in the standard reference implementation. There the gateway simply returns error if the health probe fails. However, in the highly available implementation, it improves the resiliency of the application and the quality of the user experience.
 
 ## Deployment considerations
 
@@ -126,7 +126,7 @@ The tradeoff for high availability, resilient, and secure system will be increas
 
 ## Deploy the solution
 
-To deploy the reference implementation for this architecture, see the [GitHub readme](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/readme.md), and follow the script for *high availability deployment*.
+To deploy the reference implementation for this architecture, see the [GitHub readme](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/README.md), and follow the script for *high availability deployment*.
 
 ## Next steps
 
