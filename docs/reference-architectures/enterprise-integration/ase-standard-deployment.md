@@ -42,7 +42,7 @@ The following services are key to locking down the ASE in this architecture:
 
 [**Azure Firewall**](https://docs.microsoft.com/azure/firewall/overview) is used to restrict the outbound traffic from the web application. Outgoing traffic that does not go through the service endpoint channels and a route table required by ASE, is directed to the firewall subnet. Although it is recommended for [service endpoints to be configured on the firewall subnet](https://docs.microsoft.com/azure/firewall/firewall-faq#how-do-i-set-up-azure-firewall-with-my-service-endpoints) for traceability, it may not be always feasible. For example, some service endpoints are required by the ASE infrastructure to be on the ASE subnet. For simplicity, this architecture configures all service endpoints on the ASE subnet.
 
-**Azure Active Directory** or AAD provides access rights and permissions management to Azure resources and services. [*Managed Identities*](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) assigns identities to services and apps, automatically managed by AAD. These identities can be used to authenticate to any service that supports Azure AD authentication. This removes the need to explicitly configure credentials for these apps. This architecture assigns a managed identity to the web app.
+**Azure Active Directory** or Azure AD provides access rights and permissions management to Azure resources and services. [*Managed Identities*](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) assigns identities to services and apps, automatically managed by Azure AD. These identities can be used to authenticate to any service that supports Azure AD authentication. This removes the need to explicitly configure credentials for these apps. This architecture assigns a managed identity to the web app.
 
 [**Key Vault**](https://docs.microsoft.com/azure/key-vault/) stores any secrets and credentials required by the apps. Use this option over storing secrets directly in the application.
 
@@ -224,7 +224,7 @@ When the firewall is created, the [firewall.json](https://github.com/mspnp/app-s
     },
 ```
 
-Note that the management IP list may change after the route table is deployed, in which case this route table will need to be redeployed.
+The management IP list may change after the route table is deployed, in which case this route table will need to be redeployed.
 
 ### Azure Active Directory
 
@@ -384,7 +384,7 @@ The following are pricing pages for other services used to lock down the ASE:
 
 ## Deploy the solution
 
-To deploy the reference implementation for this architecture, see the [GitHub readme](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/readme.md), and follow the script for *standard deployment*.
+To deploy the reference implementation for this architecture, see the [GitHub readme](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/README.md), and follow the script for *standard deployment*.
 
 ## Next steps
 
