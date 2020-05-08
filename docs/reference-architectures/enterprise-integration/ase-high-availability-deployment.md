@@ -13,7 +13,7 @@ ms.subservice: reference-architecture
 
 [Availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview) are physically separated collections of datacenters within a given region. Replicating your deployments across multiple zones, ensures that local outages limited to a zone do not negatively impact the availability of your application. This architecture shows how you can improve the resiliency of an ASE deployment by deploying in multiple availability zones. These zones are not related to proximity. They can map to different physical locations for different subscriptions. This architecture assumes a single subscription deployment.
 
-![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/App-Services-Environment-ILB-HA).
+![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/app-service-environments-ILB-deployments).
 
 ![Reference architecture for high availability ASE deployment](./_images/ha-ase-deployment.png)
 
@@ -59,7 +59,7 @@ For more details, read [App Service Environment Support for Availability Zones](
 
 ## Resiliency considerations
 
-The applications in both the ASE subnets form the [backend pool](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pools) for the Application Gateway. When a request to the application is made from the public internet, the gateway can choose either of the two application instances. Application Gateway by default monitors the health of the backend pool resources, as described in [Application Gateway health monitoring overview](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview). In the reference setup, a default health probe can only monitor the web frontend. Since this web frontend in turn uses other components, it might look healthy but still fail if the dependencies fail due to a partial failure of the datacenter in that zone. To avoid such failures, use a custom probe to control what application health really means. This reference architecture implements [Health Checks](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-3.1) within the main web frontend, the *votingApp*. This health probe checks if the web API as well as the Redis cache are healthy. See the snippet that implements this probe in the [Startup.cs](https://github.com/mspnp/App-Services-Environment-ILB-HA/blob/master/code/web-app-ri/VotingWeb/Startup.cs):
+The applications in both the ASE subnets form the [backend pool](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pools) for the Application Gateway. When a request to the application is made from the public internet, the gateway can choose either of the two application instances. Application Gateway by default monitors the health of the backend pool resources, as described in [Application Gateway health monitoring overview](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview). In the reference setup, a default health probe can only monitor the web frontend. Since this web frontend in turn uses other components, it might look healthy but still fail if the dependencies fail due to a partial failure of the datacenter in that zone. To avoid such failures, use a custom probe to control what application health really means. This reference architecture implements [Health Checks](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-3.1) within the main web frontend, the *votingApp*. This health probe checks if the web API as well as the Redis cache are healthy. See the snippet that implements this probe in the [Startup.cs](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingWeb/Startup.cs):
 
 ```dotnetcli
             var uriBuilder = new UriBuilder(Configuration.GetValue<string>("ConnectionStrings:VotingDataAPIBaseUri"))
@@ -72,7 +72,7 @@ The applications in both the ASE subnets form the [backend pool](https://docs.mi
                 .AddRedis(Configuration.GetValue<string>("ConnectionStrings:RedisConnectionString"));
 ```
 
-The following snippet shows how the [deploy_ha.sh](https://github.com/mspnp/App-Services-Environment-ILB-HA/blob/master/deployment/deploy_ha.sh) script configures the backend pools and the health probe for the App Gateway:
+The following snippet shows how the [deploy_ha.sh](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/deploy_ha.sh) script configures the backend pools and the health probe for the App Gateway:
 
 ```bash
 # Generates parameters file for appgw arm script
@@ -109,7 +109,7 @@ This reference implementation extends the production level CI/CD pipeline used i
 - Pins the virtual machines to the same availability zones used by the ASE resources, ensuring uptime in the deployment in case of a failure limited to one or two zones.
 - It also helps parallelize the deployment, by using the virtual machines as a pool of [Azure Pipelines agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install).
 
-The [azure-pipelines.yml](TBD) file in this reference implementation illustrates this parallel deployment, by creating separate *deploy* stages for each zonal ASE.
+The [azure-pipelines.yml](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingWeb/azure-pipelines.yml) file in this reference implementation illustrates this parallel deployment, by creating separate *deploy* stages for each zonal ASE.
 
 ## Cost considerations
 
@@ -126,7 +126,7 @@ The tradeoff for high availability, resilient, and secure system will be increas
 
 ## Deploy the solution
 
-To deploy the reference implementation for this architecture, see the [GitHub readme](https://github.com/mspnp/App-Services-Environment-ILB-HA/blob/master/deployment/readme.md), and follow the script for *high availability deployment*.
+To deploy the reference implementation for this architecture, see the [GitHub readme](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/readme.md), and follow the script for *high availability deployment*.
 
 ## Next steps
 
