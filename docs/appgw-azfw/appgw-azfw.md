@@ -140,7 +140,7 @@ Here the packet walk for inbound traffic from the public Internet:
 1. The application client will initiate the connection to the public IP address of the Azure Firewall:
    * Source IP address: ClientPIP
    * Destination IP address: AzFWPIP
-2. The Azure Firewall will have a Destination NAT rule mapping the web ports (typically TCP 443) to the private IP address of the Application Gateway. Remember that the Azure Firewall also SNATs when doing DNAT:
+2. The Azure Firewall will have a Destination NAT rule mapping the web ports (typically TCP 443) to the private IP address of the Application Gateway. Remember that the Azure Firewall also SNATs when doing DNAT (see [Azure Firewall Known Issues][azfw-issues] for more details on this):
    * Source IP address: 192.168.100.7 (the private IP address of the Azure Firewall instance that happens to handle this specific request)
    * Destination IP address: 192.168.200.4
 3. The Application Gateway will establish a new session between the specific instance handling the connection and one of the backend servers. Note that the original IP address of the client is not present in the packet:
