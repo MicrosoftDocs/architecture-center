@@ -82,7 +82,8 @@ In some situations filtering outbound connections from the Virtual Machines with
 
 Another reason for implementing this design is because there is a mix of web and non-web workloads in the Virtual Network. The Web Application Firewall will protect inbound traffic to the web workloads, and the Azure Firewall will inspect inbound traffic for the rest of the applications.
 
-Due to its simplicity and flexibility this is the recommended design for most scenarios.
+> [!NOTE]
+> Due to its simplicity and flexibility this is the recommended design for most scenarios.
 
 The following two diagrams illustrate the traffic flows for both types of traffic: inbound connections initiated by an application user outside of the Virtual network, and outbound connections to the public Internet initiated for the Virtual Machines, for example to connect to backend systems or get operating system updates:
 
