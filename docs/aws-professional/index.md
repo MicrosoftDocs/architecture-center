@@ -333,7 +333,7 @@ Azure splits up directory services into the following offerings:
 
 #### Web application firewall
 
-In addition to the [Application Gateway Web Application Firewall](https://docs.microsoft.com/azure/application-gateway/waf-overview), you can also use web application firewalls from third-party vendors like [Barracuda Networks](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf).
+In addition to the [Application Gateway Web Application Firewall](https://docs.microsoft.com/azure/application-gateway/waf-overview), you can also use web application firewalls from third-party vendors like [Barracuda Networks](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf).
 
 #### See also
 

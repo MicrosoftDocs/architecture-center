@@ -45,8 +45,8 @@ New and updated articles in the Azure Architecture Center
 
 ### Updated Articles
 
-- [Build a CI/CD pipeline for chatbots with ARM templates](https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-cicd-chatbot)  ([#dae94ba5](https://github.com/MicrosoftDocs/architecture-center/commit/dae94ba5))
-- [Overview of the resiliency pillar](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)  ([#dae94ba5](https://github.com/MicrosoftDocs/architecture-center/commit/dae94ba5))
+- [Build a CI/CD pipeline for chatbots with ARM templates](https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-cicd-chatbot)  ([#4dcf80b](https://github.com/MicrosoftDocs/architecture-center/commit/4dcf80b)) & ([#4331c0b](https://github.com/MicrosoftDocs/architecture-center/commit/4331c0b))
+- [Overview of the resiliency pillar](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)  ([#4dcf80b](https://github.com/MicrosoftDocs/architecture-center/commit/4dcf80b)) & ([#4331c0b](https://github.com/MicrosoftDocs/architecture-center/commit/4331c0b))
 - [Controlling IoT devices using a Voice Assistant](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-devices)  ([#e05cdf17](https://github.com/MicrosoftDocs/architecture-center/commit/e05cdf17))
 - [IoT using Cosmos DB](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-using-cosmos-db)  ([#e05cdf17](https://github.com/MicrosoftDocs/architecture-center/commit/e05cdf17))
 - [AWS to Azure services comparison](https://docs.microsoft.com/azure/architecture/aws-professional/services)  ([#e6e1f84e](https://github.com/MicrosoftDocs/architecture-center/commit/e6e1f84e))

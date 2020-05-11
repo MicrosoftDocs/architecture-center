@@ -45,6 +45,6 @@ By personalizing your offers, you'll deliver an individualized experience for ev
 * [Learn how to use Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db)
 * [Learn more about Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)
 * [Learn how to create functions](https://docs.microsoft.com/azure/azure-functions)
-* [Learn more about machine learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning)
+* [Learn more about machine learning](/azure/machine-learning/overview-what-is-azure-ml)
 * [Learn how to use Azure Cache for Redis](https://docs.microsoft.com/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache)
 * [Learn about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
