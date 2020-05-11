@@ -94,11 +94,12 @@ This document will not go in detail over the packet walks of these flows, since 
 
 ## Design Option 4: Application Gateway in front of Azure Firewall
 
-Some organizations have as requirement having all traffic go both trough a Web Application Firewall and through a Firewall. The WAF would provide protection against attacks at the application layer, and the firewall would use its complementary technologies to address other types of attacks, for example in the case of the Azure Firewall, through its threat intelligence features. In this case the Application Gateway and the Azure Firewall are not sitting in parallel, but one after the other.
+Some organizations have as requirement having all traffic go both trough a Web Application Firewall and through a Firewall. The WAF would provide protection against attacks at the application layer, and the firewall can be used as a central logging and control point. In this case the Application Gateway and the Azure Firewall are not sitting in parallel, but one after the other.
 
-Another benefit of having all inbound and outbound traffic going through the Azure Firewall for both web and non-web applications is that it becomes a central point of monitoring and control, where you can allow or deny any application from reaching your Virtual Network. However this design also puts additional pressure on the Firewall due to the additional load, so it has the potential of becoming a bottleneck if scalability aspects are not carefully considered.
+> [!WARNING]
+> One important remark of this design is that the value added by the Azure Firewall for inbound web traffic is limited, since it is only inspecting legitimate traffic from the application gateway to the web application. However, it will introduce additional pressure on the Firewall due to the need to inspect web traffic as well.
 
-Typically you would use this design variant with the Web Application Firewall in front of the Azure Firewall for web workloads. The Web Application Firewall running on top of the Application Gateway is a security-hardened device designed to operate facing directly the public Internet, since it offers a very limited attack surface and it has been designed explicitly for that purpose. Being the first line of defense against attacks, the WAF will set the source IP address of the client in the X-Forwarded-For header, making the original IP address of the client visible to the web server.
+In this design, the Web Application Firewall is facing the public Internet. Azure WAF running on top of the Application Gateway is a security-hardened device designed to operate facing directly the public Internet, since it offers a very limited attack surface and it has been designed explicitly for that purpose. Being the first line of defense against attacks, the WAF will set the source IP address of the client in the X-Forwarded-For header, making the original IP address of the client visible to the web server.
 
 ![AppGW in front of FW](./images/design4_500.png)
 
