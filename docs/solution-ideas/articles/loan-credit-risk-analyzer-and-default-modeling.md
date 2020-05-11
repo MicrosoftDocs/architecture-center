@@ -37,5 +37,5 @@ Data-driven credit-risk modeling reduces the number of loans offered to borrower
 ## Next steps
 
 * [Get started with SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/getting-started-with-sql-server-r-services)
-* [Learn more about Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning)
+* [Learn more about Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started)

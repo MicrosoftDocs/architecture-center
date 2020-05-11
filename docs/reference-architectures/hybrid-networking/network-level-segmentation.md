@@ -23,7 +23,7 @@ When you operate on Azure, you have a wide and diverse set of segmentation optio
 
 ![Resource Flowchart](./images/resource-flowchart.png)
 
-1. [Subscription](https://docs.microsoft.com/eazure/cost-management-billing/manage/create-subscription) : Subscriptions are a high-level construct, which provides platform powered separation between entities. It is intended to carve out boundaries between large organizations within a company and communication between resources in different subscriptions needs to be explicitly provisioned.
+1. [Subscription](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription) : Subscriptions are a high-level construct, which provides platform powered separation between entities. It is intended to carve out boundaries between large organizations within a company and communication between resources in different subscriptions needs to be explicitly provisioned.
 
 2. [Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) : Virtual networks are created within a subscription in private address spaces and provide network level containment of resources with no traffic allowed by default between any two virtual networks. Like subscriptions, any communication between virtual networks needs to be explicitly provisioned.
 
