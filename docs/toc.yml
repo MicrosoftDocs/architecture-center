@@ -924,6 +924,12 @@ items:
       items:
       - name: Basic enterprise integration on Azure
         href: reference-architectures/enterprise-integration/basic-enterprise-integration.md
+      - name: Deployment in App Service Environments
+        items:
+          - name: Standard deployment
+            href: reference-architectures/enterprise-integration/ase-standard-deployment.md
+          - name: High availability deployment
+            href: reference-architectures/enterprise-integration/ase-high-availability-deployment.md
       - name: Enterprise business intelligence
         href: reference-architectures/data/enterprise-bi-synapse.md
       - name: Enterprise integration using queues and events

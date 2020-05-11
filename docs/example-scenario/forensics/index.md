@@ -161,7 +161,11 @@ To unlock an Azure disk snapshot locked with BitLocker, and mount it under the G
 
     $path = "C:\BEK\$fileName"
 
+<<<<<<< HEAD
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
+=======
+    [System.IO.File]: :WriteAllBytes($path,$bekFileBytes)
+>>>>>>> 451091f76775f5a217f07608c2a6d4bf19d283ea
 
     manage-bde -unlock G: -rk $path
 ```
