@@ -146,8 +146,6 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [Elastic Container Registry](https://aws.amazon.com/ecr/) | [Container Registry](https://azure.microsoft.com/services/container-registry/) | Allows customers to store Docker formatted images. Used to create all types of container deployments on Azure. |
 | [Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/) | [Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) | Deploy orchestrated containerized applications with Kubernetes. Simplify monitoring and cluster management through auto upgrades and a built-in operations console. |
 | [App Mesh](https://aws.amazon.com/app-mesh/) | [Service Fabric Mesh](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-overview) | Fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking.
-<<<<<<< HEAD
-=======
 
 ### Container architectures
 
@@ -160,7 +158,6 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 </ul>
 
 [view all](/azure/architecture/browse/#containers)
->>>>>>> 451091f76775f5a217f07608c2a6d4bf19d283ea
 
 ### Serverless
 
@@ -210,8 +207,6 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [Command Line Interface](https://aws.amazon.com/cli/) | [CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) <br/><br/>[PowerShell](https://docs.microsoft.com/powershell/azure/overview) | Built on top of the native REST API across all cloud services, various programming language-specific wrappers provide easier ways to create solutions. |
 | [OpsWorks (Chef-based)](https://aws.amazon.com/opsworks/) | [Automation](https://azure.microsoft.com/services/automation/) | Configures and operates applications of all shapes and sizes, and provides templates to create and manage a collection of resources. |
 | [CloudFormation](https://aws.amazon.com/cloudformation/) | [Resource Manager](https://azure.microsoft.com/features/resource-manager/) <br/><br/>[VM extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows?toc=/azure/virtual-machines/windows/toc.json) <br/><br/>[Azure Automation](https://azure.microsoft.com/services/automation) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks.
-<<<<<<< HEAD
-=======
 
 ### Devops architectures
 
@@ -224,7 +219,6 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 </ul>
 
 [view all](/azure/architecture/browse/#devops)
->>>>>>> 451091f76775f5a217f07608c2a6d4bf19d283ea
 
 ## Internet of things (IoT)
 
@@ -361,8 +355,6 @@ Dedicated network | [Direct Connect](https://aws.amazon.com/directconnect/) | [E
 | [GuardDuty](https://aws.amazon.com/guardduty/) | [Advanced Threat Protection](https://azure.microsoft.com/features/azure-advanced-threat-protection/) | Detect and investigate advanced attacks on-premises and in the cloud. |
 | [Artifact](https://aws.amazon.com/artifact/) | [Service Trust Portal](https://servicetrust.microsoft.com/) | Provides access to audit reports, compliance guides, and trust documents from across cloud services. |
 | [Shield](https://aws.amazon.com/shield/) | [DDos Protection Service](https://docs.microsoft.com/azure/security/azure-ddos-best-practices) | Provides cloud services with protection from distributed denial of services (DDoS) attacks. |
-<<<<<<< HEAD
-=======
 
 #### Security architectures
 
@@ -375,7 +367,6 @@ Dedicated network | [Direct Connect](https://aws.amazon.com/directconnect/) | [E
 </ul>
 
 [view all](/azure/architecture/browse/#security)
->>>>>>> 451091f76775f5a217f07608c2a6d4bf19d283ea
 
 ## Storage
 
@@ -419,8 +410,6 @@ Dedicated network | [Direct Connect](https://aws.amazon.com/directconnect/) | [E
 | [Import/Export Disk](https://aws.amazon.com/snowball/disk/details/) | [Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) | A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit. |
 | [Import/Export Snowball](https://aws.amazon.com/snowball/), [Snowball Edge](https://aws.amazon.com/snowball-edge/), [Snowmobile](https://aws.amazon.com/snowmobile/) | [Data Box](https://azure.microsoft.com/services/storage/databox/) | Petabyte- to exabyte-scale data transport solution that uses secure data storage devices to transfer large amounts of data to and from Azure. |
 
-<<<<<<< HEAD
-=======
 #### Storage architectures
 
 <ul class="grid">
@@ -433,7 +422,6 @@ Dedicated network | [Direct Connect](https://aws.amazon.com/directconnect/) | [E
 
 [view all](/azure/architecture/browse/#storage)
 
->>>>>>> 451091f76775f5a217f07608c2a6d4bf19d283ea
 ## Web applications
 
 | AWS service | Azure service | Description |
