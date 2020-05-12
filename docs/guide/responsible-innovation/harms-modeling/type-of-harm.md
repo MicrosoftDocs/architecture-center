@@ -3,7 +3,7 @@ title: Types of harm
 titleSuffix: Azure Application Architecture Guide
 description: Understand the different types of harms, and learn steps to mitigate them.
 author: dcass
-ms.date: 04/22/2020
+ms.date: 05/18/2020
 ms.topic: guide
 ms.service: architecture-center
 ms.category:
@@ -13,7 +13,7 @@ ms.subservice: reference-architecture
 
 # Types of harm 
 
-This article discusses the different types of harms. The objective is to create awareness so that appropriate mitigation steps can be implemented.
+This article creates awareness for the different types of harms, so that appropriate mitigation steps can be implemented.
 
 ## Risk of injury
 
@@ -23,7 +23,7 @@ Consider how technology could hurt people or create dangerous environments.
 
 #### Overreliance on safety features
 
-Dependence on technology to make decisions without adequate human oversight.
+This points out the dependence on technology to make decisions without adequate human oversight.
 
 - How might people rely on this technology to keep them safe?
 - How could this technology reduce appropriate human oversight?
@@ -32,7 +32,7 @@ Dependence on technology to make decisions without adequate human oversight.
 
 #### Inadequate fail-safes
 
-Real-world testing which insufficiently considers a diverse set of users and scenarios.
+Real-world testing may insufficiently consider a diverse set of users and scenarios.
 
 - If this technology fails or is misused, how would people be impacted? At what point could a human intervene?
 - Are there alternative uses that have not been tested for? How would users be impacted by a system failure?
@@ -78,9 +78,9 @@ Some shared content can be harmful, false, misleading, or denigrating.
 
 *Example: Synthetic media "revenge porn" can swap faces, creating the illusion of a person participating in a video, who did not.*
 
-#### Addiction / attention hijacking
+#### Addiction/attention hijacking
 
-Designing for prolonged interaction with a technology, without regard for well-being.
+Technology could be designed for prolonged interaction, without regard for well-being.
 
 - In what ways might this technology reward or encourage continued interaction beyond delivering user value?
 
@@ -88,16 +88,16 @@ Designing for prolonged interaction with a technology, without regard for well-b
 
 #### Identity theft
 
-May lead to loss of control over personal credentials, reputation, and/or representation.
+Identity theft may lead to loss of control over personal credentials, reputation, and/or representation.
 
 - How might an individual be impersonated with this technology?
 - How might this technology mistakenly recognize the wrong individual as an authentic user?
 
-*Example: Synthetic voice font could mimic the sound of a person's voice and be used to access a bank account*
+*Example: Synthetic voice font could mimic the sound of a person's voice and be used to access a bank account.*
 
 #### Misattribution
 
-Crediting a person with an action or content that they are not responsible for.
+This includes crediting a person with an action or content that they are not responsible for.
 
 - In what ways might this technology attribute an action to an individual or group?
 - How could someone be affected if an action was incorrectly attributed to them?
@@ -112,7 +112,7 @@ Automated decisions could limit access to resources, services, and opportunities
 
 #### Employment discrimination
 
-Denying people access to apply for or secure a job based on characteristics unrelated to merit.
+Some people may be denied access to apply for or secure a job based on characteristics unrelated to merit.
 
 - Are there ways in which this technology could impact recommendations or decisions related to employment?
 
@@ -120,7 +120,7 @@ Denying people access to apply for or secure a job based on characteristics unre
 
 #### Housing discrimination
 
-Denying people access to housing or the ability to apply for housing.
+This includes denying people access to housing or the ability to apply for housing.
 
 - Could this technology be used to determine access, cost, allocation of insurance, or social benefits?
 
@@ -128,7 +128,7 @@ Denying people access to housing or the ability to apply for housing.
 
 #### Insurance and benefit discrimination
 
-Denying people insurance, social assistance, or access to a medical trial due to biased standards.
+This includes denying people insurance, social assistance, or access to a medical trial due to biased standards.
 
 - Could this technology be used to determine access, cost, allocation of insurance or social benefits?
 
@@ -136,22 +136,22 @@ Denying people insurance, social assistance, or access to a medical trial due to
 
 #### Educational discrimination
 
-Denying people access to education because of an unchangeable characteristic.
+Access to education may be denied because of an unchangeable characteristic.
 
 - How might this technology be used to determine access, cost, accommodations, or other outcomes related to education?
 
 *Example: Emotion classifier could incorrectly report that students of color are less engaged than their white counterparts, leading to lower grades.*
 
-#### Digital divide / technological discrimination
+#### Digital divide/technological discrimination
 
-Disproportionate access to the benefits of technology, leaving some people less informed or less equipped to participate in society.
+Disproportionate access to the benefits of technology, may leave some people less informed or less equipped to participate in society.
 
 - What prerequisite skills, equipment, or connectivity are necessary to get the most out of this technology?
-- What might be the impact of select people gaining earlier access to this technology than others (equipment, connectivity, or other product functionality)?
+- What might be the impact of select people gaining earlier access to this technology than others, in terms of equipment, connectivity, or other product functionality?
 
 *Example: Content throttling could prevent rural students from accessing classroom instruction video feed.*
 
-#### Loss of choice / network and filter bubble
+#### Loss of choice/network and filter bubble
 
 Presenting people with only information that conforms to and reinforces their own beliefs.
 
@@ -166,7 +166,7 @@ Automating decisions related to financial instruments, economic opportunity, and
 
 #### Credit discrimination
 
-Denying people access to financial instruments based on characteristics unrelated to economic merit.
+People may be denied access to financial instruments based on characteristics unrelated to economic merit.
 
 - How might this technology rely on existing credit structures to make decisions?
 - How might this technology affect the ability of an individual or group to obtain or maintain a credit score?
@@ -175,7 +175,7 @@ Denying people access to financial instruments based on characteristics unrelate
 
 #### Differential pricing of goods and services
 
-Offering goods or services at different prices for reasons unrelated to the cost of production or delivery.
+Goods or services may be offered at different prices for reasons unrelated to the cost of production or delivery.
 
 - How could this technology be used to determine pricing of goods or services?
 - What is the criteria for determining the cost to people for use of this tech?
@@ -184,7 +184,7 @@ Offering goods or services at different prices for reasons unrelated to the cost
 
 #### Economic exploitation
 
-Compelling or misleading people to work on something that impacts their dignity or wellbeing.
+People might be compelled or misled to work on something that impacts their dignity or wellbeing.
 
 - What role did human labor play in producing training data for this technology? How was this workforce acquired?
 - What role does human labor play in supporting this technology? Where is this workforce expected to come from?
@@ -193,7 +193,7 @@ Compelling or misleading people to work on something that impacts their dignity 
 
 #### Devaluation of individual expertise
 
-Technology supplanting the use of paid human expertise or labor.
+Technology may supplant the use of paid human expertise or labor.
 
 - How might this technology impact the need to employ an existing workforce?
 
@@ -216,7 +216,7 @@ Removing, reducing, or obscuring visibility of a person's humanity.
 
 #### Public shaming
 
-Exposing people's private, sensitive, or socially inappropriate material.
+This may mean exposing people's private, sensitive, or socially inappropriate material.
 
 - How might movements or actions be revealed through data aggregation?
 
@@ -236,7 +236,7 @@ Inferring suspicious behavior and/or criminal intent based on historical records
 
 #### Social control
 
-Reinforcing or encouraging conformity by publicly designating human behaviors as positive or negative.
+Conformity may be reinforced or encouraged by publicly designating human behaviors as positive or negative.
 
 - What types of personal or behavioral data might feed this technology?
 - How would it be obtained? What outputs would be derived from this data?
@@ -246,7 +246,7 @@ Reinforcing or encouraging conformity by publicly designating human behaviors as
 
 #### Loss of effective remedy
 
-Inability to explain the rationale or lack of opportunity to contest a decision.
+This means an inability to explain the rationale or lack of opportunity to contest a decision.
 
 - How might people understand the reasoning for decisions made by this technology?
 - How might an individual that relies on this technology explain the decisions it makes?
@@ -277,7 +277,7 @@ Requiring participation in the use of technology or surveillance to take part in
 
 #### Inability to freely and fully develop personality
 
-Restriction of one's ability to truthfully express themselves or explore external avenues for self-development.
+This may mean restriction of one's ability to truthfully express themselves or explore external avenues for self-development.
 
 - In what way does the system or product ascribe positive vs negative connotations toward particular personality traits?
 - In what way can using the product or system reveal information to entities such as the government or employer that inhibits free expression?
@@ -286,7 +286,7 @@ Restriction of one's ability to truthfully express themselves or explore externa
 
 #### Never forgiven
 
-Digital files or records that are never deleted.
+Digital files or records may never be deleted.
 
 - What and where is data being stored from this product, and who can access it?
 - How long is user data stored after technology interaction? How is user data updated or deleted?
@@ -295,7 +295,7 @@ Digital files or records that are never deleted.
 
 #### Loss of freedom of movement or assembly
 
-Inability to navigate the physical or virtual world with desired anonymity.
+This means an inability to navigate the physical or virtual world with desired anonymity.
 
 - In what ways might this technology monitor people across physical and virtual space?
 
@@ -321,7 +321,7 @@ Reduced quality of collective well-being because of the inability to repair, rec
 - How might this technology reduce electronic waste by recycling materials or allowing users to self-repair?
 - How might this technology contribute to electronic waste when new versions are released or when current/past versions stop working?
 
-Toxic materials inside discarded electronic devices could leach into the water supply, making local populations ill.
+*Example: Toxic materials inside discarded electronic devices could leach into the water supply, making local populations ill.*
 
 ## Erosion of social & democratic structures
 
@@ -340,7 +340,7 @@ Disguising fake information as legitimate or credible information.
 
 #### Behavioral exploitation
 
-Exploiting personal preferences or patterns of behavior to induce a desired reaction.
+This means exploiting personal preferences or patterns of behavior to induce a desired reaction.
 
 - How might this technology be used to observe patterns of behavior?
 - How could this technology be used to encourage dysfunctional or maladaptive behaviors?
@@ -353,7 +353,7 @@ At scale, the way technology impacts people shapes social and economic structure
 
 #### Amplification of power inequality
 
-Perpetuating existing class or privilege disparities.
+This may perpetuate existing class or privilege disparities.
 
 - How might this technology be used in contexts where there are existing social, economic, or class disparities?
 - How might people with more power or privilege disproportionately influence the technology?
@@ -362,16 +362,16 @@ Perpetuating existing class or privilege disparities.
 
 #### Stereotype reinforcement
 
-Perpetuating uninformed "conventional wisdom" about historically or statistically underrepresented people.
+This may perpetuate uninformed "conventional wisdom" about historically or statistically underrepresented people.
 
 - How might this technology be used to reinforce or amplify existing social norms or cultural stereotypes?
 - How might the data used by this technology cause it to reflect biases or stereotypes?
 
-*Example: Results of an image search for "CEO" could primarily show photos of Caucasian men*
+*Example: Results of an image search for "CEO" could primarily show photos of Caucasian men.*
 
 #### Loss of individuality
 
-The inability to express a unique perspective.
+This may be an inability to express a unique perspective.
 
 - How might this technology amplify majority opinions or "group-think"? Conversely, how might unique forms of expression be suppressed.
 - In what ways might the data gathered by this technology be used in feedback to people?
@@ -411,13 +411,13 @@ Once you have generated a broad list of potential harms, you should complete you
 
 Use the Harms Model you developed to guide your product development work:
 
-- Seek more information from stakeholders that you identified as potentially experiencing harm 
-- Develop and validate hypothesis for addressing the areas you identified as having the highest potential for harm 
+- Seek more information from stakeholders that you identified as potentially experiencing harm.
+- Develop and validate hypothesis for addressing the areas you identified as having the highest potential for harm.
 - Integrate the insights into your decisions throughout the technology development process: data collection and model training, system architecture, user experience design, product documentation, feedback loops, and communication capabilities and limitations of the technology. 
-- [Community Jury](../community-jury/index.md) 
-- Assess and mitigate unfairness using Azure Machine Learning and the open-source [FairLearn package](https://docs.microsoft.com/azure/machine-learning/concept-fairness-ml)
+- Explore [Community Jury](../community-jury/index.md).
+- Assess and mitigate unfairness using Azure Machine Learning and the open-source [FairLearn package](https://docs.microsoft.com/azure/machine-learning/concept-fairness-ml).
  
-Additional Responsible AI tools:
+Other Responsible AI tools:
 
 - [Responsible AI resource center](https://www.microsoft.com/ai/responsible-ai-resources?activetab=pivot1%3aprimaryr4)
 - [Guidelines for Human AI interaction](https://www.microsoft.com/en-us/research/project/guidelines-for-human-ai-interaction/)
