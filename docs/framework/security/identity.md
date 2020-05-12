@@ -65,7 +65,7 @@ including vendors, partners, and customers in a corporate directory.
 
 This reduces risk by granting the appropriate level of access to external
 entities instead of the full default permissions given to full-time employees.
-This least privilege approach and clear clearly differentiation of external
+This least privilege approach and clear differentiation of external
 accounts from company staff makes it easier to prevent and detect attacks coming
 in from these vectors. Additionally, management of these identities is done by
 the external also increases productivity by parties, reducing ingeffort required
