@@ -111,17 +111,17 @@ Here the packet walk for inbound traffic from the public Internet:
    * Destination IP address: AppGwPIP
 2. The Application Gateway instance that receives the request will terminate the connection from the client, and establish a new connection with one of the backends. The Application Gateway will insert the X-Forwarded-For HTTP header with the original IP address of the client, in case this IP address is relevant for the application. The User-Defined Route to `192.168.1.0/24` in the subnet of the Application Gateway will forward the packet to the Azure Firewall:
    * Source IP address: 192.168.200.7 (the private IP address of the Application Gateway instance that happens to handle this specific request)
-   * Destination IP address: 192.168.100.4
+   * Destination IP address: 192.168.1.4
    * X-Forwarded-For header: ClientPIP
 3. The Azure Firewall will not Source NAT the traffic, since it is going to a private IP address (see [Azure Firewall SNAT][azfw-snat]), and will forward it to the application VM if rules allow it.
    * Source IP address: 192.168.200.7 (the private IP address of the Application Gateway instance that happens to handle this specific request)
-   * Destination IP address: 192.168.100.4
+   * Destination IP address: 192.168.1.4
    * X-Forwarded-For header: ClientPIP
-4. The Virtual Machine will answer the request reverting source and destination IP addresses. The User-Defined Route to `192.168.200.0/24` will capture the packet sent back to the application gateway and redirect it to the Azure Firewall
-   * Source IP address: 192.168.100.4
+4. The Virtual Machine will answer the request reverting source and destination IP addresses. The User-Defined Route to `192.168.200.0/24` will capture the packet sent back to the application gateway instance and redirect it to the Azure Firewall
+   * Source IP address: 192.168.1.4
    * Destination IP address: 192.168.200.7
 5. Here again the Azure Firewall will not Source NAT the traffic, since it is going to a private IP address and it will forward it to the Application Gateway.
-   * Source IP address: 192.168.100.4
+   * Source IP address: 192.168.1.4
    * Destination IP address: 192.168.200.7
 6. Finally, the Application Gateway instance will answer to the client:
    * Source IP address: AppGwPIP
