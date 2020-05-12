@@ -107,5 +107,7 @@ Potential moderator questions include:
 
 Finally, the group picks a thread from the discussion to begin identifying design or process changes that can mitigate a particular harm. At the end of each round, the decks are shuffled, and another round can begin with the same or a different scenario. 
 
+## Next steps
 
+Once you have enough understanding of potential harms or negative impact your product or scenario may cause, proceed to learn [how to model these harms](/harms-modeling/index.md) so you can devise effective mitigations.
 
