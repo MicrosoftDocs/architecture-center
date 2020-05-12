@@ -81,7 +81,7 @@ This category is comprised of those frequently considered a minority, vulnerable
 
 Once you have defined the technology purpose, use cases, and stakeholders, conduct a Harms Modeling exercise to evaluate potential ways the use of a technology you are building could result in negative outcomes for people and society. 
 
-[![Harms modeling overview](../images/harms-modeling.png)](../images/harms-modeling.png#lightbox)
+[![Harms modeling overview](https://github.com/adamboeglin/architecture-center-pr/blob/adamboeglin/responsible-innovation/docs/guide/responsible-innovation/images/harms-model-example.png.jpg)](https://github.com/adamboeglin/architecture-center-pr/blob/adamboeglin/responsible-innovation/docs/guide/responsible-innovation/images/harms-model-example.png.jpg#lightbox)
 *Download in [Microsoft Word](../images/harms-modeling.docx)*
 
 The diagram above is an example of a harms evaluation. This is a qualitative approach used to understand potential magnitude of harm.
