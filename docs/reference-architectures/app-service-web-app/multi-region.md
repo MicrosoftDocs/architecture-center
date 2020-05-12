@@ -5,9 +5,14 @@ author: MikeWasson
 ms.date: 08/14/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - web
+  - management-and-governance
 ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
+
+<!-- cSpell:ignore CNAME -->
 
 # Run a web application in multiple Azure regions for high availability
 
@@ -22,10 +27,10 @@ This reference architecture shows how to run an Azure App Service application in
 This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability]. The main differences are:
 
 - **Primary and secondary regions**. This architecture uses two regions to achieve higher availability. The application is deployed to each region. During normal operations, network traffic is routed to the primary region. If the primary region becomes unavailable, traffic is routed to the secondary region.
-- **Front Door**. [Front Door](/azure/frontdoor/) routes incoming requests to the primary region. If the application running that region becomes unavailable, Front Door fails over to the secondary region.
+- **Front Door**. [Front Door](https://docs.microsoft.com/azure/frontdoor) routes incoming requests to the primary region. If the application running that region becomes unavailable, Front Door fails over to the secondary region.
 - **Geo-replication** of SQL Database and/or Cosmos DB.
 
-A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use [Front Door](/azure/frontdoor/) to fail over to the secondary region. This architecture can also help if an individual subsystem of the application fails.
+A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use [Front Door](https://docs.microsoft.com/azure/frontdoor) to fail over to the secondary region. This architecture can also help if an individual subsystem of the application fails.
 
 There are several general approaches to achieving high availability across regions:
 
@@ -55,11 +60,11 @@ Consider placing the primary region, secondary region, and Traffic Manager into 
 
 ### Front Door configuration
 
-**Routing**. Front Door supports several [routing mechanisms](/azure/frontdoor/front-door-routing-methods#priority-based-traffic-routing). For the scenario described in this article, use *priority* routing. With this setting, Front Door sends all requests to the primary region unless the endpoint for that region becomes unreachable. At that point, it automatically fails over to the secondary region. Set the backend pool with different priority values, 1 for the active region and 2 or higher for the standby or passive region.
+**Routing**. Front Door supports several [routing mechanisms](https://docs.microsoft.com/azure/frontdoor/front-door-routing-methods#priority-based-traffic-routing). For the scenario described in this article, use *priority* routing. With this setting, Front Door sends all requests to the primary region unless the endpoint for that region becomes unreachable. At that point, it automatically fails over to the secondary region. Set the backend pool with different priority values, 1 for the active region and 2 or higher for the standby or passive region.
 
-**Health probe**. Front Door uses an HTTP (or HTTPS) probe to monitor the availability of each back end. The probe gives Front Door a pass/fail test for failing over to the secondary region. It works by sending a request to a specified URL path. If it gets a non-200 response within a timeout period, the probe fails. You can configure the health probe frequency, number of samples required for evaluation, and the number of successful samples required for the backend to be marked as healthy. If Front Door marks the backend as degraded, it fails over to the other backend. For details, see [Health Probes](/azure/frontdoor/front-door-health-probes).
+**Health probe**. Front Door uses an HTTP (or HTTPS) probe to monitor the availability of each back end. The probe gives Front Door a pass/fail test for failing over to the secondary region. It works by sending a request to a specified URL path. If it gets a non-200 response within a timeout period, the probe fails. You can configure the health probe frequency, number of samples required for evaluation, and the number of successful samples required for the backend to be marked as healthy. If Front Door marks the backend as degraded, it fails over to the other backend. For details, see [Health Probes](https://docs.microsoft.com/azure/frontdoor/front-door-health-probes).
 
-As a best practice, create a health probe path in your application backend that reports the overall health of the application. This health probe should check critical dependencies such as the App Service apps, storage queue, and SQL Database. Otherwise, the probe might report a healthy backend when critical parts of the application are actually failing. On the other hand, don't use the health probe to check lower priority services. For example, if an email service goes down the application can switch to a second provider or just send emails later. For further discussion of this design pattern, see [Health Endpoint Monitoring Pattern](../../patterns/health-endpoint-monitoring.md). 
+As a best practice, create a health probe path in your application backend that reports the overall health of the application. This health probe should check critical dependencies such as the App Service apps, storage queue, and SQL Database. Otherwise, the probe might report a healthy backend when critical parts of the application are actually failing. On the other hand, don't use the health probe to check lower priority services. For example, if an email service goes down the application can switch to a second provider or just send emails later. For further discussion of this design pattern, see [Health Endpoint Monitoring Pattern](../../patterns/health-endpoint-monitoring.md).
 
 ### SQL Database
 
@@ -79,7 +84,7 @@ For Azure Storage, use [read-access geo-redundant storage][ra-grs] (RA-GRS). Wit
 
 For Queue storage, create a backup queue in the secondary region. During failover, the app can use the backup queue until the primary region becomes available again. That way, the application can still process new requests.
 
-## Availability considerations 
+## Availability considerations
 
 Consider these points when designing for high availability across regions.
 
@@ -92,6 +97,8 @@ Azure Front Door automatically fails over if the primary region becomes unavaila
 
 Front Door is a possible failure point in the system. If the service fails, clients cannot access your application during the downtime. Review the [Front Door service level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/frontdoor) and determine whether using Front Door alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a fallback. If the Front Door service fails, change your canonical name (CNAME) records in DNS to point to the other traffic management service. This step must be performed manually, and your application will be unavailable until the DNS changes are propagated.
 
+<!-- markdownlint-disable MD024 -->
+
 ### SQL Database
 
 The recovery point objective (RPO) and estimated recovery time (ERT) for SQL Database are documented in [Overview of business continuity with Azure SQL Database][sql-rpo].
@@ -103,7 +110,7 @@ RA-GRS storage provides durable storage, but it's important to understand what c
 - If a storage outage occurs, there will be a period of time when you don't have write-access to the data. You can still read from the secondary endpoint during the outage.
 - If a regional outage or disaster affects the primary location and the data there cannot be recovered, the Azure Storage team may decide to perform a geo-failover to the secondary region.
 - Data replication to the secondary region is performed asynchronously. Therefore, if a geo-failover is performed, some data loss is possible if the data can't be recovered from the primary region.
-- Transient failures, such as a network outage, will not trigger a storage failover. Design your application to be resilient to transient failures. Possible mitigations:
+- Transient failures, such as a network outage, will not trigger a storage failover. Design your application to be resilient to transient failures. Mitigation options include:
 
   - Read from the secondary region.
   - Temporarily switch to another storage account for new write operations (for example, to queue messages).
@@ -123,14 +130,15 @@ Azure Front Door billing has three pricing tiers: outbound data transfers, inbou
 ### Azure Cosmos DB
 
 There are two factors that determine Azure Cosmos DB pricing:
-- The provisioned throughput or [Request Units per second (RU/s)](/azure/cosmos-db/request-units).
 
-    Cosmos DB allocates the resources required to guarantee the RU/s that you specify. You are billed hourly for the maximum provisioned throughput per hour. Because of the resources dedicated to your container or database, you are charged for the specified throughput even if you don’t run any workload.
+- The provisioned throughput or [Request Units per second (RU/s)](https://docs.microsoft.com/azure/cosmos-db/request-units).
+
+    Cosmos DB allocates the resources required to guarantee the RU/s that you specify. You are billed hourly for the maximum provisioned throughput per hour. Because of the resources dedicated to your container or database, you are charged for the specified throughput even if you don't run any workload.
 
 - Consumed storage.
     You are billed a flat rate for the total amount of storage (GBs) consumed for data and the indexes for a given hour.
 
-For more information, see the cost section in [Azure Architecture Framework](/azure/architecture/framework/cost/overview).
+For more information, see the cost section in [Azure Architecture Framework](../../framework/cost/overview.md).
 
 ## Manageability considerations
 
@@ -138,17 +146,17 @@ If the primary database fails, perform a manual failover to the secondary databa
 
 <!-- links -->
 
-[AFD-pricing]: https://azure.microsoft.com/pricing/details/frontdoor/
-[bandwidth-pricing]: https://azure.microsoft.com/pricing/details/bandwidth/
-[cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
+[AFD-pricing]: https://azure.microsoft.com/pricing/details/frontdoor
+[bandwidth-pricing]: https://azure.microsoft.com/pricing/details/bandwidth
+[cosmosdb-geo]: https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally
 [guidance-web-apps-scalability]: ./scalable-web-app.md
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[ra-grs]: /azure/storage/common/storage-designing-ha-apps-with-ragrs
-[regional-pairs]: /azure/best-practices-availability-paired-regions
-[resource groups]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[ra-grs]: https://docs.microsoft.com/azure/storage/common/storage-designing-ha-apps-with-ragrs
+[regional-pairs]: https://docs.microsoft.com/azure/best-practices-availability-paired-regions
+[resource groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
 [services-by-region]: https://azure.microsoft.com/regions/#services
-[sql-failover]: /azure/sql-database/sql-database-disaster-recovery
-[sql-replication]: /azure/sql-database/sql-database-geo-replication-overview
-[sql-rpo]: /azure/sql-database/sql-database-business-continuity#sql-database-features-that-you-can-use-to-provide-business-continuity
-[storage-outage]: /azure/storage/storage-disaster-recovery-guidance
+[sql-failover]: https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery
+[sql-replication]: https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview
+[sql-rpo]: https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity#sql-database-features-that-you-can-use-to-provide-business-continuity
+[storage-outage]: https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx

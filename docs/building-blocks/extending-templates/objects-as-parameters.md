@@ -1,12 +1,17 @@
 ---
 title: Use an object as a parameter in an Azure Resource Manager template
 description: Describes how to extend the functionality of Azure Resource Manager templates to use objects as parameters.
-author: petertay
+author: PeterTaylor9999
 ms.date: 10/30/2018
 ms.topic: article
 ms.service: architecture-center
+ms.category:
+  - developer-tools
+  - devops
 ms.subservice: reference-architecture
 ---
+
+<!-- cSpell:ignore subproperties -->
 
 # Use an object as a parameter in an Azure Resource Manager template
 
@@ -318,10 +323,10 @@ az group deployment create -g <resource-group-name> \
 
 <!-- links -->
 
-[azure-resource-manager-authoring-templates]: /azure/azure-resource-manager/templates/template-syntax
-[azure-resource-manager-create-template]: /azure/azure-resource-manager/templates/template-tutorial-create-first-template
-[azure-resource-manager-create-multiple-instances]: /azure/azure-resource-manager/resource-group-create-multiple
-[azure-resource-manager-functions]: /azure/azure-resource-manager/templates/template-functions-deployment#parameters
-[nsg]: /azure/virtual-network/virtual-networks-nsg
-[cli]: /cli/azure/?view=azure-cli-latest
+[azure-resource-manager-authoring-templates]: https://docs.microsoft.com/azure/azure-resource-manager/templates/template-syntax
+[azure-resource-manager-create-template]: https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template
+[azure-resource-manager-create-multiple-instances]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-multiple
+[azure-resource-manager-functions]: https://docs.microsoft.com/azure/azure-resource-manager/templates/template-functions-deployment#parameters
+[nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
+[cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest
 [github]: https://github.com/mspnp/template-examples

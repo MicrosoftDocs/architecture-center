@@ -4,6 +4,8 @@ titleSuffix: Azure Example Scenarios
 description: Build a VDI environment for Linux Desktops using Citrix on Azure.
 author: miguelangelopereira
 ms.date: 09/12/2018
+ms.category:
+  - windows-virtual-desktop
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -62,14 +64,14 @@ For this scenario, the following SKUs are used:
 
 ### Components
 
-- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) allows resources such as VMs to securely communicate with each other, the internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. One virtual network will be used for all resources in this scenario.
-- [Network security groups](/azure/virtual-network/security-overview) contain a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this scenario are secured with network security group rules that restrict the flow of traffic between the application components.
-- [Azure Load Balancer](/azure/application-gateway/overview) distributes inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. An internal load balancer is used in this scenario to distribute traffic on the Citrix NetScaler.
+- [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) allows resources such as VMs to securely communicate with each other, the internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. One virtual network will be used for all resources in this scenario.
+- [Network security groups](https://docs.microsoft.com/azure/virtual-network/security-overview) contain a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this scenario are secured with network security group rules that restrict the flow of traffic between the application components.
+- [Azure Load Balancer](https://docs.microsoft.com/azure/application-gateway/overview) distributes inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. An internal load balancer is used in this scenario to distribute traffic on the Citrix NetScaler.
 - [Azure Hybrid File Sync](https://github.com/MicrosoftDocs/azure-docs/edit/master/articles/storage/files/storage-sync-files-planning.md) will be used for all shared storage. The storage will replicate to two file servers using Hybrid File Sync.
-- [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) is a managed relational database service based on the latest stable version of the Microsoft SQL Server Database Engine. In this example, it is used to host Citrix databases.
-- [ExpressRoute](/azure/expressroute/expressroute-introduction) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.
+- [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) is a managed relational database service based on the latest stable version of the Microsoft SQL Server Database Engine. In this example, it is used to host Citrix databases.
+- [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.
 - [Active Directory Domain Services is used for Directory Services and user authentication
-- [Azure Availability Sets](/azure/virtual-machines/windows/tutorial-availability-sets) will ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. Doing this ensures that if a hardware or software failure within Azure happens, only a subset of your VMs are affected and that your overall solution remains available and operational.
+- [Azure Availability Sets](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) will ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. Doing this ensures that if a hardware or software failure within Azure happens, only a subset of your VMs are affected and that your overall solution remains available and operational.
 - [Citrix ADC (NetScaler)](https://www.citrix.com/products/citrix-adc) is an application delivery controller that performs application-specific traffic analysis to intelligently distribute, optimize, and secure Layer 4-Layer 7 (L4–L7) network traffic for web applications.
 - [Citrix Storefront](https://www.citrix.com/products/citrix-virtual-apps-and-desktops/citrix-storefront.html) is an enterprise app store that improves security and simplifies deployments, delivering a modern, unmatched near-native user experience across Citrix Receiver on any platform. StoreFront makes it easy to manage multi-site and multi-version Citrix Virtual Apps and Desktops environments.
 - [Citrix License Server](https://www.citrix.com/buy/licensing/overview.html) will manage the licenses for Citrix products.
@@ -90,10 +92,10 @@ For this scenario, the following SKUs are used:
 ### Availability, Scalability, and Security
 
 - This example is designed for high availability for all roles other than the licensing server. Because the environment continues to function during a 30-day grace period if the license server is offline, no additional redundancy is required on that server.
-- All servers providing similar roles should be deployed in [Availability Sets](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
-- This example scenario does not include Disaster Recovery capabilities. [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) could be a good add-on to this design.
-- Consider deploying the VM instances in this scenario across [Availability Zones](/azure/availability-zones/az-overview). Each availability zone is made up of one or more datacenters equipped with independent power, cooling, and networking. Each enabled region has a minimum of three availability zones. This distribution of VM instances across zones provides high availability to the application tiers. For more information, see [What are Availability Zones in Azure?](/azure/availability-zones/az-overview). You can also [deploy VPN and ExpressRoute gateways in Azure Availability Zones](/azure/vpn-gateway/about-zone-redundant-vnet-gateways).
-- For a production deployment management solution should be implemented such as [backup](/azure/backup/backup-introduction-to-azure-backup), [monitoring](/azure/monitoring-and-diagnostics/monitoring-overview) and [update management](/azure/automation/automation-update-management).
+- All servers providing similar roles should be deployed in [Availability Sets](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+- This example scenario does not include Disaster Recovery capabilities. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) could be a good add-on to this design.
+- Consider deploying the VM instances in this scenario across [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). Each availability zone is made up of one or more datacenters equipped with independent power, cooling, and networking. Each enabled region has a minimum of three availability zones. This distribution of VM instances across zones provides high availability to the application tiers. For more information, see [What are Availability Zones in Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview). You can also [deploy VPN and ExpressRoute gateways in Azure Availability Zones](https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways).
+- For a production deployment management solution should be implemented such as [backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup), [monitoring](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) and [update management](https://docs.microsoft.com/azure/automation/automation-update-management).
 - This example should work for about 250 concurrent (about 50-60 per VDA server) users with a mixed usage. But that will greatly depended on the type of applications being used. For production use, rigorous load testing should be performed.
 
 ## Deployment
@@ -107,7 +109,7 @@ For deployment information, see the official [Citrix documentation](https://docs
 - Using reserved instances will greatly reduce the compute cost for the solution.
 - The ExpressRoute cost is not included.
 
-## Next Steps
+## Next steps
 
 - Check Citrix documentation for planning and deployment [here](https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/install-configure).
 - To deploy Citrix ADC (NetScaler) in Azure, review the Resource Manager templates provided by Citrix [here](https://github.com/citrix/netscaler-azure-templates).

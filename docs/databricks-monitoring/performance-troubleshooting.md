@@ -1,17 +1,22 @@
 ---
 title: Troubleshoot performance issues in Azure Databricks
-description: Use Grafana dashboards to troubleshoot performance issues in Azure Databricks 
-author: petertaylor9999
+description: Use Grafana dashboards to troubleshoot performance issues in Azure Databricks.
+author: PeterTaylor9999
 ms.date: 04/02/2019
 ms.service: architecture-center
+ms.category:
+  - management-and-governance
+  - databases
 ms.subservice: reference-architecture
 ---
+
+<!-- cSpell:ignore Grafana -->
 
 # Troubleshoot performance bottlenecks in Azure Databricks
 
 This article describes how to use monitoring dashboards to find performance bottlenecks in Spark jobs on Azure Databricks.
 
-[Azure Databricks](/azure/azure-databricks/) is an [Apache Spark](https://spark.apache.org/)–based analytics service that makes it easy to rapidly develop and deploy big data analytics. Monitoring and troubleshooting performance issues is a critical when operating production Azure Databricks workloads. To identify common performance issues, it's helpful to use monitoring visualizations based on telemetry data.
+[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks) is an [Apache Spark](https://spark.apache.org)–based analytics service that makes it easy to rapidly develop and deploy big data analytics. Monitoring and troubleshooting performance issues is a critical when operating production Azure Databricks workloads. To identify common performance issues, it's helpful to use monitoring visualizations based on telemetry data.
 
 ## Prerequisites
 
@@ -126,6 +131,5 @@ Use the resource consumption metrics to troubleshoot partition skewing and misal
 For example, the following graph shows that the memory used by shuffling on the first two executors is 90X bigger than the other executors:
 
 ![Graph showing percentage metrics](./_images/grafana-shuffle-memory.png)
-
 
 [config-cluster]: https://github.com/mspnp/spark-monitoring/blob/master/README.md

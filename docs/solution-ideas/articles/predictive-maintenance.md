@@ -6,17 +6,22 @@ ms.date: 12/16/2019
 description: This Predictive Maintenance solution monitors aircraft and predicts the remaining useful life of aircraft engine components.
 ms.custom: acom-architecture, artificial intelligence, anomaly-detection, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/predictive-maintenance/'
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/predictive-maintenance.png
 ---
+
 # Predictive Maintenance
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This Predictive Maintenance solution monitors aircraft and predicts the remaining useful life of aircraft engine components.
 
 ## Architecture
 
-![Architecture diagram](../media/predictive-maintenance.svg)
+![Architecture diagram](../media/predictive-maintenance.png)
+*Download an [SVG](../media/predictive-maintenance.svg) of this architecture.*
 
 ## Overview
 
@@ -38,5 +43,3 @@ The Deploy button will launch a workflow that will deploy an instance of the sol
   6. Azure SQL Database is used (managed by Azure Data Factory) to store the prediction results received from Azure Machine Learning. These results are then consumed in the Power BI dashboard. A stored procedure is deployed in the SQL Database and later invoked in Azure Data Factory pipeline to store the ML prediction results into the scoring result table.
   7. Azure Data Factory handles orchestration, scheduling, and monitoring of the batch processing pipeline.
   8. Finally, Power BI is used for results visualization, so that aircraft technicians can monitor the sensor data from an airplane or across the fleet in real time and use visualizations to schedule engine maintenance.
-
-

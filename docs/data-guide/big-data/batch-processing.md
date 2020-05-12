@@ -1,6 +1,6 @@
 ---
 title: Batch processing
-description: 
+description: Learn about big data batch processing solutions to load, transform, and prepare data at rest for analytics and reporting.
 author: zoinerTejada
 ms.date: 02/12/2018
 ms.topic: guide

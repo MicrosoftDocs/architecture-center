@@ -1661,7 +1661,7 @@
     },
     {
       "source_path": "docs/cloud-adoption/ready/considerations/scaling-subscriptions.md",
-      "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/ready/considerations/scaling-subscriptions"
+      "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/ready/considerations/scale-subscriptions"
     },
     {
       "source_path": "docs/cloud-adoption/ready/considerations/storage-guidance.md",
@@ -1845,17 +1845,17 @@
     },
     {
       "source_path": "docs/reference-architectures/index.md",
-      "redirect_url": "https://docs.microsoft.com/azure/architecture/architectures/?filter=reference-architecture",
+      "redirect_url": "/azure/architecture/browse",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/index.experimental.md",
-      "redirect_url": "https://docs.microsoft.com/azure/architecture/architectures/?filter=example-workload",
+      "redirect_url": "/azure/architecture/browse",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/index.md",
-      "redirect_url": "https://docs.microsoft.com/azure/architecture/architectures/?filter=example-workload"
+      "redirect_url": "/azure/architecture/browse"
     },
     {
       "source_path": "docs/cloud-adoption/operations/overview.md",
@@ -1882,6 +1882,27 @@
     {
       "source_path": "docs/data-guide/scenarios/natural-language-processing.md",
       "redirect_url": "/azure/architecture/data-guide/technology-choices/natural-language-processing"
+    },
+    {
+      "source_path": "docs/architectures/index.md",
+      "redirect_url": "/azure/architecture/browse"
+    },
+    {
+      "source_path": "docs/architectures/example-workloads.md",
+      "redirect_url": "/azure/architecture/browse"
+    },
+    {
+      "source_path": "docs/architectures/reference-architectures.md",
+      "redirect_url": "/azure/architecture/browse"
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/security-compliance-blueprint-hippa-hitrust-health-data-ai.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai"
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/hybrid-ci-cd.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment",
+      "redirect_document_id": false
     }
   ]
 }

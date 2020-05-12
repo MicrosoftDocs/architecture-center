@@ -4,6 +4,9 @@ titleSuffix: Azure Example Scenarios
 description: Create a multitier web application built for high availability and disaster recovery on Azure using Azure virtual machines, availability sets, availability zones, Azure Site Recovery, and Azure Traffic Manager.
 author: sujayt
 ms.date: 11/16/2018
+ms.category:
+  - web
+  - featured
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -12,8 +15,10 @@ ms.custom:
   - bcdr
   - web-apps
   - application-development
-social_image_url: /azure/architecture/example-scenario/infrastructure/media/arhitecture-disaster-recovery-multi-tier-app.png
+social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-disaster-recovery-multi-tier-app.png
 ---
+
+<!-- cSpell:ignore sujayt -->
 
 # Multitier web application built for high availability and disaster recovery on Azure
 
@@ -35,7 +40,7 @@ Other relevant use cases include:
 
 ## Architecture
 
-This scenario demonstrates a multitier application that uses ASP.NET and Microsoft SQL Server. In [Azure regions that support availability zones](/azure/availability-zones/az-overview#services-support-by-region), you can deploy your virtual machines (VMs) in a source region across availability zones and replicate the VMs to the target region used for disaster recovery. In Azure regions that don't support availability zones, you can deploy your VMs within an availability set and replicate the VMs to the target region.
+This scenario demonstrates a multitier application that uses ASP.NET and Microsoft SQL Server. In [Azure regions that support availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region), you can deploy your virtual machines (VMs) in a source region across availability zones and replicate the VMs to the target region used for disaster recovery. In Azure regions that don't support availability zones, you can deploy your VMs within an availability set and replicate the VMs to the target region.
 
 ![Architecture overview of a highly resilient multitier web application][architecture]
 
@@ -90,21 +95,16 @@ Configuring disaster recovery for Azure VMs using Azure Site Recovery will incur
 We have provided a [sample cost calculator][calculator] for configuring disaster recovery for a three-tier application using six virtual machines. All of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to estimate the cost.
 
 <!-- links -->
-[architecture]: ./media/arhitecture-disaster-recovery-multi-tier-app.png
-[autoscaling]: /azure/architecture/best-practices/auto-scaling
-[availability]: ../../checklist/availability.md
-[resiliency]: /azure/architecture/resiliency/
-[security]: /azure/security/
-[scalability]: /azure/architecture/checklist/scalability
-[docs-availability-zones]: /azure/availability-zones/az-overview
-[docs-load-balancer]: /azure/load-balancer/load-balancer-overview
-[docs-nsg]: /azure/virtual-network/security-overview
-[docs-vmss]: /azure/virtual-machine-scale-sets/overview
-[docs-sql-always-on]: /sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server
-[docs-vmss-autoscale]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
-[docs-vnet]: /azure/virtual-network/virtual-networks-overview
-[docs-sql-server-linux]: /sql/linux/sql-server-linux-overview?view=sql-server-linux-2017
-[docs-traffic-manager]: /azure/traffic-manager/
-[docs-azure-site-recovery]: /azure/site-recovery/azure-to-azure-quickstart/
-[docs-availability-sets]: /azure/virtual-machines/windows/manage-availability/
-[calculator]: https://azure.com/e/6835332265044d6d931d68c917979e6d/
+
+[architecture]: ./media/architecture-disaster-recovery-multi-tier-app.png
+[security]: https://docs.microsoft.com/azure/security
+[scalability]: ../../checklist/scalability.md
+[docs-availability-zones]: https://docs.microsoft.com/azure/availability-zones/az-overview
+[docs-load-balancer]: https://docs.microsoft.com/azure/load-balancer/load-balancer-overview
+[docs-nsg]: https://docs.microsoft.com/azure/virtual-network/security-overview
+[docs-sql-always-on]: https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server
+[docs-sql-server-linux]: https://docs.microsoft.com/sql/linux/sql-server-linux-overview?view=sql-server-linux-2017
+[docs-traffic-manager]: https://docs.microsoft.com/azure/traffic-manager
+[docs-azure-site-recovery]: https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart
+[docs-availability-sets]: https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability
+[calculator]: https://azure.com/e/6835332265044d6d931d68c917979e6d

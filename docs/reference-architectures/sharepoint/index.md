@@ -6,6 +6,9 @@ author: njray
 ms.date: 07/26/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - management-and-governance
+  - web
 ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
@@ -40,7 +43,7 @@ The architecture consists of the following components:
 
 - **Windows Server Active Directory (AD) domain controllers**. This reference architecture deploys Windows Server AD domain controllers. These domain controllers run in the Azure VNet and have a trust relationship with the on-premises Windows Server AD forest. Client web requests for SharePoint farm resources are authenticated in the VNet rather than sending that authentication traffic across the gateway connection to the on-premises network. In DNS, intranet A or CNAME records are created so that intranet users can resolve the name of the SharePoint farm to the private IP address of the internal load balancer.
 
-  SharePoint Server 2016 also supports using [Azure Active Directory Domain Services](/azure/active-directory-domain-services/). Azure AD Domain Services provides managed domain services, so that you don't need to deploy and manage domain controllers in Azure.
+  SharePoint Server 2016 also supports using [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services). Azure AD Domain Services provides managed domain services, so that you don't need to deploy and manage domain controllers in Azure.
 
 - **SQL Server Always On availability group**. For high availability of the SQL Server database, we recommend [SQL Server Always On availability groups][sql-always-on]. Two virtual machines are used for SQL Server. One contains the primary database replica and the other contains the secondary replica.
 
@@ -78,7 +81,7 @@ Make sure your Azure subscription has enough VM core quota for the deployment, o
 
 For all SharePoint roles except the Search Indexer, we recommended using the [Standard_DS3_v2][vm-sizes-general] VM size. The Search Indexer should be at least the [Standard_DS13_v2][vm-sizes-memory] size. For testing, the parameter files for this reference architecture specify the smaller DS3_v2 size for the Search Indexer role. For a production deployment, update the parameter files to use the DS13 size or larger. For more information, see [Hardware and software requirements for SharePoint Server 2016][sharepoint-reqs].
 
-For the SQL Server VMs, we recommend a minimum of 4 cores and 8 GB RAM. The parameter files for this reference architecture specify the DS3_v2 size. For a production deployment, you might need to specify a larger VM size. For more information, see [Storage and SQL Server capacity planning and configuration (SharePoint Server)](/sharepoint/administration/storage-and-sql-server-capacity-planning-and-configuration#estimate-memory-requirements).
+For the SQL Server VMs, we recommend a minimum of 4 cores and 8 GB RAM. The parameter files for this reference architecture specify the DS3_v2 size. For a production deployment, you might need to specify a larger VM size. For more information, see [Storage and SQL Server capacity planning and configuration (SharePoint Server)](https://docs.microsoft.com/sharepoint/administration/storage-and-sql-server-capacity-planning-and-configuration#estimate-memory-requirements).
 
 ### NSG recommendations
 
@@ -166,7 +169,8 @@ In addition, it's always wise to plan for security hardening. Other recommendati
 - Install anti-malware agents for the VMs.
 
 ## Cost considerations
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some factors for optimizing cost for this architecture. 
+
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some factors for optimizing cost for this architecture.
 
 ### Active Directory Domain Services
 
@@ -178,15 +182,14 @@ The billing model is based on the amount of time the gateway is provisioned and 
 
 All inbound traffic is free. All outbound traffic is billed. Internet bandwidth costs are applied to VPN outbound traffic.
 
-
 ### Virtual Network
 
 Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
 All traffic that originates within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
 
-This architecture builds on the architecture deployed in [Run Windows VMs for an N-tier application][windows-n-tier]. See [Cost considerations](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server#cost-considerations) for more information.
+This architecture builds on the architecture deployed in [Run Windows VMs for an N-tier application][windows-n-tier]. See [Cost considerations](../../reference-architectures/n-tier/n-tier-sql-server.md#cost-considerations) for more information.
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
 
 ## DevOps considerations
 
@@ -328,19 +331,22 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 [az-monitor]: https://azure.microsoft.com/services/monitor/
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [azure-gateway-pricing]: https://azure.microsoft.com/pricing/details/vpn-gateway/
+[aaf-cost]: ../../framework/cost/overview.md
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
+[availability-set]: https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability
+[azure-gateway-pricing]: https://azure.microsoft.com/pricing/details/vpn-gateway
 [azure-portal]: https://portal.azure.com
-[azure-ps]: /powershell/azure/overview
-[azure-pricing]: https://azure.microsoft.com/pricing/calculator/
 [bastion-host]: https://en.wikipedia.org/wiki/Bastion_host
-[create-availability-group]: /SharePoint/administration/sharepoint-intranet-farm-in-azure-phase-5-create-the-availability-group-and-add
-[connect-to-vm]: /azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine
+[create-availability-group]: https://docs.microsoft.com/sharepoint/administration/sharepoint-intranet-farm-in-azure-phase-5-create-the-availability-group-and-add
+[connect-to-vm]: https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine
 [github]: https://github.com/mspnp/reference-architectures
 [hybrid-ra]: ../hybrid-networking/index.md
 [hybrid-vpn-ra]: ../hybrid-networking/vpn.md
-[load-balancer]: /azure/load-balancer/load-balancer-internal-overview
-[managed-disks]: /azure/storage/storage-managed-disks-overview
+[load-balancer]: https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview
+[managed-disks]: https://docs.microsoft.com/azure/storage/storage-managed-disks-overview
 [minroles]: https://docs.microsoft.com/SharePoint/install/overview-of-minrole-server-roles-in-sharepoint-server
-[nsg]: /azure/virtual-network/virtual-networks-nsg
+[nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
 [office-web-apps]: https://support.microsoft.com/help/3199955/office-web-apps-and-office-online-server-supportability-in-azure
 [paired-regions]: /azure/best-practices-availability-paired-regions
 [pipelines]: https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops
@@ -355,15 +361,14 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 [sharepoint-ops]: https://technet.microsoft.com/library/cc262289(v=office.16).aspx
 [sharepoint-reqs]: https://technet.microsoft.com/library/cc262485(v=office.16).aspx
 [sharepoint-search]: https://technet.microsoft.com/library/dn342836.aspx
-[sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server
-[sql-performance]: /azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance
+[sql-always-on]: https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server
+[sql-performance]: https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance
 [sql-server-capacity-planning]: https://technet.microsoft.com/library/cc298801(v=office.16).aspx
 [sql-quorum]: https://technet.microsoft.com/library/cc731739(v=ws.11).aspx
 [sql-sharepoint-best-practices]: https://technet.microsoft.com/library/hh292622(v=office.16).aspx
-[tempdb]: /sql/relational-databases/databases/tempdb-database
-[virtual-networks-nsg]: /azure/virtual-network/virtual-networks-nsg
+[tempdb]: https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database
+[virtual-networks-nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/Sharepoint-2016.vsdx
-[vm-sizes-general]: /azure/virtual-machines/windows/sizes-general
-[vm-sizes-memory]: /azure/virtual-machines/windows/sizes-memory
-[windows-n-tier]: ../virtual-machines-windows/n-tier.md
-
+[vm-sizes-general]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general
+[vm-sizes-memory]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory
+[windows-n-tier]: ../n-tier/n-tier-sql-server.md

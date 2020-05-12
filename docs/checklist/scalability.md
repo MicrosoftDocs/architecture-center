@@ -6,9 +6,11 @@ author: dragon119
 ms.date: 01/10/2018
 ms.topic: checklist
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ms.custom: checklist
 ---
+
+<!-- cSpell:ignore DTOs varchar -->
 
 # Scalability checklist
 
@@ -26,7 +28,7 @@ Scalability is the ability of a system to handle increased load, and is one of t
 
 **Take advantage of platform autoscaling features**. Where the hosting platform supports an autoscaling capability, such as Azure Autoscale, prefer it to custom or third-party mechanisms unless the built-in mechanism can't fulfill your requirements. Use scheduled scaling rules where possible to ensure resources are available without a start-up delay, but add reactive autoscaling to the rules where appropriate to cope with unexpected changes in demand. You can use the autoscaling operations in the Service Management API to adjust autoscaling, and to add custom counters to rules. For more information, see [Auto-scaling guidance](../best-practices/auto-scaling.md).
 
-**Offload intensive CPU/IO tasks as background tasks**. If a request to a service is expected to take a long time to run or absorb considerable resources, offload the processing for this request to a separate task. Use worker roles or background jobs (depending on the hosting platform) to execute these tasks. This strategy enables the service to continue receiving further requests and remain responsive.  For more information, see [Background jobs guidance](../best-practices/background-jobs.md).
+**Offload CPU-intensive and I/O-intensive tasks as background tasks**. If a request to a service is expected to take a long time to run or absorb considerable resources, offload the processing for this request to a separate task. Use worker roles or background jobs (depending on the hosting platform) to execute these tasks. This strategy enables the service to continue receiving further requests and remain responsive.  For more information, see [Background jobs guidance](../best-practices/background-jobs.md).
 
 **Distribute the workload for background tasks**. Where there are many background tasks, or the tasks require considerable time or resources, spread the work across multiple compute units (such as worker roles or background jobs). For one possible solution, see the [Competing Consumers pattern](../patterns/competing-consumers.md).
 
@@ -94,4 +96,4 @@ Scalability is the ability of a system to handle increased load, and is one of t
 
 **Consider minimizing the number of service accounts**. For example, use a specific account to access resources or services that impose a limit on connections, or perform better where fewer connections are maintained. This approach is common for services such as databases, but it can affect the ability to accurately audit operations due to the impersonation of the original user.
 
-**Carry out performance profiling and load testing** during development, as part of test routines, and before final release to ensure the application performs and scales as required. This testing should occur on the same type of hardware as the production platform, and with the same types and quantities of data and user load as it will encounter in production. For more information, see [Testing the performance of a cloud service](/azure/vs-azure-tools-performance-profiling-cloud-services).
+**Carry out performance profiling and load testing** during development, as part of test routines, and before final release to ensure the application performs and scales as required. This testing should occur on the same type of hardware as the production platform, and with the same types and quantities of data and user load as it will encounter in production. For more information, see [Testing the performance of a cloud service](https://docs.microsoft.com/azure/vs-azure-tools-performance-profiling-cloud-services).

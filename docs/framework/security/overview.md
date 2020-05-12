@@ -1,11 +1,11 @@
 ---
-title: Overview of the security pillar 
+title: Overview of the security pillar
 description: Describes the security pillar
 author: david-stanford
 ms.date: 10/21/2019
 ms.topic: overview
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ms.custom: 
 ---
 
@@ -15,7 +15,7 @@ Information Security has always been a complex subject, and it evolves quickly w
 
 Security is one of the most important aspects of any architecture. It provides confidentiality, integrity, and availability assurances against deliberate attacks and abuse of your valuable data and systems. Losing these assurances can negatively impact your business operations and revenue, as well as your organization’s reputation in the marketplace. In the following series of articles, we’ll discuss key architectural considerations and principles for security and how they apply to Azure.
 
-To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](/assessments/?mode=pre-assessment&id=azure-architecture-review).
+To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=azure-architecture-review).
 
 These are the topics we cover in the security pillar of the Azure Architecture Framework
 
@@ -31,11 +31,11 @@ These are the topics we cover in the security pillar of the Azure Architecture F
 | [Governance, risk, and compliance][compliance] | How is the organization’s security going to be monitored, audited, and reported? What types of risks does the organization face while trying to protect identifiable information, Intellectual Property (IP), financial information? Are there specific industry, government, or regulatory requirements that dictate or provide recommendation on criteria that your organization’s security controls must meet? |
 | [Identity and access management][identity] | Identity provides the basis of a large percentage of security assurances. |
 | [Info protection and storage][info] | Protecting data at rest is required to maintain confidentiality, integrity, and availability assurances across all workloads. |
-| [Network security and containment][network] | Network security has been the traditional lynchpin of enterprise security efforts. However, cloud computing has increased the requirement for network perimeters to be more porous and many attackers have mastered the art of attacks on identity system elements (which nearly always bypass network controls). |
+| [Network security and containment][network] | Network security has been the traditional linchpin of enterprise security efforts. However, cloud computing has increased the requirement for network perimeters to be more porous and many attackers have mastered the art of attacks on identity system elements (which nearly always bypass network controls). |
 | [Security Operations][sec-ops] | Security operations maintain and restores the security assurances of the system as live adversaries attack it. The tasks of security operations are described well by the NIST Cybersecurity Framework functions of Detect, Respond, and Recover. |
 
 <!-- security links -->
-[monitoring]: ./monitoring.md
+
 [role]: ./role-of-security.md
 [app]: ./applications-services.md
 [compliance]: ./governance.md

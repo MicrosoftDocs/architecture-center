@@ -1,13 +1,18 @@
 ---
-title: CI/CD for a serverless Azure frontend | Microsoft Docs
+title: CI/CD for a serverless Azure frontend
 description: Learn best practices for a robust CI/CD pipeline for your serverless frontend on Azure. 
 author: dsk-2015
 ms.author: dkshir
 ms.date: 10/20/2019
 ms.topic: guide
 ms.service: architecture-center
+ms.category:
+  - devops
+  - developer-tools
 ms.subservice: reference-architecture
 ---
+
+<!-- cSpell:ignore dkshir cicd brotli iname fabrikamdronestatus Jamstack setvariable CDNS -->
 
 # CI/CD for serverless application frontend on Azure
 
@@ -18,7 +23,7 @@ What does CI/CD actually stand for?
 - Continuous Integration allows development teams to integrate code changes in a shared repository almost instantaneously. This ability, coupled with automated build and testing before the changes are integrated, ensures that only fully functional application code is available for deployment.
 - Continuous Delivery allows changes in the source code, configuration, content, and other artifacts to be delivered to production, and ready to be deployed to end-users, as quickly and safely as possible. The process keeps the code in a *deployable state* at all times. A special case of this is *Continuous Deployment*, which includes actual deployment to end users.
 
-This article discusses a CI/CD pipeline for the web frontend of a [serverless reference implementation](../../reference-architectures/serverless/web-app.md). This pipeline is developed using Azure services. The web frontend demonstrates a modern web application, with client-side JavaScript, reusable server-side APIs, and pre-built Markup, alternatively called [JAMstack](https://jamstack.org). You can find the code in [this GitHub repository](https://github.com/mspnp/serverless-reference-implementation/tree/master/src/ClientApp). The readme describes the steps to download, build, and deploy the application.
+This article discusses a CI/CD pipeline for the web frontend of a [serverless reference implementation](../../reference-architectures/serverless/web-app.md). This pipeline is developed using Azure services. The web frontend demonstrates a modern web application, with client-side JavaScript, reusable server-side APIs, and pre-built Markup, alternatively called [Jamstack](https://jamstack.org). You can find the code in [this GitHub repository](https://github.com/mspnp/serverless-reference-implementation/tree/master/src/ClientApp). The readme describes the steps to download, build, and deploy the application.
 
 The following diagram describes the CI/CD pipeline used in this sample frontend:
 
@@ -62,7 +67,7 @@ Automating the build process reduces the human errors that can be introduced in 
 
 Since the Azure Pipeline is [integrated with GitHub repository](https://docs.microsoft.com/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml), any changes in the tracked directory of the master branch, trigger the first stage of the pipeline, the build stage:
 
-```Yaml
+```yaml
 trigger:
   batch: true
   branches:
@@ -75,7 +80,7 @@ trigger:
 
 The following snippet illustrates the start of the build stage, which starts an Ubuntu container to run this stage.
 
-```Yaml
+```yaml
     stages:
     - stage: Build
       jobs:
@@ -89,26 +94,31 @@ The following snippet illustrates the start of the build stage, which starts an 
 
 This is followed by *tasks* and *scripts* required to successfully build the project. These include the following:
 
-- installing Node.js and setting up environment variables,
-- installing and running Gatsby.js that builds the static website:
-    ```Yaml
+- Installing Node.js and setting up environment variables,
+- Installing and running Gatsby.js that builds the static website:
+
+    ```yaml
         - script: |
             cd src/ClientApp
             npm install
             npx gatsby build
           displayName: 'gatsby build'
     ```
+
 - installing and running a compression tool named *brotli*, to [compress the built files](#host-and-distribute-using-the-cloud) before deployment:
-    ```Yaml
+
+    ```yaml
         - script: |
             cd src/ClientApp/public
             sudo apt-get install brotli --install-suggests --no-install-recommends -q --assume-yes
             for f in $(find . -type f \( -iname '*.html' -o -iname '*.map' -o -iname '*.js' -o -iname '*.json' \)); do brotli $f -Z -j -f -v && mv ${f}.br $f; done
           displayName: 'enable compression at origin level'
     ```
-- computing the version of the current build for [cache management](#manage-website-cache),
-- publishing the built files for use by the [deploy stage](https://docs.microsoft.com/azure/devops/pipelines/artifacts/pipeline-artifacts?view=azure-devops&tabs=yaml):
-    ```Yaml
+
+- Computing the version of the current build for [cache management](#manage-website-cache),
+- Publishing the built files for use by the [deploy stage](https://docs.microsoft.com/azure/devops/pipelines/artifacts/pipeline-artifacts?view=azure-devops&tabs=yaml):
+
+    ```yaml
         - task: PublishPipelineArtifact@1
           inputs:
             targetPath: 'src/ClientApp/public'
@@ -121,7 +131,7 @@ A successful completion of the build stage tears down the Ubuntu environment, an
 
 The deploy stage runs in a new Ubuntu container:
 
-```Yaml
+```yaml
     - stage: Deploy
       jobs:
       - deployment: WebsiteDeploy
@@ -137,14 +147,14 @@ The deploy stage runs in a new Ubuntu container:
 
 This stage includes various deployment tasks and scripts to:
 
-- download the build artifacts to the container (which happens automatically as a consequence of using `PublishPipelineArtifact` in the build stage),
-- record the build release version, and update in the GitHub repository,
-- upload the website files to Blob Storage, in a new folder corresponding to the new version, and
-- change the CDN to point to this new folder.
+- Download the build artifacts to the container (which happens automatically as a consequence of using `PublishPipelineArtifact` in the build stage),
+- Record the build release version, and update in the GitHub repository,
+- Upload the website files to Blob Storage, in a new folder corresponding to the new version, and
+- Change the CDN to point to this new folder.
 
 The last two steps together replicate a cache purge, since older folders are no longer accessible by the CDN edge servers. The following snippet shows how this is achieved:
 
-```Yaml
+```yaml
        - script: |
               az login --service-principal -u $(azureArmClientId) -p $(azureArmClientSecret) --tenant $(azureArmTenantId)
               # upload content to container versioned folder
@@ -177,25 +187,25 @@ The advantages of this approach are as follows:
 
 ## Host and distribute using the cloud
 
-A content delivery network (CDN) is a set of distributed servers that speed up the content delivery to users over a vast geographical area. Every user gets the content from the server nearest to them. The CDN accesses this content from an *origin* server, and caches it to *edge* servers at strategic locations. The sample CI/CD in this article uses [Azure CDN](https://docs.microsoft.com/azure/cdn/), pointing to website content hosted on [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) as the origin server. The Blob storage is [configured for static website hosting](https://github.com/mspnp/serverless-reference-implementation/tree/master/src/ClientApp#create-azure-storage-static-website-hosting). For a quick guide on how to use Azure CDN with Azure Blob Storage, read [Integrate an Azure storage account with Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-create-a-storage-account-with-cdn).
+A content delivery network (CDN) is a set of distributed servers that speed up the content delivery to users over a vast geographical area. Every user gets the content from the server nearest to them. The CDN accesses this content from an *origin* server, and caches it to *edge* servers at strategic locations. The sample CI/CD in this article uses [Azure CDN](https://docs.microsoft.com/azure/cdn), pointing to website content hosted on [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) as the origin server. The Blob storage is [configured for static website hosting](https://github.com/mspnp/serverless-reference-implementation/tree/master/src/ClientApp#create-azure-storage-static-website-hosting). For a quick guide on how to use Azure CDN with Azure Blob Storage, read [Integrate an Azure storage account with Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-create-a-storage-account-with-cdn).
 
 The following are some strategies that can improve the CDN performance.
 
 ### Compress the content
 
-Compressing the files before serving improves file transfer speed and increases page-load performance for the end users. 
+Compressing the files before serving improves file transfer speed and increases page-load performance for the end users.
 
 There are two ways to do this:
 
-1. **On the fly in the CDN edge servers**. This improves bandwidth consumption by a significant percentage, making the website considerably faster than without compression. It is relatively easy to [enable this type of compression on Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-improve-performance#enabling-compression). Since it's controlled by the CDN, you cannot choose or configure the compression tool. Use this compression if website performance is not a critical concern. 
+1. **On the fly in the CDN edge servers**. This improves bandwidth consumption by a significant percentage, making the website considerably faster than without compression. It is relatively easy to [enable this type of compression on Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-improve-performance#enabling-compression). Since it's controlled by the CDN, you cannot choose or configure the compression tool. Use this compression if website performance is not a critical concern.
 
-1. **Pre-compressing before reaching the CDN**, either on your origin server, or before reaching the origin. Pre-compressing further improves the run time performance of your website, since it's done before being fetched by the CDN. The sample CI/CD pipeline compresses the built files in the deployment stage, using [brotli](https://brotli.org/), as shown in the [build section above](#build-stage). The advantages of using pre-compression are as follows:
+1. **Pre-compressing before reaching the CDN**, either on your origin server, or before reaching the origin. Pre-compressing further improves the run time performance of your website, since it's done before being fetched by the CDN. The sample CI/CD pipeline compresses the built files in the deployment stage, using [brotli](https://brotli.org), as shown in the [build section above](#build-stage). The advantages of using pre-compression are as follows:
     1. You can use any compression tool that you're comfortable with, and further fine-tune the compression. CDNs may have limitations on the tools they use.
     2. Some CDNs limit file sizes that can be compressed on the fly, causing a performance hit for larger files. Pre-compression sets no limits on the file size.
     3. Pre-compressing in the deployment pipeline results in less storage required at the origin.
     4. This is faster and more efficient than the CDN compression.
 
-For more information, see [Improve performance by compressing files in Azure CDN](/azure/cdn/cdn-improve-performance).
+For more information, see [Improve performance by compressing files in Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-improve-performance).
 
 ### Dynamic site acceleration
 
@@ -205,7 +215,7 @@ This sample enables dynamic site acceleration as shown in [this section of the r
 
 ## Manage website cache
 
-CDNs use caching to improve their performance. Configuring and managing this cache becomes an integral part of your deployment pipeline. The Azure CDN documentation shows several ways to do this. You can set caching rules on your CDN, as well as [configure the time-to-live for the content in the origin server](https://docs.microsoft.com/azure/cdn/cdn-manage-expiration-of-blob-content). Static web content can be cached for a long duration, since it may not change too much over time. This reduces the overhead of accessing the single origin server for every user request. For more information, see [How caching works](https://docs.microsoft.com/azure/cdn/cdn-how-caching-works). 
+CDNs use caching to improve their performance. Configuring and managing this cache becomes an integral part of your deployment pipeline. The Azure CDN documentation shows several ways to do this. You can set caching rules on your CDN, as well as [configure the time-to-live for the content in the origin server](https://docs.microsoft.com/azure/cdn/cdn-manage-expiration-of-blob-content). Static web content can be cached for a long duration, since it may not change too much over time. This reduces the overhead of accessing the single origin server for every user request. For more information, see [How caching works](https://docs.microsoft.com/azure/cdn/cdn-how-caching-works).
 
 ### Cache purge
 

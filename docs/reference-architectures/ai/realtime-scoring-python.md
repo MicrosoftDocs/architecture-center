@@ -6,6 +6,9 @@ author: msalvaris
 ms.date: 01/28/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - developer-tools
 ms.subservice: reference-architecture
 ms.custom: azcat-ai
 ---
@@ -55,7 +58,7 @@ The application flow for the deep learning model is as follows:
 5. The web service created by Azure Machine Learning preprocesses the image data and sends it to the model for scoring.
 6. The predicted categories with their scores are returned to the client.
 
-## Architecture
+## Architecture'
 
 This architecture consists of the following components.
 
@@ -65,7 +68,7 @@ This architecture consists of the following components.
 
 **[Azure Kubernetes Service][aks]** (AKS) is used to deploy the application on a Kubernetes cluster. AKS simplifies the deployment and operations of Kubernetes. The cluster can be configured using CPU-only VMs for regular Python models or GPU-enabled VMs for deep learning models.
 
-**[Azure Container Registry][acr]** enables storage of images for all types of Docker container deployments including DC/OS, Docker Swarm and Kubernetes. The scoring images are deployed as containers on Azure Kubernetes Service and used to run the scoring script. The image used here is created by Machine Learning from the trained model and scoring script, and then is pushed to the Azure Container Registry.
+**[Azure Container Registry][acr]** enables storage of images for all types of Docker container deployments incl'ding DC/OS, Docker Swarm and Kubernetes. The scoring images are deployed as containers on Azure Kubernetes Service and used to run the scoring script. The image used here is created by Machine Learning from the trained model and scoring script, and then is pushed to the Azure Container Registry.
 
 ## Performance considerations
 
@@ -93,7 +96,7 @@ While deploying your application, monitor the AKS cluster to make sure it's work
 
 To see the overall state of the cluster and nodes, go to the **Nodes** section of the Kubernetes dashboard. If a node is inactive or has failed, you can display the error logs from that page. Similarly, go to the **Pods** and **Deployments** sections for information about the number of pods and status of your deployment.
 
-### AKS logs
+### AKS logs'
 
 AKS automatically logs all stdout/stderr to the logs of the pods in the cluster. Use kubectl to see these and also node-level events and logs. For details, see the deployment steps.
 
@@ -119,11 +122,11 @@ Use [RBAC][rbac] to control access to the Azure resources that you deploy. RBAC 
 
 ## Cost considerations
 
-Use the  [Pricing calculator][Cost-Calculator] to estimate costs. Here are some other considerations. 
+Use the  [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
 
-### Azure Machine Learning
+### Azure Machine Learning'
 
-In this reference architecture, a large portion of cost is driven by compute resources. For the purposes of experimentation and training, Azure Machine Learning is free. You are only charged for the compute used by the web service. Use the [Pricing calculator][Cost-Calculator] to estimate your compute costs.
+In this reference architecture, a large portion of cost is driven by compute resources. For the purposes of experimentation and training, Azure Machine Learning is free. You are only charged for the compute used by the web service. Use the [Azure pricing calculator][azure-pricing-calculator] to estimate your compute costs.
 
 ### Azure Container Registry
 
@@ -133,9 +136,7 @@ Azure Container Registry offers **Basic**, **Standard**, and **Premium**. Choose
 
 You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources, see the [Container Services calculator][aks-Calculator].
 
-
-For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
-
+For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
 
 ## Deployment
 
@@ -146,31 +147,29 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 
 <!-- links -->
 
-[aad-auth]: /azure/aks/aad-integration
-[AAF-cost]: /azure/architecture/framework/cost/overview
-[acr]: /azure/container-registry/
-[something]: https://kubernetes.io/docs/reference/access-authn-authz/authentication/
-[aks]: /azure/aks/intro-kubernetes
+[aad-auth]: https://docs.microsoft.com/azure/aks/aad-integration
+[aaf-cost]: ../../framework/cost/overview.md
+[acr]: https://docs.microsoft.com/azure/container-registry
+[aks]: https://docs.microsoft.com/azure/aks/intro-kubernetes
 [aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service
-[autoscaler]: /azure/aks/autoscaler
-[autoscale-pods]: /azure/aks/tutorial-kubernetes-scale#autoscale-pods
-[az-container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry/
-[azcopy]: /azure/storage/common/storage-use-azcopy-linux
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
-[ddos]: /azure/virtual-network/ddos-protection-overview
-[get-started]: /azure/security-center/security-center-get-started
+[autoscaler]: https://docs.microsoft.com/azure/aks/autoscaler
+[autoscale-pods]: https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale#autoscale-pods
+[az-container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[ddos]: https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview
+[get-started]: https://docs.microsoft.com/azure/security-center/security-center-get-started
 [github-python]: https://github.com/Microsoft/MLAKSDeployAML
 [github-dl]: https://github.com/Microsoft/AKSDeploymentTutorial_AML
-[gpus-vs-cpus]: https://azure.microsoft.com/blog/gpus-vs-cpus-for-deployment-of-deep-learning-models/
-[https-ingress]: /azure/aks/ingress-tls
-[ingress-controller]: https://kubernetes.io/docs/concepts/services-networking/ingress/
-[kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-[aml]: /azure/machine-learning/service/overview-what-is-azure-ml
-[manually-scale-pods]: /azure/aks/tutorial-kubernetes-scale#manually-scale-pods
-[monitor-containers]: /azure/monitoring/monitoring-container-insights-overview
-[permissions]: /azure/aks/concepts-identity
-[rbac]: /azure/active-directory/role-based-access-control-what-is
-[scale-cluster]: /azure/aks/scale-cluster
-[scikit]: https://pypi.org/project/scikit-learn/
-[security-center]: /azure/security-center/security-center-intro
-[vm]: /azure/virtual-machines/
+[gpus-vs-cpus]: https://azure.microsoft.com/blog/gpus-vs-cpus-for-deployment-of-deep-learning-models
+[https-ingress]: https://docs.microsoft.com/azure/aks/ingress-tls
+[ingress-controller]: https://kubernetes.io/docs/concepts/services-networking/ingress
+[kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl
+[aml]: https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml
+[manually-scale-pods]: https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale#manually-scale-pods
+[monitor-containers]: https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview
+[permissions]: https://docs.microsoft.com/azure/aks/concepts-identity
+[rbac]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
+[scale-cluster]: https://docs.microsoft.com/azure/aks/scale-cluster
+[scikit]: https://pypi.org/project/scikit-learn
+[security-center]: https://docs.microsoft.com/azure/security-center/security-center-intro
+[vm]: https://docs.microsoft.com/azure/virtual-machines
