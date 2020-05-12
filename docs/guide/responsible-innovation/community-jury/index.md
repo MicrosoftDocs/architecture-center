@@ -89,7 +89,7 @@ A jury should be large enough to represent the diversity and collective will of 
 
 #### Recruitment criteria
 
-Stratify a randomly selected participant pool so that the jury includes the demographic diversity of the community. Based on the project objectives, relevant recruitment criteria may include balancing across gender identity, age, privacy index (see Appendix for how this is defined). Recruitment should follow good user research recruitment procedures and reach a wider community.
+Stratify a randomly selected participant pool so that the jury includes the demographic diversity of the community. Based on the project objectives, relevant recruitment criteria may include balancing across gender identity, age, [privacy index](#privacy-index). Recruitment should follow good user research recruitment procedures and reach a wider community.
 
 ## Session structure
 
@@ -116,7 +116,7 @@ If the values of different stakeholders were in conflict with each other during 
 - Ensure that all perspectives are heard, minimizing group-thinking as well as one or two individuals dominating the discussion. This should include those of the project team and the jury members.
 - Structure the sessions so that there is ample time for learning, deliberation, and co-creation. This could mean having multiple sessions going in-depth on different topics or having longer sessions.
 - Pilot the jury with a smaller sample of community members to work out the procedural and content issues prior to the actual sessions.
-- If the topic being discussed is related to personal data privacy, aim to balance the composition of the community jury to include individuals with different privacy indices (see Appendix).
+- If the topic being discussed is related to personal data privacy, aim to balance the composition of the community jury to include individuals with different [privacy indices](#privacy-index).
 - Consider including session breaks and providing snacks/refreshments for sessions that are two hours or longer.
 - Reinforce the value of the juror participation by communicating the plan for integrating jury feedback into the product planning process. Also ensure that the project team is prepared to hear criticisms from the jury.
 - After the jury, in addition to publishing the research report, send out a thank you note to the volunteer participants of the jury,  along with an executive summary of the key insights.
