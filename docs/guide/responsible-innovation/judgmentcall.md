@@ -109,5 +109,5 @@ Finally, the group picks a thread from the discussion to begin identifying desig
 
 ## Next steps
 
-Once you have enough understanding of potential harms or negative impact your product or scenario may cause, proceed to learn [how to model these harms](/harms-modeling/index.md) so you can devise effective mitigations.
+Once you have enough understanding of potential harms or negative impact your product or scenario may cause, proceed to learn [how to model these harms](./harms-modeling/index.md) so you can devise effective mitigations.
 
