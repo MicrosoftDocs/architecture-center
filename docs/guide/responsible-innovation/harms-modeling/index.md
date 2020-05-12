@@ -94,7 +94,7 @@ Suggestions for harm description statements:
 - System error: If [feature] failed to function properly when used for [use case], [stakeholder] could experience [harm description]. 
 - Misuse: [Malicious actor] could potentially use [feature], to cause [harm description] to [stakeholder]. 
 
-Use the categories, questions, and examples described in the [Types of harm](./risk-of-injury.md) to generate specific ideas for how harm could occur. The article lists categories of harms, that is based upon common negative impact areas. Adapt and adopt additional categories that are relevant to you. 
+Use the categories, questions, and examples described in the [Types of harm](./type-of-harm.md) to generate specific ideas for how harm could occur. The article lists categories of harms, that is based upon common negative impact areas. Adapt and adopt additional categories that are relevant to you. 
 
 ## Next Steps
 
