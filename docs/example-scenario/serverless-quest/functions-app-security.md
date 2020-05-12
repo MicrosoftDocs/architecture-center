@@ -33,12 +33,14 @@ As you get started, the checklist and resources below will help you plan the Fun
 ## Deploy to production and apply best practices
 
 As you prepare the application for production, you should implement a minimum set of best practices. Use the checklist below at this stage. You should be able to answer these questions:
-- Is your Azure Functions application enabled for role-based access control?
+- How will you conduct regular code reviews to identify code and library vulnerabilities?
+- Have you defined resource permissions that the function needs to execute and access?
 - Have you configured network security rules for inbound and outbound communication?
 - Have you identified and classified sensitive data access?
 
 | Checklist | Resources |
 |------------------------------------------------------------------|-----------------------------------------------------------------|
+| **Keep your code secure.** Find security vulnerabilities and errors in your code and manage security vulnerabilities in your project and dependencies.| [GitHub - Finding security vulnerabilities and errors in your code](https://help.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code) </br> [GitHub - Managing security vulnerabilities in your project](https://help.github.com/en/github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project) </br> [GitHub - Managing vulnerabilities in your project's dependencies](https://help.github.com/en/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies) | 
 | **Perform input validation.** Since serverless functions can be triggered from different events sources like storage (Blob), NoSQL database (CosmosDB), Event Hubs, Queue, Graph events and more, injections are not strictly limited to inputs coming directly from the API calls and functions can consume input from each type of the possible event sources. <br/> In general, never trust input or make any assumptions about its validity. Always use safe APIs that sanitize or validate the input. When possible, use APIs which bind or parameterize variables (e.g. using prepared statements for SQL queries).| tbc </br> [Azure Functions Input Validation with FluentValidation](https://www.tomfaltesek.com/azure-functions-input-validation/) </br> [Security Frame: Input Validation Mitigations](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-input-validation) </br> [HTTP Trigger Function Request Validation](https://marcroussy.com/2019/06/14/http-trigger-function-request-validation/) </br> [How to validate request for Azure Functions](https://medium.com/@tsuyoshiushio/how-to-validate-request-for-azure-functions-e6488c028a41) |
 | **Manage application settings and secrets.** Don't store credentials in your application code. A Key Vault should be used to store and retrieve keys and credentials.| [Use Key Vault references for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references)|
 | **Secure the HTTP endpoints for development, testing and production.** Functions lets you use keys to make it harder to access your HTTP function endpoints during development. To fully secure your function endpoints in production, you should consider implementing one of the following function app-level security options: </br> Turn on App Service Authentication / Authorization for your function app. </br> Use Azure API Management (APIM) to authenticate requests. </br> Deploy your function app to an Azure App Service Environment (ASE). </br> Use an App Service Plan where you restrict access, and implement Azure Front Door + WAF to handle your incoming requests. | [Authorization keys](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#authorization-keys) </br> [Secure an HTTP endpoint in production](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production) </br>  [Import an Azure Function App as an API in Azure API Management](https://docs.microsoft.com/azure/api-management/import-function-app-as-api) </br> [Create a Front Door for a highly available global web application](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door) |
@@ -49,16 +51,15 @@ As you prepare the application for production, you should implement a minimum se
 
 ## Optimize and scale
 
-? Now that the application is in production, how can you optimize your workflow and prepare your application and team to scale? Use the optimization and scaling checklist to prepare. You should be able to answer these questions:
-- ?
-- ?
+Now that the application is in production, how can you optimize your workflow and prepare your application and team to scale? Use the optimization and scaling checklist to prepare. You should be able to answer these questions:
+- Are you running a security scanning solution for your application?
+- Can you enforce governance and application policies at scale?
 
 | Checklist | Resources |
 |------------------------------------------------------------------|-----------------------------------------------------------------|
 | **Configure Azure Security Center and apply security recommendations.** Azure Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls to harden and protect your resources. | [Protect your applications with Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-virtual-machine-protection#app-services) </br> [Security Center app recommendations](https://docs.microsoft.com/en-us/azure/security-center/recommendations-reference#recs-computeapp)|
 | **Enforce application governance policies.** Apply at-scale enforcements and safeguards on your application in a centralized, consistent manner.| [Azure Policy built-in policy definitions](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies) |
-| **Monitor 3rd-party dependencies.** tbc. Continuously monitor dependencies and their versions throughout the system using OWASP Dependency Track or any other system. Obtain components only from official sources over secure links. Prefer signed packages to reduce the chance of including a modified, malicious component. Continuously monitor packages with vulnerability databases like MITRE CVE and NVD. It is recommended to scan dependencies for known vulnerabilities using tools such as OWASP Dependency Check or a commercial solution.For dotnet, Use dotnet-retire. A tool to check dependencies for versions with known vulnerabilities. Check NuGet package vulnerabilities with OWASP SafeNuGet. Use runtime-dependent security databases such as pyup for Python and npm Security Advisories For Node. Use Audit.NET which integrates with VS to identify known vulnerabilities in .Net NuGet dependencies
-| tbd|
+
 
 ## Next steps
 
