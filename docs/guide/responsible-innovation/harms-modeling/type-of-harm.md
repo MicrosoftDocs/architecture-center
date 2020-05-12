@@ -17,9 +17,11 @@ This article discusses the different types of harms. The objective is to create 
 
 ## Risk of injury
 
+### Physical injury 
+
 Consider how technology could hurt people or create dangerous environments.
 
-### Overreliance on safety features
+#### Overreliance on safety features
 
 Dependence on technology to make decisions without adequate human oversight.
 
@@ -28,7 +30,7 @@ Dependence on technology to make decisions without adequate human oversight.
 
 *Example: A healthcare agent could misdiagnose illness, leading to unnecessary treatment.*
 
-### Inadequate fail-safes
+#### Inadequate fail-safes
 
 Real-world testing which insufficiently considers a diverse set of users and scenarios.
 
@@ -37,7 +39,7 @@ Real-world testing which insufficiently considers a diverse set of users and sce
 
 *Example: If an automatic door failed to detect a wheelchair during an emergency evacuation a person could be trapped if there isn't an accessible override button.*
 
-### Exposure to unhealthy agents
+#### Exposure to unhealthy agents
 
 Manufacturing, as well as disposal of technology can jeopardize the health and well-being of workers and nearby inhabitants.
 
@@ -45,11 +47,11 @@ Manufacturing, as well as disposal of technology can jeopardize the health and w
 
 *Example: Inadequate safety measures could cause workers to be exposed to toxins during digital component manufacturing.*
 
-Emotional or psychological injury
+### Emotional or psychological injury
 
 Misused technology can lead to serious emotional and psychological distress.
 
-### Overreliance on automation
+#### Overreliance on automation
 
 Misguided beliefs can lead users to trust the reliability of a digital agent over that of a human.
 
@@ -59,7 +61,7 @@ Misguided beliefs can lead users to trust the reliability of a digital agent ove
 
 *Example: A chat bot could be relied upon for relationship advice or mental health counseling instead of a trained professional.*
 
-### Distortion of reality or gaslighting
+#### Distortion of reality or gaslighting
 
 When intentionally misused, technology can undermine trust and distort someone's sense of reality.
 
@@ -67,7 +69,7 @@ When intentionally misused, technology can undermine trust and distort someone's
 
 *Example: An IoT device could enable monitoring and controlling of an ex-intimate partner from afar.*
 
-### Reduced self-esteem/reputation damage
+#### Reduced self-esteem/reputation damage
 
 Some shared content can be harmful, false, misleading, or denigrating.
 
@@ -76,7 +78,7 @@ Some shared content can be harmful, false, misleading, or denigrating.
 
 *Example: Synthetic media "revenge porn" can swap faces, creating the illusion of a person participating in a video, who did not.*
 
-### Addiction / attention hijacking
+#### Addiction / attention hijacking
 
 Designing for prolonged interaction with a technology, without regard for well-being.
 
@@ -84,7 +86,7 @@ Designing for prolonged interaction with a technology, without regard for well-b
 
 *Example: Variable drop rates in video game loot boxes could cause players to keep playing and neglect self-care.*
 
-### Identity theft
+#### Identity theft
 
 May lead to loss of control over personal credentials, reputation, and/or representation.
 
@@ -93,7 +95,7 @@ May lead to loss of control over personal credentials, reputation, and/or repres
 
 *Example: Synthetic voice font could mimic the sound of a person's voice and be used to access a bank account*
 
-### Misattribution
+#### Misattribution
 
 Crediting a person with an action or content that they are not responsible for.
 
@@ -104,13 +106,11 @@ Crediting a person with an action or content that they are not responsible for.
 
 ## Denial of consequential services
 
-Automated decisions could limit access to resources, services, and opportunities essential to well-being. For example, online retailer Amazon, whose global workforce was 60 percent male and where men hold 74 percent of the company's managerial positions, discontinued use of a recruiting algorithm after discovering gender bias.
-
 ### Opportunity loss
 
 Automated decisions could limit access to resources, services, and opportunities essential to well-being.
 
-### Employment discrimination
+#### Employment discrimination
 
 Denying people access to apply for or secure a job based on characteristics unrelated to merit.
 
@@ -118,7 +118,7 @@ Denying people access to apply for or secure a job based on characteristics unre
 
 *Example: Hiring AI could recommend fewer candidates with female-sounding names for interviews.*
 
-### Housing discrimination
+#### Housing discrimination
 
 Denying people access to housing or the ability to apply for housing.
 
@@ -126,7 +126,7 @@ Denying people access to housing or the ability to apply for housing.
 
 *Example: Public housing queuing algorithm could cause people with international-sounding names to wait longer for vouchers.*
 
-### Insurance and benefit discrimination
+#### Insurance and benefit discrimination
 
 Denying people insurance, social assistance, or access to a medical trial due to biased standards.
 
@@ -134,7 +134,7 @@ Denying people insurance, social assistance, or access to a medical trial due to
 
 *Example: Insurance company might charge higher rates for drivers working night shifts due to algorithmic predictions suggesting increased drunk driving risk.*
 
-### Educational discrimination
+#### Educational discrimination
 
 Denying people access to education because of an unchangeable characteristic.
 
@@ -142,7 +142,7 @@ Denying people access to education because of an unchangeable characteristic.
 
 *Example: Emotion classifier could incorrectly report that students of color are less engaged than their white counterparts, leading to lower grades.*
 
-### Digital divide / technological discrimination
+#### Digital divide / technological discrimination
 
 Disproportionate access to the benefits of technology, leaving some people less informed or less equipped to participate in society.
 
@@ -151,7 +151,7 @@ Disproportionate access to the benefits of technology, leaving some people less 
 
 *Example: Content throttling could prevent rural students from accessing classroom instruction video feed.*
 
-### Loss of choice / network and filter bubble
+#### Loss of choice / network and filter bubble
 
 Presenting people with only information that conforms to and reinforces their own beliefs.
 
@@ -160,11 +160,11 @@ Presenting people with only information that conforms to and reinforces their ow
 
 *Example: News feed could only present information that confirms existing beliefs.*
 
-## Economic loss
+### Economic loss
 
 Automating decisions related to financial instruments, economic opportunity, and resources can amplify existing societal inequities and obstruct well-being.
 
-### Credit discrimination
+#### Credit discrimination
 
 Denying people access to financial instruments based on characteristics unrelated to economic merit.
 
@@ -173,7 +173,7 @@ Denying people access to financial instruments based on characteristics unrelate
 
 *Example: Higher introductory rate offers could be sent only to homes in lower socioeconomic postal codes.*
 
-### Differential pricing of goods and services
+#### Differential pricing of goods and services
 
 Offering goods or services at different prices for reasons unrelated to the cost of production or delivery.
 
@@ -182,7 +182,7 @@ Offering goods or services at different prices for reasons unrelated to the cost
 
 *Example: More could be charged for products based on designation for men or women.*
 
-### Economic exploitation
+#### Economic exploitation
 
 Compelling or misleading people to work on something that impacts their dignity or wellbeing.
 
@@ -191,7 +191,7 @@ Compelling or misleading people to work on something that impacts their dignity 
 
 *Example: Paying financially destitute people for their biometric data to train AI systems.*
 
-### Devaluation of individual expertise
+#### Devaluation of individual expertise
 
 Technology supplanting the use of paid human expertise or labor.
 
@@ -201,13 +201,11 @@ Technology supplanting the use of paid human expertise or labor.
 
 ## Infringement on human rights
 
-Technology can influence how people perceive the world, and how they recognize, engage, and value one another. The exchange of honor and respect between people can be interfered with. For example, children do much of the work in India's informal e-waste recycling industry. An estimated 45,000 children work in the industry in Delhi alone.
-
-### Loss of dignity
+### Dignity loss
 
 Technology can influence how people perceive the world, and how they recognize, engage, and value one another. The exchange of honor and respect between people can be interfered with.
 
-### Dehumanization
+#### Dehumanization
 
 Removing, reducing, or obscuring visibility of a person's humanity.
 
@@ -216,7 +214,7 @@ Removing, reducing, or obscuring visibility of a person's humanity.
 
 *Example: Entity recognition and virtual overlays in drone surveillance could reduce the perceived accountability of human actions.*
 
-### Public shaming
+#### Public shaming
 
 Exposing people's private, sensitive, or socially inappropriate material.
 
@@ -224,11 +222,11 @@ Exposing people's private, sensitive, or socially inappropriate material.
 
 *Example: A fitness app could reveal a user's GPS location on social media, indicating attendance at an Alcoholics Anonymous meeting.*
 
-Liberty loss
+### Liberty loss
 
 Automation of legal, judicial, and social systems can reinforce biases and lead to detrimental consequences.
 
-### Predictive policing
+#### Predictive policing
 
 Inferring suspicious behavior and/or criminal intent based on historical records.
 
@@ -236,7 +234,7 @@ Inferring suspicious behavior and/or criminal intent based on historical records
 
 *Example: An algorithm can predict a number of area arrests, so police make sure they match, or exceed, that number.*
 
-### Social control
+#### Social control
 
 Reinforcing or encouraging conformity by publicly designating human behaviors as positive or negative.
 
@@ -246,7 +244,7 @@ Reinforcing or encouraging conformity by publicly designating human behaviors as
 
 *Example: Authoritarian government uses social media and e-commerce data to determine a "trustworthy" score based on where people shop and who they spend time with.*
 
-### Loss of effective remedy
+#### Loss of effective remedy
 
 Inability to explain the rationale or lack of opportunity to contest a decision.
 
@@ -256,11 +254,11 @@ Inability to explain the rationale or lack of opportunity to contest a decision.
 
 *Example: Automated prison sentence or pre-trial release decision is not explained to the accused.*
 
-Privacy loss
+### Privacy loss
 
 Information generated by our use of technology can be used to determine facts or make assumptions about someone without their knowledge.
 
-### Interference with private life
+#### Interference with private life
 
 Revealing information a person has not chosen to share.
 
@@ -269,7 +267,7 @@ Revealing information a person has not chosen to share.
 
 *Example: Task-tracking AI could monitor personal patterns from which it infers an extramarital affair.*
 
-### Forced association
+#### Forced association
 
 Requiring participation in the use of technology or surveillance to take part in society.
 
@@ -277,7 +275,7 @@ Requiring participation in the use of technology or surveillance to take part in
 
 *Example: Biometric enrollment in a company's meeting room transcription AI is a stipulated requirement in job offer letter.*
 
-### Inability to freely and fully develop personality
+#### Inability to freely and fully develop personality
 
 Restriction of one's ability to truthfully express themselves or explore external avenues for self-development.
 
@@ -286,7 +284,7 @@ Restriction of one's ability to truthfully express themselves or explore externa
 
 *Example: Intelligent meeting system could record all discussions between colleagues including personal coaching and mentorship sessions.*
 
-### Never forgiven
+#### Never forgiven
 
 Digital files or records that are never deleted.
 
@@ -295,7 +293,7 @@ Digital files or records that are never deleted.
 
 *Example: A teenager's social media history could remain searchable long after they have outgrown the platform.*
 
-### Loss of freedom of movement or assembly
+#### Loss of freedom of movement or assembly
 
 Inability to navigate the physical or virtual world with desired anonymity.
 
@@ -307,7 +305,7 @@ Inability to navigate the physical or virtual world with desired anonymity.
 
 The environment can be impacted by every decision in a system or product life-cycle, from the amount of cloud computing needed to retail packaging. Environmental changes can impact entire communities.
 
-### Exploitation or depletion of resources
+#### Exploitation or depletion of resources
 
 Obtaining the raw materials for a technology, including how it's powered, leads to negative consequences to the environment and its inhabitants.
 
@@ -316,7 +314,7 @@ Obtaining the raw materials for a technology, including how it's powered, leads 
 
 *Example: A local community could be displaced due to the harvesting of rare earth minerals and metals required for some electronic manufacturing.*
 
-### Electronic waste
+#### Electronic waste
 
 Reduced quality of collective well-being because of the inability to repair, recycle, or otherwise responsibly dispose of electronics.
 
@@ -327,13 +325,11 @@ Toxic materials inside discarded electronic devices could leach into the water s
 
 ## Erosion of social & democratic structures
 
-The ability for technology to be used to create highly personalized and manipulative experiences can undermine an informed citizenry and trust in societal structures. For example, a "surveillance exclusion" mask's curvature blocks facial recognition from all angles. This mask was designed by Jip van Leeuwenstein while he was a student of Utrecht School of the Arts in the Netherlands.
-
 ### Manipulation
 
 The ability for technology to be used to create highly personalized and manipulative experiences can undermine an informed citizenry and trust in societal structures.
 
-### Misinformation
+#### Misinformation
 
 Disguising fake information as legitimate or credible information.
 
@@ -342,7 +338,7 @@ Disguising fake information as legitimate or credible information.
 
 *Example: Generation of synthetic speech of a political leader sways an election.*
 
-### Behavioral exploitation
+#### Behavioral exploitation
 
 Exploiting personal preferences or patterns of behavior to induce a desired reaction.
 
@@ -355,7 +351,7 @@ Exploiting personal preferences or patterns of behavior to induce a desired reac
 
 At scale, the way technology impacts people shapes social and economic structures within communities. It can further ingrain elements that include or benefit some, at the exclusion of others.
 
-### Amplification of power inequality
+#### Amplification of power inequality
 
 Perpetuating existing class or privilege disparities.
 
@@ -364,7 +360,7 @@ Perpetuating existing class or privilege disparities.
 
 *Example: Requiring a residential address & phone number to register on a job website could prevent a homeless person from applying for jobs.*
 
-### Stereotype reinforcement
+#### Stereotype reinforcement
 
 Perpetuating uninformed "conventional wisdom" about historically or statistically underrepresented people.
 
@@ -373,7 +369,7 @@ Perpetuating uninformed "conventional wisdom" about historically or statisticall
 
 *Example: Results of an image search for "CEO" could primarily show photos of Caucasian men*
 
-### Loss of individuality
+#### Loss of individuality
 
 The inability to express a unique perspective.
 
@@ -382,7 +378,7 @@ The inability to express a unique perspective.
 
 *Example: Limited customization options in designing a video game avatar inhibits self-expression of a player's diversity.*
 
-### Loss of representation
+#### Loss of representation
 
 Broad categories of generalization obscure, diminish, or erase real identities.
 
@@ -391,7 +387,7 @@ Broad categories of generalization obscure, diminish, or erase real identities.
 
 *Example: Automatic photo caption assigns incorrect gender identity and age to the subject.*
 
-### Skill degradation and complacency
+#### Skill degradation and complacency
 
 Overreliance on automation leads to atrophy of manual skills.
 
