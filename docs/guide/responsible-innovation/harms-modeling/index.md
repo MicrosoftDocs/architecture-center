@@ -89,10 +89,10 @@ The diagram above is an example of a harms evaluation. This is a qualitative app
 You can complete this ideation activity individually, but ideally it is conducted as collaboration between developers, data scientists, designers, user researcher, business decision-makers, and other disciplines that are involved in building the technology. 
 
 Suggestions for harm description statements: 
-- Intended use: If _<feature>_ was used for _<use case>_, _<stakeholder>_ could experience _<harm description>_. 
-- Unintended use: If _<user>_ tried to use _<feature>_ for _<use case>_, _<stakeholder>_ could experience _<harm description>_. 
-- System error: If _<feature>_ failed to function properly when used for _<use case>_, _<stakeholder>_ could experience _<harm description>_. 
-- Misuse: _<Malicious actor>_ could potentially use _<feature>_, to cause _<harm description>_ to _<stakeholder>_. 
+- Intended use: If <feature> was used for <use case>, <stakeholder> could experience <harm description>. 
+- Unintended use: If <user> tried to use <feature> for <use case>, <stakeholder> could experience <harm description>. 
+- System error: If <feature> failed to function properly when used for <use case>, <stakeholder> could experience <harm description>. 
+- Misuse: <Malicious actor> could potentially use <feature>, to cause <harm description> to <stakeholder>. 
 
 Use the categories, questions, and examples described in the [Types of harm](./risk-of-injury.md) to generate specific ideas for how harm could occur. The article lists categories of harms, that is based upon common negative impact areas. Adapt and adopt additional categories that are relevant to you. 
 
