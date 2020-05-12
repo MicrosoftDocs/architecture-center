@@ -13,22 +13,22 @@ ms.subservice: reference-architecture
 
 # Foundations of assessing harm
 
-Microsoft has made a commitment to building principled technology and providing tools including the Human AI Interaction Guidelines, Conversational AI Guidelines, and AI Fairness Checklist. Harms Modeling is another available tool; it is designed to help you anticipate the potential for harm, identify gaps in product that could put people at risk, and ultimately create approaches that proactively address harm. We do not have all the answers and we expect our tools to continue to evolve based on learnings from the global tech builder community.  Collectively, we have the ability to create trustworthy systems that augment human ingenuity, and are built on foundational freedoms, core to human rights.
+Microsoft is committed to building principled technology and providing tools such as the Human AI Interaction Guidelines, Conversational AI Guidelines, and AI Fairness Checklist. Harms Modeling is one such tool, designed to help you anticipate the potential for harm, identify gaps in product that could put people at risk, and ultimately create approaches that proactively address harm. We do not have all the answers and we expect our tools to continue to evolve based on learnings from the global tech builder community.  Collectively, we have the ability to create trustworthy systems that augment human ingenuity, and are built on foundational freedoms, core to human rights.
 
 
-## Why harms?
+## Why harms modeling?
 
-As technology builders, your work is global. Designing AI to be trustworthy requires creating solutions that reflect ethical principles that are deeply rooted in important and timeless values. In the process of designing and building your technologies, it is essential to evaluate not only ideal outcomes, but possible negative ones as well. 
+As technology builders, your work is global. Designing AI to be trustworthy requires creating solutions that reflect ethical principles deeply rooted in important and timeless values. In the process of designing and building your technologies, it is essential to evaluate not only ideal outcomes, but possible negative ones as well. 
 
 
 ### Responsible AI Principles at Microsoft
 
-* **Fairness** - AI systems should treat all people fairly
-* **Reliability & safety** - AI systems should perform Reliably and Safely
-* **Privacy & security** - AI systems should be Secure and respect Privacy
-* **Inclusiveness** - AI systems should empower everyone and engage people
-* **Transparency** - AI systems should be understandable 
-* **Accountability** - People should be accountable for AI systems
+* **Fairness** - AI systems should treat all people fairly.
+* **Reliability & safety** - AI systems should perform reliably and safely.
+* **Privacy & security** - AI systems should be secure and respect privacy.
+* **Inclusiveness** - AI systems should empower everyone and engage people.
+* **Transparency** - AI systems should be understandable. 
+* **Accountability** - People should be accountable for AI systems.
 
 ### Technology and human rights
 
@@ -41,17 +41,17 @@ An important set of UN principles that our company firmly supports, which was ra
 
 ## Human understanding
 
-In addition to appreciating the importance of human rights, building trustworthy systems requires us to consider many people's perspectives. Asking who the stakeholders are, what they value, how they could benefit, and how they could be hurt by our technology is a powerful step that allows us to design and build better products.
+In addition to appreciating the importance of human rights, building trustworthy systems requires us to consider many people's perspectives. Asking who the stakeholders are, what they value, how they could benefit, and how they could be hurt by our technology, is a powerful step that allows us to design and build better products.
 
-### Who does the technology impact
+### Who does the technology impact?
 
-#### Who are the customers
+#### Who are the customers?
 
 - What do they value?
 - How should they benefit?
 - How could tech harm them?
 
-#### Who are the non-customer stakeholders
+#### Who are the non-customer stakeholders?
 
 - What do they value?
 - How should they benefit?
@@ -71,7 +71,7 @@ Designers, developers, project managers, and those working directly on designing
 
 #### Direct & indirect stakeholders
 
-These stakeholders are significantly impacted by the system. This includes end users, software staff, clients, bystanders, interfacing institutions, and even past or future generations. Non-human factors such as places (e.g. historic buildings or sacred spaces) may also be included.
+These stakeholders are significantly impacted by the system. This includes end users, software staff, clients, bystanders, interfacing institutions, and even past or future generations. Non-human factors such as places, for example, historic buildings or sacred spaces, may also be included.
 
 #### Marginalized populations
 
@@ -79,7 +79,7 @@ This category is comprised of those frequently considered a minority, vulnerable
 
 ## Assessing Harm 
 
-Once you have defined the technology purpose, use cases, and stakeholders, conduct a Harms Modeling exercise to evaluate potential ways that use of a technology you are building could result in negative outcomes for people and society. 
+Once you have defined the technology purpose, use cases, and stakeholders, conduct a Harms Modeling exercise to evaluate potential ways the use of a technology you are building could result in negative outcomes for people and society. 
 
 [![Harms modeling overview](../images/harms-modeling.png)](../images/harms-modeling.png#lightbox)
 *Download in [Microsoft Word](../images/harms-modeling.docx)*
@@ -87,14 +87,12 @@ Once you have defined the technology purpose, use cases, and stakeholders, condu
 The diagram above is an example of a harms evaluation. This is a qualitative approach used to understand potential magnitude of harm.
 
 You can complete this ideation activity individually, but ideally it is conducted as collaboration between developers, data scientists, designers, user researcher, business decision-makers, and other disciplines that are involved in building the technology. 
-  
 
 Suggestions for harm description statements: 
-- Intended use: If [feature] was used for [use case], [stakeholder] could experience [harm description]. 
-- Unintended use: If [user] tried to use [feature] for [use case], [stakeholder] could experience [harm description]. 
-- System error: If [feature] failed to function properly when used for [use case], [stakeholder] could experience [harm description]. 
-- Misuse: [malicious actor] could potentially use [feature], to cause [harm description] to [stakeholder]. 
-  
+- Intended use: If _<feature>_ was used for _<use case>_, _<stakeholder>_ could experience _<harm description>_. 
+- Unintended use: If _<user>_ tried to use _<feature>_ for _<use case>_, _<stakeholder>_ could experience _<harm description>_. 
+- System error: If _<feature>_ failed to function properly when used for _<use case>_, _<stakeholder>_ could experience _<harm description>_. 
+- Misuse: _<Malicious actor>_ could potentially use _<feature>_, to cause _<harm description>_ to _<stakeholder>_. 
 
 Use the categories, questions, and examples described in the [Types of harm](./risk-of-injury.md) to generate specific ideas for how harm could occur. The article lists categories of harms, that is based upon common negative impact areas. Adapt and adopt additional categories that are relevant to you. 
 
