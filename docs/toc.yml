@@ -771,7 +771,7 @@ items:
       - name: Overview
         href: serverless/index.md
       - name: Serverless - Functions adoption guide
-       items:
+        items:
         - name: Overview
           href: example-scenario/serverless-quest/index.md
         - name: Validate and commit the serverless adoption
