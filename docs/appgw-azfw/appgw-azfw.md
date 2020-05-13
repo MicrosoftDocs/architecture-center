@@ -147,11 +147,11 @@ Here the packet walk for inbound traffic from the public Internet:
    * Source IP address: 192.168.200.7 (the private IP address of the Application Gateway instance that happens to handle this specific request)
    * Destination IP address: 192.168.100.4
    * X-Forwarded-For header: ClientPIP
-4. The Virtual Machine will answer the request reverting source and destination IP addresses. The User-Defined Route to `192.168.200.0/24` will capture the packet sent back to the application gateway and redirect it to the Azure Firewall
+4. The Virtual Machine will answer the request to the Azure Application Gateway.
    * Source IP address: 192.168.100.4
    * Destination IP address: 192.168.200.7
-5. The Application Gateway will reply to the SNAT source IP address of the Azure Firewall instance that processed the request:
-   * Source IP address: 192.168.200.7
+5. The Application Gateway will reply to the SNAT source IP address of the Azure Firewall instance that processed the request. The Azure Firewall will see the IP address of the Application Gateway (.4), not of the individual Application Gateway Instance (.7 in this example):
+   * Source IP address: 192.168.200.4
    * Destination IP address: 192.168.100.7
 6. Finally, the Azure Firewall will undo SNAT and DNAT and it will answer to the client:
    * Source IP address: AzFwPIP
