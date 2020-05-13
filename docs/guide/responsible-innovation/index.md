@@ -13,7 +13,7 @@ ms.subservice: reference-architecture
 
 # Responsible Innovation: A Best Practices Toolkit
 
-This toolkit provides developers with a set of practices in development, for anticipating addressing the potential negative impacts of technology on people.  We are sharing this as an early stage practice for feedback and learning.
+This toolkit provides developers with a set of practices in development, for anticipating and addressing the potential negative impacts of technology on people.  We are sharing this as an early stage practice for feedback and learning.
 
 ## Judgment Call
 
