@@ -23,7 +23,7 @@ _Cost modeling_ is an exercise where you create logical groups of cloud resource
 
     Evaluate the budget constraints on each business unit and determine the governance policies in Azure to lower cost by reducing wastage, overprovisioning, or expensive provisioning of resources.
 
-4.	[**Consider tradeoffs**](tradeoffs)
+4.	[**Consider tradeoffs**](tradeoffs.md)
     
     Optimal design doesn't equal the lowest cost design.
     
@@ -95,11 +95,9 @@ Here are some considerations for determining the governance policies that can as
 -	Assess the limits for security. Don't compromise on security. Premium cloud security features can drive the cost up. It’s not necessary to overinvest. Instead use the cost profile to drive a realistic threat profile. 
 -	Identify unrestricted resources. These resources typically need to scale and consume more cost to meet demand.
 
-For more information, see [Consider tradeoffs](tradeoffs).
-
 #### Next step
 > [!div class="nextstepaction"]
-> [Consider tradeoffs](./tradeoffs)
+> [Consider tradeoffs](./tradeoffs.md)
 
 ## Functional requirements
 
