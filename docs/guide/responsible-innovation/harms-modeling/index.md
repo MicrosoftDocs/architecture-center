@@ -1,7 +1,7 @@
 ---
 title: Harms Modeling
 titleSuffix: Azure Application Architecture Guide
-description: Responsible Innovation is a commitment to put people first in the development of technology by understanding the stakeholders and impact of your technology
+description: This article describes how to figure out harms and negative impact of a technology and ways to mitigate them.
 author: dcass
 ms.date: 05/18/2020
 ms.topic: guide
@@ -64,7 +64,7 @@ These stakeholders are significantly impacted by the system. This includes end u
 
 #### Marginalized populations
 
-This category is comprised of those frequently considered a minority, vulnerable population, or stigmatized group. This includes children, the elderly, members of the LGBTQ+ community, ethnic minorities, and other populations who often experience unique and disproportionate consequences.
+This category is made up of the population frequently considered a minority, vulnerable, or stigmatized. This includes children, the elderly, members of the LGBTQ+ community, ethnic minorities, and other populations who often experience unique and disproportionate consequences.
 
 ## Assessing Harm 
 
@@ -83,7 +83,7 @@ Suggestions for harm description statements:
 - System error: If [feature] failed to function properly when used for [use case], [stakeholder] could experience [harm description]. 
 - Misuse: [Malicious actor] could potentially use [feature], to cause [harm description] to [stakeholder]. 
 
-Use the categories, questions, and examples described in the [Types of harm](./type-of-harm.md) to generate specific ideas for how harm could occur. The article lists categories of harms, that is based upon common negative impact areas. Adapt and adopt additional categories that are relevant to you. 
+Use the categories, questions, and examples described in the [Types of harm](./type-of-harm.md) to generate specific ideas for how harm could occur. The article lists categories of harms, that are based upon common negative impact areas. Adapt and adopt additional categories that are relevant to you. 
 
 ## Next Steps
 
