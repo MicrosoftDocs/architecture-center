@@ -13,22 +13,11 @@ ms.subservice: reference-architecture
 
 # Foundations of assessing harm
 
-Microsoft is committed to building principled technology and providing tools such as the Human AI Interaction Guidelines, Conversational AI Guidelines, and AI Fairness Checklist. Harms Modeling is one such tool, designed to help you anticipate the potential for harm, identify gaps in product that could put people at risk, and ultimately create approaches that proactively address harm. We do not have all the answers and we expect our tools to continue to evolve based on learnings from the global tech builder community.  Collectively, we have the ability to create trustworthy systems that augment human ingenuity, and are built on foundational freedoms, core to human rights.
-
+Harms Modeling is a practice designed to help you anticipate the potential for harm, identify gaps in product that could put people at risk, and ultimately create approaches that proactively address harm.
 
 ## Why harms modeling?
 
 As technology builders, your work is global. Designing AI to be trustworthy requires creating solutions that reflect ethical principles deeply rooted in important and timeless values. In the process of designing and building your technologies, it is essential to evaluate not only ideal outcomes, but possible negative ones as well. 
-
-
-### Responsible AI Principles at Microsoft
-
-* **Fairness** - AI systems should treat all people fairly.
-* **Reliability & safety** - AI systems should perform reliably and safely.
-* **Privacy & security** - AI systems should be secure and respect privacy.
-* **Inclusiveness** - AI systems should empower everyone and engage people.
-* **Transparency** - AI systems should be understandable. 
-* **Accountability** - People should be accountable for AI systems.
 
 ### Technology and human rights
 
