@@ -139,7 +139,8 @@ Note that outbound flows from the Virtual Machine to the public Internet will go
 
 This design is mainly motivated by the desire of having the Azure Firewall filtering packets before they reach the Application Gateway, hence discarding malicious packets before they even hit the Application Gateway. Another benefit of this design is that the application will get the same public IP address both for ingress and egress connections to the Internet, in case that is a requirement.
 
-However, a significant drawback of this design is that the application gateway or the application servers will not see the original source IP address of the client, since the Azure Firewall will Source-NAT the packets as they come into the Virtual Network.
+> [!WARNING]
+> A significant drawback of this design is that the application gateway or the application servers will not see the original source IP address of the client, since the Azure Firewall will Source-NAT the packets as they come into the Virtual Network.
 
 ![AzFW in front of AppGW](./images/design5_500.png)
 
@@ -176,6 +177,8 @@ The previous designs have all shown examples where the application clients were 
 * The Azure Firewall does not support Destination NAT (DNAT) at this time for private IP addresses. Hence, if ingress traffic is to be sent to the Azure Firewall from the VPN or ExpressRoute Gateways, User-Defined Routes are to be used.
 * You need to be very careful id advertising a default route (0.0.0.0/0) from the on-premises network (this is typically called forced tunneling), since for the Azure Application Gateway the default route needs to point to the public Internet
 
+The following diagram exemplifies the recommended design (Azure Application Gateway and Azure Firewall in parallel) when application clients are coming from an on-premises network connected to Azure over site-to-site VPN or ExpressRoute:
+
 ![Hybrid design with VPN/ER Gateway](./images/hybrid_500.png)
 
 Note that even if all clients are located on-premises or in Azure, both the Azure Application Gateway and the Azure Firewall will require to keep their public IP addresses, so that Microsoft can manage the services.
@@ -187,7 +190,9 @@ If using a hub and spoke topology where shared resources are deployed in a centr
 * Typically all network components described in this article would go to the hub Virtual Network, such as the Azure Firewall, the Application Gateway and the API Management Gateway (see later on for the latter).
 * Note that having the Azure Application Gateway in a spoke will be difficult in some designs, since you cannot have a default route (0.0.0.0/0) in the Application Gateway subnet with a next hop being anything other than Internet.
 * You can still define backend servers in the Application Gateway even if they are located in a peered Virtual Network
-* Special attention needs to be put on User-Defined Routes in the spokes: traffic coming from the Application Gateway instance or from the Azure Firewall should not be sent back to the main IP address of those services, but to the individual IP address of the specific instance sending the traffic. In other words, routing in the application subnet should send traffic addressed to the Azure Firewall and Application Gateway subnets to a next hop of type Virtual Network (and not Virtual Network Appliance). Otherwise asymmetric routing will break communication. This situation can easily happen if other resources such as Domain Controllers or File Servers exist in the hub, and you configure a route in the the spokes to send all hub traffic to the Azure Firewall's IP address.
+
+> [!WARNING]
+> Special attention needs to be put on User-Defined Routes in the spokes: traffic coming from a specific instance of the Azure Firewall (the .7 address in the previous examples) should not be sent back to the main IP address of the Azure Firewall (the .4 address in the previous examples). In other words, routing in the application subnet should send traffic addressed to the AzureFirewallSubnet to a next hop of type Virtual Network (and not Virtual Network Appliance). Otherwise asymmetric routing will break communication. This situation can easily happen if other resources such as Domain Controllers or File Servers exist in the hub vnet, and you configure a route in the the spoke vnets to send all hub traffic to the Azure Firewall's IP address.
 
 ![Hybrid design with VPN/ER Gateway and Hub and Spoke](./images/hubnspoke_500.png)
 
