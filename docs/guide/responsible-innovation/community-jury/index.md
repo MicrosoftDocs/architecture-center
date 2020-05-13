@@ -15,7 +15,7 @@ ms.subservice: reference-architecture
 
 Community jury, an adaptation of the [citizen jury](https://jefferson-center.org/about-us/how-we-work/), is a technique where diverse stakeholders impacted by a technology are provided an opportunity to learn about a project, deliberate together, and give feedback on use cases and product design. This technique allows project teams to understand the perceptions and concerns of impacted stakeholders.
 
-A community jury is different from a focus group or market research; it allows the impacted stakeholders to hear directly from the subject matter experts in the product team, and co-create solutions to challenging problems with them.
+A community jury is different from a focus group or market research; it allows the impacted stakeholders to hear directly from the subject matter experts in the product team, and cocreate solutions to challenging problems with them.
 
 ## Benefits
 
@@ -41,7 +41,7 @@ This group comprises owners who will bring the product to market, representative
 
 #### Preparation
 
-Effective deliberation and co-creation requires ready-to-use answers to technical questions. As product owners, it is important to ensure technical details are collected prior to the start of the jury session.
+Effective deliberation and cocreation require ready-to-use answers to technical questions. As product owners, it is important to ensure technical details are collected prior to the start of the jury session.
 
 Relevant artifacts could include:
 
@@ -71,7 +71,7 @@ Bring on a neutral user researcher to ensure everyone is heard, avoiding dominat
 
 #### Preparation
 
-- Structure the sessions so that there is ample time for learning, deliberation, and co-creation. This could mean having multiple sessions that go in-depth on different topics or having longer sessions.
+- Structure the sessions so that there is ample time for learning, deliberation, and cocreation. This could mean having multiple sessions that go in-depth on different topics or having longer sessions.
 - Pilot the jury with a smaller sample of community members to work out the procedural and content issues prior to the actual sessions. 
 
 #### During the Session
@@ -93,7 +93,7 @@ Stratify a randomly selected participant pool so that the jury includes the demo
 
 ## Session structure
 
-Sessions typically last 2-3 hours. Add more or longer deep dive sessions, as needed, if aspects of the project require more learning, deliberation, and co-creation.
+Sessions typically last 2-3 hours. Add more or longer deep dive sessions, as needed, if aspects of the project require more learning, deliberation, and cocreation.
 
 1. **Overview, introduction, and Q&A** - The moderator provides a session overview, then introduces the project team and explains the product's purpose, along with potential use cases, benefits, and harms. Questions are then accepted from community members. This session should be between 30 to 60 minutes long.
 
@@ -101,8 +101,8 @@ Sessions typically last 2-3 hours. Add more or longer deep dive sessions, as nee
 
 1. This step can be any one of the following options:
   
-    - **Deliberation and co-creation** - This option is preferable. Jury members deliberate and co-create solutions with the project team. This is typically 30 to 60 minutes long.
-    - **Individual anonymous survey** - Alternatively, conduct an anonymous survey of jury members. Anonymity may allow issues to be raised that would not otherwise be expressed. Use this 30 minute session if there are time constraints.
+    - **Deliberation and cocreation** - This option is preferable. Jury members deliberate and co-create solutions with the project team. This is typically 30 to 60 minutes long.
+    - **Individual anonymous survey** - Alternatively, conduct an anonymous survey of jury members. Anonymity may allow issues to be raised that would not otherwise be expressed. Use this 30-minute session if there are time constraints.
 
 1. **Following the session** - The moderator produces a study report that describes key insights, concerns, and potential solutions to the concerns.
 
@@ -114,7 +114,7 @@ If the values of different stakeholders were in conflict with each other during 
 - The consent to audio and video recording of the jury should follow your company's standard procedures for non-disclosure and consent that is obtained from participants during user research studies.
 - Provide fair compensation to participants for the time they devote to participation. Whenever possible, participants should also be reimbursed for costs incurred as a result of study participation, for example, parking and transportation costs. Experienced user research recruiters can help determine fair gratuities for various participant profiles. 
 - Ensure that all perspectives are heard, minimizing group-thinking as well as one or two individuals dominating the discussion. This should include those of the project team and the jury members.
-- Structure the sessions so that there is ample time for learning, deliberation, and co-creation. This could mean having multiple sessions going in-depth on different topics or having longer sessions.
+- Structure the sessions so that there is ample time for learning, deliberation, and cocreation. This could mean having multiple sessions going in-depth on different topics or having longer sessions.
 - Pilot the jury with a smaller sample of community members to work out the procedural and content issues prior to the actual sessions.
 - If the topic being discussed is related to personal data privacy, aim to balance the composition of the community jury to include individuals with different [privacy indices](#privacy-index).
 - Consider including session breaks and providing snacks/refreshments for sessions that are two hours or longer.
