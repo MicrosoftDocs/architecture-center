@@ -13,9 +13,9 @@ ms.subservice: reference-architecture
 
 # Responsible Innovation: A Best Practices Toolkit
 
-The Responsible Innovation toolkit provides developers with a framework and best practice for anticipating and addressing the potential negative impacts of technology on people at various stages of the development lifecycle.  Built from insights and learnings in the development of AI solutions within Microsoft, this guidance is part of a broader set of practices in use that we will continue to share as they mature.
+This toolkit provides developers with a set of practices in development, for anticipating addressing the potential negative impacts of technology on people.  We are sharing this as an early stage practice for feedback and learning.
 
-## Judgement Call
+## Judgment Call
 
 [Judgment Call](./judgmentcall.md) is an award-winning game and team-based activity that puts Microsoft’s AI principles of fairness, privacy and security, reliability and safety, transparency, inclusion, and accountability into action. The game provides an easy-to-use method for cultivating stakeholder empathy through *scenario-imagining*. Game participants write product reviews from the perspective of a particular stakeholder, describing what kind of impact and harms the technology could produce from their point of view.
 
