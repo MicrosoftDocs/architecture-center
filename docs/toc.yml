@@ -782,6 +782,20 @@ items:
           href: example-scenario/serverless-quest/functions-app-operations.md
         - name: Azure functions app security
           href: example-scenario/serverless-quest/functions-app-security.md
+        - name: Application assessment
+          href: example-scenario/serverless-quest/application-assessment.md
+        - name: Technical workshops
+          href: example-scenario/serverless-quest/technical-workshops.md
+        - name: Architectural design sessions
+          href: example-scenario/serverless-quest/ads.md
+        - name: Serverless reference architectures
+          href: example-scenario/serverless-quest/reference-architectures.md
+        - name: Conducting a Proof of Concept or Pilot
+          href: example-scenario/serverless-quest/poc-pilot.md
+        - name: Technical trainning plan
+          href: example-scenario/serverless-quest/technical-training.md
+        - name: Deliver technical implementation
+          href: example-scenario/serverless-quest/code-with.md       
       - name: Guides
         items:
         - name: Create a serverless backend with Azure Functions
