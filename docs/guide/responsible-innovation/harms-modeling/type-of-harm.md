@@ -37,7 +37,7 @@ Real-world testing may insufficiently consider a diverse set of users and scenar
 - If this technology fails or is misused, how would people be impacted? At what point could a human intervene?
 - Are there alternative uses that have not been tested for? How would users be impacted by a system failure?
 
-*Example: If an automatic door failed to detect a wheelchair during an emergency evacuation a person could be trapped if there isn't an accessible override button.*
+*Example: If an automatic door failed to detect a wheelchair during an emergency evacuation, a person could be trapped if there isn't an accessible override button.*
 
 #### Exposure to unhealthy agents
 
@@ -178,7 +178,7 @@ People may be denied access to financial instruments based on characteristics un
 Goods or services may be offered at different prices for reasons unrelated to the cost of production or delivery.
 
 - How could this technology be used to determine pricing of goods or services?
-- What is the criteria for determining the cost to people for use of this tech?
+- What are the criteria for determining the cost to people for use of this tech?
 
 *Example: More could be charged for products based on designation for men or women.*
 
@@ -303,7 +303,7 @@ This means an inability to navigate the physical or virtual world with desired a
 
 ### Environmental impact
 
-The environment can be impacted by every decision in a system or product life-cycle, from the amount of cloud computing needed to retail packaging. Environmental changes can impact entire communities.
+The environment can be impacted by every decision in a system or product life cycle, from the amount of cloud computing needed to retail packaging. Environmental changes can impact entire communities.
 
 #### Exploitation or depletion of resources
 
@@ -403,7 +403,7 @@ Once you have generated a broad list of potential harms, you should complete you
 |----------------------|-----------------|
 |Severity        |How acutely could an individual or group’s well-being be impacted by the technology?        |
 |Scale           |How broadly could the impact to well-being be experienced across populations or groups?    |
-|Probability     |How likely is it that individual or group's well-being will be impacted be the technology? |
+|Probability     |How likely is it that individual or group's well-being will be impacted by the technology? |
 |Frequency       |How often would an individual or group experience an impact to their well-being from the technology? |
 
 
