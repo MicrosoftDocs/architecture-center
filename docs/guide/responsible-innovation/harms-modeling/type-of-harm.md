@@ -428,5 +428,3 @@ Other Responsible AI tools:
 Additional references:
 
 - [Value Sensitive Design](https://vsdesign.org/)
-- [Assessing Harms booklet](downloadable)
-
