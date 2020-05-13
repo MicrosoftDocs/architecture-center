@@ -137,8 +137,16 @@ items:
       href: framework/cost/overview.md
     - name: Cost modeling
       href: framework/cost/modeling.md
-    - name: Cost monitoring
-      href: framework/cost/monitoring.md
+    - name: Monitor
+      items: 
+      - name: Checklist
+        href: framework/cost/monitor-checklist.md
+      - name: Budgets and alerts
+        href: framework/cost/monitor-alert.md
+      - name: Reports
+        href: framework/cost/monitor-reports.md
+      - name: Review
+        href: framework/cost/monitor-reviews.md
     - name: Data management
       href: framework/cost/data-management.md
     - name: Optimizing cloud costs
