@@ -2,7 +2,7 @@
 title: Estimate the initial cost
 description: Describes strategies to model your cloud costs
 author:  PageWriter-MSFT
-ms.date: 10/21/2019
+ms.date: 05/12/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -39,7 +39,7 @@ Azure provides these tools to determine cost.
 -	[Azure Migrate](/azure/migrate/migrate-services-overview) to evaluate your organization's current workloads in on-premises datacenters. It suggests Azure replacement solution, such virtual machine sizes based on your workload. It also provides a cost estimate.
 
 
-## Example
+## Example estimate for a Microservices workload
 
 Let's consider this [scenario](../../microservices/design/index.md#scenario) as an example. We'll use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the initial cost before the workload is deployed. The cost is calculated per month or for 730 hours.
 
@@ -79,7 +79,7 @@ We estimate 2-TB outbound traffic. The first 5 GB/month are free in Zone 1 (Zone
 ### External data source
 Because the schema-on read nature of the data handled by the workload, we choose Azure Cosmos DB as the external data store. By using the [Cosmos DB capacity calculator](https://cosmos.azure.com/capacitycalculator/), we can calculate the throughput to reserve.
 
-![Azure Cosmos DB Capacity calculator](../_images/cosmosdb-calc.PNG)
+![Azure Cosmos DB Capacity calculator](../_images/cosmosdb-capacity.png)
 
 #### Cost variables
 - For lower latency, in this scenario we enable geo-replication by using the **Multi-regions writes** feature. By default Cosmos DB uses one region for writes and the rest for reads.
@@ -94,7 +94,7 @@ Because the schema-on read nature of the data handled by the workload, we choose
 
 Now, we use those values in the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-![Azure Pricing calculator for Cosmos DB](../_images/cosmosdb-price-calc.PNG)
+![Azure Pricing calculator for Cosmos DB](../_images/cosmosdb-price.png)
 
 The average throughput based on these settings is 20,000 RU/s. which is the minimum throughput required for a **3-year reserved capacity** plan.
 

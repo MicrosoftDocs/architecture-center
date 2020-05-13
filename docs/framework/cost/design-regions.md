@@ -2,7 +2,7 @@
 title: Azure regions
 description: Describes cost strategies for selecting Azure regions
 author:  PageWriter-MSFT
-ms.date: 4/8/2020
+ms.date: 05/12/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -24,7 +24,7 @@ The complete list of Azure geographies, regions, and locations, is shown in [Azu
 
 To see availability of a product by region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
-## Trade off
+## Tradeoff
 - Locating resources in a cheaper region should not negate the cost of network ingress and egress or by degraded application performance because of increased latency.
 - An application hosted in a single region may cost less than an application hosted across regions because of replication costs or the need for extra nodes.
 

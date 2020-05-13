@@ -2,7 +2,7 @@
 title: Managed services
 description: Describes design choices for managed services
 author:  PageWriter-MSFT
-ms.date: 4/8/2020
+ms.date: 05/12/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -27,6 +27,6 @@ Azure provides a wide range of PaaS resources. Here are some examples of when yo
 
 For more information, see [Use platform as a service (PaaS) options](/azure/architecture/guide/design-principles/managed-services).
 
-### Reference architecture
+**Reference architecture**
 
 To see an implementation that provides better security and lowers cost through PaaS services, see [Network DMZ between Azure and an on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).

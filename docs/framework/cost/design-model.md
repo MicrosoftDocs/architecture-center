@@ -2,7 +2,7 @@
 title: Develop a cost model
 description: Describes strategies to model your cloud costs
 author:  PageWriter-MSFT
-ms.date: 10/21/2019
+ms.date: 05/12/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -15,7 +15,7 @@ _Cost modeling_ is an exercise where you create logical groups of cloud resource
 1.  [**Create a structured view of the organization in the cloud**](#organization-structure)
     
     Map the organization's needs to logical groupings offered by cloud services. This way the business leaders of the company get a clear view of the cloud services and how they're controlled.
-2.  [**Capture clear requirements**](cost-des-cap.md)
+2.  [**Capture clear requirements**](design-capture-requirements.md)
     
     Start your planning with a careful enumeration of requirements. From the high-level requirements, narrow down each requirement before starting on the design of the solution. 
 
@@ -23,7 +23,7 @@ _Cost modeling_ is an exercise where you create logical groups of cloud resource
 
     Evaluate the budget constraints on each business unit and determine the governance policies in Azure to lower cost by reducing wastage, overprovisioning, or expensive provisioning of resources.
 
-4.	[**Consider tradeoffs**](cost-tradeoffs.md)
+4.	[**Consider tradeoffs**](tradeoffs)
     
     Optimal design doesn't equal the lowest cost design.
     
@@ -33,11 +33,11 @@ _Cost modeling_ is an exercise where you create logical groups of cloud resource
 
     Break down the high-level goals into functional requirements for the components of the solution. Each requirement must be based on realistic metrics to estimate the actual cost of the workload.
 
-6. [**Consider the billing model for Azure resources**](cost-des-cons-fixed.md)
+6. [**Consider the billing model for Azure resources**](design-price.md)
 
     Azure services are offered with consumption-based price where you're charged for only what you use. There's also options for fixed price where you're charged for provisioned resources
 
-    Most services are priced based on units of size, amount of data, or operations. Understand the meters that are used to track usage. For more information, see [Azure resources](cost-des-res.md).
+    Most services are priced based on units of size, amount of data, or operations. Understand the meters that are used to track usage. For more information, see [Azure resources](design-resources.md).
 
 At the end of this exercise, you should have identified the lower and upper limits on cost and set budgets for the workload. Azure allows you to create and manage budgets in Azure Cost Management. For information, see [Quickstart: Create a budget with an Azure Resource Manager template](/azure/cost-management-billing/costs/quick-create-budget-template?tabs=CLI).
 
@@ -83,7 +83,7 @@ Map the organization's needs to logical groupings offered by cloud services. Thi
 
 #### Next step
 > [!div class="nextstepaction"]
-> [Capture cost requirements](./cost-des-cap.md)
+> [Capture cost requirements](./design-capture-requirements.md)
 
 ## Cost constraints
 
@@ -95,11 +95,11 @@ Here are some considerations for determining the governance policies that can as
 -	Assess the limits for security. Don't compromise on security. Premium cloud security features can drive the cost up. It’s not necessary to overinvest. Instead use the cost profile to drive a realistic threat profile. 
 -	Identify unrestricted resources. These resources typically need to scale and consume more cost to meet demand.
 
-For more information, see [Consider tradeoffs](cost-tradeoffs.md).
+For more information, see [Consider tradeoffs](tradeoffs).
 
 #### Next step
 > [!div class="nextstepaction"]
-> [Consider tradeoffs](./cost-tradeoffs.md)
+> [Consider tradeoffs](./tradeoffs)
 
 ## Functional requirements
 
@@ -115,9 +115,9 @@ When choosing options for services, start with an abstract representation of siz
 
 Abstract sizes give you an idea of the expected performance and cost requirements. It sets the tone for various consumption units that are used to measure compute resources for performance. Also, it helps in understanding the on-demand consumption model of the services. 
 
-For more information, see [Estimate the initial cost](./cost-des-estimate.md).
+For more information, see [Estimate the initial cost](./design-initial-estimate.md).
 
 #### Next steps
 
 > [!div class="nextstepaction"]
-> [Estimate the initial cost](./cost-des-estimate.md)
+> [Estimate the initial cost](./design-initial-estimate.md)

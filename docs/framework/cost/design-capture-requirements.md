@@ -2,7 +2,7 @@
 title: Capture requirements
 description: Describes strategies to model your cloud costs
 author:  PageWriter-MSFT
-ms.date: 10/21/2019
+ms.date: 05/12/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -36,7 +36,7 @@ Narrow down each requirement before you start the design of the workload. Expect
 ## Landing zone
 Consider the cost implications of the geographic region to which the landing zone is deployed.
 
-The landing zone consists of the subscription and resource group, in which your cloud infrastructure components exist. This zone impacts the overall cost. Consider the tradeoffs. For example, there are additional costs for network ingress and egress for cross-zonal traffic. For more information, see [Azure regions](cost-des-region.md) and [Azure resources](cost-des-res.md).
+The landing zone consists of the subscription and resource group, in which your cloud infrastructure components exist. This zone impacts the overall cost. Consider the tradeoffs. For example, there are additional costs for network ingress and egress for cross-zonal traffic. For more information, see [Azure regions](design-regions.md) and [Azure resources](design-resources.md).
 
 For information about landing zone for the entire organization, see [CAF: Implement landing zone best practices](/azure/cloud-adoption-framework/get-started/manage-costs#step-4-implement-landing-zone-best-practices).
 
@@ -67,7 +67,7 @@ Suppose the downtime costs are relatively low, you can save by using recovery fr
 
 For long running applications, consider using [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) if you can commit to one-year or three-year term. VM reservations can reduce cost by 60% or more when compared to pay-as-you-go prices. 
 
-Reservation is still an operational expense with all the corresponding benefits. Monitor the cost on workloads that have been running in the cloud for an extended period to forecast the reserved instance sizes that are needed. For information about optimization, see [Reserved instances](cost-opt-reserved.md).
+Reservation is still an operational expense with all the corresponding benefits. Monitor the cost on workloads that have been running in the cloud for an extended period to forecast the reserved instance sizes that are needed. For information about optimization, see [Reserved instances](optimizing.md).
 
 If your application runs intermittently, consider using Azure Functions in a consumption plan so you only pay for compute resources you use.  
 
@@ -92,4 +92,4 @@ Ensure that your cloud environments are integrated into any IT operations proces
 
 ## Next step
 > [!div class="nextstepaction"]
-> [Determine the cost constraints](./cost-des-model.md#cost-constraints)
+> [Determine the cost constraints](./design-model.md#cost-constraints)
