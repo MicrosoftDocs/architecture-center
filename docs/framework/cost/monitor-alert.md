@@ -9,7 +9,7 @@ ms.subservice: well-architected
 ms.custom: 
 ---
 
-# Budgets and alerts
+# Set budgets and alerts
 
 Azure Cost Management has an alert feature. Alerts are generated when consumption reaches a threshold.
 

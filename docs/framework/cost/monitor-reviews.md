@@ -1,5 +1,5 @@
 ---
-title: Cost reviews
+title: Conduct cost reviews
 description: Describes ways to gather cost data for reporting purposes
 author:  PageWriter-MSFT
 ms.date: 05/12/2020

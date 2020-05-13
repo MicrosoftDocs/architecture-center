@@ -1,5 +1,5 @@
 ---
-title: Create cost reports
+title: Generate cost reports
 description: Describes ways to gather cost data for reporting purposes
 author:  PageWriter-MSFT
 ms.date: 05/12/2020
@@ -9,7 +9,7 @@ ms.subservice: well-architected
 ms.custom: 
 ---
 
-# Cost reports
+# Generate cost reports
 To monitor the cost of the workload, use Azure cost tools or custom reports. The reports can be scoped to business units, applications, IT infrastructure shared services, and so on. Make sure that the information is consistently shared with the stakeholders.
 
 ## Azure cost tools

@@ -145,7 +145,7 @@ items:
         href: framework/cost/monitor-alert.md
       - name: Reports
         href: framework/cost/monitor-reports.md
-      - name: Review
+      - name: Reviews
         href: framework/cost/monitor-reviews.md
     - name: Data management
       href: framework/cost/data-management.md
