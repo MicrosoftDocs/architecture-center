@@ -50,6 +50,9 @@ This packet walk example corresponds to a user accessing the application hosted 
    * Source IP address: AzFwPIP
    * Destination IP address: ClientPIP
 
+> [!NOTE]
+> The IP address 192.168.100.7 in this example corresponds to one of the instances deployed under the covers as part of the Azure Firewall service, here with the frontend IP address 192.168.100.4. These individual instances are normally invisible to the Azure administrator, but in some cases it is useful noticing the difference, such as when troubleshooting network issues.
+
 Note that in this design the Azure Firewall not only inspects incoming connections from the public Internet, but outbound connections from the Azure virtual machine in the application subnet too (because of the User-Defined Route).
 
 If traffic is coming not from the public Internet but from a VPN or ExpressRoute Virtual Network Gateway, one difference is that the client will initiate the connection to the IP address to the application (the Virtual Machine in this example), and not to the firewall.
@@ -75,6 +78,10 @@ Here again this packet walk example corresponds to a user accessing a web applic
 4. Finally, the Application Gateway instance will answer to the client:
    * Source IP address: AppGwPIP
    * Destination IP address: ClientPIP
+
+> [!NOTE]
+> The IP address 192.168.200.7 in this example corresponds to one of the instances deployed under the covers as part of the Azure Application Gateway service, here with the frontend IP address 192.168.200.4. These individual instances are normally invisible to the Azure administrator, but in some cases it is useful noticing the difference, such as when troubleshooting network issues.
+
 
 ## Design Option 3: Application Gateway and Azure Firewall in parallel
 
@@ -144,7 +151,7 @@ Here the packet walk for inbound traffic from the public Internet:
    * Destination IP address: AzFWPIP
 2. The Azure Firewall will have a Destination NAT rule mapping the web ports (typically TCP 443) to the private IP address of the Application Gateway. Remember that the Azure Firewall also SNATs when doing DNAT (see [Azure Firewall Known Issues][azfw-issues] for more details on this):
    * Source IP address: 192.168.100.7 (the private IP address of the Azure Firewall instance that happens to handle this specific request)
-   * Destination IP address: 192.168.200.7
+   * Destination IP address: 192.168.200.4
 3. The Application Gateway will establish a new session between the specific instance handling the connection and one of the backend servers. Note that the original IP address of the client is not present in the packet:
    * Source IP address: 192.168.200.7 (the private IP address of the Application Gateway instance that happens to handle this specific request)
    * Destination IP address: 192.168.1.4
@@ -152,8 +159,8 @@ Here the packet walk for inbound traffic from the public Internet:
 4. The Virtual Machine will answer the request reverting source and destination IP addresses. The User-Defined Route to `192.168.200.0/24` will capture the packet sent back to the application gateway and redirect it to the Azure Firewall
    * Source IP address: 192.168.1.4
    * Destination IP address: 192.168.200.7
-5. The Application Gateway will reply to the SNAT source IP address of the Azure Firewall instance that processed the request:
-   * Source IP address: 192.168.200.7
+5. The Application Gateway will reply to the SNAT source IP address of the Azure Firewall instance that processed the request. Note that even if the connection is coming from a specific Application Gateway instance (.7), the Azure Firewall will see as source IP the internal IP address of the Application Gateway (.4):
+   * Source IP address: 192.168.200.4 
    * Destination IP address: 192.168.100.7
 6. Finally, the Azure Firewall will undo SNAT and DNAT and it will answer to the client:
    * Source IP address: AzFwPIP
@@ -168,6 +175,7 @@ The previous designs have all shown examples where the application clients were 
 * A VPN Gateway or an ExpressRoute Gateway is deployed in front of the Azure Firewall and the Application Gateway (depending on the chosen topology).
 * The private IP address of the Application Gateway will be used when the Web Application Firewall is leveraged.
 * The Azure Firewall does not support Destination NAT (DNAT) at this time for private IP addresses. Hence, if ingress traffic is to be sent to the Azure Firewall from the VPN or ExpressRoute Gateways, User-Defined Routes are to be used.
+* You need to be very careful id advertising a default route (0.0.0.0/0) from the on-premises network (this is typically called forced tunneling), since for the Azure Application Gateway the default route needs to point to the public Internet
 
 ![Hybrid design with VPN/ER Gateway](./images/hybrid_500.png)
 
@@ -178,6 +186,7 @@ Note that even if all clients are located on-premises or in Azure, both the Azur
 If using a hub and spoke topology where shared resources are deployed in a central Virtual Network (usually called hub), and applications in separate Virtual Networks (spokes) connected to the hub via Virtual Network Peerings, the designs described in this document are still applicable. Some considerations to be taken are the following:
 
 * Typically all network components described in this article would go to the hub Virtual Network, such as the Azure Firewall, the Application Gateway and the API Management Gateway (see later on for the latter).
+* Note that having the Azure Application Gateway in a spoke will be difficult in some designs, since you cannot have a default route (0.0.0.0/0) in the Application Gateway subnet with a next hop being anything other than Internet.
 * You can still define backend servers in the Application Gateway even if they are located in a peered Virtual Network
 * Special attention needs to be put on User-Defined Routes in the spokes: traffic coming from the Application Gateway instance or from the Azure Firewall should not be sent back to the main IP address of those services, but to the individual IP address of the specific instance sending the traffic. In other words, routing in the application subnet should send traffic addressed to the Azure Firewall and Application Gateway subnets to a next hop of type Virtual Network (and not Virtual Network Appliance). Otherwise asymmetric routing will break communication. This situation can easily happen if other resources such as Domain Controllers or File Servers exist in the hub, and you configure a route in the the spokes to send all hub traffic to the Azure Firewall's IP address.
 
