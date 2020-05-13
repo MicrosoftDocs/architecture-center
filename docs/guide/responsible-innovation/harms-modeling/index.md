@@ -3,7 +3,7 @@ title: Harms Modeling
 titleSuffix: Azure Application Architecture Guide
 description: Responsible Innovation is a commitment to put people first in the development of technology by understanding the stakeholders and impact of your technology
 author: dcass
-ms.date: 04/22/2020
+ms.date: 05/18/2020
 ms.topic: guide
 ms.service: architecture-center
 ms.category:
