@@ -117,11 +117,7 @@ Here the packet walk for inbound traffic from the public Internet:
    * Source IP address: 192.168.200.7 (the private IP address of the Application Gateway instance that happens to handle this specific request)
    * Destination IP address: 192.168.1.4
    * X-Forwarded-For header: ClientPIP
-<<<<<<< HEAD
 4. The Virtual Machine will answer the request reverting source and destination IP addresses. The User-Defined Route to `192.168.200.0/24` will capture the packet sent back to the application gateway and redirect it to the Azure Firewall, yet by preserving the destination ip towards the application gateway
-=======
-4. The Virtual Machine will answer the request reverting source and destination IP addresses. The User-Defined Route to `192.168.200.0/24` will capture the packet sent back to the application gateway instance and redirect it to the Azure Firewall
->>>>>>> fcp-gateway
    * Source IP address: 192.168.1.4
    * Destination IP address: 192.168.200.7
 5. Here again the Azure Firewall will not Source NAT the traffic, since it is going to a private IP address and it will forward it to the Application Gateway.
