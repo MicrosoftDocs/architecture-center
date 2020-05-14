@@ -30,9 +30,9 @@ To see availability of a product by region, see [Products available by region](h
 
 ## Compliance and regulatory
 Azure also offers differentiated cloud regions for specific security and compliance requirements.
-<hr>
-<b>Does your solution need specific levels of security and compliance?</b>
-<hr>
+*** 
+**Does your solution need specific levels of security and compliance?**
+*** 
 
 
 If your solution needs to follow certain government regulations, the cost will be higher. Otherwise you can meet less rigid compliance, through [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview), which is free. 
@@ -43,9 +43,10 @@ Regulatory requirements can dictate restrictions on data residency. These requir
 
 ## Traffic across billing zones and regions
 Cross-regional traffic and cross-zonal traffic incur additional costs. 
-<hr>
-<b>Is the application critical enough to have the footprint of the resources cross zones and,or cross regions?</b>
-<hr>
+
+*** 
+**Is the application critical enough to have the footprint of the resources cross zones and,or cross regions?**
+*** 
 
 Bandwidth refers to data moving in and out of Azure datacenters. Inbound data transfers (data going into Azure datacenters) are free for most services. For outbound data transfers, (data going out of Azure datacenters) the data transfer pricing is based on billing zones. For more information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/?cdn=disable).
 

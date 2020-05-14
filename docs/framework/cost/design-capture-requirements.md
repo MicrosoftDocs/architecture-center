@@ -1,5 +1,5 @@
 ---
-title: Capture cost requirements for an Azure workload
+title: Capture cost requirements for an Azure 
 description: Describes strategies to model your cloud costs
 author:  PageWriter-MSFT
 ms.date: 05/12/2020
@@ -19,8 +19,9 @@ Start your planning with a careful enumeration of requirements. Make sure the ne
 -	Security
 -	Availability
 
-<hr><b>What do you aim to achieve by building your architecture in the cloud?</b>
-<hr>
+*** 
+**What do you aim to achieve by building your architecture in the cloud?** 
+***
 
 Here are some common answers.
 - Take advantage of features only available in the cloud, such as intelligent security systems, regions footprint, or resiliency features.
@@ -49,7 +50,9 @@ For security considerations, see the [Security Pillar](../security/overview.md).
 
 ## Business continuity
 
-<hr><b>Does the application have a Service Level Agreement that it must meet?</b><hr>
+*** 
+**Does the application have a Service Level Agreement that it must meet?** 
+*** 
 
 Factor in the cost when you create high availability and disaster recovery strategies.
 
@@ -63,7 +66,9 @@ Suppose the downtime costs are relatively low, you can save by using recovery fr
 
 ## Application lifespan
 
-<hr><b>Does your service run seasonally or follow long-term patterns?</b><hr>
+*** 
+**Does your service run seasonally or follow long-term patterns?**
+***  
 
 For long running applications, consider using [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) if you can commit to one-year or three-year term. VM reservations can reduce cost by 60% or more when compared to pay-as-you-go prices. 
 
@@ -72,7 +77,9 @@ Reservation is still an operational expense with all the corresponding benefits.
 If your application runs intermittently, consider using Azure Functions in a consumption plan so you only pay for compute resources you use.  
 
 ## Automation opportunities
-<hr><b>It is a business requirement to have the service be available 24x7?</b><hr>
+*** 
+**Is it a business requirement to have the service be available 24x7?**  
+***
 
 You may not have a business goal to leave the service running all the time. Doing so will incur a consistent cost. Can you save by shutting down the service or scaling it down outside normal business hours? If you can, 
 -	Azure has a rich set of APIs, SDKs, and automation technology that utilizes DevOps and traditional automation principles. Those technologies ensure that the workload is available at an appropriate level of scale as needed.

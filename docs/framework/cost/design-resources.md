@@ -17,7 +17,9 @@ Most services are priced based on units of size, amount of data, or operations. 
 
 For example, you provision a virtual machine in Azure. Some meters that track its usage include: Compute Hours, IP Address Hours, Data Transfer In, Data Transfer Out, Standard Managed Disk, Standard Managed Disk Operations, Standard IO-Disk, Standard IO-Block Blob Read, Standard IO-Block Blob Write, Standard IO-Block Blob Delete.
 
-<hr><b>How is the usage tracked for each resource in the workload?</b><hr>
+*** 
+**How is the usage tracked for each resource in the workload?**  
+***
 
 For each Azure resource, have a clear understanding of the meters that track usage and the number of meters associated with the resource tier. The meters correlate to several billable units. Those units are charged to the account for each billing period. The rate per billable unit depends on the resource tier. 
 
@@ -52,8 +54,9 @@ For details about how billing works, see [Azure Cost Management + Billing docume
 
 ## Subscription and offer type 
 
-<hr><b>What is the subscription and offer type in which resources are created?</b><hr>
-
+*** 
+**What is the subscription and offer type in which resources are created?**  
+***
 
 Azure usage rates and billing periods can vary depending on the subscription and offer type.
 Some subscription types also include usage allowances or lower prices. For example, Azure [Dev/Test subscription](https://azure.microsoft.com/offers/ms-azr-0148p/) offers lower prices on Azure services such as specific VM sizes, PaaS web apps, and VM images with pre-installed software. Visual Studio subscribers obtain as part of their benefits access to [Azure subscriptions](https://azure.microsoft.com/offers/ms-azr-0063p/) with monthly allowances.
@@ -66,7 +69,9 @@ As you decide the offer type, consider the types that support [Azure Reservation
 
 ## Billing structure for services in Azure Marketplace
 
-<hr><b>Are you considering third-party services through Azure Marketplace?</b><hr>
+*** 
+**Are you considering third-party services through Azure Marketplace?**  
+***
 
 Azure Marketplace offers both the Azure products and services from third-party vendors. Different billing structures apply to each of those categories. The billing structures can range from free, pay-as-you-go, one-time purchase fee, or a managed offering with support and licensing monthly costs.
 

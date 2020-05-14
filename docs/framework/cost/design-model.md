@@ -54,8 +54,9 @@ Map the organization's needs to logical groupings offered by cloud services. Thi
 
 1. Map company’s hierarchy to logical groups of cloud services.
 
-    </p>
-    <hr><b>Which business units in your company are adopting the cloud?</b><hr>
+    *** 
+    **Which business units in your company are adopting the cloud?**  
+    ***
 
     One of the first tasks is to understand the company’s hierarchy and identify the business units with cloud consumption needs. Those needs are mapped to logical groupings offered by cloud services. This mapping helps business leaders of the company get a clear view where cloud services are deployed and how they're governed. 
     
@@ -65,15 +66,17 @@ Map the organization's needs to logical groupings offered by cloud services. Thi
 
 2. Calculate the ROI by understanding what is included in each grouping and what isn't.
 
-    <hr><b>Which aspects of the hierarchy are covered by cloud services?</b><hr>
+    *** 
+    **Which aspects of the hierarchy are covered by cloud services?**  
+    ***
 
     Azure pricing model is based on expenses incurred for the service. Expenses include hardware, software, development, operations, security, and data center space to name a few. Evaluate the cost benefit of shifting away from owned technology infrastructure to leased technology solutions.
 
 3. Identify scenarios where you can use shared cloud services to lower cost. 
 
-    <hr>
-    <b>Can some services be shared by other consumers?</b>
-    <hr>
+    *** 
+    **Can some services be shared by other consumers?**
+    *** 
 
     Identify areas where a service or an application environment can be shared with other business units. 
 
@@ -103,7 +106,9 @@ Here are some considerations for determining the governance policies that can as
 
 Break down high-level goals into functional requirements. For each of those requirements, define metrics to calculate cost estimates accurately. Cloud services are priced based on performance, features, and locations. When defining these metrics, identify acceptable boundaries of performance, scale, resilience, and security. Start by expressing your goals in number of business transactions over time, breaking them down to fine-grain requirements.
 
-<hr><b>What resources are needed for a single transaction, and how many transactions are done per second, day, year?</b> <hr>
+*** 
+**What resources are needed for a single transaction, and how many transactions are done per second, day, year?** 
+*** 
 
 
 > ![Task](../../_images/i-best-practices.png) Start with a fixed cost of operations and a rough estimate of transaction volume to work out a cost-per-transaction to establish a baseline. Consider the difference between cost models based on fixed, static provisioning of services, more variable costs based upon autoscaling such as serverless technologies. 
