@@ -2,7 +2,7 @@
 title: Cost for AI + Machine Learning services
 description: Describes cost strategies for serverless technologies
 author:  PageWriter-MSFT
-ms.date: 4/23/2020
+ms.date: 05/14/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
