@@ -24,7 +24,7 @@ Both Azure services are often complementary to each other, so it can be difficul
 * **Azure Firewall only**: this design is often used when there are no web applications in the Virtual Network
 * **Application Gateway only**: this design is appropriate when there are only web applications in the Virtual Network and Network Security Groups are enough for egress filtering
 * **Azure Firewall and Application Gateway in parallel**: this is the most frequent design, where the Azure Application Gateway protects HTTP(S) applications from web attacks and the Azure Firewall protects all other workloads, plus filters outbound traffic
-* **Application Gateway in front of Azure Firewall**: this design is used by customers that want a firewall to inspect both inbound and outbound traffic, but still have the Application Gateway protect web workloads
+* **Application Gateway in front of Azure Firewall**: this design is used by customers that want a firewall to inspect both inbound and outbound traffic for web and non-web applications, but still have the Application Gateway protect web workloads
 * **Azure Firewall in front of Application Gateway**: similar to the previous design, but the Azure Firewall inspects traffic before it arrives to the Application Gateway. This design provides a unique public address for inbound and outbound traffic. A downside of this design is that the application will not see the original source IP address of the web traffic.
 
 There are many variations to the previous basic designs: whether the application clients are coming from the public Internet or from on-premises, whether the hub and spoke network design is used, specific details for integration with [Azure Kubernetes Service][aks-overview], adding additional services such as the [API Management][apim-overview] Gateway, and finally, the possibility of replacing the Azure resources described in this article with Network Virtual Appliances of Microsoft partners. These variations will be discussed in the second half of this article.
@@ -64,6 +64,8 @@ The opposite case to the previous use case is when only web applications exist i
 ![AppGW only](./images/design2_500.png)
 
 Here again this packet walk example corresponds to a user accessing a web application hosted in virtual machines from the public Internet. However, the situation if the client is coming from an on-premises network over a VPN or an ExpressRoute gateway is very similar, with the only difference that the client would access the private IP address of the Application Gateway instead of the public one.
+
+Azure Application Gateway will add to the packet HTTP headers with metadata, such as the X-Forwarded-For header containing the original client's IP address. This is important because some application servers will need that information, for example to server content depending on the client's geolocation, or just for logging. For more information please see the article [How an application gateway works][appgw-networking]
 
 1. The application client will initiate the connection to the public IP address of the Azure Application Gateway:
    * Source IP address: ClientPIP
@@ -239,10 +241,11 @@ This document has analyzed different approaches for integrating the Azure Applic
 [appgw-docs]: https://docs.microsoft.com/azure/application-gateway/
 [waf-docs]: https://docs.microsoft.com/azure/web-application-firewall/
 [appgw_apim]: https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
-[api_gws]: [https://docs.microsoft.com/azure/architecture/microservices/design/gateway]
+[api-gws]: https://docs.microsoft.com/azure/architecture/microservices/design/gateway
 [agic_overview]: https://docs.microsoft.com/azure/application-gateway/ingress-controller-overview
 [apim-overview]: https://docs.microsoft.com/azure/api-management/api-management-key-concepts
 [aks-overview]: https://docs.microsoft.com/azure/aks/intro-kubernetes
 [aks-egress]: https://docs.microsoft.com/azure/aks/limit-egress-traffic
 [afd-overview]: https://docs.microsoft.com/azure/frontdoor/front-door-overview
 [afd-vs-appgw]: https://docs.microsoft.com/azure/frontdoor/front-door-faq#what-is-the-difference-between-azure-front-door-and-azure-application-gateway
+[appgw-networking]: https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works
