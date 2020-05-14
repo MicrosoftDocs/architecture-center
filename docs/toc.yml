@@ -968,8 +968,6 @@ items:
     items:
     - name: Architectures
       items:
-      - name: Centralize app configuration and security
-        href: solution-ideas/articles/backup-archive-on-premises.md
       - name: Archive on-premises data to cloud
         href: solution-ideas/articles/backup-archive-on-premises.md
       - name: Back up cloud applications
