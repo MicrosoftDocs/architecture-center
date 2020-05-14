@@ -1906,7 +1906,7 @@
     },
     {
       "source_path": "docs/framework/cost/modeling.md",
-      "redirect_url": "/azure/architecture/framework/cost/cost-des-model.md"
+      "redirect_url": "/azure/architecture/framework/cost/design-model.md"
     },
     {
       "source_path": "docs/framework/cost/monitoring.md",
