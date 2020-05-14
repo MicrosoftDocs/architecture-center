@@ -25,6 +25,8 @@ To lower the cost for experimental or development workloads, choose Spot VMs. Th
 
 For more information about the services that make up a machine learning workload, see [What are the machine learning products at Microsoft?](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning).
 
+This article provides cost considerations for some technology choices. This is not meant to be an exhaustive list, but a subset of options.
+
 ## Azure Machine Learning
 There are two editions, **Enterprise** and **Basic**. Training models don't incur the machine learning service surcharge. You're charged for these factors.  
 - The cost is driven by compute choices, such as, the virtual machine sizes and the region in which they are available. If you can commit to one or three years, choosing reserved instances can lower cost. For more information, see [Reserved instances](/azure/architecture/framework/cost/optimize-vm?.md#reserved-vms).

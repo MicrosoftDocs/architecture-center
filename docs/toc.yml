@@ -140,7 +140,7 @@ items:
     - name: Provision
       items:
         - name: Checklist
-        - href: framework/cost/provision-checklist.md      
+          href: framework/cost/provision-checklist.md      
         - name: AI + Machine Learning
           href: framework/cost/provision-ai-ml.md
         - name: Big data

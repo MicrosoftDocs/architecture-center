@@ -11,7 +11,7 @@ ms.custom:
 
 # Cost for big data analytics
 
-Big data workloads are mainly designed to do:
+Most big data workloads are designed to do:
 
 - Batch processing of big data sources at rest.
 - Stream processing of data in motion.
@@ -28,7 +28,7 @@ For information about choosing technologies for each workload, see these article
     - [What are your options when choosing a technology for real-time processing?](/azure/architecture/data-guide/technology-choices/stream-processing.md#what-are-your-options-when-choosing-a-technology-for-real-time-processing)
     - [Capability matrix](/azure/architecture/data-guide/technology-choices/stream-processing.md#capability-matrix)
 
-Both workloads have common choices for analytics. This article provides cost considerations for some those choices. This is not meant to be an exhaustive list, but a subset of options.
+This article provides cost considerations for some of those choices. This is not meant to be an exhaustive list, but a subset of options.
 
 
 ## Azure Synapse Analytics
