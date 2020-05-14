@@ -1,5 +1,5 @@
 ---
-title: Centralized app configuration and security with App Configuration and Key Vault
+title: Centralized app configuration and security
 titleSuffix: Azure Solution Ideas
 author: sowmyans
 ms.date: 05/13/2020
