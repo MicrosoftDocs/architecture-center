@@ -104,7 +104,7 @@ This document will not go in detail over the packet walks of these flows, since 
 Some organizations have as requirement having all traffic go both trough a Web Application Firewall and through a Firewall. The WAF would provide protection against attacks at the application layer, and the firewall can be used as a central logging and control point. In this case the Application Gateway and the Azure Firewall are not sitting in parallel, but one after the other.
 
 > [!WARNING]
-> One important remark of this design is that the value added by the Azure Firewall for inbound web traffic is limited, since it is only inspecting legitimate traffic from the application gateway to the web application. However, it will introduce additional pressure on the Firewall due to the need to inspect web traffic as well.
+> One important remark of this design is that the value added by the Azure Firewall for inbound web traffic is limited, since it is only inspecting legitimate traffic from the application gateway to the web application. Additionally, it will introduce additional pressure on the Firewall due to the need to inspect web traffic as well.
 
 In this design, the Web Application Firewall is facing the public Internet. Azure WAF running on top of the Application Gateway is a security-hardened device designed to operate facing directly the public Internet, since it offers a very limited attack surface and it has been designed explicitly for that purpose. Being the first line of defense against attacks, the WAF will set the source IP address of the client in the X-Forwarded-For header, making the original IP address of the client visible to the web server.
 
@@ -155,7 +155,7 @@ Here the packet walk for inbound traffic from the public Internet:
 3. The Application Gateway will establish a new session between the specific instance handling the connection and one of the backend servers. Note that the original IP address of the client is not present in the packet:
    * Source IP address: 192.168.200.7 (the private IP address of the Application Gateway instance that happens to handle this specific request)
    * Destination IP address: 192.168.1.4
-   * X-Forwarded-For header: ClientPIP
+   * X-Forwarded-For header: 192.168.100.7
 4. The Virtual Machine will answer to the Application Gateway reverting source and destination IP addresses.
    * Source IP address: 192.168.1.4
    * Destination IP address: 192.168.200.7
@@ -192,7 +192,7 @@ If using a hub and spoke topology where shared resources are deployed in a centr
 * You can still define backend servers in the Application Gateway even if they are located in a peered Virtual Network
 
 > [!WARNING]
-> Special attention needs to be put on User-Defined Routes in the spokes: traffic coming from a specific instance of the Azure Firewall (the .7 address in the previous examples) should not be sent back to the main IP address of the Azure Firewall (the .4 address in the previous examples). In other words, routing in the application subnet should send traffic addressed to the AzureFirewallSubnet to a next hop of type Virtual Network (and not Virtual Network Appliance). Otherwise asymmetric routing will break communication. This situation can easily happen if other resources such as Domain Controllers or File Servers exist in the hub vnet, and you configure a route in the the spoke vnets to send all hub traffic to the Azure Firewall's IP address.
+> Special attention needs to be put on User-Defined Routes in the spokes: when the application server receives traffic coming from a specific Azure Firewall instance (the .7 address in the previous examples) it should send return traffic back to the same instance. If there is a User-Defined Route in the spoke to send traffic addressed to the hub to the Azure Firewall IP address (the .4 address in the previous examples), return packets might end up on a different Azure Firewall instance causing asymmetric routing. This problematic situation can easily happen if other resources such as Domain Controllers or File Servers exist in the hub vnet, and you configure a route in the the spoke vnets to send all hub traffic to the Azure Firewall's IP address.
 
 ![Hybrid design with VPN/ER Gateway and Hub and Spoke](./images/hubnspoke_500.png)
 
