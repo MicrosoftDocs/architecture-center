@@ -54,7 +54,6 @@ Map the organization's needs to logical groupings offered by cloud services. Thi
 
 1. Map company’s hierarchy to logical groups of cloud services.
 
-    *** 
     **Which business units in your company are adopting the cloud?**  
     ***
 
@@ -66,7 +65,7 @@ Map the organization's needs to logical groupings offered by cloud services. Thi
 
 2. Calculate the ROI by understanding what is included in each grouping and what isn't.
 
-    *** 
+ 
     **Which aspects of the hierarchy are covered by cloud services?**  
     ***
 
@@ -74,7 +73,7 @@ Map the organization's needs to logical groupings offered by cloud services. Thi
 
 3. Identify scenarios where you can use shared cloud services to lower cost. 
 
-    *** 
+
     **Can some services be shared by other consumers?**
     *** 
 
@@ -106,7 +105,7 @@ Here are some considerations for determining the governance policies that can as
 
 Break down high-level goals into functional requirements. For each of those requirements, define metrics to calculate cost estimates accurately. Cloud services are priced based on performance, features, and locations. When defining these metrics, identify acceptable boundaries of performance, scale, resilience, and security. Start by expressing your goals in number of business transactions over time, breaking them down to fine-grain requirements.
 
-*** 
+
 **What resources are needed for a single transaction, and how many transactions are done per second, day, year?** 
 *** 
 

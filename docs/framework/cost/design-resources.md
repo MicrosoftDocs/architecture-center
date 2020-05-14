@@ -17,7 +17,7 @@ Most services are priced based on units of size, amount of data, or operations. 
 
 For example, you provision a virtual machine in Azure. Some meters that track its usage include: Compute Hours, IP Address Hours, Data Transfer In, Data Transfer Out, Standard Managed Disk, Standard Managed Disk Operations, Standard IO-Disk, Standard IO-Block Blob Read, Standard IO-Block Blob Write, Standard IO-Block Blob Delete.
 
-*** 
+
 **How is the usage tracked for each resource in the workload?**  
 ***
 
@@ -54,7 +54,7 @@ For details about how billing works, see [Azure Cost Management + Billing docume
 
 ## Subscription and offer type 
 
-*** 
+
 **What is the subscription and offer type in which resources are created?**  
 ***
 
@@ -69,7 +69,7 @@ As you decide the offer type, consider the types that support [Azure Reservation
 
 ## Billing structure for services in Azure Marketplace
 
-*** 
+
 **Are you considering third-party services through Azure Marketplace?**  
 ***
 

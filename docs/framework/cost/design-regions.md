@@ -30,7 +30,7 @@ To see availability of a product by region, see [Products available by region](h
 
 ## Compliance and regulatory
 Azure also offers differentiated cloud regions for specific security and compliance requirements.
-*** 
+
 **Does your solution need specific levels of security and compliance?**
 *** 
 
@@ -44,7 +44,7 @@ Regulatory requirements can dictate restrictions on data residency. These requir
 ## Traffic across billing zones and regions
 Cross-regional traffic and cross-zonal traffic incur additional costs. 
 
-*** 
+
 **Is the application critical enough to have the footprint of the resources cross zones and,or cross regions?**
 *** 
 

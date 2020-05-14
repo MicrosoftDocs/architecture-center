@@ -19,7 +19,7 @@ Start your planning with a careful enumeration of requirements. Make sure the ne
 -	Security
 -	Availability
 
-*** 
+
 **What do you aim to achieve by building your architecture in the cloud?** 
 ***
 
@@ -50,7 +50,7 @@ For security considerations, see the [Security Pillar](../security/overview.md).
 
 ## Business continuity
 
-*** 
+
 **Does the application have a Service Level Agreement that it must meet?** 
 *** 
 
@@ -66,7 +66,7 @@ Suppose the downtime costs are relatively low, you can save by using recovery fr
 
 ## Application lifespan
 
-*** 
+
 **Does your service run seasonally or follow long-term patterns?**
 ***  
 
@@ -77,7 +77,7 @@ Reservation is still an operational expense with all the corresponding benefits.
 If your application runs intermittently, consider using Azure Functions in a consumption plan so you only pay for compute resources you use.  
 
 ## Automation opportunities
-*** 
+
 **Is it a business requirement to have the service be available 24x7?**  
 ***
 
