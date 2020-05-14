@@ -1908,6 +1908,10 @@
       "source_path": "docs/framework/cost/modeling.md",
       "redirect_url": "/azure/architecture/framework/cost/cost-des-model",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/framework/cost/monitoring.md",
+      "redirect_url": "azure/architecture/framework/cost/monitor-checklist.md"
     }
   ]
 }
