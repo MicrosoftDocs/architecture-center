@@ -1,18 +1,18 @@
 ---
-title: Centralized and secured configuration service for apps
+title: Centralized app configuration and security with App Configuration and Key Vault
 titleSuffix: Azure Solution Ideas
 author: sowmyans
 ms.date: 05/13/2020
-description: Recommendation on centralized and secured configuration service for apps.
+description: Use Azure App Configuration and Azure Key Vault to create a centralized and secured configuration service for apps.
 ms.custom: fcp
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
-# Centralized and secured configuration service for apps
+# Centralize Azure app configuration and security
 
-Cloud-based applications often run on multiple virtual machines or containers in multiple regions and use multiple external services. Creating a robust and scalable application in a distributed environment presents a significant challenge. [Azure App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/overview) lets you manage and store all your app's configuration settings, feature flags, and secure access settings in one place.
+Cloud-based applications often run on multiple virtual machines or containers in multiple regions, and use multiple external services. Creating a robust and scalable application in a distributed environment presents a significant challenge. [Azure App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/overview) lets you manage and store all your app's configuration settings and feature flags, and secure access settings, in one place.
 
-App Configuration works seamlessly with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), which stores passwords, keys, and secrets for secure application access. This article presents best practices for using App Configuration and Key Vault in development and Azure environments.
+App Configuration works seamlessly with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), which stores passwords, keys, and secrets for secure access. This article presents best practices for using App Configuration and Key Vault in development and Azure environments.
 
 ## Use cases
 
@@ -20,7 +20,7 @@ While any application can use Azure App Configuration, the following types of ap
 
 - Microservices based on Azure Kubernetes Service, Azure Service Fabric, or other containerized apps deployed in one or more geographies
 - Serverless apps, which include Azure Functions or other event-driven stateless compute apps
-- A continuous deployment pipeline
+- Apps that use a continuous deployment (CD) pipeline
 
 ## Architecture
 
