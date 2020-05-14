@@ -137,8 +137,16 @@ items:
       href: framework/cost/overview.md
     - name: Cost modeling
       href: framework/cost/modeling.md
-    - name: Cost monitoring
-      href: framework/cost/monitoring.md
+    - name: Monitor
+      items: 
+      - name: Checklist
+        href: framework/cost/monitor-checklist.md
+      - name: Budgets and alerts
+        href: framework/cost/monitor-alert.md
+      - name: Reports
+        href: framework/cost/monitor-reports.md
+      - name: Reviews
+        href: framework/cost/monitor-reviews.md
     - name: Data management
       href: framework/cost/data-management.md
     - name: Optimizing cloud costs
@@ -378,12 +386,20 @@ items:
         href: solution-ideas/articles/business-process-management.md
       - name: Real-time recommendation API
         href: reference-architectures/ai/real-time-recommendation.md
-      - name: Enterprise-grade conversational bot
-        href: reference-architectures/ai/conversational-bot.md
       - name: Chatbot for hotel reservations
         href: example-scenario/ai/commerce-chatbot.md
       - name: eCommerce chatbot
         href: solution-ideas/articles/commerce-chatbot.md
+      - name: Enterprise chatbot disaster recovery
+        href: solution-ideas/articles/enterprise-chatbot-disaster-recovery.md
+      - name: Enterprise-grade conversational bot
+        href: reference-architectures/ai/conversational-bot.md
+      - name: Enterprise productivity chatbot
+        href: solution-ideas/articles/enterprise-productivity-chatbot.md
+      - name: FAQ chatbot
+        href: solution-ideas/articles/faq-chatbot-with-data-champion-model.md
+      - name: Information chatbot
+        href: solution-ideas/articles/information-chatbot.md
       - name: Content Research
         href: solution-ideas/articles/content-research.md
       - name: Contract Management
@@ -400,18 +416,12 @@ items:
         href: solution-ideas/articles/digital-asset-management.md
       - name: Energy supply optimization
         href: solution-ideas/articles/energy-supply-optimization.md
-      - name: Enterprise productivity chatbot
-        href: solution-ideas/articles/enterprise-productivity-chatbot.md
-      - name: FAQ chatbot
-        href: solution-ideas/articles/faq-chatbot-with-data-champion-model.md
       - name: Energy demand forecasting
         href: solution-ideas/articles/forecast-energy-power-demand.md
       - name: Image classification
         href: example-scenario/ai/intelligent-apps-image-processing.md
       - name: Image classification with CNN's
         href: solution-ideas/articles/image-classification-with-convolutional-neural-networks.md
-      - name: Information chatbot
-        href: solution-ideas/articles/information-chatbot.md
       - name: Information discovery with NLP
         href: solution-ideas/articles/information-discovery-with-deep-learning-and-nlp.md
       - name: Interactive voice response bot

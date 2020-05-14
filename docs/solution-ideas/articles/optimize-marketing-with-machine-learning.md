@@ -39,5 +39,5 @@ In this solution, SQL Server R Services brings the compute to the data by runnin
 ## Next steps
 
 * [Get started with SQL Server R Services](https://www.microsoft.com/sql-server/sql-server-r-services)
-* [Learn more about Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning)
+* [Learn more about Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
