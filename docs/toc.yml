@@ -982,6 +982,8 @@ items:
         href: solution-ideas/articles/backup-archive-cloud-application.md
       - name: Back up on-premises applications
         href: solution-ideas/articles/backup-archive-on-premises-applications.md
+      - name: Centralize app configuration and security
+        href: solution-ideas/articles/appconfig-key-vault.md
       - name: Computer forensics
         href: example-scenario/forensics/index.md
       - name: High availability for BCDR
