@@ -1,5 +1,5 @@
 ---
-title: Capture requirements
+title: Capture cost requirements for an Azure workload
 description: Describes strategies to model your cloud costs
 author:  PageWriter-MSFT
 ms.date: 05/12/2020

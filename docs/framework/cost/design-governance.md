@@ -1,5 +1,5 @@
 ---
-title: Governance 
+title: Cost governance for an Azure workload 
 description: Describes cost strategies for database design choices
 author:  PageWriter-MSFT
 ms.date: 05/12/2020

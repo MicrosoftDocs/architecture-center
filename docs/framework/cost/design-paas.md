@@ -1,5 +1,5 @@
 ---
-title: Managed services
+title: Use Azure PaaS and SaaS services
 description: Describes design choices for managed services
 author:  PageWriter-MSFT
 ms.date: 05/12/2020
@@ -21,7 +21,7 @@ Azure provides a wide range of PaaS resources. Here are some examples of when yo
 |Host a web server|	[Azure App Service](/azure/app-service/) instead of setting up IIS servers.|
 |Indexing and querying heterogenous data|[Azure Cognitive Search](/azure/search/search-what-is-azure-search) instead of ElasticSearch.|
 |Host a database server|Azure offers many SQL and no-SQL options such as Azure SQL Database and Azure Cosmos DB.|
-|Secure access to virtual machine|[Azure Bastion](/services/azure-bastion) instead of virtual machines as jumpboxes.|
+|Secure access to virtual machine|[Azure Bastion](/services/azure-bastion) instead of virtual machines as jump boxes.|
 |Network security|[Azure Firewall](/azure/firewall/) instead of virtual network appliances.|
 
 
