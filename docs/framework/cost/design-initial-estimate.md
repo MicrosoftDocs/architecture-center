@@ -11,7 +11,7 @@ ms.custom:
 
 # Estimate the initial cost
 
-It’s difficult to attribute costs before deploying a workload to the cloud. If you use methods for on-premises estimation or directly map on-premises assets to cloud resources, estimate will be inaccurate. For example, if you build your own datacenter your costs may appear comparable to cloud. Most on-premises estimates don't account for costs like cooling, electricity, IT and facilities labor, security, and disaster recovery. 
+It’s difficult to attribute costs before deploying a workload to the cloud. If you use methods for on-premises estimation or directly map on-premises assets to cloud resources, estimate will be inaccurate. For example, if you build your own datacenter your costs may appear comparable to cloud. Most on-premises estimates don't account for costs like cooling, electricity, IT and facilities labor, security, and disaster recovery.
 
 Here are some best practices:
 
