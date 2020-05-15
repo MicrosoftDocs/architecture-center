@@ -15,7 +15,7 @@ Perform application assessment, conduct or attend technical workshops that foste
 As you get started, the checklist and resources below will help you validate and commit the serverless adoption. You should be able to answer these questions:
 - Have you verified the main characteristics of the application? 
 - How suitable is this application for serverless technologies?
-- Have the application technical team prepared to use serverless technologies?
+- Is the technical team prepared to use serverless technologies?
 - Have you validated business requirements and transformed them into functional and non-functional requirements?
 
 | Checklist | Resources |
