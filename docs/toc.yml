@@ -155,6 +155,14 @@ items:
         href: framework/cost/design-initial-estimate.md
       - name: Managed services
         href: framework/cost/design-paas.md
+    - name: Provision
+      items:
+        - name: Checklist
+          href: framework/cost/provision-checklist.md      
+        - name: AI + Machine Learning
+          href: framework/cost/provision-ai-ml.md
+        - name: Big data
+          href: framework/cost/provision-analytics.md          
     - name: Monitor
       items: 
       - name: Checklist
@@ -169,8 +177,7 @@ items:
       href: framework/cost/data-management.md
     - name: Optimizing cloud costs
       href: framework/cost/optimizing.md
-    - name: Provisioning
-      href: framework/cost/provisioning.md
+
     - name: Trade-offs
       href: framework/cost/tradeoffs.md
     - name: Checklist

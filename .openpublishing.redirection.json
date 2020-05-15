@@ -1911,6 +1911,10 @@
     {
       "source_path": "docs/framework/cost/monitoring.md",
       "redirect_url": "azure/architecture/framework/cost/monitor-checklist"
+    },
+    {
+      "source_path": "docs/framework/cost/provisioning.md",
+      "redirect_url": "azure/architecture/framework/cost/provision-checklist"
     }
   ]
 }
