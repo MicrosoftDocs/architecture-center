@@ -13,12 +13,12 @@ ms.custom:
 
 ## Traffic routing and load balancing
 
-Most workloads have a load balancing service to route and distribute traffic in a way that a single resource is not overloaded, and the response time is minimum with maximum throughput. 
+Most workloads have a load balancing service to route and distribute traffic in a way that a single resource isn't overloaded, and the response time is minimum with maximum throughput. 
 
 **Do you need to distribute traffic within a region or across regions?**
 ***
 
-Azure Front Door and Traffic Manager have the ability to distribute traffic to backends, clouds, or hybrid on-premises services that reside in multiple regions. Otherwise, for regional traffic that moves within virtual networks or zonal and zone-redundant service endpoints within a region, choose Application Gateway or Azure Load Balancer.
+Azure Front Door and Traffic Manager can distribute traffic to backends, clouds, or hybrid on-premises services that reside in multiple regions. Otherwise, for regional traffic that moves within virtual networks or zonal and zone-redundant service endpoints within a region, choose Application Gateway or Azure Load Balancer.
 
 **What is the type of traffic?** 
 ***
@@ -39,9 +39,9 @@ For more information, see [Choose a load balancing service](../../guide/technolo
 
 ### Example cost analysis
 
-Consider a web application that receives traffic from users across regions over the internet. To minimize the request response time, the load balancer should have the ability to delegate the responsibility from the web server to a different machine. The application is expected to consume 10 TB of data. Routing rules are required to route incoming requests to various paths. Also, we want to use Web Application Firewall (WAF) to secure the application through policies.
+Consider a web application that receives traffic from users across regions over the internet. To minimize the request response time, the load balancer can delegate the responsibility from the web server to a different machine. The application is expected to consume 10 TB of data. Routing rules are required to route incoming requests to various paths. Also, we want to use Web Application Firewall (WAF) to secure the application through policies.
 
-By using the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) we can estimate the cost for these two services.
+By using the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/), we can estimate the cost for these two services.
 > The example is based on the current price and is subject to change. The calculation shown is for information purposes only.
 #### Azure Front Door (West US), Zone 1.
 ![Azure Front Door ](../_images/cost-net-lb.png)
