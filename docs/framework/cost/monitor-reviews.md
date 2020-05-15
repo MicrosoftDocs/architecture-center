@@ -16,6 +16,7 @@ The goal of cost monitoring is to review cloud spend with the intent of establis
 **Who should be included in a cost review?**  
 ***
 
+
 The financial stakeholders must understand cloud billing to derive business benefits using financial metrics to make effective decisions.
 
 Also include members of the technical team. Application owners, systems administrators who monitor and back-up cloud systems, and business unit representatives must be aware of the decisions. They can provide insights because they understand cloud cost metering and cloud architecture. One way of identifying owners of systems or applications is through resource tags.
@@ -23,6 +24,7 @@ Also include members of the technical team. Application owners, systems administ
 
 **What should be the cadence of cost reviews?**  
 ***
+
 
 Cost reviews can be conducted as part of the regular business reviews. It’s recommended that such reviews are scheduled,
 

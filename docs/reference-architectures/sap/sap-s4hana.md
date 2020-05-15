@@ -35,7 +35,7 @@ The following components are required.
 
 **Azure Virtual Network.** The [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (VNet) service securely connects Azure resources to each other. In this architecture, a VNet connects to an on-premises environment through a gateway deployed in the hub of a [hub-spoke topology](../../reference-architectures/hybrid-networking/hub-spoke.md). The spoke is the VNet used for the SAP applications and the database tiers.
 
-**Virtual network peering.** This architecture uses multiple virtual networks that are [peered together](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). This topology offers network segmentation and isolation for services deployed on Azure. Peering connects networks transparently through the Microsoft backbone network and does not incur a performance penalty if implemented within a single region. Separate subnets are used for each tier—application (SAP NetWeaver), database, and shared services (such as the jumpbox and Active Directory).
+**Virtual network peering.** This architecture uses multiple virtual networks that are [peered together](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). This topology offers network segmentation and isolation for services deployed on Azure. Peering connects networks transparently through the Microsoft backbone network and does not incur a performance penalty if implemented within a single region. Separate subnets are used for each tier-application (SAP NetWeaver), database, and shared services (such as the jumpbox and Active Directory).
 
 **Virtual machines.** This architecture uses virtual machines running Linux for the application tier and database tier, grouped as follows:
 
@@ -93,13 +93,13 @@ The Web Dispatcher component is used as a load balancer for SAP traffic among th
 
 ### Fiori Front-end Server (FES)
 
-This architecture addresses broad base requirements and assumes that the Embedded Fiori FES model is used. All the technology components are installed on the S/4 system itself, meaning that each S/4 system has its own Fiori Launchpad. The high availability setup for this deployment model is that of the S/4 system—no additional clustering or virtual machines are required. That's why the architecture diagram does not show the FES component.
+This architecture addresses broad base requirements and assumes that the Embedded Fiori FES model is used. All the technology components are installed on the S/4 system itself, meaning that each S/4 system has its own Fiori Launchpad. The high availability setup for this deployment model is that of the S/4 system-no additional clustering or virtual machines are required. That's why the architecture diagram does not show the FES component.
 
-The [SAP Fiori Deployment Options and System Landscape Recommendations](https://www.sap.com/documents/2018/02/f0148939-f27c-0010-82c7-eda71af511fa.html) document describes the primary deployment options—either embedded or hub, depending on the scenarios. In achieving simplification and performance, the software releases between the Fiori technology components and the S/4 applications are tightly coupled, making a hub deployment fitting for only a few, narrow use cases.
+The [SAP Fiori Deployment Options and System Landscape Recommendations](https://www.sap.com/documents/2018/02/f0148939-f27c-0010-82c7-eda71af511fa.html) document describes the primary deployment options-either embedded or hub, depending on the scenarios. In achieving simplification and performance, the software releases between the Fiori technology components and the S/4 applications are tightly coupled, making a hub deployment fitting for only a few, narrow use cases.
 
 If you use the FES hub deployment, the FES is an add-on component to the classic
 SAP NetWeaver ABAP stack. Set up high availability in the same way you protect a
-three-tier ABAP application stack with clustered or multi-host capability—with a
+three-tier ABAP application stack with clustered or multi-host capability-with a
 standby server database layer, clustered ASCS layer with high availability NFS
 for shared storage, and at least two application servers. Traffic is
 load-balanced via a pair of either clustered or parallel Web Dispatchers.

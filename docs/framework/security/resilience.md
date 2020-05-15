@@ -61,7 +61,7 @@ for attack research and execution, but increasing their costs still affects
 how many successful attacks they can mount with the (large but) finite
 amount of talent and time available. Well-resourced attackers often have
 invested in building a library of advanced attacks, but typically hold them
-back until needed because using these methods risks “burning” them— exposing
+back until needed because using these methods risks “burning” them- exposing
 them to discovery and mitigation by vendors and target organizations.
 Removing cheap and easy attacks impacts the effectiveness of all attackers
 and lowers your risk overall.

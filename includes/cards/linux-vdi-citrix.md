@@ -2,7 +2,7 @@
 
 <!-- markdownlint-disable MD033 -->
 
-<li class="grid-item item-column" data-categories="Windows Virtual Desktop ">
+<li class="grid-item item-column" data-categories="Compute ">
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">

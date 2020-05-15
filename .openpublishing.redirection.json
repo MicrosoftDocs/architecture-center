@@ -1920,6 +1920,14 @@
     {
       "source_path": "docs/framework/cost/provisioning.md",
       "redirect_url": "azure/architecture/framework/cost/provision-checklist"
+    },
+    {
+      "source_path": "docs/framework/cost/data-management.md",
+      "redirect_url": "azure/architecture/framework/cost/provision-datastores" 
+    },
+    {
+      "source_path": "/docs/solution-ideas/articles/information-chatbot.md",
+      "redirect_url": "/azure/architecture/reference-architectures/ai/conversational-bot"
     }
   ]
 }

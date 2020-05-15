@@ -20,7 +20,6 @@ import shutil
 from urllib.parse import urljoin
 from PIL import Image
 import tempfile
-import cairosvg
 
 def find_all(iterable, searchtext, returned="key"):
     
@@ -419,7 +418,10 @@ for file in all_architectures_list:
         logging.debug("Finalize config")
 
         # Set article short name
-        article['name'] = file_path.stem
+        if file_path.stem == "index":
+            article['name'] = file_path.parent.stem
+        else:
+            article['name'] = file_path.stem
 
         # Have an everything tag
         article.setdefault('tags', []).append("all-items")
@@ -473,15 +475,15 @@ for article in parsed_articles:
         article['code_languages'] = sorted(article['code_languages'])
         all_langs.extend(article['code_languages'])  
 
-    acom_def = acom_json(article)
-    output_file = open(path.join(root, "acom_data", "json", article['name'] + ".json"), "w")
-    output_file.write(json.dumps(acom_def, indent=4))
-    output_file.close()
+    # acom_def = acom_json(article)
+    # output_file = open(path.join(root, "acom_data", "json", article['name'] + ".json"), "w")
+    # output_file.write(json.dumps(acom_def, indent=4))
+    # output_file.close()
 
-    template = env.get_template('acom_data.resx')
-    output_file = open(path.join(root, "acom_data", "resx", article['name'] + ".resx"), "w")
-    output_file.write(template.render(article))
-    output_file.close()
+    # template = env.get_template('acom_data.resx')
+    # output_file = open(path.join(root, "acom_data", "resx", article['name'] + ".resx"), "w")
+    # output_file.write(template.render(article))
+    # output_file.close()
 
     if article.get('imagepath'):
         if os.path.splitext(article['imagepath'])[1] == ".svg":
@@ -496,8 +498,8 @@ for article in parsed_articles:
             image_thumb.thumbnail((200,200), Image.ANTIALIAS)
             image_thumb.save(path.join(doc_directory, "browse", "thumbs", article['name'] + ".png"))
         
-        acom_image = path.join(root, "acom_data", "images", article['name'] + os.path.splitext(article['imagepath'])[1])
-        shutil.copyfile(article['imagepath'], acom_image)
+        # acom_image = path.join(root, "acom_data", "images", article['name'] + os.path.splitext(article['imagepath'])[1])
+        # shutil.copyfile(article['imagepath'], acom_image)
 
     card_template = env.get_template('card.md')
     card_file = open(path.join(includes_dir, "cards", article['name'] + ".md"), "w")

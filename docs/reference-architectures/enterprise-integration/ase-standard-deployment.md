@@ -7,6 +7,9 @@ ms.date: 05/08/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
+ms.category:
+    - management-and-governance
+    - featured
 ---
 
 # Enterprise app deployment using App Service Environment
