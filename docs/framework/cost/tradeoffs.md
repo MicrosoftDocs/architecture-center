@@ -15,7 +15,7 @@ As you design the workload, consider tradeoffs between cost optimization and oth
 
 **What is most important for the business: lowest cost, no downtime, high throughput?**
 ***
-An optimal design doesn’t equate to a low-cost design. There might be risky choices made in favor or a cheaper solution.
+An optimal design doesn’t equate to a low-cost design. There might be risky choices made in favor of a cheaper solution.
 
 ## Cost versus reliability
 Cost has a direct correlation with reliability.
@@ -65,3 +65,4 @@ Investing in systems monitoring and automation might increase the cost initially
 - Cost of maintaining infrastructure is more expensive. With PaaS or SaaS services, infrastructure, platform management services, and additional operational efficiencies are included in the service pricing.
 
 For operational considerations, see the [Operational excellence](/azure/architecture/framework/devops/overview).
+
