@@ -16,7 +16,7 @@ As you get started, the checklist and resources below will help you validate and
 - Have you verified the main characteristics of the application? 
 - How suitable is this application for serverless technologies?
 - Have the application technical team prepared to use serverless technologies?
-- Have you validated business requirements and transform to functional and no-functional requirements?
+- Have you validated business requirements and transformed them into functional and non-functional requirements?
 
 | Checklist | Resources |
 |------------------------------------------------------------------|-----------------------------------------------------------------|
