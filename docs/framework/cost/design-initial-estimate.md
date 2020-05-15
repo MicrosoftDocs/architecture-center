@@ -57,24 +57,24 @@ The workload needs two virtual machines. One is for the backend services and the
 
 The B12MS instance with 2 virtual machines is sufficient for this initial estimation. We can lower cost by choosing reserved instances.
 
-**Total: $327.17 per month with upfront payment of $11,778.17**.
+**Estimated Total: $327.17 per month with upfront payment of $11,778.17**.
 
 ### Application gateway
 For this scenario, we consider the **Standard_v2 Tier** of Azure Application Gateway because of the autoscaling capabilities and performance benefits. We also choose consumption-based pricing, which is calculated by capacity units (CU). Each capacity unit is calculated based on compute, persistent connections, or throughput. For Standard_v2 SKU - Each compute unit can handle approximately 50 connections per second with RSA 2048-bit key TLS certificate. For this workload, we estimate 10 capacity units. 
 
-**Total: $248.64 per month.**
+**Estimated Total: $248.64 per month.**
 
 ### Load balancer
 
 NGINX ingress controller deploys a load balancer that routes internet traffic to the ingress. Approximately 15 load balancer rules are needed. NAT rules are free. The main cost driver is the amount of data processed inbound and outbound independent of rules. We estimate traffic of 1 TB (inbound and outbound).
 
-**Total: $96.37 per month.**
+**Estimated Total: $96.37 per month.**
 
 ### Bandwidth
 
 We estimate 2-TB outbound traffic. The first 5 GB/month are free in Zone 1 (Zone 1 includes North America, Europe, and Australia). Between 5 GB - 10 TB 2/month is charged $0.087 per GB.
 
-**Total: $177.74 per month**
+**Estimated Total: $177.74 per month**
 
 ### External data source
 Because the schema-on read nature of the data handled by the workload, we choose Azure Cosmos DB as the external data store. By using the [Cosmos DB capacity calculator](https://cosmos.azure.com/capacitycalculator/), we can calculate the throughput to reserve.
@@ -118,4 +118,4 @@ Azure Artifacts is a service where you can create package feeds to publish and c
 
 Azure DevOps offers a cloud-based solution for load testing your apps. Load tests are measured and billed in virtual user minutes (VUMs). For this scenario, we estimate a 200,000 VUMs ($72.00).
 
-**Total: $168.00 per month**
+**Estimated Total: $168.00 per month**
