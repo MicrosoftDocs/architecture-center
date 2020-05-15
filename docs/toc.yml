@@ -423,8 +423,6 @@ items:
         href: solution-ideas/articles/enterprise-productivity-chatbot.md
       - name: FAQ chatbot
         href: solution-ideas/articles/faq-chatbot-with-data-champion-model.md
-      - name: Information chatbot
-        href: solution-ideas/articles/information-chatbot.md
       - name: Content Research
         href: solution-ideas/articles/content-research.md
       - name: Contract Management
@@ -575,6 +573,8 @@ items:
         href: solution-ideas/articles/hpc-cluster.md
       - name: Hybrid HPC with HPC Pack
         href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.md
+      - name: Linux virtual desktops with Citrix
+        href: example-scenario/infrastructure/linux-vdi-citrix.md
       - name: Run a Linux VM on Azure
         href: reference-architectures/n-tier/linux-vm.md
       - name: Run a Windows VM on Azure
@@ -1167,11 +1167,5 @@ items:
         href: solution-ideas/articles/digital-marketing-smb.md
       - name: Web app monitoring on Azure
         href: reference-architectures/app-service-web-app/app-monitoring.md
-  - name: Windows Virtual Desktop
-    items:
-    - name: Architectures
-      items:
-      - name: Linux virtual desktops with Citrix
-        href: example-scenario/infrastructure/linux-vdi-citrix.md
 - name: Cloud Adoption Framework
   href: https://docs.microsoft.com/azure/cloud-adoption-framework

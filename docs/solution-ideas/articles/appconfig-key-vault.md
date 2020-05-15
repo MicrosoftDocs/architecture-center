@@ -7,6 +7,9 @@ description: Use Azure App Configuration and Azure Key Vault to create a central
 ms.custom: fcp
 ms.service: architecture-center
 ms.subservice: solution-idea
+ms.category:
+    - security
+    - management-and-governance
 ---
 # Centralize Azure app configuration and security
 
