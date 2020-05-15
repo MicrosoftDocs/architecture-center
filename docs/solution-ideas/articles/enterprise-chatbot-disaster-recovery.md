@@ -8,6 +8,9 @@ ms.custom:
     - fcp
 ms.service: architecture-center
 ms.subservice: solution-idea
+ms.category:
+    - ai-machine-learning
+    - management-and-governance
 ---
 # Disaster recovery and high availability for chatbots in Azure
 

@@ -43,7 +43,7 @@ This templated risk analysis solution uses Azure HPC compute and GPU virtual mac
 * [H-Series Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/linux): The H-series is a new family specifically designed to handle high performance computing workloads such as financial risk modeling, seismic and reservoir simulation, molecular modeling, and genomic research.
 * Effectively manage common workloads with ease while creating and optimizing HPC clusters with Microsoft [Azure CycleCloud](https://azure.microsoft.com/features/azure-cyclecloud).
 * [Avere vFXT](https://azure.microsoft.com/services/storage/avere-vfxt): Faster, more accessible data storage for high-performance computing at the edge
-* [TIBCO GridServer](https://www.tibco.com/resources/datasheet/tibco-gridserver)&reg; is a market-leading infrastructure platform for grid and elastic computing—and the backbone of businesses operating in the world's most demanding markets. More than a million CPUs spread across a thousand global installations form enterprise grids managed by GridServer.
+* [TIBCO GridServer](https://www.tibco.com/resources/datasheet/tibco-gridserver)&reg; is a market-leading infrastructure platform for grid and elastic computing-and the backbone of businesses operating in the world's most demanding markets. More than a million CPUs spread across a thousand global installations form enterprise grids managed by GridServer.
 
 ## Next steps
 

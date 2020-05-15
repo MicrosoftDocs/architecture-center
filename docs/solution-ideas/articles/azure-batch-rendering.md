@@ -1,5 +1,5 @@
 ---
-title: Media Rendering – HPC Solution Architecture
+title: HPC Media Rendering
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
@@ -14,7 +14,7 @@ ms.subservice: solution-idea
 social_image_url: /azure/architecture/solution-ideas/articles/media/azure-batch-rendering.png
 ---
 
-# Media Rendering – HPC Solution Architecture
+# HPC Media Rendering
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 

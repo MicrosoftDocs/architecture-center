@@ -34,7 +34,7 @@ Chaos engineering should be a part of the development team culture and an ongoin
 
 Development team are partners in the process. They must have resources to triage issues, implement testability required for fault injection, and drive the necessary product changes.
 
-## When to Apply Chaos
+## When to apply chaos
 Ideally chaos should be applied all the time.  There is constant change in the environments in which software and hardware runs. So, monitoring the change is key. Constant application of stress or faults on components will help expose issues early before a small issue gets compounded by a number of other factors.
 
 - Deploying new code.
@@ -121,11 +121,11 @@ Faults that can be leveraged to inject chaos.
 |  |  |  |
 | -- | -- | -- |
 | **Resource pressure** | CPU |  |
-|  | Memory | *Physical* *** *Virtual* *** *bad checksum* |
-|  | Hard disk | *Capacity* *** *Read* *** *Write* *** *Availability* *** *Data corruption* *** *Read / Write Latency* |
-| **Network** | Layers | *Transport (TCP/UDP)* *** *Application layer (HTTP)* |
-|  | Types | *Disconnect* *** *Latency* *** *Alter response codes (HTTP)* *** *Packet reorder / loss (TCP/UDP)* *** *# of connections (active / passive)* *** *DOS attack* |
-|  | Filters | *Domain / IP / Subnet* *** *URL path* *** *Port / Protocol* *** *DNS Host Name resolution* |
+|  | Memory | *Physical* <hr> *Virtual* <hr> *bad checksum* |
+|  | Hard disk | *Capacity* <hr> *Read* <hr> *Write* <hr> *Availability* <hr> *Data corruption* <hr> *Read / Write Latency* |
+| **Network** | Layers | *Transport (TCP/UDP)* <hr> *Application layer (HTTP)* |
+|  | Types | *Disconnect* <hr> *Latency* <hr> *Alter response codes (HTTP)* <hr> *Packet reorder / loss (TCP/UDP)* <hr> *# of connections (active / passive)* <hr> *DOS attack* |
+|  | Filters | *Domain / IP / Subnet* <hr> *URL path* <hr> *Port / Protocol* <hr> *DNS Host Name resolution* |
 | **Process** | Stop / Kill |  |
 |  | Restart |  |
 |  | Stop service  |  |
@@ -148,6 +148,7 @@ Faults that can be leveraged to inject chaos.
 |  | Rack |  |
 |  | UPS  |  |
 |  | Datacenter |  |
+
 
 > [!NOTE]
 > This is not intended to be an exhaustive list, but a representation of commonly injected faults.  

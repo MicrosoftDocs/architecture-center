@@ -121,7 +121,7 @@ This [blog post](https://azure.microsoft.com/blog/expressroute-or-virtual-networ
 This example compares the pricing details for VPN Gateway and ExpressRoute. 
 > The example is based on the current price and is subject to change. The calculation shown is for information purposes only.
 
-#### VPN Gateway
+#### Azure VPN Gateway
 Suppose, you choose the **VpnGw2AZ** tier, which supports availability zones; 1 GB/s bandwidth. The workload needs 15 site-to-site tunnels and 1 TB of outbound transfer. The gateway is provisioned and available for 720 hours.
 
 |Item|Example estimate|
