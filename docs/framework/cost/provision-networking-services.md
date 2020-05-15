@@ -11,7 +11,7 @@ ms.custom:
 
 # Networking cost estimates
 
-For design considerations, see [Networking resource choices](net-design-cost.md).
+For design considerations, see [Networking resource choices](provision-networking.md).
 
 ## Azure Front Door
 Azure Front Door billing is affected by outbound data transfers, inbound data transfers, and routing rules.  The pricing chart does not include the cost of accessing data from the backend services and transferring to Front Door. Those costs are billed based on data transfer charges, described in [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
