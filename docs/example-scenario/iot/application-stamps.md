@@ -134,10 +134,10 @@ calls to devices to new IoT Hubs. 
 In this model, the gateway uses a cache to map devices to IoT Hubs,
 defaulting to that endpoint unless it receives an [error indicating the
 device is
-not registered](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-troubleshoot-error-404001-devicenotfound) to
+not registered](https://docs.microsoft.com/azure/iot-hub/iot-hub-troubleshoot-error-404001-devicenotfound) to
 the known Hub. When this happens the individual device enrollment in DPS
 can be queried ([using the DPS Service
-SDK](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)) to
+SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)) to
 determine the Hub the device is now registered to. Should the Hub
 successfully be found for the device, the cache can be updated to avoid
 re-negotiating the device-to-hub mapping on future calls.  
@@ -149,7 +149,7 @@ re-negotiating the device-to-hub mapping on future calls.  
     in-progress, meaning it will not be reachable. The device's assigned
     IoT Hub and its current enrollment status can be obtained using DPS
     APIs such [Get Device Registration
-    State](https://docs.microsoft.com/en-us/rest/api/iot-dps/getdeviceregistrationstate/getdeviceregistrationstate). 
+    State](https://docs.microsoft.com/rest/api/iot-dps/getdeviceregistrationstate/getdeviceregistrationstate). 
 
 -   While caching in a shared lookup saves re-negotiating endpoints on
     every call, there is always the possibility of the caching endpoint
