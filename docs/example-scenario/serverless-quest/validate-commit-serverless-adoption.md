@@ -11,7 +11,7 @@ ms.custom:
 - fcp
 ---
 # Validate and commit the serverless adoption
-Perform application assessment, conduct or attend technical workshops that foster learning and adoption, identify a PoC or pilot project to execute, conduct architectural designs sessions to validate requirements.
+Perform application assessment, conduct or attend technical workshops that foster learning and adoption, identify a proof of concept (PoC) or pilot project to execute, conduct architectural designs sessions to validate requirements.
 As you get started, the checklist and resources below will help you validate and commit the serverless adoption. You should be able to answer these questions:
 - Have you verified the main characteristics of the application? 
 - How suitable is this application for serverless technologies?
