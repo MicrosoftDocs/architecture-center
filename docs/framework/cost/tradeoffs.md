@@ -23,7 +23,7 @@ Cost has a direct correlation with reliability.
 **Does the cost of high availability components exceed the acceptable downtime?**
 ***
 
-Overall Service Level Agreement (SLA), Recovery Time Objective (RTO), and Recovery Point Objective (RPO) may lead to expensive design choices. If your service SLAs, RTOs and RPOs times are short, then higher investment is inevitable for high availability and disaster recovery options. 
+Overall Service Level Agreement (SLA), Recovery Time Objective (RTO), and Recovery Point Objective (RPO) may lead to expensive design choices. If your service SLAs, RTOs, and RPOs times are short, then higher investment is inevitable for high availability and disaster recovery options. 
 
 For example, to support high availability, you choose to host the application across regions. This choice is costlier than single region because of the replication costs or the need provisioning extra nodes. Data transfer between regions will also add cost. 
 
@@ -39,11 +39,11 @@ Many factors impact performance.
 
 **Fixed or consumption-based provisioning**. Avoid cost estimation of a workload at consistently high utilization. Consumption-based pricing will be more expensive that the equivalent provisioned pricing. Smooth out the peaks to get a consistent flow of compute and data. Ideally, use manual and autoscaling to find the right balance. Scaling up is more expensive than scaling out.
 
-**Azure regions**. Cost scales directly with number of regions. Locating resources in cheaper regions should not negate the cost of network ingress and egress or by degraded application performance because of increased latency.
+**Azure regions**. Cost scales directly with number of regions. Locating resources in cheaper regions shouldn't negate the cost of network ingress and egress or by degraded application performance because of increased latency.
 
-**Caching**. Every render cycle of a payload consumes both compute and memory, you can use caching to reduce load on servers and save with pre-canned storage and bandwidth costs, and the savings can be dramatic, especially for static content services.
+**Caching**. Every render cycle of a payload consumes both compute and memory. You can use caching to reduce load on servers and save with pre-canned storage and bandwidth costs, and the savings can be dramatic, especially for static content services.
 
-While caching can reduce cost, there are some performance tradeoffs. For example, Azure Traffic Manager pricing is based on the number of DNS queries that reach the service. You can reduce that number through caching and configure how often the cache is refreshed. Relying on the cache that is not frequently updated will cause longer user failover times if an endpoint is unavailable.
+While caching can reduce cost, there are some performance tradeoffs. For example, Azure Traffic Manager pricing is based on the number of DNS queries that reach the service. You can reduce that number through caching and configure how often the cache is refreshed. Relying on the cache that isn't frequently updated will cause longer user failover times if an endpoint is unavailable.
 
 **Batch or real-time processing**. Using dedicated resources for batch processing long running jobs will increase the cost. You can lower cost by provisioning Spot VMs but be prepared for the job to be interrupted every time Azure evicts the VM.
 
@@ -53,8 +53,8 @@ For performance considerations, see [Performance efficiency](/azure/architecture
 ## Cost versus security
 Increasing security of the workload will increase cost.
 
-As a rule, do not compromise on security. In some case, you cannot avoid security costs. For example, if there are specific security and compliance requirements, deploying to differentiated regions such as, Azure Government (USA) will be more expensive.
-Premium security features can also increase the cost. There are areas you can avoid overinvesting by using native security features.For example, avoid implementing custom RBAC roles if you can use built-in roles. 
+As a rule, don't compromise on security. For certain workloads, you can't avoid security costs. For example, for specific security and compliance requirements, deploying to differentiated regions will be more expensive.
+Premium security features can also increase the cost. There are areas you can reduce cost by using native security features. For example, avoid implementing custom RBAC roles if you can use built-in roles. 
 
 For security considerations, see the [Security Pillar](/azure/architecture/framework/security/overview)
 
