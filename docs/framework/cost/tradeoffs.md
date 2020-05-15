@@ -13,7 +13,7 @@ ms.custom:
 
 As you design the workload, consider tradeoffs between cost optimization and other aspects of the design, such as security, scalability, resilience, and operability.
 
-**What is most important for the business: lowest cost, high reliability, no downtime?**
+**What is most important for the business: lowest cost, no downtime, high throughput?**
 ***
 An optimal design doesn’t equate to a low-cost design. There might be risky choices made in favor or a cheaper solution.
 
@@ -56,7 +56,7 @@ Increasing security of the workload will increase cost.
 As a rule, don't compromise on security. For certain workloads, you can't avoid security costs. For example, for specific security and compliance requirements, deploying to differentiated regions will be more expensive.
 Premium security features can also increase the cost. There are areas you can reduce cost by using native security features. For example, avoid implementing custom RBAC roles if you can use built-in roles. 
 
-For security considerations, see the [Security Pillar](/azure/architecture/framework/security/overview)
+For security considerations, see the [Security Pillar](/azure/architecture/framework/security/overview).
 
 ## Cost versus operational excellence
 
@@ -64,3 +64,4 @@ Investing in systems monitoring and automation might increase the cost initially
 - IT operations processes like user or application access provisioning, incident response, and disaster recovery should be integrated with the workload.
 - Cost of maintaining infrastructure is more expensive. With PaaS or SaaS services, infrastructure, platform management services, and additional operational efficiencies are included in the service pricing.
 
+For operational considerations, see the [Operational excellence](/azure/architecture/framework/devops/overview).
