@@ -25,7 +25,7 @@ _Cost modeling_ is an exercise where you create logical groups of cloud resource
 
 4.	[**Consider tradeoffs**](tradeoffs.md)
     
-    Optimal design doesn't equal the lowest cost design.
+    Optimal design doesn't equate to a lowest-cost design.
     
     As requirements are prioritized, cost can be adjusted. Expect a series of tradeoffs in the areas that you want to optimize, such as security, scalability, resilience, and operability. If the cost to address the challenges in those areas is high, stakeholders will look for alternate options to reduce cost. There might be risky choices made in favor or a cheaper solution.
 
