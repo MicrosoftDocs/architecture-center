@@ -185,7 +185,7 @@ items:
     - name: Optimizing cloud costs
       href: framework/cost/optimizing.md
 
-    - name: Trade-offs
+    - name: Tradeoffs
       href: framework/cost/tradeoffs.md
     - name: Checklist
       href: framework/cost/checklist.md
