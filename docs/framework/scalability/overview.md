@@ -13,7 +13,7 @@ ms.custom:
 
 # Overview of the scalability pillar
 
-*Scalability* is the ability of a system to handle increased load. To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=azure-architecture-review).
+*Scalability* is the ability of a system to handle increased load. To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=azure-architecture-review).
 
 Scalability tasks during the architecting phase include:
 

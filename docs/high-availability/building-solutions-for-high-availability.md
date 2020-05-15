@@ -301,7 +301,7 @@ requirements. Some things to consider include:
 
 - Does your application have specific latency requirements?
 
-For additional guidance, refer to [Azure Architecture Framework define
+For additional guidance, refer to [Microsoft Azure Well-Architected Framework define
 requirements](../framework/resiliency/overview.md#define-requirements).
 
 Depending on the availability needs of an application, the cost and design

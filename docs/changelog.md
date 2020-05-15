@@ -147,5 +147,5 @@ New and updated articles in the Azure Architecture Center
 - [Scalable web application](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app)  ([#0d6119aa](https://github.com/MicrosoftDocs/architecture-center/commit/0d6119aa))
 - [Choosing an Azure compute service](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree)  ([#e2e3a95c](https://github.com/MicrosoftDocs/architecture-center/commit/e2e3a95c))
 - [Azure Application Architecture Guide](https://docs.microsoft.com/azure/architecture/guide)  ([#eca15b0a](https://github.com/MicrosoftDocs/architecture-center/commit/eca15b0a))
-- [Azure Architecture Framework](https://docs.microsoft.com/azure/architecture/framework)  ([#ad9ef207](https://github.com/MicrosoftDocs/architecture-center/commit/ad9ef207))
+- [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework)  ([#ad9ef207](https://github.com/MicrosoftDocs/architecture-center/commit/ad9ef207))
 

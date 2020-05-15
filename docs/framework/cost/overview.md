@@ -13,7 +13,7 @@ ms.custom:
 
 A cost-effective workload is driven by business goals and the return on investment (ROI) while staying within an given budget. The principles of cost optimization are a series of important considerations that can help achieve both business objectives and cost justification.
 
-To assess your workload using the tenets found in the Azure Well-Architected Framework, see the [Azure architecture review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=azure-architecture-review).
+To assess your workload using the tenets found in the Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=azure-architecture-review).
 
 
 **Keep within the cost constraints**

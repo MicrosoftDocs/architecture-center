@@ -325,7 +325,7 @@ As always, make sure to manage security updates and patches, a necessary and ong
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 
-For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 ### Virtual machines
 

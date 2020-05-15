@@ -814,7 +814,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Azure Architecture Framework]]></title>
+        <title type="html"><![CDATA[Microsoft Azure Well-Architected Framework]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework?referrer=atom"/>
         <updated>2020-01-06T23:51:12.000Z</updated>

@@ -127,7 +127,7 @@ items:
       href: gcp-professional/index.md
     - name: Services comparison
       href: gcp-professional/services.md
-- name: Azure Architecture Framework
+- name: Microsoft Azure Well-Architected Framework
   items:
   - name: Overview
     href: framework/index.md

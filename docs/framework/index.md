@@ -1,6 +1,6 @@
 ---
-title: Azure Architecture Framework
-titleSuffix: Azure Architecture Framework introduction
+title: Microsoft Azure Well-Architected Framework
+titleSuffix: Microsoft Azure Well-Architected Framework introduction
 description: Describes five pillars of software quality, scalability, devops, resiliency, cost, and security.
 author: MikeWasson
 ms.date: 11/20/2019
@@ -10,21 +10,21 @@ ms.subservice: well-architected
 ms.custom: seojan19
 ---
 
-# Azure Architecture Framework
+# Microsoft Azure Well-Architected Framework
 
-The Azure architecture framework is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architecture excellence: Cost, DevOps, Resiliency, Scalability, and Security.
+The Azure Well-Architected Framework is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architecture excellence: Cost, DevOps, Resiliency, Scalability, and Security.
 
-To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=azure-architecture-review).
+To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=azure-architecture-review).
 
 | Pillar | Description |
 |--------|-------------|
-| [Cost][cost-pillar] | Managing costs to maximize the value delivered. |
-| [DevOps][devops-pillar] | Operations processes that keep a system running in production. |
-| [Resiliency][resiliency-pillar] | The ability of a system to recover from failures and continue to function. |
-| [Scalability][scalability-pillar] | The ability of a system to adapt to changes in load. |
+| [Cost Management][cost-pillar] | Managing costs to maximize the value delivered. |
+| [Operational Excellence][devops-pillar] | Operations processes that keep a system running in production. |
+| [Performance Efficiency][scalability-pillar] | The ability of a system to adapt to changes in load. |
+| [Reliability][resiliency-pillar] | The ability of a system to recover from failures and continue to function. |
 | [Security][security-pillar] | Protecting applications and data from threats. |
 
-## Cost
+## Cost Management
 
 When you are designing a cloud solution, focus on generating incremental value early. Apply the principles of **Build-Measure-Learn**, to accelerate your time to market while avoiding capital-intensive solutions. Use the pay-as-you-go strategy for your architecture, and invest in scaling out, rather than delivering a large investment first version. Consider opportunity costs in your architecture, and the balance between first mover advantage versus "fast follow". Use the cost calculators to estimate the initial cost and operational costs. Finally, establish policies, budgets, and controls that set cost limits for your solution.
 
@@ -32,7 +32,7 @@ When you are designing a cloud solution, focus on generating incremental value e
 
 - Best practices: [How to optimize your cloud investment with Azure Cost Management][cost]
 
-## DevOps
+## Operational Excellence
 
 This pillar covers the operations processes that keep an application running in production.
 
@@ -49,12 +49,12 @@ The monitoring and diagnostics process has several distinct phases:
 
 Use the [DevOps checklist][devops-checklist] to review your design from a management and DevOps standpoint.
 
-### DevOps guidance
+### Operational excellence guidance
 
 - [Design patterns for management and monitoring][management-patterns]
 - Best practices: [Monitoring and diagnostics][monitoring]
 
-## Resiliency
+## Reliability
 
 Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Resiliency is closely related to availability.
 
@@ -75,13 +75,13 @@ That said, you still need to build resiliency into your application. Resiliency 
 
 When designing an application to be resilient, you must understand your availability requirements. How much downtime is acceptable? This is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the application highly available?
 
-### Resiliency guidance
+### Reliability guidance
 
 - [Designing reliable Azure applications][resiliency]
 - [Design patterns for resiliency][resiliency-patterns]
 - Best practices: [Transient fault handling][transient-fault-handling], [Retry guidance for specific services][retry-service-specific]
 
-## Scalability
+## Performance efficiency
 
 Scalability is the ability of a system to handle increased load. There are two main ways that an application can scale. Vertical scaling (scaling *up*) means increasing the capacity of a resource, for example by using a larger VM size. Horizontal scaling (scaling *out*) is adding new instances of a resource, such as VMs or database replicas.
 
@@ -103,7 +103,7 @@ Always conduct performance and load testing to find these potential bottlenecks.
 
 Use the [Scalability checklist][scalability-checklist] to review your design from a scalability standpoint.
 
-### Scalability guidance
+### Performance efficiency guidance
 
 - [Design patterns for scalability and performance][scalability-patterns]
 - Best practices: [Autoscaling][autoscale], [Background jobs][background-jobs], [Caching][caching], [CDN][cdn], [Data partitioning][data-partitioning]

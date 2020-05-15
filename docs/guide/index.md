@@ -106,7 +106,7 @@ A successful cloud application will focus on five pillars of software quality: C
 | Scalability | The ability of a system to adapt to changes in load. |
 | Security | Protecting applications and data from threats. |
 
-Use the [Azure Architecture Framework](../framework/index.md) to assess your architecture across these five pillars.
+Use the [Microsoft Azure Well-Architected Framework](../framework/index.md) to assess your architecture across these five pillars.
 
 ## Next steps
 
