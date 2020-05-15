@@ -18,13 +18,13 @@ To assess your workload using the tenets found in the Microsoft Azure Well-Archi
 
 | Pillar | Description |
 |--------|-------------|
-| [Cost Management][cost-pillar] | Managing costs to maximize the value delivered. |
+| [Cost Optimization][cost-pillar] | Managing costs to maximize the value delivered. |
 | [Operational Excellence][devops-pillar] | Operations processes that keep a system running in production. |
 | [Performance Efficiency][scalability-pillar] | The ability of a system to adapt to changes in load. |
 | [Reliability][resiliency-pillar] | The ability of a system to recover from failures and continue to function. |
 | [Security][security-pillar] | Protecting applications and data from threats. |
 
-## Cost Management
+## Cost Optimization
 
 When you are designing a cloud solution, focus on generating incremental value early. Apply the principles of **Build-Measure-Learn**, to accelerate your time to market while avoiding capital-intensive solutions. Use the pay-as-you-go strategy for your architecture, and invest in scaling out, rather than delivering a large investment first version. Consider opportunity costs in your architecture, and the balance between first mover advantage versus "fast follow". Use the cost calculators to estimate the initial cost and operational costs. Finally, establish policies, budgets, and controls that set cost limits for your solution.
 
