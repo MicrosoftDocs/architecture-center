@@ -12,9 +12,9 @@ ms.custom:
 
 # Provisioning cloud resources to optimize cost
 
-Deployment of cloud resources of a workload is known as _provisioning_. Appropriate design choices and governance can lower cost by reducing wastage, overprovisioning, or expensive provisioning of resources. 
+Deployment of cloud resources of a workload is known as _provisioning_.  
 
-Use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the price of your SKU choices. This section describes some considerations.  This list is not meant to be an exhaustive list, but a subset of options.
+Use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the cost of your SKU choices. This section describes some considerations. This list is not meant to be an exhaustive list, but a subset of options.
 
 - [AI + Machine Learning](./provision-ai-ml.md)
 - [Big data analytics](./provision-analytics.md)
