@@ -1905,8 +1905,12 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/framework/cost/modeling.md",
+      "redirect_url": "/azure/architecture/framework/cost/design-model"
+    },
+    {
       "source_path": "docs/framework/cost/monitoring.md",
-      "redirect_url": "azure/architecture/framework/cost/monitor-checklist.md"
+      "redirect_url": "azure/architecture/framework/cost/monitor-checklist"
     },
     {
       "source_path": "docs/framework/cost/provisioning.md",
