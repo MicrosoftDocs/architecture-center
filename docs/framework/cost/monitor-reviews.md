@@ -12,13 +12,13 @@ ms.custom:
 # Conduct cost reviews
 The goal of cost monitoring is to review cloud spend with the intent of establishing cost controls and preventing any misuse. The organization should adopt both proactive and reactive review approaches for monitoring cost. Effective cost reviews must be conducted by accountable stakeholders at a regular cadence. The reviews must be complemented with reactive cost reviews, for example when a budget limit causes an alert.
 
-<hr><b>Who should be included in a cost review?</b><hr>
+**Who should be included in a cost review?** ***
 
 The financial stakeholders must understand cloud billing to derive business benefits using financial metrics to make effective decisions.
 
 Also include members of the technical team. Application owners, systems administrators who monitor and back-up cloud systems, and business unit representatives must be aware of the decisions. They can provide insights because they understand cloud cost metering and cloud architecture. One way of identifying owners of systems or applications is through resource tags.
 
-<hr><b>What should be the cadence of cost reviews?</b><hr>
+**What should be the cadence of cost reviews?** ***
 
 Cost reviews can be conducted as part of the regular business reviews. It’s recommended that such reviews are scheduled,
 

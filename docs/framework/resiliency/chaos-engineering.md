@@ -121,11 +121,11 @@ Faults that can be leveraged to inject chaos.
 |  |  |  |
 | -- | -- | -- |
 | **Resource pressure** | CPU |  |
-|  | Memory | *Physical* <hr> *Virtual* <hr> *bad checksum* |
-|  | Hard disk | *Capacity* <hr> *Read* <hr> *Write* <hr> *Availability* <hr> *Data corruption* <hr> *Read / Write Latency* |
-| **Network** | Layers | *Transport (TCP/UDP)* <hr> *Application layer (HTTP)* |
-|  | Types | *Disconnect* <hr> *Latency* <hr> *Alter response codes (HTTP)* <hr> *Packet reorder / loss (TCP/UDP)* <hr> *# of connections (active / passive)* <hr> *DOS attack* |
-|  | Filters | *Domain / IP / Subnet* <hr> *URL path* <hr> *Port / Protocol* <hr> *DNS Host Name resolution* |
+|  | Memory | *Physical* *** *Virtual* *** *bad checksum* |
+|  | Hard disk | *Capacity* *** *Read* *** *Write* *** *Availability* *** *Data corruption* *** *Read / Write Latency* |
+| **Network** | Layers | *Transport (TCP/UDP)* *** *Application layer (HTTP)* |
+|  | Types | *Disconnect* *** *Latency* *** *Alter response codes (HTTP)* *** *Packet reorder / loss (TCP/UDP)* *** *# of connections (active / passive)* *** *DOS attack* |
+|  | Filters | *Domain / IP / Subnet* *** *URL path* *** *Port / Protocol* *** *DNS Host Name resolution* |
 | **Process** | Stop / Kill |  |
 |  | Restart |  |
 |  | Stop service  |  |

@@ -144,7 +144,12 @@ items:
         - name: AI + Machine Learning
           href: framework/cost/provision-ai-ml.md
         - name: Big data
-          href: framework/cost/provision-analytics.md          
+          href: framework/cost/provision-analytics.md
+        - name: Networking
+          href: framework/cost/provision-networking.md
+          items:
+            - name: Cost for networking services
+            - href: framework/cost/provision-networking-services.md          
     - name: Monitor
       items: 
       - name: Checklist
