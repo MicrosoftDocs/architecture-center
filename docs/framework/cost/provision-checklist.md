@@ -9,6 +9,7 @@ ms.subservice: well-architected
 ms.custom: 
 ---
 
+
 # Provisioning cloud resources to optimize cost
 
 Deployment of cloud resources of a workload is known as _provisioning_. Appropriate design choices and governance can lower cost by reducing wastage, overprovisioning, or expensive provisioning of resources. 
