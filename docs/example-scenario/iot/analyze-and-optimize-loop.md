@@ -16,8 +16,8 @@ ms.custom:
 ## Intent
 
 Enable the generation and application of business optimization insights
-to one or more [Cyber Physical System](Cyber%20Physical%20System(CPS))
-(CPS) deployments based on the entire enterprise business context.
+to one or more [Cyber Physical
+System](https://en.wikipedia.org/wiki/Cyber-physical_system) (CPS) deployments based on the entire enterprise business context.
 
 ## Motivation
 
