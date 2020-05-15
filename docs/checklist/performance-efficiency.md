@@ -1,5 +1,5 @@
 ---
-title: Scalability checklist
+title: Performance Efficiency checklist
 titleSuffix: Azure Design Review Framework
 description: Scalability checklist guidance for design concerns for Azure Autoscaling.
 author: dragon119
@@ -12,9 +12,9 @@ ms.custom: checklist
 
 <!-- cSpell:ignore DTOs varchar -->
 
-# Scalability checklist
+# Performance efficiency checklist
 
-Scalability is the ability of a system to handle increased load, and is one of the [pillars of software quality](../framework/index.md). Use this checklist to review your application architecture from a scalability standpoint.
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner, and is one of the [pillars of the Microsoft Azure Well-Architected Framework](../framework/index.md). Use this checklist to review your application architecture from a performance efficiency standpoint.
 
 ## Application design
 

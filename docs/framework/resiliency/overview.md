@@ -1,6 +1,6 @@
 ---
-title: Overview of the resiliency pillar
-description: Describes the resiliency pillar
+title: Overview of the reliability pillar
+description: Describes the reliability pillar
 author: david-stanford
 ms.date: 10/21/2019
 ms.topic: overview
@@ -9,7 +9,7 @@ ms.subservice: well-architected
 ms.custom: 
 ---
 
-# Overview of the resiliency pillar
+# Overview of the reliability pillar
 
 Building a reliable application in the cloud is different from traditional application development. While historically you may have purchased levels of redundant higher-end hardware to minimize the chance of an entire application platform failing.  In the cloud, we acknowledge up front that failures will happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component.
 

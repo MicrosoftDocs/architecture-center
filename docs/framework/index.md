@@ -54,9 +54,38 @@ Use the [DevOps checklist][devops-checklist] to review your design from a manage
 - [Design patterns for management and monitoring][management-patterns]
 - Best practices: [Monitoring and diagnostics][monitoring]
 
+## Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. The main ways to achieve this are by using scaling appropriately and implementing PaaS offerings that have scaling built in.
+
+There are two main ways that an application can scale. Vertical scaling (scaling *up*) means increasing the capacity of a resource, for example by using a larger VM size. Horizontal scaling (scaling *out*) is adding new instances of a resource, such as VMs or database replicas.
+
+Horizontal scaling has significant advantages over vertical scaling:
+
+- True cloud scale. Applications can be designed to run on hundreds or even thousands of nodes, reaching scales that are not possible on a single node.
+- Horizontal scale is elastic. You can add more instances if load increases, or remove them during quieter periods.
+- Scaling out can be triggered automatically, either on a schedule or in response to changes in load.
+- Scaling out may be cheaper than scaling up. Running several small VMs can cost less than a single large VM.
+- Horizontal scaling can also improve resiliency, by adding redundancy. If an instance goes down, the application keeps running.
+
+An advantage of vertical scaling is that you can do it without making any changes to the application. But at some point you'll hit a limit, where you can't scale any up any more. At that point, any further scaling must be horizontal.
+
+Horizontal scale must be designed into the system. For example, you can scale out VMs by placing them behind a load balancer. But each VM in the pool must be able to handle any client request, so the application must be stateless or store state externally (say, in a distributed cache). Managed PaaS services often have horizontal scaling and autoscaling built in. The ease of scaling these services is a major advantage of using PaaS services.
+
+Just adding more instances doesn't mean an application will scale, however. It might simply push the bottleneck somewhere else. For example, if you scale a web front end to handle more client requests, that might trigger lock contentions in the database. You would then need to consider additional measures, such as optimistic concurrency or data partitioning, to enable more throughput to the database.
+
+Always conduct performance and load testing to find these potential bottlenecks. The stateful parts of a system, such as databases, are the most common cause of bottlenecks, and require careful design to scale horizontally. Resolving one bottleneck may reveal other bottlenecks elsewhere.
+
+Use the [Performance efficiency checklist][performance-checklist] to review your design from a scalability standpoint.
+
+### Performance efficiency guidance
+
+- [Design patterns for scalability and performance][scalability-patterns]
+- Best practices: [Autoscaling][autoscale], [Background jobs][background-jobs], [Caching][caching], [CDN][cdn], [Data partitioning][data-partitioning]
+
 ## Reliability
 
-Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Resiliency is closely related to availability.
+A reliable workload is one that is both resilient and available. Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is can your users get to your workload when they need to.
 
 In traditional application development, there has been a focus on increasing the mean time between failures (MTBF). Effort was spent trying to prevent the system from failing. In cloud computing, a different mindset is required, due to several factors:
 
@@ -80,33 +109,6 @@ When designing an application to be resilient, you must understand your availabi
 - [Designing reliable Azure applications][resiliency]
 - [Design patterns for resiliency][resiliency-patterns]
 - Best practices: [Transient fault handling][transient-fault-handling], [Retry guidance for specific services][retry-service-specific]
-
-## Performance efficiency
-
-Scalability is the ability of a system to handle increased load. There are two main ways that an application can scale. Vertical scaling (scaling *up*) means increasing the capacity of a resource, for example by using a larger VM size. Horizontal scaling (scaling *out*) is adding new instances of a resource, such as VMs or database replicas.
-
-Horizontal scaling has significant advantages over vertical scaling:
-
-- True cloud scale. Applications can be designed to run on hundreds or even thousands of nodes, reaching scales that are not possible on a single node.
-- Horizontal scale is elastic. You can add more instances if load increases, or remove them during quieter periods.
-- Scaling out can be triggered automatically, either on a schedule or in response to changes in load.
-- Scaling out may be cheaper than scaling up. Running several small VMs can cost less than a single large VM.
-- Horizontal scaling can also improve resiliency, by adding redundancy. If an instance goes down, the application keeps running.
-
-An advantage of vertical scaling is that you can do it without making any changes to the application. But at some point you'll hit a limit, where you can't scale any up any more. At that point, any further scaling must be horizontal.
-
-Horizontal scale must be designed into the system. For example, you can scale out VMs by placing them behind a load balancer. But each VM in the pool must be able to handle any client request, so the application must be stateless or store state externally (say, in a distributed cache). Managed PaaS services often have horizontal scaling and autoscaling built in. The ease of scaling these services is a major advantage of using PaaS services.
-
-Just adding more instances doesn't mean an application will scale, however. It might simply push the bottleneck somewhere else. For example, if you scale a web front end to handle more client requests, that might trigger lock contentions in the database. You would then need to consider additional measures, such as optimistic concurrency or data partitioning, to enable more throughput to the database.
-
-Always conduct performance and load testing to find these potential bottlenecks. The stateful parts of a system, such as databases, are the most common cause of bottlenecks, and require careful design to scale horizontally. Resolving one bottleneck may reveal other bottlenecks elsewhere.
-
-Use the [Scalability checklist][scalability-checklist] to review your design from a scalability standpoint.
-
-### Performance efficiency guidance
-
-- [Design patterns for scalability and performance][scalability-patterns]
-- Best practices: [Autoscaling][autoscale], [Background jobs][background-jobs], [Caching][caching], [CDN][cdn], [Data partitioning][data-partitioning]
 
 ## Security
 
@@ -177,7 +179,7 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 
 <!-- checklist -->
 [devops-checklist]: ../checklist/dev-ops.md
-[scalability-checklist]: ../checklist/scalability.md
+[scalability-checklist]: ../checklist/performance-efficiency.md
 
 <!-- pillars -->
 [cost-pillar]: ./cost/overview.md
