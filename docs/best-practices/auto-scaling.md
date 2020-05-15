@@ -82,7 +82,7 @@ Consider the following points when using Azure autoscale:
 
 - If you configure autoscaling using the SDK rather than the portal, you can specify a more detailed schedule during which the rules are active. You can also create your own metrics and use them with or without any of the existing ones in your autoscaling rules. For example, you may wish to use alternative counters, such as the number of requests per second or the average memory availability, or use custom counters to measure specific business processes.
 
-- When autoscaling Service Fabric, the node types in your cluster are made of virtual machine scale sets at the back end, so you need to set up autoscale rules for each node type. Take into account the number of nodes that you must have before you set up autoscaling. The minimum number of nodes that you must have for the primary node type is driven by the reliability level you have chosen. For more information, see [scale a Service Fabric cluster in or out using autoscale rules](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down).
+- When autoscaling Service Fabric, the node types in your cluster are made of virtual machine scale sets at the back end, so you need to set up autoscale rules for each node type. Take into account the number of nodes that you must have before you set up autoscaling. The minimum number of nodes that you must have for the primary node type is driven by the reliability level you have chosen. For more information, see [scale a Service Fabric cluster in or out using autoscale rules](/azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling).
 
 - You can use the portal to link resources such as SQL Database instances and queues to a Cloud Service instance. This allows you to more easily access the separate manual and automatic scaling configuration options for each of the linked resources. For more information, see [How to: Link a resource to a cloud service](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-manage).
 
@@ -134,6 +134,6 @@ The following patterns and guidance may also be relevant to your scenario when i
 [autoscale-metrics]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics
 [cloud-services-autoscale]: https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-scale-portal
 [functions-scale]: https://docs.microsoft.com/azure/azure-functions/functions-scale
-[service-fabric-autoscale]: https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down
+[service-fabric-autoscale]: /azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling
 [vm-scale-sets]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
 [vm-scale-sets-autoscale]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview

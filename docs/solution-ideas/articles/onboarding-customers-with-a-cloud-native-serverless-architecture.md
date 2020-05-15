@@ -27,7 +27,7 @@ The links to the right give you detailed technical guidance on navigating a part
 
 The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
 
-[Learn how you can use machine learning](https://docs.microsoft.com/azure/machine-learning/preview)
+[Learn how you can use machine learning](/azure/machine-learning/how-to-enable-virtual-network)
 
 [Infuse intelligence into your apps with Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
 

@@ -38,4 +38,4 @@ Being able to predict length of stay at the time of admission helps hospitals pr
 
 * [Learn more about SQL Server](https://www.microsoft.com/sql-server/sql-server-r-services)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
-* [Learn more about Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning)
+* [Learn more about Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
