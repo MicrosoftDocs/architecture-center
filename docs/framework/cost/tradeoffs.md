@@ -47,7 +47,7 @@ While caching can reduce cost, there are some performance tradeoffs. For example
 
 **Batch or real-time processing**. Using dedicated resources for batch processing long running jobs will increase the cost. You can lower cost by provisioning Spot VMs but be prepared for the job to be interrupted every time Azure evicts the VM.
 
-For performance considerations, see [Performance efficiency](/azure/architecture/framework/scalability/overview).
+For performance considerations, see the [Performance Efficiency](/azure/architecture/framework/scalability/overview) pillar.
 
 
 ## Cost versus security
@@ -64,5 +64,5 @@ Investing in systems monitoring and automation might increase the cost initially
 - IT operations processes like user or application access provisioning, incident response, and disaster recovery should be integrated with the workload.
 - Cost of maintaining infrastructure is more expensive. With PaaS or SaaS services, infrastructure, platform management services, and additional operational efficiencies are included in the service pricing.
 
-For operational considerations, see the [Operational excellence](/azure/architecture/framework/devops/overview).
+For operational considerations, see the [Operational Excellence](/azure/architecture/framework/devops/overview) pillar.
 
