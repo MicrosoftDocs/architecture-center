@@ -37,7 +37,7 @@ The architecture has the following components.
 
 - **Application gateway**. [Application Gateway](https://docs.microsoft.com/azure/application-gateway/) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Application Gateway also provides a [web application firewall](https://docs.microsoft.com/azure/application-gateway/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities.
 
-- **Load balancers**. Use [Azure Standard Load Balancer][load-balancer] to distribute network traffic from the web tier to the business tier, and from the business tier to SQL Server.
+- **Load balancers**. Use [Azure Standard Load Balancer][load-balancer] to distribute network traffic from the web tier to the business tier.
 
 - **Network security groups** (NSGs). Use [NSGs][nsg] to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the database tier does not accept traffic from the web front end, only from the business tier and the management subnet.
 
