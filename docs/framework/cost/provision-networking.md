@@ -78,7 +78,7 @@ We can use a combination of Traffic Manager and Azure Load Balancer. Traffic Man
 [Peering technology](/azure/expressroute/expressroute-circuit-peerings#peeringcompare) is a service used for Azure virtual networks to connect with other virtual networks in the same or different Azure region. Peering technology is used often in hub and spoke architectures. 
 
 An important consideration is the additional costs incurred by peering connections on both egress and ingress traffic traversing the peering connections. 
-> ![Task](../../_images/i-best-practices.png) Keeping the top talking services of a workload within the same virtual network, zone and/or region unless otherwise required. Use virtual networks as shared resources for multiple workloads against a single virtual network per workload approach. This approach will localize traffic to a single virtual network and avoid the additional costs on peering charges.
+> ![Task](../../_images/i-best-practices.svg) Keeping the top talking services of a workload within the same virtual network, zone and/or region unless otherwise required. Use virtual networks as shared resources for multiple workloads against a single virtual network per workload approach. This approach will localize traffic to a single virtual network and avoid the additional costs on peering charges.
 
 ### Example cost analysis
 > The example is based on the current price and is subject to change. The calculation shown is for information purposes only.
