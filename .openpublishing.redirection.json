@@ -1905,6 +1905,10 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/framework/cost/optimizing.md",
+      "redirect_url": "/azure/architecture/framework/cost/optimize-checklist"
+    },
+    {
       "source_path": "docs/framework/cost/modeling.md",
       "redirect_url": "/azure/architecture/framework/cost/design-model"
     },

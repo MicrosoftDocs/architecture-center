@@ -22,7 +22,7 @@ The financial stakeholders must understand cloud billing to derive business bene
 Also include members of the technical team. Application owners, systems administrators who monitor and back-up cloud systems, and business unit representatives must be aware of the decisions. They can provide insights because they understand cloud cost metering and cloud architecture. One way of identifying owners of systems or applications is through resource tags.
 
 
-**What should be the cadence of cost reviews?**  
+**What should be the cadence of cost reviews?**
 ***
 
 
