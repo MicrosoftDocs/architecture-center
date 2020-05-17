@@ -54,5 +54,5 @@ Suppose, you want to build a cost-effective solution by provisioning resources i
 - The cross-regional and cross-zone additional costs do not apply to global services, such as Azure Active Directory. 
 - Not all Azure services support zones and not all regions in Azure support zones. 
 
->![Task](../../_images/i-best-practices.png) Before choosing a location, consider how important is the application to justify the cost of having resources cross zones and/or cross regions. For non-mission critical applications such as, developer or test, consider keeping the solution and its dependencies in a single region or single zone to leverage the advantages of choosing the lower-cost region.
+>![Task](../../_images/i-best-practices.svg) Before choosing a location, consider how important is the application to justify the cost of having resources cross zones and/or cross regions. For non-mission critical applications such as, developer or test, consider keeping the solution and its dependencies in a single region or single zone to leverage the advantages of choosing the lower-cost region.
 

@@ -61,7 +61,7 @@ Map the organization's needs to logical groupings offered by cloud services. Thi
     
     For example, how is the hierarchy represented through management groups, subscriptions, resource groups, and so on. 
     
-    > ![Task](../../_images/i-best-practices.png) Create hierarchies and groups through [Azure management groups](/azure/governance/management-groups/), [subscriptions](/azure/cost-management-billing/manage/create-subscription), [resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group) across the services that you intend to use.
+    > ![Task](../../_images/i-best-practices.svg) Create hierarchies and groups through [Azure management groups](/azure/governance/management-groups/), [subscriptions](/azure/cost-management-billing/manage/create-subscription), [resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group) across the services that you intend to use.
 
 2. Calculate the ROI by understanding what is included in each grouping and what isn't.
 
@@ -81,7 +81,7 @@ Map the organization's needs to logical groupings offered by cloud services. Thi
 
     Identify resources that can be used as shared services and review their billing meters. Examples include a virtual network and its hybrid connectivity or a shared app service environment (ASE). If the meter data isn't able to be split across consumers, decide on custom solutions to allocate proportional costs. Move shared services to dedicated resources for consumers for cost reporting. 
 
-    > ![Task](../../_images/i-best-practices.png)  Build chargeback reports per consumer to identify metered costs for shared cloud services. Aim for granular reports to understand which workload is consuming what amount of the shared cloud service. 
+    > ![Task](../../_images/i-best-practices.svg)  Build chargeback reports per consumer to identify metered costs for shared cloud services. Aim for granular reports to understand which workload is consuming what amount of the shared cloud service. 
 
 #### Next step
 > [!div class="nextstepaction"]
@@ -110,7 +110,7 @@ Break down high-level goals into functional requirements. For each of those requ
 *** 
 
 
-> ![Task](../../_images/i-best-practices.png) Start with a fixed cost of operations and a rough estimate of transaction volume to work out a cost-per-transaction to establish a baseline. Consider the difference between cost models based on fixed, static provisioning of services, more variable costs based upon autoscaling such as serverless technologies. 
+> ![Task](../../_images/i-best-practices.svg) Start with a fixed cost of operations and a rough estimate of transaction volume to work out a cost-per-transaction to establish a baseline. Consider the difference between cost models based on fixed, static provisioning of services, more variable costs based upon autoscaling such as serverless technologies. 
 
 ### Use T-shirt sizes for choosing SKUs
 When choosing options for services, start with an abstract representation of size. For example, if you choose a T-shirt size approach, small, medium, large sizes, can represent an on-demand virtual machine instead of picking specific virtual machines or managed disks SKU sizes. 

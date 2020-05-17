@@ -25,7 +25,7 @@ For each Azure resource, have a clear understanding of the meters that track usa
 
 A resource tier impacts pricing because each tier offers levels of features such as performance or availability. For example, a Standard HDD hard disk is cheaper than a Premium SSD hard disk. 
 
-> ![Task](../../_images/i-best-practices.png) Start with a lower resource tier then scale the resource up as needed. Growing a service with little to 
+> ![Task](../../_images/i-best-practices.svg) Start with a lower resource tier then scale the resource up as needed. Growing a service with little to 
 no downtime is easier when compared to downscaling a service. Downscaling usually requires deprovisioning or downtime. In general, choose scaling out instead of scaling up.
 
 As part of the requirements, consider the metrics for each resource  and build your alerts on baseline thresholds for each metric. The alerts can be used to fine-tune the resources. For more information, see [Respond to cost alert](monitoring.md).

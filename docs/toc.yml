@@ -180,16 +180,25 @@ items:
         href: framework/cost/monitor-reports.md
       - name: Reviews
         href: framework/cost/monitor-reviews.md
-    - name: Data management
-      href: framework/cost/data-management.md
-    - name: Optimizing cloud costs
-      href: framework/cost/optimizing.md
-
+    - name: Optimize
+      items:
+      - name: Checklist
+        href: framework/cost/optimize-checklist.md
+      - name: Autoscale
+        href: framework/cost/optimize-autoscale.md
+      - name: Reserved instances
+        href: framework/cost/optimize-reserved.md
+      - name: VM instances
+        href: framework/cost/optimize-vm.md
     - name: Tradeoffs
       href: framework/cost/tradeoffs.md
+<<<<<<< HEAD
     - name: Checklist
       href: framework/cost/checklist.md
   - name: Operational Excellence
+=======
+  - name: DevOps
+>>>>>>> b72ea30f6050257726acff51d675aec1a9e83de9
     items:
     - name: Overview
       href: framework/devops/overview.md
