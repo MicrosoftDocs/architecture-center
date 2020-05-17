@@ -192,13 +192,7 @@ items:
         href: framework/cost/optimize-vm.md
     - name: Tradeoffs
       href: framework/cost/tradeoffs.md
-<<<<<<< HEAD
-    - name: Checklist
-      href: framework/cost/checklist.md
   - name: Operational Excellence
-=======
-  - name: DevOps
->>>>>>> b72ea30f6050257726acff51d675aec1a9e83de9
     items:
     - name: Overview
       href: framework/devops/overview.md
