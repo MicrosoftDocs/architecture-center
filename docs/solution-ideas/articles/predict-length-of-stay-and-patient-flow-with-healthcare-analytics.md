@@ -17,7 +17,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/predict-leng
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-For the people running a healthcare facility, length of stay—the number of days from patient admission to discharge—matters. However, that number can vary across facilities and across disease conditions and specialties, even within the same healthcare system, making it harder to track patient flow and plan accordingly.
+For the people running a healthcare facility, length of stay-the number of days from patient admission to discharge-matters. However, that number can vary across facilities and across disease conditions and specialties, even within the same healthcare system, making it harder to track patient flow and plan accordingly.
 
 This Azure solution helps hospital administrators use the power of machine learning to predict the length of stay for in-hospital admissions, to improve capacity planning and resource utilization. A Chief Medical Information Officer might use a predictive model to determine which facilities are overtaxed and which resources to bolster within those facilities, and a Care Line Manager might use it to determine if there will be adequate staff resources to handle the release of a patient.
 

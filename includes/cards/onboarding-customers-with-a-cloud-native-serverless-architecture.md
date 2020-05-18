@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>12/16/2019</li>
-            <li>2 min read</li>
+            <li>1 min read</li>
         </ul>
         <p class="card-content-description">The solution demonstrates a business process for customer onboarding. This serverless architecture enables you to build and run applications without having to worry about the underlying infrastructure and the associated management and maintenance. By using it, you can dramatically improve developer productivity.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

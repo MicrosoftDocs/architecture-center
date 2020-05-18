@@ -11,13 +11,13 @@
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/reference-architectures/ai/speech-ai-ingestion">
-            <p>Speech to text conversion</p>
+            <p>Speech-to-text conversion</p>
         </a>
         <ul class="card-content-metadata">
             <li>3/25/2020</li>
             <li>7 min read</li>
         </ul>
-        <p class="card-content-description">Recommended way to upload audio files and process the speech content to text.</p>
+        <p class="card-content-description">This article describes the recommended way to upload audio files and process the speech content to text.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

@@ -2,7 +2,7 @@
 
 <!-- markdownlint-disable MD033 -->
 
-<li class="grid-item item-column" data-categories="Containers Developer Tools Featured ">
+<li class="grid-item item-column" data-categories="Containers ">
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
@@ -14,7 +14,7 @@
             <p>Microservices architecture on Azure Kubernetes Service (AKS)</p>
         </a>
         <ul class="card-content-metadata">
-            <li>12/10/2019</li>
+            <li>5/07/2020</li>
             <li>16 min read</li>
         </ul>
         <p class="card-content-description">Deploy a microservices architecture on Azure Kubernetes Service (AKS)</p>
