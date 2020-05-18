@@ -30,7 +30,10 @@ When you are designing a cloud solution, focus on generating incremental value e
 
 ### Cost guidance
 
-- Best practices: [How to optimize your cloud investment with Azure Cost Management][cost]
+- Review [cost principles](/azure/architecture/framework/cost/overview)
+- [Develop a cost model](/azure/architecture/framework/cost/design-model)
+- Create [budgets and alerts](/azure/architecture/framework/cost/monitor-alert)
+- Review the [cost optimization checklist](/azure/architecture/framework/cost/optimize-checklist)
 
 ## Operational Excellence
 
