@@ -926,6 +926,8 @@ items:
         href: example-scenario/apps/publish-internal-apis-externally.md
   - name: Internet of Things
     items:
+    - name: Overview
+      href: reference-architectures/iot.md
     - name: Concepts
       items:
         - name: Introduction to Azure Iot Solutions
