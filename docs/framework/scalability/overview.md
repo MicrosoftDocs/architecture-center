@@ -1,6 +1,6 @@
 ---
-title: Overview of the scalability pillar
-description: Describes the scalability pillar
+title: Overview of the performance efficiency pillar
+description: Describes the performance efficiency pillar
 author: david-stanford
 ms.date: 10/21/2019
 ms.topic: overview
@@ -11,9 +11,11 @@ ms.custom:
 
 <!-- cSpell:ignore architecting -->
 
-# Overview of the scalability pillar
+# Overview of the performance efficiency pillar
 
-*Scalability* is the ability of a system to handle increased load. To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=azure-architecture-review).
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. The main ways to achieve this are by using scaling appropriately and implementing PaaS offerings that have scaling built in.
+
+*Scalability* is the ability of a system to handle increased load. To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=microsoft-azure-well-architected).
 
 Scalability tasks during the architecting phase include:
 
