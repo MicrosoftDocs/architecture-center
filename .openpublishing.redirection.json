@@ -200,6 +200,11 @@
       "redirect_url": "/azure/architecture/reliability"
     },
     {
+      "source_path": "docs/checklist/scalability.md",
+      "redirect_url": "/azure/architecture/checklist/performance-efficiency",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/resiliency/index.md",
       "redirect_url": "/azure/architecture/framework/resiliency/overview",
       "redirect_document_id": false

@@ -109,7 +109,7 @@ Also consider what services are shared in the hub, to ensure the hub scales for 
 
 Centralizing services that can be shared by multiple workloads in a single location can be cost efficient.
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 ### Azure Firewall
 

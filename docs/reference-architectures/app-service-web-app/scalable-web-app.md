@@ -94,7 +94,7 @@ If your app has static content, use CDN to decrease the load on the front end se
 
 Stateless apps that are configured for autoscaling are more cost effective that stateful apps. For an ASP.NET application, store your session state in-memory with Azure Cache for Redis. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-aspnet-session-state-provider). Another option is to use Cosmos DB as a backend state store through a session state provider. See [Support Azure Cosmos DB and Azure Redis](https://github.com/Microsoft/service-fabric-services-and-actors-dotnet/issues/32).
 
-For more information, see the cost section in the [Azure Architecture Framework](../../framework/cost/overview.md).
+For more information, see the cost section in the [Microsoft Azure Well-Architected Framework](../../framework/cost/overview.md).
 
 Consider placing a function app into a dedicated App Service plan so that background tasks don't run on the same instances that handle HTTP requests. If background tasks run intermittently, consider using a [consumption plan](https://docs.microsoft.com/azure/azure-functions/functions-scale#consumption-plan), which is billed based on the number of executions, rather than hourly.
 

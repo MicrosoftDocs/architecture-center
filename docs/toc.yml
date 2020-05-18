@@ -127,7 +127,7 @@ items:
       href: gcp-professional/index.md
     - name: Services comparison
       href: gcp-professional/services.md
-- name: Azure Architecture Framework
+- name: Microsoft Azure Well-Architected Framework
   items:
   - name: Overview
     href: framework/index.md
@@ -192,7 +192,7 @@ items:
         href: framework/cost/optimize-vm.md
     - name: Tradeoffs
       href: framework/cost/tradeoffs.md
-  - name: DevOps
+  - name: Operational Excellence
     items:
     - name: Overview
       href: framework/devops/overview.md
@@ -212,7 +212,21 @@ items:
       href: framework/devops/testing.md
     - name: Checklist
       href: checklist/dev-ops.md
-  - name: Resiliency
+  - name: Performance Efficiency
+    items:
+    - name: Overview
+      href: framework/scalability/overview.md
+    - name: Application design
+      href: framework/scalability/app-design.md
+    - name: Capacity planning
+      href: framework/scalability/capacity.md
+    - name: Load testing
+      href: framework/scalability/load-testing.md
+    - name: Monitoring
+      href: framework/scalability/monitoring.md
+    - name: Checklist
+      href: checklist/scalability.md
+  - name: Reliability
     items:
     - name: Overview
       href: framework/resiliency/overview.md
@@ -240,20 +254,6 @@ items:
       href: framework/resiliency/testing.md
     - name: Checklist
       href: checklist/resiliency-per-service.md
-  - name: Scalability
-    items:
-    - name: Overview
-      href: framework/scalability/overview.md
-    - name: Application design
-      href: framework/scalability/app-design.md
-    - name: Capacity planning
-      href: framework/scalability/capacity.md
-    - name: Load testing
-      href: framework/scalability/load-testing.md
-    - name: Monitoring
-      href: framework/scalability/monitoring.md
-    - name: Checklist
-      href: checklist/scalability.md
   - name: Security
     items:
     - name: Overview
