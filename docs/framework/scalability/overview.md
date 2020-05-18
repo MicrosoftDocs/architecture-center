@@ -9,15 +9,11 @@ ms.subservice: well-architected
 ms.custom: 
 ---
 
-<!-- cSpell:ignore architecting -->
-
 # Overview of the performance efficiency pillar
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. The main ways to achieve this are by using scaling appropriately and implementing PaaS offerings that have scaling built in.
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. The main ways to achieve this are by using scaling appropriately and implementing PaaS offerings that have scaling built in. *Scalability* is the ability of a system to handle increased load. To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=microsoft-azure-well-architected).
 
-*Scalability* is the ability of a system to handle increased load. To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=microsoft-azure-well-architected).
-
-Scalability tasks during the architecting phase include:
+Performance efficiency tasks to perform while building the architecture of your solution:
 
 - **Partition workloads.** Design parts of the process to be discrete and decomposable. Minimize the size of each part. This allows the component parts to be distributed in a way that maximizes use of each compute unit. It also makes it easier to scale the application by adding instances of specific resources. For complex domains, consider adopting a [microservices architecture](../../guide/architecture-styles/microservices.md).
 - **Design for scaling.** Scaling allows applications to react to variable load by increasing and decreasing the number of instances of roles, queues, and other services. However, the application must be designed with this in mind. For example, the application and the services it uses must be stateless to allow requests to be routed to any instance. Having stateless services also means that adding or removing an instance does not adversely impact current users.
