@@ -89,7 +89,7 @@ Other options for the data tier include:
 
 - When building a cloud application be aware of the [typical design patterns for scalability][design-patterns-scalability].
 - Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
-- For other scalability topics, see the [performance efficiencyf checklist][scalability] available in the Azure Architecture Center.
+- For other scalability topics, see the [performance efficiency checklist][scalability] available in the Azure Architecture Center.
 
 ### Security
 
