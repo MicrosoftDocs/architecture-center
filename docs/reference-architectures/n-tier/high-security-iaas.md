@@ -7,6 +7,9 @@ ms.topic: reference-architecture
 ms.service: architecture-center
 ms.custom:
     - fcp
+ms.category:
+    - security
+    - compute
 ---
 
 # Security for highly sensitive IaaS apps in Azure

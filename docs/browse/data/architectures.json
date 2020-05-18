@@ -18,7 +18,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/infrastructure/video-rendering.md",
             "http_url": "/azure/architecture/example-scenario/infrastructure/video-rendering",
-            "word_count": 1289,
+            "word_count": 1271,
             "read_time": "5 min read",
             "Title": "3D video rendering",
             "MetaDescription": "Run native HPC workloads in Azure using the Azure Batch service.",
@@ -64,8 +64,7 @@
             "Title": "A computer-aided engineering service",
             "MetaDescription": "Provide a software-as-a-service (SaaS) platform for computer-aided engineering (CAE) on Azure.",
             "category": [
-                "compute",
-                "windows-virtual-desktop"
+                "compute"
             ],
             "image": "/azure/architecture/example-scenario/apps/media/architecture-hpc-saas.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\apps\\media\\architecture-hpc-saas.png",
@@ -524,7 +523,7 @@
             "publish_date": "12/16/2019",
             "Flow": {
                 "FlowStep_A": "This content is enriched by using key phrase extraction, language detection, language translation,entity extraction (organizations and people) and custom models to identify certain regulatory obligations and custom models to identify specific legal terms and clauses",
-                "FlowStep_B": "And finally, the user can index data in a searchable internal application or leverage the data for a searchable web application for financial risks"
+                "FlowStep_B": "And finally, the user can index data in a searchable internal application or use the data for a searchable web application for financial risks"
             },
             "name": "auditing-and-risk-compliance",
             "popularity": 0,
@@ -544,7 +543,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/data/enterprise-bi-adf.md",
             "http_url": "/azure/architecture/reference-architectures/data/enterprise-bi-adf",
-            "word_count": 3109,
+            "word_count": 3086,
             "read_time": "13 min read",
             "Title": "Automated enterprise BI",
             "MetaDescription": "Automate an extract, load, and transform (ELT) workflow in Azure using Azure Data Factory with Azure Synapse Analytics.",
@@ -556,7 +555,7 @@
             "image": "/azure/architecture/reference-architectures/data/images/enterprise-bi-adf.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\data\\images\\enterprise-bi-adf.png",
             "publish_date": "11/20/2019",
-            "pricing_guidance": "pricing-for-azure-analysis-services-depends-on-the-tier.-the-reference-implementation-of-this-architecture-uses-the-**developer**-tier,-which-is-recommended-for-evaluation,-development,-and-test-scenarios.-other-tiers-include,-the-**basic**-tier,-which-is-recommended-for-small-production-environment;-the-**standard**-tier-for-mission-critical-production-applications.-for-more-information,-see-[the-right-tier-when-you-need-it](-azure-analysis-services-analysis-services-overview#the-right-tier-when-you-need-it).",
+            "pricing_guidance": "pricing-for-azure-analysis-services-depends-on-the-tier.-the-reference-implementation-of-this-architecture-uses-the-**developer**-tier,-which-is-recommended-for-evaluation,-development,-and-test-scenarios.-other-tiers-include,-the-**basic**-tier,-which-is-recommended-for-small-production-environment;-the-**standard**-tier-for-mission-critical-production-applications.-for-more-information,-see-[the-right-tier-when-you-need-it](https:--docs.microsoft.com-azure-analysis-services-analysis-services-overview#the-right-tier-when-you-need-it).",
             "Summary": "<p>This reference architecture shows how to perform incremental loading in an <a extract-load-and-transform-elt\">extract, load, and transform (ELT)</a> pipeline. It uses Azure Data Factory to automate the ELT pipeline. The pipeline incrementally moves the latest OLTP data from an on-premises SQL Server database into Azure Synapse. Transactional data is transformed into a tabular model for analysis.</p>\n<p><img alt=\"GitHub logo\" src=\"https://docs.microsoft.com/azure/architecture/_images/github.png\" /> A reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline\">GitHub</a>.</p>\n<p><img alt=\"Architecture diagram for automated enterprise BI with Azure Synapse and Azure Data Factory\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/data/images/enterprise-bi-adf.png\" /></p>\n<p>This architecture builds on the one shown in <a >Enterprise BI with Azure Synapse</a>, but adds some features that are important for enterprise data warehousing scenarios.</p>\n<ul>\n<li>Automation of the pipeline using Data Factory.</li>\n<li>Incremental loading.</li>\n<li>Integrating multiple data sources.</li>\n<li>Loading binary data such as geospatial data and images.</li>\n</ul>",
             "Flow": {
                 "FlowStep_A": "For each table in the source database, track the cutoff time when the last ELT job ran. Store this information in the data warehouse. (On initial setup, all times are set to '1-1-1900'.)",
@@ -582,7 +581,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/iot-with-sql.md",
             "http_url": "/azure/architecture/reference-architectures/iot-with-sql",
-            "word_count": 2371,
+            "word_count": 2410,
             "read_time": "10 min read",
             "Title": "Azure IoT reference architecture",
             "MetaDescription": "Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components",
@@ -594,7 +593,7 @@
             "publish_date": "1/03/2020",
             "Summary": "<p>This reference architecture shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.</p>\n<p><img alt=\"Diagram of the architecture\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/_images/iot-with-sql.png\" /></p>\n<p>IoT applications can be described as <strong>things</strong> (devices) sending data that generates <strong>insights</strong>. These insights generate <strong>actions</strong> to improve a business or process. An example is an engine (the thing) sending temperature data. This data is used to evaluate whether the engine is performing as expected (the insight). The insight is used to proactively prioritize the maintenance schedule for the engine (the action).</p>\n<p>This reference architecture uses Azure PaaS (platform-as-a-service) components. Other options for building IoT solutions on Azure include:</p>\n<ul>\n<li><a href=\"https://docs.microsoft.com/azure/iot-central/\">Azure IoT Central</a>. IoT Central is a fully managed SaaS (software-as-a-service) solution. It abstracts the technical choices and lets you focus on your solution exclusively. This simplicity comes with a tradeoff in being less customizable than a PaaS-based solution.</li>\n<li>Using OSS components such as the SMACK stack (Spark, Mesos, Akka, Cassandra, Kafka) deployed on Azure VMs. This approach offers a great deal of control but is more complex.</li>\n</ul>\n<p>At a high level, there are two ways to process telemetry data, hot path and cold path. The difference has to do with requirements for latency and data access.</p>\n<ul>\n<li>The <strong>hot path</strong> analyzes data in near-real-time, as it arrives. In the hot path, telemetry must be processed with very low latency. The hot path is typically implemented using a stream processing engine. The output may trigger an alert, or be written to a structured format that can be queried using analytical tools.</li>\n<li>The <strong>cold path</strong> performs batch processing at longer intervals (hourly or daily). The cold path typically operates over large volumes of data, but the results don't need to be as timely as the hot path. In the cold path, raw telemetry is captured and then fed into a batch process.</li>\n</ul>",
             "sample_code": true,
-            "github_url": "https://github.com/mspnp/iot-guidance",
+            "github_url": "https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql.",
             "name": "iot-with-sql",
             "popularity": 0,
             "topic": "Internet of Things"
@@ -634,45 +633,17 @@
         {
             "tags": [
                 "all-items",
-                "example-code",
-                "github",
-                "reference-architecture"
-            ],
-            "type": "reference-architecture",
-            "file_url": "reference-architectures/iot-with-sql.md",
-            "http_url": "/azure/architecture/reference-architectures/iot-with-sql",
-            "word_count": 2410,
-            "read_time": "10 min read",
-            "Title": "Azure IoT reference architecture",
-            "MetaDescription": "Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components",
-            "category": [
-                "iot"
-            ],
-            "image": "/azure/architecture/reference-architectures/_images/iot-with-sql.png",
-            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\_images\\iot-with-sql.png",
-            "publish_date": "1/03/2020",
-            "Summary": "<p>This reference architecture shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.</p>\n<p><img alt=\"Diagram of the architecture\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/_images/iot-with-sql.png\" /></p>\n<p>IoT applications can be described as <strong>things</strong> (devices) sending data that generates <strong>insights</strong>. These insights generate <strong>actions</strong> to improve a business or process. An example is an engine (the thing) sending temperature data. This data is used to evaluate whether the engine is performing as expected (the insight). The insight is used to proactively prioritize the maintenance schedule for the engine (the action).</p>\n<p>This reference architecture uses Azure PaaS (platform-as-a-service) components. Other options for building IoT solutions on Azure include:</p>\n<ul>\n<li><a href=\"https://docs.microsoft.com/azure/iot-central/\">Azure IoT Central</a>. IoT Central is a fully managed SaaS (software-as-a-service) solution. It abstracts the technical choices and lets you focus on your solution exclusively. This simplicity comes with a tradeoff in being less customizable than a PaaS-based solution.</li>\n<li>Using OSS components such as the SMACK stack (Spark, Mesos, Akka, Cassandra, Kafka) deployed on Azure VMs. This approach offers a great deal of control but is more complex.</li>\n</ul>\n<p>At a high level, there are two ways to process telemetry data, hot path and cold path. The difference has to do with requirements for latency and data access.</p>\n<ul>\n<li>The <strong>hot path</strong> analyzes data in near-real-time, as it arrives. In the hot path, telemetry must be processed with very low latency. The hot path is typically implemented using a stream processing engine. The output may trigger an alert, or be written to a structured format that can be queried using analytical tools.</li>\n<li>The <strong>cold path</strong> performs batch processing at longer intervals (hourly or daily). The cold path typically operates over large volumes of data, but the results don't need to be as timely as the hot path. In the cold path, raw telemetry is captured and then fed into a batch process.</li>\n</ul>",
-            "sample_code": true,
-            "github_url": "https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql.",
-            "name": "iot-with-sql",
-            "popularity": 0,
-            "topic": "Internet of Things"
-        },
-        {
-            "tags": [
-                "all-items",
                 "alternative-choices",
                 "data-analytics",
                 "data-flow",
                 "example-workload",
                 "fcp",
-                "pricing-calculator",
                 "pricing-guidance"
             ],
             "type": "example-workload",
             "file_url": "example-scenario/dataplate2e/data-platform-end-to-end.md",
             "http_url": "/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end",
-            "word_count": 1758,
+            "word_count": 1754,
             "read_time": "7 min read",
             "Title": "Azure data platform end-to-end",
             "MetaDescription": "Use Azure services to ingest, process, store, serve, and visualize data from different sources.",
@@ -683,7 +654,6 @@
             "image": "/azure/architecture/example-scenario/dataplate2e/media/azure-data-platform-end-to-end.jpg",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\dataplate2e\\media\\azure-data-platform-end-to-end.jpg",
             "publish_date": "1/31/2020",
-            "pricing_calculator": "https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276",
             "pricing_guidance": "pricing",
             "alternative_choices": "alternatives",
             "Flow": {
@@ -778,7 +748,7 @@
             "image": "/azure/architecture/reference-architectures/enterprise-integration/_images/simple-enterprise-integration.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\enterprise-integration\\_images\\simple-enterprise-integration.png",
             "publish_date": "12/03/2018",
-            "Summary": "<p>This reference architecture uses <a href=\"https://azure.microsoft.com/product-categories/integration/\">Azure Integration Services</a> to orchestrate calls to enterprise backend systems. The backend systems may include software as a service (SaaS) systems, Azure services, and existing web services in your enterprise.</p>\n<p>Azure Integration Services is a collection of services for integrating applications and data. This architecture uses two of those services: <a >queues and events</a> builds on this basic architecture.</p>\n<p><img alt=\"Architecture diagram - Simple enterprise integration\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/_images/simple-enterprise-integration.png\" /></p>",
+            "Summary": "<p>This reference architecture uses <a href=\"https://azure.microsoft.com/product-categories/integration\">Azure Integration Services</a> to orchestrate calls to enterprise backend systems. The backend systems may include software as a service (SaaS) systems, Azure services, and existing web services in your enterprise.</p>\n<p>Azure Integration Services is a collection of services for integrating applications and data. This architecture uses two of those services: <a >queues and events</a> builds on this basic architecture.</p>\n<p><img alt=\"Architecture diagram - Simple enterprise integration\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/_images/simple-enterprise-integration.png\" /></p>",
             "name": "basic-enterprise-integration",
             "popularity": 235,
             "topic": "Integration"
@@ -796,7 +766,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/app-service-web-app/basic-web-app.md",
             "http_url": "/azure/architecture/reference-architectures/app-service-web-app/basic-web-app",
-            "word_count": 2723,
+            "word_count": 2714,
             "read_time": "11 min read",
             "Title": "Basic web application",
             "MetaDescription": "Recommended architecture for a basic web application running in Azure.",
@@ -806,7 +776,7 @@
             "image": "/azure/architecture/reference-architectures/app-service-web-app/images/basic-web-app.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\app-service-web-app\\images\\basic-web-app.png",
             "publish_date": "12/12/2017",
-            "Summary": "<p>This reference architecture shows proven practices for a web application that uses <a href=\"https://docs.microsoft.com/azure/app-service/\">Azure App Service</a> and <a href=\"https://docs.microsoft.com/azure/sql-database/\">Azure SQL Database</a>. <a href=\"#deploy-the-solution\"><strong>Deploy this solution</strong></a>.</p>\n<p><img alt=\"Reference architecture for a basic web application in Azure\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/images/basic-web-app.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx\">Visio file</a> of this architecture.</em></p>",
+            "Summary": "<p>This reference architecture shows proven practices for a web application that uses <a href=\"https://docs.microsoft.com/azure/app-service\">Azure App Service</a> and <a href=\"https://docs.microsoft.com/azure/sql-database\">Azure SQL Database</a>. <a href=\"#deploy-the-solution\"><strong>Deploy this solution</strong></a>.</p>\n<p><img alt=\"Reference architecture for a basic web application in Azure\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/images/basic-web-app.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx\">Visio file</a> of this architecture.</em></p>",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/reference-architectures/tree/master/managed-web-app/basic-web-app/Paas-Basic/Templates",
             "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx",
@@ -828,7 +798,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/ai/batch-scoring-deep-learning.md",
             "http_url": "/azure/architecture/reference-architectures/ai/batch-scoring-deep-learning",
-            "word_count": 1718,
+            "word_count": 1710,
             "read_time": "7 min read",
             "Title": "Batch scoring for deep learning models",
             "MetaDescription": "This reference architecture shows how to apply neural style transfer to a video, using Azure Machine Learning.",
@@ -858,7 +828,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/ai/batch-scoring-python.md",
             "http_url": "/azure/architecture/reference-architectures/ai/batch-scoring-python",
-            "word_count": 1165,
+            "word_count": 1155,
             "read_time": "5 min read",
             "Title": "Batch scoring of Python models on Azure",
             "MetaDescription": "Build a scalable solution for batch scoring models on a schedule in parallel using Azure Machine Learning.",
@@ -887,7 +857,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/ai/batch-scoring-databricks.md",
             "http_url": "/azure/architecture/reference-architectures/ai/batch-scoring-databricks",
-            "word_count": 1250,
+            "word_count": 1240,
             "read_time": "5 min read",
             "Title": "Batch scoring of Spark models on Azure Databricks",
             "MetaDescription": "Build a scalable solution for batch scoring an Apache Spark classification model on a schedule using Azure Databricks.",
@@ -1029,7 +999,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/ai/real-time-recommendation.md",
             "http_url": "/azure/architecture/reference-architectures/ai/real-time-recommendation",
-            "word_count": 1372,
+            "word_count": 1340,
             "read_time": "6 min read",
             "Title": "Build a Real-time Recommendation API on Azure",
             "MetaDescription": "Use machine learning to automate recommendations using Azure Databricks and Azure Data Science Virtual Machines (DSVM) to train a model on Azure.",
@@ -1070,7 +1040,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/ai/conversational-bot.md",
             "http_url": "/azure/architecture/reference-architectures/ai/conversational-bot",
-            "word_count": 3274,
+            "word_count": 3262,
             "read_time": "13 min read",
             "Title": "Build an enterprise-grade conversational bot",
             "MetaDescription": "How to build an enterprise-grade conversational bot (chatbot) using the Azure Bot Framework.",
@@ -1417,7 +1387,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/apps/devops-with-aks.md",
             "http_url": "/azure/architecture/example-scenario/apps/devops-with-aks",
-            "word_count": 1613,
+            "word_count": 1609,
             "read_time": "7 min read",
             "Title": "CI/CD pipeline for container-based workloads",
             "MetaDescription": "Build a DevOps pipeline for a Node.js web app with Jenkins, Azure Container Registry, Azure Kubernetes Service, Cosmos DB, and Grafana.",
@@ -1528,6 +1498,42 @@
         {
             "tags": [
                 "all-items",
+                "data-flow",
+                "fcp",
+                "solution-idea",
+                "visio-diagram"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/appconfig-key-vault.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/appconfig-key-vault",
+            "word_count": 463,
+            "read_time": "3 min read",
+            "Title": "Centralized app configuration and security",
+            "MetaDescription": "Use Azure App Configuration and Azure Key Vault to create a centralized and secured configuration service for apps.",
+            "category": [
+                "security",
+                "management-and-governance"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/appconfig-development.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\appconfig-development.png",
+            "publish_date": "5/13/2020",
+            "Summary": "<p>Cloud-based applications often run on multiple virtual machines or containers in multiple regions, and use multiple external services. Creating a robust and scalable application in a distributed environment presents a significant challenge. <a href=\"https://docs.microsoft.com/azure/azure-app-configuration/overview\">Azure App Configuration</a> lets you manage and store all your app's configuration settings and feature flags, and secure access settings, in one place.</p>\n<p>App Configuration works seamlessly with <a href=\"https://azure.microsoft.com/services/key-vault/\">Azure Key Vault</a>, which stores passwords, keys, and secrets for secure access. This article presents best practices for using App Configuration and Key Vault in development and Azure environments.</p>",
+            "Flow": {
+                "FlowStep_A": "The application sends an authentication request during debugging in Visual Studio, or authenticates via the MSI in Azure.",
+                "FlowStep_B": "Upon successful authentication, Azure AD returns an access token.",
+                "FlowStep_C": "The App Configuration SDK sends a request with the access token to read the app's App Configuration KeyVault **secretURI** value for the app's key vault. ",
+                "FlowStep_D": "Upon successful authorization, App Configuration sends the configuration value. ",
+                "FlowStep_E": "Using the sign-in identity, the app sends a request to Azure Key Vault to retrieve the application secret for the **secretURI** that App Configuration sent.",
+                "FlowStep_F": "Upon successful authorization, Key Vault returns the secret value."
+            },
+            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/AppConfig_Development.vsdx",
+            "name": "appconfig-key-vault",
+            "popularity": 0,
+            "topic": "Security"
+        },
+        {
+            "tags": [
+                "all-items",
                 "alternative-choices",
                 "azurecli-interactive",
                 "data-flow",
@@ -1541,7 +1547,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/ai/commerce-chatbot.md",
             "http_url": "/azure/architecture/example-scenario/ai/commerce-chatbot",
-            "word_count": 1387,
+            "word_count": 1383,
             "read_time": "6 min read",
             "Title": "Chatbot for hotel reservations",
             "MetaDescription": "Build a conversational chatbot for commerce applications with Azure Bot Service.",
@@ -1649,6 +1655,56 @@
         {
             "tags": [
                 "all-items",
+                "alternative-choices",
+                "data-flow",
+                "example-code",
+                "example-workload",
+                "fcp",
+                "github",
+                "powershell"
+            ],
+            "type": "example-workload",
+            "file_url": "example-scenario/forensics/index.md",
+            "http_url": "/azure/architecture/example-scenario/forensics",
+            "word_count": 1794,
+            "read_time": "8 min read",
+            "Title": "Computer forensics Chain of Custody in Azure",
+            "MetaDescription": "Create an infrastructure and workflow to ensure a valid digital evidence Chain of Custody (CoC) for computer forensics in Azure.",
+            "category": [
+                "security"
+            ],
+            "image": "/azure/architecture/example-scenario/forensics/media/chain-of-custody.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\forensics\\media\\chain-of-custody.png",
+            "publish_date": "4/27/2020",
+            "alternative_choices": "alternatives",
+            "Summary": "<p>Digital forensics is a science that addresses the recovery and investigation of digital data to support criminal investigations or civil proceedings. Computer forensics is a branch of digital forensics that captures and analyzes data from computers, virtual machines (VMs), and digital storage media.</p>\n<p>Companies must guarantee that digital evidence they provide in response to legal requests demonstrates a valid <em>Chain of Custody</em> (CoC) throughout the evidence acquisition, preservation, and access process. To ensure a valid CoC, digital evidence storage must demonstrate adequate access control, data protection and integrity, monitoring and alerting, and logging and auditing.</p>",
+            "Flow": {
+                "FlowStep_A": "Sign in to the SOC subscription in the Azure portal, and select their Azure Automation account.",
+                "FlowStep_B": "Edit the Copy-VmDigitalEvidence runbook to supply the following information:",
+                "FlowStep_C": "Access the Hybrid Runbook Worker VM, which has a managed identity or service principal for the Azure tenant, and run the Copy-VmDigitalEvidence runbook.",
+                "FlowStep_D": "The Activity Logs register the runbook execution, and store the related data in Log Analytics for further analysis.",
+                "FlowStep_E": "Signs in to the Azure SOC subscription.",
+                "FlowStep_F": "Signs in to the target VM and creates the OS disk snapshot",
+                "FlowStep_G": "Copies the snapshot to the immutable SOC Blob Storage account and to the temporary SOC Azure file share",
+                "FlowStep_H": "Calculates the SHA-256 hash value of snapshot on the file share",
+                "FlowStep_I": "Accesses the target VM's key vault and copies the VM's BEK, and KEK if applicable, to the SOC key vault. A secret named with the thumbprint of the runbook execution contains the encryption key and all the tags to identify the disk and volume.",
+                "FlowStep_J": "Stores the calculated SHA-256 hash value into the SOC key vault.",
+                "FlowStep_K": "Removes the temporary copy of the snapshot from the SOC Azure file share.",
+                "FlowStep_L": "Repeats the disk snapshots, snapshot and key copying, and hash generation and copying for each data disk attached to the VM.",
+                "FlowStep_M": "Removes all the source snapshots generated during the process."
+            },
+            "sample_code": true,
+            "github_url": "https://github.com/mspnp/solution-architectures/blob/master/forensics/Copy-VmDigitalEvidence.ps1",
+            "code_languages": [
+                "powershell"
+            ],
+            "name": "forensics",
+            "popularity": 0,
+            "topic": "Security"
+        },
+        {
+            "tags": [
+                "all-items",
                 "networking",
                 "reference-architecture"
             ],
@@ -1665,7 +1721,7 @@
             ],
             "image": "/azure/architecture/_images/reference-architectures.svg",
             "publish_date": "7/02/2018",
-            "name": "index",
+            "name": "hybrid-networking",
             "popularity": 241,
             "topic": "Hybrid"
         },
@@ -1683,7 +1739,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/hybrid-networking/expressroute-vpn-failover.md",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover",
-            "word_count": 1066,
+            "word_count": 1054,
             "read_time": "5 min read",
             "Title": "Connect an on-premises network to Azure using ExpressRoute",
             "MetaDescription": "Implement a highly available and secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using ExpressRoute with VPN gateway failover.",
@@ -1856,7 +1912,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/identity/adds-forest.md",
             "http_url": "/azure/architecture/reference-architectures/identity/adds-forest",
-            "word_count": 1533,
+            "word_count": 1513,
             "read_time": "6 min read",
             "Title": "Create an AD DS resource forest in Azure",
             "MetaDescription": "How to create a trusted Active Directory domain in Azure.",
@@ -2234,7 +2290,7 @@
             "Summary": "<p>This example scenario demonstrates a data pipeline that integrates large amounts of data from multiple sources into a unified analytics platform in Azure. This specific scenario is based on a sales and marketing solution, but the design patterns are relevant for many industries requiring advanced analytics of large datasets such as e-commerce, retail, and healthcare.</p>\n<p>This example demonstrates a sales and marketing company that creates incentive programs. These programs reward customers, suppliers, salespeople, and employees. Data is fundamental to these programs, and the company wants to improve the insights gained through data analytics using Azure.</p>\n<p>The company needs a modern approach to analysis data, so that decisions are made using the right data at the right time. The company's goals include:</p>\n<ul>\n<li>Combining different kinds of data sources into a cloud-scale platform.</li>\n<li>Transforming source data into a common taxonomy and structure, to make the data consistent and easily compared.</li>\n<li>Loading data using a highly parallelized approach that can support thousands of incentive programs, without the high costs of deploying and maintaining on-premises infrastructure.</li>\n<li>Greatly reducing the time needed to gather and transform data, so you can focus on analyzing the data.</li>\n</ul>",
             "Flow": {
                 "FlowStep_A": "For each data source, any updates are exported periodically into a staging area in Azure Blob storage.",
-                "FlowStep_B": "Data Factory incrementally loads the data from Blob storage into staging tables in Azure Synapse Analytics. The data is cleansed and transformed during this process. Polybase can parallelize the process for large datasets.",
+                "FlowStep_B": "Data Factory incrementally loads the data from Blob storage into staging tables in Azure Synapse Analytics. The data is cleansed and transformed during this process. PolyBase can parallelize the process for large datasets.",
                 "FlowStep_C": "After loading a new batch of data into the warehouse, a previously created Analysis Services tabular model is refreshed. This semantic model simplifies the analysis of business data and relationships.",
                 "FlowStep_D": "Business analysts use Microsoft Power BI to analyze warehoused data via the Analysis Services semantic model."
             },
@@ -2468,7 +2524,7 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.md",
             "http_url": "/azure/architecture/solution-ideas/articles/demand-forecasting-for-shipping-and-distribution",
-            "word_count": 1085,
+            "word_count": 1083,
             "read_time": "5 min read",
             "Title": "Demand Forecasting for Shipping and Distribution",
             "MetaDescription": "Use historical demand data to forecast future periods across various customers, products and destinations.",
@@ -2480,7 +2536,7 @@
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\demand-forecasting-for-shipping-and-distribution.png",
             "publish_date": "12/16/2019",
             "pricing_guidance": "pricing-info",
-            "Summary": "<p>The Demand Forecasting for Shipping and Distribution Solution uses historical demand data to forecast demand in future periods across various customers, products and destinations. For instance, a shipping or delivery company wants to predict the quantities of the different products its customers want delivered at different locations at future times. A company can use these forecasts as input to an allocation tool that optimizes operations, such as delivery vehicles routing, or to plan capacity in the longer term.</p>",
+            "Summary": "<p>The Demand Forecasting for Shipping and Distribution Solution uses historical demand data to forecast demand in future periods across various customers, products and destinations. For instance, a shipping or delivery company wants to predict the quantities of the different products its customers want delivered at different locations at future times. A company can use these forecasts as input to an allocation tool that optimizes operations, such as delivery vehicles routing, or to plan capacity in the longer term.</p>\n<p><a >View on GitHub</a></p>",
             "sample_code": true,
             "github_url": "https://github.com/Azure/cortana-intelligence-shipping-and-distribution-forecasting/blob/master/Technical%20Deployment%20Guide/Technical-Solution-Guide.md",
             "name": "demand-forecasting-for-shipping-and-distribution",
@@ -2501,7 +2557,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/identity/adds-extend-domain.md",
             "http_url": "/azure/architecture/reference-architectures/identity/adds-extend-domain",
-            "word_count": 2084,
+            "word_count": 2069,
             "read_time": "8 min read",
             "Title": "Deploy AD DS in an Azure virtual network",
             "MetaDescription": "Deploy Active Directory Domain Services (AD DS) in an Azure virtual network.",
@@ -2544,7 +2600,7 @@
             "image": "/azure/architecture/reference-architectures/dmz/images/nva-ha/pip-udr-without-snat.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\dmz\\images\\nva-ha\\pip-udr-without-snat.png",
             "publish_date": "12/08/2018",
-            "Summary": "<p>This article shows how to deploy a set of network virtual appliances (NVAs) for high availability in Azure. An NVA is typically used to control the flow of network traffic from a perimeter network, also known as a DMZ, to other networks or subnets. To learn about implementing a DMZ in Azure, see <a href=\"https://docs.microsoft.com/azure/best-practices-network-security\">Microsoft cloud services and network security</a>. The article includes example architectures for ingress only, egress only, and both ingress and egress.</p>\n<p><strong>Prerequisites:</strong> This article assumes a basic understanding of Azure networking, <a href=\"https://docs.microsoft.com/azure/load-balancer/load-balancer-overview/\">Azure load balancers</a>, and <a href=\"https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview/\">user-defined routes</a> (UDRs).</p>",
+            "Summary": "<p>This article shows how to deploy a set of network virtual appliances (NVAs) for high availability in Azure. An NVA is typically used to control the flow of network traffic from a perimeter network, also known as a DMZ, to other networks or subnets. To learn about implementing a DMZ in Azure, see <a href=\"https://docs.microsoft.com/azure/best-practices-network-security\">Microsoft cloud services and network security</a>. The article includes example architectures for ingress only, egress only, and both ingress and egress.</p>\n<p><strong>Prerequisites:</strong> This article assumes a basic understanding of Azure networking, <a href=\"https://docs.microsoft.com/azure/load-balancer/load-balancer-overview\">Azure load balancers</a>, and <a href=\"https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview\">user-defined routes</a> (UDRs).</p>",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/ha-nva",
             "name": "nva-ha",
@@ -2617,7 +2673,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/apps/devops-dotnet-webapp.md",
             "http_url": "/azure/architecture/example-scenario/apps/devops-dotnet-webapp",
-            "word_count": 1159,
+            "word_count": 1127,
             "read_time": "5 min read",
             "Title": "Design a CI/CD pipeline using Azure DevOps",
             "MetaDescription": "Build and release a .NET app to Azure Web Apps using Azure DevOps.",
@@ -2634,9 +2690,9 @@
             "pricing_guidance": "pricing",
             "alternative_choices": "alternatives",
             "components": [
-                "<p><a href=\"https://docs.microsoft.com/azure/devops/\">Azure DevOps</a> is a service for managing your development lifecycle end-to-end&mdash;from planning and project management, to code management, and continuing to build and release.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/devops\">Azure DevOps</a> is a service for managing your development lifecycle end-to-end&mdash;from planning and project management, to code management, and continuing to build and release.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/app-service/app-service-web-overview\">Azure Web Apps</a> is a PaaS service for hosting web applications, REST APIs, and mobile back ends. While this article focuses on .NET, there are several additional development platform options supported.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/application-insights/\">Application Insights</a> is a first-party, extensible Application Performance Management (APM) service for web developers on multiple platforms.</p>"
+                "<p><a href=\"https://azure.microsoft.com/services/application-insights\">Application Insights</a> is a first-party, extensible Application Performance Management (APM) service for web developers on multiple platforms.</p>"
             ],
             "Flow": {
                 "FlowStep_A": "A developer changes application source code.",
@@ -3129,7 +3185,7 @@
             "Flow": {
                 "FlowStep_A": "Combine all your structured and semi-structured data in Azure Data Lake Storage using Discovery Hub's data engineering pipeline with hundreds of native data connectors.",
                 "FlowStep_B": "Clean and transform data using the powerful analytics and computational ability of Azure Databricks.",
-                "FlowStep_C": "Move cleansed and transformed data to Azure Synapse Analytics, creating one hub for all your data. Take advantage of native connectors between Azure Databricks (Polybase) and Azure Synapse Analytics to access and move data at scale.",
+                "FlowStep_C": "Move cleansed and transformed data to Azure Synapse Analytics, creating one hub for all your data. Take advantage of native connectors between Azure Databricks (PolyBase) and Azure Synapse Analytics to access and move data at scale.",
                 "FlowStep_D": "Build operational reports and analytical dashboards on top of SQL Database to derive insights from the data and use Azure Analysis Services to serve the data.",
                 "FlowStep_E": "Run ad-hoc queries directly on data within Azure Databricks."
             },
@@ -3148,7 +3204,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/ai/training-deep-learning.md",
             "http_url": "/azure/architecture/reference-architectures/ai/training-deep-learning",
-            "word_count": 1760,
+            "word_count": 1746,
             "read_time": "7 min read",
             "Title": "Distributed training of deep learning models on Azure",
             "MetaDescription": "This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs using Azure Machine Learning.",
@@ -3160,7 +3216,7 @@
             "image": "/azure/architecture/reference-architectures/ai/_images/distributed_dl_architecture.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\ai\\_images\\distributed_dl_architecture.png",
             "publish_date": "6/05/2019",
-            "Summary": "<p>This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs. The scenario is image classification, but the solution can be generalized for other deep learning scenarios such as segmentation and object detection.</p>\n<p>A reference implementation for this architecture is available on <a href=\"https://github.com/microsoft/DistributedDeepLearning/\">GitHub</a>.</p>\n<p><img alt=\"Architecture for distributed deep learning\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/distributed_dl_architecture.png\" /></p>\n<p><strong>Scenario</strong>: Classifying images is a widely applied technique in computer vision, often tackled by training a convolutional neural network (CNN). For particularly large models with large datasets, the training process can take weeks or months on a single GPU. In some situations, the models are so large that it's not possible to fit reasonable batch sizes onto the GPU. Using distributed training in these situations can shorten the training time.</p>\n<p>In this specific scenario, a <a href=\"https://arxiv.org/abs/1512.03385\">ResNet50 CNN model</a> is trained using <a href=\"https://github.com/uber/horovod\">Horovod</a> on the <a href=\"http://www.image-net.org/\">Imagenet dataset</a> and on synthetic data. The reference implementation shows how to accomplish this task using TensorFlow.</p>\n<p>There are several ways to train a deep learning model in a distributed fashion, including data-parallel and model-parallel approaches based on synchronous or asynchronous updates. Currently the most common scenario is data parallel with synchronous updates. This approach is the easiest to implement and is sufficient for most use cases.</p>\n<p>In data-parallel distributed training with synchronous updates, the model is replicated across <em>n</em> hardware devices. A mini-batch of training samples is divided into <em>n</em> micro-batches. Each device performs the forward and backward passes for a micro-batch. When a device finishes the process, it shares the updates with the other devices. These values are used to calculate the updated weights of the entire mini-batch, and the weights are synchronized across the models. This scenario is covered in the <a href=\"https://github.com/microsoft/DistributedDeepLearning/\">GitHub</a> repository.</p>\n<p><img alt=\"Data parallel distributed training\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/distributed_dl_flow.png\" /></p>\n<p>This architecture can also be used for model-parallel and asynchronous updates. In model-parallel distributed training, the model is divided across <em>n</em> hardware devices, with each device holding a part of the model. In the simplest implementation, each device may hold a layer of the network, and information is passed between devices during the forward and backwards pass. Larger neural networks can be trained this way, but at the cost of performance, since devices are constantly waiting for each other to complete either the forward or backwards pass. Some advanced techniques try to partially alleviate this issue by using synthetic gradients.</p>\n<p>The steps for training are:</p>\n<ol>\n<li>\n<p>Create scripts that will run on the cluster and train your model, then transfer them to file storage.</p>\n</li>\n<li>\n<p>Write the data to Premium Blob Storage.</p>\n</li>\n<li>\n<p>Create an Azure Machine Learning workspace. This will also create an Azure Container Registry to host your Docker Images.</p>\n</li>\n<li>\n<p>Create an Azure Machine Learning GPU Cluster.</p>\n</li>\n<li>\n<p>Submit jobs. For each job with unique dependencies, a new Docker image is built and pushed to your container registry. During execution, the appropriate Docker image runs and executes your script.</p>\n</li>\n<li>\n<p>All the results and logs will be written to Blob storage.</p>\n</li>\n</ol>",
+            "Summary": "<p>This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs. The scenario is image classification, but the solution can be generalized for other deep learning scenarios such as segmentation and object detection.</p>\n<p>A reference implementation for this architecture is available on <a href=\"https://github.com/microsoft/DistributedDeepLearning\">GitHub</a>.</p>\n<p><img alt=\"Architecture for distributed deep learning\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/distributed_dl_architecture.png\" /></p>\n<p><strong>Scenario</strong>: Classifying images is a widely applied technique in computer vision, often tackled by training a convolutional neural network (CNN). For particularly large models with large datasets, the training process can take weeks or months on a single GPU. In some situations, the models are so large that it's not possible to fit reasonable batch sizes onto the GPU. Using distributed training in these situations can shorten the training time.</p>\n<p>In this specific scenario, a <a href=\"https://arxiv.org/abs/1512.03385\">ResNet50 CNN model</a> is trained using <a href=\"https://github.com/uber/horovod\">Horovod</a> on the <a href=\"http://www.image-net.org\">Imagenet dataset</a> and on synthetic data. The reference implementation shows how to accomplish this task using TensorFlow.</p>\n<p>There are several ways to train a deep learning model in a distributed fashion, including data-parallel and model-parallel approaches based on synchronous or asynchronous updates. Currently the most common scenario is data parallel with synchronous updates. This approach is the easiest to implement and is sufficient for most use cases.</p>\n<p>In data-parallel distributed training with synchronous updates, the model is replicated across <em>n</em> hardware devices. A mini-batch of training samples is divided into <em>n</em> micro-batches. Each device performs the forward and backward passes for a micro-batch. When a device finishes the process, it shares the updates with the other devices. These values are used to calculate the updated weights of the entire mini-batch, and the weights are synchronized across the models. This scenario is covered in the <a href=\"https://github.com/microsoft/DistributedDeepLearning\">GitHub</a> repository.</p>\n<p><img alt=\"Data parallel distributed training\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/distributed_dl_flow.png\" /></p>\n<p>This architecture can also be used for model-parallel and asynchronous updates. In model-parallel distributed training, the model is divided across <em>n</em> hardware devices, with each device holding a part of the model. In the simplest implementation, each device may hold a layer of the network, and information is passed between devices during the forward and backwards pass. Larger neural networks can be trained this way, but at the cost of performance, since devices are constantly waiting for each other to complete either the forward or backwards pass. Some advanced techniques try to partially alleviate this issue by using synthetic gradients.</p>\n<p>The steps for training are:</p>\n<ol>\n<li>\n<p>Create scripts that will run on the cluster and train your model, then transfer them to file storage.</p>\n</li>\n<li>\n<p>Write the data to Premium Blob Storage.</p>\n</li>\n<li>\n<p>Create an Azure Machine Learning workspace. This will also create an Azure Container Registry to host your Docker Images.</p>\n</li>\n<li>\n<p>Create an Azure Machine Learning GPU Cluster.</p>\n</li>\n<li>\n<p>Submit jobs. For each job with unique dependencies, a new Docker image is built and pushed to your container registry. During execution, the appropriate Docker image runs and executes your script.</p>\n</li>\n<li>\n<p>All the results and logs will be written to Blob storage.</p>\n</li>\n</ol>",
             "sample_code": true,
             "github_url": "https://github.com/msalvaris/BatchAIHorovodBenchmark",
             "name": "training-deep-learning",
@@ -3314,7 +3370,7 @@
                 "FlowStep_A": "Azure Traffic Manager routes incoming requests to Azure API management Gateway",
                 "FlowStep_B": "API Gateway ensures requests meet security and other policies, and then routes them to service running in Azure Kubernetes Service",
                 "FlowStep_C": "Services use Azure Cosmos DB, Azure CDN, and Azure Functions to achieve low-latency data access data as needed from anywhere in the world",
-                "FlowStep_D": "When demand spikes past current capacity, AKS uses virtual nodes to dynamically scales up the service"
+                "FlowStep_D": "When demand spikes past current capacity, AKS uses virtual nodes to dynamically scale up the service"
             },
             "name": "aks-demand-spikes",
             "popularity": 0,
@@ -3410,7 +3466,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/data/enterprise-bi-synapse.md",
             "http_url": "/azure/architecture/reference-architectures/data/enterprise-bi-synapse",
-            "word_count": 3089,
+            "word_count": 3087,
             "read_time": "12 min read",
             "Title": "Enterprise business intelligence",
             "MetaDescription": "Use Azure to gain business insights from relational data stored on-premises.",
@@ -3422,13 +3478,76 @@
             "image": "/azure/architecture/reference-architectures/data/images/enterprise-bi-synapse.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\data\\images\\enterprise-bi-synapse.png",
             "publish_date": "11/20/2019",
-            "pricing_guidance": "pricing-for-azure-analysis-services-depends-on-the-tier.-the-reference-implementation-of-this-architecture-uses-the-**developer**-tier,-which-is-recommended-for-evaluation,-development,-and-test-scenarios.-other-tiers-include,-the-**basic**-tier,-which-is-recommended-for-small-production-environment;-the-**standard**-tier-for-mission-critical-production-applications.-for-more-information,-see-[the-right-tier-when-you-need-it](-azure-analysis-services-analysis-services-overview#the-right-tier-when-you-need-it).",
+            "pricing_guidance": "pricing-for-azure-analysis-services-depends-on-the-tier.-the-reference-implementation-of-this-architecture-uses-the-**developer**-tier,-which-is-recommended-for-evaluation,-development,-and-test-scenarios.-other-tiers-include,-the-**basic**-tier,-which-is-recommended-for-small-production-environment;-the-**standard**-tier-for-mission-critical-production-applications.-for-more-information,-see-[the-right-tier-when-you-need-it](https:--docs.microsoft.com-azure-analysis-services-analysis-services-overview#the-right-tier-when-you-need-it).",
             "Summary": "<p>This reference architecture implements an <a extract-load-and-transform-elt\">extract, load, and transform (ELT)</a> pipeline that moves data from an on-premises SQL Server database into Azure Synapse and transforms the data for analysis.</p>\n<p><img alt=\"GitHub logo\" src=\"https://docs.microsoft.com/azure/architecture/_images/github.png\" /> A reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw\">GitHub</a>.</p>\n<p><img alt=\"Architecture diagram for Enterprise BI in Azure with Azure Synapse\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/data/images/enterprise-bi-synapse.png\" /></p>\n<p><strong>Scenario</strong>: An organization has a large OLTP data set stored in a SQL Server database on premises. The organization wants to use Azure Synapse to perform analysis using Power BI.</p>\n<p>This reference architecture is designed for one-time or on-demand jobs. If you need to move data on a continuing basis (hourly or daily), we recommend using Azure Data Factory to define an automated workflow. For a reference architecture that uses Data Factory, see <a >Automated enterprise BI with Azure Synapse and Azure Data Factory</a>.</p>",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/template-building-blocks/wiki",
             "name": "enterprise-bi-synapse",
             "popularity": 230,
             "topic": "Integration"
+        },
+        {
+            "tags": [
+                "all-items",
+                "example-code",
+                "fcp",
+                "github",
+                "solution-idea",
+                "visio-diagram"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/enterprise-chatbot-disaster-recovery.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/enterprise-chatbot-disaster-recovery",
+            "word_count": 566,
+            "read_time": "3 min read",
+            "Title": "Enterprise chatbot disaster recovery",
+            "MetaDescription": "Learn how to set up disaster recovery and high availability for Azure services in an enterprise-grade conversational bot.",
+            "category": [
+                "ai-machine-learning",
+                "management-and-governance"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/chatbot-dr.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\chatbot-dr.png",
+            "publish_date": "5/11/2020",
+            "Summary": "<p>To set up disaster recovery for an enterprise-grade <em>conversational bot (chatbot)</em>, first review the service level agreement (SLA) that cover the <em>Recovery Point Objective (RPO)</em> and <em>Recovery Time Objective (RTO)</em> for the chatbot. Implement the disaster recovery patterns in this article to build highly available and disaster resistant chatbot solutions to meet the SLA.</p>\n<p>For a description of the core components of a typical enterprise-grade chatbot solution in Azure, see <a href=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/conversational-bot\">Enterprise-grade conversational bot</a>.</p>",
+            "sample_code": true,
+            "github_url": "https://github.com/pchoudhari/QnAMakerBackupRestore",
+            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/Bot_DR.vsdx",
+            "name": "enterprise-chatbot-disaster-recovery",
+            "popularity": 0,
+            "topic": "AI + Machine Learning"
+        },
+        {
+            "tags": [
+                "all-items",
+                "azurecli",
+                "example-code",
+                "github",
+                "reference-architecture"
+            ],
+            "type": "reference-architecture",
+            "file_url": "reference-architectures/enterprise-integration/ase-standard-deployment.md",
+            "http_url": "/azure/architecture/reference-architectures/enterprise-integration/ase-standard-deployment",
+            "word_count": 4395,
+            "read_time": "18 min read",
+            "Title": "Enterprise deployment using App Services Environment",
+            "MetaDescription": "Recommended architecture for deploying an enterprise application using App Services Environment.",
+            "category": [
+                "management-and-governance",
+                "featured"
+            ],
+            "image": "/azure/architecture/reference-architectures/enterprise-integration/_images/standard-ase-deployment.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\enterprise-integration\\_images\\standard-ase-deployment.png",
+            "publish_date": "5/08/2020",
+            "Summary": "<p><a href=\"https://docs.microsoft.com/azure/app-service/overview\">Azure App Service</a> is a PaaS service used to host a variety of apps on Azure: web apps, API apps, functions, and mobile apps. <a href=\"https://docs.microsoft.com/azure/app-service/environment/intro\">App Service Environment or ASE</a> allows enterprises to deploy their App Service apps in a subnet in their own Azure Virtual Network, providing an isolated, highly scalable, and dedicated environment for their cloud workloads.</p>\n<p>This reference architecture demonstrates a common enterprise workload using ASE, and best practices to tighten security of this workload.</p>\n<p><img alt=\"GitHub logo\" src=\"https://docs.microsoft.com/azure/architecture/_images/github.png\" /> A reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/app-service-environments-ILB-deployments\">GitHub</a>.</p>\n<p><img alt=\"Reference architecture for standard ASE deployment\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/_images/standard-ase-deployment.png\" /></p>",
+            "sample_code": true,
+            "github_url": "https://github.com/mspnp/app-service-environments-ILB-deployments",
+            "code_languages": [
+                "azurecli"
+            ],
+            "name": "ase-standard-deployment",
+            "popularity": 0,
+            "topic": "Management and Governance"
         },
         {
             "tags": [
@@ -3501,7 +3620,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/serverless/cloud-automation.md",
             "http_url": "/azure/architecture/reference-architectures/serverless/cloud-automation",
-            "word_count": 2935,
+            "word_count": 2933,
             "read_time": "12 min read",
             "Title": "Event-based cloud automation",
             "MetaDescription": "Recommended architecture for implementing cloud automation using serverless technologies.",
@@ -3512,7 +3631,7 @@
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\serverless\\_images\\cloud-automation.png",
             "publish_date": "1/14/2020",
             "Flow": {
-                "FlowStep_A": "[Cost center tagging](https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/deployment.md) - This implementation tracks the cost centers of each Azure resource. The [Azure Policy](https://docs.microsoft.com/azure/governance/policy/) service [tags all new resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) in a group with a default cost center ID. The Event Grid monitors resource creation events, and then calls an [Azure function](https://docs.microsoft.com/azure/azure-functions/). The function interacts with Azure Active Directory, and validates the cost center ID for the new resource. If different, it updates the tag and sends out an email to the resource owner. The REST queries for Azure Active Directory are mocked out for simplicity. Azure AD can also be integrated using the [Azure AD PowerShell module](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0) or the [ADAL for Python library](https://pypi.org/project/adal/)."
+                "FlowStep_A": "[Cost center tagging](https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/deployment.md): This implementation tracks the cost centers of each Azure resource. The [Azure Policy](https://docs.microsoft.com/azure/governance/policy/) service [tags all new resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) in a group with a default cost center ID. The Event Grid monitors resource creation events, and then calls an [Azure function](https://docs.microsoft.com/azure/azure-functions/). The function interacts with Azure Active Directory, and validates the cost center ID for the new resource. If different, it updates the tag and sends out an email to the resource owner. The REST queries for Azure Active Directory are mocked out for simplicity. Azure AD can also be integrated using the [Azure AD PowerShell module](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0) or the [ADAL for Python library](https://pypi.org/project/adal/)."
             },
             "sample_code": true,
             "github_url": "https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/deployment.md",
@@ -3539,7 +3658,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/hybrid-networking/expressroute.md",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute",
-            "word_count": 2868,
+            "word_count": 2849,
             "read_time": "12 min read",
             "Title": "Extend an on-premises network using ExpressRoute",
             "MetaDescription": "Implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using Azure ExpressRoute.",
@@ -3573,7 +3692,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/hybrid-networking/vpn.md",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/vpn",
-            "word_count": 2707,
+            "word_count": 2705,
             "read_time": "11 min read",
             "Title": "Extend an on-premises network using VPN",
             "MetaDescription": "A secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using a VPN.",
@@ -3605,7 +3724,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/identity/adfs.md",
             "http_url": "/azure/architecture/reference-architectures/identity/adfs",
-            "word_count": 3332,
+            "word_count": 3312,
             "read_time": "13 min read",
             "Title": "Extend on-premises AD FS to Azure",
             "MetaDescription": "Implement a secure hybrid network architecture with Active Directory Federation Service authorization in Azure.",
@@ -3967,7 +4086,7 @@
         },
         {
             "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-security-compliance-blueprint-hippa-hitrust-health-data-ai-'",
+                "'https:--azure.microsoft.com-solutions-architecture-security-compliance-blueprint-hipaa-hitrust-health-data-ai-'",
                 "acom-architecture",
                 "all-items",
                 "cloud-storage-in-healthcare",
@@ -3982,17 +4101,17 @@
                 "solution-idea"
             ],
             "type": "solution-idea",
-            "file_url": "solution-ideas/articles/security-compliance-blueprint-hippa-hitrust-health-data-ai.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hippa-hitrust-health-data-ai",
-            "word_count": 360,
+            "file_url": "solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai",
+            "word_count": 361,
             "read_time": "2 min read",
-            "Title": "HIPPA and HITRUST compliant health data AI",
+            "Title": "HIPAA and HITRUST compliant health data AI",
             "MetaDescription": "Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security.",
             "category": [
                 "storage"
             ],
-            "image": "/azure/architecture/solution-ideas/media/security-compliance-blueprint-hippa-hitrust-health-data-ai.png",
-            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\security-compliance-blueprint-hippa-hitrust-health-data-ai.png",
+            "image": "/azure/architecture/solution-ideas/media/security-compliance-blueprint-hipaa-hitrust-health-data-ai.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\security-compliance-blueprint-hipaa-hitrust-health-data-ai.png",
             "publish_date": "12/16/2019",
             "components": [
                 "<p><a href=\"https://azure.microsoft.com/services/functions\">Azure Functions</a>: Process events with serverless code</p>",
@@ -4016,10 +4135,60 @@
                 "FlowStep_C": "Analyze patient data using Machine Learning, and create a Machine Learning-trained model.",
                 "FlowStep_D": "Ingest new patient data in HL7/FHIR format and publish to Azure Functions for processing. Store in SQL Database.",
                 "FlowStep_E": "Analyze newly ingested data using the trained Machine Learning model.",
-                "FlowStep_F": "Interact with patient data using PowerBI while preserving Role-Based Access Control (RBAC)."
+                "FlowStep_F": "Interact with patient data using Power BI while preserving Role-Based Access Control (RBAC)."
             },
-            "name": "security-compliance-blueprint-hippa-hitrust-health-data-ai",
+            "name": "security-compliance-blueprint-hipaa-hitrust-health-data-ai",
             "popularity": 111,
+            "topic": "Storage"
+        },
+        {
+            "tags": [
+                "'https:--azure.microsoft.com-solutions-architecture-azure-batch-rendering-'",
+                "acom-architecture",
+                "all-items",
+                "cluster-orchestration",
+                "data-flow",
+                "hpc-architecture",
+                "hpc-solution",
+                "interactive-diagram",
+                "media-render",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/azure-batch-rendering.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/azure-batch-rendering",
+            "word_count": 333,
+            "read_time": "2 min read",
+            "Title": "HPC Media Rendering",
+            "MetaDescription": "Optimize the media rendering process with a step-by-step HPC solution architecture from Azure that combines Azure CycleCloud and Avere vFXT.",
+            "category": [
+                "storage",
+                "compute",
+                "media"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/azure-batch-rendering.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\azure-batch-rendering.png",
+            "publish_date": "12/16/2019",
+            "components": [
+                "<p><a href=\"https://azure.microsoft.com/pricing/details/virtual-machines/linux\">N-Series VMs</a>: N-series virtual machines are ideal for compute and graphics-intensive workloads, helping customers to fuel innovation through scenarios like high-end remote visualization, deep learning, and predictive analytics.</p>",
+                "<p><a href=\"https://azure.microsoft.com/pricing/details/virtual-machines/linux\">H-Series VMs</a>: The H-series is a new family specifically designed to handle high performance computing workloads such as financial risk modeling, seismic and reservoir simulation, molecular modeling, and genomic research.</p>",
+                "<p>Effectively manage common workloads with ease while creating and optimizing HPC clusters with Microsoft <a href=\"https://azure.microsoft.com/features/azure-cyclecloud\">Azure CycleCloud</a>.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/storage/avere-vfxt\">Avere vFXT</a>: Faster, more accessible data storage for high-performance computing at the edge</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/batch\">Azure Batch</a>: Cloud-scale job scheduling and compute management</p>"
+            ],
+            "Summary": "<p>This HPC media rendering solution architecture shows Azure CycleCloud monitoring a Pixar Tractor pipeline manager and orchestrating burst compute node capacity on-demand using Azure low-priority Virtual Machines Scale Sets. An Avere vFXT cache makes data from the existing on-premises filesystem and Azure Blob storage available to compute nodes in Azure.</p>",
+            "Flow": {
+                "FlowStep_A": "Operations team uses Azure CycleCloud to configure and launch rendering pipeline cluster.",
+                "FlowStep_B": "Azure CycleCloud orchestrates virtual machine (VM) creation and software configuration for head nodes, license servers, and Avere vFXT Cache.",
+                "FlowStep_C": "Artist submits a render job to the Pixar Tractor pipeline manager.",
+                "FlowStep_D": "Azure CycleCloud detects the change in job queue depth and autostarts render farm nodes in Virtual Machines Scale Sets with location, SKU, and configuration customized by job requirements.",
+                "FlowStep_E": "Render pipeline manager (head nodes) executes render jobs on the new render farm VMs.",
+                "FlowStep_F": "Render jobs pull artifacts from on-premises and Azure Blob storage as needed from NFS-mounted Avere vFXT.",
+                "FlowStep_G": "As each job finishes rendering, resulting artifacts are written back to storage through the Avere vFXT.",
+                "FlowStep_H": "As job queue empties, Azure CycleCloud auto-stops render farm VMs to reduce cost."
+            },
+            "name": "azure-batch-rendering",
+            "popularity": 13,
             "topic": "Storage"
         },
         {
@@ -4174,10 +4343,42 @@
             "publish_date": "4/06/2020",
             "pricing_guidance": "pricing",
             "alternative_choices": "alternatives",
-            "Summary": "<p>This article presents a decision tree and examples of high-availability (HA) and disaster recovery (DR) options when deploying multitier infrastructure-as-a-service (IaaS) apps to Azure.</p>\n<p>Multitier or <a href=\"https://docs.microsoft.com/azure/architecture/guide/architecture-styles/n-tier\">n-tier</a> architectures are common in traditional on-premises apps, so they're a natural choice for migrating on-premises apps to the cloud, or when developing apps for both on-premises and the cloud. N-tier architectures are typically implemented as IaaS apps divided into logical layers and physical tiers, with a top web or presentation tier, a middle business tier, and a data tier. </p>\n<p>In an IaaS n-tier app, each tier runs on a separate set of VMs. The web and business tiers are stateless, meaning any VM in the tier can handle any request for that tier. The data tier is a replicated database, object storage, or file storage. Multiple VMs in each tier provide resiliency if one VM fails, and load balancers distribute requests across the VMs. </p>\n<p>You can scale out tiers by adding more VMs to the pools, and use <a href=\"https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview\">virtual machine scale sets</a> to automatically scale out identical VMs. Because you use load balancers, you can scale out tiers without affecting app uptime.</p>\n<p>If the service-level agreement (SLA) for an IaaS app requires &gt; 99% availability, you can place VMs in <em>availability sets</em>, <em>availability zones</em>, and <em>proximity placement groups</em> to configure high availability for the app. The HA and DR solutions you choose depend on the required SLA, latency considerations, and regional DR requirements.</p>",
+            "Summary": "<p>This article presents a decision tree and examples of high-availability (HA) and disaster recovery (DR) options when deploying multitier infrastructure-as-a-service (IaaS) apps to Azure.</p>\n<p>Multitier or <a >n-tier</a> architectures are common in traditional on-premises apps, so they're a natural choice for migrating on-premises apps to the cloud, or when developing apps for both on-premises and the cloud. N-tier architectures are typically implemented as IaaS apps divided into logical layers and physical tiers, with a top web or presentation tier, a middle business tier, and a data tier. </p>\n<p>In an IaaS n-tier app, each tier runs on a separate set of VMs. The web and business tiers are stateless, meaning any VM in the tier can handle any request for that tier. The data tier is a replicated database, object storage, or file storage. Multiple VMs in each tier provide resiliency if one VM fails, and load balancers distribute requests across the VMs. </p>\n<p>You can scale out tiers by adding more VMs to the pools, and use <a href=\"https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview\">virtual machine scale sets</a> to automatically scale out identical VMs. Because you use load balancers, you can scale out tiers without affecting app uptime.</p>\n<p>If the service-level agreement (SLA) for an IaaS app requires &gt; 99% availability, you can place VMs in <em>availability sets</em>, <em>availability zones</em>, and <em>proximity placement groups</em> to configure high availability for the app. The HA and DR solutions you choose depend on the required SLA, latency considerations, and regional DR requirements.</p>",
             "sample_code": true,
             "github_url": "https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test",
             "name": "iaas-high-availability-disaster-recovery",
+            "popularity": 0,
+            "topic": "Management and Governance"
+        },
+        {
+            "tags": [
+                "all-items",
+                "dotnetcli",
+                "example-code",
+                "github",
+                "reference-architecture"
+            ],
+            "type": "reference-architecture",
+            "file_url": "reference-architectures/enterprise-integration/ase-high-availability-deployment.md",
+            "http_url": "/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment",
+            "word_count": 1511,
+            "read_time": "7 min read",
+            "Title": "High availability enterprise deployment using App Services Environment",
+            "MetaDescription": "Recommended architecture for deploying an enterprise application using App Services Environment in multiple availability zones.",
+            "category": [
+                "management-and-governance",
+                "featured"
+            ],
+            "image": "/azure/architecture/reference-architectures/enterprise-integration/_images/ha-ase-deployment.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\enterprise-integration\\_images\\ha-ase-deployment.png",
+            "publish_date": "5/08/2020",
+            "Summary": "<p><a href=\"https://docs.microsoft.com/azure/availability-zones/az-overview\">Availability zones</a> are physically separated collections of datacenters within a given region. Replicating your deployments across multiple zones, ensures that local outages limited to a zone do not negatively impact the availability of your application. This architecture shows how you can improve the resiliency of an ASE deployment by deploying in multiple availability zones. These zones are not related to proximity. They can map to different physical locations for different subscriptions. This architecture assumes a single subscription deployment.</p>\n<p><img alt=\"GitHub logo\" src=\"https://docs.microsoft.com/azure/architecture/_images/github.png\" /> A reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/app-service-environments-ILB-deployments\">GitHub</a>.</p>\n<p><img alt=\"Reference architecture for high availability ASE deployment\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/_images/ha-ase-deployment.png\" /></p>",
+            "sample_code": true,
+            "github_url": "https://github.com/mspnp/app-service-environments-ILB-deployments",
+            "code_languages": [
+                "dotnetcli"
+            ],
+            "name": "ase-high-availability-deployment",
             "popularity": 0,
             "topic": "Management and Governance"
         },
@@ -4247,7 +4448,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/app-service-web-app/multi-region.md",
             "http_url": "/azure/architecture/reference-architectures/app-service-web-app/multi-region",
-            "word_count": 1738,
+            "word_count": 1739,
             "read_time": "7 min read",
             "Title": "Highly available multi-region web application",
             "MetaDescription": "Recommended architecture for a highly available web application running in multiple regions in Azure.",
@@ -4279,7 +4480,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/hybrid-networking/hub-spoke.md",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/hub-spoke",
-            "word_count": 2439,
+            "word_count": 2431,
             "read_time": "10 min read",
             "Title": "Hub-spoke network topology in Azure",
             "MetaDescription": "This reference architecture deploys a hub-spoke network topology in Azure.",
@@ -4291,7 +4492,7 @@
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\hybrid-networking\\images\\hub-spoke.png",
             "publish_date": "1/29/2020",
             "sample_code": true,
-            "github_url": "https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks",
+            "github_url": "https://github.com/mspnp/reference-architectures",
             "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/hybrid-network-hub-spoke.vsdx",
             "code_languages": [
                 "json"
@@ -4360,7 +4561,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/data/hybrid-etl-with-adf.md",
             "http_url": "/azure/architecture/example-scenario/data/hybrid-etl-with-adf",
-            "word_count": 1096,
+            "word_count": 1078,
             "read_time": "5 min read",
             "Title": "Hybrid ETL with Azure Data Factory",
             "MetaDescription": "Hybrid ETL with existing on-premises SQL Server Integration Services (SSIS) deployments and Azure Data Factory.",
@@ -4602,7 +4803,7 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/image-classification-with-convolutional-neural-networks.md",
             "http_url": "/azure/architecture/solution-ideas/articles/image-classification-with-convolutional-neural-networks",
-            "word_count": 523,
+            "word_count": 515,
             "read_time": "3 min read",
             "Title": "Image classification with Convolutional Neural Networks",
             "MetaDescription": "Explore transfer learning, convolutional neural networks, and gradient-boosting decision tree algorithms.",
@@ -4691,7 +4892,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/hybrid-networking/shared-services.md",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/shared-services",
-            "word_count": 1418,
+            "word_count": 1402,
             "read_time": "6 min read",
             "Title": "Implement a hub-spoke network topology",
             "MetaDescription": "Implement a hub-spoke network topology with shared services in Azure.",
@@ -4704,7 +4905,7 @@
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\hybrid-networking\\images\\shared-services.png",
             "publish_date": "8/19/2019",
             "sample_code": true,
-            "github_url": "https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks",
+            "github_url": "https://github.com/mspnp/reference-architectures",
             "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/hybrid-network-hub-spoke.vsdx",
             "code_languages": [
                 "bash"
@@ -4727,7 +4928,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/dmz/secure-vnet-dmz.md",
             "http_url": "/azure/architecture/reference-architectures/dmz/secure-vnet-dmz",
-            "word_count": 2136,
+            "word_count": 2135,
             "read_time": "9 min read",
             "Title": "Implement a secure hybrid network",
             "MetaDescription": "Implement a secure hybrid network architecture in Azure.",
@@ -4751,44 +4952,6 @@
         },
         {
             "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-information-chatbot-'",
-                "acom-architecture",
-                "ai-ml",
-                "all-items",
-                "bot-service",
-                "data-flow",
-                "interactive-diagram",
-                "luis",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/information-chatbot.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/information-chatbot",
-            "word_count": 121,
-            "read_time": "1 min read",
-            "Title": "Information Chatbot",
-            "MetaDescription": "This Informational Bot can answer questions defined in a knowledge set or FAQ using Cognitive Services QnA Maker and answer more open-ended questions using Azure Cognitive Search.",
-            "category": [
-                "ai-machine-learning"
-            ],
-            "image": "/azure/architecture/solution-ideas/media/information-chatbot.png",
-            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\information-chatbot.png",
-            "publish_date": "12/16/2019",
-            "Summary": "<p>This Informational Bot can answer questions defined in a knowledge set or FAQ using Cognitive Services QnA Maker and answer more open-ended questions using Azure Cognitive Search.</p>",
-            "Flow": {
-                "FlowStep_A": "Employee starts the Application Bot",
-                "FlowStep_B": "Azure Active Directory validates the employee's identity",
-                "FlowStep_C": "The employee can ask the bot what type of queries are supported",
-                "FlowStep_D": "Cognitive Services returns a FAQ built with the QnA Maker",
-                "FlowStep_E": "The employee defines a valid query",
-                "FlowStep_F": "The Bot submits the query to Azure Cognitive Search which returns information about the application data"
-            },
-            "name": "information-chatbot",
-            "popularity": 97,
-            "topic": "AI + Machine Learning"
-        },
-        {
-            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-information-discovery-with-deep-learning-and-nlp-'",
                 "acom-architecture",
                 "ai-ml",
@@ -4805,7 +4968,7 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/information-discovery-with-deep-learning-and-nlp.md",
             "http_url": "/azure/architecture/solution-ideas/articles/information-discovery-with-deep-learning-and-nlp",
-            "word_count": 399,
+            "word_count": 391,
             "read_time": "2 min read",
             "Title": "Information discovery with deep learning and NLP",
             "MetaDescription": "See how deep learning and natural language processing can be used effectively with the Microsoft AI platform.",
@@ -4917,7 +5080,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/identity/azure-ad.md",
             "http_url": "/azure/architecture/reference-architectures/identity/azure-ad",
-            "word_count": 3363,
+            "word_count": 3355,
             "read_time": "13 min read",
             "Title": "Integrate on-premises AD domains with Azure AD",
             "MetaDescription": "Implement a secure hybrid network architecture using Azure Active Directory (Azure AD).",
@@ -4955,7 +5118,7 @@
             ],
             "image": "/azure/architecture/_images/reference-architectures.svg",
             "publish_date": "7/30/2019",
-            "name": "index",
+            "name": "identity",
             "popularity": 239,
             "topic": "Identity"
         },
@@ -5055,8 +5218,8 @@
                 "<p><a href=\"https://docs.microsoft.com/azure/app-service/app-service-web-overview\">App Services - Web Apps</a> hosts web applications allowing autoscale and high availability without having to manage infrastructure.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview\">SQL Database</a> is a general-purpose relational database-managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/search/search-what-is-azure-search\">Azure Search</a> is a search-as-a-service cloud solution that provides a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications.</p>",
-                "<p><a href=\"https://docs.microsoft.com/azure/bot-service/\">Bot Service</a> provides tools to build, test, deploy, and manage intelligent bots.</p>",
-                "<p><a href=\"https://docs.microsoft.com/azure/cognitive-services/\">Cognitive Services</a> lets you use intelligent algorithms to see, hear, speak, understand, and interpret your user needs through natural methods of communication.</p>"
+                "<p><a href=\"https://docs.microsoft.com/azure/bot-service\">Bot Service</a> provides tools to build, test, deploy, and manage intelligent bots.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/cognitive-services\">Cognitive Services</a> lets you use intelligent algorithms to see, hear, speak, understand, and interpret your user needs through natural methods of communication.</p>"
             ],
             "sample_code": true,
             "github_url": "https://github.com/Azure/fta-customerfacingapps/tree/master/ecommerce/articles",
@@ -5211,7 +5374,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/data/big-data-with-iot.md",
             "http_url": "/azure/architecture/example-scenario/data/big-data-with-iot",
-            "word_count": 1201,
+            "word_count": 1199,
             "read_time": "5 min read",
             "Title": "IoT and data analytics",
             "MetaDescription": "Use IoT devices and data analytics to provide comprehensive management and operation of construction projects.",
@@ -5237,7 +5400,7 @@
                 "<p><a href=\"https://docs.microsoft.com/azure/app-service/app-service-web-overview\">Web Apps</a> hosts the end-user web application, which can be used to query and view source data and images. Users can also initiate batch jobs in Apache Spark via the application.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-overview\">Apache Spark on HDInsight</a> supports in-memory processing to boost the performance of big-data analytic applications. In this scenario, Spark is used to run complex algorithms over the data stored in Apache Cassandra.</p>"
             ],
-            "Summary": "<p>This example scenario is relevant to organizations building solutions that integrate data from many IoT devices into a comprehensive data analysis architecture to improve and automate decision making. Potential applications include construction, mining, manufacturing, or other industry solutions involving large volumes of data from many IoT-based data inputs.</p>\n<p>In this scenario, a construction equipment manufacturer builds vehicles, meters, and drones that use IoT and GPS technologies to emit telemetry data. The company wants to modernize their data architecture to better monitor operating conditions and equipment health. Replacing the company's legacy solution using on-premises infrastructure would be both time intensive and labor intensive, and would not be able to scale sufficiently to handle the anticipated data volume.</p>\n<p>The company wants to build a cloud-based \"smart construction\" solution. It should gather a comprehensive set of data for a construction site and automate the operation and maintenance of the various elements of the site. The company's goals include:</p>\n<ul>\n<li>Integrating and analyzing all construction site equipment and data to minimize equipment downtime and reduce theft.</li>\n<li>Remotely and automatically controlling construction equipment to mitigate the effects of a labor shortage, ultimately requiring fewer workers and enabling lower-skilled workers to succeed.</li>\n<li>Minimizing the operating costs and labor requirements for the supporting infrastructure, while increasing productivity and safety.</li>\n<li>Easily scaling the infrastructure to support increases in telemetry data.</li>\n<li>Complying with all relevant legal requirements by provisioning resources in-country without compromising system availability.</li>\n<li>Using open-source software to maximize the investment in workers' current skills.</li>\n</ul>\n<p>Using managed Azure services such as IoT Hub and HDInsight will allow the customer to rapidly build and deploy a comprehensive solution with a lower operating cost. If you have additional data analytics needs, you should review the list of available <a href=\"https://azure.microsoft.com/product-categories/analytics/\">fully managed data analytics services in Azure</a>.</p>",
+            "Summary": "<p>This example scenario is relevant to organizations building solutions that integrate data from many IoT devices into a comprehensive data analysis architecture to improve and automate decision making. Potential applications include construction, mining, manufacturing, or other industry solutions involving large volumes of data from many IoT-based data inputs.</p>\n<p>In this scenario, a construction equipment manufacturer builds vehicles, meters, and drones that use IoT and GPS technologies to emit telemetry data. The company wants to modernize their data architecture to better monitor operating conditions and equipment health. Replacing the company's legacy solution using on-premises infrastructure would be both time intensive and labor intensive, and would not be able to scale sufficiently to handle the anticipated data volume.</p>\n<p>The company wants to build a cloud-based \"smart construction\" solution. It should gather a comprehensive set of data for a construction site and automate the operation and maintenance of the various elements of the site. The company's goals include:</p>\n<ul>\n<li>Integrating and analyzing all construction site equipment and data to minimize equipment downtime and reduce theft.</li>\n<li>Remotely and automatically controlling construction equipment to mitigate the effects of a labor shortage, ultimately requiring fewer workers and enabling lower-skilled workers to succeed.</li>\n<li>Minimizing the operating costs and labor requirements for the supporting infrastructure, while increasing productivity and safety.</li>\n<li>Easily scaling the infrastructure to support increases in telemetry data.</li>\n<li>Complying with all relevant legal requirements by provisioning resources in-country without compromising system availability.</li>\n<li>Using open-source software to maximize the investment in workers' current skills.</li>\n</ul>\n<p>Using managed Azure services such as IoT Hub and HDInsight will allow the customer to rapidly build and deploy a comprehensive solution with a lower operating cost. If you have additional data analytics needs, you should review the list of available <a href=\"https://azure.microsoft.com/product-categories/analytics\">fully managed data analytics services in Azure</a>.</p>",
             "Flow": {
                 "FlowStep_A": "Construction equipment collects sensor data and sends the construction results data at regular intervals to load balanced web services hosted on a cluster of Azure virtual machines.",
                 "FlowStep_B": "The custom web services ingest the construction results data and store it in an Apache Cassandra cluster also running on Azure virtual machines.",
@@ -5299,7 +5462,7 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/iot-using-cosmos-db.md",
             "http_url": "/azure/architecture/solution-ideas/articles/iot-using-cosmos-db",
-            "word_count": 1236,
+            "word_count": 1252,
             "read_time": "5 min read",
             "Title": "IoT using Cosmos DB",
             "MetaDescription": "Scale instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.",
@@ -5471,7 +5634,7 @@
             "Title": "Linux virtual desktops with Citrix",
             "MetaDescription": "Build a VDI environment for Linux Desktops using Citrix on Azure.",
             "category": [
-                "windows-virtual-desktop"
+                "compute"
             ],
             "image": "/azure/architecture/example-scenario/infrastructure/media/azure-citrix-sample-diagram.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\infrastructure\\media\\azure-citrix-sample-diagram.png",
@@ -5498,7 +5661,7 @@
             "github_url": "https://github.com/MicrosoftDocs/azure-docs/edit/master/articles/storage/files/storage-sync-files-planning.md",
             "name": "linux-vdi-citrix",
             "popularity": 132,
-            "topic": "Windows Virtual Desktop"
+            "topic": "Compute"
         },
         {
             "tags": [
@@ -5696,7 +5859,7 @@
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\ai\\_images\\ml-ops-python.png",
             "publish_date": "5/09/2019",
             "sample_code": true,
-            "github_url": "https://github.com/microsoft/MLOpsPython/blob/master/code/scoring/score.py",
+            "github_url": "https://github.com/microsoft/MLOpsPython/blob/master/docs/getting_started.md",
             "code_languages": [
                 "yaml"
             ],
@@ -5759,7 +5922,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/ai/newsfeed-ingestion.md",
             "http_url": "/azure/architecture/example-scenario/ai/newsfeed-ingestion",
-            "word_count": 1335,
+            "word_count": 1334,
             "read_time": "5 min read",
             "Title": "Mass ingestion and analysis of news feeds on Azure",
             "MetaDescription": "Create a pipeline for ingesting and analyzing text, images, sentiment, and other data from RSS news feeds using only Azure services, including Azure Cosmos DB and Azure Cognitive Services.",
@@ -5772,11 +5935,11 @@
             "publish_date": "2/01/2019",
             "pricing_guidance": "pricing",
             "alternative_choices": "alternatives",
-            "Summary": "<p>This example scenario describes a pipeline for mass ingestion and near real-time analysis of documents using public RSS news feeds.  It uses Azure Cognitive Services to offer useful insights including text translation, facial recognition, and sentiment detection.</p>\n<p>This scenario contains examples for <a href=\"https://www.nasa.gov/rss/dyn/breaking_news.rss\">English</a>, <a href=\"http://government.ru/all/rss/\">Russian</a>, and <a href=\"http://www.bamf.de/SiteGlobals/Functions/RSS/DE/Feed/RSSNewsfeed_Meldungen\">German</a> news feeds, but you can easily extend it to other RSS feeds. For ease of deployment, the data collection, processing, and analysis are based entirely on Azure services.</p>",
+            "Summary": "<p>This example scenario describes a pipeline for mass ingestion and near real-time analysis of documents using public RSS news feeds.  It uses Azure Cognitive Services to offer useful insights including text translation, facial recognition, and sentiment detection.</p>\n<p>This scenario contains examples for <a href=\"https://www.nasa.gov/rss/dyn/breaking_news.rss\">English</a>, <a href=\"http://government.ru/all/rss\">Russian</a>, and <a href=\"http://www.bamf.de/SiteGlobals/Functions/RSS/DE/Feed/RSSNewsfeed_Meldungen\">German</a> news feeds, but you can easily extend it to other RSS feeds. For ease of deployment, the data collection, processing, and analysis are based entirely on Azure services.</p>",
             "Flow": {
                 "FlowStep_A": "An RSS news feed acts as the generator that obtains data from a document or article. For example, with an article, data typically includes a title, a summary of the original body of the news item, and sometimes images.",
                 "FlowStep_B": "A generator or ingestion process inserts the article and any associated images into an Azure Cosmos DB [Collection][collection].",
-                "FlowStep_C": "A notification triggers an ingest function in Azure Functions that stores the article text in CosmosDB and the article images (if any) in Azure Blob Storage.  The article is then passed to the next queue.",
+                "FlowStep_C": "A notification triggers an ingest function in Azure Functions that stores the article text in Cosmos DB and the article images (if any) in Azure Blob Storage.  The article is then passed to the next queue.",
                 "FlowStep_D": "A translate function is triggered by the queue event. It uses the [Translate Text API][translate-text] of Azure Cognitive Services to detect the language, translate if necessary, and collect the sentiment, key phrases, and entities from the body and the title. Then it passes the article to the next queue.",
                 "FlowStep_E": "A detect function is triggered from the queued article. It uses the [Computer Vision][vision] service to detect objects, landmarks, and written words in the associated image, then passes the article to the next queue.",
                 "FlowStep_F": "A face function is triggered is triggered from the queued article. It uses the [Azure Face API][face] service to detect faces for gender and age in the associated image, then passes the article to the next queue.",
@@ -5787,55 +5950,6 @@
             "name": "newsfeed-ingestion",
             "popularity": 69,
             "topic": "Analytics"
-        },
-        {
-            "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-azure-batch-rendering-'",
-                "acom-architecture",
-                "all-items",
-                "cluster-orchestration",
-                "data-flow",
-                "hpc-architecture",
-                "hpc-solution",
-                "interactive-diagram",
-                "media-render",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/azure-batch-rendering.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/azure-batch-rendering",
-            "word_count": 336,
-            "read_time": "2 min read",
-            "Title": "Media Rendering \u2013 HPC Solution Architecture",
-            "MetaDescription": "Optimize the media rendering process with a step-by-step HPC solution architecture from Azure that combines Azure CycleCloud and Avere vFXT.",
-            "category": [
-                "storage",
-                "compute",
-                "media"
-            ],
-            "image": "/azure/architecture/solution-ideas/media/azure-batch-rendering.png",
-            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\azure-batch-rendering.png",
-            "publish_date": "12/16/2019",
-            "components": [
-                "<p><a href=\"https://azure.microsoft.com/pricing/details/virtual-machines/linux\">N-Series VMs</a>: N-series virtual machines are ideal for compute and graphics-intensive workloads, helping customers to fuel innovation through scenarios like high-end remote visualization, deep learning, and predictive analytics.</p>",
-                "<p><a href=\"https://azure.microsoft.com/pricing/details/virtual-machines/linux\">H-Series VMs</a>: The H-series is a new family specifically designed to handle high performance computing workloads such as financial risk modeling, seismic and reservoir simulation, molecular modeling, and genomic research.</p>",
-                "<p>Effectively manage common workloads with ease while creating and optimizing HPC clusters with Microsoft <a href=\"https://azure.microsoft.com/features/azure-cyclecloud\">Azure CycleCloud</a>.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/storage/avere-vfxt\">Avere vFXT</a>: Faster, more accessible data storage for high-performance computing at the edge</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/batch\">Azure Batch</a>: Cloud-scale job scheduling and compute management</p>"
-            ],
-            "Flow": {
-                "FlowStep_A": "Operations team uses Azure CycleCloud to configure and launch rendering pipeline cluster.",
-                "FlowStep_B": "Azure CycleCloud orchestrates virtual machine (VM) creation and software configuration for head nodes, license servers, and Avere vFXT Cache.",
-                "FlowStep_C": "Artist submits a render job to the Pixar Tractor pipeline manager.",
-                "FlowStep_D": "Azure CycleCloud detects the change in job queue depth and autostarts render farm nodes in Virtual Machines Scale Sets with location, SKU, and configuration customized by job requirements.",
-                "FlowStep_E": "Render pipeline manager (head nodes) executes render jobs on the new render farm VMs.",
-                "FlowStep_F": "Render jobs pull artifacts from on-premises and Azure Blob storage as needed from NFS-mounted Avere vFXT.",
-                "FlowStep_G": "As each job finishes rendering, resulting artifacts are written back to storage through the Avere vFXT.",
-                "FlowStep_H": "As job queue empties, Azure CycleCloud auto-stops render farm VMs to reduce cost."
-            },
-            "name": "azure-batch-rendering",
-            "popularity": 13,
-            "topic": "Storage"
         },
         {
             "tags": [
@@ -5931,18 +6045,16 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/microservices/aks.md",
             "http_url": "/azure/architecture/reference-architectures/microservices/aks",
-            "word_count": 3920,
+            "word_count": 4038,
             "read_time": "16 min read",
             "Title": "Microservices architecture on Azure Kubernetes Service (AKS)",
             "MetaDescription": "Deploy a microservices architecture on Azure Kubernetes Service (AKS)",
             "category": [
-                "containers",
-                "developer-tools",
-                "featured"
+                "containers"
             ],
             "image": "/azure/architecture/reference-architectures/microservices/_images/aks.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\microservices\\_images\\aks.png",
-            "publish_date": "12/10/2019",
+            "publish_date": "5/07/2020",
             "sample_code": true,
             "github_url": "https://github.com/Azure/aad-pod-identity",
             "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/aks-reference-architecture.vsdx",
@@ -6037,7 +6149,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/apps/apim-api-scenario.md",
             "http_url": "/azure/architecture/example-scenario/apps/apim-api-scenario",
-            "word_count": 1091,
+            "word_count": 1077,
             "read_time": "5 min read",
             "Title": "Migrate a web app using Azure APIM",
             "MetaDescription": "Use Azure API Management to modernize a legacy web application.",
@@ -6161,7 +6273,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/ai/movie-recommendations.md",
             "http_url": "/azure/architecture/example-scenario/ai/movie-recommendations",
-            "word_count": 945,
+            "word_count": 937,
             "read_time": "4 min read",
             "Title": "Movie recommendations on Azure",
             "MetaDescription": "Use machine learning to automate movie, product, and other recommendations using machine learning and an Azure Data Science Virtual Machine (DSVM) to train a model on Azure.",
@@ -6176,7 +6288,7 @@
             "components": [
                 "<p><a href=\"https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview\">Data Science Virtual Machine</a> (DSVM) is an Azure virtual machine with deep learning frameworks and tools for machine learning and data science. The DSVM has a standalone Spark environment that can be used to run ALS.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction\">Azure Blob storage</a> stores the dataset for movie recommendations.</p>",
-                "<p><a href=\"https://docs.microsoft.com/azure/machine-learning/service/\">Azure Machine Learning</a> is used to accelerate the building, managing, and deploying of machine learning models.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/machine-learning/service\">Azure Machine Learning</a> is used to accelerate the building, managing, and deploying of machine learning models.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/cosmos-db/introduction\">Azure Cosmos DB</a> enables globally distributed and multi-model database storage.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/container-instances/container-instances-overview\">Azure Container Instances</a> is used to deploy the trained models to web or app services, optionally using <a href=\"https://docs.microsoft.com/azure/aks/intro-kubernetes\">Azure Kubernetes Service</a>.</p>"
             ],
@@ -6202,7 +6314,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/n-tier/multi-region-sql-server.md",
             "http_url": "/azure/architecture/reference-architectures/n-tier/multi-region-sql-server",
-            "word_count": 2116,
+            "word_count": 2114,
             "read_time": "8 min read",
             "Title": "Multi-region N-tier application",
             "MetaDescription": "Deploy an application on Azure virtual machines in multiple regions for high availability and resiliency.",
@@ -6238,7 +6350,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/infrastructure/multi-tier-app-disaster-recovery.md",
             "http_url": "/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
-            "word_count": 1208,
+            "word_count": 1196,
             "read_time": "5 min read",
             "Title": "Multi-tier web application built for HA/DR",
             "MetaDescription": "Create a multitier web application built for high availability and disaster recovery on Azure using Azure virtual machines, availability sets, availability zones, Azure Site Recovery, and Azure Traffic Manager.",
@@ -6249,14 +6361,14 @@
             "image": "/azure/architecture/example-scenario/infrastructure/media/architecture-disaster-recovery-multi-tier-app.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\infrastructure\\media\\architecture-disaster-recovery-multi-tier-app.png",
             "publish_date": "11/16/2018",
-            "pricing_calculator": "https://azure.com/e/6835332265044d6d931d68c917979e6d/",
+            "pricing_calculator": "https://azure.com/e/6835332265044d6d931d68c917979e6d",
             "pricing_guidance": "pricing",
             "alternative_choices": "alternatives",
             "components": [
-                "<p><a href=\"https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability/\">Availability sets</a> ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. If a hardware or software failure occurs within Azure, only a subset of your VMs are affected and your entire solution remains available and operational.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability\">Availability sets</a> ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. If a hardware or software failure occurs within Azure, only a subset of your VMs are affected and your entire solution remains available and operational.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/availability-zones/az-overview\">Availability zones</a> protect your applications and data from datacenter failures. Availability zones are separate physical locations within an Azure region. Each zone consists of one or more datacenters equipped with independent power, cooling, and networking.</p>",
-                "<p><a href=\"https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart/\">Azure Site Recovery</a> allows you to replicate VMs to another Azure region for business continuity and disaster recovery needs. You can conduct periodic disaster recovery drills to ensure you meet the compliance needs. The VM will be replicated with the specified settings to the selected region so that you can recover your applications in the event of outages in the source region.</p>",
-                "<p><a href=\"https://docs.microsoft.com/azure/traffic-manager/\">Azure Traffic Manager</a> is a DNS-based traffic load balancer that distributes traffic optimally to services across global Azure regions while providing high availability and responsiveness.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart\">Azure Site Recovery</a> allows you to replicate VMs to another Azure region for business continuity and disaster recovery needs. You can conduct periodic disaster recovery drills to ensure you meet the compliance needs. The VM will be replicated with the specified settings to the selected region so that you can recover your applications in the event of outages in the source region.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/traffic-manager\">Azure Traffic Manager</a> is a DNS-based traffic load balancer that distributes traffic optimally to services across global Azure regions while providing high availability and responsiveness.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/load-balancer/load-balancer-overview\">Azure Load Balancer</a> distributes inbound traffic according to defined rules and health probes. A load balancer provides low latency and high throughput, scaling up to millions of flows for all TCP and UDP applications. A public load balancer is used in this scenario to distribute incoming client traffic to the web tier. An internal load balancer is used in this scenario to distribute traffic from the business tier to the back-end SQL Server cluster.</p>"
             ],
             "Summary": "<p>This example scenario is applicable to any industry that needs to deploy resilient multitier applications built for high availability and disaster recovery. In this scenario, the application consists of three layers.</p>\n<ul>\n<li>Web tier: The top layer including the user interface. This layer parses user interactions and passes the actions to next layer for processing.</li>\n<li>Business tier: Processes the user interactions and makes logical decisions about the next steps. This layer connects the web tier and the data tier.</li>\n<li>Data tier: Stores the application data. Either a database, object storage, or file storage is typically used.</li>\n</ul>\n<p>Common application scenarios include any mission-critical application running on Windows or Linux. This can be an off-the-shelf application such as SAP and SharePoint or a custom line-of-business application.</p>",
@@ -6277,7 +6389,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/serverless/serverless-multicloud.md",
             "http_url": "/azure/architecture/example-scenario/serverless/serverless-multicloud",
-            "word_count": 1559,
+            "word_count": 1560,
             "read_time": "7 min read",
             "Title": "Multicloud solutions with the Serverless Framework",
             "MetaDescription": "Develop and deploy serverless microservices across cloud providers with the open-source Serverless Framework and Serverless Multicloud Library.",
@@ -6289,7 +6401,7 @@
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\serverless\\media\\multi-cloud-serverless-architecture.png",
             "publish_date": "3/30/2020",
             "alternative_choices": "alternatives",
-            "Summary": "<p>This article describes how the Microsoft Commercial Software Engineering (CSE) team partnered with a global retailer to deploy a highly-available serverless solution across both Azure and Amazon Web Services (AWS) cloud platforms, using the <a href=\"https://serverless.com\">Serverless Framework</a>. </p>\n<p>In <em>serverless computing</em>, the cloud provider dynamically allocates microservice resources to run code, and only charges for the resources used. Serverless computing abstracts app code from infrastructure implementation, code deployment, and operational aspects like planning and maintenance. </p>\n<p>As with other services, each cloud provider has its own serverless implementation, and it's difficult for customers to use a different provider without considerable operational impact and costs. Potential customers may view this situation as weakening their bargaining position and agility. Vendor lock-in is one of the greatest obstacles to enterprise cloud adoption. </p>\n<p>The open-source <em>Serverless Framework</em> is a universal cloud interface for developing and deploying serverless computing solutions across cloud providers. Open-sourcing and common APIs for serverless functions help providers, customers, and partners build cross-cloud solutions for best-of-breed services. The Serverless Framework reduces barriers to cloud adoption by addressing the problems of vendor lock-in and cross-cloud provider redundancy. Customers can optimize their solutions based on cost, agility, and other considerations.</p>\n<p>CSE and the Azure product team collectively rewrote the <em>Serverless CLI</em> to support new Azure Functions features like Premium Functions, API Management, and KeyVault. The Serverless CLI now provides a standard interface for GitOps deployment to both Azure and AWS. The team also developed the <em>Serverless Multicloud Library</em>, which provides a <em>normalized runtime API</em> to deploy serverless apps to both AWS and Azure.</p>\n<p>This design provides high availability with <em>active-active</em> failover between multiple cloud platforms, as opposed to <em>active-passive</em> failover. If the service of one cloud provider becomes unhealthy or unavailable, this solution can reroute requests to another cloud platform. </p>\n<p>This project met the following technical goals:</p>\n<ul>\n<li>Create a cross-industry solution.</li>\n<li>Use the Multicloud Serverless Library to support a cloud-agnostic API that interfaces with microservices wherever they are deployed.</li>\n<li>Support a GitOps CI/CD process workflow for development, testing, and deployment on all supported cloud platforms.</li>\n<li>Use API-based access via an authenticated cloud gateway, and load balance between cloud platforms by using the gateway as a router.</li>\n</ul>\n<p>Other potential benefits of using the Serverless Framework include:</p>\n<ul>\n<li>Prevention or reduction of vendor lock-in</li>\n<li>40-60+% code reduction during development by using the Multicloud Serverless Library</li>\n<li>Development of best-of-breed solutions that combine different cloud providers' services</li>\n<li>Elimination of most platform and infrastructure complexity and maintenance requirements</li>\n<li>Easier data sharing, performance and cost comparisons, and ability to take advantage of special offerings</li>\n<li>Active-active high availability</li>\n</ul>",
+            "Summary": "<p>This article describes how the Microsoft Commercial Software Engineering (CSE) team partnered with a global retailer to deploy a highly-available serverless solution across both Azure and Amazon Web Services (AWS) cloud platforms, using the <a href=\"https://serverless.com\">Serverless Framework</a>.</p>\n<p>In <em>serverless computing</em>, the cloud provider dynamically allocates microservices resources to run code, and only charges for the resources used. Serverless computing abstracts app code from infrastructure implementation, code deployment, and operational aspects like planning and maintenance.</p>\n<p>As with other services, each cloud provider has its own serverless implementation, and it's difficult for customers to use a different provider without considerable operational impact and costs. Potential customers may view this situation as weakening their bargaining position and agility. Vendor lock-in is one of the greatest obstacles to enterprise cloud adoption.</p>\n<p>The open-source <em>Serverless Framework</em> is a universal cloud interface for developing and deploying serverless computing solutions across cloud providers. Open-sourcing and common APIs for serverless functions help providers, customers, and partners build cross-cloud solutions for best-of-breed services. The Serverless Framework reduces barriers to cloud adoption by addressing the problems of vendor lock-in and cross-cloud provider redundancy. Customers can optimize their solutions based on cost, agility, and other considerations.</p>\n<p>CSE and the Azure product team collectively rewrote the <em>Serverless CLI</em> to support new Azure Functions features like Premium Functions, API Management, and KeyVault. The Serverless CLI now provides a standard interface for GitOps deployment to both Azure and AWS. The team also developed the <em>Serverless Multicloud Library</em>, which provides a <em>normalized runtime API</em> to deploy serverless apps to both AWS and Azure.</p>\n<p>This design provides high availability with <em>active-active</em> failover between multiple cloud platforms, as opposed to <em>active-passive</em> failover. If the service of one cloud provider becomes unhealthy or unavailable, this solution can reroute requests to another cloud platform.</p>\n<p>This project met the following technical goals:</p>\n<ul>\n<li>Create a cross-industry solution.</li>\n<li>Use the Multicloud Serverless Library to support a cloud-agnostic API that interfaces with microservices wherever they are deployed.</li>\n<li>Support a GitOps CI/CD process workflow for development, testing, and deployment on all supported cloud platforms.</li>\n<li>Use API-based access via an authenticated cloud gateway, and load balance between cloud platforms by using the gateway as a router.</li>\n</ul>\n<p>Other potential benefits of using the Serverless Framework include:</p>\n<ul>\n<li>Prevention or reduction of vendor lock-in.</li>\n<li>40-60+% code reduction during development by using the Multicloud Serverless Library.</li>\n<li>Development of best-of-breed solutions that combine different cloud providers' services.</li>\n<li>Elimination of most platform and infrastructure complexity and maintenance requirements.</li>\n<li>Easier data sharing, performance and cost comparisons, and ability to take advantage of special offerings.</li>\n<li>Active-active high availability.</li>\n</ul>",
             "sample_code": true,
             "github_url": "https://github.com/serverless/multicloud",
             "name": "serverless-multicloud",
@@ -6350,7 +6462,7 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/oil-and-gas-tank-level-forecasting.md",
             "http_url": "/azure/architecture/solution-ideas/articles/oil-and-gas-tank-level-forecasting",
-            "word_count": 538,
+            "word_count": 537,
             "read_time": "3 min read",
             "Title": "Oil and Gas Tank Level Forecasting",
             "MetaDescription": "Today, most facilities operate reactively to problems in tank levels. This often leads to spills, emergency shutdowns, expensive remediation costs, regulatory issues, costly repairs and fines. Tank level forecasting helps manage and abate these and other problems.",
@@ -6614,7 +6726,7 @@
             "code_languages": [
                 "json"
             ],
-            "name": "index",
+            "name": "wsus",
             "popularity": 0,
             "topic": "Management and Governance"
         },
@@ -6935,7 +7047,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/apps/publish-internal-apis-externally.md",
             "http_url": "/azure/architecture/example-scenario/apps/publish-internal-apis-externally",
-            "word_count": 1863,
+            "word_count": 1859,
             "read_time": "8 min read",
             "Title": "Publishing internal APIs to external users",
             "MetaDescription": "Use Azure API Management to modernize and expose intranet legacy web APIs.",
@@ -6985,15 +7097,13 @@
                 "artificial-intelligence",
                 "azure",
                 "data-flow",
-                "example-code",
-                "github",
                 "solution-architectures",
                 "solution-idea"
             ],
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/quality-assurance.md",
             "http_url": "/azure/architecture/solution-ideas/articles/quality-assurance",
-            "word_count": 502,
+            "word_count": 501,
             "read_time": "3 min read",
             "Title": "Quality Assurance",
             "MetaDescription": "Quality assurance systems allow businesses to prevent defects throughout their processes of delivering goods or services to customers. Building such a system that collects data and identifies potential problems along a pipeline can provide enormous advantages. For example, in digital manufacturing, quality assurance across the assembly line is imperative. Identifying slowdowns and potential failures before they occur rather than after they are detected can help companies reduce costs for scrap and rework while improving productivity.",
@@ -7010,8 +7120,6 @@
                 "FlowStep_B": "This synthetic data feeds into the Azure Event Hubs as data points/events, that will be consumed in the rest of the solution flow and stored in Azure Synapse Analytics.",
                 "FlowStep_C": "There are 2 Azure Stream Analytics jobs used in this pattern to provide near real-time analytics on the input stream from the Azure Event Hub. Both jobs filter through the input data and pass the data points along to a Azure Machine Learning endpoint sending the results to a Power BI Dashboard."
             },
-            "sample_code": true,
-            "github_url": "https://github.com/Azure/cortana-intelligence-quality-assurance-manufacturing/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md#post-deployment-instructions",
             "name": "quality-assurance",
             "popularity": 39,
             "topic": "AI + Machine Learning"
@@ -7161,7 +7269,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/ai/realtime-scoring-python.md",
             "http_url": "/azure/architecture/reference-architectures/ai/realtime-scoring-python",
-            "word_count": 1861,
+            "word_count": 1857,
             "read_time": "8 min read",
             "Title": "Real-time scoring of Python models",
             "MetaDescription": "This reference architecture shows how to deploy Python models as web services on Azure to make real-time predictions.",
@@ -7204,7 +7312,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/ai/realtime-scoring-r.md",
             "http_url": "/azure/architecture/reference-architectures/ai/realtime-scoring-r",
-            "word_count": 1140,
+            "word_count": 1138,
             "read_time": "5 min read",
             "Title": "Real-time scoring of R machine learning models",
             "MetaDescription": "Implement a real-time prediction service in R using Machine Learning Server running in Azure Kubernetes Service (AKS).",
@@ -7409,6 +7517,8 @@
         {
             "tags": [
                 "all-items",
+                "example-code",
+                "github",
                 "reference-architecture",
                 "sap",
                 "seodec18",
@@ -7417,8 +7527,8 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/sap/hana-large-instances.md",
             "http_url": "/azure/architecture/reference-architectures/sap/hana-large-instances",
-            "word_count": 2596,
-            "read_time": "10 min read",
+            "word_count": 2936,
+            "read_time": "11 min read",
             "Title": "Run SAP HANA on Azure Large Instances",
             "MetaDescription": "Proven practices for running SAP HANA in a high availability environment on Azure Large Instances.",
             "category": [
@@ -7427,8 +7537,10 @@
             ],
             "image": "/azure/architecture/reference-architectures/sap/images/sap-hana-large-instances.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\sap\\images\\sap-hana-large-instances.png",
-            "publish_date": "5/16/2018",
-            "Summary": "<p>This reference architecture shows a set of proven practices for running SAP HANA on Azure (Large Instances) with high availability and disaster recovery (DR). Called HANA Large Instances, this offering is deployed on physical servers in Azure regions.</p>\n<p>:::image type=\"complex\" source=\"./images/sap-hana-large-instances.png\" alt-text=\"SAP HANA architecture using Azure Large Instances\":::\nThe diagram shows two Azure regions. The primary region contains an application tier with SAP applications, an SAP HANA server pool, and an ExpressRoute gateway. The ExpressRoute gateway connects to the secondary region, which contains a replicated HANA server pool.\n:::image-end:::</p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/sap-reference-architectures.vsdx\">Visio file</a> of this architecture.</em></p>\n<blockquote>\n<p>[!NOTE]\nDeploying this reference architecture requires appropriate licensing of SAP products and other non-Microsoft technologies.</p>\n</blockquote>",
+            "publish_date": "4/02/2020",
+            "Summary": "<p>This reference architecture shows a set of proven practices for running SAP HANA on Azure (Large Instances) with high availability (HA) and disaster recovery (DR). Called HANA Large Instances (HLI), this offering is deployed on physical servers in Azure regions.</p>\n<p>:::image type=\"complex\" source=\"./images/sap-hana-large-instances.png\" alt-text=\"SAP HANA architecture using Azure Large Instances\":::\nThe diagram shows two Azure regions. The primary region contains an application tier with SAP applications, an SAP HANA server pool, and an ExpressRoute gateway. The ExpressRoute gateway connects to the secondary region, which contains a replicated HANA server pool.\n:::image-end:::</p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/sap-reference-architectures.vsdx\">Visio file</a> of this architecture.</em></p>\n<blockquote>\n<p>[!NOTE]\nDeploying this reference architecture requires appropriate licensing of SAP products and other non-Microsoft technologies.</p>\n</blockquote>",
+            "sample_code": true,
+            "github_url": "https://github.com/Azure/hana-large-instances-self-service-scripts",
             "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/sap-reference-architectures.vsdx",
             "name": "hana-large-instances",
             "popularity": 180,
@@ -7490,7 +7602,7 @@
             "image": "/azure/architecture/example-scenario/apps/media/architecture-jenkins.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\apps\\media\\architecture-jenkins.png",
             "publish_date": "4/30/2018",
-            "Summary": "<p>This scenario shows how to deploy and operate a scalable, enterprise-grade Jenkins server on Azure secured with single sign-on (SSO). The architecture also uses Azure Monitor to monitor the state of the Jenkins server. <a href=\"#deploy-the-solution\"><strong>Deploy this solution</strong></a>.</p>\n<p><img alt=\"Jenkins server running on Azure\" src=\"https://docs.microsoft.com/azure/architecture/example-scenario/apps/media/architecture-jenkins.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/Jenkins-architecture.vsdx\">Visio file</a> that contains this architecture diagram.</em></p>\n<p>This architecture supports disaster recovery with Azure services but does not cover more advanced scale-out scenarios involving multiple masters or high availability (HA) with no downtime. For general insights about the various Azure components, including a step-by-step tutorial about building out a CI/CD pipeline on Azure, see <a href=\"https://docs.microsoft.com/azure/jenkins/\">Jenkins on Azure</a>.</p>\n<p>The focus of this document is on the core Azure operations needed to support Jenkins, including the use of Azure Storage to maintain build artifacts, the security items needed for SSO, other services that can be integrated, and scalability for the pipeline. The architecture is designed to work with an existing source control repository. For example, a common scenario is to start Jenkins jobs based on GitHub commits.</p>",
+            "Summary": "<p>This scenario shows how to deploy and operate a scalable, enterprise-grade Jenkins server on Azure secured with single sign-on (SSO). The architecture also uses Azure Monitor to monitor the state of the Jenkins server. <a href=\"#deploy-the-solution\"><strong>Deploy this solution</strong></a>.</p>\n<p><img alt=\"Jenkins server running on Azure\" src=\"https://docs.microsoft.com/azure/architecture/example-scenario/apps/media/architecture-jenkins.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/Jenkins-architecture.vsdx\">Visio file</a> that contains this architecture diagram.</em></p>\n<p>This architecture supports disaster recovery with Azure services but does not cover more advanced scale-out scenarios involving multiple masters or high availability (HA) with no downtime. For general insights about the various Azure components, including a step-by-step tutorial about building out a CI/CD pipeline on Azure, see <a href=\"https://docs.microsoft.com/azure/jenkins\">Jenkins on Azure</a>.</p>\n<p>The focus of this document is on the core Azure operations needed to support Jenkins, including the use of Azure Storage to maintain build artifacts, the security items needed for SSO, other services that can be integrated, and scalability for the pipeline. The architecture is designed to work with an existing source control repository. For example, a common scenario is to start Jenkins jobs based on GitHub commits.</p>",
             "sample_code": true,
             "github_url": "https://github.com/Azure/jenkins/tree/master/disaster_recovery",
             "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/Jenkins-architecture.vsdx",
@@ -7504,13 +7616,12 @@
                 "azurecli",
                 "example-code",
                 "reference-architecture",
-                "seodec18",
-                "visio-diagram"
+                "seodec18"
             ],
             "type": "reference-architecture",
             "file_url": "reference-architectures/n-tier/linux-vm.md",
             "http_url": "/azure/architecture/reference-architectures/n-tier/linux-vm",
-            "word_count": 1914,
+            "word_count": 1912,
             "read_time": "8 min read",
             "Title": "Run a Linux VM on Azure",
             "MetaDescription": "Best practices for running a Linux virtual machine on Azure.",
@@ -7521,7 +7632,6 @@
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\n-tier\\images\\single-vm-diagram.png",
             "publish_date": "12/13/2018",
             "Summary": "<p>Provisioning a virtual machine (VM) in Azure requires some additional components besides the VM itself, including networking and storage resources. This article shows best practices for running a Linux VM on Azure.</p>\n<p><img alt=\"Linux VM in Azure\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/images/single-vm-diagram.png\" /></p>",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx",
             "code_languages": [
                 "azurecli"
             ],
@@ -7535,13 +7645,12 @@
                 "all-items",
                 "azurecli",
                 "example-code",
-                "reference-architecture",
-                "visio-diagram"
+                "reference-architecture"
             ],
             "type": "reference-architecture",
             "file_url": "reference-architectures/n-tier/windows-vm.md",
             "http_url": "/azure/architecture/reference-architectures/n-tier/windows-vm",
-            "word_count": 1648,
+            "word_count": 1646,
             "read_time": "7 min read",
             "Title": "Run a Windows VM on Azure",
             "MetaDescription": "Best practices for running a Windows virtual machine on Azure.",
@@ -7552,7 +7661,6 @@
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\n-tier\\images\\single-vm-diagram.png",
             "publish_date": "12/13/2018",
             "Summary": "<p>Provisioning a virtual machine (VM) in Azure requires some additional components besides the VM itself, including networking and storage resources. This article shows best practices for running a Windows VM on Azure.</p>\n<p><img alt=\"Windows VM in Azure\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/images/single-vm-diagram.png\" /></p>",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx",
             "code_languages": [
                 "azurecli"
             ],
@@ -7574,7 +7682,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/sharepoint/index.md",
             "http_url": "/azure/architecture/reference-architectures/sharepoint",
-            "word_count": 3071,
+            "word_count": 3065,
             "read_time": "12 min read",
             "Title": "Run a highly available SharePoint Server 2016 farm in Azure",
             "MetaDescription": "Recommended architecture for deploying a high availability SharePoint Server 2016 farm in Azure.",
@@ -7592,7 +7700,7 @@
             "code_languages": [
                 "bash"
             ],
-            "name": "index",
+            "name": "sharepoint",
             "popularity": 135,
             "topic": "Management and Governance"
         },
@@ -7608,13 +7716,12 @@
             "type": "example-workload",
             "file_url": "example-scenario/infrastructure/reservoir-simulation.md",
             "http_url": "/azure/architecture/example-scenario/infrastructure/reservoir-simulation",
-            "word_count": 1129,
+            "word_count": 1127,
             "read_time": "5 min read",
             "Title": "Run reservoir simulation software on Azure",
             "MetaDescription": "Run OPM Flow reservoir simulation software and OPM ResInsight visualization software on an Azure HPC compute cluster and visualization VM.",
             "category": [
-                "compute",
-                "windows-virtual-desktop"
+                "compute"
             ],
             "image": "/azure/architecture/example-scenario/infrastructure/media/architecture-hpc-reservoir-simulation.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\infrastructure\\media\\architecture-hpc-reservoir-simulation.png",
@@ -7649,7 +7756,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/infrastructure/hpc-cfd.md",
             "http_url": "/azure/architecture/example-scenario/infrastructure/hpc-cfd",
-            "word_count": 1102,
+            "word_count": 1084,
             "read_time": "5 min read",
             "Title": "Running CFD simulations",
             "MetaDescription": "Execute computational fluid dynamics (CFD) simulations on Azure.",
@@ -7665,9 +7772,9 @@
             "pricing_guidance": "pricing",
             "alternative_choices": "alternatives",
             "components": [
-                "<p><a href=\"https://docs.microsoft.com/azure/cyclecloud/\">Azure CycleCloud</a> a tool for creating, managing, operating, and optimizing HPC and Big Compute clusters in Azure.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/cyclecloud\">Azure CycleCloud</a> a tool for creating, managing, operating, and optimizing HPC and Big Compute clusters in Azure.</p>",
                 "<p><a >Avere vFXT on Azure</a> is used to provide an enterprise-scale clustered file system built for the cloud.</p>",
-                "<p><a href=\"https://docs.microsoft.com/azure/virtual-machines/\">Azure Virtual Machines (VMs)</a> are used to create a static set of compute instances.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/virtual-machines\">Azure Virtual Machines (VMs)</a> are used to create a static set of compute instances.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview\">Virtual machine scale sets</a> provide a group of identical VMs capable of being scaled up or down by Azure CycleCloud.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/storage/common/storage-introduction\">Azure Storage accounts</a> are used for synchronization and data retention.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview\">Virtual Networks</a> enable many types of Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.</p>"
@@ -8157,7 +8264,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/infrastructure/wordpress.md",
             "http_url": "/azure/architecture/example-scenario/infrastructure/wordpress",
-            "word_count": 1217,
+            "word_count": 1214,
             "read_time": "5 min read",
             "Title": "Scalable and secure WordPress on Azure",
             "MetaDescription": "Build a highly scalable and secure WordPress website for media events.",
@@ -8175,7 +8282,7 @@
                 "<p><a href=\"https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview\">Virtual networks</a> allow resources such as VMs to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. The two networks are connected via Vnet peering.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/virtual-network/security-overview\">Network security groups</a> contain a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this scenario are secured with network security group rules that restrict the flow of traffic between the application components.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/load-balancer/load-balancer-overview\">Load balancers</a> distribute inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. A load balancer is used in this scenario to distribute traffic from the content deliver network to the front-end web servers.</p>",
-                "<p><a href=\"https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview\">Virtual machine scale sets</a> let you create and manage a group of identical load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Two separate virtual machine scale sets are used in this scenario - one for the front-end web-servers serving content, and one for the front-end webservers used to author new content.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview\">Virtual machine scale sets</a> let you create and manage a group of identical load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Two separate virtual machine scale sets are used in this scenario - one for the front-end web-servers serving content, and one for the front-end web servers used to author new content.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/storage/files/storage-files-introduction\">Azure Files</a> provides a fully managed file share in the cloud that hosts all of the WordPress content in this scenario, so that all of the VMs have access to the data.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/key-vault/key-vault-overview\">Azure Key Vault</a> is used to store and tightly control access to passwords, certificates, and keys.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis\">Azure Active Directory (Azure AD)</a> is a multitenant, cloud-based directory and identity management service. In this scenario, Azure AD provides authentication services for the website and the VPN tunnels.</p>"
@@ -8212,7 +8319,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/data/ecommerce-order-processing.md",
             "http_url": "/azure/architecture/example-scenario/data/ecommerce-order-processing",
-            "word_count": 1343,
+            "word_count": 1339,
             "read_time": "6 min read",
             "Title": "Scalable order processing",
             "MetaDescription": "Build a highly scalable order processing pipeline using Azure Cosmos DB.",
@@ -8229,7 +8336,7 @@
                 "<p><a href=\"https://docs.microsoft.com/azure/cosmos-db/introduction\">Cosmos DB</a> is Microsoft's globally distributed, multi-model database that enables your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive service level agreements (SLAs). This scenario uses Cosmos DB for event stream storage and snapshot storage, and leverages <a href=\"https://docs.microsoft.com/azure/cosmos-db/change-feed\">Cosmos DB's Change Feed</a> features to provide data consistency and fault recovery.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction\">Apache Kafka on HDInsight</a> is a managed service implementation of Apache Kafka, an open-source distributed streaming platform for building real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, for publishing and subscribing to named data streams. This scenario uses Kafka to process incoming as well as downstream events in the order processing pipeline.</p>"
             ],
-            "Summary": "<p>This example scenario is relevant to organizations that need a highly scalable and resilient architecture for online order processing. Potential applications include e-commerce and retail point-of-sale, order fulfillment, and inventory reservation and tracking.</p>\n<p>This scenario takes an event sourcing approach, using a functional programming model implemented via <a href=\"https://azure.com/microservices\">microservices</a>. Each microservice is treated as a stream processor, and all business logic is implemented via microservices. This approach enables high availability and resiliency, geo-replication, and fast performance.</p>\n<p>Using managed Azure services such as Cosmos DB and HDInsight can help reduce costs by leveraging Microsoft's expertise in globally distributed cloud-scale data storage and retrieval. This scenario specifically addresses an e-commerce or retail scenario; if you have other needs for data services, you should review the list of available <a href=\"https://azure.microsoft.com/product-categories/databases/\">fully managed intelligent database services in Azure</a>.</p>",
+            "Summary": "<p>This example scenario is relevant to organizations that need a highly scalable and resilient architecture for online order processing. Potential applications include e-commerce and retail point-of-sale, order fulfillment, and inventory reservation and tracking.</p>\n<p>This scenario takes an event sourcing approach, using a functional programming model implemented via <a href=\"https://azure.com/microservices\">microservices</a>. Each microservice is treated as a stream processor, and all business logic is implemented via microservices. This approach enables high availability and resiliency, geo-replication, and fast performance.</p>\n<p>Using managed Azure services such as Cosmos DB and HDInsight can help reduce costs by leveraging Microsoft's expertise in globally distributed cloud-scale data storage and retrieval. This scenario specifically addresses an e-commerce or retail scenario; if you have other needs for data services, you should review the list of available <a href=\"https://azure.microsoft.com/product-categories/databases\">fully managed intelligent database services in Azure</a>.</p>",
             "Flow": {
                 "FlowStep_A": "Event messages enter the system via customer-facing applications (synchronously over HTTP) and various back-end systems (asynchronously via Apache Kafka). These messages are passed into a command processing pipeline.",
                 "FlowStep_B": "Each event message is ingested and mapped to one of a defined set of commands by a command processor microservice. The command processor retrieves any current state relevant to executing the command from an event stream snapshot database. The command is then executed, and the output of the command is emitted as a new event.",
@@ -8268,7 +8375,7 @@
             "publish_date": "5/31/2019",
             "pricing_calculator": "https://azure.com/e/ce86a34735d64f1280812233b0071c4e",
             "pricing_guidance": "pricing",
-            "Summary": "<p>Recommendations are a main revenue driver for many businesses and are used in different kinds of industries, including retail, news, and media. With the availability of large amounts of data, you can now provide highly relevant recommendations using machine learning.</p>\n<p>There are two main types of recommendation systems: collaborative filtering and content-based. Collaborative filtering identifies similar patterns in customer behavior and recommends items that other similar customers have interacted with. Content-based recommendation uses information about the items to learn customer preferences and recommends items that share properties with items that a customer has previously interacted with. The approach described in this document focuses on the content-based recommendation system.</p>\n<p>This example scenario shows how your business can use machine learning to automate content-based personalization for your customers. At a high level, we use <a href=\"https://azure.microsoft.com/services/databricks/\">Azure Databricks</a> to train a model that predicts the probability a user will engage with an item. That model is deployed to production as a prediction service using <a href=\"https://azure.microsoft.com/services/kubernetes-service/\">Azure Kubernetes Service</a>. In turn, you can use this prediction to create personalized recommendations by ranking items based on the content that a user is most likely to consume.</p>",
+            "Summary": "<p>Recommendations are a main revenue driver for many businesses and are used in different kinds of industries, including retail, news, and media. With the availability of large amounts of data, you can now provide highly relevant recommendations using machine learning.</p>\n<p>There are two main types of recommendation systems: collaborative filtering and content-based. Collaborative filtering identifies similar patterns in customer behavior and recommends items that other similar customers have interacted with. Content-based recommendation uses information about the items to learn customer preferences and recommends items that share properties with items that a customer has previously interacted with. The approach described in this document focuses on the content-based recommendation system.</p>\n<p>This example scenario shows how your business can use machine learning to automate content-based personalization for your customers. At a high level, we use <a href=\"https://azure.microsoft.com/services/databricks\">Azure Databricks</a> to train a model that predicts the probability a user will engage with an item. That model is deployed to production as a prediction service using <a href=\"https://azure.microsoft.com/services/kubernetes-service\">Azure Kubernetes Service</a>. In turn, you can use this prediction to create personalized recommendations by ranking items based on the content that a user is most likely to consume.</p>",
             "sample_code": true,
             "github_url": "https://github.com/Microsoft/Recommenders/blob/master/SETUP.md#setup-guide-for-azure-databricks",
             "name": "scalable-personalization",
@@ -8414,6 +8521,39 @@
         {
             "tags": [
                 "all-items",
+                "data-flow",
+                "networking",
+                "reference-architecture"
+            ],
+            "type": "reference-architecture",
+            "file_url": "reference-architectures/hybrid-networking/network-level-segmentation.md",
+            "http_url": "/azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation",
+            "word_count": 1444,
+            "read_time": "7 min read",
+            "Title": "Secure and govern workloads with network level segmentation",
+            "MetaDescription": "Using network level segmentation to secure virtual networks.",
+            "category": [
+                "hybrid",
+                "networking"
+            ],
+            "image": "/azure/architecture/reference-architectures/hybrid-networking/images/resource-flowchart.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\hybrid-networking\\images\\resource-flowchart.png",
+            "publish_date": "4/30/2020",
+            "Summary": "<p>Segmentation is a model in which you take your networking footprint and create software defined perimeters using the different tools available as part of Azure's offerings. You then set rules that govern the traffic from/to these perimeters so that you can have different security postures for various parts your network. Where this becomes useful is when you place different applications (or parts of a given application) into these perimeters so that you govern the communication between these segmented entities. Another advantage of this model is that if a part of your application stack is compromised, you will be able to better contain the impact of this security breach and prevent it from laterally spreading through the rest of your network. This is a key principle associated with the <a href=\"https://www.microsoft.com/security/blog/2019/10/23/perimeter-based-network-defense-transform-zero-trust-model/\">Zero Trust model published by Microsoft</a> that aims to bring world class security thinking to your organization</p>",
+            "Flow": {
+                "FlowStep_A": "[Subscription](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription) : Subscriptions are a high-level construct, which provides platform powered separation between entities. It is intended to carve out boundaries between large organizations within a company and communication between resources in different subscriptions needs to be explicitly provisioned.",
+                "FlowStep_B": "[Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) : Virtual networks are created within a subscription in private address spaces and provide network level containment of resources with no traffic allowed by default between any two virtual networks. Like subscriptions, any communication between virtual networks needs to be explicitly provisioned.",
+                "FlowStep_C": "[Network Security Groups (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) : NSGs are access control mechanisms for controlling traffic between resources within a virtual network and also with external networks (for example, the internet, other virtual networks etc.). NSGs can take your segmentation strategy to a granular level by creating perimeters for a subnet, group of VMs or even a single virtual machine.  ",
+                "FlowStep_D": "[Application Security Groups (ASGs)](https://docs.microsoft.com/azure/virtual-network/application-security-groups): ASGs provide control mechanisms similar to NSGs but are referenced with an application context. It allows you to group a set of VMs under an application tag and define traffic rules that are then applied to each of the underlying VMs.  ",
+                "FlowStep_E": "[Azure Firewall](https://docs.microsoft.com/azure/firewall/): Azure Firewall is a cloud native stateful Firewall as a service, which can be deployed in your virtual networks or in [Azure Virtual WAN](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-about) hub deployments for filtering traffic flowing between cloud resources, the Internet, and on-premise. You create rules or policies (using Azure Firewall or [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview)) specifying allow/deny traffic using layer 3 to layer 7 controls. You can also filter traffic going to the internet using both Azure Firewall and third parties by directing some or all traffic through third-party security providers for advanced filtering & user protection.  "
+            },
+            "name": "network-level-segmentation",
+            "popularity": 0,
+            "topic": "Hybrid"
+        },
+        {
+            "tags": [
+                "all-items",
                 "example-code",
                 "example-workload",
                 "fcp",
@@ -8422,7 +8562,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/iot-aad/iot-aad.md",
             "http_url": "/azure/architecture/example-scenario/iot-aad/iot-aad",
-            "word_count": 3085,
+            "word_count": 3088,
             "read_time": "13 min read",
             "Title": "Secure your IoT SaaS app with the Microsoft identity platform",
             "MetaDescription": "How a developer can use Azure Active Directory and the Microsoft identity platform to implement secure authentication and authorization for SaaS apps that manage cloud-connected IoT devices.",
@@ -8433,7 +8573,7 @@
             "image": "/azure/architecture/example-scenario/iot-aad/media/multi-tenant-iot.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\iot-aad\\media\\multi-tenant-iot.png",
             "publish_date": "3/12/2020",
-            "Summary": "<p>IoT device manufacturers are creating custom apps and services to better serve their customers\u2019 device management needs. Developers building IoT apps and services want to provide secure, frictionless access to cloud-connected devices and the telemetry data sent by these devices to the cloud. </p>\n<p>In this article we explain how a developer can take advantage of <a href=\"https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis\">Azure Active Directory</a> and the <a href=\"https://docs.microsoft.com/azure/active-directory/develop/v2-overview\">Microsoft identity platform</a> to create a secure <a href=\"https://azure.microsoft.com/overview/what-is-saas/\">SaaS app</a>. We'll cover the basic how-tos and benefits of integrating your app with Azure AD , as well as two common customer scenarios IoT developers may encounter.</p>\n<p>By integrating with the Microsoft identity platform and configuring the app to be <a href=\"https://docs.microsoft.com/azure/active-directory/develop/single-and-multi-tenant-apps\">multi-tenant</a>, developers can:\n- Ensure isolation of customer resources and data\n- Enable access control by enforcing organizational policies and conditions based on time, location, and more \n- Support auditing and reporting of access\n- Allow users to sign in with existing work and social accounts, which in turn allows a <a href=\"https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on\">single sign-on</a> experience so that users sign in once and are able to access other corporate resources and apps without signing in again</p>\n<p>To learn more about the topics covered in this article, check out the <a href=\"https://docs.microsoft.com/azure/active-directory/develop/\">Microsoft identity platform homepage</a>. The quickstart guides there will help you get set up quickly to integrate your app with our platform. </p>\n<blockquote>\n<p>[!NOTE]\nPlease leave feedback on the document whether you found it helpful or not! Your input matters in helping us to create useful content. </p>\n</blockquote>",
+            "Summary": "<p>IoT device manufacturers are creating custom apps and services to better serve their customers\u2019 device management needs. Developers building IoT apps and services want to provide secure, frictionless access to cloud-connected devices and the telemetry data sent by these devices to the cloud.</p>\n<p>In this article we explain how a developer can take advantage of <a href=\"https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis\">Azure Active Directory</a> and the <a href=\"https://docs.microsoft.com/azure/active-directory/develop/v2-overview\">Microsoft identity platform</a> to create a secure <a href=\"https://azure.microsoft.com/overview/what-is-saas/\">SaaS app</a>. We'll cover the basic how-tos and benefits of integrating your app with Azure AD , as well as two common customer scenarios IoT developers may encounter.</p>\n<p>By integrating with the Microsoft identity platform and configuring the app to be <a href=\"https://docs.microsoft.com/azure/active-directory/develop/single-and-multi-tenant-apps\">multi-tenant</a>, developers can:</p>\n<ul>\n<li>Ensure isolation of customer resources and data.</li>\n<li>Enable access control by enforcing organizational policies and conditions based on time, location, and more.</li>\n<li>Support auditing and reporting of access.</li>\n<li>Allow users to sign in with existing work and social accounts, which in turn allows a <a href=\"https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on\">single sign-on</a> experience so that users sign in once and are able to access other corporate resources and apps without signing in again.</li>\n</ul>\n<p>To learn more about the topics covered in this article, check out the <a href=\"https://docs.microsoft.com/azure/active-directory/develop\">Microsoft identity platform homepage</a>. The quickstart guides there will help you get set up quickly to integrate your app with our platform.</p>\n<blockquote>\n<p>[!NOTE]\nPlease leave feedback on the document whether you found it helpful or not! Your input matters in helping us to create useful content.</p>\n</blockquote>",
             "sample_code": true,
             "github_url": "https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md",
             "name": "iot-aad",
@@ -8457,7 +8597,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/apps/fully-managed-secure-apps.md",
             "http_url": "/azure/architecture/example-scenario/apps/fully-managed-secure-apps",
-            "word_count": 2032,
+            "word_count": 2022,
             "read_time": "8 min read",
             "Title": "Securely managed web applications",
             "MetaDescription": "Securely deploy an expense application to Azure App Service Environment.",
@@ -8473,7 +8613,7 @@
             "alternative_choices": "alternatives",
             "components": [
                 "<p>The <a href=\"https://docs.microsoft.com/azure/app-service/environment/intro\">App Service Environment</a> provides a fully isolated, dedicated environment for securely running the application at high scale. In addition, since ASE and the workloads that run on it are behind a virtual network, it also provides an additional layer of security and isolation. The requirement of high scale and isolation drove the selection of ILB ASE.</p>",
-                "<p>This workload is using the <a href=\"https://azure.microsoft.com/pricing/details/app-service/windows/\">isolated App Service pricing tier</a>, so the application is running in a private dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard.</p>",
+                "<p>This workload is using the <a href=\"https://azure.microsoft.com/pricing/details/app-service/windows\">isolated App Service pricing tier</a>, so the application is running in a private dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard.</p>",
                 "<p>Azure App Services <a href=\"https://docs.microsoft.com/azure/app-service/app-service-web-overview\">Web App</a> and <a href=\"https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api\">API App</a> host web applications and RESTful APIs. These are hosted on the Isolated Pricing Tier plan that also offers autoscaling, custom domains, and so on, but in a dedicated tier.</p>",
                 "<p>Azure <a href=\"https://docs.microsoft.com/azure/application-gateway/overview\">Application Gateway</a> is a web traffic load balancer operating at Layer 7 that manages traffic to the web application. It offers SSL offloading, which removes additional overhead from the web servers hosting the web app to decrypt traffic again.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/application-gateway/waf-overview\">Web Application Firewall</a> (WAF) is a feature of Application Gateway. Enabling the WAF in the Application Gateway further enhances security. The WAF uses OWASP rules to protect the web application against attacks such as cross-site scripting, session hijacks, and SQL injection.</p>",
@@ -8501,6 +8641,31 @@
         },
         {
             "tags": [
+                "all-items",
+                "fcp",
+                "reference-architecture"
+            ],
+            "type": "reference-architecture",
+            "file_url": "reference-architectures/n-tier/high-security-iaas.md",
+            "http_url": "/azure/architecture/reference-architectures/n-tier/high-security-iaas",
+            "word_count": 3505,
+            "read_time": "14 min read",
+            "Title": "Security considerations for highly sensitive IaaS apps in Azure",
+            "MetaDescription": "Learn about VM security, encryption, NSGs, DMZs, access control, and other security considerations for highly sensitive IaaS and hybrid apps.",
+            "category": [
+                "security",
+                "compute"
+            ],
+            "image": "/azure/architecture/reference-architectures/n-tier/images/dedicated-hosts.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\n-tier\\images\\dedicated-hosts.png",
+            "publish_date": "4/15/2020",
+            "Summary": "<p>There are many security considerations for deploying <em>infrastructure-as-a-service (IaaS)</em> apps to Azure. This article builds on reference architectures for virtual machine-based workloads and hybrid network infrastructures to focus on security for highly sensitive IaaS workloads in Azure, based on <a href=\"https://docs.microsoft.com/azure/security/fundamentals/\">Azure security fundamentals</a>.</p>\n<p>Also see <a href=\"https://docs.microsoft.com/azure/security/fundamentals/virtual-machines-overview\">Azure virtual machines security overview</a> and <a href=\"https://docs.microsoft.com/azure/security/fundamentals/iaas\">Security best practices for IaaS workloads in Azure</a>.</p>",
+            "name": "high-security-iaas",
+            "popularity": 0,
+            "topic": "Security"
+        },
+        {
+            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-onboarding-customers-with-a-cloud-native-serverless-architecture-'",
                 "acom-architecture",
                 "all-items",
@@ -8518,8 +8683,8 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.md",
             "http_url": "/azure/architecture/solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture",
-            "word_count": 218,
-            "read_time": "2 min read",
+            "word_count": 169,
+            "read_time": "1 min read",
             "Title": "Serverless Computing Solution for LOB Apps",
             "MetaDescription": "The solution demonstrates a business process for customer onboarding. This serverless architecture enables you to build and run applications without having to worry about the underlying infrastructure and the associated management and maintenance. By using it, you can dramatically improve developer productivity.",
             "category": [
@@ -8529,13 +8694,14 @@
             "image": "/azure/architecture/solution-ideas/media/onboarding-customers-with-a-cloud-native-serverless-architecture.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\onboarding-customers-with-a-cloud-native-serverless-architecture.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>This serverless architecture enables you to build and run applications without having to worry about the underlying infrastructure and the associated management and maintenance. By using it, you can dramatically improve developer productivity.</p>\n<p>The links to the right give you detailed technical guidance on navigating a particular area of the architecture.</p>\n<p><a >Decide which compute option to use for your apps</a></p>\n<p><a href=\"https://docs.microsoft.com/azure/azure-functions\">Learn to build Serverless apps</a></p>\n<p>The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.</p>\n<p><a href=\"https://docs.microsoft.com/azure/machine-learning/preview\">Learn how you can use machine learning</a></p>\n<p><a href=\"https://docs.microsoft.com/azure/cognitive-services\">Infuse intelligence into your apps with Cognitive Services</a></p>",
+            "Summary": "<p>This serverless architecture enables you to build and run applications without having to worry about the underlying infrastructure and the associated management and maintenance. By using it, you can dramatically improve developer productivity.</p>",
             "Flow": {
                 "FlowStep_A": "Information about the new customer is posted to a web endpoint.",
-                "FlowStep_B": "The customer's photo is posted to Cognitive Services Face API. Face API associates the customer's photo and name.",
-                "FlowStep_C": "The customer information is recorded in Dynamics 365 or other CRM.",
-                "FlowStep_D": "The information about a new customer is sent to Power BI.",
-                "FlowStep_E": "The customer information is added to the mailing list (MailChimp)."
+                "FlowStep_B": "The customer's photo is posted to [Cognitive Services Face API](/azure/cognitive-services/face/). Face API associates the customer's photo and name.",
+                "FlowStep_C": "The customer information is recorded in [Dynamics 365](/dynamics365/) or other CRM.",
+                "FlowStep_D": "The information about a new customer is sent to [Power BI](/power-bi/).",
+                "FlowStep_E": "The customer information is added to the mailing list ([MailChimp](https://mailchimp.com/)).",
+                "FlowStep_F": "The solution creates a record of the member in [Cosmos DB](/azure/cosmos-db/)."
             },
             "name": "onboarding-customers-with-a-cloud-native-serverless-architecture",
             "popularity": 112,
@@ -8646,7 +8812,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/serverless/web-app.md",
             "http_url": "/azure/architecture/reference-architectures/serverless/web-app",
-            "word_count": 4013,
+            "word_count": 4007,
             "read_time": "16 min read",
             "Title": "Serverless web application",
             "MetaDescription": "Recommended architecture for a serverless web application and web API.",
@@ -8761,13 +8927,13 @@
             "pricing_guidance": "pricing-this-scenario",
             "alternative_choices": "alternatives",
             "components": [
-                "<p><a href=\"https://azure.microsoft.com/services/service-bus/\">Service Bus</a>, a highly reliable cloud messaging service between applications and services, even when one or more is offline.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/signalr-service/\">SignalR</a>, makes it easy to add real-time communications to your web application.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/functions/\">Azure Functions</a>, an event-driven serverless compute platform that can also solve complex orchestration problems.</p>"
+                "<p><a href=\"https://azure.microsoft.com/services/service-bus\">Service Bus</a>, a highly reliable cloud messaging service between applications and services, even when one or more is offline.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/signalr-service\">SignalR</a> makes it easy to add real-time communications to your web application.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/functions\">Azure Functions</a>, an event-driven serverless compute platform that can also solve complex orchestration problems.</p>"
             ],
             "sample_code": true,
             "github_url": "https://github.com/mspnp/solution-architectures/tree/master/signalr",
-            "name": "index",
+            "name": "signalr",
             "popularity": 47,
             "topic": "DevOps"
         },
@@ -8788,7 +8954,7 @@
             "file_url": "solution-ideas/articles/simple-branded-website.md",
             "http_url": "/azure/architecture/solution-ideas/articles/simple-branded-website",
             "word_count": 225,
-            "read_time": "1 min read",
+            "read_time": "2 min read",
             "Title": "Simple branded website",
             "MetaDescription": "Quickly build and launch digital campaigns that automatically scale based on customer demand.",
             "category": [
@@ -8866,7 +9032,7 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/social-mobile-and-web-app-with-authentication.md",
             "http_url": "/azure/architecture/solution-ideas/articles/social-mobile-and-web-app-with-authentication",
-            "word_count": 582,
+            "word_count": 585,
             "read_time": "3 min read",
             "Title": "Social App for Mobile and Web with Authentication",
             "MetaDescription": "View a detailed, step-by-step diagram depicting the build process and implementation of the mobile client app architecture that offers social image sharing with a companion web app and authentication abilities, even while offline.",
@@ -8878,12 +9044,12 @@
             "image": "/azure/architecture/solution-ideas/media/social-mobile-and-web-app-with-authentication.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\social-mobile-and-web-app-with-authentication.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>This mobile client app offers social image sharing with a companion web app. The app back end service does background image processing using an Azure Function and can notify users of progress via a notification hub. Non-image data is stored in CosmosDB. The web app accesses the back end service data and images via Traffic Manager.</p>\n<p>The mobile client app works in offline mode, allowing you to view and upload images even when you don't have a network connection.</p>\n<p>The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.</p>\n<p><a href=\"https://azure.microsoft.com/services/visual-studio-team-services\">Visual Studio Team Services</a></p>\n<p><a href=\"https://www.visualstudio.com/vs\">Visual Studio</a></p>\n<p><a href=\"https://www.visualstudio.com/xamarin\">Visual Studio Tools for Xamarin</a></p>\n<p><a href=\"https://azure.microsoft.com/services/application-insights\">Application Insights</a></p>\n<p><a href=\"https://www.visualstudio.com/app-center\">Visual Studio App Center</a></p>\n<p><a href=\"https://azure.microsoft.com/services/app-service/mobile\">App Service Mobile Apps</a></p>",
+            "Summary": "<p>This mobile client app offers social image sharing with a companion web app. The app back end service does background image processing using an Azure Function and can notify users of progress via a notification hub. Non-image data is stored in Cosmos DB. The web app accesses the back end service data and images via Traffic Manager.</p>\n<p>The mobile client app works in offline mode, allowing you to view and upload images even when you don't have a network connection.</p>\n<p>The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.</p>\n<p><a href=\"https://azure.microsoft.com/services/visual-studio-team-services\">Visual Studio Team Services</a></p>\n<p><a href=\"https://www.visualstudio.com/vs\">Visual Studio</a></p>\n<p><a href=\"https://www.visualstudio.com/xamarin\">Visual Studio Tools for Xamarin</a></p>\n<p><a href=\"https://azure.microsoft.com/services/application-insights\">Application Insights</a></p>\n<p><a href=\"https://www.visualstudio.com/app-center\">Visual Studio App Center</a></p>\n<p><a href=\"https://azure.microsoft.com/services/app-service/mobile\">App Service Mobile Apps</a></p>",
             "Flow": {
                 "FlowStep_A": "Create the app using Visual Studio and Xamarin.",
                 "FlowStep_B": "Add the Azure App Service Mobile Apps back end service to the app solution.",
                 "FlowStep_C": "Implement authentication through social identity providers.",
-                "FlowStep_D": "Store non-image data in CosmosDB and cache it in Azure Cache for Redis.",
+                "FlowStep_D": "Store non-image data in Cosmos DB and cache it in Azure Cache for Redis.",
                 "FlowStep_E": "Store uploaded images in Azure Blob Storage.",
                 "FlowStep_F": "Queue messages about newly uploaded images.",
                 "FlowStep_G": "Use Azure Functions to dequeue messages and process images retrieved from blob storage.",
@@ -8944,17 +9110,17 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/ai/speech-ai-ingestion.md",
             "http_url": "/azure/architecture/reference-architectures/ai/speech-ai-ingestion",
-            "word_count": 1638,
+            "word_count": 1651,
             "read_time": "7 min read",
-            "Title": "Speech to text conversion",
-            "MetaDescription": "Recommended way to upload audio files and process the speech content to text.",
+            "Title": "Speech-to-text conversion",
+            "MetaDescription": "This article describes the recommended way to upload audio files and process the speech content to text.",
             "category": [
                 "ai-machine-learning"
             ],
             "image": "/azure/architecture/reference-architectures/ai/_images/audio-files-upload.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\ai\\_images\\audio-files-upload.png",
             "publish_date": "3/25/2020",
-            "Summary": "<p>Customer care centers form an integral part of business success. Efficiency of these call centers can be improved using <em>Speech AI</em>. Speech recognition and analysis of high volumes of recorded customer calls can provide businesses with valuable information about current trends, product shortcomings as well as successes. Enterprise solutions using the Speech APIs of Azure Cognitive Services can be implemented to consume and process such high volumes of discrete data.</p>\n<p>This reference architecture shows how to build an audio ingestion and <em>speech-to-text</em> transcription pipeline for such customer care centers. This pipeline processes batches of recorded audio files, and stores the transcribed text files in Azure Blob Storage. This architecture does not implement real-time speech processing.</p>\n<p>This pipeline can later feed into the next phase of your Speech AI implementation, where transcribed text can be processed for recognizing and removing sensitive information, sentiment analysis, and so on.</p>\n<p>The reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/cognitive-services-reference-implementation\">GitHub</a>.</p>",
+            "Summary": "<p>Customer care centers are an integral part of the success of many businesses. You can improve the efficiency of your call centers by using speech AI. Speech recognition and the analysis of high volumes of recorded customer calls can provide your business with valuable information about current trends, product shortcomings, and successes. Enterprise solutions that use the Speech APIs of Azure Cognitive Services can be implemented to consume and process such high volumes of discrete data.</p>\n<p>The reference architecture described in this article shows how to build an audio ingestion and speech-to-text transcription pipeline for customer care centers. This pipeline processes batches of recorded audio files and stores the transcribed text files in Azure Blob storage. This architecture doesn't implement real-time speech processing.</p>\n<p>This pipeline can later feed into the next phase of your speech AI implementation. In that phase, you can process transcribed text to recognize and remove sensitive information, perform sentiment analysis, and so on.</p>\n<p>The reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/cognitive-services-reference-implementation\">GitHub</a>.</p>",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/cognitive-services-reference-implementation",
             "name": "speech-ai-ingestion",
@@ -8984,7 +9150,7 @@
             "image": "/azure/architecture/reference-architectures/data/images/stream-processing-databricks.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\data\\images\\stream-processing-databricks.png",
             "publish_date": "11/30/2018",
-            "Summary": "<p>This reference architecture shows an end-to-end <a href=\"https://docs.microsoft.com/azure/architecture/data-guide/big-data/real-time-processing\">stream processing</a> pipeline. This type of pipeline has four stages: ingest, process, store, and analysis and reporting. For this reference architecture, the pipeline ingests data from two sources, performs a join on related records from each stream, enriches the result, and calculates an average in real time. The results are stored for further analysis.</p>\n<p><img alt=\"GitHub logo\" src=\"https://docs.microsoft.com/azure/architecture/_images/github.png\" /> A reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/azure-databricks-streaming-analytics\">GitHub</a>.</p>\n<p><img alt=\"Reference architecture for stream processing with Azure Databricks\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/data/images/stream-processing-databricks.png\" /></p>\n<p><strong>Scenario</strong>: A taxi company collects data about each taxi trip. For this scenario, we assume there are two separate devices sending data. The taxi has a meter that sends information about each ride &mdash; the duration, distance, and pickup and drop-off locations. A separate device accepts payments from customers and sends data about fares. To spot ridership trends, the taxi company wants to calculate the average tip per mile driven, in real time, for each neighborhood.</p>",
+            "Summary": "<p>This reference architecture shows an end-to-end <a >stream processing</a> pipeline. This type of pipeline has four stages: ingest, process, store, and analysis and reporting. For this reference architecture, the pipeline ingests data from two sources, performs a join on related records from each stream, enriches the result, and calculates an average in real time. The results are stored for further analysis.</p>\n<p><img alt=\"GitHub logo\" src=\"https://docs.microsoft.com/azure/architecture/_images/github.png\" /> A reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/azure-databricks-streaming-analytics\">GitHub</a>.</p>\n<p><img alt=\"Reference architecture for stream processing with Azure Databricks\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/data/images/stream-processing-databricks.png\" /></p>\n<p><strong>Scenario</strong>: A taxi company collects data about each taxi trip. For this scenario, we assume there are two separate devices sending data. The taxi has a meter that sends information about each ride &mdash; the duration, distance, and pickup and drop-off locations. A separate device accepts payments from customers and sends data about fares. To spot ridership trends, the taxi company wants to calculate the average tip per mile driven, in real time, for each neighborhood.</p>",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/azure-databricks-streaming-analytics",
             "code_languages": [
@@ -9006,7 +9172,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/data/stream-processing-stream-analytics.md",
             "http_url": "/azure/architecture/reference-architectures/data/stream-processing-stream-analytics",
-            "word_count": 2291,
+            "word_count": 2289,
             "read_time": "10 min read",
             "Title": "Stream processing with Azure Stream Analytics",
             "MetaDescription": "Create an end-to-end stream processing pipeline in Azure.",
@@ -9017,7 +9183,7 @@
             "image": "/azure/architecture/reference-architectures/data/images/stream-processing-asa/stream-processing-asa.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\data\\images\\stream-processing-asa\\stream-processing-asa.png",
             "publish_date": "11/06/2018",
-            "Summary": "<p>This reference architecture shows an end-to-end <a href=\"https://docs.microsoft.com/azure/architecture/data-guide/big-data/real-time-processing\">stream processing</a> pipeline. The pipeline ingests data from two sources, correlates records in the two streams, and calculates a rolling average across a time window. The results are stored for further analysis.</p>\n<p><img alt=\"GitHub logo\" src=\"https://docs.microsoft.com/azure/architecture/_images/github.png\" /> A reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/azure-stream-analytics-data-pipeline\">GitHub</a>.</p>\n<p><img alt=\"Reference architecture for creating a stream processing pipeline with Azure Stream Analytics\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/data/images/stream-processing-asa/stream-processing-asa.png\" /></p>\n<p><strong>Scenario</strong>: A taxi company collects data about each taxi trip. For this scenario, we assume there are two separate devices sending data. The taxi has a meter that sends information about each ride &mdash; the duration, distance, and pickup and dropoff locations. A separate device accepts payments from customers and sends data about fares. The taxi company wants to calculate the average tip per mile driven, in real time, in order to spot trends.</p>",
+            "Summary": "<p>This reference architecture shows an end-to-end <a >stream processing</a> pipeline. The pipeline ingests data from two sources, correlates records in the two streams, and calculates a rolling average across a time window. The results are stored for further analysis.</p>\n<p><img alt=\"GitHub logo\" src=\"https://docs.microsoft.com/azure/architecture/_images/github.png\" /> A reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/azure-stream-analytics-data-pipeline\">GitHub</a>.</p>\n<p><img alt=\"Reference architecture for creating a stream processing pipeline with Azure Stream Analytics\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/data/images/stream-processing-asa/stream-processing-asa.png\" /></p>\n<p><strong>Scenario</strong>: A taxi company collects data about each taxi trip. For this scenario, we assume there are two separate devices sending data. The taxi has a meter that sends information about each ride &mdash; the duration, distance, and pickup and dropoff locations. A separate device accepts payments from customers and sends data about fares. The taxi company wants to calculate the average tip per mile driven, in real time, in order to spot trends.</p>",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/azure-stream-analytics-data-pipeline",
             "code_languages": [
@@ -9281,7 +9447,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/ai/training-python-models.md",
             "http_url": "/azure/architecture/reference-architectures/ai/training-python-models",
-            "word_count": 1453,
+            "word_count": 1449,
             "read_time": "6 min read",
             "Title": "Training Python models on Azure",
             "MetaDescription": "This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of a scikit-learn Python model.",
@@ -9374,7 +9540,7 @@
             "image": "/azure/architecture/reference-architectures/_images/guidance-hybrid-network-vpn/RRAS-perf-counters.png",
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\_images\\guidance-hybrid-network-vpn\\RRAS-perf-counters.png",
             "publish_date": "10/08/2018",
-            "Summary": "<p>This article gives some tips for troubleshooting a VPN gateway connection between an on-premises network and Azure. For general information on troubleshooting common VPN-related errors, see <a href=\"https://blogs.technet.microsoft.com/rrasblog/2009/08/12/troubleshooting-common-vpn-related-errors/\">Troubleshooting common VPN related errors</a>.</p>",
+            "Summary": "<p>This article gives some tips for troubleshooting a VPN gateway connection between an on-premises network and Azure. For general information on troubleshooting common VPN-related errors, see <a href=\"https://blogs.technet.microsoft.com/rrasblog/2009/08/12/troubleshooting-common-vpn-related-errors\">Troubleshooting common VPN related errors</a>.</p>",
             "code_languages": [
                 "powershell"
             ],
@@ -9542,7 +9708,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/app-service-web-app/app-monitoring.md",
             "http_url": "/azure/architecture/reference-architectures/app-service-web-app/app-monitoring",
-            "word_count": 1803,
+            "word_count": 1801,
             "read_time": "7 min read",
             "Title": "Web application monitoring on Azure",
             "MetaDescription": "Monitor a web application hosted in Azure App Service.",
@@ -9558,7 +9724,7 @@
                 "<p><a href=\"https://docs.microsoft.com/azure/app-service/\">Azure App Service</a> is a PaaS service for building and hosting apps in managed virtual machines. The underlying compute infrastructures on which your apps run is managed for you. App Service provides monitoring of resource usage quotas and app metrics, logging of diagnostic information, and alerts based on metrics. Even better, you can use Application Insights to create <a href=\"https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability\">availability tests</a> for testing your application from different regions.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/application-insights/app-insights-overview\">Application Insights</a> is an extensible Application Performance Management (APM) service for developers and supports multiple platforms. It monitors the application, detects application anomalies such as poor performance and failures, and sends telemetry to the Azure portal. Application Insights can also be used for logging, distributed tracing, and custom application metrics.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor\">Azure Monitor</a> provides base-level infrastructure <a href=\"https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics\">metrics and logs</a> for most services in Azure. You can interact with the metrics in several ways, including charting them in Azure portal, accessing them through the REST API, or querying them using PowerShell or CLI. Azure Monitor also offers its data directly into <a href=\"https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage\">Log Analytics and other services</a>, where you can query and combine it with data from other sources on premises or in the cloud.</p>",
-                "<p><a href=\"https://docs.microsoft.com/azure/log-analytics/log-analytics-overview\">Log Analytics</a> helps correlate the usage and performance data collected by Application Insights with configuration and performance data across the Azure resources that support the app. This scenario uses the <a href=\"https://blogs.msdn.microsoft.com/sqlsecurity/2017/12/28/azure-log-analytics-oms-agent-now-collects-sql-server-audit-logs/\">Azure Log Analytics agent</a> to push SQL Server audit logs into Log Analytics. You can write queries and view data in the Log Analytics blade of the Azure portal.</p>"
+                "<p><a href=\"https://docs.microsoft.com/azure/log-analytics/log-analytics-overview\">Log Analytics</a> helps correlate the usage and performance data collected by Application Insights with configuration and performance data across the Azure resources that support the app. This scenario uses the <a href=\"https://blogs.msdn.microsoft.com/sqlsecurity/2017/12/28/azure-log-analytics-oms-agent-now-collects-sql-server-audit-logs\">Azure Log Analytics agent</a> to push SQL Server audit logs into Log Analytics. You can write queries and view data in the Log Analytics blade of the Azure portal.</p>"
             ],
             "Summary": "<p>Azure platform as a service (PaaS) offerings manage compute resources for you and affect how you monitor deployments. Azure includes multiple monitoring services, each of which performs a specific role. Together, these services deliver a comprehensive solution for collecting, analyzing, and acting on telemetry from your applications and the Azure resources they consume.</p>\n<p>This scenario addresses the monitoring services you can use and describes a dataflow model for use with multiple data sources. When it comes to monitoring, many tools and services work with Azure deployments. In this scenario, we choose readily available services precisely because they are easy to consume. Other monitoring options are discussed later in this article.</p>",
             "Flow": {
@@ -9587,7 +9753,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/n-tier/n-tier-sql-server.md",
             "http_url": "/azure/architecture/reference-architectures/n-tier/n-tier-sql-server",
-            "word_count": 3020,
+            "word_count": 3016,
             "read_time": "12 min read",
             "Title": "Windows N-tier application on Azure",
             "MetaDescription": "Implement a multi-tier architecture on Azure for availability, security, scalability, and manageability.",

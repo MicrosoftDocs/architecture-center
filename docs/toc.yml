@@ -131,12 +131,45 @@ items:
   items:
   - name: Overview
     href: framework/index.md
-  - name: Cost
+  - name: Cost Optimization
     items:
-    - name: Overview
+    - name: Principles
       href: framework/cost/overview.md
-    - name: Cost modeling
-      href: framework/cost/modeling.md
+    - name: Design
+      items:
+      - name: Checklist
+        href: framework/cost/design-checklist.md
+      - name: Azure regions
+        href: framework/cost/design-regions.md 
+      - name: Azure resources
+        href: framework/cost/design-resources.md 
+      - name: Capture requirements
+        href: framework/cost/design-capture-requirements.md
+      - name: Performance and price options
+        href: framework/cost/design-price.md
+      - name: Cost model
+        href: framework/cost/design-model.md
+      - name: Governance
+        href: framework/cost/design-governance.md
+      - name: Initial estimate
+        href: framework/cost/design-initial-estimate.md
+      - name: Managed services
+        href: framework/cost/design-paas.md
+    - name: Provision
+      items:
+        - name: Checklist
+          href: framework/cost/provision-checklist.md      
+        - name: AI + Machine Learning
+          href: framework/cost/provision-ai-ml.md
+        - name: Big data
+          href: framework/cost/provision-analytics.md
+        - name: Data stores
+          href: framework/cost/provision-datastores.md
+        - name: Networking
+          href: framework/cost/provision-networking.md
+          items:
+            - name: Cost for networking services
+              href: framework/cost/provision-networking-services.md                   
     - name: Monitor
       items: 
       - name: Checklist
@@ -147,16 +180,18 @@ items:
         href: framework/cost/monitor-reports.md
       - name: Reviews
         href: framework/cost/monitor-reviews.md
-    - name: Data management
-      href: framework/cost/data-management.md
-    - name: Optimizing cloud costs
-      href: framework/cost/optimizing.md
-    - name: Provisioning
-      href: framework/cost/provisioning.md
-    - name: Trade-offs
+    - name: Optimize
+      items:
+      - name: Checklist
+        href: framework/cost/optimize-checklist.md
+      - name: Autoscale
+        href: framework/cost/optimize-autoscale.md
+      - name: Reserved instances
+        href: framework/cost/optimize-reserved.md
+      - name: VM instances
+        href: framework/cost/optimize-vm.md
+    - name: Tradeoffs
       href: framework/cost/tradeoffs.md
-    - name: Checklist
-      href: framework/cost/checklist.md
   - name: DevOps
     items:
     - name: Overview
@@ -398,8 +433,6 @@ items:
         href: solution-ideas/articles/enterprise-productivity-chatbot.md
       - name: FAQ chatbot
         href: solution-ideas/articles/faq-chatbot-with-data-champion-model.md
-      - name: Information chatbot
-        href: solution-ideas/articles/information-chatbot.md
       - name: Content Research
         href: solution-ideas/articles/content-research.md
       - name: Contract Management
@@ -550,6 +583,8 @@ items:
         href: solution-ideas/articles/hpc-cluster.md
       - name: Hybrid HPC with HPC Pack
         href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.md
+      - name: Linux virtual desktops with Citrix
+        href: example-scenario/infrastructure/linux-vdi-citrix.md
       - name: Run a Linux VM on Azure
         href: reference-architectures/n-tier/linux-vm.md
       - name: Run a Windows VM on Azure
@@ -982,6 +1017,8 @@ items:
         href: solution-ideas/articles/backup-archive-cloud-application.md
       - name: Back up on-premises applications
         href: solution-ideas/articles/backup-archive-on-premises-applications.md
+      - name: Centralize app configuration and security
+        href: solution-ideas/articles/appconfig-key-vault.md
       - name: Computer forensics
         href: example-scenario/forensics/index.md
       - name: High availability for BCDR
@@ -1140,11 +1177,5 @@ items:
         href: solution-ideas/articles/digital-marketing-smb.md
       - name: Web app monitoring on Azure
         href: reference-architectures/app-service-web-app/app-monitoring.md
-  - name: Windows Virtual Desktop
-    items:
-    - name: Architectures
-      items:
-      - name: Linux virtual desktops with Citrix
-        href: example-scenario/infrastructure/linux-vdi-citrix.md
 - name: Cloud Adoption Framework
   href: https://docs.microsoft.com/azure/cloud-adoption-framework

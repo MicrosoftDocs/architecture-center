@@ -13,7 +13,7 @@ ms.custom: fasttrack-edit
 
 ## Infrastructure as code
 
-Infrastructure as Code (IaC) is the management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, using the same versioning as DevOps team uses for source code. The most reliable deployment processes are automated and idempotent — that is, repeatable to produce the same results.
+Infrastructure as Code (IaC) is the management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, using the same versioning as DevOps team uses for source code. The most reliable deployment processes are automated and idempotent - that is, repeatable to produce the same results.
 
 IaC may use a declarative (functional) approach or an imperative (procedural) approach (or a combination of both).
 

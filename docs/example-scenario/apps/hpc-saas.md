@@ -6,7 +6,6 @@ author: alexbuckgit
 ms.date: 08/22/2018
 ms.category:
   - compute
-  - windows-virtual-desktop
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
