@@ -18,7 +18,7 @@ Judgment Call is an award-winning game and team-based activity that puts Microso
 > [!VIDEO https://www.youtube.com/watch?v=LXqlAXEMGI0]
  
 
-[Download a printable card deck](...images/judgmentcall_printable.pdf) 
+[Download a printable card deck](../images/judgmentcall_printable.pdf) 
 
 ## Benefits
 
