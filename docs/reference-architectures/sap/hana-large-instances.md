@@ -138,7 +138,7 @@ This architecture supports [disaster recovery][hli-dr] between HANA Large Instan
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 
-For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 SKUs can affect the billing model. Here are some cost considerations.
 

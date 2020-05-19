@@ -41,6 +41,7 @@
           "**/*.svg",
           "**/*.js",
           "**/*.json",
+          "**/*.docx",
           "feed.atom"
         ],
         "exclude": [

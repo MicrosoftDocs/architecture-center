@@ -1,5 +1,5 @@
 ---
-title: Scalability checklist
+title: Performance Efficiency checklist
 titleSuffix: Azure Design Review Framework
 description: Scalability checklist guidance for design concerns for Azure Autoscaling.
 author: dragon119
@@ -12,9 +12,9 @@ ms.custom: checklist
 
 <!-- cSpell:ignore DTOs varchar -->
 
-# Scalability checklist
+# Performance efficiency checklist
 
-Scalability is the ability of a system to handle increased load, and is one of the [pillars of software quality](../framework/index.md). Use this checklist to review your application architecture from a scalability standpoint.
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner, and is one of the [pillars of the Microsoft Azure Well-Architected Framework](../framework/index.md). Use this checklist to review your application architecture from a performance efficiency standpoint.
 
 ## Application design
 
@@ -26,7 +26,7 @@ Scalability is the ability of a system to handle increased load, and is one of t
 
 **Avoid client affinity**. Where possible, ensure that the application does not require affinity. Requests can thus be routed to any instance, and the number of instances is irrelevant. This also avoids the overhead of storing, retrieving, and maintaining state information for each user.
 
-**Take advantage of platform autoscaling features**. Where the hosting platform supports an autoscaling capability, such as Azure Autoscale, prefer it to custom or third-party mechanisms unless the built-in mechanism can't fulfill your requirements. Use scheduled scaling rules where possible to ensure resources are available without a start-up delay, but add reactive autoscaling to the rules where appropriate to cope with unexpected changes in demand. You can use the autoscaling operations in the Service Management API to adjust autoscaling, and to add custom counters to rules. For more information, see [Auto-scaling guidance](../best-practices/auto-scaling.md).
+**Take advantage of platform autoscaling features**. Where the hosting platform supports an autoscaling capability, such as Azure Autoscale, prefer it to custom or third-party mechanisms unless the built-in mechanism can't fulfill your requirements. Use scheduled scaling rules where possible to ensure resources are available without a start-up delay, but add reactive autoscaling to the rules where appropriate to cope with unexpected changes in demand. You can use the autoscaling operations in the classic deployment model to adjust autoscaling, and to add custom counters to rules. For more information, see [Auto-scaling guidance](../best-practices/auto-scaling.md).
 
 **Offload CPU-intensive and I/O-intensive tasks as background tasks**. If a request to a service is expected to take a long time to run or absorb considerable resources, offload the processing for this request to a separate task. Use worker roles or background jobs (depending on the hosting platform) to execute these tasks. This strategy enables the service to continue receiving further requests and remain responsive.  For more information, see [Background jobs guidance](../best-practices/background-jobs.md).
 

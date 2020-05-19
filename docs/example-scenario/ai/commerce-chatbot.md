@@ -68,7 +68,7 @@ This scenario uses Azure SQL Database for storing customer reservations. SQL Dat
 
 This scenario uses Azure App Service. With App Service, you can automatically scale the number of instances that run your bot. This functionality lets you keep up with customer demand for your web application and chatbot. For more information on autoscale, see [Autoscaling best practices][autoscaling] in the Azure Architecture Center.
 
-For other scalability topics, see the [scalability checklist][scalability] in the Azure Architecture Center.
+For other scalability topics, see the [performance efficiency checklist][scalability] in the Azure Architecture Center.
 
 ### Security
 
@@ -169,7 +169,7 @@ For a set of guided tutorials for the Azure Bot Service, see the [tutorial secti
 [botservice-docs]: https://docs.microsoft.com/azure/bot-service
 [cognitive-docs]: https://docs.microsoft.com/azure/cognitive-services
 [security]: https://docs.microsoft.com/azure/security
-[scalability]: ../../checklist/scalability.md
+[scalability]: /azure/architecture/checklist/performance-efficiency.md
 [sqlavailability-docs]: https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview#availability-capabilities
 [sqldatabase-docs]: https://docs.microsoft.com/azure/sql-database
 [sqlsecurity-docs]: https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance

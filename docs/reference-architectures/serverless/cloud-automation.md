@@ -224,7 +224,7 @@ In this architecture, when data access requests to Cosmos DB exceed the capacity
 
 To get a quick cost estimate of your workload, use the [Cosmos DB capacity calculator][cosmos-calculator].
 
-For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 ## Deployment considerations
 

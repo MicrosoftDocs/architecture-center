@@ -6,7 +6,7 @@ keywords: cloud services comparison, cloud services compared, multicloud, compar
 author: doodlemania2
 ms.author: pnp
 ms.date: 04/08/2020
-ms.topic: article
+ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom: fcp
