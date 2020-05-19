@@ -40,7 +40,7 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](h
 
 * [Learn more about Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction)
 * [Learn more about Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
-* [Learn more about Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning)
+* [Learn more about Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
 * [Learn more about HDInsight](https://docs.microsoft.com/azure/hdinsight)
 * [Learn more about SQL Database](https://docs.microsoft.com/azure/sql-database)
 * [Learn more about Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-introduction)

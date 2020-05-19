@@ -344,7 +344,7 @@ For more information, see [Monitoring Azure Databricks](../../databricks-monitor
 
 - Consider using [Azure Monitor][azure-monitor] to analyze the performance of your stream processing pipeline. For more information, see [Monitoring Azure Databricks][databricks-monitoring].
 
-For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
 
 ## Cost considerations
 
@@ -398,7 +398,7 @@ Storage is also billed, for each GB used for your stored data and index. For mor
 
 Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
 
-For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 ## Deploy the solution
 

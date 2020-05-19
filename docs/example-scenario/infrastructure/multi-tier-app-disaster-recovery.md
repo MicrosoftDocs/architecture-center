@@ -76,7 +76,7 @@ This scenario demonstrates a multitier application that uses ASP.NET and Microso
 
 You can add or remove VMs in each tier based on your scaling requirements. Because this scenario uses load balancers, you can add more VMs to a tier without affecting application uptime.
 
-For other scalability topics, see the [scalability checklist][scalability] in the Azure Architecture Center.
+For other scalability topics, see the [performance efficiency checklist][scalability] in the Azure Architecture Center.
 
 ### Security
 
@@ -98,7 +98,7 @@ We have provided a [sample cost calculator][calculator] for configuring disaster
 
 [architecture]: ./media/architecture-disaster-recovery-multi-tier-app.png
 [security]: https://docs.microsoft.com/azure/security
-[scalability]: ../../checklist/scalability.md
+[scalability]: ../../checklist/performance-efficiency.md
 [docs-availability-zones]: https://docs.microsoft.com/azure/availability-zones/az-overview
 [docs-load-balancer]: https://docs.microsoft.com/azure/load-balancer/load-balancer-overview
 [docs-nsg]: https://docs.microsoft.com/azure/virtual-network/security-overview

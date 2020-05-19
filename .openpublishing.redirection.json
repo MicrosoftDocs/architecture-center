@@ -200,6 +200,11 @@
       "redirect_url": "/azure/architecture/reliability"
     },
     {
+      "source_path": "docs/checklist/scalability.md",
+      "redirect_url": "/azure/architecture/checklist/performance-efficiency",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/resiliency/index.md",
       "redirect_url": "/azure/architecture/framework/resiliency/overview",
       "redirect_document_id": false
@@ -1903,6 +1908,30 @@
       "source_path": "docs/solution-ideas/articles/hybrid-ci-cd.md",
       "redirect_url": "/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/framework/cost/optimizing.md",
+      "redirect_url": "/azure/architecture/framework/cost/optimize-checklist"
+    },
+    {
+      "source_path": "docs/framework/cost/modeling.md",
+      "redirect_url": "/azure/architecture/framework/cost/design-model"
+    },
+    {
+      "source_path": "docs/framework/cost/monitoring.md",
+      "redirect_url": "azure/architecture/framework/cost/monitor-checklist"
+    },
+    {
+      "source_path": "docs/framework/cost/provisioning.md",
+      "redirect_url": "azure/architecture/framework/cost/provision-checklist"
+    },
+    {
+      "source_path": "docs/framework/cost/data-management.md",
+      "redirect_url": "azure/architecture/framework/cost/provision-datastores" 
+    },
+    {
+      "source_path": "/docs/solution-ideas/articles/information-chatbot.md",
+      "redirect_url": "/azure/architecture/reference-architectures/ai/conversational-bot"
     }
   ]
 }

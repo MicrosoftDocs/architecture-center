@@ -21,12 +21,12 @@ This article creates awareness for the different types of harms, so that appropr
 
 Consider how technology could hurt people or create dangerous environments.
 
+
 > |Harm|Description|Consideration(s)|Example|
 > |-------------|----------|---------|---------|
 > |**Overreliance on safety features**|This points out the dependence on technology to make decisions without adequate human oversight.|How might people rely on this technology to keep them safe? How could this technology reduce appropriate human oversight?|A healthcare agent could misdiagnose illness, leading to unnecessary treatment.|
 > |**Inadequate fail-safes**|Real-world testing may insufficiently consider a diverse set of users and scenarios.|If this technology fails or is misused, how would people be impacted? At what point could a human intervene? Are there alternative uses that have not been tested for? How would users be impacted by a system failure?|If an automatic door failed to detect a wheelchair during an emergency evacuation, a person could be trapped if there isn't an accessible override button.|
 > |**Exposure to unhealthy agents**|Manufacturing, as well as disposal of technology can jeopardize the health and well-being of workers and nearby inhabitants.|What negative outcomes could come from the manufacturing of your components or devices?|Inadequate safety measures could cause workers to be exposed to toxins during digital component manufacturing.|
-
 
 ### Emotional or psychological injury
 
@@ -40,7 +40,6 @@ Misused technology can lead to serious emotional and psychological distress.
 > |**Addiction/attention hijacking**|Technology could be designed for prolonged interaction, without regard for well-being.|In what ways might this technology reward or encourage continued interaction beyond delivering user value?|Variable drop rates in video game loot boxes could cause players to keep playing and neglect self-care.|
 > |**Identity theft**|Identity theft may lead to loss of control over personal credentials, reputation, and/or representation.|How might an individual be impersonated with this technology? How might this technology mistakenly recognize the wrong individual as an authentic user?|Synthetic voice font could mimic the sound of a person's voice and be used to access a bank account.|
 > |**Misattribution**|This includes crediting a person with an action or content that they are not responsible for.|In what ways might this technology attribute an action to an individual or group? How could someone be affected if an action was incorrectly attributed to them?|Facial recognition can misidentify an individual during a police investigation.|
-
 
 ## Denial of consequential services
 
@@ -67,7 +66,6 @@ Automating decisions related to financial instruments, economic opportunity, and
 > |**Differential pricing of goods and services**|Goods or services may be offered at different prices for reasons unrelated to the cost of production or delivery.|How could this technology be used to determine pricing of goods or services? What are the criteria for determining the cost to people for use of this tech?|More could be charged for products based on designation for men or women.|
 > |**Economic exploitation**|People might be compelled or misled to work on something that impacts their dignity or wellbeing.| What role did human labor play in producing training data for this technology? How was this workforce acquired? What role does human labor play in supporting this technology? Where is this workforce expected to come from?|Paying financially destitute people for their biometric data to train AI systems.|
 > |**Devaluation of individual expertise**|Technology may supplant the use of paid human expertise or labor.|How might this technology impact the need to employ an existing workforce?|AI agents replace doctors/radiographers for evaluation of medical imaging.|
-
 
 ## Infringement on human rights
 
@@ -134,18 +132,16 @@ At scale, the way technology impacts people shapes social and economic structure
 > |**Loss of representation**|Broad categories of generalization obscure, diminish, or erase real identities.|How could this technology constrain identity options? Could it be used to automatically label or categorize people?|Automatic photo caption assigns incorrect gender identity and age to the subject.|
 > |**Skill degradation and complacency**|Overreliance on automation leads to atrophy of manual skills.|In what ways might this technology reduce the accessibility and ability to use manual controls?|Overreliance on automation could lead to an inability to gauge the airplane's true orientation because the pilots have been trained to rely on instruments only.|
 
-
 ## Evaluate harms
 
 Once you have generated a broad list of potential harms, you should complete your Harms Model by evaluating the potential magnitude for each category of harm. This will allow you to prioritize your areas of focus. See the following example harms model for reference:
 
 |Contributing factor   |Definition       |
 |----------------------|-----------------|
-|Severity        |How acutely could an individual or group’s well-being be impacted by the technology?        |
+|Severity        |How acutely could an individual or group's well-being be impacted by the technology?        |
 |Scale           |How broadly could the impact to well-being be experienced across populations or groups?    |
 |Probability     |How likely is it that individual or group's well-being will be impacted by the technology? |
 |Frequency       |How often would an individual or group experience an impact to their well-being from the technology? |
-
 
 ## Next Steps
 

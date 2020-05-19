@@ -198,7 +198,7 @@ For single VMs pricing options See [Linux VMs pricing][Linux-vm-pricing].
 
 You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
 
-For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 
 ## Security considerations

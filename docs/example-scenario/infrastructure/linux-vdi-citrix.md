@@ -5,7 +5,7 @@ description: Build a VDI environment for Linux Desktops using Citrix on Azure.
 author: miguelangelopereira
 ms.date: 09/12/2018
 ms.category:
-  - windows-virtual-desktop
+  - compute
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario

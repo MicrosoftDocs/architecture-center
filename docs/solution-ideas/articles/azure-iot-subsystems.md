@@ -22,7 +22,7 @@ The links to the right provide documentation on deploying and managing the Azure
 
 [Virtual Machine (Standard D1 V2, 1 core, 3.5 GB memory)](https://azure.microsoft.com/services/virtual-machines)
 
-[IoT Hub (S1—basic tier)](https://azure.microsoft.com/services/iot-hub)
+[IoT Hub (S1-basic tier)](https://azure.microsoft.com/services/iot-hub)
 
 [Cosmos DB account (Standard)](https://azure.microsoft.com/services/cosmos-db)
 
