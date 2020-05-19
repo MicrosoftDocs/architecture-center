@@ -47,4 +47,4 @@ Delete the solution if you are not using it.
 
 If you don't have an [Azure subscription](https://azure.microsoft.com/free), get started with Azure free subscription.
 
-You also need to download [Power BI desktop](https://docs.microsoft.com/power-bi//desktop-get-the-desktop).
+You also need to download [Power BI desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-get-the-desktop).
