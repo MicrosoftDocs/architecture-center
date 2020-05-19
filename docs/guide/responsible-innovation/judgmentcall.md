@@ -15,7 +15,7 @@ ms.subservice: reference-architecture
 
 Judgment Call is an award-winning game and team-based activity that puts Microsoft’s AI principles of fairness, privacy and security, reliability and safety, transparency, inclusion, and accountability into action. The game provides an easy-to-use method for cultivating stakeholder empathy by imagining their scenarios. Game participants write product reviews from the perspective of a particular stakeholder, describing what kind of impact and harms the technology could produce from their point of view.
 
-> [!VIDEO https://www.youtube.com/watch?v=LXqlAXEMGI0]
+> [!VIDEO https://www.youtube.com/embed/LXqlAXEMGI0]
 
 ## Benefits
 
