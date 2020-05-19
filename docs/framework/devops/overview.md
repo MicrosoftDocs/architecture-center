@@ -13,7 +13,7 @@ ms.custom: fasttrack-edit
 
 This pillar covers the operations processes that keep an application running in production. Deployments must be reliable and predictable. They should be automated to reduce the chance of human error. They should be a fast and routine process, so they don't slow down the release of new features or bug fixes. Equally important, you must be able to quickly roll back or roll forward if an update has problems.
 
-To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=microsoft-azure-well-architected).
+To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=azure-architecture-review).
 
 These are the disciplines we group in the operational excellence pillar:
 
