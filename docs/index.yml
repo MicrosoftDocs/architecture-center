@@ -43,7 +43,9 @@ productDirectory:
       imageSrc: https://docs.microsoft.com/media/common/i_design.svg
       links:
         - url: ./guide/design-principles/index.md
-          text: Principles of a well-designed application
+          text: Principals of a well designed application
+        - url: ./guide/responsible-innovation/index.md
+          text: Responsible innovation
         - url: ./best-practices/api-design.md
           text: Web API design
         - url: ./microservices/index.md

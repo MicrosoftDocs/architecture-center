@@ -1,6 +1,6 @@
 ---
-title: Overview of the DevOps pillar
-description: Describes the DevOps pillar.
+title: Overview of the operational excellence pillar
+description: Describes the operational excellence pillar.
 author: david-stanford
 ms.date: 10/21/2019
 ms.topic: overview
@@ -9,15 +9,15 @@ ms.subservice: well-architected
 ms.custom: fasttrack-edit
 ---
 
-# Overview of the devops pillar
+# Overview of the operational excellence pillar
 
-In the Azure Architecture Framework, we understand DevOps in a broad sense. In order to ensure that your application is running effectively over time, you need to consider multiple perspectives, from both an application and infrastructure angles, including the processes that you implement to make sure that your users are getting the right experience. And most importantly, those perspectives are closely interrelated to each other. That is why in this framework we have grouped disciplines such as management, monitoring and CI/CD under the DevOps umbrella.
+This pillar covers the operations processes that keep an application running in production. Deployments must be reliable and predictable. They should be automated to reduce the chance of human error. They should be a fast and routine process, so they don't slow down the release of new features or bug fixes. Equally important, you must be able to quickly roll back or roll forward if an update has problems.
 
-To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=azure-architecture-review).
+To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=microsoft-azure-well-architected).
 
-These are the disciplines we group in the DevOps pillar:
+These are the disciplines we group in the operational excellence pillar:
 
-| DevOps Discipline | Description |
+| Operational excellence disciplines | Description |
 |-------------------|-------------|
 | [Application design][app-design] | Provides guidance on how to design, build, and orchestrate workloads with DevOps principles in mind  |
 | [Monitoring][monitoring] | Something that enterprises have been doing for years, enriched with some specifics for applications running in the cloud |

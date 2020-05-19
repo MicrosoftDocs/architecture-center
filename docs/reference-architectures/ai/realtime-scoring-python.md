@@ -68,7 +68,7 @@ This architecture consists of the following components.
 
 **[Azure Kubernetes Service][aks]** (AKS) is used to deploy the application on a Kubernetes cluster. AKS simplifies the deployment and operations of Kubernetes. The cluster can be configured using CPU-only VMs for regular Python models or GPU-enabled VMs for deep learning models.
 
-**[Azure Container Registry][acr]** enables storage of images for all types of Docker container deployments incl'ding DC/OS, Docker Swarm and Kubernetes. The scoring images are deployed as containers on Azure Kubernetes Service and used to run the scoring script. The image used here is created by Machine Learning from the trained model and scoring script, and then is pushed to the Azure Container Registry.
+**[Azure Container Registry][acr]** enables storage of images for all types of Docker container deployments including DC/OS, Docker Swarm and Kubernetes. The scoring images are deployed as containers on Azure Kubernetes Service and used to run the scoring script. The image used here is created by Machine Learning from the trained model and scoring script, and then is pushed to the Azure Container Registry.
 
 ## Performance considerations
 
@@ -136,7 +136,7 @@ Azure Container Registry offers **Basic**, **Standard**, and **Premium**. Choose
 
 You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources, see the [Container Services calculator][aks-Calculator].
 
-For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 ## Deployment
 

@@ -141,7 +141,7 @@ Logging systems are integral in understanding what actions or activities a solut
 Though plain-text logging is lower impact on upfront development costs, it is more challenging for a machine to parse/read. We recommend structured logging be used, as collected information is both machine parsable and human readable. Structured logging adds situational context and metadata to the log information. In structured logging, properties are first class citizens formatted as key/value pairs, or with a fixed schema, to enhance search and query capabilities.
 
 ## Cost considerations
-In general, use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
+In general, use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 There are ways to optimize costs associated the services used in this reference architecture. 
 
