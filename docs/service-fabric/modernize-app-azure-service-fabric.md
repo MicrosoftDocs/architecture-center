@@ -140,7 +140,7 @@ To deploy a Service Fabric cluster, start with the sample Azure Resource Manager
 
 ### Service Fabric node types
 
-A Service Fabric cluster contains one or more [node types](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-nodetypes). A node type typically maps to an [Azure virtual machine scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) which is a set of one or more VM instances with same properties. The cluster must have at least one node type—primary node type, which runs the Service Fabric system services. Do not run your application container on the primary node type because the container can compete with the system services for resources. Consider, designing a cluster with two or more node types depending on the types of applications. For example, if you have two node types, run HTTP web and application tier containers on a non-primary node type.
+A Service Fabric cluster contains one or more [node types](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-nodetypes). A node type typically maps to an [Azure virtual machine scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) which is a set of one or more VM instances with same properties. The cluster must have at least one node type-primary node type, which runs the Service Fabric system services. Do not run your application container on the primary node type because the container can compete with the system services for resources. Consider, designing a cluster with two or more node types depending on the types of applications. For example, if you have two node types, run HTTP web and application tier containers on a non-primary node type.
 
 This example infrastructure uses two Service Fabric node types: application and primary. You can scale in or scale out the scale set individually. It doesn't require extensive planning and testing up front to determine the correct application node type size (scale set instance count), because the actual size can grow and reduce in real time driven by monitoring and metrics.
 
@@ -413,7 +413,7 @@ These Service Fabric virtual machine scale set extensions are installed on a typ
 
 If your containerized application runs in a shared cluster, you can get logs such as IIS and custom logs from the container into Log Analytics. This option is recommended because of speed, scalability, and the ability to handle large amounts of unstructured data.
 
-Set up log rotation through Docker to keep the logs size manageable. For more information, see [Rotating Docker Logs — Keeping your overlay folder small](https://medium.com/@Quigley_Ja/rotating-docker-logs-keeping-your-overlay-folder-small-40cfa2155412).
+Set up log rotation through Docker to keep the logs size manageable. For more information, see [Rotating Docker Logs - Keeping your overlay folder small](https://medium.com/@Quigley_Ja/rotating-docker-logs-keeping-your-overlay-folder-small-40cfa2155412).
 
 Here are two approaches for getting application logs into Log Analytics.
 

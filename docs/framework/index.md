@@ -1,6 +1,6 @@
 ---
-title: Azure Architecture Framework
-titleSuffix: Azure Architecture Framework introduction
+title: Microsoft Azure Well-Architected Framework
+titleSuffix: Microsoft Azure Well-Architected Framework introduction
 description: Describes five pillars of software quality, scalability, devops, resiliency, cost, and security.
 author: MikeWasson
 ms.date: 11/20/2019
@@ -10,33 +10,34 @@ ms.subservice: well-architected
 ms.custom: seojan19
 ---
 
-# Azure Architecture Framework
+# Microsoft Azure Well-Architected Framework
 
-The Azure architecture framework is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architecture excellence: Cost, DevOps, Resiliency, Scalability, and Security.
+The Azure Well-Architected Framework is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
 
-To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=azure-architecture-review).
+To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=azure-architecture-review).
 
 | Pillar | Description |
 |--------|-------------|
-| [Cost][cost-pillar] | Managing costs to maximize the value delivered. |
-| [DevOps][devops-pillar] | Operations processes that keep a system running in production. |
-| [Resiliency][resiliency-pillar] | The ability of a system to recover from failures and continue to function. |
-| [Scalability][scalability-pillar] | The ability of a system to adapt to changes in load. |
+| [Cost Optimization][cost-pillar] | Managing costs to maximize the value delivered. |
+| [Operational Excellence][devops-pillar] | Operations processes that keep a system running in production. |
+| [Performance Efficiency][scalability-pillar] | The ability of a system to adapt to changes in load. |
+| [Reliability][resiliency-pillar] | The ability of a system to recover from failures and continue to function. |
 | [Security][security-pillar] | Protecting applications and data from threats. |
 
-## Cost
+## Cost Optimization
 
 When you are designing a cloud solution, focus on generating incremental value early. Apply the principles of **Build-Measure-Learn**, to accelerate your time to market while avoiding capital-intensive solutions. Use the pay-as-you-go strategy for your architecture, and invest in scaling out, rather than delivering a large investment first version. Consider opportunity costs in your architecture, and the balance between first mover advantage versus "fast follow". Use the cost calculators to estimate the initial cost and operational costs. Finally, establish policies, budgets, and controls that set cost limits for your solution.
 
 ### Cost guidance
 
-- Best practices: [How to optimize your cloud investment with Azure Cost Management][cost]
+- Review [cost principles](/azure/architecture/framework/cost/overview)
+- [Develop a cost model](/azure/architecture/framework/cost/design-model)
+- Create [budgets and alerts](/azure/architecture/framework/cost/monitor-alert)
+- Review the [cost optimization checklist](/azure/architecture/framework/cost/optimize-checklist)
 
-## DevOps
+## Operational Excellence
 
-This pillar covers the operations processes that keep an application running in production.
-
-Deployments must be reliable and predictable. They should be automated to reduce the chance of human error. They should be a fast and routine process, so they don't slow down the release of new features or bug fixes. Equally important, you must be able to quickly roll back or roll forward if an update has problems.
+This pillar covers the operations processes that keep an application running in production. Deployments must be reliable and predictable. They should be automated to reduce the chance of human error. They should be a fast and routine process, so they don't slow down the release of new features or bug fixes. Equally important, you must be able to quickly roll back or roll forward if an update has problems.
 
 Monitoring and diagnostics are crucial. Cloud applications run in a remote data-center where you do not have full control of the infrastructure or, in some cases, the operating system. In a large application, it's not practical to log into VMs to troubleshoot an issue or sift through log files. With PaaS services, there may not even be a dedicated VM to log into. Monitoring and diagnostics give insight into the system, so that you know when and where failures occur. All systems must be observable. Use a common and consistent logging schema that lets you correlate events across systems.
 
@@ -49,14 +50,43 @@ The monitoring and diagnostics process has several distinct phases:
 
 Use the [DevOps checklist][devops-checklist] to review your design from a management and DevOps standpoint.
 
-### DevOps guidance
+### Operational excellence guidance
 
 - [Design patterns for management and monitoring][management-patterns]
 - Best practices: [Monitoring and diagnostics][monitoring]
 
-## Resiliency
+## Performance efficiency
 
-Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Resiliency is closely related to availability.
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. The main ways to achieve this are by using scaling appropriately and implementing PaaS offerings that have scaling built in.
+
+There are two main ways that an application can scale. Vertical scaling (scaling *up*) means increasing the capacity of a resource, for example by using a larger VM size. Horizontal scaling (scaling *out*) is adding new instances of a resource, such as VMs or database replicas.
+
+Horizontal scaling has significant advantages over vertical scaling:
+
+- True cloud scale. Applications can be designed to run on hundreds or even thousands of nodes, reaching scales that are not possible on a single node.
+- Horizontal scale is elastic. You can add more instances if load increases, or remove them during quieter periods.
+- Scaling out can be triggered automatically, either on a schedule or in response to changes in load.
+- Scaling out may be cheaper than scaling up. Running several small VMs can cost less than a single large VM.
+- Horizontal scaling can also improve resiliency, by adding redundancy. If an instance goes down, the application keeps running.
+
+An advantage of vertical scaling is that you can do it without making any changes to the application. But at some point you'll hit a limit, where you can't scale any up any more. At that point, any further scaling must be horizontal.
+
+Horizontal scale must be designed into the system. For example, you can scale out VMs by placing them behind a load balancer. But each VM in the pool must be able to handle any client request, so the application must be stateless or store state externally (say, in a distributed cache). Managed PaaS services often have horizontal scaling and autoscaling built in. The ease of scaling these services is a major advantage of using PaaS services.
+
+Just adding more instances doesn't mean an application will scale, however. It might simply push the bottleneck somewhere else. For example, if you scale a web front end to handle more client requests, that might trigger lock contentions in the database. You would then need to consider additional measures, such as optimistic concurrency or data partitioning, to enable more throughput to the database.
+
+Always conduct performance and load testing to find these potential bottlenecks. The stateful parts of a system, such as databases, are the most common cause of bottlenecks, and require careful design to scale horizontally. Resolving one bottleneck may reveal other bottlenecks elsewhere.
+
+Use the [Performance efficiency checklist][performance-checklist] to review your design from a scalability standpoint.
+
+### Performance efficiency guidance
+
+- [Design patterns for scalability and performance][scalability-patterns]
+- Best practices: [Autoscaling][autoscale], [Background jobs][background-jobs], [Caching][caching], [CDN][cdn], [Data partitioning][data-partitioning]
+
+## Reliability
+
+A reliable workload is one that is both resilient and available. Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is can your users get to your workload when they need to.
 
 In traditional application development, there has been a focus on increasing the mean time between failures (MTBF). Effort was spent trying to prevent the system from failing. In cloud computing, a different mindset is required, due to several factors:
 
@@ -75,38 +105,11 @@ That said, you still need to build resiliency into your application. Resiliency 
 
 When designing an application to be resilient, you must understand your availability requirements. How much downtime is acceptable? This is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the application highly available?
 
-### Resiliency guidance
+### Reliability guidance
 
 - [Designing reliable Azure applications][resiliency]
 - [Design patterns for resiliency][resiliency-patterns]
 - Best practices: [Transient fault handling][transient-fault-handling], [Retry guidance for specific services][retry-service-specific]
-
-## Scalability
-
-Scalability is the ability of a system to handle increased load. There are two main ways that an application can scale. Vertical scaling (scaling *up*) means increasing the capacity of a resource, for example by using a larger VM size. Horizontal scaling (scaling *out*) is adding new instances of a resource, such as VMs or database replicas.
-
-Horizontal scaling has significant advantages over vertical scaling:
-
-- True cloud scale. Applications can be designed to run on hundreds or even thousands of nodes, reaching scales that are not possible on a single node.
-- Horizontal scale is elastic. You can add more instances if load increases, or remove them during quieter periods.
-- Scaling out can be triggered automatically, either on a schedule or in response to changes in load.
-- Scaling out may be cheaper than scaling up. Running several small VMs can cost less than a single large VM.
-- Horizontal scaling can also improve resiliency, by adding redundancy. If an instance goes down, the application keeps running.
-
-An advantage of vertical scaling is that you can do it without making any changes to the application. But at some point you'll hit a limit, where you can't scale any up any more. At that point, any further scaling must be horizontal.
-
-Horizontal scale must be designed into the system. For example, you can scale out VMs by placing them behind a load balancer. But each VM in the pool must be able to handle any client request, so the application must be stateless or store state externally (say, in a distributed cache). Managed PaaS services often have horizontal scaling and autoscaling built in. The ease of scaling these services is a major advantage of using PaaS services.
-
-Just adding more instances doesn't mean an application will scale, however. It might simply push the bottleneck somewhere else. For example, if you scale a web front end to handle more client requests, that might trigger lock contentions in the database. You would then need to consider additional measures, such as optimistic concurrency or data partitioning, to enable more throughput to the database.
-
-Always conduct performance and load testing to find these potential bottlenecks. The stateful parts of a system, such as databases, are the most common cause of bottlenecks, and require careful design to scale horizontally. Resolving one bottleneck may reveal other bottlenecks elsewhere.
-
-Use the [Scalability checklist][scalability-checklist] to review your design from a scalability standpoint.
-
-### Scalability guidance
-
-- [Design patterns for scalability and performance][scalability-patterns]
-- Best practices: [Autoscaling][autoscale], [Background jobs][background-jobs], [Caching][caching], [CDN][cdn], [Data partitioning][data-partitioning]
 
 ## Security
 
@@ -177,7 +180,7 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 
 <!-- checklist -->
 [devops-checklist]: ../checklist/dev-ops.md
-[scalability-checklist]: ../checklist/scalability.md
+[scalability-checklist]: ../checklist/performance-efficiency.md
 
 <!-- pillars -->
 [cost-pillar]: ./cost/overview.md

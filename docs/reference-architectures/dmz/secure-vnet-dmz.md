@@ -130,7 +130,7 @@ Use [RBAC][rbac] to restrict the operations that DevOps can perform on each tier
 
 ## Cost considerations
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 Here are cost considerations for the services used in this architecture.
 

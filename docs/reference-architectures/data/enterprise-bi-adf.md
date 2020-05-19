@@ -212,7 +212,7 @@ Be aware of the following limitations:
 - [Azure Monitor][azure-monitor] is the recommended option for analyzing the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse because it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs. 
 
 
-For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
 
 ## Cost considerations
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
@@ -261,7 +261,7 @@ For more information, see [Azure Analysis Services pricing][az-as-pricing].
 Consider using the Azure Storage reserved capacity feature to lower cost on storage. With this model, you get a discount if you can commit to reservation for fixed storage capacity for one or three years. For more information, see [Optimize costs for Blob storage with reserved capacity][az-storage-reserved].
 
 
-For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 
 ## Deploy the solution

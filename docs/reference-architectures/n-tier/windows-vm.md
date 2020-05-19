@@ -92,7 +92,7 @@ Use [Azure Spot VMs](https://docs.microsoft.com/azure/virtual-machines/windows/s
 
 Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs.
 
-For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 
 ## Security considerations

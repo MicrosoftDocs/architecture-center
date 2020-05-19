@@ -216,7 +216,7 @@ Logic apps pricing works on the pay-as-you-go model. Logic apps have a pay-as-yo
 
 For instance, your logic app processes 1000 messages a day from Azure Service Bus. A workflow of five actions will cost less than $6. For more information, see [Logic Apps pricing][Logic-Apps-Pricing].
 
-For other cost considerations, see the Cost section in [Azure Architecture Framework][aaf-cost].
+For other cost considerations, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 <!-- links -->
 

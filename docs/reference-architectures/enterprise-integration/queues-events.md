@@ -103,7 +103,7 @@ Event Grid uses a serverless model. Billing is calculated based on the number of
 
 For more information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/). 
 
-For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 
 [aaf-cost]: ../../framework/cost/overview.md

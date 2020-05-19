@@ -39,8 +39,8 @@ By combining deep learning and natural language processing (NLP) with data on si
 ## Next steps
 
 * [Learn more about Microsoft SQL Server](https://www.microsoft.com/sql-server/sql-server-2017)
-* [Learn more about Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/quickstart-installation)
-* [Learn more about Azure Machine Learning Experimentation Service](https://docs.microsoft.com/azure/machine-learning/preview)
+* [Learn more about Azure Machine Learning Workbench](/azure/machine-learning/overview-what-happened-to-workbench)
+* [Learn more about Azure Machine Learning Experimentation Service](/azure/machine-learning/how-to-enable-virtual-network)
 * [Learn More about Azure Machine Learning Model Management](/azure/machine-learning/concept-model-management-and-deployment)
 * [Learn more about Jupyter Notebooks](https://jupyter.org)
 * [Learn more about Azure Container Registry](https://azure.microsoft.com/services/container-registry)

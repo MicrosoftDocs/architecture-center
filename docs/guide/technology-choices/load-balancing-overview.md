@@ -28,7 +28,7 @@ Azure load balancing services can be categorized along two dimensions: global ve
 
 ### HTTP(S) versus non-HTTP(S)
 
-- **HTTP(S)** load-balancing services are [Layer 7](https://www.iso.org/ics/35.100/x) load balancers that only accept HTTP(S) traffic. They are intended for web applications or other HTTP(S) endpoints. They include features such as SSL offload, web application firewall, path-based load balancing, and session affinity.
+- **HTTP(S)** load-balancing services are [Layer 7](https://www.iso.org/ics/35.100/x/) load balancers that only accept HTTP(S) traffic. They are intended for web applications or other HTTP(S) endpoints. They include features such as SSL offload, web application firewall, path-based load balancing, and session affinity.
 
 - **Non-HTTP/S** load-balancing services can handle non-HTTP(S) traffic and are recommended for non-web workloads. 
 

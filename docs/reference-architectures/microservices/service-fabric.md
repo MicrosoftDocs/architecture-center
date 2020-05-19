@@ -142,7 +142,7 @@ When you create a Service Fabric cluster, provision the node types based on your
 
 - Create a node type for each group of services that have different scalability or resource requirements. Start by provisioning a node type (which becomes the [primary node type](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#primary-node-type)) for the Service Fabric system services. Then create separate node types to run your public or front-end services, and other node types as necessary for your backend and private or isolated services. Specify [placement constraints](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) so that the services are only deployed to the intended node types.
 - Specify the durability tier for each node type. The durability tier represents the ability for Service Fabric to influence virtual machine scale set updates and maintenance operations. For production workloads, choose the Silver or higher durability tier. For information about each tier, see [The durability characteristics of the cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
-- If using the Bronze durability tier, certain operations require manual steps.  For node types with Bronze durability tier additional steps are required during scale in. For more information on scaling operations, see [this guide](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down).
+- If using the Bronze durability tier, certain operations require manual steps.  For node types with Bronze durability tier additional steps are required during scale in. For more information on scaling operations, see [this guide](/azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling).
 
 ### Scaling nodes
 
@@ -175,7 +175,7 @@ For a stateful service, scaling is controlled by the number of partitions, the s
 
 For more information, see:
 
-- [Scale a Service Fabric cluster in or out using autoscale rules or manually](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down)
+- [Scale a Service Fabric cluster in or out using autoscale rules or manually](/azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling)
 - [Scale a Service Fabric cluster programmatically](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling)
 - [Scale a Service Fabric cluster out by adding a virtual machine scale set](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)
 
@@ -403,7 +403,7 @@ Use Azure Monitor alerts to notify sysadmins when certain conditions occur in sp
 
 ## Cost considerations
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 Here are some points to consider for some of the services used in this architecture.
 
