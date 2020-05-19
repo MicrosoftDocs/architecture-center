@@ -7,15 +7,17 @@ description: Use Azure Functions Durable Functions to orchestrate, deploy, and r
 ms.custom: fcp
 ms.subservice: solution-idea
 ---
-# Serverless batch processing using Durable Functions with ACI
+# Serverless batch processing using Durable Functions with Azure Container Instances
 
-This article describes how you can use Azure Functions Durable Functions to schedule, manage, and deploy serverless batch processing jobs in Azure Container Instances (ACI) containers.
+This article describes how you can use Azure Functions [Durable Functions]([Durable Functions](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-overview) to schedule, manage, and deploy serverless batch processing jobs in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-overview) (ACI) containers.
 
-Containers are well suited for packaging, deploying, and managing microservices-based architectures. *Orchestration* is the task of automating and managing containers and their interactions. Popular container orchestrator platforms like Azure Kubernetes Service (AKS) and Azure Service Fabric can manage complex, multi-container tasks and interactions.
+Containers are well suited for packaging, deploying, and managing microservices-based architectures. *Orchestration* is the task of automating and managing containers and their interactions. Popular container orchestrator platforms like [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS) and [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) can manage complex, multi-container tasks and interactions.
 
-You don't always need full-fledged container orchestrators to provision and manage simple apps and jobs in isolated containers. ACI is the fastest and simplest way to run containers in Azure, and Durable Functions can orchestrate container deployment as well as run the jobs.
+You don't always need full-fledged container orchestrators to provision and manage simple apps and jobs in isolated containers. ACI is the fastest and simplest way to run containers in Azure, and Durable Functions can orchestrate container deployment.
 
-For long-term, stable workloads, orchestrating containers in a cluster of dedicated virtual machines (VMs) is usually cheaper than using ACI. However, ACI can quickly expand and contract your overall capacity. Because they start quickly and bill by the second, container instances can be the fastest and most cost effective way to get started and to handle highly variable workloads. Rather than scaling out the number of VMs, then deploying more containers onto those machines, you simply deploy additional containers as needed, and delete them when they're no longer needed. You can use Durable Functions to schedule and manage the container deployment and deletion.
+For long-term, stable workloads, orchestrating containers in a cluster of dedicated virtual machines (VMs) is usually cheaper than using ACI. However, ACI can quickly expand and contract your overall capacity. Because they start quickly and bill by the second, container instances can be the fastest and most cost effective way to get started and to handle highly variable workloads. 
+
+Rather than scaling out the number of VMs, then deploying more containers onto those machines, you simply deploy additional containers as needed, and delete them when they're no longer needed. You can use Durable Functions to schedule and manage the container deployment and deletion.
 
 ## Use cases
 - Batch processing apps where computing needs vary depending on the job. For example, Job #1 may need 100 container instances with large CPU and memory requirements, and take days to run, whereas Job #2 needs only a couple of instances with less CPU and memory, and takes only hours to run. 
