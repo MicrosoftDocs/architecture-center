@@ -115,6 +115,20 @@ items:
         href: antipatterns/no-caching/index.md
       - name: Synchronous I/O
         href: antipatterns/synchronous-io/index.md
+  - name: Responsible Innovation
+    items:
+    - name: Overview
+      href: guide/responsible-innovation/index.md
+    - name: Judgment Call
+      href: guide/responsible-innovation/judgmentcall.md
+    - name: Harms Modeling
+      items:
+      - name: Understand Harm
+        href: guide/responsible-innovation/harms-modeling/index.md
+      - name: Assess Types of Harm
+        href: guide/responsible-innovation/harms-modeling/type-of-harm.md
+    - name: Community Jury
+      href: guide/responsible-innovation/community-jury/index.md
   - name: Azure for AWS Professionals
     items:
     - name: Overview
