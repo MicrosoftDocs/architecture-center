@@ -1018,6 +1018,8 @@ items:
       items:
       - name: Add IP spaces to peered virtual networks
         href: networking/prefixes/add-ip-space-peered-vnet.md
+      - name: Azure Firewall Architecture Guide
+        href: example-scenario/firewalls/index.md
     - name: Architectures
       items:
       - name: Virtual network peering and VPN gateways
