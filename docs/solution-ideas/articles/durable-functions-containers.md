@@ -44,7 +44,9 @@ You don't always need full-fledged container orchestrators to provision and mana
 
 ## Alternatives
 
-You can also control the container instance using [restart policies](https://docs.microsoft.com/azure/container-instances/container-instances-restart-policy).
+You can also control the container instances by using [restart policies](https://docs.microsoft.com/azure/container-instances/container-instances-restart-policy).
+
+To manage complex, multi-container tasks and interactions, consider using a full-fledged container orchestrator like AKS (https://azure.microsoft.com/services/kubernetes-service/) or [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/).
 
 ## Considerations
 
