@@ -25,7 +25,7 @@ Rather than scaling out the number of VMs, then deploying more containers onto t
 
 ## Architecture
 
-![Durable Functions orchestration of Container Instances](../media/durable-function-container1.png)
+![Durable Functions orchestration of Container Instances](../media/durable-function-container.png)
 
 [Download a Visio file](https://archcenter.blob.core.windows.net/cdn/Durable_Func_ACI.vsdx) of this architecture.
 
