@@ -22,7 +22,7 @@ You don't always need full-fledged container orchestrators to provision and mana
 
 ## Architecture
 
-![Durable Functions orchestration of Container Instances](../media/durable-function-container.png)
+![Durable Functions orchestration of Container Instances](../media/durable-function-aci.png)
 
 [Download a Visio file](https://archcenter.blob.core.windows.net/cdn/Durable_Func_ACI.vsdx) of this architecture.
 
