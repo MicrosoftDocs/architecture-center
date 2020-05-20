@@ -44,17 +44,17 @@ You don't always need full-fledged container orchestrators to provision and mana
 
 ## Alternatives
 
-You can also control the container instances by using [restart policies](https://docs.microsoft.com/azure/container-instances/container-instances-restart-policy).
+- You can also control the container instances by using [restart policies](https://docs.microsoft.com/azure/container-instances/container-instances-restart-policy).
 
-To manage complex, multi-container tasks and interactions, consider using a full-fledged container orchestrator like AKS (https://azure.microsoft.com/services/kubernetes-service/) or [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/).
+- To manage complex, multi-container tasks and interactions, consider using a full-fledged container orchestrator like [AKS](https://azure.microsoft.com/services/kubernetes-service/) or [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/).
 
 ## Considerations
 
 - For long-term, stable workloads, orchestrating containers in a cluster of dedicated virtual machines (VMs) is usually less expensive than using ACI. However, ACI can quickly expand and contract your overall capacity to meet temporary or unexpected usage requirements. Because they start quickly and bill by the second, container instances can be the fastest and most cost effective way to get started and to handle highly variable workloads. 
 
-- With this solution, rather than scaling out the number of VMs, then deploying more containers onto those VMs, you simply deploy additional containers as needed, and delete them when they're no longer needed. You use Durable Functions to schedule and manage the container deployment and deletion.
+- With this solution, rather than scaling out the number of VMs and then deploying more containers onto those VMs, you simply deploy additional containers as needed, and delete them when they're no longer needed. You use Durable Functions to schedule and manage the container deployment and deletion.
 
-- ACI enables a layered approach to orchestration, providing all of the scheduling and management capabilities required to run a single container, while allowing orchestrator platforms to manage multi-container tasks and architectures like scaling and coordinated upgrades.
+- ACI enables a layered approach to orchestration by providing all of the scheduling and management to run single containers, allowing orchestrator platforms to manage multi-container tasks and architectures like scaling and coordinated upgrades.
 
 ## Implementation
 
