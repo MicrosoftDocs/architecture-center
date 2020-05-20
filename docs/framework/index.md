@@ -77,7 +77,7 @@ Just adding more instances doesn't mean an application will scale, however. It m
 
 Always conduct performance and load testing to find these potential bottlenecks. The stateful parts of a system, such as databases, are the most common cause of bottlenecks, and require careful design to scale horizontally. Resolving one bottleneck may reveal other bottlenecks elsewhere.
 
-Use the [Performance efficiency checklist][performance-checklist] to review your design from a scalability standpoint.
+Use the [Performance efficiency checklist](../checklist/performance-efficiency.md) to review your design from a scalability standpoint.
 
 ### Performance efficiency guidance
 
