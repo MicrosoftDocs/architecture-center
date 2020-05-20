@@ -9,7 +9,7 @@ ms.subservice: solution-idea
 ---
 # Serverless batch processing using Durable Functions with Azure Container Instances
 
-This article describes how you can use Azure Functions [Durable Functions]([Durable Functions](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-overview) to schedule, manage, and deploy serverless batch processing jobs in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-overview) (ACI) containers.
+This article describes how you can use Azure Functions [Durable Functions](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-overview) to schedule, manage, and deploy serverless batch processing jobs in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-overview) (ACI) containers.
 
 Containers are well suited for packaging, deploying, and managing microservices-based architectures. *Orchestration* is the task of automating and managing containers and their interactions. Popular container orchestrator platforms like [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS) and [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) can manage complex, multi-container tasks and interactions.
 
@@ -25,23 +25,23 @@ Rather than scaling out the number of VMs, then deploying more containers onto t
 
 ## Architecture
 
-![Durable Functions orchestration of Container Instances](../media/durable-function-container.png)
+![Durable Functions orchestration of Container Instances](../media/durable-function-container1.png)
 
 [Download a Visio file](https://archcenter.blob.core.windows.net/cdn/Durable_Func_ACI.vsdx) of this architecture.
 
 1. The batch processing app is packaged into a container image stored in Azure Container Registry (ACR), ready to deploy with options like AKS, Service Fabric, or ACI.
-1. An HTTP trigger invokes the Orchestrator Function to orchestrate the container deployment.
-1. An Activity Function uses the container image stored in ACR to [create an ACI container](https://docs.microsoft.com/rest/api/storageservices/create-container) in a container group.
-1. The Orchestrator Function uses the container URL to call and start the batch processing job on the container instance, and to monitor job progress.
-1. Once the job completes, the batch processing job invokes the Orchestrator Function by [raising an external event](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-external-events), and provides job status, Completed or Failed.
-1. Depending on job status, the Orchestrator Function [stops, restarts, or deletes](https://docs.microsoft.com/azure/container-instances/container-instances-stop-start) the container group. You can also control the container instance using [restart policies](https://docs.microsoft.com/azure/container-instances/container-instances-restart-policy).
+1. An HTTP trigger invokes the orchestrator function to orchestrate the container deployment.
+1. An activity function uses the container image stored in ACR to [create an ACI container](https://docs.microsoft.com/rest/api/storageservices/create-container) in a container group.
+1. The orchestrator function uses the container URL to call and start the batch processing job on the container instance, and to monitor job progress.
+1. Once the job completes, the batch processing job invokes the orchestrator function by [raising an external event](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-external-events), and provides job status, Completed or Failed.
+1. Depending on job status, the orchestrator function [stops, restarts, or deletes](https://docs.microsoft.com/azure/container-instances/container-instances-stop-start) the container group. You can also control the container instance using [restart policies](https://docs.microsoft.com/azure/container-instances/container-instances-restart-policy).
 
 ## Components
 
-- A *Durable Functions* [Orchestrator Function](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-types-features-overview#orchestrator-functions) orchestrates and performs the ACI container and app deployment, monitoring, and cleanup.
-- A *Durable Functions* [Activity Function](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-types-features-overview#activity-functions) creates the ACI container group and instance, using the [Azure Fluent API](https://github.com/Azure/azure-libraries-for-net) and [ACI Management libraries](https://docs.microsoft.com/dotnet/api/overview/azure/containerinstance?view=azure-dotnet).
+- A *Durable Functions* [orchestrator function](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-types-features-overview#orchestrator-functions) orchestrates and performs the ACI container and app deployment, monitoring, and cleanup.
+- A *Durable Functions* [activity function](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-types-features-overview#activity-functions) creates the ACI container group and instance, using the [Azure Fluent API](https://github.com/Azure/azure-libraries-for-net) and [ACI Management libraries](https://docs.microsoft.com/dotnet/api/overview/azure/containerinstance?view=azure-dotnet).
 - [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) stores the batch processing app in a container image.
-- [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) (ACI) containers in container groups run the batch processing jobs.
+- [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) (ACI) containers run the batch processing jobs.
 - The Durable Functions use [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) (Azure AD) with [Managed Service Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to manage the container instances.
 - [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) monitors job progress.
 

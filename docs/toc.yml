@@ -619,6 +619,8 @@ items:
         href: solution-ideas/articles/scale-using-aks-with-aci.md
       - name: CI/CD pipeline for container-based workloads
         href: example-scenario/apps/devops-with-aks.md
+      - name: Durable Functions for ACI batch processing
+        href: solution-ideas/articles/durable-functions-containers.md
       - name: Elastic demand handling with AKS
         href: solution-ideas/articles/aks-demand-spikes.md
       - name: IoT data streaming with AKS
