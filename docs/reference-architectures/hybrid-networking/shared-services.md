@@ -87,7 +87,7 @@ You can use network virtual appliances (NVAs) in Azure to host different types o
 
 ## DevOps considerations
 
-This reference architecture builds on the hub-spoke reference architecture and includes shared services in the hub that can be consumed by all spokes, see the [DevOps considerations][guidance-hub-spoke] on that architecture, for more information.
+This reference architecture builds on the hub-spoke reference architecture and includes shared services in the hub that can be consumed by all spokes, see the [DevOps considerations][guidance-hub-spoke-DevOps] on that architecture, for more information.
 
 
 ## Cost considerations
@@ -175,7 +175,6 @@ Test-NetConnection 10.2.0.36 -CommonTCPPort RDP
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
-[guidance-hub-spoke]: ./hub-spoke.md
 [guidance-hub-spoke-DevOps]: ./hub-spoke.md#devops-considerations
 [linux-vm-ra]: ../n-tier/n-tier-cassandra.md
 [naming conventions]: https://docs.microsoft.com/azure/guidance/guidance-naming-conventions
