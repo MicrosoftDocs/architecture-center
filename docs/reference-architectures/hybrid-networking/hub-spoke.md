@@ -114,16 +114,16 @@ Templates are also good for dependency tracking since they allow to define depen
 
 ### Network monitoring
 
-Use the Network Watcher to monitor and troubleshoot the network components, tools like Traffic Analytics will show you the systems in your virtual networks that generate most traffic, so that you can visually identify bottlenecks before they degenerate into problems. Network Performance Manager is the aduquate tool to monitor information about Microsoft ExpressRoute circuits. VPN diagnostics is another tool that can help troubleshooting site-to-site VPN connections connecting your applications to users on-premises.
+Use the Network Watcher to monitor and troubleshoot the network components, tools like Traffic Analytics will show you the systems in your virtual networks that generate most traffic, so that you can visually identify bottlenecks before they degenerate into problems. Network Performance Manager is the right tool to monitor information about Microsoft ExpressRoute circuits. VPN diagnostics is another tool that can help troubleshooting site-to-site VPN connections connecting your applications to users on-premises.
 
 
-For more information see [Monitoring For DevOps][devops-monitoring] in the Azure Architecure Framework.
+For more information see [Monitoring For DevOps][devops-monitoring] in the Azure Well-Architected Framework.
 
 ### Network testing
 
 This architecture includes some testing steps to manually verify network connectivity, it uses jump box virtual machines in each virtual network. After the deployment is completed, use these instructions along with the network monitoring tools, to verify the correct operation of the network.
 
-For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+For more information, see the DevOps section in [Well-Architected Framework][AAF-devops].
 
 
 ## Cost considerations
