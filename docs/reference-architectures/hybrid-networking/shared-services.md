@@ -168,8 +168,8 @@ Test-NetConnection 10.2.0.36 -CommonTCPPort RDP
 <!-- links -->
 
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
-[connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
 [guidance-hub-spoke]: ./hub-spoke.md
+[connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
 [linux-vm-ra]: ../n-tier/n-tier-cassandra.md
 [naming conventions]: https://docs.microsoft.com/azure/guidance/guidance-naming-conventions
 [virtual datacenter]: https://aka.ms/vdc
