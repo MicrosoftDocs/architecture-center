@@ -2,8 +2,8 @@
 title: Hub-spoke network topology in Azure
 titleSuffix: Azure Reference Architectures
 description: This reference architecture deploys a hub-spoke network topology in Azure.
-author: MikeWasson
-ms.date: 01/29/2020
+author: adamboeglin
+ms.date: 05/21/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.category:
@@ -90,6 +90,8 @@ You can also configure spokes to use the hub gateway to communicate with remote 
 - Configure the peering connection in each spoke to **use remote gateways**.
 - Configure all peering connections to **allow forwarded traffic**.
 
+for additional information on [Create a peering](/azure/virtual-network/virtual-network-manage-peering#create-a-peering)
+
 ## Considerations
 
 ### Spoke connectivity
@@ -129,6 +131,9 @@ You can use virtual network peering to route traffic between virtual networks by
    For instance, data transfer from a virtual network in zone 1 to another virtual network in zone 2, will incur outbound transfer rate for zone 1 and inbound rate for zone 2. For more information, see [Virtual network pricing][VN-pricing].
 
 ## Deploy the solution
+
+> [!CAUTION]
+> "Don't use azbb - it is in sustain mode and the npm package is out of date"
 
 A deployment for this architecture is available on [GitHub][ref-arch-repo]. It uses VMs in each virtual network to test connectivity. Two instances of each jumpbox are deployed &mdash; one Linux VM and one Windows VM. In a real deployment, you would deploy a single type. 
 
