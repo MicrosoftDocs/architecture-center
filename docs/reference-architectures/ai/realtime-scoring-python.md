@@ -169,7 +169,6 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 [get-started]: https://docs.microsoft.com/azure/security-center/security-center-get-started
 [github-python]: https://github.com/Microsoft/MLAKSDeployAML
 [github-dl]: https://github.com/Microsoft/AKSDeploymentTutorial_AML
-<<<<<<< HEAD
 [gpus-vs-cpus]: https://azure.microsoft.com/blog/gpus-vs-cpus-for-deployment-of-deep-learning-models/
 [https-ingress]: /azure/aks/ingress-tls
 [ingress-controller]: https://kubernetes.io/docs/concepts/services-networking/ingress/
@@ -184,18 +183,3 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 [scikit]: https://pypi.org/project/scikit-learn/
 [security-center]: /azure/security-center/security-center-intro
 [vm]: /azure/virtual-machines/
-=======
-[gpus-vs-cpus]: https://azure.microsoft.com/blog/gpus-vs-cpus-for-deployment-of-deep-learning-models
-[https-ingress]: https://docs.microsoft.com/azure/aks/ingress-tls
-[ingress-controller]: https://kubernetes.io/docs/concepts/services-networking/ingress
-[kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl
-[aml]: https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml
-[manually-scale-pods]: https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale#manually-scale-pods
-[monitor-containers]: https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview
-[permissions]: https://docs.microsoft.com/azure/aks/concepts-identity
-[rbac]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
-[scale-cluster]: https://docs.microsoft.com/azure/aks/scale-cluster
-[scikit]: https://pypi.org/project/scikit-learn
-[security-center]: https://docs.microsoft.com/azure/security-center/security-center-intro
-[vm]: https://docs.microsoft.com/azure/virtual-machines
->>>>>>> origin
