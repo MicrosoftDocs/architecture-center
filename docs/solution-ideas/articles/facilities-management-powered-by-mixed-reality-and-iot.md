@@ -6,17 +6,23 @@ ms.date: 12/16/2019
 description: Improve uptime and operations in hospitality, manufacturing, retail, and more with mixed reality and IoT. This scenario shows how you can visualize a virtual replica of your physical space with real-time data in the context of your environment. It is built on Azure Spatial Anchors and Azure Digital Twins. After reviewing this solution architecture, dive right in and explore our reference sample.
 ms.custom: acom-architecture, iot, Azure Spatial Anchors, Azure Digital Twins, Azure Active Directory, Cosmos DB, Event Hubs, Functions, Web Service, Microsoft HoloLens, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/facilities-management-powered-by-mixed-reality-and-iot/'
 ms.service: architecture-center
+ms.category:
+  - mixed-reality
+  - iot
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/facilities-management-powered-by-mixed-reality-and-iot.png
 ---
+
 # Facilities management powered by mixed reality and IoT
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Improve uptime and operations in hospitality, manufacturing, retail, and more with mixed reality and IoT. This scenario shows how you can visualize a virtual replica of your physical space with real-time data in the context of your environment. It is built on [Azure Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors/) and [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/).
+Improve uptime and operations in hospitality, manufacturing, retail, and more with mixed reality and IoT. This scenario shows how you can visualize a virtual replica of your physical space with real-time data in the context of your environment. It is built on [Azure Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors) and [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins).
 
 ## Architecture
 
-![Architecture diagram](../media/facilities-management-powered-by-mixed-reality-and-iot.svg)
+![Architecture diagram](../media/facilities-management-powered-by-mixed-reality-and-iot.png)
+*Download an [SVG](../media/facilities-management-powered-by-mixed-reality-and-iot.svg) of this architecture.*
 
 ## Data Flow
 
@@ -30,21 +36,20 @@ Improve uptime and operations in hospitality, manufacturing, retail, and more wi
 1. When IoT sensor data is updated, Azure Digital Twins pushes it to Event Hubs.
 1. Azure Functions uses an Event Hubs trigger to process the change and update data in Azure Cosmos DB as needed.
 
-
 ## Components
-* [Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors/): Create multi-user, spatially aware mixed reality experiences
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory/): Synchronize on-premises directories and enable single sign-on
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Globally distributed, multi-model database for any scale
-* [App Service](https://azure.microsoft.com/services/app-service/): Quickly create powerful cloud apps for web and mobile
-* [Event Hubs](https://azure.microsoft.com/services/event-hubs/): Receive telemetry from millions of devices
-* [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/): Build next-generation IoT spatial intelligence solutions
 
-## Next Steps
-* [Share Spatial Anchors across devices](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices)
-* [Create a new tenant in Azure Active Directory](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
-* [Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal](/azure/cosmos-db/create-sql-api-dotnet)
-* [Authenticate and authorize users end-to-end in Azure App Service](/azure/app-service/app-service-web-tutorial-auth-aad)
-* [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
-* [Deploy Azure Digital Twins and configure a spatial graph](/azure/digital-twins/tutorial-facilities-setup)
+* [Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors): Create multi-user, spatially aware mixed reality experiences
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Globally distributed, multi-model database for any scale
+* [App Service](https://azure.microsoft.com/services/app-service): Quickly create powerful cloud apps for web and mobile
+* [Event Hubs](https://azure.microsoft.com/services/event-hubs): Receive telemetry from millions of devices
+* [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins): Build next-generation IoT spatial intelligence solutions
 
+## Next steps
 
+* [Share Spatial Anchors across devices](https://docs.microsoft.com/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices)
+* [Create a new tenant in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet)
+* [Authenticate and authorize users end-to-end in Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-auth-aad)
+* [Azure Event Hubs - A big data streaming platform and event ingestion service](https://docs.microsoft.com/azure/event-hubs/event-hubs-about)
+* [Deploy Azure Digital Twins and configure a spatial graph](https://docs.microsoft.com/azure/digital-twins/tutorial-facilities-setup)

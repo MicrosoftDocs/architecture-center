@@ -5,6 +5,10 @@ author: msalvaris
 ms.date: 06/05/2019
 ms.custom: azcat-ai
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - compute
+  - media
 ms.subservice: reference-architecture
 ---
 
@@ -16,7 +20,7 @@ A reference implementation for this architecture is available on [GitHub][github
 
 ![Architecture for distributed deep learning][0]
 
-**Scenario**: Image classification is a widely applied technique in computer vision, often tackled by training a convolutional neural network (CNN). For particularly large models with large datasets, the training process can take weeks or months on a single GPU. In some situations, the models are so large that it's not possible to fit reasonable batch sizes onto the GPU. Using distributed training in these situations can shorten the training time.
+**Scenario**: Classifying images is a widely applied technique in computer vision, often tackled by training a convolutional neural network (CNN). For particularly large models with large datasets, the training process can take weeks or months on a single GPU. In some situations, the models are so large that it's not possible to fit reasonable batch sizes onto the GPU. Using distributed training in these situations can shorten the training time.
 
 In this specific scenario, a [ResNet50 CNN model][resnet] is trained using [Horovod][horovod] on the [Imagenet dataset][imagenet] and on synthetic data. The reference implementation shows how to accomplish this task using TensorFlow.
 
@@ -91,7 +95,7 @@ Azure Machine Learning Compute supports many storage options. For best performan
 
 ## Data format
 
-With large datasets it is often advisable to use data formats such as [TFRecords][tfrecords] and [parquet][petastorm] which provide better IO performance than multiple small image files.
+With large datasets it is often advisable to use data formats such as [TFRecords][tfrecords] and [parquet][petastorm] which provide better I/O performance than multiple small image files.
 
 ## Security considerations
 
@@ -109,6 +113,24 @@ While running your job, it's important to monitor the progress and make sure tha
 
 Azure Machine Learning offers many ways to [instrument your experiments][azureml-logging]. The stdout/stderr from your scripts are automatically logged. These logs are automatically synced to your workspace Blob storage. You can either view these files through the Azure portal, or download or stream them using the Python SDK or Azure Machine Learning CLI. If you log your experiments using Tensorboard, these logs are automatically synced and you can access them directly or use the Azure Machine Learning SDK to stream them to a [Tensorboard session][azureml-tensorboard].
 
+## Cost considerations
+
+Use the  [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
+
+### Premium Blob Storage
+
+Premium Blob Storage has higher data storage cost, however the transaction cost is lower compared to data stored in the regular Hot tier. So, Premium Blob Storage can be less expensive for workloads with high transaction rates. For more information, see [pricing page][block-blob-pricing].
+
+### Azure Container Registry
+
+Azure Container Registry offers **Basic**, **Standard** and **Premium**. Choose a tier depending on the storage you need. Choose **Premium**  if you need geo replication, or you enhanced throughput for docker pulls across concurrent nodes. In addition, standard networking charges apply. For more information, see Azure [Container Registry pricing][az-container-registry-pricing].
+
+### Azure Machine Learning Compute
+
+In this architecture, Azure ML Compute is one of the main cost drivers. The implementation needs a cluster of GPU compute nodes and selected VM sizes can impact cost. For more information on the VM sizes that include GPUs, see [GPU-optimized virtual machine sizes][gpu-vm-sizes] and [Azure Virtual Machines Pricing][az-vm-pricing].
+
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+
 ## Deployment
 
 The reference implementation of this architecture is available on [GitHub][github]. Follow the steps described there to conduct distributed training of deep learning models across clusters of GPU-enabled VMs.
@@ -120,32 +142,33 @@ The output from this architecture is a trained model that is saved to blob stora
 - [Real-time scoring of Python scikit-learn and deep learning models on Azure][real-time-scoring]
 - [Batch scoring on Azure for deep learning models][batch-scoring]
 
+<!-- links -->
+
 [0]: ./_images/distributed_dl_architecture.png
 [1]: ./_images/distributed_dl_flow.png
 [2]: ./_images/distributed_dl_tests.png
-[acr]: /azure/container-registry/container-registry-intro
-[ai]: /azure/application-insights/app-insights-overview
-[aml-compute]: /azure/machine-learning/service/how-to-set-up-training-targets#amlcompute
-[amls]: /azure/machine-learning/service/overview-what-is-azure-ml
-[azure-blob]: /azure/storage/blobs/storage-blobs-introduction
-[batch-scoring]: /azure/architecture/reference-architectures/ai/batch-scoring-deep-learning
+[acr]: https://docs.microsoft.com/azure/container-registry/container-registry-intro
+[aaf-cost]: ../../framework/cost/overview.md
+[aml-compute]: https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute
+[az-container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry
+[az-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines
+[azure-blob]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
+[batch-scoring]: ../../reference-architectures/ai/batch-scoring-deep-learning.md
 [benchmark]: https://github.com/msalvaris/BatchAIHorovodBenchmark
-[blob]: https://azure.microsoft.com/blog/introducing-azure-premium-blob-storage-limited-public-preview/
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
-[docker]: https://hub.docker.com/
-[endpoints]: /azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network
-[files]: /azure/storage/files/storage-files-introduction
-[github]: https://github.com/microsoft/DistributedDeepLearning/
-[gpu]: /azure/virtual-machines/windows/sizes-gpu
+[block-blob-pricing]: https://azure.microsoft.com/pricing/details/storage/blobs
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[endpoints]: https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network
+[github]: https://github.com/microsoft/DistributedDeepLearning
+[gpu]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu
+[gpu-vm-sizes]: https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu
 [horovod]: https://github.com/uber/horovod
-[imagenet]: http://www.image-net.org/
-[real-time-scoring]: /azure/architecture/reference-architectures/ai/realtime-scoring-python
+[imagenet]: http://www.image-net.org
+[real-time-scoring]: ../../reference-architectures/ai/realtime-scoring-python.md
 [resnet]: https://arxiv.org/abs/1512.03385
-[security-guide]: /azure/storage/common/storage-security-guide
-[storage-explorer]: /azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows
-[tutorial]: https://github.com/Microsoft/DistributedDeepLearning
-[azureml-logging]: /azure/machine-learning/how-to-track-experiments
+[security-guide]: https://docs.microsoft.com/azure/storage/common/storage-security-guide
+[azureml-logging]: https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments
 [azureml-tensorboard]: https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/tensorboard/tensorboard.ipynb
 [tfrecords]: https://www.tensorflow.org/tutorials/load_data/tf_records
 [petastorm]: https://github.com/uber/petastorm
-[premium-storage]: https://azure.microsoft.com/services/storage/blobs/
+[premium-storage]: https://azure.microsoft.com/services/storage/blobs

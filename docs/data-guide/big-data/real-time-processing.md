@@ -1,6 +1,6 @@
 ---
 title: Real time processing
-description: 
+description: Use real-time processing solutions to capture data streams and generate reports or automated responses with minimal latency.
 author: zoinerTejada
 ms.date: 02/12/2018
 ms.topic: guide

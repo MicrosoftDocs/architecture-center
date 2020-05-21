@@ -4,12 +4,20 @@ description: Use machine learning to automate content-based personalization for 
 author: gramhagen
 ms.author: scgraham
 ms.date: 05/31/2019
+ms.category:
+  - ai-machine-learning
+  - featured
 ms.topic: example-scenario 
 ms.service: architecture-center
+ms.subservice: example-scenario
 ms.custom:
   - azcat-ai
   - AI
+social_image_url: /azure/architecture/example-scenario/ai/media/architecture-scalable-personalization.png
 ---
+
+<!-- cSpell:ignore gramhagen scgraham Criteo anonymized hyperparameters precompute mmlspark -->
+
 # Scalable personalization on Azure
 
 Recommendations are a main revenue driver for many businesses and are used in different kinds of industries, including retail, news, and media. With the availability of large amounts of data, you can now provide highly relevant recommendations using machine learning.
@@ -22,9 +30,9 @@ This example scenario shows how your business can use machine learning to automa
 
 This scenario is relevant to the following use cases:
 
-- Content recommendations on a website or in a mobile application
-- Product recommendation on an e-commerce site
-- Displayed ad recommendation on a website
+- Content recommendations on a website or in a mobile application.
+- Product recommendation on an e-commerce site.
+- Displayed ad recommendation on a website.
 
 ## Architecture
 
@@ -55,7 +63,7 @@ This architecture makes use of the following components:
 
 ### Scalability
 
-For training, you can scale [Azure Databricks] up or down based on the size of the data used and the compute necessary for model training. To scale, you can adjust the total number of cores or amount of memory available to the cluster. Just edit the number or type of [Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) (VMs) used. The Criteo dataset contains 45.8 million rows in this example; it was trained in a few minutes on a cluster with 10 standard [L8s](/azure/virtual-machines/lsv2-series) VMs.
+For training, you can scale [Azure Databricks] up or down based on the size of the data used and the compute necessary for model training. To scale, you can adjust the total number of cores or amount of memory available to the cluster. Just edit the number or type of [Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) (VMs) used. The Criteo dataset contains 45.8 million rows in this example; it was trained in a few minutes on a cluster with 10 standard [L8s](https://docs.microsoft.com/azure/virtual-machines/lsv2-series) VMs.
 
 For deployment, you can scale the compute resources based on the expected load for the scoring service and latency requirements. The scoring service uses [MML Spark Serving] running separately on each node in the Kubernetes cluster. With this practice, you can seamlessly transfer the feature transformation and model prediction pipeline developed on [Azure Databricks] to the production side. It also removes the need to precompute scores for all possible user and item combinations, which might be difficult if you're using dynamic user features, such as time of day.
 
@@ -67,7 +75,7 @@ Training on [Azure Databricks] can happen on any one of the [regions](https://az
 
 ### Security
 
-This scenario can use Azure Active Directory (Azure AD) to authenticate users to the [Azure Databricks] workspace and the [Azure Kubernetes](/azure/aks/concepts-security) cluster. Permissions can be managed via Azure AD authentication or role-based access control.
+This scenario can use Azure Active Directory (Azure AD) to authenticate users to the [Azure Databricks] workspace and the [Azure Kubernetes](https://docs.microsoft.com/azure/aks/concepts-security) cluster. Permissions can be managed via Azure AD authentication or role-based access control.
 
 ## Deploy this scenario
 
@@ -81,7 +89,7 @@ All the code for this scenario is available in the [Microsoft Recommenders] repo
 
 To run the notebooks for training and deploying the recommendation model on [Azure Databricks]:
 
-1. [Create an Azure Databricks workspace](/azure/machine-learning/service/how-to-configure-environment#aml-databricks) from the Azure portal.
+1. [Create an Azure Databricks workspace](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#aml-databricks) from the Azure portal.
 2. Follow the [setup instructions](https://github.com/Microsoft/Recommenders/blob/master/SETUP.md#setup-guide-for-azure-databricks) to install utilities from the [Microsoft Recommenders] repository on a cluster within your workspace.
    1. Include the `--mmlspark` option in the install script to have [MMLSpark] installed.
    2. Also, [MMLSpark] requires autoscaling to be disabled in the Cluster setup.
@@ -109,17 +117,18 @@ To see how pricing differs for your use case, change the variables to match your
 
 ## Next steps
 
-- For an in-depth guide to building and scaling a recommender service, see [Build a real-time recommendation API on Azure](/azure/architecture/reference-architectures/ai/real-time-recommendation). 
+- For an in-depth guide to building and scaling a recommender service, see [Build a real-time recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.md).
 - To see more examples, tutorials, and tools to help you build your own recommendation system visit the [Microsoft Recommenders] GitHub repository.
 
 <!-- links -->
-[Azure Blob Storage]: https://azure.microsoft.com/services/storage/blobs/
-[Azure Databricks]: https://azure.microsoft.com/services/databricks/
-[Azure Container Registry]: https://azure.microsoft.com/services/container-registry/
-[Azure Kubernetes Service]: https://azure.microsoft.com/services/kubernetes-service/
-[Azure Machine Learning]: https://azure.microsoft.com/services/machine-learning-service/
+
+[Azure Blob Storage]: https://azure.microsoft.com/services/storage/blobs
+[Azure Databricks]: https://azure.microsoft.com/services/databricks
+[Azure Container Registry]: https://azure.microsoft.com/services/container-registry
+[Azure Kubernetes Service]: https://azure.microsoft.com/services/kubernetes-service
+[Azure Machine Learning]: https://azure.microsoft.com/services/machine-learning-service
 [Microsoft Recommenders]: https://github.com/Microsoft/Recommenders
 [MMLSpark]: https://aka.ms/spark
 [MML Spark Serving]: https://github.com/Azure/mmlspark/blob/master/docs/mmlspark-serving.md
 [LightGBM]: https://github.com/Microsoft/LightGBM
-[1]: https://azure.microsoft.com/support/legal/sla/summary/
+[1]: https://azure.microsoft.com/support/legal/sla/summary

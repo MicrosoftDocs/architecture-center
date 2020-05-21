@@ -5,6 +5,8 @@ author: MikeWasson
 ms.date: 07/21/2017
 ms.topic: guide
 ms.service: architecture-center
+ms.category:
+  - identity
 ms.subservice: reference-architecture
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: signup
@@ -114,7 +116,7 @@ Advantages:
 Disadvantages:
 
 * Complexity. Because every tenant sends different group claims, the app must keep track of which security groups correspond to which application roles, for each tenant.
-* As users belong to more groups, access tokens grow to include more claims. After a certain limit, Azure AD includes an "overage" claim to limit the token size; see [Microsoft identity platform access tokens](/azure/active-directory/develop/access-tokens). Application roles avoid this issue because they are scoped to the specific application.
+* As users belong to more groups, access tokens grow to include more claims. After a certain limit, Azure AD includes an "overage" claim to limit the token size; see [Microsoft identity platform access tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens). Application roles avoid this issue because they are scoped to the specific application.
 
 <!-- markdownlint-disable MD024 -->
 
@@ -163,8 +165,8 @@ Drawbacks:
 
 <!-- links -->
 
-[tailspin]: tailspin.md
-[authorization]: authorize.md
-[Securing a backend web API]: web-api.md
-[application manifest]: /azure/active-directory/active-directory-application-manifest/
+[tailspin]: ./tailspin.md
+[authorization]: ./authorize.md
+[Securing a backend web API]: ./web-api.md
+[application manifest]: https://docs.microsoft.com/azure/active-directory/active-directory-application-manifest
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
