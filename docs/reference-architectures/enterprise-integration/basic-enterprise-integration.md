@@ -106,7 +106,7 @@ For logic apps, we recommend a configuration-as-code approach to backing up and 
 
 If you deploy a logic app to a different region, update the configuration in API Management. You can update the API's **Backend** property by using a basic PowerShell script.
 
-## Manageability considerations
+## DevOps considerations
 
 Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
 
@@ -122,7 +122,13 @@ When you assign resources to resource groups, consider these factors:
 
 ### Deployment
 
-Use [Azure Resource Manager templates][arm] to deploy the Azure resources. Templates make it easier to automate deployments using PowerShell or the Azure CLI.
+Use [Azure Resource Manager templates][arm] to deploy the Azure resources, follow the infrastructure as Code (IaC) Process. Templates make it easier to automate deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions.
+
+### Staging
+
+Consider staging your workloads, which means deploying to various stages and running validations at each stage before moving on to the next one; that way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases] are recommended deployment strategies for updating live production environments. Also consider having a good rollback strategy for when a deployment fails; for example you could automatically redeploy an earlier, successful deployment from your deployment history, the --rollback-on-error flag parameter in Azure CLI is good example. 
+
+### Workload isolation
 
 Put API Management and any individual logic apps in their own separate Resource Manager templates. By using separate templates, you can store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process.
 
@@ -219,6 +225,9 @@ For greater reliability and scalability, use message queues and events to decoup
 [apim-versions]: https://docs.microsoft.com/azure/api-management/api-management-get-started-publish-versions
 [arm]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
+[cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
 [dns]: https://docs.microsoft.com/azure/dns
 [integration-services]: https://azure.microsoft.com/product-categories/integration
 [logic-apps]: https://docs.microsoft.com/azure/logic-apps/logic-apps-overview
