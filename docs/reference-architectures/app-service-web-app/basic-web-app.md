@@ -140,11 +140,9 @@ For more information, see [Azure Resource Manager overview](https://docs.microso
 
 ## DevOps considerations
 
-In this architecture you use an [Azure Resource Manager template][arm-template] for provisioning the Azure resources and its dependencies. Since this is a single web application, all the resources are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables the DevOps team to perform continuous integration and continuous delivery (CI/CD).
+In this architecture you use an [Azure Resource Manager template][arm-template] for provisioning the Azure resources and its dependencies. Since this is a single web application, all the resources are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables the DevOps team to perform continuous integration and continuous delivery (CI/CD). Also, you can use different [Azure Resource Manager templates][arm-template] and integrate them with Azure DevOps Services to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
 
-With the use of [Azure Resource Manager templates][arm-template]  you can use Azure DevOps Services to provision different environment in minutes, for example to replicate a production, peak-usage scenarios. This allows you save cost and provision load testing environment only when needed.
-
-Provision multiple instances of the web application, so it does not depend on a single instance which could create a single point of failure. Also multiple instances improve resiliency and scalability. For Azure App Service, select an App Service plan that offers multiple instances.
+Provision multiple instances of the web application, so it does not depend on a single instance which could create a single point of failure. Also multiple instances improve resiliency and scalability.
 
 ### Deployment
 
