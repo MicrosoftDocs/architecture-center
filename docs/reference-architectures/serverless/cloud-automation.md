@@ -1,5 +1,5 @@
 ---
-title: Event-based cloud automation | Microsoft Docs
+title: Event-based cloud automation
 titleSuffix: Azure Reference Architectures
 description: Recommended architecture for implementing cloud automation using serverless technologies.
 author: dsk-2015
@@ -7,16 +7,20 @@ ms.author: dkshir
 ms.date: 1/14/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - developer-tools
 ms.subservice: reference-architecture
 ---
 
+<!-- cSpell:ignore dkshir ADAL -->
+
 # Event-based cloud automation on Azure
 
-Automating workflows and repetitive tasks on the cloud using [serverless technologies](https://azure.microsoft.com/solutions/serverless/), can dramatically improve productivity of an organization's DevOps team. A serverless model is best suited for automation scenarios that fit an [event driven approach](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/event-driven). This reference architecture illustrates two such cloud automation scenarios:
+Automating workflows and repetitive tasks on the cloud using [serverless technologies](https://azure.microsoft.com/solutions/serverless/), can dramatically improve productivity of an organization's DevOps team. A serverless model is best suited for automation scenarios that fit an [event driven approach](../../guide/architecture-styles/event-driven.md). This reference architecture illustrates two such cloud automation scenarios:
 
-1. [Cost center tagging](https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/deployment.md) - This implementation tracks the cost centers of each Azure resource. The [Azure Policy](https://docs.microsoft.com/azure/governance/policy/) service [tags all new resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) in a group with a default cost center ID. The Event Grid monitors resource creation events, and then calls an [Azure function](https://docs.microsoft.com/azure/azure-functions/). The function interacts with Azure Active Directory, and validates the cost center ID for the new resource. If different, it updates the tag and sends out an email to the resource owner. The REST queries for Azure Active Directory are mocked out for simplicity. Azure AD can also be integrated using the [Azure AD PowerShell module](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0) or the [ADAL for Python library](https://pypi.org/project/adal/).
+1. [Cost center tagging](https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/deployment.md): This implementation tracks the cost centers of each Azure resource. The [Azure Policy](https://docs.microsoft.com/azure/governance/policy/) service [tags all new resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) in a group with a default cost center ID. The Event Grid monitors resource creation events, and then calls an [Azure function](https://docs.microsoft.com/azure/azure-functions/). The function interacts with Azure Active Directory, and validates the cost center ID for the new resource. If different, it updates the tag and sends out an email to the resource owner. The REST queries for Azure Active Directory are mocked out for simplicity. Azure AD can also be integrated using the [Azure AD PowerShell module](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0) or the [ADAL for Python library](https://pypi.org/project/adal/).
 
-1. [Throttling response](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md) - This implementation monitors a Cosmos DB database for throttling. [Azure Monitor alerts](https://docs.microsoft.com/azure/azure-monitor/overview#alerts) are triggered when data access requests to CosmosDB exceed the [capacity in Request Units (or RUs)](https://docs.microsoft.com/azure/cosmos-db/request-units). An [Azure Monitor action group](https://azure.microsoft.com/resources/videos/azure-friday-azure-monitor-action-groups/) is configured to call the automation function in response to these alerts. The function scales the RUs to a higher value, increasing the capacity and in turn stopping the alerts. Note that the [CosmosDB autopilot mode (Preview)](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autopilot) is an alternative to this implementation.
+1. [Throttling response](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md): This implementation monitors a Cosmos DB database for throttling. [Azure Monitor alerts](https://docs.microsoft.com/azure/azure-monitor/overview#alerts) are triggered when data access requests to CosmosDB exceed the [capacity in Request Units (or RUs)](https://docs.microsoft.com/azure/cosmos-db/request-units). An [Azure Monitor action group](https://azure.microsoft.com/resources/videos/azure-friday-azure-monitor-action-groups/) is configured to call the automation function in response to these alerts. The function scales the RUs to a higher value, increasing the capacity and in turn stopping the alerts. Note that the [CosmosDB autopilot mode (Preview)](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autopilot) is an alternative to this implementation.
 
 ![Serverless cloud automation](./_images/cloud-automation.png)
 
@@ -37,7 +41,7 @@ Event-based automation scenarios are best implemented using Azure Functions. The
 - **Scheduled tasks**. These are typically maintenance tasks executed using [timer-triggered functions](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function). Examples of this pattern are:
 
   - stopping a VM at night, and starting in the morning,
-  - reading Blob Storage content at regular intervals, and converting to a CosmosDB document,
+  - reading Blob Storage content at regular intervals, and converting to a Cosmos DB document,
   - periodically scanning for resources no longer in use, and removing them, and
   - automated backups.
 
@@ -74,7 +78,7 @@ Multiple executions of an idempotent function create the same results. To mainta
 
 Read the [Optimize the performance and reliability of Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-best-practices) for best practices when writing your functions.
 
-**Logic Apps**. Logic Apps can be used to perform simpler tasks, easily implemented using [the built-in connectors](https://docs.microsoft.com/azure/connectors/apis-list). These tasks can range from email notifications, to integrating with external management applications. To learn how to use Logic Apps with third-party applications, read [basic enterprise integration in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration).
+**Logic Apps**. Logic Apps can be used to perform simpler tasks, easily implemented using [the built-in connectors](https://docs.microsoft.com/azure/connectors/apis-list). These tasks can range from email notifications, to integrating with external management applications. To learn how to use Logic Apps with third-party applications, read [basic enterprise integration in Azure](../../reference-architectures/enterprise-integration/basic-enterprise-integration.md).
 
 Logic Apps provides a *no code* or *low code* visual designer, and may be used alone in some automation scenarios. Read [this comparison between Azure Functions and Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps) to see which service can fit your scenario.
 
@@ -92,7 +96,7 @@ Event Grid simplifies the event-based automation with a [publish-subscribe model
 
 #### Handle HTTP timeouts
 
-To avoid HTTP timeouts for a longer automation task, queue this event in a [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview#queues), and handle the actual automation in another function. The throttling response automation scenario illustrates this pattern, even though the actual CosmosDB RU provisioning is fast.
+To avoid HTTP timeouts for a longer automation task, queue this event in a [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview#queues), and handle the actual automation in another function. The throttling response automation scenario illustrates this pattern, even though the actual Cosmos DB RU provisioning is fast.
 
 ![Reliability in automation function](./_images/automation-function-reliability.png)
 
@@ -122,9 +126,9 @@ If a sufficiently large number of alerts are generated, and the automation updat
 
 ### Control access to the function
 
-Restrict access to an HTTP-triggered function by setting the [authorization level](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp#trigger---configuration). With *anonymous* authentication, the function is easily accessible with a URL such as `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>`. *Function* level authentication can obfuscate the http endpoint, by requiring function keys in the URL. This level is set in the file [function.json](https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/cost-center-tagging/OnResourceWriteSuccess/function.json):
+Restrict access to an HTTP-triggered function by setting the [authorization level](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook). With *anonymous* authentication, the function is easily accessible with a URL such as `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>`. *Function* level authentication can obfuscate the http endpoint, by requiring function keys in the URL. This level is set in the file [function.json](https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/cost-center-tagging/OnResourceWriteSuccess/function.json):
 
-```JSON
+```json
 {
   "bindings": [
     {
@@ -170,38 +174,41 @@ To compare pricing and features between these options, read [Azure Functions sca
 
 There are two types of managed identities:
 
-- **System-assigned managed identities**: These are created as part of the Azure resource, and cannot be shared among multiple resources. These get deleted when the resource is deleted. Use these for scenarios, which involve single Azure resource or which need independent identities. Both the reference implementations use system-assigned identities since they update only a single resource. Managed identities are only required to update another resource. For example, a function can read the resource tags without a managed identity. See [these instructions](https://docs.microsoft.com/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet#adding-a-system-assigned-identity) to add a system-assigned identity to your function.
+- **System-assigned managed identities**: These are created as part of the Azure resource, and cannot be shared among multiple resources. These get deleted when the resource is deleted. Use these for scenarios, which involve single Azure resource or which need independent identities. Both the reference implementations use system-assigned identities since they update only a single resource. Managed identities are only required to update another resource. For example, a function can read the resource tags without a managed identity. See [these instructions](https://docs.microsoft.com/azure/app-service/overview-managed-identity#add-a-system-assigned-identity) to add a system-assigned identity to your function.
 
-- **User-assigned managed identities**: These are created as stand-alone Azure resources. These can be shared across multiple resources, and need to be explicitly deleted. Read [these instructions](https://docs.microsoft.com/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet#adding-a-user-assigned-identity) on how to add user-assigned identity to your function. Use these for scenarios that:
+- **User-assigned managed identities**: These are created as stand-alone Azure resources. These can be shared across multiple resources, and need to be explicitly deleted. Read [these instructions](https://docs.microsoft.com/azure/app-service/overview-managed-identity#add-a-user-assigned-identity) on how to add user-assigned identity to your function. Use these for scenarios that:
 
-    - require access to multiple resources that can share a single identity, or
-    - need pre-authorization to secure resources during provisioning, or
-    - where resources are recycled frequently, while permissions need to be consistent.
+  - Require access to multiple resources that can share a single identity, or
+  - Need pre-authorization to secure resources during provisioning, or
+  - Have resources that are recycled frequently, while permissions need to be consistent.
 
 Once the identity is assigned to the Azure function, assign it a role using [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) to access the resources. For example, to update a resource, the *Contributor* role will need to be assigned to the function identity.
 
-## Cost Considerations
+## Cost considerations
+
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some considerations for lowering cost.
 
 ### Azure Logic Apps
 
-Logic apps have a pay-as-you-go pricing model. Triggers, actions, and connector executions are metered each time a logic app runs. All successful and unsuccessful actions, including triggers, are considered as executions. 
+Logic apps have a pay-as-you-go pricing model. Triggers, actions, and connector executions are metered each time a logic app runs. All successful and unsuccessful actions, including triggers, are considered as executions.
 
-Logic apps have also a fixed pricing model. If you need to run logic apps that  communicate with secured resources in an Azure virtual network, you can create them in an [Integration Service Environment (ISE)][az-logic-apps-ISE].
+Logic apps have also a fixed pricing model. If you need to run logic apps that communicate with secured resources in an Azure virtual network, you can create them in an [Integration Service Environment (ISE)][az-logic-apps-ISE].
 
 For details, see [Pricing model for Azure Logic Apps][logic-app-pricing].
 
-In this architecture, logic apps are used in the cost center tagging scenario to orchestrate the workflow. 
+In this architecture, logic apps are used in the cost center tagging scenario to orchestrate the workflow.
 
 Built-in connectors are used to connect to Azure Functions and send email notification an when an automation task is completed. The functions are exposed as a web hook/API using an HTTP trigger. Logic apps are triggered only when an HTTPS request occurs. This is a cost effective way when compared to a design where functions continuously poll and check for certain criteria. Every polling request is metered as an action.
 
 For more information, see [Logic Apps pricing][Logic-Apps-Pricing].
 
+<!-- markdownlint-disable MD024 -->
 
 ### Azure Functions
 
 Azure Functions are available with [the following three pricing plans](https://docs.microsoft.com/azure/azure-functions/functions-scale).
 
-- **Consumption plan**. This is the most cost-effective, serverless plan available, where you only pay for the time your function runs. Under this plan, functions can run for up to 10 minutes at a time. 
+- **Consumption plan**. This is the most cost-effective, serverless plan available, where you only pay for the time your function runs. Under this plan, functions can run for up to 10 minutes at a time.
 
 - **Premium plan**. Consider using [Azure Functions Premium plan](https://docs.microsoft.com/azure/azure-functions/functions-premium-plan) for automation scenarios with additional requirements, such as a dedicated virtual network, a longer execution duration, and so on. These functions can run for up to an hour, and should be chosen for longer automation tasks such as running backups, database indexing, or generating reports.
 
@@ -209,21 +216,19 @@ Azure Functions are available with [the following three pricing plans](https://d
 
 In this architecture Azure Functions are used for tasks such as updating tags in Azure Active Directory, or changing cosmos DB configuration by scaling up the RUs to a higher value. The **Consumption plan** is the appropriate for this use case because those tasks are interactive and not on going.
 
-### Cosmos DB
+### Azure Cosmos DB
 
 Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations, such as inserts, reads. Storage is billed for each GB used for your stored data and index. See [Cosmos DB pricing model][cosmosdb-pricing] for more information.
 
-In this architecture, when data access requests to CosmosDB exceed the capacity in Request Units (or RUs), Azure Monitor triggers alerts. In response to those alerts, an Azure Monitor action group is configured to call the automation function. The function scales the RUs to a higher value. This helps to keep the cost down because you only pay for the resources that your workloads need on a per-hour basis.
+In this architecture, when data access requests to Cosmos DB exceed the capacity in Request Units (or RUs), Azure Monitor triggers alerts. In response to those alerts, an Azure Monitor action group is configured to call the automation function. The function scales the RUs to a higher value. This helps to keep the cost down because you only pay for the resources that your workloads need on a per-hour basis.
 
-To get a quick cost estimate of your workload, use the [Cosmos DB capacity calculator][Cosmos-Calculator]. 
+To get a quick cost estimate of your workload, use the [Cosmos DB capacity calculator][cosmos-calculator].
 
-Use the [Pricing calculator][Cost-Calculator] to estimate costs.
-
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 ## Deployment considerations
 
-For critical automation workflows that manage behavior of your application, zero downtime deployment must be achieved using an efficient DevOps pipeline. For more information, read [serverless backend deployment](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/web-app#back-end-deployment).
+For critical automation workflows that manage behavior of your application, zero downtime deployment must be achieved using an efficient DevOps pipeline. For more information, read [serverless backend deployment](../../reference-architectures/serverless/web-app.md#back-end-deployment).
 
 If the automation covers multiple applications, keep the resources required by the automation in a [separate resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). A single resource group can be shared between automation and application resources, if the automation covers a single application.
 
@@ -235,15 +240,14 @@ To deploy the reference implementations for this architecture, see the [deployme
 
 ## Next steps
 
-To learn more about the serverless implementations, start [here](https://docs.microsoft.com/azure/architecture/serverless/).
-
-
+Learn more about the [serverless implementations](../../serverless/index.md).
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [az-logic-apps-ISE]: https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview
-[Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
-[Logic-Apps-Pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
-[logic-app-pricing]: /azure/logic-apps/logic-apps-pricing
+[cosmos-calculator]: https://cosmos.azure.com/capacitycalculator
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[logic-apps-pricing]: https://azure.microsoft.com/pricing/details/logic-apps
+[logic-app-pricing]: https://docs.microsoft.com/azure/logic-apps/logic-apps-pricing
+[cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db

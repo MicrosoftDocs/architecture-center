@@ -3,6 +3,10 @@ title: Migrate a web app using Azure APIM
 description: Use Azure API Management to modernize a legacy web application.
 author: begim
 ms.date: 09/13/2018
+ms.category:
+  - web
+  - migration
+  - integration
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -93,36 +97,29 @@ Review the extensive Azure API Management [documentation and reference articles]
 <!-- links -->
 
 [architecture]: ./media/architecture-apim-api-scenario.png
-[apim-create]: /azure/api-management/get-started-create-service-instance
-[apim-git]: /azure/api-management/api-management-configuration-repository-git
-[apim-multi-regions]: /azure/api-management/api-management-howto-deploy-multi-region
-[apim-autoscale]: /azure/api-management/api-management-howto-autoscale
-[apim-scaleout]: /azure/api-management/upgrade-and-scale
-[azure-apim-ai]: /azure/api-management/api-management-howto-app-insights
-[azure-ai]: /azure/application-insights/
-[azure-mon]: /azure/monitoring-and-diagnostics/monitoring-overview
-[azure-appgw]: /azure/application-gateway/application-gateway-introduction
-[apim-vnet-internal]: /azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
-[apim-vnet]: /azure/api-management/api-management-using-with-vnet
-[azure-hybrid]: /azure/architecture/reference-architectures/hybrid-networking/
-[azure-er]: /azure/expressroute/expressroute-introduction
-[azure-vpn]: /azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
-[azure-vnet]: /azure/virtual-network/virtual-networks-overview
-[azure-appservice-auth]: /azure/app-service/app-service-authentication-overview#identity-providers
-[apim-faq-vip]: /azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services
-[azure-appservice-ip-restrict]: /azure/app-service/app-service-ip-restrictions
-[azure-api-apps]: /azure/app-service/
-[apim-ssl]: /azure/api-management/api-management-howto-manage-protocols-ciphers
-[apim-mutualcert-auth]: /azure/api-management/api-management-howto-mutual-certificates
-[apim-whitelist-ip]: /azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services
-[anti-corruption-layer-pattern]: /azure/architecture/patterns/anti-corruption-layer
-[apim]: /azure/api-management/api-management-key-concepts
-[apim-api-design-guidance]: /azure/architecture/best-practices/api-design
-[visualstudio-youtube-solid-design]: https://youtu.be/agkWYPUcLpg
-[azure-vm-lift-shift]: https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/
-[standard-pricing-calc]: https://azure.com/e/
-[premium-pricing-calc]: https://azure.com/e/
-[apim-pricing]: https://azure.microsoft.com/pricing/details/api-management/
+[apim-create]: https://docs.microsoft.com/azure/api-management/get-started-create-service-instance
+[apim-multi-regions]: https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region
+[apim-autoscale]: https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale
+[apim-scaleout]: https://docs.microsoft.com/azure/api-management/upgrade-and-scale
+[azure-apim-ai]: https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights
+[azure-mon]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview
+[azure-appgw]: https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
+[apim-vnet-internal]: https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
+[apim-vnet]: https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet
+[azure-hybrid]: ../../reference-architectures/hybrid-networking/index.md
+[azure-er]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
+[azure-vpn]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
+[azure-vnet]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
+[azure-appservice-auth]: https://docs.microsoft.com/azure/app-service/app-service-authentication-overview#identity-providers
+[apim-faq-vip]: https://docs.microsoft.com/azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services
+[azure-appservice-ip-restrict]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
+[azure-api-apps]: https://docs.microsoft.com/azure/app-service
+[apim-ssl]: https://docs.microsoft.com/azure/api-management/api-management-howto-manage-protocols-ciphers
+[apim-mutualcert-auth]: https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates
+[apim-whitelist-ip]: https://docs.microsoft.com/azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services
+[apim]: https://docs.microsoft.com/azure/api-management/api-management-key-concepts
+[azure-vm-lift-shift]: https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide
+[apim-pricing]: https://azure.microsoft.com/pricing/details/api-management
 [azure-quickstart-templates-apim]: https://azure.microsoft.com/resources/templates/?term=API+Management&pageNumber=1
 [soap]: https://en.wikipedia.org/wiki/SOAP
 [pricing-calculator]: https://azure.com/e/0e916a861fac464db61342d378cc0bd6
