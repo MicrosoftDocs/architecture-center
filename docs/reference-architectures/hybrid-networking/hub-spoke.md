@@ -90,7 +90,7 @@ You can also configure spokes to use the hub gateway to communicate with remote 
 - Configure the peering connection in each spoke to **use remote gateways**.
 - Configure all peering connections to **allow forwarded traffic**.
 
-[Create a peering](/azure/virtual-network/virtual-network-manage-peering#create-a-peering)
+for additional information on [Create a peering](/azure/virtual-network/virtual-network-manage-peering#create-a-peering)
 
 ## Considerations
 
