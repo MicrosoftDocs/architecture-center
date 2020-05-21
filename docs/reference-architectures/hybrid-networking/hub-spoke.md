@@ -110,7 +110,7 @@ Also consider what services are shared in the hub, to ensure the hub scales for 
 
 In this architecture the entire networking infrastructure is created by using an [Azure Building Blocks][azbb] template, so it follows the IaC process for deploying the resources. To automate infrastructure deployment, you can use Azure DevOps Services or other CI/CD solutions. The deployment process is also idempotent - that is, repeatable to produce the same results. 
 
-Azure Building Blocks templates are also good for dependency tracking since they allow to define dependencies for resources that are deployed in the same template. For a given resource, there can be other resources that must exist before the resource is deployed.
+Templates are also good for dependency tracking since they allow to define dependencies for resources that are deployed in the same template. For a given resource, there can be other resources that must exist before the resource is deployed.
 
 ### Network monitoring
 
