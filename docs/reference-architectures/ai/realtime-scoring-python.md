@@ -175,7 +175,7 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 [kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [aml]: /azure/machine-learning/service/overview-what-is-azure-ml
 [manually-scale-pods]: /azure/aks/tutorial-kubernetes-scale#manually-scale-pods
-[mlops-ra]: /azure/architecture/reference-architectures/ai/mlops-python
+[mlops-ra]: /azure/architecture/reference-architectures/ai/mlops-python.md
 [monitor-containers]: /azure/monitoring/monitoring-container-insights-overview
 [permissions]: /azure/aks/concepts-identity
 [rbac]: /azure/active-directory/role-based-access-control-what-is
