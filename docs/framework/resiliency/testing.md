@@ -5,9 +5,10 @@ author: david-stanford
 ms.date: 10/16/2019
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ms.custom: How do you test your applications to ensure they're fault tolerant?
 ---
+
 
 # Testing Azure applications for resiliency and availability
 
@@ -17,11 +18,15 @@ Run tests in production using both synthetic and real user data. Test and produc
 
 As part of your test plan, include:
 
+- Chaos engineering
 - Automated predeployment testing
 - Fault injection testing
 - Peak load testing
 - Disaster recovery testing
 - Third-party service testing
+
+## Chaos engineering
+Harden services against failures in production to attain consistent reliability by adopting [chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering).
 
 ## Simulation testing
 
@@ -53,7 +58,7 @@ Your test plan should incorporate possible failure points identified during the 
 - Measure the recovery times, and be sure that your business requirements are met.
 - Verify that failures don't cascade and are handled in an isolated way.
 
-For more information about failure scenarios, see [Failure and disaster recovery for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery).
+Best practices for [Chaos Engineering](/azure/architecture/framework/resiliency/chaos-engineering#best-practices), for more information about failure scenarios, see [Failure and disaster recovery for Azure applications](../../framework/resiliency/backup-and-recovery.md).
 
 ## Test under peak loads
 

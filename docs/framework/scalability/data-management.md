@@ -5,21 +5,24 @@ author: david-stanford
 ms.date: 10/16/2019
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ms.custom: How are you managing your data to handle scale? 
 ---
 
 # Data Management
 
-<!-- Using multiple databases -->
-[!include[5b9914bc-0b30-4867-b62e-91eaa3f68323](../../../includes/aar_guidance/5b9914bc-0b30-4867-b62e-91eaa3f68323.md)]
+## Managing database load
 
-<!-- Managing data consistency appropriately -->
-[!include[c459273e-7262-452f-8703-be19f7a36d16](../../../includes/aar_guidance/c459273e-7262-452f-8703-be19f7a36d16.md)]
+Implement partitioning guidance to meet scalability requirements.
 
-<!-- Optimize database queries & indexes -->
-[!include[4e8be95d-47b7-4a4c-b165-635e713722bd](../../../includes/aar_guidance/4e8be95d-47b7-4a4c-b165-635e713722bd.md)]
+## Data consistency
 
-<!-- Documented plans for data growth and retention -->
-[!include[5de0cf80-7d09-40de-a0a3-7447fb2f1a6f](../../../includes/aar_guidance/5de0cf80-7d09-40de-a0a3-7447fb2f1a6f.md)]
+Use Data Consistency Primer guidance. Ensure appropriate consistency and isolation level while making database connections.
 
+## Database query optimization
+
+Review Query Tuning guidance. Turn on automatic tuning in Azure SQL Database. Use Azure Managed Database Services for automatic tuning.
+
+## Planning for data growth
+
+Manage future growth with choices provided by Azure SQL Database. Use Azure Managed Database Services for built-in security, automatic monitoring, threat detection, automatic tuning, and turnkey global distribution.

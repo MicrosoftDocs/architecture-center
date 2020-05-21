@@ -1,10 +1,13 @@
 ---
-title: Integrate on-premises Active Directory with Azure
-titleSuffix: Azure Reference Architectures
+title: Integrate on-premises AD with Azure
 description: Compare reference architectures for integrating on-premises Active Directory with Azure.
+author: MikeWasson
 ms.date: 07/30/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - identity
+  - hybrid
 ms.subservice: reference-architecture
 ms.custom: seodec18, identity
 ---
@@ -123,7 +126,7 @@ Typical uses for this architecture:
 [aad]: ./azure-ad.md
 [ad-ds]: ./adds-extend-domain.md
 [ad-ds-forest]: ./adds-forest.md
-[ad-forest-defn]: /windows/desktop/AD/forests
+[ad-forest-defn]: https://docs.microsoft.com/windows/desktop/AD/forests
 [adfs]: ./adfs.md
-[azure-active-directory]: /azure/active-directory-domain-services/active-directory-ds-overview
-[azure-ad-connect]: /azure/active-directory/hybrid/whatis-hybrid-identity
+[azure-active-directory]: https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview
+[azure-ad-connect]: https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity

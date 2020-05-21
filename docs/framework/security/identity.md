@@ -1,11 +1,11 @@
 ---
 title: Identity and Access Management in Azure | Microsoft Docs
-description: Manage access based on identity authentication and authorization 
+description: Manage access based on identity authentication and authorization.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ---
 
 # Identity and access management
@@ -42,7 +42,7 @@ authoritative source, teams that need to make changes to the directory can do so
 in one place and have confidence that their change will take effect everywhere.
 
 For Azure, designate a single Azure Active Directory (Azure AD) instance
-directory as the authoritative source for corporate/organizational accounts.
+directory as the authoritative source for corporate/organizational accounts. For more information on [hybrid identity providers](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity).
 
 ## Synchronize identity systems
 
@@ -56,8 +56,7 @@ For Azure, synchronize Azure AD with your existing authoritative on premises
 Active Directory using [Azure AD connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
 This is also required for an Office 365 migration, so it is often already done
 before Azure migration and development projects begin. Note that administrator
-accounts should be excepted from synchronization as described in [Don’t synchronize on-premises admin accounts to cloud identity providers](/azure/architecture/security/identity#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers) and 
-[Critical impact account dependencies](/azure/architecture/security/critical-impact-accounts#critical-impact-admin-dependencies--accountworkstation).
+accounts should be excepted from synchronization as described in [Don’t synchronize on-premises admin accounts to cloud identity providers](#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers) and [Critical impact account dependencies](./critical-impact-accounts.md#critical-impact-admin-dependencies--accountworkstation).
 
 ## Use cloud provider identity source for third parties
 
@@ -66,7 +65,7 @@ including vendors, partners, and customers in a corporate directory.
 
 This reduces risk by granting the appropriate level of access to external
 entities instead of the full default permissions given to full-time employees.
-This least privilege approach and clear clearly differentiation of external
+This least privilege approach and clear differentiation of external
 accounts from company staff makes it easier to prevent and detect attacks coming
 in from these vectors. Additionally, management of these identities is done by
 the external also increases productivity by parties, reducing ingeffort required
@@ -75,20 +74,20 @@ by company HR and IT teams.
 For example, these capabilities natively integrate into the same Azure AD
 identity and permission model used by Azure and Office 365
 
--   [Azure AD](https://docs.microsoft.com/azure/active-directory/) –
+- [Azure AD](https://docs.microsoft.com/azure/active-directory/) –
     Employees and Enterprise Resources
 
--   [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/)
+- [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/)
     – Partners
 
--   [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/)
+- [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/)
     – Customers/citizens
 
 ## Passwordless Or multi-factor authentication for admins
 
 All users should be converted to use passwordless authentication or multi-factor
 authentication (MFA) over time. The details of this recommendation are in the
-administration section [Passwordless Or multi-factor authentication for admins](/azure/architecture/security/critical-impact-accounts#passwordless-or-multi-factor-authentication-for-admins) FOR
+administration section [Passwordless Or multi-factor authentication for admins](./critical-impact-accounts.md#passwordless-or-multi-factor-authentication-for-admins) FOR
 ADMINS. The same recommendation applies to all users, but should be applied first
 and strongest to accounts with administrative privileges.
 
@@ -114,7 +113,7 @@ block legacy protocols.
 Disabling legacy authentication can be difficult, as some users may not want to
 move to new client software that supports modern authentication methods.
 However, moving away from legacy authentication can be done gradually. Start by
-using metrics and logging from your authentication provider to determine the how
+using metrics and logging from your authentication provider to determine how
 many users still authenticate with old clients. Next, disable any down-level
 protocols that aren’t in use, and set up conditional access for all users who
 aren’t using legacy protocols. Finally, give plenty of notice and guidance to
@@ -136,22 +135,22 @@ your existing Active Directory. This is blocked by default in the default Azure
 AD Connect configuration, so you only need to confirm you haven’t customized
 this configuration.
 
-This is related to the [critical impact account dependencies](/azure/architecture/security/critical-impact-accounts#critical-impact-admin-dependencies--accountworkstation) guidance in
+This is related to the [critical impact account dependencies](./critical-impact-accounts.md#critical-impact-admin-dependencies--accountworkstation) guidance in
 the administration section that mitigates the inverse risk of pivoting from on-premises to cloud assets.
 
 ## Use modern password protection offerings
 
 Provide modern and effective protections for accounts that cannot go
-passwordless ([Passwordless Or multi-factor authentication for admins](/azure/architecture/security/critical-impact-accounts#passwordless-or-multi-factor-authentication-for-admins)).
+passwordless ([Passwordless Or multi-factor authentication for admins](./critical-impact-accounts.md#passwordless-or-multi-factor-authentication-for-admins)).
 
 Legacy identity providers mostly checked to make sure passwords had a good mix
 of character types and minimum length, but we have learned that these controls
 in practice led to passwords with less entropy that could be cracked easier:
 
--   **Microsoft** -
+- **Microsoft** -
     <https://www.microsoft.com/research/publication/password-guidance/>
 
--   **NIST** - https://pages.nist.gov/800-63-3/sp800-63b.html
+- **NIST** - https://pages.nist.gov/800-63-3/sp800-63b.html
 
 Identity solutions today need to be able to respond to types of attacks that
 didn't even exist one or two decades ago such as password sprays, breach replays
@@ -161,7 +160,7 @@ providers are uniquely positioned to offer protection against these attacks.
 Since they handle such large volumes of signons, they can apply better anomaly
 detection and use a variety of data sources to both proactively notify companies
 if their users’ passwords have been found in other breaches, as well as validate
-that any given sign in appears legitimate and is not coming from an unexpected
+that any given sign-in appears legitimate and is not coming from an unexpected
 or known-malicious host.
 
 Additionally, synchronizing passwords to the cloud to support these checks also
@@ -178,8 +177,7 @@ For Azure, enable modern protections in Azure AD by
     them based on a report:
 
     1.  **Automatic Enforcement -** Automatically remediate high risk passwords
-        with Conditional Access [leveraging Azure AD Identity Protection risk
-        assessments](https://docs.microsoft.com/azure/active-directory/identity-protection/overview)
+        with Conditional Access [using Azure AD Identity Protection risk assessments](https://docs.microsoft.com/azure/active-directory/identity-protection/overview)
 
     2.  **Report & Manually Remediate -** View reports and manually remediate
         accounts
@@ -217,7 +215,7 @@ and third-party [Software as a Service providers](https://docs.microsoft.com/azu
 
 Authentication for all users should include measurement and enforcement of key
 security attributes to support a Zero Trust strategy. The details of this
-recommendation are in the administration section [Enforce conditional access for ADMINS (Zero Trust)](/azure/architecture/security/critical-impact-accounts#enforce-conditional-access-for-admins---zero-trust). The same recommendation applies to all users, but should be applied
+recommendation are in the administration section [Enforce conditional access for ADMINS (Zero Trust)](./critical-impact-accounts.md#enforce-conditional-access-for-admins---zero-trust). The same recommendation applies to all users, but should be applied
 first to accounts with administrative privileges.
 
 You can also reduce use of passwords by applications using [Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
@@ -233,41 +231,3 @@ risk.
 
 You can use [Office 365 Attack Simulation](https://docs.microsoft.com/office365/securitycompliance/attack-simulator)
 capabilities or any number of third-party offerings.
-
-## Implementing Identity best practices in Azure
-
-Each of the recommendations from this section can be implemented using Azure Active Directory. See the below articles for more information about how to use these features. 
-
-### Single Enterprise Directory 
-
-https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity
-
-### Synchronize Identity Systems 
-
-https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect 
-
-### Use Cloud Provider Identity Source for Third Parties
-
-https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility 
-
-https://docs.microsoft.com/azure/active-directory/b2b/
-
-https://docs.microsoft.com/azure/active-directory-b2c/
-
-### Block Legacy Authentication 
-
-### Don’t Synchronize On-Premises Admin Accounts to Cloud Identity Providers 
-
-### Use Modern Password Protection Offerings 
-
-*https://docs.microsoft.com/azure/active-directory/identity-protection/overview*
-
-https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises
-
-https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
-
-https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
-
-### Use Cross-Platform Credential Management
-
-https://docs.microsoft.com/azure/virtual-machines/linux/login-using-aad

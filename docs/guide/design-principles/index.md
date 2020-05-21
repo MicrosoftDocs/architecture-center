@@ -1,6 +1,5 @@
 ---
 title: Design principles for Azure applications
-titleSuffix: Azure Application Architecture Guide
 description: Design principles for Azure applications.
 author: MikeWasson
 ms.date: 08/30/2018

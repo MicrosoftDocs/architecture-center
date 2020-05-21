@@ -1,11 +1,13 @@
 ---
-title: Serverless event processing using Azure Functions
-titleSuffix: Azure Reference Architectures
+title: Serverless event processing
 description: Reference architecture for serverless event ingestion and processing using Azure Functions.
 author: MikeWasson
 ms.date: 10/16/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - developer-tools
+  - analytics
 ms.subservice: reference-architecture
 ms.custom: seodec18, serverless
 ---
@@ -128,6 +130,37 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 - **Azure Storage**. Use [RA-GRS][ra-grs] storage for the dead letter queue. This creates a read-only replica in another region. If the primary region becomes unavailable, you can read the items currently in the queue. In addition, provision another storage account in the secondary region that the function can write to after a fail-over.
 
+## Cost considerations
+
+Use the [Azure Pricing calculator][azure-pricing-calculator] to estimates costs. Here are some other considerations.
+
+### Azure Functions
+
+Azure Functions supports two hosting models. 
+
+- **Consumption plan**. 
+
+    Compute power is automatically allocated when your code is running. 
+
+- **App Service** plan. 
+
+    A set of VMs are allocated for your code. The App Service plan defines the number of VMs and the VM size.
+
+In this architecture, each event that arrives on Event Hubs, triggers a function that processes that event. From a cost perspective, the recommendation is to use **consumption plan** because you pay only for the compute resources you use.
+
+
+### Azure Cosmos DB
+
+Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations, such as inserts, reads. The price is based on the capacity in RU/s that you reserve. Also, you have to reserve a minimum of 400 RUs per container, where a concurrent read of 1KB document consumes 1 RU. If your app does not need to be this intensive, consider using a single container because each container has a fixed cost.
+
+In this reference architecture, the function stores exactly one document per device that is sending data. The function continually updates the documents with latest device status, using an upsert operation, which is cost effective in terms of consumed storage. For more information, see [Cosmos DB pricing model][cosmosdb-pricing].
+
+Storage is billed for each GB used for your stored data and index. 
+
+Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
+
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+
 ## Deploy the solution
 
 To deploy this reference architecture, view the [GitHub readme][readme].
@@ -138,25 +171,29 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 
 <!-- links -->
 
-[cosmosdb]: /azure/cosmos-db/introduction
-[cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
-[cosmosdb-scale]: /azure/cosmos-db/partition-data
-[cosmosdb-sql]: /azure/cosmos-db/sql-api-introduction
-[eh]: /azure/event-hubs/
-[eh-autoscale]: /azure/event-hubs/event-hubs-auto-inflate
-[eh-dr]: /azure/event-hubs/event-hubs-geo-dr
-[eh-throughput]: /azure/event-hubs/event-hubs-scalability#throughput-units
-[eh-trigger]: /azure/azure-functions/functions-bindings-event-hubs
-[functions]: /azure/azure-functions/functions-overview
-[iot]: /azure/iot-hub/iot-hub-compare-event-hubs
-[log-analytics]: /azure/log-analytics/log-analytics-queries
-[monitor]: /azure/azure-monitor/overview
-[partition-key]: /azure/cosmos-db/partition-data
-[pipelines]: /azure/devops/pipelines/index
-[queue]: /azure/storage/queues/storage-queues-introduction
-[queue-binding]: /azure/azure-functions/functions-bindings-storage-queue#output
-[ra-grs]: /azure/storage/common/storage-redundancy-grs
-[ru]: /azure/cosmos-db/request-units
+[aaf-cost]: ../../framework/cost/overview.md
+[Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator
+[cosmosdb]: https://docs.microsoft.com/azure/cosmos-db/introduction
+[cosmosdb-geo]: https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally
+[cosmosdb-scale]: https://docs.microsoft.com/azure/cosmos-db/partition-data
+[cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
+[cosmosdb-sql]: https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[eh]: https://docs.microsoft.com/azure/event-hubs
+[eh-autoscale]: https://docs.microsoft.com/azure/event-hubs/event-hubs-auto-inflate
+[eh-dr]: https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr
+[eh-throughput]: https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units
+[eh-trigger]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-hubs
+[functions]: https://docs.microsoft.com/azure/azure-functions/functions-overview
+[iot]: https://docs.microsoft.com/azure/iot-hub/iot-hub-compare-event-hubs
+[log-analytics]: https://docs.microsoft.com/azure/log-analytics/log-analytics-queries
+[monitor]: https://docs.microsoft.com/azure/azure-monitor/overview
+[partition-key]: https://docs.microsoft.com/azure/cosmos-db/partition-data
+[pipelines]: https://docs.microsoft.com/azure/devops/pipelines/index
+[queue]: https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction
+[queue-binding]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-queue-output
+[ra-grs]: https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs
+[ru]: https://docs.microsoft.com/azure/cosmos-db/request-units
 
 [github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0
 [readme]: https://github.com/mspnp/serverless-reference-implementation/blob/v0.1.0/README.md

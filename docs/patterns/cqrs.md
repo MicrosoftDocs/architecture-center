@@ -1,6 +1,5 @@
 ---
-title: Command and Query Responsibility Segregation (CQRS) pattern
-titleSuffix: Cloud Design Patterns
+title: CQRS pattern
 description: Segregate operations that read data from those that update data.
 keywords: design pattern
 author: dragon119
@@ -13,7 +12,7 @@ ms.custom: seodec18
 
 # Command and Query Responsibility Segregation (CQRS) pattern
 
-The Command and Query Responsibility Segregation (CQRS) pattern seperates read and update operations for a data store. Implementing CQRS in your application can maximize its performance, scalability, and security. The flexability created by migrating to CQRS allows a system to better evolve over time and prevents update commands from causing merge conflicts at the domain level.
+The Command and Query Responsibility Segregation (CQRS) pattern separates read and update operations for a data store. Implementing CQRS in your application can maximize its performance, scalability, and security. The flexibility created by migrating to CQRS allows a system to better evolve over time and prevents update commands from causing merge conflicts at the domain level.
 
 ## The problem
 

@@ -4,7 +4,7 @@ titleSuffix: Cloud Design Patterns
 description: Use a token or key that provides clients with restricted direct access to a specific resource or service.
 keywords: design pattern
 author: dragon119
-ms.date: 06/23/2017
+ms.date: 02/24/2020
 ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -99,14 +99,14 @@ Azure supports shared access signatures on Azure Storage for granular access con
 
 Azure shared access signatures also support server-stored access policies that can be associated with a specific resource such as a table or blob. This feature provides additional control and flexibility compared to application-generated shared access signature tokens, and should be used whenever possible. Settings defined in a server-stored policy can be changed and are reflected in the token without requiring a new token to be issued, but settings defined in the token can't be changed without issuing a new token. This approach also makes it possible to revoke a valid shared access signature token before it's expired.
 
-> For more information, see [Introducing Table SAS (Shared Access Signature), Queue SAS and update to Blob SAS](https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas/) and [Using Shared Access Signatures](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) on MSDN.
+> For more information, see [Introducing Table SAS (Shared Access Signature), Queue SAS and update to Blob SAS](https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas/) and [Using Shared Access Signatures](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) on MSDN.
 
 The following code shows how to create a shared access signature token that's valid for five minutes. The `GetSharedAccessReferenceForUpload` method returns a shared access signatures token that can be used to upload a file to Azure Blob Storage.
 
 ```csharp
 public class ValuesController : ApiController
 {
-  private readonly CloudStorageAccount account;
+  private readonly BlobServiceClient blobServiceClient;
   private readonly string blobContainer;
   ...
   /// <summary>
@@ -114,39 +114,33 @@ public class ValuesController : ApiController
   /// to this specific destination for a defined period of time.
   /// </summary>
   private StorageEntitySas GetSharedAccessReferenceForUpload(string blobName)
-  {
-    var blobClient = this.account.CreateCloudBlobClient();
-    var container = blobClient.GetContainerReference(this.blobContainer);
+  {          
+      var blob = blobServiceClient.GetBlobContainerClient(this.blobContainer).GetBlobClient(blobName);
 
-    var blob = container.GetBlockBlobReference(blobName);
+      var storageSharedKeyCredential = new StorageSharedKeyCredential(blobServiceClient.AccountName, ConfigurationManager.AppSettings["AzureStorageEmulatorAccountKey"]);
 
-    var policy = new SharedAccessBlobPolicy
-    {
-      Permissions = SharedAccessBlobPermissions.Write,
+      var blobSasBuilder = new BlobSasBuilder
 
-      // Specify a start time five minutes earlier to allow for client clock skew.
-      SharedAccessStartTime = DateTime.UtcNow.AddMinutes(-5),
-
-      // Specify a validity period of five minutes starting from now.
-      SharedAccessExpiryTime = DateTime.UtcNow.AddMinutes(5)
-    };
-
-    // Create the signature.
-    var sas = blob.GetSharedAccessSignature(policy);
-
-    return new StorageEntitySas
-    {
-      BlobUri = blob.Uri,
-      Credentials = sas,
-      Name = blobName
-    };
+      {
+          BlobContainerName = this.blobContainer,
+          BlobName = blobName,
+          Resource = "b",
+          StartsOn = DateTimeOffset.UtcNow.AddMinutes(-5),
+          ExpiresOn = DateTimeOffset.UtcNow.AddMinutes(5)
+      };
+      policy.SetPermissions(BlobSasPermissions.Write);
+      var sas = policy.ToSasQueryParameters(storageSharedKeyCredential).ToString();
+  
+      return new StorageEntitySas
+      {
+          BlobUri = blob.Uri,
+          Credentials = sas
+      };
   }
-
   public struct StorageEntitySas
   {
-    public string Credentials;
-    public Uri BlobUri;
-    public string Name;
+      public string Credentials;
+      public Uri BlobUri;
   }
 }
 ```
@@ -161,5 +155,5 @@ The following patterns and guidance might also be relevant when implementing thi
 - [Gatekeeper pattern](./gatekeeper.md). This pattern can be used in conjunction with the Valet Key pattern to protect applications and services by using a dedicated host instance that acts as a broker between clients and the application or service. The gatekeeper validates and sanitizes requests, and passes requests and data between the client and the application. Can provide an additional layer of security, and reduce the attack surface of the system.
 - [Static Content Hosting pattern](./static-content-hosting.md). Describes how to deploy static resources to a cloud-based storage service that can deliver these resources directly to the client to reduce the requirement for expensive compute instances. Where the resources aren't intended to be publicly available, the Valet Key pattern can be used to secure them.
 - [Introducing Table SAS (Shared Access Signature), Queue SAS and update to Blob SAS](https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas/)
-- [Using Shared Access Signatures](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
-- [Shared Access Signature Authentication with Service Bus](/azure/service-bus-messaging/service-bus-sas)
+- [Using Shared Access Signatures](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+- [Shared Access Signature Authentication with Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-sas)

@@ -1,10 +1,13 @@
 ---
-title: Microservices reference implementation for Azure Kubernetes Service
+title: Designing a microservices architecture
 description: This reference implementation illustrates best practices for a microservices architecture
 author: MikeWasson
 ms.date: 02/26/2019
 ms.topic: guide
 ms.service: architecture-center
+ms.category:
+  - developer-tools
+  - featured
 ms.subservice: reference-architecture
 ms.custom: microservices
 ---
@@ -44,7 +47,7 @@ This scenario involves a fairly complicated domain. Some of the business concern
 > [!NOTE]
 > For help in choosing between a microservices architecture and other architectural styles, see the [Azure Application Architecture Guide](../../guide/index.md).
 
-Our reference implementation uses Kubernetes with [Azure Kubernetes Service](/azure/aks/) (AKS). However, many of the high-level architectural decisions and challenges will apply to any container orchestrator, including [Azure Service Fabric](/azure/service-fabric/).
+Our reference implementation uses Kubernetes with [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) (AKS). However, many of the high-level architectural decisions and challenges will apply to any container orchestrator, including [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/).
 
 <!-- links -->
 

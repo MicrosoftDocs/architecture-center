@@ -4,7 +4,7 @@ description: Replace this text based on the guidance in Completing the metadata 
 keywords: Replace this text based on the guidance in Completing the metadata under the Article Title section.
 ms.date: mm/dd/yyyy
 pnp.series.title: Cloud Design Patterns
-pnp.pattern.categories: Replace this text based on the guidance in Completing the metadata under the Article Title section. 
+pnp.pattern.categories: Replace this text based on the guidance in Completing the metadata under the Article Title section.
 ---
 
 # Article Title
