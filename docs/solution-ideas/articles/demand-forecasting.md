@@ -6,17 +6,23 @@ ms.date: 12/16/2019
 description: Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on demand forecasting within the energy sector.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/demand-forecasting/'
 ms.service: architecture-center
+ms.category:
+  - analytics
+  - ai-machine-learning
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/demand-forecasting.png
 ---
+
 # Demand Forecasting
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on demand forecasting within the energy sector.
 
 ## Architecture
 
-![Architecture diagram](../media/demand-forecasting.svg)
+![Architecture diagram](../media/demand-forecasting.png)
+*Download an [SVG](../media/demand-forecasting.svg) of this architecture.*
 
 ## Overview
 
@@ -26,7 +32,7 @@ This solution focuses on demand forecasting within the energy sector. Storing en
 
 ## Details
 
-The Cortana Intelligence Suite provides advanced analytics tools through Microsoft Azure — data ingestion, data storage, data processing and advanced analytics components — all of the essential elements for building an demand forecasting for energy solution.
+The Cortana Intelligence Suite provides advanced analytics tools through Microsoft Azure - data ingestion, data storage, data processing and advanced analytics components - all of the essential elements for building an demand forecasting for energy solution.
 
 This solution combines several Azure services to provide powerful advantages. Event Hubs collects real-time consumption data. Stream Analytics aggregates the streaming data and makes it available for visualization. Azure SQL stores and transforms the consumption data. Machine Learning implements and executes the forecasting model. PowerBI visualizes the real-time energy consumption as well as the forecast results. Finally, Data Factory orchestrates and schedules the entire data flow.
 
@@ -44,6 +50,4 @@ The 'Deploy' button will launch a workflow that will deploy an instance of the s
 
 ## Pricing Info
 
-Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution. For pricing details, visit the [Azure Pricing Page](https://azure.microsoft.com/pricing/calculator/).
-
-
+Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution. For pricing details, visit the [Azure Pricing Page](https://azure.microsoft.com/pricing/calculator).

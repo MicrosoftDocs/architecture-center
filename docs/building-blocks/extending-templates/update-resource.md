@@ -1,12 +1,17 @@
 ---
 title: Update a resource in an Azure Resource Manager template
 description: Describes how to extend the functionality of Azure Resource Manager templates to update a resource.
-author: petertay
+author: PeterTaylor9999
 ms.date: 10/31/2018
 ms.topic: article
 ms.service: architecture-center
+ms.category:
+  - developer-tools
+  - devops
 ms.subservice: reference-architecture
 ---
+
+<!-- cSpell:ignore subtemplate ipconfig -->
 
 # Update a resource in an Azure Resource Manager template
 
@@ -116,7 +121,7 @@ Let's look at an example template that demonstrates this. Our template deploys a
 }
 ```
 
-Let's take a look at the resource object for our `firstVNet` resource first. Notice that we respecify the settings for our `firstVNet` in a nested template&mdash;this is because Resource Manager doesn't allow the same deployment name within the same template and nested templates are considered to be a different template. By respecifying our values for our `firstSubnet` resource, we are telling Resource Manager to update the existing resource instead of deleting it and redeploying it. Finally, our new settings for `secondSubnet` are picked up during this update.
+Let's take a look at the resource object for our `firstVNet` resource first. Notice that we specify again the settings for our `firstVNet` in a nested template&mdash;this is because Resource Manager doesn't allow the same deployment name within the same template and nested templates are considered to be a different template. By again specifying our values for our `firstSubnet` resource, we are telling Resource Manager to update the existing resource instead of deleting it and redeploying it. Finally, our new settings for `secondSubnet` are picked up during this update.
 
 ## Try the template
 
@@ -140,7 +145,7 @@ The original `firstVNet` has been updated instead of re-created. If `firstVNet` 
 
 ## Next steps
 
-* Learn how deploy a resource based on a condition, such as whether a parameter value is present. See [Conditionally deploy a resource in an Azure Resource Manager template](./conditional-deploy.md).
+- Learn how deploy a resource based on a condition, such as whether a parameter value is present. See [Conditionally deploy a resource in an Azure Resource Manager template](./conditional-deploy.md).
 
-[cli]: /cli/azure/?view=azure-cli-latest
+[cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest
 [github]: https://github.com/mspnp/template-examples

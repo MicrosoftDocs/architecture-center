@@ -1,6 +1,6 @@
 ---
 title: Choosing a search data store
-description: 
+description: Compare Azure search data store technologies that create and store specialized indexes for searching free-form text.
 author: zoinerTejada
 ms.date: 02/12/2018
 ms.topic: guide
@@ -20,10 +20,10 @@ This article compares technology choices for search data stores in Azure. A sear
 
 In Azure, all of the following data stores will meet the core requirements for search against free-form text data by providing a search index:
 
-- [Azure Search](/azure/search/search-what-is-azure-search)
+- [Azure Search](https://docs.microsoft.com/azure/search/search-what-is-azure-search)
 - [Elasticsearch](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.elasticsearch?tab=Overview)
-- [HDInsight with Solr](/azure/hdinsight/hdinsight-hadoop-solr-install-linux)
-- [Azure SQL Database with full text search](/sql/relational-databases/search/full-text-search)
+- [HDInsight with Solr](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-solr-install-linux)
+- [Azure SQL Database with full text search](https://docs.microsoft.com/sql/relational-databases/search/full-text-search)
 
 ## Key selection criteria
 
@@ -51,7 +51,7 @@ The following tables summarize the key differences in capabilities.
 | --- | --- | --- | --- | --- |
 | Is managed service | Yes | No | Yes | Yes |  
 | REST API | Yes | Yes | Yes | No |
-| Programmability | .NET | Java | Java | T-SQL |
+| Programmability | .NET, Java, Python | Java | Java | T-SQL |
 | Document indexers for common file types (PDF, DOCX, TXT, and so on) | Yes | No | Yes | No |
 
 ### Manageability capabilities
@@ -74,9 +74,9 @@ The following tables summarize the key differences in capabilities.
 | Capability | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database |
 | --- | --- | --- | --- | --- |
 | Row-level security | Partial (requires application query to filter by group id) | Partial (requires application query to filter by group id) | Yes | Yes |
-| Transparent data encryption | No | No | No | Yes |  
-| Restrict access to specific IP addresses | No | Yes | Yes | Yes |
-| Restrict access to allow virtual network access only | No | Yes | Yes | Yes |  
+| Transparent data encryption | Yes | No | No | Yes |  
+| Restrict access to specific IP addresses | Yes | Yes | Yes | Yes |
+| Restrict access to allow virtual network access only | Yes | Yes | Yes | Yes |  
 | Active Directory authentication (integrated authentication) | No | No | No | Yes |
 
 ## See also

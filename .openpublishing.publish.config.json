@@ -31,11 +31,24 @@
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "master",
       "branch_mapping": {}
+    }, {
+      "path_to_root": "_themes.pdf",
+      "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
+      "branch": "master",
+      "branch_mapping": {}
     }
   ],
-  "branch_target_mapping": {},
-  "need_generate_pdf_url_template": false,
-  "targets": {},
+  "branch_target_mapping": {
+    "live": ["Publish", "Pdf"],
+		"master": ["Publish", "Pdf"]
+  },
+  "need_generate_pdf": true,
+  "need_generate_pdf_url_template": true,
+  "targets": {
+    "PDF": {
+			"template_folder": "_themes.pdf"
+		}
+  },
   "docs_build_engine": {
     "name": "docfx_v3"
   }

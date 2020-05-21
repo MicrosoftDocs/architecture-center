@@ -1,6 +1,6 @@
 ---
 title: Choosing a data pipeline orchestration technology
-description: 
+description: Choose an Azure data pipeline orchestration technology to automate pipeline orchestration, control flow, and data movement workflows.
 author: zoinerTejada
 ms.date: 02/12/2018
 ms.topic: guide
@@ -8,17 +8,21 @@ ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ---
 
+<!-- cSpell:ignore Oozie HDFS SSMS -->
+
 # Choosing a data pipeline orchestration technology in Azure
 
 Most big data solutions consist of repeated data processing operations, encapsulated in workflows. A pipeline orchestrator is a tool that helps to automate these workflows. An orchestrator can schedule jobs, execute workflows, and coordinate dependencies among tasks.
+
+<!--markdownlint-disable MD026 -->
 
 ## What are your options for data pipeline orchestration?
 
 In Azure, the following services and tools will meet the core requirements for pipeline orchestration, control flow, and data movement:
 
-- [Azure Data Factory](/azure/data-factory/)
-- [Oozie on HDInsight](/azure/hdinsight/hdinsight-use-oozie-linux-mac)
-- [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
+- [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/)
+- [Oozie on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-oozie-linux-mac)
+- [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
 
 These services and tools can be used independently from one another, or used together to create a hybrid solution. For example, the Integration Runtime (IR) in Azure Data Factory V2 can natively execute SSIS packages in a managed Azure compute environment. While there is some overlap in functionality between these services, there are a few key differences.
 
