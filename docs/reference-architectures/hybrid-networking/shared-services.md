@@ -175,6 +175,7 @@ Test-NetConnection 10.2.0.36 -CommonTCPPort RDP
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
+[guidance-hub-spoke]: ./hub-spoke.md
 [guidance-hub-spoke-DevOps]: ./hub-spoke.md#devops-considerations
 [linux-vm-ra]: ../n-tier/n-tier-cassandra.md
 [naming conventions]: https://docs.microsoft.com/azure/guidance/guidance-naming-conventions
