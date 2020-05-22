@@ -13,9 +13,9 @@ ms.custom:
 
 # Azure Active Directory in Security Operations
 
-This document shows how Security Operations Center (SOC) teams can incorporate Azure Active Directory (Azure AD) identity and access capabilities into an overall integrated and layered zero-trust security architecture.
+This document shows how Security Operations Center (SOC) teams can incorporate Azure Active Directory (Azure AD) identity and access capabilities into an overall integrated and layered *zero-trust security* architecture.
 
-When all user services and devices were contained on managed networks within organizations, network security dominated security operations. [Gartner](https://www.gartner.com/en/newsroom/press-releases/2019-04-02-gartner-forecasts-worldwide-public-cloud-revenue-to-g) predicts that through 2022, the market size and growth of the cloud services industry will grow at a rate nearly three times that of overall IT services. With more users and organizations moving towards cloud services, there's a shift toward treating [user identity](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices#treat-identity-as-the-primary-security-perimeter) as the primary security boundary.
+[Gartner](https://www.gartner.com/en/newsroom/press-releases/2019-04-02-gartner-forecasts-worldwide-public-cloud-revenue-to-g) predicts that through 2022, the market size and growth of the cloud services industry will grow at a rate nearly three times that of overall IT services. Network security dominated security operations when all user services and devices were contained on managed networks within organizations. With more users and organizations moving towards cloud services, there's a shift toward treating [user identity](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices#treat-identity-as-the-primary-security-perimeter) as the primary security boundary.
 
 The [zero trust security model](https://www.microsoft.com/security/business/zero-trust) treats all hosts as if they're internet-facing, and considers the entire network to be potentially compromised and hostile. This approach focuses on building strong authentication, authorization, and encryption, while also providing compartmentalized access and better operational agility.
 
@@ -27,7 +27,8 @@ As more companies embrace cloud computing, securing identities in the cloud is a
 
 - The [Microsoft 2019 security intelligence report](https://www.microsoft.com/security/blog/2019/02/28/microsoft-security-intelligence-report-volume-24-is-now-available/) reported that phishing attacks increased by a margin of 250% between January and December of 2018.
 
-Gartner promotes an [adaptive security architecture](https://www.gartner.com/smarterwithgartner/build-adaptive-security-architecture-into-your-organization/) that replaces an incident response-based strategy with a prevent-detect-respond-predict model. Adaptive access protection combines access control, behavioral monitoring, usage management, and discovery with continuous monitoring and analysis. 
+Gartner promotes an [adaptive security architecture](https://www.gartner.com/smarterwithgartner/build-adaptive-security-architecture-into-your-organization/) that replaces an incident response-based strategy with a *prevent-detect-respond-predict* model. Adaptive access protection combines access control, behavioral monitoring, usage management, and discovery with continuous monitoring and analysis.
+
 The [Microsoft Cybersecurity Reference Architecture (MCRA)](https://gallery.technet.microsoft.com/Cybersecurity-Reference-883fb54c) describes Microsoft's cybersecurity capabilities and how they integrate with existing security architectures, including cloud and hybrid environments that use Azure AD for Identity-as-a-Service (IDaaS).
 
 This article advances the adaptive security approach to IDaaS, emphasizing components available on the Azure AD platform.
@@ -41,53 +42,47 @@ This article advances the adaptive security approach to IDaaS, emphasizing compo
 
 ![Azure AD related security capabilities](architecture.png)
 
-1. Credential management controls authentication.
-2. App provisioning and entitlement management define the access package and assignments to resources, and push that data for attestation.
-3. The authorization engine evaluates the access policy to determine access. The engine also evaluates risk detection flags, including user/entity behavioral analytics (UEBA) data, and device compliance for endpoint management if implemented.
-4. If authorized, the user or device gains access per conditional access policies and other controls. If remediation is required, real-time remediation is performed.
-6. All session data is logged for analysis and reporting.
-7. The SIEM used by the SOC team receives all log, risk detection, and UEBA data from cloud and on-premises identities.
+1. *Credential management* controls authentication.
+1. *Provisioning* and *entitlement management* define the access package and assignments to resources, and push data for *attestation*.
+1. The *authorization engine* evaluates the *access policy* to determine access. The engine also evaluates *risk detection* flags, including *user/entity behavioral analytics (UEBA)* data, and device compliance for *endpoint management*.
+1. If authorized, the user or device gains access per *conditional access policies* and *controls*. 
+1. *Real-time remediation* is performed if needed.
+1. All session data is *logged* for analysis and reporting.
+1. The SOC team's *security information and event management system (SIEM)* receives all log, risk detection, and UEBA data from cloud and on-premises identities.
 
 ## Components
 
-The following adaptive security processes and Azure AD components contribute to Azure AD IDaaS.
+The following security processes and components contribute to this Azure AD IDaaS architecture.
 
 ### Credential management
 
-[Credential management](https://docs.microsoft.com/azure/active-directory/authentication/index) includes any service, policy, or practice used to issue, track and update access to resources or services. Azure AD credential management includes the following capabilities:
+[Credential management](https://docs.microsoft.com/azure/active-directory/authentication/index) includes services, policies, and practices that issue, track, and update access to resources or services. Azure AD credential management includes the following capabilities:
 
 - [Self-service password reset (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks) lets users self-serve and reset their own lost, forgotten, or compromised passwords. SSPR not only reduces helpdesk calls, but provides greater user flexibility and security.
 
 - [Password writeback](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback) syncs passwords changed in the cloud with on-premises directories in real time.
 
-- [Banned passwords](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad) analyzes telemetry data exposing commonly used weak or compromised passwords, and then bans their use globally throughout Azure AD. You can customize this functionality for your environment, and include a list of [custom passwords](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad#custom-banned-password-list) to ban within your own organization.
+- [Banned passwords](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad) analyzes telemetry data exposing commonly used weak or compromised passwords, and bans their use globally throughout Azure AD. You can customize this functionality for your environment, and include a list of [custom passwords](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad#custom-banned-password-list) to ban within your own organization.
 
-- [Smart lockout](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout) compares legitimate authentication attempts with brute-force guesses attempting to gain unauthorized access. Under the default smart lockout policy, an account locks out for one minute after 10 failed sign-in attempts. As sign-in attempts continue to fail, the account lockout time increases. You can use policies to adjust the settings for the appropriate mix of security and usability for your organization.
+- [Smart lockout](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout) compares legitimate authentication attempts with brute-force attempts to gain unauthorized access. Under the default smart lockout policy, an account locks out for one minute after 10 failed sign-in attempts. As sign-in attempts continue to fail, the account lockout time increases. You can use policies to adjust the settings for the appropriate mix of security and usability for your organization.
 
 - [Multi-factor authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) requires multiple forms of authentication when users attempt to access protected resources. Most users are familiar with using something they know, like a password, when accessing resources. MFA asks users to also demonstrate something that they have, like access to a trusted device, or something that they are, like a biometric identifier. MFA can use different kinds of [authentication methods](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods) like phone calls, text messages, or [notification through the authenticator app](https://www.microsoft.com/account/authenticator).
 
-- [Passwordless authentication](https://www.microsoft.com/security/business/identity/passwordless) replaces the password in the authentication workflow with a smartphone or hardware token, biometric identifier, or PIN.
-  
-  Microsoft passwordless authentication can work with Azure resources like [Windows hello for business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification), and the [Microsoft authenticator app](https://www.microsoft.com/account/authenticator) on mobile devices. Microsoft also has preview support for enabling passwordless authentication using [FIDO2 compatible security keys](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key), using WebAuthn and the [FIDO alliance’s Client-to-Authenticator (CTAP) protocol](https://fidoalliance.org/specifications/download/).
+- [Passwordless authentication](https://www.microsoft.com/security/business/identity/passwordless) replaces the password in the authentication workflow with a smartphone or hardware token, biometric identifier, or PIN. Microsoft passwordless authentication can work with Azure resources like [Windows hello for business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification), and the [Microsoft authenticator app](https://www.microsoft.com/account/authenticator) on mobile devices. You can also enable passwordless authentication with [FIDO2 compatible security keys](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key), which use WebAuthn and the [FIDO alliance’s Client-to-Authenticator (CTAP) protocol](https://fidoalliance.org/specifications/download/).
 
 ### App provisioning and entitlement
 
-- [Entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) is an Azure AD [identity governance](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview) feature that enables organizations to manage identity and access lifecycle at scale. Entitlement management automates access request workflows, access assignments, reviews, and expiration.
+- [Entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) is an Azure AD [identity governance](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview) feature that enables organizations to manage identity and access lifecycle at scale. Entitlement management automates access request workflows, access assignments, reviews, and expirations.
 
 - [Azure AD provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) lets you automatically create user identities and roles in applications that users need to access. You can configure [Azure AD provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works) for third-party *software-as-a-service (SaaS)* apps like [SuccessFactors](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial), [Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial), and [many more](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list).
 
-- [Seamless single sign-on (SSO)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) automatically authenticates users to cloud-based applications once they sign into their corporate device. You can use Azure AD seamless SSO with either [password hash synchronization](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) or [pass-through authentication](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta).
+- [Seamless single sign-on (SSO)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) automatically authenticates users to cloud-based applications once they sign into their corporate devices. You can use Azure AD seamless SSO with either [password hash synchronization](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) or [pass-through authentication](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta).
 
-- Attestation with [Azure AD access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) help meet monitoring and auditing requirements. With access reviews, you can quickly:
-  - Identify the number of users with admin roles
-  - Report on access for new employees to make sure they can access needed resources
-  - Review a user's access to determine if they need continued access
+- Attestation with [Azure AD access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) help meet monitoring and auditing requirements. Access reviews let you do things like quickly identify the number of admin users, make sure new employees can access needed resources, or review a user's access to determine if they need continued access.
 
 ### Conditional access policies and controls
 
 A [conditional access policy](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies) is an if-then statement of assignments and access controls. You define the response ("do this") to the reason for triggering your policy ("if this"), enabling the *authorization engine* to make decisions that enforce organizational policies. With [Azure AD conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), you can control how authorized users access your apps. The Azure AD [What If tool](https://docs.microsoft.com/azure/active-directory/conditional-access/troubleshoot-conditional-access-what-if) can help you understand why a policy was or wasn't applied, or if a policy would apply, to a user in a specific circumstance.
-
-[Endpoint management](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) controls how authorized users can access your cloud apps from a broad range of devices, including mobile and personal devices. You can use conditional access policies to restrict access to devices that meet certain security and compliance standards. These *managed devices* require a [device identity](https://docs.microsoft.com/azure/active-directory/devices/overview).
 
 [Conditional access controls](https://docs.microsoft.com/azure/active-directory/conditional-access/controls) work in conjunction with conditional access policies to help enforce organizational policy. Azure AD conditional access controls let you implement security based on factors detected at the time of the access request, rather than a one-size fits all approach. By coupling conditional access controls with access conditions, you reduce the need to create additional security controls. As a typical example, you can allow users on a domain-joined device to access resources using SSO, but require MFA for users off-network or using their own devices.
 
@@ -100,19 +95,21 @@ Azure AD can use the following conditional access controls with conditional acce
   You can use PIM to [require approval](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings) or justification for activating administrative roles. Users can maintain normal privileges most of the time, and request and receive access to roles they need to complete administrative or specialized tasks. When they complete their work and sign out, or the time limit on their access expires, they can reauthenticate with their standard user permissions.
 
 - [Microsoft cloud app security (MCAS)](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) is a *cloud app security broker (CAS-B)* that analyzes traffic logs to discover and monitor the applications and services in use in your organization. With MCAS, you can:
-  - [Create policies](https://docs.microsoft.com/cloud-app-security/control-cloud-apps-with-policies) to manage interaction with these apps and services
+  - [Create policies](https://docs.microsoft.com/cloud-app-security/control-cloud-apps-with-policies) to manage interaction with apps and services
   - Identify applications as [sanctioned or unsanctioned](https://docs.microsoft.com/cloud-app-security/governance-discovery)
   - [Control and limit access to data](https://docs.microsoft.com/cloud-app-security/governance-actions)
   - [Apply information protection](https://docs.microsoft.com/cloud-app-security/azip-integration) to guard against information loss
   
   MCAS can also work with [access policies](https://docs.microsoft.com/cloud-app-security/access-policy-aad) and [session policies](https://docs.microsoft.com/cloud-app-security/session-policy-aad) to control user access to SaaS apps. For example, you can:
-  - [Limit the IP ranges](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition) that can access the apps
+  - [Limit the IP ranges](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition) that can access apps
   - [Require MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) for access
   - [Allow activities only from within approved apps](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 - Limit [Exchange Online](https://docs.microsoft.com/graph/auth-limit-mailbox-access), SharePoint Online, and OneDrive for Business content access. The SharePoint admin center provides several ways to control access to SharePoint and OneDrive content. Using the [access control page in the SharePoint admin center](https://admin.microsoft.com/sharepoint?page=accessControl&modern=true), you can choose to [block access](https://docs.microsoft.com/sharepoint/control-access-from-unmanaged-devices#block-access-using-the-new-sharepoint-admin-center) or [allow limited, web-only access](https://docs.microsoft.com/sharepoint/control-access-from-unmanaged-devices#limit-access-using-the-new-sharepoint-admin-center) from unmanaged devices. You can also [control access based on network location](https://docs.microsoft.com/sharepoint/control-access-based-on-network-location). 
 
 - [Terms of Use (TOU)](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use) provides a way to present information that end users must consent to before gaining access to protected resources. You upload TOU documents to Azure as PDF files, which are then available as controls in conditional access policies. By creating a conditional access policy that requires users to consent to TOU at sign-in, you can easily audit users that accepted the TOU.
+
+- [Endpoint management](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) controls how authorized users can access your cloud apps from a broad range of devices, including mobile and personal devices. You can use conditional access policies to restrict access only to devices that meet certain security and compliance standards. These *managed devices* require a [device identity](https://docs.microsoft.com/azure/active-directory/devices/overview).
 
 ### Risk detection
 
@@ -126,7 +123,7 @@ Azure AD can use the following conditional access controls with conditional acce
 
 Azure AD [audit reports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs) provide traceability of changes made in Azure, and risky sign-in and security logs. You can filter and search the log data based on parameters including service, category, activity, and status.
 
-You can route Azure AD sign-in and [activity logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor) to endpoints like [Azure Monitor](https://azure.microsoft.com/services/monitor/), Azure Blob Storage, [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard), or [third-party security information and event management (SIEM) solutions](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs) like [ArcSight](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight), [Splunk](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-splunk), and [SumoLogic](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-sumologic). 
+You can route Azure AD sign-in and [activity logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor) to endpoints like [Azure Monitor](https://azure.microsoft.com/services/monitor/), Azure Blob Storage, [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard), or [third-party SIEM solutions](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs) like [ArcSight](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight), [Splunk](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-splunk), and [SumoLogic](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-sumologic). 
 
 [Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor) lets you route your Azure AD audit or sign-in logs to different locations or to your own SIEM system using [Azure event hubs](https://azure.microsoft.com/services/event-hubs/). You can use the [reporting graph API](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api) to retrieve and consume data within your own scripts. You can further integrate with [external SIEM, monitoring, and ITSM tools](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#partner-tools-with-azure-monitor-integration).
 
@@ -134,7 +131,7 @@ You can route Azure AD sign-in and [activity logs](https://docs.microsoft.com/az
 
 Authentication methods are key to securing your organization's identities in a hybrid scenario. Microsoft provides [specific guidance](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) on choosing a hybrid authentication method with Azure AD.
 
-[Azure Advanced Threat Protection (AATP)](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) can use your on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions. AATP focuses on *user/entity behavioral analytics (UEBA)* to identify insider threats and flag risk. Even if an identity becomes compromised, AATP can help identify the compromise based on unusual user behavior. 
+[Azure Advanced Threat Protection (AATP)](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) can use your on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions. AATP focuses on UEBA to identify insider threats and flag risk. Even if an identity becomes compromised, AATP can help identify the compromise based on unusual user behavior. 
 
 AATP is [integrated with MCAS](https://docs.microsoft.com/azure-advanced-threat-protection/atp-mcas-integration) to extend protection to cloud apps. You can use MCAS to create [session policies](https://docs.microsoft.com/cloud-app-security/session-policy-aad#protect-download) that protect your files on download. For example, you may automatically set view-only permissions on any file downloaded by specific types of users. 
 
@@ -151,7 +148,7 @@ Azure Active Directory pricing ranges from free, for features like SSO and MFA, 
 ## Next steps 
 - [Zero Trust security](https://www.microsoft.com/security/business/zero-trust)
 - [Zero Trust Deployment Guide for Microsoft Azure Active Directory](https://www.microsoft.com/security/blog/2020/04/30/zero-trust-deployment-guide-azure-active-directory/)
-- [Overview of the security pillar](https://docs.microsoft.com/azure/architecture/framework/security/overview).  
-- [Azure Security Compass](https://github.com/MarkSimos/MicrosoftSecurity/blob/master/Azure%20Security%20Compass%201.1/AzureSecurityCompassIndex.md). 
-- [Azure Active Directory demo tenant](https://demos.microsoft.com/) (requires a Microsoft Partner Network account), or [Enterprise Mobility + Security free trial](https://www.microsoft.com/microsoft-365/enterprise-mobility-security). 
+- [Overview of the security pillar](https://docs.microsoft.com/azure/architecture/framework/security/overview)
+- [Azure Security Compass](https://github.com/MarkSimos/MicrosoftSecurity/blob/master/Azure%20Security%20Compass%201.1/AzureSecurityCompassIndex.md)
+- [Azure Active Directory demo tenant](https://demos.microsoft.com/) (requires a Microsoft Partner Network account), or [Enterprise Mobility + Security free trial](https://www.microsoft.com/microsoft-365/enterprise-mobility-security)
 - [Azure Active Directory deployment plans](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans)
