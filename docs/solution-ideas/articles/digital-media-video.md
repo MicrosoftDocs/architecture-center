@@ -37,6 +37,7 @@ This solution is built on the Azure managed services: [Blob Storage](https://azu
 
 ## Next steps
 
+* [Azure Media Services overview](/azure/media-services/latest/media-services-overview)
 * [How to use Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 * [How to encode an asset using Media Encoder](https://docs.microsoft.com/azure/media-services/media-services-rest-encode-asset)
 * [How to manage streaming endpoints](https://docs.microsoft.com/azure/media-services/media-services-portal-manage-streaming-endpoints)
