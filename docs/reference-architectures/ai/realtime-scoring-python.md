@@ -124,6 +124,9 @@ Use [RBAC][rbac] to control access to the Azure resources that you deploy. RBAC 
 
 Use the  [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
 
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+
+
 ### Azure Machine Learning'
 
 In this reference architecture, a large portion of cost is driven by compute resources. For the purposes of experimentation and training, Azure Machine Learning is free. You are only charged for the compute used by the web service. Use the [Azure pricing calculator][azure-pricing-calculator] to estimate your compute costs.
@@ -136,7 +139,13 @@ Azure Container Registry offers **Basic**, **Standard**, and **Premium**. Choose
 
 You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources, see the [Container Services calculator][aks-Calculator].
 
-For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+
+For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
+
+## DevOps considerations
+
+In this architecture the scoring images are created by the Machine Learning model and deployed as containers on AKS. You can integrate the entire architecture into a release pipeline for model management and oprationalization, including DevOps tasks for data sanity test, model training on different compute targets, model version management, model deployment as real-time web service, staged deployment to QA/production environments, integration testing and functional testing. 
+The [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning][mlops-ra] reference architecture shows how to implement a continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning.
 
 ## Deployment
 
@@ -160,16 +169,17 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 [get-started]: https://docs.microsoft.com/azure/security-center/security-center-get-started
 [github-python]: https://github.com/Microsoft/MLAKSDeployAML
 [github-dl]: https://github.com/Microsoft/AKSDeploymentTutorial_AML
-[gpus-vs-cpus]: https://azure.microsoft.com/blog/gpus-vs-cpus-for-deployment-of-deep-learning-models
-[https-ingress]: https://docs.microsoft.com/azure/aks/ingress-tls
-[ingress-controller]: https://kubernetes.io/docs/concepts/services-networking/ingress
-[kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl
-[aml]: https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml
-[manually-scale-pods]: https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale#manually-scale-pods
-[monitor-containers]: https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview
-[permissions]: https://docs.microsoft.com/azure/aks/concepts-identity
-[rbac]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
-[scale-cluster]: https://docs.microsoft.com/azure/aks/scale-cluster
-[scikit]: https://pypi.org/project/scikit-learn
-[security-center]: https://docs.microsoft.com/azure/security-center/security-center-intro
-[vm]: https://docs.microsoft.com/azure/virtual-machines
+[gpus-vs-cpus]: https://azure.microsoft.com/blog/gpus-vs-cpus-for-deployment-of-deep-learning-models/
+[https-ingress]: /azure/aks/ingress-tls
+[ingress-controller]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+[aml]: /azure/machine-learning/service/overview-what-is-azure-ml
+[manually-scale-pods]: /azure/aks/tutorial-kubernetes-scale#manually-scale-pods
+[mlops-ra]: ./mlops-python.md
+[monitor-containers]: /azure/monitoring/monitoring-container-insights-overview
+[permissions]: /azure/aks/concepts-identity
+[rbac]: /azure/active-directory/role-based-access-control-what-is
+[scale-cluster]: /azure/aks/scale-cluster
+[scikit]: https://pypi.org/project/scikit-learn/
+[security-center]: /azure/security-center/security-center-intro
+[vm]: /azure/virtual-machines/
