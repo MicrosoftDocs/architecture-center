@@ -15,9 +15,9 @@ ms.custom:
 
 This architecture shows how Security Operations Center (SOC) teams can incorporate Azure Active Directory (Azure AD) identity and access capabilities into an overall integrated and layered *zero-trust* security strategy.
 
-[Gartner](https://www.gartner.com/en/newsroom/press-releases/2019-04-02-gartner-forecasts-worldwide-public-cloud-revenue-to-g) predicts that through 2022, the market size and growth of the cloud services industry will grow at a rate nearly three times that of overall IT services. Although network security dominated security operations when all services and devices were contained on managed networks in organizations, with cloud services there's a shift toward treating [user identity](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices#treat-identity-as-the-primary-security-perimeter) as the primary security boundary.
+Network security dominated SOC operations when all services and devices were contained on managed networks in organizations. However, [Gartner](https://www.gartner.com/en/newsroom/press-releases/2019-04-02-gartner-forecasts-worldwide-public-cloud-revenue-to-g) predicts that through 2022, the market size of cloud services will grow at a rate nearly three times that of overall IT services. As more companies embrace cloud computing, there's a shift toward treating [user identity](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices#treat-identity-as-the-primary-security-perimeter) as the primary security boundary.
 
-As more companies embrace cloud computing, securing identities in the cloud is a high priority.
+Securing identities in the cloud is a high priority.
 
 - A 2019 IBM [study of data breach incidents](https://www.all-about-security.de/fileadmin/micropages/Fachartikel_28/2019_Cost_of_a_Data_Breach_Report_final.pdf) reported that the average global cost of a data breach was $3.92M dollars, with the US average cost closer to $8.2M.
 
@@ -107,7 +107,7 @@ Azure AD can use the following conditional access controls with conditional acce
 
 - The [access control page in the SharePoint admin center](https://admin.microsoft.com/sharepoint?page=accessControl&modern=true) provides several ways to control access to SharePoint and OneDrive content. You can choose to [block access](https://docs.microsoft.com/sharepoint/control-access-from-unmanaged-devices#block-access-using-the-new-sharepoint-admin-center), allow [limited, web-only access](https://docs.microsoft.com/sharepoint/control-access-from-unmanaged-devices#limit-access-using-the-new-sharepoint-admin-center) from unmanaged devices, or [control access based on network location](https://docs.microsoft.com/sharepoint/control-access-based-on-network-location). 
 
-- **ApplicationAccessPolicy** in the Microsoft Graph API can limit app access to a specific set of [Exchange Online](https://docs.microsoft.com/graph/auth-limit-mailbox-access) mailboxes.
+- You can [scope application permissions to specific Exchange Online mailboxes](https://docs.microsoft.com/graph/auth-limit-mailbox-access) by using **ApplicationAccessPolicy** from the Microsoft Graph API.
 
 - [Terms of Use (TOU)](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use) provides a way to present information that end users must consent to before gaining access to protected resources. You upload TOU documents to Azure as PDF files, which are then available as controls in conditional access policies. By creating a conditional access policy that requires users to consent to TOU at sign-in, you can easily audit users that accepted the TOU.
 
@@ -115,19 +115,25 @@ Azure AD can use the following conditional access controls with conditional acce
 
 ### Risk detection
 
-[Azure identity protection](https://docs.microsoft.com/azure/active-directory/identity-protection/) includes several default policies that can help your organization manage responses to suspicious user actions. *User risk* is the probability that a user identity is compromised. *Sign-in risk* is the probability that a sign-in request isn't coming from the user. Azure AD calculates sign-in risk scores based on the probability of the sign-in request originating from the actual user, based on behavioral analytics.
+[Azure Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/) includes several policies that can help your organization manage responses to suspicious user actions. *User risk* is the probability that a user identity is compromised. *Sign-in risk* is the probability that a sign-in request isn't coming from the user. Azure AD calculates sign-in risk scores based on the probability of the sign-in request originating from the actual user, based on behavioral analytics.
 
-[Risk detection](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events) in Azure AD uses adaptive machine learning algorithms and heuristics to detect suspicious actions related to your user accounts. Each detected suspicious action is stored in a record called a *risk detection*. User and sign-in risk probability are calculated using this data, enhanced with Microsoft's internal and external threat intelligence sources and signals. [Risk detections APIs](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-graph-api) in the Microsoft Graph API expose information about risky users and sign-ins.
+- [Azure AD risk detections](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events) use adaptive machine learning algorithms and heuristics to detect suspicious actions related to user accounts. Each detected suspicious action is stored in a record called a *risk detection*. Azure AD calculates user and sign-in risk probability using this data, enhanced with Microsoft's internal and external threat intelligence sources and signals.
 
-[Real-time remediation](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock) allows users to self-remediate and unblock themselves by using SSPR and MFA when risk is detected.
+- You can use the Identity Protection [risk detection APIs](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-graph-api) in Microsoft Graph to expose information about risky users and sign-ins.
+
+- [Real-time remediation](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock) allows users to unblock themselves by using SSPR and MFA to self-remediate some risk detections.
 
 ### Logging
 
-Azure AD [audit reports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs) provide traceability of changes made in Azure, and risky sign-in and security logs. You can filter and search the log data based on several parameters, including service, category, activity, and status.
+Azure AD [audit reports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs) provide traceability for Azure activities with audit logs, sign-in logs, and risky sign-in and risky user reports. You can filter and search the log data based on several parameters, including service, category, activity, and status.
 
-You can route Azure AD sign-in and [activity logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor) to endpoints like [Azure Monitor](https://azure.microsoft.com/services/monitor/), Azure Blob Storage, [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard), or [third-party SIEM solutions](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs) like [ArcSight](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight), [Splunk](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-splunk), and [SumoLogic](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-sumologic). 
+You can route Azure AD log data to endpoints like:
+- Azure Storage accounts
+- [Azure Monitor logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor)
+- [Azure event hubs](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs)
+- SIEM solutions like [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard), [ArcSight](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight), [Splunk](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-splunk), [SumoLogic](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-sumologic), [other external SIEM tools](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#partner-tools-with-azure-monitor-integration), or your own solution. 
 
-[Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor) lets you route your Azure AD audit or sign-in logs to different locations or to your own SIEM system using [Azure event hubs](https://azure.microsoft.com/services/event-hubs/). You can use the [reporting graph API](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api) to retrieve and consume data within your own scripts. You can further integrate with [external SIEM, monitoring, and ITSM tools](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#partner-tools-with-azure-monitor-integration).
+You can also use the Microsoft Graph [reporting API](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api) to retrieve and consume Azure AD log data within your own scripts.
 
 ## On-premises and hybrid considerations
 

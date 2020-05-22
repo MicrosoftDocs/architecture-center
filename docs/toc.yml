@@ -1127,6 +1127,8 @@ items:
     items:
     - name: Architectures
       items:
+      - name: Azure AD in Security Operations
+        href: example-scenario/aadsec/azure-ad-security.md
       - name: Cyber threat intelligence
         href: example-scenario/data/sentinel-threat-intelligence.md
       - name: Highly-secure IaaS apps
