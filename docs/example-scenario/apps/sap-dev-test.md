@@ -59,7 +59,7 @@ Microsoft offers a service level agreement (SLA) for single VM instances. For mo
 
 ### Scalability
 
-For general guidance on designing scalable solutions, see the [scalability checklist][scalability] in the Azure Architecture Center.
+For general guidance on designing scalable solutions, see the [performance efficiency checklist][scalability] in the Azure Architecture Center.
 
 ### Security
 
@@ -103,7 +103,7 @@ Click the link below to deploy the solution.
 
 [resiliency]: ../../framework/resiliency/overview.md
 [security]: https://docs.microsoft.com/azure/security
-[scalability]: ../../checklist/scalability.md
+[scalability]: ../../checklist/performance-efficiency.md
 [sap-netweaver]: ../../reference-architectures/sap/sap-netweaver.md
 [sap-hana]: ../../reference-architectures/sap/sap-s4hana.md
 [sap-large]: ../../reference-architectures/sap/hana-large-instances.md

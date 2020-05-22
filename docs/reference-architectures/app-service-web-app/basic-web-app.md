@@ -78,7 +78,7 @@ The resource group also has a region, which specifies where deployment metadata 
 
 Use the [pricing calculator][pricing] to estimate costs.
 
-For more information, see the cost section in [Azure Architecture Framework](../../framework/cost/overview.md).
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework](../../framework/cost/overview.md).
 
 ## Scalability considerations
 

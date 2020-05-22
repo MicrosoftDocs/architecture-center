@@ -138,7 +138,7 @@ There are two factors that determine Azure Cosmos DB pricing:
 - Consumed storage.
     You are billed a flat rate for the total amount of storage (GBs) consumed for data and the indexes for a given hour.
 
-For more information, see the cost section in [Azure Architecture Framework](../../framework/cost/overview.md).
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework](../../framework/cost/overview.md).
 
 ## Manageability considerations
 

@@ -44,7 +44,7 @@ For example, you want to determine the cost of all resources used in your worklo
 - [Billing account API](/rest/api/billing/2019-10-01-preview/billingaccounts): To get your billing account to manage your invoices, payments, and track costs.
 - [Billing Periods API](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): To get billing periods that have consumption data.
 - [Usage Detail API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail): To get the breakdown of consumed quantities and estimated charges.
-- [Marketplace Store Charge API](/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge): To get usage-based marketplace charges for third-party services.
+- [Marketplace Store Charge API](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge): To get usage-based marketplace charges for third-party services.
 - [Price Sheet API](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet): To get the applicable rate for each meter.
 
 The result of the APIs can be imported into analysis tools.  

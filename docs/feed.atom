@@ -2,11 +2,123 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>the Azure Architecture Center</title>
-    <updated>2020-05-15T19:20:36.391Z</updated>
+    <updated>2020-05-21T16:58:16.491Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for the Azure Architecture Center</subtitle>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Serverless batch processing with Durable Functions in Azure Container Instances]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/durable-functions-containers</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/durable-functions-containers"/>
+        <updated>2020-05-20T20:22:46.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Functions Durable Functions to orchestrate, deploy, and run serverless batch processing jobs in Azure Container Instances (ACI) containers.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Firewall Architecture Guide]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/firewalls</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/firewalls"/>
+        <updated>2020-05-19T21:24:40.000Z</updated>
+        <summary type="html"><![CDATA[Use proven customer engagement practices to design firewalls and proxies in Azure for traditional infrastructure workloads.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Community Jury]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/community-jury</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/community-jury"/>
+        <updated>2020-05-19T11:45:11.000Z</updated>
+        <summary type="html"><![CDATA[This technique allows project teams to understand the perceptions and concerns of stakeholders.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Harms Modeling]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/harms-modeling</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/harms-modeling"/>
+        <updated>2020-05-19T11:45:11.000Z</updated>
+        <summary type="html"><![CDATA[This article describes how to figure out harms and negative impact of a technology and ways to mitigate them.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Types of harm]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/harms-modeling/type-of-harm</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/harms-modeling/type-of-harm"/>
+        <updated>2020-05-19T11:45:11.000Z</updated>
+        <summary type="html"><![CDATA[Understand the different types of harms, and learn steps to mitigate them.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Responsible Innovation]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/responsible-innovation</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/responsible-innovation"/>
+        <updated>2020-05-19T11:45:11.000Z</updated>
+        <summary type="html"><![CDATA[Responsible Innovation is a commitment to put people first in the development of technology by understanding the stakeholders and impact of your technology]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Judgment Call]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/judgmentcall</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/judgmentcall"/>
+        <updated>2020-05-19T11:45:11.000Z</updated>
+        <summary type="html"><![CDATA[This is a team-based activity that puts Microsoft AI principles into action.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Autoscale instances]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/cost/optimize-autoscale</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/cost/optimize-autoscale"/>
+        <updated>2020-05-16T00:22:08.000Z</updated>
+        <summary type="html"><![CDATA[Describes autoscaling strategies for lowering cost]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Checklist - Optimize cost]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/cost/optimize-checklist</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/cost/optimize-checklist"/>
+        <updated>2020-05-16T00:22:08.000Z</updated>
+        <summary type="html"><![CDATA[Optimize by using Azure Reservations to lower cost]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Reserved instances]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/cost/optimize-reserved</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/cost/optimize-reserved"/>
+        <updated>2020-05-16T00:22:08.000Z</updated>
+        <summary type="html"><![CDATA[Optimize by using Azure Reservations to lower cost]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Virtual machine instances]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/cost/optimize-vm</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/cost/optimize-vm"/>
+        <updated>2020-05-16T00:22:08.000Z</updated>
+        <summary type="html"><![CDATA[Optimize by using Azure Reservations to lower cost]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cost considerations for data store resources]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/cost/provision-datastores</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/cost/provision-datastores"/>
+        <updated>2020-05-15T23:34:44.000Z</updated>
+        <summary type="html"><![CDATA[Describes cost strategies for database design choices]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Networking resources provisioning]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/cost/provision-networking-services</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/cost/provision-networking-services"/>
+        <updated>2020-05-15T23:34:44.000Z</updated>
+        <summary type="html"><![CDATA[Describes cost strategies for networking design choices]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cost considerations for networking resources]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/cost/provision-networking</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/cost/provision-networking"/>
+        <updated>2020-05-15T23:34:44.000Z</updated>
+        <summary type="html"><![CDATA[Describes cost strategies for networking design choices]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Capture cost requirements for an Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/cost/design-capture-requirements</id>
@@ -232,6 +344,14 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Tradeoffs for costs]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/cost/tradeoffs</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/cost/tradeoffs"/>
+        <updated>2020-05-15T23:56:30.000Z</updated>
+        <summary type="html"><![CDATA[Describes some of the trade-offs you may decide to make when optimizing a workload for cost.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[AWS to Azure services comparison]]></title>
         <id>https://docs.microsoft.com/azure/architecture/aws-professional/services</id>
         <link href="https://docs.microsoft.com/azure/architecture/aws-professional/services"/>
@@ -256,11 +376,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Overview of the resiliency pillar]]></title>
+        <title type="html"><![CDATA[Overview of the reliability pillar]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/overview</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/overview"/>
         <updated>2020-05-06T21:22:07.000Z</updated>
-        <summary type="html"><![CDATA[Describes the resiliency pillar]]></summary>
+        <summary type="html"><![CDATA[Describes the reliability pillar]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -387,7 +507,7 @@
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-devices</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-devices"/>
         <updated>2020-04-17T20:35:35.000Z</updated>
-        <summary type="html"><![CDATA[Create seamless conversational interfaces with all of your internet-accessible devices—from your connected television or fridge to devices in a connected power plant. By combining Azure Speech Service, Language Understanding Service (LUIS) and Azure Bot Framework, developers can create natural, human-like conversational interfaces to control smart devices.]]></summary>
+        <summary type="html"><![CDATA[Create seamless conversational interfaces with all of your internet-accessible devices-from your connected television or fridge to devices in a connected power plant. By combining Azure Speech Service, Language Understanding Service (LUIS) and Azure Bot Framework, developers can create natural, human-like conversational interfaces to control smart devices.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -958,7 +1078,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Azure Architecture Framework]]></title>
+        <title type="html"><![CDATA[Microsoft Azure Well-Architected Framework]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework"/>
         <updated>2020-01-07T18:31:33.000Z</updated>

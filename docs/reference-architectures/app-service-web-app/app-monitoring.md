@@ -103,7 +103,7 @@ After deployment, you can watch a [Live Metrics Stream][Live Metrics Stream] of 
 
 Log Analytics is billed per gigabyte (GB) of data ingested into the service. The first 5 GB of data ingested to the Azure Log Analytics service every month is offered free, and the data is retained at no charge for first 31 days in your Log Analytics workspace.
 
-For more guidance please refer to the cost section in [Azure Architecture Framework][aaf-cost].
+For more guidance please refer to the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 ## Next steps
 

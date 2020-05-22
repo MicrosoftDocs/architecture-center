@@ -165,7 +165,7 @@ As you roll out new features or bug fixes to your bot, it's best to use multiple
 
 As with any other application, the bot can be designed to handle sensitive data. Therefore, restrict who can sign in and use the bot. Also limit which data can be accessed, based on the user's identity or role. Use Azure AD for identity and access control and Key Vault to manage keys and secrets.
 
-## Manageability considerations
+## DevOps considerations
 
 ### Monitoring and reporting
 
@@ -216,7 +216,7 @@ Logic apps pricing works on the pay-as-you-go model. Logic apps have a pay-as-yo
 
 For instance, your logic app processes 1000 messages a day from Azure Service Bus. A workflow of five actions will cost less than $6. For more information, see [Logic Apps pricing][Logic-Apps-Pricing].
 
-For other cost considerations, see the Cost section in [Azure Architecture Framework][aaf-cost].
+For other cost considerations, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 <!-- links -->
 
