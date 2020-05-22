@@ -27,19 +27,23 @@ Continue to monitor and optimize the workload by using the right resources and s
     - [Reserved instances](./optimize-reserved.md)
 
 - **Use discount prices**. These methods of buying Azure resources can lower costs. 
+    - [Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-benefit)
+    - [Azure Reservations](https://azure.microsoft.com/reservations)
+
+    There are also payment plans offered at a lower cost:
+
     - [Microsoft Azure Enterprise Agreement](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started)
     - [Enterprise Dev Test Subscription](https://azure.microsoft.com/offers/ms-azr-0148p/)
     - [Cloud Service Provider (Partner Program)](https://partner.microsoft.com/membership/cloud-solution-provider)
-    - [Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-benefit)
-    - [Azure Reservations](https://azure.microsoft.com/reservations)
+
 
 - **Have a scale-in and scale-out policy**. In a cost-optimized architecture, costs scale linearly with demand. Increasing customer base shouldn't require more investment in infrastructure. Conversely, if demand drops, scale-down of unused resources. Autoscale Azure resources when possible.
     - [Autoscale instances](./optimize-autoscale.md)
 
 - **Reevaluate design choices**. Analyze the cost reports and forecast the capacity needs. You might need to change some design choices.
-    - **Choose the right storage tier**. Consider using hot, cold, archive tier for storage account data. Storage accounts can provide automated tiering and lifecycle management.
+    - **Choose the right storage tier**. Consider using hot, cold, archive tier for storage account data. Storage accounts can provide automated tiering and lifecycle management. For more information, see [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)
 
-    - **Choose the right data store**. Instead of using one data store service, use a mix of data store depending on the type of data you need to store for each workload. 
+    - **Choose the right data store**. Instead of using one data store service, use a mix of data store depending on the type of data you need to store for each workload. For more information, see [Choose the right data store](/azure/architecture/guide/technology-choices/data-store-overview).
 
     - **Choose Spot VMs for low priority workloads**. Spot VMs are ideal for workloads that can be interrupted, such as highly parallel batch processing jobs.
         - [Spot VMs](./optimize-vm.md#spot-vms)
