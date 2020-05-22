@@ -39,6 +39,7 @@ Use the **Start/stop VMs during off-hours** feature of virtual machines to minim
 
 ## Spot VMs
 Some workloads don't have a business requirement to complete a job within a period. 
+
 **Can the workload be interrupted?**
 ***
 Spot VMs are ideal for workloads that can be interrupted, such as highly parallel batch processing jobs. These VMs take advantage of the surplus capacity in Azure at a lower cost. They're also well suited for experimental, development, and testing of large-scale solutions. 
