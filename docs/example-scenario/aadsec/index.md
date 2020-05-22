@@ -17,8 +17,6 @@ This document shows how Security Operations Center (SOC) teams can incorporate A
 
 [Gartner](https://www.gartner.com/en/newsroom/press-releases/2019-04-02-gartner-forecasts-worldwide-public-cloud-revenue-to-g) predicts that through 2022, the market size and growth of the cloud services industry will grow at a rate nearly three times that of overall IT services. Network security dominated security operations when all user services and devices were contained on managed networks within organizations. With more users and organizations moving towards cloud services, there's a shift toward treating [user identity](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices#treat-identity-as-the-primary-security-perimeter) as the primary security boundary.
 
-The [zero trust security model](https://www.microsoft.com/security/business/zero-trust) treats all hosts as if they're internet-facing, and considers the entire network to be potentially compromised and hostile. This approach focuses on building strong authentication, authorization, and encryption, while also providing compartmentalized access and better operational agility.
-
 As more companies embrace cloud computing, securing identities in the cloud is a high priority.
 
 - A 2019 IBM [study of data breach incidents](https://www.all-about-security.de/fileadmin/micropages/Fachartikel_28/2019_Cost_of_a_Data_Breach_Report_final.pdf) reported that the average global cost of a data breach was $3.92M dollars, with the US average cost closer to $8.2M.
@@ -27,11 +25,13 @@ As more companies embrace cloud computing, securing identities in the cloud is a
 
 - The [Microsoft 2019 security intelligence report](https://www.microsoft.com/security/blog/2019/02/28/microsoft-security-intelligence-report-volume-24-is-now-available/) reported that phishing attacks increased by a margin of 250% between January and December of 2018.
 
+The [zero trust security model](https://www.microsoft.com/security/business/zero-trust) treats all hosts as if they're internet-facing, and considers the entire network to be potentially compromised and hostile. This approach focuses on building strong authentication, authorization, and encryption, while also providing compartmentalized access and better operational agility.
+
 Gartner promotes an [adaptive security architecture](https://www.gartner.com/smarterwithgartner/build-adaptive-security-architecture-into-your-organization/) that replaces an incident response-based strategy with a *prevent-detect-respond-predict* model. Adaptive access protection combines access control, behavioral monitoring, usage management, and discovery with continuous monitoring and analysis.
 
-The [Microsoft Cybersecurity Reference Architecture (MCRA)](https://gallery.technet.microsoft.com/Cybersecurity-Reference-883fb54c) describes Microsoft's cybersecurity capabilities and how they integrate with existing security architectures, including cloud and hybrid environments that use Azure AD for Identity-as-a-Service (IDaaS).
+The [Microsoft Cybersecurity Reference Architecture (MCRA)](https://gallery.technet.microsoft.com/Cybersecurity-Reference-883fb54c) describes Microsoft's cybersecurity capabilities and how they integrate with existing security architectures, including cloud and hybrid environments that use Azure AD for *Identity-as-a-Service (IDaaS)*.
 
-This article advances the adaptive security approach to IDaaS, emphasizing components available on the Azure AD platform.
+This article advances the zero-trust, adaptive security approach to IDaaS, emphasizing components available on the Azure AD platform.
 
 ## Use cases
 - Design new security solutions
@@ -44,9 +44,9 @@ This article advances the adaptive security approach to IDaaS, emphasizing compo
 
 1. *Credential management* controls authentication.
 1. *Provisioning* and *entitlement management* define the access package and assignments to resources, and push data for *attestation*.
-1. The *authorization engine* evaluates the *access policy* to determine access. The engine also evaluates *risk detection* flags, including *user/entity behavioral analytics (UEBA)* data, and device compliance for *endpoint management*.
+1. The *authorization engine* evaluates the *access policy* to determine access. The engine also evaluates *risk detections*, including *user/entity behavioral analytics (UEBA)* data, and checks device compliance for *endpoint management*.
 1. If authorized, the user or device gains access per *conditional access policies* and *controls*. 
-1. *Real-time remediation* is performed if needed.
+1. If authorization fails, the user can perform *real-time remediation* to unblock themselves.
 1. All session data is *logged* for analysis and reporting.
 1. The SOC team's *security information and event management system (SIEM)* receives all log, risk detection, and UEBA data from cloud and on-premises identities.
 
@@ -82,7 +82,7 @@ The following security processes and components contribute to this Azure AD IDaa
 
 ### Conditional access policies and controls
 
-A [conditional access policy](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies) is an if-then statement of assignments and access controls. You define the response ("do this") to the reason for triggering your policy ("if this"), enabling the *authorization engine* to make decisions that enforce organizational policies. With [Azure AD conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), you can control how authorized users access your apps. The Azure AD [What If tool](https://docs.microsoft.com/azure/active-directory/conditional-access/troubleshoot-conditional-access-what-if) can help you understand why a policy was or wasn't applied, or if a policy would apply, to a user in a specific circumstance.
+A [conditional access policy](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies) is an if-then statement of assignments and access controls. You define the response ("do this") to the reason for triggering your policy ("if this"), enabling the *authorization engine* to make decisions that enforce organizational policies. With [Azure AD conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), you can control how authorized users access your apps. The Azure AD [What If tool](https://docs.microsoft.com/azure/active-directory/conditional-access/troubleshoot-conditional-access-what-if) can help you understand why a policy was or wasn't applied, or if a policy would apply to a user in a specific circumstance.
 
 [Conditional access controls](https://docs.microsoft.com/azure/active-directory/conditional-access/controls) work in conjunction with conditional access policies to help enforce organizational policy. Azure AD conditional access controls let you implement security based on factors detected at the time of the access request, rather than a one-size fits all approach. By coupling conditional access controls with access conditions, you reduce the need to create additional security controls. As a typical example, you can allow users on a domain-joined device to access resources using SSO, but require MFA for users off-network or using their own devices.
 
