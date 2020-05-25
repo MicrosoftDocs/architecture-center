@@ -133,7 +133,28 @@ items:
     items:
     - name: Overview
       href: aws-professional/index.md
-    - name: Services comparison
+    - name: Component information
+      expanded: true
+      items:
+      - name: Accounts
+        href: aws-professional/accounts.md
+      - name: Compute
+        href: aws-professional/compute.md
+      - name: Databases
+        href: aws-professional/databases.md
+      - name: Messaging
+        href: aws-professional/messaging.md
+      - name: Networking
+        href: aws-professional/networking.md
+      - name: Regions and Zones
+        href: aws-professional/regions-zones.md
+      - name: Resources
+        href: aws-professional/resources.md
+      - name: Security and Identity
+        href: aws-professional/security-identity.md
+      - name: Storage
+        href: aws-professional/storage.md
+    - name: Service comparison
       href: aws-professional/services.md
   - name: Azure for GCP Professionals
     items:
@@ -396,7 +417,7 @@ items:
     href: patterns/throttling.md
   - name: Valet Key
     href: patterns/valet-key.md
-- name: Technologies
+- name: Azure categories
   expanded: true
   items:
   - name: AI + Machine Learning
