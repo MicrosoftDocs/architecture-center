@@ -21,7 +21,7 @@ Those workloads have different needs. Batch processing is done with long-running
 For information about choosing technologies for each workload, see these articles:
 
 - Batch processing
-    - [Technology choices for batch processing](/azure/architecture/data-guide/technology-choices/batch-processingmd#technology-choices-for-batch-processing)
+    - [Technology choices for batch processing](/azure/architecture/data-guide/technology-choices/batch-processing#technology-choices-for-batch-processing)
     - [Capability matrix](/azure/architecture/data-guide/technology-choices/batch-processing#capability-matrix)
 
 - Stream processing
