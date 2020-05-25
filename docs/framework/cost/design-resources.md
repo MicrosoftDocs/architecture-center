@@ -28,7 +28,7 @@ A resource tier impacts pricing because each tier offers levels of features such
 > ![Task](../../_images/i-best-practices.svg) Start with a lower resource tier then scale the resource up as needed. Growing a service with little to 
 no downtime is easier when compared to downscaling a service. Downscaling usually requires deprovisioning or downtime. In general, choose scaling out instead of scaling up.
 
-As part of the requirements, consider the metrics for each resource  and build your alerts on baseline thresholds for each metric. The alerts can be used to fine-tune the resources. For more information, see [Respond to cost alert](monitoring.md).
+As part of the requirements, consider the metrics for each resource  and build your alerts on baseline thresholds for each metric. The alerts can be used to fine-tune the resources. For more information, see [Respond to cost alert](monitor-alert.md).
 
 ## Allocated usage for the resource
 

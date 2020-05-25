@@ -113,9 +113,9 @@ VPN gateway can be the cost driver in a workload because charges are based on th
 All inbound traffic is free, all outbound traffic is charged as per the bandwidth of the VPN type. Bandwidth also varies depending on the billing zone.
 
 For more information, see
-- [Hybrid connectivity](/azure/architecture/framework/cost/net-design-cost#hybrid-connectivity)
+- [Hybrid connectivity](/azure/architecture/framework/cost/provision-networking#hybrid-connectivity)
 - [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/).
-- [Traffic across zones](/azure/architecture/framework/cost/cost-region#traffic-across-zones)
+- [Traffic across zones](/azure/architecture/framework/cost/design-regions#traffic-across-billing-zones-and-regions)
 - [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### Reference architecture
@@ -158,9 +158,9 @@ By using Traffic View, you can get insight into the traffic patterns where you h
 Azure Virtual Network is free. You can create up to 50 virtual networks across all regions within a subscription. Here are a few considerations:
 
 - Inbound and outbound data transfers are charged per the billing zone. Traffic that moves across regions and billing zones are more expensive. For more information, see:
-    - [Traffic across zones](/azure/architecture/framework/cost/cost-region#traffic-across-zones)
+    - [Traffic across zones](/azure/architecture/framework/cost/design-regions#traffic-across-billing-zones-and-regions)
     - [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-- VNET Peering has additional cost. Peering within the same region is cheaper than peering between regions or Global regions. Inbound and outbound traffic is charged at both ends of the peered networks. For more information, see [Peering](/azure/architecture/framework/cost/net-design-cost#peering)
+- VNET Peering has additional cost. Peering within the same region is cheaper than peering between regions or Global regions. Inbound and outbound traffic is charged at both ends of the peered networks. For more information, see [Peering](/azure/architecture/framework/cost/provision-networking#peering)
 
 - Managed services (PaaS) don't always need a virtual network. The cost of networking is included in the service cost. 
