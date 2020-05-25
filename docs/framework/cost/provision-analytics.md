@@ -22,11 +22,11 @@ For information about choosing technologies for each workload, see these article
 
 - Batch processing
     - [Technology choices for batch processing](/azure/architecture/data-guide/technology-choices/batch-processingmd#technology-choices-for-batch-processing)
-    - [Capability matrix](/azure/architecture/data-guide/technology-choices/batch-processing.md#capability-matrix)
+    - [Capability matrix](/azure/architecture/data-guide/technology-choices/batch-processing#capability-matrix)
 
 - Stream processing
-    - [What are your options when choosing a technology for real-time processing?](/azure/architecture/data-guide/technology-choices/stream-processing.md#what-are-your-options-when-choosing-a-technology-for-real-time-processing)
-    - [Capability matrix](/azure/architecture/data-guide/technology-choices/stream-processing.md#capability-matrix)
+    - [What are your options when choosing a technology for real-time processing?](/azure/architecture/data-guide/technology-choices/stream-processing#what-are-your-options-when-choosing-a-technology-for-real-time-processing)
+    - [Capability matrix](/azure/architecture/data-guide/technology-choices/stream-processing#capability-matrix)
 
 This article provides cost considerations for some of those choices. This is not meant to be an exhaustive list, but a subset of options.
 

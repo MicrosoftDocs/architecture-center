@@ -48,7 +48,7 @@ Use this checklist when designing a cost-effective workload.
 - **Use proof-of-concept deployments**. The [Azure Architecture Center](/azure/architecture) has many reference architectures and implementations that can serve as a starting point.  The [Azure Tech Community](https://techcommunity.microsoft.com/t5/azure/ct-p/Azure) has architecture and services forums. 
 
 - **Choose managed services when possible**. With PaaS and SaaS options, the cost of running and maintaining the infrastructure is included in the service price.
-    - [Managed services](/azure/architecture/framework/cost/cost-des-paas)
+    - [Managed services](/azure/architecture/framework/cost/design-paas)
 
 
 
