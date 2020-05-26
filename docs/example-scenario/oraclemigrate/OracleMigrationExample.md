@@ -62,14 +62,14 @@ When using Hyper-Threading Technology enabled Azure virtual Machines, Oracle dat
 To create Oracle database to Azure Virtual Machine, refer [Oracle VM images and their deployment on Microsoft Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-vm-solutions) to gain step-by-step creation guidance.  
 
 #### Backup stragety
-For Oracle database backup stragety, besices Oracle Recovery Manager (RMAN) to back up the database with full backup, differential back, Azure backup provide VM snapshot as VM backup. Rfer [Backup strategy for Oracle database](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-backup-recovery)
+For Oracle database backup stragety, besices using Oracle Recovery Manager (RMAN) to back up the database with full backup, differential backup, Azure backup provide Oracle virtual Machine snapshot as  virtual Machine backup. Rfer [Backup strategy for Oracle database](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-backup-recovery)
 
 
 #### Business continuity and disaster recovery
-For business continuity and disaster recovery capacity, allow to deploy Oracle Data Guard with Fast-Start Failover (FSFO) for database availability, Oracle Data Guard Far Sync for zero data loss protection, Golden gate for multi-master or active-active mode on Azure availability set or availability zone depends on SLA requirements. Refer below docs about:
-[How to install and deploy data guard on Azure virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
-[How to install and deploy golden gate on Azure virtul machines](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/configure-oracle-golden-gate)
-[Refer architecutre for data guard on Azure virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-reference-architecture)
+For business continuity and disaster recovery, allow to deploy Oracle Data Guard with Fast-Start Failover (FSFO) for database availability, Oracle Data Guard Far Sync for zero data loss protection, Golden gate for multi-master or active-active mode on Azure availability set or availability zone depends on SLA requirements. Refer below docs about:
+[How to install and deploy data guard on Azure virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard) <br />
+[How to install and deploy golden gate on Azure virtul machines](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/configure-oracle-golden-gate)<br />
+[Refer architecutre for data guard on Azure virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-reference-architecture)<br />
 
 
 Oracle Real Application Cluster (RAC) alone cannot be used in Azure, leveraging FlashGrid SkyCluster can host RAC on Azure. 
