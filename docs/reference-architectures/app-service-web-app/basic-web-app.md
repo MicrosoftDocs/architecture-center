@@ -138,6 +138,12 @@ When assigning resources to resource groups, consider the following:
 
 For more information, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
+## DevOps considerations
+
+In this architecture you use an [Azure Resource Manager template][arm-template] for provisioning the Azure resources and its dependencies. Since this is a single web application, all the resources are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables the DevOps team to perform continuous integration and continuous delivery (CI/CD). Also, you can use different [Azure Resource Manager templates][arm-template] and integrate them with Azure DevOps Services to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
+
+Provision multiple instances of the web application, so it does not depend on a single instance which could create a single point of failure. Also multiple instances improve resiliency and scalability.
+
 ### Deployment
 
 Deployment involves two steps:
@@ -180,6 +186,9 @@ Tips for troubleshooting your application:
 - Enable [log streaming][web-app-log-stream] to see logging information in near-real time.
 - The [Kudu dashboard][kudu] has several tools for monitoring and debugging your application. For more information, see [Azure Websites online tools you should know about][kudu] (blog post). You can reach the Kudu dashboard from the Azure portal. Open the blade for your app and click **Tools**, then click **Kudu**.
 - If you use Visual Studio, see the article [Troubleshoot a web app in Azure App Service using Visual Studio][troubleshoot-web-app] for debugging and troubleshooting tips.
+
+
+For more information, see the DevOps section in [Azure Well-Architected Framework][AAF-devops].
 
 ## Security considerations
 
@@ -242,6 +251,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 <!-- links -->
 
 [aad-auth]: https://docs.microsoft.com/azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [app-insights]: https://docs.microsoft.com/azure/application-insights/app-insights-overview
 [app-insights-data-rate]: https://docs.microsoft.com/azure/application-insights/app-insights-pricing
 [app-service]: https://docs.microsoft.com/azure/app-service
