@@ -17,12 +17,12 @@ This example provide a reference for decision tree of Oracle database migration,
 
 ## Migration Decision Tree
 
-Since application restriction(i.e. applicaiton only support Oracle database) or technologies preference, there are some otpions for Oracle database migrate to Azure, refer below migration decision tree:
+Since restriction of applications (i.e. applicaiton only support Oracle database) or technologies preference, there are some otpions for Oracle database migrate to Azure, refer below migration decision tree:
 
 <IMG SRC="https://github.com/amberz/Azure-Data-Services-Practices/blob/master/Migrate%20Oracle%20Database%20to%20Azure/Images/OracleMigrationDecisionTree.png" />&nbsp;
 
 ## Migration Process
-ThBelow migration guidance provide Oracle database migrate to Azure Managed Service and Azure database for PostgreSQL, it includes existing Oracla Database environment assessment, Oracle schema and objects conversion to SQL, and data migration. For whole migraiton process, refer below migration process:
+Below migration guidance provide Oracle database migrate to Azure Managed Instance and Azure database for PostgreSQL including existing Oracla Database environment assessment, Oracle schemas and objects conversion to SQL or PostgreSQL, and data migration.
 <IMG SRC="https://github.com/amberz/Azure-Data-Services-Practices/blob/master/Migrate%20Oracle%20Database%20to%20Azure/Images/OracleMigrationProcesstoSQL&PG.png" />&nbsp;
 
 For Oracle database migrate to Azure virtual Machines(VMs), it's mainly about choose Azure VMs size, Disk type, data migration and how to archive business continuity and disaster recovery requirements. 
