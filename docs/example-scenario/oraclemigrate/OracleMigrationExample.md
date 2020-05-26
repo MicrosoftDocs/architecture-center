@@ -23,7 +23,7 @@ Since restriction of applications (i.e. applicaiton only support Oracle database
 
 ## Migration Process
 Below migration guidance provide Oracle database migrate to Azure Managed Instance and Azure database for PostgreSQL including existing Oracla Database environment assessment, Oracle schemas and objects conversion to SQL or PostgreSQL, and data migration.
-<IMG SRC="https://github.com/amberz/Azure-Data-Services-Practices/blob/master/Migrate%20Oracle%20Database%20to%20Azure/Images/OracleMigrationProcesstoSQL&PG.png" />&nbsp;
+<IMG SRC="https://github.com/amberz/amber-fork-architecture-center-pr/blob/Amber-branch/docs/example-scenario/oraclemigrate/images/OracleMigrationProcesstoSQL%26PG.png" />&nbsp;
 
 For Oracle database migrate to Azure virtual Machines(VMs), it's mainly about choose Azure VMs size, Disk type, data migration and how to archive business continuity and disaster recovery requirements. 
 
