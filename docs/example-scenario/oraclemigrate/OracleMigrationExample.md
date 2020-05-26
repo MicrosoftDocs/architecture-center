@@ -44,7 +44,7 @@ For how to run the both tools, see [Assessment guide](https://github.com/microso
 
 Oracle database would migrate to Azure Virtual Machine, Azure Database for PostgreSQL, Azure Managed Instance/Azure SQL Database, or leverage IntercCross-cloud connectivity( Interconnect) to access Oracle Cloud Infrastructure(OCI).
 
-### Lift/shift to Azure VMs
+### Scenario 1: Lift/shift to Azure VMs
 
 
 Azure provides Oracle database images with Bring-Your-Own-License, allows to migrate Oracle Database to Azure Virtual Machines.
