@@ -405,5 +405,5 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
 [considerations]: ./index.md
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
-[psise]: https://docs.microsoft.com/powershell/scripting/components/ise/windows-powershell-integrated-scripting-environment--ise-
+[psise]: https://docs.microsoft.com/powershell/scripting/windows-powershell/ise/introducing-the-windows-powershell-ise
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
