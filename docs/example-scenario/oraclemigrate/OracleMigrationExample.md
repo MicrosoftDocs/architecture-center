@@ -77,21 +77,21 @@ Oracle Real Application Cluster (RAC) alone cannot be used in Azure, leveraging 
 For Oracle RAC in Azure with FlashGrid SkyCluster, refer [Oracle RAC in Azure with FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/) as reference architecture, [SkyCluster for Oracle RAC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/flashgrid-inc.flashgrid-skycluster) provide Azure SkyCluster for Oracle RAC image. 
 
 
-### Refactor
+### Scenaio 2: Refactor
 
-If prefer managed service on Azure, Azure offer Azure database migration service to allow Oracle database easyly migrate Azure database for PostgreSQL. 
+If prefer managed service on Azure and have legacy Oracle code, Azure offer Azure database migration service to allow Oracle database easily migrate Azure database for PostgreSQL. 
 
 #### Prerequisites
-* Azure Subscritpion, refer [How to create Azure subscription](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/create-subscription) to create a new subscritpion if doesn't exist. 
-* Provision Azure Data Migration Service(DMS), refer [Create DMS using Azure portal](https://docs.microsoft.com/en-us/azure/dms/quickstart-create-data-migration-service-portal) about how to create DMS.
+* Azure Subscritpion is required, refer [How to create Azure subscription](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/create-subscription) to create a new subscritpion if doesn't exist. 
+* Provision Azure Data Migration Service(DMS), refer [Create DMS using Azure portal](https://docs.microsoft.com/en-us/azure/dms/quickstart-create-data-migration-service-portal) about how to create DMS on Azure.
 
 #### Why migrate to PostgreSQL
-* Azure database for PostgreSQL provide built-in business continuity and disaster recovery capacibity. Refer [PostgreSQL read replica](https://docs.microsoft.com/en-us/azure/postgresql/concepts-read-replicas)
+* Azure database for PostgreSQL provide built-in business continuity and disaster recovery capacibity. Refer [How to create PostgreSQL read replica](https://docs.microsoft.com/en-us/azure/postgresql/concepts-read-replicas) to improve PostgreSQL database reliability. 
 
-* Azure provide Azure Data Migration Service allow easily to convert Oracle objects and migrate online data to Azure database for PostgreSQL.  
+* Azure provide Azure Data Migration Service to allow easily to migrate to PostgreSQL online.  
 
 
-## Migration tools
+#### Migration tools
 
 Oracle Assessment script:
 [Assessment Calculator Template](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Customer%20Assessment%20CalculatorTemplate2.xlsx), 
