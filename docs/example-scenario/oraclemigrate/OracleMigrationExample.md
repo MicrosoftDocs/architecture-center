@@ -91,20 +91,6 @@ If prefer managed service on Azure and have legacy Oracle code, Azure offer Azur
 * Azure provide Azure Data Migration Service to allow easily to migrate data to PostgreSQL online.  
 
 
-#### Migration tools
-
-Oracle Assessment script:
-[Assessment Calculator Template](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Customer%20Assessment%20CalculatorTemplate2.xlsx), 
-[Oracle PL\SQL](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_Pre_v12.sql) 
-[Oracle PL\SQL 2](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_v12_Plus.sql) 
-
-
-Oracle schema conversition:
-[Ora2PG](http://ora2pg.darold.net)
-Oracle data online migration:
-[Microsoft Data Migration Service](https://docs.microsoft.com/en-us/azure/dms/tutorial-oracle-azure-postgresql-online)
-
-
 ### Assessment migration complexity 
 
 Ora2Pg allow to run below command to get migration complexity assessment. 
@@ -113,6 +99,24 @@ Ora2Pg allow to run below command to get migration complexity assessment.
 
 The output of the schema assessment as below:
 <IMG SRC="https://github.com/amberz/amber-fork-architecture-center-pr/blob/Amber-branch/docs/example-scenario/oraclemigrate/images/OracletoPGMigrationLevel.png" />&nbsp;
+
+
+#### Migration tools
+
+Oracle database discoveries script:
+[Assessment Calculator Template](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Customer%20Assessment%20CalculatorTemplate2.xlsx), 
+[Oracle PL\SQL](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_Pre_v12.sql) 
+[Oracle PL\SQL 2](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_v12_Plus.sql) <br />
+
+Assessment of Oracle database migration complexity 
+[Ora2PG](http://ora2pg.darold.net) <br />
+
+
+Oracle schema conversition:
+[Ora2PG](http://ora2pg.darold.net) <br />
+
+Oracle data online migration:
+[Microsoft Data Migration Service](https://docs.microsoft.com/en-us/azure/dms/tutorial-oracle-azure-postgresql-online)
 
 
 ## Oracle Objects conversion and Data migration
