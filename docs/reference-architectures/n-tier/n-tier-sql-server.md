@@ -295,7 +295,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 <!-- links -->
 
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
-[azure-monitor]: https://azure.microsoft.com/en-us/services/monitor/
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
 [Azure-SQl-Pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed/
 [app-gw-scaling]: https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant
 [azure-dns]: https://docs.microsoft.com/azure/dns/dns-overview

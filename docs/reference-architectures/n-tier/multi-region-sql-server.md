@@ -212,7 +212,7 @@ The following architecture uses some of the same technologies:
 <!-- links -->
 
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
-[azure-monitor]: https://azure.microsoft.com/en-us/services/monitor/
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [Sql-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/
 [Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows

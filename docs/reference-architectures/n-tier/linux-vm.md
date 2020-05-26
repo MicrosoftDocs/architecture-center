@@ -158,7 +158,7 @@ For more information, see the Operationl excellence section in [Microsoft Azure 
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azure-linux]: /azure/virtual-machines/virtual-machines-linux-azure-overview
-[azure-monitor]: https://azure.microsoft.com/en-us/services/monitor/
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
 [azure-storage]: /azure/storage/common/storage-introduction
 [blob-storage]: /azure/storage/common/storage-introduction
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/

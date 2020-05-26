@@ -268,7 +268,7 @@ For more information, see the Operational Excellence section in [Microsoft Azure
 [app-gw-scaling]: https://docs.microsoft.com/azure/application-gateway
 [azure-dns]: https://docs.microsoft.com/azure/dns/dns-overview
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault
-[azure-monitor]: https://azure.microsoft.com/en-us/services/monitor/
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cassandra-in-azure]: https://academy.datastax.com/resources/deployment-guide-azure
 [cassandra-consistency]: https://docs.datastax.com/en/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html

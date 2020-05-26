@@ -137,7 +137,7 @@ For more information, see the Operational Excellence section in [Azure Well-Arch
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [Azure Architecture Framework]: /azure/architecture/framework/cost/overview
-[azure-monitor]: https://azure.microsoft.com/en-us/services/monitor/
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-storage]: https://docs.microsoft.com/azure/storage/common/storage-introduction
 [blob-storage]: https://docs.microsoft.com/azure/storage/common/storage-introduction
