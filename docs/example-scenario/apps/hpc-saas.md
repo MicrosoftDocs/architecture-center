@@ -4,6 +4,8 @@ titleSuffix: Azure Example Scenarios
 description: Provide a software-as-a-service (SaaS) platform for computer-aided engineering (CAE) on Azure.
 author: alexbuckgit
 ms.date: 08/22/2018
+ms.category:
+  - compute
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -44,20 +46,20 @@ Other relevant use cases include:
 
 ### Components
 
-- [H-series virtual machines](/azure/virtual-machines/linux/sizes-hpc) are used to run compute-intensive simulations such as molecular modeling and computational fluid dynamics. The solution also takes advantage of technologies like remote direct memory access (RDMA) connectivity and InfiniBand networking.
-- [NV-series virtual machines](/azure/virtual-machines/windows/sizes-gpu) give engineers high-end workstation functionality from a standard web browser. These virtual machines have NVIDIA Tesla M60 GPUs that support advanced rendering and can run single precision workloads.
-- [General purpose virtual machines](/azure/virtual-machines/linux/sizes-general) running CentOS handle more traditional workloads such as web applications.
-- [Application Gateway](/azure/application-gateway/overview) load balances the requests coming into the web servers.
-- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) is used to run scalable workloads at a lower cost for simulations that don't require the high end capabilities of HPC or GPU virtual machines.
+- [H-series virtual machines](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) are used to run compute-intensive simulations such as molecular modeling and computational fluid dynamics. The solution also takes advantage of technologies like remote direct memory access (RDMA) connectivity and InfiniBand networking.
+- [NV-series virtual machines](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) give engineers high-end workstation functionality from a standard web browser. These virtual machines have NVIDIA Tesla M60 GPUs that support advanced rendering and can run single precision workloads.
+- [General purpose virtual machines](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general) running CentOS handle more traditional workloads such as web applications.
+- [Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview) load balances the requests coming into the web servers.
+- [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes) is used to run scalable workloads at a lower cost for simulations that don't require the high end capabilities of HPC or GPU virtual machines.
 - [Altair PBS Works Suite](https://www.pbsworks.com/PBSProduct.aspx?n=PBS-Works-Suite&c=Overview-and-Capabilities) orchestrates the HPC workflow, ensuring that enough virtual machine instances are available to handle the current load. It also deallocates virtual machines when demand is lower to reduce costs.
-- [Blob storage](/azure/storage/blobs/storage-blobs-introduction) stores files that support the scheduled jobs.
+- [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) stores files that support the scheduled jobs.
 
 ### Alternatives
 
-- [Azure CycleCloud](/azure/cyclecloud/overview) simplifies creating, managing, operating, and optimizing HPC clusters. It offers advanced policy and governance features. CycleCloud supports any job scheduler or software stack.
-- [HPC Pack](/azure/virtual-machines/windows/hpcpack-cluster-options) can create and manage an Azure HPC cluster for Windows Server-based workloads. HPC Pack isn't an option for Linux-based workloads.
-- [Azure Automation State Configuration](/azure/automation/automation-dsc-overview) provides an infrastructure-as-code approach to defining the virtual machines and software to be deployed. Virtual machines can be deployed as part of a virtual machine scale set, with autoscaling rules for compute nodes based on the number of jobs submitted to the job queue. When a new virtual machine is needed, it is provisioned using the latest patched image from the Azure image gallery, and then the required software is installed and configured via a PowerShell DSC configuration script.
-- [Azure Functions](/azure/azure-functions/functions-overview)
+- [Azure CycleCloud](https://docs.microsoft.com/azure/cyclecloud/overview) simplifies creating, managing, operating, and optimizing HPC clusters. It offers advanced policy and governance features. CycleCloud supports any job scheduler or software stack.
+- [HPC Pack](https://docs.microsoft.com/azure/virtual-machines/windows/hpcpack-cluster-options) can create and manage an Azure HPC cluster for Windows Server-based workloads. HPC Pack isn't an option for Linux-based workloads.
+- [Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-overview) provides an infrastructure-as-code approach to defining the virtual machines and software to be deployed. Virtual machines can be deployed as part of a virtual machine scale set, with autoscaling rules for compute nodes based on the number of jobs submitted to the job queue. When a new virtual machine is needed, it is provisioned using the latest patched image from the Azure image gallery, and then the required software is installed and configured via a PowerShell DSC configuration script.
+- [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)
 
 ## Considerations
 
@@ -75,7 +77,7 @@ The following considerations will drive a substantial portion of the costs for t
 - Azure virtual machine costs increase linearly as additional instances are provisioned. Virtual machines that are deallocated will only incur storage costs, and not compute costs. These deallocated machines can then be reallocated when demand is high.
 - Azure Kubernetes Services costs are based on the VM type chosen to support the workload. The costs will increase linearly based on the number of VMs in the cluster.
 
-## Next Steps
+## Next steps
 
 - Read the [Altair customer story][source-document]. This example scenario is based on a version of their architecture.
 - Review other [Big Compute solutions](https://azure.microsoft.com/solutions/big-compute) available in Azure.

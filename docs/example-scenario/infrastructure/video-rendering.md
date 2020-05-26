@@ -4,6 +4,8 @@ titleSuffix: Azure Example Scenarios
 description: Run native HPC workloads in Azure using the Azure Batch service.
 author: adamboeglin
 ms.date: 07/13/2018
+ms.category:
+  - compute
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -13,6 +15,8 @@ ms.custom:
   - media
 social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-video-rendering.png
 ---
+
+<!-- cSpell:ignore infiniband haswell cuda -->
 
 # 3D video rendering on Azure
 
@@ -48,8 +52,8 @@ To simplify this process, you could also use the [Batch Plugins for Maya and 3ds
 
 Azure Batch builds on the following Azure technologies:
 
-- [Virtual Networks](/azure/virtual-network/virtual-networks-overview) are used for both the head node and the compute resources.
-- [Azure Storage accounts](/azure/storage/common/storage-introduction) are used for synchronization and data retention.
+- [Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) are used for both the head node and the compute resources.
+- [Azure Storage accounts](https://docs.microsoft.com/azure/storage/common/storage-introduction) are used for synchronization and data retention.
 - [Virtual machine scale sets][vmss] are used by CycleCloud for compute resources.
 
 ## Considerations
@@ -157,33 +161,25 @@ Azure Batch also supports the use of low-priority VMs in the node pools, which c
 [Using containers on Azure Batch][batch-containers]
 
 <!-- links -->
+
 [architecture]: ./media/architecture-video-rendering.png
-[resource-groups]: /azure/azure-resource-manager/resource-group-overview
-[security]: /azure/security/
-[resiliency]: /azure/architecture/resiliency/
-[scalability]: /azure/architecture/checklist/scalability
-[vmss]: /azure/virtual-machine-scale-sets/overview
-[storage]: https://azure.microsoft.com/services/storage/
-[batch]: https://azure.microsoft.com/services/batch/
-[batch-arch]: https://azure.microsoft.com/solutions/architecture/big-compute-with-azure-batch/
-[compute-hpc]: /azure/virtual-machines/windows/sizes-hpc
-[compute-gpu]: /azure/virtual-machines/windows/sizes-gpu
-[compute-compute]: /azure/virtual-machines/windows/sizes-compute
-[compute-memory]: /azure/virtual-machines/windows/sizes-memory
-[compute-general]: /azure/virtual-machines/windows/sizes-general
-[compute-storage]: /azure/virtual-machines/windows/sizes-storage
-[compute-acu]: /azure/virtual-machines/windows/acu
-[compute=benchmark]: /azure/virtual-machines/windows/compute-benchmark-scores
+[security]: https://docs.microsoft.com/azure/security
+[vmss]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview
+[compute-hpc]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc
+[compute-gpu]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu
+[compute-memory]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory
+[compute-general]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general
+[compute=benchmark]: https://docs.microsoft.com/azure/virtual-machines/windows/compute-benchmark-scores
 [hpc-est-high]: https://azure.com/e/9ac25baf44ef49c3a6b156935ee9544c
 [hpc-est-med]: https://azure.com/e/0286f1d6f6784310af4dcda5aec8c893
 [hpc-est-low]: https://azure.com/e/e39afab4e71949f9bbabed99b428ba4a
 [batch-labs-masterclass]: https://github.com/azurebigcompute/BigComputeLabs/tree/master/Azure%20Batch%20Masterclass%20Labs
-[batch-scaling]: /azure/batch/batch-automatic-scaling
-[hpc-alt-solutions]: /azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fbatch%2ftoc.json
-[batch-monitor]: /azure/batch/monitoring-overview
-[batch-pricing]: https://azure.microsoft.com/pricing/details/batch/
-[batch-doc]: /azure/batch/
-[batch-overview]: https://azure.microsoft.com/services/batch/
+[batch-scaling]: https://docs.microsoft.com/azure/batch/batch-automatic-scaling
+[hpc-alt-solutions]: https://docs.microsoft.com/azure/virtual-machines/linux/high-performance-computing
+[batch-monitor]: https://docs.microsoft.com/azure/batch/monitoring-overview
+[batch-pricing]: https://azure.microsoft.com/pricing/details/batch
+[batch-doc]: https://docs.microsoft.com/azure/batch
+[batch-overview]: https://azure.microsoft.com/services/batch
 [batch-containers]: https://github.com/Azure/batch-shipyard
-[azure-arm-templates]: /azure/azure-resource-manager/template-deployment-overview
-[batch-plugins]: /azure/batch/batch-rendering-service#options-for-rendering-on-azure
+[azure-arm-templates]: https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview
+[batch-plugins]: https://docs.microsoft.com/azure/batch/batch-rendering-service#options-for-rendering-on-azure

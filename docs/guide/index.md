@@ -87,7 +87,7 @@ We have identified 10 high-level design principles that will make your applicati
 
 ### Design patterns
 
-Software design patterns are repeatable patterns that are proven to solve specific patterns. Our catalog of Cloud design patterns addresses specific challenges in distributed systems. They address aspects such as availability, resiliency, performance, and security. You can find our catalog of design patterns [here](../patterns/index.md).
+Software design patterns are repeatable patterns that are proven to solve specific problems. Our catalog of Cloud design patterns addresses specific challenges in distributed systems. They address aspects such as availability, resiliency, performance, and security. You can find our catalog of design patterns [here](../patterns/index.md).
 
 ### Best practices
 
@@ -106,7 +106,7 @@ A successful cloud application will focus on five pillars of software quality: C
 | Scalability | The ability of a system to adapt to changes in load. |
 | Security | Protecting applications and data from threats. |
 
-Use the [Azure Architecture Framework](../framework/index.md) to assess your architecture across these five pillars.
+Use the [Microsoft Azure Well-Architected Framework](../framework/index.md) to assess your architecture across these five pillars.
 
 ## Next steps
 

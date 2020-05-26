@@ -132,4 +132,4 @@ The boxes that are shaded gray show components of an IoT system that are not dir
 
  <!-- links -->
 
-[iot-ref-arch]: https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/
+[iot-ref-arch]: https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available

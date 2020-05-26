@@ -82,16 +82,16 @@ Consider the following points when using Azure autoscale:
 
 - If you configure autoscaling using the SDK rather than the portal, you can specify a more detailed schedule during which the rules are active. You can also create your own metrics and use them with or without any of the existing ones in your autoscaling rules. For example, you may wish to use alternative counters, such as the number of requests per second or the average memory availability, or use custom counters to measure specific business processes.
 
-- When autoscaling Service Fabric, the node types in your cluster are made of virtual machine scale sets at the back end, so you need to set up autoscale rules for each node type. Take into account the number of nodes that you must have before you set up autoscaling. The minimum number of nodes that you must have for the primary node type is driven by the reliability level you have chosen. For more information, see [scale a Service Fabric cluster in or out using autoscale rules](/azure/service-fabric/service-fabric-cluster-scale-up-down).
+- When autoscaling Service Fabric, the node types in your cluster are made of virtual machine scale sets at the back end, so you need to set up autoscale rules for each node type. Take into account the number of nodes that you must have before you set up autoscaling. The minimum number of nodes that you must have for the primary node type is driven by the reliability level you have chosen. For more information, see [scale a Service Fabric cluster in or out using autoscale rules](/azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling).
 
-- You can use the portal to link resources such as SQL Database instances and queues to a Cloud Service instance. This allows you to more easily access the separate manual and automatic scaling configuration options for each of the linked resources. For more information, see [How to: Link a resource to a cloud service](/azure/cloud-services/cloud-services-how-to-manage).
+- You can use the portal to link resources such as SQL Database instances and queues to a Cloud Service instance. This allows you to more easily access the separate manual and automatic scaling configuration options for each of the linked resources. For more information, see [How to: Link a resource to a cloud service](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-manage).
 
 - When you configure multiple policies and rules, they could conflict with each other. Autoscale uses the following conflict resolution rules to ensure that there is always a sufficient number of instances running:
   - Scale-out operations always take precedence over scale-in operations.
   - When scale-out operations conflict, the rule that initiates the largest increase in the number of instances takes precedence.
   - When scale in operations conflict, the rule that initiates the smallest decrease in the number of instances takes precedence.
 
-- In an App Service Environment, any worker pool or front-end metrics can be used to define autoscale rules. For more information, see [Autoscaling and App Service Environment](/azure/app-service/app-service-environment-auto-scale).
+- In an App Service Environment, any worker pool or front-end metrics can be used to define autoscale rules. For more information, see [Autoscaling and App Service Environment](https://docs.microsoft.com/azure/app-service/app-service-environment-auto-scale).
 
 ## Application design considerations
 
@@ -129,13 +129,11 @@ The following patterns and guidance may also be relevant to your scenario when i
 
 <!-- links -->
 
-[monitoring]: /azure/monitoring-and-diagnostics/monitoring-overview-autoscale
-[app-service-autoscale]: /azure/azure-monitor/platform/autoscale-best-practices#manual-scaling-is-reset-by-autoscale-min-and-max
-[app-service-plan]: /azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
-[autoscale-metrics]: /azure/monitoring-and-diagnostics/insights-autoscale-common-metrics
-[cloud-services-autoscale]: /azure/cloud-services/cloud-services-how-to-scale-portal
-[functions-scale]: /azure/azure-functions/functions-scale
-[link-resource-to-cloud-service]: /azure/cloud-services/cloud-services-how-to-manage#how-to-link-a-resource-to-a-cloud-service
-[service-fabric-autoscale]: /azure/service-fabric/service-fabric-cluster-scale-up-down
-[vm-scale-sets]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
-[vm-scale-sets-autoscale]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
+[monitoring]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-autoscale
+[app-service-autoscale]: https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-best-practices#manual-scaling-is-reset-by-autoscale-min-and-max
+[autoscale-metrics]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics
+[cloud-services-autoscale]: https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-scale-portal
+[functions-scale]: https://docs.microsoft.com/azure/azure-functions/functions-scale
+[service-fabric-autoscale]: /azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling
+[vm-scale-sets]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
+[vm-scale-sets-autoscale]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
