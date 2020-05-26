@@ -45,6 +45,8 @@ Technologies: Azure Functions, Logic Apps, Event Grid, Cosmos DB, API Management
 
 Registration: To attend a public event, view and register at http://openhack.microsoft.com.
 
+If you are an enterprise with many engineers that need to be upskilled on Azure Serverless and messaging, contact your Microsoft account manager as they can request and organize a dedicated delivery of the Serverless OpenHack for you.
+
 ## Hands-on-labs and How-to guides
 - [Building a serverless web app](https://docs.microsoft.com/labs/build2018/serverlesswebapp/) (Build 2018)
 - [Building a Serverless IoT Solution with Python Azure Functions and SignalR](https://dev.to/azure/building-a-serverless-iot-solution-with-python-azure-functions-and-signalr-4ljp) (dev.to)
