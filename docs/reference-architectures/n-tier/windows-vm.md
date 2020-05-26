@@ -92,7 +92,7 @@ Use [Azure Spot VMs](https://docs.microsoft.com/azure/virtual-machines/windows/s
 
 Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs.
 
-For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
 
 
 ## Security considerations
@@ -112,6 +112,19 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 **Data encryption**. Use [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks.
 
+## DevOps considerations
+
+Use infrastructure as Code (IaC) either by using a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources (declarative approach) or by using a single Powershell script (imperative approach). Since all the resources are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables the DevOps Team and Services to perform continuous integration and continuous delivery (CI/CD).
+
+Also, you can use different [Azure Resource Manager templates][arm-template] and integrate them with [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
+
+For higher availability architecture see [Windows N-tier application on Azure with SQL Server](./n-tier-sql-server.md), the reference architecture includes more than one VM and each VM is included in an availability set.
+
+Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines.
+
+
+For more information, see the Operational Excellence section in [Azure Well-Architected Framework][WAF-devops].
+
 ## Next steps
 
 - To provision a Windows VM, see [Create and Manage Windows VMs with Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -121,7 +134,10 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[Azure Architecture Framework]: /azure/architecture/framework/cost/overview
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-storage]: https://docs.microsoft.com/azure/storage/common/storage-introduction
 [blob-storage]: https://docs.microsoft.com/azure/storage/common/storage-introduction
@@ -157,3 +173,5 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 [vm-size-tables]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [windows-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
