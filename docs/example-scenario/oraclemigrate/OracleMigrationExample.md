@@ -10,9 +10,9 @@ ms.subservice: example-scenarios
 ms.custom:
 - fcp
 ---
-# Oracle Database migration scenario
+# Oracle database migration
 
-This example scenario give reference for decision tree of Oracle database migration, migration path to virtual machine, or Azure managed database(such as: PostgreSQL, SQL Database/Managed Instance), and also migration guidance. 
+This example provide a reference for decision tree of Oracle database migration, migration path to virtual machine, or Azure managed database(such as: PostgreSQL, SQL Database/Managed Instance), migration guidance and docs relative. 
 
 
 ## Migration Decision Tree
