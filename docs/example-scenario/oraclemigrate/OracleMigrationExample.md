@@ -93,7 +93,7 @@ If prefer managed service on Azure and have legacy Oracle code, Azure offer Azur
 
 ### Assessment migration complexity 
 
-Ora2Pg allow to run below command to get migration complexity assessment. 
+Ora2Pg allow to run below command to get migration complexity assessment. <br />
 `ora2pg -t SHOW_REPORT --estimate_cost`
 
 
