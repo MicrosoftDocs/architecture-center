@@ -47,18 +47,19 @@ Oracle database would migrate to Azure Virtual Machines, Azure Database for Post
 ### Scenario 1: Lift/shift to Azure VMs
 
 
-Azure provides Oracle database images with Bring-Your-Own-License, allows to migrate Oracle Database to Azure Virtual Machines.
+Azure provide Oracle database images with Bring-Your-Own-License, allow to migrate Oracle Database to Azure Virtual Machines.
 
 
 Whether Oracle database is certified and supported on Microsoft Azure?
+
 Oracle and Microsoft published [Oracle database is certified and supported on Microsoft Azure](https://www.oracle.com/cloud/azure-interconnect-faq.html)
 
 #### License
 When using Hyper-Threading Technology enabled Azure virtual Machines, Oracle database count two vCPUs as equivalent to one Oracle Processor license. Refer [Licensing Oracle Software in the Cloud Computing Environment](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf) for details. 
 
 
-#### Installation
-To install Oracle DB to Azure Virtual Machine, refer [Oracle VM images and their deployment on Microsoft Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-vm-solutions) to gain step-by-step installation guidance.  
+#### Create Oracle database
+To create Oracle database to Azure Virtual Machine, refer [Oracle VM images and their deployment on Microsoft Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-vm-solutions) to gain step-by-step creation guidance.  
 
 #### Backup stragety
 For Oracle database backup stragety, besices Oracle Recovery Manager (RMAN) to back up the database with full backup, differential back, Azure backup provide VM snapshot as VM backup. Rfer [Backup strategy for Oracle database](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-backup-recovery)
