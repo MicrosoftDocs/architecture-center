@@ -11,10 +11,11 @@ ms.custom:
 - fcp
 ---
 # Deliver Technical Implementation
-Code-with enable customers to be successful with building and operating their application. Deliver a technical implementation with the customer to modernize and/or build a new application to their specification can accelerate a deployment to production environment. You can work with our Microsoft CSE team or partner to scale the implementation to other parts of the workload. It’s very important to guide customer on how to optimize, secure and manage workloads. If you decide to deliver a technical implementation or code-with with customer, be aware about [CSE Code-With Customer/Partner Engineering Playbook](https://github.com/microsoft/code-with-engineering-playbook) to guide you on best practices. 
+Code-with enable customers to be successful with building and operating their application. Deliver a technical implementation with the customer to modernize and/or build a new application to their specification can accelerate a deployment to production environment. You can work with Microsoft teams or partners to scale the implementation to other parts of the workload. It’s very important to guide customer on how to optimize, secure and manage workloads. As you start with your technical implementation, a good reference is the [Engineering Playbook by the Microsoft Commercial Software Engineering (CSE)](https://github.com/microsoft/code-with-engineering-playbook) team to guide you on best practices. 
 
-## Microsoft CSE (Commercial Software Engineering)
-CSE (Commercial Software Engineering), works side by side with customers to help them tackle their toughest technical problems both in the cloud and on the edge. CSE team meet customers where they are, work in the languages they use, with the open source frameworks they use, on the operating systems they use. CSE team work with enterprises and startups across many industries from financial services to manufacturing. The work covers a broad spectrum of domains including IoT, machine learning, and high scale compute. The CSE team main strategy is working closely with both customers’ engineering teams and Microsoft’s product engineering teams, developing real-world expertise that we use to help our customers grow their business and help Microsoft improve our products and services.
+## Microsoft teams (tbd)
+describe all teams that our customer can use.
+
 
 ## CSE Code-With Customer/Partner Engineering Playbook
 With this [playbook](https://github.com/microsoft/code-with-engineering-playbook) you increase the overall efficiency for team members and the whole team in general, reducing the number of mistakes and avoiding common pitfalls, and strive to be a better engineer and learn from other people's shared experience.
