@@ -23,7 +23,7 @@ In Azure, all of the following data stores will meet the core requirements for s
 - [Azure Search](https://docs.microsoft.com/azure/search/search-what-is-azure-search)
   - using [CosmosDb](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb)
   - using [Azure SQL Database](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers)
-- [Elasticsearch](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.elasticsearch?tab=Overview)
+- [Elasticsearch](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.elasticsearch_service?tab=Overview)
 - [HDInsight with Solr](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-solr-install-linux)
 - [Azure SQL Database with full text search](https://docs.microsoft.com/sql/relational-databases/search/full-text-search)
 
