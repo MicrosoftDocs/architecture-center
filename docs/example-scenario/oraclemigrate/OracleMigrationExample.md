@@ -1,13 +1,13 @@
 ---
-title: Title
+title: Oracle database migration
 titleSuffix: Azure Example Scenarios
 description: Description
-author: GitHubAlias
+author: Amberz
 ms.date: 03/01/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenarios
-ms.custom:
+ms.custom: fasttrack-edit
 - fcp
 ---
 # Oracle database migration
@@ -194,7 +194,7 @@ To support multi-cloud experience, Microsoft and Oracle provide direct interconn
 
 #### Certify applications
 
-For which Oracle applications are certified by Oracle, refer [those certified applications by Oracle](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking) to run in Azure.
+For which Oracle applications are certified by Oracle and supported direct interconnection, refer [those certified applications by Oracle](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking) to run in Azure.
 
 #### How to configure cross-cloud connectivity
 Refer [Set up a direct interconnection between Azure and Oracle Cloud Infrastructure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking) to gain step-by-step configurations.
