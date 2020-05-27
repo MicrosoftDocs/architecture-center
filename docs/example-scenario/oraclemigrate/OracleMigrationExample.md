@@ -136,10 +136,9 @@ DMS provide online migration to reduce downtime, refer [How to online migrate Or
 
 ##### Workaround list
 
-Below is workaround list when migrating Oracle database to PostgreSQL:
-<IMG SRC="https://github.com/amberz/amber-fork-architecture-center-pr/blob/Amber-branch/docs/example-scenario/oraclemigrate/images/OracletoPGWorkaroundList.png" />&nbsp;
+Below is workaround list when migrating Oracle database to PostgreSQL, refer [Oracle migrate to PostgreSQL workaround list](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20Database%20for%20PostgreSQL%20Migration%20Workarounds.pdf) to get detailed scripts. 
 
-Refer [Oracle migrate to PostgreSQL workaround list](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20Database%20for%20PostgreSQL%20Migration%20Workarounds.pdf) to get detailed scripts. 
+<IMG SRC="https://github.com/amberz/amber-fork-architecture-center-pr/blob/Amber-branch/docs/example-scenario/oraclemigrate/images/OracletoPGWorkaroundList.png" />&nbsp;
 
 
 ### Scenario 3: Rearchitect
@@ -149,26 +148,24 @@ If comfortable to manage MSSQL, Azure managed instance(MI) is a good options giv
 #### Why migrate to Azure MI
 * Azure Managed Instance provide built-in [business continuity and disaster recovery capability](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-business-continuity)
 * Azure Managed Instance offer [Enterprise security](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-security-overview) and stability. 
-* Microsoft provide SQL Server Migration Assistant allow Oracle database convert objects and migrate data to MI for free.
+* Microsoft provide SQL Server Migration Assistant for Oracle allow to ealy convert Oracle objects and migrate data to MI for free.
 
 
-To download the SSMA for Oracle,refer to downlad the latest version [Microsoft SQL Server Migration Assistant for Oracle](https://aka.ms/ssmafororacle)
-
-#### Migration guidance 
-For whole project migration, refer [Oracle Database migrate to Azure Managed Instance](https://github.com/amberz/Azure-Data-Services-Practices/blob/master/Migrate%20Oracle%20Database%20to%20Azure/Oracle%20Database%20migrate%20to%20MI.md)
+To download the SSMA for Oracle, downlad the latest version [Microsoft SQL Server Migration Assistant for Oracle](https://aka.ms/ssmafororacle)
 
 
-## Migration tools
+#### Migration tools
 
-Oracle Assessment script:
+Oracle database discoveries script:
 [Assessment Calculator Template](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Customer%20Assessment%20CalculatorTemplate2.xlsx), 
 [Oracle PL\SQL](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_Pre_v12.sql) 
+[Oracle PL\SQL 2](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_v12_Plus.sql) <br />
 
 Oracle schema and data migration:
 [Microsoft SQL Server Migration Assistant for Oracle](https://aka.ms/ssmafororacle)
 
 
-## Oracle objects Conversion Principles
+#### Oracle objects Conversion Principles
 Below table describes how SSMA tool convert Oracle objects to SQL objects. 
 <IMG SRC="https://github.com/amberz/Azure-Data-Services-Practices/blob/master/Migrate%20Oracle%20Database%20to%20Azure/Images/SchemaConversionPrinciples1.png" />
 <IMG SRC="https://github.com/amberz/Azure-Data-Services-Practices/blob/master/Migrate%20Oracle%20Database%20to%20Azure/Images/SchemaConversionPrinciples2.png" />&nbsp;
@@ -176,28 +173,28 @@ Below table describes how SSMA tool convert Oracle objects to SQL objects.
 For more information, see [Schema conversion](https://docs.microsoft.com/en-us/sql/ssma/mysql/converting-mysql-databases-mysqltosql?view=sql-server-ver15)
 
 
-## Oracle Objects conversion and Data migration
+#### Oracle Objects conversion and Data migration
 After installed SSMA, create report to convert Oracle Schema and migrate data to Managed Instance
 For step-by-step guide, see [SSMA Migration guide](https://docs.microsoft.com/en-us/sql/ssma/oracle/sql-server-linux-convert-from-oracle?view=sql-server-ver15)
 
 
 
-## Post tasks after migration
+#### Post tasks after migration
 
-After the whole migration, you can uninstall the client components to remove ssma_oracle schema. 
+After the whole migration, uninstall the client components to remove ssma_oracle schema. 
 
 Note, you should not uninstall the extension pack from SQL Server unless your migrated databases no longer use functions in the ssma_oracle schema of the sysdb database.
 
-For more information, see [Removing SSMA for Oracle Components](https://docs.microsoft.com/en-us/sql/ssma/oracle/removing-ssma-for-oracle-components-oracletosql?view=sql-server-ver15)
+For more information, refer [Removing SSMA for Oracle Components](https://docs.microsoft.com/en-us/sql/ssma/oracle/removing-ssma-for-oracle-components-oracletosql?view=sql-server-ver15)
 
 
 ### Cross-cloud connectivity
 
-To support multi-cloud experience, Microsoft and Oracle provide direct interconnection between Azure and Oracle Cloud Infrastructure (OCI) through ExpressRoute and FastConnect.It allows applications hosted on Azure and Oracle database hosted on Oracle Cloud Infrastructure (OCI) with low latency, high throughput by connecting an ExpressRoute circuit in Microsoft Azure with a FastConnect circuit in OCI. 
+To support multi-cloud experience, Microsoft and Oracle provide direct interconnection between Azure and Oracle Cloud Infrastructure (OCI) through ExpressRoute and FastConnect. It allows applications hosted on Azure and Oracle database hosted on Oracle Cloud Infrastructure (OCI) with low latency, high throughput by connecting an ExpressRoute circuit in Microsoft Azure with a FastConnect circuit in OCI. 
 
 #### Certify applications
 
-Refer [those certified applications by Oracle](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking) to run in Azure.
+For which Oracle applications are certified by Oracle, refer [those certified applications by Oracle](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking) to run in Azure.
 
 #### How to configure cross-cloud connectivity
-For more information about how to configure cross-cloud connectivity from Azure to OCI, see [Set up a direct interconnection between Azure and Oracle Cloud Infrastructure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking).
+Refer [Set up a direct interconnection between Azure and Oracle Cloud Infrastructure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking) to gain step-by-step configurations.
