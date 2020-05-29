@@ -19,7 +19,7 @@ This article presents an example project and demo that apply Cognitive Search to
 
 ## Architecture
 
-![Cognitive Search architecture to convert unstructured into structured data](../media/jfk-cognitive-search.jpg)
+![Cognitive Search architecture to convert unstructured into structured data](../media/cognitive-search.png)
 
 1. Blob storage provides unstructured document and image data to Azure Cognitive Search.
 1. Cognitive Search applies pre-built cognitive skillsets to the data, including OCR, text and handwriting recognition, image analysis, [entity recognition](https://docs.microsoft.com/azure/search/cognitive-search-skill-entity-recognition), and [full-text search](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
