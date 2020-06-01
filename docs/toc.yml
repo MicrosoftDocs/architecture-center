@@ -544,8 +544,6 @@ items:
       items:
       - name: Advanced analytics
         href: solution-ideas/articles/advanced-analytics-on-big-data.md
-      - name: Real-time anomaly detection
-        href: solution-ideas/articles/anomaly-detection-in-real-time-data-streams.md
       - name: Anomaly detector process
         href: solution-ideas/articles/anomaly-detector-process.md
       - name: App integration using Event Grid
