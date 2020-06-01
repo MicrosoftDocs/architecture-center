@@ -9,9 +9,9 @@ ms.custom: fcp
 
 # AI enrichment with Azure Cognitive Search
 
-The [JFK Files](https://www.archives.gov/research/jfk/2017-release), containing over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination, include a large amount of unstructured data, typewritten and handwritten notes, photos and other images that standard search solutions can't parse.
+Large, unstructured datasets like the [JFK Files](https://www.archives.gov/research/jfk/2017-release), which contain over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination, include typewritten and handwritten notes, photos and other images, and other unstructured data that standard search solutions can't parse.
 
-*AI enrichment* in Azure Cognitive Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources by using pre-trained machine learning skillsets from the Cognitive Services [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) and [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) APIs. You can also create and attach [custom skills](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface) to add special processing for domain-specific data. Azure Cognitive Search can then index and search the context.
+*AI enrichment* in Azure Cognitive Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files by using pre-trained machine learning skillsets from the Cognitive Services [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) and [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) APIs. You can also create and attach [custom skills](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface) to add special processing for domain-specific data like *CIA Cryptonyms*. Azure Cognitive Search can then index and search the context.
 
 - *Natural language processing* skills like [entity recognition](https://docs.microsoft.com/azure/search/cognitive-search-skill-entity-recognition), [language detection](https://docs.microsoft.com/azure/search/cognitive-search-skill-language-detection), [key phrase extraction](https://docs.microsoft.com/azure/search/cognitive-search-skill-keyphrases), and [text recognition](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) map unstructured text to searchable and filterable fields in an index.
 
@@ -67,9 +67,9 @@ The example solution also builds a standalone web app in [Azure App Service](htt
 ## Issues and considerations
 
 - The code project and demo showcase a particular Cognitive Search use case. This example isn't intended to be a framework or scalable architecture for all scenarios, but to provide a general guideline and example.
-- [OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text#ocr-optical-character-recognition-api) results vary greatly depending on scan and image quality. - [Read](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api) uses the latest recognition models, but has less [language support](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) than OCR. 
+- [OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text#ocr-optical-character-recognition-api) results vary greatly depending on scan and image quality. [Read](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api) uses the latest recognition models, but has less [language support](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) than OCR. 
 - Some scanned and native PDF formats may not parse correctly in Cognitive Search.
-- The JFK Files sample project and demo create a public website and publicly readable storage container for extracted images. Don't use this project for non-public data.
+- The JFK Files sample project and demo create a public website and publicly readable storage container for extracted images, so don't use this solution with non-public data.
 
 ## Next steps
 
