@@ -2,12 +2,14 @@
 title: AI enrichment with Azure Cognitive Search
 titleSuffix: Azure Example Scenarios
 author: jocontr
-ms.date: 05/28/2020
+ms.date: 06/01/2020
 description: Learn how to use Azure Cognitive Search pre-built skills and custom extensibility to enrich large unstructured data sets into indexable structured data.
 ms.custom: fcp
 ---
 
 # AI enrichment with Azure Cognitive Search
+
+The [JFK Files](https://www.archives.gov/research/jfk/2017-release), containing over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination, include a large amount of unstructured data, typewritten and handwritten notes, photos and other images that standard search solutions can't parse.
 
 *AI enrichment* in Azure Cognitive Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources by using pre-trained machine learning skillsets from the Cognitive Services [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) and [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) APIs. You can also create and attach [custom skills](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface) to add special processing for domain-specific data. Azure Cognitive Search can then index and search the context.
 
@@ -15,9 +17,7 @@ ms.custom: fcp
 
 - *Image processing skills* like [Optical Character Recognition (OCR)](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr), [Read](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api), and [image analysis](https://docs.microsoft.com/azure/search/cognitive-search-skill-image-analysis) include object and face detection, tag and caption generation, and celebrity and landmark identification. These skills create text representations of image content, which are searchable using the query capabilities of Azure Cognitive Search.
 
-The [JFK Files](https://www.archives.gov/research/jfk/2017-release) containing over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination include a large amount of unstructured data, typewritten and handwritten notes, photos and other images that standard search solutions can't parse.
-
-This example solution uses Azure Cognitive Search AI enrichment to extract meaning from the original complex, unstructured JFK files dataset. You can work through the project, watch the process in action in a short [online video](https://channel9.msdn.com/Shows/AI-Show/Using-Cognitive-Search-to-Understand-the-JFK-Documents), or explore the JFK files with an [online demo](https://aka.ms/jfkfiles-demo).
+This example solution uses Azure Cognitive Search AI enrichment to extract meaning from the original complex, unstructured JFK files dataset. You can work through the project, watch the process in action in an [online video](https://channel9.msdn.com/Shows/AI-Show/Using-Cognitive-Search-to-Understand-the-JFK-Documents), or explore the JFK files with an [online demo](https://aka.ms/jfkfiles-demo).
 
 ## Potential use cases
 
@@ -34,7 +34,7 @@ This example solution uses Azure Cognitive Search AI enrichment to extract meani
 This diagram illustrates the process of passing unstructured data through the Cognitive Search skills pipeline to produce structured, indexable data.
 
 1. Blob storage provides unstructured document and image data to Cognitive Search.
-1. Cognitive Search applies pre-built cognitive skillsets to the data, including OCR, text and handwriting recognition, image analysis, [entity recognition](https://docs.microsoft.com/azure/search/cognitive-search-skill-entity-recognition), and [full-text search](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
+1. Cognitive Search applies pre-built cognitive skillsets to the data, including OCR, text and handwriting recognition, image analysis, entity recognition, and full-text search.
 1. The Cognitive Search extensibility mechanism uses an Azure Function to apply the CIA Cryptonyms custom skill to the data.
 1. The pre-built and custom skillsets deliver structured knowledge that Azure Cognitive Search can index.
 
@@ -66,10 +66,10 @@ The example solution also builds a standalone web app in [Azure App Service](htt
 
 ## Issues and considerations
 
-- The code project and demo showcase a particular Cognitive Search use case. This example isn't intended to be a framework or scalable architecture for all scenarios, but provide a general guideline and example.
-- [OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text#ocr-optical-character-recognition-api) results vary greatly depending on scan and image quality. - [Read](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api) uses the latest recognition models but has less [language support](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) than OCR. 
+- The code project and demo showcase a particular Cognitive Search use case. This example isn't intended to be a framework or scalable architecture for all scenarios, but to provide a general guideline and example.
+- [OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text#ocr-optical-character-recognition-api) results vary greatly depending on scan and image quality. - [Read](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api) uses the latest recognition models, but has less [language support](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) than OCR. 
 - Some scanned and native PDF formats may not parse correctly in Cognitive Search.
-- The JFK Files sample project and demo create a public website and publicly readable storage container for extracted images. Don't use this for non-public data.
+- The JFK Files sample project and demo create a public website and publicly readable storage container for extracted images. Don't use this project for non-public data.
 
 ## Next steps
 
