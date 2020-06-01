@@ -74,8 +74,11 @@ The example solution also builds a standalone web app in [Azure App Service](htt
 ## Next steps
 
 - [The JFK Files lab](https://github.com/microsoft/AzureSearch_JFK_Files)
+- [Azure Cognitive Search](https://docs.microsoft.com/azure/search/cognitive-search-resources-documentation)
 - [Get started with AI enrichment](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro)
+- [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
+- [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)
+- [Recognize printed and handwritten text](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text)
 - [How to use Named Entity Recognition in Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
 - [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
-- [Azure Cognitive Search](https://docs.microsoft.com/azure/search/cognitive-search-resources-documentation)
 - [Azure Functions](https://docs.microsoft.com/azure/azure-functions/)
