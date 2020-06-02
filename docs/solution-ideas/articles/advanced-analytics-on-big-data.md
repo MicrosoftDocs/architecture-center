@@ -31,7 +31,7 @@ Transform your data into actionable insights using the best-in-class machine lea
 1. Use scalable machine learning/deep learning techniques, to derive deeper insights from this data using Python, R or Scala, with inbuilt notebook experiences in Azure Databricks.
 1. Leverage native connectors between Azure Databricks and Azure Synapse Analytics to access and move data at scale.
 1. Power users take advantage of the inbuilt capabilities of Azure Databricks to perform root cause determination and raw data analysis.
-1. Run ad hoc queries directly on data within Azure Databricks.
+1. Query and report on data in [Power BI](/azure/analysis-services/analysis-services-connect-pbi).
 1. Take the insights from Azure Databricks to Cosmos DB to make them accessible through web and mobile apps.
 
 ## Components
