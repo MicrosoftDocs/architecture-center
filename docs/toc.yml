@@ -789,7 +789,7 @@ items:
       - name: Running Oracle Databases on Azure
         href: solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.md
       - name: SAP BW/4HANA in Linux on Azure
-        href: reference-architectures/sap/run-sap-hana-for-Linux-virtual-machines.md
+        href: reference-architectures/sap/run-sap-bw4hana-with-Linux-virtual-machines.md
       - name: SAP HANA on Azure Large Instances
         href: reference-architectures/sap/hana-large-instances.md
       - name: SAP HANA Scale-up
