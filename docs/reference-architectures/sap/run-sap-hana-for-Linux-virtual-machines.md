@@ -18,7 +18,7 @@ in a high-availability, scale-up environment that supports disaster recovery on
 Azure. This implementation focuses on the database layer and is designed to
 support various SAP applications, such as S/4HANA and SAP BW/4HANA.
 
-![Reference architecture for SAP NetWeaver (Windows) for AnyDB on Azure VMs](./images/sap-hana-scaleup.png)
+![Reference architecture for SAP BW/4HANA](./images/sap-hana-scaleup.png)
 
 **NOTE:** Deploying this reference architecture requires appropriate licensing
 of SAP products and other non-Microsoft technologies.

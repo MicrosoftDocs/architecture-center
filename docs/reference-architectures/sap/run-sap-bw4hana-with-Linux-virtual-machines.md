@@ -58,7 +58,7 @@ This scenario is relevant to the following use cases:
 
 ## Architecture
 
-![Reference architecture for SAP NetWeaver (Windows) for AnyDB on Azure VMs](./images/sap-bw4hana.png)
+![Reference architecture shows a set of proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery on Azure](./images/sap-bw4hana.png)
 
 ### Components
 
