@@ -786,18 +786,22 @@ items:
         href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.md
       - name: Retail and e-commerce using Cosmos DB
         href: solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.md
-      - name: SAP HANA on Azure Large Instances
-        href: reference-architectures/sap/hana-large-instances.md
-      - name: SAP NetWeaver on Windows on Azure
-        href: reference-architectures/sap/sap-netweaver.md
       - name: Running Oracle Databases on Azure
         href: solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.md
+      - name: SAP BW/4HANA in Linux on Azure
+        href: reference-architectures/sap/run-sap-hana-for-Linux-virtual-machines.md
+      - name: SAP HANA on Azure Large Instances
+        href: reference-architectures/sap/hana-large-instances.md
+      - name: SAP HANA Scale-up
+        href: reference-architectures/sap/run-sap-hana-for-Linux-virtual-machines.md
+      - name: SAP NetWeaver on Windows on Azure
+        href: reference-architectures/sap/sap-netweaver.md
       - name: SAP NetWeaver on SQLServer
-        href: solution-ideas/articles/sap-netweaver-on-sql-server.md
-      - name: SAP S/4 HANA VM on Azure and Linux
         href: solution-ideas/articles/sap-s4-hana-vm-on-linux.md
       - name: SAP S/4HANA in Linux on Azure
         href: reference-architectures/sap/sap-s4hana.md
+      - name: SAP S/4 HANA VM on Azure and Linux
+        href: solution-ideas/articles/sap-s4-hana-vm-on-linux.md
       - name: SAP deployment using an Oracle DB
         href: example-scenario/apps/sap-production.md
       - name: Serverless apps using Cosmos DB
@@ -1142,6 +1146,11 @@ items:
         href: reference-architectures/dmz/secure-vnet-dmz.md
       - name: Segmenting Virtual Networks
         href: reference-architectures/hybrid-networking/network-level-segmentation.md
+         name: High Availability
+  - name: SAP
+    items:
+    -  name: Overview
+       href: reference-architectures/sap/sap-overview.md        
   - name: Security
     items:
     - name: Architectures

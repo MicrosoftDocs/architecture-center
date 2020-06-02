@@ -8,10 +8,12 @@ ms.service: architecture-center
 ms.category:
   - databases  
 ms.subservice: reference-architecture
-ms.custom: sSAP, Windows
+ms.custom: SAP, Windows
 ---
 
-example workload
+# Run SAP BW/4HANA with Linux virtual machines on Azure
+
+EXAMPLE WORKLOAD
 
 SAP BW/4HANA is an enterprise data warehouse solution designed for the cloud and
 optimized for the SAP HANA platform. The following example focuses specifically
@@ -58,7 +60,7 @@ This scenario is relevant to the following use cases:
 Architecture
 ------------
 
-![](media/421e2355411226250843f46ce4153ba8.png)
+![Reference architecture for SAP NetWeaver (Windows) for AnyDB on Azure VMs](./images/sap-bw4hana.png)
 
 ### Components
 
