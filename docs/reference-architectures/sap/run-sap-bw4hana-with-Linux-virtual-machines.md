@@ -44,7 +44,7 @@ For details about the data persistence layer, see:
 - [Run SAP HANA on Azure Large
     Instances](https://docs.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances)
 
-- [Run SAP HANA on Linux virtual machines](/azure/architecture/reference-architectures/sap/run-sap-hana-for-Linux-virtual-machines.md)
+- [Run SAP HANA on Linux virtual machines](/azure/architecture/reference-architectures/sap/run-sap-hana-for-Linux-virtual-machines)
 
 ## Relevant use cases
 
@@ -263,7 +263,7 @@ distance between them. The group’s placement varies as follows:
 SAP BW/4HANA is designed for the SAP HANA database platform. Azure provides
 three scalability and deployment options:
 
-- [In a scale-up SAP HANA deployment](/azure/architecture/reference-architectures/sap/run-sap-hana-for-Linux-virtual-machines.md), the database tier uses two or more Linux
+- [In a scale-up SAP HANA deployment](/azure/architecture/reference-architectures/sap/run-sap-hana-for-Linux-virtual-machines), the database tier uses two or more Linux
     virtual machines in a cluster to achieve high availability.
 
 - A [scale-out deployment of SAP
@@ -468,7 +468,7 @@ scalability are simple, backups are optimized, and you can easily restore as
 needed.
 
 Backup of the database tier varies depending on whether SAP HANA is deployed on
-[virtual machines](/azure/architecture/reference-architectures/sap/run-sap-hana-for-Linux-virtual-machines.md) or [Azure Large
+[virtual machines](/azure/architecture/reference-architectures/sap/run-sap-hana-for-Linux-virtual-machines) or [Azure Large
 Instances](https://docs.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances).
 
 To provide SAP-based monitoring of resources and service performance of the SAP
