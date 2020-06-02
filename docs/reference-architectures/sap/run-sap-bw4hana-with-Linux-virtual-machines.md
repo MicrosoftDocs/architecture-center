@@ -41,24 +41,22 @@ checklist](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-d
 
 For details about the data persistence layer, see:
 
--   [Run SAP HANA on Azure Large
+- [Run SAP HANA on Azure Large
     Instances](https://docs.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances)
 
--   Run SAP HANA on Linux virtual machines
+- Run SAP HANA on Linux virtual machines
 
-Relevant use cases
-------------------
+## Relevant use cases
 
 This scenario is relevant to the following use cases:
 
--   Deployment of the SAP application layer separate from the DBMS layer
+- Deployment of the SAP application layer separate from the DBMS layer
 
--   Disaster recovery (DR) scenarios
+- Disaster recovery (DR) scenarios
 
--   Deployments of the SAP application tier
+- Deployments of the SAP application tier
 
-Architecture
-------------
+## Architecture
 
 ![Reference architecture for SAP NetWeaver (Windows) for AnyDB on Azure VMs](./images/sap-bw4hana.png)
 
@@ -66,31 +64,31 @@ Architecture
 
 This architecture makes use of the following components:
 
--   [Azure Virtual
+- [Azure Virtual
     Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
     (VNet) securely connects Azure resources to each other and to an on-premises
     environment. In this architecture, multiple VNets are [peered
     together](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
--   [Linux virtual
+- [Linux virtual
     machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)
     are used for the application tier, including the SAP BusinessObjects (BOBJ)
     server pool, the SAP Web Dispatcher pool, the application servers pool, and
     the SAP Central Services cluster.
 
--   [Availability
+- [Availability
     set](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)s
     group two or more virtual machines across Azure host clusters to achieve
     high availability and a higher [service-level
     agreement](https://azure.microsoft.com/support/legal/sla/virtual-machines)
     (SLA).
 
--   [Availability
+- [Availability
     Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones)
     improve workload availability by distributing its servers across more than
     one datacenter within an Azure region.
 
--   [Load balancers](https://docs.microsoft.com/azure/load-balancer/)
+- [Load balancers](https://docs.microsoft.com/azure/load-balancer/)
     direct traffic to virtual machines in the application subnet. For high
     availability, this example uses [SAP Web
     Dispatcher](https://help.sap.com/saphelp_nwce72/helpdata/en/48/8fe37933114e6fe10000000a421937/content.htm?no_cache=true)
@@ -101,66 +99,66 @@ This architecture makes use of the following components:
     the traffic type and required functionality you need, such as Secure Sockets
     Layer (SSL) termination and forwarding.
 
--   [Network security
+- [Network security
     group](https://docs.microsoft.com/azure/virtual-network/security-overview)s
     (NSGs) attach to a subnet or to the network interface cards (NICs) on a
     virtual machine and are used to restrict incoming, outgoing, and
     intra-subnet traffic in the virtual network.
 
--   [Azure
+- [Azure
     Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview)
     provides secure access through the Azure portal to virtual machines running
     in Azure without the use of a jumpbox and its associated public IP address,
     thereby limiting internet-facing exposure.
 
--   [Azure Managed
+- [Azure Managed
     Disks.](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)
     Premium or Ultra storage disks are recommended. These storage types provide
     data persistence for virtual machines with the SAP workload.
 
--   [Azure NetApp
+- [Azure NetApp
     Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
     supports shared storage when using a cluster or when you need
     high-performance storage capable of hosting SAP HANA data and log files.
 
--   [Power
+- [Power
     BI](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview)
     enables users to access and visualize SAP BW/4HANA data from their Windows
     desktop. Note that installation requires the [SAP BW
     Connector](https://docs.microsoft.com/power-bi/desktop-sap-bw-connector)
     (implementation 2.0).
 
--   [Azure
+- [Azure
     Backup](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
     is an SAP Backint-certified data protection solution for SAP HANA in
     single-instance and scale-up deployments. Azure Backup also protects Azure
     Virtual Machines with general workloads.
 
--   [Azure Site
+- [Azure Site
     Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-sap)
     is recommended as part of an automated disaster recovery solution for a
     multitier SAP NetWeaver application deployment. The [support
     matrix](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix)
     details the capabilities and restrictions of this solution.
 
--   Microsoft Power BI Desktop imports data from various SAP sources, such as
+- Microsoft Power BI Desktop imports data from various SAP sources, such as
     SAP BW/4HANA, for analysis and visualization. Power BI also complements SAP
     BusinessObjects Universe by offering a business context or a semantics layer
     over the raw information.
 
 ### Alternatives
 
--   To help protect SAP global host files for SAP Central Services and the SAP
+- To help protect SAP global host files for SAP Central Services and the SAP
     transport directory, you can deploy [Network File
     Shares](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
     (NFS) servers in a failover cluster configuration.
 
--   [SIOS Protection
+- [SIOS Protection
     Suite](https://us.sios.com/solutions/cloud-high-availability/azure/),
     available in Azure Marketplace, can be used to protect the global host files
     for Central Services instead of NFS or Azure NetApp Files.
 
--   [Azure Application
+- [Azure Application
     Gateway](https://docs.microsoft.com/azure/application-gateway/features)
     is a web traffic load balancer that provides SSL termination, a Web
     Application Firewall (WAF) service, and other handy high-availability and
@@ -169,8 +167,7 @@ This architecture makes use of the following components:
     end](https://www.linkedin.com/pulse/internet-facing-sap-fiori-access-azure-firewall-gateway-apparao-sanam/)
     in their production landscape.
 
-Recommendations
----------------
+## Recommendations
 
 This architecture is designed for high availability, scalability, and
 resilience. For the best results on Azure, consider the recommendations in this
@@ -232,7 +229,7 @@ These host names are assigned to the cluster front-end IP configuration of the
 load balancer. A load balancer supports multiple front-end IPs, so both the
 Central Services and ERS virtual IPs (VIPs) can be bound to one load balancer.
 
-**Multi-SID installation**
+#### Multi-SID installation
 
 Azure also supports high availability in a [multi-SID
 installation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk)
@@ -245,7 +242,7 @@ Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-avai
 or [SUSE
 Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid).
 
-**Proximity placement groups**
+#### Proximity placement groups
 
 This example architecture also uses a [proximity placement
 group](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios)
@@ -253,11 +250,11 @@ to reduce network latency between virtual machines. This type of group places a
 location constraint on virtual machine deployments and minimizes the physical
 distance between them. The group’s placement varies as follows:
 
--   In a single SID installation, you should place all Central Services and
+- In a single SID installation, you should place all Central Services and
     application servers in the proximity placement group anchored by the SAP
     HANA database.
 
--   In a multi-SID installation, you have the freedom to associate the Central
+- In a multi-SID installation, you have the freedom to associate the Central
     Services and application servers with any proximity placement group (but
     just one) that is anchored by SAP HANA containers of different SIDs.
 
@@ -266,14 +263,14 @@ distance between them. The group’s placement varies as follows:
 SAP BW/4HANA is designed for the SAP HANA database platform. Azure provides
 three scalability and deployment options:
 
--   In a scale-up SAP HANA deployment, the database tier uses two or more Linux
+- In a scale-up SAP HANA deployment, the database tier uses two or more Linux
     virtual machines in a cluster to achieve high availability.
 
--   A [scale-out deployment of SAP
+- A [scale-out deployment of SAP
     HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations#sap-hana-scale-out-scenarios)
     is supported for some virtual machine types.
 
--   [Azure Large
+- [Azure Large
     Instances](https://docs.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances)
     for SAP HANA, Revision 4, are special-purpose physical servers, certified to
     meet SAP HANA Tailored Datacenter Integration (TDI) standards, and located
@@ -296,8 +293,7 @@ tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers
 These storage tiers are cost-effective ways to store long-lived data that is
 infrequently accessed.
 
-Networking
-----------
+## Networking
 
 Although not required, a [hub-spoke
 topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/shared-services)
@@ -315,8 +311,7 @@ Most customer implementations include one or more ExpressRoute circuits
 connecting on-premises networks to Azure. For less network bandwidth demand, VPN
 is a lower cost alternative.
 
-Performance
------------
+## Performance
 
 SAP BW/4HANA is designed for real-time data warehousing tasks. SAP application
 servers carry on constant communications with the database servers, so
@@ -352,8 +347,7 @@ apply to Azure storage layout. For example, combining multiple disks together to
 create a striped disk volume improves IO performance. Enabling the read cache on
 storage content that changes infrequently enhances the speed of data retrieval.
 
-Scalability
------------
+## Scalability
 
 This example architecture describes a small, production-level deployment with
 the flexibility to scale based on your requirements.
@@ -364,8 +358,7 @@ for scaling up and scaling out. For an inclusive list, see [SAP Note
 certify more virtual machines types, you can scale up or down in the same cloud
 deployment.
 
-Availability
-------------
+## Availability
 
 Resource redundancy is the general theme in highly available infrastructure
 solutions. If your organization has a less stringent SLA, use single-instance
@@ -445,8 +438,7 @@ For the SAP primary application servers and any additional application servers,
 high availability is achieved by load balancing traffic within the pool of
 application servers.
 
-Disaster recovery
------------------
+## Disaster recovery
 
 Azure supports a variety of [disaster recovery
 options](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations#disaster-recovery-scenario)
@@ -459,8 +451,7 @@ recovery region to run the Central Services role, which also does not persist
 business data. For details, refer to the [SAP S/4HANA reference
 architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-s4hana).
 
-Monitoring
-----------
+## Monitoring
 
 To maximize the availability and performance of applications and services, use
 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview),
@@ -487,8 +478,7 @@ extension. For details, see [SAP Note
 2191498](https://launchpad.support.sap.com/#/notes/2191498) – “SAP on Linux with
 Azure: Enhanced Monitoring.”
 
-Security 
----------
+## Security
 
 SAP has its own User Management Engine (UME) to control role-based access and
 authorization within the SAP application and databases. For details, see the
