@@ -8,15 +8,17 @@ ms.service: architecture-center
 ms.category:
   - databases  
 ms.subservice: reference-architecture
-ms.custom: sSAP, Windows
+ms.custom: SAP, Windows
 ---
+
+# Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure
 
 This reference architecture shows a set of proven practices for running SAP HANA
 in a high-availability, scale-up environment that supports disaster recovery on
 Azure. This implementation focuses on the database layer and is designed to
 support various SAP applications, such as S/4HANA and SAP BW/4HANA.
 
-![](media/72468ba96aca24f381f911e83823c701.png)
+![Reference architecture for SAP NetWeaver (Windows) for AnyDB on Azure VMs](./images/sap-hana-scaleup.png)
 
 **NOTE:** Deploying this reference architecture requires appropriate licensing
 of SAP products and other non-Microsoft technologies.
