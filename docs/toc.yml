@@ -1156,7 +1156,6 @@ items:
         href: reference-architectures/dmz/secure-vnet-dmz.md
       - name: Segmenting Virtual Networks
         href: reference-architectures/hybrid-networking/network-level-segmentation.md
-         name: High Availability
   - name: SAP
     items:
     -  name: Overview

@@ -23,8 +23,7 @@ support various SAP applications, such as S/4HANA and SAP BW/4HANA.
 **NOTE:** Deploying this reference architecture requires appropriate licensing
 of SAP products and other non-Microsoft technologies.
 
-Architecture
-------------
+## Architecture
 
 This reference architecture describes a common production system. You can choose
 the virtual machine sizes to accommodate your organization's needs. This
@@ -71,8 +70,7 @@ SAP executables and the SAP HANA data and logs. Other [storage
 configurations](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 are available, such as Ultra disk and Azure NetApp Files.
 
-Recommendations
----------------
+## Recommendations
 
 This architecture describes a small, production-level deployment that can scale
 up in the number and size of virtual machines, based on your business
@@ -132,7 +130,7 @@ additional
 [configuration](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)
 is required.
 
-### Networking 
+### Networking
 
 We recommend using a [hub-spoke
 topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/shared-services),
@@ -160,8 +158,7 @@ For added control, you can also associate the SAP HANA subnet with [application
 security
 groups](https://docs.microsoft.com/azure/virtual-network/application-security-groups).
 
-Performance considerations
---------------------------
+## Performance considerations
 
 This implementation uses Azure managed disks. To achieve high input/output
 operations per second (IOPS) and disk bandwidth throughput, the common practices
@@ -194,8 +191,7 @@ network virtual appliance (NVA) in between the application and the database
 layers for any SAP application stack. Doing so introduces significant data
 packets processing time and unacceptably slows application performance.
 
-Scalability considerations
---------------------------
+## Scalability considerations
 
 This architecture runs SAP HANA on virtual machines that can scale up to 11.5 TB
 in one instance.
@@ -219,17 +215,16 @@ Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana
 Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/)
 for the shared storage volumes.
 
-Availability considerations
----------------------------
+## Availability considerations
 
 This reference architecture depicts a highly available SAP HANA database system
 consisting of two virtual machines. The database tier's SAP HANA native system
 replication feature provides either manual or automatic failover between
 replicated nodes:
 
--   For manual failover, deploy more than one SAP HANA instance and use SAP HSR.
+- For manual failover, deploy more than one SAP HANA instance and use SAP HSR.
 
--   For automatic failover, use both HSR and Linux High Availability Extension
+- For automatic failover, use both HSR and Linux High Availability Extension
     (HAE) for your Linux distribution. Linux HAE provides the Pacemaker cluster
     services to the SAP HANA resources, detecting failure events and
     orchestrating the failover of errant services to the healthy node.
@@ -246,8 +241,7 @@ automatic failover. A storage-based or cloud-based fencing mechanism ensures
 that a failed system is isolated or shut down to avoid a cluster split-brain
 condition.
 
-Disaster recovery considerations
---------------------------------
+## Disaster recovery considerations
 
 In this architecture, HSR is used for database replication to a database
 instance in the secondary region. It’s optional to use a cluster in the
@@ -318,8 +312,7 @@ capabilities. For the latest information about Azure-to-Azure replication, see
 the [support
 matrix](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
 
-Management and operations considerations
-----------------------------------------
+## Management and operations considerations
 
 ### Backup
 
@@ -362,8 +355,7 @@ details, see [SAP Note
 2191498](https://launchpad.support.sap.com/#/notes/2191498), “SAP on Linux with
 Azure: Enhanced Monitoring.”
 
-Security considerations
------------------------
+## Security considerations
 
 Many security measures are used to protect the confidentiality, integrity, and
 availability of an SAP landscape. For example, to secure user access, SAP has
@@ -373,15 +365,15 @@ HANA Security—An Overview](https://archive.sap.com/documents/docs/DOC-62943).
 
 For data at rest, encryption provides security as follows:
 
--   Along with the SAP HANA native encryption technology, consider using an
+- Along with the SAP HANA native encryption technology, consider using an
     encryption solution from a partner that supports customer-managed keys.
 
--   To encrypt virtual machine disks, you can use [Azure Disk
+- To encrypt virtual machine disks, you can use [Azure Disk
     Encryption](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-overview).
     The solution also works with Azure Key Vault to help you control and manage
     the disk-encryption keys and secrets in your key vault subscription.
 
--   Data in Azure physical storage is automatically encrypted at rest with an
+- Data in Azure physical storage is automatically encrypted at rest with an
     Azure-managed key.
 
 **NOTE:** Do not use the SAP HANA data-at-rest encryption with Azure Disk
@@ -389,14 +381,13 @@ Encryption on the same storage volume. Also, operating system boot disks for
 Linux virtual machines do not support Azure Disk Encryption, nor does Site
 Recovery yet support Azure Disk Encryption-attached data disks on Linux.
 
-Communities
------------
+## Communities
 
 Communities can answer questions and help you set up a successful deployment.
 Consider the following:
 
--   [Azure Forum](https://azure.microsoft.com/support/forums/)
+- [Azure Forum](https://azure.microsoft.com/support/forums/)
 
--   [SAP Community](https://www.sap.com/community.html)
+- [SAP Community](https://www.sap.com/community.html)
 
--   [Stack Overflow SAP](http://stackoverflow.com/tags/sap/info)
+- [Stack Overflow SAP](http://stackoverflow.com/tags/sap/info)

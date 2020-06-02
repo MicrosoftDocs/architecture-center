@@ -11,4 +11,5 @@ ms.subservice: reference-architecture
 ms.custom: SAP, Windows
 ---
 
-# SAP on Azure Architecture Guide   
+# SAP on Azure Architecture Guide
+
