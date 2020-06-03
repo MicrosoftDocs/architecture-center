@@ -1141,10 +1141,9 @@ items:
       - name: Segmenting Virtual Networks
         href: reference-architectures/hybrid-networking/network-level-segmentation.md
   - name: SAP
-    href: reference-architectures/sap/sap-overview.md
     items:
-    - name: Example workloads
-      href: reference-architectures/sap/run-sap-bw4hana-with-Linux-virtual-machines.md
+    - name: Overview
+      href: reference-architectures/sap/sap-overview.md
     - name: Architectures
       items:
       - name: SAP HANA on Azure Large Instances
@@ -1163,6 +1162,10 @@ items:
         href: example-scenario/apps/sap-production.md
       - name: Dev/test for SAP
         href: example-scenario/apps/sap-dev-test.md    
+    - name: Example workloads
+     items:
+      - name: SAP BW/4HANA in Linux on Azure
+        href: reference-architectures/sap/run-sap-bw4hana-with-Linux-virtual-machines.md
   - name: Security
     items:
     - name: Architectures
