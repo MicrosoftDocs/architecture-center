@@ -736,8 +736,6 @@ items:
         href: solution-ideas/articles/data-streaming-scenario.md
       - name: Data cache
         href: solution-ideas/articles/data-cache-with-redis-cache.md
-      - name: Dev/test for SAP
-        href: example-scenario/apps/sap-dev-test.md
       - name: Digital campaign management
         href: solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.md
       - name: Digital marketing using Azure MySQL
