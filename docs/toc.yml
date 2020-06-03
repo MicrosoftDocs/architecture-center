@@ -1136,7 +1136,7 @@ items:
       href: reference-architectures/sap/sap-overview.md
     - name: Architectures
       items:
-      - name: SAP HANA on Azure Large Instances
+      - name: SAP HANA on Azure (Large Instances)
         href: reference-architectures/sap/hana-large-instances.md
       - name: SAP HANA Scale-up
         href: reference-architectures/sap/run-sap-hana-for-Linux-virtual-machines.md
