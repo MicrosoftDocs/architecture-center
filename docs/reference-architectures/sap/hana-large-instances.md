@@ -30,7 +30,7 @@ The diagram shows two Azure regions. The primary region contains an application 
 
 ## Architecture
 
-This reference architecture depicts a simple scale-up scenario to demonstrate core concepts in the deployment and operation of an SAP HANA system on Azure. For options, see other [installation scenarios for HANA Large Instances][scenarios]. 
+This reference architecture depicts a simple scale-up scenario to demonstrate core concepts in the deployment and operation of an SAP HANA system on Azure. For options, see other [installation scenarios for HANA Large Instances][scenarios].
 
 This architecture consists of the following infrastructure components.
 
@@ -120,7 +120,7 @@ Resource redundancy is the general theme in highly available infrastructure solu
 
 - Recovery Point Objective (RPO) means the maximum tolerable period in which customer data might be lost due to a failure.
 
-For high availability, deploy more than one instance in a HA pair and use HSR in a synchronous mode to minimize data loss and downtime. In addition to a local, two-node high availability setup, HSR supports multi-tier replication, where a third node in a separate Azure region registers to the secondary replica of the clustered HSR pair as its replication target. This forms a replication daisy chain. 
+For high availability, deploy more than one instance in a HA pair and use HSR in a synchronous mode to minimize data loss and downtime. In addition to a local, two-node high availability setup, HSR supports multi-tier replication, where a third node in a separate Azure region registers to the secondary replica of the clustered HSR pair as its replication target. This forms a replication daisy chain.
 
 The failover to the DR node is a manual process without Linux clustering. For automatic fault detection and failover, you can configure Pacemaker to further lower downtime caused by software or hardware failure. Beginning with HANA 2.0 SPS 04, HSR also supports multi-target replication. Instead of a daisy chain, this form of replication has one primary and multiple secondary subscribers.
 
@@ -183,7 +183,7 @@ Microsoft offers basic tools and resources to help you [monitor HANA Large Insta
 
 ## Security considerations
 
-- Since the end of 2018, [HANA Large Instances storage][storage] is encrypted by default. 
+- Since the end of 2018, [HANA Large Instances storage][storage] is encrypted by default.
 
 - Data in transit between HANA Large Instances and theVMs is not encrypted. To encrypt the data transfer, enable the application-specific encryption. See SAP Note [2159014][sap-2159014] - FAQ: SAP HANA Security.
 
