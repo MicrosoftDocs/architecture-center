@@ -538,6 +538,8 @@ items:
         href: reference-architectures/ai/speech-ai-ingestion.md
       - name: Training Python models
         href: reference-architectures/ai/training-python-models.md
+      - name: Vision classifier model
+        href: example-scenario/dronerescue/vision-classifier-model-with-custom-vision.md
       - name: Visual assistant
         href: solution-ideas/articles/visual-assistant.md
   - name: Analytics

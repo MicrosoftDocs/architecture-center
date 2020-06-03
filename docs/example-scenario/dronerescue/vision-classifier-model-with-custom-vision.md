@@ -1,7 +1,7 @@
 ---
-title: Vision classifier model with Microsoft Custom Vision Cognitive Service
+title: Vision classifier model with Azure Custom Vision Cognitive Service
 titleSuffix: Azure Example Scenarios
-description: description
+description: Create an image classifier with a solution architecture that includes Microsoft AirSim Drone simulator and Azure Custom Vision Cognitive Service.
 author: jocontr
 ms.date: 06/03/2020
 ms.topic: example-scenario
@@ -11,39 +11,38 @@ ms.custom:
   - fcp
 ---
 
-# Vision classifier model with Microsoft Custom Vision Cognitive Service
+# Vision classifier model with Azure Custom Vision Cognitive Service
 
-[!INCLUDE [header_file](../header.md)]
+Azure Cognitive Services offers many possibilities for AI solutions. One of them is [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/). It allows you to build, deploy, and improve your image classifiers. This architecture uses Custom Vision to classify images taken by a simulated drone. It provides a way to combine AI and IoT.
 
-Azure Cognitive Services offers many possibilities for AI solutions. One of them is Custom Vision, which allows you to build, deploy, and improve your image classifiers. This architecture leverages this tool to classify images taken by a drone. It provides so a way for combining AI and IoT.
+## Potential use case
 
-## Relevant use cases
-
-Microsoft 'Search and Rescue Lab' suggests a hypothetical use case for Custom Vision. The lab explores how to find animals with this Cognitive Service and a drone–here replaced by Microsoft AirSim simulator. You can create with this simulator a dataset of pictures of the animals. You then use it to train a Custom Vision classifier model in Azure. Given a new picture of the animal set, this solution would identify the animal type.
+Microsoft [**Search and Rescue Lab**](https://github.com/Microsoft/DroneRescue) suggests a hypothetical use case for Custom Vision. The lab explores how to find animals with Custom Vision and a drone. In the lab, a real-world drone is replaced by Microsoft AirSim simulated drone. Using the simulated drone, you create a dataset of pictures of the animals. You then use the dataset of pictures to train a Custom Vision classifier model in Azure. If you fly the drone and take new pictures of the animal, this solution identifies the type of animal in the new picture.
 
 ## Architecture
 
 ![Diagram of the Search and Rescue Lab architecture to create an image classifier model.](media/drone-rescue.png)
 
-## Data flow
+1. AirSim creates a 3D-rendered environment. This simulation provides the training dataset in the form of pictures taken by the drone.
 
-1. AirSim creates a 3D-rendered environment. This simulation provides the training dataset.
-1. The dataset is imported and tagged in a Custom Vision project. The cognitive service serves to train and test the model.
-1. The model is exported into TensorFlow format. This allows you to use it locally.
+1. Import and tag the dataset in a Custom Vision project. The cognitive service trains and tests the model.
+
+1. Export the model into TensorFlow format so you can use it locally.
 
 ## Components
 
-* [Microsoft AirSim Drone simulator](https://github.com/microsoft/AirSim): It’s built on the [Unreal Engine](https://www.unrealengine.com/). Open-source and cross-platform, it’s been developed to help AI research. In this scenario, it serves to create the dataset of pictures that will be used to train the model.
-* [Microsoft Custom Vision Cognitive Service](https://www.customvision.ai): Part of [Azure Cognitive Services]( https://azure.microsoft.com/services/cognitive-services/), it creates an image classifier model.
+* [Microsoft AirSim Drone simulator](https://github.com/microsoft/AirSim): Built on the [Unreal Engine](https://www.unrealengine.com/). It's open-source, cross-platform, and developed to help AI research. In this architecture, it creates the dataset of pictures used to train the model.
 
-## Deploy the solution
-
-To deploy this reference architecture, follow the steps described in the [GitHub repo of the 'Search and Rescue Lab'](https://github.com/Microsoft/DroneRescue).
+* [Azure Custom Vision Cognitive Service](https://www.customvision.ai): Part of [Azure Cognitive Services]( https://azure.microsoft.com/services/cognitive-services/). In this architecture, it creates an image classifier model.
 
 ## Next steps
 
-[Learn more about Microsoft AirSim](https://github.com/microsoft/AirSim)
-[Learn more about Microsoft Custom Vision Cognitive Service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/)
-[Learn more about Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/)
+To deploy this reference architecture, follow the steps described in the [GitHub repo of the **Search and Rescue Lab**](https://github.com/Microsoft/DroneRescue).
 
-[!INCLUDE [js_include_file](../../_js/index.md)]
+## Related resources
+
+* [Learn more about Microsoft AirSim](https://github.com/microsoft/AirSim)
+
+* [Learn more about Azure Custom Vision Cognitive Service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/)
+
+* [Learn more about Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
