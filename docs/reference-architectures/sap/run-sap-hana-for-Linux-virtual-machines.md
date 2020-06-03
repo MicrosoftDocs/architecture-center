@@ -181,8 +181,7 @@ provides the best IO performance. You can dynamically change the performance of
 ultra disks and independently configure metrics like IOPS and MB/s without
 rebooting your virtual machine.
 
-For details about SAP HANA performance requirements, see [SAP Note 1943937](https://launchpad.support.sap.com/#/notes/1943937), 
-"Hardware Configuration Check Tool."
+For details about SAP HANA performance requirements, see [SAP Note 1943937](https://launchpad.support.sap.com/#/notes/1943937), "Hardware Configuration Check Tool."
 
 **Note:** As specified in [SAP Note
 2731110](https://launchpad.support.sap.com/#/notes/2731110), do not place any

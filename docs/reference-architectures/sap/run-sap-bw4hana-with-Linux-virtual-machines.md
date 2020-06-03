@@ -77,7 +77,7 @@ This architecture makes use of the following components:
     the SAP Central Services cluster.
 
 - [Availability
-    set](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)s
+    sets](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)s
     group two or more virtual machines across Azure host clusters to achieve
     high availability and a higher [service-level
     agreement](https://azure.microsoft.com/support/legal/sla/virtual-machines)
@@ -100,7 +100,7 @@ This architecture makes use of the following components:
     Layer (SSL) termination and forwarding.
 
 - [Network security
-    group](https://docs.microsoft.com/azure/virtual-network/security-overview)s
+    groups](https://docs.microsoft.com/azure/virtual-network/security-overview)s
     (NSGs) attach to a subnet or to the network interface cards (NICs) on a
     virtual machine and are used to restrict incoming, outgoing, and
     intra-subnet traffic in the virtual network.
@@ -141,7 +141,7 @@ This architecture makes use of the following components:
     matrix](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix)
     details the capabilities and restrictions of this solution.
 
-- [Microsoft Power BI Desktop](https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-sap-bw-connector) imports data from various SAP sources, such as
+- [Microsoft Power BI Desktop](https://docs.microsoft.com/power-bi/connect-data/desktop-sap-bw-connector) imports data from various SAP sources, such as
     SAP BW/4HANA, for analysis and visualization. Power BI also complements SAP
     BusinessObjects Universe by offering a business context or a semantics layer
     over the raw information.
