@@ -1163,7 +1163,7 @@ items:
       - name: Dev/test for SAP
         href: example-scenario/apps/sap-dev-test.md    
     - name: Example workloads
-     items:
+      items:
       - name: SAP BW/4HANA in Linux on Azure
         href: reference-architectures/sap/run-sap-bw4hana-with-Linux-virtual-machines.md
   - name: Security
