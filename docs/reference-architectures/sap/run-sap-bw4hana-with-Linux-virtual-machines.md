@@ -77,7 +77,7 @@ This architecture makes use of the following components:
     the SAP Central Services cluster.
 
 - [Availability
-    sets](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)s
+    sets](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)
     group two or more virtual machines across Azure host clusters to achieve
     high availability and a higher [service-level
     agreement](https://azure.microsoft.com/support/legal/sla/virtual-machines)
