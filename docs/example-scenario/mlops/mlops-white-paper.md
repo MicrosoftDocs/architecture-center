@@ -295,7 +295,7 @@ Much of the pilot field test focused on harmonizing this raw data so that it cou
 
 ## MLOps Maturity Model
 
-The purpose of the MLOps maturity model is to help clarify the principles and practices and identify gaps in an existing organization's attempt to implement MLOps. It is also a way to show a customer how to incrementally grow their MLOps capability rather than overwhelming them with everything at once. And, it should be used as a guide to estimate the scope of the work for the engagement, establish success criteria, and identify deliverables to be handed over at the conclusion of the engagement.
+The purpose of the MLOps maturity model is to help clarify the principles, practices, and identify gaps in an existing organization's attempt to implement MLOps. It is also a way to show a customer how to incrementally grow their MLOps capability rather than overwhelming them with everything at once. And, it should be used as a guide to estimate the scope of the work for the engagement, establish success criteria, and identify deliverables to be handed over at the conclusion of the engagement.
 
 The MLOps Maturity Model is built upon the following levels of technical capability:
 
@@ -357,7 +357,7 @@ A questionnaire is available for use with the maturity model in new engagements 
 
 ## MLOps Process Definition
 
-MLOps includes the whole space between acquiring raw data and delivering model output (aka scoring). This includes:
+MLOps includes the whole space between acquiring raw data and delivering model output (also known as scoring). This includes:
 
 * Data Prep
 * Model Training
@@ -402,7 +402,7 @@ Integrating this data development process into MLOps poses a challenge. In this 
 
 The role of MLOps is to create a coordinated process that can efficiently support larger scale development/deployment environments common in production level systems. Conceptually, the MLOps model must include all process requirements from Experimentation to Scoring.
 
-The MLOps process developed for this engagement was refined to fit the client’s specific needs (most notable being the batch processing requirement instead of real-time processing). As the upscaled system was developed, some shortcomings were identified and resolved. The most significant of these resulted in the development of a bridge between Azure Data Factory and Azure Machine Learning, which has since been incorporated as a built-in connector in Azure Data Factory. This component set was created to facilitate the triggering and status monitoring necessary to make the process automation work.
+The MLOps process developed for this engagement was refined to fit the client’s specific needs (most notable being the batch processing requirement instead of real-time processing). As the upscaled system was developed, some shortcomings were identified and resolved. The most significant of these shortcomings resulted in the development of a bridge between Azure Data Factory and Azure Machine Learning, which has since been incorporated as a built-in connector in Azure Data Factory. This component set was created to facilitate the triggering and status monitoring necessary to make the process automation work.
 
 Another fundamental change is that the data scientist needs the capability to export experimental code from Jupyter notebooks (or similar tools) into the MLOps deployment process rather than trigger training and scoring directly.
 
@@ -416,6 +416,64 @@ The final MLOps process model is shown conceptually in Figure 8.
 > “Scoring” is the final step where the ML model is run against data that is used to make predictions based on the data used to train the model. This addresses the basic business use case requirement for *demand forecasting*. The quality of the predictions is rated using the *mean absolute percentage error (MAPE)*. MAPE is also known as *mean absolute percentage deviation (MAPD)*, which is a measure of prediction accuracy of statistical forecasting methods and as a loss function for regression problems in machine learning. In this engagement, a MAPE <= 45% was considered significant.
 
 <!-- For more information about the MLOps process flow used in this engagement and the automation trigger plan, see the companion Reference Architecture Document. -->
+
+## MLOps Process Flow
+
+Applying CI/CD development and release workflows to the ML life cycle can be described with the following steps for code changes:
+
+* When a PR is created from a Feature branch, like the development CI/CD workflow, the pipeline runs **Code Validation Tests** to validate the quality of the code via unit tests and code quality tests. In addition, to validate quality upstream, the pipeline also runs **Basic Model Validation Tests** to validate the end-to-end training and scoring steps with a sample set of mocked data.
+* When PR is merged into Master branch, the CI pipeline will run the same Code Validation Tests and Basic Model Validation Tests with increased epoch. The pipeline will then package the **Artifacts, which include the code and binaries to run in the ML environment.
+*After the Artifacts are available, a **Model Validation** CD pipeline will be triggered, which runs end-to-end validation on the development ML environment. A scoring mechanism will be published. For a batch scoring scenario, a scoring pipeline is published to the ML environment and triggered to produce results. On the other hand, for a real-time scoring scenario, a web app or a container can be published.
+* Once a milestone is created and merged into the Release branch, the same CI pipeline and Model Validation CD pipeline are triggered accordingly but against the code based in the Release branch.
+
+The MLOps process flow shown in Figure 9 should be considered as an archetype framework for other engagements that might make similar architectural choices.
+
+:::image type="content" source="./media/mlops-process-flow.png" alt-text="MLOps process flow archetype diagram":::
+
+<p style="text-align:center;font-style:italic;" tag="caption">Figure 9 - MLOps Archypical Process Flow</p>
+
+### Code Validation Tests
+
+Code validation tests for ML focus on validating the quality of the code base. This is the same concept as any non-ML engineering project, which involves code quality tests (linting), unit tests, and determine code coverage. To learn more about who to write unit tests for ML, please refer to Unit Tests for MLOps and Unit Testing Example.
+
+### Basic Model Validation Tests (Local Testing)
+
+Model validation typically referrs to validating the full end-to-end process steps required to produce a valid ML model. This includes steps such as:
+
+* __Data validation__: Ensure that the input data is valid.
+* __Training validation__: Ensure that the model can be successfully trained.
+* __Scoring validation__: Ensure that the trained model can successfully be used for scoring with the input data.
+
+However, running this full set of steps on the ML environment is expensive and time consuming. As a result, Basic Model Validation Tests are focused on running all the above steps locally on a development machine. The following enables these validation tests to run locally:
+
+* __Local testing dataset__: A small sample and often obfuscated dataset that is checked-in into the repository and to be consumed as the input data source.
+* __Local flag__: A flag or argument within each of the model code to indicate that the run is intended to run locally. This allows the code to bypass any required code calling to the ML environment and make adjustment to run locally.
+
+This goal of these validation tests is not to evaluate the performance of the trained model but to validate that the code for the end-to-end process is valid. This not only enables pushing quality upstream, such as model validation tests can now be part of the PR and CI build, but also enables engineers and data scientists to put a breakpoint into the code for debugging purposes.
+
+### Model Training/Validation CD Pipeline
+
+The goal of the model validation pipeline is to validate the end-to-end model training and scoring steps on the ML environment with actual data. Any trained model that is produced will be registered into the model registry, tagged, and await to be promoted once validation is completed. For batch prediction, promotion can be publishing a scoring pipeline, where the pipeline is using this version of the model. For real-time scoring, the model can be tagged to indicate that it has been promoted.
+
+In order to measure the performance of the developed model, it goes through the validation phase. One typical technique involves splitting the data into testing and validation datasets. The validation phase involves running the model against the validation data sets. Some of the techniques used for validation are:
+
+* Train/test split
+* k-Fold Cross-Validation
+* Leave-one-out Cross-Validation
+* Leave-one-group-out Cross-Validation
+* Nested Cross-Validation 
+
+### Scoring CD Pipeline
+
+The Scoring CD pipeline is applicable for the batch inferencing scenario, where the published scoring pipeline is triggered by the same model orchestrator as the model validation.
+
+### Dev vs. Prod Environments
+
+It is a good practice to separate the development (dev) and the production (prod) environments. This allows the Model Validation CD pipeline and Scoring CD pipeline to be triggered at a different cadence. For the described MLOps flow, pipelines targeting the Master branch will run on dev environment, where as the pipeline targeting the Release branch will run on prod environment.
+
+### Code Changes vs Data Changes
+
+The previous sections have mostly dealt with how to handle code changes from development to release. However, data changes should also follow the same rigor as code changes to provide the same quality validation and consistency in production. Thus, with a data change trigger or a timer trigger, Model Validation CD pipeline and Scoring CD pipeline should be triggered from the model orchestrator to run the same process as code changes in the Release branch / prod environment.
 
 ## MLOps Personas and Roles
 
@@ -435,8 +493,6 @@ Three key findings from the persona and role studies had to be addressed.
 2. The need to unify ML and DevOps without alienating either of the principle personas, is to share a common understanding of the conceptual model for MLOps, establish a clear consensus for expectations of how all team members will work together, and discuss working guidelines to achieve common goals.
 3. The Business Stakeholder and Data End-User may require a “friendly” way to interact with the data output from the models. A user-friendly UI is the most common solution.
 
-<!-- Additional persona details can be found in the accompanying Reference Architecture Document. -->
-
 Similar issues will certainly be encountered in other ML engagements as they are scaled up for production use.
 
 ## MLOps Solution Architecture
@@ -445,9 +501,9 @@ Similar issues will certainly be encountered in other ML engagements as they are
 
 :::image type="content" source="./media/mlops-logical-architecture.png" alt-text="diagram of logical MLOps architecture":::
 
-<p style="text-align:center;font-style:italic;" tag="caption">Figure 9 - Data Orchestration</p>
+<p style="text-align:center;font-style:italic;" tag="caption">Figure 10 - Data Orchestration</p>
 
-What is not depicted in the Logical Architecture diagram (Figure 9) is the Data conditioning that must occur prior to data insertion into the Azure Data Lake. This preconditioning is necessary to resolve the data sets that are derived from multiple sources using microservices operating as Azure Functions. These microservices are customized to fit the data sources and transform them into a standardized csv format that can be consumed by the training and scoring pipelines.
+What is not depicted in the Logical Architecture diagram (Figure 10) is the Data conditioning that must occur prior to data insertion into the Azure Data Lake. This preconditioning is necessary to resolve the data sets that are derived from multiple sources using microservices operating as Azure Functions. These microservices are customized to fit the data sources and transform them into a standardized csv format that can be consumed by the training and scoring pipelines.
 
 ### System Architecture
 
@@ -457,15 +513,15 @@ There were many design options available for the system architecture. What is sh
 
 :::image type="content" source="./media/system-architecture.png" alt-text="system architecture supported by MLOps":::
 
-<p style="text-align:center;font-style:italic;" tag="caption">Figure 10 - System Architecture Supported by MLOps</p>
+<p style="text-align:center;font-style:italic;" tag="caption">Figure 11 - System Architecture Supported by MLOps</p>
 
 ### Batch Processing Architecture
 
-The architectural design was devised to support a batch data processing scheme as illustrated in Figure 11. Alternate architectures are possible but must support MLOps processes. Full use of available Azure services was a design requirement.
+The architectural design was devised to support a batch data processing scheme as illustrated in Figure 12. Alternate architectures are possible but must support MLOps processes. Full use of available Azure services was a design requirement.
 
 :::image type="content" source="./media/batch-processing-architecture.png" alt-text="bath processing architecture diagram":::
 
-<p style="text-align:center;font-style:italic;" tag="caption">Figure 11 - Batch Processing Architecture Requirement</p>
+<p style="text-align:center;font-style:italic;" tag="caption">Figure 12 - Batch Processing Architecture Requirement</p>
 
 ## Solution Overview
 
@@ -531,15 +587,15 @@ As mentioned, dashboards were used to visually display the ML model data. These 
 * Display the scoring/predictions produced by the ML model
   * Developed independently by the client in this engagement
 
-Because these kinds of dashboards are populated according to the nature of the data and how it is being processed and analyzed, the exact layout of the dashboards must be designed for each individual use case. Two sample dashboards are shown below in Figures 12 and 13.
+Because these kinds of dashboards are populated according to the nature of the data and how it is being processed and analyzed, the exact layout of the dashboards must be designed for each individual use case. Two sample dashboards are shown below in Figures 13 and 14.
 
 :::image type="content" source="./media/ml-training-dashboard.png" alt-text="sample screenshot of ML training dashboard":::
 
-<p style="text-align:center;font-style:italic;" tag="caption">Figure 12 - ML Training Dashboard</p><br>
+<p style="text-align:center;font-style:italic;" tag="caption">Figure 13 - ML Training Dashboard</p><br>
 
 :::image type="content" source="./media/ml-monitoring-dashboard.png" alt-text="sample screenshot of ML monitoring dashboard":::
 
-<p style="text-align:center;font-style:italic;" tag="caption">Figure 13 - ML Monitoring Dashboard</p><br>
+<p style="text-align:center;font-style:italic;" tag="caption">Figure 14 - ML Monitoring Dashboard</p><br>
 
 The overriding criteria for the design of these dashboards is that they provide readily usable information for consumption by the end user of the ML model predictions. For more information, see [*Observability*](https://csefy19.visualstudio.com/CSECodeShare/_git/CSECodeShare?path=%2Fengagements%2F2019%2Fpepsico-storedna%2Fdocs%2Fobservability.md&version=GBmaster) and [*Model Health*](https://csefy19.visualstudio.com/CSECodeShare/_git/CSECodeShare?path=%2Fengagements%2F2019%2Fpepsico-storedna%2Fdocs%2Fmodel-health.md&version=GBmaster).
 
@@ -570,7 +626,7 @@ See the earlier section *End User Interfaces for Observability, Monitoring, and 
 * Azure Dashboards
 * Power BI
 
-The selection of which kind of pipeline service to use for a specific process step is discussed in detail in the companion document MLOps Decision Tree Guide. <-- consider adding some content from other document here...
+The selection of which kind of pipeline service to use for a specific process step is discussed in detail in the companion document [*Azure Machine Learning Development: Decision Guide for Optimal Tool Selection*](./aml-decision-tree.md).
 
 ### Assets
 
