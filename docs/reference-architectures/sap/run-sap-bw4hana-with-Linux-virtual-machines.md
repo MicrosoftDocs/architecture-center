@@ -141,7 +141,7 @@ This architecture makes use of the following components:
     matrix](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix)
     details the capabilities and restrictions of this solution.
 
-- Microsoft Power BI Desktop imports data from various SAP sources, such as
+- [Microsoft Power BI Desktop](https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-sap-bw-connector) imports data from various SAP sources, such as
     SAP BW/4HANA, for analysis and visualization. Power BI also complements SAP
     BusinessObjects Universe by offering a business context or a semantics layer
     over the raw information.
@@ -180,7 +180,7 @@ architecture](https://docs.microsoft.com/azure/architecture/reference-architectu
 
 For details about SAP support for Azure virtual machine types and throughput
 metrics (SAPS), see [SAP Note
-1928533](https://launchpad.support.sap.com/#/notes/1928533) – “SAP Applications
+1928533](https://launchpad.support.sap.com/#/notes/1928533), “SAP Applications
 on Azure: Supported Products and Azure Virtual Machine Types.” (To access this
 and other SAP notes, an SAP Service Marketplace account is required.)
 
@@ -366,7 +366,7 @@ virtual machines with Premium disks, which offer an [uptime
 SLA](https://buildazure.com/2016/11/24/single-instance-vms-now-with-99-9-sla/).
 
 To maximize application availability, you can deploy redundant resources in an
-availability set or across [Availability
+availability setavailability set or across [Availability
 Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones).
 For more information, refer to the [SAP S/4HANA reference
 architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-s4hana#availability-considerations).
@@ -475,7 +475,7 @@ To provide SAP-based monitoring of resources and service performance of the SAP
 infrastructure, use the [Azure SAP Enhanced
 Monitoring](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca)
 extension. For details, see [SAP Note
-2191498](https://launchpad.support.sap.com/#/notes/2191498) – “SAP on Linux with
+2191498](https://launchpad.support.sap.com/#/notes/2191498), “SAP on Linux with
 Azure: Enhanced Monitoring.”
 
 ## Security

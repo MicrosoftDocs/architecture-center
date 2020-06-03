@@ -44,7 +44,7 @@ machines. SAP HANA System Replication (HSR) is used to replicate data between
 the primary and secondary (replica) SAP HANA systems. HSR is also used for
 cross-region or cross-zone disaster recovery.
 
-**Availability set.** Virtual machines providing the same service are grouped
+**Availability sets.** Virtual machines providing the same service are grouped
 into a highly available [availability
 set](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)
 for a higher [service-level
@@ -60,7 +60,7 @@ Zones](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-ava
 for scenarios that need higher application availability (not shown in this
 architecture).
 
-**Network security group.** To restrict incoming, outgoing, and intra-subnet
+**Network security groups.** To restrict incoming, outgoing, and intra-subnet
 traffic in the virtual network, you can define [network security
 groups](https://docs.microsoft.com/azure/virtual-network/security-overview)
 (NSGs) for subnets or individual virtual machines.
@@ -181,9 +181,8 @@ provides the best IO performance. You can dynamically change the performance of
 ultra disks and independently configure metrics like IOPS and MB/s without
 rebooting your virtual machine.
 
-For details about SAP HANA performance requirements, see [SAP note 1943937 -
-Hardware Configuration Check
-Tool](https://launchpad.support.sap.com/#/notes/1943937).
+For details about SAP HANA performance requirements, see [SAP Note 1943937](https://launchpad.support.sap.com/#/notes/1943937), 
+"Hardware Configuration Check Tool."
 
 **Note:** As specified in [SAP Note
 2731110](https://launchpad.support.sap.com/#/notes/2731110), do not place any
