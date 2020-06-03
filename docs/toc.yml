@@ -1145,7 +1145,6 @@ items:
     items:
     - name: Example workloads
       href: reference-architectures/sap/run-sap-bw4hana-with-Linux-virtual-machines.md
-    items:
     - name: Architectures
       items:
       - name: SAP HANA on Azure Large Instances
