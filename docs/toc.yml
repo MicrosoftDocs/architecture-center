@@ -948,6 +948,8 @@ items:
       items:
         - name: Observe and make changes to a strawberry farm in real-time
           href: example-scenario/iot/observe-strawberry-farm.md
+        - name: Monitor and optimize a wind farm
+          href: example-scenario/iot/energy-domain-markdown.md
   - name: Management and Governance
     items:
     - name: Architectures
