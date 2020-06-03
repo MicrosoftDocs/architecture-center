@@ -100,7 +100,7 @@ This architecture makes use of the following components:
     Layer (SSL) termination and forwarding.
 
 - [Network security
-    groups](https://docs.microsoft.com/azure/virtual-network/security-overview)s
+    groups](https://docs.microsoft.com/azure/virtual-network/security-overview)
     (NSGs) attach to a subnet or to the network interface cards (NICs) on a
     virtual machine and are used to restrict incoming, outgoing, and
     intra-subnet traffic in the virtual network.
