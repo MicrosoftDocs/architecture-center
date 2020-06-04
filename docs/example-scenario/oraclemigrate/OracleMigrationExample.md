@@ -37,7 +37,15 @@ Microsoft Data Migration Jumpstart Team maintain Oracle Scripts to run on Oracle
 
 The assessment principles as below table:
 
-![](media/assessment-table.png)
+| | Simple | Medium | Large | Complex | Custom |
+|-| ------ | ------ | ----- | ------- | ------ |
+| Number of Tables in schema | <500 | 501-1000 | 1001-2000 | 2001-3000 | >3000 |
+| Total number of SP, Trigger, Functions, Views | <100 | 101-200 | 201-400 | 401-800 | >800 |
+| Collection Types per schema | <10 | 11-20 | 21-40 | 41-80 | >80 |
+| Packages per schema | <10 | 11-25 | 26-50 | 51-100 | >100 |
+| Schema Data Size | <10GB | 11-75 GB | 76-500GB | 501-2000 | >2000 |
+
+<!-- ![](media/assessment-table.png) -->
 
 Download the [Assessment Calculator Template](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Customer%20Assessment%20CalculatorTemplate2.xlsx) and run [Oracle PL\SQL](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_Pre_v12.sql) [Oracle PL\SQL 2](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_v12_Plus.sql) in existing Oracle database.
 
@@ -106,7 +114,29 @@ ora2pg -t SHOW_REPORT --estimate_cost
 
 The output of the schema assessment as below:
 
-![](media/oracle-to-pg-migration-level.png)
+```dotnetcli
+Migration levels:
+
+    A - Migration that might be run automatically
+
+    B - Migration with code rewrite and a human-days cost up to 5 days
+
+    C - Migration with code rewrite and a human-days cost above 5 days
+
+Technical levels:
+
+    1 = trivial: no stored functions and no triggers
+
+    2 = easy: no stored functions but with triggers, no manual rewriting
+
+    3 = simple: stored unctions and/or triggers no manual rewriting
+
+    4 = manual: no stored functions but with triggers or views with code rewriting
+
+    5 = difficulty: stored functions and/or triggers with code rewriting
+```
+
+<!-- ![](media/oracle-to-pg-migration-level.png) -->
 
 #### Migration tools
 
@@ -146,7 +176,18 @@ DMS provide online migration to reduce downtime, refer [How to online migrate Or
 
 Below is workaround list when migrating Oracle database to PostgreSQL, refer [Oracle migrate to PostgreSQL workaround list](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20Database%20for%20PostgreSQL%20Migration%20Workarounds.pdf) to get detailed scripts.
 
-![](media/oracle-to-pg-workaround-list.png)
+| Oracle | PostgreSGL |
+| ------ | ---------- |
+| Database Link | Foreign Data Wrapper |
+| External Table | Foreign Table |
+| Synonym | View / Set search_path |
+| Global Temporary Table | Unlogged Table / Temp Table |
+| Virtual column | View / Function / Trigger |
+| Connected by | With Recursive |
+| Reverse Index | Functional Index |
+|Index Organized Table (IOT) | Cluster the table according to an Index |
+
+<!-- ![](media/oracle-to-pg-workaround-list.png) -->
 
 ### Scenario 3: Rearchitect
 
@@ -173,6 +214,18 @@ Oracle schema and data migration:
 #### Oracle objects Conversion Principles
 
 Below table describes how SSMA tool convert Oracle objects to SQL objects.
+
+| Oracle Objects | Resulting SQL Server Objects |
+| -------------- | ---------------------------- |
+| Functions | If the function can be directly converted to Transact-SQL, SSMA creates a function.<br>In some cases, the function must be converted to a stored procedure. In this case, SSMA creates a stored procedure and a function that calls the stored. |
+procedure. |
+| Procedures | If the procedure can be directly converted to Transact-SQL, SSMA creates a stored procedure. <br> In some cases a stored procedure must be called in an autonomous transaction. In this case, SSMA creates two stored procedures: one that implements the procedure, and another that is used for calling the implementing stored procedure. |
+| Packages | SSMA creates a set of stored procedures and functions that are unified by similar object names. |
+| Sequences | SSMA creates sequence objects (SQL Server 2012 or SQL Server 2014) or emulates Oracle sequences. |
+| Tables with dependent objects such as indexes and triggers | SSMA creates tables with dependent objects. |
+| View with dependent objects, such as triggers | SSMA creates views with dependent objects. |
+| Materialized Views | **SSMA creates indexed views on SQL server with some exceptions. Conversion will fail if the materialized view includes one or more of the following constructs**:<br><br><code>User-defined function<br><br>Non deterministic field / function / expression in SELECT, WHERE or GROUP BY clauses<br><br>Usage of Float column in SELECT*, WHERE or GROUP BY clauses (special case of previous issue)<br><br>Custom data type (incl. nested tables)<br><br>COUNT(distinct &lt;field&gt;)<br><br>FETCH<br>OUTER joins (LEFT, RIGHT, or FULL)<br>Subquery, other view<br>OVER, RANK, LEAD, LOG<br>MIN, MAX<br>UNION, MINUS, INTERSECT<br>HAVING</code> |
+| Trigger | **SSMA creates triggers based on the following rules**:<br><br><code>BEFORE triggers are converted to INSTEAD OF triggers.<br><br>AFTER triggers are converted to AFTER triggers.<br><br>INSTEAD OF triggers are converted to INSTEAD OF triggers. Multiple INSTEAD OF triggers defined on the same operation are combined into one trigger.<br><br>Row-level triggers are emulated using cursors.<br><br>Cascading triggers are converted into multiple individual triggers. </code>|
 
 ![](media/schema-conversion-principles-1.png)
 
