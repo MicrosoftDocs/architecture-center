@@ -8,8 +8,7 @@ ms.date: 06/04/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom:
-  - fcp
+ms.custom: fcp
 ---
 
 # Oracle database migration
@@ -44,8 +43,6 @@ The assessment principles as below table:
 | Collection Types per schema | <10 | 11-20 | 21-40 | 41-80 | >80 |
 | Packages per schema | <10 | 11-25 | 26-50 | 51-100 | >100 |
 | Schema Data Size | <10GB | 11-75 GB | 76-500GB | 501-2000 | >2000 |
-
-<!-- ![](media/assessment-table.png) -->
 
 Download the [Assessment Calculator Template](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Customer%20Assessment%20CalculatorTemplate2.xlsx) and run [Oracle PL\SQL](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_Pre_v12.sql) [Oracle PL\SQL 2](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_v12_Plus.sql) in existing Oracle database.
 
@@ -136,8 +133,6 @@ Technical levels:
     5 = difficulty: stored functions and/or triggers with code rewriting
 ```
 
-<!-- ![](media/oracle-to-pg-migration-level.png) -->
-
 #### Migration tools
 
 Oracle database discoveries script:
@@ -187,8 +182,6 @@ Below is workaround list when migrating Oracle database to PostgreSQL, refer [Or
 | Reverse Index | Functional Index |
 |Index Organized Table (IOT) | Cluster the table according to an Index |
 
-<!-- ![](media/oracle-to-pg-workaround-list.png) -->
-
 ### Scenario 3: Rearchitect
 
 If comfortable to manage MSSQL, Azure managed instance(MI) is a good options given it's Microsoft 1st party relational database on Azure.
@@ -217,8 +210,7 @@ Below table describes how SSMA tool convert Oracle objects to SQL objects.
 
 | Oracle Objects | Resulting SQL Server Objects |
 | -------------- | ---------------------------- |
-| Functions | If the function can be directly converted to Transact-SQL, SSMA creates a function.<br>In some cases, the function must be converted to a stored procedure. In this case, SSMA creates a stored procedure and a function that calls the stored. |
-procedure. |
+| Functions | If the function can be directly converted to Transact-SQL, SSMA creates a function.<br>In some cases, the function must be converted to a stored procedure. In this case, SSMA creates a stored procedure and a function that calls the stored procedure. |
 | Procedures | If the procedure can be directly converted to Transact-SQL, SSMA creates a stored procedure. <br> In some cases a stored procedure must be called in an autonomous transaction. In this case, SSMA creates two stored procedures: one that implements the procedure, and another that is used for calling the implementing stored procedure. |
 | Packages | SSMA creates a set of stored procedures and functions that are unified by similar object names. |
 | Sequences | SSMA creates sequence objects (SQL Server 2012 or SQL Server 2014) or emulates Oracle sequences. |
@@ -228,10 +220,6 @@ procedure. |
 | Trigger | **SSMA creates triggers based on the following rules**:<br><br><code>BEFORE triggers are converted to INSTEAD OF triggers.<br><br>AFTER triggers are converted to AFTER triggers.<br><br>INSTEAD OF triggers are converted to INSTEAD OF triggers. Multiple INSTEAD OF triggers defined on the same operation are combined into one trigger.<br><br>Row-level triggers are emulated using cursors.<br><br>Cascading triggers are converted into multiple individual triggers. </code>|
 | Synonyms | **Synonyms are created for the following object types**:<br><br><code>Tables and object tables<br>Views and object views<br>Stored procedures<br>Functions<code>**Synonyms for the following objects are resolved and replaced by direct object references**:<br><br></code>Sequences<br><br>Packages<br><br>Java class schema objects<br><br>User-defined object types<br>Synonyms for another synonym cannot be migrated and will be marked as errors.<br><br>Synonyms are not created for Materialized views.</code> |
 | User Defined Types | **SSMA does not provide support for conversion of user defined types. User Defined Types, including its usage in PL/SQL programs are marked with special conversion errors guided by the following rules**:<br><br><code>Table column of a user defined type is converted to VARCHAR(8000).<br><br>Argument of user defined type to a stored procedure or function is converted to VARCHAR(8000).<br>Variable of user defined type in PL/SQL block is converted to VARCHAR(8000).<br><br>Object Table is converted to a Standard table.<br> Object view is converted to a Standard view.</code>|
-
-<!-- ![](media/schema-conversion-principles-1.png)
-
-![](media/schema-conversion-principles-2.png) -->
 
 For more information, see [Schema conversion](/sql/ssma/mysql/converting-mysql-databases-mysqltosql?view=sql-server-ver15)
 
