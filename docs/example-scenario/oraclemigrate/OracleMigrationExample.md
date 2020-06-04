@@ -226,10 +226,12 @@ procedure. |
 | View with dependent objects, such as triggers | SSMA creates views with dependent objects. |
 | Materialized Views | **SSMA creates indexed views on SQL server with some exceptions. Conversion will fail if the materialized view includes one or more of the following constructs**:<br><br><code>User-defined function<br><br>Non deterministic field / function / expression in SELECT, WHERE or GROUP BY clauses<br><br>Usage of Float column in SELECT*, WHERE or GROUP BY clauses (special case of previous issue)<br><br>Custom data type (incl. nested tables)<br><br>COUNT(distinct &lt;field&gt;)<br><br>FETCH<br>OUTER joins (LEFT, RIGHT, or FULL)<br>Subquery, other view<br>OVER, RANK, LEAD, LOG<br>MIN, MAX<br>UNION, MINUS, INTERSECT<br>HAVING</code> |
 | Trigger | **SSMA creates triggers based on the following rules**:<br><br><code>BEFORE triggers are converted to INSTEAD OF triggers.<br><br>AFTER triggers are converted to AFTER triggers.<br><br>INSTEAD OF triggers are converted to INSTEAD OF triggers. Multiple INSTEAD OF triggers defined on the same operation are combined into one trigger.<br><br>Row-level triggers are emulated using cursors.<br><br>Cascading triggers are converted into multiple individual triggers. </code>|
+| Synonyms | **Synonyms are created for the following object types**:<br><br><code>Tables and object tables<br>Views and object views<br>Stored procedures<br>Functions<code>**Synonyms for the following objects are resolved and replaced by direct object references**:<br><br></code>Sequences<br><br>Packages<br><br>Java class schema objects<br><br>User-defined object types<br>Synonyms for another synonym cannot be migrated and will be marked as errors.<br><br>Synonyms are not created for Materialized views.</code> |
+| User Defined Types | **SSMA does not provide support for conversion of user defined types. User Defined Types, including its usage in PL/SQL programs are marked with special conversion errors guided by the following rules**:<br><br><code>Table column of a user defined type is converted to VARCHAR(8000).<br><br>Argument of user defined type to a stored procedure or function is converted to VARCHAR(8000).<br>Variable of user defined type in PL/SQL block is converted to VARCHAR(8000).<br><br>Object Table is converted to a Standard table.<br> Object view is converted to a Standard view.</code>|
 
-![](media/schema-conversion-principles-1.png)
+<!-- ![](media/schema-conversion-principles-1.png)
 
-![](media/schema-conversion-principles-2.png)
+![](media/schema-conversion-principles-2.png) -->
 
 For more information, see [Schema conversion](/sql/ssma/mysql/converting-mysql-databases-mysqltosql?view=sql-server-ver15)
 
