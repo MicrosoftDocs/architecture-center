@@ -7,8 +7,7 @@ ms.date: 06/03/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom:
-  - fcp
+ms.custom: fcp
 ---
 
 # Vision classifier model with Azure Custom Vision Cognitive Service
