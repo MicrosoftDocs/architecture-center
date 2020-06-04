@@ -1,8 +1,8 @@
 ---
 title: Automated enterprise BI
 description: Automate an extract, load, and transform (ELT) workflow in Azure using Azure Data Factory with Azure Synapse Analytics.
-author: MikeWasson
-ms.date: 11/20/2019
+author: adamboeglin
+ms.date: 06/03/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.category:
@@ -143,7 +143,7 @@ The advantage of this approach is that it preserves historical data, which can b
 
 ![Second screenshot of the city dimension table](./images/city-dimension-table-2.png)
 
-For each Sales fact, you want to associate that fact with a single row in City dimension table, corresponding to the invoice date. As part of the ETL process, create an additional column that
+For each Sales fact, you want to associate that fact with a single row in City dimension table, corresponding to the invoice date. 
 
 The following T-SQL query creates a temporary table that associates each invoice with the correct City Key from the City dimension table.
 
