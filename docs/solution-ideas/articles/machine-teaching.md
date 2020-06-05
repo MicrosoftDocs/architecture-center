@@ -703,7 +703,7 @@ In this section, you’ve explored the challenges of simulations and how they ca
 In this article, we’ve covered a wide range of topics related to machine teaching. If you want to go deeper, we encourage you to check the next resources:
 
 * [Bonsai’s blog](https://bons.ai/blog).
-* [Bonsai documentation](https://docs.microsoft.com/en-us/bonsai/).
+* [Bonsai documentation](https://docs.microsoft.com/bonsai/).
 * [Bonsai, “AI for Everyone,” 2016 March 2]( https://medium.com/@BonsaiAI/ai-for-everyone-4ddd36c89859).
 * [Bonsai, “AI use cases: innovations solving more than just toy problems,” 2017 March 2](https://medium.com/@BonsaiAI/ai-use-cases-9d1b70e61396).
 * [Patrice Y. Simard, Saleema Amershi, David M. Chickering, et al., “Machine Teaching: A New Paradigm for Building Machine Learning Systems,” 2017](https://arxiv.org/abs/1707.06742v2).
@@ -712,7 +712,7 @@ In this article, we’ve covered a wide range of topics related to machine teach
 * [Andrej Karpathy, “Deep Reinforcement Learning: Pong from Pixels,” 2016 May 31](http://karpathy.github.io/2016/05/31/rl/).
 * [Wikipedia, “End-to-end reinforcement learning”](https://en.wikipedia.org/wiki/End-to-end_reinforcement_learning).
 * [Wikipedia, “Reinforcement learning”](https://en.wikipedia.org/wiki/Reinforcement_learning).
-* [Wikipedia, “Cobra effect”] (https://en.wikipedia.org/wiki/Cobra_effect).
+* [Wikipedia, “Cobra effect”](https://en.wikipedia.org/wiki/Cobra_effect).
 * [David Kestenbaum, “Pop Quiz: How Do You Stop Sea Captains From Killing Their Passengers?,” 2010 September 10](https://www.npr.org/sections/money/2010/09/09/129757852/pop-quiz-how-do-you-stop-sea-captains-from-killing-their-passengers?t=1556642213216).
 * [GitHub repo of Microsoft AirSim](https://github.com/Microsoft/AirSim).
 * [Aerial Informatics and Robotics Platform](https://www.microsoft.com/en-us/research/project/aerial-informatics-robotics-platform/).
