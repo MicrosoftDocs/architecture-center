@@ -179,7 +179,7 @@ disk
 storage](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd)
 provides the best IO performance. You can dynamically change the performance of
 ultra disks and independently configure metrics like IOPS and MB/s without
-rebooting your virtual machine.
+rebooting your virtual machine. Ultra disk capabilities continue to evolve. To see if these disks meet your requirements, review the latest information about the service scope of [ultra disks](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd), especially if your implementation includes Azure resiliency features such as availability sets, Availability Zones, and cross-region replication.
 
 For details about SAP HANA performance requirements, see [SAP Note 1943937](https://launchpad.support.sap.com/#/notes/1943937), "Hardware Configuration Check Tool."
 
