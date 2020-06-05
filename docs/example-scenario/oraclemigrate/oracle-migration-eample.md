@@ -3,7 +3,6 @@ title: Oracle database migration
 titleSuffix: Azure Example Scenarios
 description: Description
 author: amberz
-ms.author: demar
 ms.date: 06/04/2020
 ms.topic: example-scenario
 ms.service: architecture-center
