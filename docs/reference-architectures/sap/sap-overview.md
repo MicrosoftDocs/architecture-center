@@ -96,7 +96,7 @@ you run your SAP sandbox systems 10 hours a day, Monday through Friday, instead
 of around the clock every day, you might reduce your costs up to approximately
 70 percent in a pay-as-you-go model. When your SAP applications need to run all
 the time, opt for [Azure Reserved
-Instances](https://azure.microsoft.com/en-gb/pricing/reserved-vm-instances/) to
+Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) to
 also help drive down costs.
 
 ### Cost guidance
@@ -202,7 +202,7 @@ The monitoring and diagnostics process has several distinct phases:
 ### DevOps guidance
 
 - [Automating SAP deployments in Microsoft Azure using Terraform and
-    Ansible](https://azure.microsoft.com/en-gb/blog/automating-sap-deployments-in-microsoft-azure-using-terraform-and-ansible/)
+    Ansible](https://azure.microsoft.com/blog/automating-sap-deployments-in-microsoft-azure-using-terraform-and-ansible/)
 
 - [Accelerate your SAP on Azure HANA project with SUSE Microsoft Solution
     Templates](https://azure.microsoft.com/blog/accelerate-your-sap-on-azure-hana-project-with-suse-microsoft-solution-templates)

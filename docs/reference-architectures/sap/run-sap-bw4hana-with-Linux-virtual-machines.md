@@ -13,8 +13,6 @@ ms.custom: SAP, Windows
 
 # Run SAP BW/4HANA with Linux virtual machines on Azure
 
-EXAMPLE WORKLOAD
-
 SAP BW/4HANA is an enterprise data warehouse solution designed for the cloud and
 optimized for the SAP HANA platform. The following example focuses specifically
 on the SAP BW/4HANA application tier and is suitable for a small-scale
@@ -191,7 +189,7 @@ Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#c
 
 ### Application servers pool
 
-In application server pools, you can adjust the number of virtual machines based
+In application servers pool, you can adjust the number of virtual machines based
 on your requirements. [Azure is
 certified](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
 to run SAP BW/4HANA on Red Hat Enterprise Linux and SUSE Linux Enterprise.
@@ -327,7 +325,7 @@ Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-en
 for the log volume. Write Accelerator is available for M-series virtual machines
 and improves write latency. However, when available, use [Ultra managed
 disks](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd)
-in place of Premium disks without Write Accelerator.
+in place of Premium disks without Write Accelerator. Ultra disk capabilities continue to evolve. To see if these disks meet your requirements, review the latest information about the service scope of [ultra disks](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd), especially if your implementation includes Azure resiliency features such as availability sets, Availability Zones, and cross-region replication.
 
 To help performance by reducing the physical distance between the applications
 and database, use a proximity placement group, as mentioned earlier. [Scripts
