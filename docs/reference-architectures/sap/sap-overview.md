@@ -55,7 +55,7 @@ on an Azure infrastructure.
 
 ![Infograph architecture of the common ways SAP solutions are built on an Azure infrastructure.](./images/sap-overview-sap-solutions.png)
 
-| Run SAP HANA on Linux Virtual Machines in a Scale Up Architecture on Azure | Run SAP BW/4HANA with Linux virtual machines on Azure |
+| [Run SAP HANA on Linux virtual machines in a scale up architecture on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-hana-for-Linux-virtual-machines.md) | [Run SAP BW/4HANA with Linux virtual machines on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-Linux-virtual-machines.md) |
 |----------------------------------------------------------------------------|-------------------------------------------------------|
 
 ## GitHub resources
@@ -129,9 +129,13 @@ project landscapes.
 <table>
 <tr>
 <th>
+<img alt="X as in no" src="./images/x.png" />
+
 Manual deployment pains  
 </th>
 <th>
+<img alt="check mark as in yes" src="./images/check.png" />
+
 Automated deployment gains
 </th>
 </tr>
