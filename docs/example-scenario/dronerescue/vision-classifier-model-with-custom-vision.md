@@ -40,7 +40,7 @@ In a practical application of the lab, an actual drone replaces the Microsoft Ai
 
 ### TensorFlow
 
-[TensorFlow] is an open-source platform for machine learning (ML). It's a tool that helps you develop and train ML models. When you export your model to TensorFlow format, you'll have a protocol buffer file with the Custom Vision model that you can use locally in your script.
+[TensorFlow](https://www.tensorflow.org/) is an open-source platform for machine learning (ML). It's a tool that helps you develop and train ML models. When you export your model to TensorFlow format, you'll have a protocol buffer file with the Custom Vision model that you can use locally in your script.
 
 ## Deploy the solution
 
