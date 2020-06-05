@@ -1136,12 +1136,16 @@ items:
       items:
       - name: SAP HANA on Azure (Large Instances)
         href: reference-architectures/sap/hana-large-instances.md
-      - name: SAP HANA Scale-up
+      - name: SAP HANA Scale-up on Linux
         href: reference-architectures/sap/run-sap-hana-for-Linux-virtual-machines.md
       - name: SAP NetWeaver on Windows on Azure
         href: reference-architectures/sap/sap-netweaver.md
       - name: SAP S/4HANA in Linux on Azure
-        href: reference-architectures/sap/sap-s4hana.md
+        href: reference-architectures/sap/sap-s4hana.md       
+    - name: Example workloads
+      items:
+      - name: SAP BW/4HANA in Linux on Azure
+        href: reference-architectures/sap/run-sap-bw4hana-with-Linux-virtual-machines.md
       - name: SAP S/4 HANA on Azure and Linux
         href: solution-ideas/articles/sap-s4-hana-vm-on-linux.md
       - name: SAP NetWeaver on SQL Server
@@ -1149,11 +1153,7 @@ items:
       - name: SAP deployment using an Oracle DB
         href: example-scenario/apps/sap-production.md
       - name: Dev/test for SAP
-        href: example-scenario/apps/sap-dev-test.md    
-    - name: Example workloads
-      items:
-      - name: SAP BW/4HANA in Linux on Azure
-        href: reference-architectures/sap/run-sap-bw4hana-with-Linux-virtual-machines.md
+        href: example-scenario/apps/sap-dev-test.md   
   - name: Security
     items:
     - name: Architectures
