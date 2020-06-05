@@ -12,13 +12,13 @@ ms.custom: fcp
 
 # Vision classifier model with Azure Custom Vision Cognitive Service
 
-Azure Cognitive Services offers many possibilities for Artificial Intelligence (AI) solutions. One of them is [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/) which allows you to build, deploy, and improve your image classifiers. This architecture uses Custom Vision to classify images taken by a simulated drone. It provides a way to combine AI and the Internet of Things (IoT).
+Azure Cognitive Services offers many possibilities for Artificial Intelligence (AI) solutions. One of them is [Azure Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/), which allows you to build, deploy, and improve your image classifiers. This architecture uses Custom Vision to classify images taken by a simulated drone. It provides a way to combine AI and the Internet of Things (IoT).
 
 ## Potential use case
 
-Microsoft [Search and Rescue Lab](https://github.com/Microsoft/DroneRescue) suggests a hypothetical use case for Custom Vision. In the lab, you fly a Microsoft AirSim simulated drone around in a 3D-rendered environment. You use the simulated drone to capture synthetic images of the animals in that environment. You create a dataset of images of the animals. You then use the dataset of images to train a Custom Vision classifier model in Azure to know the names of the animals in the images. When you fly the drone again and take new images of the animals, this solution identifies the type of animal in each new image.
+Microsoft [Search and Rescue Lab](https://github.com/Microsoft/DroneRescue) suggests a hypothetical use case for Custom Vision. In the lab, you fly a Microsoft AirSim simulated drone around in a 3D-rendered environment. You use the simulated drone to capture synthetic images of the animals in that environment. After creating a dataset of images of the animals, you use the dataset to train a Custom Vision classifier model. To train the model, you tag the images with the names of the animals. When you fly the drone again, take new images of the animals. This solution identifies the name of the animal in each new image.
 
-The a practical application, Microsoft AirSim simulated drone is replaced with a real drone. If an owner looses a pet, images of the pet can be used to create the Custom Vision model in Azure. Just like in the simulation, the images of the pet are used to train the model to recognize the pet. Then, the drone can be deployed to search an area where the lost pet might be. As it encounters animals, the drone's camera can capture images and determine if the animal is the lost pet.
+In a practical application of the lab, an actual drone replaces the Microsoft AirSim simulated drone. If a pet is lost, the owner provides images of the pet to the Custom Vision model trainer. Just like in the simulation, the images are used to train the model to recognize the pet. Then, the drone pilot searches an area where the lost pet might be. As it finds animals along the way, the drone's camera can capture images and determine if the animal is the lost pet.
 
 ## Architecture
 
