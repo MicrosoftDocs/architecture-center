@@ -18,7 +18,9 @@ This example provide a reference for decision tree of Oracle database migration,
 
 Since restriction of applications (i.e. application only support Oracle database) or technologies preference, there are some options for Oracle database migrate to Azure, refer below migration decision tree:
 
-![](media/oracle-migration-decision-tree.png)
+![](media/oracle-migration-tree.png)
+
+<!-- ![](media/oracle-migration-decision-tree.png) -->
 
 ## Migration Process
 Below migration guidance provide Oracle database migrate to Azure Managed Instance and Azure database for PostgreSQL including existing Oracla Database environment assessment, Oracle schemas and objects conversion to SQL or PostgreSQL, and data migration.
