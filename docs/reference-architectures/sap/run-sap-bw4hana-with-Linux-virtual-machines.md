@@ -1,6 +1,6 @@
 ---
-title: Run SAP BW4HANA with Linux virtual machines on Azure
-description: SAP BW/4HANA is an enterprise data warehouse solution designed for the cloud and optimized for the SAP HANA platform. 
+title: Run SAP BW/4HANA with Linux virtual machines on Azure
+description: SAP BW/4HANA is an enterprise data warehouse solution designed for the cloud and optimized for the SAP HANA platform.
 author: maggsl
 ms.date: 06/05/2020
 ms.topic: reference-architecture

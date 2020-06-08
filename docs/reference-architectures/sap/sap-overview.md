@@ -53,10 +53,101 @@ blog post.
 The following scenarios outline a few of the common ways SAP solutions are built
 on an Azure infrastructure.
 
-![Infograph architecture of the common ways SAP solutions are built on an Azure infrastructure.](./images/sap-overview-sap-solutions.png)
+<ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
+    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
+        <a class="is-undecorated is-full-height is-block"
+            href="/azure/architecture/reference-architectures/sap/hana-large-instances">
+            <article class="card has-outline-hover is-relative is-fullheight">
+                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
+                        <img role="presentation" alt="" src="./images/sap-hana-large-instances.png">
+                    </figure>
+                <div class="card-content has-text-overflow-ellipsis">
+                    <div class="has-padding-bottom-none">
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Run SAP HANA on Azure Large Instances</h3>
+                    </div>
+                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
+                        <p>Proven practices for running SAP HANA in a high availability environment on Azure Large Instances.</p>
+                    </div>
+                </div>
+            </article>
+        </a>
+    </li>
+    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
+        <a class="is-undecorated is-full-height is-block"
+            href="/azure/architecture/reference-architectures/sap/sap-netweaver">
+            <article class="card has-outline-hover is-relative is-fullheight">
+                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
+                        <img role="presentation" alt="" src="./images/sap-netweaver.png">
+                    </figure>
+                <div class="card-content has-text-overflow-ellipsis">
+                    <div class="has-padding-bottom-none">
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Run SAP NetWeaver in Windows on Azure</h3>
+                    </div>
+                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
+                        <p>Proven practices for running SAP NetWeaver in a Windows environment on Azure with high availability.</p>
+                    </div>
+                </div>
+            </article>
+        </a>
+    </li>
+    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
+        <a class="is-undecorated is-full-height is-block"
+            href="/azure/architecture/reference-architectures/sap/sap-s4hana">
+            <article class="card has-outline-hover is-relative is-fullheight">
+                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
+                        <img role="presentation" alt="" src="./images/sap-s4hana.png">
+                    </figure>
+                <div class="card-content has-text-overflow-ellipsis">
+                    <div class="has-padding-bottom-none">
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">SAP /4HANA in Linux on Azure</h3>
+                    </div>
+                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
+                        <p>Proven practices for running SAP S/4HANA in a Linux environment on Azure with high availability.</p>
+                    </div>
+                </div>
+            </article>
+        </a>
+    </li>
+</ul>
 
-| [Run SAP HANA on Linux virtual machines in a scale up architecture on Azure](/azure/architecture/reference-architectures/sap/run-sap-hana-for-Linux-virtual-machines) | [Run SAP BW/4HANA with Linux virtual machines on Azure](/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-Linux-virtual-machines) |
-|----------------------------------------------------------------------------|-------------------------------------------------------|
+<ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
+    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
+        <a class="is-undecorated is-full-height is-block"
+            href="/azure/architecture/reference-architectures/sap/run-sap-hana-for-Linux-virtual-machines">
+            <article class="card has-outline-hover is-relative is-fullheight">
+                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
+                        <img role="presentation" alt="" src="./images/sap-hana-scaleup.png">
+                    </figure>
+                <div class="card-content has-text-overflow-ellipsis">
+                    <div class="has-padding-bottom-none">
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Run SAP HANA on Linux virtual machines in a scale-up architecture on Azure</h3>
+                    </div>
+                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
+                        <p>This reference architecture shows a set of proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery on Azure.</p>
+                    </div>
+                </div>
+            </article>
+        </a>
+    </li>
+    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
+        <a class="is-undecorated is-full-height is-block"
+            href="reference-architectures/sap/run-sap-bw4hana-with-Linux-virtual-machines">
+            <article class="card has-outline-hover is-relative is-fullheight">
+                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
+                        <img role="presentation" alt="" src="./images/sap-bw4hana.png">
+                    </figure>
+                <div class="card-content has-text-overflow-ellipsis">
+                    <div class="has-padding-bottom-none">
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Run SAP BW/4HANA with Linux virtual machines on Azure</h3>
+                    </div>
+                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
+                        <p>SAP BW/4HANA is an enterprise data warehouse solution designed for the cloud and optimized for the SAP HANA platform.</p>
+                    </div>
+                </div>
+            </article>
+        </a>
+    </li> 
+</ul>
 
 ## GitHub resources
 
