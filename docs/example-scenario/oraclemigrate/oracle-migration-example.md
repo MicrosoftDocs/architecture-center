@@ -22,7 +22,13 @@ Since restriction of applications (i.e. application only support Oracle database
 
 <!-- ![](media/oracle-migration-decision-tree.png) -->
 
+Select one of these links to go to the migration section that interests you:
+
+| [Rearchitect](#scenario-3-rearchitect) | [Refactor](#scenaio-2-refactor) | [Lift/shift on Azure VMs](#scenario-1-liftshift-to-azure-vms) | [Cross-Cloud-Connectivity](#scenario-4-cross-cloud-connectivity) |
+| ----------- | -------- | ----------------------- | ------------------------ |
+
 ## Migration Process
+
 Below migration guidance provide Oracle database migrate to Azure Managed Instance and Azure database for PostgreSQL including existing Oracla Database environment assessment, Oracle schemas and objects conversion to SQL or PostgreSQL, and data migration.
 
 ![](media/oracle-migration-process-to-sql-pg.png)
@@ -56,6 +62,8 @@ Oracle database would migrate to Azure Virtual Machines, Azure Database for Post
 ### Scenario 1: Lift/shift to Azure VMs
 
 Azure provide Oracle database images with Bring-Your-Own-License, allow to migrate Oracle Database to Azure Virtual Machines.
+
+![](media/lift-shift-azure-vms.png)
 
 Whether Oracle database is certified and supported on Microsoft Azure?
 
@@ -91,6 +99,8 @@ For Oracle RAC in Azure with FlashGrid SkyCluster, refer [Oracle RAC in Azure wi
 
 If prefer managed service on Azure and have legacy Oracle code, Azure offer Azure database migration service to allow Oracle database easily migrate Azure database for PostgreSQL.
 
+![](media/refactor.png)
+
 #### Prerequisites
 
 * Azure Subscritpion is required, refer [How to create Azure subscription](/azure/cost-management-billing/manage/create-subscription) to create a new subscritpion if doesn't exist. 
@@ -98,7 +108,7 @@ If prefer managed service on Azure and have legacy Oracle code, Azure offer Azur
 
 #### Why migrate to PostgreSQL
 
-* Azure database for PostgreSQL provide built-in business continuity and disaster recovery capacibity. Refer [How to create PostgreSQL read replica](/azure/postgresql/concepts-read-replicas) to improve PostgreSQL database reliability.
+* Azure database for PostgreSQL provide built-in business continuity and disaster recovery capacity. Refer [How to create PostgreSQL read replica](/azure/postgresql/concepts-read-replicas) to improve PostgreSQL database reliability.
 
 * Azure provide Azure Data Migration Service to allow easily to migrate data to PostgreSQL online.  
 
@@ -187,6 +197,8 @@ Below is workaround list when migrating Oracle database to PostgreSQL, refer [Or
 
 If comfortable to manage MSSQL, Azure managed instance(MI) is a good options given it's Microsoft 1st party relational database on Azure.
 
+![](media/rearchitect.png)
+
 #### Why migrate to Azure MI
 
 * Azure Managed Instance provide built-in [business continuity and disaster recovery capability](/azure/sql-database/sql-database-business-continuity)
@@ -238,6 +250,8 @@ Note, you should not uninstall the extension pack from SQL Server unless your mi
 For more information, refer [Removing SSMA for Oracle Components](/sql/ssma/oracle/removing-ssma-for-oracle-components-oracletosql?view=sql-server-ver15)
 
 ### Scenario 4: Cross-cloud connectivity
+
+![](media/cross-cloud-connectivity.png)
 
 To support multi-cloud experience, Microsoft and Oracle provide direct interconnection between Azure and Oracle Cloud Infrastructure (OCI) through ExpressRoute and FastConnect. It allows applications hosted on Azure and Oracle database hosted on Oracle Cloud Infrastructure (OCI) with low latency, high throughput by connecting an ExpressRoute circuit in Microsoft Azure with a FastConnect circuit in OCI.
 
