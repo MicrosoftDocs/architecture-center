@@ -2,7 +2,7 @@
 title: N-tier architecture style
 titleSuffix: Azure Application Architecture Guide
 description: Describes benefits, challenges, and best practices for N-tier architectures on Azure.
-author: MikeWasson
+author: adamboeglin
 ms.date: 08/30/2018
 ms.topic: guide
 ms.service: architecture-center
@@ -78,6 +78,10 @@ Each tier is also placed inside its own subnet, meaning their internal IP addres
 The web and business tiers are stateless. Any VM can handle any request for that tier. The data tier should consist of a replicated database. For Windows, we recommend SQL Server, using Always On availability groups for high availability. For Linux, choose a database that supports replication, such as Apache Cassandra.
 
 Network security groups restrict access to each tier. For example, the database tier only allows access from the business tier.
+
+> [!NOTE]
+> The layer labeled "Business Tier" in our reference diagram is the moniker we gave to the business logic tier. Likewise, we also call the presentation tier the "Web Tier." In our example, this is a web application, though multi-tier architectures can be used for other topologies as well (like desktop apps). 
+Name your tiers what works best for your team to communicate the intent of that logical and/or physical tier in your application - you could even express that naming in resources you choose to represent that tier (e.g. vmss-appName-business-layer).
 
 For more information about running N-tier applications on Azure:
 
