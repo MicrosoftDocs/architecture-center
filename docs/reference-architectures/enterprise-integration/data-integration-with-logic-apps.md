@@ -13,7 +13,9 @@ ms.category:
 
 # Data Integration with Logic Apps and SQL Server  
  
-With Azure Logic Apps is possible to integrate data from an HTTP request and store it in an on-premises database using Microsoft SQL Server.  
+With Azure Logic Apps it is possible to integrate data from an HTTP request and store it in an on-premises database using Microsoft SQL Server.  
+
+![Architecture diagram - Data Integration with Logic Apps and SQL Server](./_images/data-integration-with-logic-apps.png)
 
 ## Architecture
 
@@ -22,7 +24,8 @@ With Azure Logic Apps is possible to integrate data from an HTTP request and sto
 
 1.
 2.
-3. 
+3.
+
 
 ## Components
 
