@@ -1,6 +1,6 @@
 ---
 title: Run SAP BW/4HANA with Linux virtual machines on Azure
-description: SAP BW/4HANA is an enterprise data warehouse solution designed for the cloud and optimized for the SAP HANA platform.
+description: This example focuses specifically on the SAP BW/4HANA application tier and is suitable for a small-scale production environment of SAP BW/4HANA on Azure where high availability is a priority.
 author: maggsl
 ms.date: 06/05/2020
 ms.topic: reference-architecture
@@ -39,8 +39,8 @@ checklist](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-d
 
 For details about the data persistence layer, see:
 
-- [Run SAP HANA on Azure Large
-    Instances](https://docs.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances)
+- [Run SAP HANA on Azure (Large
+    Instances)](https://docs.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances)
 
 - [Run SAP HANA on Linux virtual machines](/azure/architecture/reference-architectures/sap/run-sap-hana-for-Linux-virtual-machines)
 

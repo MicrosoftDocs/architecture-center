@@ -123,7 +123,7 @@ on an Azure infrastructure.
                         <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Run SAP HANA on Linux virtual machines in a scale-up architecture on Azure</h3>
                     </div>
                     <div class="is-size-7 has-margin-top-small has-line-height-reset">
-                        <p>This reference architecture shows a set of proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery on Azure.</p>
+                        <p>Proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery on Azure.</p>
                     </div>
                 </div>
             </article>
@@ -141,7 +141,7 @@ on an Azure infrastructure.
                         <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Run SAP BW/4HANA with Linux virtual machines on Azure</h3>
                     </div>
                     <div class="is-size-7 has-margin-top-small has-line-height-reset">
-                        <p>SAP BW/4HANA is an enterprise data warehouse solution designed for the cloud and optimized for the SAP HANA platform.</p>
+                        <p>This example focuses specifically on the SAP BW/4HANA application tier and is suitable for a small-scale production environment of SAP BW/4HANA on Azure where high availability is a priority.</p>
                     </div>
                 </div>
             </article>
