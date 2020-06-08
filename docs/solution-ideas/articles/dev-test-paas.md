@@ -39,7 +39,7 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 
 ## Next steps
 
-* [Set up Azure DevOps](https://www.visualstudio.com/docs/setup-admin/get-started)
+* [Set up Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/get-started/?view=azure-devops)
 * [Configure Microsoft Release Management agents](https://www.visualstudio.com/docs/release/getting-started/configure-agents)
 * [Deploy using Azure Resource Groups](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2)
 * [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-dotnet-framework)
