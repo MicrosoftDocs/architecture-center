@@ -63,10 +63,10 @@ on an Azure infrastructure.
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Run SAP HANA on Azure Large Instances</h3>
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Run SAP HANA on Azure (Large Instances)</h3>
                     </div>
                     <div class="is-size-7 has-margin-top-small has-line-height-reset">
-                        <p>Proven practices for running SAP HANA in a high availability environment on Azure Large Instances.</p>
+                        <p>Proven practices for running SAP HANA in a high availability environment on Azure (Large Instances).</p>
                     </div>
                 </div>
             </article>
