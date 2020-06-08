@@ -11,9 +11,9 @@ ms.subservice: solution-idea
 
 # Contactless interfaces with Azure IoT Edge
 
-Contactless business is the new normal. The world has become more aware of, and endangered by, surfaces that are touched by many people every day. Contactless interfaces reduce or eliminate physical touchpoints like traffic light buttons, touch screens, door handles, and elevator controls by creating touch-free experiences that are both safe and pleasing for users.
+Contactless business is the new normal. The world has become more aware of, and endangered by, surfaces that many people touch every day. Contactless interfaces reduce or eliminate physical touchpoints like traffic light buttons, touch screens, door handles, and elevator controls by creating touch-free experiences that are both safe and pleasing for users.
 
-[Avanade](www.avanade.com) and the Microsoft COVID-19 task force partnered to develop contactless interfaces using the [Azure intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/) platform. This solution combines intelligent and perceptive Internet of Things (IoT) edge devices with the storage, computing, artificial intelligence (AI), and machine learning (ML) capabilities of the Azure cloud.
+[Avanade](https://www.avanade.com) and the Microsoft COVID-19 task force partnered to develop contactless interfaces using the [Azure intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/) platform. This solution combines intelligent and perceptive Internet of Things (IoT) edge devices with the storage, computing, artificial intelligence (AI), and machine learning (ML) capabilities of the Azure cloud.
 
 IoT Edge devices can quickly recognize and respond to speech, image, gesture, or multi-modal input by using onboard processing. Azure IoT Hub in the cloud controls the devices and connects them to Azure resources. Azure Cognitive Services and Machine Learning continually retrain and update models to improve interface accuracy and performance.
 
