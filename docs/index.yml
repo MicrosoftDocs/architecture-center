@@ -446,15 +446,15 @@ additionalContent:
   sections:
     - title: Build your skills with Microsoft Learn # < 60 chars (optional)
       items:
-        - title: Pillars of a great Azure architecture
-          url: https://docs.microsoft.com/learn/modules/pillars-of-a-great-azure-architecture/
-        - title: Design for efficiency and operations in Azure
-          url: https://docs.microsoft.com/learn/modules/design-for-efficiency-and-operations-in-azure/
-        - title: Design for security in Azure
-          url: https://docs.microsoft.com/learn/modules/design-for-security-in-azure/
-        - title: Design for availability and recovery in Azure
-          url: https://docs.microsoft.com/learn/modules/design-for-availability-and-recoverability-in-azure/
-        - title: Design for performance and scalability in Azure
-          url: https://docs.microsoft.com/learn/modules/design-for-performance-and-scalability-in-azure/
+        - title: Build great solutions with the Microsoft Azure Well-Architected Framework
+          url: https://docs.microsoft.com/learn/paths/azure-well-architected-framework/
+        - title: Introduction to the Well Architected Framework
+          url: https://docs.microsoft.com/learn/modules/azure-well-architected-introduction/
+        - title: Azure Fundamentals
+          url: https://docs.microsoft.com/learn/paths/azure-fundamentals/
+        - title: Security, responsibility, and trust in Azure
+          url: https://docs.microsoft.com/learn/modules/intro-to-security-in-azure/
+        - title: Architect infrastructure operations in Azure
+          url: https://docs.microsoft.com/learn/paths/architect-infrastructure-operations/
         - title: Tour the N-tier architecture style
           url: https://docs.microsoft.com/learn/modules/n-tier-architecture/
