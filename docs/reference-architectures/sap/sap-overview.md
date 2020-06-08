@@ -131,7 +131,7 @@ on an Azure infrastructure.
     </li>
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
         <a class="is-undecorated is-full-height is-block"
-            href="reference-architectures/sap/run-sap-bw4hana-with-Linux-virtual-machines">
+            href="/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-Linux-virtual-machines">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
                         <img role="presentation" alt="" src="./images/sap-bw4hana.png">
