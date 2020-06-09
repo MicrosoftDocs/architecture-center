@@ -93,16 +93,19 @@ Embracing a DevOps paradigm means using an infrastructure-as-code (IaC) approach
 to building new SAP environments as needed. IaC is a key consideration in SAP
 project landscapes.
 
+
+
 <p>&nbsp;
  <table>
 <tr>
    <th>
 <!--<img alt="X as in no" src="./images/x.png" />-->
+	:x:
 Manual deployment pains  
    </th>
    <th>
 <!--<img alt="check mark as in yes" src="./images/check.png" />-->
-Automated deployment gains
+:heavy_check_mark:  Automated deployment gains
    </th>
   </tr>
   <tr>
