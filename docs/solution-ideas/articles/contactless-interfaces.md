@@ -43,5 +43,6 @@ IoT Edge devices can quickly recognize and respond to speech, image, gesture, or
 
 ## Next steps
 
+- For more information, please contact [iotcovid@microsoft.com](mailto:iotcovid@microsoft.com).
 - Voice control is the basic function in this solution. The platform can potentially extend to multiple sense recognition, like faces and gestures.
 - The solution can support global deployment by using Cognitive Services [Speech Translation](https://azure.microsoft.com/services/cognitive-services/speech-translation/) APIs.
