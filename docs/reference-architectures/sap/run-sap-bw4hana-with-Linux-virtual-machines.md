@@ -364,7 +364,7 @@ virtual machines with Premium disks, which offer an [uptime
 SLA](https://buildazure.com/2016/11/24/single-instance-vms-now-with-99-9-sla/).
 
 To maximize application availability, you can deploy redundant resources in an
-availability setavailability set or across [Availability
+availability set availability set or across [Availability
 Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones).
 For more information, refer to the [SAP S/4HANA reference
 architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-s4hana#availability-considerations).
@@ -456,6 +456,15 @@ To maximize the availability and performance of applications and services, use
 a comprehensive solution for collecting, analyzing, and acting on telemetry from
 your cloud and on-premises environments.
 
+To provide SAP-based monitoring of resources and service performance of the SAP
+infrastructure, use the [Azure SAP Enhanced
+Monitoring](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca)
+extension. For details, see [SAP Note
+2191498](https://launchpad.support.sap.com/#/notes/2191498), “SAP on Linux with
+Azure: Enhanced Monitoring.”
+
+## Backup
+
 For the SAP ASCS and application servers, we recommend using Azure Backup to
 protect the virtual machine contents. Azure Backup provides independent,
 isolated backups to help guard against accidental destruction of original data.
@@ -469,12 +478,6 @@ Backup of the database tier varies depending on whether SAP HANA is deployed on
 [virtual machines](/azure/architecture/reference-architectures/sap/run-sap-hana-for-Linux-virtual-machines) or [Azure Large
 Instances](https://docs.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances).
 
-To provide SAP-based monitoring of resources and service performance of the SAP
-infrastructure, use the [Azure SAP Enhanced
-Monitoring](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca)
-extension. For details, see [SAP Note
-2191498](https://launchpad.support.sap.com/#/notes/2191498), “SAP on Linux with
-Azure: Enhanced Monitoring.”
 
 ## Security
 
