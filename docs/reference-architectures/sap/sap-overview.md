@@ -94,53 +94,46 @@ to building new SAP environments as needed. IaC is a key consideration in SAP
 project landscapes.
 
 
-
-<p>&nbsp;
  <table>
-<tr>
+  <tr>
    <th>
-<!--<img alt="X as in no" src="./images/x.png" />-->
 
 Manual deployment pains  
    </th>
    <th>
-<!--<img alt="check mark as in yes" src="./images/check.png" />-->
+
 Automated deployment gains
    </th>
   </tr>
   <tr>
    <td>
 
-- Requires specialized knowledge in many domains outside of SAP
+<ul><li>Requires specialized knowledge in many domains outside of SAP
 
-- Takes a lot of time—from one month to many months, depending on the size of
-    the SAP landscape
+<li>Takes a lot of time—from one month to many months, depending on the size of the SAP landscape
 
-- Is very expensive
+<li>Is very expensive
 
-- Limits testing—it's harder to inject tests in the process
+<li>Limits testing—it's harder to inject tests in the process
 
-- Makes it tedious and time-consuming to scale and customize the environment
+<li>Makes it tedious and time-consuming to scale and customize the environment</li></ul>
 
    </td>
    <td>
 
-- Works immediately and requires little domain knowledge
+<ul><li>Works immediately and requires little domain knowledge</li>
 
-- Takes from 30 minutes to a couple of hours
+<li>Takes from 30 minutes to a couple of hours</li>
 
-- Provides free resources—like these SAP HANA templates on GitHub
+<li>Provides free resources—like these SAP HANA templates on GitHub</li>
 
-- Provides templates that include test instrumentation during deployment and
-    migration
+<li>Provides templates that include test instrumentation during deployment and migration</li>
 
-- Makes it easy to scale up, down, and out, and new deployment templates are
-    available
+<li>Makes it easy to scale up, down, and out, and new deployment templates are available</li></ul>
+
    </td>
   </tr>
  </table>
-</p>
-
 
 ### Monitoring
 
