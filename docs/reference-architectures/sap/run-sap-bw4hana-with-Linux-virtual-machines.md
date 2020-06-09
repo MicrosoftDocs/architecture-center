@@ -476,7 +476,7 @@ needed.
 
 Backup of the database tier varies depending on whether SAP HANA is deployed on
 [virtual machines](/azure/architecture/reference-architectures/sap/run-sap-hana-for-Linux-virtual-machines) or [Azure Large
-Instances](https://docs.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances).
+Instances](https://docs.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances). See the [management and operations considerations](/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines) for SAP HANA on Linux virtual machines.
 
 
 ## Security
