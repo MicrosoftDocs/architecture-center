@@ -6,6 +6,8 @@ ms.date: 05/15/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+ms.category:
+  - networking
 ---
 
 # Design Load Balanced Firewall in Azure

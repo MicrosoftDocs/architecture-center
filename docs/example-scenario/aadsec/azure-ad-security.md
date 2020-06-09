@@ -8,7 +8,9 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
-- fcp
+  - fcp
+ms.category:
+  - security
 ---
 
 # Azure Active Directory in Security Operations

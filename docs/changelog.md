@@ -2,7 +2,7 @@
 title: What's New in the Azure Architecture Center
 description: New and updated articles in the Azure Architecture Center
 author: adamboeglin
-ms.date: 05/21/2020
+ms.date: 06/08/2020
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -17,10 +17,28 @@ ms.service: architecture-center
 
 New and updated articles in the Azure Architecture Center
 
+## June 2020
+
+### New Articles
+
+- [Vision classifier model with Azure Custom Vision Cognitive Service](https://docs.microsoft.com/azure/architecture/example-scenario/dronerescue/vision-classifier-model-with-custom-vision)
+- [AI enrichment with Azure Cognitive Search](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cognitive-search-with-skillsets)
+
+
 ## May 2020
 
 ### New Articles
 
+- [Azure Active Directory IDaaS in Security Operations](https://docs.microsoft.com/azure/architecture/example-scenario/aadsec/azure-ad-security)
+- [Comparing AWS and Azure accounts and subscriptions](https://docs.microsoft.com/azure/architecture/aws-professional/accounts)
+- [Comparing AWS and Azure compute services](https://docs.microsoft.com/azure/architecture/aws-professional/compute)
+- [Comparing AWS and Azure database technology](https://docs.microsoft.com/azure/architecture/aws-professional/databases)
+- [Comparing AWS and Azure messaging services](https://docs.microsoft.com/azure/architecture/aws-professional/messaging)
+- [Comparing AWS and Azure networking options](https://docs.microsoft.com/azure/architecture/aws-professional/networking)
+- [Comparing AWS and Azure regions and zones](https://docs.microsoft.com/azure/architecture/aws-professional/regions-zones)
+- [Comparing AWS and Azure resource management](https://docs.microsoft.com/azure/architecture/aws-professional/resources)
+- [Comparing AWS and Azure security and identity services](https://docs.microsoft.com/azure/architecture/aws-professional/security-identity)
+- [Comparing AWS and Azure storage services](https://docs.microsoft.com/azure/architecture/aws-professional/storage)
 - [Serverless batch processing with Durable Functions in Azure Container Instances](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/durable-functions-containers)
 - [Azure Firewall Architecture Guide](https://docs.microsoft.com/azure/architecture/example-scenario/firewalls)
 - [Community Jury](https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/community-jury)
@@ -66,6 +84,20 @@ New and updated articles in the Azure Architecture Center
 
 ### Updated Articles
 
+- [Choosing a search data store](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/search-options)  ([#5c2bcc6a](https://github.com/MicrosoftDocs/architecture-center/commit/5c2bcc6a))
+- [Run a Linux VM on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm)  ([#720f2bbb](https://github.com/MicrosoftDocs/architecture-center/commit/720f2bbb))
+- [Multi-region N-tier application](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)  ([#720f2bbb](https://github.com/MicrosoftDocs/architecture-center/commit/720f2bbb))
+- [N-tier application with Apache Cassandra](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra)  ([#720f2bbb](https://github.com/MicrosoftDocs/architecture-center/commit/720f2bbb))
+- [Windows N-tier application on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)  ([#720f2bbb](https://github.com/MicrosoftDocs/architecture-center/commit/720f2bbb))
+- [Run a Windows VM on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm)  ([#720f2bbb](https://github.com/MicrosoftDocs/architecture-center/commit/720f2bbb))
+- [Web application monitoring on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/app-monitoring)  ([#5d9404c3](https://github.com/MicrosoftDocs/architecture-center/commit/5d9404c3))
+- [Basic web application](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app)  ([#5d9404c3](https://github.com/MicrosoftDocs/architecture-center/commit/5d9404c3))
+- [Highly available multi-region web application](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region)  ([#5d9404c3](https://github.com/MicrosoftDocs/architecture-center/commit/5d9404c3))
+- [Scalable web application](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app)  ([#5d9404c3](https://github.com/MicrosoftDocs/architecture-center/commit/5d9404c3))
+- [Hub-spoke network topology in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)  ([#5a43e49c](https://github.com/MicrosoftDocs/architecture-center/commit/5a43e49c))
+- [Implement a hub-spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/shared-services)  ([#5a43e49c](https://github.com/MicrosoftDocs/architecture-center/commit/5a43e49c))
+- [Basic enterprise integration on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration)  ([#25ef4b6d](https://github.com/MicrosoftDocs/architecture-center/commit/25ef4b6d))
+- [Real-time scoring of Python models](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/realtime-scoring-python)  ([#c7c58c77](https://github.com/MicrosoftDocs/architecture-center/commit/c7c58c77))
 - [Tradeoffs for costs](https://docs.microsoft.com/azure/architecture/framework/cost/tradeoffs)  ([#2d761833](https://github.com/MicrosoftDocs/architecture-center/commit/2d761833))
 - [AWS to Azure services comparison](https://docs.microsoft.com/azure/architecture/aws-professional/services)  ([#0ba04579](https://github.com/MicrosoftDocs/architecture-center/commit/0ba04579))
 - [Business Process Management](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/business-process-management)  ([#0ba04579](https://github.com/MicrosoftDocs/architecture-center/commit/0ba04579))
@@ -179,13 +211,4 @@ New and updated articles in the Azure Architecture Center
 - [N-tier application with Apache Cassandra](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra)  ([#bb7daade](https://github.com/MicrosoftDocs/architecture-center/commit/bb7daade))
 - [Windows N-tier application on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)  ([#bb7daade](https://github.com/MicrosoftDocs/architecture-center/commit/bb7daade))
 - [Run a Windows VM on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm)  ([#bb7daade](https://github.com/MicrosoftDocs/architecture-center/commit/bb7daade))
-
-## January 2020
-
-### Updated Articles
-
-- [Extend an on-premises network using VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vpn)  ([#ab85a5d8](https://github.com/MicrosoftDocs/architecture-center/commit/ab85a5d8))
-- [Choosing an Azure compute service](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree)  ([#01dccc72](https://github.com/MicrosoftDocs/architecture-center/commit/01dccc72))
-- [Azure Application Architecture Guide](https://docs.microsoft.com/azure/architecture/guide)  ([#aff6fa18](https://github.com/MicrosoftDocs/architecture-center/commit/aff6fa18))
-- [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework)  ([#fd5635b2](https://github.com/MicrosoftDocs/architecture-center/commit/fd5635b2))
 
