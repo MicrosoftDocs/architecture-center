@@ -106,7 +106,7 @@ Automated deployment gains
    </th>
   </tr>
   <tr>
-   <td>
+   <td valign="top">
 
 <ul><li>Requires specialized knowledge in many domains outside of SAP
 
@@ -119,7 +119,7 @@ Automated deployment gains
 <li>Makes it tedious and time-consuming to scale and customize the environment</li></ul>
 
    </td>
-   <td>
+   <td valign="top">
 
 <ul><li>Works immediately and requires little domain knowledge</li>
 
