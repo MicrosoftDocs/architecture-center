@@ -429,7 +429,7 @@ items:
     - name: Example workloads
       items:
       - name: Baseball ML workload
-        href: data-guide/big-data/baseball-machine-learning-workbench-diagram.md
+        href: data-guide/big-data/baseball-ml-workload.md
     - name: Technology choices
       items:
       - name: Cognitive services
