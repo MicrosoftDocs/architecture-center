@@ -426,6 +426,10 @@ items:
       href: data-guide/big-data/ai-overview.md
     - name: Machine learning at scale
       href: data-guide/big-data/machine-learning-at-scale.md
+    - name: Example workloads
+      items:
+      - name: Baseball ML workload
+        href: data-guide/big-data/baseball-machine-learning-workbench-diagram.md
     - name: Technology choices
       items:
       - name: Cognitive services
