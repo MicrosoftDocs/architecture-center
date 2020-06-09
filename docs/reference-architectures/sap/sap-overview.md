@@ -63,6 +63,7 @@ Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) to
 also help drive down costs.
 
 Combining virtual machine [pricing options](https://azure.microsoft.com/pricing/details/virtual-machines/sles-sap/)  can also lower costs. For budget predictability, you an use an Azure Reserved Virtual Machine Instance, an advanced purchase for one or three years in a specified region. For low cost and flexibility, you can pay as you go for compute capacity, which requires no long term-commitment. 
+
 As a final note, it’s a good practice to review your Azure operations regularly and look for ways to optimize costs. For example, check to see whether a more cost-effective storage option is available or a newer VM series with a better price-to-performance ratio.
 
 ### Cost guidance
@@ -330,7 +331,7 @@ architecture.
 
 For authentication, you can take advantage of [Azure Active
 Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD)
-to enable single sign-on (SSO) to your SAP [S/4HANA Fiori Launchpad](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad/). Azure AD
+to enable single sign-on (SSO) to your [SAP S/4HANA Fiori Launchpad](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad/). Azure AD
 also works with SAP Cloud Platform (SCP) to provide SSO for your SCP services
 (that also run on Azure).
 
