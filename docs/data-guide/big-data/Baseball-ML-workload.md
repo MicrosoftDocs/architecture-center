@@ -150,8 +150,7 @@ thus continuing compatibility with future component updates is not assured.
 [Learn more about the .NET Core Support
 Policy.](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
 
-Deploy this solution
---------------------
+## Deploy this solution
 
 All of the source code for this scenario is available in the [Baseball Machine
 Learning Workbench
@@ -179,16 +178,17 @@ Baseball data itself is public domain.
 
 ### Deployment to Azure
 
-1.  Make sure you have your Azure subscription information handy.
+1. Make sure you have your Azure subscription information handy.
 
-2.  Start by cloning the [workbench GitHub
+2. Start by cloning the [workbench GitHub
     repository](https://github.com/bartczernicki/MachineLearning-BaseballPrediction-BlazorApp):
+
     ~~~
     git clone
     https://github.com/bartczernicki/MachineLearning-BaseballPrediction-BlazorApp.git
     ~~~
 
-3.  Follow the instructions provided in the [GETSTARTED.md
+3. Follow the instructions provided in the [GETSTARTED.md
     file](https://github.com/bartczernicki/MachineLearning-BaseballPrediction-BlazorApp/blob/master/GETSTARTED.md).
 
 ### Alternative: Docker container
@@ -209,8 +209,7 @@ GitHub repo’s Get Started documentation:
 - [Publish Docker Container to the Azure Cloud using Azure Container
     Instances](https://github.com/bartczernicki/MachineLearning-BaseballPrediction-BlazorApp/blob/master/GETSTARTED.md#3-publish-docker-container-to-the-azure-cloud-using-azure-container-instances)
 
-Related resources
------------------
+## Related resources
 
 - View a [live demo of this solution](https://aka.ms/BaseballMLWorkbench)
 
