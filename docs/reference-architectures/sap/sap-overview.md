@@ -100,12 +100,12 @@ project landscapes.
 <tr>
    <th>
 <!--<img alt="X as in no" src="./images/x.png" />-->
-	:x:
+
 Manual deployment pains  
    </th>
    <th>
 <!--<img alt="check mark as in yes" src="./images/check.png" />-->
-:heavy_check_mark:  Automated deployment gains
+Automated deployment gains
    </th>
   </tr>
   <tr>
