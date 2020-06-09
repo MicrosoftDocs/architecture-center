@@ -20,8 +20,8 @@ Azure Functions allows you to run small pieces of code (called "functions" writt
 This Functions adoption guide is a prescriptive framework that includes the tools, programs, and content (best practices, configuration templates, and architecture guidance) to simplify adoption of Azure Functions and serverless practices at scale.
 The list of required actions is categorized by persona to drive a successful deployment of applications on Functions, from proof of concept to production, then scaling and optimization. As part of the cloud adoption lifecycle, use the following exercises:
 
-- [Validate and commit the serverless adoption](./validate-commit-serverless-adoption.md)
-- [Application development and deployment](./application-development.md)
-- [Azure functions app operations](./functions-app-operations.md)
-- [Azure functions app security](./functions-app-security.md)
+- [Validate and commit the serverless adoption](./validate-commit-serverless-adoption.md)</br> As architect, perform application assessment, conduct or attend technical workshops that foster learning and adoption, identify a proof of concept (PoC) or pilot project to execute, conduct architectural designs sessions to validate requirements. 
+- [Application development and deployment](./application-development.md) </br> As developer, examine patterns and practices of serverless application development, configure DevOps pipelines, and implement site reliability engineering (SRE) best practices.
+- [Azure functions app operations](./functions-app-operations.md) </br> As IT professional, identify for hosting configurations, future-proof scalability by automating infrastructure provisioning, maintain high availability by planning for business continuity and disaster recovery.
+- [Azure functions app security](./functions-app-security.md) </br> As securiry professional, familiarize yourself with Azure Functions security essentials and review the secure setup for hosting and application security guidance.
 

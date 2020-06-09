@@ -33,7 +33,7 @@ As you validate and get commit to adopt serverless with Azure Functions, the che
 | **Define deployment technology for your Azure Functions application.** Prepare your application file system layout for Functions app and organize for weekly or daily releases. Learn how the Functions app deployment process enables reliable, zero-downtime upgrades. | [Deployment technologies in Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies)|
 | **Manage application secrets.** Don't store credentials in your application code. A key vault should be used to store and retrieve keys and credentials. | [Use Key Vault references for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references)|
 
-## Deploy to production and apply best practices
+## Prepare for production and apply best practices
 
 As you prepare the application for production, you should implement a minimum set of best practices. Use the checklist below at this stage. You should be able to answer these questions:
 

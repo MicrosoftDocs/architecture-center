@@ -111,7 +111,7 @@ This [article](https://docs.microsoft.com/azure/architecture/example-scenario/se
 ### General
 
 - [Serverless application architectures using Event Grid](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/serverless-application-architectures-using-event-grid)
-- [Serverless apps using Cosmos DB](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/data-sovereignty-and-gravity)
+- [Serverless apps using Cosmos DB](https://azure.microsoft.com/solutions/architecture/serverless-apps-using-cosmos-db/)
 - [Serverless event processing using Azure Functions](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing)
 - [Serverless web application on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/web-app)
 - [Serverless Asynchronous Multiplayer Reference Architecture](https://docs.microsoft.com/gaming/azure/reference-architectures/multiplayer-asynchronous-serverless)
@@ -140,6 +140,7 @@ This [article](https://docs.microsoft.com/azure/architecture/example-scenario/se
 - [AI at the Edge](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/ai-at-the-edge)
 - [Mass ingestion and analysis of news feeds on Azure](https://docs.microsoft.com/azure/architecture/example-scenario/ai/newsfeed-ingestion)
 - [HIPPA and HITRUST compliant health data AI](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hippa-hitrust-health-data-ai)
+- [Intelligent Experiences On Containers (AKS, Functions, Keda)](https://github.com/mohamedsaif/IntelligentExperiences.OnContainers)
 
 ### Data & Analytics reference architectures
 - [Application integration using Event Grid](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/application-integration-using-event-grid)
