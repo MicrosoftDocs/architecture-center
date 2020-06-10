@@ -5,6 +5,8 @@ author: jocontr
 ms.date: 06/01/2020
 description: Learn how to use Azure Cognitive Search pre-built skills and custom extensibility to enrich large unstructured data sets into indexable structured data.
 ms.custom: fcp
+ms.category:
+  - ai-machine-learning
 ---
 
 # AI enrichment with Azure Cognitive Search

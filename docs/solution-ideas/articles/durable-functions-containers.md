@@ -6,6 +6,9 @@ ms.date: 05/19/2020
 description: Use Azure Functions Durable Functions to orchestrate, deploy, and run serverless batch processing jobs in Azure Container Instances (ACI) containers.
 ms.custom: fcp
 ms.subservice: solution-idea
+ms.category:
+  - compute
+  - containers
 ---
 # Serverless batch processing using Durable Functions with Azure Container Instances
 
