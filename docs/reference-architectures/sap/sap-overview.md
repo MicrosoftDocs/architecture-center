@@ -2,13 +2,9 @@
 title: SAP on Azure Architecture Guide
 description: This guide is based on the Azure Architecture Framework, but the recommendations are specific to deployments of SAP solutions. 
 author: maggsl
-ms.date: 06/05/2020
+ms.date: 06/10/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
-ms.category:
-  - databases  
-ms.subservice: reference-architecture
-ms.custom: SAP, Windows
 ---
 
 # SAP on Azure Architecture Guide
@@ -62,7 +58,7 @@ the time, opt for [Azure Reserved
 Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) to
 also help drive down costs.
 
-Combining virtual machine [pricing options](https://azure.microsoft.com/pricing/details/virtual-machines/sles-sap/)  can also lower costs. For budget predictability, you an use an Azure Reserved Virtual Machine Instance, an advanced purchase for one or three years in a specified region. For low cost and flexibility, you can pay as you go for compute capacity, which requires no long term-commitment. 
+Combining virtual machine [pricing options](https://azure.microsoft.com/pricing/details/virtual-machines/sles-sap/)  can also lower costs. For budget predictability, you an use an Azure Reserved Virtual Machine Instance, an advanced purchase for one or three years in a specified region. For low cost and flexibility, you can pay as you go for compute capacity, which requires no long term-commitment.
 
 As a final note, it’s a good practice to review your Azure operations regularly and look for ways to optimize costs. For example, check to see whether a more cost-effective storage option is available or a newer VM series with a better price-to-performance ratio.
 
