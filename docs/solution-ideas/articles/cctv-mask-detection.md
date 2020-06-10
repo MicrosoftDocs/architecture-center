@@ -38,27 +38,28 @@ This article showcases a COVID-19 Safe Solution implementation at a major North 
 5. Service bus device-to-cloud and cloud-to-device messaging send data and telemetry to and from the cloud.
 6. An interactive visual dashboard app provides near real-time compliance monitoring and alerts.
 7. The Azure cloud provides application logs, monitoring, security, application gateway, and API management for the app.
-6. Redis, mongoDB, and blob storage store cloud data for Power BI analysis and visualizations via a custom connector.
+6. Redis, mongoDB, and blob storage store cloud data for Power BI analytics and visualizations via a custom connector.
 8. The app sends notifications and alerts to stakeholders via Microsoft Teams.
 
 ## Components
 
-- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) servers with built-in storage, computing, artificial intelligence (AI), machine learning (ML), and capabilities like [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/) and [Azure Stream Analytics (ASA)](https://azure.microsoft.com/services/stream-analytics) can quickly recognize and respond to sensor input.
+- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) servers with onboard storage, computing, artificial intelligence (AI), and machine learning (ML) capabilities can quickly recognize and respond to sensor input.
 - Bosch video analytics use [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) skills and [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) to continually improve monitoring, detection, and real-time alert triggering.
-- [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/) is an IoT service that can create comprehensive models of physical environments in a spatial intelligence graph. Rather than tracking individual devices, Digital Twins can virtually replicate the physical world by modeling the relationships between people, places, and devices.
+- [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/) is an IoT service that can create comprehensive models of physical environments in a spatial intelligence graph. Rather than simply tracking individual devices, Digital Twins can virtually replicate the physical world by modeling the relationships between people, places, and devices.
 - [Azure Stream Analytics (ASA)](https://azure.microsoft.com/services/stream-analytics) provides real-time serverless stream processing that can run the same queries in the cloud and on the edge. ASA on IoT Edge can filter or aggregate data that needs to be sent to the cloud for further processing or storage.
 - [Azure Storage](https://azure.microsoft.com/services/storage/) provides flexible, scalable, secure [Blob storage](https://azure.microsoft.com/services/storage/blobs/) for unstructured data in the Azure cloud or on the IoT Edge. The current solution also uses [Redis](https://azure.microsoft.com/services/cache/) and [mongoDB](https://www.mongodb.com/cloud/atlas/azure-mongodb) data storage.
 - [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) messaging through [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) connects devices to Azure cloud resources, and can use queries to filter data to be sent to the cloud.
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/ is a managed service for developing, deploying, and managing containerized applications. In this solution, AKS manages an interactive visual dashboard app that tracks and analyzes safety violations.
+- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) is a managed service for developing, deploying, and managing containerized applications. In this solution, AKS manages an interactive visual dashboard app that tracks and analyzes safety violations.
 - By integrating with the Azure cloud, the solution can use services like [Azure Monitor](https://azure.microsoft.com/services/monitor/), [Azure Security Center](https://azure.microsoft.com/services/security-center/), and [Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
 - Integration with Microsoft [Teams](https://support.office.com/article/manage-notifications-in-teams-1cc31834-5fe5-412b-8edb-43fecc78413d) allows automated notifications of relevant stakeholders like HR and Security.
 - [Microsoft Power BI](https://powerbi.microsoft.com) visualizations enable well-informed and data-driven reporting and decision making.
 
 ## Next steps
-For more information, please contact [iotcovid@microsoft.com](mailto:iotcovid@microsoft.com), and see [https://www.bosch-india-software.com](https://www.bosch-india-software.com/en/).
+For more information:
+- Contact [iotcovid@microsoft.com](mailto:iotcovid@microsoft.com)
+- See [https://www.bosch-india-software.com](https://www.bosch-india-software.com/en/)
 
 ## Related resources
 - [What is Azure Digital Twins?](https://docs.microsoft.com/azure/digital-twins/overview)
-- [Azure Stream Analytics on IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge).
+- [Azure Stream Analytics on IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge)
 - [Store data at the edge with Azure Blob Storage on IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-store-data-blob)
-- [Azure Kubernetes Services integration with Security Center](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)
