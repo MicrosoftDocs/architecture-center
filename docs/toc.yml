@@ -1038,6 +1038,8 @@ items:
         href: solution-ideas/articles/iot-using-cosmos-db.md
       - name: IoT using SQL DB
         href: reference-architectures/iot-with-sql.md
+      - name: Contactless IoT interfaces
+        href: solution-ideas/articles/contactless-interfaces.md
       - name: Process real-time vehicle data using IoT
         href: example-scenario/data/realtime-analytics-vehicle-iot.md
       - name: Real-time web dashboard
