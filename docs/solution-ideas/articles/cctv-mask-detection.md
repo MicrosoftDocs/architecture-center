@@ -1,17 +1,17 @@
 ---
-title: Contactless IoT interfaces with Azure intelligent edge
+title: COVID-19 Safe Solutions with IoT Edge
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
-description: Combine intelligent and perceptive edge devices with the storage and computing power of the cloud to create touch-free interfaces.
+description: Learn how to use CCTV, IoT Edge analytics and machine learning, and cloud services to monitor social distancing, mask/PPE use, and occupancy requirements.
 ms.date: 06/06/2020
 ms.custom: iot, fcp
 ms.service: architecture-center
 ms.subservice: solution-idea
 ---
 
-# People-safe solutions at the IoT Edge
+# COVID-19 Safe Solutions at the IoT Edge
 
-The new normal workplace and other group spaces need to follow health and safety guidelines around safe social distancing, mask and PPE use, and occupancy limits. **Bosch COVID-19 Safe Solution** combines existing closed-circuit TV (CCTV) infrastructure with the [Azure intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/) and other Azure and Microsoft services to help organizations monitor, comply with, and update these health and safety practices.
+As workplaces and other group spaces reopen after the COVID-19 shutdown, people need to follow health and safety guidelines for safe social distancing, mask and PPE use, and occupancy limits. **Bosch COVID-19 Safe Solution** combines existing closed-circuit TV (CCTV) infrastructure with the [Azure intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/) and other Azure and Microsoft services to help organizations monitor, comply with, and improve these health and safety practices.
 
 This article showcases a COVID-19 Safe Solution implementation at a major North American auto manufacturing facility. Goals were to:
 
@@ -45,7 +45,7 @@ This article showcases a COVID-19 Safe Solution implementation at a major North 
 
 - [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) servers with onboard storage, computing, artificial intelligence (AI), and machine learning (ML) capabilities can quickly recognize and respond to sensor input.
 - Bosch video analytics use [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) skills and [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) to continually improve monitoring, detection, and real-time alert triggering.
-- [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/) is an IoT service that can create comprehensive models of physical environments in a spatial intelligence graph. Rather than simply tracking individual devices, Digital Twins can virtually replicate the physical world by modeling the relationships between people, places, and devices.
+- [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/) IoT service creates comprehensive models of physical environments in a spatial intelligence graph. Rather than simply tracking individual devices, Digital Twins can virtually replicate the physical world by modeling the relationships between people, places, and devices.
 - [Azure Stream Analytics (ASA)](https://azure.microsoft.com/services/stream-analytics) provides real-time serverless stream processing that can run the same queries in the cloud and on the edge. ASA on IoT Edge can filter or aggregate data that needs to be sent to the cloud for further processing or storage.
 - [Azure Storage](https://azure.microsoft.com/services/storage/) provides flexible, scalable, secure [Blob storage](https://azure.microsoft.com/services/storage/blobs/) for unstructured data in the Azure cloud or on the IoT Edge. The current solution also uses [Redis](https://azure.microsoft.com/services/cache/) and [mongoDB](https://www.mongodb.com/cloud/atlas/azure-mongodb) data storage.
 - [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) messaging through [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) connects devices to Azure cloud resources, and can use queries to filter data to be sent to the cloud.
