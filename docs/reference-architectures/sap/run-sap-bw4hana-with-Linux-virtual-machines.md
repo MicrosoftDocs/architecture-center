@@ -5,6 +5,7 @@ author: maggsl
 ms.date: 06/10/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.custom: fcp 
 ---
 
 # Run SAP BW/4HANA with Linux virtual machines on Azure
