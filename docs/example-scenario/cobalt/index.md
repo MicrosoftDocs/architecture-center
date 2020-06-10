@@ -1,5 +1,5 @@
 ---
-title: Title
+title: Cobalt - An Extensible Cloud Infrastructure-as-Code Framework
 titleSuffix: Azure Example Scenarios
 description: Description
 author: GitHubAlias
