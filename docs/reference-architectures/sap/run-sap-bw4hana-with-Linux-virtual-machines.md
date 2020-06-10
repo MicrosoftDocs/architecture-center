@@ -364,7 +364,7 @@ virtual machines with Premium disks, which offer an [uptime
 SLA](https://buildazure.com/2016/11/24/single-instance-vms-now-with-99-9-sla/).
 
 To maximize application availability, you can deploy redundant resources in an
-availability set availability set or across [Availability
+availability set or across [Availability
 Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones).
 For more information, refer to the [SAP S/4HANA reference
 architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-s4hana#availability-considerations).
