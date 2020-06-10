@@ -3,9 +3,10 @@ title: Baseball decision analysis with ML.NET and Blazor
 description: This scenario describes a web application providing an interface for on-technical users to use artificial intelligence (AI) and machine learning (ML) to perform decision analysis techniques in order to rapidly gain insights and make informed predictions.
 author: maggsl
 ms.date: 06/10/2020
-ms.topic: data-guide
+ms.topic: guide
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+ms.custom: fcp 
 ---
 
 # Baseball decision analysis with ML.NET and Blazor

@@ -5,6 +5,7 @@ author: maggsl
 ms.date: 06/10/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.custom: fcp 
 ---
 
 # Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure
