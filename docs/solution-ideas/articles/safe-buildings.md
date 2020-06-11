@@ -75,53 +75,53 @@ The solution adapts to stores, offices, factories, warehouses, recreation spaces
 
 ## Components
 
-* [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/)
+* [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)
 
-* [Azure IoT Edge](https://azure.microsoft.com/en-us/services/iot-edge/)
+* [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/)
 
-* [Azure Blob storage](https://azure.microsoft.com/en-us/services/storage/blobs/)
+* [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/)
 
-* [Azure Data Factory](https://azure.microsoft.com/en-us/services/data-factory/)
+* [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
 
-* [Azure Kubernetes Service](https://azure.microsoft.com/en-us/services/kubernetes-service/)
+* [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)
 
-* [Azure Stream Analytics](https://azure.microsoft.com/en-us/services/stream-analytics/)
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 
-* [Azure Databricks](https://azure.microsoft.com/en-us/services/databricks/)
+* [Azure Databricks](https://azure.microsoft.com/services/databricks/)
 
-* [Azure Data Lake Storage](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/)
+* [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)
 
-* [Azure Cosmos DB](https://azure.microsoft.com/en-us/services/cosmos-db/)
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
 
-* [Azure Database for PostgreSQL](https://azure.microsoft.com/en-us/services/postgresql/)
+* [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/)
 
-* [Azure SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 
-* [Azure Cache for Redis](https://azure.microsoft.com/en-us/services/cache/)
+* [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
 
-* [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
+* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 
-* [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/)
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)
 
-* [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/)
+* [Azure Monitor](https://azure.microsoft.com/services/monitor/)
 
-* [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/)
+* [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
-* [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/)
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-* [Power BI](https://powerbi.microsoft.com/en-us/)
+* [Power BI](https://powerbi.microsoft.com/)
 
-* [Azure Webapp Service](https://azure.microsoft.com/en-us/services/app-service/web/)
+* [Azure Webapp Service](https://azure.microsoft.com/services/app-service/web/)
 
-* [Azure API Management](https://azure.microsoft.com/en-us/services/api-management/)
+* [Azure API Management](https://azure.microsoft.com/services/api-management/)
 
-* [Azure Logic App](https://azure.microsoft.com/en-us/services/logic-apps/)
+* [Azure Logic App](https://azure.microsoft.com/services/logic-apps/)
 
-* [Azure Notification Hubs](https://azure.microsoft.com/en-us/services/notification-hubs/)
+* [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs/)
 
-* [Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/)
+* [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 
-* [Azure VMs](https://azure.microsoft.com/en-us/services/virtual-machines/)
+* [Azure VMs](https://azure.microsoft.com/services/virtual-machines/)
 
 ## Next steps
 
