@@ -24,7 +24,7 @@ L&T Technology Services' [Intelligent Building Experience Management System (iBE
 **iBEMS Shield** is a core iBEMS module that provides key COVID-19 prevention health and safety features, letting organizations transform their former public spaces into "new normal-ready" spaces. iBEMS Shield offers body temperature monitoring and detection, face detection and tracking, occupancy and safe distance monitoring, and air quality detection. iBEMS Shield has all the core functionality of iBEMS, including alarms and notifications, and can quickly expand, scale, and integrate with other iBEMs features.
 
 - **Fever detection:** Automated dual-function thermographic sensors and closed-circuit TV (CCTV) cameras at entrances detect people with high body temperature.
-- **Facial recognition and tracking:** The system identifies and tracks symptomatic individuals on-premises until medical personnel can contact them. iBEMS Shield facial recognition can detect mask use and identify masked individuals by their eyes.
+- **Facial recognition and tracking:** The system identifies and tracks symptomatic individuals on-premises until medical personnel can contact them. iBEMS Shield facial recognition can detect mask use and identify masked building personnel.
 - **Occupancy management:** High-accuracy, real-time people locators and counters give complete visibility into historical and current occupancy levels and locations for any room, area, or zone.
 
 ## Potential use cases
