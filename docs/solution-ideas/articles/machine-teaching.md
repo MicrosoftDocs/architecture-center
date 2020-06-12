@@ -702,7 +702,7 @@ In this section, you’ve explored the challenges of simulations and how they ca
 
 In this article, we’ve covered a wide range of topics related to machine teaching. If you want to go deeper, we encourage you to check the next resources:
 
-* [Bonsai’s blog](https://bons.ai/blog).
+* [Microsoft The AI Blog](https://blogs.microsoft.com/ai/).
 * [Bonsai documentation](https://docs.microsoft.com/bonsai/).
 * [Bonsai, “AI for Everyone,” 2016 March 2]( https://medium.com/@BonsaiAI/ai-for-everyone-4ddd36c89859).
 * [Bonsai, “AI use cases: innovations solving more than just toy problems,” 2017 March 2](https://medium.com/@BonsaiAI/ai-use-cases-9d1b70e61396).
