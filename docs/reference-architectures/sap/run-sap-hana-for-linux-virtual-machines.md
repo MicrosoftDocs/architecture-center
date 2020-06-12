@@ -140,6 +140,7 @@ You can use [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery
 
 > [!NOTE]
 > As of this writing, Site Recovery does not support the replication of virtual machines in proximity placement groups. Make sure to verify your target region’s [resource capacity](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-common-questions#capacity). Like all Azure services, Site Recovery continues to add features and capabilities. For the latest information about Azure-to-Azure replication, see the [support matrix](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
+---
 
 ## Management and operations considerations
 
