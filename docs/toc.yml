@@ -444,8 +444,6 @@ items:
         href: solution-ideas/articles/cognitive-search-with-skillsets.md
       - name: Baseball ML workload
         href: data-guide/big-data/baseball-ml-workload.md
-      - name: AI enrichment in Cognitive Search
-        href: solution-ideas/articles/cognitive-search-with-skillsets.md
       - name: Auditing and risk management
         href: solution-ideas/articles/auditing-and-risk-compliance.md
       - name: Disconnected AI at the edge
