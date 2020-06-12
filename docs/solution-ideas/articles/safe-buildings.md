@@ -2,7 +2,7 @@
 title: Cognizant Safe Buildings with Azure IoT Hub
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
-description: 
+description: Deploy Cognizant OneFacility and Azure IoT Hub to protect buildings from COVID-19 outbreaks.
 ms.date: 06/09/2020
 ms.custom: fcp
 ms.service: architecture-center
@@ -74,19 +74,19 @@ The solution adapts to stores, offices, factories, warehouses, recreation spaces
 
 ## Components
 
-* [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) - Enable highly secure and reliable communication between your IoT application and the devices it manages.
+* [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) enables highly secure and reliable communication between your IoT application and the devices it manages.
 
-* [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) - Deploy your cloud workloads—artificial intelligence, Azure and third-party services, or your own business logic—to run on Internet of Things (IoT) edge devices via standard containers.
+* [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) allows you to deploy your cloud workloads—artificial intelligence, Azure and third-party services, or your own business logic—to run on Internet of Things (IoT) edge devices via standard containers.
 <!-- 
 * [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) - Helps you create data lakes for your analytics needs, and provides storage to build powerful cloud-native and mobile apps. -->
 <!-- 
 * [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) - Integrate data silos with Azure Data Factory, a service built for all data integration needs and skill levels. -->
 
-* [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) - Deploy and manage containerized applications more easily with a fully managed Kubernetes service.
+* [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) deploy and manages containerized applications more easily with a fully managed Kubernetes service.
 
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) - An easy-to-use, real-time analytics service designed for mission-critical workloads.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is an easy-to-use, real-time analytics service designed for mission-critical workloads.
 
-* [Azure Databricks](https://azure.microsoft.com/services/databricks/) - Unlock insights from all your data and build artificial intelligence (AI) solutions. Set up your Apache Spark environment in minutes, autoscale, and collaborate on shared projects in an interactive workspace.
+* [Azure Databricks](https://azure.microsoft.com/services/databricks/) unlocks insights from all your data and build artificial intelligence (AI) solutions. Set up your Apache Spark environment in minutes, autoscale, and collaborate on shared projects in an interactive workspace.
 <!-- 
 * [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) - A highly scalable and cost-effective data lake solution for big data analytics.
 
@@ -100,15 +100,15 @@ The solution adapts to stores, offices, factories, warehouses, recreation spaces
 
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) - Build, store, secure, scan, replicate, and manage container images and artifacts with a fully managed, geo-replicated instance of OCI distribution. -->
 
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) - Empower developers and data scientists with a wide range of productive experiences for building, training, and deploying machine learning models faster.
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) empowers developers and data scientists with a wide range of productive experiences for building, training, and deploying machine learning models faster.
 
-* [Azure Monitor](https://azure.microsoft.com/services/monitor/) - Collect, analyze, and act on telemetry data from your Azure and on-premises environments.
+* [Azure Monitor](https://azure.microsoft.com/services/monitor/) collects, analyzes, and acts on telemetry data from your Azure and on-premises environments.
 <!-- 
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) - Safeguard cryptographic keys and other secrets used by cloud apps and services.
 
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) -  An enterprise identity service that provides single sign-on and multi-factor authentication to help protect your users from 99.9 percent of cybersecurity attacks. -->
 
-* [Power BI](https://powerbi.microsoft.com/) - Empower team members to discover insights hidden in your data.
+* [Power BI](https://powerbi.microsoft.com/) enables team members to discover insights hidden in your data.
 
 <!-- * [Azure Webapp Service](https://azure.microsoft.com/services/app-service/web/) - Get your web apps into users’ hands faster on Windows or .NET Core, Node.js, PHP, or Ruby on Linux.
 
@@ -122,7 +122,7 @@ The solution adapts to stores, offices, factories, warehouses, recreation spaces
 
 <!-- * [Azure VMs](https://azure.microsoft.com/services/virtual-machines/) -  Run SQL Server, SAP, Oracle software, and high-performance computing applications on Azure Virtual Machines. Choose your favorite Linux distribution or Windows Server. -->
 
-* [Azure Functions](https://azure.microsoft.com/services/functions/) - Build and debug locally without additional setup. Deploy and operate at scale in the cloud, and integrate services using triggers and bindings.
+* [Azure Functions](https://azure.microsoft.com/services/functions/) lets you build and debug locally without additional setup, deploy and operate at scale in the cloud, and integrate services using triggers and bindings.
 
 ## Next steps
 
