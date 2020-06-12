@@ -440,7 +440,7 @@ items:
       items:      
       - name: AI at the edge
         href: solution-ideas/articles/ai-at-the-edge.md
-      - name: Baseball ML workload
+      - name: Baseball ML Workload
         href: data-guide/big-data/baseball-ml-workload.md
       - name: AI enrichment in Cognitive Search
         href: solution-ideas/articles/cognitive-search-with-skillsets.md
