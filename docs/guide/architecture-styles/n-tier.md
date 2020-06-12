@@ -85,8 +85,8 @@ Name your tiers what works best for your team to communicate the intent of that 
 
 For more information about running N-tier applications on Azure:
 
-- [Run Windows VMs for an N-tier application][n-tier-windows]
-- [Windows N-tier application on Azure with SQL Server][n-tier-linux]
+- [Run Windows VMs for an N-tier application][n-tier-linux]
+- [Windows N-tier application on Azure with SQL Server][n-tier-windows-SQL]
 - [Microsoft Learn module: Tour the N-tier architecture style](https://docs.microsoft.com/learn/modules/n-tier-architecture/)
 
 ### Additional considerations
@@ -120,5 +120,5 @@ For more information about running N-tier applications on Azure:
 [multiregion-linux]: ../../reference-architectures/n-tier/n-tier-cassandra.md
 [multiregion-windows]: ../../reference-architectures/n-tier/multi-region-sql-server.md
 [n-tier-linux]: ../../reference-architectures/n-tier/n-tier-cassandra.md
-[n-tier-windows]: ../../reference-architectures/n-tier/n-tier-sql-server.md
+[n-tier-windows-SQL]: ../../reference-architectures/n-tier/n-tier-sql-server.md
 [sql-always-on]: https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server
