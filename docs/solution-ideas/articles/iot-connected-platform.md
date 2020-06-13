@@ -11,7 +11,7 @@ ms.subservice: solution-idea
 
 # IoT Connected Platform for COVID-19 detection and prevention
 
-How can we help reopen corporate and public spaces As Soon And Safely As Possible (ASASAP), so people can be and feel safe getting back to work and play? Insight's [Connected Platform for Detection and Prevention](https://www.insight.com/en_US/what-we-do/digital-innovation/solutions/connected-platform-for-detection-and-prevention.html) is a flexible and scalable solution to help create smarter and safer public spaces. Connected Platform can rapidly deploy and manage a connected ecosystem of [intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/) technology like thermal cameras, proximity and occupancy monitors, hand sanitizer dispensers, and portable onsite virus testing pods.
+How can we reopen corporate and public spaces As Soon And Safely As Possible (ASASAP), so people can be and feel safe getting back to work and play? Insight's [Connected Platform for Detection and Prevention](https://www.insight.com/en_US/what-we-do/digital-innovation/solutions/connected-platform-for-detection-and-prevention.html) is a flexible and scalable solution to help create smarter and safer public spaces. Connected Platform can rapidly deploy and manage a connected ecosystem of [intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/) technology like thermal cameras, proximity and occupancy monitors, hand sanitizer dispensers, and portable onsite virus testing pods.
 
 This article describes a Connected Platform solution to help provide COVID-19 protection at a theme park.
 
@@ -48,12 +48,12 @@ This article describes a Connected Platform solution to help provide COVID-19 pr
 - [Azure Databricks](https://azure.microsoft.com/services/databricks/) is a fast, easy, and collaborative Apache Spark-based analytics service that can read and analyze data lake data.
 - [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) are artificial intelligence (AI) services and cognitive APIs that help build intelligent apps. For example, [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) can help count and monitor people density and movements.
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) is a service for developing, deploying, and managing containerized applications.
-- Azure [API Management](https://azure.microsoft.com/services/api-management/) can deploy Azure, on-premises, and other cloud-hosted API gateways side-by-side to optimize traffic flow. API Management provides a unified management and observability experience while ensuring security and compliance.
+- Azure [API Management](https://azure.microsoft.com/services/api-management/) can deploy Azure and external APIs side by side to optimize traffic flow and provide unified management and observability, while ensuring security and compliance.
 
 ## Next steps
 
 - For more information, please contact [iotcovid@microsoft.com](mailto:iotcovid@microsoft.com), and see [Connected Platform for Detection and Prevention](https://www.insight.com/en_US/what-we-do/digital-innovation/solutions/connected-platform-for-detection-and-prevention.html).
-- For more information about the Insight [Connected Platform], see [Connected Platform](https://www.insight.com/en_US/what-we-do/digital-innovation/connected-platform.html).
+- For more information about the Insight Connected Platform, see [Connected Platform](https://www.insight.com/en_US/what-we-do/digital-innovation/connected-platform.html).
 
 ## Related resources
 - [Anomaly detection in Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection)
