@@ -9,46 +9,47 @@ ms.service: architecture-center
 ms.subservice: solution-idea
 ---
 
-# IoT Connected Platform for COVID-19 detection and prevention
+# IoT Connected Platform for COVID-19 protection
 
-How can we reopen corporate and public spaces As Soon And Safely As Possible (ASASAP), so people can be and feel safe getting back to work and play? Insight's [Connected Platform for Detection and Prevention](https://www.insight.com/en_US/what-we-do/digital-innovation/solutions/connected-platform-for-detection-and-prevention.html) is a flexible and scalable solution to help create smarter and safer public spaces. Connected Platform can rapidly deploy and manage a connected ecosystem of [intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/) technology like thermal cameras, proximity and occupancy monitors, hand sanitizer dispensers, and portable onsite virus testing pods.
+Smart group spaces can help people get back to work and play As Soon And Safely As Possible (ASASAP) after COVID-19 shutdowns. Insight's [Connected Platform for Detection and Prevention](https://www.insight.com/en_US/what-we-do/digital-innovation/solutions/connected-platform-for-detection-and-prevention.html) can rapidly deploy and manage a flexible and scalable [intelligent edge and cloud](https://azure.microsoft.com/overview/future-of-cloud/) ecosystem that helps detect and prevent COVID-19 spread in group spaces. 
 
-This article describes a Connected Platform solution to help provide COVID-19 protection at a theme park.
+This article describes a Connected Platform solution to help provide COVID-19 detection and prevention at a theme park.
 
 - Thermal cameras and contactless thermometers take temperatures of people entering the park.
-- Portable, interactive virus testing centers can provide rapid, discreet onsite virus testing for those who fail temperature checks.
-- Anomaly-detecting smart cones monitor safe distancing in groups and lines.
-- Smart, connected hand sanitizer dispensers monitor usage and supply levels throughout the park.
-- Interactive, data-driven audio devices and bots deliver appropriate proximity alerts, reminders, and instructions to employees and guests.
+- Portable, interactive virus testing centers provide rapid, discreet onsite virus testing for people who fail temperature checks.
+- Anomaly detecting smart cones monitor safe social distancing in groups and lines.
+- Smart, connected hand sanitizer dispensers monitor usage and supply levels.
+- Interactive, data-driven speakers and bots deliver appropriate proximity alerts, reminders, and instructions to employees and guests.
 - Data driven reporting lets stakeholders monitor results and overall trends.
 
 ## Potential use cases
 
-- Controlled-entry spaces like offices, factories, airports, stadiums, and amusement parks.
+- Controlled entry spaces like offices, factories, theaters, stadiums, and amusement parks.
 - Large, high-usage spaces with potential for crowds and lines.
 
 ## Architecture
 
 ![Insight Connected Platform architecture](../media/insight-connected-platform.png)
 
-1. Thermal cameras and other sensors provide temperature and visual data to the Internet of Things (IoT) Edge gateway, which does some preprocessing.
-2. Azure IoT Hub communicates with and controls the IoT Edge network, and streams data to the Azure cloud.
-3. In the cloud, data flows as appropriate to event processing, data analysis, and storage services like Azure Stream Analytics, Azure Databricks, and Azure Data Lake Storage.
-4. Processed data and domain-specific information feed into [Docker](https://www.docker.com/) containerized microservices apps in Azure Kubernetes Service (AKS).
+1. Thermal cameras and other sensors provide temperature and visual data through various network protocols like Bluetooth and WiFi to the Internet of Things (IoT) Edge gateway.
+2. The IoT Edge gateway preprocesses data and can respond quickly using onboard resources.
+2. Azure IoT Hub communicates with and controls the IoT Edge network, and streams data to Azure cloud resources.
+3. In the cloud, Azure Stream Analytics and Azure Databricks process data and send it to database and blob storage services.
+4. Processed, stored data feeds into [Docker](https://www.docker.com/) containerized microservices apps in Azure Kubernetes Service (AKS).
 5. The microservices apps trigger alerting and messaging services like email and bots.
-6. Azure API Management incorporates internal and external APIs when deploying to end-user experiences like web apps, mobile apps, Azure maps, and [Power BI](https://powerbi.microsoft.com) reports and visualizations.
+6. Azure API Management incorporates internal and external APIs when deploying to endpoints like web apps, mobile apps, Azure maps, and [Power BI](https://powerbi.microsoft.com).
 7. Azure components and deployed apps can share Azure services like [Azure Active Directory](https://azure.microsoft.com/services/active-directory/), [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), and [Azure Monitor](https://azure.microsoft.com/services/monitor/).
 
 ## Components
 
-- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) intelligent devices can recognize and respond to sensor input by using onboard processing. These devices can respond quickly or even offline, and limit costs by preprocessing and sending only necessary data to the cloud.
+- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) intelligent devices can recognize and respond to sensor input by using onboard processing. These devices can respond rapidly, or even offline. Intelligent Edge devices limit costs by preprocessing and sending only necessary data to the cloud.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) connects virtually any IoT device with Azure cloud services. IoT Hub enables highly secure and reliable bi-directional communication, management, and provisioning for IoT Edge devices.
 - [Azure Stream Analytics (ASA)](https://azure.microsoft.com/services/stream-analytics) provides real-time serverless stream processing with built-in machine learning (ML) models to perform anomaly detection directly in streaming jobs.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) is a data lake storage solution for big data analytics, combining [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) capabilities with a high-performance file system.
 - [Azure Databricks](https://azure.microsoft.com/services/databricks/) is a fast, easy, and collaborative Apache Spark-based analytics service that can read and analyze data lake data.
-- [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) are artificial intelligence (AI) services and cognitive APIs that help build intelligent apps. For example, [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) can help count and monitor people density and movements.
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) is a service for developing, deploying, and managing containerized applications.
-- Azure [API Management](https://azure.microsoft.com/services/api-management/) can deploy Azure and external APIs side by side to optimize traffic flow and provide unified management and observability, while ensuring security and compliance.
+- [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) are artificial intelligence (AI) services and cognitive APIs that help build intelligent apps. For example, [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) helps count and monitor people density and movements. [Speech to Text](https://azure.microsoft.com/services/cognitive-services/speech-to-text/), [Text to Speech](https://azure.microsoft.com/services/cognitive-services/text-to-speech/), and [Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) help provide verbal responses and interactions.
+- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) is a managed, serverless Kubernetes platform for microservices apps. Kubernetes is open-source orchestration software for deploying, managing, and scaling containerized apps.
+- Azure [API Management](https://azure.microsoft.com/services/api-management/) deploys Azure, third-party, and external APIs side by side to optimize traffic flow, provide unified control and visibility, and ensure security and compliance.
 
 ## Next steps
 
