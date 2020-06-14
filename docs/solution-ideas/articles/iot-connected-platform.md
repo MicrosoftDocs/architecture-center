@@ -2,7 +2,7 @@
 title: IoT Connected Platform for COVID-19 detection and prevention
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
-description: Deploy a connected ecosystem of intelligent IoT Edge devices, Azure services, and cloud-powered apps to help detect and prevent COVID-19.
+description: Deploy a connected ecosystem of intelligent IoT Edge devices, Azure services, and cloud-powered apps to create safe and healthy public spaces.
 ms.date: 06/12/2020
 ms.custom: iot, fcp
 ms.service: architecture-center
@@ -11,7 +11,7 @@ ms.subservice: solution-idea
 
 # IoT Connected Platform for COVID-19 protection
 
-Smart group spaces can help people get back to work and play As Soon And Safely As Possible (ASASAP) after COVID-19 shutdowns. Insight's [Connected Platform for Detection and Prevention](https://www.insight.com/en_US/what-we-do/digital-innovation/solutions/connected-platform-for-detection-and-prevention.html) rapidly deploys and manages a flexible, scalable [intelligent edge and cloud](https://azure.microsoft.com/overview/future-of-cloud/) ecosystem that helps detect and prevent COVID-19 infection in group spaces. 
+Smart group spaces can help people get back to work and play As Soon And Safely As Possible (ASASAP) after COVID-19 shutdowns. Insight's [Connected Platform for Detection and Prevention](https://www.insight.com/en_US/what-we-do/digital-innovation/solutions/connected-platform-for-detection-and-prevention.html) rapidly deploys and manages a flexible, scalable [intelligent edge and cloud](https://azure.microsoft.com/overview/future-of-cloud/) ecosystem that helps detect and prevent COVID-19 infection in large group spaces. 
 
 This article describes a Connected Platform solution to help provide COVID-19 detection and prevention at a theme park.
 
@@ -19,13 +19,13 @@ This article describes a Connected Platform solution to help provide COVID-19 de
 - Portable, interactive virus testing centers provide rapid, discreet onsite virus testing for people who fail temperature checks.
 - Anomaly detecting smart cones monitor safe social distancing in groups and lines.
 - Smart, connected hand sanitizer dispensers monitor usage and supply levels.
-- Interactive, data-driven speakers and bots deliver appropriate proximity alerts, reminders, and instructions to employees and guests.
-- Data driven reporting lets stakeholders monitor results and overall trends.
+- Speakers and interactive bots deliver automated alerts, reminders, and instructions to employees and guests.
+- Data driven messaging and reporting let stakeholders monitor events and overall trends.
 
 ## Potential use cases
 
-- Controlled entry spaces like offices, factories, theaters, stadiums, and amusement parks.
-- Large, high-usage spaces with potential for crowds and lines.
+- Large, high-usage spaces with controlled entry and access.
+- Facilities like offices, factories, theaters, stadiums, malls, transportation centers, and tourist attractions.
 
 ## Architecture
 
