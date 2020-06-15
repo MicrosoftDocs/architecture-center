@@ -946,7 +946,7 @@ items:
         href: solution-ideas/articles/hybrid-connectivity.md
       - name: Implement a hub-spoke network topology
         href: reference-architectures/hybrid-networking/shared-services.md
-        name: Ref Arch  - IaaS WebAndDB
+      - name: Ref Arch  - IaaS WebAndDB
         href: high-availability/ref-arch-iaas-web-and-db.md
       - name: Troubleshoot a hybrid VPN connection
         href: reference-architectures/hybrid-networking/troubleshoot-vpn.md
