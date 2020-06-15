@@ -944,6 +944,8 @@ items:
         href: reference-architectures/hybrid-networking/vpn.md
       - name: Hybrid connections
         href: solution-ideas/articles/hybrid-connectivity.md
+      - name: IaaS - Web application with relational database
+        href: high-availability/ref-arch-iaas-web-and-db.md
       - name: Implement a hub-spoke network topology
         href: reference-architectures/hybrid-networking/shared-services.md
       - name: Troubleshoot a hybrid VPN connection
