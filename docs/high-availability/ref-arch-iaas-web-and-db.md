@@ -158,7 +158,7 @@ Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculato
 
 Virtual machine scale sets are available on all Windows VM sizes. You are only charged for the Azure VMs you deploy, and any additional underlying infrastructure resources consumed, such as storage and networking. There are no incremental charges for the virtual machine scale sets service.
 
-For single VMs pricing options, see [Windows VMs pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+For single VMs pricing options, see [Windows VMs pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
 ### SQL Server
 
