@@ -1086,6 +1086,18 @@ items:
     items:
     - name: Architectures
       items:
+      - name: Oracle database migration
+        items:
+        - name: Migration process
+          href: example-scenario/oracle-migrate/oracle-migration-overview.md
+        - name: Lift and Shift to Azure VMs
+          href: example-scenario/oracle-migrate/oracle-migration-lift-shift.md
+        - name: Refactor
+          href: example-scenario/oracle-migrate/oracle-migration-refactor.md
+        - name: Rearchitect
+          href: example-scenario/oracle-migrate/oracle-migration-rearchitect.md
+        - name: Cross-cloud Connectivity
+          href: example-scenario/oracle-migrate/oracle-migration-cross-cloud.md
       - name: Adding modern front-ends to legacy apps
         href: solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.md
       - name: Lift and Shift LOB apps
