@@ -928,7 +928,7 @@ items:
        href: high-availability/building-solutions-for-high-availability.md
     - name: Architectures
       items: 
-      - name: Ref Arch - IaaS - Web application with relational database
+      - name: IaaS - Web application with relational database
         href: high-availability/ref-arch-iaas-web-and-db.md     
   - name: Hybrid
     items:

@@ -48,7 +48,7 @@ To reduce the chance of human error and to improve reliability, SAP deployments 
 
 Embracing a DevOps paradigm means using an infrastructure-as-code (IaC) approach to building new SAP environments as needed. IaC is a key consideration in SAP project landscapes.
 
-|Manual deployment pains  | Automated deployment gains | 
+|Manual deployment pains  | Automated deployment gains |
 |---------------------------|----------------------------|
 |- Requires specialized knowledge in many domains outside of SAP |- Works immediately and requires little domain knowledge|
 |- Takes a lot of time—from one month to many months, depending on the size of the SAP landscape |- Takes from 30 minutes to a couple of hours|
@@ -303,7 +303,7 @@ The following scenarios outline a few of the common ways SAP solutions are built
                 </div>
             </article>
         </a>
-    </li> 
+    </li>
 </ul>
 
 ## GitHub resources
