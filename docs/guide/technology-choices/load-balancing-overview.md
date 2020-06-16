@@ -78,7 +78,7 @@ If your application consists of multiple workloads, evaluate each workload separ
 
 - **Internet facing**. Applications that are publicly accessible from the internet. As a best practice, application owners apply restrictive access policies or protect the application by setting up offerings like web application firewall and DDoS protection.
 
-- **Global**. End users or clients are located beyond a small geographical area. For example, users across multiple continents, across countries within a continent, or even across multiple metropolitan areas within a larger country.
+- **Global**. End users or clients are located beyond a small geographical area. For example, users across multiple continents, across countries/regions within a continent, or even across multiple metropolitan areas within a larger country/region.
 
 - **PaaS**. Platform as a service (PaaS) services provide a managed hosting environment, where you can deploy your application without needing to manage VMs or networking resources. In this case, PaaS refers to services that provide integrated load balancing within a region. See [Choosing a compute service &ndash; Scalability](./compute-decision-tree.md#scalability).
 
