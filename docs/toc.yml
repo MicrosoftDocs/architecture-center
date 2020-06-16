@@ -923,9 +923,13 @@ items:
         - name: Real time location sharing
           href: example-scenario/signalr/index.md
   - name: High Availability
-    items:
+     items:
     -  name: Overview
-       href: high-availability/building-solutions-for-high-availability.md       
+       href: high-availability/building-solutions-for-high-availability.md
+    - name: Architectures
+      items: 
+      - name: IaaS - Web application with relational database
+        href: high-availability/ref-arch-iaas-web-and-db.md     
   - name: Hybrid
     items:
     - name: Architectures
@@ -946,8 +950,7 @@ items:
         href: solution-ideas/articles/hybrid-connectivity.md
       - name: Implement a hub-spoke network topology
         href: reference-architectures/hybrid-networking/shared-services.md
-      - name: Ref Arch  - IaaS WebAndDB
-        href: high-availability/ref-arch-iaas-web-and-db.md
+
       - name: Troubleshoot a hybrid VPN connection
         href: reference-architectures/hybrid-networking/troubleshoot-vpn.md
   - name: Identity
