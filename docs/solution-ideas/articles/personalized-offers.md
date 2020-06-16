@@ -6,7 +6,10 @@ ms.date: 12/16/2019
 description: In today's highly competitive and connected environment, modern businesses can no longer survive with generic, static online content. Furthermore, marketing strategies using traditional tools are often expensive, hard to implement, and do not produce the desired return on investment. These systems often fail to take full advantage of the data collected to create a more personalized experience for the user.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/personalized-offers/'
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/personalized-offers.png
 ---
 
 # Personalized Offers
@@ -19,11 +22,12 @@ Surfacing offers that are customized for the user has become essential to buildi
 
 ## Architecture
 
-![Architecture diagram](../media/personalized-offers.svg)
+![Architecture diagram](../media/personalized-offers.png)
+*Download an [SVG](../media/personalized-offers.svg) of this architecture.*
 
 ## Description
 
-Save time and let one of these [trained SI partners](https://aka.ms/personalizedoffers-sipartners) help you with a proof of concept, deployment & integration of this solution.
+Save time and let one of these trained SI partners help you with a proof of concept, deployment & integration of this solution.
 
 The Cortana Intelligence Suite provides advanced analytics tools through Microsoft Azure - data ingestion, data storage, data processing and advanced analytics components - all of the essential elements for building a personalized offer solution.
 

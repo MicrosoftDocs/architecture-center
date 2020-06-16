@@ -6,7 +6,11 @@ ms.date: 12/16/2019
 description: Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use Java, Node.js, Go, or PHP to develop your applications, you'll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
 ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, devops, interactive-diagram, is-deployable, 'https://azure.microsoft.com/solutions/architecture/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview/'
 ms.service: architecture-center
+ms.category:
+  - devops
+  - developer-tools
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.png
 ---
 
 # Immutable Infrastructure CI/CD using Jenkins and Terraform on Azure Virtual Architecture overview
@@ -17,7 +21,8 @@ Azure is a world-class cloud for hosting virtual machines running Windows or Lin
 
 ## Architecture
 
-![Architecture diagram](../media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.svg)
+![Architecture diagram](../media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.png)
+*Download an [SVG](../media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.svg) of this architecture.*
 
 ## Data Flow
 
@@ -36,7 +41,7 @@ Azure is a world-class cloud for hosting virtual machines running Windows or Lin
 * Log Analytics: Collect, search, and visualize machine data from on-premises and cloud.
 * [Visual Studio Code](https://azure.microsoft.com/products/visual-studio): Build and deploy multi-platform apps to get the most from Azure services.
 
-## Next Steps
+## Next steps
 
 * [Use Terraform to create a Virtual Machine Scale Set from a Packer customer VM image](https://docs.microsoft.com/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl)
 * [Use Terraform to plan and create a Virtual Machine Scale Set with Managed Disk](https://docs.microsoft.com/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl)

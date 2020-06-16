@@ -6,7 +6,11 @@ ms.date: 12/16/2019
 description: Containers make it easy for you to continuously build and deploy applications. By orchestrating the deployment of those containers using Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
 ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, is-deployable, 'https://azure.microsoft.com/solutions/architecture/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service/'
 ms.service: architecture-center
+ms.category:
+  - devops
+  - containers
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.png
 ---
 
 # Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)
@@ -19,7 +23,8 @@ By setting up a continuous build to produce your container images and orchestrat
 
 ## Architecture
 
-![Architecture diagram](../media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.svg)
+![Architecture diagram](../media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.png)
+*Download an [SVG](../media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.svg) of this architecture.*
 
 ## Data Flow
 
@@ -41,7 +46,7 @@ By setting up a continuous build to produce your container images and orchestrat
 * [Azure Monitor](https://azure.microsoft.com/services/monitor): Highly granular and real-time monitoring data for any Azure resource.
 * [Visual Studio Code](https://azure.microsoft.com/products/visual-studio): Build and deploy multi-platform apps to get the most from Azure services.
 
-## Next Steps
+## Next steps
 
 * [Integrating Jenkins with Azure Container Service and Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-jenkins)
 * [Pushing Docker images to Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli)

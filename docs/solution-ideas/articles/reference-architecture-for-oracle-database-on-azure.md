@@ -6,7 +6,11 @@ ms.date: 12/16/2019
 description: This solution architecture illustrates a canonical architecture to achieve high availability for your Oracle Database Enterprise Edition in Azure.
 ms.custom: acom-architecture, data, Oracle, Oracle Database, Oracle DB, Oracle on Azure, Oracle DB architecture, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/reference-architecture-for-oracle-database-on-azure/'
 ms.service: architecture-center
+ms.category:
+  - databases
+  - management-and-governance
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/reference-architecture-for-oracle-database-on-azure.png
 ---
 
 # Reference architecture for Oracle Database on Azure
@@ -17,7 +21,8 @@ This solution architecture illustrates a canonical architecture to achieve high 
 
 ## Architecture
 
-![Architecture diagram](../media/reference-architecture-for-oracle-database-on-azure.svg)
+![Architecture diagram](../media/reference-architecture-for-oracle-database-on-azure.png)
+*Download an [SVG](../media/reference-architecture-for-oracle-database-on-azure.svg) of this architecture.*
 
 ## Data Flow
 

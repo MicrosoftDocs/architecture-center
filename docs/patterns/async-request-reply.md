@@ -11,6 +11,8 @@ ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ---
 
+<!-- cSpell:ignore cqrs WillEastbury wieastbu -->
+
 # Asynchronous Request-Reply pattern
 
 Decouple backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response.
@@ -21,35 +23,35 @@ In modern application development, it's normal for client applications &mdash; o
   
 In most cases, APIs for a client application are designed to respond quickly, on the order of 100 ms or less. Many factors can affect the response latency, including:
 
-- An application's hosting stack
-- Security components
-- The relative geographic location of the caller and the backend
-- Network infrastructure
-- Current load 
-- The size of the request payload
-- Processing queue length
-- The time for the backend to process the request 
+- An application's hosting stack.
+- Security components.
+- The relative geographic location of the caller and the backend.
+- Network infrastructure.
+- Current load.
+- The size of the request payload.
+- Processing queue length.
+- The time for the backend to process the request.
 
 Any of these factors can add latency to the response. Some can be mitigated by scaling out the backend. Others, such as network infrastructure, are largely out of the control of the application developer. Most APIs can respond quickly enough for responses to arrive back over the same connection. Application code can make a synchronous API call in a non-blocking way, giving the appearance of asynchronous processing, which is recommended for I/O-bound operations.
 
 In some scenarios, however, the work done by backend may be long-running, on the order of seconds, or might be a background process that is executed in minutes or even hours. In that case, it isn't feasible to wait for the work to complete before responding to the request. This situation is a potential problem for any synchronous request-reply pattern.
 
-Some architectures solve this problem by using a message broker to separate the request and response stages. This separation is often achieved by use of the [Queue Based Load Leveling Pattern](./queue-based-load-leveling.md). This separation can allow the client process and the backend API to scale independently. But this separation also brings additional complexity when the client requires success notification, as this step needs to become asynchronous.
+Some architectures solve this problem by using a message broker to separate the request and response stages. This separation is often achieved by use of the [Queue-Based Load Leveling pattern](./queue-based-load-leveling.md). This separation can allow the client process and the backend API to scale independently. But this separation also brings additional complexity when the client requires success notification, as this step needs to become asynchronous.
 
 Many of the same considerations discussed for client applications also apply for server-to-server REST API calls in distributed systems &mdash; for example, in a microservices architecture.
 
 ## Solution
 
-One solution to this problem is to use HTTP polling. Polling is useful to client-side code, as it can be hard to provide call-back endpoints or use long running connections. Even when callbacks are possible, the extra libraries and services that are required can sometimes add too much extra complexity.   
+One solution to this problem is to use HTTP polling. Polling is useful to client-side code, as it can be hard to provide call-back endpoints or use long running connections. Even when callbacks are possible, the extra libraries and services that are required can sometimes add too much extra complexity.
 
 - The client application makes a synchronous call to the API, triggering a long-running operation on the backend.
 
 - The API responds synchronously as quickly as possible. It returns an HTTP 202 (Accepted) status code, acknowledging that the request has been received for processing.
 
-    > [!NOTE] 
+    > [!NOTE]
     > The API should validate both the request and the action to be performed before starting the long running process. If the request is invalid, reply immediately with an error code such as HTTP 400 (Bad Request).
 
-- The response holds a location reference pointing to an endpoint that the client can poll to check for the result of the long running operation. 
+- The response holds a location reference pointing to an endpoint that the client can poll to check for the result of the long running operation.
 
 - The API offloads processing to another component, such as a message queue.
 
@@ -83,9 +85,9 @@ The following diagram shows a typical flow:
 
 - If an error occurs during processing, persist the error at the resource URL described in the Location header and ideally return an appropriate response code to the client from that resource (4xx code).
 
-- Not all solutions will implement this pattern in the same way and some services will include additional or alternate headers. For example, Azure Resource Manager uses a modified variant of this pattern. For more information, see [Azure Resource Manager Async Operations](/azure/azure-resource-manager/resource-manager-async-operations).
+- Not all solutions will implement this pattern in the same way and some services will include additional or alternate headers. For example, Azure Resource Manager uses a modified variant of this pattern. For more information, see [Azure Resource Manager Async Operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations).
 
-- Legacy clients might not support this pattern. In that case, you might need to place a facade over the asynchronous API to hide the asynchronous processing from the original client. For example, Azure Logic Apps supports this pattern natively can be used as an integration layer between an asynchronous API and a client that makes synchronous calls. See [Perform long-running tasks with the webhook action pattern](/azure/logic-apps/logic-apps-create-api-app#perform-long-running-tasks-with-the-webhook-action-pattern).
+- Legacy clients might not support this pattern. In that case, you might need to place a facade over the asynchronous API to hide the asynchronous processing from the original client. For example, Azure Logic Apps supports this pattern natively can be used as an integration layer between an asynchronous API and a client that makes synchronous calls. See [Perform long-running tasks with the webhook action pattern](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-api-app#perform-long-running-tasks-with-the-webhook-action-pattern).
 
 - In some scenarios, you might want to provide a way for clients to cancel a long-running request. In that case, the backend service must support some form of cancellation instruction.
 
@@ -95,14 +97,14 @@ Use this pattern for:
 
 - Client-side code, such as browser applications, where it's difficult to provide call-back endpoints, or the use of long-running connections adds too much additional complexity.
 
-- Service calls where only the HTTP protocol is available and the return service can't fire callbacks because of firewall restrictions on the client-side. 
+- Service calls where only the HTTP protocol is available and the return service can't fire callbacks because of firewall restrictions on the client-side.
 
 - Service calls that need to be integrated with legacy architectures that don't support modern callback technologies such as WebSockets or webhooks.
 
 This pattern might not be suitable when:
 
 - You can use a service built for asynchronous notifications instead, such as Azure Event Grid.
-- Responses must stream in real time to the client. 
+- Responses must stream in real time to the client.
 - The client needs to collect many results, and received latency of those results is important. Consider a service bus pattern instead.
 - You can use server-side persistent network connections such as WebSockets or SignalR. These services can be used to notify the caller of the result.  
 - The network design allows you to open up ports to receive asynchronous callbacks or webhooks.
@@ -123,7 +125,7 @@ The following code shows excerpts from an application that uses Azure Functions 
 
 The `AsyncProcessingWorkAcceptor` function implements an endpoint that accepts work from a client application and puts it on a queue for processing.
 
-- The function generates a request ID and adds it as metadata to the queue message. 
+- The function generates a request ID and adds it as metadata to the queue message.
 - The HTTP response includes a location header pointing to a status endpoint. The request ID is part of the URL path.
 
 ```csharp
@@ -141,7 +143,7 @@ public static class AsyncProcessingWorkAcceptor
         }
 
         string reqid = Guid.NewGuid().ToString();
-        
+
         string rqs = $"http://{Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME")}/api/RequestStatus/{reqid}";
 
         var messagePayload = JsonConvert.SerializeObject(customer);
@@ -149,10 +151,10 @@ public static class AsyncProcessingWorkAcceptor
         m.UserProperties["RequestGUID"] = reqid;
         m.UserProperties["RequestSubmittedAt"] = DateTime.Now;
         m.UserProperties["RequestStatusURL"] = rqs;
-            
+
         await OutMessage.AddAsync(m);  
 
-        return (ActionResult) new AcceptedResult(rqs, $"Request Accepted for Processing{Environment.NewLine}ProxyStatus: {rqs}");   
+        return (ActionResult) new AcceptedResult(rqs, $"Request Accepted for Processing{Environment.NewLine}ProxyStatus: {rqs}");
     }
 }
 ```
@@ -166,7 +168,7 @@ public static class AsyncProcessingBackgroundWorker
 {
     [FunctionName("AsyncProcessingBackgroundWorker")]
     public static void Run(
-        [ServiceBusTrigger("outqueue", Connection = "ServiceBusConnectionAppSetting")]Message myQueueItem, 
+        [ServiceBusTrigger("outqueue", Connection = "ServiceBusConnectionAppSetting")]Message myQueueItem,
         [Blob("data", FileAccess.ReadWrite, Connection = "StorageConnectionAppSetting")] CloudBlobContainer inputBlob,
         ILogger log)
     {
@@ -187,7 +189,7 @@ public static class AsyncProcessingBackgroundWorker
 
 The `AsyncOperationStatusChecker` function implements the status endpoint. This function first checks whether the request was completed
 
-- If the request was completed, the function either returns a valet-key to the response, or redirects the call immediately to the valet-key URL. 
+- If the request was completed, the function either returns a valet-key to the response, or redirects the call immediately to the valet-key URL.
 - If the request is still pending, then we should return a 202 accepted with a self-referencing Location header, putting an ETA for a completed response in the http Retry-After header.
 
 ```csharp
@@ -299,5 +301,5 @@ public enum OnPendingEnum {
 The following information may be relevant when implementing this pattern:
 
 - [Asynchronous operations in REST](https://www.adayinthelifeof.nl/2011/06/02/asynchronous-operations-in-rest/)
-- [Azure Logic Apps - Perform long-running tasks with the polling action pattern](/azure/logic-apps/logic-apps-create-api-app#perform-long-running-tasks-with-the-polling-action-pattern).
+- [Azure Logic Apps - Perform long-running tasks with the polling action pattern](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-api-app#perform-long-running-tasks-with-the-polling-action-pattern).
 - For general best practices when designing a web API, see [Web API design](../best-practices/api-design.md).

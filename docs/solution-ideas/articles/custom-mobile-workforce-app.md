@@ -6,7 +6,12 @@ ms.date: 12/16/2019
 description: Learn how the custom mobile workforce management app architecture is built and implemented with a step-by-step diagram that illustrates the integration of Active Directory, SAP, and Azure App Service.
 ms.custom: acom-architecture, Mobile Workforce App, Mobile Workforce Management App, Workforce Management App, Mobile Workforce Management Solution, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/custom-mobile-workforce-app/'
 ms.service: architecture-center
+ms.category:
+  - mobile
+  - identity
+  - databases
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/custom-mobile-workforce-app.png
 ---
 
 # Custom Mobile Workforce App
@@ -35,7 +40,8 @@ The links to the right provide documentation on deploying and managing the Azure
 
 ## Architecture
 
-![Architecture diagram](../media/custom-mobile-workforce-app.svg)
+![Architecture diagram](../media/custom-mobile-workforce-app.png)
+*Download an [SVG](../media/custom-mobile-workforce-app.svg) of this architecture.*
 
 ## Data Flow
 
@@ -58,7 +64,7 @@ The links to the right provide documentation on deploying and managing the Azure
 * [API Management](https://azure.microsoft.com/services/api-management): Publish APIs to external, partner, and employee developers securely and at scale.
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory) is used for secure, enterprise-grade authentication.
 
-## Next Steps
+## Next steps
 
 * [Visual Studio Documentation](https://docs.microsoft.com/visualstudio)
 * [Xamarin Documentation](https://docs.microsoft.com/xamarin)

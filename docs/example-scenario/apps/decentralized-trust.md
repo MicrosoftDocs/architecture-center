@@ -4,6 +4,8 @@ titleSuffix: Azure Example Scenarios
 description: Establish a trusted environment for communication and information sharing without resorting to a centralized database.
 author: vitoc
 ms.date: 09/09/2018
+ms.category:
+  - blockchain
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -100,7 +102,7 @@ We have provided three sample cost profiles based on the number of scale set VM 
 
 The above pricing is for one consortium member to start or join a blockchain network. Typically in a consortium where there are multiple companies or organizations involved, each member will get their own Azure subscription.
 
-## Next Steps
+## Next steps
 
 To see an example of this scenario, deploy the [Ethereum PoA blockchain demo application][deploy] on Azure. Then review the [README of the scenario source code][source].
 
@@ -112,10 +114,10 @@ For more information on using the Ethereum Proof-of-Authority solution template 
 [small-pricing]: https://azure.com/e/4e429d721eb54adc9a1558fae3e67990
 [medium-pricing]: https://azure.com/e/bb42cd77437744be8ed7064403bfe2ef
 [large-pricing]: https://azure.com/e/e205b443de3e4adfadf4e09ffee30c56
-[guide]: /azure/blockchain-workbench/ethereum-poa-deployment
+[guide]: https://docs.microsoft.com/azure/blockchain-workbench/ethereum-poa-deployment
 [deploy]: https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium
 [source]: https://github.com/vitoc/creditscoreblockchain
-[monitor]: /azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor
-[scalability]: /azure/architecture/checklist/scalability
-[security]: /azure/security/
-[vault]: https://azure.microsoft.com/services/key-vault/
+[monitor]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor
+[scalability]: ../../checklist/scalability.md
+[security]: https://docs.microsoft.com/azure/security
+[vault]: https://azure.microsoft.com/services/key-vault

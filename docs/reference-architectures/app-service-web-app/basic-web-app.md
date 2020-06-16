@@ -6,9 +6,13 @@ author: MikeWasson
 ms.date: 12/12/2017
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - web
 ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
+
+<!-- cSpell:ignore BACPAC DTUs -->
 
 # Run a basic web application in Azure
 
@@ -26,7 +30,7 @@ This reference architecture shows proven practices for a web application that us
 
 The architecture has the following components:
 
-- **Resource group**. A [resource group](/azure/azure-resource-manager/resource-group-overview) is a logical container for Azure resources.
+- **Resource group**. A [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) is a logical container for Azure resources.
 
 - **App Service app**. [Azure App Service][app-service] is a fully managed platform for creating and deploying cloud applications.
 
@@ -38,7 +42,7 @@ The architecture has the following components:
 
 - **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. To use a custom domain name (such as `contoso.com`) create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in Azure App Service][custom-domain-name].
 
-- **Azure SQL Database**. [SQL Database][sql-db] is a relational database-as-a-service in the cloud. SQL Database shares its code base with the Microsoft SQL Server database engine. Depending on your application requirements, you can also use [Azure Database for MySQL](/azure/mysql) or [Azure Database for PostgreSQL](/azure/postgresql). These are fully managed database services, based on the open-source MySQL Server and Postgres database engines, respectively.
+- **Azure SQL Database**. [SQL Database][sql-db] is a relational database-as-a-service in the cloud. SQL Database shares its code base with the Microsoft SQL Server database engine. Depending on your application requirements, you can also use [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql) or [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql). These are fully managed database services, based on the open-source MySQL Server and Postgres database engines, respectively.
 
 - **Logical server**. In Azure SQL Database, a logical server hosts your databases. You can create multiple databases per logical server.
 
@@ -50,14 +54,11 @@ The architecture has the following components:
 
 Your requirements might differ from the architecture described here. Use the recommendations in this section as a starting point.
 
-
 ### App Service plan
 
 Use **Free** and **Shared** (preview) tiers for testing purposes because the shared resources cannot scale out. The two tiers provide different options within your budget.  Run your production workload on **Basic**, **Standard**, and **Premium** tiers because the app runs on dedicated virtual machine instances and has allocated resources that can scale out. App Service plans are billed on a per second basis.
 
-For more information, see [How much does my App Service plan cost?
-](https://docs.microsoft.com/azure/app-service/overview-hosting-plans#how-much-does-my-app-service-plan-cost)
-
+For more information, see [How much does my App Service plan cost?](https://docs.microsoft.com/azure/app-service/overview-hosting-plans#how-much-does-my-app-service-plan-cost)
 
 Use the Standard or Premium tiers, because they support scale-out, autoscale, and secure sockets layer (SSL). Each tier supports several *instance sizes* that differ by number of cores and memory. You can change the tier or instance size after you create a plan. For more information about App Service plans, see [App Service Pricing][app-service-plans-tiers].
 
@@ -65,7 +66,7 @@ You are charged for the instances in the App Service plan, even if the app is st
 
 ### SQL Database
 
-A logical server group makes administrative tasks simple. Each database within the group is deployed with a specific  [service tier][sql-db-service-tiers]. Within each group, the databases cannot share resources. There are no compute costs for the server but for each database, you need to specify the tier. Therefore, because of the dedicated resources the performance might be better but the cost can be higher. 
+A logical server group makes administrative tasks simple. Each database within the group is deployed with a specific  [service tier][sql-db-service-tiers]. Within each group, the databases cannot share resources. There are no compute costs for the server but for each database, you need to specify the tier. Therefore, because of the dedicated resources the performance might be better but the cost can be higher.
 
 Use the [V12 version][sql-db-v12] of SQL Database. SQL Database supports Basic, Standard, and Premium [service tiers][sql-db-service-tiers], with multiple performance levels within each tier measured in [Database Transaction Units (DTUs)][sql-dtu]. Perform capacity planning and choose a tier and performance level that meets your requirements.
 
@@ -73,12 +74,11 @@ Use the [V12 version][sql-db-v12] of SQL Database. SQL Database supports Basic, 
 
 Provision the App Service plan and the SQL Database in the same region to minimize network latency. Generally, choose the region closest to your users.
 
-The resource group also has a region, which specifies where deployment metadata is stored. Put the resource group and its resources in the same region. This can improve availability during deployment. 
+The resource group also has a region, which specifies where deployment metadata is stored. Put the resource group and its resources in the same region. This can improve availability during deployment.
 
 Use the [pricing calculator][pricing] to estimate costs.
 
-For more information, see the cost section in [Azure Architecture Framework](/azure/architecture/framework/cost/overview).
-
+For more information, see the cost section in [Azure Architecture Framework](../../framework/cost/overview.md).
 
 ## Scalability considerations
 
@@ -136,7 +136,7 @@ When assigning resources to resource groups, consider the following:
 - Access. You can use [role-based access control][rbac] (RBAC) to apply access policies to the resources in a group.
 - Billing. You can view the rolled-up costs for the resource group.
 
-For more information, see [Azure Resource Manager overview](/azure/azure-resource-manager/resource-group-overview).
+For more information, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ### Deployment
 
@@ -241,50 +241,46 @@ For more information, see [Deploy resources with Azure Resource Manager template
 
 <!-- links -->
 
-[aad-auth]: /azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication
-[app-insights]: /azure/application-insights/app-insights-overview
-[app-insights-data-rate]: /azure/application-insights/app-insights-pricing
-[app-service]: /azure/app-service/
-[app-service-auth]: /azure/app-service-api/app-service-api-authentication
-[app-service-plans]: /azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
-[app-service-plans-tiers]: https://azure.microsoft.com/pricing/details/app-service/
-[app-service-security]: /azure/app-service-web/web-sites-security
-[app-settings]: /azure/app-service-web/web-sites-configure
-[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
-[azure-devops]: /azure/devops/
-[azure-dns]: /azure/dns/dns-overview
-[custom-domain-name]: /azure/app-service-web/web-sites-custom-domain-name
-[deploy]: /azure/app-service-web/web-sites-deploy
-[deploy-arm-template]: /azure/resource-group-template-deploy
-[deployment-slots]: /azure/app-service-web/web-sites-staged-publishing
-[diagnostic-logs]: /azure/app-service-web/web-sites-enable-diagnostic-log
-[kudu]: https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/
+[aad-auth]: https://docs.microsoft.com/azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication
+[app-insights]: https://docs.microsoft.com/azure/application-insights/app-insights-overview
+[app-insights-data-rate]: https://docs.microsoft.com/azure/application-insights/app-insights-pricing
+[app-service]: https://docs.microsoft.com/azure/app-service
+[app-service-auth]: https://docs.microsoft.com/azure/app-service-api/app-service-api-authentication
+[app-service-plans]: https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
+[app-service-plans-tiers]: https://azure.microsoft.com/pricing/details/app-service
+[app-service-security]: https://docs.microsoft.com/azure/app-service-web/web-sites-security
+[app-settings]: https://docs.microsoft.com/azure/app-service-web/web-sites-configure
+[arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
+[azure-devops]: https://docs.microsoft.com/azure/devops
+[azure-dns]: https://docs.microsoft.com/azure/dns/dns-overview
+[custom-domain-name]: https://docs.microsoft.com/azure/app-service-web/web-sites-custom-domain-name
+[deploy]: https://docs.microsoft.com/azure/app-service-web/web-sites-deploy
+[deploy-arm-template]: https://docs.microsoft.com/azure/resource-group-template-deploy
+[deployment-slots]: https://docs.microsoft.com/azure/app-service-web/web-sites-staged-publishing
+[diagnostic-logs]: https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log
+[kudu]: https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about
 [monitoring-guidance]: ../../best-practices/monitoring.md
-[new-relic]: https://newrelic.com/
+[new-relic]: https://newrelic.com
 [paas-basic-arm-template]: https://github.com/mspnp/reference-architectures/tree/master/managed-web-app/basic-web-app/Paas-Basic/Templates
 [perf-analysis]: https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md
 [pricing]: https://azure.microsoft.com/pricing/calculator
-[rbac]: /azure/active-directory/role-based-access-control-what-is
-[resource-group]: /azure/azure-resource-manager/resource-group-overview
-[sla]: https://azure.microsoft.com/support/legal/sla/
-[sql-audit]: /azure/sql-database/sql-database-auditing-get-started
-[sql-backup]: /azure/sql-database/sql-database-business-continuity
-[sql-db]: /azure/sql-database/
-[sql-db-overview]: /azure/sql-database/sql-database-technical-overview
-[sql-db-scale]: /azure/sql-database/sql-database-single-database-scale
-[sql-db-service-tiers]: /azure/sql-database/sql-database-service-tiers
-[sql-db-v12]: /azure/sql-database/sql-database-features
-[sql-dtu]: /azure/sql-database/sql-database-service-tiers
-[sql-human-error]: /azure/sql-database/sql-database-business-continuity#recover-a-database-within-the-same-azure-region
-[sql-outage-recovery]: /azure/sql-database/sql-database-recovery-using-backups#geo-restore
-[ssl-redirect]: /azure/app-service-web/web-sites-configure-ssl-certificate
-[sql-resource-limits]: /azure/sql-database/sql-database-resource-limits
-[ssl-cert]: /azure/app-service-web/web-sites-purchase-ssl-web-site
-[troubleshoot-blade]: https://azure.microsoft.com/updates/self-service-troubleshooting-for-app-service-web-apps-customers/
-[tfs]: /azure/devops/server/tfs-is-now-azure-devops-server
-[troubleshoot-web-app]: /azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio
+[rbac]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
+[sql-audit]: https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started
+[sql-backup]: https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity
+[sql-db]: https://docs.microsoft.com/azure/sql-database
+[sql-db-scale]: https://docs.microsoft.com/azure/sql-database/sql-database-single-database-scale
+[sql-db-service-tiers]: https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers
+[sql-db-v12]: https://docs.microsoft.com/azure/sql-database/sql-database-features
+[sql-dtu]: https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers
+[sql-human-error]: https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity#recover-a-database-within-the-same-azure-region
+[sql-outage-recovery]: https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore
+[ssl-redirect]: https://docs.microsoft.com/azure/app-service-web/web-sites-configure-ssl-certificate
+[ssl-cert]: https://docs.microsoft.com/azure/app-service-web/web-sites-purchase-ssl-web-site
+[troubleshoot-blade]: https://azure.microsoft.com/updates/self-service-troubleshooting-for-app-service-web-apps-customers
+[tfs]: https://docs.microsoft.com/azure/devops/server/tfs-is-now-azure-devops-server
+[troubleshoot-web-app]: https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx
-[web-app-autoscale]: /azure/app-service-web/web-sites-scale
-[web-app-backup]: /azure/app-service-web/web-sites-backup
-[web-app-log-stream]: /azure/app-service-web/web-sites-enable-diagnostic-log#stream-logs
+[web-app-autoscale]: https://docs.microsoft.com/azure/app-service-web/web-sites-scale
+[web-app-backup]: https://docs.microsoft.com/azure/app-service-web/web-sites-backup
+[web-app-log-stream]: https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log#stream-logs
 [1]: ./images/paas-basic-web-app-staging-slots.png "Swapping slots for production and staging deployments"

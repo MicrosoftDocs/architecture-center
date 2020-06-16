@@ -1,6 +1,6 @@
 ---
 title: Storage, data, and encryption in Azure | Microsoft Docs
-description: How to secure data storage in Azure 
+description: How to secure data storage in Azure.
 author: dsk-2015
 ms.date: 07/03/2019
 ms.topic: article
@@ -13,8 +13,7 @@ ms.subservice: cloud-design-principles
 
 Protecting data at rest is required to maintain confidentiality, integrity, and
 availability assurances across all workloads. Storage in a cloud service like
-Azure is [architected and
-implemented](https://azure.microsoft.com/blog/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency/)
+Azure is [architected and implemented](https://azure.microsoft.com/blog/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency/)
 quite differently than on premises solutions to enable massive scaling, modern
 access through REST APIs, and isolation between tenants.
 
@@ -24,16 +23,16 @@ Authentication, or Shared Access Signature (SAS))
 
 Storage in Azure includes a number of native security design attributes
 
--   All data is encrypted by the service
+- All data is encrypted by the service
 
--   Data in the storage system cannot be read by a tenant if it has not been
+- Data in the storage system cannot be read by a tenant if it has not been
     written by that tenant (to mitigate the risk of cross tenant data leakage)
 
--   Data will remain only in the region you choose
+- Data will remain only in the region you choose
 
--   The system maintains three synchronous copies of data in the region you choose.
+- The system maintains three synchronous copies of data in the region you choose.
 
--   Detailed activity logging is available on an opt-in basis.
+- Detailed activity logging is available on an opt-in basis.
 
 Additional security features can be configured such as a storage firewall to
 provide an additional layer of access control as well as storage threat
@@ -87,8 +86,7 @@ they will not be able to because of the encryption.
 
 We recommend that you enable virtual disk encryption.
 
-An example of virtual disk encryption is [Azure Disk
-Encryption](https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss).
+An example of virtual disk encryption is [Azure Disk Encryption](https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss).
 
 ## Enable platform encryption services
 

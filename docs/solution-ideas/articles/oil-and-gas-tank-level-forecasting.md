@@ -6,7 +6,11 @@ ms.date: 12/16/2019
 description: Today, most facilities operate reactively to problems in tank levels. This often leads to spills, emergency shutdowns, expensive remediation costs, regulatory issues, costly repairs and fines. Tank level forecasting helps manage and abate these and other problems.
 ms.custom: acom-architecture, artificial intelligence, hpc, analytics, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/oil-and-gas-tank-level-forecasting/'
 ms.service: architecture-center
+ms.category:
+  - analytics
+  - compute
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/oil-and-gas-tank-level-forecasting.png
 ---
 
 # Oil and Gas Tank Level Forecasting
@@ -30,7 +34,8 @@ The Cortana Intelligence Suite is adaptable and can be customized to meet differ
 
 ## Architecture
 
-![Architecture diagram](../media/oil-and-gas-tank-level-forecasting.svg)
+![Architecture diagram](../media/oil-and-gas-tank-level-forecasting.png)
+*Download an [SVG](../media/oil-and-gas-tank-level-forecasting.svg) of this architecture.*
 
 ## Description
 
@@ -42,7 +47,7 @@ This solution combines several Azure services to provide powerful advantages. Ev
 
 The 'Deploy' button will launch a workflow that will deploy an instance of the solution within a Resource Group in the Azure subscription you specify. The solution includes multiple Azure services (described below) along with a web job that simulates data so that immediately after deployment you have a working end-to-end solution.
 
-After deployment, see the post deployment instructions [here](https://github.com/Azure/cortana-intelligence-tank-level-forecast/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md).
+After deployment, see the post deployment instructions.
 
 ## Technical details and workflow
 

@@ -13,4 +13,4 @@ ms.custom: What scalability tradeoffs are you making?
 
 ## CAP theorem
 
-Often, you can achieve higher availability by adopting an _eventual consistency_ model. Learn about selecting the correct [data store](/azure/architecture/guide/design-principles/use-the-best-data-store).
+Often, you can achieve higher availability by adopting an _eventual consistency_ model. Learn about selecting the correct [data store](../../guide/design-principles/use-the-best-data-store.md).

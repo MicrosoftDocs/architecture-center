@@ -6,7 +6,10 @@ ms.date: 12/16/2019
 description: Secure your e-commerce website's sensitive user and payment data using the Microsoft Azure App Service Environment.
 ms.custom: acom-architecture, app service environment, security for ecommerce websites, e-commerce security solutions, e-commerce site security, web-apps, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/ecommerce-website-running-in-secured-ase/'
 ms.service: architecture-center
+ms.category:
+  - web
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/ecommerce-website-running-in-secured-ase.png
 ---
 
 # E-commerce website running in secured App Service Environment
@@ -15,7 +18,8 @@ ms.subservice: solution-idea
 
 ## Architecture
 
-![Architecture diagram](../media/ecommerce-website-running-in-secured-ase.svg)
+![Architecture diagram](../media/ecommerce-website-running-in-secured-ase.png)
+*Download an [SVG](../media/ecommerce-website-running-in-secured-ase.svg) of this architecture.*
 
 ## Data Flow
 
@@ -46,7 +50,7 @@ ms.subservice: solution-idea
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
 * [Blob Storage](https://azure.microsoft.com/services/storage/blobs): Azure Blob storage is a Massively scalable object storage for any type of unstructured data—images, videos, audio, documents, and more—easily and cost-effectively.
 
-## Next Steps
+## Next steps
 
 * [Create and use an internal load balancer with an App Service Environment](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase)
 * [Deploy web apps with CMS using pre-built templates](https://azure.microsoft.com/resources/templates/?term=CMS)

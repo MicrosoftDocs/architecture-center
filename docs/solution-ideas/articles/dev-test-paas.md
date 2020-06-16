@@ -6,7 +6,12 @@ ms.date: 12/16/2019
 description: This architecture represents how to configure your infrastructure for development and testing of a standard PaaS-style system.
 ms.custom: acom-architecture, devops, 'https://azure.microsoft.com/solutions/architecture/dev-test-paas/'
 ms.service: architecture-center
+ms.category:
+  - devops
+  - databases
+  - developer-tools
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/dev-test-paas.png
 ---
 
 # Dev-Test deployment for testing PaaS solutions
@@ -19,7 +24,8 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 
 ## Architecture
 
-![Architecture diagram](../media/dev-test-paas.svg)
+![Architecture diagram](../media/dev-test-paas.png)
+*Download an [SVG](../media/dev-test-paas.svg) of this architecture.*
 
 ## Components
 
@@ -31,7 +37,7 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache) is used in each environment to improve performance of the website.
 * Application Insights: Application Insights monitors the web application during development and test runs, and then monitors the full production system when it's released.
 
-## Next Steps
+## Next steps
 
 * [Set up Azure DevOps](https://www.visualstudio.com/docs/setup-admin/get-started)
 * [Configure Microsoft Release Management agents](https://www.visualstudio.com/docs/release/getting-started/configure-agents)

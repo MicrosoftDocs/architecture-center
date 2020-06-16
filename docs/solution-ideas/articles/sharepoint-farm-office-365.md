@@ -6,7 +6,11 @@ ms.date: 12/16/2019
 description: Deliver highly available intranet capability by deploying SharePoint and sharing hybrid workloads with Office 365. Setup this solution with step-by-step instructions.
 ms.custom: acom-architecture, hybrid-infrastructure, sharepoint hybrid, sharepoint hybrid architecture, sharepoint farm solution, office 365 sharepoint hybrid, sharepoint hybrid solution, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/sharepoint-farm-office-365/'
 ms.service: architecture-center
+ms.category:
+  - web
+  - hybrid
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/sharepoint-farm-office-365.png
 ---
 
 # Hybrid SharePoint Farm with Office 365
@@ -17,7 +21,8 @@ This solution provides a highly available deployment of SharePoint using a load 
 
 ## Architecture
 
-![Architecture diagram](../media/sharepoint-farm-office-365.svg)
+![Architecture diagram](../media/sharepoint-farm-office-365.png)
+*Download an [SVG](../media/sharepoint-farm-office-365.svg) of this architecture.*
 
 ## Data Flow
 
@@ -28,7 +33,7 @@ This solution provides a highly available deployment of SharePoint using a load 
 1. Deploy SharePoint Severs. In this scenario we are using 2 Frontend with Distributed Cache and 2 Application with Search roles. This give us high availability.
 1. Install Azure AD Connect on an on-premises server to synchronize your identities to Azure Active Directory.
 1. Optionally configure Active Directory Federation Services on premises to support federated authentication to Office 365.
-1. Deploy Express Route or setup a site-to-site VPN link for administrative access to the servers hosted in Azure IaaS.
+1. Deploy ExpressRoute or setup a site-to-site VPN link for administrative access to the servers hosted in Azure IaaS.
 1. Setup and provision external access to the Hybrid farm hosted in Azure IaaS
 1. Setup and configure Hybrid Workloads between Office 365 and the SharePoint farm.
 
@@ -47,7 +52,7 @@ This solution provides a highly available deployment of SharePoint using a load 
 * Active Directory Federation Services: Synchronize on-premises directories and enable single sign-on
 * Hybrid Workloads: Scales between on-premises environments and the cloud
 
-## Next Steps
+## Next steps
 
 * [Azure Resource Group Documentation](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
 * [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
@@ -56,7 +61,7 @@ This solution provides a highly available deployment of SharePoint using a load 
 * [SharePoint Server Documentation](https://docs.microsoft.com/sharepoint/administration/intranet-sharepoint-server-2016-in-azure-dev-test-environment)
 * [SQL Server Documentation](https://docs.microsoft.com/sql/relational-databases/databases/deploy-a-sql-server-database-to-a-microsoft-azure-virtual-machine?view=sql-server-2017)'
 * [Load Balancer Documentation](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
-* [Express Route Documentation](https://docs.microsoft.com/azure/expressroute)
+* [ExpressRoute Documentation](https://docs.microsoft.com/azure/expressroute)
 * [VPN Gateway Documentation](https://docs.microsoft.com/azure/vpn-gateway)
 * [Azure AD Connect Documentation](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)
 * [Active Directory Federation Services Documentation](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectfed-whatis)

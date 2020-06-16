@@ -6,7 +6,10 @@ ms.date: 12/16/2019
 description: With the Sitecore Experience Platform (xP), you have at your fingertips the complete data, integrated tools, and automation capabilities to engage your customers throughout an iterative life cycle—the technology foundation necessary to win customers for life.
 ms.custom: acom-architecture, web-apps, 'https://azure.microsoft.com/solutions/architecture/digital-marketing-sitecore/'
 ms.service: architecture-center
+ms.category:
+  - web
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/digital-marketing-sitecore.png
 ---
 
 # Scalable Sitecore marketing website
@@ -19,7 +22,8 @@ This solution is built on the Azure managed services: [Azure SQL Database](https
 
 ## Architecture
 
-![Architecture diagram](../media/digital-marketing-sitecore.svg)
+![Architecture diagram](../media/digital-marketing-sitecore.png)
+*Download an [SVG](../media/digital-marketing-sitecore.svg) of this architecture.*
 
 ## Components
 
@@ -29,7 +33,7 @@ This solution is built on the Azure managed services: [Azure SQL Database](https
 * An [Azure Cognitive Search](https://azure.microsoft.com/services/search) service used for quick look up of data. All Sitecore search indexes are stored in [Azure Cognitive Search](https://azure.microsoft.com/services/search) for quick look up and scalability.
 * [Azure Monitor](https://azure.microsoft.com/services/monitor) provides service health and performance monitoring, and diagnostics. [Azure Monitor](https://azure.microsoft.com/services/monitor) provides Sitecore with a solution for its health and performance monitoring needs.
 
-## Next Steps
+## Next steps
 
 * [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-dotnet)
 * [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started)

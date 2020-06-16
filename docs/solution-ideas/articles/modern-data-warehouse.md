@@ -6,7 +6,10 @@ ms.date: 12/16/2019
 description: Explore a cloud data warehouse that uses big data. Modern data warehouse brings together all your data and scales easily as your data grows.
 ms.custom: acom-architecture, Modern data warehouse, modern data warehouse architecture, Cloud data warehouse, Big Data warehouse, interactive-diagram, pricing-calculator, 'https://azure.microsoft.com/solutions/architecture/modern-data-warehouse/'
 ms.service: architecture-center
+ms.category:
+  - databases
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/modern-data-warehouse.png
 ---
 
 # Modern Data Warehouse Architecture
@@ -17,7 +20,8 @@ A modern data warehouse lets you bring together all your data at any scale easil
 
 ## Architecture
 
-![Architecture diagram](../media/modern-data-warehouse.svg)
+![Architecture diagram](../media/modern-data-warehouse.png)
+*Download an [SVG](../media/modern-data-warehouse.svg) of this architecture.*
 
 ## Data Flow
 
@@ -36,14 +40,14 @@ A modern data warehouse lets you bring together all your data at any scale easil
 * [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services) is an enterprise grade analytics as a service that lets you govern, deploy, test, and deliver your BI solution with confidence.
 * [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive ad hoc analysis. Produce beautiful reports, then publish them for your organization to consume on the web and across mobile devices.
 
-## Next Steps
+## Next steps
 
 * [Synapse Analytics Documentation](https://docs.microsoft.com/azure/sql-data-warehouse)
 * [Azure Data Factory V2 Preview Documentation](https://docs.microsoft.com/azure/data-factory)
 * [Introduction to object storage in Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
 * [Azure Databricks Documentation](https://docs.microsoft.com/azure/azure-databricks)
 * [Analysis Services Documentation](https://docs.microsoft.com/azure/analysis-services)
-* [Power BI Documentation](https://docs.microsoft.com/power-bi/)
+* [Power BI Documentation](https://docs.microsoft.com/power-bi)
 
 ## Pricing Calculator
 

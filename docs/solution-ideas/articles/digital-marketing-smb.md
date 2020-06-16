@@ -6,7 +6,10 @@ ms.date: 12/16/2019
 description: Start simple with the content management system that enables you to easily maintain the messaging on your website in real-time, from a browser, with no coding skills.
 ms.custom: acom-architecture, web-apps,'https://azure.microsoft.com/solutions/architecture/digital-marketing-smb/'
 ms.service: architecture-center
+ms.category:
+  - web
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/digital-marketing-smb.png
 ---
 
 # Simple digital marketing website
@@ -19,7 +22,8 @@ This solution is built on the Azure managed services: [Azure SQL Database](https
 
 ## Architecture
 
-![Architecture diagram](../media/digital-marketing-smb.svg)
+![Architecture diagram](../media/digital-marketing-smb.png)
+*Download an [SVG](../media/digital-marketing-smb.svg) of this architecture.*
 
 ## Components
 
@@ -29,10 +33,10 @@ This solution is built on the Azure managed services: [Azure SQL Database](https
 * [Content Delivery Network](https://azure.microsoft.com/services/cdn): A content delivery network serves static content such as images, script, and CSS, and reduces the load on the web app servers.
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache) enables very fast queries, and improves scalability by reducing the load on the main database.
 
-## Next Steps
+## Next steps
 
-* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](/api/Redirect/documentation/articles/web-sites-dotnet-get-started)
-* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/api/Redirect/documentation/articles/sql-database-get-started)
+* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](https://docs.microsoft.com/api/Redirect/documentation/articles/web-sites-dotnet-get-started)
+* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](https://docs.microsoft.com/api/Redirect/documentation/articles/sql-database-get-started)
 * [Application Performance Management with Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
-* [Use Azure Content Delivery Network in Azure App Service](/api/Redirect/documentation/articles/cdn-websites-with-cdn)
-* [How to Use Azure Cache for Redis](/api/Redirect/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache)
+* [Use Azure Content Delivery Network in Azure App Service](https://docs.microsoft.com/api/Redirect/documentation/articles/cdn-websites-with-cdn)
+* [How to Use Azure Cache for Redis](https://docs.microsoft.com/api/Redirect/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache)

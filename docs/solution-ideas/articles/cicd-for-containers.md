@@ -6,7 +6,11 @@ ms.date: 12/16/2019
 description: Containers make it easy for you to continuously build and deploy your applications. By orchestrating deployment of those containers using Kubernetes in Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
 ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, pricing-calculator, 'https://azure.microsoft.com/solutions/architecture/cicd-for-containers/'
 ms.service: architecture-center
+ms.category:
+  - devops
+  - containers
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/cicd-for-containers.png
 ---
 
 # CI/CD for Containers
@@ -19,7 +23,8 @@ By setting up a continuous build to produce your container images and orchestrat
 
 ## Architecture
 
-![Architecture diagram](../media/cicd-for-containers.svg)
+![Architecture diagram](../media/cicd-for-containers.png)
+*Download an [SVG](../media/cicd-for-containers.svg) of this architecture.*
 
 ## Data Flow
 
@@ -41,7 +46,7 @@ By setting up a continuous build to produce your container images and orchestrat
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
 * [Azure DevOps](https://azure.microsoft.com/services/devops): Build and deploy multi-platform apps to get the most from Azure services
 
-## Next Steps
+## Next steps
 
 * [Pushing Docker images to Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli)
 * [Authenticate Azure Kubernetes Service (AKS) cluster to Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks)

@@ -22,10 +22,13 @@ Of course, your application may have specific requirements that make an IaaS app
 
 | Instead of running... | Consider using... |
 |-----------------------|-------------|
-| Active Directory | Azure Active Directory Domain Services |
-| Elasticsearch | Azure Search |
-| Hadoop | HDInsight |
-| IIS | App Service |
-| MongoDB | Cosmos DB |
-| Redis | Azure Cache for Redis |
-| SQL Server | Azure SQL Database |
+| Active Directory | [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) |
+| Elasticsearch | [Azure Search](https://docs.microsoft.com/azure/search/search-what-is-azure-search) |
+| Hadoop | [HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-overview) |
+| IIS | [App Service](https://docs.microsoft.com/azure/app-service/overview) |
+| MongoDB | [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) |
+| Redis | [Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview) |
+| SQL Server | [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) |
+| File share | [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction) |
+
+Please note that this is not meant to be an exhaustive list, but a subset of equivalent options.  

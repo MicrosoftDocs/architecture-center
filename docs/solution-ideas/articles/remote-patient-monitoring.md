@@ -6,7 +6,11 @@ ms.date: 12/16/2019
 description: Provide a high level of preventative medical care with remote patient monitoring from Azure. Analyze large amounts of medical data in a secure environment.
 ms.custom: acom-architecture, ai-ml, healthcare, remote patient monitoring, remote patient monitoring system, medical data analysis, remote patient monitoring solutions, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/remote-patient-monitoring/'
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - integration
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/remote-patient-monitoring.png
 ---
 
 # Remote Patient Monitoring Solutions
@@ -17,7 +21,8 @@ Predict and prevent future incidents by combining IoT and intelligence to optimi
 
 ## Architecture
 
-![Architecture diagram](../media/remote-patient-monitoring.svg)
+![Architecture diagram](../media/remote-patient-monitoring.png)
+*Download an [SVG](../media/remote-patient-monitoring.svg) of this architecture.*
 
 ## Data Flow
 
@@ -41,7 +46,7 @@ Predict and prevent future incidents by combining IoT and intelligence to optimi
 * [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Easily build, deploy, and manage predictive analytics solutions
 * [Azure Monitor](https://azure.microsoft.com/services/monitor): Full observability into your applications, infrastructure, and network
 
-## Next Steps
+## Next steps
 
 * [IoT Hub Documentation](https://docs.microsoft.com/azure/iot-hub)
 * [Azure Security Center Documentation](https://docs.microsoft.com/azure/security-center)

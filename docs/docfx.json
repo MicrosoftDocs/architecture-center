@@ -8,7 +8,8 @@
           "**/*.md",
           "**/toc.yml",
           "**/toc.experimental.yml",
-          "**/*context.yml"
+          "**/*context.yml",
+          "**/index.yml"
         ],
         "exclude": [
           "**/obj/**",

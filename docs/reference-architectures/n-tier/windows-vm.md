@@ -6,6 +6,8 @@ author: telmosampaio
 ms.date: 12/13/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - compute
 ms.subservice: reference-architecture
 ---
 
@@ -66,9 +68,9 @@ All NSGs contain a set of [default rules][nsg-default-rules], including a rule t
 
 **Diagnostics**. Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a non-bootable state. Create an Azure Storage account to store the logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs. For more information, see [Enable monitoring and diagnostics][enable-monitoring].
 
-**Availability**. Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned downtime][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance. For higher availability, deploy multiple VMs in an [availability set](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). This configuration provides a higher [service level agreement (SLA)][vm-sla].
+**Availability**. Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned downtime][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance. For higher availability, deploy multiple VMs in an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). This configuration provides a higher [service level agreement (SLA)][vm-sla].
 
-**Backups** To protect against accidental data loss, use the [Azure Backup](/azure/backup/) service to back up your VMs to geo-redundant storage. Azure Backup provides application-consistent backups.
+**Backups** To protect against accidental data loss, use the [Azure Backup](https://docs.microsoft.com/azure/backup/) service to back up your VMs to geo-redundant storage. Azure Backup provides application-consistent backups.
 
 **Stopping a VM**. Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated. In the Azure portal, the **Stop** button deallocates the VM. If you shut down through the OS while logged in, the VM is stopped but **not** deallocated, so you will still be charged.
 
@@ -80,17 +82,17 @@ There are various options for VM sizes depending on the usage and workload. The 
 
 For workloads with no predictable time of completion or resource consumption, consider the **Pay as you go** option. 
 
-Consider using [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) if you can commit to using a virtual machine over a one-year or three-year term. VM reservations can reduce costs up to 72 % compared to pay-as-you-go prices.
+Consider using [Azure Reservations](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations) if you can commit to using a virtual machine over a one-year or three-year term. VM reservations can reduce costs up to 72 % compared to pay-as-you-go prices.
 
-Use [Azure Spot VMs](/azure/virtual-machines/windows/spot-vms) to run workloads the can be interrupted and do not require completion within a predetermined timeframe or an SLA. Azure deploys Spot VMs if there is available capacity and evicts when it needs the capacity back. Costs associated with Spot virtual machines are significantly lower.  Consider Spot VMs for these workloads:
+Use [Azure Spot VMs](https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms) to run workloads the can be interrupted and do not require completion within a predetermined timeframe or an SLA. Azure deploys Spot VMs if there is available capacity and evicts when it needs the capacity back. Costs associated with Spot virtual machines are significantly lower.  Consider Spot VMs for these workloads:
 
 - High-performance computing scenarios, batch processing jobs, or visual rendering applications.
 - Test environments, including continuous integration and continuous delivery workloads.
 - Large-scale stateless applications.
 
-Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs.
+Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs.
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
 
 
 ## Security considerations
@@ -112,47 +114,46 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 ## Next steps
 
-- To provision a Windows VM, see [Create and Manage Windows VMs with Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm)
+- To provision a Windows VM, see [Create and Manage Windows VMs with Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - For a complete N-tier architecture on Windows VMs, see [Windows N-tier application on Azure with SQL Server](./n-tier-sql-server.md).
 
 
 
 <!-- links -->
 
-[Azure Architecture Framework]: /azure/architecture/framework/cost/overview
-[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
-[azure-storage]: /azure/storage/storage-introduction
-[blob-storage]: /azure/storage/storage-introduction
-[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[aaf-cost]: ../../framework/cost/overview.md
+[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more
+[azure-storage]: https://docs.microsoft.com/azure/storage/common/storage-introduction
+[blob-storage]: https://docs.microsoft.com/azure/storage/common/storage-introduction
+[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator
-[data-disk]: /azure/virtual-machines/virtual-machines-windows-about-disks-vhds
-[disk-encryption]: /azure/security/fundamentals/azure-disk-encryption-vms-vmss
-[enable-monitoring]: /azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
-[fqdn]: /azure/virtual-machines/virtual-machines-windows-portal-create-fqdn
-[group-policy]: /windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates
-[manage-vm-availability]: /azure/virtual-machines/virtual-machines-windows-manage-availability
-[managed-disks]: /azure/storage/storage-managed-disks-overview
-[naming-conventions]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
-[nsg]: /azure/virtual-network/virtual-networks-nsg
-[nsg-default-rules]: /azure/virtual-network/security-overview#default-security-rules
-[planned-maintenance]: /azure/virtual-machines/virtual-machines-windows-planned-maintenance
-[premium-storage]: /azure/virtual-machines/windows/premium-storage
-[rbac]: /azure/active-directory/role-based-access-control-what-is
-[rbac-roles]: /azure/active-directory/role-based-access-built-in-roles
-[rbac-devtest]: /azure/active-directory/role-based-access-built-in-roles#devtest-labs-user
-[rbac-network]: /azure/active-directory/role-based-access-built-in-roles#network-contributor
-[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
-[resize-os-disk]: /azure/virtual-machines/virtual-machines-windows-expand-os-disk
-[resource-lock]: /azure/resource-group-lock-resources
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
-[security-center]: /azure/security-center/security-center-intro
-[security-center-get-started]: /azure/security-center/security-center-get-started
-[select-vm-image]: /azure/virtual-machines/virtual-machines-windows-cli-ps-findimage
+[data-disk]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds
+[disk-encryption]: https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss
+[enable-monitoring]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
+[fqdn]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-portal-create-fqdn
+[group-policy]: https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates
+[manage-vm-availability]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability
+[managed-disks]: https://docs.microsoft.com/azure/storage/storage-managed-disks-overview
+[naming-conventions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
+[nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
+[nsg-default-rules]: https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules
+[planned-maintenance]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance
+[premium-storage]: https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage
+[rbac]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
+[rbac-roles]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles
+[rbac-devtest]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#devtest-labs-user
+[rbac-network]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#network-contributor
+[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs
+[resize-os-disk]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-expand-os-disk
+[resource-lock]: https://docs.microsoft.com/azure/resource-group-lock-resources
+[resource-manager-overview]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
+[security-center]: https://docs.microsoft.com/azure/security-center/security-center-intro
+[security-center-get-started]: https://docs.microsoft.com/azure/security-center/security-center-get-started
+[select-vm-image]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-cli-ps-findimage
 [services-by-region]: https://azure.microsoft.com/regions/#services
-[static-ip]: /azure/virtual-network/virtual-networks-reserved-public-ip
-[virtual-machine-sizes]: /azure/virtual-machines/virtual-machines-windows-sizes
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
-[vm-size-tables]: /azure/virtual-machines/virtual-machines-windows-sizes
+[static-ip]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-reserved-public-ip
+[virtual-machine-sizes]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes
+[vm-size-tables]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
-[windows-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
+[windows-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows

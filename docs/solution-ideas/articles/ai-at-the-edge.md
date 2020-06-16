@@ -6,7 +6,11 @@ ms.date: 12/16/2019
 description: Move AI models to the edge with a solution architecture that includes Azure Stack.
 ms.custom: ai-ml, acom-architecture, ai at the edge, azure stack edge, edge ai, machine learning, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/ai-at-the-edge/'
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - hybrid
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/ai-at-the-edge.png
 ---
 
 # AI at the Edge with Azure Stack
@@ -17,7 +21,8 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 
 ## Architecture
 
-![Architecture diagram](../media/ai-at-the-edge.svg)
+![Architecture diagram](../media/ai-at-the-edge.png)
+*Download an [SVG](../media/ai-at-the-edge.svg) of this architecture.*
 
 ## Data Flow
 
@@ -38,7 +43,7 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 * [Storage](https://azure.microsoft.com/services/storage): Durable, highly available, and massively scalable cloud storage
 * [Azure Stack](https://azure.microsoft.com/overview/azure-stack): Build and run innovative hybrid applications across cloud boundaries
 
-## Next Steps
+## Next steps
 
 * [Machine Learning Studio documentation](https://docs.microsoft.com/azure/machine-learning/service)
 * [HDInsight documentation](https://docs.microsoft.com/azure/hdinsight)

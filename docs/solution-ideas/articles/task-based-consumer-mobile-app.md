@@ -6,7 +6,11 @@ ms.date: 12/16/2019
 description: Learn how the task-based consumer mobile app architecture is created with a step-by-step flow chart that shows the integration with Azure App Service Mobile Apps, Visual Studio, and Xamarin to simplify the build process.
 ms.custom: acom-architecture, Consumer Mobile App, Offline Mobile App, Mobile App Authentication, app-dev, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/task-based-consumer-mobile-app/'
 ms.service: architecture-center
+ms.category:
+  - mobile
+  - developer-tools
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/task-based-consumer-mobile-app.png
 ---
 
 # Task-Based Consumer Mobile App
@@ -33,7 +37,8 @@ The links to the right provide documentation on deploying and managing the Azure
 
 ## Architecture
 
-![Architecture diagram](../media/task-based-consumer-mobile-app.svg)
+![Architecture diagram](../media/task-based-consumer-mobile-app.png)
+*Download an [SVG](../media/task-based-consumer-mobile-app.svg) of this architecture.*
 
 ## Data Flow
 
@@ -58,7 +63,7 @@ The links to the right provide documentation on deploying and managing the Azure
 * [Offline sync](https://docs.microsoft.com/azure/app-service-mobile/app-service-mobile-offline-data-sync): Use the offline data sync feature of the Azure Mobile App client SDKs to create responsive and robust apps that remain useful even when there are network issues.
 * [Identity Provider](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview): Use App Service authentication/authorization to integrate with a social or enterprise identity provider.
 
-## Next Steps
+## Next steps
 
 * [Visual Studio Documentation](https://docs.microsoft.com/visualstudio)
 * [Xamarin Documentation](https://docs.microsoft.com/xamarin)

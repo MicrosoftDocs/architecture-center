@@ -5,6 +5,9 @@ author: njray
 ms.date: 03/29/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - developer-tools
 ms.subservice: reference-architecture
 ms.custom: azcat-ai
 ---
@@ -63,7 +66,7 @@ Each node of the Batch cluster runs the worker container, which executes the sco
 
 ### Parallelizing the workload
 
-When batch scoring data with R models, consider how to parallelize the workload. The input data must be partitioned somehow so that the scoring operation can be distributed  across the cluster nodes. Try different approaches to discover the best choice for distributing your workload. On a case-by-case basis, consider the following:
+When batch scoring data with R models, consider how to parallelize the workload. The input data must be partitioned somehow so that the scoring operation can be distributed across the cluster nodes. Try different approaches to discover the best choice for distributing your workload. On a case-by-case basis, consider the following:
 
 - How much data can be loaded and processed in the memory of a single node.
 - The overhead of starting each batch job.
@@ -102,12 +105,12 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 
 [0]: ./_images/batch-scoring-r-models.png
 [1]: ./_images/sales-forecasts.png
-[aci]: /azure/container-instances/container-instances-overview
-[autoscale]: /azure/batch/batch-automatic-scaling
-[batch]: /azure/batch/batch-technical-overview
-[blob]: /azure/storage/blobs/storage-blobs-introduction
+[aci]: https://docs.microsoft.com/azure/container-instances/container-instances-overview
+[autoscale]: https://docs.microsoft.com/azure/batch/batch-automatic-scaling
+[batch]: https://docs.microsoft.com/azure/batch/batch-technical-overview
+[blob]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
 [doAzureParallel]: https://github.com/Azure/doAzureParallel/blob/master/docs/32-autoscale.md
-[getJobFiles]: /azure/machine-learning/service/how-to-train-ml-models
+[getJobFiles]: https://docs.microsoft.com/azure/machine-learning/service/how-to-train-ml-models
 [github]: https://github.com/Azure/RBatchScoring
-[logic-apps]: /azure/logic-apps/logic-apps-overview
-[storage-explorer]: /azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows
+[logic-apps]: https://docs.microsoft.com/azure/logic-apps/logic-apps-overview
+[storage-explorer]: https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows

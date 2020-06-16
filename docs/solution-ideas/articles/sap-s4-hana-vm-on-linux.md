@@ -6,7 +6,11 @@ ms.date: 12/16/2019
 description: Learn more about the SAP S/4 HANA and Linux solution architecture for user requests with a step-by-step flow chart. See how Azure Virtual Machines power the entire system, and learn more about the advantages of this application solution.
 ms.custom: acom-architecture, sap, linux, Azure linux vm, hana linux, sap hana on linux, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/sap-s4-hana-vm-on-linux/'
 ms.service: architecture-center
+ms.category:
+  - databases
+  - compute
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/sap-s4-hana-vm-on-linux.png
 ---
 
 # SAP S/4 HANA VM on Azure and Linux| Microsoft Azure
@@ -17,12 +21,13 @@ This SAP S/4HANA on Azure VM solution architecture illustrates how a user reques
 
 ## Architecture
 
-![Architecture diagram](../media/sap-s4-hana-vm-on-linux.svg)
+![Architecture diagram](../media/sap-s4-hana-vm-on-linux.png)
+*Download an [SVG](../media/sap-s4-hana-vm-on-linux.svg) of this architecture.*
 
 ## Data Flow
 
-1. In this example, an on-premises SAP user  executes a sales order request via SAP's S/4HANA Fiori interface, custom application interface, or others.
-1. Azure high speed express route gateway is used to connect securely from On-premises network to Azure Virtual Machines and other Azure resources
+1. In this example, an on-premises SAP user executes a sales order request via SAP's S/4HANA Fiori interface, custom application interface, or others.
+1. Azure high-speed ExpressRoute gateway is used to connect securely from On-premises network to Azure Virtual Machines and other Azure resources
 1. Request flows into highly available SAP ABAP SAP Central Services ASCS and then through SAP application servers running on Azure Virtual Machines in a Azure VM Availability Set offering a 99.95 percent uptime SLA.
 1. Request is sent from app server to SAP HANA running on on an Azure Virtual Machine optimized for large memory SAP HANA workloads.
 1. Primary (active) and secondary (standby) running on SAP certified M-series virtual machines with Write Accelerator are clustered at OS level for 99.95 percent availability, and data replication is handled through HANA System Replication in synchronous mode (HSR) from primary to secondary enabling zero RPO.
@@ -38,7 +43,7 @@ This SAP S/4HANA on Azure VM solution architecture illustrates how a user reques
 * Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute) used on the front end (see diagram) provides a high bandwidth secure connectivity to establish reliable connections between your network and the Microsoft Azure network.
 * Azure [Virtual Network](https://azure.microsoft.com/services/virtual-network)s provide the flexibility and security needed to establish reliable connections between your network and the Microsoft Azure network.
 
-## Next Steps
+## Next steps
 
 * [SAP Certifications for Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
 * [Premium Storage: high-performance storage for Azure Virtual Machine workloads](https://docs.microsoft.com/azure/storage/storage-premium-storage)

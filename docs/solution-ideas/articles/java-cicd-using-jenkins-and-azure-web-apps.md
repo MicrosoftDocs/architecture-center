@@ -6,7 +6,12 @@ ms.date: 12/16/2019
 description: Azure App Service is a fast and simple way to create web apps using Java, Node, PHP or ASP.NET, as well as support for custom language runtimes using Docker. A continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Azure app services allows you to deliver value faster to your customers.
 ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, is-deployable, 'https://azure.microsoft.com/solutions/architecture/java-cicd-using-jenkins-and-azure-web-apps/'
 ms.service: architecture-center
+ms.category:
+  - devops
+  - web
+  - containers
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/java-cicd-using-jenkins-and-azure-web-apps.png
 ---
 
 # Java CI/CD using Jenkins and Azure Web Apps
@@ -17,7 +22,8 @@ Azure App Service is a fast and simple way to create web apps using Java, Node, 
 
 ## Architecture
 
-![Architecture diagram](../media/java-cicd-using-jenkins-and-azure-web-apps.svg)
+![Architecture diagram](../media/java-cicd-using-jenkins-and-azure-web-apps.png)
+*Download an [SVG](../media/java-cicd-using-jenkins-and-azure-web-apps.svg) of this architecture.*
 
 ## Data Flow
 
@@ -38,7 +44,7 @@ Azure App Service is a fast and simple way to create web apps using Java, Node, 
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
 * [Azure DevOps](https://azure.microsoft.com/services/devops): Build and deploy multi-platform apps to get the most from Azure services
 
-## Next Steps
+## Next steps
 
 * [Set up continuous integration and deployment to Azure Web Apps with Jenkins](https://docs.microsoft.com/azure/jenkins/java-deploy-webapp-tutorial)
 * [Use the Azure Container Agents plug-in for Jenkins for dynamic build agents](https://docs.microsoft.com/azure/jenkins/azure-container-agents-plugin-run-container-as-an-agent)

@@ -5,6 +5,9 @@ author: MikeWasson
 ms.date: 10/16/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - developer-tools
+  - analytics
 ms.subservice: reference-architecture
 ms.custom: seodec18, serverless
 ---
@@ -129,7 +132,7 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 ## Cost considerations
 
-Use the [Azure Pricing calculator][Cost-Calculator] to estimates costs. Here are some other considerations.
+Use the [Azure Pricing calculator][azure-pricing-calculator] to estimates costs. Here are some other considerations.
 
 ### Azure Functions
 
@@ -156,7 +159,7 @@ Storage is billed for each GB used for your stored data and index.
 
 Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
 
-For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
 
 ## Deploy the solution
 
@@ -168,29 +171,29 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
-[Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
-[cosmosdb]: /azure/cosmos-db/introduction
-[cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
-[cosmosdb-scale]: /azure/cosmos-db/partition-data
-[cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
-[cosmosdb-sql]: /azure/cosmos-db/sql-api-introduction
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
-[eh]: /azure/event-hubs/
-[eh-autoscale]: /azure/event-hubs/event-hubs-auto-inflate
-[eh-dr]: /azure/event-hubs/event-hubs-geo-dr
-[eh-throughput]: /azure/event-hubs/event-hubs-scalability#throughput-units
-[eh-trigger]: /azure/azure-functions/functions-bindings-event-hubs
-[functions]: /azure/azure-functions/functions-overview
-[iot]: /azure/iot-hub/iot-hub-compare-event-hubs
-[log-analytics]: /azure/log-analytics/log-analytics-queries
-[monitor]: /azure/azure-monitor/overview
-[partition-key]: /azure/cosmos-db/partition-data
-[pipelines]: /azure/devops/pipelines/index
-[queue]: /azure/storage/queues/storage-queues-introduction
-[queue-binding]: /azure/azure-functions/functions-bindings-storage-queue-output
-[ra-grs]: /azure/storage/common/storage-redundancy-grs
-[ru]: /azure/cosmos-db/request-units
+[aaf-cost]: ../../framework/cost/overview.md
+[Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator
+[cosmosdb]: https://docs.microsoft.com/azure/cosmos-db/introduction
+[cosmosdb-geo]: https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally
+[cosmosdb-scale]: https://docs.microsoft.com/azure/cosmos-db/partition-data
+[cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
+[cosmosdb-sql]: https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[eh]: https://docs.microsoft.com/azure/event-hubs
+[eh-autoscale]: https://docs.microsoft.com/azure/event-hubs/event-hubs-auto-inflate
+[eh-dr]: https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr
+[eh-throughput]: https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units
+[eh-trigger]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-hubs
+[functions]: https://docs.microsoft.com/azure/azure-functions/functions-overview
+[iot]: https://docs.microsoft.com/azure/iot-hub/iot-hub-compare-event-hubs
+[log-analytics]: https://docs.microsoft.com/azure/log-analytics/log-analytics-queries
+[monitor]: https://docs.microsoft.com/azure/azure-monitor/overview
+[partition-key]: https://docs.microsoft.com/azure/cosmos-db/partition-data
+[pipelines]: https://docs.microsoft.com/azure/devops/pipelines/index
+[queue]: https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction
+[queue-binding]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-queue-output
+[ra-grs]: https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs
+[ru]: https://docs.microsoft.com/azure/cosmos-db/request-units
 
 [github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0
 [readme]: https://github.com/mspnp/serverless-reference-implementation/blob/v0.1.0/README.md

@@ -7,6 +7,9 @@ ms.custom:
   - azcat-ai
   - AI
 social_image_url: /azure/architecture/example-scenario/ai/media/architecture-movie-recommender.png
+ms.category:
+  - ai-machine-learning
+  - media
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -22,9 +25,9 @@ Recommendations can be useful in various industries from retail to news to media
 
 Consider this scenario for the following use cases:
 
-* Movie recommendations on a website.
-* Consumer product recommendations in a mobile app.
-* News recommendations on streaming media.
+- Movie recommendations on a website.
+- Consumer product recommendations in a mobile app.
+- News recommendations on streaming media.
 
 ## Architecture
 
@@ -48,15 +51,15 @@ For an in-depth guide to building and scaling a recommender service, see [Build 
 
 ### Components
 
-* [Data Science Virtual Machine][dsvm] (DSVM) is an Azure virtual machine with deep learning frameworks and tools for machine learning and data science. The DSVM has a standalone Spark environment that can be used to run ALS.
+- [Data Science Virtual Machine][dsvm] (DSVM) is an Azure virtual machine with deep learning frameworks and tools for machine learning and data science. The DSVM has a standalone Spark environment that can be used to run ALS.
 
-* [Azure Blob storage][blob] stores the dataset for movie recommendations.
+- [Azure Blob storage][blob] stores the dataset for movie recommendations.
 
-* [Azure Machine Learning][mls] is used to accelerate the building, managing, and deploying of machine learning models.
+- [Azure Machine Learning][mls] is used to accelerate the building, managing, and deploying of machine learning models.
 
-* [Azure Cosmos DB][cosmos-db] enables globally distributed and multi-model database storage.
+- [Azure Cosmos DB][cosmos-db] enables globally distributed and multi-model database storage.
 
-* [Azure Container Instances][aci] is used to deploy the trained models to web or app services, optionally using [Azure Kubernetes Service][aks].
+- [Azure Container Instances][aci] is used to deploy the trained models to web or app services, optionally using [Azure Kubernetes Service][aks].
 
 ### Alternatives
 
@@ -106,32 +109,28 @@ Follow these steps to run the [ALS quickstart notebook][notebook]:
 For an in-depth guide to building and scaling a recommender service, see [Build a real-time recommendation API on Azure][ref-arch]. For tutorials and examples of recommendation systems, see [Microsoft Recommenders repository][github].
 
 [architecture]: ./media/architecture-movie-recommender.png
-[aci]: /azure/container-instances/container-instances-overview
-[aad]: /azure/active-directory-b2c/active-directory-b2c-overview
-[aks]: /azure/aks/intro-kubernetes
+[aci]: https://docs.microsoft.com/azure/container-instances/container-instances-overview
+[aks]: https://docs.microsoft.com/azure/aks/intro-kubernetes
 [als]: https://spark.apache.org/docs/latest/ml-collaborative-filtering.html
 [autoscale]: https://docs.azuredatabricks.net/user-guide/clusters/sizing.html#autoscaling
-[blob]: /azure/storage/blobs/storage-blobs-introduction
+[blob]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
 [clusters]: https://docs.azuredatabricks.net/user-guide/clusters/configure.html
-[cosmos-db]: /azure/cosmos-db/introduction
-[databricks]: /azure/azure-databricks/what-is-azure-databricks
-[dsvm]: /azure/machine-learning/data-science-virtual-machine/overview
-[dsvm-id]: /azure/machine-learning/data-science-virtual-machine/dsvm-common-identity
-[dsvm-ubuntu]: /azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro
+[cosmos-db]: https://docs.microsoft.com/azure/cosmos-db/introduction
+[databricks]: https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks
+[dsvm]: https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview
+[dsvm-id]: https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-common-identity
+[dsvm-ubuntu]: https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro
 [free]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [github]: https://github.com/Microsoft/Recommenders
-[ha]: /azure/aks/container-service-quotas
+[ha]: https://docs.microsoft.com/azure/aks/container-service-quotas
 [map]: https://en.wikipedia.org/wiki/Evaluation_measures_(information_retrieval)
-[mls]: /azure/machine-learning/service/
-[n-tier]: /azure/architecture/reference-architectures/n-tier/n-tier-cassandra
+[mls]: https://docs.microsoft.com/azure/machine-learning/service
 [ndcg]: https://en.wikipedia.org/wiki/Discounted_cumulative_gain
-[notebook]: https://github.com/Microsoft/Recommenders/notebooks/00_quick_start/als_pyspark_movielens.ipynb
-[ref-arch]: /azure/architecture/reference-architectures/ai/real-time-recommendation
+[notebook]: https://github.com/microsoft/recommenders/blob/master/notebooks/00_quick_start/als_movielens.ipynb
+[ref-arch]: ../../reference-architectures/ai/real-time-recommendation.md
 [regions]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all
-[resiliency]: /azure/architecture/resiliency/
-[sec-docs]: /azure/security/
-[setup]: https://github.com/Microsoft/Recommenders/blob/master/SETUP.md%60
-[sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/
-[sla-aks]: https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_0/
-[storage-security]: /azure/storage/common/storage-service-encryption
-[vm-size]: /azure/virtual-machines/virtual-machines-linux-change-vm-size
+[setup]: https://github.com/Microsoft/Recommenders/blob/master/SETUP.md
+[sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8
+[sla-aks]: https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_0
+[storage-security]: https://docs.microsoft.com/azure/storage/common/storage-service-encryption
+[vm-size]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-change-vm-size

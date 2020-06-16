@@ -6,6 +6,9 @@ author: MikeWasson
 ms.date: 01/29/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - networking
+  - management-and-governance
 ms.subservice: reference-architecture
 ms.custom: seodec18, networking, fcp
 ---
@@ -52,7 +55,7 @@ The architecture consists of the following components.
 - **Virtual network peering**. Two virtual networks can be connected using a [peering connection][vnet-peering]. Peering connections are non-transitive, low latency connections between virtual networks. Once peered, the virtual networks exchange traffic by using the Azure backbone, without the need for a router. In a hub-spoke network topology, you use virtual network peering to connect the hub to each spoke. You can peer virtual networks in the same region, or different regions. For more information, see [Requirements and constraints][vnet-peering-requirements].
 
 > [!NOTE]
-> This article only covers [Resource Manager](/azure/azure-resource-manager/resource-group-overview) deployments, but you can also connect a classic virtual network to a Resource Manager virtual network in the same subscription. That way, your spokes can host classic deployments and still benefit from services shared in the hub.
+> This article only covers [Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) deployments, but you can also connect a classic virtual network to a Resource Manager virtual network in the same subscription. That way, your spokes can host classic deployments and still benefit from services shared in the hub.
 
 ## Recommendations
 
@@ -106,7 +109,7 @@ Also consider what services are shared in the hub, to ensure the hub scales for 
 
 Centralizing services that can be shared by multiple workloads in a single location can be cost efficient.
 
-Use the [Pricing calculator][Cost-Calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][AAF-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
 
 ### Azure Firewall
 
@@ -240,7 +243,7 @@ To test connectivity from the simulated on-premises environment to the hub and s
 
 ### Add connectivity between spokes
 
-This step is optional. If you want to allow spokes to connect to each other, use [Azure Firewall](/azure/firewall/) to force traffic from spokes to the router when trying to connect to another spoke. Perform the following steps to deploy Azure Firewall, firewall rules to allow RDP and SSH, and user-defined routes (UDRs) to allow the two spoke virtual networks to connect:
+This step is optional. If you want to allow spokes to connect to each other, use [Azure Firewall](https://docs.microsoft.com/azure/firewall/) to force traffic from spokes to the router when trying to connect to another spoke. Perform the following steps to deploy Azure Firewall, firewall rules to allow RDP and SSH, and user-defined routes (UDRs) to allow the two spoke virtual networks to connect:
 
 1. Navigate to the `hybrid-networking/hub-spoke` folder of the reference architectures repository.
 
@@ -297,25 +300,21 @@ For a version of this architecture that deploys shared identity and security ser
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
-[azure-cli-2]: /azure/install-azure-cli
-[azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
-[azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
+[aaf-cost]: ../../framework/cost/overview.md
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
-[Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances
 [guidance-expressroute]: ./expressroute.md
 [guidance-vpn]: ./vpn.md
-[linux-vm-ra]: ../virtual-machines-linux/index.md
+[linux-vm-ra]: ../n-tier/n-tier-cassandra.md
 [hybrid-ha]: ./expressroute-vpn-failover.md
-[naming conventions]: /azure/guidance/guidance-naming-conventions
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
+[naming conventions]: https://docs.microsoft.com/azure/guidance/guidance-naming-conventions
 [VN-pricing]: https://azure.microsoft.com/pricing/details/virtual-network
-[vnet-peering]: /azure/virtual-network/virtual-network-peering-overview
-[vnet-peering-limit]: /azure/azure-subscription-service-limits#networking-limits
-[vnet-peering-requirements]: /azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints
-[vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
-[windows-vm-ra]: ../virtual-machines-windows/index.md
+[vnet-peering]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview
+[vnet-peering-limit]: https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits
+[vnet-peering-requirements]: https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints
+[vpn-appliance]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices
+[windows-vm-ra]: ../n-tier/n-tier-sql-server.md
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-hub-spoke.vsdx
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
 

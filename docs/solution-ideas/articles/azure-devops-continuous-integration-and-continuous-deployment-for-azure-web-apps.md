@@ -6,7 +6,12 @@ ms.date: 12/16/2019
 description: Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, Node.js, or PHP. Deliver value faster to your customers with a continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Web Apps.
 ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, pricing-calculator, is-deployable, 'https://azure.microsoft.com/solutions/architecture/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps/'
 ms.service: architecture-center
+ms.category:
+  - devops
+  - web
+  - featured
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.png
 ---
 
 # CI/CD for Azure Web Apps
@@ -17,7 +22,8 @@ Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, 
 
 ## Architecture
 
-![Architecture diagram](../media/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.svg)
+![Architecture diagram](../media/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.png)
+*Download an [SVG](../media/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.svg) of this architecture.*
 
 ## Data Flow
 
@@ -37,7 +43,7 @@ Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, 
 * [Azure DevOps](https://azure.microsoft.com/services/devops): Services for teams to share code, track work, and ship software.
 * [Visual Studio](https://www.visualstudio.com/vs/azure): A creative launch pad for viewing and editing code,  then debugging, building, and publishing apps for Android, iOS, Windows, the web, and the cloud.
 
-## Next Steps
+## Next steps
 
 * [Performance monitoring with Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-detect-triage-diagnose)
 * [Use Azure DevOps to deploy to an Azure Web App](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp)

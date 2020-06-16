@@ -6,7 +6,11 @@ ms.date: 12/16/2019
 description: Learn how to set custom data sovereignty and data gravity requirements in the cloud with Azure Stack. Find a step-by-step flow chart to implement this solution.
 ms.custom: acom-architecture, cloud data sovereignty, data gravity cloud, azure data sovereignty, data gravity, data sovereignty, data sovereignty requirements, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/data-sovereignty-and-gravity/'
 ms.service: architecture-center
+ms.category:
+  - management-and-governance
+  - databases
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/data-sovereignty-and-gravity.png
 ---
 
 # Custom Data Sovereignty & Data Gravity Requirements
@@ -17,7 +21,8 @@ Azure with Azure Stack enables organizations to make technology placement decisi
 
 ## Architecture
 
-![Architecture diagram](../media/data-sovereignty-and-gravity.svg)
+![Architecture diagram](../media/data-sovereignty-and-gravity.png)
+*Download an [SVG](../media/data-sovereignty-and-gravity.svg) of this architecture.*
 
 ## Data Flow
 
@@ -33,7 +38,7 @@ Azure with Azure Stack enables organizations to make technology placement decisi
 * [Azure Functions](https://azure.microsoft.com/services/functions): Process events with serverless code
 * [Azure Stack](https://azure.microsoft.com/overview/azure-stack): Build and run innovative hybrid applications across cloud boundaries
 
-## Next Steps
+## Next steps
 
 * [Virtual Network documentation](https://docs.microsoft.com/azure/virtual-network)
 * [VPN Gateway documentation](https://docs.microsoft.com/azure/vpn-gateway)

@@ -40,7 +40,7 @@ Which of these frameworks is better for you will depend on factors such as wheth
 You can use imperative frameworks to deploy infrastructure to Azure. Imperative frameworks do not describe what to deploy, but indicate a prescriptive order of operations to execute. Examples of imperative frameworks for Azure automation are the following:
 
 * [Azure CLI][cli]: the Azure Command Line Interface is a multi-platform command line supported in Windows, Linux, and Mac OS X. It offers a series of commands that can be used to create, modify, and delete Azure resources.
-* [Azure Powershell][psh]: the Azure Powershell module for Azure includes a series of commandlets to interact with Azure. The object-oriented character of Powershell gives this tool a high degree of versatility. Thanks to the advent of Powershell Core, the Azure Powershell module can be used not only on Windows systems, but on Linux and Mac OS X too.
+* [Azure Powershell][psh]: the Azure Powershell module for Azure includes a series of cmdlets to interact with Azure. The object-oriented character of Powershell gives this tool a high degree of versatility. Thanks to the advent of Powershell Core, the Azure Powershell module can be used not only on Windows systems, but on Linux and Mac OS X too.
 * [Azure SDKs][sdks]: if you are writing an application that needs to interact with Azure, coding in the same programming language as the application itself would be more desirable than scripting frameworks such as the Azure CLI or Azure Powershell. Whether it is Python, Java, C# or Go, you can find Software Development Kits to manage Azure from many different languages.
 
 ## Configuration of Virtual Machines
@@ -100,18 +100,18 @@ If you are deploying your application to Azure Virtual Machines, it is recommend
 And lastly, do not forget to version-control your infrastructure code, and use consistent CI/CD tooling for Continuous Integration and Continuous Deployment of your application code and the platform it will run on.
 
 <!-- iac -->
-[arm]: /azure/azure-resource-manager
-[terraform]: /azure/terraform
-[ansible]: /azure/ansible/ansible-overview
-[cli]: /cli/azure
-[psh]: /powershell/azure
-[sdks]: /azure/
-[extensions]: /azure/virtual-machines/extensions/overview
-[cloudinit]: /azure/virtual-machines/linux/using-cloud-init
-[packer-linux]: /azure/virtual-machines/linux/build-image-with-packer
-[packer-windows]: /azure/virtual-machines/windows/build-image-with-packer
-[azuredevops]: /azure/devops
-[pipelines]: /azure/devops/pipelines
-[repos]: /azure/devops/repos/?view=azure-devops
-[git]: https://git-scm.com/
+[arm]: https://docs.microsoft.com/azure/azure-resource-manager
+[terraform]: https://docs.microsoft.com/azure/terraform
+[ansible]: https://docs.microsoft.com/azure/ansible/ansible-overview
+[cli]: https://docs.microsoft.com/cli/azure
+[psh]: https://docs.microsoft.com/powershell/azure
+[sdks]: https://docs.microsoft.com/azure
+[extensions]: https://docs.microsoft.com/azure/virtual-machines/extensions/overview
+[cloudinit]: https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init
+[packer-linux]: https://docs.microsoft.com/azure/virtual-machines/linux/build-image-with-packer
+[packer-windows]: https://docs.microsoft.com/azure/virtual-machines/windows/build-image-with-packer
+[azuredevops]: https://docs.microsoft.com/azure/devops
+[pipelines]: https://docs.microsoft.com/azure/devops/pipelines
+[repos]: https://docs.microsoft.com/azure/devops/repos/?view=azure-devops
+[git]: https://git-scm.com
 [github]: https://github.com
