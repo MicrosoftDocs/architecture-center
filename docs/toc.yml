@@ -1081,35 +1081,6 @@ items:
     items:
     - name: Architectures
       items:
-<<<<<<< HEAD
-      - name: Serverless event processing
-        href: reference-architectures/serverless/event-processing.md
-      - name: Serverless web application
-        href: reference-architectures/serverless/web-app.md
-      - name: Serverless cloud automation
-        href: reference-architectures/serverless/cloud-automation.md
-    - name: Guides
-      items:
-      - name: Create a serverless backend with Azure Functions
-        href: serverless/code.md
-      - name: CI/CD for a serverless frontend
-        href: serverless/guide/serverless-app-cicd-best-practices.md
-    - name: Example workloads
-      items:
-      - name: Serverless Framework multicloud solutions
-        href: example-scenario/serverless/serverless-multicloud.md
-      - name: Share location in real time using Functions and SignalR
-        href: example-scenario/signalr/index.md
-    - name: Solution ideas
-      items:
-      - href: solution-ideas/articles/instant-broadcasting-on-serverless-architecture.md
-        name: Instant broadcasting using serverless
-      - href: solution-ideas/articles/serverless-application-architectures-using-event-grid.md
-        name: Serverless apps using Event Grid
-      - href: solution-ideas/articles/serverless-apps-using-cosmos-db.md
-        name: Serverless apps using Cosmos DB
-  - name: VM workloads
-=======
       - name: Media rendering
         href: solution-ideas/articles/azure-batch-rendering.md
       - name: Medical data storage
@@ -1117,7 +1088,6 @@ items:
       - name: HIPAA/HITRUST Health Data and AI
         href: solution-ideas/articles/security-compliance-blueprint-hippa-hitrust-health-data-ai.md
   - name: Web
->>>>>>> c16e43bf3eb24bbcef5ace33340c9d47af051b38
     items:
     - name: Architectures
       items:
