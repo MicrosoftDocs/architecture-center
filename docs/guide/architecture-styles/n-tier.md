@@ -2,7 +2,7 @@
 title: N-tier architecture style
 titleSuffix: Azure Application Architecture Guide
 description: Describes benefits, challenges, and best practices for N-tier architectures on Azure.
-author: MikeWasson
+author: adamboeglin
 ms.date: 08/30/2018
 ms.topic: guide
 ms.service: architecture-center
@@ -79,10 +79,14 @@ The web and business tiers are stateless. Any VM can handle any request for that
 
 Network security groups restrict access to each tier. For example, the database tier only allows access from the business tier.
 
+> [!NOTE]
+> The layer labeled "Business Tier" in our reference diagram is a moniker to the business logic tier. Likewise, we also call the presentation tier the "Web Tier." In our example, this is a web application, though multi-tier architectures can be used for other topologies as well (like desktop apps). 
+Name your tiers what works best for your team to communicate the intent of that logical and/or physical tier in your application - you could even express that naming in resources you choose to represent that tier (e.g. vmss-appName-business-layer).
+
 For more information about running N-tier applications on Azure:
 
-- [Run Windows VMs for an N-tier application][n-tier-windows]
-- [Windows N-tier application on Azure with SQL Server][n-tier-linux]
+- [Run Windows VMs for an N-tier application][n-tier-linux]
+- [Windows N-tier application on Azure with SQL Server][n-tier-windows-SQL]
 - [Microsoft Learn module: Tour the N-tier architecture style](https://docs.microsoft.com/learn/modules/n-tier-architecture/)
 
 ### Additional considerations
@@ -116,5 +120,5 @@ For more information about running N-tier applications on Azure:
 [multiregion-linux]: ../../reference-architectures/n-tier/n-tier-cassandra.md
 [multiregion-windows]: ../../reference-architectures/n-tier/multi-region-sql-server.md
 [n-tier-linux]: ../../reference-architectures/n-tier/n-tier-cassandra.md
-[n-tier-windows]: ../../reference-architectures/n-tier/n-tier-sql-server.md
+[n-tier-windows-SQL]: ../../reference-architectures/n-tier/n-tier-sql-server.md
 [sql-always-on]: https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server

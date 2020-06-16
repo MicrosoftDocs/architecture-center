@@ -1,7 +1,7 @@
 ---
 title: Data warehousing in Microsoft Azure
 description: Creating data warehouse solutions for Azure
-author: MikeWasson
+author: adamboeglin
 ms.date: 11/20/2019
 ms.topic: guide
 ms.service: architecture-center
@@ -66,7 +66,7 @@ SMP:
 
 MPP:
 
-- [Azure Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
+- [Azure Synapse Analytics (formerly Azure Data Warehouse)](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
 - [Apache Hive on HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-hive)
 - [Interactive Query (Hive LLAP) on HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
 

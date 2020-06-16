@@ -152,7 +152,7 @@ await LibraryIOOperationAsync();
 
 ## How to detect the problem
 
-For users, the application may seem unresponsive or appear to hang periodically. The application might fail with timeout exceptions. These failures could also return HTTP 500 (Internal Server) errors. On the server, incoming client requests might be blocked until a thread becomes available, resulting in excessive request queue lengths, manifested as HTTP 503 (Service Unavailable) errors.
+For users, the application may seem unresponsive periodically. The application might fail with timeout exceptions. These failures could also return HTTP 500 (Internal Server) errors. On the server, incoming client requests might be blocked until a thread becomes available, resulting in excessive request queue lengths, manifested as HTTP 503 (Service Unavailable) errors.
 
 You can perform the following steps to help identify the problem:
 
