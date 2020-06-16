@@ -164,30 +164,30 @@
 						<title>Sheet.47</title>
 						<desc>Microsoft Azure Well-Architected Framework</desc>
 						<rect x="0" y="275.25" width="227.25" height="18" rx="4.5" ry="4.5" class="st2"/>
-						<text x="44.65" y="287.25" class="st3">Microsoft Azure Well-Architected Framework</text>					</g>
+						<text x="24.65" y="287.25" class="st3">Microsoft Azure Well-Architected Framework</text>					</g>
 				</g>
 				<g id="group87-83" transform="translate(11.1375,-2.92502)">
 					<title>Sheet.87</title>
 					<g id="shape49-84" transform="translate(179.212,0)">
 						<title>Sheet.49</title>
-						<desc>Cost</desc>
+						<desc>Cost optimization</desc>
 						<rect x="0" y="270.75" width="27.1125" height="22.5" rx="4.5" ry="4.5" class="st4"/>
-						<text x="5.68" y="284.4" class="st5">Cost</text>					</g>
+						<text x="5.68" y="284.4" class="st5">Cost optimization</text>					</g>
 					<g id="shape50-87" transform="translate(137.053,0)">
 						<title>Sheet.50</title>
-						<desc>DevOps</desc>
+						<desc>Operational excellence</desc>
 						<rect x="0" y="270.75" width="39.0375" height="22.5" rx="4.5" ry="4.5" class="st4"/>
-						<text x="5.64" y="284.4" class="st5">DevOps</text>					</g>
+						<text x="5.64" y="284.4" class="st5">Operational excellence</text>					</g>
 					<g id="shape51-90" transform="translate(89.6062,0)">
 						<title>Sheet.51</title>
-						<desc>Resiliency</desc>
+						<desc>Performance efficiency</desc>
 						<rect x="0" y="270.75" width="44.325" height="22.5" rx="4.5" ry="4.5" class="st4"/>
-						<text x="4.94" y="284.4" class="st5">Resiliency</text>					</g>
+						<text x="4.94" y="284.4" class="st5">Performance efficiency</text>					</g>
 					<g id="shape53-93" transform="translate(42.1594,0)">
 						<title>Sheet.53</title>
-						<desc>Scalability</desc>
+						<desc>Reliability</desc>
 						<rect x="0" y="270.75" width="44.325" height="22.5" rx="4.5" ry="4.5" class="st4"/>
-						<text x="4.6" y="284.4" class="st5">Scalability</text>					</g>
+						<text x="4.6" y="284.4" class="st5">Reliability</text>					</g>
 					<g id="shape55-96">
 						<title>Sheet.55</title>
 						<desc>Security</desc>
