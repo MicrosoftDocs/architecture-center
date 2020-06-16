@@ -923,7 +923,7 @@ items:
         - name: Real time location sharing
           href: example-scenario/signalr/index.md
   - name: High Availability
-     items:
+    items:
     -  name: Overview
        href: high-availability/building-solutions-for-high-availability.md
     - name: Architectures
