@@ -152,9 +152,9 @@ You can use virtual network peering to route traffic between virtual networks by
 ## Deploy the solution
 
 > [!CAUTION]
-> "Don't use azbb - it is in sustain mode and the npm package is out of date"
-> Using ARM Template: [101-hub-and-spoke-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hub-and-spoke-sandbox)
-> Using Terraform: [hub-spoke-introduction](/azure/developer/terraform/hub-spoke-introduction)
+> "Don't use azbb - it is in sustain mode and the npm package is out of date".
+> Alternatively use: ARM Template: [101-hub-and-spoke-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hub-and-spoke-sandbox) or 
+> use Terraform: [hub-spoke-introduction](/azure/developer/terraform/hub-spoke-introduction)
 
 A deployment for this architecture is available on [GitHub][ref-arch-repo]. It uses VMs in each virtual network to test connectivity. Two instances of each jumpbox are deployed &mdash; one Linux VM and one Windows VM. In a real deployment, you would deploy a single type. 
 
