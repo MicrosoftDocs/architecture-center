@@ -48,11 +48,11 @@ To reduce the chance of human error and to improve reliability, SAP deployments 
 
 Embracing a DevOps paradigm means using an infrastructure-as-code (IaC) approach to building new SAP environments as needed. IaC is a key consideration in SAP project landscapes.
 
-|Manual deployment pains  | Automated deployment gains | 
+|Manual deployment pains  | Automated deployment gains |
 |---------------------------|----------------------------|
 |- Requires specialized knowledge in many domains outside of SAP |- Works immediately and requires little domain knowledge|
 |- Takes a lot of time—from one month to many months, depending on the size of the SAP landscape |- Takes from 30 minutes to a couple of hours|
-|- Is very expensive |- Provides free resources—like these SAP HANA templates on GitHub|
+|- Is very expensive |- Provides free resources—like these [SAP HANA templates](https://github.com/Azure/sap-hana) on GitHub|
 |- Limits testing—it's harder to inject tests in the process |- Provides templates that include test instrumentation during deployment and migration|
 |- Makes it tedious and time-consuming to scale and customize the environment |- Makes it easy to scale up, down, and out, and new deployment templates are available|
 
@@ -192,7 +192,7 @@ Cloud applications often use managed services that have access keys. It bears re
 
 Make sure that your data remains in the correct geopolitical zone when using highly available regions in Azure. Azure Storage, like [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction), can provide geo-replication based on the concept of a [paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) in the same geopolitical zone.
 
-We recommending using Key Vault to safeguard cryptographic keys and secrets. You can use Key Vault to encrypt keys and small secrets, like passwords, that use keys stored in hardware security modules (HSMs). Many storage and database services support data encryption at rest, including [Azure Storage](https://docs.microsoft.com/azure/storage/storage-service-encryption), [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault), [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is), and [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-security).
+We recommend using Key Vault to safeguard cryptographic keys and secrets. You can use Key Vault to encrypt keys and small secrets, like passwords, that use keys stored in hardware security modules (HSMs). Many storage and database services support data encryption at rest, including [Azure Storage](https://docs.microsoft.com/azure/storage/storage-service-encryption), [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault), [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is), and [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-security).
 
 ### Security resources
 
@@ -303,7 +303,7 @@ The following scenarios outline a few of the common ways SAP solutions are built
                 </div>
             </article>
         </a>
-    </li> 
+    </li>
 </ul>
 
 ## GitHub resources

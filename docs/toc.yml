@@ -925,7 +925,11 @@ items:
   - name: High Availability
     items:
     -  name: Overview
-       href: high-availability/building-solutions-for-high-availability.md       
+       href: high-availability/building-solutions-for-high-availability.md
+    - name: Architectures
+      items: 
+      - name: IaaS - Web application with relational database
+        href: high-availability/ref-arch-iaas-web-and-db.md     
   - name: Hybrid
     items:
     - name: Architectures
@@ -946,6 +950,7 @@ items:
         href: solution-ideas/articles/hybrid-connectivity.md
       - name: Implement a hub-spoke network topology
         href: reference-architectures/hybrid-networking/shared-services.md
+
       - name: Troubleshoot a hybrid VPN connection
         href: reference-architectures/hybrid-networking/troubleshoot-vpn.md
   - name: Identity
@@ -1172,8 +1177,6 @@ items:
         href: reference-architectures/sap/sap-s4hana.md
       - name: SAP BW/4HANA in Linux on Azure
         href: reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.md
-      - name: SAP S/4 HANA on Azure and Linux
-        href: solution-ideas/articles/sap-s4-hana-vm-on-linux.md
       - name: SAP NetWeaver on SQL Server
         href: solution-ideas/articles/sap-netweaver-on-sql-server.md  
       - name: SAP deployment using an Oracle DB
