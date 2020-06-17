@@ -13,7 +13,7 @@ ms.subservice: solution-idea
 
 As workplaces and other group spaces reopen after the COVID-19 shutdown, people need to follow health and safety guidelines for safe social distancing, mask and PPE use, and occupancy limits. **Bosch COVID-19 Safe Solution** combines existing closed-circuit TV (CCTV) infrastructure with the [Azure intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/) and other Azure and Microsoft services to help organizations monitor, comply with, and improve these health and safety practices.
 
-This article showcases a COVID-19 Safe Solution implementation at a major North American auto manufacturing facility. Goals were to:
+This article showcases a COVID-19 Safe Solution which is being implemented in workplace facilities across Europe, North America and Latin America across industries as diverse as steel manufacturing, building construction and automotive assembly. Goals were to:
 
 - Ensure a safe work environment when resuming manufacturing after the COVID-19 lockdown.
 - Monitor and enforce compliance with face mask policy, social distancing, and occupancy limits on factory premises.
