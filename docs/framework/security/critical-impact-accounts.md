@@ -5,7 +5,7 @@ author: PageWriter-MSFT
 ms.date: 07/09/2019
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ---
 
 # Administration
@@ -196,11 +196,11 @@ security dependencies for critical impact accounts
 
     -   Manage with Existing Systems: Join existing AD domain and use existing management/security.
 
-This is related to the [Don't synchronize on-premises admin accounts to cloud identity providers](/identity.md#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers) to
+This is related to the [Don't synchronize on-premises admin accounts to cloud identity providers](./identity.md#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers) to
 cloud identity providers guidance in the administration section that mitigates
 the inverse risk of pivoting from cloud assets to on-premises assets
 
-## Passwordless Or multi-factor authentication for admins
+## Passwordless or multi-factor authentication for admins
 
 Require all critical impact admins to use passwordless authentication or
 multi-factor authentication (MFA).

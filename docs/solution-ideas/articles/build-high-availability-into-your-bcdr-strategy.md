@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/build-high-a
 
 # Build high availability into your BCDR strategy
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Virtual machines (VMs) are physically separated across zones, and a virtual network is created using load balancers at each site. These locations are close enough for high availability replication, so your applications stay running, despite any issues at the physical locations.
 

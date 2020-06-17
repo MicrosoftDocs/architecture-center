@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/digital-mark
 
 # Scalable Episerver marketing website
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Let your business run multi-channel digital marketing websites on one platform and spin up and spin down campaigns on demand. Take advantage of the comprehensive capabilities of Episerver to manage every aspect of your site and campaign performance.
 
@@ -42,7 +42,7 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 * [Configure Performance traffic routing method](https://docs.microsoft.com/api/Redirect/documentation/articles/traffic-manager-configure-performance-routing-method)
 * [Use Azure CDN in Azure App Service](https://docs.microsoft.com/api/Redirect/documentation/articles/cdn-websites-with-cdn)
 * [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](https://docs.microsoft.com/api/Redirect/documentation/articles/sql-database-get-started)
-* [How to create a Web App with Azure Cache for Redis](https://docs.microsoft.com/api/Redirect/documentation/articles/cache-web-app-howto)
+* [How to create a Web App with Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-web-app-arm-with-redis-cache-provision)
 * [Get started with Azure Blob storage using .NET](https://docs.microsoft.com/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs)
 * [Application Performance Management with Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
 * [How to configure your App Service application to use Facebook login](https://docs.microsoft.com/api/Redirect/documentation/articles/app-service-mobile-how-to-configure-facebook-authentication)

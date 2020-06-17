@@ -94,7 +94,7 @@ If your app has static content, use CDN to decrease the load on the front end se
 
 Stateless apps that are configured for autoscaling are more cost effective that stateful apps. For an ASP.NET application, store your session state in-memory with Azure Cache for Redis. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-aspnet-session-state-provider). Another option is to use Cosmos DB as a backend state store through a session state provider. See [Support Azure Cosmos DB and Azure Redis](https://github.com/Microsoft/service-fabric-services-and-actors-dotnet/issues/32).
 
-For more information, see the cost section in the [Azure Architecture Framework](../../framework/cost/overview.md).
+For more information, see the cost section in the [Microsoft Azure Well-Architected Framework](../../framework/cost/overview.md).
 
 Consider placing a function app into a dedicated App Service plan so that background tasks don't run on the same instances that handle HTTP requests. If background tasks run intermittently, consider using a [consumption plan](https://docs.microsoft.com/azure/azure-functions/functions-scale#consumption-plan), which is billed based on the number of executions, rather than hourly.
 
@@ -145,6 +145,14 @@ App Services has built-in support for CORS, without needing to write any applica
 
 Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at rest in the database. This feature performs real-time encryption and decryption of an entire database (including backups and transaction log files) and requires no changes to the application. Encryption does add some latency, so it's a good practice to separate the data that must be secure into its own database and enable encryption only for that database.
 
+
+## DevOps considerations
+
+### Front-end deployment
+
+This architecture builds on the one shown in [Basic web application][basic-web-app], see the [DevOps considerations section][basic-web-app-devops].
+
+
 ## Next steps
 
 - [Run a web application in multiple Azure regions for high availability][web-app-multi-region]
@@ -162,6 +170,7 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [azure-search]: https://docs.microsoft.com/azure/search
 [azure-search-scaling]: https://docs.microsoft.com/azure/search/search-capacity-planning
 [basic-web-app]: ./basic-web-app.md
+[basic-web-app-devops]: ./basic-web-app.md#devops-considerations
 [caching-guidance]: ../../best-practices/caching.md
 [cdn-app-service]: https://docs.microsoft.com/azure/app-service-web/cdn-websites-with-cdn
 [cdn-storage-account]: https://docs.microsoft.com/azure/cdn/cdn-create-a-storage-account-with-cdn

@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/interactive-
 
 # Interactive Voice Response Bot
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This solution creates an intelligent interactive voice response (IVR) application that processes customer order requests for bicycles and bicycle accessories. Businesses with no existing IVR solution can easily get started automating requests, or, where existing human-operated systems exist, this solution can be extended to incorporate existing functionality and workflows.
 
@@ -33,7 +33,7 @@ Automated customer interaction is essential to a business of any size. In fact, 
 
 In an era when mobile phones are dominant and keypads are not always readily accessible, interactive voice response (IVR) systems provide an intuitive, simple, and convenient method for customers to convey their requests. This solution provides an intelligent and natural self-service experience that can be repurposed across all customer channels.
 
-The Cortana Intelligence Suite provides advanced analytics tools backed by Microsoft's Azure cloud platforms—data ingestion, data storage, data processing and advanced analytics components—all of the essential elements for building an automated IVR solution.
+The Cortana Intelligence Suite provides advanced analytics tools backed by Microsoft's Azure cloud platforms-data ingestion, data storage, data processing and advanced analytics components-all of the essential elements for building an automated IVR solution.
 
 This solution deploys a fully integrated service stack that manages speech requests via Skype and the [Microsoft Bot Framework](https://dev.botframework.com).
 

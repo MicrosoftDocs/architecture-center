@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/ai-at-the-ed
 
 # AI at the Edge with Azure Stack
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 With the Azure AI tools and cloud platform, the next generation of AI-enabled hybrid applications can run where your data lives. With Azure Stack, bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence, with no tool or process changes for local applications.
 

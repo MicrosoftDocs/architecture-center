@@ -20,6 +20,7 @@ This reference architecture shows a [serverless](https://azure.microsoft.com/sol
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
 
 ![Reference architecture for a serverless web application](./_images/serverless-web-app.png)
+*Download an [SVG](./_images/serverless-web-app.svg) of this architecture.* | *Download an [Visio](./_images/serverless-web-app.vsdx) of this architecture.*
 
 The term serverless has two distinct but related meanings:
 
@@ -302,7 +303,7 @@ In this reference architecture the deployment resides in a single Azure region.
 
 To lower costs, consider increasing the cache TTL by caching resource files for a longer duration and setting the longest TTL possible on your content.
 
-For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 ## Deploy the solution
 

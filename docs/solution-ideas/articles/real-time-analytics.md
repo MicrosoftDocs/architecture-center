@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/real-time-an
 
 # Real Time Analytics on Big Data Architecture
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Get insights from live streaming data with ease. Capture data continuously from any IoT device, or logs from website clickstreams, and process it in near-real time.
 

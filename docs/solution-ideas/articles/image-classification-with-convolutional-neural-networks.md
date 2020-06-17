@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/image-classi
 
 # Image classification with Convolutional Neural Networks
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Lean manufacturing, cost control, and waste reduction are imperative for manufacturing to remain competitive. In circuit-board manufacturing, faulty boards can cost manufacturers money and productivity. Assembly lines rely on human operators to quickly review and validate boards flagged as potentially faulty by assembly-line test machines.
 
@@ -43,5 +43,5 @@ Using this solution to automate failure detection instead of relying solely on h
 * [Learn more about Batch AI Training](https://azure.microsoft.com/roadmap/azure-batch-ai-training-for-deep-learning-models)
 * [Browse on GitHub](https://github.com/azure/mmlspark)
 * [Learn more about Azure Container Registry](https://azure.microsoft.com/services/container-registry)
-* [Learn more about Model Management](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment)
+* [Learn more about Model Management](/azure/machine-learning/concept-model-management-and-deployment)
 * [Learn more about Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)

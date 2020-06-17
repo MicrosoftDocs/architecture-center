@@ -94,7 +94,6 @@ For this scenario, the standard pricing tier is sufficient. However, if your spe
 
 The solution notebooks can run on any Spark-based platform with minimal edits to remove the Databricks-specific packages. See the following similar solutions for various Azure platforms:
 
-- [Python on Azure Machine Learning Studio (classic)][python-aml]
 - [SQL Server R services][sql-r]
 - [PySpark on an Azure Data Science Virtual Machine][py-dvsm]
 
@@ -125,7 +124,6 @@ We have also built a reference architecture that uses Spark for building [real-t
 [mllib-spark]: https://docs.databricks.com/spark/latest/mllib/index.html#apache-spark-mllib
 [notebooks]: https://docs.databricks.com/user-guide/notebooks/index.html
 [pricing]: https://azure.microsoft.com/pricing/details/databricks
-[python-aml]: https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1
 [py-dvsm]: https://gallery.azure.ai/Tutorial/Predictive-Maintenance-using-PySpark
 [recommendation]: ../../reference-architectures/ai/real-time-recommendation.md
 [sql-r]: https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1

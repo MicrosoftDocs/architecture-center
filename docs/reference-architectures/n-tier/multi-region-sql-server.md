@@ -185,7 +185,23 @@ You are charged only for the number of configured load-balancing and outbound ru
 
 Traffic Manager billing is based on the number of DNS queries received, with a discount for services receiving more than 1 billion monthly queries. You are also charged for each monitored endpoint.
 
-For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
+
+## DevOps considerations
+
+Use a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources and its dependencies. Use the same template to deploy the resources to both primary and secondary regions. Include all the resources in the same virtual network so they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps Team and Services to perform continuous integration and continuous delivery (CI/CD).
+
+Also, you can use different [Azure Resource Manager templates][arm-template] and integrate them with [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
+
+Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines. Application Insights is actually one of the components of Azure Monitor, which gives you rich metrics and logs to verify the state of your complete Azure landscape. Azure Monitor will help you to follow the state of your infrastructure.
+
+Make sure not only to monitor your compute elements supporting your application code, but your data platform as well, in particular your databases, since a low performance of the data tier of an application could have serious consequences.
+
+
+In order to test the Azure environment where the applications are running, it should be version-controlled and deployed through the same mechanisms as application code, then it can be tested and validated using DevOps testing paradigms too.
+
+For more information, see the Operational Excellence section in [Microsoft Azure Well-Architected Framework][WAF-devops].
+
 
 ## Related resources
 
@@ -195,9 +211,12 @@ The following architecture uses some of the same technologies:
 
 <!-- links -->
 
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[Sql-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/
 [Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
 [Managed-Sql-pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed
-[aaf-cost]: ../../framework/cost/overview.md
 [azure-sql-db]: https://docs.microsoft.com/azure/sql-database
 [health-endpoint-monitoring-pattern]: ../../patterns/health-endpoint-monitoring.md
 [azure-cli]: https://docs.microsoft.com/cli/azure
@@ -216,3 +235,5 @@ The following architecture uses some of the same technologies:
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
 [vnet-dns]: https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers
 [wsfc]: https://msdn.microsoft.com/library/hh270278.aspx
+[WAF-cost]: ../../framework/cost/overview.md
+[WAF-devops]: /azure/architecture/framework/devops/overview

@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/tiered-data-
 
 # Tier Applications & Data for Analytics
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Easily tier data and applications on-premises and in Azure with architecture that supports greater efficiency in applications. Filter unnecessary data early in the process, easily bring cloud applications close to the data on-premises, and analyze large scale aggregate data from multiple locations in Azure for fleet-level insights.
 

@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/azure-iot-su
 
 # IoT Architecture – Azure IoT Subsystems
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
 
@@ -22,7 +22,7 @@ The links to the right provide documentation on deploying and managing the Azure
 
 [Virtual Machine (Standard D1 V2, 1 core, 3.5 GB memory)](https://azure.microsoft.com/services/virtual-machines)
 
-[IoT Hub (S1—basic tier)](https://azure.microsoft.com/services/iot-hub)
+[IoT Hub (S1-basic tier)](https://azure.microsoft.com/services/iot-hub)
 
 [Cosmos DB account (Standard)](https://azure.microsoft.com/services/cosmos-db)
 

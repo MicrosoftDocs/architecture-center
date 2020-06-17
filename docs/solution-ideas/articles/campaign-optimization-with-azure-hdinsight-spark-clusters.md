@@ -16,7 +16,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/campaign-opt
 
 # Campaign Optimization with Azure HDInsight Spark Clusters
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This solution demonstrates how to build and deploy a machine learning model with Microsoft R Server on Azure HDInsight Spark clusters to recommend actions to maximize the purchase rate of leads targeted by a campaign. This solution enables efficient handling of big data on Spark with Microsoft R Server.
 

@@ -373,7 +373,7 @@ If you are just getting started with [Azure Service Fabric][service-fabric], fir
 [service-fabric]: https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started
 [sf-application-model]: https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model
 [sf-aspnet-core]: https://docs.microsoft.com/azure/service-fabric/service-fabric-add-a-web-frontend
-[sf-auto-scale]: https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down
+[sf-auto-scale]: /azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling
 [sf-compare-cloud-services]: https://docs.microsoft.com/azure/service-fabric/service-fabric-cloud-services-migration-differences
 [sf-logs]: https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad
 [sf-manifest-resources]: https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources

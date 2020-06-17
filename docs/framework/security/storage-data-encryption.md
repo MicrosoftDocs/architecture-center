@@ -5,7 +5,7 @@ author: dsk-2015
 ms.date: 07/03/2019
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ---
 
 # Storage, data, and encryption

@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/facilities-m
 
 # Facilities management powered by mixed reality and IoT
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Improve uptime and operations in hospitality, manufacturing, retail, and more with mixed reality and IoT. This scenario shows how you can visualize a virtual replica of your physical space with real-time data in the context of your environment. It is built on [Azure Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors) and [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins).
 
@@ -51,5 +51,5 @@ Improve uptime and operations in hospitality, manufacturing, retail, and more wi
 * [Create a new tenant in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 * [Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet)
 * [Authenticate and authorize users end-to-end in Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-auth-aad)
-* [Azure Event Hubs — A big data streaming platform and event ingestion service](https://docs.microsoft.com/azure/event-hubs/event-hubs-about)
+* [Azure Event Hubs - A big data streaming platform and event ingestion service](https://docs.microsoft.com/azure/event-hubs/event-hubs-about)
 * [Deploy Azure Digital Twins and configure a spatial graph](https://docs.microsoft.com/azure/digital-twins/tutorial-facilities-setup)

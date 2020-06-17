@@ -6,7 +6,6 @@ author: EdPrice
 ms.date: 03/16/2020
 ms.category:
   - compute
-  - windows-virtual-desktop
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario

@@ -14,9 +14,9 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/adding-a-mod
 
 # Lift and Shift and Innovate - Adding a mobile front-end to a legacy app
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This line-of-business application solution consolidates data from multiple business systems and surfaces the data through web and mobile front ends—helping to improve employee productivity and speed decision making.
+This line-of-business application solution consolidates data from multiple business systems and surfaces the data through web and mobile front ends-helping to improve employee productivity and speed decision making.
 
 ## Architecture
 ![Architecture Diagram](../media/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.png)

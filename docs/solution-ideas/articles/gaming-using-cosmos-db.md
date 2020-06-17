@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/gaming-using
 
 # Gaming using Cosmos DB
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Elastically scale your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale.
 

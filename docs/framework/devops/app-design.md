@@ -5,7 +5,7 @@ author: UmarMohamedUsman
 ms.date: 11/01/2019
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ms.custom: fasttrack-edit
 ---
 
@@ -13,7 +13,7 @@ ms.custom: fasttrack-edit
 
 ## Infrastructure as code
 
-Infrastructure as Code (IaC) is the management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, using the same versioning as DevOps team uses for source code. The most reliable deployment processes are automated and idempotent — that is, repeatable to produce the same results.
+Infrastructure as Code (IaC) is the management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, using the same versioning as DevOps team uses for source code. The most reliable deployment processes are automated and idempotent - that is, repeatable to produce the same results.
 
 IaC may use a declarative (functional) approach or an imperative (procedural) approach (or a combination of both).
 
@@ -33,6 +33,9 @@ Use Azure Resource Manager templates to define dependencies for resources that a
 Azure Resource Manager (ARM) enforces limits and quotas on how many resources of each type you can provision per Azure Subscription, and even per Azure Region. Some limits are a hard maximum, while others are a soft limit that can be increases upon request through a support case at no charge. When working with Virtual Machines, App Service, Storage Accounts, Databases, and other resources in Azure you can easily hit up against these limits, so it’s important to know they exist and how to work around them.
 
 [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits)
+
+![GitHub](../../_images/github.png) [This sample](https://github.com/mspnp/samples/tree/master/OperationalExcellenceResourceLimits) shows how to query limit and quotas for commonly used networking resources, virtual machines, SQL database, and storage accounts.
+
 
 ## Tagging and resource naming
 

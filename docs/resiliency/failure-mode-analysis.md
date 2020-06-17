@@ -5,7 +5,7 @@ author: MikeWasson
 ms.date: 05/07/2018
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ms.custom: resiliency
 ---
 
@@ -165,34 +165,6 @@ The default retry policy uses exponential back-off. To use a different retry pol
 - As a fallback, persist the document to a backup queue, and process the queue later.
 
 **Diagnostics**. Log all errors on the client side.
-
-## Elasticsearch
-
-### Reading data from Elasticsearch fails.
-
-**Detection**. Catch the appropriate exception for the particular [Elasticsearch client][elasticsearch-client] being used.
-
-**Recovery:**
-
-- Use a retry mechanism. Each client has its own retry policies.
-- Deploy multiple Elasticsearch nodes and use replication for high availability.
-
-For more information, see [Running Elasticsearch on Azure][elasticsearch-azure].
-
-**Diagnostics**. You can use monitoring tools for Elasticsearch, or log all errors on the client side with the payload. See the 'Monitoring' section in [Running Elasticsearch on Azure][elasticsearch-azure].
-
-### Writing data to Elasticsearch fails.
-
-**Detection**. Catch the appropriate exception for the particular [Elasticsearch client][elasticsearch-client] being used.
-
-**Recovery:**
-
-- Use a retry mechanism. Each client has its own retry policies.
-- If the application can tolerate a reduced consistency level, consider writing with `write_consistency` setting of `quorum`.
-
-For more information, see [Running Elasticsearch on Azure][elasticsearch-azure].
-
-**Diagnostics**. You can use monitoring tools for Elasticsearch, or log all errors on the client side with the payload. See the 'Monitoring' section in [Running Elasticsearch on Azure][elasticsearch-azure].
 
 ## Queue storage
 
@@ -507,8 +479,6 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [cassandra-error-handling]: https://www.datastax.com/dev/blog/cassandra-error-handling-done-right
 [circuit-breaker]: https://msdn.microsoft.com/library/dn589784.aspx
 [cosmos-db-multi-region]: https://docs.microsoft.com/azure/cosmos-db/tutorial-global-distribution-sql-api
-[elasticsearch-azure]: ../index.md
-[elasticsearch-client]: https://www.elastic.co/guide/en/elasticsearch/client/index.html
 [health-endpoint-monitoring-pattern]: ../patterns/health-endpoint-monitoring.md
 [onstop-events]: https://azure.microsoft.com/blog/the-right-way-to-handle-azure-onstop-events
 [lb-monitor]: https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log
@@ -523,8 +493,8 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [resilience-by-design-pdf]: https://download.microsoft.com/download/D/8/C/D8C599A4-4E8A-49BF-80EE-FE35F49B914D/Resilience_by_Design_for_Cloud_Services_White_Paper.pdf
 [RoleEntryPoint.OnStop]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [RoleEnvironment.Stopping]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx
-[rm-locks]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources
-[sb-dead-letter-queue]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dead-letter-queues
+[rm-locks]: /azure/azure-resource-manager/resource-group-lock-resources/
+[sb-dead-letter-queue]: /azure/service-bus-messaging/service-bus-dead-letter-queues/
 [sb-georeplication-sample]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/GeoReplication
 [sb-messagingexception-class]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
 [sb-messaging-exceptions]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions

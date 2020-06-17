@@ -24,9 +24,9 @@ There are about 700 million people who suffer from hearing disabilities. However
 
 - Need help in a specific hearing situation (for example, while walking in the park, attending a party, or being at home), which cannot be reproduced in the hearing care professional's office.
 - Have mobility issues or reside long distances from their hearing care professional.
-- Live in an emerging country that has a limited number of hearing care professionals.
+- Live in an emerging country/region that has a limited number of hearing care professionals.
 
-To overcome these difficulties, it is important to have the ability to provide hearing care services remotely. In this case, the healthcare professional uses chat or video communication to engage with their remote patients. The hearing-impaired person uses a smartphone to allow access to the hearing aid device during the remote session. The patient immediately experiences improved hearing as the hearing care professional deploys changes to the configuration of the hearing aid device in real time.
+To overcome these difficulties, it is important to have the ability to provide hearing care services remotely. In this case, the healthcare professional uses chat or video communication to engage with their remote patients. People who are hard of hearing use a smartphone to allow access to the hearing aid device during the remote session. The patient immediately experiences improved hearing as the hearing care professional deploys changes to the configuration of the hearing aid device in real time.
 
 ## Potential use cases
 

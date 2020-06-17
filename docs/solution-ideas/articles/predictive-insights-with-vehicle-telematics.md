@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/predictive-i
 
 # Predictive Insights with Vehicle Telematics
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Learn how car dealerships, manufacturers, and insurance companies can use Microsoft Azure to gain predictive insights on vehicle health and driving habits.
 
@@ -41,7 +41,7 @@ This solution is built on the Azure managed services: [Event Hubs](https://azure
 
 * [Learn more about Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
 * [Learn more about Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction)
-* [Learn more about Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning)
+* [Learn more about Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
 * [Learn more about Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)
 * [Learn more about HDInsight](https://docs.microsoft.com/azure/hdinsight)
 * [Learn more about Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-introduction)

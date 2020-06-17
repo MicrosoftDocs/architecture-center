@@ -3,7 +3,7 @@ title: Design Review Powered by Mixed Reality
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
-description: Too often, product designers waste time and money with inefficient design review—2D images lose essential detail and context, and physical prototypes are extremely expensive. With this mixed reality scenario, clients, designers, and on-site engineers can easily share and review designs as 3D holograms in the context of their environment, accelerating design decisions and reducing time to market.
+description: Too often, product designers waste time and money with inefficient design review-2D images lose essential detail and context, and physical prototypes are extremely expensive. With this mixed reality scenario, clients, designers, and on-site engineers can easily share and review designs as 3D holograms in the context of their environment, accelerating design decisions and reducing time to market.
 ms.custom: acom-architecture, Azure Spatial Anchors, Azure Active Directory, Cosmos DB, Blob Storage, Web Service, Microsoft Hololens, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/collaborative-design-review-powered-by-mixed-reality/'
 ms.service: architecture-center
 ms.category:
@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/collaborativ
 
 # Design Review Powered by Mixed Reality
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Businesses and teams across industries have to spend time and money on design reviews. 2D images lose essential detail and context, and physical prototypes are extremely expensive. With this mixed reality scenario, clients, designers, and onsite engineers can easily share and review designs as 3D holograms in the context of their environment, accelerating design decisions and reducing time to market.
 
