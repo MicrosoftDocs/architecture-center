@@ -788,20 +788,20 @@ items:
             href: example-scenario/serverless-quest/technical-workshops.md
           - name: Architectural design sessions
             href: example-scenario/serverless-quest/ads.md
-      - name: Development and deployment
-        items:
-        - name: Serverless app development
-          href: example-scenario/serverless-quest/application-development.md
-        - name: Code-with customers
-          href: example-scenario/serverless-quest/code-with.md
-        - name: Serverless Functions code walkthrough
-          href: serverless/code.md
-        - name: CI/CD for a serverless frontend
-          href: serverless/guide/serverless-app-cicd-best-practices.md
-      - name: Serverless Functions operations
-        href: example-scenario/serverless-quest/functions-app-operations.md
-      - name: Serverless Functions security
-        href: example-scenario/serverless-quest/functions-app-security.md
+        - name: Development and deployment
+          items:
+          - name: Serverless app development
+            href: example-scenario/serverless-quest/application-development.md
+          - name: Code-with customers
+            href: example-scenario/serverless-quest/code-with.md
+          - name: Serverless Functions code walkthrough
+            href: serverless/code.md
+          - name: CI/CD for a serverless frontend
+            href: serverless/guide/serverless-app-cicd-best-practices.md
+        - name: Serverless Functions operations
+          href: example-scenario/serverless-quest/functions-app-operations.md
+        - name: Serverless Functions security
+          href: example-scenario/serverless-quest/functions-app-security.md
     - name: Architectures
       items:
       - name: CI/CD pipeline using Azure DevOps
