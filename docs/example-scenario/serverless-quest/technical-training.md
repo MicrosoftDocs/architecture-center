@@ -14,7 +14,7 @@ ms.custom:
 
 The workshops, trainings, and resources in this article provide technical training for serverless adoption with Azure Functions. These resources help you and your team or customers understand and implement application modernization and cloud-native apps.
 
-# Technical workshops
+## Technical workshops
 
 The [Microsoft Cloud Workshop (MCW)](https://microsoftcloudworkshop.com/) program provides workshops that you can host to foster cloud learning and adoption. Each workshop includes presentation decks, trainer and student guides, and hands-on lab guides. Contribute your own content and feedback to add to a robust database of training guides for deploying advanced Azure workloads on the Microsoft Cloud Platform.
 
@@ -65,7 +65,7 @@ Learning paths about serverless apps with Azure Functions include:
 To move forward with the exercise 'validate and commit the serverless adoption', see the following resources:
 
 - [Execute an application assessment](./application-assessment.md)
-- [Promote a technical workshop](./technical-workshops.md)
+- [Promote a technical workshop](./technical-training.md)
 - [Conduct architectural design session(s)](./ads.md)
 - [Identify and execute a PoC or Pilot project](./poc-pilot.md)
 - [Deliver a technical implementation with the team or customer](./code-with.md)

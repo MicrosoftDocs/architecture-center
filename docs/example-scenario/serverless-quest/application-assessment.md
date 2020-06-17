@@ -108,7 +108,7 @@ Amount of Memory needed:
 
 To move forward with the exercise 'validate and commit the serverless adoption', see the following resources:
 
-- [Promote a technical workshop](./technical-workshops.md)
+- [Promote a technical workshop](./technical-training.md)
 - [Conduct architectural design session(s)](./ads.md)
 - [Identify and execute a PoC or Pilot project](./poc-pilot.md)
 - [Plan technical trainings for the project team](./technical-training.md)

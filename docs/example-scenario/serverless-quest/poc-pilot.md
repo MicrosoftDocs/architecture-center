@@ -94,7 +94,7 @@ The pilot includes a detailed follow up through surveys or focus groups. The fee
 To move forward with the exercise 'validate and commit the serverless adoption', see the following resources:
 
 - [Execute an application assessment](./application-assessment.md)
-- [Promote a technical workshop](./technical-workshops.md)
+- [Promote a technical workshop](./technical-training.md)
 - [Conduct architectural design session(s)](./ads.md)
 - [Plan technical trainings for the project team](./technical-training.md)
 - [Code a technical implementation with the team or customer](./code-with.md)

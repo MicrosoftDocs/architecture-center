@@ -865,7 +865,7 @@ items:
           - name: Technical training
             href: example-scenario/serverless-quest/technical-training.md
           - name: Technical workshops
-            href: example-scenario/serverless-quest/technical-workshops.md
+            href: example-scenario/serverless-quest/technical-training.md
           - name: Architectural design sessions
             href: example-scenario/serverless-quest/ads.md
         - name: Development and deployment
