@@ -2,7 +2,7 @@
 title: Implement a hub-spoke network topology
 titleSuffix: Azure Reference Architectures
 description: Implement a hub-spoke network topology with shared services in Azure.
-author: MikeWasson
+author: adamboeglin
 ms.date: 08/19/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -97,6 +97,11 @@ This reference architecture builds on the [hub-spoke reference architecture](../
 For other cost considerations, see [Hub-spoke network topology - cost considerations](../../reference-architectures/hybrid-networking/hub-spoke.md#cost-considerations).
 
 ## Deploy the solution
+
+> [!CAUTION]
+> "Don't use azbb - it is in sustain mode and the npm package is out of date".
+> Alternatively use: ARM Template: [101-hub-and-spoke-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hub-and-spoke-sandbox) or 
+> use Terraform: [hub-spoke-introduction](/azure/developer/terraform/hub-spoke-introduction)
 
 A deployment for this architecture is available on [GitHub][ref-arch-repo]. The deployment creates the following resource groups in your subscription:
 
