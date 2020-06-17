@@ -14,15 +14,17 @@ ms.subservice: reference-architecture
 
 <!--cSpell:ignore Gyrometer upsert deadletterqueue -->
 
-# Code walkthrough: Serverless application with Azure Functions
+# Code walkthrough: Serverless application with Functions
 
-Serverless models abstract the underlying compute infrastructure, allowing developers to focus on business logic without extensive setup. The serverless event-driven model fits situations where a certain event triggers a defined action. For example, receiving an incoming device message triggers storage for later use, or a database update triggers some further processing. Serverless code reduces overall costs, because you pay only for the duration of the code execution.
+Serverless models abstract code from the underlying compute infrastructure, allowing developers to focus on business logic without extensive setup. Serverless code reduces costs, because you pay only for the resources and duration of code execution.
 
-This article walks through the code for a serverless web application that uses [Azure Functions](https://docs.microsoft.com/azure/azure-functions). The article describes the design decisions, implementation details, and some of the "gotchas" that you might encounter.
+To help explore serverless technologies in Azure, Microsoft developed and tested a serverless application that uses [Azure Functions](https://docs.microsoft.com/azure/azure-functions). This serverless event-driven model fits situations where a certain event triggers a defined action. For example, receiving an incoming device message triggers storage for later use, or a database update triggers some further processing. 
+
+This article walks through the code for the serverless Functions solution, and describes design decisions, implementation details, and some of the "gotchas" you might encounter.
 
 ## Explore the solution
 
-To explore serverless technologies in Azure, start with a serverless reference solution developed and tested by Microsoft. This two-part solution describes a hypothetical drone delivery system. Drones send in-flight status to the cloud, which stores these messages for later use. A web application allows users to retrieve the messages to get the latest status of the devices.
+This two-part solution describes a hypothetical drone delivery system. Drones send in-flight status to the cloud, which stores these messages for later use. A web app lets users retrieve the messages to get the latest status of the devices.
 
 The code for this solution is available to download from [GitHub](https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0).
 
@@ -37,7 +39,7 @@ You don't need to be an expert in Functions or Event Hubs, but you should unders
 - [An introduction to Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)
 - [Features and terminology in Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-features)
 
-## The scenario
+## Understand the scenario
 
 ![Diagram of the functional blocks](./images/functional-diagram.png)
 
@@ -625,9 +627,9 @@ For more information about authentication and authorization in this application,
 
 ## Next steps
 
-- Once you get a feel for how this reference solution works, learn best practices and recommendations for developing similar serverless solutions:
-  - To develop a serverless *event ingestion* solution, see the reference-based guidance at [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.md).
-  - To develop a serverless *web application*, see the reference-based guidance at [Serverless web application on Azure](../reference-architectures/serverless/web-app.md).
-- This application is an example of an event-driven architecture. Read more about the [Event-driven architecture style](../guide/architecture-styles/event-driven.md).
-- Azure Functions is just one of the compute options on Azure. For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree.md).
+- Once you get a feel for how this reference solution works, learn best practices and recommendations for similar solutions. For a serverless event ingestion solution, see [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.md). For a serverless web app, see [Serverless web application on Azure](../reference-architectures/serverless/web-app.md).
+- Azure Functions is just one Azure compute option. For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree.md).
+
+## Related resources
 - For in-depth discussion on developing serverless solutions on premises as well as in the cloud, read [Serverless apps: Architecture, patterns, and Azure implementation](https://docs.microsoft.com/dotnet/standard/serverless-architecture).
+- Read more about the [Event-driven architecture style](../guide/architecture-styles/event-driven.md).

@@ -41,6 +41,5 @@ This Serverless Functions adoption guide is a prescriptive framework to help org
 ## Related resources
 - To learn more about serverless technology, see the [Azure serverless documentation](https://azure.microsoft.com/solutions/serverless/).
 - To learn more about Azure Functions, see the [Azure Functions documentation](https://docs.microsoft.com/azure/azure-functions/).
-- For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree.md).
-
+- For help with choosing a compute technology, see [Choose an Azure compute service for your application](../../guide/technology-choices/compute-decision-tree.md).
 
