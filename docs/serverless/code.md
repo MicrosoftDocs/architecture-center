@@ -1,6 +1,6 @@
 ---
-title: Implement a serverless application with Azure Functions
-description: Code walk-through of a serverless application using Azure Functions
+title: Serverless application with Azure Functions
+description: Follow this code walkthrough to implement an example serverless application with Azure Functions.
 author: MikeWasson
 ms.date: 06/13/2019
 ms.author: pnp
@@ -16,7 +16,7 @@ ms.subservice: reference-architecture
 
 # Code walkthrough: Serverless application with Functions
 
-Serverless models abstract code from the underlying compute infrastructure, allowing developers to focus on business logic without extensive setup. Serverless code reduces costs, because you pay only for the resources and duration of code execution.
+Serverless models abstract code from the underlying compute infrastructure, allowing developers to focus on business logic without extensive setup. Serverless code reduces costs, because you pay only for the code execution resources and duration.
 
 To help explore serverless technologies in Azure, Microsoft developed and tested a serverless application that uses [Azure Functions](https://docs.microsoft.com/azure/azure-functions). This serverless event-driven model fits situations where a certain event triggers a defined action. For example, receiving an incoming device message triggers storage for later use, or a database update triggers some further processing. 
 
@@ -24,9 +24,9 @@ This article walks through the code for the serverless Functions solution, and d
 
 ## Explore the solution
 
-This two-part solution describes a hypothetical drone delivery system. Drones send in-flight status to the cloud, which stores these messages for later use. A web app lets users retrieve the messages to get the latest status of the devices.
+The two-part solution describes a hypothetical drone delivery system. Drones send in-flight status to the cloud, which stores these messages for later use. A web app lets users retrieve the messages to get the latest status of the devices.
 
-The code for this solution is available to download from [GitHub](https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0).
+You can download the code for this solution from [GitHub](https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0).
 
 This walkthrough assumes basic familiarity with the following technologies:
 
@@ -627,7 +627,10 @@ For more information about authentication and authorization in this application,
 
 ## Next steps
 
-- Once you get a feel for how this reference solution works, learn best practices and recommendations for similar solutions. For a serverless event ingestion solution, see [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.md). For a serverless web app, see [Serverless web application on Azure](../reference-architectures/serverless/web-app.md).
+- Once you get a feel for how this reference solution works, learn best practices and recommendations for similar solutions.
+  - For a serverless event ingestion solution, see [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.md). 
+  - For a serverless web app, see [Serverless web application on Azure](../reference-architectures/serverless/web-app.md).
+
 - Azure Functions is just one Azure compute option. For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree.md).
 
 ## Related resources

@@ -20,12 +20,15 @@ Architecture in software technology applies to both the process and the outcome 
 - Interrelationships of computers and their operating systems
 - Networks or other conceptions
 
-An *architectural design session (ADS)* discusses in depth how a solution blends into an environment. An ADS custom builds an architecture that works in the environment and satisfies all the stakeholders' decision criteria and technical requirements. If a team or customer doesn't agree on a proposed reference architecture, hold an ADS to collaborate on a solution.
+Review a proposed reference architecture with the team or customer. If they don't agree with the architecture or implementation, hold an *architectural design session (ADS)* to collaborate on a solution.
 
-Alternative engagements can be a better fit than ADSs:
+An ADS discusses in depth how a solution blends into an environment. The ADS custom builds an architecture that works in the environment and satisfies all the stakeholders' decision criteria and technical requirements.
+
+Alternative engagements can be a better fit than an ADS:
 - Product briefings may provide better, faster, and lower-cost information about solution options.
 - Demonstrations or hands-on labs might be better for product testing and tryouts.
-- Online or local partner training can help improve specific skills.
+- A [proof of concept or pilot project] can demonstrate that a proposed solution is feasible and will work to solve the business problem.
+- Online or local partner training helps improve specific skills.
 
 ## ADS process
 

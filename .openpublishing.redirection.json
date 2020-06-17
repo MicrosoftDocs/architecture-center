@@ -1897,8 +1897,13 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/hybrid-ci-cd.md",
-      "redirect_url": "docs/solution-ideas/articles/devops-in-a-hybrid-environment.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/serverless/index.md",
+      "redirect_url": "/azure/architecture/serverless/code",
+      "redirect_document_id": true
     }
   ]
 }

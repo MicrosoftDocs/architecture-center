@@ -1,7 +1,7 @@
 ---
-title: Deliver Technical Implementation
+title: The CSE code-with engineering playbook
 titleSuffix: Azure Example Scenarios
-description: Deliver technical implementation for serverless adoption with Azure Functions
+description: Learn how to increase engineering team efficiency, reduce mistakes and common pitfalls, and be a better engineer with the Code-with engineering playbook.
 author: rogeriohc
 ms.date: 06/15/2020
 ms.topic: example-scenario
@@ -10,19 +10,19 @@ ms.subservice: example-scenario
 ms.custom:
 - fcp
 ---
-# Code-with engineering playbook
+# The code-with engineering playbook
 
-Everyone owns their code and has an obligation to make all parts of the solution great. *Code with* Microsoft teams, partners, and customers to help them successfully:
+Everyone owns their code and has an obligation to make all parts of the solution great. The [Code-With Customer/Partner Engineering Playbook](https://github.com/microsoft/code-with-engineering-playbook) by the Microsoft Commercial Software Engineering (CSE) team is a good guide to best engineering practices. 
 
-- Deliver technical implementations
-- Modernize or build new apps to their specifications
-- Accelerate deployments to production
-- Scale implementations to other parts of workloads
-- Operate, optimize, secure, and manage apps and workloads
+Code with Microsoft teams, partners, and customers to help them successfully:
 
-A good guide to best practices is the [Code-With Customer/Partner Engineering Playbook](https://github.com/microsoft/code-with-engineering-playbook) by the Microsoft Commercial Software Engineering (CSE) team.
+- Deliver technical implementations.
+- Modernize or build new apps to specifications.
+- Accelerate deployments to production.
+- Scale implementations to other parts of workloads.
+- Operate, optimize, secure, and manage apps and workloads.
 
-The Engineering Playbook shows how to increase engineering team efficiency, reduce mistakes and common pitfalls, and strive to be better engineers. The playbook provides guidance on how to:
+The Engineering Playbook shows how to increase engineering team efficiency, reduce mistakes and common pitfalls, and strive to be better engineers. Engineering best practices for serverless and Azure Functions adoption include:
 
 - Keep the code quality bar high.
 - Value quality and precision over just "getting things done."
