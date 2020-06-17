@@ -766,36 +766,35 @@ items:
             href: service-fabric/modernize-app-azure-service-fabric.md
           - name: Migrate from Cloud Services to Service Fabric
             href: service-fabric/migrate-from-cloud-services.md
-    - name: Serverless Functions adoption guide
-      href: example-scenario/serverless-quest/index.md
+    - name: Serverless applications
       items:
       - name: Serverless Functions example scenarios
         href: example-scenario/serverless-quest/reference-architectures.md
+      - name: Serverless Functions adoption guide
+        href: example-scenario/serverless-quest/index.md
       - name: Adoption decision and planning
         href: example-scenario/serverless-quest/validate-commit-serverless-adoption.md
-        items:
-        - name: Adoption assessment
-          href: example-scenario/serverless-quest/application-assessment.md
-        - name: Proof of concept or pilot
-          href: example-scenario/serverless-quest/poc-pilot.md
-        - name: Technical training
-          href: example-scenario/serverless-quest/technical-training.md
-        - name: Technical workshops
-          href: example-scenario/serverless-quest/technical-workshops.md
-        - name: Architectural design sessions
-          href: example-scenario/serverless-quest/ads.md
+      - name: Adoption assessment
+        href: example-scenario/serverless-quest/application-assessment.md
+      - name: Proof of concept or pilot
+        href: example-scenario/serverless-quest/poc-pilot.md
+      - name: Technical training
+        href: example-scenario/serverless-quest/technical-training.md
+      - name: Technical workshops
+        href: example-scenario/serverless-quest/technical-workshops.md
+      - name: Architectural design sessions
+        href: example-scenario/serverless-quest/ads.md
       - name: Development and deployment
         href: example-scenario/serverless-quest/application-development.md
-        items:
-        - name: Code-with customers
-          href: example-scenario/serverless-quest/code-with.md
-        - name: Serverless Functions code walkthrough
-          href: serverless/code.md
-        - name: CI/CD for a serverless frontend
-          href: serverless/guide/serverless-app-cicd-best-practices.md
-      - name: Operations
+      - name: Code-with customers
+        href: example-scenario/serverless-quest/code-with.md
+      - name: Serverless Functions code walkthrough
+        href: serverless/code.md
+      - name: CI/CD for a serverless frontend
+        href: serverless/guide/serverless-app-cicd-best-practices.md
+      - name: Serverless Functions operations
         href: example-scenario/serverless-quest/functions-app-operations.md
-      - name: Security
+      - name: Serverless Functions security
         href: example-scenario/serverless-quest/functions-app-security.md
     - name: Architectures
       items:
