@@ -12,7 +12,7 @@ ms.custom:
 ---
 # Serverless Functions security
 
-This article describes Azure services and activities security personnel can implement at each stage of the serverless adoption cycle. These guidelines and resources help develop secure code and deploy secure applications to the cloud. 
+This article describes Azure services and activities security personnel can implement for serverless Functions. These guidelines and resources help develop secure code and deploy secure applications to the cloud. 
 
 ## Planning
 
@@ -113,4 +113,8 @@ For more information, see:
 
 ### Enforce application governance policies
 Apply centralized, consistent enforcements and safeguards to your application at scale. For more information, see [Azure Policy built-in policy definitions](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies).
+
+## Next steps
+- [Serverless application development and deployment](application-development.md)
+- [Azure Functions app operations](functions-app-security.md)
 

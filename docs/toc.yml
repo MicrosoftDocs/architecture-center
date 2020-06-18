@@ -864,7 +864,7 @@ items:
           href: serverless-quest/poc-pilot.md
         - name: Architectural design sessions
           href: serverless-quest/ads.md
-      - name: Develop and deploy serverless Functions apps
+      - name: Develop and deploy serverless apps
         items:
         - name: Serverless Functions app development
           href: serverless-quest/application-development.md

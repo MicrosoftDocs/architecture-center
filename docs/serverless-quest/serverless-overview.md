@@ -10,7 +10,7 @@ ms.subservice: example-scenario
 ms.custom:
 - fcp
 ---
-# Serverless Functions adoption guide
+# Serverless Functions overview
 
 *Serverless* architecture evolves cloud platforms toward pure cloud-native code by abstracting code from the infrastructure that it needs to run. [Azure Functions](https://docs.microsoft.com/azure/azure-functions) is a serverless compute option that supports *functions*, small pieces of code that do single things.
 
@@ -31,9 +31,9 @@ For example serverless Functions scenarios, see [Reference architectures](refere
 
 ## Next steps
 
-Actions to drive successful adoption of serverless Functions, from planning to production, optimization, and security, include:
+Actions to drive successful deployment of serverless Functions, from planning to production, optimization, and security, include:
 
-- [Validate, commit, and plan adoption](validate-commit-serverless-adoption.md)
+- [Validate, commit, and plan](validate-commit-serverless-adoption.md)
   
   *Architects* and *technical decision makers (TDM)* perform [application assessment](application-assessment.md), conduct or attend [technical workshops and trainings](technical-training.md), run [proof of concept (PoC) or pilot](poc-pilot.md) projects, and conduct [architectural designs sessions](ads.md) as necessary.
   

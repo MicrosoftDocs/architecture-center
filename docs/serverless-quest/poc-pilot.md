@@ -1,7 +1,7 @@
 ---
-title: Conduct a Proof of Concept or Pilot
+title: Conduct a Proof of Concept or pilot
 titleSuffix: Azure Example Scenarios
-description: Conduct a Proof of Concept or Pilot of serverless adoption with Azure Functions.
+description: Conduct a Proof of Concept or pilot of serverless adoption with Azure Functions.
 author: rogeriohc
 ms.date: 06/17/2020
 ms.topic: example-scenario
@@ -12,7 +12,7 @@ ms.custom:
 ---
 # Proof of Concept or pilot
 
-When driving a technical and security decision for your company or customer, a *Proof of Concept (PoC)* or *pilot* is an opportunity to deliver evidence that the proposed solution solves the business problems. The PoC or pilot increases the likelihood of a successful adoption.
+When driving a technical and security decision for your company or customer, a *Proof of Concept (PoC)* or *pilot* is an opportunity to deliver evidence that the proposed solution solves the business problems. The PoC or pilot increases the likelihood of a successful deployment.
 
 A PoC:
 - Demonstrates that a business model or idea is feasible and will work to solve the business problem
@@ -91,14 +91,11 @@ The pilot includes a detailed follow up through surveys or focus groups. The fee
 
 ## Next steps
 
-To move forward with the exercise 'validate and commit the serverless adoption', see the following resources:
-
-- [Execute an application assessment]application-assessment.md)
-- [Promote a technical workshop]technical-training.md)
-- [Conduct architectural design session(s)]ads.md)
-- [Plan technical trainings for the project team]technical-training.md)
-- [Code a technical implementation with the team or customer]code-with.md)
+- [Execute an application assessment](application-assessment.md)
+- [Promote a technical workshop or training](technical-training.md)
+- [Conduct architectural design session(s)](ads.md)
+- [Code a technical implementation with the team or customer](code-with.md)
 
 ## Related resources
-See [Prosci® change management training](https://www.prosci.com/solutions/training-programs/virtual-change-management-certification-program).
+[Prosci® change management training](https://www.prosci.com/solutions/training-programs/virtual-change-management-certification-program)
 

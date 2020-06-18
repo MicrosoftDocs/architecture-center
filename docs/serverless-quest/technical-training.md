@@ -12,7 +12,7 @@ ms.custom:
 ---
 # Technical workshops and training
 
-The workshops, classes, and learning materials in this article provide technical training for serverless adoption with Azure Functions. These resources help you and your team or customers understand and implement application modernization and cloud-native apps.
+The workshops, classes, and learning materials in this article provide technical training for serverless architectures with Azure Functions. These resources help you and your team or customers understand and implement application modernization and cloud-native apps.
 
 ## Technical workshops
 
@@ -62,10 +62,7 @@ Learning paths about serverless apps and Azure Functions include:
 
 ## Next steps
 
-To move forward with the exercise 'validate and commit the serverless adoption', see the following resources:
-
-- [Execute an application assessment]application-assessment.md)
-- [Promote a technical workshop]technical-training.md)
-- [Conduct architectural design session(s)]ads.md)
-- [Identify and execute a PoC or Pilot project]poc-pilot.md)
-- [Deliver a technical implementation with the team or customer]code-with.md)
+- [Execute an application assessment](application-assessment.md)
+- [Conduct architectural design session(s)](ads.md)
+- [Identify and execute a PoC or Pilot project](poc-pilot.md)
+- [Deliver a technical implementation with the team or customer](code-with.md)

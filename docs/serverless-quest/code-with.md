@@ -22,7 +22,7 @@ Code with Microsoft teams, partners, and customers to help them successfully:
 - Scale implementations to other parts of workloads.
 - Operate, optimize, secure, and manage apps and workloads.
 
-The Engineering Playbook shows how to increase engineering team efficiency, reduce mistakes and common pitfalls, and strive to be better engineers. Engineering best practices for serverless and Azure Functions adoption include:
+The Engineering Playbook shows how to increase engineering team efficiency, reduce mistakes and common pitfalls, and strive to be better engineers. Engineering best practices for serverless and Azure Functions include:
 
 - Keep the code quality bar high.
 - Value quality and precision over just "getting things done."
@@ -34,3 +34,4 @@ The Engineering Playbook shows how to increase engineering team efficiency, redu
 - As a distributed team, take time to share context via wikis, Teams, and backlog items.
 - Report product issues, and provide clear and repeatable engineering feedback.
 - Learn from other people's shared experiences and feedback.
+

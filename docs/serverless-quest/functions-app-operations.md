@@ -12,7 +12,7 @@ ms.custom:
 ---
 # Azure Functions app operations
 
-This article describes Azure operations considerations for each stage of the serverless Functions adoption cycle. To support Functions apps, operations personnel need to:
+This article describes Azure operations considerations for serverless Functions. To support Functions apps, operations personnel need to:
 
 - Understand and implement hosting configurations.
 - Future-proof scalability by automating infrastructure provisioning.
@@ -109,9 +109,6 @@ For more information about monitoring and analyzing Azure Functions performance,
 
 ## Next steps
 
-To move forward with serverless - Azure Functions adoption, see the following resources:
-
-- [Validate and commit the serverless adoption]validate-commit-serverless-adoption.md)
-- [Application development and deployment]application-development.md)
-- [Azure functions app security]functions-app-security.md)
+- [Serverless application development and deployment](application-development.md)
+- [Azure Functions app security](functions-app-security.md)
 

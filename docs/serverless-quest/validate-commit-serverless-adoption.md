@@ -1,7 +1,7 @@
 ---
-title: Plan serverless Functions adoption
+title: Plan serverless Functions deployment
 titleSuffix: Azure Example Scenarios
-description: Perform activities to validate, commit, and plan serverless Azure Functions adoption.
+description: Perform activities to validate, commit, and plan serverless Azure Functions deployment.
 author: rogeriohc
 ms.date: 04/28/2020
 ms.topic: example-scenario
@@ -10,11 +10,11 @@ ms.subservice: example-scenario
 ms.custom:
 - fcp
 ---
-# Plan serverless Functions adoption
+# Plan serverless Functions deployment
 
-To plan serverless Azure Functions adoption, a technical decision maker (TDM) or architect:
+To plan serverless Azure Functions deployment, a technical decision maker (TDM) or architect:
 - Verifies an application's characteristics and business requirements.
-- Determines the app's suitability for serverless Azure Functions adoption.
+- Determines the app's suitability for serverless Azure Functions.
 - Transforms business requirements into functional and other requirements.
 
 Planning activities also include assessing technical team readiness, providing or attending workshops and training, and conducting design reviews, proofs of concept, pilots, and technical implementations.
@@ -33,8 +33,8 @@ TDMs and architects may perform one or more of the following activities:
 ## Next steps
 For example scenarios that use serverless architectures with Azure Functions, see [Serverless reference architectures](reference-architectures.md).
 
-To move forward with serverless Azure Functions adoption, see the following resources:
+To move forward with serverless Azure Functions deployment, see the following resources:
 
 - [Application development and deployment](application-development.md)
-- [Azure functions app operations](functions-app-operations.md)
-- [Azure functions app security](functions-app-security.md)
+- [Azure Functions app operations](functions-app-operations.md)
+- [Azure Functions app security](functions-app-security.md)
