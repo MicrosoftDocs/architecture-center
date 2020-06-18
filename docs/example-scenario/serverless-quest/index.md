@@ -14,18 +14,20 @@ ms.custom:
 
 *Serverless* architecture evolves cloud platforms toward pure cloud-native code by abstracting code from the infrastructure that it needs to run. [Azure Functions](https://docs.microsoft.com/azure/azure-functions) is a serverless compute option that supports *functions*, small pieces of code that do single things.
 
-Serverless architecture with Azure Functions is event-driven. An external event like an HTTP web request, message, schedule, or change in data triggers the function code. The Functions app doesn't code the trigger, only the response to the trigger. With a lower barrier to entry, developers can focus on business logic, rather than writing code to handle infrastructure concerns like messaging.
+Serverless architecture with Azure Functions is *event-driven*. An external event like an HTTP web request, message, schedule, or change in data *triggers* the function code. The Functions app doesn't code the trigger, only the response to the trigger. With a lower barrier to entry, developers can focus on business logic, rather than writing code to handle infrastructure concerns like messaging.
 
 Azure Functions is a managed service in Azure and Azure Stack. The open source Functions runtime works in many environments, including Kubernetes, Azure IoT Edge, on-premises, and other clouds.
 
-Other benefits of using serverless architectures with Functions include:
+Benefits of using serverless architectures with Functions include:
 
 - The cloud infrastructure provides the updated servers that applications need to keep running at scale. Serverless doesn't mean "no server," but "less server" to manage.
 - Compute resources allocate dynamically as needed, and instantly autoscale to meet elastic demands.
 - Micro-billing saves costs by charging only for the compute resources and duration the code uses to execute.
 - Function *bindings* streamline integration by providing declarative access to a wide variety of Azure and third-party services.
 
-Serverless and Functions require new ways of thinking and new approaches to building applications. They aren't the right solutions for every problem. For example serverless Functions scenarios, see [Reference architectures](reference-architectures.md).
+Serverless and Functions require new ways of thinking and new approaches to building applications. They aren't the right solutions for every problem. For help with choosing a compute technology, see [Choose an Azure compute service for your application](../../guide/technology-choices/compute-decision-tree.md).
+
+For example serverless Functions scenarios, see [Reference architectures](reference-architectures.md).
 
 ## Next steps
 This serverless Functions adoption guide is a prescriptive framework to help organizations decide on and adopt serverless technology and Azure Functions at scale. The guide includes tools, programs, guidance, and related resources to simplify adoption. 
@@ -51,5 +53,4 @@ Actions to drive successful adoption, from planning to production, optimization,
 ## Related resources
 - To learn more about serverless technology, see the [Azure serverless documentation](https://azure.microsoft.com/solutions/serverless/).
 - To learn more about Azure Functions, see the [Azure Functions documentation](https://docs.microsoft.com/azure/azure-functions/).
-- For help with choosing a compute technology, see [Choose an Azure compute service for your application](../../guide/technology-choices/compute-decision-tree.md).
 

@@ -29,9 +29,9 @@ Workshops related to application development workloads include:
 [Course AZ-204: Developing solutions for Microsoft Azure](https://docs.microsoft.com/learn/certifications/courses/az-204t00) teaches developers how to create end-to-end solutions in Microsoft Azure. Students learn how to implement Azure compute solutions, create Azure Functions, implement and manage web apps, develop solutions utilizing Azure storage, implement authentication and authorization, and secure their solutions by using Azure Key Vault and managed identities. Students also learn to connect to and consume Azure and third-party services, and include event- and message-based models in their solutions. The course also covers monitoring, troubleshooting, and optimizing Azure solutions.
 
 ## Serverless OpenHack
-The Serverless [OpenHack]((https://openhack.microsoft.com) simulates a real-world scenario where a company wants to utilize serverless services to build and release an API to integrate into their distributor's application. This OpenHack lets attendees quickly build and deploy Azure serverless solutions with cutting-edge compute services like Azure Functions, Logic Apps, Event Grid, Service Bus, Event Hubs, and Cosmos DB. The OpenHack also covers related technologies like API Management, Azure DevOps or GitHub, Application Insights, Dynamics 365/Office 365, and Cognitive APIs.
+The Serverless [OpenHack](https://openhack.microsoft.com) simulates a real-world scenario where a company wants to utilize serverless services to build and release an API to integrate into their distributor's application. This OpenHack lets attendees quickly build and deploy Azure serverless solutions with cutting-edge compute services like Azure Functions, Logic Apps, Event Grid, Service Bus, Event Hubs, and Cosmos DB. The OpenHack also covers related technologies like API Management, Azure DevOps or GitHub, Application Insights, Dynamics 365/Office 365, and Cognitive APIs.
 
-During the OpenHack, attendees focus on building serverless functions, web APIs, and a CI/CD pipeline to support them. They then implement further serverless technologies to integrate line of business (LOB) app workflows, process user and data telemetry, and create key progress indicator (KPI)-aligned reports. By the end of the OpenHack, attendees have built out a full serverless technical solution that can create workflows between systems and handle events, files, and data ingestion.
+OpenHack attendees build serverless functions, web APIs, and a CI/CD pipeline to support them. They implement further serverless technologies to integrate line of business (LOB) app workflows, process user and data telemetry, and create key progress indicator (KPI)-aligned reports. By the end of the OpenHack, attendees have built out a full serverless technical solution that can create workflows between systems and handle events, files, and data ingestion.
 
 Microsoft customer projects inspired these OpenHack challenges:
 - Configure the developer environment.
@@ -57,7 +57,7 @@ Learning paths about serverless apps and Azure Functions include:
 - [Search all Functions-related learning paths](https://docs.microsoft.com/learn/browse/?products=azure-functions).
 
 ## Hands-on labs and how-to guides
-- [Build a serverless web app](https://docs.microsoft.com/labs/build2018/serverlesswebapp/) from the Build 2018 conference
+- [Build a serverless web app](https://docs.microsoft.com/labs/build2018/serverlesswebapp/), from the Build 2018 conference
 - [Build a Serverless IoT Solution with Python Azure Functions and SignalR](https://dev.to/azure/building-a-serverless-iot-solution-with-python-azure-functions-and-signalr-4ljp)
 
 ## Next steps

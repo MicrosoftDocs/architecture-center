@@ -47,7 +47,7 @@ For more information, see:
 ### Perform input validation
 Different event sources like Blob storage, Cosmos DB NoSQL databases, event hubs, queues, or Graph events can trigger serverless Functions. Injections aren't strictly limited to inputs coming directly from the API calls. Functions may consume other input from the possible event sources.
 
-In general, don't trust input or make any assumptions about its validity. Always use safe APIs that sanitize or validate the input. When possible, use APIs which bind or parameterize variables, like using prepared statements for SQL queries. 
+In general, don't trust input or make any assumptions about its validity. Always use safe APIs that sanitize or validate the input. If possible, use APIs that bind or parameterize variables, like using prepared statements for SQL queries. 
 
 For more information, see:
 - [Azure Functions Input Validation with FluentValidation](https://www.tomfaltesek.com/azure-functions-input-validation/)
@@ -56,7 +56,7 @@ For more information, see:
 - [How to validate request for Azure Functions](https://medium.com/@tsuyoshiushio/how-to-validate-request-for-azure-functions-e6488c028a41)
 
 ### Secure HTTP endpoints for development, testing, and production
-Functions lets you use keys to make it harder to access your HTTP function endpoints during development. To fully secure your function endpoints in production, consider implementing one of the following Function app-level security options:
+Azure Functions lets you use keys to make it harder to access your HTTP function endpoints. To fully secure your function endpoints in production, consider implementing one of the following Function app-level security options:
 
 - Turn on App Service authentication and authorization for your Functions app. See [Authorization keys](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#authorization-keys).
 - Use Azure API Management (APIM) to authenticate requests. See [Import an Azure Function App as an API in Azure API Management](https://docs.microsoft.com/azure/api-management/import-function-app-as-api).
@@ -66,7 +66,7 @@ Functions lets you use keys to make it harder to access your HTTP function endpo
 For more information, see [Secure an HTTP endpoint in production](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production).
 
 ### Set up role-based access control (RBAC)
-Azure role-based access control (RBAC) has several built-in Azure roles that you can assign to users, groups, service principals, and managed identities to control access to Azure resources. If the built-in roles don't meet your organization's specific needs, you can create your own Azure custom roles.
+Azure role-based access control (RBAC) has several built-in Azure roles that you can assign to users, groups, service principals, and managed identities to control access to Azure resources. If the built-in roles don't meet your organization's needs, you can create your own Azure custom roles.
 
 Review each Function app before deployment to identify excessive permissions. Carefully examine functions to apply "least privilege" permissions, giving each function only what it needs to successfully execute. 
 

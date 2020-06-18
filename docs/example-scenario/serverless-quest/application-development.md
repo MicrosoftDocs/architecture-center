@@ -15,7 +15,7 @@ ms.custom:
 Examine patterns and practices of serverless application development, configure DevOps pipelines, and implement site reliability engineering (SRE) best practices.
 
 ## Planning
-Use these guidelines and resources to plan app development and deployment.
+To plan app development and deployment:
 
 1. Prepare development environment and set up workflow.
 2. Structure projects to support Azure Functions app development.
@@ -26,8 +26,9 @@ For detailed information about serverless architectures and Azure Functions, see
 - [Azure Serverless Computing Cookbook](https://azure.microsoft.com/resources/azure-serverless-computing-cookbook)
 - [Example serverless reference architectures](./reference-architectures.md)
 
-A different event triggers every Function in a serverless project. For more information about event-driven architectures, see:
-- [Event-driven architecture style](../guide/architecture-styles/event-driven.md).
+### Understand event-driven architecture
+A different event triggers every function in a serverless Functions project. For more information about event-driven architectures, see:
+- [Event-driven architecture style](../../guide/architecture-styles/event-driven.md).
 - [Event-driven design patterns to enhance existing applications using Azure Functions](https://mybuild.techcommunity.microsoft.com/sessions/77062)
 
 ### Prepare development environment
@@ -55,8 +56,8 @@ Functions follow the single responsibility principle: do only one thing. For mor
 - [Strategies for testing your code in Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-test-a-function)
 - [Functions best practices](https://docs.microsoft.com/azure/azure-functions/functions-best-practices#general-best-practices)
 
-### For stateful workflows, use Durable Functions
-Durable Functions in Azure Functions let you define stateful workflows in a serverless environment by writing *orchestrator functions*, and stateful entities by writing *entity functions*. Durable Functions manage state, checkpoints, and restarts, allowing you to focus on business logic. For more information, see [What are Durable Functions?](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-overview).
+### Use Durable Functions for stateful workflows
+Durable Functions in Azure Functions let you define stateful workflows in a serverless environment by writing *orchestrator functions*, and stateful entities by writing *entity functions*. Durable Functions manage state, checkpoints, and restarts, allowing you to focus on business logic. For more information, see [What are Durable Functions](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-overview).
 
 ### Manage application secrets
 Don't store credentials in application code. To use Azure Key Vault with Azure Functions to store and retrieve keys and credentials, see [Use Key Vault references for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
@@ -67,15 +68,15 @@ For more information about serverless Functions application security, see [Serve
 
 To prepare serverless Functions application for production, make sure you can:
 
-- Fulfill application resource requirements
-- Monitor all aspects of the application
-- Diagnose and troubleshoot application issues
-- Deploy new application versions without affecting production systems
+- Fulfill application resource requirements.
+- Monitor all aspects of the application.
+- Diagnose and troubleshoot application issues.
+- Deploy new application versions without affecting production systems.
 
 ### Define deployment technology
 Decide on deployment technology, and organize scheduled releases. For more information about how Functions app deployment enables reliable, zero-downtime upgrades, see [Deployment technologies in Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies).
 
-### Avoid using many resource connections
+### Avoid using too many resource connections
 Functions in a Functions app share resources, including connections to HTTPS, databases, and services such as Azure Storage. When many Functions are running concurrently, it's possible to run out of available connections. For more information, see [Manage connections in Azure Functions](https://docs.microsoft.com/azure/azure-functions/manage-connections).
 
 ### Configure logging, application monitoring, and alerting
@@ -119,4 +120,4 @@ For hands-on serverless Functions app development and deployment walkthroughs, s
 - [Serverless Functions code walkthrough](../../serverless/code.md)
 - [CI/CD for a serverless frontend](../../serverless/guide/serverless-app-cicd-best-practices.md)
 
-For an engineering playbook to help teams and customers successfully implement serverless Functions projects, see the [Code-With Customer/Partner Engineering Playbook](https://github.com/microsoft/code-with-engineering-playbook)
+For an engineering playbook to help teams and customers successfully implement serverless Functions projects, see the [Code-With Customer/Partner Engineering Playbook](https://github.com/microsoft/code-with-engineering-playbook).

@@ -18,9 +18,9 @@ ms.subservice: reference-architecture
 
 Serverless models abstract code from the underlying compute infrastructure, allowing developers to focus on business logic without extensive setup. Serverless code reduces costs, because you pay only for the code execution resources and duration.
 
-To help explore serverless technologies in Azure, Microsoft developed and tested a serverless application that uses [Azure Functions](https://docs.microsoft.com/azure/azure-functions). This serverless event-driven model fits situations where a certain event triggers a defined action. For example, receiving an incoming device message triggers storage for later use, or a database update triggers some further processing. 
+The serverless event-driven model fits situations where a certain event triggers a defined action. For example, receiving an incoming device message triggers storage for later use, or a database update triggers some further processing.
 
-This article walks through the code for the serverless Functions solution, and describes design decisions, implementation details, and some of the "gotchas" you might encounter.
+To help you explore Azure serverless technologies in Azure, Microsoft developed and tested a serverless application that uses [Azure Functions](https://docs.microsoft.com/azure/azure-functions). This article walks through the code for the serverless Functions solution, and describes design decisions, implementation details, and some of the "gotchas" you might encounter.
 
 ## Explore the solution
 

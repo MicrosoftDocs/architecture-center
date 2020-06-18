@@ -41,7 +41,7 @@ Be aware of compliance issues when working in a customer's environment, and make
 The customer, partner, or your company may pay for the PoC or pilot. Depending on the size of the contract, the ROI, and the cost of sale, one group may cover it all, or a combination of all three parties may cover the cost. Ensure that your company or customer has some investment in the PoC or pilot. If they don't, this can be a red flag signaling that your company or customer doesn't yet see value in the solution.
 
 ## PoC and pilot process
-The Technical Decision Maker (TDM) is responsible for driving an adoption decision. The TDM is responsible for ensuring that the right partners and resources are involved in a PoC or pilot. As a TDM, ensure that you are aware of the partners in your product and service area or region. Be aware of their key service offerings around your product service area.
+The Technical Decision Maker (TDM) is responsible for driving an adoption decision. The TDM is responsible for ensuring that the right partners and resources are involved in a PoC or pilot. As a TDM, make sure you're aware of the partners in your product and service area or region. Be aware of their key service offerings around your product service area.
 
 ### Planning
 Consider the following health checks:
@@ -58,7 +58,7 @@ Do the following tasks:
 - Present PoC or pilot health status.
 - Fulfill technical prerequisites.
 - Define the go/no go decision.
-- Create final a project plan specification.
+- Create a final project plan specification.
 
 ### Execution
 For the execution phase:
@@ -80,8 +80,8 @@ During the debriefing phase, consider:
 - Corrections or extensions of PoC or pilot guidance.
 - Archiving of valuable deliverables.
 
-### Change management
-Change management is the practice of administering changes to avoid errors and minimize impact, by using tested methods and techniques.
+## Change management
+Change management uses tested methods and techniques to avoid errors and minimize impact when administering change.
 
 Ideally, a pilot includes a cross-section of users, to address any potential issues or problems that arise. Users may be comfortable and familiar with their old technology, and have difficulty moving into new technical solutions. Change management keeps this in mind, and helps the user understand the reasons behind the change and the impact the change will make.
 
@@ -99,6 +99,6 @@ To move forward with the exercise 'validate and commit the serverless adoption',
 - [Plan technical trainings for the project team](./technical-training.md)
 - [Code a technical implementation with the team or customer](./code-with.md)
 
-### Related resources
-Prosci® change management training (http://portal.prosci.com).
+## Related resources
+See [Prosci® change management training](http://portal.prosci.com).
 

@@ -63,7 +63,7 @@ Every Azure Functions app relies on Azure Storage for operations such as managin
 
 ### Identify network design considerations
 
-Networking options let the Functions app restrict access, or access resources without using internet-routable addresses. The hosting plans have different levels of network isolation available. Choose the option that best meets network isolation requirements. For more information, see [Azure Functions networking options](https://docs.microsoft.com/azure/azure-functions/functions-networking-options).
+Networking options let the Functions app restrict access, or access resources without using internet-routable addresses. The hosting plans offer different levels of network isolation. Choose the option that best meets your network isolation requirements. For more information, see [Azure Functions networking options](https://docs.microsoft.com/azure/azure-functions/functions-networking-options).
 
 ## Production
 
