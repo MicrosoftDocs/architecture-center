@@ -64,8 +64,8 @@ Learning paths about serverless apps and Azure Functions include:
 
 To move forward with the exercise 'validate and commit the serverless adoption', see the following resources:
 
-- [Execute an application assessment](./application-assessment.md)
-- [Promote a technical workshop](./technical-training.md)
-- [Conduct architectural design session(s)](./ads.md)
-- [Identify and execute a PoC or Pilot project](./poc-pilot.md)
-- [Deliver a technical implementation with the team or customer](./code-with.md)
+- [Execute an application assessment]application-assessment.md)
+- [Promote a technical workshop]technical-training.md)
+- [Conduct architectural design session(s)]ads.md)
+- [Identify and execute a PoC or Pilot project]poc-pilot.md)
+- [Deliver a technical implementation with the team or customer]code-with.md)

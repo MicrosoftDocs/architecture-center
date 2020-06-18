@@ -14,6 +14,11 @@ ms.custom:
 
 Examine patterns and practices of serverless application development, configure DevOps pipelines, and implement site reliability engineering (SRE) best practices.
 
+For detailed information about serverless architectures and Azure Functions, see:
+- [Serverless apps: Architecture, patterns, and Azure implementation](https://aka.ms/serverless-ebook)
+- [Azure Serverless Computing Cookbook](https://azure.microsoft.com/resources/azure-serverless-computing-cookbook)
+- [Example serverless reference architectures](reference-architectures.md)
+
 ## Planning
 To plan app development and deployment:
 
@@ -21,14 +26,9 @@ To plan app development and deployment:
 2. Structure projects to support Azure Functions app development.
 3. Identify app triggers, bindings, and configuration requirements.
 
-For detailed information about serverless architectures and Azure Functions, see:
-- [Serverless apps: Architecture, patterns, and Azure implementation](https://aka.ms/serverless-ebook)
-- [Azure Serverless Computing Cookbook](https://azure.microsoft.com/resources/azure-serverless-computing-cookbook)
-- [Example serverless reference architectures](./reference-architectures.md)
-
 ### Understand event-driven architecture
 A different event triggers every function in a serverless Functions project. For more information about event-driven architectures, see:
-- [Event-driven architecture style](../../guide/architecture-styles/event-driven.md).
+- [Event-driven architecture style](../guide/architecture-styles/event-driven.md).
 - [Event-driven design patterns to enhance existing applications using Azure Functions](https://mybuild.techcommunity.microsoft.com/sessions/77062)
 
 ### Prepare development environment
@@ -58,6 +58,10 @@ Functions follow the single responsibility principle: do only one thing. For mor
 
 ### Use Durable Functions for stateful workflows
 Durable Functions in Azure Functions let you define stateful workflows in a serverless environment by writing *orchestrator functions*, and stateful entities by writing *entity functions*. Durable Functions manage state, checkpoints, and restarts, allowing you to focus on business logic. For more information, see [What are Durable Functions](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-overview).
+
+### Understand and address cold starts
+
+If the number of serverless host instances scales down to zero, the next request has the added latency of restarting the Function app, called a *cold start*. To minimize the performance impact of cold starts, reduce dependencies that the Functions app needs to load on startup, and use as few large, synchronous calls and operations as possible. For more information about autoscaling and cold starts, see [Serverless Functions operations](functions-app-operations.md).
 
 ### Manage application secrets
 Don't store credentials in application code. To use Azure Key Vault with Azure Functions to store and retrieve keys and credentials, see [Use Key Vault references for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
@@ -117,7 +121,7 @@ Site Reliability Engineering (SRE) is a proven approach to maintaining crucial s
 ## Next steps
 
 For hands-on serverless Functions app development and deployment walkthroughs, see:
-- [Serverless Functions code walkthrough](../../serverless/code.md)
-- [CI/CD for a serverless frontend](../../serverless/guide/serverless-app-cicd-best-practices.md)
+- [Serverless Functions code walkthrough](../serverless/code.md)
+- [CI/CD for a serverless frontend](../serverless/guide/serverless-app-cicd-best-practices.md)
 
 For an engineering playbook to help teams and customers successfully implement serverless Functions projects, see the [Code-With Customer/Partner Engineering Playbook](https://github.com/microsoft/code-with-engineering-playbook).

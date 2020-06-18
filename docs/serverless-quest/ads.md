@@ -28,11 +28,11 @@ Alternative engagements can be a better fit than an ADS:
 - Product briefings may provide better, faster, and lower-cost information about solution options.
 - Demonstrations or hands-on labs might be better for product testing and tryouts.
 - A [proof of concept or pilot project](poc-pilot.md) can demonstrate that a proposed solution is feasible and works to solve the business problem.
-- Online or local partner training helps improve specific skills.
+- Online or local partner [training](technical-training.md) helps improve specific skills.
 
 ## ADS process
 
-![ADS process](./images/ads-process.svg)
+![ADS process](images/ads-process.svg)
 
 ### Planning
 

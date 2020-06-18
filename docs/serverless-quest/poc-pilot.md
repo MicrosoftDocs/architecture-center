@@ -15,19 +15,19 @@ ms.custom:
 When driving a technical and security decision for your company or customer, a *Proof of Concept (PoC)* or *pilot* is an opportunity to deliver evidence that the proposed solution solves the business problems. The PoC or pilot increases the likelihood of a successful adoption.
 
 A PoC:
-- Demonstrates that a business model or idea is feasible and will work to solve the business problem.
-- Usually involves one to three features or capabilities.
-- Can be in one or multiple technologies.
-- Is usually geared toward a particular scenario, and proves what the customer needs to know to make the technical or security decision.
-- Is used only as a demonstration. A PoC will not go into production.
-- Is IT-driven and enablement-driven.
+- Demonstrates that a business model or idea is feasible and will work to solve the business problem
+- Usually involves one to three features or capabilities
+- Can be in one or multiple technologies
+- Is usually geared toward a particular scenario, and proves what the customer needs to know to make the technical or security decision
+- Is used only as a demonstration and won't go into production
+- Is IT-driven and enablement-driven
 
 A pilot:
-- Is a test run or trial of a proposed action or product.
-- Lasts longer than a PoC, often weeks or months.
-- Has a higher return on investment (ROI) than a PoC.
-- Builds in a pre-production or trial environment, with the intent that it will then go into production.
-- Is adoption-driven and consumption-driven.
+- Is a test run or trial of a proposed action or product
+- Lasts longer than a PoC, often weeks or months
+- Has a higher return on investment (ROI) than a PoC
+- Builds in a pre-production or trial environment, with the intent that it will then go into production
+- Is adoption-driven and consumption-driven
 
 ## PoC and pilot best practices
 
@@ -72,13 +72,13 @@ For the execution phase:
 
 ### Debriefing
 During the debriefing phase, consider:
-- Whether criteria were met or not met.
-- Stakeholder investment.
-- Initiating deployment.
-- Finding a partner and training.
-- Lessons learned.
-- Corrections or extensions of PoC or pilot guidance.
-- Archiving of valuable deliverables.
+- Whether criteria were met or not met
+- Stakeholder investment
+- Initiating deployment
+- Finding a partner and training
+- Lessons learned
+- Corrections or extensions of PoC or pilot guidance
+- Archiving of valuable deliverables
 
 ## Change management
 Change management uses tested methods and techniques to avoid errors and minimize impact when administering change.
@@ -93,12 +93,12 @@ The pilot includes a detailed follow up through surveys or focus groups. The fee
 
 To move forward with the exercise 'validate and commit the serverless adoption', see the following resources:
 
-- [Execute an application assessment](./application-assessment.md)
-- [Promote a technical workshop](./technical-training.md)
-- [Conduct architectural design session(s)](./ads.md)
-- [Plan technical trainings for the project team](./technical-training.md)
-- [Code a technical implementation with the team or customer](./code-with.md)
+- [Execute an application assessment]application-assessment.md)
+- [Promote a technical workshop]technical-training.md)
+- [Conduct architectural design session(s)]ads.md)
+- [Plan technical trainings for the project team]technical-training.md)
+- [Code a technical implementation with the team or customer]code-with.md)
 
 ## Related resources
-See [Prosci® change management training](http://portal.prosci.com).
+See [Prosci® change management training](https://www.prosci.com/solutions/training-programs/virtual-change-management-certification-program).
 

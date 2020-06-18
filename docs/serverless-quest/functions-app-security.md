@@ -83,7 +83,7 @@ A common challenge when building cloud applications is how to manage credentials
 
 For more information, see [Use Key Vault references for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
 
-Managed identities let Function apps access resources like key vaults and storage accounts without requiring specific access keys or connection strings. A full audit trail in the logs displays which identities execute requests to resources. Use role-based access control (RBAC) and managed identities to granularly control exactly what resources Azure Functions applications can access. 
+Managed identities let Function apps access resources like key vaults and storage accounts without requiring specific access keys or connection strings. A full audit trail in the logs displays which identities execute requests to resources. Use RBAC and managed identities to granularly control exactly what resources Azure Functions applications can access. 
 
 For more information, see:
 - [What are managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)

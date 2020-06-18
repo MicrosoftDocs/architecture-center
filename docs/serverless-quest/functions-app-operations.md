@@ -111,7 +111,7 @@ For more information about monitoring and analyzing Azure Functions performance,
 
 To move forward with serverless - Azure Functions adoption, see the following resources:
 
-- [Validate and commit the serverless adoption](./validate-commit-serverless-adoption.md)
-- [Application development and deployment](./application-development.md)
-- [Azure functions app security](./functions-app-security.md)
+- [Validate and commit the serverless adoption]validate-commit-serverless-adoption.md)
+- [Application development and deployment]application-development.md)
+- [Azure functions app security]functions-app-security.md)
 
