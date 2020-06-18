@@ -12,16 +12,16 @@ ms.custom:
 ---
 # Serverless Functions reference architectures
 
-A reference architecture is a template of required components and the technical requirements to implement them. A reference architecture isn't a custom-built solution for a customer, but a high-level solution that was already created, based on extensive experience. Before implementing a solution, use a reference architecture to visualize an ideal technical architecture, then blend and integrate it into your reality. 
+A reference architecture is a template of required components and the technical requirements to implement them. A reference architecture isn't custom-built for a customer solution, but is a high-level scenario based on extensive experience. Before designing a serverless solution, use a reference architecture to visualize an ideal technical architecture, then blend and integrate it into your reality.
 
 ## Common serverless architecture patterns
 
 Common serverless architecture patterns include:
 - Serverless APIs, mobile and web backends.
-- Event and stream processing. Internet of Things (IoT) event and data processing. Big data and machine learning pipelines.
-- Integration and enterprise service bus. Connect line-of-business systems. Publish and subscribe (Pub/Sub) for business events.
-- Automation and digital transformation. Process automation.
-- Middleware. Software-as-a-Service (SaaS) like Dynamics. Big data projects.
+- Event and stream processing, Internet of Things (IoT) data processing, big data and machine learning pipelines.
+- Integration and enterprise service bus to connect line-of-business systems, publish and subscribe (Pub/Sub) to business events.
+- Automation and digital transformation and process automation.
+- Middleware, software-as-a-Service (SaaS) like Dynamics, and big data projects.
 
 <table>
 <tr>
@@ -84,33 +84,21 @@ Common serverless architecture patterns include:
 
 ## Featured serverless reference architectures
 
-The following featured serverless reference architectures walk through specific scenarios.
+The following featured serverless reference architectures walk through specific scenarios. See the articles for architectural diagrams and details.
 
 ### Serverless microservices
-This [serverless microservices reference architecture](https://docs.microsoft.com/samples/azure-samples/serverless-microservices-reference-architecture/serverless-microservices-reference-architecture/) walks you through designing, developing, and delivering the Rideshare application by Relecloud, a fictitious company. You get hands-on instructions for configuring and deploying all the architectural components, with helpful information about each component.
-
-[ ![Serverless web application](images/serverless-mcroservices-macro-architecture.png) ](images/serverless-mcroservices-macro-architecture.png#lightbox)
+The [serverless microservices reference architecture](https://docs.microsoft.com/samples/azure-samples/serverless-microservices-reference-architecture/serverless-microservices-reference-architecture/) walks you through designing, developing, and delivering the Rideshare application by Relecloud, a fictitious company. You get hands-on instructions for configuring and deploying all the architectural components, with helpful information about each component.
 
 ### Serverless web application and event processing with Azure Functions
 This two-part solution describes a hypothetical drone delivery system. Drones send in-flight status to the cloud, which stores these messages for later use. A web application allows users to retrieve these messages to get the latest status of these devices.
 - You can download the code for this solution from [GitHub](https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0).
 - The article [Code walkthrough: Serverless application with Azure Functions](https://docs.microsoft.com/azure/architecture/serverless/code) walks you through the code and the decision processes.
 
-#### Serverless web application
-[ ![Serverless web application](images/serverless-web-application.png) ](images/serverless-web-application.png#lightbox)
-
-#### Serverless event processing
-[ ![Serverless event processing](images/serverless-event-processing.png) ](images/serverless-event-processing.png#lightbox)
-
 ### Event-based cloud automation
 Automating workflows and repetitive tasks on the cloud can dramatically improve a DevOps team's productivity. A serverless model is best suited for event-driven automation scenarios. This [event-based automation reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/cloud-automation) illustrates two cloud automation scenarios: cost center tagging and throttling response.
 
-[ ![Serverless cloud automation](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/_images/cloud-automation.png) ](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/_images/cloud-automation.png#lightbox)
-
 ### Multicloud with Serverless Framework
 The [Serverless Framework architecture](https://docs.microsoft.com/azure/architecture/example-scenario/serverless/serverless-multicloud) describes how the Microsoft Commercial Software Engineering (CSE) team partnered with a global retailer to deploy a highly-available serverless solution across both Azure and Amazon Web Services (AWS) cloud platforms, using the Serverless Framework.
-
-[ ![GitOps Serverless Framework](https://docs.microsoft.com/azure/architecture/example-scenario/serverless/media/multi-cloud-serverless-architecture.png) ](https://docs.microsoft.com/azure/architecture/example-scenario/serverless/media/multi-cloud-serverless-architecture.png)#lightbox
 
 ## More serverless Functions reference architectures
 
@@ -156,12 +144,11 @@ The following sections list other serverless and Azure Functions-related referen
 - [Tier Applications & Data for Analytics](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/tiered-data-for-analytics)
 - [Operational analysis and driving process efficiency](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-use-cases#operational-analysis-and-driving-process-efficiency)
 
-### Internet of Things (IoT)
+### IoT
 - [Azure IoT reference (SQL DB)](https://docs.microsoft.com/azure/architecture/reference-architectures/iot-with-sql)
 - [Azure IoT reference (Cosmos DB)](https://docs.microsoft.com/azure/architecture/reference-architectures/iot)
 - [IoT using Cosmos DB](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-using-cosmos-db)
 - [Facilities management powered by mixed reality and IoT](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot)
-- [IoT Reliable Edge Relay]()
 - [Complementary Code Pattern for Azure IoT Edge Modules & Cloud Applications](https://docs.microsoft.com/samples/azure-samples/iot-edge-complementary-code/complementary-code-pattern-for-azure-iot-edge-modules--cloud-applications/)
 
 ### Gaming
