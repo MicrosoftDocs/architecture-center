@@ -848,7 +848,7 @@ items:
             href: service-fabric/migrate-from-cloud-services.md
     - name: Serverless applications
       items:
-      - name: Serverless architectures with Functions
+      - name: Serverless Functions scenario examples
         href: example-scenario/serverless-quest/reference-architectures.md
       - name: Serverless Functions adoption guide
         items:
@@ -856,16 +856,14 @@ items:
           href: example-scenario/serverless-quest/index.md
         - name: Planning
           items:
-          - name: Serverless adoption assessment
-            href: example-scenario/serverless-quest/application-assessment.md
           - name: Adoption decision and planning
             href: example-scenario/serverless-quest/validate-commit-serverless-adoption.md
+          - name: Serverless adoption assessment
+            href: example-scenario/serverless-quest/application-assessment.md
+          - name: Technical workshops and training
+            href: example-scenario/serverless-quest/technical-training.md
           - name: Proof of concept or pilot
             href: example-scenario/serverless-quest/poc-pilot.md
-          - name: Technical training
-            href: example-scenario/serverless-quest/technical-training.md
-          - name: Technical workshops
-            href: example-scenario/serverless-quest/technical-training.md
           - name: Architectural design sessions
             href: example-scenario/serverless-quest/ads.md
         - name: Development and deployment

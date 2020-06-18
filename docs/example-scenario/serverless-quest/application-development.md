@@ -17,101 +17,106 @@ Examine patterns and practices of serverless application development, configure 
 ## Planning
 Use these guidelines and resources to plan app development and deployment.
 
-1. Prepare development environment and set up workflow
-2. Structure projects to support Azure Functions app development
-3. Identify app triggers, bindings, and configuration requirements
+1. Prepare development environment and set up workflow.
+2. Structure projects to support Azure Functions app development.
+3. Identify app triggers, bindings, and configuration requirements.
 
-**Review serverless scenarios and technologies**
-A different event triggers every Function in a serverless project. For detailed information about serverless architectures and Azure Functions, see:
+For detailed information about serverless architectures and Azure Functions, see:
 - [Serverless apps: Architecture, patterns, and Azure implementation](https://aka.ms/serverless-ebook)
 - [Azure Serverless Computing Cookbook](https://azure.microsoft.com/resources/azure-serverless-computing-cookbook)
-- [Event-driven design patterns to enhance existing applications using Azure Functions](https://mybuild.techcommunity.microsoft.com/sessions/77062)
 - [Example serverless reference architectures](./reference-architectures.md)
 
-**Define development language**
-Decide on the language to use. Azure Functions supports C#, F#, PowerShell, JavaScript, TypeScript, Java, and Python. All of a project's Functions must be in the same language. For more information, see [Supported languages in Azure Functions](https://docs.microsoft.com/azure/azure-functions/supported-languages).
+A different event triggers every Function in a serverless project. For more information about event-driven architectures, see:
+- [Event-driven architecture style](../guide/architecture-styles/event-driven.md).
+- [Event-driven design patterns to enhance existing applications using Azure Functions](https://mybuild.techcommunity.microsoft.com/sessions/77062)
 
-**Prepare development environment**
-Set up development workflow and environment with the tools to create Functions. For details about development tools and Functions code project structure, see:
+### Prepare development environment
+Set up your development workflow and environment with the tools to create Functions. For details about development tools and Functions code project structure, see:
 - [Code and test Azure Functions locally](https://docs.microsoft.com/azure/azure-functions/functions-develop-local)
 - [Develop Azure Functions by using Visual Studio Code](https://docs.microsoft.com/azure/azure-functions/functions-develop-vs-code)
 - [Develop Azure Functions using Visual Studio](https://docs.microsoft.com/azure/azure-functions/functions-develop-vs)
 - [Work with Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local)
 - [Folder structure](https://docs.microsoft.com/azure/azure-functions/functions-reference#folder-structure)
 
-**Define triggers and bindings**
-A trigger invokes a Function, and a Function must have exactly one trigger. Binding to a Function declaratively connects another resource to the Function. For more information about Functions triggers and bindings, see:
+## Development
+
+Decide on the development language to use. Azure Functions supports C#, F#, PowerShell, JavaScript, TypeScript, Java, and Python. All of a project's Functions must be in the same language. For more information, see [Supported languages in Azure Functions](https://docs.microsoft.com/azure/azure-functions/supported-languages).
+
+### Define triggers and bindings
+A trigger invokes a Function, and every Function must have exactly one trigger. Binding to a Function declaratively connects another resource to the Function. For more information about Functions triggers and bindings, see:
 - [Azure Functions triggers and bindings concepts](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings)
 - [Execute an Azure Function with triggers](https://docs.microsoft.com/learn/modules/execute-azure-function-with-triggers/)
 - [Chain Azure Functions together using input and output bindings](https://docs.microsoft.com/learn/modules/chain-azure-functions-data-using-bindings/)
 
-**Create the Functions application** 
+### Create the Functions application
 Functions follow the single responsibility principle: do only one thing. For more information about Functions development, see:
 - [Azure Functions developers guide](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 - [Create serverless applications](https://docs.microsoft.com/learn/paths/create-serverless-applications/)
 - [Strategies for testing your code in Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-test-a-function)
-- [General best practices](https://docs.microsoft.com/azure/azure-functions/functions-best-practices#general-best-practices)
+- [Functions best practices](https://docs.microsoft.com/azure/azure-functions/functions-best-practices#general-best-practices)
 
-**For stateful workflows, use Durable Functions** 
+### For stateful workflows, use Durable Functions
 Durable Functions in Azure Functions let you define stateful workflows in a serverless environment by writing *orchestrator functions*, and stateful entities by writing *entity functions*. Durable Functions manage state, checkpoints, and restarts, allowing you to focus on business logic. For more information, see [What are Durable Functions?](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-overview).
 
-**Define deployment technology**
-Decide on deployment technology, and organize scheduled releases. For more information about how Functions app deployment enables reliable, zero-downtime upgrades, see [Deployment technologies in Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies).
-
-**Manage application secrets**
+### Manage application secrets
 Don't store credentials in application code. To use Azure Key Vault with Azure Functions to store and retrieve keys and credentials, see [Use Key Vault references for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
 
 For more information about serverless Functions application security, see [Serverless Functions security](functions-app-security.md).
 
 ## Deployment
 
-To prepare the serverless Functions application for production, make sure you can:
+To prepare serverless Functions application for production, make sure you can:
 
-- Define application resource requirements
+- Fulfill application resource requirements
 - Monitor all aspects of the application
 - Diagnose and troubleshoot application issues
 - Deploy new application versions without affecting production systems
 
-**Avoid using too many resource connections.** 
-Functions in a Functions app share resource, including connections to HTTPS, databases, and services such as Azure Storage. When many Functions are running concurrently, it's possible to run out of available connections. For more information, see [Manage connections in Azure Functions](https://docs.microsoft.com/azure/azure-functions/manage-connections).
+### Define deployment technology
+Decide on deployment technology, and organize scheduled releases. For more information about how Functions app deployment enables reliable, zero-downtime upgrades, see [Deployment technologies in Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies).
 
-**Configure logging, application monitoring, and alerting.** 
-Application Insights in Azure Monitor collects log, performance, and error data. Application Insights automatically detects performance anomalies, and includes powerful analytics tools to help diagnose issues and understand how functions are used. For more information, see:
+### Avoid using many resource connections
+Functions in a Functions app share resources, including connections to HTTPS, databases, and services such as Azure Storage. When many Functions are running concurrently, it's possible to run out of available connections. For more information, see [Manage connections in Azure Functions](https://docs.microsoft.com/azure/azure-functions/manage-connections).
+
+### Configure logging, application monitoring, and alerting
+Application Insights in Azure Monitor collects log, performance, and error data. Application Insights automatically detects performance anomalies, and includes powerful analytics tools to help diagnose issues and understand function usage. 
+
+For more information about application monitoring and logging, see:
 - [Monitor Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
 - [Monitoring Azure Functions with Azure Monitor Logs](https://docs.microsoft.com/azure/azure-functions/functions-monitor-log-analytics)
 - [Application Insights for Azure Functions supported features](https://docs.microsoft.com/azure/azure-monitor/app/azure-functions-supported-features)
 
-**Diagnose and troubleshoot issues with your function app.** 
-Learn how to effectively leverage diagnostics for troubleshooting in proactive and problem-first scenarios. For more information, see:
+### Diagnose and troubleshoot issues
+Learn how to effectively use diagnostics for troubleshooting in proactive and problem-first scenarios. For more information, see:
 - [Keep your Azure App Service and Azure Functions apps healthy and happy](https://mybuild.techcommunity.microsoft.com/sessions/77797)
 - [Troubleshoot error: "Azure Functions Runtime is unreachable"](https://docs.microsoft.com/azure/azure-functions/functions-recover-storage-account)
 
-**Deploy applications using an automated pipeline and DevOps.** 
-Full automation of all steps from code commit to production deployment lets teams focus on building code, and removes the overhead and potential human error of manual steps. Deploying new code is quicker and less risky, helping teams become more agile, more productive, and more confident about their code. For more information, see:
+### Deploy applications using an automated pipeline and DevOps
+Full automation of all steps from code commit to production deployment lets teams focus on building code, and removes the overhead and potential human error of manual steps. Deploying new code is quicker and less risky, helping teams become more agile, more productive, and more confident about their code. 
+
+For more information about DevOps and continuous deployment (CD), see:
 - [Continuous deployment for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment)
 - [Continuous delivery by using Azure DevOps](https://docs.microsoft.com/azure/azure-functions/functions-how-to-azure-devops)
 - [Continuous delivery by using GitHub Action](https://docs.microsoft.com/azure/azure-functions/functions-how-to-github-actions)
 
-## Optimize and scale
+## Optimization
 
-Once the application is in production, optimize workflow and prepare the application and team for scaling. Implement site reliability engineering (SRE) to maintain system and application reliability, while still iterating on new features and versions.
+Once the application is in production, prepare for scaling and implement site reliability engineering (SRE).
 
-**Ensure optimal scalability of the Function app** 
-There are several factors that impact scalability of your function app. For more information, see:
+### Ensure optimal scalability
+For information about factors that impact Functions app scalability, see:
 - [Scalability best practices](https://docs.microsoft.com/azure/azure-functions/functions-best-practices#scalability-best-practices)
 - [Performance and scale in Durable Functions](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-perf-and-scale)
 
-**Implement site reliability engineering (SRE) practices.** 
+### Implement SRE practices
 Site Reliability Engineering (SRE) is a proven approach to maintaining crucial system and application reliability, while iterating at the speed the marketplace demands. For more information, see:
 - [Introduction to Site Reliability Engineering (SRE)](https://docs.microsoft.com/learn/modules/intro-to-site-reliability-engineering)
 - [DevOps at Microsoft: Game streaming SRE](https://azure.microsoft.com/resources/devops-at-microsoft-game-streaming-sre)
 
 ## Next steps
 
-For hands on walkthroughs of serverless Functions app development and deployment, see:
+For hands-on serverless Functions app development and deployment walkthroughs, see:
+- [Serverless Functions code walkthrough](../../serverless/code.md)
+- [CI/CD for a serverless frontend](../../serverless/guide/serverless-app-cicd-best-practices.md)
 
-To move forward with serverless Azure Functions adoption, see the following resources:
-
-- [Azure functions app operations](./functions-app-operations.md)
-- [Azure functions app security](./functions-app-security.md)
-
+For an engineering playbook to help teams and customers successfully implement serverless Functions projects, see the [Code-With Customer/Partner Engineering Playbook](https://github.com/microsoft/code-with-engineering-playbook)

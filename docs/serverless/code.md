@@ -627,11 +627,11 @@ For more information about authentication and authorization in this application,
 
 ## Next steps
 
-- Once you get a feel for how this reference solution works, learn best practices and recommendations for similar solutions.
-  - For a serverless event ingestion solution, see [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.md). 
-  - For a serverless web app, see [Serverless web application on Azure](../reference-architectures/serverless/web-app.md).
+Once you get a feel for how this reference solution works, learn best practices and recommendations for similar solutions.
+- For a serverless event ingestion solution, see [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.md). 
+- For a serverless web app, see [Serverless web application on Azure](../reference-architectures/serverless/web-app.md).
 
-- Azure Functions is just one Azure compute option. For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree.md).
+Azure Functions is just one Azure compute option. For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree.md).
 
 ## Related resources
 - For in-depth discussion on developing serverless solutions on premises as well as in the cloud, read [Serverless apps: Architecture, patterns, and Azure implementation](https://docs.microsoft.com/dotnet/standard/serverless-architecture).

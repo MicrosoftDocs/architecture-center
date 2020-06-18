@@ -1,7 +1,7 @@
 ---
-title: Validate and commit the serverless adoption
+title: Plan serverless Functions adoption
 titleSuffix: Azure Example Scenarios
-description: Validate and commit the serverless adoption with Azure Functions
+description: Perform activities to validate, commit, and plan serverless Azure Functions adoption.
 author: rogeriohc
 ms.date: 04/28/2020
 ms.topic: example-scenario
@@ -10,26 +10,30 @@ ms.subservice: example-scenario
 ms.custom:
 - fcp
 ---
-# Validate and commit the serverless adoption
-Perform application assessment, conduct or attend technical workshops that foster learning and adoption, identify a proof of concept (PoC) or pilot project to execute, conduct architectural designs sessions to validate requirements.
-As you get started, the checklist and resources below will help you validate and commit the serverless adoption. You should be able to answer these questions:
-- Have you verified the main characteristics of the application? 
-- How suitable is this application for serverless technologies?
-- Is the technical team prepared to use serverless technologies?
-- Have you validated business requirements and transformed them into functional and non-functional requirements?
+# Plan serverless Functions adoption
 
-| Checklist | Resources |
-|------------------------------------------------------------------|-----------------------------------------------------------------|
-| **Execute an application assessment.** Certify if the main aspects of the application are being evaluated and to determine how complex and risky it is to adopt rearchitect (application modernization) or rebuild (new cloud-native application) strategies. | [Application assessment](./application-assessment.md) |
-| **Promote a technical workshop.** Host a serverless workshop that foster Azure Functions learning and adoption using presentation decks, trainer and student guides, and hands-on lab guides. | [Technical Workshop](./technical-training.md) |
-| **Conduct architectural design session(s).** An architectural design session (ADS) is necessary when you need an in-depth discussion on how a new solution will blend into the environment. ADSs validate and transform business requirements in functional and no-functional requirements. | [Architectural Design Sessions](./ads.md) </br> [Serverless reference architectures](./reference-architectures.md) |
-| **Identify and execute a PoC or Pilot project.** Proof of Concept (PoC) or pilot is an opportunity to deliver evidence that the Azure Functions will solve your business problems. With the right technical resource, you can identify pilot project and execute PoC to modernize an existing app or build a new cloud-native app. | [PoC or Pilot](./poc-pilot.md) |
-| **Plan technical trainings for the project team.** Ensure application team completes requisite technical trainings for app modernization or cloud native apps. | [Technical training plan](./technical-training.md) |
-| **Deliver a technical implementation with the team or customer.** Code-with enable teams to be successful with building and operating their application. Deliver a technical implementation with the team or customer to modernize and/or build a new application to their specification can accelerate a deployment to production environment. | [Deliver Technical Implementation](./code-with.md) |
+To plan serverless Azure Functions adoption, a technical decision maker (TDM) or architect:
+- Verifies an application's characteristics and business requirements
+- Determines the app's suitability for serverless Azure Functions adoption
+- Transforms business requirements into functional and other requirements
+
+Planning activities also include assessing technical team readiness, providing or attending workshops and training, and conducting design reviews, proofs of concept, pilots, and technical implementations.
+
+TDMs and architects may perform one or more of the following activities:
+
+- **Execute an application assessment.** Evaluate the main aspects of the application to determine how complex and risky it is to rearchitect through application modernization, or rebuild a new cloud-native application. See [Application assessment](./application-assessment.md).
+
+- **Attend or promote technical workshops and training.** You can host a Serverless workshop or CloudHack, or use many other training and learning opportunities for serverless technologies, Azure Functions, app modernization, and cloud-native apps. See [Technical workshops and training](./technical-training.md).
+
+- **Identify and execute a Proof of Concept (PoC), pilot, or technical implementation.** Deliver a PoC, pilot, or technical implementation to provide evidence that serverless Azure Functions can solve a team's business problems. Showing teams how to modernize or build new cloud-native applications to their specifications can accelerate deployment to production. See [PoC or Pilot](./poc-pilot.md) and [Code-with engineering playbook](./code-with.md).
+
+- **Conduct architectural design sessions.** An architectural design session (ADS) is an in-depth discussion on how a new solution will blend into the environment. ADSs validate and transform business requirements to functional and other requirements. See [Architectural design sessions](./ads.md).
+
 
 ## Next steps
+For example scenarios that use serverless architectures with Azure Functions, see [Serverless reference architectures](./reference-architectures.md).
 
-To move forward with serverless - Azure Functions adoption, see the following resources:
+To move forward with serverless Azure Functions adoption, see the following resources:
 
 - [Application development and deployment](./application-development.md)
 - [Azure functions app operations](./functions-app-operations.md)
