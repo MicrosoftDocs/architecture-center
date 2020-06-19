@@ -1,12 +1,12 @@
 ---
 title: Technical workshops and training
 titleSuffix: Azure Example Scenarios
-description: Use these resources to help understand and adopt serverless technologies with Azure Functions.
+description: Use these workshops and training resources to help understand and adopt serverless technologies with Azure Functions.
 author: rogeriohc
 ms.date: 06/17/2020
-ms.topic: example-scenario
+ms.topic: guide
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: reference-architecture
 ms.custom:
 - fcp
 ---
@@ -26,7 +26,7 @@ Workshops related to application development workloads include:
 - [Continuous delivery in Azure DevOps](https://github.com/Microsoft/MCW-Continuous-Delivery-in-Azure-DevOps). Set up and configure continuous delivery (CD) in Azure to reduce manual errors, using Azure Resource Manager templates, Azure DevOps, and Git repositories for source control.
 
 ## Instructor-led training
-[Course AZ-204: Developing solutions for Microsoft Azure](https://docs.microsoft.com/learn/certifications/courses/az-204t00) teaches developers how to create end-to-end solutions in Microsoft Azure. Students learn how to implement Azure compute solutions, create Azure Functions, implement and manage web apps, develop solutions utilizing Azure storage, implement authentication and authorization, and secure their solutions by using Azure Key Vault and managed identities. Students also learn to connect to and consume Azure and third-party services, and include event- and message-based models in their solutions. The course also covers monitoring, troubleshooting, and optimizing Azure solutions.
+[Course AZ-204: Developing solutions for Microsoft Azure](https://docs.microsoft.com/learn/certifications/courses/az-204t00) teaches developers how to create end-to-end solutions in Microsoft Azure. Students learn how to implement Azure compute solutions, create Azure Functions, implement and manage web apps, develop solutions utilizing Azure Storage, implement authentication and authorization, and secure their solutions by using Azure Key Vault and managed identities. Students also learn to connect to and consume Azure and third-party services, and include event- and message-based models in their solutions. The course also covers monitoring, troubleshooting, and optimizing Azure solutions.
 
 ## Serverless OpenHack
 The Serverless [OpenHack](https://openhack.microsoft.com) simulates a real-world scenario where a company wants to utilize serverless services to build and release an API to integrate into their distributor's application. This OpenHack lets attendees quickly build and deploy Azure serverless solutions with cutting-edge compute services like Azure Functions, Logic Apps, Event Grid, Service Bus, Event Hubs, and Cosmos DB. The OpenHack also covers related technologies like API Management, Azure DevOps or GitHub, Application Insights, Dynamics 365/Office 365, and Cognitive APIs.

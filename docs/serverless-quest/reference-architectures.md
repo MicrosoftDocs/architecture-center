@@ -4,9 +4,9 @@ titleSuffix: Azure Example Scenarios
 description: Learn about serverless reference architectures.
 author: rogeriohc
 ms.date: 06/18/2020
-ms.topic: example-scenario
+ms.topic: guide
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: reference-architecture
 ms.custom:
 - fcp
 ---
@@ -68,7 +68,7 @@ Common serverless architecture patterns include:
 </tr>
 <tr>
     <td style="width: 250px;">
-        <h3>Automation of scheduled tasks</h3>
+        <h3>Scheduled task automation</h3>
         <p>Financial services scenario: The app analyzes a customer database for duplicate entries every 15 minutes, to avoid sending out multiple communications to the same customers.</p>
     </td>
         <td style="vertical-align: middle;"><img src="./images/automation-scheduled-tasks.png" width="550"/></td>

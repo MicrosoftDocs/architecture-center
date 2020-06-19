@@ -4,9 +4,9 @@ titleSuffix: Azure Example Scenarios
 description: Application assessment.
 author: rogeriohc
 ms.date: 04/28/2020
-ms.topic: example-scenario
+ms.topic: guide
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: reference-architecture
 ms.custom:
 - fcp
 ---
@@ -16,14 +16,14 @@ ms.custom:
  
 Rationalization methods include:
 
-- Rehost - Also known as a *lift and shift* migration, rehost moves a current application to the cloud with minimal change.
-- Refactor - Slightly refactoring an application to fit *platform-as-a-service* (PaaS)-based options can reduce operational costs.
-- Rearchitect - Rearchitect aging applications that aren't compatible with cloud components, or applications that are cloud-compatible, but would realize cost and operational efficiencies by rearchitecting into a cloud-native solution.
-- Rebuild - If the changes or costs to carry an application forward are too great, consider creating a new cloud-native code base. This is especially appropriate for applications that previously met business needs, but are now unsupported or misaligned with current business processes.
+- **Rehost**. Also known as a *lift and shift* migration, rehost moves a current application to the cloud with minimal change.
+- **Refactor**. Slightly refactoring an application to fit *platform-as-a-service* (PaaS)-based options can reduce operational costs.
+- **Rearchitect**. Rearchitect aging applications that aren't compatible with cloud components, or cloud-compatible applications that would realize cost and operational efficiencies by rearchitecting into a cloud-native solution.
+- **Rebuild**. If the changes or costs to carry an application forward are too great, consider creating a new cloud-native code base. Rebuild is especially appropriate for applications that previously met business needs, but are now unsupported or misaligned with current business processes.
 
-Before you decide on an appropriate strategy, carefully analyze the current application to determine the risk and complexity of each method. Consider application lifecycle, technology, performance, operations and monitoring, presentation tier, service tier, integrations tier, data tier, and infrastructure.
+Before you decide on an appropriate strategy, analyze the current application to determine the risk and complexity of each method. Consider application lifecycle, technology, performance, operations and monitoring, presentation tier, service tier, integrations tier, data tier, and infrastructure.
 
-The following checklists evaluate the application to determine how complex and risky it is to rearchitect or rebuild.
+The following checklists evaluate an application to determine the complexity and risk of rearchitecting or rebuilding.
 
 ## Complexity and risk
 Each of the following factors adds to complexity, risk, or both.
@@ -60,11 +60,14 @@ Older applications may require extensive changes to get to the cloud.
 | The app isn't hosted in Windows IIS| ✔ | |
 | The app isn't hosted on Linux| ✔ | |
 | The application is hosted in a web farm, and requires multiple servers to host the web components.| ✔ | ✔ |
+| The application requires third-party software to be installed on the servers.| ✔ | ✔ |
 | The application is hosted in a single datacenter, and operations are performed in a single location.| ✔ | |
 | The application accesses the server's registry.| ✔ | |
+| The application sends emails, and needs access to an SMTP server.| ✔ | |
 | This isn't a .NET application.| ✔ | |
-| The application stores data on a local disk, and requires access to the disk to operate properly.| ✔ | |
-| The application requires third-party software to be installed on the servers.| ✔ | ✔ |
+| The application uses SQL Server as its data store.| ✔ | |
+| The application stores data on local disks, and needs access to the disks to operate properly.| ✔ | |
+| The application uses Windows Services to process asynchronous operations, or needs external services to process data or operations.| ✔ | |
 
 ### Deployment
 When assessing deployment requirements, consider:
@@ -79,8 +82,8 @@ You can reduce deployment risk by storing code under source control in a version
 
 | Factor | Complexity | Risk |
 |------------------------------------------------------------------|---|---|
-| The application code isn't under source control.| | ✔ |
 | Leveraging existing code and data is a #1 priority.| ✔ | ✔ |
+| The application code isn't under source control.| | ✔ |
 | There's no automated build process like Azure DevOps Server or Jenkins.| | ✔ |
 | There's no automated release process to deploy the application.| ✔ | ✔ |
 | The application has a Service Level Agreement (SLA) that dictates the amount of expected downtime.| | ✔ |
@@ -92,16 +95,16 @@ You can reduce deployment risk by storing code under source control in a version
 |------------------------------------------------------------------|---|---|
 | The application doesn't have a well-established instrumentation strategy or standard instrumentation framework.| | ✔ |
 | The application doesn't use monitoring tools, and the operations team doesn't monitor the app's performance.| | ✔ |
-| The application doesn't measure SLA in place, and the operations team doesn't monitor SLA.| | ✔ |
+| The application has measured SLA in place, and the operations team monitor the application's performance.| | ✔ |
 | The application writes to a log store, event log, log file, log database, or Application Insights.| ✔ | |
-| The application doesn't write to a log store.| | ✔ |
-| The application has no disaster recovery (DR) plan, and isn't part of the organization's DR plans.| | ✔ |
+| The application doesn't write to a log store, event log, log file, log database, or Application Insights.| | ✔ |
+| The application isn't part of the organization's disaster recovery plan.| | ✔ |
 
 ### Security
 | Factor | Complexity | Risk |
 |------------------------------------------------------------------|---|---|
 | The application uses Active Directory to authenticate users.| ✔ | ✔ |
-| The organization hasn't configured Azure AD Connect to synchronize local AD with Azure AD.| ✔ | |
+| The organization hasn't yet configured Azure AD, or configured Azure AD Connect to synchronize local AD with Azure AD.| ✔ | |
 | The application requires access to on-premises resources, which will require VPN connectivity from Azure.| ✔ | |
 | The organization hasn't yet configured a VPN connection between Azure and their on-premises environment.| ✔ | ✔ |
 | The application requires a SSL certificate to run.| ✔ | ✔ |
@@ -109,8 +112,8 @@ You can reduce deployment risk by storing code under source control in a version
 ### Results
 Count your application's **Complexity** and **Risk** checkmarks.
 
-- The expected level of complexity to migrate or modernize the application to Azure is: **Total Complexity / 25**
-- The expected risk involved is: **Total Risk / 19**
+- The expected level of complexity to migrate or modernize the application to Azure is: **Total Complexity/25**.
+- The expected risk involved is: **Total Risk/19**.
 
 For both complexity and risk, a score of <0.3 = low, <0.7 = medium, >0.7 = high.
 
@@ -118,7 +121,9 @@ For both complexity and risk, a score of <0.3 = low, <0.7 = medium, >0.7 = high.
 
 To rationalize whether to rehost, refactor, rearchitect, or rebuild your application, consider the following points. Many of these factors also contribute to complexity and risk.
 
-Determine whether the application components can translate directly to Azure. If so, you don't need code changes to move the application to Azure, and you can use rehost or refactor strategies. If not, you need to rewrite code, so you need to rearchitect or rebuild.
+Determine whether the application components can translate directly to Azure. If so, you don't need code changes to move the application to Azure, and could use rehost or refactor strategies. If not, you need to rewrite code, so you need to rearchitect or rebuild.
+
+If the app does need code changes, determine the complexity and extent of the needed changes. Minor changes may allow for rearchitecting, while major changes may require rebuilding.
 
 ### Rehost or refactor
 
@@ -128,25 +133,31 @@ Determine whether the application components can translate directly to Azure. If
 
 ### Rearchitect or rebuild
 
-- If there are applications serving similar needs in your portfolio, it may be an opportunity to rearchitect or rebuild the solution.
+- If there are applications serving similar needs in your portfolio, this may be an opportunity to rearchitect or rebuild the entire solution.
 
 - If you want to [implement multi-tier or microservices architecture](https://docs.microsoft.com/azure/architecture/microservices/migrate-monolith) for a monolithic app, you must rearchitect or rebuild the app. If you don't mind retaining the monolithic structure, you may be able to rehost or refactor.
 
 - If you plan to update the app more often than yearly, if the app has peak or variable usage times, or if you expect the app to handle high traffic, rearchitect or rebuild the app to take advantage of cloud architectures and capabilities.
 
-To decide between rearchitecting or rebuilding, answer the following questions. The largest scoring result indicates your best strategy.
+To decide between rearchitecting or rebuilding, assess the following factors. The largest scoring result indicates your best strategy.
 
 | Factor | Rearchitect | Rebuild |
 |------------------------------------------------------------------|---|---|
-| Does the application needs major, complex code changes to run in Azure?| | ✔ |
-| Do you want to move a monolithic application to multi-tier architecture?| ✔| |
-| Do you expect this app to add breakthrough capabilities like AI, IoT, or bots?| | ✔ |
-| Among functionality, cost, infrastructure, and processes, is functionality is the least efficient aspect of this application?| | ✔ |
-| Does the application require third-party software installed on the servers?| ✔ | |
-| Does the application access the server's registry?| ✔ | |
-| Does the application send emails and need access to an SMTP server?| ✔ | |
-| Does the application use SQL Server as its data store?| ✔ | |
-| Does the application store data on local disks, and need access to the disks to operate properly?| ✔ | |
-| Does the application use Windows Services to process asynchronous operations, or need external services to process data or operations?| ✔ | |
-| Does the web application save its session state in process, rather than an external data store?| ✔ | |
+| There are other applications serving similar needs in your portfolio.| ✔ | ✔ |
+| The application needs minor code changes to run in Azure.| ✔ | |
+| The application needs major, complex code changes to run in Azure.| | ✔ |
+| It's important to leverage existing code.| ✔ | |
+| You want to move a monolithic application to multi-tier architecture.| ✔| |
+| You want to move a monolithic application to a microservices architecture.| ✔ | ✔ |
+| You expect this app to add breakthrough capabilities like AI, IoT, or bots.| | ✔ |
+| Among functionality, cost, infrastructure, and processes, functionality is the least efficient aspect of this application.| | ✔ |
+| The application requires third-party software installed on the servers.| ✔ | |
+| The application accesses the server's registry.| ✔ | |
+| The application sends emails and needs access to an SMTP server.| ✔ | |
+| The application uses SQL Server as its data store.| ✔ | |
+| The application stores data on local disks, and needs access to the disks to run properly.| ✔ | |
+| The application uses Windows services to process asynchronous operations, or needs external services to process data or operations.| ✔ | |
+| A web application saves its session state in process, rather than to an external data store.| ✔ | |
+| The app has peak and variable usage times and loads.| ✔ | ✔ |
+| You expect the application to handle high traffic.| ✔ | ✔ |
 

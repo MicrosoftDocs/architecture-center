@@ -1,18 +1,18 @@
 ---
 title: Conduct a Proof of Concept or pilot
 titleSuffix: Azure Example Scenarios
-description: Conduct a Proof of Concept or pilot of serverless adoption with Azure Functions.
+description: Conduct a Proof of Concept or pilot and manage change during serverless adoption with Azure Functions.
 author: rogeriohc
 ms.date: 06/17/2020
-ms.topic: example-scenario
+ms.topic: guide
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: reference-architecture
 ms.custom:
 - fcp
 ---
 # Proof of Concept or pilot
 
-When driving a technical and security decision for your company or customer, a *Proof of Concept (PoC)* or *pilot* is an opportunity to deliver evidence that the proposed solution solves the business problems. The PoC or pilot increases the likelihood of a successful deployment.
+When driving a technical and security decision for your company or customer, a *Proof of Concept (PoC)* or *pilot* is an opportunity to deliver evidence that the proposed solution solves the business problems. The PoC or pilot increases the likelihood of a successful adoption.
 
 A PoC:
 - Demonstrates that a business model or idea is feasible and will work to solve the business problem
@@ -44,9 +44,10 @@ The customer, partner, or your company may pay for the PoC or pilot. Depending o
 The Technical Decision Maker (TDM) is responsible for driving an adoption decision. The TDM is responsible for ensuring that the right partners and resources are involved in a PoC or pilot. As a TDM, make sure you're aware of the partners in your product and service area or region. Be aware of their key service offerings around your product service area.
 
 ### Planning
-Consider the following health checks:
+Consider the following health questions:
 - Do you have a good technical plan, including key decision makers and Microsoft potential?
-- Can you deliver the needed assurance without a PoC, or switch to a pilot?
+- Can you deliver the needed assurance without a PoC?
+- Should you switch to a pilot?
 - What are the detailed scope and decision criteria your team or customer agreed to?
 - If you meet the criteria, will your company or customer buy or deploy the solution?
 

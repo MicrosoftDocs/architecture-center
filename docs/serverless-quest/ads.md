@@ -4,9 +4,9 @@ titleSuffix: Azure Example Scenarios
 description: Learn about Architectural Design Sessions.
 author: rogeriohc
 ms.date: 04/28/2020
-ms.topic: example-scenario
+ms.topic: guide
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: reference-architecture
 ms.custom:
 - fcp
 ---

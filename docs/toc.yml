@@ -852,11 +852,11 @@ items:
         href: serverless-quest/serverless-overview.md
       - name: Serverless Functions examples
         href: serverless-quest/reference-architectures.md
-      - name: Plan for serverless adoption
+      - name: Plan for serverless architecture
         items:
-        - name: Adoption decision and planning
+        - name: Serverless Functions decision and planning
           href: serverless-quest/validate-commit-serverless-adoption.md
-        - name: Serverless adoption assessment
+        - name: Serverless application assessment
           href: serverless-quest/application-assessment.md
         - name: Technical workshops and training
           href: serverless-quest/technical-training.md

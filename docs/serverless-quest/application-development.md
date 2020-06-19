@@ -3,16 +3,16 @@ title: Serverless Functions app development and deployment
 titleSuffix: Azure Example Scenarios
 description: Examine patterns and practices of serverless application development, configure DevOps pipelines, and implement site reliability engineering (SRE) best practices.
 author: rogeriohc
-ms.date: 04/28/2020
-ms.topic: example-scenario
+ms.date: 06/19/2020
+ms.topic: guide
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: reference-architecture
 ms.custom:
 - fcp
 ---
 # Application development and deployment
 
-Examine patterns and practices of serverless application development, configure DevOps pipelines, and implement site reliability engineering (SRE) best practices.
+To develop and deploy serverless applications with Azure Functions, examine patterns and practices, configure DevOps pipelines, and implement site reliability engineering (SRE) best practices.
 
 For detailed information about serverless architectures and Azure Functions, see:
 - [Serverless apps: Architecture, patterns, and Azure implementation](https://aka.ms/serverless-ebook)
@@ -64,7 +64,7 @@ Durable Functions in Azure Functions let you define stateful workflows in a serv
 If the number of serverless host instances scales down to zero, the next request has the added latency of restarting the Function app, called a *cold start*. To minimize the performance impact of cold starts, reduce dependencies that the Functions app needs to load on startup, and use as few large, synchronous calls and operations as possible. For more information about autoscaling and cold starts, see [Serverless Functions operations](functions-app-operations.md).
 
 ### Manage application secrets
-Don't store credentials in application code. To use Azure Key Vault with Azure Functions to store and retrieve keys and credentials, see [Use Key Vault references for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
+For security, don't store credentials in application code. To use Azure Key Vault with Azure Functions to store and retrieve keys and credentials, see [Use Key Vault references for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
 
 For more information about serverless Functions application security, see [Serverless Functions security](functions-app-security.md).
 
@@ -83,7 +83,7 @@ Decide on deployment technology, and organize scheduled releases. For more infor
 ### Avoid using too many resource connections
 Functions in a Functions app share resources, including connections to HTTPS, databases, and services such as Azure Storage. When many Functions are running concurrently, it's possible to run out of available connections. For more information, see [Manage connections in Azure Functions](https://docs.microsoft.com/azure/azure-functions/manage-connections).
 
-### Configure logging, application monitoring, and alerting
+### Configure logging, alerting, and application monitoring
 Application Insights in Azure Monitor collects log, performance, and error data. Application Insights automatically detects performance anomalies, and includes powerful analytics tools to help diagnose issues and understand function usage. 
 
 For more information about application monitoring and logging, see:

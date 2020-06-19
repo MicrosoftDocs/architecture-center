@@ -4,9 +4,9 @@ titleSuffix: Azure Example Scenarios
 description: Learn how to increase engineering team efficiency, reduce mistakes and common pitfalls, and be a better engineer with the Code-with engineering playbook.
 author: rogeriohc
 ms.date: 06/15/2020
-ms.topic: example-scenario
+ms.topic: guide
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: reference-architecture
 ms.custom:
 - fcp
 ---

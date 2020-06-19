@@ -1,18 +1,18 @@
 ---
-title: Azure Functions app operations
+title: Serverless Functions app operations
 titleSuffix: Azure Example Scenarios
 description: Configure hosting, automate infrastructure provisioning, and maintain high availability for serverless Functions apps.
 author: rogeriohc
 ms.date: 06/17/2020
-ms.topic: example-scenario
+ms.topic: guide
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: reference-architecture
 ms.custom:
 - fcp
 ---
-# Azure Functions app operations
+# Serverless Functions app operations
 
-This article describes Azure operations considerations for serverless Functions. To support Functions apps, operations personnel need to:
+This article describes Azure operations considerations for serverless Functions applications. To support Functions apps, operations personnel need to:
 
 - Understand and implement hosting configurations.
 - Future-proof scalability by automating infrastructure provisioning.
@@ -27,7 +27,7 @@ The Azure Functions Runtime provides flexibility in hosting. Use the [hosting pl
 
 - Azure Functions hosting plans
   
-  Each Azure Functions project deploys and runs in its own Function app, which is the unit of scale and cost. The three hosting plans available for Azure Functions are Consumption plan, Premium plan, and Dedicated (App Service) plan. The hosting plan determines scaling behavior, available resources, and support for advanced features like virtual network connectivity.
+  Each Azure Functions project deploys and runs in its own Functions app, which is the unit of scale and cost. The three hosting plans available for Azure Functions are the Consumption plan, Premium plan, and Dedicated (App Service) plan. The hosting plan determines scaling behavior, available resources, and support for advanced features like virtual network connectivity.
   
 - Azure Kubernetes Service (AKS)
   
@@ -100,7 +100,7 @@ For more information about Azure Functions availability and disaster recovery, s
 - [Disaster recovery and geo-distribution in Azure Durable Functions](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution)
 
 ### Monitoring logging, application monitoring, and alerting
-Application Insights and logs in Azure Monitor automatically collect log, performance, and error data and detect performance anomalies. Azure Monitor includes powerful analytics tools to help diagnose issues and understand how functions are used. Application Insights help you continuously improve performance and usability.
+Application Insights and logs in Azure Monitor automatically collect log, performance, and error data and detect performance anomalies. Azure Monitor includes powerful analytics tools to help diagnose issues and understand function use. Application Insights help you continuously improve performance and usability.
 
 For more information about monitoring and analyzing Azure Functions performance, see:
 - [Monitor Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
