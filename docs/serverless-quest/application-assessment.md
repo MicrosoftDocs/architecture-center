@@ -16,12 +16,12 @@ ms.custom:
  
 Rationalization methods include:
 
-Rehost - Also known as a *lift and shift* migration, rehost moves a current application to the cloud with minimal change.
-Refactor - Slightly refactoring an application to fit *platform-as-a-service* (PaaS)-based options can reduce operational costs.
-Rearchitect - Rearchitect aging applications that aren't compatible with cloud components, or applications that are cloud-compatible, but would realize cost and operational efficiencies by rearchitecting into a cloud-native solution.
-Rebuild - If the changes or costs to carry an application forward are too great, consider creating a new cloud-native code base. This is especially appropriate for applications that previously met business needs, but are now unsupported or misaligned with current business processes.
+- Rehost - Also known as a *lift and shift* migration, rehost moves a current application to the cloud with minimal change.
+- Refactor - Slightly refactoring an application to fit *platform-as-a-service* (PaaS)-based options can reduce operational costs.
+- Rearchitect - Rearchitect aging applications that aren't compatible with cloud components, or applications that are cloud-compatible, but would realize cost and operational efficiencies by rearchitecting into a cloud-native solution.
+- Rebuild - If the changes or costs to carry an application forward are too great, consider creating a new cloud-native code base. This is especially appropriate for applications that previously met business needs, but are now unsupported or misaligned with current business processes.
 
-Before you can decide on an appropriate strategy, carefully analyze the current application to determine the risk and complexity of each method. Consider application lifecycle, technology, performance, operations and monitoring, presentation tier, service tier, integrations tier, data tier, and infrastructure.
+Before you decide on an appropriate strategy, carefully analyze the current application to determine the risk and complexity of each method. Consider application lifecycle, technology, performance, operations and monitoring, presentation tier, service tier, integrations tier, data tier, and infrastructure.
 
 The following checklists evaluate the application to determine how complex and risky it is to rearchitect or rebuild.
 
@@ -44,9 +44,6 @@ Older applications may require extensive changes to get to the cloud.
 
 | Factor | Complexity | Risk |
 |------------------------------------------------------------------|---|---|
-| Application components don't translate directly to Azure.| ✔ | ✔ |
-| The application needs code changes to run in Azure.| ✔ | ✔ |
-| The application needs major, complex code changes to run in Azure.| ✔ | ✔ |
 | This application has been around for more than three years. | ✔ | |
 | This application is business critical. | | ✔ |
 | There are technology blockers for migration. | ✔ | |
@@ -121,7 +118,7 @@ For both complexity and risk, a score of <0.3 = low, <0.7 = medium, >0.7 = high.
 
 To rationalize whether to rehost, refactor, rearchitect, or rebuild your application, consider the following points. Many of these factors also contribute to complexity and risk.
 
-- Determine whether the application components can translate directly to Azure. If so, you don't need code changes to move the application to Azure, and you can use rehost or refactor strategies. If not, you need to rewrite code, so you need to rearchitect or rebuild.
+Determine whether the application components can translate directly to Azure. If so, you don't need code changes to move the application to Azure, and you can use rehost or refactor strategies. If not, you need to rewrite code, so you need to rearchitect or rebuild.
 
 ### Rehost or refactor
 
@@ -141,7 +138,6 @@ To decide between rearchitecting or rebuilding, answer the following questions. 
 
 | Factor | Rearchitect | Rebuild |
 |------------------------------------------------------------------|---|---|
-| | ✔ | ✔ |
 | Does the application needs major, complex code changes to run in Azure?| | ✔ |
 | Do you want to move a monolithic application to multi-tier architecture?| ✔| |
 | Do you expect this app to add breakthrough capabilities like AI, IoT, or bots?| | ✔ |
