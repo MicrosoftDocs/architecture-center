@@ -52,7 +52,7 @@ Typical ADS delivery steps include:
 3. Explore options. Help customers envision potential solutions with available technical capabilities.
 4. Drive to consensus on the solution. Get customer confirmation and engagement for next steps.
 
-An ADS usually runs over two days and discusses business capabilities, technology, data flow, and information flow. Lead an ADS as a facilitator, not as a presenter. Make sure to hear the team or customer's voice throughout the conversation. Take notes on a whiteboard to capture thoughts.
+An ADS usually runs over two days and discusses business capabilities, technology, data flow, and information flow. Lead an ADS as a facilitator, not as a presenter. Make sure to hear the team or customer's voice throughout the conversation. Take notes on a presentation board to capture thoughts.
 
 In the first, four-hour session:
 - Gather requirements. Requirements include customer context, business background, business goals and objectives, business scenarios and user stores, security requirements, operational requirements, and customer environment.
@@ -75,5 +75,5 @@ Send a follow-up email that includes:
 - The agreed-upon project goals, requirements, and concerns.
 - Descriptions of the existing situation and proposed solution. 
 - Next steps and action items per the key decisions.
-- A formalized Visio or PowerPoint illustration from the ADS whiteboard.
+- A formalized Visio or PowerPoint illustration from the ADS presentation board.
 

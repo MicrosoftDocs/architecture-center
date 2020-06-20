@@ -95,7 +95,7 @@ You can reduce deployment risk by storing code under source control in a version
 |------------------------------------------------------------------|---|---|
 | The application doesn't have a well-established instrumentation strategy or standard instrumentation framework.| | ✔ |
 | The application doesn't use monitoring tools, and the operations team doesn't monitor the app's performance.| | ✔ |
-| The application has measured SLA in place, and the operations team monitor the application's performance.| | ✔ |
+| The application has measured SLA in place, and the operations team monitors the application's performance.| | ✔ |
 | The application writes to a log store, event log, log file, log database, or Application Insights.| ✔ | |
 | The application doesn't write to a log store, event log, log file, log database, or Application Insights.| | ✔ |
 | The application isn't part of the organization's disaster recovery plan.| | ✔ |
@@ -104,7 +104,7 @@ You can reduce deployment risk by storing code under source control in a version
 | Factor | Complexity | Risk |
 |------------------------------------------------------------------|---|---|
 | The application uses Active Directory to authenticate users.| ✔ | ✔ |
-| The organization hasn't yet configured Azure AD, or configured Azure AD Connect to synchronize local AD with Azure AD.| ✔ | |
+| The organization hasn't yet configured Azure Active Directory (Azure AD), or hasn't configured Azure AD Connect to synchronize on-premises AD with Azure AD.| ✔ | |
 | The application requires access to on-premises resources, which will require VPN connectivity from Azure.| ✔ | |
 | The organization hasn't yet configured a VPN connection between Azure and their on-premises environment.| ✔ | ✔ |
 | The application requires a SSL certificate to run.| ✔ | ✔ |
@@ -137,7 +137,7 @@ If the app does need code changes, determine the complexity and extent of the ne
 
 - If you want to [implement multi-tier or microservices architecture](https://docs.microsoft.com/azure/architecture/microservices/migrate-monolith) for a monolithic app, you must rearchitect or rebuild the app. If you don't mind retaining the monolithic structure, you may be able to rehost or refactor.
 
-- If you plan to update the app more often than yearly, if the app has peak or variable usage times, or if you expect the app to handle high traffic, rearchitect or rebuild the app to take advantage of cloud architectures and capabilities.
+- Rearchitect or rebuild the app to take advantage of cloud capabilities if you plan to update the app more often than yearly, if the app has peak or variable usage times, or if you expect the app to handle high traffic.
 
 To decide between rearchitecting or rebuilding, assess the following factors. The largest scoring result indicates your best strategy.
 

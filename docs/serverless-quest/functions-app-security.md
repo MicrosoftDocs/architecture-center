@@ -25,8 +25,8 @@ For more information about Azure security, best practices, and shared responsibi
 - [Security in Azure App Service](https://docs.microsoft.com/azure/app-service/overview-security)
 - [Built-in security controls](https://docs.microsoft.com/azure/app-service/app-service-security-controls)
 - [Secure development best practices on Azure](https://docs.microsoft.com/azure/security/develop/secure-dev-overview).
-- [Whitepaper: Security best practices for Azure solutions](https://azure.microsoft.com/mediahandler/files/resourcefiles/security-best-practices-for-azure-solutions/Azure%20Security%20Best%20Practices.pdf)
-- [Whitepaper: Shared responsibilities for cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)
+- [Security best practices for Azure solutions (PDF report)](https://azure.microsoft.com/mediahandler/files/resourcefiles/security-best-practices-for-azure-solutions/Azure%20Security%20Best%20Practices.pdf)
+- [Shared responsibilities for cloud computing (PDF report)](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)
 
 ## Deployment
 

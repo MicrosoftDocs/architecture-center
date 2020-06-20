@@ -12,7 +12,7 @@ ms.custom:
 ---
 # Serverless Functions reference architectures
 
-A reference architecture is a template of required components and the technical requirements to implement them. A reference architecture isn't custom-built for a customer solution, but is a high-level scenario based on extensive experience. Before designing a serverless solution, use a reference architecture to visualize an ideal technical architecture, then blend and integrate it into your reality.
+A reference architecture is a template of required components and the technical requirements to implement them. A reference architecture isn't custom-built for a customer solution, but is a high-level scenario based on extensive experience. Before designing a serverless solution, use a reference architecture to visualize an ideal technical architecture, then blend and integrate it into your environment.
 
 ## Common serverless architecture patterns
 
@@ -84,15 +84,15 @@ Common serverless architecture patterns include:
 
 ## Featured serverless reference architectures
 
-The following featured serverless reference architectures walk through specific scenarios. See the articles for architectural diagrams and details.
+The following featured serverless reference architectures walk through specific scenarios. See the linked articles for architectural diagrams and details.
 
 ### Serverless microservices
 The [serverless microservices reference architecture](https://docs.microsoft.com/samples/azure-samples/serverless-microservices-reference-architecture/serverless-microservices-reference-architecture/) walks you through designing, developing, and delivering the Rideshare application by Relecloud, a fictitious company. You get hands-on instructions for configuring and deploying all the architectural components, with helpful information about each component.
 
 ### Serverless web application and event processing with Azure Functions
-This two-part solution describes a hypothetical drone delivery system. Drones send in-flight status to the cloud, which stores these messages for later use. A web application allows users to retrieve these messages to get the latest status of these devices.
+This two-part solution describes a hypothetical drone delivery system. Drones send in-flight status to the cloud, which stores these messages for later use. A web application allows users to retrieve the messages to get the latest device status.
 - You can download the code for this solution from [GitHub](https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0).
-- The article [Code walkthrough: Serverless application with Azure Functions](https://docs.microsoft.com/azure/architecture/serverless/code) walks you through the code and the decision processes.
+- The article [Code walkthrough: Serverless application with Azure Functions](https://docs.microsoft.com/azure/architecture/serverless/code) walks you through the code and the design processes.
 
 ### Event-based cloud automation
 Automating workflows and repetitive tasks on the cloud can dramatically improve a DevOps team's productivity. A serverless model is best suited for event-driven automation scenarios. This [event-based automation reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/cloud-automation) illustrates two cloud automation scenarios: cost center tagging and throttling response.

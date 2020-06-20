@@ -16,7 +16,7 @@ ms.custom:
 
 Benefits of using serverless architectures with Functions applications include:
 
-- The Azure infrastructure provides updated servers that Functions applications need to keep running at scale. 
+- The Azure infrastructure automatically provides all the updated servers that applications need to keep running at scale. 
 - Compute resources allocate dynamically, and instantly autoscale to meet elastic demands. Serverless doesn't mean "no server," but "less server," because servers run only as needed.
 - Micro-billing saves costs by charging only for the compute resources and duration the code uses to execute.
 - Function *bindings* streamline integration by providing declarative access to a wide variety of Azure and third-party services.
@@ -27,9 +27,9 @@ Azure Functions is a managed service in Azure and Azure Stack. The open source F
 
 Serverless and Functions require new ways of thinking and new approaches to building applications. They aren't the right solutions for every problem. For example serverless Functions scenarios, see [Reference architectures](reference-architectures.md).
 
-## Adoption steps
+## Implementation steps
 
-Actions to implement successful adoption of serverless technologies with Azure Functions include:
+Successful implementation of serverless technologies with Azure Functions requires the following actions:
 
 - [Decide and plan](validate-commit-serverless-adoption.md)
   
@@ -37,11 +37,11 @@ Actions to implement successful adoption of serverless technologies with Azure F
   
 - [Develop and deploy apps](application-development.md)
   
-  *Developers* examine serverless Functions app development patterns and practices, configure DevOps pipelines, and implement site reliability engineering (SRE) best practices.
+  *Developers* implement serverless Functions app development patterns and practices, configure DevOps pipelines, and employ site reliability engineering (SRE) best practices.
   
 - [Manage operations](functions-app-operations.md)
   
-  *IT professionals* identify hosting configurations, future-proof scalability by automating infrastructure provisioning, and maintain high availability by planning for business continuity and disaster recovery.
+  *IT professionals* identify hosting configurations, future-proof scalability by automating infrastructure provisioning, and maintain availability by planning for business continuity and disaster recovery.
   
 - [Secure apps](functions-app-security.md)
   
