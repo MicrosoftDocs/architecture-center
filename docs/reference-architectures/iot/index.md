@@ -139,11 +139,11 @@ Though plain-text logging is lower impact on upfront development costs, it is mo
 
 ## DevOps considerations
 
-Consider creating an [Azure Resource Manager template][arm-template] for provisioning the IoT resources and the infrastructure, so you follow Infrastructure as code practuce (IaC). IaC is the management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, using the same versioning as DevOps team uses for source code. The most reliable deployment processes are automated and idempotent — that is, repeatable to produce the same results. 
+Use the Infrastructure as code (IaC). IaC is the management of infrastructure (networks, virtual machines, load balancers, and connection topology) with a declarative approach, using the same version as DevOps team uses for source code. The most reliable deployment processes are automated and idempotent. One way is to create [Azure Resource Manager template][arm-template] for provisioning the IoT resources and the infrastructure.
 
 To automate infrastructure deployment, you can use Azure DevOps Services, Jenkins, or other CI/CD solutions. Azure [Pipelines][pipelines] is part of [Azure DevOps Services][az-devops] and runs automated builds, tests, and deployments.
 
-Consider staging your workloads, which means deploying to various stages and running validations at each stage before moving on to the next one; that way you can push updates to yout production environments in a highly controlled way and minimize unanticipated deployment issues. [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases] are recommended deployment strategies for updating live production environments. Also consider having a good rollback strategy for when a deployment fails; for example you could automatically redeploy an earlier, successful deployment from your deployment history, the --rollback-on-error flag parameter in Azure CLI is good example. 
+Consider staging your workloads by deploying to various stages and running validations at each stage before moving on to the next one; that way you can push updates to yout production environments in a highly controlled way and minimize unanticipated deployment issues. [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases] are recommended deployment strategies for updating live production environments. Also consider having a good rollback strategy for when a deployment fails; for example you could automatically redeploy an earlier, successful deployment from your deployment history, the --rollback-on-error flag parameter in Azure CLI is good example. 
 
 Consider monitoring your solution by using [Azure Monitor][az-monitor]. Azure Monitor is the main source of monitoring and logging for all your Azure services, it provides diagnostics information for Azure resources. You can for example, monitor the operations that take place within your IoT hub. There are specific metrics and events that Azure Monitor supports, as well as services, schemas, and categories for Azure Diagnostic Logs.
 
@@ -163,3 +163,4 @@ For more information, see the DevOps section in [Azure Architecture Framework][A
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
 [pipelines]: https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups

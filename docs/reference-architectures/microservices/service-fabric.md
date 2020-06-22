@@ -401,9 +401,9 @@ Use Azure Monitor alerts to notify sysadmins when certain conditions occur in sp
 
 ### Azure Pipelines
 
-For DevOps considerations in a microservices architecture, see the DevOps section in [Microservices architecture on Azure Kubernetes Service](./aks.md#devops-considerations)
+The reference implementation is deployed using Azure Pipelines. For DevOps considerations in a microservices architecture, see [CI/CD for microservices](https://docs.microsoft.com/azure/architecture/microservices/ci-cd)
 
-You can also learn how to deploy a container application with CI/CD to a Service Fabric cluster, in this [tutorial][service-fabric-tutorial]
+You can also learn how to deploy a container application with CI/CD to a Service Fabric cluster, in this [tutorial][service-fabric-tutorial].
 
 ## Deploy the solution
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][ri-deploy].
