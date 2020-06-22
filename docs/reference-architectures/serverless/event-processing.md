@@ -168,7 +168,7 @@ Use the Infrastructure as code (IaC) when possible. IaC manages the infrastructu
 
 When creating templates, group the resources as a way to organize and isolate them per workload. A common way to think about workload is a single serveless application or a virtual network. The goal of workload isolation is to associate the resources to a team, so that the DevOps team can independently manage all aspects of those resources and perform continuous integration and continuous delivery (CI/CD).
 
-This architecture includes steps to configure the Drone Status Function App CI/CD with Azure DevOps, using Azure Pipelines with YAML and Azure Functions Slots, this allows to quickly provision prorduction or testing environments to mimic real-life scenarios when needed.
+This architecture includes steps to configure the Drone Status Function App CI/CD with Azure DevOps, using Azure Pipelines with YAML and Azure Functions Slots. This allows  quick provisioning of production or testing environments to simulate real-life scenarios when needed.
 
 As you deploy your services you will need to monitor them. Consider using [Application Insights][app-insights] to enable the developers to monitor performance and detect issues.
 
