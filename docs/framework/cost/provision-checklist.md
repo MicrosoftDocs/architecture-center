@@ -1,0 +1,22 @@
+---
+title: Provisioning cloud resources to optimize cost
+description: Describes guidance on how to provision your cloud resources to minimize cost.
+author: david-stanford
+ms.date: 10/21/2019
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: well-architected
+ms.custom: 
+---
+
+
+# Provisioning cloud resources to optimize cost
+
+Deployment of cloud resources of a workload is known as _provisioning_.  
+
+Use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the cost of your SKU choices. This section describes some considerations. This list is not meant to be an exhaustive list, but a subset of options.
+
+- [AI + Machine Learning](./provision-ai-ml.md)
+- [Big data analytics](./provision-analytics.md)
+- [Networking](./provision-networking.md)
+- [Data stores](./provision-datastores.md)

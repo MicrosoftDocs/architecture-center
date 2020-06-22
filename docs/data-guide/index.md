@@ -1,10 +1,9 @@
 ---
 title: Azure Data Architecture Guide
-description: 
-author: MikeWasson
+description: Use proven customer engagement practices to design data-centric Azure solutions for traditional relational database workloads and big data architectures. 
+author: adamboeglin
 ms.date: 02/12/2018
-layout: LandingPage
-ms.topic: landing-page
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ---
@@ -25,7 +24,7 @@ This guide is structured around two general categories of data solution, *tradit
 
 ![Traditional RDBMS workloads](./images/guide-rdbms.svg)
 
-**Big data solutions**. A big data architecture is designed to handle the ingestion, processing, and analysis of data that is too large or complex for traditional database systems. The data may be processed in batch or in real time. Big data solutions typically involve a large amount of non-relational data, such as key-value data, JSON documents, or time series data. Often traditional RDBMS systems are not well-suited to store this type of data. The term *NoSQL* refers to a family of databases designed to hold non-relational data. (The term isn't quite accurate, because many non-relational data stores support SQL compatible queries.)
+**Big data solutions**. A big data architecture is designed to handle the ingestion, processing, and analysis of data that is too large or complex for traditional database systems. The data may be processed in batch or in real time. Big data solutions typically involve a large amount of non-relational data, such as key-value data, JSON documents, or time series data. Often traditional RDBMS systems are not well-suited to store this type of data. The term *NoSQL* refers to a family of databases designed to hold non-relational data. The term isn't quite accurate, because many non-relational data stores support SQL compatible queries. The term *NoSQL* stands for "Not only SQL".
 
 ![Big data solutions](./images/guide-big-data.svg)
 

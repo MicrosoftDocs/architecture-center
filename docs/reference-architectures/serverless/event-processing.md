@@ -5,6 +5,9 @@ author: MikeWasson
 ms.date: 10/16/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - developer-tools
+  - analytics
 ms.subservice: reference-architecture
 ms.custom: seodec18, serverless
 ---
@@ -129,9 +132,9 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 ## Cost considerations
 
-Use the [Azure Pricing calculator][Cost-Calculator] to estimates costs. Here are some other considerations.
+Use the [Azure Pricing calculator][azure-pricing-calculator] to estimates costs. Here are some other considerations.
 
-### Azure functions
+### Azure Functions
 
 Azure Functions supports two hosting models. 
 
@@ -146,31 +149,31 @@ Azure Functions supports two hosting models.
 In this architecture, each event that arrives on Event Hubs, triggers a function that processes that event. From a cost perspective, the recommendation is to use **consumption plan** because you pay only for the compute resources you use.
 
 
-### Cosmos DB
+### Azure Cosmos DB
 
 Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations, such as inserts, reads. The price is based on the capacity in RU/s that you reserve. Also, you have to reserve a minimum of 400 RUs per container, where a concurrent read of 1KB document consumes 1 RU. If your app does not need to be this intensive, consider using a single container because each container has a fixed cost.
 
-In this reference architecture, the function stores exactly one document per device that is sending data. The function continually updates the documents with latest device status, using an upsert operation, which is cost effective in terms of consumed storage. 
+In this reference architecture, the function stores exactly one document per device that is sending data. The function continually updates the documents with latest device status, using an upsert operation, which is cost effective in terms of consumed storage. For more information, see [Cosmos DB pricing model][cosmosdb-pricing].
 
 Storage is billed for each GB used for your stored data and index. 
 
-See [Cosmos DB pricing model][cosmosdb-pricing] for more information.
-
 Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 
 ## DevOps considerations
 
-Consider including all the infrastructure, application and storage resources in a descriptive template like [Azure Resource Manager][arm-template], that will allow to automate the deployment using DevOps as a CI/CD solutions and make it repeatable to produce the same results. Use the same versioning as DevOps team uses for source code. The cloud resources should be grouped in templates using the workload criteria, that means isolating workloads by the way resources are organized; tipically a workload is defined as a single serveless application or a virtual network. The goal of workload isolation is to associate the resources to a team, so that the DevOps team can independently manage all aspects of those resources and perform continuous integration and continuous delivery (CI/CD).
+Use the Infrastructure as code (IaC) when possible. IaC manages the infrastructure, application, and storage resources with a declarative approach like [Azure Resource Manager][arm-template]. That will help in automating the deployment using DevOps as a CI/CD solution. Templates should be versioned and included as part of the release pipeline. 
+
+When creating templates, group the resources as a way to organize and isolate them per workload. A common way to think about workload is a single serveless application or a virtual network. The goal of workload isolation is to associate the resources to a team, so that the DevOps team can independently manage all aspects of those resources and perform continuous integration and continuous delivery (CI/CD).
 
 This architecture includes steps to configure the Drone Status Function App CI/CD with Azure DevOps, using Azure Pipelines with YAML and Azure Functions Slots, this allows to quickly provision prorduction or testing environments to mimic real-life scenarios when needed.
 
 As you deploy your services you will need to monitor them. Consider using [Application Insights][app-insights] to enable the developers to monitor performance and detect issues.
 
 
-For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
 
 
 ## Deploy the solution
@@ -182,7 +185,6 @@ To deploy this reference architecture, view the [GitHub readme][readme].
 To learn more about the reference implementation, read [Code walkthrough: Serverless application with Azure Functions](../../serverless/code.md).
 
 <!-- links -->
-
 
 [AAF-cost]: /azure/architecture/framework/cost/overview
 [AAF-devops]: /azure/architecture/framework/devops/overview
@@ -210,6 +212,29 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 [queue-binding]: /azure/azure-functions/functions-bindings-storage-queue-output
 [ra-grs]: /azure/storage/common/storage-redundancy-grs
 [ru]: /azure/cosmos-db/request-units
+[aaf-cost]: ../../framework/cost/overview.md
+[Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator
+[cosmosdb]: https://docs.microsoft.com/azure/cosmos-db/introduction
+[cosmosdb-geo]: https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally
+[cosmosdb-scale]: https://docs.microsoft.com/azure/cosmos-db/partition-data
+[cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
+[cosmosdb-sql]: https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[eh]: https://docs.microsoft.com/azure/event-hubs
+[eh-autoscale]: https://docs.microsoft.com/azure/event-hubs/event-hubs-auto-inflate
+[eh-dr]: https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr
+[eh-throughput]: https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units
+[eh-trigger]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-hubs
+[functions]: https://docs.microsoft.com/azure/azure-functions/functions-overview
+[iot]: https://docs.microsoft.com/azure/iot-hub/iot-hub-compare-event-hubs
+[log-analytics]: https://docs.microsoft.com/azure/log-analytics/log-analytics-queries
+[monitor]: https://docs.microsoft.com/azure/azure-monitor/overview
+[partition-key]: https://docs.microsoft.com/azure/cosmos-db/partition-data
+[pipelines]: https://docs.microsoft.com/azure/devops/pipelines/index
+[queue]: https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction
+[queue-binding]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-queue-output
+[ra-grs]: https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs
+[ru]: https://docs.microsoft.com/azure/cosmos-db/request-units
 
 [github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0
 [readme]: https://github.com/mspnp/serverless-reference-implementation/blob/v0.1.0/README.md

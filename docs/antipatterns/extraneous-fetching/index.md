@@ -10,6 +10,8 @@ ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
+<!-- cSpell:ignore IQueryable LINQ -->
+
 # Extraneous Fetching antipattern
 
 Retrieving more data than needed for a business operation can result in unnecessary I/O overhead and reduce responsiveness.
@@ -230,7 +232,7 @@ Here is the corresponding telemetry for the `AggregateOnDatabaseAsync` method. T
 
 [BusyDatabase]: ../busy-database/index.md
 [data-partitioning]: ../../best-practices/data-partitioning.md
-[new-relic]: https://newrelic.com/application-monitoring
+[new-relic]: https://newrelic.com/products/application-monitoring
 
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/ExtraneousFetching
 
@@ -240,7 +242,6 @@ Here is the corresponding telemetry for the `AggregateOnDatabaseAsync` method. T
 [Load-Test-Results-Client-Side2]:_images/LoadTestResultsClientSide2.jpg
 [Load-Test-Results-Database-Side1]:_images/LoadTestResultsDatabaseSide1.jpg
 [Load-Test-Results-Database-Side2]:_images/LoadTestResultsDatabaseSide2.jpg
-[QueryPerformanceZoomed]: _images/QueryPerformanceZoomed.jpg
 [QueryDetails]: _images/QueryDetails.jpg
 [TelemetryAllFields]: _images/TelemetryAllFields.jpg
 [TelemetryAggregateOnClient]: _images/TelemetryAggregateOnClient.jpg

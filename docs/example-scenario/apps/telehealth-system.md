@@ -4,6 +4,9 @@ description: A healthcare system connecting users, devices, and providers built 
 author: adamboeglin
 ms.author: jeanyd
 ms.date: 05/25/2019
+ms.category:
+  - containers
+  - databases
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -21,9 +24,9 @@ There are about 700 million people who suffer from hearing disabilities. However
 
 - Need help in a specific hearing situation (for example, while walking in the park, attending a party, or being at home), which cannot be reproduced in the hearing care professional's office.
 - Have mobility issues or reside long distances from their hearing care professional.
-- Live in an emerging country that has a limited number of hearing care professionals.
+- Live in an emerging country/region that has a limited number of hearing care professionals.
 
-To overcome these difficulties, it is important to have the ability to provide hearing care services remotely. In this case, the healthcare professional uses chat or video communication to engage with their remote patients. The hearing-impaired person uses a smartphone to allow access to the hearing aid device during the remote session. The patient immediately experiences improved hearing as the hearing care professional deploys changes to the configuration of the hearing aid device in real time.
+To overcome these difficulties, it is important to have the ability to provide hearing care services remotely. In this case, the healthcare professional uses chat or video communication to engage with their remote patients. People who are hard of hearing use a smartphone to allow access to the hearing aid device during the remote session. The patient immediately experiences improved hearing as the hearing care professional deploys changes to the configuration of the hearing aid device in real time.
 
 ## Potential use cases
 
@@ -90,7 +93,7 @@ We recommend using a traffic manager in front of the different clusters to optim
 
 ### Deployment
 
-The most important aspect to consider when deploying this scenario is the coordination of deployments across the cloud-based backend and the frontend (phones/devices). Consider using the concept of a [feature flag](/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops) to achieve this.
+The most important aspect to consider when deploying this scenario is the coordination of deployments across the cloud-based backend and the frontend (phones/devices). Consider using the concept of a [feature flag](https://docs.microsoft.com/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops) to achieve this.
 
 ### Management
 
@@ -122,7 +125,7 @@ For a deployment in a single region, example pricing information is available in
 
 ## Next steps
 
-To get started with implementing a comparable architecture for your business, consider building skills around web services, databases (such as [Azure Database for PostgreSQL](/azure/postgresql/)), and mobile/phone application development techniques and technologies (such as [Xamarin](/xamarin/), [.Net Core](/dotnet/core/), etc.).
+To get started with implementing a comparable architecture for your business, consider building skills around web services, databases such as [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql), and mobile application development techniques and technologies such as [Xamarin](https://docs.microsoft.com/xamarin) and [.Net Core](https://docs.microsoft.com/dotnet/core).
 
 ## Related resources
 

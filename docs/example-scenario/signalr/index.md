@@ -4,12 +4,19 @@ titleSuffix: Azure Example Scenarios
 description: SignalR configured in server-less mode to work with Azure Function triggered by Service Bus. All of it using .NET Core. This scenario is best used for real time messaging applications where users require a low-cost but robust messaging service.
 author: talhanaveed
 ms.date: 12/09/2019
+ms.category:
+  - devops
+  - integration
+  - developer-tools
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fcp
 ---
+
+<!-- cSpell:ignore talhanaveed CNAME -->
+
 # Sharing location in real time using low-cost serverless Azure services
 
 This scenario describes how to architect a solution that processes changes to underlying data within a web view without the need for a page refresh using real-time services. Examples that use this scenario include real-time tracking of products and goods, as well as social media solutions.
@@ -22,10 +29,10 @@ We'll use a SignalR service configured in server-less mode to integrate with an 
 
 These other uses cases have similar design patterns:
 
-* Sharing real-time location with client devices.
-* Pushing notifications to users.
-* Updating timelines.
-* Create chat rooms.
+- Sharing real-time location with client devices.
+- Pushing notifications to users.
+- Updating timelines.
+- Create chat rooms.
 
 ## Architecture
 
@@ -33,9 +40,9 @@ These other uses cases have similar design patterns:
 
 ### Components
 
-* [Service Bus](https://azure.microsoft.com/services/service-bus/), a highly reliable cloud messaging service between applications and services, even when one or more is offline.
-* [SignalR](https://azure.microsoft.com/services/signalr-service/), makes it easy to add real-time communications to your web application.
-* [Azure Functions](https://azure.microsoft.com/services/functions/), an event-driven serverless compute platform that can also solve complex orchestration problems.
+- [Service Bus](https://azure.microsoft.com/services/service-bus), a highly reliable cloud messaging service between applications and services, even when one or more is offline.
+- [SignalR](https://azure.microsoft.com/services/signalr-service) makes it easy to add real-time communications to your web application.
+- [Azure Functions](https://azure.microsoft.com/services/functions), an event-driven serverless compute platform that can also solve complex orchestration problems.
 
 ## Considerations
 
@@ -55,10 +62,10 @@ You can achieve high availability of this solution by performing the following s
 
 Each Azure region is paired with another region within the same geography. In general, choose regions from the same regional pair (for example, East US 2 and Central US). Benefits of doing so include:
 
-* If there is a broad outage, recovery of at least one region out of every pair is prioritized.
-* Planned Azure system updates are rolled out to paired regions sequentially to minimize possible downtime.
-* In most cases, regional pairs reside within the same geography to meet data residency requirements.
-* However, make sure that both regions support all of the Azure services needed for your application. See [Services by region](https://azure.microsoft.com/regions/#services). For more information about regional pairs, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+- If there is a broad outage, recovery of at least one region out of every pair is prioritized.
+- Planned Azure system updates are rolled out to paired regions sequentially to minimize possible downtime.
+- In most cases, regional pairs reside within the same geography to meet data residency requirements.
+- However, make sure that both regions support all of the Azure services needed for your application. See [Services by region](https://azure.microsoft.com/regions/#services). For more information about regional pairs, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 #### Azure Front Door
 
@@ -85,8 +92,8 @@ Assume your business has 1000 orders in a day and needs to share location data w
 
 A serverless real-time application built with Azure Functions and Azure SignalR Service typically requires two Azure Functions:
 
-* A "negotiate" function that the client calls to obtain a valid SignalR Service access token and service endpoint URL
-* One or more functions that send messages or manage group membership
+- A "negotiate" function that the client calls to obtain a valid SignalR Service access token and service endpoint URL.
+- One or more functions that send messages or manage group membership.
 
 ### FunctionApp6
 
@@ -114,11 +121,13 @@ Now, let's configure the client application to test. First, grab the example sou
 
 This a simple .NET Core web application to subscribe to the hub created by FunctionApp6 and display messages received on the Service Bus Queue in real time. Although you can use FunctionApp6 to work with a mobile client but for the purpose of this repository, we'll stick to the web client.
 
+<!-- markdownlint-disable MD024 -->
+
 #### Instructions
 
 1. Make sure FunctionApp6 is running first.
-2. Copy the url generated by the Negotiate function. It will look something like this: http://localhost:7071/api/
-3. Paste the url into chat.js inside signalR.HubConnectionBuilder().withUrl("YOUR_URL_HERE").build();
+2. Copy the url generated by the Negotiate function. It will look something like this: `http://localhost:7071/api/`
+3. Paste the url into chat.js inside `signalR.HubConnectionBuilder().withUrl("YOUR_URL_HERE").build();`
 4. Run the application.
 5. You'll see status connected when the web client successfully subscribes to the SignalR hub.
 
