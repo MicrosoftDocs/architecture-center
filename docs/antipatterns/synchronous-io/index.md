@@ -10,6 +10,8 @@ ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
+<!-- cSpell:ignore uploadedfiles myblob -->
+
 # Synchronous I/O antipattern
 
 Blocking the calling thread while I/O completes can reduce performance and affect vertical scalability.
@@ -150,7 +152,7 @@ await LibraryIOOperationAsync();
 
 ## How to detect the problem
 
-For users, the application may seem unresponsive or appear to hang periodically. The application might fail with timeout exceptions. These failures could also return HTTP 500 (Internal Server) errors. On the server, incoming client requests might be blocked until a thread becomes available, resulting in excessive request queue lengths, manifested as HTTP 503 (Service Unavailable) errors.
+For users, the application may seem unresponsive periodically. The application might fail with timeout exceptions. These failures could also return HTTP 500 (Internal Server) errors. On the server, incoming client requests might be blocked until a thread becomes available, resulting in excessive request queue lengths, manifested as HTTP 503 (Service Unavailable) errors.
 
 You can perform the following steps to help identify the problem:
 
@@ -194,9 +196,9 @@ The next graph shows the results from load testing the asynchronous version of t
 Throughput is far higher. Over the same duration as the previous test, the system successfully handles a nearly tenfold increase in throughput, as measured in requests per second. Moreover, the average response time is relatively constant and remains approximately 25 times smaller than the previous test.
 
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/SynchronousIO
-[async-wrappers]: https://blogs.msdn.microsoft.com/pfxteam/2012/03/24/should-i-expose-asynchronous-wrappers-for-synchronous-methods/
-[performance-counters]: /azure/cloud-services/cloud-services-dotnet-diagnostics-performance-counters
-[web-sites-monitor]: /azure/app-service-web/web-sites-monitor
+[async-wrappers]: https://blogs.msdn.microsoft.com/pfxteam/2012/03/24/should-i-expose-asynchronous-wrappers-for-synchronous-methods
+[performance-counters]: https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-performance-counters
+[web-sites-monitor]: https://docs.microsoft.com/azure/app-service-web/web-sites-monitor
 
 [sync-performance]: _images/SyncPerformance.jpg
 [async-performance]: _images/AsyncPerformance.jpg

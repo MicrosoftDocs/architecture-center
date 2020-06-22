@@ -10,6 +10,8 @@ ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
+<!-- cSpell:ignore webjobs wwwroot -->
+
 # Background jobs
 
 Many types of applications require background tasks that run independently of the user interface (UI). Examples include batch jobs, intensive processing tasks, and long-running processes such as workflows. Background jobs can be executed without requiring user interaction--the application can start the job and then continue to process interactive requests from users. This can help to minimize the load on the application UI, which can improve availability and reduce interactive response times.
@@ -50,7 +52,7 @@ Typical examples of tasks that are suited to event-driven invocation include ima
 Schedule-driven invocation uses a timer to start the background task. Examples of using schedule-driven triggers include:
 
 - A timer that is running locally within the application or as part of the application's operating system invokes a background task on a regular basis.
-- A timer that is running in a different application, or a timer service such as Azure Scheduler, sends a request to an API or web service on a regular basis. The API or web service invokes the background task.
+- A timer that is running in a different application, such as Azure Logic Apps, sends a request to an API or web service on a regular basis. The API or web service invokes the background task.
 - A separate process or application starts a timer that causes the background task to be invoked once after a specified time delay, or at a specific time.
 
 Typical examples of tasks that are suited to schedule-driven invocation include batch-processing routines (such as updating related-products lists for users based on their recent behavior), routine data processing tasks (such as updating indexes or generating accumulated results), data analysis for daily reports, data retention cleanup, and data consistency checks.
@@ -84,7 +86,7 @@ The following sections describe each of these options in more detail, and includ
 
 ### Azure Web Apps and WebJobs
 
-You can use Azure WebJobs to execute custom jobs as background tasks within an Azure Web App. WebJobs run within the context of your web app as a continuous process. WebJobs also run in response to a trigger event from Azure Scheduler or external factors, such as changes to storage blobs and message queues. Jobs can be started and stopped on demand, and shut down gracefully. If a continuously running WebJob fails, it is automatically restarted. Retry and error actions are configurable.
+You can use Azure WebJobs to execute custom jobs as background tasks within an Azure Web App. WebJobs run within the context of your web app as a continuous process. WebJobs also run in response to a trigger event from Azure Logic Apps or external factors, such as changes to storage blobs and message queues. Jobs can be started and stopped on demand, and shut down gracefully. If a continuously running WebJob fails, it is automatically restarted. Retry and error actions are configurable.
 
 When you configure a WebJob:
 
@@ -98,7 +100,7 @@ Azure WebJobs have the following characteristics:
 
 - **Security**: WebJobs are protected by the deployment credentials of the web app.
 - **Supported file types**: You can define WebJobs by using command scripts (.cmd), batch files (.bat), PowerShell scripts (.ps1), bash shell scripts (.sh), PHP scripts (.php), Python scripts (.py), JavaScript code (.js), and executable programs (.exe, .jar, and more).
-- **Deployment**: You can deploy scripts and executables by using the [Azure portal](/azure/app-service-web/web-sites-create-web-jobs), by using [Visual Studio](/azure/app-service-web/websites-dotnet-deploy-webjobs), by using the [Azure WebJobs SDK](/azure/app-service/webjobs-sdk-get-started), or by copying them directly to the following locations:
+- **Deployment**: You can deploy scripts and executables by using the [Azure portal](https://docs.microsoft.com/azure/app-service-web/web-sites-create-web-jobs), by using [Visual Studio](https://docs.microsoft.com/azure/app-service-web/websites-dotnet-deploy-webjobs), by using the [Azure WebJobs SDK](https://docs.microsoft.com/azure/app-service/webjobs-sdk-get-started), or by copying them directly to the following locations:
   - For triggered execution: site/wwwroot/app_data/jobs/triggered/{job name}
   - For continuous execution: site/wwwroot/app_data/jobs/continuous/{job name}
 - **Logging**: Console.Out is treated (marked) as INFO. Console.Error is treated as ERROR. You can access monitoring and diagnostics information by using the Azure portal. You can download log files directly from the site. They are saved in the following locations:
@@ -117,13 +119,13 @@ Azure WebJobs have the following characteristics:
 
 Background tasks might be implemented in a way that prevents them from being deployed to Azure Web Apps, or these options might not be convenient. Typical examples are Windows services, and third-party utilities and executable programs. Another example might be programs written for an execution environment that is different than that hosting the application. For example, it might be a Unix or Linux program that you want to execute from a Windows or .NET application. You can choose from a range of operating systems for an Azure virtual machine, and run your service or executable on that virtual machine.
 
-To help you choose when to use Virtual Machines, see [Azure App Services, Cloud Services and Virtual Machines comparison](/azure/app-service-web/choose-web-site-cloud-service-vm/). For information about the options for Virtual Machines, see [Sizes for Windows virtual machines in Azure](/azure/virtual-machines/windows/sizes). For more information about the operating systems and prebuilt images that are available for Virtual Machines, see [Azure Virtual Machines Marketplace](https://azure.microsoft.com/gallery/virtual-machines/).
+To help you choose when to use Virtual Machines, see [Azure App Services, Cloud Services and Virtual Machines comparison](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm). For information about the options for Virtual Machines, see [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes). For more information about the operating systems and prebuilt images that are available for Virtual Machines, see [Azure Virtual Machines Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute).
 
 To initiate the background task in a separate virtual machine, you have a range of options:
 
 - You can execute the task on demand directly from your application by sending a request to an endpoint that the task exposes. This passes in any data that the task requires. This endpoint invokes the task.
 - You can configure the task to run on a schedule by using a scheduler or timer that is available in your chosen operating system. For example, on Windows you can use Windows Task Scheduler to execute scripts and tasks. Or, if you have SQL Server installed on the virtual machine, you can use the SQL Server Agent to execute scripts and tasks.
-- You can use Azure Scheduler to initiate the task by adding a message to a queue that the task listens on, or by sending a request to an API that the task exposes.
+- You can use Azure Logic Apps to initiate the task by adding a message to a queue that the task listens on, or by sending a request to an API that the task exposes.
 
 See the earlier section [Triggers](#triggers) for more information about how you can initiate background tasks.
 
@@ -141,12 +143,12 @@ Consider the following points when you are deciding whether to deploy background
 
 For more information, see:
 
-- [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
-- [Azure Virtual Machines FAQ](/azure/virtual-machines/virtual-machines-linux-classic-faq?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+- [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
+- [Azure Virtual Machines FAQ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-classic-faq)
 
 ### Azure Batch
 
-Consider [Azure Batch](/azure/batch/) if you need to run large, parallel high-performance computing (HPC) workloads across tens, hundreds, or thousands of VMs.
+Consider [Azure Batch](https://docs.microsoft.com/azure/batch) if you need to run large, parallel high-performance computing (HPC) workloads across tens, hundreds, or thousands of VMs.
 
 The Batch service provisions the VMs, assign tasks to the VMs, runs the tasks, and monitors the progress. Batch can automatically scale out the VMs in response to the workload. Batch also provides job scheduling. Azure Batch supports both Linux and Windows VMs.
 
@@ -156,15 +158,15 @@ The Batch service provisions the VMs, assign tasks to the VMs, runs the tasks, a
 
 <!-- markdownlint-enable MD024 -->
 
-Batch works well with intrinsically parallel workloads. It can also perform parallel calculations with a reduce step at the end, or run [Message Passing Interface (MPI) applications](/azure/batch/batch-mpi) for parallel tasks that require message passing between nodes.
+Batch works well with intrinsically parallel workloads. It can also perform parallel calculations with a reduce step at the end, or run [Message Passing Interface (MPI) applications](https://docs.microsoft.com/azure/batch/batch-mpi) for parallel tasks that require message passing between nodes.
 
-An Azure Batch job runs on a pool of nodes (VMs). One approach is to allocate a pool only when needed and then delete it after the job completes. This maximizes utilization, because nodes are not idle, but the job must wait for nodes to be allocated. Alternatively, you can create a pool ahead of time. That approach minimizes the time that it takes for a job to start, but can result in having nodes that sit idle. For more information, see [Pool and compute node lifetime](/azure/batch/batch-api-basics#pool-and-compute-node-lifetime).
+An Azure Batch job runs on a pool of nodes (VMs). One approach is to allocate a pool only when needed and then delete it after the job completes. This maximizes utilization, because nodes are not idle, but the job must wait for nodes to be allocated. Alternatively, you can create a pool ahead of time. That approach minimizes the time that it takes for a job to start, but can result in having nodes that sit idle. For more information, see [Pool and compute node lifetime](https://docs.microsoft.com/azure/batch/batch-api-basics#pool-and-compute-node-lifetime).
 
 For more information, see:
 
-- [What is Azure Batch?](/azure/batch/batch-technical-overview)
-- [Develop large-scale parallel compute solutions with Batch](/azure/batch/batch-api-basics)
-- [Batch and HPC solutions for large-scale computing workloads](/azure/batch/batch-hpc-solutions)
+- [What is Azure Batch?](https://docs.microsoft.com/azure/batch/batch-technical-overview)
+- [Develop large-scale parallel compute solutions with Batch](https://docs.microsoft.com/azure/batch/batch-api-basics)
+- [Batch and HPC solutions for large-scale computing workloads](https://docs.microsoft.com/azure/batch/batch-hpc-solutions)
 
 ### Azure Kubernetes Service
 
@@ -183,13 +185,13 @@ Containers can be useful for running background jobs. Some of the benefits inclu
 
 <!-- markdownlint-enable MD024 -->
 
-- Requires an understanding of how to use a container orchestrator. Depending on the skillset of your DevOps team, this may or may not be an issue.
+- Requires an understanding of how to use a container orchestrator. Depending on the skill set of your DevOps team, this may or may not be an issue.
 
 For more information, see:
 
-- [Overview of containers in Azure](https://azure.microsoft.com/overview/containers/)
+- [Overview of containers in Azure](https://azure.microsoft.com/overview/containers)
 
-- [Introduction to private Docker container registries](/azure/container-registry/container-registry-intro)
+- [Introduction to private Docker container registries](https://docs.microsoft.com/azure/container-registry/container-registry-intro)
 
 ## Partitioning
 
@@ -235,7 +237,7 @@ Coordinating multiple tasks and steps can be challenging, but there are three co
 
 Background tasks must be resilient in order to provide reliable services to the application. When you are planning and designing background tasks, consider the following points:
 
-- Background tasks must be able to gracefully handle restarts without corrupting data or introducing inconsistency into the application. For long-running or multistep tasks, consider using *check pointing* by saving the state of jobs in persistent storage, or as messages in a queue if this is appropriate. For example, you can persist state information in a message in a queue and incrementally update this state information with the task progress so that the task can be processed from the last known good checkpoint--instead of restarting from the beginning. When using Azure Service Bus queues, you can use message sessions to enable the same scenario. Sessions allow you to save and retrieve the application processing state by using the [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate?view=azureservicebus-4.0.0) and [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate?view=azureservicebus-4.0.0) methods. For more information about designing reliable multistep processes and workflows, see the [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.md).
+- Background tasks must be able to gracefully handle restarts without corrupting data or introducing inconsistency into the application. For long-running or multistep tasks, consider using *check pointing* by saving the state of jobs in persistent storage, or as messages in a queue if this is appropriate. For example, you can persist state information in a message in a queue and incrementally update this state information with the task progress so that the task can be processed from the last known good checkpoint--instead of restarting from the beginning. When using Azure Service Bus queues, you can use message sessions to enable the same scenario. Sessions allow you to save and retrieve the application processing state by using the [SetState](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate?view=azureservicebus-4.0.0) and [GetState](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate?view=azureservicebus-4.0.0) methods. For more information about designing reliable multistep processes and workflows, see the [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.md).
 
 - When you use queues to communicate with background tasks, the queues can act as a buffer to store requests that are sent to the tasks while the application is under higher than usual load. This allows the tasks to catch up with the UI during less busy periods. It also means that restarts will not block the UI. For more information, see the [Queue-Based Load Leveling pattern](../patterns/queue-based-load-leveling.md). If some tasks are more important than others, consider implementing the [Priority Queue pattern](../patterns/priority-queue.md) to ensure that these tasks run before less important ones.
 
@@ -245,9 +247,9 @@ Background tasks must be resilient in order to provide reliable services to the 
 
   - Typically, a background task will peek at messages in the queue, which temporarily hides them from other message consumers. Then it deletes the messages after they have been successfully processed. If a background task fails when processing a message, that message will reappear on the queue after the peek time-out expires. It will be processed by another instance of the task or during the next processing cycle of this instance. If the message consistently causes an error in the consumer, it will block the task, the queue, and eventually the application itself when the queue becomes full. Therefore, it is vital to detect and remove poison messages from the queue. If you are using Azure Service Bus, messages that cause an error can be moved automatically or manually to an associated dead letter queue.
 
-  - Queues are guaranteed at *least once* delivery mechanisms, but they might deliver the same message more than once. In addition, if a background task fails after processing a message but before deleting it from the queue, the message will become available for processing again. Background tasks should be idempotent, which means that processing the same message more than once does not cause an error or inconsistency in the application’s data. Some operations are naturally idempotent, such as setting a stored value to a specific new value. However, operations such as adding a value to an existing stored value without checking that the stored value is still the same as when the message was originally sent will cause inconsistencies. Azure Service Bus queues can be configured to automatically remove duplicated messages.
+  - Queues are guaranteed at *least once* delivery mechanisms, but they might deliver the same message more than once. In addition, if a background task fails after processing a message but before deleting it from the queue, the message will become available for processing again. Background tasks should be idempotent, which means that processing the same message more than once does not cause an error or inconsistency in the application's data. Some operations are naturally idempotent, such as setting a stored value to a specific new value. However, operations such as adding a value to an existing stored value without checking that the stored value is still the same as when the message was originally sent will cause inconsistencies. Azure Service Bus queues can be configured to automatically remove duplicated messages.
 
-  - Some messaging systems, such as Azure storage queues and Azure Service Bus queues, support a de-queue count property that indicates the number of times a message has been read from the queue. This can be useful in handling repeated and poison messages. For more information, see [Asynchronous Messaging Primer](https://msdn.microsoft.com/library/dn589781.aspx) and [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns/).
+  - Some messaging systems, such as Azure storage queues and Azure Service Bus queues, support a de-queue count property that indicates the number of times a message has been read from the queue. This can be useful in handling repeated and poison messages. For more information, see [Asynchronous Messaging Primer](https://msdn.microsoft.com/library/dn589781.aspx) and [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns).
 
 ## Scaling and performance considerations
 

@@ -1,6 +1,6 @@
 ---
 title: Choosing an analytical data store
-description:
+description: Evaluate analytical data store options for big data in Azure, including key selection criteria and a capability matrix.
 author: zoinerTejada
 ms.date: 11/20/2019
 ms.topic: guide
@@ -20,13 +20,13 @@ There is no single best data management choice for all data storage tasks. Diffe
 
 There are several options for data serving storage in Azure, depending on your needs:
 
-- [Azure Synapse Analytics](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
-- [Azure SQL Database](/azure/sql-database/)
-- [SQL Server in Azure VM](/sql/sql-server/sql-server-technical-documentation)
-- [HBase/Phoenix on HDInsight](/azure/hdinsight/hbase/apache-hbase-overview)
-- [Hive LLAP on HDInsight](/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
-- [Azure Analysis Services](/azure/analysis-services/analysis-services-overview)
-- [Azure Cosmos DB](/azure/cosmos-db/)
+- [Azure Synapse Analytics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
+- [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)
+- [SQL Server in Azure VM](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation)
+- [HBase/Phoenix on HDInsight](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-overview)
+- [Hive LLAP on HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
+- [Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview)
+- [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db)
 
 These options provide various database models that are optimized for different types of tasks:
 
@@ -81,10 +81,10 @@ The following tables summarize the key differences in capabilities.
 | Supports firewalls | Yes | Yes | Yes <sup>4</sup> | Yes <sup>4</sup> | Yes | Yes |
 | Dynamic data masking | Yes | Yes | Yes <sup>1</sup> | Yes | No | No |
 
-[1] Requires using a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
+[1] Requires using a [domain-joined HDInsight cluster](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
 
 [2] Requires using transparent data encryption (TDE) to encrypt and decrypt your data at rest.
 
-[3] Filter predicates only. See [Row-Level Security](/sql/relational-databases/security/row-level-security)
+[3] Filter predicates only. See [Row-Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)
 
-[4] When used within an Azure Virtual Network. See [Extend Azure HDInsight using an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).
+[4] When used within an Azure Virtual Network. See [Extend Azure HDInsight using an Azure Virtual Network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).

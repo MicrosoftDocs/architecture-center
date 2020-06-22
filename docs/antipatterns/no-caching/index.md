@@ -10,6 +10,8 @@ ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
+<!-- cSpell:ignore linq -->
+
 # No Caching antipattern
 
 In a cloud application that handles many concurrent requests, repeatedly fetching the same data can reduce performance and scalability.
@@ -106,7 +108,7 @@ Notice that the `GetAsync` method now calls the `CacheService` class, rather tha
 
 - If the cache is unavailable, perhaps because of a transient failure, don't return an error to the client. Instead, fetch the data from the original data source. However, be aware that while the cache is being recovered, the original data store could be swamped with requests, resulting in timeouts and failed connections. (After all, this is one of the motivations for using a cache in the first place.) Use a technique such as the [Circuit Breaker pattern][circuit-breaker] to avoid overwhelming the data source.
 
-- Applications that cache nonstatic data should be designed to support eventual consistency.
+- Applications that cache dynamic data should be designed to support eventual consistency.
 
 - For web APIs, you can support client-side caching by including a Cache-Control header in request and response messages, and using ETags to identify versions of objects. For more information, see [API implementation][api-implementation].
 
@@ -167,7 +169,7 @@ The number of successful tests performed each second reaches a plateau, and addi
 
 Data access statistics and other information provided by a data store can give useful information, such as which queries are repeated most frequently. For example, in Microsoft SQL Server, the `sys.dm_exec_query_stats` management view has statistical information for recently executed queries. The text for each query is available in the `sys.dm_exec-query_plan` view. You can use a tool such as SQL Server Management Studio to run the following SQL query and determine how frequently queries are performed.
 
-```SQL
+```sql
 SELECT UseCounts, Text, Query_Plan
 FROM sys.dm_exec_cached_plans
 CROSS APPLY sys.dm_exec_sql_text(plan_handle)
@@ -180,7 +182,7 @@ The `UseCount` column in the results indicates how frequently each query is run.
 
 Here is the SQL query that is causing so many database requests:
 
-```SQL
+```sql
 (@p__linq__0 int)SELECT TOP (2)
 [Extent1].[BusinessEntityId] AS [BusinessEntityId],
 [Extent1].[FirstName] AS [FirstName],
@@ -207,7 +209,7 @@ The volume of successful tests still reaches a plateau, but at a higher user loa
 - [Circuit Breaker pattern][circuit-breaker]
 
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/NoCaching
-[cache-aside-pattern]: /azure/architecture/patterns/cache-aside
+[cache-aside-pattern]: ../../patterns/cache-aside.md
 [caching-guidance]: ../../best-practices/caching.md
 [circuit-breaker]: ../../patterns/circuit-breaker.md
 [api-implementation]: ../../best-practices/api-implementation.md#optimizing-client-side-data-access

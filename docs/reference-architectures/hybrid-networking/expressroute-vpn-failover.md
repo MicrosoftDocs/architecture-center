@@ -6,9 +6,14 @@ author: telmosampaio
 ms.date: 10/22/2017
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - hybrid
+  - networking
 ms.subservice: reference-architecture
 ms.custom: seodec18, networking
 ---
+
+<!-- cSpell:ignore RRAS -->
 
 # Connect an on-premises network to Azure using ExpressRoute with VPN failover
 
@@ -53,14 +58,14 @@ Create the ExpressRoute virtual network gateway connection and the VPN virtual n
 If the VNet already includes a subnet named *GatewaySubnet*, ensure that it has a /27 or larger address space. If the existing subnet is too small, use the following PowerShell command to remove the subnet:
 
 ```powershell
-$vnet = Get-AzVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
+$vnet = Get-AzVirtualNetwork -Name <your-vnet-name> -ResourceGroupName <your-resource-group>
 Remove-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
 ```
 
 If the VNet does not contain a subnet named **GatewaySubnet**, create a new one using the following PowerShell command:
 
 ```powershell
-$vnet = Get-AzVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
+$vnet = Get-AzVirtualNetwork -Name <your-vnet-name> -ResourceGroupName <your-resource-group>
 Add-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.224/27"
 $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
 ```
@@ -72,7 +77,7 @@ Verify that your organization meets the [ExpressRoute prerequisite requirements]
 If you already have a VPN virtual network gateway in your Azure VNet, use the following PowerShell command to remove it:
 
 ```powershell
-Remove-AzVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
+Remove-AzVirtualNetworkGateway -Name <your-gateway-name> -ResourceGroupName <your-resource-group>
 ```
 
 Follow the instructions in [Implementing a hybrid network architecture with Azure ExpressRoute][implementing-expressroute] to establish your ExpressRoute connection.
@@ -96,12 +101,19 @@ For site-to-site VPN DevOps considerations, see the [Implementing a Hybrid Netwo
 
 For general Azure security considerations, see [Microsoft cloud services and network security][best-practices-security].
 
+## Cost considerations
+
+For ExpressRoute cost considerations, see these articles:
+
+- [Cost considerations in Implementing a Hybrid Network Architecture with Azure ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.md#cost-considerations).
+
+- [Cost considerations in Implementing a Hybrid Network Architecture with Azure and On-premises VPN](../../reference-architectures/hybrid-networking/vpn.md#cost-considerations).
+
 ## Deploy the solution
 
 **Prerequisites**. You must have an existing on-premises infrastructure already configured with a suitable network appliance.
 
 To deploy the solution, perform the following steps.
-
 
 1. Click the link below.
 
@@ -129,16 +141,14 @@ To deploy the solution, perform the following steps.
 
 <!-- links -->
 
-[windows-vm-ra]: ../virtual-machines-windows/index.md
-[linux-vm-ra]: ../virtual-machines-linux/index.md
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
-[vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
-[azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
+[windows-vm-ra]: ../n-tier/n-tier-sql-server.md
+[linux-vm-ra]: ../n-tier/n-tier-cassandra.md
+[vpn-appliance]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
-[expressroute-prereq]: /azure/expressroute/expressroute-prerequisites
+[expressroute-prereq]: https://docs.microsoft.com/azure/expressroute/expressroute-prerequisites
 [implementing-expressroute]: ./expressroute.md
 [implementing-vpn]: ./vpn.md
 [guidance-expressroute]: ./expressroute.md
 [guidance-vpn]: ./vpn.md
-[best-practices-security]: /azure/best-practices-network-security
+[best-practices-security]: https://docs.microsoft.com/azure/best-practices-network-security
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx

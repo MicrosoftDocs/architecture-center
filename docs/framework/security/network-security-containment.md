@@ -5,12 +5,12 @@ author: PageWriter-MSFT
 ms.date: 07/09/2019
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ---
 
 # Network security and containment
 
-Network security has been the traditional lynchpin of enterprise security
+Network security has been the traditional linchpin of enterprise security
 efforts. However, cloud computing has increased the requirement for network
 perimeters to be more porous and many attackers have mastered the art of attacks
 on identity system elements (which nearly always bypass network controls). These
@@ -31,13 +31,13 @@ cloud deployments.
 In the category of network security and containment, we have the following best
 practice recommendations:
 
--   Align network segmentation with overall strategy
+- Align network segmentation with overall strategy
 
--   Centralize network management and security
+- Centralize network management and security
 
--   Build a network containment strategy
+- Build a network containment strategy
 
--   Define an internet edge strategy
+- Define an internet edge strategy
 
 ## Centralize network management and security
 
@@ -70,7 +70,7 @@ to a straightforward and unified security strategy, which helps reduce the
 number of errors due to human error and inability to increase reliability
 through automation.
 
-Please compare images in [Network security and containment](/azure/architecture/security/governance#enterprise-segmentation-strategy).
+Please compare images in [Network security and containment](./governance.md#enterprise-segmentation-strategy).
 
 ![](images/ref-entp-design-az-network-security.png)
 
@@ -90,10 +90,10 @@ Forum](https://en.wikipedia.org/wiki/Jericho_Forum) and ‘Zero Trust’ approac
 Build a risk containment strategy based on a combination of network controls and
 application, identity, and other control types.
 
--   Ensure that resource grouping and administrative privileges align to the
+- Ensure that resource grouping and administrative privileges align to the
     segmentation model (see figure XXXX)
 
--   Ensure you are designing security controls that identify and allow expected
+- Ensure you are designing security controls that identify and allow expected
     traffic, access requests, and other application communications between
     segments. Monitor communications between segments to identify on any
     unexpected communications so you can investigate whether to set alerts or
@@ -104,29 +104,29 @@ application, identity, and other control types.
 
 Create a risk containment strategy that blends proven approaches including:
 
--   Existing network security controls and practices
+- Existing network security controls and practices
 
--   Native security controls available in Azure
+- Native security controls available in Azure
 
--   Zero trust approaches
+- Zero trust approaches
 
 Containment of attack vectors within an environment is critical. However, in
 order to be effective in cloud environments, traditional approaches may prove
 inadequate and security organizations need to evolve their methods.
 
--   Consistency of controls across on-premises and cloud infrastructure is
+- Consistency of controls across on-premises and cloud infrastructure is
     important, but defenses are more effective and manageable when leveraging
     native capabilities provided by a cloud service provider, dynamic
     just-in-time (JIT) approaches, and integrated identity and password
     controls, such as those recommended by zero trust/continuous validation
     approaches.
 
--   A network security best practice is to make sure there are network access
+- A network security best practice is to make sure there are network access
     controls between network constructs. These constructs can represent virtual
     networks, or subnets within those virtual networks. This works to protect
     and contain East-West traffic within your cloud network infrastructure.
 
--   An important network security design decision is to use or not use
+- An important network security design decision is to use or not use
     host-based firewalls. Host-based firewalls support a comprehensive defense
     in-depth strategy. However, to be of most use they require significant
     management overhead. If your organization has found them effective in
@@ -143,13 +143,13 @@ validates access control at “access time”. This avoids the need to play a
 prediction game for an entire deployment, network, or subnet – only the
 destination resource needs to provide the necessary access controls.
 
--   Azure Network Security Groups can be used for basic layer 3 & 4 access
+- Azure Network Security Groups can be used for basic layer 3 & 4 access
     controls between Azure Virtual Networks, their subnets, and the Internet.
 
--   Azure Web Application Firewall and the Azure Firewall can be used for more
+- Azure Web Application Firewall and the Azure Firewall can be used for more
     advanced network access controls that require application layer support.
 
--   Local Admin Password Solution (LAPS) or a third-party Privileged Access
+- Local Admin Password Solution (LAPS) or a third-party Privileged Access
     Management can set strong local admin passwords and just in time access to
     them
 
@@ -172,19 +172,19 @@ attacks from the internet as is reasonable to detect or block.
 There are two primary choices that can provide Internet edge security controls
 and monitoring:
 
--   Cloud Service Provider Native Controls ([Azure
+- Cloud Service Provider Native Controls ([Azure
     Firewall](https://azure.microsoft.com/services/azure-firewall/) + [Web
     Application Firewall
     (WAF)](https://docs.microsoft.com/azure/application-gateway/waf-overview))
 
--   Partner Virtual Network Appliances (Firewall and WAF Vendors available in
+- Partner Virtual Network Appliances (Firewall and WAF Vendors available in
     [Azure
     Marketplace](https://azuremarketplace.microsoft.com/marketplace/))
 
--   Cloud service provider native controls typically offer basic security that
+- Cloud service provider native controls typically offer basic security that
     is good enough for common attacks, such as the OWASP Top 10.
 
--   In contrast, cloud service provider partner capabilities often provide much
+- In contrast, cloud service provider partner capabilities often provide much
     more advanced features that can protect against sophisticated (but often
     uncommon) attacks. Partner solutions consistently cost more than native
     controls. In addition, configuration of partner solutions can be very
@@ -197,34 +197,25 @@ firewall solutions don’t provide sufficient return on investment, you may
 consider using the native capabilities that are designed to be easy to configure
 and scale.
 
-## Discontinue legacy network security technology
+## Use of legacy network security technology
 
-Discontinue the use of signature-based Network Intrusion Detection/Network
-Intrusion Prevention (NIDS/NIPS) Systems and Network Data Leakage/Loss
-Prevention (DLP).
+Carefully plan your use of signature-based Network Intrusion Detection/Network Intrusion Prevention (NIDS/NIPS) Systems and Network Data Leakage/Loss Prevention (DLP) as you adopt cloud applications services. 
 
-The major cloud service providers already filter for malformed packets and
-common network layer attacks, so there’s no need for a NIDS/NIPS solution to
-detect those. In addition, traditional NIDS/NIPS solutions are typically driven
-by signature-based approaches (which are considered outdated) and are easily
-evaded by attackers and typically produce a high rate of false positives.
+IDS/IPS often generate an overwhelming number of false positive alerts that can contribute to SOC Analyst alert fatigue. While a well-tuned IDS/IPS system can be effective for classic application architectures, these systems do not work well for modern SaaS and PaaS application delivery models. 
 
-Network-based DLP is decreasingly effective at identifying both inadvertent and
-deliberate data loss. The reason for this is that most modern protocols and
-attackers use network-level encryption for inbound and outbound communications.
-The only viable workaround for this is “SSL-bridging” which provides an
-“authorized man-in-the-middle” that terminates and then reestablishes encrypted
-network connections. The SSL-bridging approach has fallen out of favor because
-of the level of trust required for the partner running the solution and the
-technologies that are being used.
+Network-based DLP is decreasingly effective at identifying both inadvertent and deliberate data loss. The reason for this is that most modern protocols and attackers use network-level encryption for inbound and outbound communications. While your organization can use “SSL-bridging” to provide an “authorized man-in-the-middle” that terminates and then reestablishes encrypted network connections, this can also introduce privacy, security and reliability challenges. 
 
-Based on this rationale, we offer an all-up recommendation that you discontinue
-use of these legacy network security technologies. However, if your
-organizational experience is that these technologies have had a palpable impact
-on preventing and detecting real attacks, you can consider porting them to your
-cloud environment.
+Because of how much is changing with network security, we recommend reviewing and updating your network security strategy focused on these considerations as you migrate existing workloads to Azure:
+- The major cloud service providers filter malformed packets and common network layer attacks.
+- Many traditional NIDS/NIPS solutions use signature-based approaches on a per packet basis and easily evaded by attackers and typically produce a high rate of false positives. 
+- Ensure your IDS/IPS system(s) are providing meaningful positive value from alerts they generate. 
+  - Measure alert quality by the percentage of true positives (real attacks detections) vs false positive alerts (false alarms) in the alerts raised by the system. 
+  - Avoid analyst fatigue by providing only high-quality alerts to security analysts who investigate them. Ideally, alerts should have a 90% true positive rate for creating incidents in the primary queue that triage (Tier 1) investigation teams must respond to, while lower quality alerts would go to proactive hunting exercises to reduce analyst fatigue and burnout. 
+- Adopt modern Zero Trust identity approaches for protecting modern SaaS and PaaS applications. See https://aka.ms/zero-trust for more information
+- For IaaS workloads, focus on network security solutions that provide per network context rather than per packet/session context. While the technology to achieve this is still evolving, software defined networks in the cloud are naturally instrumented and can achieve this much more easily than on-premises equipment.
+- Favor solutions that effectively apply machine learning techniques across these large volumes of traffic. ML technology is far superior to static/manual human analysis at rapidly identifying anomalies that could be attacker activity out of normal traffic patterns.
 
-## Design virtual network subnet security 
+## Design virtual network subnet security
 
 Design virtual networks and subnets for growth.
 
@@ -267,10 +258,10 @@ The major cloud service providers offer DDoS protection of services of varying
 effectiveness and capacity. The cloud service providers typically provide two
 DDoS protection options:
 
--   DDoS protection at the cloud network fabric level – all customers of the
+- DDoS protection at the cloud network fabric level – all customers of the
     cloud service provider benefit from these protections. The protection is usually focused at the network (layer 3) level.
 
--   DDoS protection at higher levels that profile your services – this kind of
+- DDoS protection at higher levels that profile your services – this kind of
     protection will baseline your deployments and then use machine learning
     techniques to detect anomalous traffic and proactively protect based on
     their protection before there is service degradation
@@ -327,12 +318,12 @@ significantly reduce false positive alerts.
 
 Examples of network logs that provide visibility include:
 
--   Security group logs – [flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- Security group logs – [flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
     and diagnostic logs
 
--   [Web application firewall logs](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
+- [Web application firewall logs](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
 
--   [Virtual network taps](https://docs.microsoft.com/azure/virtual-network/virtual-network-tap-overview)
+- [Virtual network taps](https://docs.microsoft.com/azure/virtual-network/virtual-network-tap-overview)
     and their equivalents
 
--   [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
+- [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)

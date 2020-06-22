@@ -1,6 +1,6 @@
 ---
 title: Advanced analytics
-description: 
+description: Use mathematical, probabilistic, and statistical modeling techniques to enable predictive processing and automated decision making.
 author: zoinerTejada
 ms.date: 02/12/2018
 ms.topic: guide
@@ -41,7 +41,7 @@ Machine learning is a mathematical modeling technique used to train a predictive
 
 Machine learning modeling is usually performed by data scientists, who need to thoroughly explore and prepare the data before training a model. This exploration and preparation typically involves a great deal of interactive data analysis and visualization &mdash; usually using languages such as Python and R in interactive tools and environments that are specifically designed for this task.
 
-In some cases, you may be able to use [pretrained models](/machine-learning-server/install/microsoftml-install-pretrained-models) that come with training data obtained and developed by Microsoft. The advantage of pretrained models is that you can score and classify new content right away, even if you don't have the necessary training data, the resources to manage large datasets or to train complex models.
+In some cases, you may be able to use [pretrained models](https://docs.microsoft.com/machine-learning-server/install/microsoftml-install-pretrained-models) that come with training data obtained and developed by Microsoft. The advantage of pretrained models is that you can score and classify new content right away, even if you don't have the necessary training data, the resources to manage large datasets or to train complex models.
 
 There are two broad categories of machine learning:
 
@@ -51,8 +51,8 @@ There are two broad categories of machine learning:
 
 Relevant Azure services:
 
-- [Azure Machine Learning](/azure/machine-learning/)
-- [Machine Learning Server (R Server) on HDInsight](/azure/hdinsight/r-server/r-server-overview)
+- [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/)
+- [Machine Learning Server (R Server) on HDInsight](https://docs.microsoft.com/azure/hdinsight/r-server/r-server-overview)
 
 ## Deep learning
 
@@ -62,8 +62,8 @@ When designing a cloud architecture for advanced analytics, you should consider 
 
 Relevant Azure services:
 
-- [Deep Learning Virtual Machine](/azure/machine-learning/data-science-virtual-machine/deep-learning-dsvm-overview)
-- [Apache Spark on HDInsight](/azure/hdinsight/spark/apache-spark-overview)
+- [Deep Learning Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/deep-learning-dsvm-overview)
+- [Apache Spark on HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-overview)
 
 ## Artificial intelligence
 
@@ -75,9 +75,9 @@ The predictive services that support AI applications may leverage custom machine
 
 Relevant Azure services:
 
-- [Azure Machine Learning](/azure/machine-learning/)
+- [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/)
 
-- [Machine Learning Server (R Server) on HDInsight](/azure/hdinsight/r-server/r-server-overview)
+- [Machine Learning Server (R Server) on HDInsight](https://docs.microsoft.com/azure/hdinsight/r-server/r-server-overview)
 
 ## See also
 
