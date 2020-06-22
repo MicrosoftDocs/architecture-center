@@ -1,7 +1,7 @@
 ---
 title: Oracle database migration - Refactor
 titleSuffix: Azure Example Scenarios
-description: Description
+description: Refactor your Oracle database with Azure Database Migration Service and move it to PostgreSQL.
 author: amberz
 ms.date: 06/12/2020
 ms.topic: example-scenario
@@ -12,32 +12,54 @@ ms.custom: fcp
 
 # Oracle database migration - Refactor
 
-If prefer managed service on Azure and have legacy Oracle code, Azure offer Azure database migration service to allow Oracle database easily migrate Azure database for PostgreSQL.
+Do you prefer using a managed service on Azure and have legacy Oracle code? If so, you can use the Azure Database Migration Service to migrate your Oracle database to Azure Database for PostgreSQL. It's the option for you because it:
 
-![](media/refactor.png)
+* Provides built-in [business continuity](azure/postgresql/concepts-business-continuity) and [disaster recovery](/azure/postgresql/concepts-backup) capacity.
 
-#### Prerequisites
+* Allows you to [replicate data](/azure/postgresql/concepts-read-replicas) from an Azure Database for PostgreSQL server to a read-only server
 
-* Azure Subscritpion is required, refer [How to create Azure subscription](/azure/cost-management-billing/manage/create-subscription) to create a new subscritpion if doesn't exist. 
-* Provision Azure Data Migration Service(DMS), refer [Create DMS using Azure portal](/azure/dms/quickstart-create-data-migration-service-portal) about how to create DMS on Azure.
+* Lets you easily [migrate data to PostgreSQL online](/azure/postgresql/howto-migrate-online).
 
-#### Why migrate to PostgreSQL
+## Architecture
 
-* Azure database for PostgreSQL provide built-in business continuity and disaster recovery capacity. Refer [How to create PostgreSQL read replica](/azure/postgresql/concepts-read-replicas) to improve PostgreSQL database reliability.
+![An architecture diagram that shows a private endpoint connection reaching out to an Azure Database for PostgreSQL.](media/refactor.png)
 
-* Azure provide Azure Data Migration Service to allow easily to migrate data to PostgreSQL online.  
+1. Use Azure Database Migration Service (_not shown_) to automate your Oracle database migration to Azure.
 
-### Assessment migration complexity
+1. Migrate the database to Azure Database for PostgreSQL.
 
-Ora2Pg allow to run below command to get migration complexity assessment.
+## Components
 
-```sql
+* [Azure Database Migration Service](https://azure.microsoft.com/en-us/services/database-migration/) is a tool that helps you simplify, guide, and automate your database migration to Azure.
+
+* [Azure Database for PostgreSQL](/services/postgresql/) lets you focus on application innovation instead of database management and scale your workload quickly and easily.
+
+* [Virtual Network](/services/virtual-network/) is your private network in your Azure environment.
+
+## Considerations
+
+### Prerequisites
+
+* Create an [Azure subscription](/azure/cost-management-billing/manage/create-subscription).
+* Create an instance of the [Azure Database Migration Service by using the Azure portal](/azure/dms/quickstart-create-data-migration-service-portal).
+
+### Evaluate your Oracle database
+
+To evaluate your Oracle database, run the [Oracle PL\SQL](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_Pre_v12.sql) and [Oracle PL\SQL 2](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_v12_Plus.sql) tools in you existing Oracle database. See the [Assessment guide](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/OraclePre-SSMA%20Query%20Guidance.pptx) for instructions on how to run both of the tools.
+
+Download the [Assessment Calculator Template](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Customer%20Assessment%20CalculatorTemplate2.xlsx) spreadsheet so you can record the results.
+
+### Assess migration complexity
+
+Download [Ora2Pg](http://ora2pg.darold.net/). Run the following command to get migration complexity assessment.
+
+```console
 ora2pg -t SHOW_REPORT --estimate_cost
 ```
 
-The output of the schema assessment as below:
+Here's an example of the output of a schema assessment:
 
-```dotnetcli
+```console
 Migration levels:
 
     A - Migration that might be run automatically
@@ -59,43 +81,23 @@ Technical levels:
     5 = difficulty: stored functions and/or triggers with code rewriting
 ```
 
-#### Migration tools
+### Oracle Objects conversion and Data migration
 
-Oracle database discoveries script:
+Use ora2pg to convert Oracle tables, stored procedures, packages, and other database objects. After the conversion, they'll be PostgreSQL-compatible. Next, start a migration pipeline in Azure Database Migration Service.
 
-* [Assessment Calculator Template](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Customer%20Assessment%20CalculatorTemplate2.xlsx)
-* [Oracle PL\SQL](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_Pre_v12.sql)
-* [Oracle PL\SQL 2](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_v12_Plus.sql)
+### Convert Oracle objects
 
-Assessment of Oracle database migration complexity
+Install ore2pg on an Azure Virtual Machine (VM). Refer to the [Step-by-Step Guide to install ora2pg on Linux & Windows](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf).
 
-* [Ora2PG](http://ora2pg.darold.net)
+Connect to Ora2pg to convert the schemas. Refer to the [Oracle to Azure Database for PostgreSQL Migration Cookbook](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf).
 
-Oracle schema conversition:
+### Migrate data online
 
-* [Ora2PG](http://ora2pg.darold.net)
+You can migrate your data online to reduce downtime. Refer to [Create a DMS instance](/azure/dms/tutorial-oracle-azure-postgresql-online#create-a-dms-instance) for more info.
 
-Oracle data online migration:
+### Workaround list
 
-* [Microsoft Data Migration Service](/azure/dms/tutorial-oracle-azure-postgresql-online)
-
-#### Oracle Objects conversion and Data migration
-
-Convert Oracle tables, stored procedures, packages and other database objects to Postgres compatible by using ora2pg, then starting a migration pipeline in Azure Database Migration Service.
-
-##### Convert Oracle objects
-
-Install ore2pg on Azure Virtual Machine, refer [How to install ora2pg on Windows/Linux](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf)
-
-Connect to Ora2pg to convert schemas, refer [How to convert Oracle schema to PostgreSQL using Ora2PG](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf).
-
-##### Online migrate data
-
-DMS provide online migration to reduce downtime, refer [How to online migrate Oracle data](/azure/dms/tutorial-oracle-azure-postgresql-online#create-a-dms-instance) for online data migration.
-
-##### Workaround list
-
-Below is workaround list when migrating Oracle database to PostgreSQL, refer [Oracle migrate to PostgreSQL workaround list](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20Database%20for%20PostgreSQL%20Migration%20Workarounds.pdf) to get detailed scripts.
+Below you'll find a workaround list. It's useful when you're migrating Oracle database to PostgreSQL. Refer to the [Oracle migrate to PostgreSQL workaround list](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20Database%20for%20PostgreSQL%20Migration%20Workarounds.pdf) to get detailed scripts.
 
 | Oracle | PostgreSGL |
 | ------ | ---------- |
@@ -107,3 +109,10 @@ Below is workaround list when migrating Oracle database to PostgreSQL, refer [Or
 | Connected by | With Recursive |
 | Reverse Index | Functional Index |
 |Index Organized Table (IOT) | Cluster the table according to an Index |
+
+## Next steps
+
+To begin migrating your Oracle database to Azure Database for PostgreSQL, see [Tutorial: Migrate Oracle to Azure Database for PostgreSQL online using DMS](/azure/dms/tutorial-oracle-azure-postgresql-online).
+
+> [!NOTE]
+> If this migration path doesn't seem like the right one for your business needs, refer back to the [Migration decision tree](oracle-migration-overview.md#migration-decision-tree).
