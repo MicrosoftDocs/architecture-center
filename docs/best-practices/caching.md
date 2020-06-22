@@ -10,6 +10,8 @@ ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
+<!-- cSpell:ignore BSON keyspace INCRBY DECR DECRBY GETSET MGET MSET SADD SMEMBERS SDIFF SUNION ZADD LPUSH RPUSH LPOP RPOP LRANGE RRANGE -->
+
 # Caching
 
 Caching is a common technique that aims to improve the performance and scalability of a system. It does this by temporarily copying frequently accessed data to fast storage that's located close to the application. If this fast data storage is located closer to the application than the original source, then caching can significantly improve response times for client applications by serving data more quickly.
@@ -42,7 +44,7 @@ Think of a cache as a snapshot of the original data at some point in the past. I
 
 ![Using an in-memory cache in different instances of an application](./images/caching/Figure1.png)
 
-*Figure 1: Using an in-memory cache in different instances of an application.*
+_Figure 1: Using an in-memory cache in different instances of an application._
 
 ### Shared caching
 
@@ -50,7 +52,7 @@ Using a shared cache can help alleviate concerns that data might differ in each 
 
 ![Using a shared cache](./images/caching/Figure2.png)
 
-*Figure 2: Using a shared cache.*
+_Figure 2: Using a shared cache._
 
 An important benefit of the shared caching approach is the scalability it provides. Many shared cache services are implemented by using a cluster of servers and use software to distribute the data across the cluster transparently. An application instance simply sends a request to the cache service. The underlying infrastructure determines the location of the cached data in the cluster. You can easily scale the cache by adding more servers.
 
@@ -86,7 +88,7 @@ Caching is less useful for dynamic data, although there are some exceptions to t
 
 Note that a cache does not have to include the complete data for an entity. For example, if a data item represents a multivalued object such as a bank customer with a name, address, and account balance, some of these elements might remain static (such as the name and address), while others (such as the account balance) might be more dynamic. In these situations, it can be useful to cache the static portions of the data and retrieve (or calculate) only the remaining information when it is required.
 
-We recommend that you carry out performance testing and usage analysis to determine whether prepopulation or on-demand loading of the cache, or a combination of both, is appropriate. The decision should be based on the volatility and usage pattern of the data. Cache utilization and performance analysis are particularly important in applications that encounter heavy loads and must be highly scalable. For example, in highly scalable scenarios it might make sense to seed the cache to reduce the load on the data store at peak times.
+We recommend that you carry out performance testing and usage analysis to determine whether prepopulating or on-demand loading of the cache, or a combination of both, is appropriate. The decision should be based on the volatility and usage pattern of the data. Cache utilization and performance analysis are particularly important in applications that encounter heavy loads and must be highly scalable. For example, in highly scalable scenarios it might make sense to seed the cache to reduce the load on the data store at peak times.
 
 Caching can also be used to avoid repeating computations while the application is running. If an operation transforms data or performs a complicated calculation, it can save the results of the operation in the cache. If the same calculation is required afterward, the application can simply retrieve the results from the cache.
 
@@ -136,7 +138,7 @@ Depending on the nature of the data and the likelihood of collisions, you can ad
 
 Avoid using a cache as the primary repository of data; this is the role of the original data store from which the cache is populated. The original data store is responsible for ensuring the persistence of the data.
 
-Be careful not to introduce critical dependencies on the availability of a shared cache service into your solutions. An application should be able to continue functioning if the service that provides the shared cache is unavailable. The application should not hang or fail while waiting for the cache service to resume.
+Be careful not to introduce critical dependencies on the availability of a shared cache service into your solutions. An application should be able to continue functioning if the service that provides the shared cache is unavailable. The application should not become unresponsive or fail while waiting for the cache service to resume.
 
 Therefore, the application must be prepared to detect the availability of the cache service and fall back to the original data store if the cache is inaccessible. The [Circuit-Breaker pattern](../patterns/circuit-breaker.md) is useful for handling this scenario. The service that provides the cache can be recovered, and once it becomes available, the cache can be repopulated as data is read from the original data store, following a strategy such as the [Cache-aside pattern](../patterns/cache-aside.md).
 
@@ -148,7 +150,7 @@ This approach requires careful configuration to prevent the local cache from bec
 
 ![Using a local private cache with a shared cache](./images/caching/Caching3.png)
 
-*Figure 3: Using a local private cache with a shared cache.*
+_Figure 3: Using a local private cache with a shared cache._
 
 To support large caches that hold relatively long-lived data, some cache services provide a high-availability option that implements automatic failover if the cache becomes unavailable. This approach typically involves replicating the cached data that's stored on a primary cache server to a secondary cache server, and switching to the secondary server if the primary server fails or connectivity is lost.
 
@@ -193,7 +195,7 @@ You must also protect the data as it flows in and out of the cache. To do this, 
 
 ## Considerations for implementing caching in Azure
 
-[Azure Cache for Redis](/azure/redis-cache/) is an implementation of the open source Redis cache that runs as a service in an Azure datacenter. It provides a caching service that can be accessed from any Azure application, whether the application is implemented as a cloud service, a website, or inside an Azure virtual machine. Caches can be shared by client applications that have the appropriate access key.
+[Azure Cache for Redis](https://docs.microsoft.com/azure/redis-cache) is an implementation of the open source Redis cache that runs as a service in an Azure datacenter. It provides a caching service that can be accessed from any Azure application, whether the application is implemented as a cloud service, a website, or inside an Azure virtual machine. Caches can be shared by client applications that have the appropriate access key.
 
 Azure Cache for Redis is a high-performance caching solution that provides availability, scalability and security. It typically runs as a service spread across one or more dedicated machines. It attempts to store as much information as it can in memory to ensure fast access. This architecture is intended to provide low latency and high throughput by reducing the need to perform slow I/O operations.
 
@@ -275,7 +277,7 @@ Additionally, you can create alerts that send email messages to an administrator
 
 You can also monitor the CPU, memory, and network usage for the cache.
 
-For further information and examples showing how to create and configure an Azure Cache for Redis, visit the page [Lap around Azure Cache for Redis](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) on the Azure blog.
+For further information and examples showing how to create and configure an Azure Cache for Redis, visit the page [Lap around Azure Cache for Redis](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview) on the Azure blog.
 
 ## Caching session state and HTML output
 
@@ -288,12 +290,12 @@ Using the session state provider with Azure Cache for Redis delivers several ben
 - Supporting controlled, concurrent access to the same session state data for multiple readers and a single writer.
 - Using compression to save memory and improve network performance.
 
-For more information, see [ASP.NET session state provider for Azure Cache for Redis](/azure/redis-cache/cache-aspnet-session-state-provider/).
+For more information, see [ASP.NET session state provider for Azure Cache for Redis](https://docs.microsoft.com/azure/redis-cache/cache-aspnet-session-state-provider).
 
 > [!NOTE]
 > Do not use the session state provider for Azure Cache for Redis with ASP.NET applications that run outside of the Azure environment. The latency of accessing the cache from outside of Azure can eliminate the performance benefits of caching data.
 
-Similarly, the output cache provider for Azure Cache for Redis enables you to save the HTTP responses generated by an ASP.NET web application. Using the output cache provider with Azure Cache for Redis can improve the response times of applications that render complex HTML output. Application instances that generate similar responses can use the shared output fragments in the cache rather than generating this HTML output afresh. For more information, see [ASP.NET output cache provider for Azure Cache for Redis](/azure/redis-cache/cache-aspnet-output-cache-provider/).
+Similarly, the output cache provider for Azure Cache for Redis enables you to save the HTTP responses generated by an ASP.NET web application. Using the output cache provider with Azure Cache for Redis can improve the response times of applications that render complex HTML output. Application instances that generate similar responses can use the shared output fragments in the cache rather than generating this HTML output afresh. For more information, see [ASP.NET output cache provider for Azure Cache for Redis](https://docs.microsoft.com/azure/redis-cache/cache-aspnet-output-cache-provider).
 
 ## Building a custom Redis cache
 
@@ -301,7 +303,7 @@ Azure Cache for Redis acts as a façade to the underlying Redis servers. If you 
 
 This is a potentially complex process because you might need to create several VMs to act as master and subordinate nodes if you want to implement replication. Furthermore, if you wish to create a cluster, then you need multiple masters and subordinate servers. A minimal clustered replication topology that provides a high degree of availability and scalability comprises at least six VMs organized as three pairs of master/subordinate servers (a cluster must contain at least three master nodes).
 
-Each master/subordinate pair should be located close together to minimize latency. However, each set of pairs can be running in different Azure datacenters located in different regions, if you wish to locate cached data close to the applications that are most likely to use it. For an example of building and configuring a Redis node running as an Azure VM, see [Running Redis on a CentOS Linux VM in Azure](https://blogs.msdn.microsoft.com/tconte/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure/).
+Each master/subordinate pair should be located close together to minimize latency. However, each set of pairs can be running in different Azure datacenters located in different regions, if you wish to locate cached data close to the applications that are most likely to use it. For an example of building and configuring a Redis node running as an Azure VM, see [Running Redis on a CentOS Linux VM in Azure](https://blogs.msdn.microsoft.com/tconte/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure).
 
 > [!NOTE]
 > If you implement your own Redis cache in this way, you are responsible for monitoring, managing, and securing the service.
@@ -336,7 +338,7 @@ You can specify the connection parameters, such as the address of the Redis host
 
 After you have connected to the Redis server, you can obtain a handle on the Redis database that acts as the cache. The Redis connection provides the `GetDatabase` method to do this. You can then retrieve items from the cache and store data in the cache by using the `StringGet` and `StringSet` methods. These methods expect a key as a parameter, and return the item either in the cache that has a matching value (`StringGet`) or add the item to the cache with this key (`StringSet`).
 
-Depending on the location of the Redis server, many operations might incur some latency while a request is transmitted to the server and a response is returned to the client. The StackExchange library provides asynchronous versions of many of the methods that it exposes to help client applications remain responsive. These methods support the [Task-based Asynchronous pattern](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap) in the .NET Framework.
+Depending on the location of the Redis server, many operations might incur some latency while a request is transmitted to the server and a response is returned to the client. The StackExchange library provides asynchronous versions of many of the methods that it exposes to help client applications remain responsive. These methods support the [Task-based Asynchronous pattern](https://docs.microsoft.com/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap) in the .NET Framework.
 
 The following code snippet shows a method named `RetrieveItem`. It illustrates an implementation of the cache-aside pattern based on Redis and the StackExchange library. The method takes a string key value and attempts to retrieve the corresponding item from the Redis cache by calling the `StringGetAsync` method (the asynchronous version of `StringGet`).
 
@@ -476,7 +478,7 @@ var customer1 = cache.Wait(task1);
 var customer2 = cache.Wait(task2);
 ```
 
-For additional information on writing client applications that can the Azure Cache for Redis, see the [Azure Cache for Redis documentation](/azure/azure-cache-for-redis/). More information is also available at [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/Basics.md).
+For additional information on writing client applications that can the Azure Cache for Redis, see the [Azure Cache for Redis documentation](https://docs.microsoft.com/azure/azure-cache-for-redis). More information is also available at [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/Basics.md).
 
 The page [Pipelines and multiplexers](https://stackexchange.github.io/StackExchange.Redis/PipelinesMultiplexers) on the same website provides more information about asynchronous operations and pipelining with Redis and the StackExchange library.
 
@@ -874,19 +876,19 @@ Some options to consider include:
 
 - [Protocol Buffers](https://github.com/google/protobuf) (also called protobuf) is a serialization format developed by Google for serializing structured data efficiently. It uses strongly typed definition files to define message structures. These definition files are then compiled to language-specific code for serializing and deserializing messages. Protobuf can be used over existing RPC mechanisms, or it can generate an RPC service.
 
-- [Apache Thrift](https://thrift.apache.org/) uses a similar approach, with strongly typed definition files and a compilation step to generate the serialization code and RPC services.
+- [Apache Thrift](https://thrift.apache.org) uses a similar approach, with strongly typed definition files and a compilation step to generate the serialization code and RPC services.
 
-- [Apache Avro](https://avro.apache.org/) provides similar functionality to Protocol Buffers and Thrift, but there is no compilation step. Instead, serialized data always includes a schema that describes the structure.
+- [Apache Avro](https://avro.apache.org) provides similar functionality to Protocol Buffers and Thrift, but there is no compilation step. Instead, serialized data always includes a schema that describes the structure.
 
-- [JSON](https://json.org/) is an open standard that uses human-readable text fields. It has broad cross-platform support. JSON does not use message schemas. Being a text-based format, it is not very efficient over the wire. In some cases, however, you may be returning cached items directly to a client via HTTP, in which case storing JSON could save the cost of deserializing from another format and then serializing to JSON.
+- [JSON](https://json.org) is an open standard that uses human-readable text fields. It has broad cross-platform support. JSON does not use message schemas. Being a text-based format, it is not very efficient over the wire. In some cases, however, you may be returning cached items directly to a client via HTTP, in which case storing JSON could save the cost of deserializing from another format and then serializing to JSON.
 
-- [BSON](http://bsonspec.org/) is a binary serialization format that uses a structure similar to JSON. BSON was designed to be lightweight, easy to scan, and fast to serialize and deserialize, relative to JSON. Payloads are comparable in size to JSON. Depending on the data, a BSON payload may be smaller or larger than a JSON payload. BSON has some additional data types that are not available in JSON, notably BinData (for byte arrays) and Date.
+- [BSON](http://bsonspec.org) is a binary serialization format that uses a structure similar to JSON. BSON was designed to be lightweight, easy to scan, and fast to serialize and deserialize, relative to JSON. Payloads are comparable in size to JSON. Depending on the data, a BSON payload may be smaller or larger than a JSON payload. BSON has some additional data types that are not available in JSON, notably BinData (for byte arrays) and Date.
 
-- [MessagePack](https://msgpack.org/) is a binary serialization format that is designed to be compact for transmission over the wire. There are no message schemas or message type checking.
+- [MessagePack](https://msgpack.org) is a binary serialization format that is designed to be compact for transmission over the wire. There are no message schemas or message type checking.
 
-- [Bond](https://microsoft.github.io/bond/) is a cross-platform framework for working with schematized data. It supports cross-language serialization and deserialization. Notable differences from other systems listed here are support for inheritance, type aliases, and generics.
+- [Bond](https://microsoft.github.io/bond) is a cross-platform framework for working with schematized data. It supports cross-language serialization and deserialization. Notable differences from other systems listed here are support for inheritance, type aliases, and generics.
 
-- [gRPC](https://www.grpc.io/) is an open-source RPC system developed by Google. By default, it uses Protocol Buffers as its definition language and underlying message interchange format.
+- [gRPC](https://www.grpc.io) is an open-source RPC system developed by Google. By default, it uses Protocol Buffers as its definition language and underlying message interchange format.
 
 ## Related patterns and guidance
 
@@ -898,9 +900,9 @@ The following patterns might also be relevant to your scenario when you implemen
 
 ## More information
 
-- [Azure Cache for Redis documentation](/azure/azure-cache-for-redis/)
-- [Azure Cache for Redis FAQ](/azure/redis-cache/cache-faq)
-- [Task-based Asynchronous pattern](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap)
+- [Azure Cache for Redis documentation](https://docs.microsoft.com/azure/azure-cache-for-redis)
+- [Azure Cache for Redis FAQ](https://docs.microsoft.com/azure/redis-cache/cache-faq)
+- [Task-based Asynchronous pattern](https://docs.microsoft.com/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap)
 - [Redis documentation](https://redis.io/documentation)
-- [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/)
+- [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis)
 - [Data partitioning guide](https://msdn.microsoft.com/library/dn589795.aspx)

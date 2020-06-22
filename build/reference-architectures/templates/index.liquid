@@ -21,7 +21,7 @@ Jump to: {% for section in sections %}[{{ section.shortName }}](#{{ section.titl
 
 ## {{ section.title }}
 
-<ul  class="panelContent cardsF">
+<ul class="panelContent cardsF">
 {%- for card in section.cards %}
 {% include 'tile' with card %}
 {%- endfor %}

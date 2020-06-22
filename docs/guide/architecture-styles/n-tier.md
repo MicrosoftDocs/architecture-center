@@ -2,7 +2,7 @@
 title: N-tier architecture style
 titleSuffix: Azure Application Architecture Guide
 description: Describes benefits, challenges, and best practices for N-tier architectures on Azure.
-author: MikeWasson
+author: adamboeglin
 ms.date: 08/30/2018
 ms.topic: guide
 ms.service: architecture-center
@@ -69,7 +69,7 @@ N-tier architectures are very common in traditional on-premises applications, so
 
 This section describes a recommended N-tier architecture running on VMs.
 
-![Physical diagram of an N-tier architecture](./images/n-tier-physical.png)
+![Physical diagram of an N-tier architecture](./images/n-tier-physical-bastion.png)
 
 Each tier consists of two or more VMs, placed in an availability set or virtual machine scale set. Multiple VMs provide resiliency in case one VM fails. Load balancers are used to distribute requests across the VMs in a tier. A tier can be scaled horizontally by adding more VMs to the pool.
 
@@ -79,11 +79,16 @@ The web and business tiers are stateless. Any VM can handle any request for that
 
 Network security groups restrict access to each tier. For example, the database tier only allows access from the business tier.
 
+> [!NOTE]
+> The layer labeled "Business Tier" in our reference diagram is a moniker to the business logic tier. Likewise, we also call the presentation tier the "Web Tier." In our example, this is a web application, though multi-tier architectures can be used for other topologies as well (like desktop apps). 
+Name your tiers what works best for your team to communicate the intent of that logical and/or physical tier in your application - you could even express that naming in resources you choose to represent that tier (e.g. vmss-appName-business-layer).
+
 For more information about running N-tier applications on Azure:
 
-- [Run Windows VMs for an N-tier application][n-tier-windows]
-- [Windows N-tier application on Azure with SQL Server][n-tier-linux]
-- [Microsoft Learn module: Tour the N-tier architecture style](/learn/modules/n-tier-architecture/)
+- [Run Windows VMs for an N-tier application][n-tier-linux]
+- [Windows N-tier application on Azure with SQL Server][n-tier-windows-SQL]
+- [Microsoft Learn module: Tour the N-tier architecture style](https://docs.microsoft.com/learn/modules/n-tier-architecture/)
+- [Azure Bastion](/azure/bastion/bastion-overview)
 
 ### Additional considerations
 
@@ -109,12 +114,12 @@ For more information about running N-tier applications on Azure:
 
 [autoscaling]: ../../best-practices/auto-scaling.md
 [caching]: ../../best-practices/caching.md
-[dmz]: ../../reference-architectures/dmz/index.md
+[dmz]: ../../reference-architectures/dmz/secure-vnet-dmz.md
 [ha-nva]: ../../reference-architectures/dmz/nva-ha.md
 [hybrid-network]: ../../reference-architectures/hybrid-networking/index.md
 [identity]: ../../reference-architectures/identity/index.md
-[multiregion-linux]: ../../reference-architectures/virtual-machines-linux/multi-region-application.md
-[multiregion-windows]: ../../reference-architectures/virtual-machines-windows/multi-region-application.md
-[n-tier-linux]: ../../reference-architectures/virtual-machines-linux/n-tier.md
-[n-tier-windows]: ../../reference-architectures/virtual-machines-windows/n-tier.md
-[sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server
+[multiregion-linux]: ../../reference-architectures/n-tier/n-tier-cassandra.md
+[multiregion-windows]: ../../reference-architectures/n-tier/multi-region-sql-server.md
+[n-tier-linux]: ../../reference-architectures/n-tier/n-tier-cassandra.md
+[n-tier-windows-SQL]: ../../reference-architectures/n-tier/n-tier-sql-server.md
+[sql-always-on]: https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server

@@ -5,9 +5,11 @@ author: david-stanford
 ms.date: 10/16/2019
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ms.custom: How are you handling DR (Backup & Restore) for this workload? 
 ---
+
+<!-- cSpell:ignore BACPAC DTUs -->
 
 # Backup and disaster recover for Azure applications
 
@@ -17,7 +19,7 @@ Your tolerance for reduced functionality during a disaster is a business decisio
 
 ## Dependent service outage
 
-For each dependent service, you should understand the implications of a service disruption and the way that the application will respond. Many services include features that support resiliency and availability, so evaluating each service independently is likely to improve your disaster recovery plan. For example, Azure Event Hubs supports [failing over](/azure/event-hubs/event-hubs-geo-dr#setup-and-failover-flow) to the secondary namespace.
+For each dependent service, you should understand the implications of a service disruption and the way that the application will respond. Many services include features that support resiliency and availability, so evaluating each service independently is likely to improve your disaster recovery plan. For example, Azure Event Hubs supports [failing over](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#setup-and-failover-flow) to the secondary namespace.
 
 ## Network outage
 
@@ -40,18 +42,18 @@ Monitor your application for warning signs that may require proactive interventi
 
 For service limits and quota thresholds, we recommend configuring alerts on Azure resources metrics and diagnostics logs. When possible, set up alerts on metrics, which are lower latency than diagnostics logs.
 
-Through [Resource Health](/azure/service-health/resource-health-checks-resource-types), Azure provides some built-in health status checks that can help you diagnose Azure service throttling issues.
+Through [Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-checks-resource-types), Azure provides some built-in health status checks that can help you diagnose Azure service throttling issues.
 
 ### Failover
 
 Configure a disaster recovery strategy for each Azure application and its Azure services. Acceptable deployment strategies to support disaster recovery may vary based on the SLAs required for all components of each application.  
 
-Azure provides different features within many Azure services to allow for manual failover, such as [redis cache geo-replicas](/azure/azure-cache-for-redis/cache-how-to-geo-replication), or for automated failover, such as [SQL auto-failover groups](/azure/sql-database/sql-database-auto-failover-group). For example:
+Azure provides different features within many Azure services to allow for manual failover, such as [redis cache geo-replicas](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication), or for automated failover, such as [SQL auto-failover groups](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group). For example:
 
-- For an application that mainly uses virtual machines, you can use Azure Site Recovery for the web and logic tiers. For more information, see [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture). For SQL Server on VMs, use [SQL Server Always On availability groups](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-dr).
+- For an application that mainly uses virtual machines, you can use Azure Site Recovery for the web and logic tiers. For more information, see [Azure to Azure disaster recovery architecture](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture). For SQL Server on VMs, use [SQL Server Always On availability groups](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-dr).
 - For an application that uses App Service and Azure SQL Database, you can use a smaller tier App Service plan configured in the secondary region, which autoscales when a failover occurs. Use failover groups for the database tier.
 
-In either scenario, an [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) profile provides for the automated failover across regions. [Load balancers](/azure/load-balancer/load-balancer-overview) or [application gateways](/azure/application-gateway/overview) should be set up in the secondary region to support faster availability on failover.
+In either scenario, an [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) profile provides for the automated failover across regions. [Load balancers](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) or [application gateways](https://docs.microsoft.com/azure/application-gateway/overview) should be set up in the secondary region to support faster availability on failover.
 
 ### Operational readiness testing
 
@@ -74,7 +76,7 @@ The frequency of running the backup process determines your RPO. For example, if
 It's common for data in one data store to reference data in another store. For example, consider a SQL Database with a column that links to a blob in Azure Storage. If backups don't happen simultaneously, the database might have a pointer to a blob that wasn't backed up before the failure. The application or the disaster recovery plan must implement processes to handle this inconsistency after a recovery.
 
 > [!NOTE]
-> In some scenarios, such as that of VMs backed up using [Azure Backup](/azure/backup/backup-azure-vms-first-look-arm), you can restore only from a backup in the same region. Other Azure services, such as [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-how-to-geo-replication), provide geo-replicated backups, which you can use to restore services across regions.
+> In some scenarios, such as that of VMs backed up using [Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm), you can restore only from a backup in the same region. Other Azure services, such as [Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication), provide geo-replicated backups, which you can use to restore services across regions.
 
 ### Azure Storage and Azure SQL Database
 
@@ -91,25 +93,25 @@ You can develop a custom backup process for Azure Storage or use one of many thi
 
 Azure Storage provides data resiliency through automated replicas, but it doesn't prevent application code or users from corrupting data. Maintaining data fidelity after application or user error requires more advanced techniques, such as copying the data to a secondary storage location with an audit log. You have several options:
 
-- [**Block blobs.**](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) Create a point-in-time snapshot of each block blob. For each snapshot, you are charged only for the storage required to store the differences within the blob since the previous snapshot state. The snapshots are dependent on the original blob, so we recommend copying to another blob or even to another storage account. This approach ensures that backup data is protected against accidental deletion. Use [AzCopy](/azure/storage/common/storage-use-azcopy) or [Azure PowerShell](/azure/storage/common/storage-powershell-guide-full) to copy the blobs to another storage account.
+- [**Block blobs.**](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) Create a point-in-time snapshot of each block blob. For each snapshot, you are charged only for the storage required to store the differences within the blob since the previous snapshot state. The snapshots are dependent on the original blob, so we recommend copying to another blob or even to another storage account. This approach ensures that backup data is protected against accidental deletion. Use [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) or [Azure PowerShell](https://docs.microsoft.com/azure/storage/common/storage-powershell-guide-full) to copy the blobs to another storage account.
 
-    For more information, see [Creating a Snapshot of a Blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob).
+    For more information, see [Creating a Snapshot of a Blob](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob).
 
-- [**Azure Files.**](/azure/storage/files/storage-files-introduction) Use [share snapshots](/azure/storage/files/storage-snapshots-files), AzCopy, or PowerShell to copy your files to another storage account.
-- [**Azure Table storage.**](/azure/storage/tables/table-storage-overview) Use AzCopy to export the table data into another storage account in another region.
+- [**Azure Files.**](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) Use [share snapshots](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files), AzCopy, or PowerShell to copy your files to another storage account.
+- [**Azure Table storage.**](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) Use AzCopy to export the table data into another storage account in another region.
 
 #### SQL Database recovery
 
 To protect your business from data loss, SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every 5 to 10 minutes. For the Basic, Standard, and Premium SQL Database tiers, use point-in-time restore to restore a database to an earlier time. Review the following articles for more information:
 
-- [Recover an Azure SQL database using automated database backups](/azure/sql-database/sql-database-recovery-using-backups)
-- [Overview of business continuity with Azure SQL Database](/azure/sql-database/sql-database-business-continuity)
+- [Recover an Azure SQL database using automated database backups](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups)
+- [Overview of business continuity with Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity)
 
-Another option is to use active geo-replication for SQL Database, which automatically replicates database changes to secondary databases in the same or different Azure region. For more information, see [Creating and using active geo-replication](/azure/sql-database/sql-database-active-geo-replication).
+Another option is to use active geo-replication for SQL Database, which automatically replicates database changes to secondary databases in the same or different Azure region. For more information, see [Creating and using active geo-replication](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication).
 
 You can also use a more manual approach for backup and restore:
 
-- Use the **DATABASE COPY** command to create a backup copy of the database with transactional consistency.
+- Use the [**Database Copy**](https://docs.microsoft.com/azure/sql-database/sql-database-copy) capability to create a backup copy of the database with transactional consistency.
 - Use the Azure SQL Database Import/Export Service, which supports exporting databases to BACPAC files (compressed files containing your database schema and associated data) that are stored in Azure Blob storage. To protect against a region-wide service disruption, copy the BACPAC files to an alternate region.
 
 ### SQL Server on VMs
@@ -123,16 +125,16 @@ For SQL Server running on VMs, you have two options: traditional backups and log
 
 In Azure Database for MySQL and Azure Database for PostgreSQL, the database service automatically makes a backup every five minutes. You can use these automated backups to restore the server and its databases from an earlier point in time to a new server. For more information, see:
 
-- [How to back up and restore a server in Azure Database for MySQL by using the Azure portal](/azure/mysql/howto-restore-server-portal)
-- [How to back up and restore a server in Azure Database for PostgreSQL using the Azure portal](/azure/postgresql/howto-restore-server-portal)
+- [How to back up and restore a server in Azure Database for MySQL by using the Azure portal](https://docs.microsoft.com/azure/mysql/howto-restore-server-portal)
+- [How to back up and restore a server in Azure Database for PostgreSQL using the Azure portal](https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal)
 
 ### Azure Cosmos DB
 
-Cosmos DB automatically makes a backup at regular intervals. Backups are stored separately in another storage service and are replicated globally to protect against regional disasters. If you accidentally delete your database or collection, you can file a support ticket or call Azure support to restore the data from the last automatic backup. For more information, see [Online backup and on-demand restore in Azure Cosmos DB](/azure/cosmos-db/online-backup-and-restore).
+Cosmos DB automatically makes a backup at regular intervals. Backups are stored separately in another storage service and are replicated globally to protect against regional disasters. If you accidentally delete your database or collection, you can file a support ticket or call Azure support to restore the data from the last automatic backup. For more information, see [Online backup and on-demand restore in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore).
 
 ### Azure Virtual Machines
 
-To protect Azure Virtual Machines from application errors or accidental deletion, use [Azure Backup](/azure/backup/). The created backups are consistent across multiple VM disks. In addition, the Azure Backup vault can be replicated across regions to support recovery from a regional loss.
+To protect Azure Virtual Machines from application errors or accidental deletion, use [Azure Backup](https://docs.microsoft.com/azure/backup/). The created backups are consistent across multiple VM disks. In addition, the Azure Backup vault can be replicated across regions to support recovery from a regional loss.
 
 ## Disaster recovery plan
 
@@ -151,19 +153,17 @@ Consider the following suggestions when creating and testing your disaster recov
 - Train operations staff to execute the plan.
 - Perform regular disaster simulations to validate and improve the plan.
 
-If you're using [Azure Site Recovery](/azure/site-recovery/) to replicate virtual machines (VMs), create a fully automated recovery plan to fail over the entire application.
+If you're using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) to replicate virtual machines (VMs), create a fully automated recovery plan to fail over the entire application.
 
 ## Backup strategy
 
 Many alternative strategies are available for implementing distributed compute across regions. These must be tailored to the specific business requirements and circumstances of the application. At a high level, the approaches can be divided into the following categories:
 
-- **Redeploy on disaster**: In this approach, the application is redeployed from scratch at the time of disaster. This is appropriate for non-critical applications that don’t require a guaranteed recovery time.
+- **Redeploy on disaster**: In this approach, the application is redeployed from scratch at the time of disaster. This is appropriate for non-critical applications that don’t require a guaranteed recovery time. [Redeploy to a new region](../../example-scenario/apps/devops-dotnet-webapp.md)
 
-- **Warm Spare (Active/Passive)**: A secondary hosted service is created in an alternate region, and roles are deployed to guarantee minimal capacity; however, the roles don’t receive production traffic. This approach is useful for applications that have not been designed to distribute traffic across regions.
+- **Warm Spare (Active/Passive)**: A secondary hosted service is created in an alternate region, and roles are deployed to guarantee minimal capacity; however, the roles don’t receive production traffic. This approach is useful for applications that have not been designed to distribute traffic across regions. [Basic Web Application example](../../reference-architectures/app-service-web-app/basic-web-app.md#availability-considerations), [Replicate VM to another region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
 
-- **Hot Spare (Active/Active)**: The application is designed to receive production load in multiple regions. The cloud services in each region might be configured for higher capacity than required for disaster recovery purposes. Alternatively, the cloud services might scale out as necessary at the time of a disaster and failover. This approach requires substantial investment in application design, but it has significant benefits. These include low and guaranteed recovery time, continuous testing of all recovery locations, and efficient usage of capacity.
-
-A complete discussion of distributed design is outside the scope of this document. For more information, see [Disaster Recovery and High Availability for Azure Applications](https://aka.ms/drtechguide).
+- **Hot Spare (Active/Active)**: The application is designed to receive production load in multiple regions. The cloud services in each region might be configured for higher capacity than required for disaster recovery purposes. Alternatively, the cloud services might scale out as necessary at the time of a disaster and failover. This approach requires substantial investment in application design, but it has significant benefits. These include low and guaranteed recovery time, continuous testing of all recovery locations, and efficient usage of capacity. [Multi tier DR example](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.md)
 
 ## Resource management
 
@@ -178,7 +178,7 @@ Determining the number of spare role instances to deploy in advance for disaster
 
 Test failover and failback to verify that your application's dependent services come back up in a synchronized manner during disaster recovery. Changes to systems and operations may affect failover and failback functions, but the impact may not be detected until the main system fails or becomes overloaded. Test failover capabilities *before* they are required to compensate for a live problem. Also be sure that dependent services fail over and fail back in the correct order.
 
-If you are using [Azure Site Recovery](/azure/site-recovery/) to replicate VMs, run disaster recovery drills periodically by doing test failovers to validate your replication strategy. A test failover does not affect the ongoing VM replication or your production environment. For more information, see [Run a disaster recovery drill to Azure](/azure/site-recovery/site-recovery-test-failover-to-azure).
+If you are using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) to replicate VMs, run disaster recovery drills periodically by doing test failovers to validate your replication strategy. A test failover does not affect the ongoing VM replication or your production environment. For more information, see [Run a disaster recovery drill to Azure](https://docs.microsoft.com/azure/site-recovery/site-recovery-test-failover-to-azure).
 
 ## Validating backups
 
@@ -186,11 +186,11 @@ Regularly verify that your backup data is what you expect by running a script to
 
 ## Backup Storage
 
-Backups are about protecting data, applications, and systems that are important to the organization. In operations environments, it’s easy to provide backups: pick the workload that needs hyper-availability and back it up. Operations environments are relatively static – in that, the systems and applications used remain relatively consistent, with only the data changing daily.
+Backups are about protecting data, applications, and systems that are important to the organization. In operations environments, it's easy to provide backups: pick the workload that needs hyper-availability and back it up. Operations environments are relatively static – in that, the systems and applications used remain relatively consistent, with only the data changing daily.
 
 ## Application archives
 
-It’s important to remember, that a DR plan is more than just an ordered restoration from backup and validation process. Applications may require post-restoration configuration due to site changes, or reinstallation may be necessary with restored data imported after.
+It's important to remember, that a DR plan is more than just an ordered restoration from backup and validation process. Applications may require post-restoration configuration due to site changes, or reinstallation may be necessary with restored data imported after.
 
 ## Outage retrospectives
 
@@ -202,7 +202,7 @@ Azure is divided physically and logically into units called regions. A region co
 
 Under rare circumstances, it is possible that facilities in an entire region can become inaccessible, for example due to network failures. Or facilities can be lost entirely, for example due to a natural disaster. This section explains the capabilities of Azure for creating applications that are distributed across regions. Such distribution helps to minimize the possibility that a failure in one region could affect other regions.
 
-Review [Recover from loss of an Azure region](/azure/architecture/resiliency/recovery-loss-azure-region) for guidance on specific Azure services.
+Review [Recover from loss of an Azure region](../../resiliency/recovery-loss-azure-region.md) for guidance on specific Azure services.
 
 ## Service-specific guidance
 
@@ -210,15 +210,15 @@ The following articles describe disaster recovery for specific Azure services:
 
 | Service                       | Article                                                                                                                                                                                       |
 |-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Database for MySQL      | [Overview of business continuity with Azure Database for MySQL](/azure/mysql/concepts-business-continuity)                                                  |
-| Azure Database for PostgreSQL | [Overview of business continuity with Azure Database for PostgreSQL](/azure/postgresql/concepts-business-continuity)                                        |
-| Azure Cloud Services          | [What to do in the event of an Azure service disruption that impacts Azure Cloud Services](/azure/cloud-services/cloud-services-disaster-recovery-guidance) |
-| Cosmos DB                     | [High availability with Azure Cosmos DB](/azure/cosmos-db/high-availability)                                                                                |
-| Azure Key Vault               | [Azure Key Vault availability and redundancy](/azure/key-vault/key-vault-disaster-recovery-guidance)                                                        |
-| Azure Storage                 | [Disaster recovery and storage account failover (preview) in Azure Storage](/azure/storage/common/storage-disaster-recovery-guidance)                       |
-| SQL Database                  | [Restore an Azure SQL Database or failover to a secondary region](/azure/sql-database/sql-database-disaster-recovery)                                       |
-| Virtual Machines              | [What to do in the event of an Azure service disruption impacts Azure Cloud](/azure/cloud-services/cloud-services-disaster-recovery-guidance)               |
-| Azure Virtual Network         | [Virtual Network – Business Continuity](/azure/virtual-network/virtual-network-disaster-recovery-guidance)                                                  |
+| Azure Database for MySQL      | [Overview of business continuity with Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/concepts-business-continuity)                                                  |
+| Azure Database for PostgreSQL | [Overview of business continuity with Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-business-continuity)                                        |
+| Azure Cloud Services          | [What to do in the event of an Azure service disruption that impacts Azure Cloud Services](https://docs.microsoft.com/azure/cloud-services/cloud-services-disaster-recovery-guidance) |
+| Cosmos DB                     | [High availability with Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/high-availability)                                                                                |
+| Azure Key Vault               | [Azure Key Vault availability and redundancy](https://docs.microsoft.com/azure/key-vault/key-vault-disaster-recovery-guidance)                                                        |
+| Azure Storage                 | [Disaster recovery and storage account failover (preview) in Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance)                       |
+| SQL Database                  | [Restore an Azure SQL Database or failover to a secondary region](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery)                                       |
+| Virtual Machines              | [What to do in the event of an Azure service disruption impacts Azure Cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-disaster-recovery-guidance)               |
+| Azure Virtual Network         | [Virtual Network – Business Continuity](https://docs.microsoft.com/azure/virtual-network/virtual-network-disaster-recovery-guidance)                                                  |
 
 ## Next steps
 

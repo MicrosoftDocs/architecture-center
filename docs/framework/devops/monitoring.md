@@ -1,11 +1,11 @@
 ---
-title: Monitoring for DevOps 
+title: Monitoring for DevOps
 description: Describes how to monitor your workload to ensure your DevOps infrastructure is working as intended.
 author: david-stanford
 ms.date: 11/01/2019
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ms.custom: fasttrack-edit
 ---
 

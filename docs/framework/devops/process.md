@@ -5,7 +5,7 @@ author: nimccoll
 ms.date: 10/21/2019
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ms.custom: fasttrack-edit
 ---
 
@@ -21,11 +21,11 @@ ms.custom: fasttrack-edit
 
 ## Naming conventions
 
-## Roadmap 
+## Roadmap
 
 Adopt VSTS Agile as a single source of truth for all stakeholders to avoid mismatched expectations and to give an accurate picture of the current status.
 
-## Continous improvement
+## Continuous improvement
 
 Use VSTS dashboards and VSTS Power BI integration for data-driven reporting and improvement.
 

@@ -5,6 +5,10 @@ author: njray
 ms.date: 11/20/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - analytics
+  - databases
 ms.subservice: reference-architecture
 ms.custom: azcat-ai
 ---
@@ -59,7 +63,7 @@ Because the scenario creates a batch pipeline, we provide a set of optional exam
 ## Recommendations
 
 Databricks is set up so you can load and deploy your trained models to make predictions with new data. We used Databricks for this scenario because it provides these additional advantages:
-
+'
 - Single sign-on support using Azure Active Directory credentials.
 - Job scheduler to execute jobs for production pipelines.
 - Fully interactive notebook with collaboration, dashboards, REST APIs.
@@ -74,7 +78,7 @@ You can monitor job execution through the Databricks user interface, the data st
 
 ## Performance considerations
 
-An Azure Databricks cluster enables autoscaling by default so that during runtime, Databricks dynamically reallocates workers to account for the characteristics of your job. Certain parts of your pipeline may be more computationally demanding than others. Databricks adds additional workers during these phases of your job (and removes them when they’re no longer needed). Autoscaling makes it easier to achieve high [cluster utilization][cluster], because you don’t need to provision the cluster to match a workload.
+An Azure Databricks cluster enables autoscaling by default so that during runtime, Databricks dynamically reallocates workers to account for the characteristics of your job. Certain parts of your pipeline may be more computationally demanding than others. Databricks adds additional workers during these phases of your job (and removes them when they're no longer needed). Autoscaling makes it easier to achieve high [cluster utilization][cluster], because you don't need to provision the cluster to match a workload.
 
 Additionally, more complex scheduled pipelines can be developed by using [Azure Data Factory][adf] with Azure Databricks.
 
@@ -90,7 +94,6 @@ For this scenario, the standard pricing tier is sufficient. However, if your spe
 
 The solution notebooks can run on any Spark-based platform with minimal edits to remove the Databricks-specific packages. See the following similar solutions for various Azure platforms:
 
-- [Python on Azure Machine Learning Studio (classic)][python-aml]
 - [SQL Server R services][sql-r]
 - [PySpark on an Azure Data Science Virtual Machine][py-dvsm]
 
@@ -103,13 +106,15 @@ Azure Databricks.
 
 We have also built a reference architecture that uses Spark for building [real-time recommendation systems][recommendation] with offline, pre-computed scores. These recommendation systems are common scenarios where scores are batch-processed.
 
-[adf]: https://azure.microsoft.com/blog/operationalize-azure-databricks-notebooks-using-data-factory/
-[ai-guide]: /azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance
+<!-- links -->
+
+[adf]: https://azure.microsoft.com/blog/operationalize-azure-databricks-notebooks-using-data-factory
+[ai-guide]: https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance
 [blob]: https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [cli]: https://docs.databricks.com/user-guide/dev-tools/databricks-cli.html
 [cluster]: https://docs.azuredatabricks.net/clusters/configure.html#cluster-size-and-autoscaling
-[databricks]: /azure/azure-databricks/
-[databricks-connect]: /azure/azure-databricks/databricks-connect-to-data-sources
+[databricks]: https://docs.microsoft.com/azure/azure-databricks
+[databricks-connect]: https://docs.microsoft.com/azure/azure-databricks/databricks-connect-to-data-sources
 [data-sources]: https://docs.databricks.com/spark/latest/data-sources/index.html
 [github]: https://github.com/Azure/BatchSparkScoringPredictiveMaintenance
 [job]: https://docs.databricks.com/user-guide/jobs.html
@@ -118,9 +123,8 @@ We have also built a reference architecture that uses Spark for building [real-t
 [mllib]: https://docs.databricks.com/spark/latest/mllib/index.html
 [mllib-spark]: https://docs.databricks.com/spark/latest/mllib/index.html#apache-spark-mllib
 [notebooks]: https://docs.databricks.com/user-guide/notebooks/index.html
-[pricing]: https://azure.microsoft.com/pricing/details/databricks/
-[python-aml]: https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1
+[pricing]: https://azure.microsoft.com/pricing/details/databricks
 [py-dvsm]: https://gallery.azure.ai/Tutorial/Predictive-Maintenance-using-PySpark
-[recommendation]: /azure/architecture/reference-architectures/ai/real-time-recommendation
+[recommendation]: ../../reference-architectures/ai/real-time-recommendation.md
 [sql-r]: https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1
 [workspace]: https://docs.databricks.com/user-guide/workspace.html
