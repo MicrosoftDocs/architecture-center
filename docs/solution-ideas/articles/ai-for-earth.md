@@ -2,9 +2,9 @@
 title: AI for Earth
 titleSuffix: Azure Example Scenarios
 author: jocontr
-ms.date: 06/04/2020
+ms.date: 06/22/2020
 description: Get an overview of AI for Earth projects and initiatives. Learn how to use the AI for Earth APIs to help build solutions for environmental problems.
-ms.custom: FCP, AISchool
+ms.custom: fcp, aischool
 ---
 # AI for Earth
 
@@ -50,31 +50,12 @@ AI for Earth [projects](https://www.microsoft.com/ai/ai-for-earth-projects?activ
 
 ## Components
 
-The AI for Earth APIs work with Azure components to provide these solutions.
-
-### Azure Open Datasets
-
-[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) are free, curated public datasets that are easy to access from Azure services and ready to use to improve the accuracy of your machine learning models.
-
-[Full catalog](https://azure.microsoft.com/services/open-datasets/catalog/)
-
-(https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets)
-Azure Open Datasets are curated public datasets that you can use in machine learning solutions for more accurate models. Datasets include public-domain data for weather, census, holidays, public safety, and location that help you train machine learning models and enrich predictive solutions. You can also share or request public datasets on Azure Open Datasets. Open Datasets are in the Azure cloud and are integrated into Azure Machine Learning, or you can access the datasets through APIs to use them in other products.
-
-Data scientists often spend the majority of their time cleaning and preparing data for advanced analytics. Open Datasets are copied to the Azure cloud and preprocessed to save you time. At regular intervals data is pulled from the sources, such as by an FTP connection to the National Oceanic and Atmospheric Administration (NOAA). Next, data is parsed into a structured format, and then enriched as appropriate with features such as ZIP Code or location of the nearest weather station.
-
-Datasets are cohosted with cloud compute in Azure making access and manipulation easier.
-
-With an Azure account, you can access open datasets using code or through the Azure service interface. The data is colocated with Azure cloud compute resources for use in your machine learning solution.
-
-Open Datasets are available through the Azure Machine Learning UI and SDK. Open Datasets also provides Azure Notebooks and Azure Databricks notebooks you can use to connect data to Azure Machine Learning and Azure Databricks. Datasets can also be accessed through a Python SDK.
-
-However, you don't need an Azure account to access Open Datasets; you can access them from any Python environment with or without Spark.
+The [AI for Earth APIs](https://www.microsoft.com/ai/ai-for-earth-tech-resources) work with Azure components to provide these solutions.
 
 ### Land Cover Mapping API
 
 [Land Cover Mapping](https://www.microsoft.com/research/project/land-cover-mapping/) 
-Understanding land use is critical to strategic conservation planning. Environmental scientists use satellite and aerial imagery to understand patterns of land use, in particular the impacts of climate change and human population expansion on natural resources. However, distilling imagery into actionable data in the form of land cover maps requires extensive manual annotation. The public [Land Cover Mapping API](https://aiforearth.portal.azure-api.net/docs/services/ai-for-earth-land-cover-mapping-api-v2/operations/post-landcover-classify) uses computer vision and machine learning to classify imagery into natural or human-made terrain types, providing high-resolution land cover information for precision conservation planning.
+Environmental scientists use satellite and aerial imagery to understand patterns of land use, in particular the impacts of climate change and human population expansion on natural resources. Understanding land use is critical to strategic conservation planning. However, distilling imagery into actionable data in the form of land cover maps requires extensive manual annotation. The public [Land Cover Mapping API](https://aiforearth.portal.azure-api.net/docs/services/ai-for-earth-land-cover-mapping-api-v2/operations/post-landcover-classify) uses computer vision and machine learning to classify imagery into natural or human-made terrain types, providing high-resolution land cover information for precision conservation planning.
 
 The Land Cover Mapping API can take a supplied TIFF or JPEG 1-meter-resolution aerial or satellite image and return an image file showing land cover classifications. Version 2 can return the most recent image and land cover classifications for any specified latitude and longitude within the United States. Both API versions return a land cover classification image with areas classified into water, forest, field, or built coverage. The demo Notebook in this article uses Version 2. You can analyze and make decisions based on the land cover predicted in the image. The API also allows you to train your model by correcting the predictions and adding and training new classifications.
 
@@ -90,6 +71,35 @@ The Species Classification API enables developers to leverage deep learning mode
 
 [Species Classification API demo](https://speciesclassification.westus2.cloudapp.azure.com/).
 [Species Classification source code](https://github.com/Microsoft/speciesclassification)
+
+### Azure Open Datasets
+
+[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) are free, curated public datasets that help you train machine learning models and enrich predictive solutions. The datasets cover public-domain weather, census, holidays, public safety, and location data. You can share or request other public datasets through Azure Open Datasets. 
+
+Azure Open Datasets preprocesses data to save you time. At regular intervals, Open Datasets pulls data from the sources, such as by an FTP connection to the National Oceanic and Atmospheric Administration (NOAA). After parsing the data into a structured format, Open Datasets enriches it as appropriate with features such as ZIP Code or location of the nearest weather station.
+
+With an Azure account, you can access Open Datasets through the Azure portal or through APIs. Cohosting with Azure compute and other services makes access and manipulation easier. You can access Open Datasets are available through the Azure Machine Learning UI and SDK. Open Datasets also provides Azure Notebooks and Azure Databricks notebooks you can use to connect data to Azure Machine Learning and Azure Databricks. Datasets can also be accessed through a Python SDK.
+
+
+However, you don't need an Azure account. You can access Open Datasets from any Python environment, with or without Spark. 
+
+using code or through the Azure service interface. The data is colocated with Azure cloud compute resources for use in your machine learning solution.
+
+
+
+
+are integrated into Azure Machine Learning, or you can access the datasets through APIs. 
+
+Azure Open Datasets are that are easy to access from Azure services and ready to use to improve the accuracy of your machine learning models.
+
+
+[Full catalog](https://azure.microsoft.com/services/open-datasets/catalog/)
+
+(https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets)
+Azure Open Datasets are curated public datasets 
+
+
+Datasets are cohosted with 
 
 ### Azure Notebooks
 
