@@ -866,8 +866,6 @@ items:
         items:
         - name: Serverless Functions app development
           href: serverless-quest/application-development.md
-        - name: Code-with engineering playbook
-          href: serverless-quest/code-with.md
         - name: Serverless Functions code walkthrough
           href: serverless/code.md
         - name: CI/CD for a serverless frontend
