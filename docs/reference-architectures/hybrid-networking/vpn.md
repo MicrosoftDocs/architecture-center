@@ -270,3 +270,4 @@ Although VPNs can be used to connect virtual networks within Azure, it's not alw
 [vpn-appliances]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [vpn-gateway-multi-site]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site
 [windows-vm-ra]: ../n-tier/n-tier-sql-server.md
+[azbb]: https://github.com/mspnp/template-building-blocks/wiki
