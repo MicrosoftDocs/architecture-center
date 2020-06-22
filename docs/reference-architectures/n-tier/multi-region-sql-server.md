@@ -187,6 +187,11 @@ Traffic Manager billing is based on the number of DNS queries received, with a d
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
 
+### VNET-Peering pricing
+A high-availability deployment that leverages multiple Azure Regions will make use of VNET-Peering. There are different charges for VNET-Peering within the same region and for Global VNET-Peering.
+
+For more information, see [Virtual Network Pricing](https://azure.microsoft.com/pricing/details/virtual-network/). 
+
 ## DevOps considerations
 
 Use a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources and its dependencies. Use the same template to deploy the resources to both primary and secondary regions. Include all the resources in the same virtual network so they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps Team and Services to perform continuous integration and continuous delivery (CI/CD).
