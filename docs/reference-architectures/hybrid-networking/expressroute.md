@@ -247,6 +247,7 @@ You also can use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor 
 
 For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops]. For information specific to monitoring, see [Monitoring For DevOps][devops-monitoring].
 
+
 ## Cost considerations
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. For general considerations, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
@@ -278,6 +279,7 @@ In this architecture, internal load balancers are used to load balance traffic i
 Virtual machine scale sets are available on all Linux and windows VM sizes. You are only charged for the Azure VMs you deploy and underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the virtual machine scale sets service.
 
 For more information, see [Azure VM pricing][linux-vms-pricing].
+
 
 ## Deploy the solution
 
@@ -314,7 +316,8 @@ To deploy the solution, perform the following steps.
 <!-- links -->
 
 [highly-available-network-architecture]: ./expressroute-vpn-failover.md
-<<<<<<< HEAD
+
+
 [AAF-devops]: /azure/architecture/framework/devops/overview
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki
 [expressroute-technical-overview]: /azure/expressroute/expressroute-introduction
@@ -328,7 +331,7 @@ To deploy the solution, perform the following steps.
 [expressroute-peering]: /azure/expressroute/expressroute-circuit-peerings
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [expressroute-limits]: /azure/azure-subscription-service-limits#networking-limits
-=======
+
 [aaf-cost]: ../../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [expressroute-prereqs]: https://docs.microsoft.com/azure/expressroute/expressroute-prerequisites
@@ -341,7 +344,8 @@ To deploy the solution, perform the following steps.
 [expressroute-introduction]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
 [expressroute-peering]: https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
->>>>>>> master
+
+
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx
 
