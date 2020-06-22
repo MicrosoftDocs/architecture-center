@@ -93,7 +93,7 @@ For more information about application monitoring and logging, see:
 
 ### Diagnose and troubleshoot issues
 Learn how to effectively use diagnostics for troubleshooting in proactive and problem-first scenarios. For more information, see:
-- [Keep your Azure App Service and Azure Functions apps healthy and happy](https://mybuild.techcommunity.microsoft.com/sessions/77797)
+- [Keep your Azure App Service and Azure Functions apps healthy and happy](https://azure.microsoft.com/resources/videos/build-2019-keeping-your-azure-app-service-and-azure-functions-apps-healthy-and-happy/)
 - [Troubleshoot error: "Azure Functions Runtime is unreachable"](https://docs.microsoft.com/azure/azure-functions/functions-recover-storage-account)
 
 ### Deploy applications using an automated pipeline and DevOps
