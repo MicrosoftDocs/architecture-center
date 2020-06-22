@@ -5,7 +5,7 @@ author: jose-moreno
 ms.date: 10/21/2019
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ms.custom: fasttrack-edit
 ---
 
@@ -29,8 +29,8 @@ No matter whether your application is running on Azure-managed services (such as
 A declarative automation framework is characterized for handling some of the details about the resource creation on behalf of the user. The user needs to define **what** should be created, and the declarative framework will figure out **how**.
 
 * [Resource Manager templates][arm]: Resource Manager templates are declarative text files containing a description of Azure resources to be deployed. Resource Manager templates are specific to Azure, and its most important advantage is the extensive coverage of Azure resource types and properties.
-* [Terraform][terraform]: Terraform is a cloud-agnostic declarative framework that supports many private and public clouds, being Azure one of them. It has the main advantage of offering a cloud-agnostic framework: while Terraform configurations are specific to each cloud, the framework itself is the same for all of them.
-* [Ansible][ansible]: Ansible is an open-source software provisioning, configuration management, and application-deployment tool. It runs on many Unix-like systems, and can configure both Unix-like systems as well as Windows. Ansible is agentless, temporarily connecting remotely via SSH or remote PowerShell to do its tasks. Ansible’s language, despite being based on the declarative YAML language, is imperative. Ansible playbooks are a sequence of plays to be carried out on different groups of hosts. Plays are in turn sequences of tasks that invoke modules to commit changes to individual hosts. Ansible has evolved to describe infrastructure in multiple clouds, such as Azure.
+* [Terraform][terraform]: Terraform is a cloud-agnostic declarative framework that supports many private and public clouds, Azure being one of them. It has the main advantage of offering a cloud-agnostic framework: while Terraform configurations are specific to each cloud, the framework itself is the same for all of them.
+* [Ansible][ansible]: Ansible is an open-source software provisioning, configuration management, and application-deployment tool. It runs on many Unix-like systems, and can configure both Unix-like systems as well as Windows. Ansible is agentless, temporarily connecting remotely via SSH or remote PowerShell to do its tasks. Ansible's language, despite being based on the declarative YAML language, is imperative. Ansible playbooks are a sequence of plays to be carried out on different groups of hosts. Plays are in turn sequences of tasks that invoke modules to commit changes to individual hosts. Ansible has evolved to describe infrastructure in multiple clouds, such as Azure.
 * Other: other declarative frameworks such as Chef or Puppet support deploying infrastructure to Azure as well.
 
 Which of these frameworks is better for you will depend on factors such as whether your organization already has any experience in one of them and if you plan on running workloads in multiple clouds now or in the future. For Azure, the best option would be Resource Manager templates: it has the best coverage for Azure resources and features and Resource Manager templates can be used to manage certain Azure services such as Azure Blueprints or Azure Policy. If you are planning on running workloads in multiple clouds, it is best to standardize on tools and frameworks that let you manage those deployments in a consistent manner.
@@ -40,7 +40,7 @@ Which of these frameworks is better for you will depend on factors such as wheth
 You can use imperative frameworks to deploy infrastructure to Azure. Imperative frameworks do not describe what to deploy, but indicate a prescriptive order of operations to execute. Examples of imperative frameworks for Azure automation are the following:
 
 * [Azure CLI][cli]: the Azure Command Line Interface is a multi-platform command line supported in Windows, Linux, and Mac OS X. It offers a series of commands that can be used to create, modify, and delete Azure resources.
-* [Azure Powershell][psh]: the Azure Powershell module for Azure includes a series of commandlets to interact with Azure. The object-oriented character of Powershell gives this tool a high degree of versatility. Thanks to the advent of Powershell Core, the Azure Powershell module can be used not only on Windows systems, but on Linux and Mac OS X too.
+* [Azure Powershell][psh]: the Azure Powershell module for Azure includes a series of cmdlets to interact with Azure. The object-oriented character of Powershell gives this tool a high degree of versatility. Thanks to the advent of Powershell Core, the Azure Powershell module can be used not only on Windows systems, but on Linux and Mac OS X too.
 * [Azure SDKs][sdks]: if you are writing an application that needs to interact with Azure, coding in the same programming language as the application itself would be more desirable than scripting frameworks such as the Azure CLI or Azure Powershell. Whether it is Python, Java, C# or Go, you can find Software Development Kits to manage Azure from many different languages.
 
 ## Configuration of Virtual Machines
@@ -100,18 +100,18 @@ If you are deploying your application to Azure Virtual Machines, it is recommend
 And lastly, do not forget to version-control your infrastructure code, and use consistent CI/CD tooling for Continuous Integration and Continuous Deployment of your application code and the platform it will run on.
 
 <!-- iac -->
-[arm]: /azure/azure-resource-manager
-[terraform]: /azure/terraform
-[ansible]: /azure/ansible/ansible-overview
-[cli]: /cli/azure
-[psh]: /powershell/azure
-[sdks]: /azure/#pivot=sdkstools
-[extensions]: /azure/virtual-machines/extensions/overview
-[cloudinit]: /azure/virtual-machines/linux/using-cloud-init
-[packer-linux]: /azure/virtual-machines/linux/build-image-with-packer
-[packer-windows]: /azure/virtual-machines/windows/build-image-with-packer
-[azuredevops]: /azure/devops
-[pipelines]: /azure/devops/pipelines
-[repos]: /azure/devops/repos/?view=azure-devops
-[git]: https://git-scm.com/
+[arm]: https://docs.microsoft.com/azure/azure-resource-manager
+[terraform]: https://docs.microsoft.com/azure/terraform
+[ansible]: https://docs.microsoft.com/azure/ansible/ansible-overview
+[cli]: https://docs.microsoft.com/cli/azure
+[psh]: https://docs.microsoft.com/powershell/azure
+[sdks]: https://docs.microsoft.com/azure
+[extensions]: https://docs.microsoft.com/azure/virtual-machines/extensions/overview
+[cloudinit]: https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init
+[packer-linux]: https://docs.microsoft.com/azure/virtual-machines/linux/build-image-with-packer
+[packer-windows]: https://docs.microsoft.com/azure/virtual-machines/windows/build-image-with-packer
+[azuredevops]: https://docs.microsoft.com/azure/devops
+[pipelines]: https://docs.microsoft.com/azure/devops/pipelines
+[repos]: https://docs.microsoft.com/azure/devops/repos/?view=azure-devops
+[git]: https://git-scm.com
 [github]: https://github.com

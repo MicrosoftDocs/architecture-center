@@ -5,11 +5,16 @@ author: MikeWasson
 ms.date: 07/21/2017
 ms.topic: guide
 ms.service: architecture-center
+ms.category:
+  - identity
 ms.subservice: reference-architecture
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: tailspin
 pnp.series.next: claims
 ---
+
+<!-- cSpell:ignore OIDC multitenanted openid -->
+
 # Authenticate using Azure AD and OpenID Connect
 
 [![GitHub](../_images/github.png) Sample code][sample application]
@@ -30,7 +35,7 @@ The Surveys application uses the OpenID Connect (OIDC) protocol to authenticate 
 
 To enable OpenID Connect, the SaaS provider registers the application inside their own Azure AD tenant.
 
-To register the application, follow the steps in [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
+To register the application, follow the steps in [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
 To enable this functionality in the sample Surveys application, see the [GitHub readme](https://github.com/mspnp/multitenant-saas-guidance/blob/master/get-started.md). Note the following:
 
@@ -42,7 +47,7 @@ To enable this functionality in the sample Surveys application, see the [GitHub 
 
 This section describes how to configure the authentication middleware in ASP.NET Core for multitenant authentication with OpenID Connect.
 
-In your [startup class](/aspnet/core/fundamentals/startup), add the OpenID Connect middleware:
+In your [startup class](https://docs.microsoft.com/aspnet/core/fundamentals/startup), add the OpenID Connect middleware:
 
 ```csharp
 app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions {
@@ -132,7 +137,7 @@ Here is the authentication process:
 
 ### Authentication ticket
 
-If authentication succeeds, the OIDC middleware creates an authentication ticket, which contains a claims principal that holds the user's claims. You can access the ticket inside the **AuthenticationValidated** or **TicketReceived** event.
+If authentication succeeds, the OIDC middleware creates an authentication ticket, which contains a claims principal that holds the user's claims.
 
 > [!NOTE]
 > Until the entire authentication flow is completed, `HttpContext.User` still holds an anonymous principal, **not** the authenticated user. The anonymous principal has an empty claims collection. After authentication completes and the app redirects, the cookie middleware deserializes the authentication cookie and sets `HttpContext.User` to a claims principal that represents the authenticated user.
@@ -141,7 +146,7 @@ If authentication succeeds, the OIDC middleware creates an authentication ticket
 
 During the authentication process, the OpenID Connect middleware raises a series of events:
 
-- **RedirectToIdentityProvider**. Called right before the middleware redirects to the authentication endpoint. You can use this event to modify the redirect URL; for example, to add request parameters. See [Adding the admin consent prompt](signup.md#adding-the-admin-consent-prompt) for an example.
+- **RedirectToIdentityProvider**. Called right before the middleware redirects to the authentication endpoint. You can use this event to modify the redirect URL; for example, to add request parameters. See [Adding the admin consent prompt](./signup.md#adding-the-admin-consent-prompt) for an example.
 - **AuthorizationCodeReceived**. Called with the authorization code.
 - **TokenResponseReceived**. Called after the middleware gets an access token from the IDP, but before it is validated. Applies only to authorization code flow.
 - **TokenValidated**. Called after the middleware validates the ID token. At this point, the application has a set of validated claims about the user. You can use this event to perform additional validation on the claims, or to transform claims. See [Working with claims](claims.md).
@@ -170,7 +175,7 @@ By default, the OIDC middleware uses hybrid flow with form post response mode.
 
 When the OIDC middleware redirects to the authorization endpoint, the redirect URL includes all of the query string parameters needed by OIDC. For hybrid flow:
 
-- client_id. This value is set in the **ClientId** option
+- client_id. This value is set in the **ClientId** option.
 - scope = "openid profile", which means it's an OIDC request and we want the user's profile.
 - response_type  = "code id_token". This specifies hybrid flow.
 - response_mode = "form_post". This specifies form post response.
@@ -188,7 +193,7 @@ app.UseOpenIdConnectAuthentication(options =>
 
 [**Next**][claims]
 
-[claims]: claims.md
-[cookie-options]: /aspnet/core/security/authentication/cookie#absolute-cookie-expiration
-[session-cookie]: https://en.wikipedia.org/wiki/HTTP_cookie#Session_cookie
+[claims]: ./claims.md
+[cookie-options]: https://docs.microsoft.com/aspnet/core/security/authentication/cookie#absolute-cookie-expiration
+[session-cookie]: https://wikipedia.org/wiki/HTTP_cookie#Session_cookie
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance

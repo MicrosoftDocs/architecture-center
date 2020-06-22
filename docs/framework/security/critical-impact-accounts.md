@@ -5,41 +5,35 @@ author: PageWriter-MSFT
 ms.date: 07/09/2019
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ---
 
 # Administration
 
 Administration is the practice of monitoring, maintaining, and operating
-Information Technology (IT) systems to meet service levels that the business
-requires. Administration introduces some of the highest impact security risks
-because performing these tasks requires privileged access to a very broad set
-of these systems and applications. Attackers know that gaining access to an
-account with administrative privileges can get them access to most or all of the
-data they would target, making the security of administration one of the most
-critical security areas.
+Information Technology (IT) systems to meet service levels that the business requires. Administration introduces some of the highest impact security risks because performing these tasks requires privileged access to a very broad set of these systems and applications. Attackers know that gaining access to an account with administrative privileges can get them access to most or all of the data they would target, making the security of administration one of the most critical security areas.
 
 As an example, Microsoft makes significant investments in protection and
 training of administrators for our cloud systems and IT systems:
 
 ![A screenshot of a cell phone Description automatically generated](images/ms-protecting-ms.png)
 
-Microsoft’s recommended core strategy for administrative privileges is to use
+Microsoft's recommended core strategy for administrative privileges is to use
 the available controls to reduce risk
 
 **Reduce risk exposure (scope and time) –** The principle of least privilege
     is best accomplished with modern controls that provide privileges on demand.
     This help to limit risk by limiting administrative privileges exposure by:
 
--  **Scope** – *Just Enough Access (JEA)* provides only the required
+- **Scope** – *Just Enough Access (JEA)* provides only the required
         privileges for the administrative operation required (vs. having direct
         and immediate privileges to many or all systems at a time, which is
         almost never required).
 
--  **Time** – *Just in Time (JIT)* approaches provided the required
+- **Time** – *Just in Time (JIT)* approaches provided the required
         privileged as they are needed.
 
--  **Mitigate the remaining risks** – Use a combination of preventive and
+- **Mitigate the remaining risks** – Use a combination of preventive and
         detective controls to reduce risks such as isolating administrator
         accounts from the most common risks phishing and general web browsing,
         simplifying and optimizing their workflow, increasing assurance of
@@ -51,10 +45,9 @@ administrative accounts and published prioritized roadmaps for protecting privil
 access that can be used as references for prioritizing mitigations for
 accounts with privileged access.
 
--   [Securing Privileged Access (SPA) roadmap for administrators of on premises
-    Active Directory](https://aka.ms/SPARoadmap)
+- [Securing Privileged Access (SPA) roadmap for administrators of on-premises Active Directory](https://aka.ms/SPARoadmap)
 
--   [Guidance for securing administrators of Azure Active Directory](https://aka.ms/securitysteps)
+- [Guidance for securing administrators of Azure Active Directory](https://aka.ms/securitysteps)
 
 ## Minimize number of critical impact admins
 
@@ -70,21 +63,21 @@ not actively limited and managed.
 We recommend an approach that reduces this attack surface risk while ensuring
 business continuity in case something happens to an administrator:
 
--   Assign at least two accounts to the privileged group for business continuity
+- Assign at least two accounts to the privileged group for business continuity
 
--   When two or more accounts are required, provide justification for each
+- When two or more accounts are required, provide justification for each
     member including the original two
 
--   Regularly review membership & justification for each group member
+- Regularly review membership & justification for each group member
 
 ## Managed accounts for admins
 
 Ensure all critical impact admins in are managed by enterprise directory to
 follow organizational policy enforcement.
 
-Consumer accounts such as  Microsoft accounts like \@Hotmail.com,
-\@live.com, \@outlook.com, don’t offer sufficient security visibility and
-control to ensure the organization’s policies and any regulatory requirements
+Consumer accounts such as Microsoft accounts like \@Hotmail.com,
+\@live.com, \@outlook.com, don't offer sufficient security visibility and
+control to ensure the organization's policies and any regulatory requirements
 are being followed. Because Azure deployments often start small and informally
 before growing into enterprise-managed tenants, some consumer accounts remain as
 administrative accounts long afterward for example, original Azure project managers,
@@ -108,7 +101,7 @@ administrative tasks.
 
 ## No standing access / Just in Time privileges
 
-Avoid providing permanent “standing” access for any critical impact accounts
+Avoid providing permanent "standing" access for any critical impact accounts
 
 Permanent privileges increase business risk by increasing the time an attacker
 can use the account to do damage. Temporary privileges force attackers targeting
@@ -118,16 +111,16 @@ being detected and removed from the environment).
 
 Grant privileges required only as required using one of these methods:
 
--   **Just in Time -** Enable Azure AD Privileged Identity Management (PIM) or a
+- **Just in Time -** Enable Azure AD Privileged Identity Management (PIM) or a
     third party solution to require following an approval workflow to obtain
     privileges for critical impact accounts
 
--   **Break glass –** For rarely used accounts, follow an emergency access
+- **Break glass –** For rarely used accounts, follow an emergency access
     process to gain access to the accounts. This is preferred for privileges
     that have little need for regular operational usage like members of global
     admin accounts.
 
-## Emergency access or ‘Break Glass’ accounts
+## Emergency access or 'Break Glass' accounts
 
 Ensure you have a mechanism for obtaining administrative access in case of an
 emergency
@@ -151,7 +144,7 @@ materially damage your business or mission.
 Choose level of admin workstation security based on the options available at
 <https://aka.ms/securedworkstation>
 
--   **Highly Secure Productivity Device (Enhanced Security Workstation or
+- **Highly Secure Productivity Device (Enhanced Security Workstation or
     Specialized Workstation)**  
     You can start this security journey for critical impact admins by providing
     them with a higher security workstation that still allows for general
@@ -160,11 +153,11 @@ Choose level of admin workstation security based on the options available at
     admins as well as the IT staff supporting these users and their
     workstations.
 
--   **Privileged Access Workstation (Specialized Workstation or Secured
+- **Privileged Access Workstation (Specialized Workstation or Secured
     Workstation)**  
     These configurations represent the ideal security state for critical impact
     admins as they heavily restrict access to phishing, browser, and
-    productivity application attack vectors. These workstations don’t allow
+    productivity application attack vectors. These workstations don't allow
     general internet browsing, only allow browser access to Azure portal and
     other administrative sites.
 
@@ -185,30 +178,29 @@ accounts and services managed from them.
 Choose the level of isolation from on premises means of control also known as
 security dependencies for critical impact accounts
 
--   **User Accounts** – Choose where to host the critical impact accounts
+- **User Accounts** – Choose where to host the critical impact accounts
 
     -   Native Azure AD Accounts -*Create Native Azure AD Accounts that are
         not synchronized with on-premises active directory
 
-    -   Synchronize from On Premises Active Directory (Not Recommended see [Don’t synchronize on-premises admin accounts to cloud identity providers](/azure/architecture/security/identity#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers))- Leverage existing accounts hosted in the on premises active
+    -   Synchronize from On Premises Active Directory (Not Recommended see [Don't synchronize on-premises admin accounts to cloud identity providers](./identity.md#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers))- Use existing accounts hosted in the on premises active
         directory.
 
--   **Workstations** – Choose how you will manage and secure the workstations
+- **Workstations** – Choose how you will manage and secure the workstations
     used by critical admin accounts:
 
-    -  Native Cloud Management & Security (Recommended) - Join workstations
+    -  Native Cloud Management and Security (Recommended): Join workstations
         to Azure AD & Manage/Patch them with Intune or other cloud services.
         Protect and Monitor with Windows Microsoft Defender ATP or another cloud
         service not managed by on premises based accounts.
 
-    -   Manage with Existing Systems - Join existing AD domain & leverage
-        existing management/security.
+    -   Manage with Existing Systems: Join existing AD domain and use existing management/security.
 
-This is related to the [Don’t synchronize on-premises admin accounts to cloud identity providers](/azure/architecture/security/identity#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers) to
+This is related to the [Don't synchronize on-premises admin accounts to cloud identity providers](./identity.md#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers) to
 cloud identity providers guidance in the administration section that mitigates
 the inverse risk of pivoting from cloud assets to on-premises assets
 
-## Passwordless Or multi-factor authentication for admins
+## Passwordless or multi-factor authentication for admins
 
 Require all critical impact admins to use passwordless authentication or
 multi-factor authentication (MFA).
@@ -221,13 +213,13 @@ following methods of authentication. These capabilities are listed in preference
 order by highest cost/difficulty to attack (strongest/preferred options) to
 lowest cost/difficult to attack:
 
--   **Passwordless (such as Windows Hello)**  
+- **Passwordless (such as Windows Hello)**  
     <https://aka.ms/HelloForBusiness>
 
--   **Passwordless (Authenticator App)**  
+- **Passwordless (Authenticator App)**  
     <https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in>
 
--   **Multifactor Authentication**  
+- **Multifactor Authentication**  
     <https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-userstates>
 
 Note that SMS Text Message based MFA has become very inexpensive for attackers
@@ -245,31 +237,31 @@ Conditional Access can significantly reduce that risk by enforcing security
 hygiene before allowing access to Azure management.
 
 Configure [Conditional Access policy for Azure management](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
-that meets your organization’s risk appetite and operational needs.
+that meets your organization's risk appetite and operational needs.
 
--   Require Multifactor Authentication and/or connection from designated work
+- Require Multifactor Authentication and/or connection from designated work
     network
 
--   Require Device **integrity with Microsoft Defender ATP** (Strong Assurance)
+- Require Device **integrity with Microsoft Defender ATP** (Strong Assurance)
 
 ## Avoid granular and custom permissions
 
 Avoid permissions that specifically reference individual resources or users
 
-Specific permissions create unneeded complexity and confusion as they don’t
+Specific permissions create unneeded complexity and confusion as they don't
 carry the intention to new similar resources. This then accumulates into a
 complex legacy configuration that is difficult to maintain or change without
-fear of “breaking something” – negatively impacting both security and solution
+fear of "breaking something" – negatively impacting both security and solution
 agility.
 
 Instead of assigning specific resource-specific permissions, use either
 
--   Management Groups for enterprise-wide permissions
+- Management Groups for enterprise-wide permissions
 
--   Resource groups for permissions within subscriptions
+- Resource groups for permissions within subscriptions
 
 Instead of granting permissions to specific users, assign access to groups in
-Azure AD. If there isn’t an appropriate group, work with the identity team to
+Azure AD. If there isn't an appropriate group, work with the identity team to
 create one. This allows you to add and remove group members externally to Azure
 and ensure permissions are current, while also allowing the group to be used for
 other purposes such as mailing lists.
@@ -285,14 +277,14 @@ security
 We recommend that you evaluate the [built-in roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)
 designed to cover most normal scenarios. [Custom roles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)
 are a powerful and sometimes useful capability, but they should be reserved for
-cases when built in roles won’t work.
+cases when built in roles won't work.
 
 ## Establish lifecycle management for critical impact accounts
 
 Ensure you have a process for disabling or deleting administrative accounts when
 admin personnel leave the organization (or leave administrative positions)
 
-See [Regularly review critical access](/azure/architecture/security/governance#regularly-review-critical-access) for more details.
+See [Regularly review critical access](./governance.md#regularly-review-critical-access) for more details.
 
 ## Attack simulation for critical impact accounts
 

@@ -5,6 +5,10 @@ author: MikeWasson
 ms.date: 06/18/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - web
+  - databases
+  - management-and-governance
 ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
@@ -35,7 +39,7 @@ This architecture builds on the one shown in [N-tier application with SQL Server
     > Also consider [Azure SQL Database][azure-sql-db], which provides a relational database as a cloud service. With SQL Database, you don't need to configure an availability group or manage failover.
     >
 
-- **Virtual network peering**. Peer the two virtual networks to allow data replication from the primary region to the secondary region. For more information, see [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
+- **Virtual network peering**. Peer the two virtual networks to allow data replication from the primary region to the secondary region. For more information, see [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
 ## Recommendations
 
@@ -158,7 +162,8 @@ Test the resiliency of the system to failures. Here are some common failure scen
 Measure the recovery times and verify they meet your business requirements. Test combinations of failure modes, as well.
 
 ## Cost considerations
-Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs. Here are some other considerations.
+
+Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs. Here are some other considerations.
 
 ### Virtual machine scale sets
 
@@ -168,7 +173,7 @@ For single VMs pricing options, see [Windows VMs pricing][Windows-vm-pricing].
 
 ### SQL server
 
-If you choose Azure SQL DBaas, you can save on cost because don't need to configure an Always On Availability Group and domain controller machines. There are several deployment options starting from single database up to managed instance, or elastic pools. For more information see [Azure SQL pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/). 
+If you choose Azure SQL DBaas, you can save on cost because don't need to configure an Always On Availability Group and domain controller machines. There are several deployment options starting from single database up to managed instance, or elastic pools. For more information see [Azure SQL pricing](https://azure.microsoft.com/pricing/details/sql-database/managed).
 
 For SQL server VMs pricing options, see [SQL VMs pricing][Managed-Sql-pricing].
 
@@ -180,36 +185,60 @@ You are charged only for the number of configured load-balancing and outbound ru
 
 Traffic Manager billing is based on the number of DNS queries received, with a discount for services receiving more than 1 billion monthly queries. You are also charged for each monitored endpoint.
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
+
+### VNET-Peering pricing
+A high-availability deployment that leverages multiple Azure Regions will make use of VNET-Peering. There are different charges for VNET-Peering within the same region and for Global VNET-Peering.
+
+For more information, see [Virtual Network Pricing](https://azure.microsoft.com/pricing/details/virtual-network/). 
+
+## DevOps considerations
+
+Use a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources and its dependencies. Use the same template to deploy the resources to both primary and secondary regions. Include all the resources in the same virtual network so they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps Team and Services to perform continuous integration and continuous delivery (CI/CD).
+
+Also, you can use different [Azure Resource Manager templates][arm-template] and integrate them with [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
+
+Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines. Application Insights is actually one of the components of Azure Monitor, which gives you rich metrics and logs to verify the state of your complete Azure landscape. Azure Monitor will help you to follow the state of your infrastructure.
+
+Make sure not only to monitor your compute elements supporting your application code, but your data platform as well, in particular your databases, since a low performance of the data tier of an application could have serious consequences.
+
+
+In order to test the Azure environment where the applications are running, it should be version-controlled and deployed through the same mechanisms as application code, then it can be tested and validated using DevOps testing paradigms too.
+
+For more information, see the Operational Excellence section in [Microsoft Azure Well-Architected Framework][WAF-devops].
 
 
 ## Related resources
 
 The following architecture uses some of the same technologies:
 
-- [Multitier web application built for high availability and disaster recovery on Azure](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
+- [Multitier web application built for high availability and disaster recovery on Azure](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.md)
 
 <!-- links -->
 
-[Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [Sql-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/
-[Managed-Sql-pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed/
-[AAF-cost]: /azure/architecture/framework/cost/overview
-[azure-sql-db]: /azure/sql-database/
+[Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
+[Managed-Sql-pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed
+[azure-sql-db]: https://docs.microsoft.com/azure/sql-database
 [health-endpoint-monitoring-pattern]: ../../patterns/health-endpoint-monitoring.md
-[azure-cli]: /cli/azure/
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
-[regional-pairs]: /azure/best-practices-availability-paired-regions
-[resource groups]: /azure/azure-resource-manager/resource-group-overview
-[resource-group-links]: /azure/resource-group-link-resources
+[azure-cli]: https://docs.microsoft.com/cli/azure
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[regional-pairs]: https://docs.microsoft.com/azure/best-practices-availability-paired-regions
+[resource groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
+[resource-group-links]: https://docs.microsoft.com/azure/resource-group-link-resources
 [services-by-region]: https://azure.microsoft.com/regions/#services
 [sql-always-on]: https://msdn.microsoft.com/library/hh510230.aspx
 [tablediff]: https://msdn.microsoft.com/library/ms162843.aspx
-[tm-configure-failover]: /azure/traffic-manager/traffic-manager-configure-failover-routing-method
-[tm-monitoring]: /azure/traffic-manager/traffic-manager-monitoring
-[tm-routing]: /azure/traffic-manager/traffic-manager-routing-methods
+[tm-configure-failover]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-failover-routing-method
+[tm-monitoring]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring
+[tm-routing]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods
 [tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager
 [traffic-manager]: https://azure.microsoft.com/services/traffic-manager
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
-[vnet-dns]: /azure/virtual-network/manage-virtual-network#change-dns-servers
+[vnet-dns]: https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers
 [wsfc]: https://msdn.microsoft.com/library/hh270278.aspx
+[WAF-cost]: ../../framework/cost/overview.md
+[WAF-devops]: /azure/architecture/framework/devops/overview

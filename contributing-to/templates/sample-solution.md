@@ -4,6 +4,7 @@ description: <Article Description>
 author: <github username>
 ms.date: <publish or update date - mm/dd/yyyy>
 ---
+
 # Article Title
 
 The title is a noun phrase that describes the scenario.
@@ -12,7 +13,7 @@ The title is a noun phrase that describes the scenario.
 
 Avoid naming the scenario after the Azure technologies that are used.
 
-<Introductory section (no heading)>
+(Introductory section - no heading)
 
 > This should be an introduction of the business problem and why this scenario was built to solve it.
 >> What industry is the customer in?
@@ -29,11 +30,11 @@ Avoid naming the scenario after the Azure technologies that are used.
 
 These other uses cases have similar design patterns:
 
-* List of example use cases
+- List of example use cases
 
 ## Architecture
 
-*Architecture Diagram goes here*
+_Architecture Diagram goes here_
 
 > What does the solution look like at a high level?
 > Why did we build the solution this way?
@@ -47,7 +48,7 @@ A bullet list of components in the architecture (including all relevant Azure se
 > Why is each component there?
 > What does it do and why was it necessary?
 
-* Example: [Resource Groups][resource-groups] is a logical container for Azure resources.  We use resource groups to organize everything related to this project in the Azure console.
+- Example: [Resource Groups][resource-groups] is a logical container for Azure resources.  We use resource groups to organize everything related to this project in the Azure console.
 
 ### Alternatives
 
@@ -86,21 +87,17 @@ Use this section to talk about alternative Azure services or architectures that 
 > Link to the pricing calculator with all of the components in the architecture included, even if they're a $0 or $1 usage.
 > If it makes sense, include a small/medium/large configurations.  Describe what needs to be changed as you move to larger sizes
 
-## Next Steps
+## Next steps
 
 > Where should I go next if I want to start building this?
 > Are there any reference architectures that help me build this?
 
-## Related Resources
+## Related resources
 
 > Are there any relevant case studies or customers doing something similar?
 > Is there any other documentation that might be useful?
 > Are there product documents that go into more detail on specific technologies not already linked
 
 <!-- links -->
+
 [calculator]: https://azure.com/e/
-[availability]: /azure/architecture/checklist/availability
-[resource-groups]: /azure/azure-resource-manager/resource-group-overview
-[resiliency]: /azure/architecture/resiliency/
-[security]: /azure/security/
-[scalability]: /azure/architecture/checklist/scalability

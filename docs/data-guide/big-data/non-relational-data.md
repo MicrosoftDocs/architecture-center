@@ -1,6 +1,6 @@
 ---
 title: Non-relational data and NoSQL
-description: 
+description: Learn about non-relational databases that store data as key/value pairs, graphs, time series, objects, and other storage models based on data requirements.
 author: zoinerTejada
 ms.date: 02/12/2018
 ms.topic: guide
@@ -12,7 +12,7 @@ ms.subservice: cloud-fundamentals
 
 A *non-relational database* is a database that does not use the tabular schema of rows and columns found in most traditional database systems. Instead, non-relational databases use a storage model that is optimized for the specific requirements of the type of data being stored. For example, data may be stored as simple key/value pairs, as JSON documents, or as a graph consisting of edges and vertices.
 
-What all of these data stores have in common is that they don't use a [relational model](../relational-data/index.md). Also, they tend to be more specific in the type of data they support and how data can be queried. For example, time series data stores are optimized for queries over time-based sequences of data, while graph data stores are optimized for exploring weighted relationships between entities. Neither format would generalize well to the task of managing transactional data.
+What all of these data stores have in common is that they don't use a [relational model](../index.md). Also, they tend to be more specific in the type of data they support and how data can be queried. For example, time series data stores are optimized for queries over time-based sequences of data, while graph data stores are optimized for exploring weighted relationships between entities. Neither format would generalize well to the task of managing transactional data.
 
 The term *NoSQL* refers to data stores that do not use SQL for queries, and instead use other programming languages and constructs to query the data. In practice, "NoSQL" means "non-relational database," even though many of these databases do support SQL-compatible queries. However, the underlying query execution strategy is usually very different from the way a traditional RDBMS would execute the same SQL query.
 
@@ -52,7 +52,8 @@ Read and write operations for a row are typically atomic within a single column 
 
 Relevant Azure service:  
 
-- [HBase in HDInsight](/azure/hdinsight/hdinsight-hbase-overview)
+- [Cosmos DB Cassandra API](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction)
+- [HBase in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hbase-overview)
 
 ## Key/value data stores
 
@@ -72,7 +73,7 @@ A single key/value store can be extremely scalable, as the data store can easily
 
 Relevant Azure services:  
 
-- [Azure Cosmos DB Table API](/azure/cosmos-db/table-introduction)
+- [Azure Cosmos DB Table API](https://docs.microsoft.com/azure/cosmos-db/table-introduction)
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)  
 - [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/)
 
@@ -88,7 +89,7 @@ This structure makes it straightforward to perform queries such as "Find all emp
 
 Relevant Azure service:  
 
-- [Azure Cosmos DB Graph API](/azure/cosmos-db/graph-introduction)  
+- [Azure Cosmos DB Graph API](https://docs.microsoft.com/azure/cosmos-db/graph-introduction)  
 
 ## Time series data stores
 
@@ -103,7 +104,7 @@ For more information, see [Time series solutions](../scenarios/time-series.md)
 Relevant Azure services:
 
 - [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)  
-- [OpenTSDB with HBase on HDInsight](/azure/hdinsight/hdinsight-hbase-overview)
+- [OpenTSDB with HBase on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hbase-overview)
 
 ## Object data stores
 

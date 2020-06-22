@@ -46,7 +46,7 @@ Transient faults can have a huge effect on the perceived availability of an appl
 
 ## General guidelines
 
-The following guidelines will help you to design a suitable transient fault handing mechanism for your applications:
+The following guidelines will help you to design a suitable transient fault handling mechanism for your applications:
 
 - **Determine if there is a built-in retry mechanism:**
 
@@ -106,7 +106,7 @@ The following guidelines will help you to design a suitable transient fault hand
 
   - Ensure you fully test your retry strategy implementation under as wide a set of circumstances as possible, especially when both the application and the target resources or services it uses are under extreme load. To check behavior during testing, you can:
 
-    - Inject transient and non-transient faults into the service. For example, send invalid requests or add code that detects test requests and responds with different types of errors. For an example using TestApi, see [Fault Injection Testing with TestApi](https://msdn.microsoft.com/magazine/ff898404.aspx) and [Introduction to TestApi – Part 5: Managed Code Fault Injection APIs](https://blogs.msdn.microsoft.com/ivo_manolov/2009/11/25/introduction-to-testapi-part-5-managed-code-fault-injection-apis/).
+    - Inject transient and nontransient faults into the service. For example, send invalid requests or add code that detects test requests and responds with different types of errors. For an example using TestApi, see [Fault Injection Testing with TestApi](https://msdn.microsoft.com/magazine/ff898404.aspx) and [Introduction to TestApi – Part 5: Managed Code Fault Injection APIs](https://blogs.msdn.microsoft.com/ivo_manolov/2009/11/25/introduction-to-testapi-part-5-managed-code-fault-injection-apis/).
 
     - Create a mock of the resource or service that returns a range of errors that the real service may return. Ensure you cover all the types of error that your retry strategy is designed to detect.
 
@@ -126,7 +126,7 @@ The following guidelines will help you to design a suitable transient fault hand
 
   - Take advantage of built-in or default retry strategies available in the client APIs you use, but only where they are appropriate for your scenario. These strategies are typically general purpose. In some scenarios they may be all that is required, but in other scenarios they may not offer the full range of options to suit your specific requirements. You must understand how the settings will affect your application through testing to determine the most appropriate values.
 
-- **Log and track transient and non-transient faults:**
+- **Log and track transient and nontransient faults:**
 
   - As part of your retry strategy, include exception handling and other instrumentation that logs when retry attempts are made. While an occasional transient failure and retry are to be expected, and do not indicate a problem, regular and increasing numbers of retries are often an indicator of an issue that may cause a failure, or is currently degrading application performance and availability.
 
@@ -171,4 +171,4 @@ The following guidelines will help you to design a suitable transient fault hand
 
 <!-- links -->
 
-[idempotency-patterns]: https://blog.jonathanoliver.com/idempotency-patterns/
+[idempotency-patterns]: https://blog.jonathanoliver.com/idempotency-patterns
