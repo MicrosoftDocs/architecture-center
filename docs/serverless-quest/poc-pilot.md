@@ -94,7 +94,6 @@ The pilot includes a detailed follow up through surveys or focus groups. The fee
 
 - [Execute an application assessment](application-assessment.md)
 - [Promote a technical workshop or training](technical-training.md)
-- [Conduct architectural design session(s)](ads.md)
 - [Code a technical implementation with the team or customer](code-with.md)
 
 ## Related resources

@@ -15,7 +15,7 @@ ms.custom:
 To develop and deploy serverless applications with Azure Functions, examine patterns and practices, configure DevOps pipelines, and implement site reliability engineering (SRE) best practices.
 
 For detailed information about serverless architectures and Azure Functions, see:
-- [Serverless apps: Architecture, patterns, and Azure implementation](https://aka.ms/serverless-ebook)
+- [Serverless apps: Architecture, patterns, and Azure implementation](https://docs.microsoft.com/dotnet/architecture/serverless/)
 - [Azure Serverless Computing Cookbook](https://azure.microsoft.com/resources/azure-serverless-computing-cookbook)
 - [Example serverless reference architectures](reference-architectures.md)
 
@@ -29,7 +29,7 @@ To plan app development and deployment:
 ### Understand event-driven architecture
 A different event triggers every function in a serverless Functions project. For more information about event-driven architectures, see:
 - [Event-driven architecture style](../guide/architecture-styles/event-driven.md).
-- [Event-driven design patterns to enhance existing applications using Azure Functions](https://mybuild.techcommunity.microsoft.com/sessions/77062)
+- [Event-driven design patterns to enhance existing applications using Azure Functions](https://channel9.msdn.com/Events/Build/2020/BOD124)
 
 ### Prepare development environment
 Set up your development workflow and environment with the tools to create Functions. For details about development tools and Functions code project structure, see:

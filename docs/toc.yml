@@ -862,8 +862,6 @@ items:
           href: serverless-quest/technical-training.md
         - name: Proof of concept or pilot
           href: serverless-quest/poc-pilot.md
-        - name: Architectural design sessions
-          href: serverless-quest/ads.md
       - name: Develop and deploy serverless apps
         items:
         - name: Serverless Functions app development

@@ -63,6 +63,5 @@ Learning paths about serverless apps and Azure Functions include:
 ## Next steps
 
 - [Execute an application assessment](application-assessment.md)
-- [Conduct architectural design session(s)](ads.md)
 - [Identify and execute a PoC or Pilot project](poc-pilot.md)
 - [Deliver a technical implementation with the team or customer](code-with.md)

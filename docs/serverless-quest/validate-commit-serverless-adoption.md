@@ -27,7 +27,7 @@ TDMs and architects may perform one or more of the following activities:
 
 - **Identify and execute a Proof of Concept (PoC), pilot, or technical implementation.** Deliver a PoC, pilot, or technical implementation to provide evidence that serverless Azure Functions can solve a team's business problems. Showing teams how to modernize or build new cloud-native applications to their specifications can accelerate deployment to production. See [PoC or pilot](poc-pilot.md) and [Code-with engineering playbook](code-with.md).
 
-- **Conduct architectural design sessions.** An architectural design session (ADS) is an in-depth discussion on how a new solution will blend into the environment. ADSs validate business requirements and transform them to functional and other requirements. See [Architectural design sessions](ads.md).
+- **Conduct architectural design sessions.** An architectural design session (ADS) is an in-depth discussion on how a new solution will blend into the environment. ADSs validate business requirements and transform them to functional and other requirements.
 
 
 ## Next steps

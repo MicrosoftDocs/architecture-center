@@ -59,10 +59,6 @@ Other potential benefits of using the Serverless Framework include:
 - The user app can come from any source capable of logging into the cloud. In this implementation, the user logs into a gateway app that load balances requests 50-50 between the Azure and AWS clouds.
 - Any response also routes through the API Manager gateway, which then sends it to the requestor app.
 
-The following figure shows the processing pipeline. The middleware layers represent any intermediate functionality needed before reaching the handler.
-
-![Multicloud processing pipeline](./media/multi-cloud-processing-pipeline.png)
-
 ### The Serverless Framework
 This solution uses the Serverless Framework, available from [Serverless, Inc](https://serverless.com/). The free version of the Serverless Framework includes a CLI, additional plugins, and limited monitoring services. The Pro edition features operational capabilities across clouds, such as enhanced monitoring and alerts. The framework supports Node.js and Python languages, and both AWS and Azure cloud hosts.
 
@@ -73,6 +69,10 @@ To use Azure with the Serverless Framework, you need:
 - The Serverless Framework, to support multicloud deployment and monitoring
 - The Serverless Multicloud Library, to provide normalized runtime APIs for developers
 - The Azure Functions Serverless Plugin, to support multicloud deployment. This plugin wasn't initially up to parity with the comparable AWS Lambda plug-in, and was extended for this project.
+
+The following figure shows the processing pipeline. The middleware layers represent any intermediate functionality needed before reaching the handler.
+
+![Multicloud processing pipeline](./media/multi-cloud-processing-pipeline.png)
 
 ### Cloud-agnostic APIs
 
@@ -133,7 +133,5 @@ A secondary benefit of blue-green deployment is the ability to use the failover 
 
 ## Related resources
 
-- [One-page version](https://aka.ms/01_Multicloud_1Pager) of this article
-- [Reference Architecture](https://aka.ms/01_Multicloud_ReferenceArchitecture) for this article
 - [Sample code](https://github.com/serverless/multicloud) and [README](https://github.com/serverless/multicloud/blob/master/README.md) for this implementation on GitHub
 - [Serverless Framework](https://serverless.com/)

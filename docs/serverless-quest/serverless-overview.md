@@ -33,7 +33,7 @@ Successful implementation of serverless technologies with Azure Functions requir
 
 - [Decide and plan](validate-commit-serverless-adoption.md)
   
-  *Architects* and *technical decision makers (TDMs)* perform [application assessment](application-assessment.md), conduct or attend [technical workshops and trainings](technical-training.md), run [proof of concept (PoC) or pilot](poc-pilot.md) projects, and conduct [architectural designs sessions](ads.md) as necessary.
+  *Architects* and *technical decision makers (TDMs)* perform [application assessment](application-assessment.md), conduct or attend [technical workshops and trainings](technical-training.md), run [proof of concept (PoC) or pilot](poc-pilot.md) projects, and conduct architectural designs sessions as necessary.
   
 - [Develop and deploy apps](application-development.md)
   
