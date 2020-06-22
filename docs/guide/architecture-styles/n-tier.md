@@ -88,6 +88,7 @@ For more information about running N-tier applications on Azure:
 - [Run Windows VMs for an N-tier application][n-tier-linux]
 - [Windows N-tier application on Azure with SQL Server][n-tier-windows-SQL]
 - [Microsoft Learn module: Tour the N-tier architecture style](https://docs.microsoft.com/learn/modules/n-tier-architecture/)
+- [Azure Bastion](/azure/bastion/bastion-overview)
 
 ### Additional considerations
 
