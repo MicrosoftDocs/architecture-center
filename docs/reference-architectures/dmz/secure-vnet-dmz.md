@@ -5,6 +5,10 @@ author: MikeWasson
 ms.date: 01/07/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
+ms.category:
+  - networking
+  - security
+  - hybrid
 ms.subservice: reference-architecture
 ms.custom: seodec18, networking
 ---
@@ -30,19 +34,18 @@ The architecture consists of the following components.
 - **On-premises network**. A private local-area network implemented in an organization.
 - **Azure virtual network**. The virtual network hosts the application and other resources running in Azure.
 - **Gateway**. The gateway provides connectivity between the routers in the on-premises network and the virtual network. The gateway is placed in its own subnet.
-- **Azure Firewall**. [Azure Firewall](/azure/firewall/) is a managed firewall as a service. The Firewall instance is placed in its own subnet.
-- **Virtual network routes**. [Virtual network routes][udr-overview] define the flow of IP traffic within the Azure virtual network. In the diagram shown above, there are two user-defined route tables. 
+- **Azure Firewall**. [Azure Firewall](https://docs.microsoft.com/azure/firewall/) is a managed firewall as a service. The Firewall instance is placed in its own subnet.
+- **Virtual network routes**. [Virtual network routes][udr-overview] define the flow of IP traffic within the Azure virtual network. In the diagram shown above, there are two user-defined route tables.
 
-    - In the gateway subnet, traffic sent to the web-tier subnet (10.0.1.0/24) is routed through the Azure Firewall instance.
-    - In the web tier subnet, Since there is no route for address space of the VNet itself to point to Azure firewall, web tier instances are able to communicate directly to each other, not via Azure Firewall.
+  - In the gateway subnet, traffic sent to the web-tier subnet (10.0.1.0/24) is routed through the Azure Firewall instance.
+  - In the web tier subnet, Since there is no route for address space of the VNet itself to point to Azure firewall, web tier instances are able to communicate directly to each other, not via Azure Firewall.
 
-    > [!NOTE]
-    > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes to implement the forwarding rules that direct traffic back through the on-premises network.
-    >
+  > [!NOTE]
+  > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes to implement the forwarding rules that direct traffic back through the on-premises network.
 
 - **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network. For example, in the deployment provided with this reference architecture, the web tier subnet allows TCP traffic from the on-premises network and from within the virtual network; the business tier allows traffic from the web tier; and the data tier allows traffic from the business tier.
 
-- **Bastion**. [Azure Bastion](/azure/bastion/) allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. Use Bastion to manage the VMs in the virtual network.
+- **Bastion**. [Azure Bastion](https://docs.microsoft.com/azure/bastion/) allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. Use Bastion to manage the VMs in the virtual network.
 
 ## Recommendations
 
@@ -72,9 +75,9 @@ We recommend creating the following resource groups:
 
 ### Networking recommendations
 
-To accept inbound traffic from the internet, add a [Destination Network Address Translation](/azure/firewall/tutorial-firewall-dnat) (DNAT) rule to Azure Firewall. 
+To accept inbound traffic from the internet, add a [Destination Network Address Translation](https://docs.microsoft.com/azure/firewall/tutorial-firewall-dnat) (DNAT) rule to Azure Firewall. 
 
-- Destination address = Public IP address of the firewall instance
+- Destination address = Public IP address of the firewall instance.
 - Translated address = Private IP address within the virtual network.
 
 The example deployment routes internet traffic for port 80 to the web tier load balancer.
@@ -89,7 +92,7 @@ Consider using Application Gateway or Azure Front Door for SSL termination.
 
 ## Scalability considerations
 
-For details about the bandwidth limits of VPN Gateway, see [Gateway SKUs](/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). For higher bandwidths, consider upgrading to an ExpressRoute gateway. ExpressRoute provides up to 10 Gbps bandwidth with lower latency than a VPN connection.
+For details about the bandwidth limits of VPN Gateway, see [Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). For higher bandwidths, consider upgrading to an ExpressRoute gateway. ExpressRoute provides up to 10 Gbps bandwidth with lower latency than a VPN connection.
 
 For more information about the scalability of Azure gateways, see the scalability consideration section in [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-scalability] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-scalability].
 
@@ -107,7 +110,9 @@ Each tier's subnet in the reference architecture is protected by NSG rules. You 
 
 If you're using ExpressRoute to provide the connectivity between your on-premises datacenter and Azure, use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor and troubleshoot connection issues.
 
-You can find additional information about monitoring and managing VPN and ExpressRoute connections in the articles [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-devops] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-devops].
+You can find additional information about monitoring and managing VPN and ExpressRoute connections in the articles:
+- [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-devops]
+- [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-devops]
 
 ## Security considerations
 
@@ -124,6 +129,38 @@ Traffic between tiers is restricted by using NSGs. The business tier blocks all 
 ### DevOps access
 
 Use [RBAC][rbac] to restrict the operations that DevOps can perform on each tier. When granting permissions, use the [principle of least privilege][security-principle-of-least-privilege]. Log all administrative operations and perform regular audits to ensure any configuration changes were planned.
+
+## Cost considerations
+
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+
+Here are cost considerations for the services used in this architecture.
+
+### Azure Firewall
+
+In this architecture, Azure Firewall is deployed in the virtual network to control traffic between the gateway's subnet and the subnet in which the application tier runs. In this way Azure Firewall is cost effective because it's used as a shared solution consumed by multiple workloads. Here are the Azure Firewall pricing models:
+
+- Fixed rate per deployment hour.
+- Data processed per GB to support auto scaling. 
+
+When compared to network virtual appliances (NVAs), with Azure Firewall you can save up to 30-50%. For more information see [Azure Firewall vs NVA][Firewall-NVA].
+
+### Azure Bastion
+
+Azure Bastion securely connects to your virtual machine over RDP and SSH without having the need to configure a public IP on the virtual machine. 
+
+Bastion billing is comparable to a basic, low-level virtual machine configured as a jumpbox. Comparing Bastion to a jump box, Bastion is more cost effective considering Bastion's built-in security features and no extra costs incurred for storage and managing a separate server. 
+
+### Azure Virtual Network
+
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
+All traffic that occurs within the boundaries of a virtual network is free. So if two VMs that are in the same VNET are talking each other then no charges will occur.
+
+### Internal load balancer
+
+Basic load balancing between virtual machines that reside in the same virtual network is free.
+
+In this architecture, internal load balancers are used to load balance traffic inside a virtual network. 
 
 ## Deploy the solution
 
@@ -194,10 +231,13 @@ In this step, you will connect the two local network gateways.
 
 <!-- links -->
 
-[azure-forced-tunneling]: /azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
+[aaf-cost]: ../../framework/cost/overview.md
+[azure-forced-tunneling]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
-[cloud-services-network-security]: /azure/best-practices-network-security
-[getting-started-with-azure-security]: /azure/security/azure-security-getting-started
+[cloud-services-network-security]: https://docs.microsoft.com/azure/best-practices-network-security
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances
+[getting-started-with-azure-security]: https://docs.microsoft.com/azure/security/azure-security-getting-started
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-hybrid
 [guidance-expressroute-availability]: ../hybrid-networking/expressroute.md#availability-considerations
 [guidance-expressroute-devops]: ../hybrid-networking/expressroute.md#devops-considerations
@@ -207,14 +247,14 @@ In this step, you will connect the two local network gateways.
 [guidance-vpn-gateway-devops]: ../hybrid-networking/vpn.md#devops-considerations
 [guidance-vpn-gateway-scalability]: ../hybrid-networking/vpn.md#scalability-considerations
 [guidance-vpn-gateway-security]: ../hybrid-networking/vpn.md#security-considerations
-[nsg]: /azure/virtual-network/security-overview
+[nsg]: https://docs.microsoft.com/azure/virtual-network/security-overview
 [ra-expressroute]: ../hybrid-networking/expressroute.md
 [ra-vpn-failover]: ../hybrid-networking/expressroute-vpn-failover.md
 [ra-vpn]: ../hybrid-networking/vpn.md
-[rbac-custom-roles]: /azure/active-directory/role-based-access-control-custom-roles
-[rbac]: /azure/active-directory/role-based-access-control-configure
+[rbac-custom-roles]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles
+[rbac]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure
 [routing-and-remote-access-service]: https://technet.microsoft.com/library/dd469790(v=ws.11).aspx
 [security-principle-of-least-privilege]: https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1
-[udr-overview]: /azure/virtual-network/virtual-networks-udr-overview
+[udr-overview]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/dmz-reference-architectures.vsdx
-[wireshark]: https://www.wireshark.org/
+[wireshark]: https://www.wireshark.org

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id/>
+    <title>the Azure Architecture Center</title>
+    <updated>2020-06-22T17:37:02.124Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <subtitle>Updated articles for the Azure Architecture Center</subtitle>
+    <category term="new"/>
+    <category term="updated"/>
+</feed>

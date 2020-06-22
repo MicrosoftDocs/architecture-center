@@ -1,6 +1,6 @@
 ---
 title: Interactive data exploration
-description: 
+description: Learn about interactive data exploration tools and platforms that provide low-latency batch processing for ad-hoc queries and data visualizations.
 author: zoinerTejada
 ms.date: 02/12/2018
 ms.topic: guide
@@ -26,7 +26,7 @@ In a self-service BI solution, business users typically find and consume data so
 
 Relevant Azure services:
 
-- [Azure Data Catalog](/azure/data-catalog/data-catalog-what-is-data-catalog)
+- [Azure Data Catalog](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog)
 - [Microsoft Power BI](https://powerbi.microsoft.com/)
 
 ## Data science experimentation
@@ -36,9 +36,9 @@ When an organization requires advanced analytics and predictive modeling, the in
 Relevant Azure services:
 
 - [Azure Notebooks](https://notebooks.azure.com/)
-- [Azure Machine Learning Studio (classic)](/azure/machine-learning/studio/what-is-ml-studio)
-- [Azure Machine Learning Experimentation Services](/azure/machine-learning/service/how-to-enable-virtual-network)
-- [The Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview)
+- [Azure Machine Learning Studio (classic)](https://docs.microsoft.com/azure/machine-learning/studio/what-is-ml-studio)
+- [Azure Machine Learning Experimentation Services](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-virtual-network)
+- [The Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview)
 
 ## Challenges
 

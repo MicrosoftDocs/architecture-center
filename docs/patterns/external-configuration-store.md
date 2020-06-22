@@ -80,7 +80,7 @@ The following example shows how a configuration store can be implemented over Bl
 ```csharp
 public interface ISettingsStore
 {
-    Task<string> GetVersionAsync();
+    Task<ETag> GetVersionAsync();
 
     Task<Dictionary<string, string>> FindAllAsync();
 }
@@ -109,13 +109,18 @@ public class ExternalConfigurationManager : IDisposable
   private readonly SemaphoreSlim syncCacheSemaphore = new SemaphoreSlim(1);  
   ...
   private Dictionary<string, string> settingsCache;
-  private string currentVersion;
+  private ETag currentVersion;
   ...
-  public ExternalConfigurationManager(ISettingsStore settings, ...)
+
+  public ExternalConfigurationManager(ISettingsStore settings, TimeSpan interval, string environment)
   {
-    this.settings = settings;
-    ...
+      this.settings = settings;
+      this.interval = interval;
+      this.CheckForConfigurationChangesAsync().Wait();
+      this.changed = new Subject<KeyValuePair<string, string>>();
+      this.Environment = environment;
   }
+
   ...
   public IObservable<KeyValuePair<string, string>> Changed => this.changed.AsObservable();
   ...
