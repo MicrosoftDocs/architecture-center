@@ -3,7 +3,7 @@ title: Architectural design session
 titleSuffix: Azure Example Scenarios
 description: Learn about Architectural Design Sessions.
 author: rogeriohc
-ms.date: 04/28/2020
+ms.date: 06/22/2020
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture

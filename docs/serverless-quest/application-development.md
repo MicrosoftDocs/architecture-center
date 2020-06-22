@@ -3,7 +3,7 @@ title: Serverless Functions app development and deployment
 titleSuffix: Azure Example Scenarios
 description: Examine patterns and practices of serverless application development, configure DevOps pipelines, and implement site reliability engineering (SRE) best practices.
 author: rogeriohc
-ms.date: 06/19/2020
+ms.date: 06/22/2020
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture

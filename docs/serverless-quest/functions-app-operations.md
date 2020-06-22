@@ -3,7 +3,7 @@ title: Serverless Functions app operations
 titleSuffix: Azure Example Scenarios
 description: Configure hosting, automate infrastructure provisioning, and maintain high availability for serverless Functions apps.
 author: rogeriohc
-ms.date: 06/17/2020
+ms.date: 06/22/2020
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture

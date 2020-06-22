@@ -3,7 +3,7 @@ title: Conduct a Proof of Concept or pilot
 titleSuffix: Azure Example Scenarios
 description: Conduct a Proof of Concept or pilot and manage change during serverless adoption with Azure Functions.
 author: rogeriohc
-ms.date: 06/17/2020
+ms.date: 06/22/2020
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture

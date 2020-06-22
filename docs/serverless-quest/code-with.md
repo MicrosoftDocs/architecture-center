@@ -3,7 +3,7 @@ title: The CSE code-with engineering playbook
 titleSuffix: Azure Example Scenarios
 description: Learn how to increase engineering team efficiency, reduce mistakes and common pitfalls, and be a better engineer with the Code-with engineering playbook.
 author: rogeriohc
-ms.date: 06/15/2020
+ms.date: 06/22/2020
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture

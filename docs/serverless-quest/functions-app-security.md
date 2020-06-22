@@ -3,7 +3,7 @@ title: Azure Functions security
 titleSuffix: Azure Example Scenarios
 description: Learn about and implement Azure Functions security essentials, secure hosting setup, and application security guidance.
 author: rogeriohc
-ms.date: 06/17/2020
+ms.date: 06/22/2020
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture

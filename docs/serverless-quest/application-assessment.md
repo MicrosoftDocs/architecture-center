@@ -3,7 +3,7 @@ title: Application assessment
 titleSuffix: Azure Example Scenarios
 description: Application assessment.
 author: rogeriohc
-ms.date: 04/28/2020
+ms.date: 06/22/2020
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture
