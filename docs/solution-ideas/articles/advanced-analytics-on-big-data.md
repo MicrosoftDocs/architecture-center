@@ -17,7 +17,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/advanced-ana
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Transform your 'ata into actionable insights using the best-in-class machine learning tools. This architecture allows you to combine any data at any scale, and to build and deploy custom machine learning models at scale.
+Transform your data into actionable insights using the best-in-class machine learning tools. This architecture allows you to combine any data at any scale, and to build and deploy custom machine learning models at scale.
 
 ## Architecture
 
@@ -26,7 +26,7 @@ Transform your 'ata into actionable insights using the best-in-class machine lea
 
 ## Data Flow
 
-1. Bring together all your structured, unstructured and semi-structured data (logs, files, and media) using Azure Data Factory to Azure Blob Storage.
+1. Bring together all your structured, unstructured and semi-structured data (logs, files, and media) using Azure Data Factory to Azure Data Lake Storage.
 1. Use Azure Databricks to clean and transform the structureless datasets and combine them with structured data from operational databases or data warehouses.
 1. Use scalable machine learning/deep learning techniques, to derive deeper insights from this data using Python, R or Scala, with inbuilt notebook experiences in Azure Databricks.
 1. Leverage native connectors between Azure Databricks and Azure Synapse Analytics to access and move data at scale.

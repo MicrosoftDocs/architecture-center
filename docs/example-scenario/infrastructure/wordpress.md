@@ -50,7 +50,7 @@ The second workflow is how authors contribute new content:
 4. From the admin jump box, the author is then able to connect to the Azure load balancer for the authoring cluster.
 5. The Azure load balancer distributes traffic to the virtual machine scale sets of web servers that have write access to the Maria DB cluster.
 6. New static content is uploaded to Azure files and dynamic content is written into the Maria DB cluster.
-7. These changes are then replicated to the alternate region via rsync or master/slave replication.
+7. These changes are then replicated to the alternate region via rsync or primary/secondary replication.
 
 ### Components
 
@@ -72,7 +72,7 @@ The second workflow is how authors contribute new content:
 
 ### Availability
 
-The VM instances in this scenario are deployed across multiple regions, with the data replicated between the two via RSYNC for the WordPress content and master slave replication for the MariaDB clusters.
+The VM instances in this scenario are deployed across multiple regions, with the data replicated between the two via RSYNC for the WordPress content and primary/secondary replication for the MariaDB clusters.
 
 ### Scalability
 
