@@ -14,7 +14,7 @@ ms.custom: fcp
 
 Azure supports the deployment of licensed Oracle database images with a "bring your own license" model. If you're properly licensed to use Oracle software, you're allowed to migrate Oracle databases to Azure Virtual Machines (VMs).
 
-See [Oracle and Microsoft Strategic Partnership FAQ](https://www.oracle.com/cloud/azure-interconnect-faq.html) to figure out if your Oracle database is certified and supported on Azure.
+See [Oracle and Microsoft Strategic Partnership FAQ](https://www.oracle.com/cloud/azure-interconnect-faq.html) to figure out if Oracle certifies and supports your Oracle database on Azure.
 
 ## Architecture
 
@@ -56,7 +56,7 @@ Refer to these articles for supporting info:
 
 * [Reference architectures for Oracle Database Enterprise Edition on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture)
 
-Oracle Real Application Cluster (RAC) can't be used alone in Azure. If you use FlashGrid SkyCluster, then you can host RAC on Azure. Follow these links for more information:
+You can't use Oracle Real Application Cluster (RAC) by itself in Azure. If you use FlashGrid SkyCluster, then you can host RAC on Azure. Follow these links for more information:
 
 * Oracle RAC in Azure with FlashGrid SkyCluster: [Oracle RAC in Azure with FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/)
 * Azure SkyCluster for Oracle RAC VM image: [SkyCluster for Oracle RAC](https://azuremarketplace.microsoft.com/marketplace/apps/flashgrid-inc.flashgrid-skycluster)

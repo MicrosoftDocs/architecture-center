@@ -18,7 +18,7 @@ To support a [multi-cloud experience](/azure/virtual-machines/workloads/oracle/o
 
 ![An architecture diagram that shows teh Oracle cloud environment on the right and the Azure Virtual Machine environment on the left.](media/cross-cloud-connectivity.png)
 
-1. A connection is established between Azure ExpressRoute and OCI FastConnect.
+1. Establish a connection between Azure ExpressRoute and OCI FastConnect.
 
 1. Your Azure application can communicate with your OCI-hosted Oracle database.
 
@@ -34,7 +34,7 @@ To support a [multi-cloud experience](/azure/virtual-machines/workloads/oracle/o
 
 ## Next steps
 
-See [Set up a direct interconnection between Azure and Oracle Cloud Infrastructure](/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking) for step-by-step configuration instructions. Refer to the **Important** alert at the beginning of the article. It shows a list of Oracle applications that are certified by Oracle to run in Azure when using the Azure/Oracle Cloud interconnect solution.
+See [Set up a direct interconnection between Azure and Oracle Cloud Infrastructure](/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking) for step-by-step configuration instructions. Refer to the **Important** alert at the beginning of the article. It shows a list of Oracle applications that Oracle has certified to run in Azure when using the Azure/Oracle Cloud interconnect solution.
 
 > [!NOTE]
 > If this migration path doesn't seem like the right one for your business needs, refer back to the [Migration decision tree](oracle-migration-overview.md#migration-decision-tree).
