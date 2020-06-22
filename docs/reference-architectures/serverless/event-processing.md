@@ -186,6 +186,8 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 
 <!-- links -->
 
+
+
 [AAF-cost]: /azure/architecture/framework/cost/overview
 [AAF-devops]: /azure/architecture/framework/devops/overview
 [app-insights]: https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview
@@ -212,6 +214,7 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 [queue-binding]: /azure/azure-functions/functions-bindings-storage-queue-output
 [ra-grs]: /azure/storage/common/storage-redundancy-grs
 [ru]: /azure/cosmos-db/request-units
+
 [aaf-cost]: ../../framework/cost/overview.md
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator
 [cosmosdb]: https://docs.microsoft.com/azure/cosmos-db/introduction

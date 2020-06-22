@@ -251,6 +251,7 @@ Learn more about the [serverless implementations](../../serverless/index.md).
 
 <!-- links -->
 
+
 [AAF-cost]: /azure/architecture/framework/cost/overview
 [AAF-devops]: /azure/architecture/framework/devops/overview
 [app-insights]: https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview
