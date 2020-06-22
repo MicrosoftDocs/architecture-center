@@ -69,7 +69,7 @@ N-tier architectures are very common in traditional on-premises applications, so
 
 This section describes a recommended N-tier architecture running on VMs.
 
-![Physical diagram of an N-tier architecture](./images/n-tier-physical.png)
+![Physical diagram of an N-tier architecture](./images/n-tier-physical-bastion.png)
 
 Each tier consists of two or more VMs, placed in an availability set or virtual machine scale set. Multiple VMs provide resiliency in case one VM fails. Load balancers are used to distribute requests across the VMs in a tier. A tier can be scaled horizontally by adding more VMs to the pool.
 
@@ -88,6 +88,7 @@ For more information about running N-tier applications on Azure:
 - [Run Windows VMs for an N-tier application][n-tier-linux]
 - [Windows N-tier application on Azure with SQL Server][n-tier-windows-SQL]
 - [Microsoft Learn module: Tour the N-tier architecture style](https://docs.microsoft.com/learn/modules/n-tier-architecture/)
+- [Azure Bastion](/azure/bastion/bastion-overview)
 
 ### Additional considerations
 
