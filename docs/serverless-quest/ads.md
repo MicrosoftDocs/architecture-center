@@ -22,10 +22,10 @@ Architecture in software technology applies to both the process and the outcome 
 
 Review a proposed reference architecture with the team or customer. If they don't agree with the architecture or implementation, hold an *architectural design session (ADS)* to collaborate on a solution.
 
-An ADS discusses in depth how a solution blends into an environment. The ADS custom builds an architecture that works in the environment and satisfies all the stakeholders' decision criteria and technical requirements.
+During an ADS, discuss in depth how a solution blends into an environment. The ADS custom builds an architecture that works in the environment and satisfies all the stakeholders' decision criteria and technical requirements.
 
 Alternative engagements can be a better fit than an ADS:
-- Product briefings may provide better, faster, and lower-cost information about solution options.
+- Product briefings might provide better, faster, and lower-cost information about solution options.
 - Demonstrations or hands-on labs might be better for product testing and tryouts.
 - A [proof of concept or pilot project](poc-pilot.md) can demonstrate that a proposed solution is feasible and works to solve the business problem.
 - Online or local partner [training](technical-training.md) helps improve specific skills.

@@ -21,7 +21,7 @@ Rationalization methods include:
 - **Rearchitect**. Rearchitect aging applications that aren't compatible with cloud components, or cloud-compatible applications that would realize cost and operational efficiencies by rearchitecting into a cloud-native solution.
 - **Rebuild**. If the changes or costs to carry an application forward are too great, consider creating a new cloud-native code base. Rebuild is especially appropriate for applications that previously met business needs, but are now unsupported or misaligned with current business processes.
 
-Before you decide on an appropriate strategy, analyze the current application to determine the risk and complexity of each method. Consider application lifecycle, technology, performance, operations and monitoring, presentation tier, service tier, integrations tier, data tier, and infrastructure.
+Before you decide on an appropriate strategy, analyze the current application to determine the risk and complexity of each method. Consider application lifecycle, technology, infrastructure, performance, and operations and monitoring. For multitier architectures, evaluate the presentation tier, service tier, integrations tier, and data tier.
 
 The following checklists evaluate an application to determine the complexity and risk of rearchitecting or rebuilding.
 
@@ -40,7 +40,7 @@ Define the high-level architecture, such as web application, web services, data 
 
 ### Business drivers
 
-Older applications may require extensive changes to get to the cloud.
+Older applications might require extensive changes to get to the cloud.
 
 | Factor | Complexity | Risk |
 |------------------------------------------------------------------|---|---|
@@ -123,19 +123,19 @@ To rationalize whether to rehost, refactor, rearchitect, or rebuild your applica
 
 Determine whether the application components can translate directly to Azure. If so, you don't need code changes to move the application to Azure, and could use rehost or refactor strategies. If not, you need to rewrite code, so you need to rearchitect or rebuild.
 
-If the app does need code changes, determine the complexity and extent of the needed changes. Minor changes may allow for rearchitecting, while major changes may require rebuilding.
+If the app does need code changes, determine the complexity and extent of the needed changes. Minor changes might allow for rearchitecting, while major changes may require rebuilding.
 
 ### Rehost or refactor
 
 - If leveraging existing code and data is a top priority, consider a refactor strategy rather than rearchitecting or rebuilding.
 
-- If you have pressing timelines like datacenter shutdown or contract expiration, end-of-life licensing, or mergers or acquisitions, the fastest way to get the application to Azure may be to rehost, followed by refactoring to take advantage of cloud capabilities.
+- If you have pressing timelines like datacenter shutdown or contract expiration, end-of-life licensing, or mergers or acquisitions, the fastest way to get the application to Azure might be to rehost, followed by refactoring to take advantage of cloud capabilities.
 
 ### Rearchitect or rebuild
 
-- If there are applications serving similar needs in your portfolio, this may be an opportunity to rearchitect or rebuild the entire solution.
+- If there are applications serving similar needs in your portfolio, this might be an opportunity to rearchitect or rebuild the entire solution.
 
-- If you want to [implement multi-tier or microservices architecture](https://docs.microsoft.com/azure/architecture/microservices/migrate-monolith) for a monolithic app, you must rearchitect or rebuild the app. If you don't mind retaining the monolithic structure, you may be able to rehost or refactor.
+- If you want to [implement multi-tier or microservices architecture](https://docs.microsoft.com/azure/architecture/microservices/migrate-monolith) for a monolithic app, you must rearchitect or rebuild the app. If you don't mind retaining the monolithic structure, you might be able to rehost or refactor.
 
 - Rearchitect or rebuild the app to take advantage of cloud capabilities if you plan to update the app more often than yearly, if the app has peak or variable usage times, or if you expect the app to handle high traffic.
 

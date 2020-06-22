@@ -10,10 +10,10 @@ ms.subservice: reference-architecture
 ms.custom:
 - fcp
 ---
-# Plan serverless Functions deployment
+# Plan for serverless Functions
 
 To plan for moving an application to a serverless Azure Functions architecture, a technical decision maker (TDM) or architect:
-- Verifies an application's characteristics and business requirements.
+- Verifies the application's characteristics and business requirements.
 - Determines the application's suitability for serverless Azure Functions.
 - Transforms business requirements into functional and other requirements.
 
