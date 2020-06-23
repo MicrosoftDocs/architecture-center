@@ -3,7 +3,7 @@ title: 'Oracle database migration: Rearchitect'
 titleSuffix: Azure Example Scenarios
 description: Rearchitect your Oracle database with Azure SQL Managed Instance
 author: amberz
-ms.author: amber.zhao
+ms.author: amberz
 ms.date: 06/23/2020
 ms.topic: example-scenario
 ms.service: architecture-center

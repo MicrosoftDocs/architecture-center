@@ -3,7 +3,7 @@ title: Overview of Oracle database migration
 titleSuffix: Azure Example Scenarios
 description: Learn about Oracle database migration paths and the methods you use to migrate your schema to SQL or PostgreSQL.
 author: amberz
-ms.author: amber.zhao
+ms.author: amberz
 ms.date: 06/23/2020
 ms.topic: example-scenario
 ms.service: architecture-center

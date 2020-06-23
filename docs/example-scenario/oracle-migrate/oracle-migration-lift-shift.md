@@ -3,7 +3,7 @@ title: 'Oracle database migration: Lift and shift'
 titleSuffix: Azure Example Scenarios
 description: Lift and shift your Oracle database from an Oracle environment to Azure Virtual Machines. 
 author: amberz
-ms.author: amber.zhao
+ms.author: amberz
 ms.date: 06/23/2020
 ms.topic: example-scenario
 ms.service: architecture-center
