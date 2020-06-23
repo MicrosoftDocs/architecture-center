@@ -24,8 +24,11 @@ Microsoft Azure offers a myriad of services and capabilities. Building an end-to
 So, when is it worth it to adopt each service for your use case? The answer is that it often depends on a variety of factors that are not necessarily related to the functional requirements. The main factors are:
 
 * The skill sets on the team
+
 * How the Azure service plugs into the existing architecture in place
+
 * The maintainability of the solution build using this service
+
 * The cost of these services at scale
 
 ### Scope
@@ -33,18 +36,35 @@ So, when is it worth it to adopt each service for your use case? The answer is t
 The scope of this document is focused on Azure services that are used to support data or machine learning workloads. This document does not consider third-party solutions available through Azure Marketplace. While not exhaustive, this document covers the most popular options on Azure for supporting the end to end workflow:
 
 1. Experimentation
-2. Overall Orchestration/Scheduling
-3. Data Transfer
-4. Data Transformation
-5. Model Training
-6. Model Deployment
-7. Monitoring
+
+1. Overall Orchestration/Scheduling
+
+1. Data Transfer
+
+1. Data Transformation
+
+1. Model Training
+
+1. Model Deployment
+
+1. Monitoring
 
 ## Options Considered
 
 As mentioned, Azure offers many services and capabilities but this document is not exhaustive. Listed below are the Azure services options that were considered under each category.
 
 TABLE 1 - OPTIONS CONSIDERED
+
+| Category | Options |
+| -------- | ------- |
+| Experimentation | [Azure Machine Learning Notebook VMs](https://azure.microsoft.com/blog/three-things-to-know-about-azure-machine-learning-notebook-vm/)<br>[Databricks Notebooks](https://docs.databricks.com/notebooks/index.html)<br>[Azure Machine Learning Experiment for Python SDK](/python/api/overview/azure/ml/)<br>[DSVM](/azure/machine-learning/data-science-virtual-machine/) |
+| Overall Orchestration / Scheduling | [Logic Apps]()<br>[Azure Data Factory]()<br>[Azure Machine Learning Pipelines]()<br>[]()<br> |
+| Data Transfer |  |
+| Compute |  |
+| Tracking / Versioning options |  |
+| Model Training |  |
+| Model Deployment |  |
+| Monitoring |  |
 
 ## Decision Tree
 
