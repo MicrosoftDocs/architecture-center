@@ -1117,7 +1117,7 @@ items:
         href: solution-ideas/articles/migrate-existing-applications-with-aks.md
       - name: Oracle database migration
         items:
-        - name: Migration process
+        - name: Migration decision process
           href: example-scenario/oracle-migrate/oracle-migration-overview.md
         - name: Cross-cloud connectivity
           href: example-scenario/oracle-migrate/oracle-migration-cross-cloud.md

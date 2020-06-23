@@ -1,9 +1,10 @@
 ---
-title: Oracle database migration - Lift and shift
+title: 'Oracle database migration: Lift and shift'
 titleSuffix: Azure Example Scenarios
 description: Lift and shift your Oracle database from an Oracle environment to Azure Virtual Machines. 
 author: amberz
-ms.date: 06/12/2020
+ms.author: amber.zhao
+ms.date: 06/23/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -26,7 +27,7 @@ See [Oracle and Microsoft Strategic Partnership FAQ](https://www.oracle.com/clou
 
 ## Components
 
-* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) lets you migrate your business and important workloads to Azure to increase operational efficiencies.
+* [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) lets you migrate your business and important workloads to Azure to increase operational efficiencies.
 
 ## Considerations
 
@@ -36,7 +37,7 @@ If you are using hyper-threading enabled technology in your Azure VMs, count two
 
 ### Backup strategy
 
-One backup strategy is to use Oracle [Recovery Manager (RMAN)](https://www.oracle.com/database/technologies/high-availability/rman.html). You can also use an Azure backup method. Provide an Oracle VM snapshot to use as a VM backup. See [Backup strategy for Oracle database](/azure/virtual-machines/workloads/oracle/oracle-backup-recovery) for more info.
+One backup strategy is to use Oracle [Recovery Manager (RMAN)](https://www.oracle.com/database/technologies/high-availability/rman.html). You can also use the [Azure backup method](/azure/virtual-machines/workloads/oracle/oracle-backup-recovery).
 
 ### Business continuity and disaster recovery
 

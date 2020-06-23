@@ -1,9 +1,10 @@
 ---
-title: Oracle database migration - Rearchitect
+title: 'Oracle database migration: Rearchitect'
 titleSuffix: Azure Example Scenarios
 description: Rearchitect your Oracle database with Azure SQL Managed Instance
 author: amberz
-ms.date: 06/12/2020
+ms.author: amber.zhao
+ms.date: 06/23/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -18,13 +19,13 @@ Are you comfortable working with Microsoft SQL Server? If so, you can use Azure 
 
 * Offers [high level security and stability](/azure/sql-database/sql-database-security-overview).
 
-* Interfaces with [SQL Server Migration Assistant for Oracle (SSMA)](https://aka.ms/ssmafororacle). This tool allows for easy conversion of Oracle objects and migration of data to SQL Manged Instance.
+* Interfaces with [SQL Server Migration Assistant for Oracle (SSMA)](https://aka.ms/ssmafororacle). This tool allows for easy conversion of Oracle objects and migration of data to SQL Managed Instance.
 
 ## Architecture
 
 ![AN architecture diagram that shows Azure SQL Managed Instances connected to an Azure SQL Database over a private endpoint connection.](media/rearchitect.png)
 
-1. Use SSMA (_not shown_) to convert your Oracle schema to SQL schema.
+1. Use SSMA to convert your Oracle schema to SQL schema.
 
 1. Migrate the new schema to Azure SQL Managed Instance.
 
@@ -32,17 +33,17 @@ Are you comfortable working with Microsoft SQL Server? If so, you can use Azure 
 
 ## Components
 
-* [Azure SQL Managed Instance](/services/azure-sql/sql-managed-instance/) is the intelligent, scalable, cloud database service that combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen platform as a service (PAAS).
+* [Azure SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance/) is the intelligent, scalable, cloud database service that combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen platform as a service (PAAS).
 
-* [Azure SQL](/services/azure-sql/) gives you a unified experience across your entire SQL portfolio and a full range of deployment options.
+* [Azure SQL](https://azure.microsoft.com/services/azure-sql/) gives you a unified experience across your entire SQL portfolio and a full range of deployment options.
 
-* [Virtual Network](/services/virtual-network/) is your private network in your Azure environment.
+* [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) is your private network in your Azure environment.
 
-## Considerations
+## Deployment
 
 ### Evaluate your Oracle database
 
-To evaluate your Oracle database, run the [Oracle PL\SQL](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_Pre_v12.sql) and [Oracle PL\SQL 2](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_v12_Plus.sql) tools in you existing Oracle database. See the [Assessment guide](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/OraclePre-SSMA%20Query%20Guidance.pptx) for instructions on how to run both of the tools.
+To evaluate your Oracle database, run the [Oracle PL\SQL](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_Pre_v12.sql) and [Oracle PL\SQL 2](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_v12_Plus.sql) tools in your existing Oracle database. See the [Assessment guide](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/OraclePre-SSMA%20Query%20Guidance.pptx) for instructions on how to run both of the tools.
 
 Download the [Assessment Calculator Template](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Customer%20Assessment%20CalculatorTemplate2.xlsx) spreadsheet so you can record the results.
 
@@ -63,7 +64,7 @@ This table shows the conversion results of Oracle objects to SQL Server objects 
 | View with dependent objects, such as triggers | SSMA creates views with dependent objects. |
 | Materialized Views | **SSMA creates indexed views on SQL server with some exceptions. Conversion will fail if the materialized view includes one or more of the following constructs**:<br><br>User-defined function<br><br>Non-deterministic field / function / expression in SELECT, WHERE, or GROUP BY clauses<br><br>Usage of Float column in SELECT*, WHERE, or GROUP BY clauses (special case of previous issue)<br><br>Custom data type (incl. nested tables)<br><br>COUNT(distinct &lt;field&gt;)<br><br>FETCH<br>OUTER joins (LEFT, RIGHT, or FULL)<br>Subquery, other view<br>OVER, RANK, LEAD, LOG<br>MIN, MAX<br>UNION, MINUS, INTERSECT<br>HAVING |
 | Trigger | **SSMA creates triggers based on the following rules**:<br><br>BEFORE triggers are converted to INSTEAD OF triggers.<br><br>AFTER triggers are converted to AFTER triggers.<br><br>INSTEAD OF triggers are converted to INSTEAD OF triggers. Multiple INSTEAD OF triggers defined on the same operation are combined into one trigger.<br><br>Row-level triggers are emulated using cursors.<br><br>Cascading triggers are converted into multiple individual triggers. |
-| Synonyms | **Synonyms are created for the following object types**:<br><br>Tables and object tables<br>Views and object views<br>Stored procedures<br>Functions**Synonyms for the following objects are resolved and replaced by direct object references**:<br><br>Sequences<br><br>Packages<br><br>Java class schema objects<br><br>User-defined object types<br>Synonyms for another synonym can't be migrated and will be marked as errors.<br><br>Synonyms aren't created for Materialized views. |
+| Synonyms | **Synonyms are created for the following object types**:<br><br>Tables and object tables<br>Views and object views<br>Stored procedures<br>Functions<br><br>**Synonyms for the following objects are resolved and replaced by direct object references**:<br><br>Sequences<br><br>Packages<br><br>Java class schema objects<br><br>User-defined object types<br>Synonyms for another synonym can't be migrated and will be marked as errors.<br><br>Synonyms aren't created for Materialized views. |
 | User-Defined Types | **SSMA does not provide support for conversion of user-defined types. User-Defined Types, including its usage in PL/SQL programs are marked with special conversion errors guided by the following rules**:<br><br>Table column of a user-defined type is converted to VARCHAR(8000).<br><br>Argument of user-defined type to a stored procedure or function is converted to VARCHAR(8000).<br>Variable of user-defined type in PL/SQL block is converted to VARCHAR(8000).<br><br>Object Table is converted to a Standard table.<br> Object view is converted to a Standard view.|
 
 For more info, see [Converting Oracle Schemas (OracleToSQL)](/sql/ssma/oracle/converting-oracle-schemas-oracletosql).
@@ -74,10 +75,10 @@ Once you've installed SSMA, create a report to convert Oracle schema and migrate
 
 ### Post-migration tasks
 
-After the whole migration, uninstall the client components to remove **ssma_oracle** schema.
+After the whole migration, uninstall the client components to remove the **ssma_oracle** schema.
 
 > [!NOTE]
-> Don't uninstall the extension pack from SQL Server unless your migrated databases no longer uses functions in the **ssma_oracle** schema of the **sysdb** database.
+> Don't uninstall the extension pack from SQL Server unless your migrated database no longer uses functions in the **ssma_oracle** schema of the **sysdb** database.
 >
 > For more information, see [Removing SSMA for Oracle Components](/sql/ssma/oracle/removing-ssma-for-oracle-components-oracletosql?view=sql-server-ver15).
 

@@ -3,7 +3,8 @@ title: Overview of Oracle database migration
 titleSuffix: Azure Example Scenarios
 description: Learn about Oracle database migration paths and the methods you use to migrate your schema to SQL or PostgreSQL.
 author: amberz
-ms.date: 06/12/2020
+ms.author: amber.zhao
+ms.date: 06/23/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -12,11 +13,11 @@ ms.custom: fcp
 
 # Oracle database migration overview
 
-This series of articles provides a way for you to assess your current Oracle database environment, figure out your best migration path to Azure, and links to documents that help you make your migratory move. Your migration path will be to an Azure Virtual Machine or an Azure Managed Database.
+This series of articles provides a way for you to assess your current Oracle database environment, figure out your best migration path to Azure, and links to documents that help you make your migratory move. Your migration path can be to an Azure Virtual Machine (VM). It might also be to an Azure Managed Database that is running on an Azure VM.
 
 To migrate an Oracle database to an Azure environment, you have to:
 
-* Choose the right Azure VMs size, disk type, data migration method.
+* Choose the right Azure VMs size, disk type, and data migration method.
 
 * Figure out how to achieve business continuity.
 
@@ -48,7 +49,7 @@ This flow chart shows you the steps to move an Oracle database to either a Postg
 
 ## Oracle database discoveries
 
-The Microsoft Data Migration Jumpstart Engineering team maintains Oracle scripts. You can run the scripts on your  Oracle databases to evaluate how many tables, stored procedures, views, packages, etc. exist in the environment. This table shows the assessment principles:
+The Microsoft Data Migration Jumpstart Engineering team maintains an [inventory of Oracle scripts](https://github.com/microsoft/DataMigrationTeam/tree/master/Oracle%20Inventory%20Script%20Artifacts). You can run the scripts on your Oracle databases to evaluate how many tables, stored procedures, views, packages, etc. exist in the environment. This table shows the assessment principles:
 
 | Category | Simple | Medium | Large | Complex | Custom |
 | ---------| ------ | ------ | ----- | ------- | ------ |
@@ -58,7 +59,7 @@ The Microsoft Data Migration Jumpstart Engineering team maintains Oracle scripts
 | Packages per schema | <10 | 11-25 | 26-50 | 51-100 | >100 |
 | Schema Data Size | <10 GB | 11-75 GB | 76-500 GB | 501-2000 | >2000 |
 
-To evaluate your Oracle database, run the [Oracle PL\SQL](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_Pre_v12.sql) and [Oracle PL\SQL 2](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_v12_Plus.sql) tools in you existing Oracle database. See the [Assessment guide](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/OraclePre-SSMA%20Query%20Guidance.pptx) for instructions on how to run both of the tools.
+To evaluate your Oracle database, run the [Oracle PL\SQL](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_Pre_v12.sql) and [Oracle PL\SQL 2](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_v12_Plus.sql) tools in your existing Oracle database. See the [Assessment guide](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/OraclePre-SSMA%20Query%20Guidance.pptx) for instructions on how to run both of the tools.
 
 Download the [Assessment Calculator Template](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Customer%20Assessment%20CalculatorTemplate2.xlsx) spreadsheet so you can record the results.
 
@@ -72,10 +73,10 @@ The migration decision tree helps you find the appropriate path of your Oracle d
 
 What you do next depends on where you wind up on the decision tree:
 
-* **Cross-cloud connectivity**: The best migration path for you is direct interconnection between Azure and Oracle Cloud Infrastructure (OCI). Go to [Oracle database migration - Cross-cloud Connectivity](oracle-migration-cross-cloud.md).
+* **Cross-cloud connectivity**: The best migration path for you is direct interconnection between Azure and Oracle Cloud Infrastructure (OCI). Go to [Oracle database migration: Cross-cloud Connectivity](oracle-migration-cross-cloud.md).
 
-* **Lift and shift on Azure VMs**: You can deploy your Oracle applications in Azure based on a "bring your own license" model. Go to [Oracle database migration - Lift and Shift](oracle-migration-lift-shift.md).
+* **Lift and shift on Azure VMs**: You can deploy your Oracle applications in Azure based on a "bring your own license" model. Go to [Oracle database migration: Lift and Shift](oracle-migration-lift-shift.md).
 
-* **Refactor**: You have legacy Oracle code and you prefer using an Azure Managed Service. Go to [Oracle database migration - Refactor](oracle-migration-refactor.md).
+* **Refactor**: You have legacy Oracle code and you prefer using an Azure Managed Service. Go to [Oracle database migration: Refactor](oracle-migration-refactor.md).
 
-* **Rearchitect**: If you're planning to retire your old code and redesign your architecture, Azure SQL Database Managed Instance is a good option. Go to [Oracle database migration - Rearchitect](oracle-migration-rearchitect.md)
+* **Rearchitect**: If you're planning to retire your old code and redesign your architecture, Azure SQL Database Managed Instance is a good option. Go to [Oracle database migration: Rearchitect](oracle-migration-rearchitect.md)

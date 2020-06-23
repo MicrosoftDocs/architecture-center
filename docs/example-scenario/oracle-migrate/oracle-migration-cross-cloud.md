@@ -1,9 +1,10 @@
 ---
-title: Oracle database migration - Cross-cloud connectivity
+title: 'Oracle database migration: Cross-cloud connectivity'
 titleSuffix: Azure Example Scenarios
 description: Create a connection between your existing Oracle Database and your Azure applications.
 author: amberz
-ms.date: 06/12/2020
+ms.author: amber.zhao
+ms.date: 06/23/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -12,7 +13,7 @@ ms.custom: fcp
 
 # Oracle database migration - Cross-cloud connectivity
 
-To support a [multi-cloud experience](/azure/virtual-machines/workloads/oracle/oracle-oci-overview), you can create a direct interconnection between Azure and Oracle Cloud Infrastructure (OCI) [ExpressRoute](https://azure.microsoft.com/services/expressroute/) and [FastConnect](https://www.oracle.com/cloud/networking/fastconnect.html). The connection between the services allows applications hosted on Azure to communicate with Oracle database hosted on OCI. You can expect low latency and high throughput by connecting an ExpressRoute circuit in Azure with a FastConnect circuit in OCI.
+To support a [multi-cloud experience](/azure/virtual-machines/workloads/oracle/oracle-oci-overview), you can create a direct interconnection between Azure and Oracle Cloud Infrastructure (OCI) by using [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) and [FastConnect](https://www.oracle.com/cloud/networking/fastconnect.html). The connection between the services allows applications hosted on Azure to communicate with Oracle database hosted on OCI. You can expect low latency and high throughput by connecting an ExpressRoute circuit in Azure with a FastConnect circuit in OCI.
 
 ## Architecture
 
@@ -24,13 +25,13 @@ To support a [multi-cloud experience](/azure/virtual-machines/workloads/oracle/o
 
 ## Components
 
-* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) lets you migrate your business and important workloads to Azure to increase operational efficiencies.
+* [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) lets you migrate your business and important workloads to Azure to increase operational efficiencies.
 
-* [Virtual Network](https://azure.microsoft.com/services/virtual-network/) is your private network in your Azure environment.
+* [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) is your private network in your Azure environment.
 
-* [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/) connects your infrastructure to the cloud.
+* [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/) connects your infrastructure to the cloud.
 
-* [ExpressRoute](https://azure.microsoft.com/services/expressroute/) creates a faster private connection to Azure.
+* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) creates a faster private connection to Azure.
 
 ## Next steps
 
