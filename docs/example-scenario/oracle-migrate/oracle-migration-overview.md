@@ -17,11 +17,11 @@ This series of articles provides a way for you to assess your current Oracle dat
 
 To migrate an Oracle database to an Azure environment, you have to:
 
-* Choose the right Azure VMs size, disk type, and data migration method.
+* Choose Azure resources as target database.
 
-* Figure out how to achieve business continuity.
+* Decide data migration method to evaluate downtime window.
 
-* Come up with disaster recovery requirements.
+* Figure out how to archive business continuity and disaster recovery requirements.
 
 ## Architecture
 
@@ -29,7 +29,7 @@ This flow chart shows you the steps to move an Oracle database to either a Postg
 
 ![Flow chart depicting the steps you have to take to convert your Oracle Database to a SQL or PostgreSQL database in Azure.](media/oracle-migration-process-to-sql-pg.png)
 
-1. First you create Oracle script artifacts.
+1. Use Oracle script artifacts to evaluate Oracle database.
 
 1. Schema conversion is different for both database types:
 
@@ -73,9 +73,9 @@ The migration decision tree helps you find the appropriate path of your Oracle d
 
 What you do next depends on where you wind up on the decision tree:
 
-* **Cross-cloud connectivity**: The best migration path for you is direct interconnection between Azure and Oracle Cloud Infrastructure (OCI). Go to [Oracle database migration: Cross-cloud Connectivity](oracle-migration-cross-cloud.md).
+* **Cross-cloud connectivity**: If you already use Oracle Cloud Infrastructure (OCI), the easy migration path for you is direct interconnection between Azure and OCI. Go to [Oracle database migration: Cross-cloud Connectivity](oracle-migration-cross-cloud.md).
 
-* **Lift and shift on Azure VMs**: You can deploy your Oracle applications in Azure based on a "bring your own license" model. Go to [Oracle database migration: Lift and Shift](oracle-migration-lift-shift.md).
+* **Lift and shift on Azure VMs**: You can deploy your Oracle databases in Azure based on a "bring your own license" model. Go to [Oracle database migration: Lift and Shift](oracle-migration-lift-shift.md).
 
 * **Refactor**: You have legacy Oracle code and you prefer using an Azure Managed Service. Go to [Oracle database migration: Refactor](oracle-migration-refactor.md).
 
