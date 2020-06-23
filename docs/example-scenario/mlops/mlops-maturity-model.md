@@ -2,22 +2,19 @@
 title: MLOps Maturity Model
 titleSuffix: Technical Description
 description: Detailed explanation of the MLOps Maturity Model stages and defining characteristics of each stage.
-author: Dan Azlin (v-daazli@microsoft.com)
+author: danazlin
+ms.author: Derek.Martin
 ms.date: 06/01/2020
 ms.topic: MLOps, MLOps Maturity Model
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom:
-    - fcp
-    - cse
+ms.custom: fcp
 ms.category:
     - developer-tools
     - hybrid
 social_image_url: /azure/architecture/example-scenario/serverless/media/mlops.png
 
 ---
-
-<!-- cSpell:ignore Apigee -->
 
 # MLOps Maturity Model
 

@@ -2,22 +2,19 @@
 title: MLOps Framework for Upscaling ML Life Cycle with Azure ML
 titleSuffix: Technical White Paper
 description: How the MLOps Maturity Model was applied to operationalize an ML solution for predicting product shipping levels.
-author: Dan Azlin (v-daazli@microsoft.com)
+author: danazlin
+ms.author: Derek.Martin
 ms.date: 06/01/2020
 ms.topic: MLOps, MLOps Maturity Model
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom:
-    - fcp
-    - cse
+ms.custom: fcp
 ms.category:
     - developer-tools
     - hybrid
 social_image_url: /azure/architecture/example-scenario/serverless/media/mlops.png
 
 ---
-
-<!-- cSpell:ignore Apigee -->
 
 # MLOps Framework for Upscaling ML Life Cycle with Azure ML
 
