@@ -1940,6 +1940,11 @@
     {
       "source_path": "https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/sap-s4-hana-vm-on-linux",
       "redirect_url":"https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines"
+    },
+    {
+      "source_path": "docs/serverless/index.md",
+      "redirect_url": "/azure/architecture/serverless/code",
+      "redirect_document_id": true
     }
   ]
 }
