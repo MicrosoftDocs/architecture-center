@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>5/07/2020</li>
-            <li>16 min read</li>
+            <li>17 min read</li>
         </ul>
         <p class="card-content-description">Deploy a microservices architecture on Azure Kubernetes Service (AKS)</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

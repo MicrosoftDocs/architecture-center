@@ -7,6 +7,8 @@ ms.date: 06/09/2020
 ms.custom: fcp
 ms.service: architecture-center
 ms.subservice: solution-idea
+ms.category:
+  - iot
 ---
 
 # Create a safe building

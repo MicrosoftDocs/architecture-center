@@ -6,18 +6,18 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/sap/hana-large-instances"><img src="/azure/architecture/browse/thumbs/hana-large-instances.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/sap/sap-overview"><img src="/azure/architecture/browse/thumbs/sap-overview.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
-        <a class="card-content-title has-margin-top-none" href="/azure/architecture/reference-architectures/sap/hana-large-instances">
-            <p>Run SAP HANA on Azure (Large Instances)</p>
+        <a class="card-content-title has-margin-top-none" href="/azure/architecture/reference-architectures/sap/sap-overview">
+            <p>SAP on Azure Architecture Guide</p>
         </a>
         <ul class="card-content-metadata">
-            <li>4/02/2020</li>
+            <li>6/10/2020</li>
             <li>11 min read</li>
         </ul>
-        <p class="card-content-description">Proven practices for running SAP HANA in a high availability environment on Azure Large Instances.</p>
+        <p class="card-content-description">This guide is based on the Azure Architecture Framework, but the recommendations are specific to deployments of SAP solutions.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

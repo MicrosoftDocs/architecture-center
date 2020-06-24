@@ -7,6 +7,8 @@ ms.date: 06/10/2020
 ms.custom: iot, fcp
 ms.service: architecture-center
 ms.subservice: solution-idea
+ms.category:
+  - iot
 ---
 
 # Smart buildings for COVID-19 preparedness

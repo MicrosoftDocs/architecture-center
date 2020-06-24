@@ -6,6 +6,9 @@ ms.date: 06/10/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.custom: fcp 
+ms.category:
+  - databases
+  - compute
 ---
 
 # SAP on Azure Architecture Guide
