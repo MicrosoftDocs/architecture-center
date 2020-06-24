@@ -234,6 +234,7 @@ _themes*/
 
 /_model
 /_viewmodel
+<<<<<<< HEAD
 /build/architectures/acom_html
 
 # MacOS
@@ -245,3 +246,6 @@ _themes*/
 /build/architecture-automation/acom_data/resx/*
 .cspell.json
 *.bak
+=======
+/build/architectures/acom_html.DS_Store
+>>>>>>> 5c767de17d152006f71acb45b06a4ef295fbecb3
