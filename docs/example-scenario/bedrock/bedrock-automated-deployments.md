@@ -24,7 +24,7 @@ Bedrock helps you:
 
 ## Problem Statement
 
-As Kubernetes use has grown, we've learned that operationalizing Kubernetes is not easy. Configuring Kubernetes deployments and managing clusters can be a complex and time-consuming process complicated by missteps and lurking errors. Bedrock was born from the collective experience of helping many customers adopt the new architectural patterns for Kubernetes. At the same time, applying DevOps principles and tooling makes the development, deployment, and maintenance of these Kubernetes based apps sustainable at a production level. GitOps is the name applied to this pattern and Bedrock is the pattern of best practices for implementing apps with GitOps in Azure.
+Configuring Kubernetes deployments and managing clusters can be a complex and time-consuming process complicated by missteps and lurking errors. Bedrock was born from the collective experience of helping many customers adopt the new architectural patterns for Kubernetes. At the same time, applying DevOps principles and tooling makes the development, deployment, and maintenance of these Kubernetes based apps sustainable at a production level. GitOps is the name applied to this pattern and Bedrock is the pattern of best practices for implementing apps with GitOps in Azure.
 
 Bedrock addresses these problems through the following objectives:
 
@@ -63,7 +63,7 @@ Most cloud infrastructure tools and environments support reading a manifest docu
 
 ### Enable Deployment Observability
 
-Developers and Site Reliability Engineers need to be able to monitor and observe the end-to-end deployment and workflow. Bedrock includes the *Spektate Dashboard* as part of the Bedrock CLI to allow an easy to use view of the deployment process and operational clusters. This level of monitoring simplifies deployment management. For example, developers and SREs need a comprehensive view of deployment status changes as they make their way from application level changes to the cluster, including the GitOps sync status. Spektate dashboard is designed to provide this overview, which is valuable.
+Developers and Site Reliability Engineers need to be able to monitor and observe the end-to-end deployment and workflow. Bedrock includes the *Spektate Dashboard* as part of the Bedrock CLI to allow an easy to use view of the deployment process and operational clusters. This level of monitoring simplifies deployment management. For example, developers and Software Reliability Engineers need a comprehensive view of deployment status changes as they make their way from application level changes to the cluster, including the GitOps sync status. Spektate dashboard is designed to provide this overview, which is valuable.
 
 Sometimes additional monitoring needs are identified and the Spektate Dashboard cannot fulfill those new needs. Bedrock is designed to accommodate additional tools that can be deployed to fulfill those special monitoring needs. See [Extending Bedrock](#extending-bedrock) for more information.
 
@@ -81,7 +81,7 @@ The “Digitization of the Physical World” has had great impact on many areas 
 
 Kubernetes is designed to work with containerized applications. Containers are readily versioned and managed through development and deployment. By including the infrastructure configuration manifests to this management structure, it becomes easier to deploy to the correct infrastructure and have alternate infrastructure definitions available for different purposes. This process is the essence of how Bedrock implements IaC using Terraform templates. Bedrock provides sample templates (`Azure Simple` and `Azure Single Key Vault`) that developers can use as starting points for their own deployments with AKS and GitOps.
 
-#### What is GitOps&#63;
+#### What is GitOps?
 
 As mentioned earlier, GitOps is DevOps applied to Kubernetes based systems. Thus, the automation and coordination of development, orchestration, monitoring, and maintenance becomes the focus of the Bedrock pattern and process using GitOps.
 
