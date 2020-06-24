@@ -2,11 +2,179 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>the Azure Architecture Center</title>
-    <updated>2020-06-08T20:36:08.357Z</updated>
+    <updated>2020-06-24T15:24:46.447Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for the Azure Architecture Center</subtitle>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Architectural design session]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/serverless-quest/ads</id>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless-quest/ads"/>
+        <updated>2020-06-23T15:51:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Architectural Design Sessions.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Application assessment]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/serverless-quest/application-assessment</id>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless-quest/application-assessment"/>
+        <updated>2020-06-23T15:51:10.000Z</updated>
+        <summary type="html"><![CDATA[Application assessment.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Serverless Functions app development and deployment]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/serverless-quest/application-development</id>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless-quest/application-development"/>
+        <updated>2020-06-23T15:51:10.000Z</updated>
+        <summary type="html"><![CDATA[Examine patterns and practices of serverless application development, configure DevOps pipelines, and implement site reliability engineering (SRE) best practices.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[The CSE code-with engineering playbook]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/serverless-quest/code-with</id>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless-quest/code-with"/>
+        <updated>2020-06-23T15:51:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to increase engineering team efficiency, reduce mistakes and common pitfalls, and be a better engineer with the Code-with engineering playbook.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Serverless Functions app operations]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/serverless-quest/functions-app-operations</id>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless-quest/functions-app-operations"/>
+        <updated>2020-06-23T15:51:10.000Z</updated>
+        <summary type="html"><![CDATA[Configure hosting, automate infrastructure provisioning, and maintain high availability for serverless Functions apps.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Functions security]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/serverless-quest/functions-app-security</id>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless-quest/functions-app-security"/>
+        <updated>2020-06-23T15:51:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn about and implement Azure Functions security essentials, secure hosting setup, and application security guidance.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Conduct a Proof of Concept or pilot]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/serverless-quest/poc-pilot</id>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless-quest/poc-pilot"/>
+        <updated>2020-06-23T15:51:10.000Z</updated>
+        <summary type="html"><![CDATA[Conduct a Proof of Concept or pilot and manage change during serverless adoption with Azure Functions.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Serverless Functions reference architectures]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/serverless-quest/reference-architectures</id>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless-quest/reference-architectures"/>
+        <updated>2020-06-23T15:51:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn about serverless reference architectures.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Serverless Functions overview]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/serverless-quest/serverless-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless-quest/serverless-overview"/>
+        <updated>2020-06-23T15:51:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn about serverless architecture with Azure Functions, and how to implement serverless Functions adoption.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Technical workshops and training]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/serverless-quest/technical-training</id>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless-quest/technical-training"/>
+        <updated>2020-06-23T15:51:10.000Z</updated>
+        <summary type="html"><![CDATA[Use these workshops and training resources to help understand and adopt serverless technologies with Azure Functions.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Plan serverless Functions deployment]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/serverless-quest/validate-commit-serverless-adoption</id>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless-quest/validate-commit-serverless-adoption"/>
+        <updated>2020-06-23T15:51:10.000Z</updated>
+        <summary type="html"><![CDATA[Perform activities to validate, commit, and plan serverless Azure Functions deployment.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[IaaS: Web application with relational database]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/high-availability/ref-arch-iaas-web-and-db</id>
+        <link href="https://docs.microsoft.com/azure/architecture/high-availability/ref-arch-iaas-web-and-db"/>
+        <updated>2020-06-17T15:08:24.000Z</updated>
+        <summary type="html"><![CDATA[This reference architecture shows best practices for applying Availability Zones to a web application and Microsoft SQL Server database hosted on virtual machines (VMs) known as a zonal deployment.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseball decision analysis with ML.NET and Blazor]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-guide/big-data/baseball-ml-workload</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-guide/big-data/baseball-ml-workload"/>
+        <updated>2020-06-15T14:35:46.000Z</updated>
+        <summary type="html"><![CDATA[This scenario describes a web application providing an interface for on-technical users to use artificial intelligence (AI) and machine learning (ML) to perform decision analysis techniques in order to rapidly gain insights and make informed predictions.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run SAP BW/4HANA with Linux virtual machines on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines"/>
+        <updated>2020-06-15T14:35:46.000Z</updated>
+        <summary type="html"><![CDATA[This example focuses specifically on the SAP BW/4HANA application tier and is suitable for a small-scale production environment of SAP BW/4HANA on Azure where high availability is a priority.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines"/>
+        <updated>2020-06-15T14:35:46.000Z</updated>
+        <summary type="html"><![CDATA[Proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery on Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SAP on Azure Architecture Guide]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-overview"/>
+        <updated>2020-06-15T14:35:46.000Z</updated>
+        <summary type="html"><![CDATA[This guide is based on the Azure Architecture Framework, but the recommendations are specific to deployments of SAP solutions.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cognizant Safe Buildings with IoT and Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/safe-buildings</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/safe-buildings"/>
+        <updated>2020-06-15T14:19:55.000Z</updated>
+        <summary type="html"><![CDATA[Deploy Cognizant Safe Buildings, IoT, and Azure services to protect buildings from COVID-19 outbreaks.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[IoT Connected Platform for COVID-19 detection and prevention]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-connected-platform</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-connected-platform"/>
+        <updated>2020-06-15T14:13:06.000Z</updated>
+        <summary type="html"><![CDATA[Deploy a connected ecosystem of intelligent IoT Edge devices, Azure services, and cloud-powered apps to create safe and healthy public spaces.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[iBEMS Shield COVID-19 building management solution]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/ibems-shield-smart-buildings</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/ibems-shield-smart-buildings"/>
+        <updated>2020-06-11T21:59:27.000Z</updated>
+        <summary type="html"><![CDATA[Update building management systems to provide COVID-19 protections with intelligent IoT Edge devices and cloud-powered apps.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[COVID-19 Safe Solutions with IoT Edge]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cctv-mask-detection</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cctv-mask-detection"/>
+        <updated>2020-06-10T18:55:16.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use CCTV, IoT Edge analytics and machine learning, and cloud services to monitor social distancing, mask/PPE use, and occupancy requirements.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Contactless IoT interfaces with Azure intelligent edge]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/contactless-interfaces</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/contactless-interfaces"/>
+        <updated>2020-06-09T18:24:32.000Z</updated>
+        <summary type="html"><![CDATA[Combine intelligent and perceptive edge devices with the storage and computing power of the cloud to create touch-free interfaces.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Vision classifier model with Azure Custom Vision Cognitive Service]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/dronerescue/vision-classifier-model-with-custom-vision</id>
@@ -22,6 +190,54 @@
         <updated>2020-06-02T18:05:11.000Z</updated>
         <summary type="html"><![CDATA[Learn how to use Azure Cognitive Search pre-built skills and custom extensibility to enrich large unstructured data sets into indexable structured data.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Serverless Functions code walkthrough]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/serverless/code</id>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless/code"/>
+        <updated>2020-06-23T15:51:10.000Z</updated>
+        <summary type="html"><![CDATA[Follow this code walkthrough to implement an example serverless application with Azure Functions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure IoT reference architecture]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/iot</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/iot"/>
+        <updated>2020-06-22T19:58:14.000Z</updated>
+        <summary type="html"><![CDATA[Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Microservices architecture on Azure Kubernetes Service (AKS)]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/aks</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/aks"/>
+        <updated>2020-06-22T19:58:14.000Z</updated>
+        <summary type="html"><![CDATA[Deploy a microservices architecture on Azure Kubernetes Service (AKS)]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Microservices architecture on Azure Service Fabric]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric"/>
+        <updated>2020-06-22T19:58:14.000Z</updated>
+        <summary type="html"><![CDATA[Deploy a microservices architecture on Azure Service Fabric]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Extend an on-premises network using ExpressRoute]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute"/>
+        <updated>2020-06-22T18:38:45.000Z</updated>
+        <summary type="html"><![CDATA[Implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using Azure ExpressRoute.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Extend an on-premises network using VPN]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vpn</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vpn"/>
+        <updated>2020-06-22T18:38:45.000Z</updated>
+        <summary type="html"><![CDATA[A secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using a VPN.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Azure Active Directory IDaaS in Security Operations]]></title>
@@ -750,7 +966,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Run SAP HANA on Azure Large Instances]]></title>
+        <title type="html"><![CDATA[Run SAP HANA on Azure (Large Instances)]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances"/>
         <updated>2020-04-07T20:55:25.000Z</updated>
@@ -1094,7 +1310,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Run SAP HANA on Azure Large Instances]]></title>
+        <title type="html"><![CDATA[Run SAP HANA on Azure (Large Instances)]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances"/>
         <updated>2020-03-06T18:32:28.000Z</updated>

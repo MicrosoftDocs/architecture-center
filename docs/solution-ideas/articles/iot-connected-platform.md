@@ -7,6 +7,8 @@ ms.date: 06/12/2020
 ms.custom: iot, fcp
 ms.service: architecture-center
 ms.subservice: solution-idea
+ms.category:
+  - iot
 ---
 
 # IoT Connected Platform for COVID-19 protection

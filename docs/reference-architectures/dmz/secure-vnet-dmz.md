@@ -110,7 +110,9 @@ Each tier's subnet in the reference architecture is protected by NSG rules. You 
 
 If you're using ExpressRoute to provide the connectivity between your on-premises datacenter and Azure, use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor and troubleshoot connection issues.
 
-You can find additional information about monitoring and managing VPN and ExpressRoute connections in the articles [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-manageability] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-manageability].
+You can find additional information about monitoring and managing VPN and ExpressRoute connections in the articles:
+- [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-devops]
+- [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-devops]
 
 ## Security considerations
 
@@ -147,7 +149,7 @@ When compared to network virtual appliances (NVAs), with Azure Firewall you can 
 
 Azure Bastion securely connects to your virtual machine over RDP and SSH without having the need to configure a public IP on the virtual machine. 
 
-Bastion billing is comparable to a basic, low-level virtual machine configured as a jumpbox. Comparing Bastion to a jumbox, Bastion is more cost effective considering Bastion's built-in security features and no extra costs incurred for storage and managing a separate server. 
+Bastion billing is comparable to a basic, low-level virtual machine configured as a jumpbox. Comparing Bastion to a jump box, Bastion is more cost effective considering Bastion's built-in security features and no extra costs incurred for storage and managing a separate server. 
 
 ### Azure Virtual Network
 
@@ -238,11 +240,11 @@ In this step, you will connect the two local network gateways.
 [getting-started-with-azure-security]: https://docs.microsoft.com/azure/security/azure-security-getting-started
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-hybrid
 [guidance-expressroute-availability]: ../hybrid-networking/expressroute.md#availability-considerations
-[guidance-expressroute-manageability]: ../hybrid-networking/expressroute.md#manageability-considerations
+[guidance-expressroute-devops]: ../hybrid-networking/expressroute.md#devops-considerations
 [guidance-expressroute-scalability]: ../hybrid-networking/expressroute.md#scalability-considerations
 [guidance-expressroute-security]: ../hybrid-networking/expressroute.md#security-considerations
 [guidance-vpn-gateway-availability]: ../hybrid-networking/vpn.md#availability-considerations
-[guidance-vpn-gateway-manageability]: ../hybrid-networking/vpn.md#manageability-considerations
+[guidance-vpn-gateway-devops]: ../hybrid-networking/vpn.md#devops-considerations
 [guidance-vpn-gateway-scalability]: ../hybrid-networking/vpn.md#scalability-considerations
 [guidance-vpn-gateway-security]: ../hybrid-networking/vpn.md#security-considerations
 [nsg]: https://docs.microsoft.com/azure/virtual-network/security-overview
