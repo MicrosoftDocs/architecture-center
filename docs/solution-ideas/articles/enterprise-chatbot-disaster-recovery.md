@@ -2,7 +2,7 @@
 title: Enterprise chatbot disaster recovery
 titleSuffix: Azure Solution Ideas
 author: sowmyans
-ms.date: 05/11/2020
+ms.date: 06/22/2020
 description: Learn how to set up disaster recovery and high availability for Azure services in an enterprise-grade conversational bot.
 ms.custom:
     - fcp
@@ -39,6 +39,7 @@ Azure Active Directory (Azure AD), Azure Traffic Manager, Azure Front Door, and 
 Although you provision Azure Key Vault and Language Understanding Intelligent Service (LUIS) in a specific Azure region, these services provide automatic failover to a different Azure region. For more information, see:
 
 - [Azure Key Vault availability and redundancy](https://docs.microsoft.com/azure/key-vault/key-vault-disaster-recovery-guidance)
+- To set up high availability for Azure Cosmos DB, see [High availability with Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/high-availability).
 - [LUIS regions and endpoints](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions)
 
 ### Regional services without automatic failover
@@ -49,7 +50,6 @@ Keep all deployment and source code artifacts in a source code repository, and u
 
 - Keep the primary and secondary Azure search indexes in sync. For a sample app to back up and restore Azure search indexes, see [QnAMakerBackupRestore](https://github.com/pchoudhari/QnAMakerBackupRestore) on GitHub.
 - Back up Application Insights by using [continuous export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry). Although you can't currently import the exported telemetry to another Application Insights resource, you can export into a storage account for further analysis.
-- To set up high availability for Azure Cosmos DB, see [High availability with Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/high-availability).
 - To set up high availability and disaster recovery for Azure Storage accounts, see [Disaster recovery and storage account failover](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance).
 - Deploy the bot API and QnA Maker into an Azure App Service Plan in both regions.
 - Once you set up the primary and secondary stacks, use Azure Traffic Manager or Azure Front Door to configure the endpoints and set up a routing method for both QnA Maker and the bot API.

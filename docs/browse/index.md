@@ -2,7 +2,7 @@
 title: Azure Architecture
 description: Architecture diagrams, reference architectures, example scenarios, and solutions for common workloads on Azure.
 author: adamboeglin
-ms.date: 05/05/2020
+ms.date: 10/18/2019
 layout: LandingPage
 ms.topic: landing-page
 ---
@@ -18,6 +18,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 [!INCLUDE [AI at the Edge with Azure Stack](../../includes/cards/ai-at-the-edge.md)]
 [!INCLUDE [AI at the Edge with Azure Stack - disconnected](../../includes/cards/ai-at-the-edge-disconnected.md)]
+[!INCLUDE [AI enrichment with Azure Cognitive Search](../../includes/cards/cognitive-search-with-skillsets.md)]
 [!INCLUDE [Auditing, risk, and compliance management](../../includes/cards/auditing-and-risk-compliance.md)]
 [!INCLUDE [Batch scoring for deep learning models](../../includes/cards/batch-scoring-deep-learning.md)]
 [!INCLUDE [Batch scoring of Python models on Azure](../../includes/cards/batch-scoring-python.md)]
@@ -65,6 +66,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Speech Services](../../includes/cards/speech-services.md)]
 [!INCLUDE [Speech-to-text conversion](../../includes/cards/speech-ai-ingestion.md)]
 [!INCLUDE [Training Python models on Azure](../../includes/cards/training-python-models.md)]
+[!INCLUDE [Vision classifier model with Azure Custom Vision Cognitive Service](../../includes/cards/vision-classifier-model-with-custom-vision.md)]
 [!INCLUDE [Visual Assistant](../../includes/cards/visual-assistant.md)]
 
 </ul>
@@ -77,7 +79,6 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 <ul class="grid">
 
 [!INCLUDE [Advanced Analytics Architecture](../../includes/cards/advanced-analytics-on-big-data.md)]
-[!INCLUDE [Anomaly Detection in Real-time Data Streams](../../includes/cards/anomaly-detection-in-real-time-data-streams.md)]
 [!INCLUDE [Anomaly Detector Process](../../includes/cards/anomaly-detector-process.md)]
 [!INCLUDE [Application integration using Event Grid](../../includes/cards/application-integration-using-event-grid.md)]
 [!INCLUDE [Automated enterprise BI](../../includes/cards/enterprise-bi-adf.md)]
@@ -134,6 +135,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Run a Windows VM on Azure](../../includes/cards/windows-vm.md)]
 [!INCLUDE [Run reservoir simulation software on Azure](../../includes/cards/reservoir-simulation.md)]
 [!INCLUDE [Running CFD simulations](../../includes/cards/hpc-cfd.md)]
+[!INCLUDE [Serverless batch processing with Durable Functions in Azure Container Instances](../../includes/cards/durable-functions-containers.md)]
 
 </ul>
 
@@ -168,7 +170,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Campaign Optimization with SQL Server](../../includes/cards/campaign-optimization-with-sql-server.md)]
 [!INCLUDE [Data Streaming scenario](../../includes/cards/data-streaming-scenario.md)]
 [!INCLUDE [Data cache](../../includes/cards/data-cache-with-redis-cache.md)]
-[!INCLUDE [Dev/test environments for SAP workloads](../../includes/cards/sap-dev-test.md)]
+[!INCLUDE [Development and test environments for SAP workloads on Azure](../../includes/cards/sap-dev-test.md)]
 [!INCLUDE [Digital Campaign Management](../../includes/cards/digital-marketing-using-azure-database-for-postgresql.md)]
 [!INCLUDE [Digital Marketing using Azure Database for MySQL](../../includes/cards/digital-marketing-using-azure-database-for-mysql.md)]
 [!INCLUDE [Finance management apps using Azure Database for MySQL](../../includes/cards/finance-management-apps-using-azure-database-for-mysql.md)]
@@ -193,13 +195,15 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Retail and e-commerce using Azure MySQL](../../includes/cards/retail-and-ecommerce-using-azure-database-for-mysql.md)]
 [!INCLUDE [Retail and e-commerce using Azure PostgreSQL](../../includes/cards/retail-and-ecommerce-using-azure-database-for-postgresql.md)]
 [!INCLUDE [Retail and e-commerce using Cosmos DB](../../includes/cards/retail-and-e-commerce-using-cosmos-db.md)]
-[!INCLUDE [Run SAP HANA on Azure Large Instances](../../includes/cards/hana-large-instances.md)]
+[!INCLUDE [Run SAP BW/4HANA with Linux virtual machines on Azure](../../includes/cards/run-sap-bw4hana-with-linux-virtual-machines.md)]
+[!INCLUDE [Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure](../../includes/cards/run-sap-hana-for-linux-virtual-machines.md)]
+[!INCLUDE [Run SAP HANA on Azure (Large Instances)](../../includes/cards/hana-large-instances.md)]
 [!INCLUDE [Run SAP NetWeaver in Windows on Azure](../../includes/cards/sap-netweaver.md)]
 [!INCLUDE [Running Oracle Databases on Azure](../../includes/cards/reference-architecture-for-oracle-database-on-azure.md)]
-[!INCLUDE [SAP NetWeaver on SQLServer](../../includes/cards/sap-netweaver-on-sql-server.md)]
-[!INCLUDE [SAP S/4 HANA VM on Azure and Linux| Microsoft Azure](../../includes/cards/sap-s4-hana-vm-on-linux.md)]
+[!INCLUDE [SAP NetWeaver on SQL Server](../../includes/cards/sap-netweaver-on-sql-server.md)]
 [!INCLUDE [SAP S/4HANA in Linux on Azure](../../includes/cards/sap-s4hana.md)]
 [!INCLUDE [SAP deployment on Azure using an Oracle DB](../../includes/cards/sap-production.md)]
+[!INCLUDE [SAP on Azure Architecture Guide](../../includes/cards/sap-overview.md)]
 [!INCLUDE [Serverless apps using Cosmos DB](../../includes/cards/serverless-apps-using-cosmos-db.md)]
 [!INCLUDE [Streaming using HDInsight](../../includes/cards/streaming-using-hdinsight.md)]
 [!INCLUDE [Windows N-tier application on Azure](../../includes/cards/n-tier-sql-server.md)]
@@ -305,10 +309,14 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 ## Internet of Things
 <ul class="grid">
 
-[!INCLUDE [Azure IoT reference architecture](../../includes/cards/iot-with-sql.md)]
 [!INCLUDE [Azure IoT reference architecture](../../includes/cards/iot.md)]
+[!INCLUDE [Azure IoT reference architecture](../../includes/cards/iot-with-sql.md)]
+[!INCLUDE [COVID-19 Safe Solutions with IoT Edge](../../includes/cards/cctv-mask-detection.md)]
+[!INCLUDE [Cognizant Safe Buildings with IoT and Azure](../../includes/cards/safe-buildings.md)]
+[!INCLUDE [Contactless IoT interfaces with Azure intelligent edge](../../includes/cards/contactless-interfaces.md)]
 [!INCLUDE [Controlling IoT devices using a Voice Assistant](../../includes/cards/iot-devices.md)]
 [!INCLUDE [IoT Architecture – Azure IoT Subsystems](../../includes/cards/azure-iot-subsystems.md)]
+[!INCLUDE [IoT Connected Platform for COVID-19 detection and prevention](../../includes/cards/iot-connected-platform.md)]
 [!INCLUDE [IoT and data analytics](../../includes/cards/big-data-with-iot.md)]
 [!INCLUDE [IoT device deployment and management on demand](../../includes/cards/iot-with-aks.md)]
 [!INCLUDE [IoT using Cosmos DB](../../includes/cards/iot-using-cosmos-db.md)]
@@ -316,6 +324,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Real-time Web Dashboard](../../includes/cards/real-time-web-dashboard.md)]
 [!INCLUDE [Secure your IoT SaaS app with the Microsoft identity platform](../../includes/cards/iot-aad.md)]
 [!INCLUDE [Telemetry Analytics](../../includes/cards/telemetry-analytics.md)]
+[!INCLUDE [iBEMS Shield COVID-19 building management solution](../../includes/cards/ibems-shield-smart-buildings.md)]
 
 </ul>
 
@@ -406,6 +415,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 ## Networking
 <ul class="grid">
 
+[!INCLUDE [Azure Firewall Architecture Guide](../../includes/cards/firewalls.md)]
 [!INCLUDE [Choose between virtual network peering and VPN gateways](../../includes/cards/vnet-peering.md)]
 [!INCLUDE [Deploy highly available NVAs](../../includes/cards/nva-ha.md)]
 [!INCLUDE [Hub-spoke network topology in Azure](../../includes/cards/hub-spoke.md)]
@@ -420,6 +430,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 ## Security
 <ul class="grid">
 
+[!INCLUDE [Azure Active Directory IDaaS in Security Operations](../../includes/cards/azure-ad-security.md)]
 [!INCLUDE [Centralized app configuration and security](../../includes/cards/appconfig-key-vault.md)]
 [!INCLUDE [Computer forensics Chain of Custody in Azure](../../includes/cards/forensics.md)]
 [!INCLUDE [Real-time fraud detection](../../includes/cards/fraud-detection.md)]

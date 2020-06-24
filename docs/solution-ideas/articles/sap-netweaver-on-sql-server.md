@@ -1,5 +1,5 @@
 ---
-title: SAP NetWeaver on SQLServer
+title: SAP NetWeaver on SQL Server
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
@@ -12,7 +12,7 @@ ms.subservice: solution-idea
 social_image_url: /azure/architecture/solution-ideas/articles/media/sap-netweaver-on-sql-server.png
 ---
 
-# SAP NetWeaver on SQLServer
+# SAP NetWeaver on SQL Server
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 

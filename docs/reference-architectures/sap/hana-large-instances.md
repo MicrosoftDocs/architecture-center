@@ -1,5 +1,5 @@
 ---
-title: Run SAP HANA on Azure Large Instances
+title: Run SAP HANA on Azure (Large Instances)
 titleSuffix: Azure Reference Architectures
 description:  Proven practices for running SAP HANA in a high availability environment on Azure Large Instances.
 author: bentrin
@@ -15,7 +15,7 @@ ms.custom: seodec18, SAP
 
 <!-- cSpell:ignore lbrader HANA MSEE Xeon CIDR STONITH VLAN -->
 
-# Run SAP HANA on Azure Large Instances
+# Run SAP HANA on Azure (Large Instances)
 
 This reference architecture shows a set of proven practices for running SAP HANA on Azure (Large Instances) with high availability (HA) and disaster recovery (DR). Called HANA Large Instances (HLI), this offering is deployed on physical servers in Azure regions.
 
@@ -30,7 +30,7 @@ The diagram shows two Azure regions. The primary region contains an application 
 
 ## Architecture
 
-This reference architecture depicts a simple scale-up scenario to demonstrate core concepts in the deployment and operation of an SAP HANA system on Azure. For options, see other [installation scenarios for HANA Large Instances][scenarios]. 
+This reference architecture depicts a simple scale-up scenario to demonstrate core concepts in the deployment and operation of an SAP HANA system on Azure. For options, see other [installation scenarios for HANA Large Instances][scenarios].
 
 This architecture consists of the following infrastructure components.
 
@@ -38,7 +38,7 @@ This architecture consists of the following infrastructure components.
 
 - **HLI Revision 4 network**. As of July 2019, two revisions of HANA Large Instances are available. This implementation assumes [Revision 4][rev4] (Rev 4), the design that is deployed in Azure datacenters in close physical proximity to the Azure VMs where the SAP application servers run. When used in conjunction with an [ExpressRoute FastPath][fastpath] configuration, Rev 4 elevates application performance. These networking features also support the Rev 3 deployment.
 
-- **Virtual machines (VMs)**. VMs are used in the SAP application layer and shared services layer. The latter includes a jumpbox used by administrators to set up HANA Large Instances and to provide access to other VMs. To colocate the SAP application servers in the same datacenter with the HANA Large Instance units, use [proximity placement groups][ppg].
+- **Virtual machines (VMs)**. VMs are used in the SAP application layer and shared services layer. The latter includes a jump box used by administrators to set up HANA Large Instances and to provide access to other VMs. To colocate the SAP application servers in the same datacenter with the HANA Large Instance units, use [proximity placement groups][ppg].
 
 - **HANA Large Instance**. This [physical server][physical] is certified to meet SAP HANA Tailored Datacenter Integration (TDI) standards for running SAP HANA. This architecture uses two HANA Large Instances: a primary and a secondary compute unit. High availability at the data layer is provided through HANA System Replication (HSR).
 
@@ -120,7 +120,7 @@ Resource redundancy is the general theme in highly available infrastructure solu
 
 - Recovery Point Objective (RPO) means the maximum tolerable period in which customer data might be lost due to a failure.
 
-For high availability, deploy more than one instance in a HA pair and use HSR in a synchronous mode to minimize data loss and downtime. In addition to a local, two-node high availability setup, HSR supports multi-tier replication, where a third node in a separate Azure region registers to the secondary replica of the clustered HSR pair as its replication target. This forms a replication daisy chain. 
+For high availability, deploy more than one instance in a HA pair and use HSR in a synchronous mode to minimize data loss and downtime. In addition to a local, two-node high availability setup, HSR supports multi-tier replication, where a third node in a separate Azure region registers to the secondary replica of the clustered HSR pair as its replication target. This forms a replication daisy chain.
 
 The failover to the DR node is a manual process without Linux clustering. For automatic fault detection and failover, you can configure Pacemaker to further lower downtime caused by software or hardware failure. Beginning with HANA 2.0 SPS 04, HSR also supports multi-target replication. Instead of a daisy chain, this form of replication has one primary and multiple secondary subscribers.
 
@@ -144,7 +144,7 @@ SKUs can affect the billing model. Here are some cost considerations.
 
 ### Virtual machines
 
-In this reference architecture, virtual machines are used for hosting SAP applications, SAP services, and shared services such as management jumpboxes. There are certain certified SKUs of HANA Large Instances. The configurations depend on the workload, CPU resources, desired memory, and budget.
+In this reference architecture, virtual machines are used for hosting SAP applications, SAP services, and shared services such as management jump boxes. There are certain certified SKUs of HANA Large Instances. The configurations depend on the workload, CPU resources, desired memory, and budget.
 
 [HANA Large Instances SKUs][HLI-SKUs] are available as reserved VM instances. [Azure Reservations](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations) can lower your cost if you can commit to one-year or three-year term. VM reservations can reduce costs up to 72 percent when compared to pay-as-you-go prices. You get a purpose-built SAP HANA infrastructure with compute, storage, and network. HANA Large Instances is coupled with NFS storage and networking and provides built-in support for backups through storage snapshots, high availability and disaster recovery and scale-out configurations. If your workload doesn't have a predictable time of completion or resource consumption, consider the pay-as-you-go option.
 
@@ -183,7 +183,7 @@ Microsoft offers basic tools and resources to help you [monitor HANA Large Insta
 
 ## Security considerations
 
-- Since the end of 2018, [HANA Large Instances storage][storage] is encrypted by default. 
+- Since the end of 2018, [HANA Large Instances storage][storage] is encrypted by default.
 
 - Data in transit between HANA Large Instances and theVMs is not encrypted. To encrypt the data transfer, enable the application-specific encryption. See SAP Note [2159014][sap-2159014] - FAQ: SAP HANA Security.
 

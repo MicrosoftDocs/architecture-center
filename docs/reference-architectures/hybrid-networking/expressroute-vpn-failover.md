@@ -91,11 +91,13 @@ After you have established the virtual network gateway connections, test the env
 3. Verify that you can still connect from your on-premises network to your Azure VNet using the VPN virtual network gateway connection.
 4. Contact your provider to reestablish ExpressRoute connectivity.
 
-## Considerations
+## DevOps considerations
 
-For ExpressRoute considerations, see the [Implementing a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance.
+For ExpressRoute DevOps considerations, see the [Implementing a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance.
 
-For site-to-site VPN considerations, see the [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance.
+For site-to-site VPN DevOps considerations, see the [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance.
+
+## Security considerations
 
 For general Azure security considerations, see [Microsoft cloud services and network security][best-practices-security].
 

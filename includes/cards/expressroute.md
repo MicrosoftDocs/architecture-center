@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>7/23/2019</li>
-            <li>12 min read</li>
+            <li>13 min read</li>
         </ul>
         <p class="card-content-description">Implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using Azure ExpressRoute.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
