@@ -100,10 +100,10 @@ These Azure components can contribute to an AI for Earth solution:
 
 ## Issues and considerations
 
-- Azure Open Datasets can consume hundreds of terabytes of resources, so it's best to perform large-scale processing in the same Azure datacenter where the data is stored. If you're using Open Datasets for environmental science applications, consider applying for an [AI for Earth grant](https://www.microsoft.com/ai/ai-for-earth-grants) to support your compute requirements.
-- Azure Notebooks is currently in public preview. The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported, or might have constrained capabilities.
-- Not all US addresses may work in the demo Land Cover Mapping Notebook. If the address you supply doesn't work, try another address.
-- Some species may be misidentified by the Species Classification API version used by the demo Species Classification Notebook. The current version of the API is 2.0.
+- Azure Open Datasets can consume hundreds of terabytes of resources, so it's best to perform large-scale processing in the same Azure datacenter where you store the data. If you're using Open Datasets for environmental science applications, consider applying for an [AI for Earth grant](https://www.microsoft.com/ai/ai-for-earth-grants) to support your compute requirements.
+- Azure Notebooks is currently in public preview. The preview version doesn't have a service level agreement, and isn't recommended for production workloads. The preview version doesn't support some features, and may have constrained capabilities.
+- Some US addresses might not work in the demo Land Cover Mapping Notebook. If the address you supply doesn't work, try another address.
+- The Species Classification API version in the demo notebook might misidentify some species. The current version of the API is 2.0.
 
 ## Deployment
 
@@ -118,8 +118,8 @@ To run the demo Notebooks:
 
 1. Open the [Land Cover Mapping](https://notebooks.azure.com/operations-manager/projects/ai-for-earth) or [Species Classification](https://notebooks.azure.com/operations-manager/projects/ai-for-earth-apis) project.
 1. Select **Sign in** at upper right, and after signing in with your Microsoft or Azure account, select **Clone**.
-1. On the popup screen, select **I trust the contents of this project**, and then select **Clone** again.
-1. Once the project is cloned, select **Run on Free Compute**.
+1. On the pop-up screen, select **I trust the contents of this project**, and then select **Clone** again.
+1. After you clone the project, select **Run on Free Compute**.
 1. On the next screen, select the *.ipynb* file. 
 1. In the Notebook, paste the API Key you received into the appropriate placeholder.
 1. Select each cell in turn, and then select **Run** to run the cell. You can ignore any `pip` warnings that appear when installing packages.
@@ -127,6 +127,6 @@ To run the demo Notebooks:
 
 ## Next steps
 
-- If you have an idea for an environmental solution, consider applying for a Microsoft AI for Earth grant. The four focus areas for AI for Earth grants are agriculture, biodiversity, climate change, and water. Grants are for Azure compute credits or for data labeling services, an important prerequisite for most AI projects. Grantees can also get technical advice and support, online Azure training materials, and networking and educational opportunities. For more information, see [AI for Earth's grant process and details](https://www.microsoft.com/ai/ai-for-earth-grants).
+- If you have an idea for an environmental solution, consider applying for a Microsoft AI for Earth grant. The four focus areas for AI for Earth grants are agriculture, biodiversity, climate change, and water issues. Grants are for Azure compute credits or for data labeling services, an important prerequisite for most AI projects. Grantees can also get technical advice and support, online Azure training materials, and networking and educational opportunities. For more information, see [AI for Earth's grant process and details](https://www.microsoft.com/ai/ai-for-earth-grants).
 
 - See the other initiatives in [Microsoft AI for Good](https://www.microsoft.com/ai/ai-for-good), providing technology, resources, and expertise to help solve humanitarian issues and create a more sustainable and accessible world.
