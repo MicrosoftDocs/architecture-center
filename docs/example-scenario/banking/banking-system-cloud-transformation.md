@@ -5,9 +5,8 @@ author: tmmarshall
 ms.date: 6/23/2020
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
-ms.custom:
-- fcp
+ms.subservice: example-scenario
+ms.custom: fcp
 ---
 
 # Banking System Cloud Transformation on Microsoft Azure
