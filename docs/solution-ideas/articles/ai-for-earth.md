@@ -56,6 +56,7 @@ Environmental scientists use satellite and aerial imagery to understand land use
 
 The public [Land Cover Mapping API](https://aiforearth.portal.azure-api.net/docs/services/ai-for-earth-land-cover-mapping-api-v2/operations/post-landcover-classify) can take a supplied TIFF or JPEG 1 meter-resolution aerial or satellite image, or any United States latitude and longitude data, and return an image file showing land cover classifications. The land cover classification image shows areas classified into water, forest, field, or built coverage. You can analyze and make decisions based on the land cover predicted in the image. The API also allows you to train your model by correcting the predictions and adding and training new classifications.
 
+- [Land Cover training demo](http://landcoverdemo.eastus.cloudapp.azure.com:4040/)
 - [Land Cover Mapping video](https://www.youtube.com/watch?v=9aFUzUlHQVc)
 - [Land Cover Mapping source code](https://github.com/Microsoft/landcover)
 
@@ -65,6 +66,7 @@ The Species Classification API lets developers use deep learning models for reco
 
 Wildlife conservation depends on accurate, up-to-date wildlife population estimates, but population surveys often depend on humans to annotate millions of images. The public [Species Classification API](https://aiforearth.portal.azure-api.net/docs/services/species-classification-v2/operations/predict) helps automate citizen-scientist observations by identifying plants and animals in images from over 5000 species. The API has a single endpoint that takes an image as input and returns a predicted species and the confidence of the prediction.
 
+- [Species Classification API demo](https://speciesclassification.westus2.cloudapp.azure.com/).
 - [Species Classification source code](https://github.com/Microsoft/speciesclassification)
 
 ### Azure Open Datasets
