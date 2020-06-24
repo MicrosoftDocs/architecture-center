@@ -32,7 +32,7 @@ Through an [AI for Earth grant](https://ai4edatasetspublicassets.blob.core.windo
 
 Microsoft hosts Wildbook on Azure and makes Wild Me's open-source algorithms available as APIs. AI for Earth worked with Wild Me to scale Wildbook to the Azure cloud, allowing them to handle an ever-increasing number of supported species.
 
-For more information about Wildbook, see the rest of this article and the following links:
+For more information about Wildbook, see the following links:
 
 - [Video: Fighting extinction with Microsoft AI and citizen science](https://youtu.be/rQqao37u1wU)
 - [Wildbook open-source code projects](https://github.com/wildbookorg)
@@ -84,7 +84,7 @@ You don't need an Azure account to get Open Datasets. You can access them from a
 
 ### Azure Notebooks
 
-[Azure Notebooks](https://notebooks.azure.com/) is a free service for anyone to develop and run code in their browser using Jupyter. [Jupyter](https://jupyter.org/) is an open-source project that enables combing markdown prose, executable code, and graphics onto a single canvas called a notebook. Notebooks are an excellent way for data scientists and AI engineers to share and collaborate in the cloud.
+[Azure Notebooks](https://notebooks.azure.com/) is a free service for anyone to develop and run code in their browser using Jupyter. [Jupyter](https://jupyter.org/) is an open-source project that enables combining markdown prose, executable code, and graphics onto a single canvas called a notebook. Notebooks are an excellent way for data scientists and AI engineers to share and collaborate in the cloud.
 
 ### Other components
 
