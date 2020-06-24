@@ -78,19 +78,20 @@ This pattern might not be useful when:
 
 ## Example
 
-Azure provides Service Bus queues and Queue Trigger Functions that can act as a mechanism for implementing this pattern. Azure Functions integrates with Azure Service Bus via triggers and bindings, integrating with Service Bus allows you to build functions that react to messages sent and act as consumers. The application logic can post messages to a queue, and consumers implemented as Azure functions can retrieve messages from this queue and process them. For resiliency, a Service Bus queue enables a consumer to use `PeekLock` mode when it retrieves a message from the queue; this mode doesn't actually remove the message, but simply hides it from other consumers. The Azure Functions runtime receives a message in PeekLock mode, if the function finishes successfully it calls Complete on the message, or it may call Abandon if the function fails, and the message will become visible again, allowing another consumer to retrieve it. If the function runs for a period longer than the PeekLock timeout, the lock is automatically renewed as long as the function is running. Azure functions can scale up/down based on the depth of the queue, if multiple instances of the functions are created they all compete by independently pulling and processing the messages.  
+Azure provides Service Bus Queues and Azure Function queue triggers that, when combined, are a direct implemention this cloud design pattern. Azure Functions integrate with Azure Service Bus via triggers and bindings. Integrating with Service Bus allows you to build functions that consume queue messages sent by publishers. The publishing application(s) will post messages to a queue, and consumers, implemented as Azure Functions, can retrieve messages from this queue and handle them.
 
+For resiliency, a Service Bus queue enables a consumer to use `PeekLock` mode when it retrieves a message from the queue; this mode doesn't actually remove the message, but simply hides it from other consumers. The Azure Functions runtime receives a message in PeekLock mode, if the function finishes successfully it calls Complete on the message, or it may call Abandon if the function fails, and the message will become visible again, allowing another consumer to retrieve it. If the function runs for a period longer than the PeekLock timeout, the lock is automatically renewed as long as the function is running.
 
-For detailed information on using Azure Service Bus queues, see [Service Bus queues, topics, and subscriptions](https://msdn.microsoft.com/library/windowsazure/hh367516.aspx).
+Azure Functions can scale out/in based on the depth of the queue, all acting as competing consumers of the queue. If multiple instances of the functions are created they all compete by independently pulling and processing the messages.
 
-For information on Queue triggered Azure Functions, see [Azure Service Bus trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-service-bus-trigger?tabs=csharp).
+For detailed information on using Azure Service Bus queues, see [Service Bus queues, topics, and subscriptions](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
 
+For information on Queue triggered Azure Functions, see [Azure Service Bus trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-service-bus-trigger).
 
 The following code shows how you can create a new message and send it to a Service Bus Queue by using a `QueueClient` instance.
 
 ```csharp
-private string queueName = ...;
-private string connectionString = ...;
+private string serviceBusConnectionString = ...;
 ...
 
   public async Task SendMessagesAsync(CancellationToken  ct)
@@ -99,7 +100,7 @@ private string connectionString = ...;
    {
     var msgNumber = 0;
 
-    queueClient = new QueueClient(serviceBusConnectionString, queueName);
+    var queueClient = new QueueClient(serviceBusConnectionString, "myqueue");
 
     while (!ct.IsCancellationRequested)
     {
@@ -116,28 +117,27 @@ private string connectionString = ...;
      this._logger.LogInformation("Message successfully sent.");
      msgNumber++;
     }
-
    }
    catch (Exception exception)
    {
-    this._logger.LogError($"{DateTime.Now} :: Exception: {exception.Message}");
+    this._logger.LogException(exception.Message);
    }
   }
 ```
 
-The following code example shows a C# function that reads message metadata and logs a Service Bus queue message. Note how the `ServiceBusTrigger`  attribute is used to bind it to a service bus queue. 
+The following code example shows a consumer, written as a C# Azure Function, that reads message metadata and logs a Service Bus Queue message. Note how the `ServiceBusTrigger` attribute is used to bind it to a Service Bus Queue. 
 
 ```csharp
-[FunctionName("ServiceBusQueueTriggerCSharp")]                    
+[FunctionName("ProcessQueueMessage")]
 public static void Run(
-    [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] 
+    [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnectionString")]
     string myQueueItem,
     Int32 deliveryCount,
     DateTime enqueuedTimeUtc,
     string messageId,
     ILogger log)
 {
-    log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+    log.LogInformation($"C# ServiceBus queue trigger function consumed message: {myQueueItem}");
     log.LogInformation($"EnqueuedTimeUtc={enqueuedTimeUtc}");
     log.LogInformation($"DeliveryCount={deliveryCount}");
     log.LogInformation($"MessageId={messageId}");
@@ -155,4 +155,3 @@ The following patterns and guidance might be relevant when implementing this pat
 - [Compute Resource Consolidation pattern](./compute-resource-consolidation.md). It might be possible to consolidate multiple instances of a consumer service into a single process to reduce costs and management overhead. The Compute Resource Consolidation pattern describes the benefits and tradeoffs of following this approach.
 
 - [Queue-based Load Leveling pattern](./queue-based-load-leveling.md). Introducing a message queue can add resiliency to the system, enabling service instances to handle widely varying volumes of requests from application instances. The message queue acts as a buffer, which levels the load. The Queue-based Load Leveling pattern describes this scenario in more detail.
-
