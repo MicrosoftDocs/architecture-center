@@ -3,7 +3,7 @@ title: Bedrock - Automated Deployments of Kubernetes Clusters with GitOps Workfl
 titleSuffix: Azure Example Scenarios
 description: Bedrock is a set of patterns and automation tools for deploying and operating production Kubernetes clusters based on a GitOps workflow.
 author: v-daazli
-ms.date: 03/01/2020
+ms.date: 06/23/2020
 ms.topic: example-scenario
 ms.custom:
 - fcp
@@ -13,7 +13,7 @@ ms.custom:
 
 ## Introduction
 
-Bedrock is a set of patterns and automation tools for deploying and operating production Kubernetes (k8s) clusters based on a GitOps workflow. Bedrock builds on the best practices discovered from working with customers in operationalizing Kubernetes clusters. Organizations can fast track their end-to-end Kubernetes deployments (think fewer hours) including infrastructure provisioning, GitOps setup, and Azure Pipelines with observability into the deployment status using Bedrock.
+Bedrock is a set of patterns and automation tools for deploying and operating production Kubernetes (Kubernetes) clusters based on a GitOps workflow. Bedrock builds on the best practices discovered from working with customers in operationalizing Kubernetes clusters. Organizations can fast track their end-to-end Kubernetes deployments (think fewer hours) including infrastructure provisioning, GitOps setup, and Azure Pipelines with observability into the deployment status using Bedrock.
 
 Bedrock helps you:
 
@@ -24,7 +24,7 @@ Bedrock helps you:
 
 ## Problem Statement
 
-As Kubernetes use has grown, we've learned that operationalizing Kubernetes is not easy. Configuring k8s deployments and managing clusters can be a complex and time-consuming process complicated by missteps and lurking errors. Bedrock was born from the collective experience of helping many customers adopt the new architectural patterns for k8s. At the same time, applying DevOps principles and tooling makes the development, deployment, and maintenance of these k8s based apps sustainable at a production level. GitOps is the name applied to this pattern and Bedrock is the pattern of best practices for implementing apps with GitOps in Azure.
+As Kubernetes use has grown, we've learned that operationalizing Kubernetes is not easy. Configuring Kubernetes deployments and managing clusters can be a complex and time-consuming process complicated by missteps and lurking errors. Bedrock was born from the collective experience of helping many customers adopt the new architectural patterns for Kubernetes. At the same time, applying DevOps principles and tooling makes the development, deployment, and maintenance of these Kubernetes based apps sustainable at a production level. GitOps is the name applied to this pattern and Bedrock is the pattern of best practices for implementing apps with GitOps in Azure.
 
 Bedrock addresses these problems through the following objectives:
 
@@ -41,7 +41,7 @@ To resolve those objectives, the team identified the following principal require
 
 * Leverages full cloud native capabilities.
 * Enable implementing complex micro services architectures on Kubernetes.
-* Providing end to end workflow for deploying a complete k8s solution using best practices
+* Providing end to end workflow for deploying a complete Kubernetes solution using best practices
 * Embody Practical Real-World Experiences at Scale
 * Validation and Improvement by implementation with actual customers.
 
@@ -77,20 +77,21 @@ Both the system cloud infrastructure and deployed services require management, a
 
 #### Infrastructure as Code (IaC)
 
-The “Digitization of the Physical World” has had great impact on many areas of technology. And it continues to evolve. For example, virtualization is a main enabler of the cloud as physical resources are virtualized/digitized and provide more granular control, segmentation, and elasticity of resources in response to varying demands. It also enables automation since virtual resources are amenable to programmability and to automation. This gave rise to the concept of “Infrastructure as Code” (IaC). IaC is the process of managing and provisioning the technology stack for an application through version controlled software, rather than using a manual process to configure discrete hardware devices and operating systems.
+The “Digitization of the Physical World” has had great impact on many areas of technology. And it continues to evolve. For example, virtualization is a main enabler of the cloud as physical resources are virtualized/digitized and provide more granular control, segmentation, and elasticity of resources in response to varying demands. It also enables automation since virtual resources are amenable to programmability and to automation. This gave rise to the concept of “Infrastructure as Code” (IaC). IaC is the process of managing and provisioning the technology stack for an application through version-controlled software, rather than using a manual process to configure discrete hardware devices and operating systems.
 
-Kubernetes is designed to work with containerized applications. Containers are readily versioned and managed through development and deployment. By including the infrastructure configuration manifests to this management structure, it becomes easier to deploy to the correct infrastructure and have alternate infrastructure definitions available for different purposes. This process is the essence of how Bedrock implements IaC using Terraform templates. Bedrock provides sample templates (`Azure Simple` and `Azure Single Keyvault`) that developers can use as starting points for their own deployments with AKS and GitOps.
+Kubernetes is designed to work with containerized applications. Containers are readily versioned and managed through development and deployment. By including the infrastructure configuration manifests to this management structure, it becomes easier to deploy to the correct infrastructure and have alternate infrastructure definitions available for different purposes. This process is the essence of how Bedrock implements IaC using Terraform templates. Bedrock provides sample templates (`Azure Simple` and `Azure Single Key Vault`) that developers can use as starting points for their own deployments with AKS and GitOps.
 
 #### What is GitOps&#63;
 
 As mentioned earlier, GitOps is DevOps applied to Kubernetes based systems. Thus, the automation and coordination of development, orchestration, monitoring, and maintenance becomes the focus of the Bedrock pattern and process using GitOps.
 
-Because Kubernetes is declarative, the entire system can be described declaratively. This means that configuration is guaranteed by a set of facts instead of by a set of instructions and those factual declarations are versioned in Git from which they can be deployed as needed<sup>1</sup>. Which also means that “one of the main differences between IaC and GitOps is the use of immutable containers as deployable artifacts that can be converged on by a suitable orchestration tool, for example Kubernetes. Your desired state is kept in source control”<sup>2</sup>.
+Because Kubernetes is declarative, the entire system can be described declaratively. This means that configuration is guaranteed by a set of facts instead of by a set of instructions and those factual declarations are versioned in Git from which they can be deployed as needed<sup>1</sup>. This also means that “one of the main differences between IaC and GitOps is the use of immutable containers as deployable artifacts that can be converged on by a suitable orchestration tool, for example Kubernetes. Your desired state is kept in source control”<sup>2</sup>.
 
-So, Bedrock uses GitOps, in part, because its prescriptive style accommodates IaC for a cloud native environment.
+Therefore, Bedrock uses GitOps, in part, because its prescriptive style accommodates infrastructure as code for a cloud native environment.
 
 > [!NOTE]
 > 1. Guide to GitOps: [https://www.weave.works/technologies/gitops/](https://www.weave.works/technologies/gitops/)
+
 > 2. GitOps - Frequently Asked Questions: [https://www.weave.works/technologies/gitops-frequently-asked-questions/](https://www.weave.works/technologies/gitops-frequently-asked-questions/)
 
 ### Overview of the Bedrock Process
@@ -127,11 +128,11 @@ As described earlier, a Bedrock deployment follows three high-level steps:
 
 #### Bedrock is Designed for Kubernetes
 
-K8s is an open-source container-orchestration system (maintained by the Cloud Native Computing Foundation) for automating application deployment, scaling, and management. It is designed to provide a platform for automating deployment, scaling, and operations of containerized applications across clusters of hosts. K8s has proven to be a very effective foundation for building efficient and scalable applications in the cloud. Thus, k8s is central to Bedrock.
+Kubernetes is an open-source container-orchestration system (maintained by the Cloud Native Computing Foundation) for automating application deployment, scaling, and management. It is designed to provide a platform for automating deployment, scaling, and operations of containerized applications across clusters of hosts. Kubernetes has proven to be a very effective foundation for building efficient and scalable applications in the cloud. Thus, Kubernetes is central to Bedrock.
 
 #### The Way It Works
 
-K8s is a declarative system:
+Kubernetes is a declarative system:
 
 1. The user creates Kubernetes manifests (typically in YAML) to specify a set of resources that should exist/run in the system. A YAML sample manifest is shown in Figure 2.
 2. Kubernetes works to create resources and keep them running
@@ -142,7 +143,7 @@ K8s is a declarative system:
 
 #### Implications of a Declarative System
 
-Because k8s is a declarative system, GitOps leverages that fact in the following ways:
+Because Kubernetes is a declarative system, GitOps leverages that fact in the following ways:
 
 * The textual manifest declares the desired state
 * No installations or manual configuration changes are required
@@ -160,7 +161,7 @@ This is illustrated in Figure 3.
 
 Terraform is an open-source tool for building, changing, and versioning infrastructure safely and efficiently. It enables users to define and provision a cloud-based application’s infrastructure using a high-level configuration language known as Hashicorp Configuration Language (HCL). These configuration files are used to describe the components needed to run simple or complex applications.
 
-Based on the selected configuration files, Terraform generates an execution plan describing what it will do to reach the desired deployment state. It then executes the plan to build the described infrastructure. As the configuration changes, Terraform can determine what changed and then create incremental execution plans that can be applied. Thus, it is highly suitable for supporting k8s in a CI/CD process environment.
+Based on the selected configuration files, Terraform generates an execution plan describing what it will do to reach the desired deployment state. It then executes the plan to build the described infrastructure. As the configuration changes, Terraform can determine what changed and then create incremental execution plans that can be applied. Thus, it is highly suitable for supporting Kubernetes in a CI/CD process environment.
 
 Like other Bedrock components, Terraform has certain features that fit well into the Bedrock Process.
 
@@ -168,7 +169,7 @@ Like other Bedrock components, Terraform has certain features that fit well into
 * Multi-operator support
 * Pre-configured Azure environments are available in template form for common enterprise scenarios:
   * `Azure Simple`
-  * `Azure Single Keyvault`
+  * `Azure Single Key Vault`
 
 > [!NOTE]
 > These templates can be extended to support multiple clusters.
@@ -177,7 +178,7 @@ Like other Bedrock components, Terraform has certain features that fit well into
 
 Bedrock leverages the following aspect of GitOps:
 
-* GitOps, like k8s, uses a declarative model.
+* GitOps, like Kubernetes, uses a declarative model.
 * The deployment process is built around a repository (HLD repo) that holds the current expected state of the system.
 * Operational changes are made to the running system by making commits on this repository.
 * The in-cluster daemon (Flux) watches this repository, detects divergence, and reconciles the current state of the cluster. (Flux is further discussed in the Appendix.)
@@ -213,7 +214,7 @@ For more information, see Weaveworks’ [Guide to GitOps](https://www.weave.work
 
 #### Fabrikate
 
-As mentioned earlier, [Fabrikate](https://github.com/Microsoft/fabrikate) is a central part of GitOps in Bedrock. Fabrikate converts the HLD script files to the YAML configuration files required for k8s deployment. It is integrated into the GitOps workflow as shown in Figure 6.
+As mentioned earlier, [Fabrikate](https://github.com/Microsoft/fabrikate) is a central part of GitOps in Bedrock. Fabrikate converts the HLD script files to the YAML configuration files required for Kubernetes deployment. It is integrated into the GitOps workflow as shown in Figure 6.
 
 :::image type="content" source="./media/fig006.jpg" alt-text="diagram of how Fabrikate fits into GitOps workflow":::
 
@@ -221,7 +222,7 @@ As mentioned earlier, [Fabrikate](https://github.com/Microsoft/fabrikate) is a c
 
 ##### The problem with low-level YAML
 
-Creating k8s manifests in YAML is a great enabler for automation. However, there are a number of challenges such as the fact that the vast majority of a deployment declaration is repeated in boilerplate fashion across all deployments. This duplication is prone to errors and unintended results given the low contextuality of individual entries. These challenges are compounded because real world deployments are complex. So, while there are templating solutions to the problem such as Helm, a typical deployment ends up stitching together dozens of Helm chart outputs that devolves into a complex web of shell scripts.
+Creating Kubernetes manifests in YAML is a great enabler for automation. However, there are a number of challenges such as the fact that the vast majority of a deployment declaration is repeated in boilerplate fashion across all deployments. This duplication is prone to errors and unintended results given the low contextuality of individual entries. These challenges are compounded because real world deployments are complex. So, while there are templating solutions to the problem such as Helm, a typical deployment ends up stitching together dozens of Helm chart outputs that devolve into a complex web of shell scripts.
 
 ##### Introducing a High-Level Definition Language
 
@@ -235,13 +236,13 @@ As is the typical case for addressing complexities of this kind, the solution wa
 
 The Bedrock team is responsible for developing Fabrikate to provide a frontend that uses HLD to make the creation of deployment manifests easier. Thus, Fabrikate helps to make operating Kubernetes clusters within a GitOps workflow more productive.
 
-Fabrikate simplifies the front end of the GitOps workflow by taking a high-level description of a deployment, a targeted environment configuration (such as **QA** or **Prod**), and renders the YAML resource manifests for that k8s deployment utilizing templating tools (like Helm). It runs as part of the CI/CD pipeline such that every commit to your Fabrikate deployment definition triggers the generation of k8s deployment manifests. The in-cluster GitOps pod Flux watches for new commits and reconciles them with the current set of applied resource manifests in the Kubernetes cluster. (See Figure 4, above.)
+Fabrikate simplifies the front end of the GitOps workflow by taking a high-level description of a deployment, a targeted environment configuration (such as **QA** or **Prod**), and renders the YAML resource manifests for that Kubernetes deployment utilizing templating tools (like Helm). It runs as part of the CI/CD pipeline such that every commit to your Fabrikate deployment definition triggers the generation of Kubernetes deployment manifests. The in-cluster GitOps pod Flux watches for new commits and reconciles them with the current set of applied resource manifests in the Kubernetes cluster. (See Figure 4, above.)
 
-For example, Fabrikate allows you to write DRY resource definitions (specifically used for dry-run deployments) and configurations for multiple environments while leveraging the broad Helm chart ecosystem. These special purpose HLD scripts become shareable components that both simplifies and supports making deployments more auditable.
+For example, Fabrikate allows you to write DRY resource definitions (used for dry-run deployments) and configurations for multiple environments while leveraging the broad Helm chart ecosystem. These special purpose HLD scripts become shareable components that both simplifies and support making deployments more auditable.
 
 ### Bedrock CLI: Bedrock Automation Tool
 
-As mentioned earlier, *Bedrock CLI* is a command line tool unique to Bedrock. It is used to facilitate automation of the Cluster Infrastructure, Service Management, and Introspection/Monitoring (using the *Spektate Dashboard*).
+As mentioned earlier, *Bedrock CLI* is a command-line tool unique to Bedrock. It is used to facilitate automation of the Cluster Infrastructure, Service Management, and Introspection/Monitoring (using the *Spektate Dashboard*).
 
 :::image type="content" source="./media/fig008.jpg" alt-text="diagram of relationship between Bedrock CLI and Spektate":::
 
@@ -258,7 +259,7 @@ The Spektate Dashboard is designed to integrate with the GitOps workflow as show
 
 Service introspection is an enabler for instrumentation. An introspection service can reveal information about the cloud internals to interested applications. This is the role of the Spektate service introspection tool. It provides insight into the deployment status at all times, in that way facilitating reliability, security, and auditability of deployments. And, in those use cases were additional visibility is required, Bedrock can be easily customized with additional observability or metric tools.
 
-Kubernetes deployments can be very complex. Multiple microservices become even more complicated when considering factors like latency, scalability, and reliability to deployments across multiple clusters in multiple regions and zones. This complexity creates a practical problem to determine the current state of any individual cluster or a collection of clusters that collectively carry the workload demands. Bedrock addresses this problem with Spektate. It is integrated with the GitOps pipeline and Service Management that is a key element of the Bedrock process.
+Kubernetes deployments can be complex. Multiple microservices become even more complicated when considering factors like latency, scalability, and reliability to deployments across multiple clusters in multiple regions and zones. This complexity creates a practical problem to determine the current state of any individual cluster or a collection of clusters that collectively carry the workload demands. Bedrock addresses this problem with Spektate. It is integrated with the GitOps pipeline and Service Management that is a key element of the Bedrock process.
 
 Spektate provides views into the current status of any change in the system. Including continuous integration builds to tracking the deployment of the container containing that commit in each of the downstream clusters consuming that container. It includes:
 
@@ -297,7 +298,7 @@ Bedrock CLI implements the Spektate Dashboard to provide deployment observabilit
 * Use Bedrock Terraform Templates as your declarative infrastructure as code.
 * Use existing HLD templates as starting points for your HLD scripts.
 * All operational changes are made by pull request.
-* Do not publish changes to the cluster by hand or via command line tools (such as helm or tiller) for any reason as it will break GitOps and the IaC functionality.
+* Do not publish changes to the cluster by hand or via command-line tools (such as helm or tiller) for any reason as it will break GitOps and the IaC functionality.
 * Practice container image promotion.
 * Build once and promote to environments via testing gates.
 * Promotion is configured in HLD scripts only.
@@ -310,7 +311,7 @@ In a production scenario, it can be tempting to modify Kubernetes resource direc
 * _“Time is of the essence; I must make changes directly on the cluster.”_
 * _“The GitOps workflow is too cumbersome, I will make changes directly to the manifest YAML repository.”_
 
-In the heat of the moment these thoughts might seem reasonable. In the long run, doing this is not advisable! The reason to avoid this practice is that GitOps is centered around a single interface and tooling infrastructure where the repos will always contain the ***single source of truth*** for a given deployment. Git's version control system is the basis for managing all configuration. Any configuration scenario that circumvents Git in GitOps loses out on the ability to roll back changes, audit logs, and raises the potential for buggy or unsanctioned functionality in the clusters. Moreover, the ability to detect changes and automate actions (such as alerts and updates) is compromised.
+Doing this is not advisable! The reason to avoid this practice is that GitOps are centered around a single interface and tooling infrastructure where the repos will always contain the ***single source of truth*** for a given deployment. Git's version control system is the basis for managing all configuration. Any configuration scenario that circumvents Git in GitOps loses out on the ability to roll back changes, audit logs, and raises the potential for buggy or unsanctioned functionality in the clusters. Moreover, the ability to detect changes and automate actions (such as alerts and updates) is compromised.
 
 ### Disaster Recovery
 
@@ -369,10 +370,6 @@ If you want to learn more about using Bedrock, your next steps should be:
 * [Flux on GitHub](https://github.com/fluxcd/flux)
 * [Terraform on GitHub](https://github.com/hashicorp/terraform)
 
-## Credits
-
-Jhansi Reddy and Andre Briggs
-
 ## Appendix
 
 ### Components
@@ -393,16 +390,16 @@ Flux is most useful when used as a deployment tool at the end of a Continuous De
 
 #### Helm
 
-Helm is a Kubernetes package manager that streamlines installing and managing k8s deployments. It is sometimes characterized as apt/yum/homebrew for Kubernetes.
+Helm is a Kubernetes package manager that streamlines installing and managing Kubernetes deployments. It is sometimes characterized as apt/yum/homebrew for Kubernetes.
 
 Helm uses charts to package pre-configured Kubernetes resources. This allows application deployments to be defined as Helm Charts, which supports reproducible builds of your Kubernetes applications. Helm also allows you to intelligently manage your Kubernetes manifest files and releases of Helm packages. Helm packages (or charts) contain at least two items: a description of the package (`Chart.YAML`) and one or more templates containing Kubernetes manifest files. All charts are stored in Git repositories, as required by GitOps. Charts are fetched as needed to render the correct templates for a deployment by communicating with the Kubernetes API.
 
 ### Extending Bedrock
 
-While the core of Bedrock is a significant productivity improvement for dealing with k8s deployments in a production environment, there will be specific use case requirements that go beyond the core Bedrock capabilities. Bedrock is designed to accommodate these added requirements by supporting the integration of additional tools to the process.
+While the core of Bedrock is a significant productivity improvement for dealing with Kubernetes deployments in a production environment, there will be specific use case requirements that go beyond the core Bedrock capabilities. Bedrock is designed to accommodate these added requirements by supporting the integration of additional tools to the process.
 
 For example, if a particular use case required additional monitoring or metrics collection, then Prometheus and Grafana can be added to the deployment as shown in Figure 12. In this case, Prometheus could be considered a ‘dial-tone’ for Kubernetes clusters. Also, Prometheus/Grafana can work in-cluster, aggregated by Azure Monitor for multiple clusters.
-By integrating such additional tools into the Bedrock automation, Bedrock provides a firm foundation for k8s deployments to meet any specialized use case.
+By integrating such additional tools into the Bedrock automation, Bedrock provides a firm foundation for Kubernetes deployments to meet any specialized use case.
 
 <!-- insert fig 12 here -->
 :::image type="content" source="./media/fig012.png" alt-text="diagram illustrating extending Bedrock to include additional metrics monitoring":::
@@ -425,11 +422,11 @@ If a problem fails discovery in testing and that application version is fully de
 
 #### Blue/Green Deployments
 
-Because Bedrock gives you control over deploying clusters to different IP addresses, you can deploy two versions of your application and examine their individual performance based on-site metrics and customer feedback to determine which version is better for full deployment. This kind of Blue/Green deployment allows for optimizing application designs as a function of actionable data.
+Because Bedrock gives you control over deploying clusters to different IP addresses, you can deploy two versions of your application and examine their individual performance-based on-site metrics and customer feedback to determine which version is better for full deployment. This kind of Blue/Green deployment allows for optimizing application designs as a function of actionable data.
 
 #### Failover
 
-By using Bedrock with k8s’ ability to manage complex deployment schemes, you can spread your deployment over multiple regions and apply load balancing to user traffic. Then, if one or more clusters go down for any reason, the remaining clusters can pick up the load. Microservice architectures are also inherently resilient by running a service only when needed and otherwise being shut down. This scenario is illustrated in Figures 13 and 14 where the Region 1 deployment fails, and the Region 2 deployment picks up the workload until the problem in Region 1 is resolved.
+By using Bedrock with Kubernetes’ ability to manage complex deployment schemes, you can spread your deployment over multiple regions and apply load balancing to user traffic. Then, if one or more clusters go down for any reason, the remaining clusters can pick up the load. Microservice architectures are also inherently resilient by running a service only when needed and otherwise being shut down. This scenario is illustrated in Figures 13 and 14 where the Region 1 deployment fails, and the Region 2 deployment picks up the workload until the problem in Region 1 is resolved.
 
 <!-- insert fig 13 here -->
 :::image type="content" source="./media/fig013.png" alt-text="diagram of normal deployment":::
