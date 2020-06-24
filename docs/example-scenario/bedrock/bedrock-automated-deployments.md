@@ -11,7 +11,7 @@ ms.custom:
 - fcp
 ---
 
-# Bedrock&#58; Automated Deployments of Kubernetes Clusters with GitOps Workflow
+# Bedrock - Automated Deployments of Kubernetes Clusters with GitOps Workflow
 
 ## Introduction
 
@@ -41,7 +41,7 @@ Bedrock addresses these problems through the following objectives:
 
 To resolve those objectives, the team identified the following principal requirements for Bedrock:
 
-* Enable leveraging full cloud native capabilities.
+* Leverages full cloud native capabilities.
 * Enable implementing complex micro services architectures on Kubernetes.
 * Providing end to end workflow for deploying a complete k8s solution using best practices
 * Embody Practical Real-World Experiences at Scale
@@ -57,7 +57,7 @@ Creating, configuring, and deploying environments is typically time consuming an
 
 ### Secure and Auditable Production Workflow
 
-Developing a system and taking across the different stages from development, all the way to production, and including postproduction updates, is a complex process. Typically, this process would be clearly defined and agreed upon, and can become an automated workflow. Such workflow should be designed to enable best practices relating to security and auditability as they are important for compliance and other purposes. Bedrock uses GitOps and processing pipelines to address this objective.
+Developing a system and taking across the different stages from development, all the way to production, and including post production updates, is a complex process. Typically, this process would be clearly defined and agreed upon, and can become an automated workflow. Such workflow should be designed to enable best practices relating to security and audibility as they are important for compliance and other purposes. Bedrock uses GitOps and processing pipelines to address this objective.
 
 ### Ease of Manifest Creation
 
@@ -284,7 +284,7 @@ Bedrock CLI implements the Spektate Dashboard to provide deployment observabilit
 
 ## Cobalt vs Bedrock
 
-[Cobalt](https://github.com/Microsoft/cobalt) hosts reusable Terraform modules to scaffold managed container services like [ACI](https://docs.microsoft.com/en-us/azure/container-instances/) and [Application Services](https://docs.microsoft.com/en-us/azure/app-service/) following a DevOps workflow. While Bedrock targets Kubernetes based container orchestration workloads while following a [GitOps](https://medium.com/@timfpark/highly-effective-kubernetes-deployments-with-gitops-c7a0354f1446) workflow. Cobalt templates (manifests) reference Terraform modules like virtual networks, traffic manager, and so on, to define infrastructure deployments. Bedrock uses Terraform to pre-configure environment deployment, but also uses Fabrikate templates to define manifests for deployment automation.
+[Cobalt](https://github.com/Microsoft/cobalt) hosts reusable Terraform modules to scaffold managed container services like [ACI](https://docs.microsoft.com/azure/container-instances/) and [Application Services](https://docs.microsoft.com/azure/app-service/) following a DevOps workflow. While Bedrock targets Kubernetes based container orchestration workloads while following a [GitOps](https://medium.com/@timfpark/highly-effective-kubernetes-deployments-with-gitops-c7a0354f1446) workflow. Cobalt templates (manifests) reference Terraform modules like virtual networks, traffic manager, and so on, to define infrastructure deployments. Bedrock uses Terraform to pre-configure environment deployment, but also uses Fabrikate templates to define manifests for deployment automation.
 
 ## Applicable Scenarios
 
