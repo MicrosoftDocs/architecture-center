@@ -2,7 +2,7 @@
 title: AI for Earth
 titleSuffix: Azure Example Scenarios
 author: jocontr
-ms.date: 06/22/2020
+ms.date: 06/23/2020
 description: Learn how to use the AI for Earth APIs to help build solutions for environmental problems. See other AI for Earth projects and initiatives.
 ms.custom: fcp, aischool
 ---
@@ -22,16 +22,20 @@ AI for Earth [projects](https://www.microsoft.com/ai/ai-for-earth-projects?activ
 
 ### Basemap
 
-[SilviaTerra](https://www.silviaterra.com/) used the [Land Cover Mapping API](https://aiforearth.portal.azure-api.net/docs/services/ai-for-earth-land-cover-mapping-api-v2/operations/post-landcover-classify) to help develop a high-resolution inventory for every forested acre in the continental US. [Basemap](https://www.silviaterra.com/basemap) plots tree coverage, tree species and size, tree value, carbon sequestration, and habitat suitability, delivering insight to forest stakeholders from governments and conservation groups to large and small landowners. Through an [AI for Earth grant](https://ai4edatasetspublicassets.blob.core.windows.net/grantee-profiles/SilviaTerra_US_Ag_AI4E%20Grantee%20Profile.pdf), Microsoft AI for Earth worked with SilviaTerra to combine their forestry expertise with Azure Open Datasets, Azure Storage, and Azure Machine Learning, and scale their coverage to hundreds of millions of acres. With better inventories, it's easier for conservationists to target their efforts, and frequent updates make short-term conservation projects and commitments feasible.
+[SilviaTerra](https://www.silviaterra.com/) used the [Land Cover Mapping API](https://aiforearth.portal.azure-api.net/docs/services/ai-for-earth-land-cover-mapping-api-v2/operations/post-landcover-classify) to help develop a high-resolution inventory for every forested acre in the continental US. [Basemap](https://www.silviaterra.com/basemap) plots tree coverage, tree species and size, tree value, carbon sequestration, and habitat suitability, delivering insight to forest stakeholders from governments and conservation groups to large and small landowners.
+
+Through an [AI for Earth grant](https://ai4edatasetspublicassets.blob.core.windows.net/grantee-profiles/SilviaTerra_US_Ag_AI4E%20Grantee%20Profile.pdf), Microsoft AI for Earth worked with SilviaTerra to combine their forestry expertise with Azure Open Datasets, Azure Storage, and Azure Machine Learning, and scale their coverage to hundreds of millions of acres. With better inventories, it's easier for conservationists to target their efforts, and frequent updates make short-term conservation projects and commitments feasible.
 
 ### Wildbook
 
-[Wild Me](https://www.microsoft.com/ai/ai-for-earth-Wild-Me) used the [Species Classification API](https://aiforearth.portal.azure-api.net/docs/services/species-classification-v2/operations/predict), computer vision, and deep learning algorithms to create the open-source [Wildbook](http://wildbook.org/doku.php) platform. Fighting species extinction from poaching, habitat loss, and climate change requires huge amounts of data on population counts, location, birth rates, and migration patterns. Gathering and annotating this data manually is time- and cost-prohibitive, making citizen engagement critical to data collection. On Wildbooks like the [Wildbook for Whale Sharks](https://www.whaleshark.org/), the public can report their observations, and adopt and follow individual animals. Scientists can use the aggregated data to help inform conservation decisions. Microsoft hosts Wildbook on Azure and makes Wild Me's open-source algorithms available as APIs. AI for Earth worked with Wild Me to scale Wildbook to the Azure cloud, allowing them to handle an ever-increasing number of supported species.
+[Wild Me](https://www.microsoft.com/ai/ai-for-earth-Wild-Me) used the [Species Classification API](https://aiforearth.portal.azure-api.net/docs/services/species-classification-v2/operations/predict), computer vision, and deep learning algorithms to create the open-source [Wildbook](http://wildbook.org/doku.php) platform. Fighting species extinction from poaching, habitat loss, and climate change requires huge amounts of data on population counts, location, birth rates, and migration patterns. Gathering and annotating this data manually is time- and cost-prohibitive, making citizen engagement critical to data collection. On Wildbooks like the [Wildbook for Whale Sharks](https://www.whaleshark.org/), the public can report their observations, and adopt and follow individual animals. Scientists can use the aggregated data to help inform conservation decisions.
+
+Microsoft hosts Wildbook on Azure and makes Wild Me's open-source algorithms available as APIs. AI for Earth worked with Wild Me to scale Wildbook to the Azure cloud, allowing them to handle an ever-increasing number of supported species.
 
 For more information about Wildbook, see the rest of this article and the following links:
 
 - [Video: Fighting extinction with Microsoft AI and citizen science](https://youtu.be/rQqao37u1wU)
-- [Wildbook open-source code projects](https://github.com/wildbookorg)(https://github.com/WildbookOrg/Wildbook)
+- [Wildbook open-source code projects](https://github.com/wildbookorg)
 
 ## Architecture
 
@@ -42,16 +46,6 @@ For more information about Wildbook, see the rest of this article and the follow
 1. From the data servers, the latest data and AI models update the image analysis server, which applies constantly retrained cognitive skills.
 1. All communication is bi-directional, feeding back to data collection and user interface enhancements.
 
-1. Raw or preprocessed data is imported, exported, and stored in [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/).
-1. Cognitive Service APIs like [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) and [Translator Text](https://www.microsoft.com/translator/business/translator-api/) extract and process structured data and text from unstructured sources.
-1. AI for Earth APIs like Land Cover Mapping and Species Classification process images to provide land use and species identification data.
-1. High-performing Linux [virtual machines](https://azure.microsoft.com/services/virtual-machines/) (VMs) can scale out to process and analyze data as needed. [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) come preconfigured with data science modeling and machine learning tools.
-1. [Azure Backup](https://azure.microsoft.com/services/backup/) backs up VMs and protects critical data.
-1. [Container Registry](https://azure.microsoft.com/services/container-registry/) stores containers for apps and data.
-1. [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) monitors servers and services for performance and outages.
-1. [Azure DevOps](https://azure.microsoft.com/services/devops/) monitors and manages operations during development.
-1. Azure Notebooks run code in browsers for collaboration and demonstrations.
-
 ## Components
 
 The [AI for Earth APIs](https://www.microsoft.com/ai/ai-for-earth-tech-resources) work with Azure components to provide solutions.
@@ -60,7 +54,7 @@ The [AI for Earth APIs](https://www.microsoft.com/ai/ai-for-earth-tech-resources
 
 Environmental scientists use satellite and aerial imagery to understand land use patterns. Strategic conservation planning depends on understanding land use, in particular the impacts of climate change and human population expansion on natural resources. However, distilling imagery into actionable data in the form of land cover maps has required extensive manual annotation. [Land Cover Mapping](https://www.microsoft.com/research/project/land-cover-mapping/) uses computer vision and machine learning to classify imagery into natural or human-made terrain types, providing high-resolution land cover information for precision conservation planning.
 
-The public [Land Cover Mapping API](https://aiforearth.portal.azure-api.net/docs/services/ai-for-earth-land-cover-mapping-api-v2/operations/post-landcover-classify) can take a supplied TIFF or JPEG 1-meter-resolution aerial or satellite image, or any United States latitude and longitude data, and return an image file showing land cover classifications. The land cover classification image shows areas classified into water, forest, field, or built coverage. You can analyze and make decisions based on the land cover predicted in the image. The API also allows you to train your model by correcting the predictions and adding and training new classifications.
+The public [Land Cover Mapping API](https://aiforearth.portal.azure-api.net/docs/services/ai-for-earth-land-cover-mapping-api-v2/operations/post-landcover-classify) can take a supplied TIFF or JPEG 1 meter-resolution aerial or satellite image, or any United States latitude and longitude data, and return an image file showing land cover classifications. The land cover classification image shows areas classified into water, forest, field, or built coverage. You can analyze and make decisions based on the land cover predicted in the image. The API also allows you to train your model by correcting the predictions and adding and training new classifications.
 
 - [Land Cover training demo](http://landcoverdemo.eastus.cloudapp.azure.com:4040/)
 - [Land Cover Mapping video](https://www.youtube.com/watch?v=9aFUzUlHQVc)
@@ -83,7 +77,7 @@ Azure Open Datasets preprocesses data to save you time. At regular intervals, Op
 
 With an Azure account, you can access Open Datasets through the Azure portal or through APIs. Colocating with Azure compute and other services makes access and manipulation easier. Open Datasets are also available through the Azure Machine Learning UI and SDK. Open Datasets also provides Azure Notebooks and Azure Databricks notebooks you can use to connect data to Azure Machine Learning and Azure Databricks. You can also access Open Datasets through a Python SDK.
 
-You don't need an Azure account to access Open Datasets. You can access them from any Python environment, with or without Spark.
+You don't need an Azure account to get Open Datasets. You can access them from any Python environment, with or without Spark.
 
 - [Overview of Azure Open Datasets](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets)
 - [Full catalog of Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/)
@@ -92,12 +86,24 @@ You don't need an Azure account to access Open Datasets. You can access them fro
 
 [Azure Notebooks](https://notebooks.azure.com/) is a free service for anyone to develop and run code in their browser using Jupyter. [Jupyter](https://jupyter.org/) is an open-source project that enables combing markdown prose, executable code, and graphics onto a single canvas called a notebook. Notebooks are an excellent way for data scientists and AI engineers to share and collaborate in the cloud.
 
+### Other components
+
+These Azure components can contribute to an AI for Earth solution:
+
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) stores raw or preprocessed data.
+- Cognitive Service APIs like [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) extract and process structured data and text from unstructured sources.
+- High-performing Linux [virtual machines](https://azure.microsoft.com/services/virtual-machines/) (VMs) scale out to process and analyze data as needed. [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) come preconfigured with data science modeling and machine learning tools.
+- [Azure Backup](https://azure.microsoft.com/services/backup/) backs up VMs and protects critical data.
+- [Container Registry](https://azure.microsoft.com/services/container-registry/) stores containers for apps and data.
+- [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) monitors servers and services for performance and outages.
+- [Azure DevOps](https://azure.microsoft.com/services/devops/) monitors and manages operations during development.
+
 ## Issues and considerations
 
 - Azure Open Datasets can consume hundreds of terabytes of resources, so it's best to perform large-scale processing in the same Azure datacenter where the data is stored. If you're using Open Datasets for environmental science applications, consider applying for an [AI for Earth grant](https://www.microsoft.com/ai/ai-for-earth-grants) to support your compute requirements.
 - Azure Notebooks is currently in public preview. The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported, or might have constrained capabilities.
-- Not all US addresses may work in the Land Cover Mapping Notebook. If the address you supply doesn't work, try another address.
-- Some species may be misidentified by the Species Classification API version used by the Species Classification Notebook. The current version of the API is 2.0.
+- Not all US addresses may work in the demo Land Cover Mapping Notebook. If the address you supply doesn't work, try another address.
+- Some species may be misidentified by the Species Classification API version used by the demo Species Classification Notebook. The current version of the API is 2.0.
 
 ## Deployment
 
@@ -117,10 +123,10 @@ To run the demo Notebooks:
 1. On the next screen, select the *.ipynb* file. 
 1. In the Notebook, paste the API Key you received into the appropriate placeholder.
 1. Select each cell in turn, and then select **Run** to run the cell. You can ignore any `pip` warnings that appear when installing packages.
-1. Follow the prompts to enter different addresses for the Land Cover Mapping demo, or different species for the Species Classification demo, and see the API in action.
+1. Follow the prompts to enter different addresses for the Land Cover Mapping demo, or different species for the Species Classification demo, and see the APIs in action.
 
 ## Next steps
 
 - If you have an idea for an environmental solution, consider applying for a Microsoft AI for Earth grant. The four focus areas for AI for Earth grants are agriculture, biodiversity, climate change, and water. Grants are for Azure compute credits or for data labeling services, an important prerequisite for most AI projects. Grantees can also get technical advice and support, online Azure training materials, and networking and educational opportunities. For more information, see [AI for Earth's grant process and details](https://www.microsoft.com/ai/ai-for-earth-grants).
 
-- AI for Earth is one of the initiatives in [Microsoft AI for Good](https://www.microsoft.com/ai/ai-for-good), providing technology, resources, and expertise to help solve humanitarian issues and create a more sustainable and accessible world.
+- See the other initiatives in [Microsoft AI for Good](https://www.microsoft.com/ai/ai-for-good), providing technology, resources, and expertise to help solve humanitarian issues and create a more sustainable and accessible world.
