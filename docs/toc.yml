@@ -1111,10 +1111,22 @@ items:
       items:
       - name: Adding modern front-ends to legacy apps
         href: solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.md
-      - name: Lift and Shift LOB apps
+      - name: Lift and shift LOB apps
         href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md
       - name: Lift and shift with AKS
         href: solution-ideas/articles/migrate-existing-applications-with-aks.md
+      - name: Oracle database migration
+        items:
+        - name: Migration decision process
+          href: example-scenario/oracle-migrate/oracle-migration-overview.md
+        - name: Cross-cloud connectivity
+          href: example-scenario/oracle-migrate/oracle-migration-cross-cloud.md
+        - name: Lift and shift to Azure VMs
+          href: example-scenario/oracle-migrate/oracle-migration-lift-shift.md
+        - name: Refactor
+          href: example-scenario/oracle-migrate/oracle-migration-refactor.md
+        - name: Rearchitect
+          href: example-scenario/oracle-migrate/oracle-migration-rearchitect.md
       - name: Serverless computing LOB apps
         href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.md
       - name: Unlock Legacy Data with Azure Stack
