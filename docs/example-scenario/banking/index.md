@@ -1,12 +1,10 @@
 ---
-title: Title
-titleSuffix: Azure Example Scenarios
-description: Description
-author: GitHubAlias
-ms.date: 03/01/2020
+title: Banking System Cloud Transformation on Microsoft Azure 
+description: Solution for monitoring banking system infrastructure scalability and performance
+author: tmmarshall
+ms.date: 6/23/2020
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
-ms.custom:
-- fcp
+ms.subservice: example-scenario
+ms.custom: fcp
 ---
