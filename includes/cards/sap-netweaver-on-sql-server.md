@@ -11,7 +11,7 @@
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/sap-netweaver-on-sql-server">
-            <p>SAP NetWeaver on SQLServer</p>
+            <p>SAP NetWeaver on SQL Server</p>
         </a>
         <ul class="card-content-metadata">
             <li>12/16/2019</li>
