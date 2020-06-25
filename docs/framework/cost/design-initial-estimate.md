@@ -72,7 +72,7 @@ NGINX ingress controller deploys a load balancer that routes internet traffic to
 
 ### Bandwidth
 
-We estimate 2-TB outbound traffic. The first 5 GB/month are free in Zone 1 (Zone 1 includes North America, Europe, and Australia). Between 5 GB - 10 TB 2/month is charged $0.087 per GB.
+We estimate 2-TB outbound traffic. The first 5 GB/month are free in Zone 1 (Zone 1 includes North America, Europe, and Australia). Between 5 GB - 10 TB /month is charged $0.087 per GB.
 
 **Estimated Total: $177.74 per month**
 
