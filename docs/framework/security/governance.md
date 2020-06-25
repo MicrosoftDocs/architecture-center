@@ -60,6 +60,54 @@ follow first:
 Microsoft has provided some prioritized lists of security initiatives to help organizations start with these decisions based on our experience with threats and mitigation initiatives in our own environments and across our customers. See [Module 4a](https://docs.microsoft.com/office365/securitycompliance/ciso-workshop-module-4a)
 of the [Microsoft CISO Workshop](https://aka.ms/cisoworkshop).
 
+
+## Operationalize Azure Secure Score
+
+Assign stakeholders to use [Secure Score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls)  in Azure Security Center to monitor risk profile and continuously improve security posture.
+This will help you continuously improve your security posture by rapidly identifying and remediating common security hygiene risks, which can significantly reduce your organization's risk. 
+Set up a regular cadence (typically monthly) to review Azure secure score and plan initiatives with specific improvement goals. You should also look into gamifying the activity if possible to increase engagement and focus from the responsible teams (e.g. creating a friendly competition on who increased their score more).
+
+**NOTE:** Security posture management is an emerging function, this may be a single dedicated team or the responsibility may be taken on by one or more existing teams described below. See LINK TO ORGANIZATIONAL FUNCTION for more details. 
+
+### Monitor Secure Score
+
+| Score Area        | Responsible Team |
+| ------------- |-------------| 
+| Monitor Secure Score and Follow up with technical teams| <li> Security Posture Management Team <li> Vulnerability Management (or Governance/Risk/Compliance team) <li> Architecture Team <li> Responsible Technical Team (listed below)
+
+### Improve Secure Score
+
+| Compute and Apps Resources | Responsible Technical Team |
+| ------------- |-------------| 
+|App Services|Application Development/Security Team(s) |
+|Containers|Application Development and/or Infrastructure/IT Operations|
+|VMs/Scale sets/compute|IT/Infrastructure Operations|
+
+
+| Data & Storage Resources| Responsible Technical Team |
+| ------------- |-------------| 
+|SQL/Redis/Data Lake Analytics/Data Lake Store|	Database Team|
+|Storage Accounts|Storage/Infrastructure Team|
+
+| Identity and Access Resources | Responsible Technical Team |
+| ------------- |-------------| 
+|Subscriptions|Identity Team(s)|
+|Key Vault|Information/Data Security Team|
+
+| Networking Resources | Responsible Technical Team |
+| ------------- |-------------| 
+|Networking Resources|<li> Networking Team <li> Network Security Team|
+
+| IoT Security | Responsible Technical Team |
+| ------------- |-------------| 
+|IoT Resources | IoT Operations Team|
+
+**NOTE:** Note that in the DevOps model, some application teams may be responsible for their own application resources.
+
+
+
+
+
 ## Manage connected tenants
 
 Ensure your security organization is aware of all enrollments and associated
