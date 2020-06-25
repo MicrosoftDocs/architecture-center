@@ -189,9 +189,9 @@ Table 4 lists which systems are best for supported trigger options while Table 5
 
 ## Resources
 
-* [Technical White Paper: MLOps Framework for Upscaling ML Lifecycle with Azure ML](./mlops-white-paper.md)
+* [Technical White Paper: MLOps Framework for Upscaling ML Lifecycle with Azure ML](mlops-white-paper.md)
 * Reference Architecture Document: MLOps Framework for Upscaling ML Lifecycle with Azure ML
-* [MLOps Maturity Model](./mlops-maturity-model.md)
+* [MLOps Maturity Model](mlops-maturity-model.md)
 
 ## Credits
 

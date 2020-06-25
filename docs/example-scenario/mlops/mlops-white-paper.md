@@ -178,16 +178,15 @@ The purpose of the MLOps maturity model is to help clarify the principles, pract
 
 The MLOps Maturity Model is built upon the following levels of technical capability:
 
-| Level | Description | 
+| Level | Description |
+| ----- | ----------- |
 | 0 | No Ops |
 | 1 | DevOps but no MLOps |
 | 2 | Automated Training |
 | 3 | Automated Model Deployment |
 | 4 | Automated Operations (full MLOps) |
 
-The current version of the MLOps Maturity Model at the time of this writing is summarized in the technical reference document [MLOps Maturity Model](./mlops-maturity-model.md). And, since this model is still evolving, you can see the [<cite>MLOps Maturity Model</cite>](https://csefy19.visualstudio.com/CSECodeShare/_git/CSECodeShare?path=%2Fbest-practices%2Fml-ops%2Fmlops-maturity-model.md&version=GBmaster) for the latest working version with community contributions to help refine the model (authorization is required).
-
-A questionnaire is available for use with the maturity model in new engagements and can be obtained [here](https://csefy19.visualstudio.com/CSECodeShare/_git/CSECodeShare?path=%2Fbest-practices%2Fml-ops%2Fmlops-maturity-model.md&version=GBmaster&_a=preview).
+The current version of the MLOps Maturity Model at the time of this writing is summarized in the technical reference document [MLOps Maturity Model](mlops-maturity-model.md). 
 
 ## MLOps Process Definition
 
@@ -253,7 +252,7 @@ The MLOps process flow shown in Figure 9 should be considered as an archetype fr
 
 ![MLOps process flow archetype diagram](./media/mlops-process-flow.png)
 
-*Figure 9 - MLOps Archypical Process Flow
+*Figure 9 - MLOps Archypical Process Flow*
 
 ### Code Validation Tests
 
@@ -330,7 +329,7 @@ What is not depicted in the Logical Architecture diagram (Figure 10) is the Data
 
 ### System Architecture
 
-There were many design options available for the system architecture. What is shown here is the end result of a decision making process described in [*Azure Machine Learning Development: Decision Guide for Optimal Tool Selection*](./aml-decision-tree.md)
+There were many design options available for the system architecture. What is shown here is the end result of a decision making process described in [Azure Machine Learning Development: Decision Guide for Optimal Tool Selection](aml-decision-tree.md)
 
 <!-- A detailed discussion of the resulting system architecture and design that fit the customer’s needs can be found in the Reference Architecture Document that accompanies this whitepaper. -->
 
@@ -451,25 +450,7 @@ See the earlier section *End User Interfaces for Observability, Monitoring, and 
 * [Azure Dashboards](/azure/azure-portal/azure-portal-dashboards)
 * [Power BI](https://powerbi.microsoft.com/)
 
-The selection of which kind of pipeline service to use for a specific process step is discussed in detail in the companion document [*Azure Machine Learning Development: Decision Guide for Optimal Tool Selection*](./aml-decision-tree.md).
-
-### Assets
-
-| Asset | Overview | Type |
-| ----- | -------- | ---- |
-| MLOps in a Box | MLOps in a Box is designed to help kick-start CSE customer engagements related to managing production machine learning life cycle with the best practices of DevOps. | Guidance Document |
-| MLOps Maturity Model | Maturity model helps clarify the DevOps principles and practices that should be applied, estimate the scope of the required work, define some success criteria and identify which deliverables will be handed over at the conclusion of the engagement. | Guidance Document |
-| MLOps for Batch Prediction | Guidance on implementing Batch Inferencing is solutions that do not require real time predictions. | Guidance Document |
-| MLOps Customer Engagements User Research | HX conduced 1st party research across CSE SEs based on past MLOps customer engagements to determine roles, asks and issues across personas. | User Research |
-| Observability User Research | HX conducted 1st party research to validate our current understanding of observability requirements, as well as dive deeper to identify any previously unarticulated needs | User Research |
-| MLOps Project Folder Structure | Template Folder structure to implement DevOps best practices in Azure DevOps. | Template |
-| MLOpsPython Code Template | We look to MLOpsPython as the best starting place as a code template and code structure for most ML projects. | Code |
-| Azure ML Functions Connector | This module contains the azure functions for triggering an Azure ML pipeline and getting the current status of the Azure ML run. | Code |
-| Logger | This module contains the logger library which allows logging into various services. | Code |
-| MLOps - Model Orchestration with DevOps and Azure ML | This module contains the Python Azure ML code, model utilities, and infrastructure files to build the model orchestration portion of the MLOps architecture. | Code |
-| Azure ML Functions Connector | This module contains the azure functions for triggering an Azure ML pipeline and getting the current status of the Azure ML run. | Code |
-
-
+The selection of which kind of pipeline service to use for a specific process step is discussed in detail in the companion document [*Azure Machine Learning Development: Decision Guide for Optimal Tool Selection*](aml-decision-tree.md).
 
 ## Conclusions
 
@@ -522,29 +503,12 @@ The selection of which kind of pipeline service to use for a specific process st
 
 ### Recommendations
 
-* Use the [MLOps Questionnaire](https://csefy19.visualstudio.com/CSECodeShare/_git/CSECodeShare?path=%2Fbest-practices%2Fml-ops%2Fmlops-maturity-model.md&_a=preview&anchor=questionnaire) for a new engagement
 * Use the MLOps Maturity Model as a focal tool for planning any production level ML application environment.
 
 ### Identified Patterns
 
 * Use MLOps for Forecasting Model Resources
 * Use MLOps as a Framework for Upscaling an Azure ML Solution: Reference Architecture Document
-
-### Engagement related
-
-* [MLOps in a Box](https://csefy19.visualstudio.com/_git/CSECodeShare?path=%2Fbest-practices%2Fml-ops%2FREADME.md&version=GBmaster&_a=preview)
-* [MLOps Maturity Model]()
-* [MLOps Maturity Questionnaire](https://csefy19.visualstudio.com/CSECodeShare/_git/CSECodeShare?path=%2Fbest-practices%2Fml-ops%2Fmlops-maturity-model.md&_a=preview&anchor=questionnaire)
-* [Azure ML Model Logging](https://csefy19.visualstudio.com/CSECodeShare/_git/CSECodeShare?path=%2Fbest-practices%2Fml-ops%2Faml-model-logging-alerting.md&version=GBmaster)
-* [MLOps for Batch Prediction](https://csefy19.visualstudio.com/CSECodeShare/_git/CSECodeShare?path=%2Fbest-practices%2Fml-ops%2Fmlops-batch-prediction.md&version=GBmaster)
-* [MLOps Customer Engagements User Research](https://csefy19.visualstudio.com/CSECodeShare/_git/CSECodeShare?path=%2Fbest-practices%2Fml-ops%2Fmlops-engagement-user-research.md&version=GBmaster)
-* [Azure ML Pipeline Logging Architecture](https://csefy19.visualstudio.com/CSECodeShare/_git/CSECodeShare?path=%2Fengagements%2F2019%2Fpepsico-storedna%2Fdocs%2Fdecision-logging-aml.md&version=GBmaster)
-* [Local Testing and Debugging](https://csefy19.visualstudio.com/CSECodeShare/_git/CSECodeShare?path=%2Fengagements%2F2019%2Fpepsico-storedna%2Fdocs%2Flocal-testing-debugging.md&version=GBmaster)
-* [Running Long-Running Jobs from an Agentless Azure DevOps Job](https://csefy19.visualstudio.com/CSECodeShare/_git/CSECodeShare?path=%2Fengagements%2F2019%2Fpepsico-storedna%2Fdocs%2Faml-trigger-wait-devops.md&version=GBmaster)
-* [Trigger/Wait for Long-Running Azure ML Pipeline](https://csefy19.visualstudio.com/CSECodeShare/_git/CSECodeShare?path=%2Fengagements%2F2019%2Fpepsico-storedna%2Fdocs%2Faml-trigger-wait-adf.md&version=GBmaster)
-* [Azure ML Model Versioning](https://csefy19.visualstudio.com/CSECodeShare/_git/CSECodeShare?path=%2Fengagements%2F2019%2Fpepsico-storedna%2Fdocs%2Faml-model-versioning.md&version=GBmaster)
-* [Azure Function for Azure ML Trigger and Status]('https://dev.azure.com/ryanslions/Pepsi%20-%20Sharing/_git/azure_function_aml?path=%2F&version=GBmaster')
-* [MLOps for Everyone](https://csefy19.visualstudio.com/CSECodeShare/_git/CSECodeShare?path=%2Fbest-practices%2Fml-ops%2Fmlops-for-everyone.md&version=GBmaster)
 
 ### Background information
 
@@ -554,7 +518,7 @@ The selection of which kind of pipeline service to use for a specific process st
 * [ML Lifecycle](https://channel9.msdn.com/Shows/AI-Show/MLOps-for-managing-the-end-to-end-life-cycle-with-Azure-Machine-Learning-service?term=MLOps&lang-en=true)
 * [Azure DevOps Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml)
 * [Azure ML CLI](https://aka.ms/azmlcli)
-* [Create event driven workflows using Azure Machine Learning and Azure Event Grid for scenarios such as triggering retraining pipelines](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-event-grid)
+* [Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-event-grid)
 * [Set up model training & deployment with Azure DevOps](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)
 * [Set up MLOps with Azure ML and Databricks](https://github.com/Azure-Samples/MLOpsDatabricks)
 

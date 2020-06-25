@@ -69,12 +69,6 @@ Within these levels, the tables that follow identify the details characteristic 
 | ------ | -------------- | ------------- | ----------------------- |
 | <ul><li>Data Scientists - Working directly with Data Engineers to convert experimentation code into repeatable scripts/jobs. Working with Software Engineers to identify markers for Data Engineers<li>Data Engineers - Working with Data Scientists and Software Engineers to manage inputs/outputs<li>Software Engineers - Working with Data Engineers to automate model integration into application code. Implementing metrics gathering post-deployment</ul> | <ul><li>Data pipeline gathers data automatically<li>Retraining triggered automatically based on production metrics<li>Compute is managed<li>Experiment results are tracked<li>Both training code and resulting models are version controlled</ul> | <ul><li>Automatic Release<li>Scoring Script is version controlled with tests<li>Release is managed by CI/CD pipeline</ul> | <ul><li>Unit and Integration tests for each model release<li>Less reliant on Data Scientist expertise to implement model<li>Application code has unit/integration tests</ul> |
 
-## MLOps Maturity Questionnaire
-
-The *MLOps Maturity Questionnaire* is a tool designed as a worksheet to help clarify the MLOps principles and practices that can be executed on any new ML engagement. Use it to estimate the scope of the work that will be required, establish success criteria, and identify project deliverables.
-
-Download here:  [MLOps Maturity Questionnaire](https://csefy19.visualstudio.com/CSECodeShare/_git/CSECodeShare?path=%2Fbest-practices%2Fml-ops%2Fmlops-maturity-model.md&_a=preview&anchor=questionnaire)
-
 ## Credits
 
 Taylor Rockey (tarockey); David Tesar (davete); Sushant Divate (sudivate)
