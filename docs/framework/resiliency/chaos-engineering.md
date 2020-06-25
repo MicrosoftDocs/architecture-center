@@ -146,8 +146,12 @@ Faults that can be leveraged to inject chaos.
 |  | Rack |  |
 |  | UPS  |  |
 |  | Datacenter |  |
+| **Functions** | Latency |  |
+|  | Exceptions |  |
+|  | Status codes |  |
+|  | Intercept / Blacklist calls |  |
+|  | Disk capacity |  |
 
 
 > [!NOTE]
 > This is not intended to be an exhaustive list, but a representation of commonly injected faults.  
-
