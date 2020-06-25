@@ -2,7 +2,7 @@
 title: Dynamics Business Central as a Service on Azure
 titleSuffix: Azure Solution Ideas
 author: altotovi
-ms.date: 06/25/20
+ms.date: 06/25/2020
 description: This example shows how to establish the production environment for Business Central in partner private Azure environment.
 ms.custom: acom-architecture, fcp
 ms.service: architecture-center
