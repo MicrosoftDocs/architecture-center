@@ -1,5 +1,5 @@
 ---
-title: Azure Application Gateway and Azure Firewall
+title: Firewall and Application Gateway for virtual networks
 titleSuffix: Azure Example Scenarios
 description: Learn options and best practices for using Azure Firewall and Azure Application Gateway in virtual networks.
 author: erjosito
@@ -10,29 +10,31 @@ ms.subservice: example-scenario
 ms.custom: fcp
 ---
 
-# Application security for virtual networks
+# Firewall and Application Gateway for virtual networks
 
-Application and data security is extremely important when deploying Azure application workloads. You can implement protective measures like authentication or encryption in the application itself, and add more security in the network that contains the application. This article describes network security controls that you can implement in [Azure Virtual Networks] where you deploy applications, such as Azure Virtual Machines (VMs), Virtual Machine Scale Sets, or Azure Kubernetes Service (AKS).
+Security is important for Azure application workloads. You can implement protective measures like authentication or encryption in the application itself, and add more security layers in the app's virtual network. This article describes [Azure Virtual Network][azure-virtual-network] security controls you can implement for virtual machines (VMs), virtual machine scale sets, or Azure Kubernetes Service (AKS).
 
-First, decide whether to implement generic security like Azure Firewall, application-specific mechanisms like Azure Web Application Firewall in Azure Application Gateway, or both. These Azure services are complementary, so it can be difficult to know which is best for your workloads, or how to integrate both for optimal protection at both the network and the application layer. 
+First, decide whether you want generic security like Azure Firewall, or application-level mechanisms like Azure Web Application Firewall in Azure Application Gateway, or both.
 
-- [Azure Firewall][azfw-overview] is a managed next-generation firewall that offers *Network Address Translation (NAT)*, and packet filtering based on Layer 4 attributes like IP addresses and TCP/UDP ports, or application-based attributes for HTTP(S) or SQL. Azure Firewall leverages Microsoft threat intelligence to more effectively identify malicious IP addresses. For more information, see the [Azure Firewall documentation][azfw-docs].
-- [Azure Application Gateway][appgw-overview] is a managed HTTP(S) full reverse proxy that can do SSL encryption and decryption, or inspect web payloads to detect attacks at the HTTP layer with its Web Application Firewall capabilities. For more information, see the [Application Gateway documentation][appgw-docs].
-- Web Application Firewall running on top of the Application Gateway is a security-hardened device designed to operate facing the public internet, with a very limited attack surface. For more information, see the [Web Application Firewall documentation][waf-docs].
+- [Azure Firewall][azfw-overview] is a managed next-generation firewall that offers [network address translation (NAT)][nat]. Azure Firewall offers packet filtering based on internal protocol (IP) addresses and Transmission Control Protocol and User Datagram Protocol (TCP/UDP) ports, or on application-based attributes for HTTP(S) or SQL. Azure Firewall also leverages Microsoft threat intelligence to more effectively identify malicious IP addresses. For more information, see the [Azure Firewall documentation][azfw-docs].
+  
+- [Azure Application Gateway][appgw-overview] is a managed web traffic load balancer and HTTP(S) full reverse proxy that can do secure socket layer (SSL) encryption and decryption, or inspect web payloads to detect attacks at the HTTP layer with Web Application Firewall (WAF). For more information, see the [Application Gateway documentation][appgw-docs].
+  
+- [Azure Web Application Firewall][web-application-firewall] running on top of Azure Application Gateway is a security-hardened device with a very limited attack surface, designed to operate facing the public internet. For more information, see the [Web Application Firewall documentation][waf-docs].
 
-This article explains when to use each service, and when to use different design options that combine both services. In general, you use:
+These Azure services are complementary, so it can be difficult to know which is best for your workloads, or how to integrate both for optimal protection at both the network and application layers. This article explains when to use each service, and different design options that combine both services. In general, use:
 
-- [Azure Firewall only] when there are no web applications in the virtual network
-- [Application Gateway only] when there are only web applications in the virtual network, and *Network Security Groups (NSGs)* are sufficient for egress filtering
-- [Azure Firewall and Application Gateway in parallel], the most common design, when you want Azure Application Gateway to protect HTTP(S) applications from web attacks, and Azure Firewall to protect all other workloads and filter outbound traffic
-- [Application Gateway before Azure Firewall], when you want Azure Firewall to inspect both inbound and outbound traffic for web and non-web applications, but also have the Application Gateway protect web workloads
-- [Azure Firewall before Application Gateway], when you want to inspect traffic before it arrives at the Application Gateway
+- [Azure Firewall only](#azure-firewall-only) when there are no web applications in the virtual network
+- [Application Gateway only](#application-gateway-only) when there are only web applications in the virtual network, and *Network Security Groups (NSGs)* provide sufficient output filtering
+- [Azure Firewall and Application Gateway in parallel](#azure-firewall-and-application-gateway-in-parallel), the most common design, when you want Azure Application Gateway to protect HTTP(S) applications from web attacks, and Azure Firewall to protect all other workloads and filter outbound traffic
+- [Application Gateway in front of Azure Firewall](#application-gateway-in-front-of-azure-firewall), when you want Azure Firewall to inspect both inbound and outbound traffic for web and non-web applications, and also have the Application Gateway protect web workloads
+- [Azure Firewall in front of Application Gateway](#azure-firewall-in-front-of-application-gateway), when you want the firewall to inspect traffic before it arrives at the Application Gateway
 
-Variations of the previous basic designs include [on-premises application clients], [hub and spoke networks], and [Azure Kubernetes Service][aks-overview] implementations. You can add services like an [API Management][apim-overview] gateway, and you can replace the Azure resources with third-party [Network Virtual Appliances (NVAs)].
+Variations of the previous basic designs include [on-premises application clients](#on-premises-clients), [hub and spoke networks](#hub-and-spoke-topology), and [Azure Kubernetes Service][aks-overview] implementations. You can add services like an [API Management][apim-overview] gateway, and you can replace the Azure resources with third-party [network virtual appliances (NVAs)](#other-nvas).
 
 ## Azure Firewall only
 
-If there are no web-based workloads in the virtual network that can benefit from the extra protection of the Azure Web Application Firewall, use Azure Firewall only. The design in this case is relatively simple, but going over the different packets will help understand more complex designs.
+If there are no web-based workloads in the virtual network that can benefit from the extra protection of the Azure Web Application Firewall, you can use Azure Firewall only. The design in this case is simple, but reviewing the packet flow will help understand more complex designs.
 
 The following *packet walk* example shows how a user accesses an application hosted on VMs from the public internet. The diagram includes only one VM for simplicity. For higher availability and scalability, you'd have multiple application instances behind a load balancer.
 
@@ -41,7 +43,7 @@ The following *packet walk* example shows how a user accesses an application hos
 1. The client initiates the connection to the public IP address of the Azure Firewall:
    - Source IP address: ClientPIP
    - Destination IP address: AzFwPIP
-2. The Azure Firewall [Destination NAT (DNAT) rule][azfw-dnat] translates the destination IP address to the application IP address inside the virtual network. The Azure Firewall also *Source NATs (SNAT)* the packet under certain circumstances. Azure Firewall always SNATs if it performs DNAT. For more information, see [Azure Firewall known issues][azfw-issues]. The VM sees the following IP addresses in the incoming packet:
+2. The Azure Firewall [Destination NAT (DNAT) rule][azfw-dnat] translates the destination IP address to the application IP address inside the virtual network. The Azure Firewall also *Source NATs (SNATs)* the packet under certain circumstances. Azure Firewall always SNATs if it performs DNAT. For more information, see [Azure Firewall known issues][azfw-issues]. The VM sees the following IP addresses in the incoming packet:
    - Source IP address: 192.168.100.7 
    - Destination IP address: 192.168.1.4
 3. The VM answers the application request, reverting source and destination IP addresses. This inbound flow doesn't require a *User-Defined Route (UDR)* because the source IP is Azure Firewall's IP address. Be sure to establish a UDR for outbound connections, making sure packets to the public internet don't bypass the Azure Firewall.
@@ -83,7 +85,7 @@ The following *packet walk* example shows how a user accesses a web application 
 
 - The IP address `192.168.200.7` is one of the instances the Azure Application Gateway service deploys under the covers, here with the front-end IP address `192.168.1.4`. These individual instances are normally invisible to the Azure administrator, but noticing the difference is useful in some cases, such as when troubleshooting network issues.
 
-## Application Gateway and Azure Firewall in parallel
+## Azure Firewall and Application Gateway in parallel
 
 Due to its simplicity and flexibility, running Application Gateway and Azure Firewall in parallel is recommended for most scenarios.
 
@@ -219,7 +221,7 @@ Azure Front Door functionality partly overlaps with Azure Application Gateway. F
 
 For more information about the differences between the two services, or when to use which one, see [Frequently Asked Questions section for Azure Front Door][afd-vs-appgw].
 
-### Other network virtual appliances
+### Other NVAs
 
 Microsoft products aren't the only choice to implement web application firewall or next-generation firewall functionality in Azure. A wide range of Microsoft partners provide products in this space. The concepts and designs in this article are essentially the same, but there might be some important considerations:
 
@@ -244,3 +246,6 @@ Microsoft products aren't the only choice to implement web application firewall 
 [afd-overview]: https://docs.microsoft.com/azure/frontdoor/front-door-overview
 [afd-vs-appgw]: https://docs.microsoft.com/azure/frontdoor/front-door-faq#what-is-the-difference-between-azure-front-door-and-azure-application-gateway
 [appgw-networking]: https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works
+[azure-virtual-network]: https://azure.microsoft.com/services/virtual-network/
+[web-application-firewall]: https://azure.microsoft.com/services/web-application-firewall/
+[nat]: https://docs.microsoft.com/azure/virtual-network/nat-overview
