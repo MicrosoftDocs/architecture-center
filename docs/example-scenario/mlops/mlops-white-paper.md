@@ -442,8 +442,8 @@ See the earlier section *End User Interfaces for Observability, Monitoring, and 
   * Azure ML Pipelines
   * Azure ML Model Registry
 * [Azure DevOps Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-* [Azure Data Factory (ADF)}(https://azure.microsoft.com/services/data-factory/)
-* {Azure Functions for Python](https://azure.microsoft.com/services/functions/)
+* [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/)
+* [Azure Functions for Python](https://azure.microsoft.com/services/functions/)
 * [Azure Monitor](https://azure.microsoft.com/services/monitor/)
   * Logs
   * Application Insights
@@ -493,6 +493,7 @@ The selection of which kind of pipeline service to use for a specific process st
 
     a. The simplest solution for using Azure Machine Learning (Azure ML) is to store data in a Datastore supported storage solution. Up-to-date lists of supported destinations can be found in docs. Tools such as Azure Data Factory are effective for piping data to/from those locations on a schedule.
 
+    b. It is important for customers to set up a cadence for capturing additional data for retraining to keep their models up to date. If they do not already have a data pipeline, creating one will be an important part of the overall solution. Using a solution such as Datasets in Azure ML can be useful for versioning data to help with traceability of models.
     b. It is important for customers to set up a cadence for capturing additional data for retraining to keep their models up to date. If they do not already have a data pipeline, creating one will be an important part of the overall solution. Using a solution such as Datasets in Azure ML can be useful for versioning data to help with traceability of models.
 
 3. Model Training and Evaluation Considerations
