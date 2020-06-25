@@ -6,123 +6,111 @@ author: mcosner
 ms.date: 05/04/2020
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
+ms.subservice: example-scenario
 ms.custom:
 - fcp
 ---
 
 # How to Observe and Make Changes to a Strawberry Farm in Real-Time
 
-Tailwind is a farm that focuses on using greenhouses to produce
-strawberries. They currently have 5 greenhouses and is looking to expand
-in the future.
+Tailwind is a farm that focuses on using greenhouses to produce strawberries. It currently has 5 greenhouses and is looking to expand in the future.
 
 ## Motivations
 
--   *What are the business use cases and pain points?*
+-   *What are the business challenges?*
 
--   *What is the estimated impact to the business?*
+-   *What is the estimated impact caused by these issues?*
 
-Due to the erratic weather in the last few seasons, the strawberries
-quality has been impacted. This has resulted in lower sales price
-because the retailers are looking for specific size and consistent
-quality. This has resulted in an average drop in sales price.
-
-## Business Outcomes and Justifications
-
--   *Which business outcomes would be achieved?*
-
--   *What opportunities would this solution create for your business?*
-
--   *What will success look like?*
-
-Tailwind wants to have timely visibility of the greenhouse conditions so
-that they can respond timely. This will help produce high quality
-strawberries which will fetch a premium selling price. They are also
-looking at ways to have a better understanding how their farming methods
-impact the produce quality. With historical data over time, Tailwind
-will be able to know the growing conditions across the different
-greenhouses and how it affects the produce's consistency and quality. In
-the long run, they would like to have a set of baselines for the growing
-conditions correlating to inputs used and output quality and quantity.
+Due to the erratic weather in the last few seasons, the quality of the strawberry crop has been inconsistent. This has resulted in an average drop in sales price to retailers, which has impacted Tailwind’s profits. 
 
 ## Current situation
 
--   *What is the current situation?*
+-   *What are the current operation methods?*
 
-Tailwind uses handheld sensors to measure the soil moisture every day,
-but there are times which it is missed out. Soil acidity is a manual and
-laborious process whereby they take samples for measurements. They have
-temperature and humidity sensors in each of the greenhouses which needs
-to be manually recorded. After these data points are measured, the
-farmers will adjust the farm conditions accordingly based on their
-experience.
+There are a multitude of factors that affect the growth of strawberries. Some key parameters are:
+-	Temperature: The optimal temperature varies depending on the variety of strawberries grown and the stage of growth.
+-	Humidity: The level of humidity directly impacts plant growth as well as the occurrence of pests and airborne diseases.
+-	Soil moisture: Strawberries thrive in dry conditions but still require some water in their shallow roots.
+-	Soil acidity: Strawberries thrive in soil that is slightly more acidic with pH levels between 5.5 to 6.9 pH. 
 
-## Requirements for IoT solution
+Each day, Tailwind uses handheld sensors to measure the level of moisture in the soil. This is a manual process that is done several times throughout the day.
 
--   *What impacts the quality of fruits?*
+Similarly, the monitoring of soil acidity levels is a manual process where samples are taken and measured. The laborious nature of the process means that this is only done on a weekly basis. 
 
-There are multitude of factors that affect the growth of strawberries.
-Some key conditions are:
+Meanwhile, the greenhouses also have temperature and humidity sensors, all of which must be manually recorded.
 
--   Temperature: Varies depending on variety and the stage of growth.
+Relying on manual effort to collect data is time consuming, often with a high risk of human error and limitations regarding the amount of data that can be recorded. Without sufficient or complete information on key environmental factors, it is a challenge to achieve consistent or improved fruit quality. 
 
--   Humidity: Not only it impacts the plants, it also impacts the pest
-    and air diseases.
+## Business Outcomes
 
--   Soil moisture: Strawberries thrive in dry conditions but still
-    requires some water in the shallow roots.
+-   *What business outcomes would you like to achieve?*
 
--   Soil acidity: Soil that are slightly more acidic is better for
-    strawberries.
+-   *What opportunities would this solution create for your business?*
 
-Tailwind has heard that IoT solutions which uses sensors (device) to
-provide real time data so that actions can be taken. 
+To produce consistent high-quality strawberries which will fetch a premium selling price,   
+Tailwind needs to know the exact conditions and factors that impact crop growth. This will enable it to maintain an optimal agricultural environment while responding in a timely and effective manner to address any anomalies. 
+
+Beyond this, they are also looking at ways to have a better understanding of how their farming methods impact produce quality. With historical data over time, Tailwind would be able to identify the ideal growth conditions across the various greenhouses and conduct more in-depth analyses of the cost per acre versus profit per acre, enabling better business and operational decisions. With a comprehensive pool of correlated data, they believe that they will be able to develop a baseline farming method that is repeatable and profitable. 
+
+## Solution to the challenges
+
+-   *How can technology like Internet of Things (IoT) help solve your business challenges?*
+
+Faced with numerous environmental variables that could directly impact crop growth, the ability to continuously collect and measure real-time data of key parameters is critical to farming operations. This would enable farmers to react immediately to correct undesirable conditions in order to create and maintain an optimal farming environment. 
+
+Tailwind thinks that an IoT solution would be able to help them collect and measure real-time data across their farm, which would help them to achieve more consistent agricultural output. This includes collecting data (temperature) and getting insights (too cold) from it. From the insights derived, the farmers would be able to take effective action (adjust thermostat). 
 
 ![A diagram illustrating the relationship between devices, insights, and events in an IoT solution.](media/devices-events-insights.png)
 
-Depending on the requirements, the scenario can be mapped using common IoT patterns in the table below.
+The table below provides a summary of common use cases and the corresponding IoT solution. Each use case is an example of how an IoT process pattern can be applied in real-world scenarios. For more details on IoT process patterns, please refer to the detailed [documentation](./measure-and-control-loop.md).
 
 Use case | Proposed solution | Process pattern
 --- | --- | ---
-Measuring temperature over time across the different greenhouses. Adjust temperature when it goes past limits. | Temperature sensors sending data at set interval to an application. Trigger thermostat to adjust automatically. | [Measure and control loop](./measure-and-control-loop.md)
-Measuring humidity over time across the different greenhouses. Set humidifying system when it goes past limits. | Hygrometer sending data at set interval to an application. Trigger an alert when it goes past thresholds. | [Measure and control loop](./measure-and-control-loop.md)
-Measuring soil moisture over time across the different greenhouses. Adjust moisture level when it goes past limits. | Soil moisture sensor sending data at set interval to an application. Trigger an alert when it goes pass thresholds. | [Measure and control loop](./measure-and-control-loop.md)
-Measuring soil acidity over time across the different greenhouses. Adjust acidity when it goes past limits. | pH sensor sending data at set interval to an application. Trigger an alert when it goes past thresholds. | [Measure and control loop](./measure-and-control-loop.md)
-Ability to see the status and conditions of the all the greenhouses remotely. | Application shows the status of all the greenhouses with the ability to drill down to detailed information. | Monitor and manage loop
-Monitor the conditions over time and across greenhouse to understand how conditions impact production and quality. | Monitor all the conditions of the greenhouses and cross reference to output quality and quantity. Analyze optimum growth conditions. | Analyze and optimize loop
+Measuring temperature over time across different greenhouses. Adjust temperature when it goes past limits. | Temperature sensors sending data at set intervals to an application. Triggers thermostat to adjust automatically. | [Measure and control loop](./measure-and-control-loop.md)
+Measuring humidity over time across different greenhouses. Set humidifying system when it goes past limits. | Hygrometer sending data at set intervals to an application. Triggers an alert when it goes pass thresholds. | [Measure and control loop](./measure-and-control-loop.md)
+Measuring soil moisture over time across different greenhouses. Adjust moisture level when it goes past limits. | Soil moisture sensor sending data at set intervals to an application. Triggers an alert when it goes pass thresholds. | [Measure and control loop](./measure-and-control-loop.md)
+Measuring soil acidity over time across different greenhouses. Adjust acidity when it goes past limits. | pH sensor sending data at set intervals to an application. Triggers an alert when it goes pass thresholds. | [Measure and control loop](./measure-and-control-loop.md)
+Ability to see the status and conditions of all greenhouses remotely. | Application shows the status of all greenhouses with the ability to provide a deep dive into the details. | [Monitor and manage loop](./monitor-and-manage-loop.md)
+Monitor the conditions over time and across all greenhouse to understand how conditions impact production and quality. | Monitor the conditions of all greenhouses and cross-reference the data with output quality and quantity. Analyze optimal growth conditions. | [Analyze and optimize loop](./analyze-and-optimize-loop.md)
 
-## Appendix: Areas for consideration
+## Appendix: Other areas for consideration
 
-Below are areas which Tailwind will need to consider when looking into
-the solution. Whilst this document will not delve deep into each aspect,
-there are a list of questions to understand the thinking.
+There are other key areas which a business like Tailwind would need to consider when building their IoT solution. These are listed below. 
+-   *Data*
 
-## Data requirements
+-   *Sensors and gateways*
 
-Understanding the details of the data will help the selection of sensors
-and gateways. This also provides an initial sizing and helps in design
-of the solution. Some of the information may only be available after
-testing.
+-   *Connectivity*
+
+-   *Device management*
+
+-   *High availability, Disaster recovery*
+
+-   *Security*
+
+-   *Governance* 
+
+For the agriculture industry, considerations regarding data, sensors and gateways, and connectivity are especially pertinent hence it is expounded as compared to the rest.
+
+## Data
+
+Understanding the details of the data collected will help with the selection of the right sensors and gateways. This also provides an initial sizing and helps in designing an effective solution. Some of the information may only be available after testing.
 
 -   *What is the level of data accuracy required?*
 
--   *What is the number of sensing required to make it useful for you?*
+-   *What is the number of sensors required to make it useful for you?*
 
--   *What is the data frequency required? Will this be required to
-    change?*
+-   *What is the data frequency required? Will the frequency vary?*
 
 -   *What is the data classification?*
 
 -   *How long will the data be retained?*
 
--   *Will there be a need to change the frequency of the data?*
+-   *What is the number of sensing points and required frequency of data collection?*
 
--   *What is the amount of sensing points and the frequency?*
+-   *How often should the application read the data?*
 
--   *How often does the application read the data?*
-
-Tailwind' greenhouses are relatively big, and they currently take random
+For example, Tailwind greenhouses are relatively big, and they currently take random
 soil samples for testing. They estimate that the following is required
 for one greenhouse. These estimates can be used to gain better clarity
 of the IoT platform requirements. E.g. storage, queue, cloud gateway
@@ -135,10 +123,9 @@ Humidity | 5 | 1 decimal point | Every 30 mins | Internal | At least 3 years
 Soil moisture | 10 | 1 decimal point | Every 30 mins | Internal | At least 3 years
 Soil acidity | 10 | 1 decimal point | Every hour | Internal | At least 3 years
 
-## Things requirements
+## Sensors and Gateways
 
-Understanding on the ground conditions will impact the hardware
-selection.
+Understanding on-ground conditions will enable the right hardware selection.
 
 -   *How would the environment conditions affect hardware choices? How
     durable is the product?*
@@ -151,28 +138,22 @@ selection.
 
 -   *Do the sensors need to be calibrated?*
 
--   *Where should the sensors be placed for optimum reading? For
-    example, depending on the plant, soil moistures at certain depth is
-    crucial.*
+-   *Where should the sensors be placed for optimal reading? For example, for certain plants, soil moistures at a certain depth is crucial.*
 
--   *What are the regulatory requirements which may impact the hardware?
-    For example, intrinsically safe requirements.*
+-   *What are the regulatory requirements which may impact the hardware? For example, intrinsically safe requirements?*
 
--   *What other site and/or asset factors affect the hardware choices?
-    For example, the asset being monitored cannot have sensors
-    integrated into it due to warranty violations.*
+-   *What other site and/or asset factors affect the hardware choices? For example, the asset being monitored cannot have sensors integrated into it in view of warranty violations.*
 
 Because of the farming conditions, Tailwind will need to find hardware
 which are of certain reliability and [ingress
 protection](https://en.wikipedia.org/wiki/IP_Code) level to protect
 against dust and water.
 
-## Connectivity requirements
+## Connectivity
 
-The network selection can be complex due to the site conditions and the
-data size and frequency requirements.
+Network selection can be complex due to site conditions as well as the data size and frequency requirements. 
 
--   *What connectivity is available at the site?*
+-   *What kind of connectivity is available at the site?*
 
 -   *What will happen to the business if the connectivity drops?*
 
@@ -185,59 +166,16 @@ use mobile network solution in agriculture. Tailwinds will have to
 consider that and also the power requirements when selecting the right
 connectivity option.
 
-## Device Management
-
--   *What is the life cycle of the device?*
-
--   *How do you update the devices firmware?*
-
--   *How do you update the devices software?*
-
 ## High Level considerations 
 
--   *Who are the personas using this solution?*
+-   *Who are the users for this solution?*
 
--   *How will they be using the solution? (e.g. Web, mobile etc)*
+-   *How will they be using the solution? (e.g. Web, mobile etc.)*
 
--   *What are the other use cases which will be added in the future?*
-
--   *What is the level of control required for the development of the
-    solution? For example, do you need to have specific?*
-
--   *What are systems do you need to integrate with?*
+-   *What are other use cases which will be added in the future?*
 
 -   *Buy vs build?*
 
--   *What is the current skill level of staff and envisioned where they
-    would be?*
+-   *Are there any other systems that you would need to integrate with?*
 
-### HA/DR
-
--   *What is the maximum targeted period in which data might be lost if
-    the application goes down?*
-
--   *What is is the targeted duration of time in which the application
-    must be restored after a disruption in order to avoid unacceptable
-    consequences associated with the downtime?*
-
--   *What will be the issue if the network is not available to send data
-    to the application?*
-
-### Security
-
--   *What are the company's data in motion encryption policies?*
-
--   *What are the users of the solution and what are their respective
-    access controls?*
-
--   *How do you prevent tampering of the hardware?*
-
-### Governance
-
--   *What are the industrial regulations that you need to adhere to?*
-
--   *What are the governmental regulations that you need to adhere to?*
-
-### Operations
-
--   *How are you monitoring your applications and devices status?*
+-   *What is the current skill level of staff and what is the level of expertise they are expected to have?*
