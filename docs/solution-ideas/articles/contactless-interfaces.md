@@ -7,6 +7,9 @@ ms.date: 06/06/2020
 ms.custom: iot, fcp
 ms.service: architecture-center
 ms.subservice: solution-idea
+ms.category:
+  - iot
+  - ai-machine-learning
 ---
 
 # Contactless interfaces with Azure IoT Edge
