@@ -26,8 +26,8 @@ These Azure services are complementary. One or the other may be best for your wo
 
 In general, use:
 
-- [Azure Firewall only](#azure-firewall-only) when there are no web applications in the virtual network
-- [Application Gateway only](#application-gateway-only) when there are only web applications in the virtual network, and [network security groups (NSGs)][nsgs] provide sufficient output filtering
+- [Azure Firewall alone](#azure-firewall-only) when there are no web applications in the virtual network
+- [Application Gateway alone](#application-gateway-only) when there are only web applications in the virtual network, and [network security groups (NSGs)][nsgs] provide sufficient output filtering
 - [Azure Firewall and Application Gateway in parallel](#firewall-and-application-gateway-in-parallel), the most common design, when you want Azure Application Gateway to protect HTTP(S) applications from web attacks, and Azure Firewall to protect all other workloads and filter outbound traffic
 - [Application Gateway in front of Azure Firewall](#application-gateway-before-firewall) when you want Azure Firewall to inspect all traffic and WAF to protect web traffic, and the application needs to know the client's source IP address
 - [Azure Firewall in front of Application Gateway](#application-gateway-after-firewall) when you want Azure Firewall to inspect and filter traffic before it reaches the Application Gateway
@@ -72,7 +72,7 @@ The following *packet walk* example shows how a client accesses the VM-hosted ap
 1. The client initiates the connection to the public IP address of the Azure Application Gateway:
    - Source IP address: ClientPIP
    - Destination IP address: AppGwPIP
-2. The Application Gateway instance that receives the request terminates the connection from the client, and establishes a new connection with one of the back ends. The back end sees the Application Gateway instance as the source IP address. The Application Gateway inserts an *X-Forwarded-For HTTP* header with the original client IP address.
+2. The Application Gateway instance that receives the request terminates the connection from the client, and establishes a new connection with one of the back ends. The back end sees the Application Gateway instance as the source IP address. The Application Gateway inserts an *X-Forwarded-For* HTTP header with the original client IP address.
    - Source IP address: 192.168.200.7 (the private IP address of the Application Gateway instance)
    - Destination IP address: 192.168.1.4
    - X-Forwarded-For header: ClientPIP
@@ -83,7 +83,7 @@ The following *packet walk* example shows how a client accesses the VM-hosted ap
    - Source IP address: AppGwPIP
    - Destination IP address: ClientPIP
 
-- Azure Application Gateway adds metadata to the packet HTTP headers, such as the X-Forwarded-For header containing the original client's IP address. Some application servers need the client IP address to serve geolocation-specific content, or for logging. For more information, see [How an application gateway works][appgw-networking].
+- Azure Application Gateway adds metadata to the packet HTTP headers, such as the *X-Forwarded-For* header containing the original client's IP address. Some application servers need the client IP address to serve geolocation-specific content, or for logging. For more information, see [How an application gateway works][appgw-networking].
 
 - The IP address `192.168.200.7` is one of the instances the Azure Application Gateway service deploys under the covers, here with the front-end IP address `192.168.1.4`. These individual instances are normally invisible to the Azure administrator, but noticing the difference is useful in some cases, such as when troubleshooting network issues.
 
@@ -111,7 +111,7 @@ The packet flow steps for each service are the same as in the previous standalon
 
 In this option, all traffic goes through both Azure Firewall and WAF. The WAF provides protection at the web application layer, and Azure Firewall acts as a central logging and control point. The Application Gateway and Azure Firewall aren't sitting in parallel, but one after the other.
 
-This design is appropriate for applications that need to know incoming client source IP addresses, for example to serve geolocation-specific content or for logging. Azure Firewall SNATs the incoming traffic, changing the source IP address. Application Gateway in front of the firewall captures the incoming packet's source IP address in the X-forwarded-for header, so the web server can see the original IP address.
+This design is appropriate for applications that need to know incoming client source IP addresses, for example to serve geolocation-specific content or for logging. Azure Firewall SNATs the incoming traffic, changing the original source IP address. Application Gateway in front of Azure Firewall captures the incoming packet's source IP address in the *X-forwarded-for* header, so the web server can see the original IP address. For more information, see [How an application gateway works][appgw-networking].
 
 One limitation of this design is that Azure Firewall doesn't add much value for inbound web traffic, since the firewall only inspects already-allowed traffic from WAF to the web application. The need to inspect web traffic also places additional pressure on Azure Firewall.
 
