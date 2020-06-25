@@ -5,7 +5,6 @@ description: Detailed explanation of the MLOps Maturity Model stages and definin
 author: danazlin
 ms.author: dermar
 ms.date: 06/01/2020
-ms.topic: MLOps, MLOps Maturity Model
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: fcp

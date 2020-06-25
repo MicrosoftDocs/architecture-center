@@ -5,7 +5,6 @@ description: How the MLOps Maturity Model was applied to operationalize an ML so
 author: danazlin
 ms.author: dermar
 ms.date: 06/01/2020
-ms.topic: MLOps, MLOps Maturity Model
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: fcp
@@ -20,7 +19,7 @@ social_image_url: /azure/architecture/example-scenario/serverless/media/mlops.pn
 
 ## Overview
 
-The client in this engagement is a Fortune 500 food company that ships products directly to multiple retail outlets. This customer engagement (or project) focused on helping the client improve their demand forecasting so they can stock products optimally in different stores across several regions of the U.S. To achieve this, Microsoft’s CSE team worked with the client’s data scientists to develop customized Machine Learning (ML) models for the selected regions for a pilot study. These models considered variables that had to do with shopper demographics, historical and forecasted weather, past shipments, product returns, and special events. This specific objective represented a major component of the engagement and the client realized a significant sales lift in the early field trials. Also, a 40% reduction in forecasting mean absolute percentage error (MAPE) when compared with a historical average baseline model.
+The client in this engagement is a Fortune 500 food company that ships products directly to multiple retail outlets. This customer engagement (or project) focused on helping the client improve their demand forecasting so they can stock products optimally in different stores across several regions of the U.S. To achieve this, Microsoft’s CSE team worked with the client’s data scientists to develop customized Machine Learning (ML) models for the selected regions for a pilot study. These models considered variables that had to do with shopper demographics, historical and forecasted weather, past shipments, product returns, and special events. This specific objective represented a major component of the engagement and the client realized a significant sales lift in the early field trials. Also, a 40% reduction in forecasting Mean Absolute Percentage Error (MAPE) when compared with a historical average baseline model.
 
 A key part of the engagement involved how to scale up the data science workflow from the pilot study to a production level. This production level required meeting the needs of developing models for multiple regions, continuously updating and monitoring their performance, and enabling teams to collaborate on all of these aspects. The traditional data science workflow as it exists today is closer to a one-off lab environment than it is to a production workflow. This lab environment inherently has requirements that include the need to prepare the data, experiment with different models, tune hyper parameters, as well as a build/test/evaluate/refine cycle. Most existing tools are only used for specific purposes and not well disposed to automation. In a production level ML operation, there must be more consideration given to Application Life Cycle Management and DevOps.
 
@@ -40,7 +39,16 @@ The pilot study determined that a model dedicated to one region’s retail outle
 
 In the initial requirement for the upscaled solution, 14 geographic regions, including small and large market outlets, were selected to participate, using more than 50 ML forecasting models. Anticipation of further system growth was clearly expected as well as further refinement of the ML models. It quickly became clear that this wider-scaled ML solution could only be sustainable if based on best practice principles of DevOps for the ML environment; also known as MLOps.
 
-| Environment | Market/Region | Format | Models | Model Subdivision | Model Description |
+| Environment | Market Region | Format | Models | Model Subdivision | Model Description |
+| ----------- | ------------- | ------ | ------ | ----------------- | ----------------- |
+| Dev Environment | Each geographic market/region (for example North Texas) | Large format stores (Walmart, Target, etc.) | 2 ensemble models | Slow moving products | Slow and Fast each has an ensemble of a Least Absolute Shrinkage and Selection Operator (LASSO) linear regression model and a neural network with categorical embeddings |
+|  |  |  |  | Fast moving products | Slow and Fast each has an ensemble of a LASSO linear regression model and a neural network with categorical embeddings
+|  |  |  | 1 ensemble model | N/A | Historical average |
+|  |  | Small format stores (Walgreens, 7-Eleven, etc.) | 2 ensemble models | Slow moving products | Slow and Fast each has an ensemble of a LASSO linear regression model and a neural network with categorical embeddings |
+|  |  |  |  | Fast moving products | Slow and Fast each has an ensemble of a LASSO linear regression model and a neural network with categorical embeddings
+|  |  |  | 1 ensemble model | N/A | Historical average |
+
+The info in this table applies to all 14 geographic regions. It also applies to Production environments.
 
 The MLOps process would provide a framework for the upscaled system that addressed the full life cycle of the ML models. This framework includes development, testing, deployment, and monitoring that fulfills the needs of a classic CI/CD process and operation of the deployed ML system. However, it became evident that existing MLOps guidance has gaps because of its relative immaturity compared to DevOps. The engagement teams worked to fill in some of those gaps and to provide a functional process model that insures the viability of the upscaled ML solution.
 
@@ -81,42 +89,31 @@ Several key requirements had to be met to scale up the solution from the pilot f
 
 The ML life cycle (also known as the Data Science life cycle) fits roughly into the following high-level process flow:
 
-:::image type="content" source="./media/data-sciene-lifecycle-model-flow.png" alt-text="data science lifecycle model process flow":::
+![data science lifecycle model process flow](./media/data-sciene-lifecycle-model-flow.png)
 
-<p style="text-align:center;font-style:italic;" tag="caption">Figure 1 - Data Science Life Cycle Process Flow</p>
+*Figure 1 - Data Science Life Cycle Process Flow*
 
 *Deployment* here can represent any operational use of the validated ML model.
 
 Compared to DevOps, MLOps presents the additional challenge of how to integrate this ML life cycle into the typical CI/CD process in DevOps. The following figure is a more detailed look at the normal Data Science life cycle:
 
-:::image type="content" source="./media/data-science-lifecycle-diag.png" alt-text="team data science process diagram":::
+![team data science process diagram](./media/data-science-lifecycle-diag.png)
 
-<small style="text-align: right;">From: [<cite>What is the Team Data Science Process?</cite>](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview#tools-and-utilities-for-project-execution)</small>
+From: [What is the Team Data Science Process?](/azure/machine-learning/team-data-science-process/overview#tools-and-utilities-for-project-execution)
 
-<p style="text-align:center;font-style:italic;" tag="caption">Figure 2 - Data Science Team Process</p>
+*Figure 2 - Data Science Team Process*
 
 This life cycle does not follow the typical software development life cycle. Yet, the basic process had to be preserved whether it is done manually or via CI/CD automation. In this instance, the Azure ML Service solution had to satisfy two functional tasks: training the model and then running scoring to obtain the forecast results. Ultimately, the architecture used is based on batch processing of data as shown below. Two Azure ML pipelines are central to the process, one for training and the other for scoring.
 
+![AML Service used for two tasks, training the model and scoring the data](./media/aml-serv-train+score.png)
 
-:::row:::
-    :::column:::
-     
-    :::column-end:::
-    :::column span="3":::
-        :::image type="content" source="./media/aml-serv-train+score.png" alt-text="AML Service used for two tasks, training the model and scoring the data":::
-    :::column-end:::
-    :::column:::
-     
-    :::column-end:::
-:::row-end:::
-
-<p style="text-align:center;font-style:italic;" tag="caption">Figure 3 - AML Service for Training and Scoring</p>
+*Figure 3 - AML Service for Training and Scoring*
 
 The data science methodology used for the initial phase of the customer engagement is described in Figure 4.
 
-:::image type="content" source="./media/data-science-initial-methodology.png" alt-text="Phase 1 data science methodology":::
+![Phase 1 data science methodology](./media/data-science-initial-methodology.png)
 
-<p style="text-align:center;font-style:italic;" tag="caption">Figure 4 - Phase 1 Data Science Process</p>
+*Figure 4 - Phase 1 Data Science Process*
 
 The actual algorithms developed here for the ML model are beyond the scope of this paper. Several were tested and an ensemble design of a LASSO linear regression model and a Neural Network with categorical embeddings was the ultimate approach chosen. The same model was used for both large and small stores (defined by the level of product that could be stored on site) and further subdivided into fast-moving and slow-moving products.
 
@@ -181,7 +178,12 @@ The purpose of the MLOps maturity model is to help clarify the principles, pract
 
 The MLOps Maturity Model is built upon the following levels of technical capability:
 
-
+| Level | Description | 
+| 0 | No Ops |
+| 1 | DevOps but no MLOps |
+| 2 | Automated Training |
+| 3 | Automated Model Deployment |
+| 4 | Automated Operations (full MLOps) |
 
 The current version of the MLOps Maturity Model at the time of this writing is summarized in the technical reference document [MLOps Maturity Model](./mlops-maturity-model.md). And, since this model is still evolving, you can see the [<cite>MLOps Maturity Model</cite>](https://csefy19.visualstudio.com/CSECodeShare/_git/CSECodeShare?path=%2Fbest-practices%2Fml-ops%2Fmlops-maturity-model.md&version=GBmaster) for the latest working version with community contributions to help refine the model (authorization is required).
 
@@ -203,34 +205,23 @@ Multiple pipelines were ultimately used to meet all process requirements. How th
 
 ## The Basic ML Process
 
-:::row:::
-    :::column:::
-        The basic ML process is like traditional software development but has significant differences. Figure 5 illustrates the major steps in the ML process.
+The basic ML process is like traditional software development but has significant differences. Figure 5 illustrates the major steps in the ML process.
 
-        The Experiment phase is unique to the Data Science Life cycle. This life cycle is based on how data scientists (as opposed to code developers) traditionally do their work. The diagram in Figure 6 illustrates this life cycle in more detail.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/basic-ml-process-flow.png" alt-text="basic ML process flow diagram":::
-            *Figure 5 - Basic ML Process Flow*
-    :::column-end:::
-:::row-end:::
+The Experiment phase is unique to the Data Science Life cycle. This life cycle is based on how data scientists (as opposed to code developers) traditionally do their work. The diagram in Figure 6 illustrates this life cycle in more detail.
 
-:::row:::
-    :::column span="3":::
-        :::image type="content" source="./media/data-science-lifecycle-diag.png" alt-text="{alt-text}":::
+![basic ML process flow diagram](./media/basic-ml-process-flow.png)
 
-        *Figure 6 - Data Science Lifecycle*
-    :::column-end:::
-    :::column:::
-         
-    :::column-end:::
-:::row-end:::
+*Figure 5 - Basic ML Process Flow*
+
+![alt-text](./media/data-science-lifecycle-diag.png)
+
+*Figure 6 - Data Science Lifecycle*
 
 Integrating this data development process into MLOps poses a challenge. In this engagement, the following pattern was used to integrate the process into a form supportable by MLOps.
 
-:::image type="content" source="./media/mlops-integrated-pattern.png" alt-text="{alt-text}":::
+![alt-text](./media/mlops-integrated-pattern.png)
 
-<p style="text-align:center;font-style:italic;">Figure 7 - Pattern for integrating Data Development Process and MLOps</p>
+*Figure 7 - Pattern for integrating Data Development Process and MLOps*
 
 The role of MLOps is to create a coordinated process that can efficiently support larger scale development/deployment environments common in production level systems. Conceptually, the MLOps model must include all process requirements from Experimentation to Scoring.
 
@@ -240,12 +231,12 @@ Another fundamental change is that the data scientist needs the capability to ex
 
 The final MLOps process model is shown conceptually in Figure 8.
 
-:::image type="content" source="./media/mlops-conceptual-model.png" alt-text="final MLOps model conceptual diagram":::
+![final MLOps model conceptual diagram](./media/mlops-conceptual-model.png)
 
-<p style="text-align:center;font-style:italic;" tag="caption">Figure 8 - Final Conceptual MLOps Model</p>
+*Figure 8 - Final Conceptual MLOps Model*
 
 > [!IMPORTANT]
-> “Scoring” is the final step where the ML model is run against data that is used to make predictions based on the data used to train the model. This addresses the basic business use case requirement for *demand forecasting*. The quality of the predictions is rated using the *mean absolute percentage error (MAPE)*. MAPE is also known as *mean absolute percentage deviation (MAPD)*, which is a measure of prediction accuracy of statistical forecasting methods and as a loss function for regression problems in machine learning. In this engagement, a MAPE <= 45% was considered significant.
+> “Scoring” is the final step where the ML model is run against data that is used to make predictions based on the data used to train the model. This addresses the basic business use case requirement for *demand forecasting*. The quality of the predictions is rated using the MAPE. MAPE is also known as *mean absolute percentage deviation (MAPD)*, which is a measure of prediction accuracy of statistical forecasting methods and as a loss function for regression problems in machine learning. In this engagement, a MAPE <= 45% was considered significant.
 
 <!-- For more information about the MLOps process flow used in this engagement and the automation trigger plan, see the companion Reference Architecture Document. -->
 
@@ -260,9 +251,9 @@ Applying CI/CD development and release workflows to the ML life cycle can be des
 
 The MLOps process flow shown in Figure 9 should be considered as an archetype framework for other engagements that might make similar architectural choices.
 
-:::image type="content" source="./media/mlops-process-flow.png" alt-text="MLOps process flow archetype diagram":::
+![MLOps process flow archetype diagram](./media/mlops-process-flow.png)
 
-<p style="text-align:center;font-style:italic;" tag="caption">Figure 9 - MLOps Archypical Process Flow</p>
+*Figure 9 - MLOps Archypical Process Flow
 
 ### Code Validation Tests
 
@@ -331,9 +322,9 @@ Similar issues will certainly be encountered in other ML engagements as they are
 
 ### Logical Architecture
 
-:::image type="content" source="./media/mlops-logical-architecture.png" alt-text="diagram of logical MLOps architecture":::
+![diagram of logical MLOps architecture](./media/mlops-logical-architecture.png)
 
-<p style="text-align:center;font-style:italic;" tag="caption">Figure 10 - Data Orchestration</p>
+*Figure 10 - Data Orchestration*
 
 What is not depicted in the Logical Architecture diagram (Figure 10) is the Data conditioning that must occur prior to data insertion into the Azure Data Lake. This preconditioning is necessary to resolve the data sets that are derived from multiple sources using microservices operating as Azure Functions. These microservices are customized to fit the data sources and transform them into a standardized csv format that can be consumed by the training and scoring pipelines.
 
@@ -343,17 +334,17 @@ There were many design options available for the system architecture. What is sh
 
 <!-- A detailed discussion of the resulting system architecture and design that fit the customer’s needs can be found in the Reference Architecture Document that accompanies this whitepaper. -->
 
-:::image type="content" source="./media/system-architecture.png" alt-text="system architecture supported by MLOps":::
+![system architecture supported by MLOps](./media/system-architecture.png)
 
-<p style="text-align:center;font-style:italic;" tag="caption">Figure 11 - System Architecture Supported by MLOps</p>
+*Figure 11 - System Architecture Supported by MLOps*
 
 ### Batch Processing Architecture
 
 The architectural design was devised to support a batch data processing scheme as illustrated in Figure 12. Alternate architectures are possible but must support MLOps processes. Full use of available Azure services was a design requirement.
 
-:::image type="content" source="./media/batch-processing-architecture.png" alt-text="bath processing architecture diagram":::
+![bath processing architecture diagram](./media/batch-processing-architecture.png)
 
-<p style="text-align:center;font-style:italic;" tag="caption">Figure 12 - Batch Processing Architecture Requirement</p>
+*Figure 12 - Batch Processing Architecture Requirement*
 
 ## Solution Overview
 
@@ -421,13 +412,13 @@ As mentioned, dashboards were used to visually display the ML model data. These 
 
 Because these kinds of dashboards are populated according to the nature of the data and how it is being processed and analyzed, the exact layout of the dashboards must be designed for each individual use case. Two sample dashboards are shown below in Figures 13 and 14.
 
-:::image type="content" source="./media/ml-training-dashboard.png" alt-text="sample screenshot of ML training dashboard":::
+![sample screenshot of ML training dashboard](./media/ml-training-dashboard.png)
 
-<p style="text-align:center;font-style:italic;" tag="caption">Figure 13 - ML Training Dashboard</p><br>
+*Figure 13 - ML Training Dashboard*
 
-:::image type="content" source="./media/ml-monitoring-dashboard.png" alt-text="sample screenshot of ML monitoring dashboard":::
+![sample screenshot of ML monitoring dashboard](./media/ml-monitoring-dashboard.png)
 
-<p style="text-align:center;font-style:italic;" tag="caption">Figure 14 - ML Monitoring Dashboard</p><br>
+*Figure 14 - ML Monitoring Dashboard*
 
 The overriding criteria for the design of these dashboards is that they provide readily usable information for consumption by the end user of the ML model predictions. For more information, see [*Observability*](https://csefy19.visualstudio.com/CSECodeShare/_git/CSECodeShare?path=%2Fengagements%2F2019%2Fpepsico-storedna%2Fdocs%2Fobservability.md&version=GBmaster) and [*Model Health*](https://csefy19.visualstudio.com/CSECodeShare/_git/CSECodeShare?path=%2Fengagements%2F2019%2Fpepsico-storedna%2Fdocs%2Fmodel-health.md&version=GBmaster).
 
@@ -446,21 +437,37 @@ See the earlier section *End User Interfaces for Observability, Monitoring, and 
 
 ### Technologies Used
 
-* Azure Machine Learning Service (Azure ML Service) 
+* [Azure Machine Learning Service](https://azure.microsoft.com/services/machine-learning/)
   * Azure ML Compute
   * Azure ML Pipelines
   * Azure ML Model Registry
-* Azure DevOps Pipelines
-* Azure Data Factory (ADF)
-* Azure Functions for Python
-* Azure Monitor Logs / Application Insights
-* SQL Database
-* Azure Dashboards
-* Power BI
+* [Azure DevOps Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
+* [Azure Data Factory (ADF)}(https://azure.microsoft.com/services/data-factory/)
+* {Azure Functions for Python](https://azure.microsoft.com/services/functions/)
+* [Azure Monitor](https://azure.microsoft.com/services/monitor/)
+  * Logs
+  * Application Insights
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+* [Azure Dashboards](/azure/azure-portal/azure-portal-dashboards)
+* [Power BI](https://powerbi.microsoft.com/)
 
 The selection of which kind of pipeline service to use for a specific process step is discussed in detail in the companion document [*Azure Machine Learning Development: Decision Guide for Optimal Tool Selection*](./aml-decision-tree.md).
 
 ### Assets
+
+| Asset | Overview | Type |
+| ----- | -------- | ---- |
+| MLOps in a Box | MLOps in a Box is designed to help kick-start CSE customer engagements related to managing production machine learning life cycle with the best practices of DevOps. | Guidance Document |
+| MLOps Maturity Model | Maturity model helps clarify the DevOps principles and practices that should be applied, estimate the scope of the required work, define some success criteria and identify which deliverables will be handed over at the conclusion of the engagement. | Guidance Document |
+| MLOps for Batch Prediction | Guidance on implementing Batch Inferencing is solutions that do not require real time predictions. | Guidance Document |
+| MLOps Customer Engagements User Research | HX conduced 1st party research across CSE SEs based on past MLOps customer engagements to determine roles, asks and issues across personas. | User Research |
+| Observability User Research | HX conducted 1st party research to validate our current understanding of observability requirements, as well as dive deeper to identify any previously unarticulated needs | User Research |
+| MLOps Project Folder Structure | Template Folder structure to implement DevOps best practices in Azure DevOps. | Template |
+| MLOpsPython Code Template | We look to MLOpsPython as the best starting place as a code template and code structure for most ML projects. | Code |
+| Azure ML Functions Connector | This module contains the azure functions for triggering an Azure ML pipeline and getting the current status of the Azure ML run. | Code |
+| Logger | This module contains the logger library which allows logging into various services. | Code |
+| MLOps - Model Orchestration with DevOps and Azure ML | This module contains the Python Azure ML code, model utilities, and infrastructure files to build the model orchestration portion of the MLOps architecture. | Code |
+| Azure ML Functions Connector | This module contains the azure functions for triggering an Azure ML pipeline and getting the current status of the Azure ML run. | Code |
 
 
 
@@ -540,14 +547,14 @@ The selection of which kind of pipeline service to use for a specific process st
 
 ### Background information
 
-* [Learn more about MLOps](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-model-management-and-deployment)
+* [Learn more about MLOps](/azure/machine-learning/service/concept-model-management-and-deployment)
 * [MLOps on Azure](https://github.com/microsoft/MLOps)
-* [Azure Monitor Visualizations](https://docs.microsoft.com/en-us/azure/azure-monitor/visualizations)
+* [Azure Monitor Visualizations](/azure/azure-monitor/visualizations)
 * [ML Lifecycle](https://channel9.msdn.com/Shows/AI-Show/MLOps-for-managing-the-end-to-end-life-cycle-with-Azure-Machine-Learning-service?term=MLOps&lang-en=true)
 * [Azure DevOps Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml)
 * [Azure ML CLI](https://aka.ms/azmlcli)
 * [Create event driven workflows using Azure Machine Learning and Azure Event Grid for scenarios such as triggering retraining pipelines](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-event-grid)
-* [Set up model training & deployment with Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)
+* [Set up model training & deployment with Azure DevOps](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)
 * [Set up MLOps with Azure ML and Databricks](https://github.com/Azure-Samples/MLOpsDatabricks)
 
 ## Credits

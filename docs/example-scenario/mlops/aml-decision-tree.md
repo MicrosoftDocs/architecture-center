@@ -5,7 +5,6 @@ description: How to choose the best services for building an end-to-end machine 
 author: danazlin
 ms.author: dermar
 ms.date: 06/01/2020
-ms.topic: MLOps, MLOps Maturity Model
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: fcp
@@ -89,24 +88,17 @@ For those who do not want to code their own solutions, a set of tools is availab
 The primary issue you’ll encounter here is that you must work within the constraints of the tools. However, if your use case fits within these limitations, this could be a good solution.
 These tools are evolving, and their capabilities will expand over time. So you should familiarize yourself with their latest features at the time you consider them. Figure 1 summarizes the process for the No Code option.
 
-:::row:::
-    :::column span="3":::
-        :::image type="content" source="./media/dt-no-code-option.png" alt-text="no code option process diagram":::
-    :::column-end:::
-    :::column:::
-        
-    :::column-end:::
-:::row-end:::
+![no code option process diagram](./media/dt-no-code-option.png)
 
-<p style="text-align:center;font-style:italic;" tag="caption">FIGURE 1 - NO CODE OPTION</p>
+*FIGURE 1 - NO CODE OPTION*
 
 ### Code
 
 For those who want to code or need the flexibility that a coded solution offers, all the options described have a “code-like” interface. Or, at least a representation of processing logic that can be exported to JSON or YAML format and can be checked into a code repository. From there, deployment can be handled through Azure DevOps or scripts. Figure 2 summarizes the Code option process.
 
-:::image type="content" source="./media/dt-code-option.png" alt-text="code option process diagram":::
+![code option process diagram](./media/dt-code-option.png)
 
-<p style="text-align:center;font-style:italic;" tag="caption">FIGURE 2 - CODE OPTION</p>
+*FIGURE 2 - CODE OPTION*
 
 ## Experimentation: Notebooks vs. Python/R Scripts
 
