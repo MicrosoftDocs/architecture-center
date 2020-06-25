@@ -52,7 +52,7 @@ The following practices can be adopted in a distributed architecture to help ove
   * If Audit logging is required, then it is best practice to store these security related events in a separate data store.
     * Audit log are generally required for compliance purposes in accordance with security and compliance guidelines.
 * Log data should be structured using JSON.
-* Logging operations should always be performed in an asynchronous manner. By performing logging asynchronously, it helps to reduce the overhead of the operation by delegating the call to a background task. The application does not need to await the results of the operation and thus is able to continue logical program flow. Logging frameworks should always be used first and foremost, engineering effort shouldn't always be expended in creating a logging system unless there is a clear business need. [Serilog](https://github.com/serilog) is the most popular open source logging framework and provides considerable support for the Azure ecosystem.
+* Logging operations should always be performed in an asynchronous manner. By performing logging asynchronously, it helps to reduce the overhead of the operation by delegating the call to a background task. The application does not need to await the results of the operation and thus is able to continue logical program flow. Logging frameworks should always be used first and foremost, engineering effort shouldn't always be expended in creating a logging system unless there is a clear business need. [Serilog](https://github.com/serilog) is one of the most popular open source logging frameworks, and provides considerable support for the Azure ecosystem through the use of community supported extensions.
 
 Consideration should also be taken to ensure the common [logging levels](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.logging.loglevel?view=dotnet-plat-ext-3.1) are being used appropriately once the application has been deployed, as well as during development.
 
@@ -82,11 +82,15 @@ Synthetic Logging is the process of leveraging the monitoring systems of the app
 
 Using an automation tool such as [Selenium](https://docs.microsoft.com/en-us/azure/devops/pipelines/test/continuous-test-selenium?view=azure-devops) the development team can create a test suite of user interactions. 
 
+For microservices and API First Services, [Apache JMeter](https://jmeter.apache.org/) can be utilised to test the functional behaviour of a service, as well as understand the performance curve continued loading. 
+
+For testing and development [Postman](https://www.postman.com/), can be leveraged to test API's locally and through integration with the CI/CD pipeline provide a way to automate API testing. 
+
 These tests can be scheduled, or run on an ad hoc basis. This allows for the continued monitoring of availability; response time and functionality. 
 
 Synthetic logging is a valuable tool as it helps the Development and Operations Team to identify problems and through the analysis of the provided telemetry data ascertain whether the application is running slow, or experiencing other issues.
 
-Synthetic logging being a simulation of behaviour, should be leveraged to augment established traffic patterns as well as critical application processes and is able to ensure that the non functional requirements of availability; performance and resilience are met.
+Synthetic transactions can be used to simulate behaviour in your application. Synthetic transactions should be leveraged to augment established traffic patterns, as well as critical application processes are behaving as expected. Synthetic transactions when used appropriately can to ensure that the non functional requirements of availability; performance and resilience are met.
 
 Another key aspect that should be considered when logging, is the structure of the log itself. Log data is essentially unstructured data, due to the unstructured nature, it can be hard to query for specific events; implement automated alerting when an event condition occurs and correlate related events. 
 
@@ -103,8 +107,8 @@ When defining the structure of the log, context should be added to every request
 * Pertinent information from the request type that can be used to help diagnose problems
 
 <pre>
-<code>
 
+```json
 {
   "CorrelationId": "715eec8f-fefc-45e2-a352-95aa389ddb8f"
   "Environment": "Live",
@@ -120,8 +124,8 @@ When defining the structure of the log, context should be added to every request
       "Method": "PaymentProcesser"
   } 
 }
+```
 
-</code>
 </pre>
 
 With structured logging, it becomes easier to search through logs when issues occur as well as allow automated alerting to action on the severity of the message.
@@ -168,7 +172,7 @@ Application Insights can be leveraged for [distributed tracing](https://docs.mic
 
 ### Azure Monitor
 
-[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) is a service that maximizes the availability and performance of cloud-native applications. Collecting, analysing and acting on telemetry from cloud-native applications. With Azure Monitor, teams can create operational dashboards and detect issues and the ability to Alert Teams of critical situations.
+[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) is a service that maximizes the availability and performance of cloud-native applications. Collecting, analyzing and acting on telemetry from cloud-native applications. With Azure Monitor, teams can create operational dashboards and detect issues and the ability to Alert Teams of critical situations.
 
 If the team leverages an IT Service Management (ITSM) system, Logic Apps can be used to call the REST endpoint of the ITSM system and create the relevant issue with the appropriate severity level. See [Stream Analytics and Azure Logic Apps](https://docs.microsoft.com/archive/blogs/vinaysin/consuming-azure-stream-analytics-output-in-azure-logic-apps) for further information. This allows for quicker notification to all relevant teams and ensures that triaging is more immediate and useful.
 
@@ -176,10 +180,10 @@ When building a cloud-native distributed microservices architecture, teams are a
 
 The diagram below depicts an architecture in which the above services are leverages to build a logging and monitoring system. Application Events are emitted from both the API and the UI to Application Insights as well as Azure Event Hub.
 
-![](Paas_Tracing_Logg.jpeg)
+![](Paas_Tracing_Logg.png)
 
 For architectures that leverage Azure Virtual Machines, the following architecture includes Azure Monitor. Azure Monitor for VMs monitors the performance and health of the Virtual Machines that are used to run the application.
-![](Iaas_Tracing_Logg.jpeg)
+![](Iaas_Tracing_Logg.png)
 
 Once an application has been deployed, the focus moves to ensure that cloud-native applications are highly reliable, scalable, redundant, resiliency and security.
 
@@ -187,7 +191,7 @@ Once an application has been deployed, the focus moves to ensure that cloud-nati
 
 From a security perspective, great work is invested in ensuring that the application is built as securely as possible using modern working methods and practices. However, cloud-native applications are not immune to security issues. Cloud-native applications are a target of attack from rogue agents as much as traditional on-premise systems.
 
-[Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) is a Security Information and Event Management (SIEM) tool. Sentinel provides a unified overview of the cloud estate, in which information is provided through the native integration of Azure Services. Not only is Sentinel able to collect information from the cloud, but it can also collect information from downstream dependant systems hosted within a customer's data centre.
+[Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) is a Security Information and Event Management (SIEM) tool. Sentinel provides a unified overview of the cloud estate, in which information is provided through the native integration of Azure Services. Not only is Sentinel able to collect information from the cloud, but it can also collect information from downstream dependant systems hosted within a customer's data center.
 
 Azure Sentinel provides a dashboard view of the current security posture and allows administrators a global view on potentially malicious events such as failed logins (suspicious credentials) and the relevant connections from these events. SRE teams can leverage Azure Log Analytics to perform further analysis.
 
