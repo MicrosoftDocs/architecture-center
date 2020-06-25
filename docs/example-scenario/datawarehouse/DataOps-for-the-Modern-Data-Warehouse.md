@@ -5,9 +5,8 @@ author: tmmarshall
 ms.date: 07/01/2020
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
-ms.custom:
-- fcp
+ms.subservice: example-scenario
+ms.custom: fcp
 ---
 
 # DataOps for the Modern Data Warehouse
