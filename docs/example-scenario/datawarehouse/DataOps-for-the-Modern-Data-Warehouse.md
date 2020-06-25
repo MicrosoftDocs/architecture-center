@@ -10,7 +10,7 @@ ms.custom:
 - fcp
 ---
 
-# DataOps for the Modern Data Warehouse 
+# DataOps for the Modern Data Warehouse
 
 ## Introduction
 
