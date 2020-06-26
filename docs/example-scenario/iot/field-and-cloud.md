@@ -17,50 +17,38 @@ connected to **Edge Gateways** to implement intelligent capabilities
 outside the application. This enables functionality such as aggregation,
 or filtering, of device events before being sent to the IoT Platform,
 localized decision-making, and [protocol and identity
-translation](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-as-gateway)
+translation](https://docs.microsoft.com/azure/iot-edge/iot-edge-as-gateway)
 on-behalf-of devices.
 
 ![A diagram illustrating the flow of events, commands, and protocols as they are routed through a field or cloud edge gateway to the Azure IoT Platform](media/field-edge-gateways.png) 
 
-+----------------------------------+----------------------------------+
-| Gateway Type                     | Description                      |
-+==================================+==================================+
-| [**Field Gateway**(IoT           | **Extends cloud capabilities     |
-| Edge)](http                      | into Edge Devices:** Edge        |
-| s://docs.microsoft.com/en-us/azu | Devices act as a communication   |
-| re/iot-edge/iot-edge-as-gateway) | enabler, local device control    |
-|                                  | system, and data processor for   |
-|                                  | an IoT Hub. Some characteristics |
-|                                  | include:                         |
-|                                  |                                  |
-|                                  | -   Specialized on-premises      |
-|                                  |     device that connect to IoT   |
-|                                  |     Platform.                    |
-|                                  |                                  |
-|                                  | -   Can run cloud workflows      |
-|                                  |     on-premises using [Edge      |
-|                                  |     Modules](ht                  |
-|                                  | tps://docs.microsoft.com/en-us/a |
-|                                  | zure/iot-edge/iot-edge-modules). |
-|                                  |                                  |
-|                                  | -   Can receive events from      |
-|                                  |     devices in offline           |
-|                                  |     scenarios.                   |
-+----------------------------------+----------------------------------+
-| [**Cloud Gateway**(Protocol      | **Extends device capabilities    |
-| Gateway)](https://               | into the cloud:** Enable         |
-| docs.microsoft.com/en-us/azure/i | communication to and from        |
-| ot-hub/iot-hub-protocol-gateway) | devices with the IoT Platform.   |
-|                                  | Some characteristics include:    |
-|                                  |                                  |
-|                                  | -   Can do protocol and identity |
-|                                  |     translation to and from IoT  |
-|                                  |     Hub.                         |
-|                                  |                                  |
-|                                  | -   Device instances are hosted  |
-|                                  |     in the cloud gateway.        |
-|                                  |                                  |
-|                                  | -   Gateway can execute          |
-|                                  |     additional logic on behalf   |
-|                                  |     of devices.                  |
-+----------------------------------+----------------------------------+
+<table>
+<thead>
+    <tr>
+        <th>Gateway Type</th>
+        <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td width=20%><a href="https://docs.microsoft.com/azure/iot-edge/iot-edge-as-gateway">Field Gateway <br> (IoT Edge)</a></td>
+        <td><b>Extends cloud capabilities into Edge Devices:</b> Edge Devices act as a communication enabler, local device control system, and data processor for an IoT Hub. Some characteristics include:<br>
+            <ul>
+                <li>Specialized on-premises device that connect to IoT Platform.</li>
+                <li>Can run cloud workflows on-premises using <a href="https://docs.microsoft.com/azure/iot-edge/iot-edge-modules">Edge Modules</a>.</li>
+                <li>Can receive events from devices in offline scenarios.</li>
+            </ul>
+        </td>
+    </tr>
+        <tr>
+        <td><a href="https://docs.microsoft.com/azure/iot-hub/iot-hub-protocol-gateway">Cloud Gateway<br>(Protocol Gateway)</a></td>
+        <td><b>Extends device capabilities into the cloud:</b> Enable communication to and from devices with the IoT Platform. Some characteristics include:<br>
+            <ul>
+                <li>Can do protocol and identity translation to and from IoT Hub.</li>
+                <li>Device instances are hosted in the cloud gateway.</li>
+                <li>Gateway can execute additional logic on behalf of devices.</li>
+            </ul>
+        </td>
+    </tr>
+</tbody>
+</table>
