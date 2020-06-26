@@ -84,4 +84,4 @@ added considerations (indicated by red lines in the following diagram):
     After a certificate is revoked in DPS, the device should be
     individually removed from the Hub (either manually through dashboard
     or programmatically using [Registry Manager
-    APIs](https://docs.microsoft.com/en-us/rest/api/iothub/service/registrymanager)).
+    APIs](https://docs.microsoft.com/rest/api/iothub/service/registrymanager)).

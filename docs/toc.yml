@@ -952,7 +952,7 @@ items:
         href: solution-ideas/articles/telemetry-analytics.md
     - name: Concepts
       items:
-        - name: Introduction to Azure Iot solutions
+        - name: Introduction to Azure IoT solutions
           href: example-scenario/iot/introduction-to-solutions.md
         - name: Devices, the IoT Platform, and applications
           href: example-scenario/iot/devices-platform-application.md
