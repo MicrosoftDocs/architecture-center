@@ -6,7 +6,7 @@ author: danazlin
 ms.date: 06/26/2020
 ms.topic: overview
 ms.service: architecture-center
-ms.subservice: example-scenarios
+ms.subservice: example-scenario
 ms.custom:
 - fcp
 ---
