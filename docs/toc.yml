@@ -957,7 +957,7 @@ items:
         - name: Devices, the IoT Platform, and applications
           href: example-scenario/iot/devices-platform-application.md
         - name: Field and cloud edge gateways
-          href: example-scenario/iot/field-cloud-gateways.md
+          href: example-scenario/iot/field-and-cloud.md
         - name: Application stamping
           href: example-scenario/iot/application-stamps.md
   - name: Management and Governance
