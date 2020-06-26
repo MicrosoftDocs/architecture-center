@@ -48,7 +48,7 @@ The following packet walk example shows how a client accesses a VM-hosted applic
 2. The Azure Firewall [Destination NAT (DNAT) rule][azfw-dnat] translates the destination IP address to the application IP address inside the virtual network. The Azure Firewall also *Source NATs (SNATs)* the packet if it performs DNAT. For more information, see [Azure Firewall known issues][azfw-issues]. The VM sees the following IP addresses in the incoming packet:
    - Source IP address: 192.168.100.7 
    - Destination IP address: 192.168.1.4
-3. The VM answers the application request, reverting source and destination IP addresses. The inbound flow doesn't require a *user-defined route (UDR)*, because the source IP is Azure Firewall's IP address. Establish a UDR for outbound connections, making sure packets to the public internet go through the Azure Firewall.
+3. The VM answers the application request, reversing source and destination IP addresses. The inbound flow doesn't require a *user-defined route (UDR)*, because the source IP is Azure Firewall's IP address. Establish a UDR for outbound connections, making sure packets to the public internet go through the Azure Firewall.
    - Source IP address: 192.168.1.4
    - Destination IP address: 192.168.100.7
 4. Finally, Azure Firewall undoes the SNAT and DNAT operations, and delivers the response to the client:
@@ -76,7 +76,7 @@ The following packet walk example shows how a client accesses the VM-hosted appl
    - Source IP address: 192.168.200.7 (the private IP address of the Application Gateway instance)
    - Destination IP address: 192.168.1.4
    - X-Forwarded-For header: ClientPIP
-3. The VM answers the application request, reverting source and destination IP addresses. The VM already knows how to reach the Application Gateway, so doesn't need a UDR.
+3. The VM answers the application request, reversing source and destination IP addresses. The VM already knows how to reach the Application Gateway, so doesn't need a UDR.
    - Source IP address: 192.168.1.4
    - Destination IP address: 192.168.200.7
 4. Finally, the Application Gateway instance answers the client:
@@ -130,7 +130,7 @@ Network traffic from the public internet follows this flow:
    - Source IP address: 192.168.200.7 (the private IP address of the Application Gateway instance)
    - Destination IP address: 192.168.1.4
    - X-Forwarded-For header: ClientPIP
-4. The VM answers the request, reverting source and destination IP addresses. The UDR to `192.168.200.0/24` captures the packet sent back to the Application Gateway and redirects it to Azure Firewall, while preserving the destination IP toward the Application Gateway.
+4. The VM answers the request, reversing source and destination IP addresses. The UDR to `192.168.200.0/24` captures the packet sent back to the Application Gateway and redirects it to Azure Firewall, while preserving the destination IP toward the Application Gateway.
    - Source IP address: 192.168.1.4
    - Destination IP address: 192.168.200.7
 5. Here again the Azure Firewall doesn't SNAT the traffic, since it's going to a private IP address, and forwards the traffic to the Application Gateway.
@@ -162,7 +162,7 @@ Network traffic from the public internet follows this flow:
    - Source IP address: 192.168.200.7 (the private IP address of the Application Gateway instance)
    - Destination IP address: 192.168.1.4
    - X-Forwarded-For header: 192.168.100.7
-4. The VM answers the Application Gateway, reverting source and destination IP addresses:
+4. The VM answers the Application Gateway, reversing source and destination IP addresses:
    - Source IP address: 192.168.1.4
    - Destination IP address: 192.168.200.7
 5. The Application Gateway replies to the SNAT source IP address of the Azure Firewall instance. Even if the connection is coming from a specific Application Gateway instance like `.7`, Azure Firewall sees the internal IP address of the Application Gateway `.4` as the source IP:
