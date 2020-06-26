@@ -162,7 +162,7 @@ Currently, there are 3 standard templates available on [GitHub](https://github.c
 
 ## Cobalt vs Bedrock
 
-Cobalt hosts reusable Terraform modules to scaffold managed container services like [ACI](https://docs.microsoft.com/en-us/azure/container-instances/) and [Application Services](https://docs.microsoft.com/en-us/azure/app-service/) following a DevOps workflow. While [Bedrock](https://github.com/Microsoft/bedrock) targets Kubernetes based container orchestration workloads while following a [GitOps](https://medium.com/@timfpark/highly-effective-kubernetes-deployments-with-gitops-c7a0354f1446) workflow. Cobalt templates (manifests) reference Terraform modules like virtual networks, traffic manager, and so on, to define infrastructure deployments. Bedrock uses Terraform to pre-configure environment deployment, but also uses Fabrikate templates to define manifests for deployment automation.
+Cobalt hosts reusable Terraform modules to scaffold managed container services like [ACI](https://docs.microsoft.com/azure/container-instances/) and [Application Services](https://docs.microsoft.com/azure/app-service/) following a DevOps workflow. While [Bedrock](https://github.com/Microsoft/bedrock) targets Kubernetes based container orchestration workloads while following a [GitOps](https://medium.com/@timfpark/highly-effective-kubernetes-deployments-with-gitops-c7a0354f1446) workflow. Cobalt templates (manifests) reference Terraform modules like virtual networks, traffic manager, and so on, to define infrastructure deployments. Bedrock uses Terraform to pre-configure environment deployment, but also uses Fabrikate templates to define manifests for deployment automation.
 
 ## Conclusions
 
