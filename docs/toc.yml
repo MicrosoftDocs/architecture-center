@@ -1279,5 +1279,9 @@ items:
         href: solution-ideas/articles/digital-marketing-smb.md
       - name: Web app monitoring on Azure
         href: reference-architectures/app-service-web-app/app-monitoring.md
+      - name: Web and mobile applications with MySQL, Cosmos DB, and Redis 
+        href: solution-ideas/articles/webapps.md
+      - name: Dynamics Business Central as a Service on Azure
+        href: solution-ideas/articles/business-central.md
 - name: Cloud Adoption Framework
   href: https://docs.microsoft.com/azure/cloud-adoption-framework
