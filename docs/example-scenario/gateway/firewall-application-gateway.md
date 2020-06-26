@@ -191,7 +191,7 @@ Even if all clients are located on-premises or in Azure, both the Azure Applicat
 
 ## Hub and spoke topology
 
-The designs in this article still apply in a *hub and spoke* topology, where shared resources in a central hub virtual network are connected to applications in separate spoke virtual networks via virtual network peerings.
+The designs in this article still apply in a *hub and spoke* topology, where shared resources in a central hub virtual network connect to applications in separate spoke virtual networks via virtual network peerings.
 
 ![Hybrid design with VPN/ER Gateway and hub and spoke](./images/hubnspoke_500.png)
 
