@@ -1021,12 +1021,6 @@ items:
       items:
       - name: Basic enterprise integration on Azure
         href: reference-architectures/enterprise-integration/basic-enterprise-integration.md
-      - name: Deployment in App Service Environments
-        items:
-          - name: Standard deployment
-            href: reference-architectures/enterprise-integration/ase-standard-deployment.md
-          - name: High availability deployment
-            href: reference-architectures/enterprise-integration/ase-high-availability-deployment.md
       - name: Enterprise business intelligence
         href: reference-architectures/data/enterprise-bi-synapse.md
       - name: Enterprise integration using queues and events
@@ -1233,6 +1227,12 @@ items:
       items:
       - name: Basic web application
         href: reference-architectures/app-service-web-app/basic-web-app.md
+      - name: Deployment in App Service Environments
+        items:
+          - name: Standard deployment
+            href: reference-architectures/enterprise-integration/ase-standard-deployment.md
+          - name: High availability deployment
+            href: reference-architectures/enterprise-integration/ase-high-availability-deployment.md 
       - name: E-commerce front end
         href: example-scenario/apps/ecommerce-scenario.md
       - name: E-commerce website running in ASE
@@ -1279,5 +1279,7 @@ items:
         href: reference-architectures/app-service-web-app/app-monitoring.md
       - name: Web and mobile applications with MySQL, Cosmos DB, and Redis 
         href: solution-ideas/articles/webapps.md
+      - name: Dynamics Business Central as a Service on Azure
+        href: solution-ideas/articles/business-central.md
 - name: Cloud Adoption Framework
   href: https://docs.microsoft.com/azure/cloud-adoption-framework
