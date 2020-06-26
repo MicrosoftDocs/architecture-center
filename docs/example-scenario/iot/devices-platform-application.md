@@ -2,7 +2,7 @@
 title: Devices, IoT Platform, and Application
 titleSuffix: Azure Example Scenarios
 description: The topological relationship between devices, the Azure IoT Platform, and an application.
-author: mcosner
+author: wamachine
 ms.date: 05/05/2020
 ms.topic: example-scenario
 ms.service: architecture-center
@@ -26,14 +26,14 @@ pipelines that takes place across these three parts. 
 Solution Part | Description
 --- | ---
 Devices |  The physical (or virtual) "things" that connect to an IoT Application to send events and receive commands. Devices have one or more of the following characteristics: 
-<br> | Possesses a unique **Identity** that distinguishes it with the solution.  
-<br> | Has **Properties**, or state, that are accessible by applications.
-<br> | Sends **Events** to the IoT Platform for applications to act on.
-<br> | Receives **Commands** from applications to take action on.
-IoT Platform | The collection of services that allow devices and applications to connect and communicate with one another.  The Azure IoT Platform will, at minimum, provide the following capabilities:
+<br> | Possess a unique **Identity** that distinguishes it within the solution.  
+<br> | Have **Properties**, or state, that are accessible to applications.
+<br> | Send **Events** to the IoT Platform for applications to act on.
+<br> | Receive **Commands** from applications to take action on.
+IoT Platform | The collection of services that allow devices and applications to connect and communicate with one another.  The Azure IoT Platform should, at minimum, provide the following capabilities:
 <br> | **Broker** authentication, connectivity, and secure communication between devices and trusted applications. 
-<br> | Ability to execute in-place **Insights** on incoming events to route the events to desired endpoints. 
-Application | The collection of scenario specific services and components unique to a given IoT Solution. IoT Applications will typically have the following characteristics: 
+<br> | Generate contextual **Insights** on incoming events to to determine the routing of events to desired endpoints.
+Application | The collection of scenario-specific services and components unique to a given IoT Solution. IoT Applications will typically have the following characteristics: 
 <br> | Composed of a mix of Azure (and/or other) services for compute, storage, and event endpoints, in combination with unique application business logic. 
 <br> | Event workflows to receive and process incoming device events. 
 <br> | Action workflows to send commands to devices or other processes. 
