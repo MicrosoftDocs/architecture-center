@@ -8,7 +8,9 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
-- fcp
+  - fcp
+ms.category:
+  - security
 ---
 
 # Azure Active Directory in Security Operations
@@ -19,9 +21,9 @@ Network security dominated SOC operations when all services and devices were con
 
 Securing identities in the cloud is a high priority.
 
-- A 2019 IBM [study of data breach incidents](https://www.all-about-security.de/fileadmin/micropages/Fachartikel_28/2019_Cost_of_a_Data_Breach_Report_final.pdf) reported that the average global cost of a data breach was $3.92M dollars, with the US average cost closer to $8.2M.
+- Verizon's [2020 data breach investigations report](https://enterprise.verizon.com/resources/reports/dbir/2020/summary-of-findings/) stated that 37% involved use of stolen credentials, and 22% of data breaches involved phishing.
 
-- Verizon's [2019 data breach investigations report](https://enterprise.verizon.com/resources/reports/dbir/?cmp=paid_search:bing:ves_us:gm:awareness&utm_medium=paid_search&utm_source=bing&utm_campaign=ves_us&utm_content=gm&utm_term=awareness&gclid=CLnp-ujPi-kCFQw6fwodhE8CEw&gclsrc=ds) stated that 32% of data breaches involved phishing, and 29% involved use of stolen credentials.
+- A 2019 IBM [study of data breach incidents](https://www.all-about-security.de/fileadmin/micropages/Fachartikel_28/2019_Cost_of_a_Data_Breach_Report_final.pdf) reported that the average global cost of a data breach was $3.9M, with the US average cost closer to $8.2M.
 
 - The [Microsoft 2019 security intelligence report](https://www.microsoft.com/security/blog/2019/02/28/microsoft-security-intelligence-report-volume-24-is-now-available/) reported that phishing attacks increased by a margin of 250% between January and December of 2018.
 
@@ -66,9 +68,9 @@ The following security processes and components contribute to this Azure AD IDaa
 
 - [Smart lockout](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout) compares legitimate authentication attempts with brute-force attempts to gain unauthorized access. Under the default smart lockout policy, an account locks out for one minute after 10 failed sign-in attempts. As sign-in attempts continue to fail, the account lockout time increases. You can use policies to adjust the settings for the appropriate mix of security and usability for your organization.
 
-- [Multi-factor authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) requires multiple forms of authentication when users attempt to access protected resources. Most users are familiar with using something they know, like a password, when accessing resources. MFA asks users to also demonstrate something that they have, like access to a trusted device, or something that they are, like a biometric identifier. MFA can use different kinds of [authentication methods](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods) like phone calls, text messages, or [notification through the authenticator app](https://www.microsoft.com/account/authenticator).
+- [Multi-factor authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) requires multiple forms of authentication when users attempt to access protected resources. Most users are familiar with using something they know, like a password, when accessing resources. MFA asks users to also demonstrate something that they have, like access to a trusted device, or something that they are, like a biometric identifier. MFA can use different kinds of [authentication methods](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods) like phone calls, text messages, or [notification through the authenticator app](https://www.microsoft.com/en-us/account/authenticator).
 
-- [Passwordless authentication](https://www.microsoft.com/security/business/identity/passwordless) replaces the password in the authentication workflow with a smartphone or hardware token, biometric identifier, or PIN. Microsoft passwordless authentication can work with Azure resources like [Windows hello for business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification), and the [Microsoft authenticator app](https://www.microsoft.com/account/authenticator) on mobile devices. You can also enable passwordless authentication with [FIDO2 compatible security keys](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key), which use WebAuthn and the [FIDO alliance’s Client-to-Authenticator (CTAP) protocol](https://fidoalliance.org/specifications/download/).
+- [Passwordless authentication](https://www.microsoft.com/security/business/identity/passwordless) replaces the password in the authentication workflow with a smartphone or hardware token, biometric identifier, or PIN. Microsoft passwordless authentication can work with Azure resources like [Windows hello for business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification), and the [Microsoft authenticator app](https://www.microsoft.com/en-us/account/authenticator) on mobile devices. You can also enable passwordless authentication with [FIDO2 compatible security keys](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key), which use WebAuthn and the [FIDO alliance’s Client-to-Authenticator (CTAP) protocol](https://fidoalliance.org/specifications/download/).
 
 ### App provisioning and entitlement
 

@@ -925,7 +925,7 @@ The following tables show the default settings for the built-in retry policies.
 
 | **Setting** | **Default value** | **Meaning** |
 | --- | --- | --- |
-| MaximumExecutionTime | None | Maximum execution time for the request, including all potential retry attempts. If it is not specified, then the amount of time that a request is permitted to take is unlimited. In other words, the request might hang. |
+| MaximumExecutionTime | None | Maximum execution time for the request, including all potential retry attempts. If it is not specified, then the amount of time that a request is permitted to take is unlimited. In other words, the request might stop responding. |
 | ServerTimeout | None | Server timeout interval for the request (value is rounded to seconds). If not specified, it will use the default value for all requests to the server. Usually, the best option is to omit this setting so that the server default is used. |
 | LocationMode | None | If the storage account is created with the Read access geo-redundant storage (RA-GRS) replication option, you can use the location mode to indicate which location should receive the request. For example, if **PrimaryThenSecondary** is specified, requests are always sent to the primary location first. If a request fails, it is sent to the secondary location. |
 | RetryPolicy | ExponentialPolicy | See below for details of each option. |

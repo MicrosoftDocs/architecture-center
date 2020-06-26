@@ -14,7 +14,7 @@
             <p>Automated enterprise BI</p>
         </a>
         <ul class="card-content-metadata">
-            <li>11/20/2019</li>
+            <li>6/03/2020</li>
             <li>13 min read</li>
         </ul>
         <p class="card-content-description">Automate an extract, load, and transform (ELT) workflow in Azure using Azure Data Factory with Azure Synapse Analytics.</p>

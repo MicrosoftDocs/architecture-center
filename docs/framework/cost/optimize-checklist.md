@@ -51,7 +51,7 @@ Continue to monitor and optimize the workload by using the right resources and s
     - **Optimize data transfer**. Only deploy to multiple regions if your service levels require it for either availability or geo-distribution. Data going out of Azure datacenters can add cost because pricing is based on Billing Zones.
         - [Traffic across billing zones and regions](./design-regions.md#traffic-across-billing-zones-and-regions)
 
-    - **Reduce load on servers**. Use Azure Content Delivery Network (CDN) and caching service to reduce load on front-end servers. Cachicn is suitable for servers that are continually rendering dynamic content that doesn't change frequently. 
+    - **Reduce load on servers**. Use Azure Content Delivery Network (CDN) and caching service to reduce load on front-end servers. Caching is suitable for servers that are continually rendering dynamic content that doesn't change frequently. 
 
     - **Use managed services**. Measure the cost of maintaining infrastructure and replace it with Azure PaaS or SaaS services.
         - [Managed services](./design-paas.md)

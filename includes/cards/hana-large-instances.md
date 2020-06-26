@@ -11,7 +11,7 @@
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/reference-architectures/sap/hana-large-instances">
-            <p>Run SAP HANA on Azure Large Instances</p>
+            <p>Run SAP HANA on Azure (Large Instances)</p>
         </a>
         <ul class="card-content-metadata">
             <li>4/02/2020</li>

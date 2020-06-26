@@ -426,6 +426,8 @@ items:
       href: data-guide/big-data/ai-overview.md
     - name: Machine learning at scale
       href: data-guide/big-data/machine-learning-at-scale.md
+    - name: Baseball decision analysis with ML.NET and Blazor
+      href: data-guide/big-data/baseball-ml-workload.md
     - name: Technology choices
       items:
       - name: Cognitive services
@@ -437,11 +439,13 @@ items:
       - name: R developer's guide to Azure
         href: data-guide/technology-choices/r-developers-guide.md
     - name: Architectures
-      items:
+      items:      
       - name: AI at the edge
         href: solution-ideas/articles/ai-at-the-edge.md
       - name: AI enrichment in Cognitive Search
         href: solution-ideas/articles/cognitive-search-with-skillsets.md
+      - name: AI for Earth
+        href: solution-ideas/articles/ai-for-earth.md
       - name: Auditing and risk management
         href: solution-ideas/articles/auditing-and-risk-compliance.md
       - name: Disconnected AI at the edge
@@ -740,8 +744,6 @@ items:
         href: solution-ideas/articles/data-streaming-scenario.md
       - name: Data cache
         href: solution-ideas/articles/data-cache-with-redis-cache.md
-      - name: Dev/test for SAP
-        href: example-scenario/apps/sap-dev-test.md
       - name: Digital campaign management
         href: solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.md
       - name: Digital marketing using Azure MySQL
@@ -790,20 +792,8 @@ items:
         href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.md
       - name: Retail and e-commerce using Cosmos DB
         href: solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.md
-      - name: SAP HANA on Azure Large Instances
-        href: reference-architectures/sap/hana-large-instances.md
-      - name: SAP NetWeaver on Windows on Azure
-        href: reference-architectures/sap/sap-netweaver.md
       - name: Running Oracle Databases on Azure
         href: solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.md
-      - name: SAP NetWeaver on SQLServer
-        href: solution-ideas/articles/sap-netweaver-on-sql-server.md
-      - name: SAP S/4 HANA VM on Azure and Linux
-        href: solution-ideas/articles/sap-s4-hana-vm-on-linux.md
-      - name: SAP S/4HANA in Linux on Azure
-        href: reference-architectures/sap/sap-s4hana.md
-      - name: SAP deployment using an Oracle DB
-        href: example-scenario/apps/sap-production.md
       - name: Serverless apps using Cosmos DB
         href: solution-ideas/articles/serverless-apps-using-cosmos-db.md
       - name: Streaming using HDInsight
@@ -860,14 +850,32 @@ items:
             href: service-fabric/migrate-from-cloud-services.md
     - name: Serverless applications
       items:
-      - name: Overview
-        href: serverless/index.md
-      - name: Guides
+      - name: Serverless Functions overview
+        href: serverless-quest/serverless-overview.md
+      - name: Serverless Functions examples
+        href: serverless-quest/reference-architectures.md
+      - name: Plan for serverless architecture
         items:
-        - name: Create a serverless backend with Azure Functions
+        - name: Serverless Functions decision and planning
+          href: serverless-quest/validate-commit-serverless-adoption.md
+        - name: Serverless application assessment
+          href: serverless-quest/application-assessment.md
+        - name: Technical workshops and training
+          href: serverless-quest/technical-training.md
+        - name: Proof of concept or pilot
+          href: serverless-quest/poc-pilot.md
+      - name: Develop and deploy serverless apps
+        items:
+        - name: Serverless Functions app development
+          href: serverless-quest/application-development.md
+        - name: Serverless Functions code walkthrough
           href: serverless/code.md
         - name: CI/CD for a serverless frontend
           href: serverless/guide/serverless-app-cicd-best-practices.md
+      - name: Serverless Functions app operations
+        href: serverless-quest/functions-app-operations.md
+      - name: Serverless Functions app security
+        href: serverless-quest/functions-app-security.md
     - name: Architectures
       items:
       - name: CI/CD pipeline using Azure DevOps
@@ -937,7 +945,11 @@ items:
   - name: High Availability
     items:
     -  name: Overview
-       href: high-availability/building-solutions-for-high-availability.md       
+       href: high-availability/building-solutions-for-high-availability.md
+    - name: Architectures
+      items: 
+      - name: IaaS - Web application with relational database
+        href: high-availability/ref-arch-iaas-web-and-db.md     
   - name: Hybrid
     items:
     - name: Architectures
@@ -958,6 +970,7 @@ items:
         href: solution-ideas/articles/hybrid-connectivity.md
       - name: Implement a hub-spoke network topology
         href: reference-architectures/hybrid-networking/shared-services.md
+
       - name: Troubleshoot a hybrid VPN connection
         href: reference-architectures/hybrid-networking/troubleshoot-vpn.md
   - name: Identity
@@ -1038,10 +1051,20 @@ items:
         href: solution-ideas/articles/iot-using-cosmos-db.md
       - name: IoT using SQL DB
         href: reference-architectures/iot-with-sql.md
+      - name: IoT Connected Platform
+        href: solution-ideas/articles/iot-connected-platform.md
+      - name: Smart building management with IoT
+        href: solution-ideas/articles/ibems-shield-smart-buildings.md
+      - name: Contactless IoT interfaces
+        href: solution-ideas/articles/contactless-interfaces.md
+      - name: COVID-19 IoT Safe Solutions
+        href: solution-ideas/articles/cctv-mask-detection.md
       - name: Process real-time vehicle data using IoT
         href: example-scenario/data/realtime-analytics-vehicle-iot.md
       - name: Real-time web dashboard
         href: solution-ideas/articles/real-time-web-dashboard.md
+      - name: Safe Buildings with IoT and Azure
+        href: solution-ideas/articles/safe-buildings.md
       - name: Secure access to IoT apps with Azure AD
         href: example-scenario/iot-aad/iot-aad.md
       - name: Telemetry Analytics
@@ -1090,10 +1113,22 @@ items:
       items:
       - name: Adding modern front-ends to legacy apps
         href: solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.md
-      - name: Lift and Shift LOB apps
+      - name: Lift and shift LOB apps
         href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md
       - name: Lift and shift with AKS
         href: solution-ideas/articles/migrate-existing-applications-with-aks.md
+      - name: Oracle database migration
+        items:
+        - name: Migration decision process
+          href: example-scenario/oracle-migrate/oracle-migration-overview.md
+        - name: Cross-cloud connectivity
+          href: example-scenario/oracle-migrate/oracle-migration-cross-cloud.md
+        - name: Lift and shift to Azure VMs
+          href: example-scenario/oracle-migrate/oracle-migration-lift-shift.md
+        - name: Refactor
+          href: example-scenario/oracle-migrate/oracle-migration-refactor.md
+        - name: Rearchitect
+          href: example-scenario/oracle-migrate/oracle-migration-rearchitect.md
       - name: Serverless computing LOB apps
         href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.md
       - name: Unlock Legacy Data with Azure Stack
@@ -1146,6 +1181,28 @@ items:
         href: reference-architectures/dmz/secure-vnet-dmz.md
       - name: Segmenting Virtual Networks
         href: reference-architectures/hybrid-networking/network-level-segmentation.md
+  - name: SAP
+    items:
+    - name: Overview
+      href: reference-architectures/sap/sap-overview.md
+    - name: Architectures
+      items:
+      - name: SAP HANA on Azure (Large Instances)
+        href: reference-architectures/sap/hana-large-instances.md
+      - name: SAP HANA Scale-up on Linux
+        href: reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.md
+      - name: SAP NetWeaver on Windows on Azure
+        href: reference-architectures/sap/sap-netweaver.md
+      - name: SAP S/4HANA in Linux on Azure
+        href: reference-architectures/sap/sap-s4hana.md
+      - name: SAP BW/4HANA in Linux on Azure
+        href: reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.md
+      - name: SAP NetWeaver on SQL Server
+        href: solution-ideas/articles/sap-netweaver-on-sql-server.md  
+      - name: SAP deployment using an Oracle DB
+        href: example-scenario/apps/sap-production.md
+      - name: Dev/test for SAP
+        href: example-scenario/apps/sap-dev-test.md           
   - name: Security
     items:
     - name: Architectures
@@ -1220,5 +1277,9 @@ items:
         href: solution-ideas/articles/digital-marketing-smb.md
       - name: Web app monitoring on Azure
         href: reference-architectures/app-service-web-app/app-monitoring.md
+      - name: Web and mobile applications with MySQL, Cosmos DB, and Redis 
+        href: solution-ideas/articles/webapps.md
+      - name: Dynamics Business Central as a Service on Azure
+        href: solution-ideas/articles/business-central.md
 - name: Cloud Adoption Framework
   href: https://docs.microsoft.com/azure/cloud-adoption-framework

@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>12/03/2018</li>
-            <li>4 min read</li>
+            <li>5 min read</li>
         </ul>
         <p class="card-content-description">Recommended architecture for implementing an enterprise integration pattern with Azure Logic Apps, Azure API Management, Azure Service Bus, and Azure Event Grid.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

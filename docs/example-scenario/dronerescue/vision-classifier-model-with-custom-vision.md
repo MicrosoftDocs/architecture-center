@@ -8,6 +8,8 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: fcp
+ms.category:
+  - ai-machine-learning
 ---
 
 # Vision classifier model with Azure Custom Vision Cognitive Service
