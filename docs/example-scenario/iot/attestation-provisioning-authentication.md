@@ -1,27 +1,27 @@
-Attestation, Provisioning, and Authentication
-=============================================
+# Attestation, Provisioning, and Authentication
 
 Connecting Devices to Azure IoT involves three primary concepts of
 Attestation, Provisioning, and Authentication. A simple analogy for
 these would be how the device authenticates, where the device connects,
 and how the device identifies itself.
 
-  Mechanism                                                                                                       Description
-  --------------------------------------------------------------------------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  [**Attestation**](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#attestation-mechanism)       **How the device authenticates:** Attestation represents the method chosen for a device to confirm its identity when it connects to a service like IoT Hub. In Azure IoT supported attestation mechanism include: [symmetric key, X.509 thumbprint, X.509 CA](https://azure.microsoft.com/en-us/blog/iot-device-authentication-options/).
-  [**Provisioning**](https://docs.microsoft.com/en-us/azure/iot-dps/about-iot-dps#provisioning-process)           **Where the device connects: Provisioning a device is the act of enrolling it into the Azure IoT Hub that it will connect to. This makes the Hub aware of the device along with the attestation mechanism the device uses to prove its identity.**
-  [**Authentication**](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security#authentication)   **How the device identifies itself:** IoT Hub grants access to devices based on its ability to prove itself using its unique device identity in combination with the attestation mechanism the device was enrolled to the IoT Hub with.
+| Mechanism | Description |
+--- | ---
+| [**Attestation**](https://docs.microsoft.com/azure/iot-dps/concepts-security#attestation-mechanism) |      **How the device authenticates:** Attestation represents the method chosen for a device to confirm its identity when it connects to a service like IoT Hub. In Azure IoT supported attestation mechanism include: [symmetric key, X.509 thumbprint, X.509 CA](https://azure.microsoft.com/blog/iot-device-authentication-options/).|
+|[**Provisioning**](https://docs.microsoft.com/azure/iot-dps/about-iot-dps#provisioning-process) |  **Where the device connects:** Provisioning a device is the act of enrolling it into the Azure IoT Hub that it will connect to. This makes the Hub aware of the device along with the attestation mechanism the device uses to prove its identity.|
+|[**Authentication**](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#authentication) |**How the device identifies itself:** IoT Hub grants access to devices based on its ability to prove itself using its unique device identity in combination with the attestation mechanism the device was enrolled to the IoT Hub with. |
 
-Late Binding to IoT with Device Provisioning Service
-----------------------------------------------------
+## Late Binding to IoT with Device Provisioning Service
 
 Provisioning of devices can happen through the [Azure IoT Device
-Provisioning Service](https://docs.microsoft.com/en-us/azure/iot-dps/)
-or directly with **IoT** **Hub** (via [IoT Hub Registry Manager
-APIs](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet)).
+Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)
+or directly with **IoT Hub** (via [IoT Hub Registry Manager
+APIs](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet)).
 Using DPS confers the benefit of **late binding**, enabling devices to
 be removed from and re-provisioned to IoT Hubs in the field with zero
 changes to the device software.
+
+![A diagram showing authentication flows for various topologies connecting to Azure IoT Hub](media/late-binding-with-dps.png) 
 
 **Representative Test to Production Environment Transition Workflow with
 DPS**
@@ -44,14 +44,15 @@ DPS**
     directed to the production environment and connects and
     authenticates there.
 
-Protocols, Devices, and IoT Edge
---------------------------------
+## Protocols, Devices, and IoT Edge
 
 Given the [supported protocols in Azure IoT
-Hub,](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-protocols)
+Hub,](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols)
 it's worth considering the combinations possible when working through a
 solution end-to-end. Some combinations may be incompatible or come with
 added considerations (indicated by red lines in the following diagram):
+
+![A diagram showing authentication flows for various topologies connecting to Azure IoT Hub](media/authentication-matrix.png) 
 
 **Considerations for Protocols, Attestation, and Authentication**
 
