@@ -142,7 +142,7 @@ Note that race conditions are possible with approach. Suppose that two messages 
 After deploying this code change, the application was able to ingest more than 2500 requests/sec, using an IoT Hub with 32 partitions.
 
 ## Client-side Consideration
-Overall client experience may be diminished by aggressive parallelization on server side.  Consider leveraging [Azure Cosmos DB bulk executor library]( https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) (not shown in this implementation) which significantly reduces the client-side compute resources needed to saturate the throughput allocated to a container. A single threaded application that writes data using the bulk import API achieves nearly ten times greater write throughput when compared to a multi-threaded application that writes data in parallel while saturating the client machine's CPU.
+Overall client experience may be diminished by aggressive parallelization on server side.  Consider leveraging [Azure Cosmos DB bulk executor library]( https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) (not shown in this implementation) which significantly reduces the client-side compute resources needed to saturate the throughput allocated to a Cosmos DB container. A single threaded application that writes data using the bulk import API achieves nearly ten times greater write throughput when compared to a multi-threaded application that writes data in parallel while saturating the client machine's CPU.
 
 
 ## Summary
