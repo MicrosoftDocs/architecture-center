@@ -42,14 +42,14 @@ Finally, they surface business intelligence insights to users across the company
 
 ## Components
 
-• [Azure Data Lake Storage Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) provides massively scalable and secure data lake storage for high-performance analytics workloads.
-• [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) is an analytics service that brings together enterprise data warehousing and Big Data analytics within a unified experience.
-• [Azure SQL Database Hyperscale](https://docs.microsoft.com/azure/azure-sql/database/service-tier-hyperscale) is a storage tier in Azure SQL Database that leverages Azure architecture to scale out storage and compute resources.  Hyperscale supports up to 100TB of storage and provides nearly instantaneous backups and fast database restores in minutes – regardless of the size of data operation.
-• [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.
-• [Power BI](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview) is a suite of business tools for self-service and enterprise business intelligence (BI). Here, it’s used to analyze and visualize data.
+- [Azure Data Lake Storage Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) provides massively scalable and secure data lake storage for high-performance analytics workloads.
+- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) is an analytics service that brings together enterprise data warehousing and Big Data analytics within a unified experience.
+- [Azure SQL Database Hyperscale](https://docs.microsoft.com/azure/azure-sql/database/service-tier-hyperscale) is a storage tier in Azure SQL Database that leverages Azure architecture to scale out storage and compute resources.  Hyperscale supports up to 100TB of storage and provides nearly instantaneous backups and fast database restores in minutes – regardless of the size of data operation.
+- [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.
+- [Power BI](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview) is a suite of business tools for self-service and enterprise business intelligence (BI). Here, it’s used to analyze and visualize data.
 
 ## Next Steps
 
-• Read the [H&R Block customer story](https://customers.microsoft.com/story/724156-hr-block-professional-services-azure-sql-server) to learn how they use Azure SQL to unify data sources to deliver seamless multichannel experiences and provide better customer service.
-• Find comprehensive architectural guidance for designing data-centric solutions on [Azure in the Azure Data Architecture Guide](https://docs.microsoft.com/azure/architecture/data-guide/).
-• Learn more about how [Azure Synapse Link](https://docs.microsoft.com/azure/cosmos-db/synapse-link) can enable you to run near real-time analytics over operational data in Azure Cosmos DB, and [explore common use cases](https://docs.microsoft.com/azure/cosmos-db/synapse-link-use-cases) like real-time personalization, predictive maintenance and anomaly detection in IoT scenarios, and supply chain analytics, forecasting, and reporting.
+- Read the [H&R Block customer story](https://customers.microsoft.com/story/724156-hr-block-professional-services-azure-sql-server) to learn how they use Azure SQL to unify data sources to deliver seamless multichannel experiences and provide better customer service.
+- Find comprehensive architectural guidance for designing data-centric solutions on [Azure in the Azure Data Architecture Guide](https://docs.microsoft.com/azure/architecture/data-guide/).
+- Learn more about how [Azure Synapse Link](https://docs.microsoft.com/azure/cosmos-db/synapse-link) can enable you to run near real-time analytics over operational data in Azure Cosmos DB, and [explore common use cases](https://docs.microsoft.com/azure/cosmos-db/synapse-link-use-cases) like real-time personalization, predictive maintenance and anomaly detection in IoT scenarios, and supply chain analytics, forecasting, and reporting.
