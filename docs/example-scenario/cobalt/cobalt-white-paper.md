@@ -210,8 +210,6 @@ If you want to know more about Cobalt, here is where to go next.
 
 ## Credits
 
-<!-- Ian Philpot, Erik Schlegel, Nick Iodice, Megan Meyer, Dexter Williams, Keith Rome, Stephen Henderson, James Nance -->
-
 :::row:::
     :::column:::
         Ian Philpot  
