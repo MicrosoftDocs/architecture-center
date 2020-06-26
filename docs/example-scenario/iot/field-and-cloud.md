@@ -20,6 +20,8 @@ localized decision-making, and [protocol and identity
 translation](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-as-gateway)
 on-behalf-of devices.
 
+![A diagram illustrating the flow of events, commands, and protocols as they are routed through a field or cloud edge gateway to the Azure IoT Platform](media/field-edge-gateways.png) 
+
 +----------------------------------+----------------------------------+
 | Gateway Type                     | Description                      |
 +==================================+==================================+

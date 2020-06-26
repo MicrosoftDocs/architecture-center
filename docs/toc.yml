@@ -952,11 +952,13 @@ items:
         href: solution-ideas/articles/telemetry-analytics.md
     - name: Concepts
       items:
-        - name: Introduction to Azure Iot Solutions
+        - name: Introduction to Azure Iot solutions
           href: example-scenario/iot/introduction-to-solutions.md
-        - name: Devices, IoT Platform, and Application
+        - name: Devices, the IoT Platform, and applications
           href: example-scenario/iot/devices-platform-application.md
-        - name: Application Stamping
+        - name: Field and cloud edge gateways
+          href: example-scenario/iot/field-cloud-gateways.md
+        - name: Application stamping
           href: example-scenario/iot/application-stamps.md
   - name: Management and Governance
     items:
