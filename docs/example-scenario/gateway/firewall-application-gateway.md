@@ -181,7 +181,7 @@ The preceding designs all show application clients coming from the public intern
 - A VPN gateway or ExpressRoute gateway sits in front of Azure Firewall and/or Application Gateway.
 - WAF uses the private IP address of the Application Gateway.
 - Azure Firewall doesn't support DNAT for private IP addresses. Therefore, you must use UDRs to send inbound traffic to Azure Firewall from the VPN or ExpressRoute gateways.
-- Be careful with *forced tunneling*, which is using a default route like `0.0.0.0/0` from the on-premises network. For Azure Application Gateway, the default route needs to point to the public internet.
+- Make sure to verify caveats around *forced tunneling* for the [Azure Application Gateway][appgw-defaultroute] and for the [Azure Firewall][azfw-defaultroute]. Even if your workload doesn't need outbound connectivity to the public internet, you can't inject a default route like `0.0.0.0/0` for the Application Gateway that points to the on-premises network, or you'll break control traffic. For Azure Application Gateway, the default route needs to point to the public internet.
 
 The following diagram shows the Azure Application Gateway and Azure Firewall parallel design, with application clients coming from an on-premises network connected to Azure over VPN or ExpressRoute:
 
@@ -262,3 +262,5 @@ Microsoft products aren't the only choice to implement web application firewall 
 [app-gws]: https://microservices.io/patterns/apigateway.html
 [frontdoor]: https://azure.microsoft.com/services/frontdoor/
 [nsgs]: https://docs.microsoft.com/azure/virtual-network/security-overview
+[azfw-defaultroute]: https://docs.microsoft.com/azure/firewall/forced-tunneling
+[appgw-defaultroute]:https://docs.microsoft.com/azure/application-gateway/configuration-overview#azure-virtual-network-and-dedicated-subnet
