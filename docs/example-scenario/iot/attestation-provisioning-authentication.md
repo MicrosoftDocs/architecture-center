@@ -1,3 +1,16 @@
+---
+title: Attestation, provisioning, and authentication
+titleSuffix: Azure Example Scenarios
+description: Understand the concepts that are involved in connecting devices to an IoT platform and how device provisioning process.
+author: wamachine
+ms.date: 06/26/2020
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenarios
+ms.custom:
+- fcp
+---
+
 # Attestation, Provisioning, and Authentication
 
 Connecting Devices to Azure IoT involves three primary concepts of
