@@ -203,7 +203,7 @@ Some considerations for this topology include:
 - Pay special attention to UDRs in the spoke networks. When the application server receives traffic from a specific Azure Firewall instance, like the `.7` address in the previous examples, it should send return traffic back to the same instance. If a UDR in the spoke sends traffic addressed to the hub to the Azure Firewall IP address, like the `.4` address in the previous examples, return packets might end up on a different Azure Firewall instance, causing asymmetric routing.
 - A route table isn't always needed, but you need to verify that the next hop for the Azure Application Gateway subnet and the Azure Firewall subnet is the virtual network.
 
-## Integration with other products
+## Integration with other Azure products
 
 You can integrate Azure Firewall and Azure Application Gateway with other Azure products and services.
 
