@@ -2,8 +2,8 @@
 title: Cobalt - An Extensible Cloud Infrastructure-as-Code Framework
 titleSuffix: Technical White Paper
 description: Cobalt is an extensible framework that uses templates to define the automated process of creating complex and enterprise-grade CI/CD implementations used to deploy highly available applications to Azure App Service for Containers.
-author: v-daazli
-ms.date: 06/12/2020
+author: danazlin
+ms.date: 06/26/2020
 ms.topic: overview
 ms.service: architecture-center
 ms.subservice: example-scenarios
@@ -25,7 +25,7 @@ Leveraging Cobalt enables the customer to reduce the amount of time required to 
 
 ### Customer Scenario
 
-The customer, a major international retailer, needed a solution that would enable the migration of hundreds of their line-of-business (LOB) applications to cloud-based enterprise-grade production systems based on pre-approved architectures for Azure App Service for Containers. Then, they needed to developing new applications in the cloud based on those architectures. Each specific solution would need to be reviewed and approved by a security risk and compliance team before it could be implemented. Automation would significantly reduce the time needed in the review process for applications and make migrations and new deployments take place faster. This automation would include the build of such solutions based on predefined patterns that address security and other concerns.
+The customer, a major international retailer, needed a solution that would enable the migration of hundreds of their line-of-business (LOB) applications to cloud-based enterprise-grade production systems based on pre-approved architectures for Azure App Service for Containers. Then, they needed to developing new applications in the cloud based on those architectures. Each specific solution needs to be reviewed and approved by a security risk and compliance team before it could be implemented. Automation would significantly reduce the time needed in the review process for applications and make migrations and new deployments take place faster. This automation would include the build of such solutions based on predefined patterns that address security and other concerns.
 
 ### Requirements and Success Criteria
 
@@ -39,11 +39,10 @@ The end-result sought by the customer was to have a working reference solution i
 
 ## Technical Scenario
 
-At a high level, Cobalt leverages templates to automate the implementation of the technical tasks and services based on predefined architectural patterns. A Cobalt infrastructure template is a *manifest* made up of Terraform “modules,” which are grouped into various Azure resources. Originally, the template was designed to be forked and coded so that the platform and infrastructure needs for applications could be included. However, the customer found that approach to be more work than they wanted to do. So, the CSE team modified this to a “version and go” model. This means that, after initializing and integrating Cobalt into their existing Azure DevOps pipeline, the customer only needs to point to a “version” file containing the infrastructure and platform details and make some changes to configuration to use it in the deployment of an application. Cobalt's template module registry is categorized by cloud provider and then resource type. Each module represents an abstraction for a set of related cloud infrastructure objects that the module will manage.
+At a high level, Cobalt leverages templates to automate the implementation of the technical tasks and services based on predefined architectural patterns. A Cobalt infrastructure template is a *manifest* made up of Terraform “modules,” which are grouped into various Azure resources. Originally, the template was designed to be forked and coded so that the platform and infrastructure needs for applications could be included. However, the customer found that approach to be more work than they wanted to do. So, the CSE team modified the process to a “version and go” model. This model means that, after initializing and integrating Cobalt into their existing Azure DevOps pipeline, the customer only needs to point to a “version” file containing the infrastructure and platform details and make some changes to the configuration to use it in the deployment of an application. Cobalt's template module registry is categorized by cloud provider and then resource type. Each module represents an abstraction for a set of related cloud infrastructure objects that the module will manage.
 
 Figure 1 shows the steps involved in using Cobalt to provision resources in Azure.  
 
-<!-- insert FIGURE 1 OVERVIEW OF COBALT SOLUTION FRAMEWORK -->
 :::image type="content" border="true" source="./media/cobalt-framework.png" alt-text="overview diagram of Cobalt framework":::
 
 <p style="text-align:center;font-style:italic;" role="caption">Figure 1 - Overview of Cobalt Solution Framework</p>
@@ -53,7 +52,7 @@ In general, the Cobalt process works like this:
 1. The first step is to choose a DevOps provider workflow and set up Cobalt CI/CD pipelines.
 1. In the second step, customize an existing Cobalt template or create a new one. The templates host reusable Terraform modules like virtual networks and traffic managers to scaffold various managed container services.
 1. Third, code, test, and commit changes to the template to an upstream GitHub repository.
-1. Finally, Cobalt autoprovisions and configures the cloud resources specified in the template.
+1. Finally, Cobalt automatically provisions and configures the cloud resources specified in the template.
 
 ### Prerequisites
 
@@ -74,9 +73,9 @@ The following prerequisites are required for anyone using Cobalt:
 
 Microsoft's CSE team worked with the customer to customize templates for provisioning a best practices implementation of App Services that customer application development teams could later use to migrate and build their own LOB applications. Cobalt templates are organized to handle the provisioning of infrastructure and the setup of CI/CD pipelines.
 
-Templates are the implementation of *Advocated Patterns*. The scope of a template typically covers most, if not all, of the infrastructure required to host an application and may provision resources in multiple cloud providers. Templates compose modules to create an advocated pattern. They are implemented as [Terraform Modules](https://www.terraform.io/docs/configuration/modules.html) (also known as *Cobalt Modules*) so that they can be composed if needed, though it is more commonly the case that they do not need to be composed.
+Templates are the implementation of *Advocated Patterns*. The scope of a template typically covers most, if not all, of the infrastructure required to host an application and may provision resources in multiple cloud providers. Templates compose modules to create an advocated pattern. They are implemented as [Terraform Modules](https://www.terraform.io/docs/configuration/modules.html) (also sometimes known as *Cobalt Modules*) so that they can be composed if needed, though it is more commonly the case that they do not need to be composed.
 
-Each template makes use of Terraform modules across both Bedrock and Cobalt. Cobalt's module registry is categorized by cloud provider then resource type. Each module represents an abstraction for the set of related cloud infrastructure objects that the module will manage (see Figure 3). A module is a thin wrapper that enables simple common-sense configuration of related resources (typically 1-3 but sometimes more) within a cloud provider. The directory structure of [Cobalt](https://github.com/microsoft/cobalt) enables contributions for a variety of cloud providers. Cobalt infrastructure templates can be found in the *infra/templates* folder. From there, each subfolder represents a unique deployment schema and is packaged with a set of Terraform scripts, overview &amp; setup instructions, and automated unit &amp; integration tests.
+Each template makes use of Terraform modules across both Bedrock and Cobalt. Cobalt's module registry is categorized by cloud provider then resource type. Each module represents an abstraction for the set of related cloud infrastructure objects that the module will manage (see [Figure 3](#figure3)). A module is a thin wrapper that enables simple common-sense configuration of related resources (typically 1-3 but sometimes more) within a cloud provider. The directory structure of [Cobalt](https://github.com/microsoft/cobalt) enables contributions for a variety of cloud providers. Cobalt infrastructure templates can be found in the *infra/templates* folder. From there, each subfolder represents a unique deployment schema and is packaged with a set of Terraform scripts, overview &amp; setup instructions, and automated unit &amp; integration tests.
 
 A good example of a simple template is [az-hello-world](https://github.com/microsoft/cobalt/tree/master/infra/templates/az-hello-world). The az-hello-world template is intended to be a reference for running a single public Linux Container within an Azure Application Service Plan. This particular template creates an Azure environment with our smallest infrastructure footprint and is the recommended template highlighted in our [quickstart guide](https://github.com/microsoft/cobalt/blob/master/docs/2_QUICK_START_GUIDE.md). A list of the files is shown in Figure 2.
 
@@ -84,7 +83,7 @@ A good example of a simple template is [az-hello-world](https://github.com/micro
 
 <p style="text-align:center;font-style:italic;" role="caption">Figure 2 - az-hello-world Template Set</p>
 
-A template is made up of Terraform modules that handle provisioning the services required by the deployed application. These include such services as those needed for scalable application deployments, application and infrastructure observability (monitoring), security, and other isolated application dependencies for things like storage, VNet integration, and CosmosDB. The template structure for an Azure Isolated Service, Single Region is shown in the following diagram, which is a mapping of Cobalt Modules to Azure services and features.
+A template file is written in the Terraform configuration language HCL with the file extension `.tf`. Each template is made up of Terraform modules that handle provisioning the services required by the deployed application. These include such services as those needed for scalable application deployments, application and infrastructure observability (monitoring), security, and other isolated application dependencies for things like storage, VNet integration, and CosmosDB. The template structure for an Azure Isolated Service, Single Region is shown in the following diagram, which is a mapping of Cobalt Modules to Azure services and features.
 
 Cobalt templates can use any of several Terraform modules that can be using in provisioning services provided by Azure. Figure 3 illustrates these modules and how they map to Azure services and features according to the topology discussed below in [Deployment Topology](#deployment-topology).
 
@@ -98,7 +97,8 @@ Although Azure Resource Management (ARM) templates could be used to deploy infra
 
 <!-- Editor Note: 1st bullet is technically inaccurate. Fix! -->
 
-* Terraform uses the YAML Ain’t Markup Language (YAML) format, which is considered to be significantly more human-readable than the JavaScript Object Notation (JSON) format templates used by ARM.
+* Terraform uses the easy to read configuration language HCL (HashiCorp Configuration Language). HCL is considered to be significantly more human-readable than the JavaScript Object Notation (JSON) format templates used by ARM.
+  * However, Terraform can also consume machine-generated JSON files for increased compatibility.
 * Terraform provides excellent state management, allows idempotent<sup>1</sup> updates, and minimizes the surface area that it touches when updating deployments.
 * Terraform promotes modular reusability, reducing redundant infrastructure components, and improves ease of maintenance and readability.
 * The customer preferred using a small number of recommended technologies. Since we had also recommended Terraform as the solution for deploying Azure Kubernetes Service (AKS) clusters, it seemed sensible to use the same solution for Azure App Service.
@@ -111,18 +111,16 @@ Credit: [https://www.restapitutorial.com/lessons/idempotency.html](https://www.r
 
 The following diagram shows the targeted _Azure Isolated Service Single Region_ deployment topology needed by the enterprise customer. This deployment splits across 3 subscriptions. The resources are partitioned to align with the different personas within the customer organization. For example, subscriptions 1 and 3 are where admin resources exist, whereas subscription 2 hosts the application developer team resources.
 
-<!-- insert Figure 4 here... Deployment Topology of Azure Isolated Service Single Region -->
 :::image type="content" source="./media/deployment-single-region-topology.png" alt-text="diagram showing deployment topology if Azure isolated service single region":::
 
 <p style="text-align:center;font-style:italic;" role="caption">Figure 4 - Deployment Topology of Azure Isolated Service Single Region</p>
 
-[Figure 3](#figure3) (above) outlines the topology of the terraform templates that will deploy the topology described in Figure 4. By leveraging a multi-subscription deployment via provider aliasing, we can use a single template to target multiple Azure subscriptions.
+Figure 3 [(above)](#figure3) outlines the topology of the terraform template that will deploy the topology described in Figure 4. By leveraging a multi-subscription deployment via provider aliasing, we can use a single template to target multiple Azure subscriptions.
 
 ### Architecture: Azure Isolated Service Single Region
 
 The customer’s architecture was deployed using the Azure Isolated Service Single Region template. This template is just one of the available open-source Cobalt templates (see [Application to Other Scenarios](#application-to-other-scenarios)). An overview of the architecture and what happens when one of the customer’s developers starts an Azure DevOps build pipeline is shown in Figure 5.
 
-<!-- insert Figure 5 Azure Isolated Service, Single Region Architecture -->
 :::image type="content" source="./media/single-region-architecture.png" alt-text="diagram of Azure Isolated Service, Single Region Architecture":::
 
 <p style="text-align:center;font-style:italic;" role="caption">Figure 5 - Azure Isolated Service, Single Region Architecture</p>
@@ -144,7 +142,6 @@ The following steps are outlined in the diagram:
 
 Figure 6 illustrates how a developer checks code into GitHub and triggers the CI Build process.
 
-<!-- insert Figure 6 here... Containerized CI/CD -->
 :::image type="content" source="./media/containerized-cicd.png" alt-text="diagram of containerized CI/CD process flow":::
 
 <p style="text-align:center;font-style:italic;" role="caption">Figure 6 - Containerized CI/CD</p>
@@ -157,23 +154,21 @@ The Cobalt solution is particularly useful for organizations looking to move or 
 
 <!-- Editor Note: rewrite para above. Break up long sentence. -->
 
-Currently, there are 3 standard templates available on [GitHub](https://github.com/microsoft/cobalt/tree/master/infra/templates). Because Cobalt templates are open source, it is possible for the open-source community to contribute additional templates to this repo. At the time of this writing, the 3 standard templates include:
+Currently, there are 3 standard templates available on [GitHub](https://github.com/microsoft/cobalt/tree/master/infra/templates). Because Cobalt templates are open source, it is possible for the open-source community to contribute additional templates to this repo. At the time of this writing, the 3 standard templates available:
 
 * __az-hello-world__: This template is a sample reference for running a single public Linux Container within an Azure Application Service Plan.
 * __az-service-single-region__: This template is intended to be a reference for running a single region Linux Container Azure Application Service Plan. This template exposes the App Service containers to an external service endpoint through Application Gateway and Traffic Manager. With this template, it’s possible to be a tenant on a VM sharing network and compute resources with other tenants.
 * __az-isolated-service-single-region__: This template implements admin components of the az-service-single-region template, isolated as the only tenant on its own VM, and isolates network traffic.
 
-<!-- Editor Note: The above list requires remediation for technical accuracy. -->
-
 ## Cobalt vs Bedrock
 
-Cobalt hosts reusable Terraform modules to scaffold managed container services like [ACI](https://docs.microsoft.com/en-us/azure/container-instances/) and [Application Services](https://docs.microsoft.com/en-us/azure/app-service/) following a DevOps workflow. While [Bedrock](https://github.com/Microsoft/bedrock) targets Kubernetes based container orchestration workloads while following a [GitOps](https://medium.com/@timfpark/highly-effective-kubernetes-deployments-with-gitops-c7a0354f1446) workflow. Cobalt templates (manifests) reference Terraform modules like virtual networks, traffic manager, and so on to define infrastructure deployments. Bedrock uses Terraform to pre-configure environment deployment, but also uses Fabrikate templates to define manifests for deployment automation.
+Cobalt hosts reusable Terraform modules to scaffold managed container services like [ACI](https://docs.microsoft.com/en-us/azure/container-instances/) and [Application Services](https://docs.microsoft.com/en-us/azure/app-service/) following a DevOps workflow. While [Bedrock](https://github.com/Microsoft/bedrock) targets Kubernetes based container orchestration workloads while following a [GitOps](https://medium.com/@timfpark/highly-effective-kubernetes-deployments-with-gitops-c7a0354f1446) workflow. Cobalt templates (manifests) reference Terraform modules like virtual networks, traffic manager, and so on, to define infrastructure deployments. Bedrock uses Terraform to pre-configure environment deployment, but also uses Fabrikate templates to define manifests for deployment automation.
 
 ## Conclusions
 
 ### Lessons Learned
 
-When working with large organizations, it’s important to build accommodations into Cobalt if support is required for multiple Azure Subscriptions, unusual Resource Group setups, and to mitigate concerns about Identity (MSI) creation.
+When working with large organizations, it’s important to build accommodations into Cobalt if support is required for multiple Azure Subscriptions, unusual Resource Group setups, or to mitigate concerns about Identity (MSI) creation.
 
 Support for Disaster Recovery (DR) has been documented but has not yet been implemented by the customer.
 
@@ -215,4 +210,23 @@ If you want to know more about Cobalt, here is where to go next.
 
 ## Credits
 
-Ian Philpot, Erik Schlegel, Nick Iodice, Megan Meyer, Dexter Williams, Keith Rome, Stephen Henderson, James Nance
+<!-- Ian Philpot, Erik Schlegel, Nick Iodice, Megan Meyer, Dexter Williams, Keith Rome, Stephen Henderson, James Nance -->
+
+:::row:::
+    :::column:::
+        Ian Philpot  
+        Erik Schlegel
+    :::column-end:::
+    :::column:::
+        Nick Iodice  
+        Megan Meyer
+    :::column-end:::
+    :::column:::
+        Dexter Williams  
+        Keith Rome
+    :::column-end:::
+    :::column:::
+        Stephen Henderson  
+        James Nance
+    :::column-end:::
+:::row-end:::
