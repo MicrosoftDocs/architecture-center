@@ -112,7 +112,7 @@ Consider the following points when you design your entities for Azure table stor
 
   - Sharing the partition key across a subset of entities makes it possible to group related entities in the same partition. Operations that involve related entities can be performed by using entity group transactions, and queries that fetch a set of related entities can be satisfied by accessing a single server.
 
-For more information, see [Azure storage table design guide].
+For more information, see [Azure storage table design guide] and [Scalable partitioning strategy].
 
 ## Partitioning Azure blob storage
 
@@ -333,3 +333,4 @@ For considerations about trade-offs between availability and consistency, see [A
 [What is Azure Search?]: https://docs.microsoft.com/azure/search/search-what-is-azure-search
 [What is Azure SQL Database?]: https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview
 [scalability targets]: https://docs.microsoft.com/azure/storage/common/storage-scalability-targets
+[Scalable partitioning strategy]: https://docs.microsoft.com/rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage
