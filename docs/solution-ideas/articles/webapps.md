@@ -2,7 +2,7 @@
 title: Build web and mobile applications with Azure Database for MySQL, Azure Cosmos DB, and Azure Cache for Redis 
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
-ms.date: 06/24/20
+ms.date: 06/24/2020
 description: The reference architecture below is inspired by HSBC’s digital payment platform, PayMe for Business.
 ms.custom: acom-architecture, fcp
 ms.service: architecture-center
@@ -11,11 +11,11 @@ ms.category:
 ms.subservice: solution-idea
 ---
 
-# Build web and mobile applications with Azure Database for MySQL, Azure Cosmos DB, and Azure Cache for Redis 
+# Build web and mobile applications with Azure Database for MySQL, Azure Cosmos DB, and Azure Cache for Redis
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-With Azure, it’s easy to build web and mobile applications to help with digital payments, hotel or rental car bookings, e-commerce platforms, and more. A microservices-based architecture enables organizations to seamlessly scale on demand to cater to internet-scale users. 
+With Azure, it’s easy to build web and mobile applications to help with digital payments, hotel or rental car bookings, e-commerce platforms, and more. A microservices-based architecture enables organizations to seamlessly scale on demand to cater to internet-scale users.
 
 ## Architecture
 
@@ -23,7 +23,7 @@ With Azure, it’s easy to build web and mobile applications to help with digita
 
 ## Data Flow
 
-This reference architecture is inspired by HSBC’s digital payment platform, PayMe for Business. Each microservice is fully contained and connects to its own database hosted on a PaaS instance. The architecture leverages polyglot persistence with a purpose-built data store for each microservice. The analytical platform pulls the data from the disparate data stores to form a unified data platform which can be used to serve analytical reports, historical reports for end users, and train the ML models for recommendation engine. 
+This reference architecture is inspired by HSBC’s digital payment platform, PayMe for Business. Each microservice is fully contained and connects to its own database hosted on a PaaS instance. The architecture leverages polyglot persistence with a purpose-built data store for each microservice. The analytical platform pulls the data from the disparate data stores to form a unified data platform which can be used to serve analytical reports, historical reports for end users, and train the ML models for recommendation engine.
 
 The architecture leverages a microservices design with Java-based application pods deployed on Azure Kubernetes Services (AKS), and a transactional database hosted on Azure Database for MySQL. Azure Database for MySQL with read replicas allows for a scale-out design, with reader application microservices connecting directly to read replicas to avoid writer/reader contention. Azure Cache for Redis serves as a fast caching layer storing session state information, and as a key-value store. Graphical data serving the recommendation engine is stored in Azure Cosmos DB using the Gremlin API.  
 

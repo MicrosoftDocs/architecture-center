@@ -56,7 +56,7 @@ Environmental scientists use satellite and aerial imagery to understand land use
 
 The public [Land Cover Mapping API](https://aiforearth.portal.azure-api.net/docs/services/ai-for-earth-land-cover-mapping-api-v2/operations/post-landcover-classify) can take a supplied TIFF or JPEG 1 meter-resolution aerial or satellite image, or any United States latitude and longitude data, and return an image file showing land cover classifications. The land cover classification image shows areas classified into water, forest, field, or built coverage. You can analyze and make decisions based on the land cover predicted in the image. The API also allows you to train your model by correcting the predictions and adding and training new classifications.
 
-- [Land Cover training demo](http://landcoverdemo.eastus.cloudapp.azure.com:4040/)
+- [Land Cover training demo](https://aka.ms/landcoverdemo)
 - [Land Cover Mapping video](https://www.youtube.com/watch?v=9aFUzUlHQVc)
 - [Land Cover Mapping source code](https://github.com/Microsoft/landcover)
 
