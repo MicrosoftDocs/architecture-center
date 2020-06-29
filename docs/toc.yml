@@ -800,7 +800,7 @@ items:
         href: solution-ideas/articles/streaming-using-hdinsight.md
       - name: Windows N-tier applications
         href: reference-architectures/n-tier/n-tier-sql-server.md
-  - name: Developer Tools
+  - name: Developer Options
     items:
     - name: Microservices
       items:
