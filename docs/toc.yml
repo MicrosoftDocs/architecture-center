@@ -967,7 +967,9 @@ items:
         - name: Application stamping
           href: example-scenario/iot/application-stamps.md
         - name: Commands with connected standby devices
-          href: example-scenario/iot/connected-standby-devices.md          
+          href: example-scenario/iot/connected-standby-devices.md
+        - name: Direct methods with protocol gateways
+          href: example-scenario/iot/protocol-gateways.md     
   - name: Management and Governance
     items:
     - name: Architectures
