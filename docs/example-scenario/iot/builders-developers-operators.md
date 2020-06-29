@@ -1,3 +1,16 @@
+---
+title: Builders, Developers, and Operators
+titleSuffix: Azure Example Scenarios
+description: The typical roles involved in an Azure IoT solution and how they interact.
+author: wamachine
+ms.date: 06/29/2020
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenarios
+ms.custom:
+- fcp
+---
+
 # Builders, Developers, and Operators
 
 **Device builders**, **solution developers**, and **solution operators**
