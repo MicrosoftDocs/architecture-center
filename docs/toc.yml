@@ -966,6 +966,8 @@ items:
           href: example-scenario/iot/builders-developers-operators.md
         - name: Application stamping
           href: example-scenario/iot/application-stamps.md
+        - name: Commands with connected standby devices
+          href: example-scenario/iot/connected-standby-devices.md          
   - name: Management and Governance
     items:
     - name: Architectures
