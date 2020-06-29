@@ -962,6 +962,8 @@ items:
           href: example-scenario/iot/attestation-provisioning-authentication.md
         - name: Cloud to device commands
           href: example-scenario/iot/cloud-to-device.md
+        - name: Builders, developers, and operators
+          href: example-scenario/iot/builders-developers-operators.md
         - name: Application stamping
           href: example-scenario/iot/application-stamps.md
   - name: Management and Governance
