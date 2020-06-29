@@ -1,7 +1,7 @@
 ---
 title: Choosing an Azure compute service
 description: A flowchart for selecting a compute service.
-author: MikeWasson
+author: adamboeglin
 ms.date: 01/10/2020
 ms.topic: guide
 ms.service: architecture-center
@@ -124,7 +124,7 @@ Notes
 | Criteria | Virtual Machines | App Service | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
 |----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
 | SLA | [SLA for Virtual Machines][sla-vm] | [SLA for App Service][sla-app-service] | [SLA for Service Fabric][sla-sf] | [SLA for Functions][sla-functions] | [SLA for AKS][sla-acs] | [SLA for Container Instances](https://azure.microsoft.com/support/legal/sla/container-instances/) | [SLA for Azure Batch][sla-batch] |
-| Multi region failover | Traffic manager | Traffic manager | Traffic manager, Multi-Region Cluster | Not supported | Traffic manager | Not supported | Not Supported |
+| Multi region failover | Traffic manager | Traffic manager | Traffic manager, Multi-Region Cluster | [Azure Front Door](/azure/azure-functions/functions-geo-disaster-recovery) | Traffic manager | Not supported | Not Supported |
 
 For guided learning on Service Guarantees, review [Core Cloud Services - Azure architecture and service guarantees](https://docs.microsoft.com/learn/modules/explore-azure-infrastructure).
 
