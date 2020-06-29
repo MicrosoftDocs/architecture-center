@@ -389,7 +389,7 @@ conceptualContent:
       links:
         - text: Overview
           itemType: architecture
-          url: reference-architectures/sap/sap-overview
+          url: reference-architectures/sap/sap-overview.md
         - text: SAP HANA on Azure Large Instances
           itemType: architecture
           url: reference-architectures/sap/hana-large-instances.md
