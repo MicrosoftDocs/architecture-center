@@ -956,6 +956,8 @@ items:
           href: example-scenario/iot/introduction-to-solutions.md
         - name: Devices, the IoT Platform, and applications
           href: example-scenario/iot/devices-platform-application.md
+        - name: Events, insights, and actions
+          href: example-scenario/iot/events-insights-actions.md         
         - name: Field and cloud edge gateways
           href: example-scenario/iot/field-and-cloud.md
         - name: Attestation, provisioning, and authentication
