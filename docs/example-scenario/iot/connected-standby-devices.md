@@ -41,7 +41,7 @@ truth as to the connected state of a device in the IoT Hub. Since
 to receive the method, the use of connection and method timeouts can be
 used to achieve this:
 
-```
+```c#
     TimeSpan connTimeOut = FromSeconds(0); // Period to wait for device to connect.
     TimeSpan funcTimeOut = FromSeconds(30); // Period to wait for method to execute.
 
