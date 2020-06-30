@@ -1,5 +1,5 @@
 ---
-title: Devices, IoT Platform, and Application
+title: Cloud to device commands
 titleSuffix: Azure Example Scenarios
 description: How to use message and method-based mechanisms in Azure IoT to send commands to devices.
 author: wamachine
