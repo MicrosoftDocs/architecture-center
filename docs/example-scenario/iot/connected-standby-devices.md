@@ -41,7 +41,7 @@ truth as to the connected state of a device in the IoT Hub. Since
 to receive the method, the use of connection and method timeouts can be
 used to achieve this:
 
-```c#
+```
     TimeSpan connTimeOut = FromSeconds(0); // Period to wait for device to connect.
     TimeSpan funcTimeOut = FromSeconds(30); // Period to wait for method to execute.
 
@@ -54,9 +54,9 @@ used to achieve this:
         methodInvocation1.SetPayloadJson(CommandPayload);
 
         var response = await serviceClient.InvokeDeviceMethodAsync(deviceId, method);
-        if (var == \[DeviceNotConnected\] && connTimeOut == 0) {
+        if (var == [DeviceNotConnected] && connTimeOut == 0) {
             // The device is not currently connected and needs an SMS wake-up. This
-            // device should wake up within a period of \<30 seconds. Send the wake-up
+            // device should wake up within a period of < 30 seconds. Send the wake-up
             // and retry the method request with a 30 second timeout on waiting for
             // the device to connect.
 
@@ -73,4 +73,4 @@ used to achieve this:
 
 > **Note:** An empty method can be used with a connection timeout of zero
 to implement a simple ping if desiring to solely check connectivity.
-Example: "**var method = new CloudToDeviceMethod(\"Ping\", 0, 0);**" </aside>
+Example: `var method = new CloudToDeviceMethod("Ping", 0, 0);`" 
