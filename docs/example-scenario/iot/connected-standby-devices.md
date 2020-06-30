@@ -41,61 +41,35 @@ truth as to the connected state of a device in the IoT Hub. Since
 to receive the method, the use of connection and method timeouts can be
 used to achieve this:
 
-<code>
-TimeSpan connTimeOut = FromSeconds(0); // Period to wait for device to
-connect.
+```c#
+    TimeSpan connTimeOut = FromSeconds(0); // Period to wait for device to connect.
+    TimeSpan funcTimeOut = FromSeconds(30); // Period to wait for method to execute.
 
-TimeSpan funcTimeOut = FromSeconds(30); // Period to wait for method to
-execute.
+    while (true) {
+        // Send the command via Direct Method. We'll initially use a timeout of zero
+        // for the connection which can determine whether the device is connected to
+        // the Hub or will need an SMS wakeup sent to it.
+        
+        var method = new CloudToDeviceMethod("RemoteCommand", funcTimeOut, connTimeOut);
+        methodInvocation1.SetPayloadJson(CommandPayload);
 
-while (true) {
+        var response = await serviceClient.InvokeDeviceMethodAsync(deviceId, method);
+        if (var == \[DeviceNotConnected\] && connTimeOut == 0) {
+            // The device is not currently connected and needs an SMS wake-up. This
+            // device should wake up within a period of \<30 seconds. Send the wake-up
+            // and retry the method request with a 30 second timeout on waiting for
+            // the device to connect.
 
-// Send the command via Direct Method. We'll initially use a timeout of
-zero
-
-// for the connection which can determine whether the device is
-connected to
-
-// the Hub or will need an SMS wakeup sent to it.
-
-var method = new CloudToDeviceMethod(\"RemoteCommand\", funcTimeOut,
-connTimeOut);
-
-methodInvocation1.SetPayloadJson(CommandPayload);
-
-var response = await serviceClient.InvokeDeviceMethodAsync(deviceId,
-method);
-
-if (var == \[DeviceNotConnected\] && connTimeOut == 0) {
-
-// The device is not currently connected and needs an SMS wake-up. This
-
-// device should wake up within a period of \<30 seconds. Send the
-wake-up
-
-// and retry the method request with a 30 second timeout on waiting for
-
-// the device to connect.
-
-connTimeOut = FromSeconds(30); // Set a 30 second connection timeout.
-
-SendAsyncSMSWakeUpToDevice(); // Send SMS wake up through mobile
-gateway.
-
-continue; // Re-try with new connection timeout.
-
-} else {
-
-// The method either succeeded or failed.
-
-ActOnMethodResult(var);
-
-break;
-
-}
-
-}
-</code>
+            connTimeOut = FromSeconds(30); // Set a 30 second connection timeout.
+            SendAsyncSMSWakeUpToDevice(); // Send SMS wake up through mobile gateway.
+            continue; // Re-try with new connection timeout.
+        } else {
+            // The method either succeeded or failed.
+            ActOnMethodResult(var);
+            break;
+        }
+    }
+```
 
 > **Note:** An empty method can be used with a connection timeout of zero
 to implement a simple ping if desiring to solely check connectivity.
