@@ -2,7 +2,7 @@
 title: Dynamically adjust scale of an Azure IoT solution by using application stamps
 titleSuffix: Azure Example Scenarios
 description: Strategies for building discrete units of scale (stamps) which support an increasing population of connected devices.
-author: mcosner
+author: wamachine
 ms.date: 05/05/2020
 ms.topic: example-scenario
 ms.service: architecture-center
@@ -13,23 +13,14 @@ ms.custom:
 
 # Dynamically adjust scale of an Azure IoT solution by using application stamps
 
-Application stamping is a strategy of implementing a discrete unit
-of scale approach towards supporting a steadily increasing population of
-connected devices through replica implementations of core IoT solution
-components. 
+Application stamping is an architecture approach of implementing a discrete unit of scale approach towards supporting a steadily increasing population of connected devices using replica implementations of core IoT solution components.
 
 
 ![A diagram describing an application stamping strategy for use in Azure IoT](media/application-stamping.png)
  
 
-The basic strategy is that an IoT Hub, routing
-end-points (e.g. Event Hub), and processing components are built to
-optimally support a defined population of devices. As solutions grow in
-scale and the incoming device population grows, new atomic stamps are added
-to the solution to accommodate the growth vs. independently scaling up
-different parts of the solution. 
+The basic strategy is that an IoT Hub, routing endpoints (e.g. Event Hub), and processing components are built to optimally support a defined population of devices. As solutions grow in scale and the incoming device population grows, new atomic stamps are added to a solution to accommodate the growth vs. independently scaling up different parts of the solution. 
  
-
 > **Note:** Stamps can be built to accommodate device populations of 1
 thousand to 1 million devices. The right-sized population is best
 informed by considering how much communication traffic is expected from
@@ -117,18 +108,13 @@ Hub Device Provisioning Service device
 concepts](https://docs.microsoft.com/azure/iot-dps/concepts-device) outlined
 in the DPS documentation. 
 
-## Moving Applications Between Stamps
+## Moving applications between stamps
 
-Components such as web front-ends or API applications that speak to IoT
-Hub, will also need to have a strategy for migrating to new IoT Hubs.
-This ensures communication with the devices that have moved.  
+Components such as web front ends or API applications that speak to IoT Hub, will also need to have a strategy for migrating to new IoT Hubs. This ensures communication with the devices that have moved.
 
-Here, we'll explore a couple of strategies for moving
-devices, and application end-users, from one application stamp to
-another. While these may not cover all cases, elements of them can
-be readily employed to cover additional cases. 
+Here, we’ll explore a couple of strategies for moving devices and application end-users from one application stamp to another. While these may not cover all cases, elements of them can be readily employed to cover additional cases.
 
-## Moving Device and User Populations Between Full Application Stamps
+## Moving between fully self-contained application stamps
 
 Where stamps encompass an end-to-end application, [Azure Traffic
 Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-how-it-works) can
@@ -139,16 +125,14 @@ and application users from one stamp to another. 
 
 ![A diagram explaining how to move a set of devices from one stamp to another stamp](media/moving-devices-using-dps.png) 
 
-This strategy is simple to implement and useful in cases where stamps
-are used as part of a high-availability strategy or for migrating
-devices and users from one stamp to another to move them through
-different test and production environments. 
+This strategy is simple to implement and useful in cases where stamps are used as part of a high-availability strategy or for migrating devices and users from one stamp to another to move them through different test and production environments.
 
-## Moving Devices Between Stamps Behind a Single Application Gateway
+## Moving between multiple application stamps behind a single gateway
 
 Where solutions consist of a single application front-end and multiple stamps the application front-ends will need to be aware of multiple IoT Hubs, and able to dynamically update their Device-to-Hub mapping to communication with devices via Cloud-to-Device functionality.
 
 To gracefully manage devices moving to different stamps, and by extension different IoT Hubs, a caching mechanism of “device to hub” mapping can be used in gateways. Assuming lookup exists as part of a set of shared components, service clients can dynamically detect and migrate calls to devices to new IoT Hubs.
+
 
 ![A diagram demonstrating how devices can be moved from one hub to another using an app gateway](media/moving-devices-behind-gateway.png)
 
@@ -162,9 +146,8 @@ SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-se
 determine which Hub the device is now registered to. Should the Hub
 successfully be found for the device, the cache can be updated to avoid
 re-negotiating the device-to-hub mapping on future calls.  
-
  
-## Additional considerations:
+## Additional considerations
 
 -   It's possible for a device enrollment to be
     in-progress, meaning it will not be reachable. The device's assigned
