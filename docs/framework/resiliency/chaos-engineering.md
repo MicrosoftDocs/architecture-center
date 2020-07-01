@@ -142,17 +142,17 @@ Faults that can be leveraged to inject chaos.
 |  | Data loss |  |
 |  | Move primary node |  |
 |  | Remove replica |  |
+| **Functions** | Latency |  |
+|  | Exceptions |  |
+|  | Status codes |  |
+|  | Intercept / Blacklist calls |  |
+|  | Disk capacity |  |
 | **Application specific** | Intercept / Re-route calls | *No access to service code* |
 | **Hardware** | Machine | *Storage* |
 |  | Network devices |  |
 |  | Rack |  |
 |  | UPS  |  |
 |  | Datacenter |  |
-| **Functions** | Latency |  |
-|  | Exceptions |  |
-|  | Status codes |  |
-|  | Intercept / Blacklist calls |  |
-|  | Disk capacity |  |
 
 
 > [!NOTE]
