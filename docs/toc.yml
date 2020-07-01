@@ -800,7 +800,7 @@ items:
         href: solution-ideas/articles/streaming-using-hdinsight.md
       - name: Windows N-tier applications
         href: reference-architectures/n-tier/n-tier-sql-server.md
-  - name: Developer Tools
+  - name: Developer Options
     items:
     - name: Microservices
       items:
@@ -1211,6 +1211,8 @@ items:
         href: example-scenario/data/fraud-detection.md
       - name: Securely managed web apps
         href: example-scenario/apps/fully-managed-secure-apps.md
+      - name: Virtual Network security options
+        href: example-scenario/gateway/firewall-application-gateway.md
   - name: Storage
     items:
     - name: Architectures

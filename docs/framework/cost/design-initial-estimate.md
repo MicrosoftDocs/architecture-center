@@ -96,7 +96,7 @@ Now, we use those values in the [Azure Pricing calculator](https://azure.microso
 
 ![Azure Pricing calculator for Cosmos DB](../_images/cosmosdb-price.png)
 
-The average throughput based on these settings is 20,000 RU/s. which is the minimum throughput required for a **3-year reserved capacity** plan.
+The average throughput based on these settings is 20,000 RUs/sec which is the minimum throughput required for a **3-year reserved capacity** plan.
 
 Here is the total cost for three years using the reserved plan:
 
@@ -112,7 +112,7 @@ Basic plan license for five users is free.
 #### Additional services
 For Microsoft Hosted Pipelines, the **Free** tier includes one parallel CI/CD job with 1,800 minutes (30 hours) per month. However you can select the **Paid** tier and have one CI/CD parallel job ($40.00), in this tier, each parallel CI/CD job includes unlimited minutes.
 
-> For this stage of cost estimation, there Self Hosted Pipelines is not required because the workload doesn't have custom software that runs in your build process isn't included in the Microsoft-hosted option.
+> For this stage of cost estimation, the Self Hosted Pipelines is not required because the workload doesn't have custom software that runs in your build process which isn't included in the Microsoft-hosted option.
 
 Azure Artifacts is a service where you can create package feeds to publish and consume Maven, npm, NuGet, Python, and universal packages. Azure Artifacts is billed on a consumption basis, and is free up until 2 GB of storage. For this scenario, we estimate 56 GB in artifacts ($56.00)
 
