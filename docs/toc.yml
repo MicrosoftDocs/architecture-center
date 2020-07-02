@@ -444,6 +444,8 @@ items:
         href: solution-ideas/articles/ai-at-the-edge.md
       - name: AI enrichment in Cognitive Search
         href: solution-ideas/articles/cognitive-search-with-skillsets.md
+      - name: AI for Earth
+        href: solution-ideas/articles/ai-for-earth.md
       - name: Auditing and risk management
         href: solution-ideas/articles/auditing-and-risk-compliance.md
       - name: Disconnected AI at the edge
@@ -798,7 +800,7 @@ items:
         href: solution-ideas/articles/streaming-using-hdinsight.md
       - name: Windows N-tier applications
         href: reference-architectures/n-tier/n-tier-sql-server.md
-  - name: Developer Tools
+  - name: Developer Options
     items:
     - name: Microservices
       items:
@@ -1019,12 +1021,6 @@ items:
       items:
       - name: Basic enterprise integration on Azure
         href: reference-architectures/enterprise-integration/basic-enterprise-integration.md
-      - name: Deployment in App Service Environments
-        items:
-          - name: Standard deployment
-            href: reference-architectures/enterprise-integration/ase-standard-deployment.md
-          - name: High availability deployment
-            href: reference-architectures/enterprise-integration/ase-high-availability-deployment.md
       - name: Enterprise business intelligence
         href: reference-architectures/data/enterprise-bi-synapse.md
       - name: Enterprise integration using queues and events
@@ -1111,10 +1107,22 @@ items:
       items:
       - name: Adding modern front-ends to legacy apps
         href: solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.md
-      - name: Lift and Shift LOB apps
+      - name: Lift and shift LOB apps
         href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md
       - name: Lift and shift with AKS
         href: solution-ideas/articles/migrate-existing-applications-with-aks.md
+      - name: Oracle database migration
+        items:
+        - name: Migration decision process
+          href: example-scenario/oracle-migrate/oracle-migration-overview.md
+        - name: Cross-cloud connectivity
+          href: example-scenario/oracle-migrate/oracle-migration-cross-cloud.md
+        - name: Lift and shift to Azure VMs
+          href: example-scenario/oracle-migrate/oracle-migration-lift-shift.md
+        - name: Refactor
+          href: example-scenario/oracle-migrate/oracle-migration-refactor.md
+        - name: Rearchitect
+          href: example-scenario/oracle-migrate/oracle-migration-rearchitect.md
       - name: Serverless computing LOB apps
         href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.md
       - name: Unlock Legacy Data with Azure Stack
@@ -1203,6 +1211,8 @@ items:
         href: example-scenario/data/fraud-detection.md
       - name: Securely managed web apps
         href: example-scenario/apps/fully-managed-secure-apps.md
+      - name: Virtual Network security options
+        href: example-scenario/gateway/firewall-application-gateway.md
   - name: Storage
     items:
     - name: Architectures
@@ -1219,6 +1229,12 @@ items:
       items:
       - name: Basic web application
         href: reference-architectures/app-service-web-app/basic-web-app.md
+      - name: Deployment in App Service Environments
+        items:
+          - name: Standard deployment
+            href: reference-architectures/enterprise-integration/ase-standard-deployment.md
+          - name: High availability deployment
+            href: reference-architectures/enterprise-integration/ase-high-availability-deployment.md 
       - name: E-commerce front end
         href: example-scenario/apps/ecommerce-scenario.md
       - name: E-commerce website running in ASE
@@ -1263,5 +1279,9 @@ items:
         href: solution-ideas/articles/digital-marketing-smb.md
       - name: Web app monitoring on Azure
         href: reference-architectures/app-service-web-app/app-monitoring.md
+      - name: Web and mobile applications with MySQL, Cosmos DB, and Redis 
+        href: solution-ideas/articles/webapps.md
+      - name: Dynamics Business Central as a Service on Azure
+        href: solution-ideas/articles/business-central.md
 - name: Cloud Adoption Framework
   href: https://docs.microsoft.com/azure/cloud-adoption-framework
