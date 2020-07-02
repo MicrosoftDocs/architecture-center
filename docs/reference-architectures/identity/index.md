@@ -1,7 +1,7 @@
 ---
 title: Integrate on-premises AD with Azure
 description: Compare reference architectures for integrating on-premises Active Directory with Azure.
-author: MikeWasson
+author: adamboeglin
 ms.date: 07/30/2019
 ms.topic: reference-architecture
 ms.service: architecture-center

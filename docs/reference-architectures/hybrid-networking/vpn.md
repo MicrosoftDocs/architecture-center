@@ -1,7 +1,7 @@
 ---
 title: Extend an on-premises network using VPN
 description: A secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using a VPN.
-author: MikeWasson
+author: adamboeglin
 ms.date: 01/24/2020
 ms.topic: reference-architecture
 ms.service: architecture-center

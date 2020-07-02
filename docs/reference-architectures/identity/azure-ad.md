@@ -2,7 +2,7 @@
 title: Integrate on-premises AD domains with Azure AD
 titleSuffix: Azure Reference Architectures
 description: Implement a secure hybrid network architecture using Azure Active Directory (Azure AD).
-author: MikeWasson
+author: adamboeglin
 ms.date: 08/28/2019
 ms.topic: reference-architecture
 ms.service: architecture-center

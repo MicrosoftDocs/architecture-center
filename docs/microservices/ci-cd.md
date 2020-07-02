@@ -1,7 +1,7 @@
 ---
 title: CI/CD for microservices
 description: Continuous integration and continuous delivery for microservices.
-author: MikeWasson
+author: adamboeglin
 ms.date: 03/27/2019
 ms.topic: guide
 ms.service: architecture-center

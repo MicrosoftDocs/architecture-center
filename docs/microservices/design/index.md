@@ -1,7 +1,7 @@
 ---
 title: Designing a microservices architecture
 description: This reference implementation illustrates best practices for a microservices architecture
-author: MikeWasson
+author: adamboeglin
 ms.date: 02/26/2019
 ms.topic: guide
 ms.service: architecture-center
