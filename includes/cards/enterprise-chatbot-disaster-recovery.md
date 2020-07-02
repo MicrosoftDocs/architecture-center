@@ -14,7 +14,7 @@
             <p>Enterprise chatbot disaster recovery</p>
         </a>
         <ul class="card-content-metadata">
-            <li>5/11/2020</li>
+            <li>6/22/2020</li>
             <li>3 min read</li>
         </ul>
         <p class="card-content-description">Learn how to set up disaster recovery and high availability for Azure services in an enterprise-grade conversational bot.</p>

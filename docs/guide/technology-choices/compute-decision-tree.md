@@ -1,7 +1,7 @@
 ---
 title: Choosing an Azure compute service
 description: A flowchart for selecting a compute service.
-author: MikeWasson
+author: adamboeglin
 ms.date: 01/10/2020
 ms.topic: guide
 ms.service: architecture-center
@@ -79,7 +79,7 @@ The following tables contain additional comparison points, which may be useful w
 | Minimum number of nodes | 1 <a href="#note2"><sup>2</sup></a>  | 1 | 5 <a href="#note3"><sup>3</sup></a> | Serverless <a href="#note1"><sup>1</sup></a> | 3 <a href="#note3"><sup>3</sup></a> | No dedicated nodes | 1 <a href="#note4"><sup>4</sup></a> |
 | State management | Stateless or Stateful | Stateless | Stateless or stateful | Stateless | Stateless or Stateful | Stateless | Stateless |
 | Web hosting | Agnostic | Built in | Agnostic | Not applicable | Agnostic | Agnostic | No |
-| Can be deployed to dedicated VNet? | Supported | Supported<a href="#note5"><sup>5</sup></a> | Supported | Supported <a href="#note5"><sup>5</sup></a> | [Supported](https://docs.microsoft.com/azure/aks/networking-overview) | Not supported | Supported |
+| Can be deployed to dedicated VNet? | Supported | Supported<a href="#note5"><sup>5</sup></a> | Supported | Supported <a href="#note5"><sup>5</sup></a> | [Supported](https://docs.microsoft.com/azure/aks/networking-overview) | [Supported](https://docs.microsoft.com/azure/container-instances/container-instances-vnet) | Supported |
 | Hybrid connectivity | Supported | Supported <a href="#note6"><sup>6</sup></a>  | Supported | Supported <a href="#note7"><sup>7</sup></a> | Supported | Not supported | Supported |
 
 Notes
@@ -124,7 +124,7 @@ Notes
 | Criteria | Virtual Machines | App Service | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
 |----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
 | SLA | [SLA for Virtual Machines][sla-vm] | [SLA for App Service][sla-app-service] | [SLA for Service Fabric][sla-sf] | [SLA for Functions][sla-functions] | [SLA for AKS][sla-acs] | [SLA for Container Instances](https://azure.microsoft.com/support/legal/sla/container-instances/) | [SLA for Azure Batch][sla-batch] |
-| Multi region failover | Traffic manager | Traffic manager | Traffic manager, Multi-Region Cluster | Not supported | Traffic manager | Not supported | Not Supported |
+| Multi region failover | Traffic manager | Traffic manager | Traffic manager, Multi-Region Cluster | [Azure Front Door](/azure/azure-functions/functions-geo-disaster-recovery) | Traffic manager | Not supported | Not Supported |
 
 For guided learning on Service Guarantees, review [Core Cloud Services - Azure architecture and service guarantees](https://docs.microsoft.com/learn/modules/explore-azure-infrastructure).
 
