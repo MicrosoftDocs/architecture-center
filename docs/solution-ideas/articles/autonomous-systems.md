@@ -8,7 +8,7 @@ ms.custom: pcp
 ---
 # Autonomous systems
 
-Artificial intelligence (AI) offers unique opportunities and challenges for operations that span the virtual and physical worlds. AI and machine learning (ML) can recognize correlations between real-world input data and outcomes and make decisions to automate complex physical industrial systems. For background information, see [Artificial intelligence](machine-teaching.md#artificial-intelligence).
+Artificial intelligence (AI) offers unique opportunities and challenges for operations that span the virtual and physical worlds. AI and machine learning (ML) can recognize correlations between real-world input data and outcomes and make decisions to automate complex physical industrial systems. For background information, see [Artificial intelligence](machine-teaching.md#artificial-intelligence-ai).
 
 AI machine learning systems are good at finding correlations between sensor data and outcomes. However, AI systems can't perform higher-level cognitive abilities such as improvisation and decision-making, creative thinking, or determination of causation. [Autonomous systems](https://www.microsoft.com/ai/autonomous-systems) infuse subject matter expertise into automated AI systems models through *machine teaching*.
 
