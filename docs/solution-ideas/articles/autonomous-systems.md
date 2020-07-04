@@ -8,7 +8,7 @@ ms.custom: pcp
 ---
 # Machine teaching for autonomous systems
 
-*Artificial intelligence (AI)* and *machine learning (ML)* offer unique opportunities and challenges for automating complex industrial systems. *Machine teaching* infuses subject matter expertise into automated AI system training with *deep reinforcement learning (DRL)* and *simulations*. Abstracting away AI complexity to focus on subject matter expertise and real-world conditions creates models that turn automated control systems into *autonomous systems*.
+Artificial intelligence (AI) and machine learning (ML) offer unique opportunities and challenges for automating complex industrial systems. *Machine teaching* is a new paradigm for building ML systems that moves the focus away from algorithms and onto successful model generation and deployment. Machine teaching infuses subject matter expertise into automated AI system training with *deep reinforcement learning (DRL)* and *simulations*. Abstracting away AI complexity to focus on subject matter expertise and real-world conditions can create models that turn automated control systems into *autonomous systems*.
 
 Autonomous systems:
 
@@ -65,16 +65,7 @@ The Bonsai platform runs on Azure and charges resource costs to your Azure subsc
 
 [Inkling](https://docs.microsoft.com/bonsai/inkling/) is a declarative, statically-typed programming language for training AI in Bonsai. Inkling abstracts away the dynamic AI algorithms that require expertise in machine learning, enabling more developers to program AI. An Inkling file defines *concepts* necessary to teach the AI, and *curriculum*, or methods for teaching the concepts.
 
-```inkling
-concept MyConcept(input): OutputType {
-  curriculum {
-    source MySimulator
-
-    # Lessons specified here
-
-  }
-}
-```
+![Inkling example](../media/inkling.png)
 
 For more information about Inkling, see the [Inkling programming language reference](https://docs.microsoft.com/bonsai/inkling/).
 
@@ -142,7 +133,7 @@ You can use an [Azure Resource Manager (ARM) template](https://github.com/micros
 
 - [Autonomous systems with Microsoft AI](https://www.microsoft.com/ai/autonomous-systems)
 - [Autonomy for industrial control systems](https://www.microsoft.com/ai/autonomous-systems-solutions)
-- [Innovation space: Autonomous systems (Video)[https://www.youtube.com/watch?v=3hSAFtWcui8&feature=youtu.be]
-- [Microsoft The AI Blog](https://blogs.microsoft.com/ai/).
-- [Bonsai documentation](https://docs.microsoft.com/bonsai/).
-- [Aerial Informatics and Robotics Platform (AirSim)](https://www.microsoft.com/en-us/research/project/aerial-informatics-robotics-platform/).
+- [Innovation space: Autonomous systems (Video)](https://www.youtube.com/watch?v=3hSAFtWcui8&feature=youtu.be)
+- [Microsoft The AI Blog](https://blogs.microsoft.com/ai/)
+- [Bonsai documentation](https://docs.microsoft.com/bonsai/)
+- [Aerial Informatics and Robotics Platform (AirSim)](https://www.microsoft.com/en-us/research/project/aerial-informatics-robotics-platform/)
