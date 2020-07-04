@@ -12,8 +12,8 @@ Artificial intelligence (AI) and machine learning (ML) offer unique opportunitie
 
 *Machine teaching* is a new paradigm for machine learning systems that:
 - Infuses *subject matter expertise* into automated AI systems models.
-- Uses *deep reinforcement learning (DRL)* to identify patterns in the learning process and adopt positive behaviors in its own methods.
-- Leverages *simulated environments* to generate large amounts of synthetic data covering many domain-specific use cases and scenarios.
+- Uses [deep reinforcement learning](#reinforcement-learning) to identify patterns in the learning process and adopt positive behaviors in its own methods.
+- Leverages [simulated environments](#simulations) to generate large amounts of synthetic data for domain-specific use cases and scenarios.
 
 Machine learning focuses on developing novel learning algorithms or improving existing algorithms. Machine teaching focuses on the efficacy of the teachers themselves. Abstracting away AI complexity to focus on subject matter expertise and real-world conditions creates powerful AI and ML models that turn automated control systems into *autonomous systems*.
 
@@ -25,35 +25,37 @@ The First Industrial Revolution, late 1700s to mid-1800s, introduced machines to
 
 World Wars I and II brought major advances in information theory, communications, and signal processing. Development of the transistor allowed information theory to be easily applied to controlling physical systems. This Third Industrial Revolution allowed computer systems to make inroads in the hard-coded control of physical systems like production, transport, and healthcare. The benefits of programmed automation included consistency, reliability, and security.
 
-### AI and ML
+The Fourth Industrial Revolution introduced the notion of cyber-physical systems and industrial *Internet of Things (IoT)*. The systems humans wish to control have become too large and complex to write fully prescribed rules. Artificial intelligence lets smart machines perform tasks that typically required human intelligence. Machine learning lets machines automatically learn and improve from experience without being explicitly programmed.
 
-The Fourth Industrial Revolution introduces the notion of cyber-physical systems and industrial *Internet of Things (IoT)*. The systems humans wish to control are often too large and complex to write fully prescribed rules. Artificial intelligence lets smart machines perform tasks that typically required human intelligence. Machine learning lets machines automatically learn and improve from experience without being explicitly programmed.
+### AI and ML
 
 AI and ML aren't new concepts, and many of the theories have been unchanged for decades, but recent technological advances in storage, bandwidth, and computing enable more accurate and useful algorithm predictions. Increased device processing capacity, miniaturization, storage capacity, and network capacity allow further automation of systems and equipment. These advances also allow collection and collation of vast quantities of real-time sensor data.
 
-*Cognitive automation* is the application of software and AI to information-intensive processes and systems. Cognitive AI can augment manual workers for increased productivity, replace human workers in monotonous or hazardous fields, and allow for new insights because of the huge volumes of data it can process. Cognitive technologies like computer vision, natural language processing, chatbots, and motion control can perform tasks that previously only humans could do.
+*Cognitive automation* is the application of software and AI to information-intensive processes and systems. Cognitive AI can augment manual workers for increased productivity, replace human workers in monotonous or hazardous fields, and allow for new insights because of the huge volumes of data it can process. Cognitive technologies like computer vision, natural language processing, chatbots, and robotics can perform tasks that previously only humans could do.
 
 Many current production systems automate and accomplish impressive feats of engineering and manufacturing using industrial robots. The use and evolution of industrial automation in manufacturing industries produces higher-quality, safer products with more efficient use of energy and raw materials. However, in most cases, robots can only operate in highly structured environments. They're typically inflexible to change and highly specialized toward immediate tasks. Robots may also be expensive to develop because of the hardware and software rules that govern their behaviors.
 
-The *paradox of automation* claims that the more efficient an automated system becomes, the more crucial the human contribution of the operators is. Accordingly, the role of humans changes from mundane per-unit-of-work labor to improving and managing the automated systems and contributing essential domain expertise. While an automated system can produce output more efficiently, it can also generate waste if it's not running correctly. Efficient use of automation makes humans more important, not less.
+The *paradox of automation* claims that the more efficient an automated system becomes, the more crucial the human component is to operations. The role of humans changes from mundane per-unit-of-work labor to improving and managing the automated system and contributing essential domain expertise. While an automated system can produce output more efficiently, it can also create waste and problems if it's poorly designed or running incorrectly. Efficiently using automation makes humans more important, not less.
 
 ### AI use cases
 
 ![Diagram of the AI use case spectrum from augmentation to autonomy.](../media/machine-teaching-1-4.png)
 
-In the preceding diagram, the **Control** and **Optimization** categories relate to automation of work, as in [smart manufacturing](https://en.wikipedia.org/wiki/Smart_manufacturing) and the [Bonsai machine teaching platform](https://azure.microsoft.com/services/project-bonsai/). On this side of the AI spectrum, there are practically infinite problem spaces. Subject matter expertise is a strategic asset, simulations are the most doable training option, and explainability is paramount. Use cases include advanced robotics, autonomous vehicles, dark factories, smart sensors, route optimization, inventory optimization, and virtual assistants.
+In the preceding diagram, the **Control** and **Optimization** categories relate to automation of work. On this side of the AI spectrum, there are practically infinite problem spaces. Subject matter expertise is a strategic asset, simulations are the most doable training option, and explainability is paramount.
+
+Orchstrators include [smart manufacturing](https://en.wikipedia.org/wiki/Smart_manufacturing) and the [Bonsai machine teaching platform](https://azure.microsoft.com/services/project-bonsai/). Use cases include advanced robotics, autonomous vehicles, dark factories, smart sensors, route optimization, inventory optimization, and virtual assistants.
 
 ## Reinforcement learning
 
-Reinforcement learning (RL) in machine learning concerns how software agents learn to maximize rewards and desired outcomes in their environments. RL is one of the three basic machine learning paradigms:
+Machine teaching depends on *reinforcement learning (RL)* to train models, and to identify patterns in the learning process and adopt positive behaviors in its own methods. *Deep reinforcement learning (DRL)* applies reinforcement learning to complex [deep learning](https://en.wikipedia.org/wiki/Deep_learning) neural networks.
+
+RL in machine learning concerns how software agents learn to maximize rewards and desired outcomes in their environments. RL is one of the three basic machine learning paradigms:
 
 - *Supervised learning* learns to generalize from tagged or structured data.
 - *Unsupervised learning* learns to compress unlabeled or unstructured data.
 - *Reinforcement learning* learns to act through trial and error.
 
-While supervised learning is learning by example, reinforcement learning can be considered learning from experience. Unlike supervised learning, which focuses on finding and labeling suitable datasets, RL concentrates on designing environments in which agents learn to perform tasks.
-
-RL teaches an agent to maximize a reward function over time, through sequential decision making based on the agent's current understanding of the environment. RL uses assessment and feedback to teach agents to predict the best possible actions in specific situations. *Deep reinforcement learning (DRL)* applies RL to complex [deep learning](https://en.wikipedia.org/wiki/Deep_learning) neural networks.
+While supervised learning is learning by example, reinforcement learning can be considered learning from experience. Unlike supervised learning, which focuses on finding and labeling suitable datasets, RL concentrates on designing models of how to perform tasks.
 
 The key RL components are:
 
@@ -64,21 +66,23 @@ The key RL components are:
 - **Reward**: the feedback from the environment, following from an action of the agent.
 - **Policy**: the method or function to map the current state of the agent and its environment to actions.
 
-The goal of RL is to teach the agent to complete an objective by rewarding desired behavior and penalizing undesired behavior. The following diagram illustrates the conceptual flow of RL and how the key components interact:
+RL uses reward functions and policies to assess agent actions and provide feedback. Through sequential decision making based on the current environment, agents learn to maximize reward over time and to predict the best possible actions in specific situations.
+
+RL teaches the agent to complete an objective by rewarding desired behavior and not rewarding undesired behavior. The following diagram illustrates the conceptual flow of RL and how the key components interact:
 
 ![Simple diagram of the RL process](../media/machine-teaching-3-2.png)
 
 1. An *agent*, in this case a robot, takes an *action* in an *environment*, in this case a smart manufacturing line.
 1. The action causes the environment to change *state*, and return its changed state to the agent.
 1. An assessment mechanism applies a *policy* to determine what consequence to deliver to the agent.
-1. The *reward* mechanism encourages beneficial actions by delivering a positive reward, or discourages negative actions by delivering a penalty.
+1. The *reward* mechanism encourages beneficial actions by delivering a positive reward, and may discourage negative actions by delivering a penalty.
 1. Rewards cause desired actions to increase, while penalties cause undesired actions to decrease.
 
 A problem can be stochastic (random) in nature, or deterministic. Although one agent is most common, there can also be multiple agents in the environment. The agent senses the environment by observation. The environment can be fully or partially observable, as determined by the agent's sensors, and observations can be discrete or continuous.
 
 Each observation is followed by an action, which causes the environment to change. This cycle repeats until a terminal state is reached. Typically, the system has no memory, and the algorithm simply cares about the state it comes from, the state it arrives at, and the reward it receives.
 
-As the agent learns through trial and error, it requires lots of data to evaluate its actions. RL is most applicable to domains that have large historical bodies of data, or that can easily produce simulated data.
+As the agent learns through trial and error, it needs large quantities of data to evaluate its actions. RL is most applicable to domains that have large historical bodies of data, or that can easily produce simulated data.
 
 ### Reward functions
 
@@ -96,7 +100,7 @@ The following training dashboard shows the exploration versus exploitation trade
 
 #### Cobra effect
 
-Rewards are subject to what is known in economics as the *cobra effect*. During the British rule of colonial India, the government became concerned about the number of cobra snakes and decided to offer a reward for every dead cobra to cull the snake population. Initially, this appeared to be a success, as large numbers of the snakes were killed to claim the reward. However, it didn't take long for people to start gaming the system, and breeding cobras deliberately to collect the reward. Eventually, the governing authorities noticed this and canceled the program. With no further incentive, the cobra breeders set their snakes free, with a result that the wild cobra population actually increased compared to what it was at the start of the incentive.
+Rewards are subject to what is known in economics as the *cobra effect*. During the British rule of colonial India, the government decided to cull the large wild cobra snake population by offering a reward for every dead cobra. Initially, this was successful, as large numbers of the snakes were killed to claim the reward. However, it didn't take long for people to start gaming the system, and breeding cobras deliberately to collect the reward. Eventually, the authorities noticed this and canceled the program. With no further incentive, the cobra breeders set their snakes free, with a result that the wild cobra population actually increased compared to what it was at the start of the incentive.
 
 The well-intentioned incentivization had made the situation worse, not better. The learning from this is that you get what you incentivize, which may not be what you intended.
 
@@ -114,7 +118,7 @@ In contrast, a *shaped reward function* gives the agent a sign of how close the 
 
 Shaping might discount the value of a future reward versus a more immediate reward, or encourage exploration by shrinking the size of rewards around the goal.
 
-Sometimes, a reward function might specify temporal as well as spatial considerations, to encourage ordered sequences of actions. However, if a shaped reward function is becoming too large and complex, break up the problem into smaller stages and consider using *concept networks* instead.
+Sometimes, a reward function might specify temporal as well as spatial considerations, to encourage ordered sequences of actions. However, if a shaped reward function is becoming very large and complex, consider breaking up the problem into smaller stages and using *concept networks*.
 
 ### Concept networks
 
@@ -126,15 +130,17 @@ In the following concept network for grasping and stacking objects, the **Grasp 
 
 Concept networks often allow reward functions to be more easily defined. Each concept can use the most appropriate approach for that task. The notion of concept networks helps with decomposability of the solution into constituent pieces. Components can be replaced without retraining the whole system, allowing reuse of pre-trained models and use of existing controllers or other existing ecosystem components. Especially in industrial control systems, incremental piecemeal improvement can be more desirable than complete removal and replacement.
 
+#### Curriculum learning and apprenticeship learning
+
 Dividing the problem into separate sequential tasks with concept networks allows splitting up the problem into stages of difficulty and presenting it to the agent as a *curriculum* of increasing difficulty. This phased approach starts with a simple problem, lets the agent practice, then challenges it more and more as its ability increases. The reward function changes and evolves as the agent becomes more capable at its task. This *curriculum learning* approach helps guide exploration and drastically reduces required training time. 
 
 You can also constrain the policy search space for the agent by instructing it to learn by mimicking the behavior of an external expert. *Apprenticeship learning* uses expert-guided exemplars to constrain the state space the agent explores. Apprenticeship learning trades off learning known solutions more quickly at the expense of not discovering novel solutions.
 
 An example of apprenticeship learning is teaching a self-driving car agent to mimic the actions of a human driver. The agent learns how to drive, but also inherits any flaws and idiosyncrasies of the teacher.
 
-### Design of DRL-based AI systems
+### Design of RL-based AI systems
 
-The following strategy is a practical guide to constructing and building DRL-based AI systems:
+The following strategy is a practical guide to constructing and building RL-based AI systems:
 
 1. Formulate and iterate on states, terminal conditions, actions, and rewards.
 1. Craft reward functions, shaping them as necessary.
@@ -175,7 +181,7 @@ Simulation tools include:
 
 ## Machine teaching paradigm
 
-*Machine teaching* offers a new paradigm for building ML systems that moves focus away from algorithms and onto successful model generation and deployment. Machine teaching identifies patterns in the learning process itself, and adopts positive behavior into its own method. Much of the activity in machine learning is focused on improving existing algorithms or developing novel learning algorithms. In contrast, machine teaching focuses on the efficacy of the teachers themselves.
+*Machine teaching* offers a new paradigm for building ML systems that moves the focus away from algorithms and onto successful model generation and deployment. Machine teaching identifies patterns in the learning process itself, and adopts positive behavior into its own method. Much of the activity in machine learning is focused on improving existing algorithms or developing novel learning algorithms. In contrast, machine teaching focuses on the efficacy of the teachers themselves.
 
 Machine teaching:
 
@@ -190,9 +196,9 @@ While ML experts are few, subject-matter experts are plentiful. Globally, there 
 
 For engineers, machine teaching raises the bar of abstraction beyond AI algorithm selection and hyper-parameter tweaking to focus on more valuable application domain problems. Engineers building autonomous systems can create accurate, detailed models of systems and environments, and make them intelligent using methods like deep learning, imitation learning, and reinforcement learning. Another welcome outcome of machine teaching is a faster time to model deployment, by reducing or eliminating the need for manual intervention from machine learning experts during development.
 
-Machine teaching streamlines the process of building ML solutions by looking at common ML practices and adopting beneficial strategies into its own method. With instruction and configuration from the developer, [Bonsai](https://azure.microsoft.com/services/project-bonsai/), the machine teaching service in the [Microsoft Autonomous Systems Platform](https://www.microsoft.com/ai/autonomous-systems-platform), can automate the development of the most appropriate AI model into an AI system.
+Machine teaching streamlines the process of building ML solutions by looking at common ML practices and adopting beneficial strategies into its own methods. With instruction and configuration from the developer, [Bonsai](https://azure.microsoft.com/services/project-bonsai/), the machine teaching service in the [Microsoft Autonomous Systems Platform](https://www.microsoft.com/ai/autonomous-systems-platform), can automate the development of AI models into an AI system.
 
-Bonsai provides an easily understandable central dashboard that tracks the current state of each project with version control tools. Using this machine-teaching infrastructure ensures that model results can be reproduced, and lets developers easily refresh AI systems at a future date when new AI algorithmic breakthroughs occur.
+Bonsai provides an easily understandable central dashboard that tracks the current state of each project with version control tools. Using this machine-teaching infrastructure ensures that model results can be reproduced, and lets developers easily refresh AI systems with future AI algorithmic breakthroughs.
 
 ![Bonsai dashboard](../media/bonsai-ui.png)
 
@@ -210,7 +216,7 @@ Machine teaching development and deployment has three phases: Build, Train, and 
 
 *Simulated environments* generate large amounts of synthetic data covering many use cases and scenarios. Simulations provide safe and cost-effective data generation for model algorithm training, and faster training times with simulation parallelization. Simulations help train the models across different kinds of environmental conditions and scenarios, much faster and safer than is feasible in the real world.
 
-Experts can supervise agents as they work to solve problems in simulated environments, and provide feedback and guidance that lets the agents dynamically adapt within the simulation. After training is complete, engineers deploy the trained agents onto actual hardware, where they can use their knowledge to power autonomous systems in the real world.
+Subject-matter experts can supervise agents as they work to solve problems in simulated environments, and provide feedback and guidance that lets the agents dynamically adapt within the simulation. After training is complete, engineers deploy the trained agents onto actual hardware, where they can use their knowledge to power autonomous systems in the real world.
 
 ### Machine learning and machine teaching
 
@@ -229,16 +235,16 @@ The following diagram shows a representative pipeline for building a machine lea
 
 Machine teaching automates the creation of such models, easing the need for manual intervention in the learning process to improve feature selection or examples, or tweaking of hyper-parameters. In effect, machine teaching introduces a level of abstraction into the AI elements of the model, allowing the developer to focus on the domain knowledge. This abstraction also allows the AI algorithm to be replaced by new more innovative algorithms in time, without requiring a respecification of the problem.
 
-The role of the teacher is to optimize the transfer of knowledge to the learning algorithm so it can generate a useful model. Machine teaching refers to this mapping as a *concept*. Teachers also play a central role in data collection and labeling. They can filter unlabeled data to select specific examples, or look at the available example data and guess its label based on their own intuition or biases. Similarly, given two features on a large unlabeled set, teachers can conjecture that one is better than the other.
+The role of the teacher is to optimize the transfer of knowledge to the learning algorithm so it can generate a useful model. Teachers also play a central role in data collection and labeling. Teachers can filter unlabeled data to select specific examples, or look at the available example data and guess its label based on their own intuition or biases. Similarly, given two features on a large unlabeled set, teachers can conjecture that one is better than the other.
 
 The following image shows the high-level process of machine teaching:
 
 ![The machine teaching process](../media/machine-teaching-2-6.png)
 
-1. The problem owner first questions whether a training set is realizable.
-2. If the training set isn't realizable, the problem owner determines whether the issue is due to inadequate labeling or feature deficiencies. After correcting the labeling or adding features, the problem owner again assesses whether the training set is realizable.
-3. If the training set is realizable, the problem owner assesses whether training quality criteria are being met.
-4. If quality criteria aren't being met, the problem owner finds the test errors and adds the fixes to the training set. The problem owner then repeats the assessment steps.
+1. The teacher first questions whether a training set is realizable.
+2. If the training set isn't realizable, the teacher determines whether the issue is due to inadequate labeling or feature deficiencies. After correcting the labeling or adding features, the teacher again assesses whether the training set is realizable.
+3. If the training set is realizable, the teacher assesses whether training quality criteria are being met.
+4. If quality criteria aren't being met, the teacher finds the test errors and adds the fixes to the training set, then repeats the assessment steps.
 5. Once the training set is realizable and quality criteria are met, the process finishes.
 
 The process is a pair of indefinite loops, ending only when the model and the training itself are of sufficient quality.
@@ -259,7 +265,7 @@ Machine teaching is a form of programming. The goal of both programming and mach
 1. Deploy the functions.
 1. Maintain the functions with scheduled and unscheduled debug cycles.
 
-*Debugging* or evaluating the performance of the solution involves unique attributes for the two processes. In programming, debugging includes manually editing and recompiling code. In machine teaching, debugging includes adding knowledge labels and features, and further training.
+*Debugging* or evaluating the performance of the solution has different attributes between the two processes. In programming, debugging involves manually editing and recompiling code. In machine teaching, debugging includes adding knowledge labels and features, and further training.
 
 Building a target classification function that returns class *Y* given input *X* involves a machine learning algorithm, while the process for machine teaching is like the set of programming steps above.
 
@@ -340,7 +346,7 @@ The following Bonsai screenshot shows a Cartpole training, with **Goal satisfact
 
 ![Bonsai dashboard showing the Cartpole training example](../media/bonsai.png)
 
-For more information about the cartpole example or to try it yourself, see:
+For more information about the Cartpole example or to try it yourself, see:
 - [Quickstart: Balance a pole with AI (Cartpole)](https://docs.microsoft.com/bonsai/quickstart/cartpole/)
 - [Learn how you can teach an AI agent to balance a pole](https://blogs.microsoft.com/ai-for-business/cartpole-demo/)
 

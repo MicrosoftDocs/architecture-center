@@ -8,7 +8,9 @@ ms.custom: pcp
 ---
 # Machine teaching for autonomous systems
 
-Artificial intelligence (AI) and machine learning (ML) offer unique opportunities and challenges for automating complex industrial systems. *Machine teaching* is a new paradigm for building ML systems that moves the focus away from algorithms and onto successful model generation and deployment. Machine teaching infuses subject matter expertise into automated AI system training with *deep reinforcement learning (DRL)* and *simulations*. Abstracting away AI complexity to focus on subject matter expertise and real-world conditions can create models that turn automated control systems into *autonomous systems*.
+Artificial intelligence (AI) and machine learning (ML) offer unique opportunities and challenges for automating complex industrial systems. *Machine teaching* is a new paradigm for building ML systems that moves the focus away from algorithms and onto successful model generation and deployment.
+
+Machine teaching infuses subject matter expertise into automated AI system training with *deep reinforcement learning (DRL)* and *simulations*. Abstracting away AI complexity to focus on subject matter expertise and real-world conditions creates models that turn automated control systems into *autonomous systems*.
 
 Autonomous systems:
 
@@ -48,9 +50,9 @@ After training is complete, engineers deploy these trained agents onto actual ha
 [Bonsai](https://azure.microsoft.com/services/project-bonsai/) is the machine teaching service for the Microsoft Autonomous Systems platform. Bonsai simplifies machine teaching with deep reinforcement learning (DRL) to train and deploy smarter autonomous systems.
 
 You can use Bonsai to:
-- Train adaptive brains with intuitive goals and learning objectives, real-time success assessments, and automatic versioning control.
-- Integrate training simulations that implement real-world problems and provide realistic feedback during training.
-- Export the optimized brain and deploy it on-premises, in the cloud, or to IoT Edge or embedded devices.
+- Teach adaptive brains with intuitive goals and learning objectives, real-time success assessments, and automatic versioning control.
+- Integrate training simulations that implement real-world problems and provide realistic feedback.
+- Export trained brains and deploy them on-premises, in the cloud, or to IoT Edge or embedded devices.
 
 ![Bonsai user interface](../media/bonsai-ui.png)
 
@@ -81,13 +83,17 @@ Broadly similar to how a software compiler hides the bare metal machine code fro
 
 ### Cart pole sample
 
-Bonsai includes a couple of sample AI programs, Cartpole and Moab.
+Bonsai includes a couple of machine teaching samples, Cartpole and [Moab](https://microsoft.github.io/moab/).
 
-The Cartpole sample has a pole attached by an unactivated joint to a cart, which moves along a frictionless track. Applying a force to the cart controls the system. The pendulum starts upright, and the goal is to keep it upright while keeping the cart on the track. The available sensor information includes the cart position and velocity, and the pole angle and angular velocity. The supported agent actions are to push the cart to the left or the right.
+The Cartpole sample has a pole attached by an unactivated joint to a cart, which moves along a frictionless track. The available sensor information includes the cart position and velocity, and the pole angle and angular velocity. Applying a force to the cart controls the system. The supported agent actions are to push the cart to the left or the right.
 
-Every time interval that the pole remains upright generates a reward. A training episode ends when the pole is over 15 degrees from vertical, or the cart moves more than a predefined number of units from the center.
+The pole starts upright, and the goal is to keep it upright while keeping the cart on the track. Every time interval that the pole remains upright generates a reward. A training episode ends when the pole is over 15 degrees from vertical, or the cart moves more than a predefined number of units from the center.
 
-The following Bonsai screenshot shows Cartpole training progress, with **Goal satisfaction** on the y-axis and **Training iterations** on the x-axis. The dashboard also shows the percentage of goal satisfaction and the total training time.
+The sample uses [Inkling](https://docs.microsoft.com/bonsai/inkling/) language to write the machine teaching program, and the provided Cartpole simulator to speed and improve the training.
+
+![Inkling code and Cartpole simulator](../media/cartpole.png)
+
+The following Bonsai screenshot shows Cartpole training progress, with **Goal satisfaction** on the y-axis and **Training iterations** on the x-axis. The dashboard also shows the percentage of goal satisfaction and the total elapsed training time.
 
 ![Bonsai dashboard showing the Cartpole training example](../media/bonsai.png)
 
@@ -111,21 +117,19 @@ Simulations are available across a broad range of industries and systems, includ
 - [Gazebo](http://gazebosim.org/), a tool to allow accurate simulation of populations of robots in complex indoor and outdoor environments.
 - [Microsoft AirSim](https://microsoft.github.io/AirSim/), an open-source robotics simulation platform.
 
-The Bonsai platform includes Simulink and AnyLogic simulators, and you can add your own simulators.
+The Bonsai platform includes Simulink and AnyLogic simulators, and you can add other simulators.
 
 ### AirSim
 
-[Microsoft AirSim (Aerial Informatics and Robotics Simulation)](https://microsoft.github.io/AirSim/) is an open-source robotics simulation platform designed to train autonomous systems. AirSim can capture data for models from ground vehicles, wheeled robotics, aerial drones, and even static IoT devices, without costly field operations.
+[Microsoft AirSim (Aerial Informatics and Robotics Simulation)](https://microsoft.github.io/AirSim/) is an open-source robotics simulation platform designed to train autonomous systems. AirSim provides a realistic simulation tool for designers and developers to generate the large amounts of data they need for model training and debugging.
+
+AirSim can capture data for models from ground vehicles, wheeled robotics, aerial drones, and even static IoT devices, without costly field operations.
 
 ![AirSim screenshot](../media/machine-teaching-4-3-2.png)
 
-AirSim provides large data sets for training and the ability to debug in a simulator. AirSim provides a realistic simulation tool for designers and developers for the seamless generation of the amount of training data they require. 
+AirSim works as a plug-in to Epic Games' [Unreal Engine](https://www.unrealengine.com) editor, providing control over building environments and simulating difficult-to-reproduce, real-world events to capture meaningful data. AirSim leverages current game engine rendering, physics, and perception computation to create an accurate, real-world simulation.
 
-AirSim works as a plug-in to Epic Games' [Unreal Engine](https://www.unrealengine.com) editor, providing control over building environments and simulating difficult-to-reproduce, real-world events to capture meaningful data for AI models. AirSim leverages current game engine rendering, physics, and perception computation to create an accurate, real-world simulation.
-
-This realism, based on efficiently generated ground-truth data, enables the study and execution of complex missions that are time-consuming or risky in the real world. For example, collisions in a simulator cost virtually nothing, yet provide actionable information for improving the design of the system.
-
-AirSim provides realistic environments, vehicle dynamics, and multi-modal sensing for researchers building autonomous vehicles that use AI to enhance their safe operation in the real world.
+This realism, based on efficiently generated ground-truth data, enables the study and execution of complex missions that are time-consuming or risky in the real world. For example, AirSim provides realistic environments, vehicle dynamics, and multi-modal sensing for researchers building autonomous vehicles. Collisions in a simulator cost virtually nothing, yet provide actionable information for improving the design of the system.
 
 You can use an [Azure Resource Manager (ARM) template](https://github.com/microsoft/AirSim/blob/master/azure/azure-env-creation/vm-arm-template.json) to automatically create a development environment on Azure and code and debug a Python application connected to AirSim using Visual Studio Code. For more information, see [AirSim Development Environment on Azure](https://microsoft.github.io/AirSim/azure/).
 
