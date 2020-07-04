@@ -2,7 +2,7 @@
 title: Machine teaching with the Microsoft Autonomous Systems platform
 titleSuffix: Azure Example Scenarios
 author: jocontr
-ms.date: 07/01/2020
+ms.date: 07/05/2020
 description: Learn how the Microsoft Autonomous Systems platform uses machine teaching, deep reinforcement learning, and simulations to build and deploy autonomous systems with Bonsai.
 ms.custom: pcp
 ---
@@ -47,7 +47,7 @@ After training is complete, engineers deploy these trained agents onto actual ha
 
 [Bonsai](https://azure.microsoft.com/services/project-bonsai/) is the machine teaching service for the Microsoft Autonomous Systems platform. Bonsai simplifies machine teaching with deep reinforcement learning (DRL) to train and deploy smarter autonomous systems.
 
-Use Bonsai to:
+You can use Bonsai to:
 - Train adaptive brains with intuitive goals and learning objectives, real-time success assessments, and automatic versioning control.
 - Integrate training simulations that implement real-world problems and provide realistic feedback during training.
 - Export the optimized brain and deploy it on-premises, in the cloud, or to IoT Edge or embedded devices.
