@@ -29,7 +29,7 @@ The [Microsoft Autonomous Systems platform](https://www.microsoft.com/ai/autonom
 
 Machine teaching bridges AI science and software with traditional engineering and domain expertise. Example applications include motion control, machine calibration, smart buildings, industrial robotics, and process control.
 
-## Machine teaching architecture
+## Architecture
 
 The Microsoft Autonomous Systems platform manages the full end-to-end machine teaching lifecycle. Development and deployment has three phases: Build, Train, and Deploy.
 
@@ -45,9 +45,9 @@ Simulations help train the models across different kinds of environmental condit
 
 After training is complete, engineers deploy these trained agents onto actual hardware, where they can use their knowledge to power autonomous systems in the real world.
 
-## Project Bonsai
+## Machine teaching service
 
-[Bonsai](https://azure.microsoft.com/services/project-bonsai/) is the machine teaching service for the Microsoft Autonomous Systems platform. Bonsai simplifies machine teaching with deep reinforcement learning (DRL) to train and deploy smarter autonomous systems.
+[Project Bonsai](https://azure.microsoft.com/services/project-bonsai/) is the machine teaching service for the Microsoft Autonomous Systems platform. Bonsai simplifies machine teaching with deep reinforcement learning (DRL) to train and deploy smarter autonomous systems.
 
 You can use Bonsai to:
 - Teach adaptive brains with intuitive goals and learning objectives, real-time success assessments, and automatic versioning control.
@@ -129,9 +129,9 @@ AirSim can capture data for models from ground vehicles, wheeled robotics, aeria
 
 AirSim works as a plug-in to Epic Games' [Unreal Engine](https://www.unrealengine.com) editor, providing control over building environments and simulating difficult-to-reproduce, real-world events to capture meaningful data. AirSim leverages current game engine rendering, physics, and perception computation to create an accurate, real-world simulation.
 
-This realism, based on efficiently generated ground-truth data, enables the study and execution of complex missions that are time-consuming or risky in the real world. For example, AirSim provides realistic environments, vehicle dynamics, and multi-modal sensing for researchers building autonomous vehicles. Collisions in a simulator cost virtually nothing, yet provide actionable information for improving the design of the system.
+This realism, based on efficiently generated ground-truth data, enables the study and execution of complex missions that are time-consuming or risky in the real world. For example, AirSim provides realistic environments, vehicle dynamics, and multi-modal sensing for researchers building autonomous vehicles. Collisions in a simulator cost virtually nothing, yet provide actionable information for improve the design of the system.
 
-You can use an [Azure Resource Manager (ARM) template](https://github.com/microsoft/AirSim/blob/master/azure/azure-env-creation/vm-arm-template.json) to automatically create a development environment on Azure and code and debug a Python application connected to AirSim using Visual Studio Code. For more information, see [AirSim Development Environment on Azure](https://microsoft.github.io/AirSim/azure/).
+You can use an [Azure Resource Manager (ARM) template](https://github.com/microsoft/AirSim/blob/master/azure/azure-env-creation/vm-arm-template.json) to automatically create a development environment, and code and debug a Python application connected to AirSim in Visual Studio Code. For more information, see [AirSim Development Environment on Azure](https://microsoft.github.io/AirSim/azure/).
 
 ## Next steps
 

@@ -43,7 +43,7 @@ The *paradox of automation* claims that the more efficient an automated system b
 
 In the preceding diagram, the **Control** and **Optimization** categories relate to automation of work. On this side of the AI spectrum, there are practically infinite problem spaces. Subject matter expertise is a strategic asset, simulations are the most doable training option, and explainability is paramount.
 
-Orchstrators include [smart manufacturing](https://en.wikipedia.org/wiki/Smart_manufacturing) and the [Bonsai machine teaching platform](https://azure.microsoft.com/services/project-bonsai/). Use cases include advanced robotics, autonomous vehicles, dark factories, smart sensors, route optimization, inventory optimization, and virtual assistants.
+Orchestrators include [smart manufacturing](https://en.wikipedia.org/wiki/Smart_manufacturing) and the [Bonsai machine teaching platform](https://azure.microsoft.com/services/project-bonsai/). Use cases include advanced robotics, autonomous vehicles, dark factories, smart sensors, route optimization, inventory optimization, and virtual assistants.
 
 ## Reinforcement learning
 
@@ -51,11 +51,11 @@ Machine teaching depends on *reinforcement learning (RL)* to train models, and t
 
 RL in machine learning concerns how software agents learn to maximize rewards and desired outcomes in their environments. RL is one of the three basic machine learning paradigms:
 
-- *Supervised learning* learns to generalize from tagged or structured data.
-- *Unsupervised learning* learns to compress unlabeled or unstructured data.
-- *Reinforcement learning* learns to act through trial and error.
+- *Supervised learning* generalizes from tagged or structured data.
+- *Unsupervised learning* compresses unlabeled or unstructured data.
+- *Reinforcement learning* acts through trial and error.
 
-While supervised learning is learning by example, reinforcement learning can be considered learning from experience. Unlike supervised learning, which focuses on finding and labeling suitable datasets, RL concentrates on designing models of how to perform tasks.
+While supervised learning is learning by example, reinforcement learning is learning from experience. Unlike supervised learning, which focuses on finding and labeling suitable datasets, RL concentrates on designing models of how to perform tasks.
 
 The key RL components are:
 
@@ -92,17 +92,17 @@ The agent uses the reward function to learn about the physics and dynamics of th
 
 #### Exploration versus exploitation trade-off
 
-The agent needs to balance exploration versus maximizing its reward, depending on what the goal is and how the reward function is specified. This is called the *exploration versus exploitation trade-off*. As with many aspects of the real world, the agent must balance the merits of further exploration of the environment, which may lead to better decisions in the future, or exploitation of the environment, using all the knowledge the agent currently has about the world to maximize reward. Taking different actions can offer a fresh perspective, especially if the actions haven't been tried before.
+Depending on the goal and reward function, the agent must balance exploration versus maximizing its reward. This choice is called the *exploration versus exploitation trade-off*. As with many aspects of the real world, the agent must balance the merits of further exploration of the environment, which may lead to better decisions in the future, with exploitation of the environment, using all the knowledge the agent currently has about the world to maximize reward. Taking different actions can offer a fresh perspective, especially if the actions haven't been tried before.
 
-The following training dashboard shows the exploration versus exploitation trade-off. The chart shows both the smoothed rewards and episode rewards, with the episode rewards on the y-axis and the training iterations on the x-axis. The episode reward rises to 400 in the first 50,000 iterations, then keeps steady until 400,000 iterations, when it rises to 1,500 and remains steady.
+The following training dashboard shows the exploration versus exploitation trade-off. The chart shows both the smoothed rewards and episode rewards, with the episode rewards on the y-axis and the training iterations on the x-axis. The episode reward density rises to 400 in the first 50,000 iterations, then keeps steady until 400,000 iterations, when it rises to 1,500 and remains steady.
 
 ![Chart showing exploration versus exploitation trade-off](../media/machine-teaching-3-4-3.png)
 
 #### Cobra effect
 
-Rewards are subject to what is known in economics as the *cobra effect*. During the British rule of colonial India, the government decided to cull the large wild cobra snake population by offering a reward for every dead cobra. Initially, this was successful, as large numbers of the snakes were killed to claim the reward. However, it didn't take long for people to start gaming the system, and breeding cobras deliberately to collect the reward. Eventually, the authorities noticed this and canceled the program. With no further incentive, the cobra breeders set their snakes free, with a result that the wild cobra population actually increased compared to what it was at the start of the incentive.
+Rewards are subject to what is known in economics as the *cobra effect*. During the British rule of colonial India, the government decided to cull the large wild cobra snake population by offering a reward for every dead cobra. Initially, this policy succeeded, as large numbers of the snakes were killed to claim the reward. However, it didn't take long for people to start gaming the system, and breeding cobras deliberately to collect the reward. Eventually, the authorities noticed this behavior and canceled the program. With no further incentive, the cobra breeders set their snakes free, with the result that the wild cobra population actually increased compared to what it was at the start of the incentive.
 
-The well-intentioned incentivization had made the situation worse, not better. The learning from this is that you get what you incentivize, which may not be what you intended.
+The well-intentioned incentivization had made the situation worse, not better. The learning from this is that the agents learn the behavior you incentivize, which may not produce the result you intended.
 
 #### Shaped rewards
 
@@ -297,7 +297,7 @@ The following diagram shows the phases of iterative machine teaching model devel
 ![Diagram showing the phases of iterative model development.](../media/machine-teaching-3-6.png)
 
 1. Set up initial rough simulation model for approach validation.
-2. Enhance simulation fidelity by modelling environment dynamics concurrent with iterative teaching refinements.
+2. Enhance simulation fidelity by modeling environment dynamics concurrent with iterative teaching refinements.
 3. Generalize model with dynamic randomization and expansion.
 4. Measure real system dynamics and test trained model on real equipment.
 5. Expand model to cover more equipment variation.
@@ -316,11 +316,11 @@ First, find or develop a simulator that can simulate agents, sensors, and the en
 
 Use the [Bonsai](https://docs.microsoft.com/bonsai/) machine teaching service in the Microsoft Autonomous Systems Platform to build a machine teaching plan into a model, train the model against the simulator, and deploy the trained AI system to the real production facility.
 
-[Inkling](https://docs.microsoft.com/bonsai/inkling/) is a purpose-specific language to formally describe machine teaching plans. In Bonsai, you can use Inkling to deconstruct the problem into the schema:
+[Inkling](https://docs.microsoft.com/bonsai/inkling/) is a purpose-specific language to formally describe machine teaching plans. In Bonsai, you can use Inkling to deconstruct the problem into schema:
 
 ![Define machine state and control action in Inkling](../media/machine-teaching-4-4-4.png)
 
-Then, define key *concepts* and create a *curriculum*, or set of lessons, to teach the AI system, specifying the reward function for the simulation state:
+Then, define key *concepts* and create a *curriculum* to teach the AI system, specifying the reward function for the simulation state:
 
 ![Define curriculum in Inkling.](../media/machine-teaching-4-4-5.png)
 
