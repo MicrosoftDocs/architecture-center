@@ -2,7 +2,7 @@
 title: Scalable web application
 titleSuffix: Azure Reference Architectures
 description: Improve scalability in a web application running in Microsoft Azure.
-author: MikeWasson
+author: adamboeglin
 ms.date: 10/03/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
