@@ -2,7 +2,7 @@
 title: Build for the needs of the business
 titleSuffix: Azure Application Architecture Guide
 description: Every design decision must be justified by a business requirement.
-author: MikeWasson
+author: adamboeglin
 ms.date: 08/30/2018
 ms.topic: guide
 ms.service: architecture-center

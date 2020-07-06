@@ -1,7 +1,7 @@
 ---
 title: Microservices architecture on Azure Kubernetes Service (AKS)
 description: Deploy a microservices architecture on Azure Kubernetes Service (AKS)
-author: MikeWasson
+author: adamboeglin
 ms.date: 05/07/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
