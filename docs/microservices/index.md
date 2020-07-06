@@ -2,7 +2,7 @@
 title: Building microservices on Azure
 description: Designing, building, and operating microservices architectures on Azure
 ms.date: 10/30/2019
-author: MikeWasson
+author: adamboeglin
 ms.topic: guide
 ms.service: architecture-center
 ms.category:

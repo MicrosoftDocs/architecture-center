@@ -1,7 +1,7 @@
 ---
 title: Data considerations for microservices
 description: Data considerations for microservices.
-author: MikeWasson
+author: adamboeglin
 ms.date: 02/25/2019
 ms.topic: guide
 ms.service: architecture-center

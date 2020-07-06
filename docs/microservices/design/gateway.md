@@ -1,7 +1,7 @@
 ---
 title: API gateways
 description: API gateways in microservices.
-author: MikeWasson
+author: adamboeglin
 ms.date: 10/23/2018
 ms.topic: guide
 ms.service: architecture-center

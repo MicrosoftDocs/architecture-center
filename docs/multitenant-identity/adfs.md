@@ -1,7 +1,7 @@
 ---
 title: Federate with a customer's AD FS
 description: How to federate with a customer's AD FS in a multitenant application.
-author: MikeWasson
+author: adamboeglin
 ms.date: 07/21/2017
 ms.topic: guide
 ms.service: architecture-center
