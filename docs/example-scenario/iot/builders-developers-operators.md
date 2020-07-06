@@ -27,7 +27,7 @@ While there can be a myriad of roles that exist around an IoT solution,
 these three provide helpful perspectives from which to view a solution
 during its design and development.
 
-**Note:** These roles may be fulfilled by different companies,
+> **Note:** These roles may be fulfilled by different companies,
 organizations, or individuals or the same individuals wearing different
 hats in how they interact with a solution during its lifetime.
 
