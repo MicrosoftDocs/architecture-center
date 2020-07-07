@@ -175,7 +175,7 @@ Simulations are available across a broad range of industries and systems, includ
 
 Simulation tools include:
 
-- [MathLab Simulink](https://www.mathworks.com/products/simulink.html), a graphical programming tool developed by MathWorks for modeling, simulating, and analyzing dynamic systems.
+- [Simulink](https://www.mathworks.com/products/simulink.html), a graphical programming tool developed by MathWorks for modeling, simulating, and analyzing dynamic systems.
 - [Gazebo](http://gazebosim.org/), a tool to allow accurate simulation of populations of robots in complex indoor and outdoor environments.
 - [Microsoft AirSim](https://microsoft.github.io/AirSim/), an open-source robotics simulation platform.
 
