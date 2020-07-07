@@ -1,8 +1,8 @@
 ---
-title: Machine Learning Operations Framework for Upscaling machine leaning Lifecycle with Azure Machine Learning
-description: How the Machine Learning Operations Maturity Model was applied to implement a Machine Learning solution for predicting product shipping levels.
-author: danazlin
-ms.author: dermar
+title: Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning
+description: How the machine learning operations (MLOps) maturity model was applied to implement a machine learning solution for predicting product shipping levels.
+author: doodlemania2
+ms.author: pnp
 ms.date: 06/01/2020
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -12,7 +12,7 @@ ms.category:
     - hybrid
 ---
 
-# MLOps framework for upscaling machine leaning Lifecycle with Azure Machine Learning
+# Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning
 
 The client in this engagement is a Fortune 500 food company that ships products directly to multiple retail outlets. This client engagement (or project) focused on helping the client improve their demand forecasting. The improvement helped them optimize the stocking of their products in different stores across several regions of the US. To achieve this, Microsoft’s Commercial Software Engineering (CSE) team worked with the client’s data scientists to develop customized machine learning models for the selected regions for a pilot study. These models considered variables that had to do with:
 
@@ -26,13 +26,13 @@ The client in this engagement is a Fortune 500 food company that ships products 
 
 * Special events
 
-This specific goal represented a major component of the project and the client realized a significant sales lift in the early field trials. Also, a 40% reduction in forecasting Mean Absolute Percentage Error (MAPE) when compared with a historical average baseline model.
+This specific goal represented a major component of the project and the client realized a significant sales lift in the early field trials. Also, the team saw a 40% reduction in forecasting Mean Absolute Percentage Error (MAPE) when compared with a historical average baseline model.
 
 A key part of the project involved how to scale up the data science workflow from the pilot study to a production level. This production-level workflow required the CSE team to:
 
-* Develop models for many regions
+* Develop models for many regions.
 
-* Continuously update and monitoring the models' performance
+* Continuously update and monitor the models' performance.
 
 * Enabling data and engineering teams to collaborate on all of these aspects.
 
@@ -40,15 +40,15 @@ The traditional data science workflow, as it exists today, is closer to a one-of
 
 * Prepare the data.
 
-* Experiment with different models
+* Experiment with different models.
 
-* Tune hyper parameters
+* Tune hyper parameters.
 
 * Create a build/test/evaluate/refine cycle.
 
 Most existing tools are only used for specific purposes and aren't well disposed to automation. In a production level machine learning operation, there must be more consideration given to Application Lifecycle Management and DevOps.
 
-The CSE team did extensive work in this area to help the client scale up the operation to production levels. The process had to be more effective by implementing different aspects of Continuous Integration/Continuous Delivery (CI/CD) capabilities and items like observability and integration with Azure capabilities. In doing so, the team uncovered gaps in existing MLOps guidance. Those gaps needed further refinement so MLOps was better understood and applied at scale. Understanding MLOps practices will help organizations ensure the machine learning models the system produces are production quality models, thus improving business performance. The organization no longer has to focus the majority of the time on the associated low-level details relating to infrastructure and engineering work required to develop and run machine learning models for production level operations. It will also help incorporate the communities of data science and software engineering. Team members learn how to work together to deliver a production-ready system.
+The CSE team did extensive work in this area to help the client scale up the operation to production levels. The process had to be more effective by implementing different aspects of Continuous Integration/Continuous Delivery (CI/CD) capabilities and items like observability and integration with Azure capabilities. In doing so, the team uncovered gaps in existing MLOps guidance. Those gaps needed further refinement so MLOps was better understood and applied at scale. Understanding MLOps practices helps organizations ensure the machine learning models the system produces are production quality models that improve business performance. The organization no longer has to focus the majority of the time on the associated low-level details relating to infrastructure and engineering work required to develop and run machine learning models for production level operations. It also helps incorporate the communities of data science and software engineering. Team members learn how to work together to deliver a production-ready system.
 
 The CSE team used this project to address machine learning community needs by addressing items like developing an MLOps maturity model (and perhaps leading to the creation of “MLOps in a Box”). These efforts target improving MLOps adoption through understanding common challenges facing key players in the MLOps process.
 
@@ -58,13 +58,13 @@ The Engagement scenario discusses the real-world challenges that the CSE team ha
 
 ### Engagement scenario
 
-The client delivers products directly to retail market outlets on a regular schedule. However, each retail outlet varies in its product usage patterns so that product inventory needs to vary in each weekly delivery. Maximizing sales, minimizing product returns and lost sales opportunities are the goals of the demand forecasting methodologies used by the client. The project focused on improving their forecasting by applying machine learning to the problem.
+The client delivers products directly to retail market outlets on a regular schedule. However, each retail outlet varies in its product usage patterns so that product inventory needs to vary in each weekly delivery. Maximizing sales, minimizing product returns, and lost sales opportunities are the goals of the demand forecasting methodologies used by the client. The project focused on improving their forecasting by applying machine learning to the problem.
 
 The CSE team divided the project into two phases. Phase 1 focused on developing working machine learning models to support a field-based pilot study on the effectiveness of machine learning forecasting in a selected sales region. The success of Phase 1 led to Phase 2. The team upscaled the initial pilot study from minimal group of models that supported a single geographic region to a set of sustainable production-level models that they could apply to all of the client’s sales regions. A primary consideration for the upscaled solution was the need to accommodate the large number of geographic regions and their local retail outlets. The team dedicated the machine learning models to both large and small retail outlets in each region.
 
-The pilot study determined that a model dedicated to one region’s retail outlets could use local sales history, local demographics, weather, and special events to optimize the demand forecast for each sales outlet. In the pilot study, four ensemble machine learning forecasting models serviced market outlets in a single region. The models processed data in weekly batches. Also, the team developed two baseline models using historical for comparison.
+The pilot study determined that a model dedicated to one region’s retail outlets could use local sales history, local demographics, weather, and special events to optimize the demand forecast for each sales outlet. Four ensemble machine learning forecasting models serviced market outlets in a single region. The models processed data in weekly batches. Also, the team developed two baseline models using historical data for comparison.
 
-In the initial requirement for the upscaled solution, the team selected 14 geographic regions, including small and large market outlets, to participate. They used more than 50 machine learning forecasting models. The CSE team expected further system growth continued refinement of the machine learning models. It quickly became clear this wider-scaled machine learning solution could only be sustainable if the team based it on the best practice principles of DevOps for the machine learning environment.
+In the initial requirement for the upscaled solution, the CSE team selected 14 geographic regions, including small and large market outlets, to participate. They used more than 50 machine learning forecasting models. The team expected further system growth continued refinement of the machine learning models. It quickly became clear this wider-scaled machine learning solution could only be sustainable if the team based it on the best practice principles of DevOps for the machine learning environment.
 
 | Environment | Market Region | Format | Models | Model Subdivision | Model Description |
 | ----------- | ------------- | ------ | ------ | ----------------- | ----------------- |
@@ -77,9 +77,9 @@ In the initial requirement for the upscaled solution, the team selected 14 geogr
 |  | Same as above for additional 13 geographic regions |  |  |  |  |
 | Same as above for PROD environment |  |  |  |  |  |
 
-The MLOps process would provide a framework for the upscaled system that addressed the full lifecycle of the machine learning models. This framework includes development, testing, deployment, and monitoring that fulfills the needs of a classic CI/CD process and operation of the deployed machine learning system. However, it became evident that existing MLOps guidance has gaps because of its relative immaturity compared to DevOps. The project teams worked to fill in some of those gaps. They wanted to provide a functional process model that insures the viability of the upscaled machine learning solution.
+The MLOps process would provide a framework for the upscaled system that addressed the full lifecycle of the machine learning models. This framework includes development, testing, deployment, and monitoring that fulfills the needs of a classic CI/CD process and operation of the deployed machine learning system. However, because of its relative immaturity compared to DevOps, it became evident that existing MLOps guidance had gaps. The project teams worked to fill in some of those gaps. They wanted to provide a functional process model that insures the viability of the upscaled machine learning solution.
 
-The MLOps process developed from this project made a significant real-world step to move MLOps to a higher level of maturity and viability. The new process is directly applicable to other machine learning projects. The CSE team has even taken their collective learnings to build a draft of an MLOps maturity model that anyone can apply to other machine learning projects.
+The MLOps process developed from this project made a significant real-world step to move MLOps to a higher level of maturity and viability. The new process is directly applicable to other machine learning projects. The CSE team has even taken their collective learnings to build a draft of an [MLOps maturity model](mlops-maturity-model.md) that anyone can apply to other machine learning projects.
 
 ### Technical scenario
 
@@ -87,7 +87,7 @@ MLOps, also known as DevOps for machine learning, is an umbrella term. It encomp
 
 Implementing MLOps in real-world production environments has unique challenges that must be overcome. Teams can use Azure's capabilities to support MLOps patterns. Azure can also provide clients with asset management and orchestration services to enable effective machine learning lifecycle management. Azure services are the foundation for the MLOps solution discussed in this technical paper.
 
-## Engagement machine learning models requirements
+## Machine learning models requirements
 
 Much of the work during the pilot field study involved creating the machine learning models that CSE team would apply to the large and small retail stores in a single study region. Notable requirements for the model included:
 
@@ -95,19 +95,20 @@ Much of the work during the pilot field study involved creating the machine lear
 
 * Initial experimental models developed in Jupyter Notebook and implemented in Python.
 
-* Teams would use the same machine learning approach for large and small stores, but the training and scoring data were different for the small and large stores.
+    > [!NOTE]
+    > Teams would use the same machine learning approach for large and small stores, but the training and scoring data was different depending on the size of the store.
 
 * Data requires preparation for model consumption.
 
-* Data processed on a batch basis rather than in real time
+* Data processed on a batch basis rather than in real time.
 
-* Model training done upon code changes, data changes, or evidence that the model has become stale.
+* Model training done when code changes, data changes, or there is evidence that the model has become stale.
 
-* Model performance must be viewable in Power BI Report.
+* Model performance must be viewable in Power BI dashboards.
 
-* The team considered model performance in scoring significant when MAPE <= 45% when compared with a historical average baseline model.
+* Model performance in scoring considered significant when MAPE <= 45% when compared with a historical average baseline model.
 
-## Engagement MLOps requirements
+## MLOps requirements
 
 The team had to meet several key requirements to scale up the solution from the pilot field study. Originally, only a few models were developed for a single sales region. They had to deploy a wider-scale implementation that enabled the development of custom machine learning models for all sales regions that included:
 
@@ -122,7 +123,7 @@ The team had to meet several key requirements to scale up the solution from the 
 
 * A unique model that represented each region for large and small stores based on the stores' history, demographics, and other key variables. The model had to process the whole dataset to minimize the risk of processing error.
 
-* Initial upscaling to support 14 sales regions with plans for further upscaling.
+* Initially upscale to support 14 sales regions with plans to upscale further.
 
 * Plans for additional models for longer term forecasting for regions and other store clusters.
 
@@ -134,7 +135,7 @@ The machine learning lifecycle, also known as the Data Science lifecycle, fits r
 
 *Deploy Model* here can represent any operational use of the validated machine learning model. Compared to DevOps, MLOps presents the additional challenge of how to integrate this machine learning lifecycle into the typical CI/CD process in DevOps.
 
-This [data science lifecycle](/azure/machine-learning/team-data-science-process/overview#data-science-lifecycle) doesn't follow the typical software development lifecycle. Regardless, the team had to preserve the basic process whether they did it manually or via CI/CD automation. For this project, the Azure Machine Learning Service solution had to satisfy two functional tasks:
+This [data science lifecycle](/azure/machine-learning/team-data-science-process/overview#data-science-lifecycle) doesn't follow the typical software development lifecycle. The team had to preserve the basic process whether they did it manually or via CI/CD automation, so the Azure Machine Learning Service solution had to satisfy two functional tasks:
 
 * Train the model.
 
@@ -144,19 +145,17 @@ Ultimately, batch processing of data is the basis of the architecture. Two Azure
 
 ![Phase 1 data science methodology](./media/data-science-initial-methodology.png)
 
-The actual algorithms developed for the machine learning model are beyond the scope of this technical paper. The team tested several algorithms. They ultimately chose an ensemble design of a LASSO linear regression model and a Neural Network with categorical embeddings. The team used the same model, defined by the level of product that the client could store on site, for both large and small stores. The team further subdivided the model into fast-moving and slow-moving products.
+The team tested several algorithms. They ultimately chose an ensemble design of a LASSO linear regression model and a Neural Network with categorical embeddings. The team used the same model, defined by the level of product that the client could store on site, for both large and small stores. The team further subdivided the model into fast-moving and slow-moving products.
 
 Data scientists train machine learning models when the team releases new code and when new data is available. Training typically happens on a weekly cadence. Consequently, each processing run involves a large amount of data. And, because the team collects that data from many sources in different formats, it required *conditioning* to put the data into a consumable format before data scientist could process it. This data conditioning requirement needed significant manual effort and the CSE team identified it as a primary candidate for automation.
 
-As mentioned, the data scientists developed and applied the experimental Azure Machine Learning models to a single sales region in a pilot field study to evaluate the usefulness of this forecasting approach. The team considered the observed sales lift for the stores in the pilot study significant. The CSE team considered the pilot study a success, justifying the need to upscale the solution to full production levels starting with 14 geographic regions and thousands of stores. The team could then use the same pattern to add additional regions.
+As mentioned, the data scientists developed and applied the experimental Azure Machine Learning models to a single sales region in a pilot field study to evaluate the usefulness of this forecasting approach. The CSE team considered the observed sales lift for the stores in the pilot study significant. The team considered the pilot study a success, justifying the need to upscale the solution to full production levels starting with 14 geographic regions and thousands of stores. The team could then use the same pattern to add additional regions.
 
 The pilot model served as the basis for the upscaled solution, but the CSE team knew that the model would need further refinement on a continuing basis to improve its performance.
 
 ## MLOps solution
 
-MLOps is a relatively new concept. It encompasses a wide range of philosophies, practices, and technologies involved in executing machine learning lifecycles in production. Still evolving, MLOps covers from how data scientists prepare data to how teams deliver, evaluate, and monitor machine learning results.
-
-While DevOps has had years to stabilize and include a set of fundamental practices, MLOps is still early in its existence. As MLOps concepts mature, we often discover challenges in bringing two disciplines together that often operate with different skillsets and priorities between the principal players: software engineers and data scientists. And yet, there are similarities that we can build on.
+As MLOps concepts mature, teams often discover challenges in bringing two disciplines together that often operate with different skillsets and priorities between the principal players: software engineers and data scientists. And yet, there are similarities that we can build on.
 
 MLOps, like DevOps is a development process implemented by a *toolchain*. The toolchain includes such things as:
 
@@ -180,19 +179,19 @@ MLOps, like DevOps is a development process implemented by a *toolchain*. The to
 
 * Package/Container management
 
-As noted above, the solution leverages existing DevOps guidance, but it's augmented to create a more mature MLOps implementation that meets the needs of the client and the Data Science community. MLOps has these additional requirements from DevOps:
+As noted above, the solution takes advantage of existing DevOps guidance, but it's augmented to create a more mature MLOps implementation that meets the needs of the client and the Data Science community. MLOps has these additional requirements from DevOps:
 
 * **Data/model versioning isn't the same as code versioning**: There must be versioning of datasets as the schema and origin data changes.
 * **Digital audit trail requirements**: Track all changes when dealing with code and client data.
 * **Generalization**: Models are different than code for reuse, since data scientist must tune models based on input data/scenario.
   * To reuse a model for a new scenario, you may need to fine-tune/transfer/learn on it. You need the training pipeline.
-* **Stale models**: Models tend to decay over time (become stale) and you need the ability to retrain them on demand to ensure they remain relevant in production.
+* **Stale models**: Models tend to decay over time and you need the ability to retrain them on demand to ensure they remain relevant in production.
 
 ## MLOps challenges
 
 ### Immature MLOps standards
 
-Because the standard pattern for MLOps is still evolving, it is typically built from scratch and made to fit the needs of a particular client or user. The CSE team recognized this gap and sought to use DevOps best practices in this project. They augmented the DevOps processed to fit the additional requirements of MLOps. The process the team developed is a viable example of what an MLOps standard pattern should look like.
+The standard pattern for MLOps is still evolving. It's typically built from scratch and made to fit the needs of a particular client or user. The CSE team recognized this gap and sought to use DevOps best practices in this project. They augmented the DevOps processed to fit the additional requirements of MLOps. The process the team developed is a viable example of what an MLOps standard pattern should look like.
 
 ### Differences in skillsets
 
@@ -210,9 +209,9 @@ Traceable code and data lineage is also needed to diagnose model issues and crea
 
 ### Need for data conditioning
 
-Data used with these models comes from many private and public sources. Because the original data is disorganized, it makes it impossible for the machine learning model to consume the data in its raw state. The data scientist must condition the data for machine learning model consumption.
+Data used with these models comes from many private and public sources. Because the original data is disorganized, it makes it impossible for the machine learning model to consume the data in its raw state. The data scientist must condition the data into a standard format for machine learning model consumption.
 
-Much of the pilot field test focused on harmonizing this raw data so that the machine learning model could process it. In an MLOps system, the team should automate this process, and track the outputs.
+Much of the pilot field test focused on conditioning  the raw data so that the machine learning model could process it. In an MLOps system, the team should automate this process, and track the outputs.
 
 ## MLOps maturity model
 
@@ -240,7 +239,7 @@ For the current version of the MLOps maturity model, see the [MLOps maturity mod
 
 MLOps includes the whole space between acquiring raw data and delivering model output, also known as scoring:
 
-* Data prep
+* Data conditioning
 
 * Model training
 
@@ -270,18 +269,18 @@ Integrating this data development process into MLOps poses a challenge. Here, yo
 
 ![A diagram of the pattern for integrating the data development process and MLOps.](./media/mlops-integrated-pattern.png)
 
-The role of MLOps is to create a coordinated process that can efficiently support larger scale CI/CD environments common in production level systems. Conceptually, the MLOps model must include all process requirements from Experimentation to Scoring.
+The role of MLOps is to create a coordinated process that can efficiently support larger scale CI/CD environments common in production level systems. Conceptually, the MLOps model must include all process requirements from experimentation to scoring.
 
 The CSE team refined the MLOps process developed for this project to fit the client’s specific needs. The most notable was the need for batch processing instead of real-time processing. As the team developed the upscaled system, they identified and resolved some shortcomings. The most significant of these shortcomings resulted in the development of a bridge between Azure Data Factory and Azure Machine Learning, which the team incorporated a built-in connector in Azure Data Factory. They created this component set to facilitate the triggering and status monitoring necessary to make the process automation work.
 
-Another fundamental change is that the data scientist needed the capability to export experimental code from Jupyter notebooks (or similar tools) into the MLOps deployment process rather than trigger training and scoring directly.
+Another fundamental change is that the data scientist needed the capability to export experimental code from Jupyter notebooks into the MLOps deployment process rather than trigger training and scoring directly.
 
 Here is the final MLOps process model concept:
 
 ![A diagram of the final MLOps model concept.](./media/mlops-conceptual-model.png)
 
 > [!IMPORTANT]
-> Scoring is the final step. The process runs the machine learning model against data that the system uses to make predictions based on the data used to train the model. This addresses the basic business use case requirement for *demand forecasting*. The team rates the quality of the predictions using the MAPE. MAPE is short for *mean absolute percentage deviation*. It is a measure of prediction accuracy of statistical forecasting methods and as a loss function for regression problems in machine learning. In this project, the team considered a MAPE of <= 45% significant.
+> Scoring is the final step. The process runs the machine learning model against data that the system uses to make predictions based on the data used to train the model. This addresses the basic business use case requirement for *demand forecasting*. The team rates the quality of the predictions using the MAPE. MAPE is short for *mean absolute percentage deviation*. It is a measure of prediction accuracy of statistical forecasting methods and a loss function for regression problems in machine learning. In this project, the team considered a MAPE of <= 45% significant.
 
 ## MLOps process flow
 
@@ -291,13 +290,13 @@ The following diagram describes how to apply CI/CD development and release workf
 
 * When a PR is created from a Feature branch, the pipeline runs [code validation tests](#code-validation-tests) to validate the quality of the code via unit tests and code quality tests. To validate quality upstream, the pipeline also runs [basic model validation tests](#basic-model-validation-tests) to validate the end-to-end training and scoring steps with a sample set of mocked data.
 
-* When the PR is merged into the Master branch, the CI pipeline will run the same code validation tests and basic model validation tests with increased epoch. The pipeline will then package the *Artifacts*, which include the code and binaries, to run in the machine learning environment.
+* When the PR is merged into the Master branch, the CI pipeline will run the same code validation tests and basic model validation tests with increased epoch. The pipeline will then package the *artifacts*, which include the code and binaries, to run in the machine learning environment.
 
-* After the Artifacts are available, a [model validation CD pipeline](#model-validation-cd-pipeline) will be triggered. It runs end-to-end validation on the development machine learning environment. A scoring mechanism will be published. For a batch scoring scenario, a scoring pipeline is published to the machine learning environment and triggered to produce results. If you wanted to use a real-time scoring scenario, you can publish a web app or deploy a container.
+* After the artifacts are available, a [model validation CD pipeline](#model-validation-cd-pipeline) will be triggered. It runs end-to-end validation on the development machine learning environment. A scoring mechanism will be published. For a batch scoring scenario, a scoring pipeline is published to the machine learning environment and triggered to produce results. If you wanted to use a real-time scoring scenario, you can publish a web app or deploy a container.
 
 * Once a milestone is created and merged into the Release branch, the same CI pipeline and model validation CD pipeline are triggered. This time, they run against the code based in the Release branch.
 
-You can consider the MLOps process flow shown above as an archetype framework for projects that might make similar architectural choices.
+You can consider the MLOps process data flow shown above as an archetype framework for projects that might make similar architectural choices.
 
 ### Code validation tests
 
@@ -317,21 +316,13 @@ Running this full set of steps on the machine learning environment is expensive 
 
 * **Local testing dataset**: Check in a small and often obfuscated dataset to the repository and consume it as the input data source.
 
-* **Local flag**: A flag or argument in the model's code that indicates that the code intends the dataset to run locally. This allows the code to bypass any required call to the machine learning environment.
+* **Local flag**: A flag or argument in the model's code that indicates that the code intends the dataset to run locally. The flag allows the code to bypass any required call to the machine learning environment.
 
-This goal of these validation tests isn't to evaluate the performance of the trained model. The goal is to validate that the code for the end-to-end process is valid. This not only enables pushing quality code upstream, like the incorporation of model validation tests in the PR and CI build. It also enables engineers and data scientists to put a breakpoint into the code for debugging purposes.
+This goal of these validation tests isn't to evaluate the performance of the trained model. The goal is to validate that the code for the end-to-end process is of good quality. It not only enables pushing quality code upstream, like the incorporation of model validation tests in the PR and CI build. It also enables engineers and data scientists to put a breakpoint into the code for debugging purposes.
 
 ### Model validation CD pipeline
 
 The goal of the model validation pipeline is to validate the end-to-end model training and scoring steps on the machine learning environment with actual data. Any trained model that is produced will be added to the model registry, tagged, and will await to be promoted once validation is completed. For batch prediction, promotion can be publishing a scoring pipeline, where the pipeline is using this version of the model. For real-time scoring, the model can be tagged to indicate that it has been promoted.
-
-To measure the performance of the developed model, it goes through the validation phase. One typical technique involves splitting the data into testing and validation datasets. The validation phase involves running the model against the validation datasets. Some of the techniques used for validation are:
-
-* Train/test split
-* k-Fold Cross-Validation
-* Leave-one-out Cross-Validation
-* Leave-one-group-out Cross-Validation
-* Nested Cross-Validation
 
 ### Scoring CD pipeline
 
@@ -339,11 +330,11 @@ The scoring CD pipeline is applicable for the batch inference scenario, where th
 
 ### Development vs. production environments
 
-It's a good practice to separate the development (dev) and the production (prod) environments. It allows the system to trigger the model validation CD pipeline and scoring CD pipeline at a different cadence. For the described MLOps flow, pipelines targeting the Master branch will run on dev environment, whereas the pipeline targeting the Release branch will run on prod environment.
+It's a good practice to separate the development (dev) and the production (prod) environments. It allows the system to trigger the model validation CD pipeline and scoring CD pipeline at a different cadence. For the described MLOps flow, pipelines targeting the Master branch will run on dev environment, and the pipeline targeting the Release branch will run on prod environment.
 
 ### Code changes vs. data changes
 
-The previous sections have mostly dealt with how to handle code changes from development to release. However, data changes should also follow the same rigor as code changes to provide the same validation quality and consistency in production. With a data change trigger or a timer trigger, the system should trigger the model validation CD pipeline and the scoring CD pipeline should from the model orchestrator to run the same process as code changes in the Release branch/prod environment.
+The previous sections have mostly dealt with how to handle code changes from development to release. However, data changes should also follow the same rigor as code changes to provide the same validation quality and consistency in production. With a data change trigger or a timer trigger, the system should trigger the model validation CD pipeline and the scoring CD pipeline from the model orchestrator to run the same process as code changes in the Release branch prod environment.
 
 ## MLOps personas and roles
 
@@ -359,13 +350,13 @@ A key requirement for any MLOps process is that it meets the needs of the many u
 
 The team had to address three key findings from the persona and role studies:
 
-* Data scientist and engineers have a mismatch of approach and skills in their work. Making it easy for the data scientist and the engineer to work collaboratively becomes a major consideration in the MLOps process flow. It does require new skill acquisitions by all players.
+* Data scientist and engineers have a mismatch of approach and skills in their work. Making it easy for the data scientist and the engineer to work collaboratively becomes a major consideration in the MLOps process flow. It does require new skill acquisitions by all team members.
 
 * There's a need to unify all of the principle personas without alienating anyone. A way to do this is to:
 
   * Make sure they share a common understanding of the conceptual model for MLOps.
 
-  * Establish a clear consensus for expectations of how all team members will work together.
+  * Agree on clear expectations of how all the team members will work together.
 
   * Discuss working guidelines to achieve common goals.
 
@@ -383,7 +374,7 @@ What isn't shown in this diagram is the data conditioning that must occur before
 
 ### System architecture
 
-There were many design options available for the system architecture. The following diagram shows the end result of the decision-making process described in [Azure Machine Learning Development: Decision Guide for Optimal Tool Selection](aml-decision-tree.md)
+There were many design options available for the system architecture. The following diagram shows the end result of the decision-making process described in [Azure Machine Learning decision guide for optimal tool selection](aml-decision-tree.md)
 
 ![Diagram of system architecture supported by MLOps](./media/system-architecture.png)
 
@@ -401,7 +392,7 @@ The Azure Data Factory:
 
 1. Launches a Durable Function to poll the Azure Machine Learning Pipeline for completion.
 
-Custom dashboards in Power BI display the results. Other Azure dashboards, connected to SQL Azure, Azure Monitor, and App Insights via OpenCensus Python SDK, track Azure resources. These dashboards provide information about the health of the machine learning system. They also  yield data the client used for product order forecasting.
+Custom dashboards in Power BI display the results. Other Azure dashboards, connected to SQL Azure, Azure Monitor, and App Insights via OpenCensus Python SDK, track Azure resources. These dashboards provide information about the health of the machine learning system. They also yield data the client used for product order forecasting.
 
 ### Model orchestration
 
@@ -429,7 +420,7 @@ Model orchestration follows these steps:
 
 As mentioned, the traditional data science machine learning lifecycle doesn't support the MLOps process without modification. It uses different kinds of manual tools and experimentation, validation, packaging, and model hand-off that can't be easily scaled for an effective CI/CD process. MLOps demands a high level of process automation. Whether a new machine learning model is being developed or an old one is modified, it's necessary to automate the machine learning model’s lifecycle. In the Phase 2 project, the team uses Azure DevOps to orchestrate and republish Azure Machine Learning pipelines for training tasks. The long running master branch performs basic testing of models, and pushed stable releases through the long running release branch.
 
-Source control becomes an important part of this process. Git is the version control system used here and supports process automation. You must track notebook and model code. The basic workflow implemented for using source control applies the following principles:
+Source control becomes an important part of this process. Git is the version control system used to track notebook and model code. It also supports process automation. The basic workflow implemented for using source control applies the following principles:
 
 * Use formal code and dataset versioning.
 
@@ -439,9 +430,9 @@ Source control becomes an important part of this process. Git is the version con
 
 * Handle releases by establishing a permanent versioned branch separate from the master branch.
 
-* You must version and use source control for the datasets that you conditioned for training or consumption so that you can preserve the integrity of each dataset.
+* Version and use source control for the datasets that you conditioned for training or consumption so that you can preserve the integrity of each dataset.
 
-* You must also source control your Jupyter Notebooks for tracking of experiments.
+* Use source control to track your Jupyter Notebook experiments.
 
 ### Integration with data sources
 
@@ -461,7 +452,7 @@ While not used in this project, the team explored an option to carry the process
 
 ### End-user interfaces
 
-The team developed end-user UIs for observability, monitoring, and instrumentation. As mentioned, dashboards  visually display the machine learning model data. These dashboards show the following data in a user-friendly format:
+The team developed end-user UIs for observability, monitoring, and instrumentation. As mentioned, dashboards visually display the machine learning model data. These dashboards show the following data in a user-friendly format:
 
 * Provide a means of observing pipeline steps, including pre-processing the input data.
 
@@ -487,7 +478,7 @@ The team developed end-user UIs for observability, monitoring, and instrumentati
 
 * Display the scoring/predictions produced by the machine learning model.
 
-The application populates the dashboards according to the nature of the data and how it processes and analyzes the data. As such, the team must design the exact layout of the dashboards each individual use case. Here are two sample dashboards:
+The application populates the dashboards according to the nature of the data and how it processes and analyzes the data. As such, the team must design the exact layout of the dashboards for each use case. Here are two sample dashboards:
 
 ![sample screenshot of machine learning training dashboard](./media/ml-training-dashboard.png)
 
@@ -531,7 +522,7 @@ The overarching criteria for the design of these dashboards is that they provide
 * [Power BI](https://powerbi.microsoft.com/)
 
 > [!NOTE]
-> TO learn how to select the correct pipeline services to use for a specific process, see [Azure Machine Learning Development: Decision Guide for Optimal Tool Selection](aml-decision-tree.md).
+> To learn how to select the correct pipeline services to use for a specific process, see [Azure Machine Learning decision guide for optimal tool selection](aml-decision-tree.md).
 
 ## Considerations
 
@@ -541,15 +532,15 @@ Here you'll find a list of considerations to explore. They're based on the lesso
 
 * Data scientists develop most machine learning models using Python, often starting in Jupyter Notebooks. It can be a challenge to implement these notebooks as production code. Jupyter notebooks are more of an experimental tool, while Python scripts are more appropriate for production. Teams often need to spend time refactoring model creation code into Python scripts.
 
-* If the client is new to DevOps and machine learning, be aware that experimentation and production require different rigor. It's a good practice to separating the two.
+* If the client is new to DevOps and machine learning, be aware that experimentation and production require different rigor. It's a good practice to separate the two.
 
 * Tools like the [Azure Machine Learning Visual Designer](/azure/machine-learning/concept-designer) or AutoML can be effective in getting basic models off the ground while the client ramps up on standard DevOps practices around the rest of their solution.
 
-* Azure DevOps has plug-ins that can integrate with the Azure Machine Learning service, to help trigger pipeline steps. The [MLOpsPython repo](https://github.com/Microsoft/MLOpsPython) has a few examples of such pipelines.
+* Azure DevOps has plug-ins that can integrate with the Azure Machine Learning service to help trigger pipeline steps. The [MLOpsPython repo](https://github.com/Microsoft/MLOpsPython) has a few examples of such pipelines.
 
 * Machine learning often requires powerful GPU machines for training. If the client doesn't already have such hardware available, using Azure Machine Learning Compute clusters is an effective path for quickly provisioning cost-effective powerful hardware that autoscales. If a client requires advanced security and/or monitoring needs, they may wish to explore other options, such as standard VMs, Databricks, or using local compute.
 
-  * For a client to be successful, their model building teams (dData scientists) and deployment teams (DevOps engineers) need to have a strong communication channel. They can accomplish this with daily stand-ups or a formal online chat service. Either would help with the standard integration of their development efforts in an MLOps framework.
+  * For a client to be successful, their model building teams (data scientists) and deployment teams (DevOps engineers) need to have a strong communication channel. They can accomplish this with daily stand-ups or a formal online chat service. Either would help with the standard integration of their development efforts in an MLOps framework.
 
 ### Data Preparation Considerations
 
@@ -561,11 +552,11 @@ Here you'll find a list of considerations to explore. They're based on the lesso
 
 * It's overwhelming for a client, who is just getting started in their machine learning journey, to jump straight in to a full MLOps pipeline. If necessary, they can ease into it by using Azure Machine Learning to track experiment runs and using Azure Machine Learning Compute as the training target. These options might create a lower barrier of entry solution to begin integrating Azure services.
 
-* Going from a notebook experiment to repeatable scripts is currently still a rather rough transition for many data scientists. The sooner we can get them writing their training code in python scripts, the easier it will be for them to begin versioning their training code and enabling retraining.
+* Going from a notebook experiment to repeatable scripts is currently still a rather rough transition for many data scientists. The sooner we can get them writing their training code in Python scripts, the easier it will be for them to begin versioning their training code and enabling retraining.
 
-* That is not the only possible method. Databricks supports scheduling notebooks as jobs. But based on current client experience, It's difficult to instrument with full DevOps practices because of testing limitations.
+* That isn't the only possible method. Databricks supports scheduling notebooks as jobs. But based on current client experience, it's difficult to instrument with full DevOps practices because of testing limitations.
   
-* It's also important to understand what metrics are being used to consider a model a success. Accuracy alone is often not good enough to determine the overall performance of one model vs another.
+* It's also important to understand what metrics are being used to consider a model a success. Accuracy alone is often not good enough to determine the overall performance of one model versus another.
 
 ### Compute Considerations
 
@@ -577,7 +568,7 @@ Here you'll find a list of considerations to explore. They're based on the lesso
 
 ## Related resources
 
-* [Machine Learning Operations maturity model](mlops-maturity-model.md)
+* [MLOps maturity model](mlops-maturity-model.md)
 
 * [Learn more about MLOps](/azure/machine-learning/service/concept-model-management-and-deployment)
 

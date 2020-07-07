@@ -1,9 +1,8 @@
 ---
-title: Azure Machine Learning Development - Decision Guide for Optimal Tool Selection
-titleSuffix: Technical White Paper
+title: Azure Machine Learning decision guide for optimal tool selection
 description: How to choose the best services for building an end-to-end machine learning pipeline from experimentation to deployment.
-author: danazlin
-ms.author: dermar
+author: doodlemania2
+ms.author: pnp
 ms.date: 07/07/2020
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -13,7 +12,7 @@ ms.category:
     - hybrid
 ---
 
-# Azure Machine Learning Development: Decision Guide for Optimal Tool Selection
+# Azure Machine Learning decision guide for optimal tool selection
 
 Microsoft Azure offers a myriad of services and capabilities. Building an end-to-end machine learning pipeline from experimentation to deployment often requires bringing together a set of services from across Azure. While it may be possible to have one pipeline do it all, there are tradeoffs when you don't use the services for what they're best at.
 
@@ -27,9 +26,7 @@ So, then you have to ask the question: When is it worth it to adopt each service
 
 * The cost of these services at scale.
 
-## Scope
-
-The scope of this document focuses on Azure services that you can use to support data or machine learning workloads. This document doesn't consider third-party solutions available through Azure Marketplace. While not exhaustive, this document covers the most popular Azure service options for supporting the end-to-end workflow:
+This document focuses on Azure services that you can use to support data or machine learning workloads. While not exhaustive, this document covers the most popular Azure service options for supporting the end-to-end workflow:
 
 1. Experimentation
 
@@ -49,7 +46,7 @@ The scope of this document focuses on Azure services that you can use to support
 
 Listed below are the service options that you should consider for each stage of an end-to-end machine learning pipeline:
 
-### Table 1: Service options considered
+### Service options
 
 | Stage | Service options |
 | ----- | --------------------- |
@@ -70,17 +67,17 @@ The first decision you need to make is whether to use a *No Code* implementation
 
 If you don't want to code your own solutions, a set of tools is available for building workflows without writing any code:
 
-* For Experimentation, use Azure Machine Learning Designer.
+* For experimentation, use Azure Machine Learning Designer.
 
-* For Overall Orchestration/Scheduling, use Logic Apps, especially if integrating to Office 365 suite.
+* For overall orchestration/scheduling, use Logic Apps, especially if integrating to Office 365 suite.
 
-* For Data Transfer and Data Transformation, use Data Factory Data Flows. If datasets are simple and on a small scale, Azure Machine Learning Designer can also handle them.
+* For data transfer and data transformation, use Data Factory Data Flows. If datasets are simple and on a small scale, Azure Machine Learning Designer can also handle them.
 
-* For Model Training and Model Deployment, use Azure Machine Learning Designer. It supports both real-time and batch deployments.
+* For model training and model deployment, use Azure Machine Learning Designer. It supports both real-time and batch deployments.
 
-* For Monitoring, use Azure Monitor with Azure Dashboards, which lets you click to pin visuals and set up alerts without code. For more configuration, you can use Power BI to create historical dashboards.
+* For monitoring, use Azure Monitor with Azure Dashboards, which lets you click to pin visuals and set up alerts without code. For more configuration, you can use Power BI to create historical dashboards.
 
-The primary issue you’ll come across here is that you must work within the constraints of the tools. However, if your use case fits within these limitations, these tools could be a good solution for you. They're always evolving and their capabilities will expand over time. So you should familiarize yourself with their latest features at the time you consider them. This diagram summarizes the process for the No Code option.
+The primary issue you’ll come across here is that you must work within the constraints of the services. However, if your use case fits within these limitations, these services could be a good solution for you. They're always evolving and their capabilities will expand over time. So you should familiarize yourself with their latest features at the time you consider them. This diagram summarizes the process for the No Code option.
 
 ![no code option process diagram](./media/dt-no-code-option.png)
 
@@ -112,9 +109,9 @@ Depending on the skillsets or comfort level of your team’s data scientists/eng
 
 ## Overall Orchestration and Scheduling
 
-The next table lists which Azure services are best for supported trigger options.
-
 ### Trigger Options
+
+The next table lists which Azure services are best for supported trigger options.
 
 | Triggered by | Service/System |
 | ------------ | -------------- |
@@ -123,11 +120,11 @@ The next table lists which Azure services are best for supported trigger options
 | Data/schedule | Azure Data Factory |
 | Events/alerts/other non-Azure products | Azure Logic Apps |
 
-This table adds scheduling options to the triggers.
-
 ### Trigger options with scheduling
 
-|   | Azure DevOps | Azure Machien Learning Pipeline | Azure Data Factory | Logic Apps |
+This table adds scheduling options to the triggers.
+
+|   | Azure DevOps | Azure Machine Learning Pipeline | Azure Data Factory | Logic Apps |
 | - | ------------ | ------------------------------- | ------------------ | ---------- |
 | **Schedule** | Cron schedule | Recurrence-Based (run at these hours on these days) | Recurrence-Based + Additional Support for Tumbling Windows| Recurrence-based |
 | **Event-based Trigger** | Pull request, branch, and build completion triggers. Artifact triggers not available in new YAML builds. | None. | Blob creation and blob deletion events only. | Many triggers from Microsoft and non-Microsoft services. Twitter, Dropbox, SharePoint, and so on. |
@@ -146,7 +143,7 @@ This table adds scheduling options to the triggers.
 | Type | Description |
 | ---- | ----------- |
 | Azure Machine Learning Compute Instance| Scalable compute instances that work for GPU or non-GPU clusters. You run Python or R code in configurable [Conda environments](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html) managed by Azure Machine Learning. It helps scale out multiple jobs but doesn't handle distributed data partitioning/execution except in unique cases. |
-| Databricks | A scalable compute instance that handles distributed data partitioning/job execution on top of Spark. Big data jobs will likely execute faster on Databricks. YOu have to manage dependencies and environments. Compute for Databricks is more expensive. |
+| Databricks | A scalable compute instance that handles distributed data partitioning/job execution on top of Spark. Big data jobs will likely execute faster on Databricks. You have to manage dependencies and environments. Compute for Databricks is more expensive. |
 | Azure Synapse (preview) | Open-source Spark/RDD processing, distributed. (Big Data Analytics) |
 | Big Data Cluster/SQL 2019 | Big Data Analytics |
 
@@ -170,7 +167,7 @@ This table adds scheduling options to the triggers.
 | Type | Description |
 | ---- | ----------- |
 | Batch Scoring in Azure Machine Learning Pipeline | Batch Deployment and Scoring in Azure Machine Learning Pipeline |
-| Real-time Deployment in Azure Machine Learning Service | Azure Machine Learning Service supports real-time deployment and scoring using:<ul>AKS (Azure Kubernetes Service)<br>Azure Container Instance<br>Azure App Service<br>Azure Functions<br>IoT Edge<br>and more<br></ul>
+| Real-time Deployment in Azure Machine Learning Service | Azure Machine Learning Service supports real-time deployment and scoring using:<ul>AKS<br>Azure Container Instance<br>Azure App Service<br>Azure Functions<br>IoT Edge<br>and more<br></ul>
 
 ### Monitoring options
 
@@ -181,10 +178,5 @@ This table adds scheduling options to the triggers.
 
 ## Resources
 
-* [Technical White Paper: MLOps Framework for Upscaling Machine Learning Lifecycle with Azure Machine Learning](mlops-technical-paper.md)
-* Reference Architecture Document: MLOps Framework for Upscaling Machine Learning Lifecycle with Azure Machine Learning
-* [MLOps Maturity Model](mlops-maturity-model.md)
-
-## Credits
-
-Xinyi Joffre
+* [Technical Paper: MLOps framework to upscale machine learning lifecycle with Azure Machine Learning](mlops-technical-paper.md)
+* [MLOps maturity model](mlops-maturity-model.md)

@@ -504,6 +504,14 @@ items:
         href: solution-ideas/articles/digital-media-speech-text.md
       - name: MLOps for Python models
         href: reference-architectures/ai/mlops-python.md
+      - name: MLOps Technical Paper
+        items:      
+        - name: Upscale ML lifecycle with MLOps
+          href: example-scenario/mlops/mlops-technical-paper.md
+        - name: MLOps maturity model
+          href: example-scenario/mlops/mlops-maturity-model.md
+        - name: Azure ML service selection guide
+          href: example-scenario/mlops/aml-decision-tree.md
       - name: Model training with AKS
         href: solution-ideas/articles/machine-learning-with-aks.md
       - name: Movie recommendations
