@@ -25,7 +25,7 @@ The First Industrial Revolution, late 1700s to mid-1800s, introduced machines to
 
 World Wars I and II brought major advances in information theory, communications, and signal processing. Development of the transistor allowed information theory to be easily applied to controlling physical systems. This Third Industrial Revolution allowed computer systems to make inroads in the hard-coded control of physical systems like production, transport, and healthcare. The benefits of programmed automation included consistency, reliability, and security.
 
-The Fourth Industrial Revolution introduced the notion of cyber-physical systems and industrial *Internet of Things (IoT)*. The systems humans wish to control have become too large and complex to write fully prescribed rules. Artificial intelligence lets smart machines perform tasks that typically required human intelligence. Machine learning lets machines automatically learn and improve from experience without being explicitly programmed.
+The Fourth Industrial Revolution introduced the notion of cyber-physical systems and the industrial *Internet of Things (IoT)*. The systems humans wish to control have become too large and complex to write fully prescribed rules. Artificial intelligence lets smart machines perform tasks that typically required human intelligence. Machine learning lets machines automatically learn and improve from experience without being explicitly programmed.
 
 ### AI and ML
 
@@ -352,7 +352,7 @@ For more information about the Cartpole example or to try it yourself, see:
 
 #### Oil drilling
 
-The Horizontal Oil Drilling application is a motion controller to automates oil rigs that drill horizontally underground. An operator controls the drill underground with a joystick to keep the drill inside the oil shale while avoiding obstacles. The drill makes as few steering actions as possible, for faster drilling. The goal is to use reinforcement learning to automate control of the horizontal oil drill.
+The Horizontal Oil Drilling application is a motion controller to automate oil rigs that drill horizontally underground. An operator controls the drill underground with a joystick to keep the drill inside the oil shale while avoiding obstacles. The drill makes as few steering actions as possible, for faster drilling. The goal is to use reinforcement learning to automate control of the horizontal oil drill.
 
 The available sensor information includes the direction of drill bit force, weight of the drill bit, side force, and drilling angle. The supported agent actions are to move the drill bit up, down, left, or right. The program provides a positive reward when the drill is within the tolerance distance of the chamber walls. The model learns to adapt to different well plans, drill starting positions, and sensor inaccuracies.
 
@@ -362,6 +362,7 @@ For more information and a demo of this solution, see [Motion control: Horizonta
 
 ## Next steps
 
+- [Machine teaching for autonomous systems](autonomous-systems.md)
 - [Autonomous systems with Microsoft AI](https://www.microsoft.com/ai/autonomous-systems)
 - [Autonomy for industrial control systems](https://www.microsoft.com/ai/autonomous-systems-solutions)
 - [Machine teaching: How people's expertise makes AI even more powerful](https://blogs.microsoft.com/ai/machine-teaching/)

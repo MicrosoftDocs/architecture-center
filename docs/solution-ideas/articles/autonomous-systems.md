@@ -43,7 +43,7 @@ Subject matter experts with no AI background can break down their expertise into
 
 Simulations help train the models across different kinds of environmental conditions and scenarios, much faster and safer than is feasible in the real world. Experts can supervise the agents as they work to solve problems in simulated environments, and provide feedback and guidance that lets the agents dynamically adapt within the simulation.
 
-After training is complete, engineers deploy these trained agents onto actual hardware, where they can use their knowledge to power autonomous systems in the real world.
+After training is complete, engineers deploy these trained agents to the real world, where they use their knowledge to power autonomous systems.
 
 ## Machine teaching service
 
@@ -81,7 +81,7 @@ The training engine in Bonsai compiles machine teaching programs to automaticall
 
 Broadly similar to how a software compiler hides the bare metal machine code from the high-level programmer, the training engine hides much of the complexity and details of the ML models and DRL algorithms. As the state of the art in AI evolves and new algorithms and network topologies are invented, the training engine can recompile the same machine teaching programs to exploit these technological advances.
 
-### Cart pole sample
+### Cartpole sample
 
 Bonsai includes a couple of machine teaching samples, Cartpole and [Moab](https://microsoft.github.io/moab/).
 
@@ -97,8 +97,8 @@ The following Bonsai screenshot shows Cartpole training progress, with **Goal sa
 
 ![Bonsai dashboard showing the Cartpole training example](../media/bonsai.png)
 
-For more information about the cart pole example or to try it yourself, see:
-- [Quickstart: Balance a pole with AI (Cart pole)](https://docs.microsoft.com/bonsai/quickstart/cartpole/)
+For more information about the cartpole example or to try it yourself, see:
+- [Quickstart: Balance a pole with AI (Cartpole)](https://docs.microsoft.com/bonsai/quickstart/cartpole/)
 - [Learn how you can teach an AI agent to balance a pole](https://blogs.microsoft.com/ai-for-business/cartpole-demo/)
 
 ## Simulators
@@ -113,7 +113,7 @@ Simulations are the ideal training source for DRL because they're:
 
 Simulations are available across a broad range of industries and systems, including mechanical and electrical engineering, autonomous vehicles, security and networking, transportation and logistics, and robotics. Simulation tools include:
 
-- [MathLab Simulink](https://www.mathworks.com/products/simulink.html), a graphical programming tool developed by MathWorks for modeling, simulating, and analyzing dynamic systems.
+- [Simulink](https://www.mathworks.com/products/simulink.html), a graphical programming tool developed by MathWorks for modeling, simulating, and analyzing dynamic systems.
 - [Gazebo](http://gazebosim.org/), a tool to allow accurate simulation of populations of robots in complex indoor and outdoor environments.
 - [Microsoft AirSim](https://microsoft.github.io/AirSim/), an open-source robotics simulation platform.
 
@@ -129,12 +129,13 @@ AirSim can capture data for models from ground vehicles, wheeled robotics, aeria
 
 AirSim works as a plug-in to Epic Games' [Unreal Engine](https://www.unrealengine.com) editor, providing control over building environments and simulating difficult-to-reproduce, real-world events to capture meaningful data. AirSim leverages current game engine rendering, physics, and perception computation to create an accurate, real-world simulation.
 
-This realism, based on efficiently generated ground-truth data, enables the study and execution of complex missions that are time-consuming or risky in the real world. For example, AirSim provides realistic environments, vehicle dynamics, and multi-modal sensing for researchers building autonomous vehicles. Collisions in a simulator cost virtually nothing, yet provide actionable information for improve the design of the system.
+This realism, based on efficiently generated ground-truth data, enables the study and execution of complex missions that are time-consuming or risky in the real world. For example, AirSim provides realistic environments, vehicle dynamics, and multi-modal sensing for researchers building autonomous vehicles. Collisions in a simulator cost virtually nothing, yet provide actionable information to improve the design of the system.
 
 You can use an [Azure Resource Manager (ARM) template](https://github.com/microsoft/AirSim/blob/master/azure/azure-env-creation/vm-arm-template.json) to automatically create a development environment, and code and debug a Python application connected to AirSim in Visual Studio Code. For more information, see [AirSim Development Environment on Azure](https://microsoft.github.io/AirSim/azure/).
 
 ## Next steps
 
+- [Machine teaching](machine-teaching.md)
 - [Autonomous systems with Microsoft AI](https://www.microsoft.com/ai/autonomous-systems)
 - [Autonomy for industrial control systems](https://www.microsoft.com/ai/autonomous-systems-solutions)
 - [Innovation space: Autonomous systems (Video)](https://www.youtube.com/watch?v=3hSAFtWcui8&feature=youtu.be)
