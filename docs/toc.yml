@@ -504,7 +504,7 @@ items:
         href: solution-ideas/articles/digital-media-speech-text.md
       - name: MLOps for Python models
         href: reference-architectures/ai/mlops-python.md
-      - name: MLOps Technical Paper
+      - name: MLOps technical paper
         items:      
         - name: Upscale ML lifecycle with MLOps
           href: example-scenario/mlops/mlops-technical-paper.md
