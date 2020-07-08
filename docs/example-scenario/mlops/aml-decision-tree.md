@@ -96,7 +96,7 @@ Depending on the skillsets or comfort level of your team’s data scientists/eng
 | Type | Description |
 | ---- | ----------- |
 | Azure Machine Learning Notebook VMs | Azure Machine Learning manages them. The data scientist only navigates to the link to interact with Jupyter notebooks. 1 VM backs them. You can stop and start the VM at will. The Notebook VM uses Azure Machine Learning SDKs to interact with data stored in Azure. This option allows you to pick the **Compute instance** option needed for experimentation based on memory, CPU, or GPU needs. |
-| Databricks Notebooks | Azure Databricks workspace stores them with the help of Git integration. To use it, set up a cluster to run Databricks Notebooks. They use built-in _dbutils_ to access data stored in Azure. And they cost more than Azure Machine Learning Notebook VMs. |
+| Databricks Notebooks | Azure Databricks workspace stores them with the help of Git integration. To use it, set up a cluster to run Databricks Notebooks. They use built-in _dbutils_ to access data stored in Azure. They cost more than Azure Machine Learning Notebook VMs. |
 | Jupyter Notebook | See _Azure Machine Learning Notebook VMs_ above. |
 
 ### Python/R scripts
