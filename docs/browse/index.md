@@ -312,6 +312,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Azure IoT reference architecture](../../includes/cards/iot.md)]
 [!INCLUDE [Azure IoT reference architecture](../../includes/cards/iot-with-sql.md)]
 [!INCLUDE [COVID-19 Safe Solutions with IoT Edge](../../includes/cards/cctv-mask-detection.md)]
+[!INCLUDE [Cognizant Safe Buildings with IoT and Azure](../../includes/cards/safe-buildings.md)]
 [!INCLUDE [Contactless IoT interfaces with Azure intelligent edge](../../includes/cards/contactless-interfaces.md)]
 [!INCLUDE [Controlling IoT devices using a Voice Assistant](../../includes/cards/iot-devices.md)]
 [!INCLUDE [IoT Architecture – Azure IoT Subsystems](../../includes/cards/azure-iot-subsystems.md)]

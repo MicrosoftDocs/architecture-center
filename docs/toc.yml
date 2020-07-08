@@ -428,6 +428,8 @@ items:
       href: data-guide/big-data/machine-learning-at-scale.md
     - name: Baseball decision analysis with ML.NET and Blazor
       href: data-guide/big-data/baseball-ml-workload.md
+    - name: Machine teaching
+      href: solution-ideas/articles/machine-teaching.md
     - name: Technology choices
       items:
       - name: Cognitive services
@@ -448,6 +450,8 @@ items:
         href: solution-ideas/articles/ai-for-earth.md
       - name: Auditing and risk management
         href: solution-ideas/articles/auditing-and-risk-compliance.md
+      - name: Autonomous systems
+        href: solution-ideas/articles/autonomous-systems.md
       - name: Disconnected AI at the edge
         href: solution-ideas/articles/ai-at-the-edge-disconnected.md
       - name: Batch scoring for deep Learning
@@ -1055,6 +1059,8 @@ items:
         href: example-scenario/data/realtime-analytics-vehicle-iot.md
       - name: Real-time web dashboard
         href: solution-ideas/articles/real-time-web-dashboard.md
+      - name: Safe Buildings with IoT and Azure
+        href: solution-ideas/articles/safe-buildings.md
       - name: Secure access to IoT apps with Azure AD
         href: example-scenario/iot-aad/iot-aad.md
       - name: Telemetry Analytics
