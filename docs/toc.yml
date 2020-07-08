@@ -1059,6 +1059,8 @@ items:
         href: example-scenario/data/realtime-analytics-vehicle-iot.md
       - name: Real-time web dashboard
         href: solution-ideas/articles/real-time-web-dashboard.md
+      - name: Safe Buildings with IoT and Azure
+        href: solution-ideas/articles/safe-buildings.md
       - name: Secure access to IoT apps with Azure AD
         href: example-scenario/iot-aad/iot-aad.md
       - name: Telemetry Analytics
