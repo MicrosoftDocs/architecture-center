@@ -1,7 +1,7 @@
 ---
 title: Choosing a machine learning technology
 description: Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.
-author: MikeWasson
+author: adamboeglin
 ms.date: 05/09/2019
 ms.topic: guide
 ms.service: architecture-center

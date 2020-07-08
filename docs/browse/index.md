@@ -324,7 +324,6 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Real-time Web Dashboard](../../includes/cards/real-time-web-dashboard.md)]
 [!INCLUDE [Secure your IoT SaaS app with the Microsoft identity platform](../../includes/cards/iot-aad.md)]
 [!INCLUDE [Telemetry Analytics](../../includes/cards/telemetry-analytics.md)]
-[!INCLUDE [iBEMS Shield COVID-19 building management solution](../../includes/cards/ibems-shield-smart-buildings.md)]
 
 </ul>
 
