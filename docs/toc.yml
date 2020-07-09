@@ -1063,6 +1063,8 @@ items:
         href: solution-ideas/articles/contactless-interfaces.md
       - name: COVID-19 IoT Safe Solutions
         href: solution-ideas/articles/cctv-mask-detection.md
+      - name: Lighting and disinfection system
+        href: solution-ideas/articles/uven-disinfection.md
       - name: Process real-time vehicle data using IoT
         href: example-scenario/data/realtime-analytics-vehicle-iot.md
       - name: Real-time web dashboard
