@@ -81,7 +81,7 @@ action:
 
 ## Structure
 
-![Measure and Control loop in the context of a regulatory control](./media/regulatorycontrol.png)
+![Measure and Control loop in the context of a regulatory control](./media/measure-and-control-loop.png)
 
 Measure and Control Loop (MCL) is scoped at a single Thing abstraction
 that is composed of sensors, actuators and a controller. MCL may be

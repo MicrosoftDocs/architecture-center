@@ -926,26 +926,52 @@ items:
         href: example-scenario/apps/publish-internal-apis-externally.md
   - name: Internet of Things
     items:
+    - name: Architectures
+      items:
+      - name: IoT reference architecture
+        href: reference-architectures/iot.md
+      - name: Azure IoT Subsystems
+        href: solution-ideas/articles/azure-iot-subsystems.md
+      - name: IoT and data analytics
+        href: example-scenario/data/big-data-with-iot.md
+      - name: On-demand IoT device deployment
+        href: solution-ideas/articles/iot-with-aks.md
+      - name: IoT devices
+        href: solution-ideas/articles/iot-devices.md
+      - name: IoT using Cosmos DB
+        href: solution-ideas/articles/iot-using-cosmos-db.md
+      - name: IoT using SQL DB
+        href: reference-architectures/iot-with-sql.md
+      - name: Process real-time vehicle data using IoT
+        href: example-scenario/data/realtime-analytics-vehicle-iot.md
+      - name: Real-time web dashboard
+        href: solution-ideas/articles/real-time-web-dashboard.md
+      - name: Secure access to IoT apps with Azure AD
+        href: example-scenario/iot-aad/iot-aad.md
+      - name: Telemetry Analytics
+        href: solution-ideas/articles/telemetry-analytics.md
     - name: Concepts
       items:
-        - name: Introduction to Azure Iot Solutions
+        - name: Introduction to Azure IoT solutions
           href: example-scenario/iot/introduction-to-solutions.md
-        - name: Devices, IoT Platform, and Application
+        - name: Devices, the IoT Platform, and applications
           href: example-scenario/iot/devices-platform-application.md
-        - name: Application Stamping
+        - name: Events, insights, and actions
+          href: example-scenario/iot/events-insights-actions.md         
+        - name: Field and cloud edge gateways
+          href: example-scenario/iot/field-and-cloud.md
+        - name: Attestation, provisioning, and authentication
+          href: example-scenario/iot/attestation-provisioning-authentication.md
+        - name: Cloud to device commands
+          href: example-scenario/iot/cloud-to-device.md
+        - name: Builders, developers, and operators
+          href: example-scenario/iot/builders-developers-operators.md
+        - name: Scale solutions using application stamps
           href: example-scenario/iot/application-stamps.md
-    - name: IoT patterns
-      items:
-        - name: Measure and control loop
-          href: example-scenario/iot/measure-and-control-loop.md
-        - name: Monitor and manage loop
-          href: example-scenario/iot/monitor-and-manage-loop.md
-        - name: Analyze and optimize loop
-          href: example-scenario/iot/analyze-and-optimize-loop.md                    
-    - name: Scenarios
-      items:
-        - name: Observe and make changes to a strawberry farm in real-time
-          href: example-scenario/iot/observe-strawberry-farm.md
+        - name: Commands with connected standby devices
+          href: example-scenario/iot/connected-standby-devices.md
+        - name: Direct methods with protocol gateways
+          href: example-scenario/iot/protocol-gateways.md     
   - name: Management and Governance
     items:
     - name: Architectures
