@@ -31,8 +31,8 @@ UVEN combined BCL and UVC technology offers:
 ## Potential use cases
 
 - UVEN cells can fit any layout of a specific area, such as a reception counter, or be split between several areas, such as a number of washrooms.
-- The system can scale to fit anything from individual rooms and homes to large campuses and public areas.
-- Azure Sphere based infrastructure can easily integrate with existing IoT devices or building management systems.
+- The modular system can scale to fit any space, from individual rooms and homes to large campuses and public areas.
+- Azure Sphere-based infrastructure can easily integrate with existing IoT devices or building management systems.
 
 ## Architecture
 
@@ -71,6 +71,7 @@ Azure Sphere *greenfield* implementations involve designing and building new IoT
 
 ## Next steps
 
-- For more information, please contact [iotcovid@microsoft.com](mailto:iotcovid@microsoft.com) or see [BrainLit](https://www.brainlit.com/).
+- For more information, please contact [iotcovid@microsoft.com](mailto:iotcovid@microsoft.com).
+- For more information about the UVEN system, see the [BrainLit](https://www.brainlit.com/) website.
 - For more information about Azure Sphere, see the [Azure Sphere documentation](https://docs.microsoft.com/azure-sphere/).
 - For Azure Sphere code samples, see [Azure Sphere Samples](https://github.com/Azure/azure-sphere-samples).
