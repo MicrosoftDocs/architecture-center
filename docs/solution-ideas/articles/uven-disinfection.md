@@ -19,7 +19,7 @@ The BCL system can also deliver radiant energy in the non-visible ultraviolet (U
 
 Other UVC virus-killing technology that uses plug-in devices, robots, drones, and wands can't provide overall space coverage or performance and effectiveness data. To operate these devices safely and efficiently disrupts business and personnel, resulting in loss of productivity and lower space utilization. UVEN disinfection operates in unoccupied spaces during non-use times, providing safe, comprehensive, autonomous microbe deactivation without business disruption.
 
-Because IoT devices work directly on the physical environment and may use and collect sensitive data, device safety and security are paramount. UVEN double fail-safe features ensure occupants -  beneficial light only. The [Azure Sphere](https://azure.microsoft.com/services/azure-sphere/) standalone microprocessor unit (MCU)-based platform securely runs IoT apps and connects directly to the cloud for complete Azure-based security and the latest OS and app updates.
+Because IoT devices work directly on the physical environment and may use and collect sensitive data, device safety and security are paramount. UVEN double fail-safe features ensure occupants receive beneficial light only. The [Azure Sphere](https://azure.microsoft.com/services/azure-sphere/) standalone microprocessor unit (MCU)-based platform securely runs IoT apps and connects directly to the cloud for complete Azure-based security and the latest OS and app updates.
 
 The system can continually integrate new research developments and public health updates via its cloud connection, ensuring an up-to-date and scientifically based lighting and disinfection system.
 
