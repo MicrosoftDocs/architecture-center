@@ -374,7 +374,7 @@ What isn't shown in this diagram is the data conditioning that must occur before
 
 ### System architecture
 
-There were many design options available for the system architecture. The following diagram shows the end result of the decision-making process described in [Azure Machine Learning decision guide for optimal tool selection](aml-decision-tree.md)
+There were many design options available for the system architecture. The following diagram shows the end result of the decision-making process described in [Azure Machine Learning decision guide for optimal tool selection](aml-decision-tree.md).
 
 ![Diagram of system architecture supported by MLOps](./media/system-architecture.png)
 
