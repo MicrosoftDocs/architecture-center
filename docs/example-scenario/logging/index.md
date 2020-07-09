@@ -6,71 +6,68 @@ author: lanallai
 ms.date: 03/01/2020
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
+ms.subservice: example-scenario
 ms.custom:
   - fcp
 ---
-In a traditional on-premise application, most applications were written in a non distributed manner. The application was generally made up of a single executable and relevant dependencies. This executable would run under a single process space and would be installed onto a single virtual machine. If there were a need for additional performance, the application would be horizontally scaled across multiple machines. In each instance, logging and tracing and monitoring would be bound to the single process domain.
 
-With the advent of the cloud and adoption, cloud-native development differs somewhat from the on-premise methodology.
+# Unified logging
 
-Cloud-native applications, tend to be composed of one or more PaaS services built around the microservices architectural paradigm. This paradigm entails the creation of discrete, loosely-coupled microservices that work within their process boundary. This loosely distributed architecture brings many benefits:
+In a traditional on-premises application, most applications are non-distributed, consisting of a single executable and relevant dependencies. The executable runs under a single process space on a single virtual machine (VM). For increased performance, the application can be horizontally scaled across multiple machines. For each instance, logging, tracing, and monitoring are bound to the single process domain.
 
-* The application is composed of discrete services that are easier to build and simpler to maintain
-* The Microservices focuses on business capabilities
-* Microservices naturally work well with automated CI and CD Systems
-* Microservices being naturally independent are more fault-tolerant to failures, i.e. a single service failure will not bring down the application
-* Microservices can scale independently of each other and allow for better utilization and cost optimization
+Cloud-native development differs from on-premises methodology. Cloud-native applications consist of one or more PaaS services built around the [microservices]() architectural paradigm. Microservices entails the creation of discrete, loosely-coupled services that work within their process boundaries. This loosely distributed architecture has many benefits:
 
-Wherever an application will run, there is always a possibility that during the application lifetime that failures, transient or otherwise will occur. When these events happen, teams need to know the following:
+- Applications consist of discrete services that are easier to build and simpler to maintain.
+- Microservices focus on business capabilities.
+- Microservices naturally work well with automated continuous integration (CI) and continuous delivery (CD) systems.
+- Microservices are more fault-tolerant to failures, so a single service failure won't bring down the application.
+- Microservices can scale independently of each other and allow for better utilization and cost optimization.
 
-* Why did the application fail?
-* When did the application exception occur?
-* Which method caused the exception?
-* What were the events recorded up to the point of application failure?
-* Did this exception lead to potential data corruption?
+Wherever an application fails, whether or not the failure is transient, teams need to know:
 
-To allow us to answer the above, we must rely on the process of logging, tracing and monitoring.
+- Why did the application fail?
+- When did the application exception occur?
+- Which method caused the exception?
+- What were the events recorded up to the point of application failure?
+- Did this exception lead to potential data corruption?
 
-Logging is the ability to track and report related data in a centralized way. These log events can be used to track errors in code, application failures, or purely informational messages. Logging focuses on providing an overview of the state of an application execution through the use of discrete messages, or, events. Through these logs, we can put automation in place in which events can be read, and relevant parties can be notified if a criterion or threshold has been met.
+Logging, tracing, and monitoring can provide the answers to these questions.
 
-Tracing, on the other hand, focuses on the continuous flow of the application. Tracing allows us to trace the program execution from beginning to end through the various methods and services while understanding the state and transitions of data.
+*Logging* is tracking and reporting related data in a centralized way. Log events can track code errors or application failures, or provide purely informational messages. Logging focuses on providing an overview of the state of an application execution by using discrete event messages. Automation can read event logs and notify relevant parties if a criterion or threshold is met.
 
-Monitoring can, at times, be used to mean tracing or logging. However, monitoring is the process in which application instrumentation is used to provide metrics in which a user can reason about and thus make informed decisions. These metrics can be aggregated data from logs or trace events into a dashboard view that allows operations teams a holistic view of the application health from utilization to error count.
+*Tracing*, on the other hand, focuses on the continuous flow of the application. Tracing follows program execution through various methods and services from beginning to end, while understanding data state and transitions.
 
-For single-process applications that traditionally run on-premises, logging and tracing is a relatively straightforward process. The application and its dependencies are deployed together, logging and tracing within a single execution context. All relevant calls within the application happen within the same process boundary, and there is no need to cross-application or process boundaries.
+*Monitoring* can mean tracing or logging. Monitoring uses application instrumentation to provide metrics that operations teams can use to make informed decisions. These metrics can aggregate log or trace data in a dashboard that gives a holistic view of the application health, from utilization to error count.
 
-When developing cloud-native distributed applications, this can be a somewhat complicated endeavour at times. A cloud-native application, being distributed by design, a single request can interact with many microservices. Each microservice will generate its own set of logs from their specific task, and it becomes problematic to determine the process flow of execution.
+For single-process applications that traditionally run on-premises, logging and tracing is a relatively straightforward process. The application and its dependencies are deployed together, logging and tracing within a single execution context. All relevant calls within the application happen within the same process boundary, and there's no need to cross application or process boundaries.
 
-Teams tend to process the log independently for each microservice, as services can handle hundreds of requests concurrently, this can become a laborious task of wading through logs and manually determining a correlation of events.
+Logging and tracing for cloud-native distributed applications can be more complicated. Because a cloud-native application is distributed by design, a single request can interact with many microservices. Each microservice generates its own logging, and it becomes difficult to determine the process flow of execution. Teams tend to process each microservice log independently, and because microservices can handle hundreds of requests concurrently, wading through logs and manually determining event correlations can become a laborious task.
 
-The following practices can be adopted in a distributed architecture to help overcome the problems of logging in a cloud native environment.
+The following practices help a distributed architecture overcome the problems of logging in a cloud-native environment:
 
-* All requests generated by the user application should have a unique identifier, typically called a correlation ID, for the request. This unique identifier should be passed through each microservice. Each microservice should be designed to accept this correlation ID as part of the request and all logs emitted by the service should contain the correlation ID.
-* When the request is processed, and the response sent, the correlation ID should be returned as part of the response. The user application should then use the correlation ID when emitting its own logs.
-* All logs should be emitted to a single hub and stored in a central repository.
-  * If Audit logging is required, then it is best practice to store these security related events in a separate data store.
-    * Audit log are generally required for compliance purposes in accordance with security and compliance guidelines.
-* Log data should be structured using JSON.
-* Logging operations should always be performed in an asynchronous manner. By performing logging asynchronously, it helps to reduce the overhead of the operation by delegating the call to a background task. The application does not need to await the results of the operation and thus is able to continue logical program flow. Logging frameworks should always be used first and foremost, engineering effort shouldn't always be expended in creating a logging system unless there is a clear business need. [Serilog](https://github.com/serilog) is one of the most popular open source logging frameworks, and provides considerable support for the Azure ecosystem through the use of community supported extensions.
+- All requests the application generates have a unique identifier, usually called a correlation ID, that they pass through each microservice. Each microservice accepts the correlation ID as part of the request, and all logs emitted by the microservice contain the correlation ID.
+- When the application processes the request, it returns the correlation ID as part of the response. The application then uses the correlation ID when emitting its own logs.
+- All logs, except audit logs, are emitted to a single hub and stored in a central repository. If audit logs are required for security or compliance, it's best to store them in a separate data store.
+- Log data uses JSON format.
+- Logging is done in an asynchronous manner. By performing logging asynchronously, it helps to reduce the overhead of the operation by delegating the call to a background task. The application does not need to await the results of the operation and thus is able to continue logical program flow. Logging frameworks should always be used first and foremost, engineering effort shouldn't always be expended in creating a logging system unless there is a clear business need. [Serilog](https://github.com/serilog) is one of the most popular open source logging frameworks, and provides considerable support for the Azure ecosystem through the use of community supported extensions.
 
 Consideration should also be taken to ensure the common [logging levels](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.logging.loglevel?view=dotnet-plat-ext-3.1) are being used appropriately once the application has been deployed, as well as during development.
 
-* Trace
-  * This is the most finest of detail and as such should never be used in a Pre Production or Production Environment 
-  * Log data can contain sensitive application state.
-  * The most verbose of log levels and can affect application performance.
-  * The Trace level outputs very detailed data of the application state during program execution. As such, this should only be enabled sparingly and locally during development time.
-* Debug
-  * The Debug Logging level is most used during software development and used when debugging code and should be used when developing locally and tends to have no long term value.
-* Info
-  * This logging level is generally used in production which describes the general application flow when users are interacting with the system.
-* Warn
-  * A logging level that is used in production that should be used when an event could be potentially problematic. This allows automated alerting tools to pick up Warn events and notify the relevant teams to begin investigation.
-* Error
-  * This level should be used to log errors within the application, this could be logic errors, and, should be used in production.
-* Critical/Fatal
-  * This level should be used when an application event occurs when it is unable to fulfil the request and has resulted in an unrecoverable error.
+- Trace
+  - This is the most finest of detail and as such should never be used in a Pre Production or Production Environment 
+  - Log data can contain sensitive application state.
+  - The most verbose of log levels and can affect application performance.
+  - The Trace level outputs very detailed data of the application state during program execution. As such, this should only be enabled sparingly and locally during development time.
+- Debug
+  - The Debug Logging level is most used during software development and used when debugging code and should be used when developing locally and tends to have no long term value.
+- Info
+  - This logging level is generally used in production which describes the general application flow when users are interacting with the system.
+- Warn
+  - A logging level that is used in production that should be used when an event could be potentially problematic. This allows automated alerting tools to pick up Warn events and notify the relevant teams to begin investigation.
+- Error
+  - This level should be used to log errors within the application, this could be logic errors, and, should be used in production.
+- Critical/Fatal
+  - This level should be used when an application event occurs when it is unable to fulfil the request and has resulted in an unrecoverable error.
 
 Most applications are created to meet the demand, or, potential demand of the user. As such, application traffic is somewhat variable and to that end, so are the logs that are generated. 
 
@@ -97,14 +94,14 @@ Another key aspect that should be considered when logging, is the structure of t
 For event data to be readable by automated systems, a structured format should be leveraged so that an event can be more easily passed. JSON is the current data interchange format used by most web services today, as such it has a well known schema and is well suited for structured logging.
 
 When defining the structure of the log, context should be added to every request, and these objects can be:
-* Correlation ID for the request
-  * The ID can be used to chain related log events together and provide a narrative for event and help establish where issues occur when dealing with distributed systems. This should be a globally unique value.
-* Date & Time in UTC
-* Service name
-* HTTP Codes
-* Browser Type
-* Severity of Event
-* Pertinent information from the request type that can be used to help diagnose problems
+- Correlation ID for the request
+  - The ID can be used to chain related log events together and provide a narrative for event and help establish where issues occur when dealing with distributed systems. This should be a globally unique value.
+- Date & Time in UTC
+- Service name
+- HTTP Codes
+- Browser Type
+- Severity of Event
+- Pertinent information from the request type that can be used to help diagnose problems
 
 <pre>
 
