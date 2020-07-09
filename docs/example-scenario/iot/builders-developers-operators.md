@@ -80,7 +80,7 @@ be consumed by solutions on-behalf of devices. </aside>
 
 The **solution developer** may be an Independent Software Vendor (ISV),
 a System Integrator (SI), or an organization developing an IoT
-Application. **solution developers** may work closely with **Device
+application. **solution developers** may work closely with **device
 builders** to collaborate on new categories of devices as well as with
 **solution operators** to ensure a solution can be monitored and
 maintained throughout its lifecycle.

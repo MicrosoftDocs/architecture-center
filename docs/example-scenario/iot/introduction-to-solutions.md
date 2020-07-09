@@ -27,7 +27,7 @@ improve a business or process. 
  
 ![A diagram showing events being generated from devices, which are used to derive insights and take actions based on those insights](media/devices-events-insights.png) 
 
-Fundamentally, IoT Solutions rely on a relationship between Events,
+Fundamentally, IoT solutions rely on a relationship between Events,
 Insights, and Actions to connect diverse populations and types of
 "things" to cloud applications to achieve end-to-end scenarios. 
  
@@ -39,7 +39,7 @@ both represent a contract of a "connected thing" in an IoT Solution. 
 
 ## Content Summary
 
-The intent of this content is to complement existing [Azure IoT documentation](https://docs.microsoft.com/azure/iot-fundamentals) with concepts and patterns to consider when approaching development of and IoT Solution. This may serve as a good primer to Azure IoT Solutions, with an approach designed to:
+The intent of this content is to complement existing [Azure IoT documentation](https://docs.microsoft.com/azure/iot-fundamentals) with concepts and patterns to consider when approaching development of an IoT solution. This may serve as a good primer to Azure IoT Solutions, with an approach designed to:
 
 1.  **Introduce**: Introduce concepts with a concise and human-readable overview. 
 
@@ -48,7 +48,4 @@ The intent of this content is to complement existing [Azure IoT documentation](h
 3.  **Demonstrate**: Provide links to reference material that can apply a concept. 
 
 
-This aims to arm readers with a human-readable series of concepts and patterns that will help in approaching the design and development of Azure IoT Solutions. 
-
-> Note: While concepts and patterns should be durable, this content is expected to grow and evolve over time. Additional resources will be linked as Azure IoT continues to grow and add better capabilities. 
-</aside>
+This aims to arm readers with a human-readable series of concepts and patterns that will help in approaching the design and development of IoT solutions. 

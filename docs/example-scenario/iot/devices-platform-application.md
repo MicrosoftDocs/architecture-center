@@ -47,7 +47,7 @@ pipelines that takes place across these three parts. 
         <td>The collection of services that allow devices and applications to connect and communicate with one another.  The Azure IoT Platform should, at minimum, provide the following capabilities:
             <ul>
                 <li><b>Broker</b> authentication, connectivity, and secure communication between devices and trusted applications. </li>
-                <li>Generate contextual <b>Insights</b> on incoming events to to determine the routing of events to desired endpoints.</li>
+                <li>Generate contextual <b>Insights</b> on incoming events to determine the routing of events to desired endpoints.</li>
             </ul>
         </td>
     </tr>
