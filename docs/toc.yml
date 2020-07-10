@@ -902,6 +902,8 @@ items:
         href: solution-ideas/articles/serverless-application-architectures-using-event-grid.md
       - name: Serverless event processing
         href: reference-architectures/serverless/event-processing.md
+      - name: Unified logging for microservices apps
+        href: example-scenario/logging/unified-logging.md
   - name: DevOps
     items:
     - name: Checklist
