@@ -13,11 +13,11 @@ ms.custom:
 
 # Unified logging for microservices apps
 
-*Logging* uses discrete event messages to track and report application data in a centralized way. Log events can provide an overview of application execution state, track code errors or application failures, or provide purely informational messages. Automation can read event logs and notify relevant parties if events meet a criterion or threshold.
+*Logging* uses discrete event messages to track and report application data in a centralized way. Log events provide an overview of application execution state, track code errors or application failures, or deliver purely informational messages. Automation can read event logs and notify relevant parties if events meet a criterion or threshold.
 
 *Tracing* focuses on the continuous flow of an application. Tracing follows program execution through various methods and services from beginning to end, while understanding data state and transitions.
 
-*Monitoring* applies application instrumentation to tracing or logging data to provide metrics teams can use to make informed decisions. These metrics can aggregate log or trace data in a dashboard that gives a holistic view of application health, from utilization to error count.
+*Monitoring* applies application instrumentation to both tracing or logging data to provide metrics that teams can use to make informed decisions. These metrics can aggregate log or trace data in a dashboard that gives a holistic view of application health, from utilization to error count.
 
 Whenever an application fails, teams need to know:
 
