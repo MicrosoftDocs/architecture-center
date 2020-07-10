@@ -3,7 +3,7 @@ title: Secure Storage of OAuth 2.0 On-Behalf-Of Refresh Tokens
 titleSuffix: Azure Example Scenarios
 description: Stores refresh tokens securely using Azure Key Vault with key rotation and token refresh.
 author: jmostella
-ms.date: 03/01/2020
+ms.date: 07/09/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenarios
@@ -22,7 +22,7 @@ Since these tokens can provide a malicious actor access to resources under the u
 > It may seem like a good idea to store the access token also, however it poses a greater security risk, since in and of itself an access token can be used to access resources.
 > The recommended approach is to store only refresh tokens and get the access token as needed.
 
-This solution will use `Azure Key Vault`, `Azure Functions`,  and `Azure DevOps`. Also it will provide a way to remove access to an application for an organization by removing secrets.
+This solution will use Azure Key Vault, Azure Functions,  and Azure DevOps. Also it will provide a way to remove access to an application for an organization by removing secrets.
 
 - `Azure Key Vault` will hold a secret (encryption key) per AAD Tenant
 - `Azure Function` will refresh the **refresh token** and save with **latest** secret (version)
