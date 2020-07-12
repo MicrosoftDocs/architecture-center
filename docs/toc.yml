@@ -570,8 +570,8 @@ items:
         href: solution-ideas/articles/application-integration-using-event-grid.md
       - name: Automated enterprise BI
         href: reference-architectures/data/enterprise-bi-adf.md
-      - name: Customer 360
-        href: solution-ideas/articles/customer-360.md
+      - name: Retail product recommendations
+        href: solution-ideas/articles/product-recommendations.md
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.md
       - name: Demand forecasting

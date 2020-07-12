@@ -7,6 +7,9 @@ ms.date: 06/26/2020
 ms.custom: fcp
 ms.service: architecture-center
 ms.subservice: solution-idea
+ms.category:
+    - integration
+    - databases
 ---
 
 # Modernize .NET applications with Azure SQL DB and Azure App Service

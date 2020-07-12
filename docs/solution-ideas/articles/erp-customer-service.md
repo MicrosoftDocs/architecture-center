@@ -7,6 +7,8 @@ ms.date: 06/26/2020
 ms.custom: fcp
 ms.service: architecture-center
 ms.subservice: solution-idea
+ms.category:
+  - databases
 ---
 
 # Deliver highly scalable customer service and ERP apps with Azure SQL and Azure Cosmos DB 

@@ -1,18 +1,18 @@
 ---
-title: Customer 360
+title: Product recommendations for retail using Azure
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
-description: A deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. This solution implements a process of aggregating customer data into a "360-degree" profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.
+description: This solution implements a process of aggregating customer data into a complete profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/customer-360/'
 ms.service: architecture-center
 ms.category:
   - analytics
 ms.subservice: solution-idea
-social_image_url: /azure/architecture/solution-ideas/articles/media/customer-360.png
+social_image_url: /azure/architecture/solution-ideas/articles/media/product-recommendations.png
 ---
 
-# Customer 360
+# Retail product recommendations
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
@@ -20,8 +20,8 @@ A deep understanding between customer interests and purchasing patterns is a cri
 
 ## Architecture
 
-![Architecture diagram](../media/customer-360.png)
-*Download an [SVG](../media/customer-360.svg) of this architecture.*
+![Architecture diagram](../media/product-recommendations.png)
+*Download an [SVG](../media/product-recommendations.svg) of this architecture.*
 
 ## Description
 
@@ -31,7 +31,7 @@ A typical retail business collects customer data through a variety of channels, 
 
 Many businesses leverage only a small portion of the available data, but in order to maximize ROI, a business must integrate relevant data from all sources. Traditionally, the integration of external, heterogeneous data sources into a shared data processing engine has required significant effort and resources to set up. This solution describes a simple, scalable approach to integrating analytics and machine learning to predict customer purchasing activity.
 
-The Customer 360 Profile solution addresses the above problems by:
+This solution addresses the above problems by:
 
 * Uniformly accessing data from multiple data sources while minimizing data movement and system complexity in order to boost performance.
 * Performing ETL and feature engineering needed to use a predictive Machine Learning model.
