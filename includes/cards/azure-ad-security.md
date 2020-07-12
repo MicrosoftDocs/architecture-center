@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/aadsec/azure-ad-security"><img src="/azure/architecture/browse/thumbs/security-compliance-blueprint-hipaa-hitrust-health-data-ai.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/aadsec/azure-ad-security"><img src="/azure/architecture/browse/thumbs/azure-ad-security.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
