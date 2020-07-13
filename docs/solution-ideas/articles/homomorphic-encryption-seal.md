@@ -45,7 +45,7 @@ With SEAL homomorphic encryption, cloud providers never have unencrypted access 
 
 ## Implementation
 
-The [sample code](https://zarmada.blob.core.windows.net/ai-school-module-updates/ai-school-lab-seal.zip) code includes a console app, an API to implement a simple client-server interaction with homomorphic encryption, and complete instructions. To use the code, download and extract the ZIP to a local folder. The code project requires [Visual Studio 2019](https://www.visualstudio.com/downloads/) and [.NET Core version 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2).
+The [sample code](https://zarmada.blob.core.windows.net/ai-school-module-updates/ai-school-lab-seal.zip) includes a console app, an API to implement a simple client-server interaction with homomorphic encryption, and complete instructions. To use the code, download and extract the ZIP to a local folder. The code project requires [Visual Studio 2019](https://www.visualstudio.com/downloads/) and [.NET Core version 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2).
 
 ## Next steps
 
