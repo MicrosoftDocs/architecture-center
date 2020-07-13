@@ -48,7 +48,7 @@ The new UI will be hosted as a platform as a service (PaaS) application on Azure
 4. The new API:
     - Is surfaced only through the APIM instance, which will provide the API facade. The new API won't be accessed directly.
     - Is developed and published as an [Azure PaaS Web API App][azure-api-apps].
-    - Is white-listed (via [Web App settings][azure-appservice-ip-restrict]) to accept only the [APIM VIP][apim-faq-vip].
+    - Is configured (via [Web App settings][azure-appservice-ip-restrict]) to accept only the [APIM VIP][apim-faq-vip].
     - Is hosted in Azure Web Apps with Secure Transport/SSL turned on.
     - Has authorization enabled, [provided by the Azure App Service][azure-appservice-auth] using Azure Active Directory and OAuth 2.
 5. The new browser-based web application will depend on the Azure API Management instance for **both** the existing HTTP API and the new API.
