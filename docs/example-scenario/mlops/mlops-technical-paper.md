@@ -290,7 +290,7 @@ The following diagram describes how to apply CI/CD development and release workf
 
 * When a PR is created from a Feature branch, the pipeline runs [code validation tests](#code-validation-tests) to validate the quality of the code via unit tests and code quality tests. To validate quality upstream, the pipeline also runs [basic model validation tests](#basic-model-validation-tests) to validate the end-to-end training and scoring steps with a sample set of mocked data.
 
-* When the PR is merged into the Master branch, the CI pipeline will run the same code validation tests and basic model validation tests with increased epoch. The pipeline will then package the *artifacts*, which include the code and binaries, to run in the machine learning environment.
+* When the PR is merged into the master branch, the CI pipeline will run the same code validation tests and basic model validation tests with increased epoch. The pipeline will then package the *artifacts*, which include the code and binaries, to run in the machine learning environment.
 
 * After the artifacts are available, a [model validation CD pipeline](#model-validation-cd-pipeline) will be triggered. It runs end-to-end validation on the development machine learning environment. A scoring mechanism will be published. For a batch scoring scenario, a scoring pipeline is published to the machine learning environment and triggered to produce results. If you wanted to use a real-time scoring scenario, you can publish a web app or deploy a container.
 
@@ -330,7 +330,7 @@ The scoring CD pipeline is applicable for the batch inference scenario, where th
 
 ### Development vs. production environments
 
-It's a good practice to separate the development (dev) and the production (prod) environments. It allows the system to trigger the model validation CD pipeline and scoring CD pipeline at a different cadence. For the described MLOps flow, pipelines targeting the Master branch will run on the dev environment, and the pipeline targeting the Release branch will run on the prod environment.
+It's a good practice to separate the development (dev) and the production (prod) environments. It allows the system to trigger the model validation CD pipeline and scoring CD pipeline at a different cadence. For the described MLOps flow, pipelines targeting the master branch will run on the dev environment, and the pipeline targeting the Release branch will run on the prod environment.
 
 ### Code changes vs. data changes
 
