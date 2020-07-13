@@ -45,7 +45,7 @@ The architecture consists of the following components. For other terms, see [Ser
 
 **Azure Pipelines**. [Pipelines](https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops) is part of [Azure DevOps Services](https://docs.microsoft.com/azure/devops/index?view=azure-devops) and runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions such as Jenkins.
 
-**Azure Monitor**. [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor) collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Service Fabric to collect metrics from controllers, nodes, and containers, as well as container logs and master node logs.
+**Azure Monitor**. [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor) collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Service Fabric to collect metrics from controllers, nodes, and containers, as well as container and node logs.
 
 **Azure Key Vault**. Use [Key Vault](https://docs.microsoft.com/azure/key-vault) to store any application secrets used by the microservices, such as connection strings.
 

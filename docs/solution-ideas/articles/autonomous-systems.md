@@ -5,6 +5,8 @@ author: jocontr
 ms.date: 07/05/2020
 description: Learn how the Microsoft Autonomous Systems platform uses machine teaching, deep reinforcement learning, and simulations to build and deploy autonomous systems with Bonsai.
 ms.custom: pcp
+ms.category:
+  - ai-machine-learning
 ---
 # Machine teaching for autonomous systems
 

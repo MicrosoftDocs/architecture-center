@@ -156,7 +156,7 @@ If you are using Azure Cache for Redis as a temporary data cache and not as a pe
 
 ## Virtual Network
 
-**To whitelist or block public IP addresses, add a network security group to the subnet.** Block access from malicious users, or allow access only from users who have privilege to access the application.
+**To allow or block public IP addresses, add a network security group to the subnet.** Block access from malicious users, or allow access only from users who have privilege to access the application.
 
 **Create a custom health probe.** Load Balancer Health Probes can test either HTTP or TCP. If a VM runs an HTTP server, the HTTP probe is a better indicator of health status than a TCP probe. For an HTTP probe, use a custom endpoint that reports the overall health of the application, including all critical dependencies. For more information, see [Azure Load Balancer overview](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
 

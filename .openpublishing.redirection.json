@@ -1948,7 +1948,13 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/ibems-shield-smart-buildings.md",
-      "redirect_url": "/azure/architecture/solution-ideas/articles/safe-buildings",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/safe-buildings"
+     },
+     
+     {
+      "source_path": "docs/solution-ideas/articles/customer-360.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/product-recommendations",
+      "redirect_document_id": true
      }
   ]
 }
