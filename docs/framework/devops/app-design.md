@@ -36,7 +36,6 @@ Azure Resource Manager (ARM) enforces limits and quotas on how many resources of
 
 ![GitHub](../../_images/github.png) [This sample](https://github.com/mspnp/samples/tree/master/OperationalExcellenceResourceLimits) shows how to query limit and quotas for commonly used networking resources, virtual machines, SQL database, and storage accounts.
 
-
 ## Tagging and resource naming
 
 Organizing cloud-based assets in ways that aid operational management and support accounting requirements is a common challenge that faces large cloud adoption efforts. By applying well-defined naming and metadata tagging conventions to cloud-hosted resources, IT staff can quickly find and manage resources. Well-defined names and tags also help to align cloud usage costs with business teams by using chargeback and showback accounting mechanisms.
