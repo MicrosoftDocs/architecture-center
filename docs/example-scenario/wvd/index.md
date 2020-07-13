@@ -6,7 +6,7 @@ author: GitHubAlias
 ms.date: 05/01/2020
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenarios
+ms.subservice: example-scenario
 ms.custom:
 - fcp
 ---
@@ -35,6 +35,8 @@ Consider this scenario for the following use cases from 1000 virtual desktops an
 
 ## Architecture
 
+![](images/image001.png)
+
 As you might expect, the architecture of the Windows Virtual Desktop service is like that of Windows Server Remote Desktop Services. Microsoft manages the infrastructure and brokering components, while you manage the desktop host virtual machines, data, and clients.
 
 ## Microsoft-managed components
@@ -46,8 +48,6 @@ The following Windows Virtual Desktop services are managed by Microsoft as part 
 - **Connection Broker**. The Connection Broker service manages user connections to virtual desktops and remote apps. It provides load balancing and reconnection to existing sessions.
 - **Diagnostics**. Remote Desktop Diagnostics is an event-based aggregator that marks each user or administrator action on the Windows Virtual Desktop deployment as a success or failure. Administrators can query the aggregation of events to identify failing components.
 - **Extensibility components**. Windows Virtual Desktop includes several extensibility components. You can manage Windows Virtual Desktop using Windows PowerShell or with the provided REST APIs, which also enable support from third-party tools.
-
-![](WVD_html_6ac41888a9a69888.png)
 
 ## Components you manage
 
@@ -97,7 +97,7 @@ Updating your Windows Virtual Desktop personal or pooled desktops can be done in
 - **Windows Updates for Business** for desktop operating systems e.g. Windows 10 multi-session
 - **Azure Update Management** for server operating systems
 - **Azure Log Analytics** compliance checks only
-- **Deploy a new (custom) image** (re-deploy session hosts) every month from our gallery (or a [custom Azure managed](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource) image) with the latest Windows and applications updates.
+- **Deploy a new (custom) image** (re-deploy session hosts) every month from our gallery (or a [custom Azure managed](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) image) with the latest Windows and applications updates.
 
 ## Host pools
 
@@ -105,16 +105,16 @@ Updating your Windows Virtual Desktop personal or pooled desktops can be done in
 
 ## Azure subscription limitations
 
-- We suggest deploying no more than 5000 VMs per Azure subscription has a limit per Azure. To manage your enterprise size environment, you could stack your environment by creating multiple Azure subscription (hub - spoke approach) to increase the amount of VMs and connect them altogether via VNET peering. See [Azure subscription and service limits, quotas, and constraints for more information](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits). _ **Note:** _ _The vast majority of customer use Windows 10 Enterprise multi-session which allows more users to logon. 5000 VMs doesn't mean that you are limited to that same number of session. This only apply to personal host pools based on e.g. Windows 10 Enterprise single-session._
+- We suggest deploying no more than 5000 VMs per Azure subscription has a limit per Azure. To manage your enterprise size environment, you could stack your environment by creating multiple Azure subscription (hub - spoke approach) to increase the amount of VMs and connect them altogether via VNET peering. See [Azure subscription and service limits, quotas, and constraints for more information](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). _ **Note:** _ _The vast majority of customer use Windows 10 Enterprise multi-session which allows more users to logon. 5000 VMs doesn't mean that you are limited to that same number of session. This only apply to personal host pools based on e.g. Windows 10 Enterprise single-session._
 
 - When you are using automated session host scaling tools the numbers are smaller than mentioned above, as VM status interaction is consuming more interaction on the ARM subscription regarding limits. Most likely that number will be around 2000 VMs per Azure subscription. We will share more accurate new numbers based on this scenario later.
-- We recommend to not reboot more than **600 Azure virtual machines per hour via** the Azure portal. This is due to the Azure ARM subscription API throttling limits. _ **Note** __: Here's a good [Microsoft docs article](https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors#call-rate-informational-response-headers) that you could use to count and troubleshoot API throttling limits based on your own Azure subscription._
+- We recommend to not reboot more than **600 Azure virtual machines per hour via** the Azure portal. This is due to the Azure ARM subscription API throttling limits. _ **Note** __: Here's a good [Microsoft docs article](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors#call-rate-informational-response-headers) that you could use to count and troubleshoot API throttling limits based on your own Azure subscription._
   - You can reboot all your machines at once while doing it via the Operating System. You are not consuming any Azure ARM subscription API calls via this procedure.
 - 399 is the current virtual machines limit per WVD ARM template deployments with Availability Sets not being used.
 - You can only deploy 200 virtual machines per Availability sets. You can increase the amount of machines per deployment by switching of the creation and assignment of Availability Sets in either the ARM template or the Azure Marketplace – host pool enrolment.
 - With availability sets disabled we recommend to deploy not more than 399 VMs per deployment job p/hour whether it's via the Azure Marketplace or via ARM templates to avoid hitting any subscription limits on the Azure platform. Making this a total amount of 5000 VMs per subscription.
 - Limitations are active on the virtual machines per Azure subscription. You could increase the resources of your individual session host VMs in your Azure subscription to accommodate more user session without hitting the maximum limit of virtual machines per Azure subscription as described above.
-- There are no Azure Compute limitations active on [resource groups](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resources-without-resource-group-limit) that limit you to deploy virtual machines – in a single Azure subscription.
+- There are no Azure Compute limitations active on [resource groups](https://docs.microsoft.com/azure/azure-resource-manager/management/resources-without-resource-group-limit) that limit you to deploy virtual machines – in a single Azure subscription.
 
 ## Azure Virtual Machines – session hosts
 
@@ -124,9 +124,9 @@ Updating your Windows Virtual Desktop personal or pooled desktops can be done in
 
 The following three articles lists the maximum suggested number of users per virtual central processing unit (vCPU) and the minimum VM configuration for each workload. This could be helpful to see what your first estimation of VMs as part of your host pool.
 
-- [Multi-session recommendations](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context#multi-session-recommendations)
-- [Single-session recommendations](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context#single-session-recommendations)
-- [General virtual machine recommendations](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context#general-virtual-machine-recommendations)
+- [Multi-session recommendations](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context#multi-session-recommendations)
+- [Single-session recommendations](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context#single-session-recommendations)
+- [General virtual machine recommendations](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context#general-virtual-machine-recommendations)
 
 We recommend you use simulation tools to test your deployment with both stress tests and real-life usage simulations. Make sure your system is responsive and resilient enough to meet user needs, and remember to vary the load size to avoid surprises. Find here a [list](https://aka.ms/wvdpartner) of partner solutions that can help.
 
