@@ -10,18 +10,18 @@ ms.service: architecture-center
 
 Customers and partners are permitted by Microsoft to use the Azure icons to create architecture diagrams. They are designed as a family and are simple and accessible. The icons can also be used in training manuals or documentation about a Microsoft product. The full name of the icon must always be used in proximity to the icon, but never locked to appear like a logo.
 
-### Do’s 
+### Do’s
 
- * Use the icon to illustrate how products can work together 
- * In diagrams, make sure to include the product name somewhere close to the icon 
- * In text, at first mention use the full product name:  Microsoft Azure (insert name) 
+* Use the icon to illustrate how products can work together
+* In diagrams, make sure to include the product name somewhere close to the icon
+* In text, at first mention use the full product name:  Microsoft Azure (insert name)
 
-### Don’ts 
+### Don’ts
 
- * Never put the product name so close to the icon that it appears to be a logo 
- * Don’t crop, flip or rotate icons 
- * Don’t distort or change icon shape in any way 
- * Don’t use Microsoft product icons to represent your product or service 
+* Never put the product name so close to the icon that it appears to be a logo
+* Don’t crop, flip or rotate icons
+* Don’t distort or change icon shape in any way
+* Don’t use Microsoft product icons to represent your product or service
 
 ## Example architecture diagram
 
