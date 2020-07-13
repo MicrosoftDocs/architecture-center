@@ -3,7 +3,7 @@ title: Unified logging for microservices applications
 titleSuffix: Azure Example Scenarios
 description: Learn about logging, tracing, and monitoring for microservices apps. Run synthetic logging for testing, and create structured logs for analysis.
 author: lanallai
-ms.date: 07/09/2020
+ms.date: 07/13/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -13,7 +13,7 @@ ms.custom:
 
 # Unified logging for microservices apps
 
-*Logging* uses discrete event messages to track and report application data in a centralized way. Log events provide an overview of application execution state, track code errors or application failures, or deliver purely informational messages. Automation can read event logs and notify relevant parties if events meet a criterion or threshold.
+*Logging* uses discrete event messages to track and report application data in a centralized way. Log events provide an overview of application execution state, track code errors or application failures, and deliver informational messages. Automation can read event logs and notify relevant parties if events meet a criterion or threshold.
 
 *Tracing* focuses on the continuous flow of an application. Tracing follows program execution through various methods and services from beginning to end, while understanding data state and transitions.
 
@@ -66,11 +66,11 @@ When building a cloud-native distributed microservices architecture, teams can u
 
 ### Event Hubs
 
-[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) is a fully managed, real-time ingestion service that can stream large volumes of events per second. As such, Event Hubs is the perfect candidate for a central log ingestion pipeline. Event Hub can send event messages to Azure Data Lake or Azure Blob Storage to use for later analysis.
+[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) is a fully managed, real-time ingestion service that can stream large volumes of events per second. As such, Event Hubs is the perfect candidate for a central log ingestion pipeline. Event Hubs can send event messages to Azure Data Lake or Azure Blob Storage to use for later analysis.
 
 ### Blob Storage
 
-[Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) is a cloud scalable storage layer for storing unstructured text or binary object data. Event Hub can store events as Avro files within Blob Storage. Azure [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) can then query the log data for insights.
+[Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) is a cloud scalable storage layer for storing unstructured text or binary object data. Event Hubs can store events as Avro files within Blob Storage. Azure [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) can then query the log data for insights.
 
 ### Azure Data Lake Storage
 
@@ -99,7 +99,7 @@ If the team uses an ITSM system, Logic Apps can call the REST endpoint of the sy
 [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) is a Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) service. Sentinel provides a unified overview of the cloud estate through native integration of Azure services. Sentinel can collect information from the cloud as well as from downstream dependent systems in customers' data centers.
 
 Azure Sentinel provides a dashboard view of the current security posture and allows administrators a global view on potentially malicious events such as failed logins, suspicious credentials, and the relevant connections from these events. Site reliability engineering (SRE) teams can use [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) to query the data.
-You can also designate automation to trigger when Sentinel rules generate security alerts. Automation in Azure Sentinel uses Playbooks powered by Azure Logic Apps. For more information, see [Tutorial: Set up automated threat responses in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-investigate-cases).
+You can also designate automation to trigger when Sentinel rules generate security alerts. Automation in Azure Sentinel uses Playbooks powered by Azure Logic Apps. For more information, see [Tutorial: Investigate incidents with Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-investigate-cases).
 
 ## Issues and considerations
 
@@ -107,7 +107,7 @@ The following practices help microservices architectures perform unified logging
 
 - All application-generated requests should have a unique identifier, usually called a correlation ID, that they pass through each microservice. Each microservice accepts the correlation ID as part of the request, and all logs emitted by the microservice contain the correlation ID.
 - When the application processes the request, it returns the correlation ID as part of the response. The application then uses the correlation ID when emitting its own logs.
-- All logs, except audit logs, should be emitted to the same hub and stored in a central repository. If audit logs are required for security or compliance, it's best to store them in a separate data store. Make sure that recorded and stored information meets regulatory guidelines and doesn't contain any personal identifiable information.
+- All logs, except audit logs, should be emitted to the same hub and stored in a central repository. If audit logs are required for security or compliance, it's best to store them in a separate data store. Make sure that recorded and stored information meets regulatory guidelines and doesn't contain any personally identifiable information.
 - Log data should use JSON format.
 - Logging should be asynchronous. Asynchronous logging helps to reduce overhead by delegating the call to a background task. The application doesn't need to await the results of the operation and can continue the logical program flow.
 - Logging should use a logging framework if possible. Don't expend engineering effort creating a logging system unless there's a clear business need. [Serilog](https://github.com/serilog) is a popular open-source logging framework that provides support for the Azure ecosystem through community supported extensions. 
@@ -118,8 +118,8 @@ During application development and after deployment, make sure to use the common
 
 - **Trace** is the most detailed and most verbose log level. The Trace level outputs detailed, possibly sensitive data about application state during program execution. Tracing can affect application performance, so don't use it in pre-production or production environments. Enable this level sparingly and locally, and only during development.
 - **Debug** is for debugging code locally during software development. This level tends to have no long-term value.
-- **Info** level describes the general application flow when users are interacting with the system in production.
-- **Warn** level in production indicates that an event could be potentially problematic. Warn tells automated alerting tools to pick up the event and notify the relevant teams to investigate.
+- **Information** level describes the general application flow when users are interacting with the system in production.
+- **Warning** level in production indicates that an event could be potentially problematic. Warn tells automated alerting tools to pick up the event and notify the relevant teams to investigate.
 - **Error** level in production logs errors within the application, which could be logic errors.
 - **Critical/Fatal** level means the application is unable to fulfill the request and has caused an unrecoverable error.
 
@@ -127,7 +127,7 @@ During application development and after deployment, make sure to use the common
 
 Most application traffic is variable, and so are the generated logs. Applications that don't generate high traffic may not generate enough logs to test and diagnose issues. Synthetic logging uses automation to emulate user behavior and generate logs for the application's monitoring systems.
 
-Using an automation tool like [Selenium](https://docs.microsoft.com/azure/devops/pipelines/test/continuous-test-selenium), developers can create a test suite of user interactions. Microservices and API-first services can use [Apache JMeter](https://jmeter.apache.org/) to test the functional behavior of a service as well as understand performance.
+Using an automation tool like [Selenium](https://docs.microsoft.com/azure/devops/pipelines/test/continuous-test-selenium), developers can create a test suite of user interactions. Microservices and API-first services can use [Apache JMeter](https://jmeter.apache.org/) to test the functional behavior of a service and understand performance.
 
 For testing and development, [Postman](https://www.postman.com/) can test APIs locally and integrate with the CI/CD pipeline to automate API testing.
 
@@ -139,13 +139,13 @@ Synthetic logging is a valuable tool for identifying problems and analyzing tele
 
 A key aspect of logging is the structure of the log itself. Log data is essentially unstructured, so it can be hard to query for specific events, implement automated alerting, or correlate related events.
 
-A structured format makes event data readable and able to be passed by automated systems. JSON is the data interchange format used by most web services today, and its familiar schema is well suited for structured logging.
+A structured format makes event data readable and able to be parsed by automated systems. JSON is the data interchange format used by most web services today, and its familiar schema is well suited for structured logging.
 
 When defining log structure, you can add context to every request with the following objects:
 - Correlation ID for the request. The ID chains related log events together to provide a narrative for events and help establish where issues occur in distributed systems. The correlation ID should be a globally unique value.
 - Date and time in UTC
 - Service name
-- HTTP codes
+- HTTP status codes
 - Browser type
 - Event severity
 - Pertinent information from the request type that can be used to help diagnose problems
