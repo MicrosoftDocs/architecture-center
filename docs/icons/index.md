@@ -2,7 +2,7 @@
 title: Azure Icons
 titleSuffix: Azure Architecture Center
 author: adamboeglin
-ms.date: 12/16/2019
+ms.date: 07/13/2020
 description: Icons for use in building architecture diagrams for Azure
 ms.service: architecture-center
 ---
