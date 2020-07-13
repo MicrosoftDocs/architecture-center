@@ -7,6 +7,8 @@ description: This example shows how to establish the production environment for 
 ms.custom: acom-architecture, fcp
 ms.service: architecture-center
 ms.subservice: solution-idea
+ms.category:
+  - compute
 ---
 
 # Dynamics Business Central as a Service on Azure

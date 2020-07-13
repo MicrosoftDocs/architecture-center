@@ -5,6 +5,8 @@ author: jocontr
 ms.date: 06/23/2020
 description: Learn how to use the AI for Earth APIs to help build solutions for environmental problems. See other AI for Earth projects and initiatives.
 ms.custom: fcp, aischool
+ms.category:
+  - ai-machine-learning
 ---
 # AI for Earth
 

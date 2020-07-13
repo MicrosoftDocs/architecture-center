@@ -7,6 +7,10 @@ ms.date: 06/26/2020
 ms.custom: fcp
 ms.service: architecture-center
 ms.subservice: solution-idea
+ms.category:
+    - databases
+    - web
+    - mobile
 ---
 
 # Build cloud native apps with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis
