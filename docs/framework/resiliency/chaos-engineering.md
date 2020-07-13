@@ -143,7 +143,7 @@ Faults that can be leveraged to inject chaos.
 | **Functions** | Latency |  |
 |  | Exceptions |  |
 |  | Status codes |  |
-|  | Intercept / Blacklist calls |  |
+|  | Intercept / Denylist calls |  |
 |  | Disk capacity |  |
 | **Application specific** | Intercept / Re-route calls | *No access to service code* |
 | **Hardware** | Machine | *Storage* |
