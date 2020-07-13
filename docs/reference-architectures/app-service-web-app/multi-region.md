@@ -72,7 +72,7 @@ Use [Active Geo-Replication][sql-replication] to create a readable secondary rep
 
 ### Cosmos DB
 
-Cosmos DB supports geo-replication across regions with multi-master (multiple write regions). Alternatively, you can designate one region as the writable region and the others as read-only replicas. If there is a regional outage, you can fail over by selecting another region to be the write region. The client SDK automatically sends write requests to the current write region, so you don't need to update the client configuration after a failover. For more information, see [Global data distribution with Azure Cosmos DB][cosmosdb-geo].
+Cosmos DB supports geo-replication across regions with multiple write regions. Alternatively, you can designate one region as the writable region and the others as read-only replicas. If there is a regional outage, you can fail over by selecting another region to be the write region. The client SDK automatically sends write requests to the current write region, so you don't need to update the client configuration after a failover. For more information, see [Global data distribution with Azure Cosmos DB][cosmosdb-geo].
 
 > [!NOTE]
 > All of the replicas belong to the same resource group.

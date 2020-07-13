@@ -95,7 +95,7 @@ In Kubernetes, the **Ingress controller** might implement the API gateway patter
 
 - Aggregate multiple requests into a single request, to reduce chattiness between the client and the backend.
 
-- Offload functionality from the backend services, such as SSL termination, authentication, IP whitelisting, or client rate limiting (throttling).
+- Offload functionality from the backend services, such as SSL termination, authentication, IP restrictions, or client rate limiting (throttling).
 
 Ingress abstracts the configuration settings for a proxy server. You also need an Ingress controller, which provides the underlying implementation of the Ingress. There are Ingress controllers for Nginx, HAProxy, Traefik, and Azure Application Gateway, among others.
 

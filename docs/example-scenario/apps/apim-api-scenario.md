@@ -43,7 +43,7 @@ The new UI will be hosted as a platform as a service (PaaS) application on Azure
 2. Calls from the existing web app to the existing HTTP services will remain unchanged. These calls are internal to the corporate network.
 3. Inbound calls are made from Azure to the existing internal services:
     - The security team allows traffic from the APIM instance to pass through the corporate firewall to the existing on-premises services [using secure transport (HTTPS/SSL)][apim-ssl].
-    - The operations team will allow inbound calls to the services only from the APIM instance. This requirement is met by [white-listing the IP address of the APIM instance][apim-whitelist-ip] within the corporate network perimeter.
+    - The operations team will allow inbound calls to the services only from the APIM instance. This requirement is met by [adding the IP address of the APIM instance to the allow list][apim-allow-ip] within the corporate network perimeter.
     - A new module is configured into the on-premises HTTP services request pipeline (to act on **only** those connections originating externally), which will validate [a certificate which APIM will provide][apim-mutualcert-auth].
 4. The new API:
     - Is surfaced only through the APIM instance, which will provide the API facade. The new API won't be accessed directly.
@@ -116,7 +116,7 @@ Review the extensive Azure API Management [documentation and reference articles]
 [azure-api-apps]: https://docs.microsoft.com/azure/app-service
 [apim-ssl]: https://docs.microsoft.com/azure/api-management/api-management-howto-manage-protocols-ciphers
 [apim-mutualcert-auth]: https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates
-[apim-whitelist-ip]: https://docs.microsoft.com/azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services
+[apim-allow-ip]: https://docs.microsoft.com/azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services
 [apim]: https://docs.microsoft.com/azure/api-management/api-management-key-concepts
 [azure-vm-lift-shift]: https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide
 [apim-pricing]: https://azure.microsoft.com/pricing/details/api-management

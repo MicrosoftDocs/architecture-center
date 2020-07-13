@@ -181,7 +181,7 @@ var results = new ConcurrentBag<string>();
 
 // Execute the query against each shard in the shard list.
 // This list would typically be retrieved from configuration
-// or from a root/master shard store.
+// or from a root/primary shard store.
 Parallel.ForEach(shards, shard =>
 {
   // NOTE: Transient fault handling isn't included,

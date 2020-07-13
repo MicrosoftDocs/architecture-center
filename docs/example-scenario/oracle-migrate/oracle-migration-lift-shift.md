@@ -50,7 +50,7 @@ For business continuity and disaster recovery, consider  deploying the following
 
 * Oracle Data Guard [Far Sync](https://docs.oracle.com/database/121/SBYDB/create_fs.htm) for zero data loss protection.
 
-* Oracle [GoldenGate](https://www.oracle.com/middleware/technologies/goldengate.html) for multi-master or active-active mode on Azure availability set or availability zone depends on SLA requirements.
+* Oracle [GoldenGate](https://www.oracle.com/middleware/technologies/goldengate.html) for multi-primary or active-active mode on Azure availability set or availability zone depends on SLA requirements.
 
 Refer to these articles for supporting info:
 
