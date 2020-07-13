@@ -1,24 +1,20 @@
 ---
-title: Title
+title: Windows Virtual Desktop at enterprise scale
 titleSuffix: Azure Example Scenarios
 description: Description
 author: GitHubAlias
-ms.date: 05/01/2020
+ms.date: 07/13/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
 - fcp
 ---
-# Title: Windows Virtual Desktop at enterprise scale
-
-## Purpose
+# Windows Virtual Desktop at enterprise scale
 
 This architecture guide is for Desktop Infrastructure Architects, Cloud Architects, Desktop Administrators, or System Administrators who are exploring the Windows Virtual Desktop.
 
 The aim of this guide is to help you understand how Windows Virtual Desktop works, while providing architectural considerations for building virtual desktop infrastructure solutions at larger **Enterprise scale**.
-
-_ **Note** __: The numbers in this document are based on common practices at a variety of large customer deployments and do not represent one way of doing a deployment. This document will be constantly updated._
 
 ## Relevant use cases
 
@@ -35,13 +31,15 @@ Consider this scenario for the following use cases from 1000 virtual desktops an
 
 ## Architecture
 
-![](images/image001.png)
+![Architectural diagram of the Windows Virtual Desktop service.](images/image001.png)
 
 As you might expect, the architecture of the Windows Virtual Desktop service is like that of Windows Server Remote Desktop Services. Microsoft manages the infrastructure and brokering components, while you manage the desktop host virtual machines, data, and clients.
 
-## Microsoft-managed components
+## Components
 
 The following Windows Virtual Desktop services are managed by Microsoft as part of Azure:
+
+### Components Microsoft manages
 
 - **Web Access.** The Web Access service within Window Virtual Desktop lets users access virtual desktops and remote apps through an HTML5-compatible web browser like they would with a local PC—from anywhere and any device. You can secure Web Access using multifactor authentication in Azure Active Directory.
 - **Gateway**. The Remote Connection Gateway service connect remote users access to Windows Virtual Desktop remote apps and desktops from any internet-connected device that can run a Windows Virtual Desktop client. The WVD client connects to a Gateway which then orchestrates a connection from the VM back to the same gateway.
@@ -49,7 +47,7 @@ The following Windows Virtual Desktop services are managed by Microsoft as part 
 - **Diagnostics**. Remote Desktop Diagnostics is an event-based aggregator that marks each user or administrator action on the Windows Virtual Desktop deployment as a success or failure. Administrators can query the aggregation of events to identify failing components.
 - **Extensibility components**. Windows Virtual Desktop includes several extensibility components. You can manage Windows Virtual Desktop using Windows PowerShell or with the provided REST APIs, which also enable support from third-party tools.
 
-## Components you manage
+### Components you manage
 
 You manage these components of your Windows Virtual Desktop solution:
 
@@ -59,16 +57,8 @@ You manage these components of your Windows Virtual Desktop solution:
 - **Windows Virtual Desktop session hosts** objects. A host pool can run one of several operating systems—including Windows 7 Enterprise, Windows 10 Enterprise, Windows 10 Enterprise Multi-session, Windows Server 2012 R2 and above, including custom Windows system images with pre-loaded apps, group policies, or any other customizations. You also have your choice of virtual machine sizes, including GPU-enabled virtual machines. Each session host has a Windows Virtual Desktop host agent installed, which registers the virtual machine as part of your Windows Virtual Desktop workspace (tenant). And each host pool can have one or more app groups, which are collections of remote applications or desktop sessions that users can access.
 - **Windows Virtual Desktop** **workspace (tenant)** Your Windows Virtual Desktop workspace (tenant) is a management construct to manage and publish host pool resources.
 
-## Cost considerations
-
-Here are five different options to take into consideration to manage costs for enterprises. Architect your solution to realize cost savings.
-
-- **Use Windows 10 multi-session**. By delivering a multi-session desktop experience, you can enable more users (with identical compute requirements) to log onto a single virtual machine at the same time, which can result in considerable cost savings.
-- **Azure Hybrid Benefit**. If you have Software Assurance, you can use Azure Hybrid Benefit for Windows Server to save on the cost of your Azure infrastructure.
-- **Azure Reserved Instances**. Prepay for your virtual machine usage and save money. Combine with Azure Hybrid benefit for up to 80 percent savings over list prices.
-- **Session host load-balancing**.
-  - **Breadth-first**   **mode**  is the standard – default mode. With Breadth mode, the users will spread randomly across session hosts – as part of the host pool.
-  - **Depth-first**** mode** automatically fills up the first session host server maximum amount of users before moving on to a next session host, and so on.
+## Considerations
+_ **Note** __: The numbers in this document are based on common practices at a variety of large customer deployments and do not represent one way of doing a deployment. This document will be constantly updated._
 
 ## Enterprise architectural considerations
 
@@ -131,5 +121,17 @@ The following three articles lists the maximum suggested number of users per vir
 We recommend you use simulation tools to test your deployment with both stress tests and real-life usage simulations. Make sure your system is responsive and resilient enough to meet user needs, and remember to vary the load size to avoid surprises. Find here a [list](https://aka.ms/wvdpartner) of partner solutions that can help.
 
 You could also optimize the performance of your Windows 10 Enterprise environment as well with one of the optimization resources for different builds listed over [here](https://github.com/TheVDIGuys/Windows_10_VDI_Optimize).
+
+## Pricing
+
+Here are five different options to take into consideration to manage costs for enterprises. Architect your solution to realize cost savings.
+
+- **Use Windows 10 multi-session**. By delivering a multi-session desktop experience, you can enable more users (with identical compute requirements) to log onto a single virtual machine at the same time, which can result in considerable cost savings.
+- **Azure Hybrid Benefit**. If you have Software Assurance, you can use Azure Hybrid Benefit for Windows Server to save on the cost of your Azure infrastructure.
+- **Azure Reserved Instances**. Prepay for your virtual machine usage and save money. Combine with Azure Hybrid benefit for up to 80 percent savings over list prices.
+- **Session host load-balancing**.
+  - **Breadth-first**   **mode**  is the standard – default mode. With Breadth mode, the users will spread randomly across session hosts – as part of the host pool.
+  - **Depth-first**** mode** automatically fills up the first session host server maximum amount of users before moving on to a next session host, and so on.
+
 
 _The_ _ **next** __ **topic** _ _we cover is Microsoft FSLogix Profile Container at scale._
