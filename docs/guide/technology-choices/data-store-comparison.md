@@ -2,7 +2,7 @@
 title: Criteria for choosing a data store
 titleSuffix: Azure Application Architecture Guide
 description: Overview of Azure compute options.
-author: MikeWasson
+author: adamboeglin
 ms.date: 06/01/2018
 ms.topic: guide
 ms.service: architecture-center

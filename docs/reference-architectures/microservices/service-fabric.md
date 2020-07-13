@@ -45,7 +45,7 @@ The architecture consists of the following components. For other terms, see [Ser
 
 **Azure Pipelines**. [Pipelines](https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops) is part of [Azure DevOps Services](https://docs.microsoft.com/azure/devops/index?view=azure-devops) and runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions such as Jenkins.
 
-**Azure Monitor**. [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor) collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Service Fabric to collect metrics from controllers, nodes, and containers, as well as container logs and master node logs.
+**Azure Monitor**. [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor) collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Service Fabric to collect metrics from controllers, nodes, and containers, as well as container and node logs.
 
 **Azure Key Vault**. Use [Key Vault](https://docs.microsoft.com/azure/key-vault) to store any application secrets used by the microservices, such as connection strings.
 
@@ -142,7 +142,7 @@ When you create a Service Fabric cluster, provision the node types based on your
 
 - Create a node type for each group of services that have different scalability or resource requirements. Start by provisioning a node type (which becomes the [primary node type](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#primary-node-type)) for the Service Fabric system services. Then create separate node types to run your public or front-end services, and other node types as necessary for your backend and private or isolated services. Specify [placement constraints](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) so that the services are only deployed to the intended node types.
 - Specify the durability tier for each node type. The durability tier represents the ability for Service Fabric to influence virtual machine scale set updates and maintenance operations. For production workloads, choose the Silver or higher durability tier. For information about each tier, see [The durability characteristics of the cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
-- If using the Bronze durability tier, certain operations require manual steps.  For node types with Bronze durability tier additional steps are required during scale in. For more information on scaling operations, see [this guide](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down).
+- If using the Bronze durability tier, certain operations require manual steps.  For node types with Bronze durability tier additional steps are required during scale in. For more information on scaling operations, see [this guide](/azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling).
 
 ### Scaling nodes
 
@@ -175,7 +175,7 @@ For a stateful service, scaling is controlled by the number of partitions, the s
 
 For more information, see:
 
-- [Scale a Service Fabric cluster in or out using autoscale rules or manually](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down)
+- [Scale a Service Fabric cluster in or out using autoscale rules or manually](/azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling)
 - [Scale a Service Fabric cluster programmatically](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling)
 - [Scale a Service Fabric cluster out by adding a virtual machine scale set](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)
 
@@ -403,7 +403,7 @@ Use Azure Monitor alerts to notify sysadmins when certain conditions occur in sp
 
 ## Cost considerations
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 Here are some points to consider for some of the services used in this architecture.
 
@@ -437,6 +437,14 @@ Azure Key Vault is used to store the Application Insight's instrumentation key a
 
 This reference architecture only uses Azure Pipelines. Azure offers the Azure Pipeline as an individual Service. You are allowed a free Microsoft-hosted job with 1,800 minutes per month for CI/CD and one self-hosted job with unlimited minutes per month, extra jobs have charges. For more information, see [Azure DevOps Services Pricing][DevOps-pricing].
 
+## DevOps considerations
+
+### Azure Pipelines
+
+The reference implementation is deployed using Azure Pipelines. For DevOps considerations in a microservices architecture, see [CI/CD for microservices](https://docs.microsoft.com/azure/architecture/microservices/ci-cd)
+
+You can also learn how to deploy a container application with CI/CD to a Service Fabric cluster, in this [tutorial][service-fabric-tutorial].
+
 ## Deploy the solution
 
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][ri-deploy].
@@ -449,6 +457,8 @@ To deploy the reference implementation for this architecture, follow the steps i
 - [Using domain analysis to model microservices](../../microservices/model/domain-analysis.md)
 - [Designing a microservices architecture](../../microservices/design/index.md)
 
+[sfx]: /azure/service-fabric/service-fabric-visualizing-your-cluster
+[service-fabric-tutorial]: https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-container-app-with-cicd-vsts
 [aaf-cost]: ../../framework/cost/overview.md
 [ap-insight-cost]: https://docs.microsoft.com/azure/azure-monitor/app/pricing
 [Api-Management-pricing]: https://azure.microsoft.com/pricing/details/api-management

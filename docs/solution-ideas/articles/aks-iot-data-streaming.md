@@ -53,7 +53,7 @@ This example scenario uses several Azure components:
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Build, store, secure, scan, replicate, and manage container images and artifacts
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/): The fully managed Azure Kubernetes Service (AKS) makes deploying and managing containerized applications easy
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Safeguard cryptographic keys and other secrets used by cloud apps and services
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): A fully managed database service with turnkey global distribution and transparent multi-master replication.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): A fully managed database service with turnkey global distribution and transparent multi-primary replication.
 - [Azure HDInsights](https://azure.microsoft.com/services/hdinsight/): A cost-effective, enterprise-grade service for open source analytics
 - [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/): Build and host web apps, mobile back ends, and RESTful APIs without managing infrastructure.
 - [Azure Database for PosgreSQL](https://azure.microsoft.com/services/postgresql/): a fully managed relational database service based on the open-source Postgres database engine.

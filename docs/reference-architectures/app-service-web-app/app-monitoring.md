@@ -48,7 +48,9 @@ This scenario uses a managed Azure environment to host an application and data t
 - [Azure Monitor][azure-monitor] provides base-level infrastructure [metrics and logs][metrics] for most services in Azure. You can interact with the metrics in several ways, including charting them in Azure portal, accessing them through the REST API, or querying them using PowerShell or CLI. Azure Monitor also offers its data directly into [Log Analytics and other services], where you can query and combine it with data from other sources on premises or in the cloud.
 - [Log Analytics][log-analytics] helps correlate the usage and performance data collected by Application Insights with configuration and performance data across the Azure resources that support the app. This scenario uses the [Azure Log Analytics agent][Azure Log Analytics agent] to push SQL Server audit logs into Log Analytics. You can write queries and view data in the Log Analytics blade of the Azure portal.
 
-## Monitoring considerations
+## DevOps considerations
+
+### Monitoring
 
 A recommended practice is adding Application Insights to your code during development using the [Application Insights SDKs][Application Insights SDKs], and customizing per application. These open-source SDKs are available for most application frameworks. To enrich and control the data you collect, incorporate the use of the SDKs both for testing and production deployments into your development process. The main requirement is for the app to have a direct or indirect line of sight to the Applications Insights ingestion endpoint hosted with an Internet-facing address. You can then add telemetry or enrich an existing telemetry collection.
 
@@ -60,7 +62,8 @@ Both Application Insights and Log Analytics use [Azure Log Analytics Query Langu
 
 Azure Monitor, Application Insights, and Log Analytics all send [alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-alerts). For example, Azure Monitor alerts on platform-level metrics such as CPU utilization, while Application Insights alerts on application-level metrics such as server response time. Azure Monitor alerts on new events in the Azure Activity Log, while Log Analytics can issue alerts about metrics or event data for the services configured to use it. [Unified alerts in Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts) is a new, unified alerting experience in Azure that uses a different taxonomy.
 
-### Alternatives
+
+#### Alternatives
 
 This article describes conveniently available monitoring options with popular features, but you have many choices, including the option to create your own logging mechanisms. A recommended practice is to add monitoring services as you build out tiers in a solution. Here are some possible extensions and alternatives:
 
@@ -69,6 +72,9 @@ This article describes conveniently available monitoring options with popular fe
 - Automate monitoring functions using [Azure Automation][Azure Automation].
 - Add communication with [ITSM solutions][ITSM solutions].
 - Extend Log Analytics with a [management solution][management solution].
+
+
+For more information see [Monitoring For DevOps][devops-monitoring] in the Azure Well-Architected Framework.
 
 ## Scalability and availability considerations
 
@@ -103,7 +109,7 @@ After deployment, you can watch a [Live Metrics Stream][Live Metrics Stream] of 
 
 Log Analytics is billed per gigabyte (GB) of data ingested into the service. The first 5 GB of data ingested to the Azure Log Analytics service every month is offered free, and the data is retained at no charge for first 31 days in your Log Analytics workspace.
 
-For more guidance please refer to the cost section in [Azure Architecture Framework][aaf-cost].
+For more guidance please refer to the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 ## Next steps
 

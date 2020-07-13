@@ -1,7 +1,7 @@
 ---
 title: Secure a backend web API in a multitenant application
 description: How to secure a backend web API.
-author: MikeWasson
+author: adamboeglin
 ms.date: 07/21/2017
 ms.topic: guide
 ms.service: architecture-center

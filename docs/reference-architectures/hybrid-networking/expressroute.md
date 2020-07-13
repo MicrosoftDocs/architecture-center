@@ -1,7 +1,7 @@
 ---
 title: Extend an on-premises network using ExpressRoute
 description: Implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using Azure ExpressRoute.
-author: MikeWasson
+author: adamboeglin
 ms.date: 07/23/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -211,10 +211,6 @@ You can configure high availability for your Azure connection in different ways,
 
 - Configure a site-to-site VPN as a failover path for ExpressRoute. For more about this option, see [Connect an on-premises network to Azure using ExpressRoute with VPN failover][highly-available-network-architecture]. This option only applies to private peering. For Azure and Office 365 services, the Internet is the only failover path.
 
-## Manageability considerations
-
-You can use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor connectivity between your on-premises datacenter and Azure.
-
 ## Security considerations
 
 You can configure security options for your Azure connection in different ways, depending on your security concerns and compliance needs.
@@ -237,9 +233,24 @@ If you must expose management endpoints for VMs to an external network, use NSGs
 > Azure VMs deployed through the Azure portal can include a public IP address that provides login access. However, it is a best practice not to permit this.
 >
 
+## DevOps considerations
+
+Use the Infrastructure as Code (IaC) process for deploying the infrastructure. In this architecture, we've used a set of [Azure Building Blocks][azbb] custom templates deployed using the Azure portal. To automate infrastructure deployment, you can use Azure DevOps Services or other CI/CD solutions. The deployment process is also idempotent. 
+
+For a given resource, there can be other resources that must exist before the resource is deployed. Azure Building Blocks templates are also good for dependency tracking because they allow you to define dependencies for resources that are deployed in the same template. 
+
+### Network monitoring
+
+Use the Network Watcher to monitor and troubleshoot the network components, tools like Traffic Analytics will show you the systems in your virtual networks that generate most traffic, so that you can visually identify bottlenecks before they degenerate into problems. Network Performance Manager has the ability to monitor information about Microsoft ExpressRoute circuits.
+
+You also can use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor connectivity between your on-premises datacenter and Azure.
+
+For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops]. For information specific to monitoring, see [Monitoring For DevOps][devops-monitoring].
+
+
 ## Cost considerations
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. For general considerations, see the Cost section in [Azure Architecture Framework][aaf-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. For general considerations, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 The services used in this architecture are charged as follows:
 
@@ -268,6 +279,7 @@ In this architecture, internal load balancers are used to load balance traffic i
 Virtual machine scale sets are available on all Linux and windows VM sizes. You are only charged for the Azure VMs you deploy and underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the virtual machine scale sets service.
 
 For more information, see [Azure VM pricing][linux-vms-pricing].
+
 
 ## Deploy the solution
 
@@ -304,6 +316,22 @@ To deploy the solution, perform the following steps.
 <!-- links -->
 
 [highly-available-network-architecture]: ./expressroute-vpn-failover.md
+
+
+[AAF-devops]: /azure/architecture/framework/devops/overview
+[azbb]: https://github.com/mspnp/template-building-blocks/wiki
+[expressroute-technical-overview]: /azure/expressroute/expressroute-introduction
+[expressroute-prereqs]: /azure/expressroute/expressroute-prerequisites
+[configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
+[sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute
+[link-vnet-to-expressroute]: /azure/expressroute/expressroute-howto-linkvnet-arm
+[devops-monitoring]: https://docs.microsoft.com/azure/architecture/framework/devops/monitoring
+[ExpressRoute-provisioning]: /azure/expressroute/expressroute-workflows
+[expressroute-introduction]: /azure/expressroute/expressroute-introduction
+[expressroute-peering]: /azure/expressroute/expressroute-circuit-peerings
+[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
+[expressroute-limits]: /azure/azure-subscription-service-limits#networking-limits
+
 [aaf-cost]: ../../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [expressroute-prereqs]: https://docs.microsoft.com/azure/expressroute/expressroute-prerequisites
@@ -316,6 +344,8 @@ To deploy the solution, perform the following steps.
 [expressroute-introduction]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
 [expressroute-peering]: https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
+
+
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx
 

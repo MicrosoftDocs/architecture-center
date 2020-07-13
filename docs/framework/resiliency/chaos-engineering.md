@@ -28,13 +28,11 @@ Chaos engineering is aimed at increasing your service’s resiliency and the abi
 - Instill guardrails and graceful mitigations
 - Minimize blast radius
 - Build immunity​
-- Adjust the engineering process
-​
-Chaos engineering should be a part of the development team culture and an ongoing practice, not a short-term tactical effort in response to an outage.
+- Chaos engineering should be a part of the development team culture and an ongoing practice, not a short-term tactical effort in response to an outage.
 
 Development team are partners in the process. They must have resources to triage issues, implement testability required for fault injection, and drive the necessary product changes.
 
-## When to Apply Chaos
+## When to apply chaos
 Ideally chaos should be applied all the time.  There is constant change in the environments in which software and hardware runs. So, monitoring the change is key. Constant application of stress or faults on components will help expose issues early before a small issue gets compounded by a number of other factors.
 
 - Deploying new code.
@@ -148,6 +146,7 @@ Faults that can be leveraged to inject chaos.
 |  | Rack |  |
 |  | UPS  |  |
 |  | Datacenter |  |
+
 
 > [!NOTE]
 > This is not intended to be an exhaustive list, but a representation of commonly injected faults.  

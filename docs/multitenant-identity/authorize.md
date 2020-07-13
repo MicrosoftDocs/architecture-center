@@ -1,7 +1,7 @@
 ---
 title: Authorization in multitenant applications
 description: How to perform authorization in a multitenant application.
-author: MikeWasson
+author: adamboeglin
 ms.date: 07/21/2017
 ms.topic: guide
 ms.service: architecture-center

@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>8/21/2019</li>
-            <li>10 min read</li>
+            <li>11 min read</li>
         </ul>
         <p class="card-content-description">Run Linux virtual machines for an N-tier architecture with Apache Cassandra in Microsoft Azure.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

@@ -1,6 +1,6 @@
 ---
-title: Overview of the scalability pillar
-description: Describes the scalability pillar
+title: Overview of the performance efficiency pillar
+description: Describes the performance efficiency pillar
 author: david-stanford
 ms.date: 10/21/2019
 ms.topic: overview
@@ -9,13 +9,11 @@ ms.subservice: well-architected
 ms.custom: 
 ---
 
-<!-- cSpell:ignore architecting -->
+# Overview of the performance efficiency pillar
 
-# Overview of the scalability pillar
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. The main ways to achieve this are by using scaling appropriately and implementing PaaS offerings that have scaling built in. *Scalability* is the ability of a system to handle increased load. To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=azure-architecture-review).
 
-*Scalability* is the ability of a system to handle increased load. To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=azure-architecture-review).
-
-Scalability tasks during the architecting phase include:
+Performance efficiency tasks to perform while building the architecture of your solution:
 
 - **Partition workloads.** Design parts of the process to be discrete and decomposable. Minimize the size of each part. This allows the component parts to be distributed in a way that maximizes use of each compute unit. It also makes it easier to scale the application by adding instances of specific resources. For complex domains, consider adopting a [microservices architecture](../../guide/architecture-styles/microservices.md).
 - **Design for scaling.** Scaling allows applications to react to variable load by increasing and decreasing the number of instances of roles, queues, and other services. However, the application must be designed with this in mind. For example, the application and the services it uses must be stateless to allow requests to be routed to any instance. Having stateless services also means that adding or removing an instance does not adversely impact current users.
@@ -25,7 +23,7 @@ Scalability tasks during the architecting phase include:
 
   If your application isn't configured to scale out automatically as load increases, it's possible that your application's services will fail if they become saturated with user requests. For more information, see the following articles:
 
-  - General: [Scalability checklist](../../checklist/scalability.md)
+  - General: [performance efficiency checklist](../../checklist/performance-efficiency.md)
   - Azure App Service: [Scale instance count manually or automatically](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-how-to-scale/)
   - Cloud Services: [How to autoscale a Cloud Service](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-scale/)
   - Virtual machines: [Automatic scaling and virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview/)

@@ -2,8 +2,8 @@
 title: Hub-spoke network topology in Azure
 titleSuffix: Azure Reference Architectures
 description: This reference architecture deploys a hub-spoke network topology in Azure.
-author: MikeWasson
-ms.date: 01/29/2020
+author: adamboeglin
+ms.date: 05/21/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.category:
@@ -90,6 +90,8 @@ You can also configure spokes to use the hub gateway to communicate with remote 
 - Configure the peering connection in each spoke to **use remote gateways**.
 - Configure all peering connections to **allow forwarded traffic**.
 
+for additional information on [Create a peering](/azure/virtual-network/virtual-network-manage-peering#create-a-peering)
+
 ## Considerations
 
 ### Spoke connectivity
@@ -104,12 +106,31 @@ You can also use a VPN gateway to route traffic between spokes, although this wi
 
 Also consider what services are shared in the hub, to ensure the hub scales for a larger number of spokes. For instance, if your hub provides firewall services, consider the bandwidth limits of your firewall solution when adding multiple spokes. You might want to move some of these shared services to a second level of hubs.
 
+## DevOps considerations
+
+In this architecture the entire networking infrastructure is created by using an [Azure Building Blocks][azbb] template, so it follows the IaC process for deploying the resources. To automate infrastructure deployment, you can use Azure DevOps Services or other CI/CD solutions. The deployment process is also idempotent - that is, repeatable to produce the same results. 
+
+Templates are also good for dependency tracking since they allow to define dependencies for resources that are deployed in the same template. For a given resource, there can be other resources that must exist before the resource is deployed.
+
+### Network monitoring
+
+Use the Network Watcher to monitor and troubleshoot the network components, tools like Traffic Analytics will show you the systems in your virtual networks that generate most traffic, so that you can visually identify bottlenecks before they degenerate into problems. Network Performance Manager is the right tool to monitor information about Microsoft ExpressRoute circuits. VPN diagnostics is another tool that can help troubleshooting site-to-site VPN connections connecting your applications to users on-premises.
+
+
+For more information see [Monitoring For DevOps][devops-monitoring] in the Azure Well-Architected Framework.
+
+### Network testing
+
+This architecture includes some testing steps to manually verify network connectivity, it uses jump box virtual machines in each virtual network. After the deployment is completed, use these instructions along with the network monitoring tools, to verify the correct operation of the network.
+
+For more information, see the DevOps section in [Well-Architected Framework][AAF-devops].
+
 
 ## Cost considerations
 
 Centralizing services that can be shared by multiple workloads in a single location can be cost efficient.
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 ### Azure Firewall
 
@@ -129,6 +150,11 @@ You can use virtual network peering to route traffic between virtual networks by
    For instance, data transfer from a virtual network in zone 1 to another virtual network in zone 2, will incur outbound transfer rate for zone 1 and inbound rate for zone 2. For more information, see [Virtual network pricing][VN-pricing].
 
 ## Deploy the solution
+
+> [!CAUTION]
+> "Don't use azbb - it is in sustain mode and the npm package is out of date".
+> Alternatively use: ARM Template: [101-hub-and-spoke-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hub-and-spoke-sandbox) or 
+> use Terraform: [hub-spoke-introduction](/azure/developer/terraform/hub-spoke-introduction)
 
 A deployment for this architecture is available on [GitHub][ref-arch-repo]. It uses VMs in each virtual network to test connectivity. Two instances of each jumpbox are deployed &mdash; one Linux VM and one Windows VM. In a real deployment, you would deploy a single type. 
 
@@ -301,8 +327,13 @@ For a version of this architecture that deploys shared identity and security ser
 <!-- links -->
 
 [aaf-cost]: ../../framework/cost/overview.md
-[connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
+[AAF-devops]: /azure/architecture/framework/devops/overview
+[azure-cli-2]: /azure/install-azure-cli
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
+[azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
+[connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
+[devops-monitoring]: https://docs.microsoft.com/azure/architecture/framework/devops/monitoring
 [Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances
 [guidance-expressroute]: ./expressroute.md
 [guidance-vpn]: ./vpn.md
