@@ -1,6 +1,8 @@
 items:
 - name: Azure Architecture Center
   href: /azure/architecture/
+- name: Architecture icons
+  href: /azure/architecture/icons/index.md
 - name: Browse all Architectures
   href: browse/index.md
 - name: What's new
