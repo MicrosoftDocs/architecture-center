@@ -25,8 +25,7 @@ Customers and partners are permitted by Microsoft to use the Azure icons to crea
 
 ## Example architecture diagram
 
-:::image type="complex" source="/azure/architecture/solution-ideas/media/ai-at-the-edge.png" alt-text="Example architecture diagram showing multiple services connected together with numbered steps.":::
-:::image-end:::
+![Example architecture diagram showing multiple services connected together with numbered steps.](../solution-ideas/media/ai-at-the-edge.png)
 
 [Browse all Azure architectures](/azure/architecture/browse) to view other examples.
 
@@ -64,4 +63,4 @@ The icons may not be used in advertising, in books and other printed matter, on 
 Download the diagrams
 
  > [!div class="button"]
- > [Download SVG](https://arch-center.azureedge.net/cdn/icons/Azure_Public_Service_Icons_V1.zip)
+ > [Download SVG icons](https://arch-center.azureedge.net/cdn/icons/Azure_Public_Service_Icons_V1.zip)
