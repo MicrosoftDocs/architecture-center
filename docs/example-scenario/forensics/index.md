@@ -8,6 +8,8 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.custom:
   - fcp
+ms.category:
+  - security
 ---
 
 # Computer forensics in Azure

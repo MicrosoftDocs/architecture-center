@@ -2,7 +2,7 @@
 title: Performance tuning - Distributed business transactions
 titleSuffix: Azure Architecture Center
 description: Using load testing to improve the performance of a distributed business transaction
-author: MikeWasson
+author: adamboeglin
 ms.author: pnp
 ms.date: 08/27/2019
 ms.topic: article

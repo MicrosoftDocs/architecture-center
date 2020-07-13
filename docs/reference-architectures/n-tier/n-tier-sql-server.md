@@ -1,7 +1,7 @@
 ---
 title: Windows N-tier application on Azure
 description: Implement a multi-tier architecture on Azure for availability, security, scalability, and manageability.
-author: MikeWasson
+author: adamboeglin
 ms.date: 08/21/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -50,7 +50,7 @@ The architecture has the following components.
 
 - **Active Directory Domain Services (AD DS) Servers**. The computer objects for the failover cluster and its associated clustered roles are created in Active Directory Domain Services (AD DS).
 
-- **Cloud Witness**. A failover cluster requires more than half of its nodes to be running, which is known as having quorum. If the cluster has just two nodes, a network partition could cause each node to think it's the master node. In that case, you need a *witness* to break ties and establish quorum. A witness is a resource such as a shared disk that can act as a tie breaker to establish quorum. Cloud Witness is a type of witness that uses Azure Blob Storage. To learn more about the concept of quorum, see [Understanding cluster and pool quorum](https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum). For more information about Cloud Witness, see [Deploy a Cloud Witness for a Failover Cluster](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).
+- **Cloud Witness**. A failover cluster requires more than half of its nodes to be running, which is known as having quorum. If the cluster has just two nodes, a network partition could cause each node to think it's the primary node. In that case, you need a *witness* to break ties and establish quorum. A witness is a resource such as a shared disk that can act as a tie breaker to establish quorum. Cloud Witness is a type of witness that uses Azure Blob Storage. To learn more about the concept of quorum, see [Understanding cluster and pool quorum](https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum). For more information about Cloud Witness, see [Deploy a Cloud Witness for a Failover Cluster](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).
 
 - **Jumpbox**. Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (RDP) traffic.
 
@@ -210,7 +210,7 @@ For SQL server VMs pricing options see [SQL VMs pricing][Managed-Sql-pricing].
 
 You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
 
-For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
 
 ## Security considerations
 
@@ -223,6 +223,26 @@ Virtual networks are a traffic isolation boundary in Azure. By default, VMs in o
 **Encryption**. Encrypt sensitive data at rest and use [Azure Key Vault][azure-key-vault] to manage the database encryption keys. Key Vault can store encryption keys in hardware security modules (HSMs). For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs][sql-keyvault]. It's also recommended to store application secrets, such as database connection strings, in Key Vault.
 
 **DDoS protection**. The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure as a whole. Although basic DDoS protection is automatically enabled, we recommend using [DDoS Protection Standard][ddos]. Standard protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. Standard protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures][ddos-best-practices].
+
+
+## DevOps considerations
+
+In this architecture you use [Azure Building Blocks templates][azbb-template] for provisioning the Azure resources and its dependencies. Since all the main resources and their dependencies are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
+
+Also, you can use different deployment templates and integrate them with [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
+
+In this sceanario you virtual machines are configured by using Virtual Machine Extensions, since they offer the possibility of installing certain additional software, such as anti malware and security agents. VM Extensions are installed and executed only at VM creation time. That means if the Operating System gets configured incorrectly at a later stage, it will require a manual intervention to move it back to its correct state..
+
+Configuration Management Tools, in particular Desired State Configuration (DSC), are used in this architecture to configure Active Directory and a SQL Server Always On Availability Group.
+
+Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines. Application Insights is actually one of the components of Azure Monitor, which gives you rich metrics and logs to verify the state of your complete Azure landscape. Azure Monitor will help you to follow the state of your infrastructure.
+
+Make sure not only to monitor your compute elements supporting your application code, but your data platform as well, in particular your databases, since a low performance of the data tier of an application could have serious consequences.
+
+In order to test the Azure environment where the applications are running, it should be version-controlled and deployed through the same mechanisms as application code, then it can be tested and validated using DevOps testing paradigms too.
+
+
+For more information, see the Operational Excellence section in [Azure Well-Architected Framework][WAF-devops].
 
 ## Deploy the solution
 
@@ -274,7 +294,9 @@ If you specify a region that supports availability zones, the VMs are deployed i
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
+[Azure-SQl-Pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed/
 [app-gw-scaling]: https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant
 [azure-dns]: https://docs.microsoft.com/azure/dns/dns-overview
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault
@@ -308,3 +330,5 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [vmss-design]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
 [vmss]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
 [Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
+[WAF-devops]: /azure/architecture/framework/devops/overview
+[WAF-cost]: ../../framework/cost/overview.md

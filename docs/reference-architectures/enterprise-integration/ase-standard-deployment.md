@@ -7,6 +7,9 @@ ms.date: 05/08/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
+ms.category:
+    - management-and-governance
+    - featured
 ---
 
 # Enterprise app deployment using App Service Environment
@@ -358,7 +361,7 @@ To know some more ways the apps can be deployed to the App Service plans, read [
 
 ## Cost considerations
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework](https://docs.microsoft.com/azure/architecture/framework/cost/overview). Azure Reservations help you save money by committing to one-year or three-years plans for many Azure resources. Read more in the article [Buy a reservation](https://docs.microsoft.com/azure/cost-management-billing/reservations/prepare-buy-reservation).
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/cost/overview). Azure Reservations help you save money by committing to one-year or three-years plans for many Azure resources. Read more in the article [Buy a reservation](https://docs.microsoft.com/azure/cost-management-billing/reservations/prepare-buy-reservation).
 
 Here are some points to consider for some of the key services used in this architecture.
 

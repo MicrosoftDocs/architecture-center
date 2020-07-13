@@ -1,7 +1,7 @@
 ---
 title: Work with claim-based identities in multitenant applications
 description: How a use claims for issuer validation and authorization.
-author: MikeWasson
+author: adamboeglin
 ms.date: 07/21/2017
 ms.topic: guide
 ms.service: architecture-center
@@ -85,7 +85,7 @@ For a single-tenant application, you can just check that the issuer is your own 
 * In the OIDC middleware options, set **ValidateIssuer** to false. This turns off the automatic check.
 * When a tenant signs up, store the tenant and the issuer in your user DB.
 * Whenever a user signs in, look up the issuer in the database. If the issuer isn't found, it means that tenant hasn't signed up. You can redirect them to a sign up page.
-* You could also blacklist certain tenants; for example, for customers that didn't pay their subscription.
+* You could also block certain tenants; for example, for customers that didn't pay their subscription.
 
 For a more detailed discussion, see [Sign-up and tenant onboarding in a multitenant application][signup].
 

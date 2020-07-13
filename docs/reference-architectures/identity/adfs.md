@@ -107,7 +107,7 @@ The article [Deploying a Federation Server Farm][Deploying_a_federation_server_f
 3. Add each AD FS server VM to the domain.
 
 > [!NOTE]
-> To install AD FS, the domain controller running the primary domain controller (PDC) emulator flexible single master operation (FSMO) role for the domain must be running and accessible from the AD FS VMs. <<RBC: Is there a way to make this less repetitive?>>
+> To install AD FS, the domain controller running the primary domain controller (PDC) emulator flexible single master operation (FSMO) role for the domain must be running and accessible from the AD FS VMs.
 >
 
 ### AD FS trust
@@ -195,7 +195,7 @@ For DevOps considerations, see [DevOps: Extending Active Directory Domain Servic
 
 ## Cost considerations
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 Here are cost considerations for the services used in this architecture.
 
@@ -405,5 +405,5 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
 [considerations]: ./index.md
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
-[psise]: https://docs.microsoft.com/powershell/scripting/components/ise/windows-powershell-integrated-scripting-environment--ise-
+[psise]: https://docs.microsoft.com/powershell/scripting/windows-powershell/ise/introducing-the-windows-powershell-ise
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator

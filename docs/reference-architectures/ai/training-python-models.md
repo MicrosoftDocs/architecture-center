@@ -104,7 +104,7 @@ For scenarios with more sensitive data, make sure that all of your storage keys 
 
 ### Encrypt data at rest and in motion
 
-In scenarios that use sensitive data, encrypt the data at rest—that is, the data in storage. Each time data moves from one location to the next, use SSL to secure the data transfer. For more information, see the [Azure Storage security guide][storage-security].
+In scenarios that use sensitive data, encrypt the data at rest-that is, the data in storage. Each time data moves from one location to the next, use SSL to secure the data transfer. For more information, see the [Azure Storage security guide][storage-security].
 
 ### Secure data in a virtual network
 

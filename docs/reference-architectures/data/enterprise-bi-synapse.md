@@ -2,7 +2,7 @@
 title: Enterprise business intelligence
 titleSuffix: Azure Reference Architectures
 description: Use Azure to gain business insights from relational data stored on-premises.
-author: MikeWasson
+author: adamboeglin
 ms.date: 11/20/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -216,7 +216,7 @@ For more information, see [Manage database roles and users](https://docs.microso
 - [Azure Monitor][azure-monitor] is the recommended option for analyzing the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse because it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs. 
 
 
-For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
 
 ### Azure Synapse
 
@@ -245,7 +245,7 @@ Consider using the Azure Storage reserved capacity feature to lower cost on stor
 Power BI Embedded is a Platform-as-a-Service (PaaS) solution that offers a set of APIs to enable the integration of Power BI content into custom apps and websites. Users who publish BI content need to be licensed with [Power BI Pro][powerbi-pro-purchase]. For information about pricing, see [Power BI Embedded pricing][powerbi-embedded-pricing].
 
 
-For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 
 ## Deploy the solution

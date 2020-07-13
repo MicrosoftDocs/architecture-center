@@ -189,7 +189,7 @@ All traffic that originates within the boundaries of a virtual network is free. 
 
 This architecture builds on the architecture deployed in [Run Windows VMs for an N-tier application][windows-n-tier]. See [Cost considerations](../../reference-architectures/n-tier/n-tier-sql-server.md#cost-considerations) for more information.
 
-For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 ## DevOps considerations
 

@@ -1,7 +1,7 @@
 ---
 title: Monitoring a microservices application in AKS
 description: Use metrics and logs in AKS to monitor a microservices architecture
-author: MikeWasson
+author: adamboeglin
 ms.date: 04/06/2020
 ms.topic: guide
 ms.service: architecture-center
@@ -189,7 +189,7 @@ We recommend using Application Insights for distributed tracing. The Application
 
 Some additional considerations when implementing distributed tracing:
 
-- There is currently no standard HTTP header for correlation IDs, although a [W3C proposal](https://w3c.github.io/trace-context/) exists. Your team should standardize on a custom header value. The choice may be decided by your logging framework, such as Application Insights, or choice of service mesh.
+- There is now a standard HTTP header for correlation IDs, a [W3C proposal](https://w3c.github.io/trace-context/) has been accepted as an official recommendation recently. Your team should standardize on a custom header value. The choice may be decided by your logging framework, such as Application Insights, or choice of service mesh.
 
 - For asynchronous messages, if your messaging infrastructure supports adding metadata to messages, you should include the correlation ID as metadata. Otherwise, include it as part of the message schema. For example, see [Distributed tracing and correlation through Service Bus messaging](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-end-to-end-tracing).
 

@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>6/18/2019</li>
-            <li>8 min read</li>
+            <li>10 min read</li>
         </ul>
         <p class="card-content-description">Deploy an application on Azure virtual machines in multiple regions for high availability and resiliency.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

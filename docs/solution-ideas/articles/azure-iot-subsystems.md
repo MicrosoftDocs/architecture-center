@@ -22,7 +22,7 @@ The links to the right provide documentation on deploying and managing the Azure
 
 [Virtual Machine (Standard D1 V2, 1 core, 3.5 GB memory)](https://azure.microsoft.com/services/virtual-machines)
 
-[IoT Hub (S1—basic tier)](https://azure.microsoft.com/services/iot-hub)
+[IoT Hub (S1-basic tier)](https://azure.microsoft.com/services/iot-hub)
 
 [Cosmos DB account (Standard)](https://azure.microsoft.com/services/cosmos-db)
 
@@ -51,6 +51,7 @@ The links to the right provide documentation on deploying and managing the Azure
 ## Next steps
 
 * [IoT Hub Documentation](https://docs.microsoft.com/azure/iot-hub)
+* [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/data-explorer-overview)
 * [Cosmos DB Documentation](https://docs.microsoft.com/azure/cosmos-db)
 * [Azure Virtual Machines Documentation](https://docs.microsoft.com/azure/virtual-machines)
 * [Azure Stream Analytics Documentation](https://docs.microsoft.com/azure/stream-analytics)
