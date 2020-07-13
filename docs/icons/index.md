@@ -10,9 +10,6 @@ ms.service: architecture-center
 
 Customers and partners are permitted by Microsoft to use the Azure icons to create architecture diagrams. They are designed as a family and are simple and accessible. The icons can also be used in training manuals or documentation about a Microsoft product. The full name of the icon must always be used in proximity to the icon, but never locked to appear like a logo.
 
- > [!div class="button"]
- > [Download](#download)
-
 ### Do’s 
 
  * Use the icon to illustrate how products can work together 
@@ -28,8 +25,7 @@ Customers and partners are permitted by Microsoft to use the Azure icons to crea
 
 ## Example architecture diagram
 
-:::image type="complex" source="../solution-ideas/media/ai-at-the-edge.png" alt-text="Example architecture diagram showing multiple services connected together with numbered steps.":::
-
+:::image type="complex" source="/azure/architecture/solution-ideas/media/ai-at-the-edge.png" alt-text="Example architecture diagram showing multiple services connected together with numbered steps.":::
 :::image-end:::
 
 [Browse all Azure architectures](/azure/architecture/browse) to view other examples.
