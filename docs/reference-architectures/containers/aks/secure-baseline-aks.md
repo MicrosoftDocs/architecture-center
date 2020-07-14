@@ -341,7 +341,7 @@ system pods. The OS disk is 512 GB.
 For the user node pool, here are some considerations:
 
 -   Choose larger node sizes to pack the maximum number of pods set on a node.
-    It'll minimize the footprint of services that run on all nodes, such as
+    It will minimize the footprint of services that run on all nodes, such as
     monitoring and logging.
 
 -   Deploy at least two nodes. That way, the workload will have a high
@@ -381,21 +381,17 @@ Principals there is an overhead for managing and rotating secrets without which
 the cluster will not be accessible. With managed identities, Azure Active
 Directory (Azure AD) handles the authentication and timely rotation of secrets.
 
-Managed identities can only be enabled during cluster creation but not
-afterwards. It’s recommended that the feature is enabled, so even if Azure AD is
-not immediately used, it can be incorporated later. After enabling, the cluster
-is assigned multiple Managed Identities that serve as its identity when
-interacting with external Azure resources.
+It’s recommended that managed identities is enabled so that the cluster can interact with external Azure resources through Azure AD. A cluster's managed identities can only be enabled during cluster creation. Even if Azure AD is not immediately used, you can incorporate it later. 
 
 As an example for the inside-out case, let’s study the use of managed identities
-when the cluster needs to pull images from a container registry. For this, the
-cluster needs the credentials of the registry. One way is to store that
-information in the form of Kubernetes Secrets object and use imagePullSecrets to
+when the cluster needs to pull images from a container registry. This action requires the
+cluster to get the credentials of the registry. One way is to store that
+information in the form of Kubernetes Secrets object and use `imagePullSecrets` to
 retrieve the secret. That approach is not recommended because of security
 complexities. Not only do you need prior knowledge of the secret but also
 disclosure of that secret through the DevOps pipeline. Another reason is the
 operational overhead of managing the rotation of the secret. Instead, grant
-acrPull access to the managed identity of the cluster to your registry. This
+`acrPull` access to the managed identity of the cluster to your registry. This
 approach addresses those concerns.
 
 In this architecture, the cluster accesses Azure resources that are secured by
@@ -406,14 +402,12 @@ will authenticate itself against the resource and consequently be allowed or
 denied access. Here are some examples from this reference implementation where
 Azure RBAC built-in roles have been assigned to the cluster.
 
--   [Network
-    Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#network-contributor).
+-   [Network Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#network-contributor).
     The cluster’s ability to control the spoke virtual network. This Role
     Assignment allows AKS cluster system assigned identity to work with the
     dedicated subnet for the Internal Ingress Controller services.
 
--   [Monitoring Metrics
-    Publisher](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher).
+-   [Monitoring Metrics Publisher](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher).
     The cluster’s ability to send metrics to Azure Monitor.
 
 -   [AcrPull](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#acrpull).
@@ -421,7 +415,7 @@ Azure RBAC built-in roles have been assigned to the cluster.
     Registries.
 
 Azure AD integration also simplifies security for outside-in access. Suppose a
-user wants to use kubectl. As an initial step, sends the az aks get-credentials
+user wants to use kubectl. As an initial step, sends the `az aks get-credentials`
 command to get the credentials of the cluster. Azure AD will authenticate the
 user’s identity against the Azure Resource Manager RBAC roles that are allowed
 to get cluster credentials.
@@ -430,11 +424,11 @@ to get cluster credentials.
 
 Kubernetes supports role-based access control (RBAC) through:
 
--   A set of permissions. This is defined by a Role or ClusterRole object for
+-   A set of permissions. Defined by a `Role` or `ClusterRole` object for
     cluster-wide permissions.
 
 -   Bindings that assign users and groups who are allowed to do the actions.
-    This is defined by a RoleBinding or CluserRoleBinding object.
+    Defined by a `RoleBinding` or `CluserRoleBinding` object.
 
 Kubernetes has some built-in roles such as cluster-admin, edit, view, and so on.
 Bind those roles to Azure Active Directory users and groups to use enterprise
