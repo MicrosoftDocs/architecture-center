@@ -97,7 +97,7 @@ These components used in the solution:
 
 * [Azure Synapse Analytics (formerly SQLDW)](https://azure.microsoft.com/services/synapse-analytics/)
 
-* [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/)
+* [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
 * [Azure DevOps](https://azure.microsoft.com/services/devops/)
 
