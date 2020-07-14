@@ -61,7 +61,7 @@ In some cases, the data from SCADA systems is forwarded and centralized in an ME
 
 Frequently, industrial equipment and SCADA systems are in a closed Process Control Network (PCN), behind one or more firewalls, with no direct access to the Internet. Historians often contain industrial data from multiple facilities and are located outside of a PCN. Therefore, connecting to a Historian is often the path of least resistance, rather than connecting to a SCADA, MES or PLC. If a Historian is not available, then connecting to an MES or SCADA system would be the next logical choice.
 
-The connection to the Historian, MES or SCADA system will depend on what protocols are available on that system. Many systems now include Industry 4.0 standards such as OPC UA. Older systems may only support legacy protocols such as Modbus, ODBC, or SOAP. If so, you will most likely require [Protocol Translation](TBD) software running on an Intelligent Edge device.
+The connection to the Historian, MES or SCADA system will depend on what protocols are available on that system. Many systems now include Industry 4.0 standards such as OPC UA. Older systems may only support legacy protocols such as Modbus, ODBC, or SOAP. If so, you will most likely require [Protocol Translation](https://docs.microsoft.com/samples/azure-samples/azure-iotedge-opc-flattener/azure-iot-edge-protocol-translation-sample/) software running on an Intelligent Edge device.
 
 ## Intelligent Edge
 
@@ -289,13 +289,13 @@ Loading historical data into your IIoT Analytics Solution consists of three step
 
       1. If the aggregate size of the exported data is small, you can upload the files to Azure Blob Storage over the Internet using [Azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10).
 
-      1. If the aggregate size of the exported data is larges (tens or hundreds of TBs), consider using [Azure Import/Export Service](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) or [Azure Data Box](https://docs.microsoft.com/azure/databox/) to ship the files to the Azure region where your IIoT Analytics Solution is deployed. Once received, the files will be imported into your Azure Storage account. 
+      1. If the aggregate size of the exported data is larges (tens or hundreds of TBs), consider using [Azure Import/Export Service](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) or [Azure Data Box](https://docs.microsoft.com/azure/databox/) to ship the files to the Azure region where your IIoT Analytics Solution is deployed. Once received, the files will be imported into your Azure Storage account.
 
-1. Import your data
+1. Import your data.
     
       1. This step involves reading the files in your Azure Storage account, serializing the data as JSON, and sending data as streaming events into Time Series Insights. We recommend using an Azure Function to perform this.
       1. Time Series Insights only supports IoT Hub and Event Hub as data sources. We recommend using an Azure Function to send the events to a temporary Event Hub, which is connected to Time Series Insights. 
-      1. Refer to [How to shape JSON events](https://docs.microsoft.com/azure/time-series-insights/how-to-shape-query-json) and [Supported JSON shapes](https://docs.microsoft.com/bs-latn-ba/azure/time-series-insights/time-series-insights-send-events#supported-json-shapes) for best practices on shaping your JSON payload. 
+      1. Refer to [How to shape JSON events](https://docs.microsoft.com/azure/time-series-insights/how-to-shape-query-json) and [Supported JSON shapes](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-send-events#supported-json-shapes) for best practices on shaping your JSON payload.
       1. Ensure you use the same [Time Series ID](https://docs.microsoft.com/azure/time-series-insights/how-to-select-tsid) as you do for your streaming data.
       1. Once this process is completed, the Event Hub and Azure Function may be deleted. This is an optional step.
 
