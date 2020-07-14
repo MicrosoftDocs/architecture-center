@@ -211,7 +211,7 @@ Some advantages of this topology are:
 
 -   Certain resources, such as a firewall and DNS can be shared across networks.
 
-![Network Topology](_images/baseline-network-topology.png)
+![Network Topology](_images/secure-baseline-architecture.png)
 
 ### Hub 
 
@@ -271,7 +271,7 @@ Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hyb
 
 ## Plan the IP addresses
 
-![IP address ranges](media/eddcdaf2670d4c8666d50114e80d3d2f.jpg)
+![Network Topology](_images/baseline-network-topology.png)
 
 The address space of the virtual network should be large enough to hold all
 subnets. Account for all entities that will receive traffic. IP addresses for
@@ -311,7 +311,7 @@ services over Private Link. In this architecture, we have two addresses
 assigned for the links to Azure Container Registry and Key Vault.
 
 - [Certain addresses are
-    reserved](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+    reserved](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
     for use by Azure. They can't be assigned.
 
 The preceding list isn't exhaustive. If your design has other resources that
@@ -329,7 +329,7 @@ Topology](https://github.com/mspnp/reference-architectures/blob/fcp/aks-baseline
 
 For information related to planning IP for an AKS cluster, see [Plan IP
 addressing for your
-cluster](https://docs.microsoft.com/en-us/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster).
+cluster](https://docs.microsoft.com/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster).
 
 ## Configure compute for the base cluster
 In AKS, each node pool maps to a virtual machine scale set. Nodes are VMs in
