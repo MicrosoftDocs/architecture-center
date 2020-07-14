@@ -93,7 +93,7 @@ The solution uses these components:
 
 * [Azure Databricks](https://azure.microsoft.com/services/databricks/)
 
-* [Azure Data Lake Storage Gen2 (ADLS)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)
+* [Azure Data Lake Storage (ADLS) Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)
 
 * [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/)
 
