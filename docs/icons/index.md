@@ -8,7 +8,7 @@ ms.service: architecture-center
 ---
 # Azure architecture icons
 
-Customers and partners are permitted by Microsoft to use the Azure icons to create architecture diagrams. They are designed as a family and are simple and accessible. The icons can also be used in training manuals or documentation about a Microsoft product. The full name of the icon must always be used in proximity to the icon, but never locked to appear like a logo.
+Customers and partners are permitted by Microsoft to use the Azure icons to create architecture diagrams. They are designed as a family. The icons can also be used in training manuals or documentation about a Microsoft product. The full name of the icon must always be used in proximity to the icon, but never locked to appear like a logo.
 
 ### Do’s
 
