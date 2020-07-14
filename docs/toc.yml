@@ -752,6 +752,8 @@ items:
         href: solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.md
       - name: Campaign optimization with SQL Server
         href: solution-ideas/articles/campaign-optimization-with-sql-server.md
+      - name: DataOps for modern data warehouse
+        href: example-scenario/datawarehouse/dataops-modern-data-warehouse.md
       - name: Data streaming
         href: solution-ideas/articles/data-streaming-scenario.md
       - name: Data cache
