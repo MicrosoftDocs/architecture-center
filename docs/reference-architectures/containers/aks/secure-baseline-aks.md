@@ -19,7 +19,7 @@ deploys an Azure Kubernetes Service (AKS) cluster with focus on security. This
 article includes recommendations for networking, security, identity, management,
 and monitoring of the cluster based on an organization’s business requirements.
 
-![GitHub logo](../../_images/github.png) An implementation of this architecture is available
+![GitHub logo](../../../_images/github.png) An implementation of this architecture is available
 on [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). You can use it as a
 starting point and configure it as per your needs.
 
