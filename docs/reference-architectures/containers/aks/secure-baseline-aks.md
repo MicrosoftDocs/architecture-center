@@ -170,7 +170,7 @@ when certain thresholds like 50%, 75%, and 90% of the plan has been reached.
 
 -   The workload is stateless. No data will be persisted inside the cluster.
 
--   Given there's only one line-of-business, there is a single workload. Azure
+-   Given there's only one line-of-business, there's a single workload. Azure
     Network Policy will be enabled for future use.
 
 -   Azure Container Registry will be used for the container image registry. The cluster will access the registry through Azure Private Link.
@@ -183,7 +183,7 @@ when certain thresholds like 50%, 75%, and 90% of the plan has been reached.
 -   Azure Monitor will be used for logging, metrics, monitoring, and alerting to
     use the existing knowledge of Log Analytics.
 
--   Azure Key Vault will be used to store all secret information including SSL certificates. Key Vault data will be mounted into the pods by using Azure Key Vault with Secrets Store CSI Driver.
+-   Azure Key Vault will be used to store all secret information including SSL certificates. Key Vault data will be mounted by using Azure Key Vault with Secrets Store CSI Driver.
 
 -   Two node pools will be used in AKS. The system node pool will be used for
     critical system pods. The second node pool will be used for the
@@ -211,7 +211,7 @@ Some advantages of this topology are:
 
 -   Certain resources, such as a firewall and DNS can be shared across networks.
 
-![Network Topology](media/592a46456d71e92632a67c8181d90d9a.png)
+![Network Topology](_images/baseline-network-topology.png)
 
 ### Hub 
 
@@ -236,7 +236,7 @@ virtual network.
 This subnet is a placeholder for [Azure
 Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview). You can
 use Bastion to securely access Azure resources without exposing the
-resources to the internet. This is used for management and operations only.
+resources to the internet. This subnet is used for management and operations only.
 
 ### Spoke
 
@@ -256,8 +256,8 @@ design, Application Gateway requires a dedicated subnet.
 
 #### Subnet to host the ingress resources
 
-To help route and distribute traffic, Traefik is the ingress controller that
-is going to fulfil the Kubernetes ingress resources.
+To route and distribute traffic, Traefik is the ingress controller that
+is going to fulfill the Kubernetes ingress resources.
 
 #### Subnet to host the cluster nodes
 
@@ -281,14 +281,13 @@ points.
 
     AKS updates nodes regularly to make sure the underlying virtual machines are
 up to date on security features and other system patches. During an upgrade
-process, AKS creates a new node that temporarily hosts the pods, while the
+process, AKS creates a node that temporarily hosts the pods, while the
 upgrade node is cordoned and drained. That temporary node is assigned an IP
 address from the cluster subnet.
 
     For pods, you might need additional addresses depending on your strategy.
-For rolling updates, you will need addresses for the temporary pods that are
-scheduled to run the workload while the actual pods are updated. If you use
-the replace strategy, pods are terminated, and the new ones are created. So,
+For rolling updates, you'll need addresses for the temporary pods that run the workload while the actual pods are updated. If you use
+the replace strategy, pods are removed, and the new ones are created. So,
 addresses associated with the old pods are reused.
 
     For details on various deployment strategies, see [Kubernetes deployment
@@ -300,7 +299,7 @@ strategy](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/%
 their maximum scalability limit. Suppose you want to scale out by 400%. You
 will need four times the number of addresses for all those scaled-out nodes.
 
-    In this architecture, each pod can be contacted directly. For that, each pod
+    In this architecture, each pod can be contacted directly. So, each pod
 needs an individual address. Pod scalability will impact the address
 calculation. That decision will depend on your choice about the number of
 pods you want to grow.
@@ -313,11 +312,10 @@ assigned for the links to Azure Container Registry and Key Vault.
 
 - [Certain addresses are
     reserved](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
-    for use by Azure. They cannot be assigned.
+    for use by Azure. They can't be assigned.
 
-The preceding list is not exhaustive. If your design has other resources that
-will impact the number of available IP addresses, you will need to accommodate
-those address.
+The preceding list isn't exhaustive. If your design has other resources that
+will impact the number of available IP addresses, accommodate those addresses.
 
 This architecture is designed for a single workload. For multiple workloads, you
 may want to isolate the user node pools from each other and from the system node
@@ -343,7 +341,7 @@ system pods. The OS disk is 512 GB.
 For the user node pool, here are some considerations:
 
 -   Choose larger node sizes to pack the maximum number of pods set on a node.
-    This will minimize the footprint of services that run on all nodes, such as
+    It'll minimize the footprint of services that run on all nodes, such as
     monitoring and logging.
 
 -   Deploy at least two nodes. That way, the workload will have a high
@@ -359,7 +357,6 @@ For the user node pool, here are some considerations:
     consume up to 80% of each node; the remaining 20% is reserved for AKS
     services.
 
--   The maximum pods per node is set to 30, which is also the default.
-    Increasing this value can impact performance of the cluster. It can cause a
-    larger disruption and scheduling demand as a result of an unexpected node
+-   The maximum pods per node, is set to 30, which is also the default.
+    Increasing this value can impact performance of thebecause of an unexpected node
     failure or expected node maintenance events.
