@@ -193,7 +193,7 @@ when certain thresholds like 50%, 75%, and 90% of the plan has been reached.
     enforced by assigning quotas for the Horizontal Pod Autoscaling (HPA). AKS cluster autoscaler will be enabled so that additional nodes are automatically provisioned if pods can’t be scheduled.
 
 ## Network topology
-
+-------------------------------------------------
 This architecture uses a hub-spoke network topology. The hub and spoke(s) are
 deployed in separate virtual networks connected through
 [peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
@@ -270,7 +270,7 @@ For additional information, [Hub-spoke network topology in
 Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 
 ## Plan the IP addresses
-
+-------------------------------------------------
 ![Network Topology](_images/baseline-network-topology.png)
 
 The address space of the virtual network should be large enough to hold all
@@ -290,14 +290,10 @@ For rolling updates, you'll need addresses for the temporary pods that run the w
 the replace strategy, pods are removed, and the new ones are created. So,
 addresses associated with the old pods are reused.
 
-    For details on various deployment strategies, see [Kubernetes deployment
-strategy](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/%23strategy).
-
 - Scalability
 
     Take into consideration the node count of all system and user nodes and
-their maximum scalability limit. Suppose you want to scale out by 400%. You
-will need four times the number of addresses for all those scaled-out nodes.
+their maximum scalability limit. Suppose you want to scale out by 400%. You'll need four times the number of addresses for all those scaled-out nodes.
 
     In this architecture, each pod can be contacted directly. So, each pod
 needs an individual address. Pod scalability will impact the address
@@ -310,8 +306,7 @@ pods you want to grow.
 services over Private Link. In this architecture, we have two addresses
 assigned for the links to Azure Container Registry and Key Vault.
 
-- [Certain addresses are
-    reserved](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+- [Certain addresses are reserved](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
     for use by Azure. They can't be assigned.
 
 The preceding list isn't exhaustive. If your design has other resources that
@@ -332,6 +327,7 @@ addressing for your
 cluster](https://docs.microsoft.com/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster).
 
 ## Configure compute for the base cluster
+-------------------------------------------------
 In AKS, each node pool maps to a virtual machine scale set. Nodes are VMs in
 each node pool. Consider using a smaller VM size for the system node pool to
 minimize costs. This reference implementation deploys the system node pool with
@@ -365,7 +361,7 @@ For the user node pool, here are some considerations:
 ------------------------------------------------
 
 Securing access to and from the cluster is critical. Think from the cluster’s
-perspective when you are making security choices:
+perspective when you're making security choices:
 
 -   *Outside-in access*. Authorize only those external entities that are allowed
     access to the Kubernetes API server and Azure Resource Manager.
@@ -377,17 +373,17 @@ There are two ways to manage access: Service Principals or Managed Identities
 for Azure resources.
 
 Of the two ways, Azure Managed Identities are recommended. With Service
-Principals there is an overhead for managing and rotating secrets without which
+Principals there's an overhead for managing and rotating secrets without which
 the cluster will not be accessible. With managed identities, Azure Active
 Directory (Azure AD) handles the authentication and timely rotation of secrets.
 
-It’s recommended that managed identities is enabled so that the cluster can interact with external Azure resources through Azure AD. A cluster's managed identities can only be enabled during cluster creation. Even if Azure AD is not immediately used, you can incorporate it later. 
+It’s recommended that managed identities is enabled so that the cluster can interact with external Azure resources through Azure AD. A cluster's managed identities can only be enabled during cluster creation. Even if Azure AD isn't used immediately, you can incorporate it later. 
 
 As an example for the inside-out case, let’s study the use of managed identities
 when the cluster needs to pull images from a container registry. This action requires the
 cluster to get the credentials of the registry. One way is to store that
 information in the form of Kubernetes Secrets object and use `imagePullSecrets` to
-retrieve the secret. That approach is not recommended because of security
+retrieve the secret. That approach isn't recommended because of security
 complexities. Not only do you need prior knowledge of the secret but also
 disclosure of that secret through the DevOps pipeline. Another reason is the
 operational overhead of managing the rotation of the secret. Instead, grant
@@ -395,7 +391,7 @@ operational overhead of managing the rotation of the secret. Instead, grant
 approach addresses those concerns.
 
 In this architecture, the cluster accesses Azure resources that are secured by
-Azure AD and perform operations that support managed identities. Depending on
+Azure AD and do operations that support managed identities. Depending on
 the operations that the cluster intends to do, role-based access control (RBAC)
 and permissions are assigned to the cluster’s managed identities. The cluster
 will authenticate itself against the resource and consequently be allowed or
@@ -411,14 +407,14 @@ Azure RBAC built-in roles have been assigned to the cluster.
     The cluster’s ability to send metrics to Azure Monitor.
 
 -   [AcrPull](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#acrpull).
-    The cluster’s ability to pull images from the designated Azure Container
+    The cluster’s ability to pull images from the specified Azure Container
     Registries.
 
 Azure AD integration also simplifies security for outside-in access. Suppose a
 user wants to use kubectl. As an initial step, sends the `az aks get-credentials`
 command to get the credentials of the cluster. Azure AD will authenticate the
 user’s identity against the Azure Resource Manager RBAC roles that are allowed
-to get cluster credentials.
+to get cluster credentials. For more information, see [Available cluster roles permissions](https://docs.microsoft.com/azure/aks/control-kubeconfig-access#available-cluster-roles-permissions).
 
 ### Associate Kubernetes RBAC to Azure Active Directory
 
