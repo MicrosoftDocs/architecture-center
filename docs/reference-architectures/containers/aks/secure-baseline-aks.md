@@ -1,5 +1,5 @@
 ---
-title: Secure baseline architecture for an Azure Kubernetes Service (AKS) cluster
+title: Baseline architecture for an Azure Kubernetes Service (AKS) cluster
 description: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster with focus on security.
 author: PageWriter-MSFT
 ms.date: 07/19/2020
@@ -13,7 +13,7 @@ ms.subservice: reference-architecture
 ms.custom: seojul20, containers
 ---
 
-# Secure baseline architecture for an AKS cluster
+# Baseline architecture for an Azure Kubernetes Service (AKS) cluster
 In this reference architecture, we’ll build a baseline infrastructure that
 deploys an Azure Kubernetes Service (AKS) cluster with focus on security. This
 article includes recommendations for networking, security, identity, management,
@@ -358,5 +358,105 @@ For the user node pool, here are some considerations:
     services.
 
 -   The maximum pods per node, is set to 30, which is also the default.
-    Increasing this value can impact performance of thebecause of an unexpected node
+    Increasing this value can impact performance because of an unexpected node
     failure or expected node maintenance events.
+
+## Integrate Azure Active Directory for the cluster
+------------------------------------------------
+
+Securing access to and from the cluster is critical. Think from the cluster’s
+perspective when you are making security choices:
+
+-   *Outside-in access*. Authorize only those external entities that are allowed
+    access to the Kubernetes API server and Azure Resource Manager.
+
+-   *Inside-out access*. Authorize only those resources that the cluster is
+    allowed access.
+
+There are two ways to manage access: Service Principals or Managed Identities
+for Azure resources.
+
+Of the two ways, Azure Managed Identities are recommended. With Service
+Principals there is an overhead for managing and rotating secrets without which
+the cluster will not be accessible. With managed identities, Azure Active
+Directory (Azure AD) handles the authentication and timely rotation of secrets.
+
+Managed identities can only be enabled during cluster creation but not
+afterwards. It’s recommended that the feature is enabled, so even if Azure AD is
+not immediately used, it can be incorporated later. After enabling, the cluster
+is assigned multiple Managed Identities that serve as its identity when
+interacting with external Azure resources.
+
+As an example for the inside-out case, let’s study the use of managed identities
+when the cluster needs to pull images from a container registry. For this, the
+cluster needs the credentials of the registry. One way is to store that
+information in the form of Kubernetes Secrets object and use imagePullSecrets to
+retrieve the secret. That approach is not recommended because of security
+complexities. Not only do you need prior knowledge of the secret but also
+disclosure of that secret through the DevOps pipeline. Another reason is the
+operational overhead of managing the rotation of the secret. Instead, grant
+acrPull access to the managed identity of the cluster to your registry. This
+approach addresses those concerns.
+
+In this architecture, the cluster accesses Azure resources that are secured by
+Azure AD and perform operations that support managed identities. Depending on
+the operations that the cluster intends to do, role-based access control (RBAC)
+and permissions are assigned to the cluster’s managed identities. The cluster
+will authenticate itself against the resource and consequently be allowed or
+denied access. Here are some examples from this reference implementation where
+Azure RBAC built-in roles have been assigned to the cluster.
+
+-   [Network
+    Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#network-contributor).
+    The cluster’s ability to control the spoke virtual network. This Role
+    Assignment allows AKS cluster system assigned identity to work with the
+    dedicated subnet for the Internal Ingress Controller services.
+
+-   [Monitoring Metrics
+    Publisher](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher).
+    The cluster’s ability to send metrics to Azure Monitor.
+
+-   [AcrPull](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#acrpull).
+    The cluster’s ability to pull images from the designated Azure Container
+    Registries.
+
+Azure AD integration also simplifies security for outside-in access. Suppose a
+user wants to use kubectl. As an initial step, sends the az aks get-credentials
+command to get the credentials of the cluster. Azure AD will authenticate the
+user’s identity against the Azure Resource Manager RBAC roles that are allowed
+to get cluster credentials.
+
+### Associate Kubernetes RBAC to Azure Active Directory
+
+Kubernetes supports role-based access control (RBAC) through:
+
+-   A set of permissions. This is defined by a Role or ClusterRole object for
+    cluster-wide permissions.
+
+-   Bindings that assign users and groups who are allowed to do the actions.
+    This is defined by a RoleBinding or CluserRoleBinding object.
+
+Kubernetes has some built-in roles such as cluster-admin, edit, view, and so on.
+Bind those roles to Azure Active Directory users and groups to use enterprise
+directory to manage access. For more information, see [Use Kubernetes RBAC with
+Azure AD integration](https://docs.microsoft.com/azure/aks/azure-ad-rbac).
+
+There’s also an option of using Azure RBAC roles instead of the Kubernetes
+built-in roles. For more information, see [Azure RBAC
+roles](https://docs.microsoft.com/azure/aks/manage-azure-rbac).
+
+## Integrate Azure Active Directory for the workload
+-------------------------------------------------
+
+Similar to having Azure Managed Identities for the entire cluster, you can
+assign managed identities at the pod level. A pod managed identity allows the
+hosted workload to access resources through Azure Active Directory. For example,
+the workload stores files in the Azure Storage. When it needs to access those
+files, the pod will authenticate itself against the resource.
+
+In this reference implementation, managed pod identities is facilitated through
+[aad-pod-identity](https://github.com/Azure/aad-pod-identity).
+
+
+
+
