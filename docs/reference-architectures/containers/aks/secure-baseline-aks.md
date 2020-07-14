@@ -2,7 +2,7 @@
 title: Secure baseline architecture for an Azure Kubernetes Service (AKS) cluster
 description: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster with focus on security.
 author: PageWriter-MSFT
-ms.date: 10/16/2018
+ms.date: 07/19/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.category:
@@ -30,13 +30,15 @@ This architecture is built for a fictitious company, Contoso Bicycle. The
 company is a small and fast-growing startup that provides online web services to
 its clientele in the west coast, North America. The web services were deployed
 to the cloud from the get-go. They have no on-premises datacenters or legacy
-applications.
+applications. Here's the brief cloud profile:
 
-Contoso Bicycle have several workloads already running and operating in Azure.
-They have some knowledge about containers and considered them for
-application development purposes. They're aware that Kubernetes is a well-known
-choice for container orchestration and have researched AKS. The IT teams need guidance about architectural recommendations for running their web services
-in an AKS cluster.
+- Have several workloads running and operating in Azure.
+- Use Azure Active Directory for identity management.
+- Knowledgeable about containers and have considered them for application development. 
+- Aware of Kubernetes as a well-known container orchestration.
+- Researched AKS as a possibility. 
+
+The IT teams need guidance about architectural recommendations for running their web services in an AKS cluster.
 
 ### Organization structure
 
@@ -169,11 +171,11 @@ when certain thresholds like 50%, 75%, and 90% of the plan has been reached.
 -   The workload is stateless. No data will be persisted inside the cluster.
 
 -   Given there's only one line-of-business, there is a single workload. Azure
-    Network Policy will be enabled for future use.￼
+    Network Policy will be enabled for future use.
 
 -   Azure Container Registry will be used for the container image registry. The cluster will access the registry through Azure Private Link.
 
--   To stay up to date with OS and security patches, have a tool chain ￼to help
+-   To stay up to date with OS and security patches, have tools ￼to help
     the restart of nodes when needed.
 
 -   AKS will be integrated with Azure Active Directory for role-based access control. This choice is aligned with the strategy of using identity as an operational control plane.
@@ -189,3 +191,175 @@ when certain thresholds like 50%, 75%, and 90% of the plan has been reached.
 
 -   To make sure the workload is scaled properly, requests and limits will be
     enforced by assigning quotas for the Horizontal Pod Autoscaling (HPA). AKS cluster autoscaler will be enabled so that additional nodes are automatically provisioned if pods can’t be scheduled.
+
+## Network topology
+
+This architecture uses a hub-spoke network topology. The hub and spoke(s) are
+deployed in separate virtual networks connected through
+[peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+Some advantages of this topology are:
+
+-   Segregated management. It allows for a way to apply governance and control
+    the blast radius. It also supports the concept of landing zone with
+    separation of duties.
+
+-   A natural choice for workloads that span multiple subscriptions.
+
+-   It makes the architecture extensible. To accommodate new features or
+    workloads, new spokes can be added instead of redesigning the network
+    topology.
+
+-   Certain resources, such as a firewall and DNS can be shared across networks.
+
+![Network Topology](media/592a46456d71e92632a67c8181d90d9a.png)
+
+### Hub 
+
+The hub virtual network is the central point of connectivity and observability.
+Within the network, three subnets are deployed.
+
+#### Subnet to host Azure Firewall
+
+[Azure Firewall](https://docs.microsoft.com/azure/firewall/) is firewall as
+a service. The firewall instance secures outbound network traffic. Without
+this layer of security, the flow might communicate with a malicious
+third-party service that could exfiltrate sensitive company data.
+
+#### Subnet to host a gateway
+
+This subnet is a placeholder for a VPN or ExpressRoute gateway. The gateway
+provides connectivity between the routers in the on-premises network and the
+virtual network.
+
+#### Subnet to host Azure Bastion
+
+This subnet is a placeholder for [Azure
+Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview). You can
+use Bastion to securely access Azure resources without exposing the
+resources to the internet. This is used for management and operations only.
+
+### Spoke
+
+The spoke virtual network will contain the AKS cluster and other related
+resources. The spoke has three subnets:
+
+#### Subnet to host Azure Application Gateway 
+
+Azure [Application
+Gateway](https://docs.microsoft.com/azure/application-gateway/overview) is a
+web traffic load balancer operating at Layer 7. The reference implementation
+uses the Application Gateway v2 SKU that enables [Web Application
+Firewall](https://docs.microsoft.com/azure/application-gateway/waf-overview) (WAF).
+WAF secures incoming traffic from common web traffic attacks. The instance
+has a public frontend IP configuration that receives user requests. By
+design, Application Gateway requires a dedicated subnet.
+
+#### Subnet to host the ingress resources
+
+To help route and distribute traffic, Traefik is the ingress controller that
+is going to fulfil the Kubernetes ingress resources.
+
+#### Subnet to host the cluster nodes
+
+AKS maintains two separate groups of nodes (or node pools). The *system node
+pool* hosts pods that run core cluster services. The *user node pool* runs
+the Contoso workload and the ingress controller to facilitate inbound
+communication to the workload. The workload is a simple ASP.NET application.
+
+For additional information, [Hub-spoke network topology in
+Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+
+## Plan the IP addresses
+
+![IP address ranges](media/eddcdaf2670d4c8666d50114e80d3d2f.jpg)
+
+The address space of the virtual network should be large enough to hold all
+subnets. Account for all entities that will receive traffic. IP addresses for
+those entities will be allocated from the subnet address space. Consider these
+points.
+- Upgrade
+
+    AKS updates nodes regularly to make sure the underlying virtual machines are
+up to date on security features and other system patches. During an upgrade
+process, AKS creates a new node that temporarily hosts the pods, while the
+upgrade node is cordoned and drained. That temporary node is assigned an IP
+address from the cluster subnet.
+
+    For pods, you might need additional addresses depending on your strategy.
+For rolling updates, you will need addresses for the temporary pods that are
+scheduled to run the workload while the actual pods are updated. If you use
+the replace strategy, pods are terminated, and the new ones are created. So,
+addresses associated with the old pods are reused.
+
+    For details on various deployment strategies, see [Kubernetes deployment
+strategy](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/%23strategy).
+
+- Scalability
+
+    Take into consideration the node count of all system and user nodes and
+their maximum scalability limit. Suppose you want to scale out by 400%. You
+will need four times the number of addresses for all those scaled-out nodes.
+
+    In this architecture, each pod can be contacted directly. For that, each pod
+needs an individual address. Pod scalability will impact the address
+calculation. That decision will depend on your choice about the number of
+pods you want to grow.
+
+- Azure Private Link addresses
+
+    Factor in the addresses that are required for communication with other Azure
+services over Private Link. In this architecture, we have two addresses
+assigned for the links to Azure Container Registry and Key Vault.
+
+- [Certain addresses are
+    reserved](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+    for use by Azure. They cannot be assigned.
+
+The preceding list is not exhaustive. If your design has other resources that
+will impact the number of available IP addresses, you will need to accommodate
+those address.
+
+This architecture is designed for a single workload. For multiple workloads, you
+may want to isolate the user node pools from each other and from the system node
+pool. That choice may result in more subnets that are smaller in size. Also, the
+ingress resource might be more complex. You might need multiple ingress
+controllers that will require extra addresses.
+
+For the complete set of considerations for this architecture, see [AKS baseline
+Network
+Topology](https://github.com/mspnp/reference-architectures/blob/fcp/aks-baseline/aks/secure-baseline/networking-readme.md#aks-baseline-network-topology).
+
+For information related to planning IP for an AKS cluster, see [Plan IP
+addressing for your
+cluster](https://docs.microsoft.com/en-us/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster).
+
+## Configure compute for the base cluster
+In AKS, each node pool maps to a virtual machine scale set. Nodes are VMs in
+each node pool. Consider using a smaller VM size for the system node pool to
+minimize costs. This reference implementation deploys the system node pool with
+three DS2_v2 nodes. That size is sufficient to meet the expected load of the
+system pods. The OS disk is 512 GB.
+
+For the user node pool, here are some considerations:
+
+-   Choose larger node sizes to pack the maximum number of pods set on a node.
+    This will minimize the footprint of services that run on all nodes, such as
+    monitoring and logging.
+
+-   Deploy at least two nodes. That way, the workload will have a high
+    availability pattern with two replicas. With AKS, you can change the node
+    count without recreating the cluster.
+
+-   Actual node sizes for your workload will depend on the requirements
+    determined by the design team. Based on the [requirements of the Contoso
+    Bicycle company](#business-requirements), we chose DS4_v2 for the production workload. To lower costs
+    one could drop the size to DS3_v2, which is the minimum recommendation.
+
+-   When planning capacity for your cluster, assume that your workload can
+    consume up to 80% of each node; the remaining 20% is reserved for AKS
+    services.
+
+-   The maximum pods per node is set to 30, which is also the default.
+    Increasing this value can impact performance of the cluster. It can cause a
+    larger disruption and scheduling demand as a result of an unexpected node
+    failure or expected node maintenance events.
