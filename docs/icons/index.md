@@ -58,9 +58,6 @@ The icons are the thumbnail-sized images used to represent Azure products and se
 
 The icons may not be used in advertising, in books and other printed matter, on clothing or other promotional items, in online and Internet locations, in software applications, in television programs, in commercials, in movies, or on video. You may use icons in architectural diagrams, training manuals or documentation about Azure. The use of the icon must be specific to the function of the icon within Azure. The icon may not be used as a graphical or design element. Icons cannot be modified or altered and must appear as they would within Azure. If you have licensed a Microsoft development tool which includes the icons, review the EULA for that Microsoft development tool to learn which Microsoft properties may be redistributed.
 
-## Download
-
-Download the diagrams
 
  > [!div class="button"]
- > [Download SVG icons](https://arch-center.azureedge.net/cdn/icons/Azure_Public_Service_Icons_V1.zip)
+ > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V1.zip)
