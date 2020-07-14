@@ -260,7 +260,7 @@ For more information, see the Operational Excellence section in [Microsoft Azure
 
 <!-- links -->
 
-[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
 [WAF-devops]: /azure/architecture/framework/devops/overview
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azbb-template]: https://github.com/mspnp/template-building-blocks/wiki/overview

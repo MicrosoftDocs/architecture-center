@@ -140,6 +140,11 @@ Faults that can be leveraged to inject chaos.
 |  | Data loss |  |
 |  | Move primary node |  |
 |  | Remove replica |  |
+| **Functions** | Latency |  |
+|  | Exceptions |  |
+|  | Status codes |  |
+|  | Intercept / Denylist calls |  |
+|  | Disk capacity |  |
 | **Application specific** | Intercept / Re-route calls | *No access to service code* |
 | **Hardware** | Machine | *Storage* |
 |  | Network devices |  |
@@ -150,4 +155,3 @@ Faults that can be leveraged to inject chaos.
 
 > [!NOTE]
 > This is not intended to be an exhaustive list, but a representation of commonly injected faults.  
-
