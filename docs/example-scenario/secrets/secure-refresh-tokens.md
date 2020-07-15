@@ -42,10 +42,10 @@ This solution uses Azure Key Vault, Azure Functions, and Azure DevOps to securel
 
 Azure Pipelines is a convenient place to add your key rotation strategy, if you're already using Pipelines for infrastructure-as-code (IaC) or continuous integration and delivery (CI/CD). You don't have to use Azure DevOps, but the point is to limit the paths for setting or retrieving secrets.
 
-You can apply the following permissions to the Service Principal for your Azure DevOps service connection, which allow Azure Pipelines to set secrets. Set the `vault_name` and `secret_manager_principal` variables to the correct values for your environment.
+You can apply the following permissions to the Service Principal for your Azure DevOps service connection, which allow Azure Pipelines to set secrets. Set the `<Key Vault Name>` and `<Service Connection Principal>` variables to the correct values for your environment.
 
 ```azurecli
-az keyvault set-policy --name $vault_name --spn $secret_manager_principal --secret-permissions set
+az keyvault set-policy --name $<Key Vault Name> --spn $<Service Connection Principal> --secret-permissions set
 ```
 
 After you set up your pipeline to create or update keys, schedule the pipeline to run periodically and enable key rotation. See [Configure schedules for pipelines](https://docs.microsoft.com/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops&tabs=yaml).
@@ -108,11 +108,11 @@ The following [ARM template](https://docs.microsoft.com/azure/azure-resource-man
 
 ### Azure CLI
 
-You can also set Azure Key Vault policy by using the [Azure CLI](https://docs.microsoft.com/cli/azure/ext/keyvault-preview/keyvault?view=azure-cli-latest):
+You can also set Azure Key Vault policy by using the [Azure CLI](https://docs.microsoft.com/cli/azure/ext/keyvault-preview/keyvault?view=azure-cli-latest), as in the preceding Azure DevOps example:
 
 ```azurecli
-az keyvault set-policy --name $vault_name --spn $secret_manager_principal --secret-permissions set
-az keyvault set-policy --name $vault_name --spn $function_managed_identity --secret-permissions get
+az keyvault set-policy --name $<Key Vault Name> --spn $<Service Connection Principal> --secret-permissions set
+az keyvault set-policy --name $<Key Vault Name> --spn $<Managed Identity Principal> --secret-permissions get
 ```
 
 ## Token storage
