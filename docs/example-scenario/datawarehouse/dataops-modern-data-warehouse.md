@@ -40,7 +40,7 @@ This article describes how a fictional city planning office could use this solut
 
 * Support for both row-level and object-level security:
 
-  * The feature is available in SQL Database.
+  * The security feature is available in SQL Database.
 
   * You can also find it in Azure Synapse Analytics, Azure Analysis Services (AAS) and Power BI.
 
@@ -105,7 +105,7 @@ The solution uses these components:
 
 ## Deploy the solution
 
-The following list contains the high-level steps required to set up the Parking Sensors solution with corresponding Build and Release Pipelines. You can find detailed setup steps and prerequisites in [this Azure Samples repository](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#how-to-use-the-sample).
+The following list contains the high-level steps required to set up the Parking Sensors solution with corresponding Build and Release Pipelines. You can find detailed setup steps and prerequisites in this [Azure Samples repository](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#how-to-use-the-sample).
 
 ### Setup and Deployment
 
@@ -117,13 +117,13 @@ The following list contains the high-level steps required to set up the Parking 
 
 ### Deployed Resources
 
-If deployment is successful, there should be three resources groups in Azure representing three environments: dev, stg, and prod. There should also be an end-to-end build and release pipelines in Azure DevOps that can automatically deploy changes across these three environments.
+If deployment is successful, there should be three resources groups in Azure representing three environments: dev, stg, and prod. There should also be end-to-end build and release pipelines in Azure DevOps that can automatically deploy changes across these three environments.
 
-For a detailed list of all resources, see [this Deployed Resources](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#deployed-resources) section of the **DataOps - Parking Sensor Demo** README.
+For a detailed list of all resources, see the [Deployed Resources](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#deployed-resources) section of the **DataOps - Parking Sensor Demo** README.
 
 ### Continuous Integration and Continuous Delivery
 
-The diagram below demonstrates the CI/CD process and sequence for the build and release pipeline.
+The diagram below demonstrates the CI/CD process and sequence for the build and release pipelines.
 
 ![Figure Process and Sequence for Build and Release](./media/ci-cd-process-diagram.png)
 
@@ -199,7 +199,7 @@ Azure Databricks
 Data Factory
 
 * [Monitor Azure Data Factory with Azure Monitor](/azure/data-factory/monitor-using-azure-monitor)
-* [Alerting in Azure Data Factory](https://azure.microsoft.com/blog/create-alerts-to-proactively-monitor-your-data-factory-pipelines/)
+* [Create alerts to proactively monitor your data factory pipelines](https://azure.microsoft.com/blog/create-alerts-to-proactively-monitor-your-data-factory-pipelines/)
 
 Synapse Analytics
 
