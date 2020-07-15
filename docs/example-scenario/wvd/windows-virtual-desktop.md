@@ -74,7 +74,7 @@ There are several options for updating Windows Virtual Desktop desktops. Deployi
 
 Numbers in the following sections are approximate, based on a variety of large customer deployments, and may change over time.
 
-### Azure subscription limitations
+### Azure limitations
 
 The Windows Virtual Desktop service is scalable to more than 10,000 session hosts per workspace. You can address some Azure platform and Windows Virtual Desktop control plane limitations in the design phase to avoid changes in the scaling phase.
 
