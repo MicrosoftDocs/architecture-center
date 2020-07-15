@@ -44,7 +44,7 @@ The IT teams need guidance about architectural recommendations for running their
 
 Contoso Bicycle has a single IT Team with these sub teams.
 
-![Org Pic]()
+![Contoso teams](_images/contoso-teams.png)
 
 #### Architecture team
 
@@ -850,7 +850,7 @@ deploying third-party workloads that do not have proper requests and limits.
 
 **Set pod requests and limits**. Setting these limits allows Kubernetes to
 efficiently allocate CPU and, or memory resources to the pods and have higher
-container density on a node. This helps increase reliability with reduced costs
+container density on a node. Limits can also increase reliability with reduced costs
 because of better hardware utilization.
 
 To estimate the limits, test and establish a baseline. Start with equal values
@@ -883,7 +883,7 @@ are some considerations when enabling multizone:
 Multizone support only applies to node pools. The AKS API server is in a
 single zone. If the API server becomes unavailable as part of a zone
 failure, pods deployed on node pools will continue to run, however Kubernetes
-will lose orchestration capabilities and workload is affected.
+will lose orchestration capabilities, and workload might be affected.
 
 -   **Dependent resources**. For complete zonal benefit, all service
     dependencies must also support zones. If a dependent service doesn't
@@ -1092,7 +1092,7 @@ automatically deployed to the cluster.
 Instead of using an imperative approach like kubectl, use tools that
 automatically synchronize cluster and repository changes. To manage the
 workflow, such as release of a new version and validation of that version before
-deploying to production, consider a GitOps flow. This requires an agent in the
+deploying to production, consider a GitOps flow. An agent is deployed in the
 cluster to make sure that the state of the cluster is coordinated with
 configuration stored in your private Git repo. Kubernetes and AKS do not support
 that experience natively. A recommended option is
@@ -1239,4 +1239,4 @@ There are other ways to optimize:
 -   If the application doesn’t require burst scaling, consider sizing the
     cluster to just the right size by analyzing performance metrics over time.
 
-For other cost related information, see [AKS pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/).
+For other cost-related information, see [AKS pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/).
