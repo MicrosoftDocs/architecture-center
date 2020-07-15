@@ -460,7 +460,7 @@ cluster. There are two portions of Ingress resources:
     In this architecture, Azure Load Balancer is used. It’s placed outside the
 cluster; in a subnet dedicated for ingress resources. It receives traffic
 from Azure Application Gateway and that communication is over TLS. For
-information about TLS encryption for inbound traffic, see [Ingress traffic flow](#Ingress-traffic-flow).
+information about TLS encryption for inbound traffic, see [Ingress traffic flow](#ingress-traffic-flow).
 
 - Ingress controller. We have chosen Traefik. It runs in the user node pool in
     the cluster. It receives traffic from the internal load balancer, terminates
