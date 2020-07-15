@@ -1062,6 +1062,8 @@ items:
         href: reference-architectures/n-tier/high-security-iaas.md
       - name: Real-time fraud detection
         href: example-scenario/data/fraud-detection.md
+      - name: Secure OBO refresh tokens
+        href: example-scenario/secrets/secure-refresh-tokens.md
       - name: Securely managed web apps
         href: example-scenario/apps/fully-managed-secure-apps.md
   - name: Storage

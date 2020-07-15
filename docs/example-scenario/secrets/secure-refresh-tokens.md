@@ -11,7 +11,7 @@ ms.custom:
 - fcp
 ---
 
-# Secure OAuth 2.0 OBO refresh token storage for web services
+# Secure OAuth 2.0 OBO refresh token storage
 
 When developing web services, you may need to get access and refresh tokens using the [OAuth 2.0 On-Behalf-Of (OBO) flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). The OBO flow serves the use case where an application invokes a service or web API, which in turn needs to call another service or web API. OBO propagates the delegated user identity and permissions through the request chain.
 
@@ -50,7 +50,7 @@ az keyvault set-policy --name $vault_name --spn $secret_manager_principal --secr
 
 After you set up your pipeline to create or update keys, schedule the pipeline to run periodically and enable key rotation. See [Configure schedules for pipelines](https://docs.microsoft.com/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops&tabs=yaml).
 
-You can [sync the key rotation schedule with the token refresh schedule](#key-rotation-and-token-refresh-flow). Whenever the refresh token refreshes, a new key encrypts the new refresh token.
+You can [sync the key rotation schedule with the token refresh schedule](#key-rotation-and-token-refresh). Whenever the refresh token refreshes, a new key encrypts the new refresh token.
 
 ## Managed identity
 
@@ -139,10 +139,17 @@ You can rotate the secret key at the same times that you refresh the refresh tok
 
 ![Diagram that shows the token refresh sequence.](./media/refresh-token-sequence.png)
 
-This process uses a timer trigger, as in the Azure DevOps example. When you refresh the refresh token, the token gets encrypted using the latest version of the encryption key. Azure Functions has built-in support for timer triggers. For more information, see [Timer trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-timer?tabs=csharp).
+When you refresh the refresh token, the token gets encrypted using the latest version of the encryption key. This process uses a timer trigger. Azure Functions has built-in support for timer triggers. For more information, see [Timer trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-timer?tabs=csharp).
 
 ## User and access control
 
 To remove a user, just remove the user's record. To remove application access per user, remove the `refreshToken` part of the user data.
 
 To remove access for a group of users, such as all users in a target tenant, you can use Azure Pipelines to delete the group's secret based on `secretId()`.
+
+## Next steps
+
+- [Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)
+- [How to use managed identities for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity)
+- [Use Key Vault references for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references)
+- [Securing Azure Functions](https://docs.microsoft.com/azure/azure-functions/security-concepts)
