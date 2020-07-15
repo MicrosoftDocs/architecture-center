@@ -25,7 +25,7 @@ Customers and partners are permitted by Microsoft to use the Azure icons to crea
 
 ## Example architecture diagram
 
-![Example architecture diagram showing multiple services connected together with numbered steps.](../solution-ideas/media/ai-at-the-edge.png)
+![Example architecture diagram showing multiple services connected together with numbered steps.](../solution-ideas/media/advanced-analytics-on-big-data.png)
 
 [Browse all Azure architectures](/azure/architecture/browse) to view other examples.
 
