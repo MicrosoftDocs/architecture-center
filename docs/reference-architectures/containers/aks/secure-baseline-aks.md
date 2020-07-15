@@ -49,7 +49,7 @@ Contoso Bicycle has a single IT Team with these sub teams.
 #### Architecture team
 
 Work with the line of business from idea through deployment into production.
-They understand all aspects of the Azure components; ￼function, integration,
+They understand all aspects of the Azure components: ￼function, integration,
 controls, and monitoring capabilities. The team evaluates those aspects for
 functional, security, and compliance requirements. They coordinate and have
 representation from other teams. Their workflow aligns with Contoso's SDL process.
@@ -648,23 +648,20 @@ For information, see [Differences between Azure Network Policy and Calico
 policies and their capabilities](https://docs.microsoft.com/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities).
 
 >[!NOTE]
-> AKS supports two different networking models: kubenet and Azure Container
-Networking Interface (CNI).
 
+> AKS supports two different networking models: kubenet and Azure Container
+Networking Interface (CNI).\
 > CNI is more advanced of the two models. CNI is required for enabling Azure
 Network Policy. In this model, every pod gets an IP address from the subnet
 address space. Resources within the same network (or peered
 resources) can access the pods directly through their IP address. NAT isn't
 needed for routing that traffic. So, CNI performant because there aren’t
 additional network overlays. It also offers better security control because
-it enables the use Azure Network Policy.
-
+it enables the use Azure Network Policy.\
 > In general, CNI is recommended. CNI offers granular control by teams and the
-resources they control. Also, CNI allows for more scaled pods than kubenet.
-
+resources they control. Also, CNI allows for more scaled pods than kubenet.\
 > Carefully consider the choice otherwise, the cluster will need to be
-redeployed.
-
+redeployed.\
 > For information about the models, see [Compare network models](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models).
 >
 
