@@ -650,6 +650,7 @@ policies and their capabilities](https://docs.microsoft.com/azure/aks/use-networ
 >[!NOTE]
 > AKS supports two different networking models: kubenet and Azure Container
 Networking Interface (CNI).
+
 > CNI is more advanced of the two models. CNI is required for enabling Azure
 Network Policy. In this model, every pod gets an IP address from the subnet
 address space. Resources within the same network (or peered
@@ -657,12 +658,15 @@ resources) can access the pods directly through their IP address. NAT isn't
 needed for routing that traffic. So, CNI performant because there aren’t
 additional network overlays. It also offers better security control because
 it enables the use Azure Network Policy.
+
 > In general, CNI is recommended. CNI offers granular control by teams and the
 resources they control. Also, CNI allows for more scaled pods than kubenet.
+
 > Carefully consider the choice otherwise, the cluster will need to be
 redeployed.
-> For information about the models, see [Compare network
-models](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models).
+
+> For information about the models, see [Compare network models](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models).
+>
 
 ### Management traffic
 
@@ -687,7 +691,7 @@ pipeline.
 Azure Key Vault is well integrated with other Azure services. Use the built-in
 feature of those services to access secrets. For an example about how Azure
 Application Gateway accesses TLS certificates for the ingress flow, see the
-[Ingress traffic flow](#_Ingress_traffic_flow) section.
+[Ingress traffic flow](#ingress-traffic-flow) section.
 
 ### Accessing cluster secrets
 
@@ -724,7 +728,7 @@ There are two approaches: autoscaling or manual scaling.
 
 The manual or programmatic way requires you to monitor and set alerts on CPU
 utilization or custom metrics. For pod scaling, the application operator can
-increase or decrease the number of pod replicas by adjusting the ReplicaSet
+increase or decrease the number of pod replicas by adjusting the `ReplicaSet`
 through Kubernetes APIs. For cluster scaling, one way is to get notified when
 the Kubernetes scheduler fails. Another way is to watch for pending pods over time. You can adjust the node count through Azure CLI or the portal.
 
@@ -840,8 +844,10 @@ namespace will ensure pod requests and limits are properly set on a deployment.
 For more information, see [Enforce resource
 quotas](https://docs.microsoft.com/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas).
 
-> [!NOTE] Setting resources quotas at the cluster level can cause problem when
+> [!NOTE] 
+>Setting resources quotas at the cluster level can cause problem when
 deploying third-party workloads that do not have proper requests and limits.
+>
 
 **Set pod requests and limits**. Setting these limits allows Kubernetes to
 efficiently allocate CPU and, or memory resources to the pods and have higher
@@ -905,7 +911,7 @@ have higher availability, run multiple AKS clusters, in different regions.
     paired regions is reliability during updates. Azure makes sure that only one
     region in the pair is updated at a time. Certain DevOps tools such as Flux
     can make the multi-region deployments easier. For technology options, see
-    [CI/CD](#_CI/CD).
+    [CI/CD](#ci-cd).
 
 -   If an Azure resource supports geo-redundancy, provide the location where the
     redundant service will have its secondary. For example, enabling
@@ -965,3 +971,282 @@ regions. Measure the impact of this architectural decision on your workload.
 Ensure reliability through forced failover testing with simulated outages such
 as bring down a node, bringing down all AKS resources in a particular zone to
 simulate a zonal failure, or bringing down an external dependency.
+
+## Monitor and collect metrics
+---------------------------
+
+The Azure Monitor for containers feature is the recommended tool for monitoring
+and logging because you can view events in real-time. It captures container logs
+from the running pods and aggregates them for viewing. It also collects
+information from Metrics API about memory and CPU utilization to monitor the
+health of running resources and workloads. You can use it to monitor performance
+as the pods scale. Another advantage is that you can easily use Azure portal to
+configure charts and dashboards. It has the capability to create alerts that
+trigger Automation Runbooks, Azure Functions, and others.
+
+Most workloads hosted in pods emit Prometheus metrics. Azure Monitor is capable
+of scraping Prometheus metrics and visualizing them.
+
+There are some third-party utilities integrated with Kubernetes. Take advantage
+of log and metrics platforms such as Grafana or DataDog, if your organization
+already uses them.
+
+With AKS, Azure manages some core Kubernetes services. Logs from those services
+should only be enabled per request from customer support. However, it is
+recommended that you enable these two log sources as they can help you
+troubleshoot cluster issues:
+
+-   Logging on the ClusterAutoscaler to gain observability into the scaling
+    operations. For more information, see [Retrieve cluster autoscaler logs and status](https://docs.microsoft.com/azure/aks/cluster-autoscaler#retrieve-cluster-autoscaler-logs-and-status).
+
+-   KubeControllerManager to have observability into pod scheduler.
+
+### Enable self-healing
+
+Monitor the health of pods by setting [Liveness and Readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
+If an unresponsive pod is detected, Kubernetes restarts the pod. Liveness probe
+determines if the pod is healthy. If it does not respond, Kubernetes will
+restart the pod. Readiness probe determines if the pod is ready to receive
+requests/traffic.
+
+Note: AKS provides built-in self-healing of infrastructure nodes using [Node Auto-Repair](https://docs.microsoft.com/azure/aks/node-auto-repair).
+
+### Security updates
+
+Keep the Kubernetes version up to date with the supported N-2 versions.
+Upgrading to the latest version of Kubernetes is critical because new versions
+are released frequently. For more information, see [Supported Kubernetes version](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions).
+
+AKS downloads and installs OS patches frequently, and some may require the node
+VMs to be rebooted. Have a process that monitors the updates and reboots the
+nodes seamlessly. An open-source option is
+[Kured](https://github.com/weaveworks/kured) (Kubernetes reboot daemon).
+
+For more information, see [Regularly update to the latest version of
+Kubernetes](https://docs.microsoft.com/azure/aks/operator-best-practices-cluster-security#regularly-update-to-the-latest-version-of-kubernetes)
+and [Upgrade an Azure Kubernetes Service (AKS)
+cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster).
+
+### Security monitoring
+
+Consider monitoring the node image with [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+(ASC). ASC monitors the nodes for suspicious activity and makes recommendations.
+
+For information about security hardening applied to AKS virtual machine hosts,
+see [Security Hardening in host OS](https://docs.microsoft.com/azure/aks/security-hardened-vm-host-image).
+
+## Cluster and workload operations (DevOps)
+----------------------------------------
+
+Here are some considerations. For more information, see the [Operational Excellence](https://docs.microsoft.com/azure/architecture/framework/devops/deployment) pillar.
+
+### Isolate workload responsibilities
+
+Divide the workload by teams and types of resources to individually manage each
+portion.
+
+Start with a basic workload that contains the fundamental components and build
+on it. An initial task would be to configure networking. Provision virtual
+networks for the hub and spoke and subnets within those networks. For instance,
+the spoke has separate subnets for system and user node pools, and ingress
+resources. A subnet for Azure Firewall in the hub.
+
+Another portion could be to integrate the basic workload with Azure Active
+Directory.
+
+### Use Infrastructure as Code (IaC) 
+
+Choose an idempotent declarative method over an imperative approach, where
+possible. Instead of writing a sequence of commands that specify configuration
+options, use declarative syntax that describes the resources and their
+properties. One option is an [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) templates another is Terraform.
+
+Make sure as you provision resources as per the governing policies. For example,
+when selecting the right VM sizes, stay within the cost constraints,
+availability zone options to match the requirements of your application.
+
+If you do need to write a sequence of commands, use [Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli?view=azure-cli-latest).
+These commands cover a range of Azure services and can be automated through
+scripting. Azure CLI is supported on Windows and Linux. Another cross-platform
+option is Azure PowerShell. Your choice will depend on preferred skillset.
+
+Store and version scripts and template files in your source control system.
+
+### Workload CI/CD
+
+Pipelines for workflow and deployment must have the ability to build and deploy
+applications continuously. Updates must be deployed safely and quickly and
+rolled back in case there are issues. Automate those pipelines as much as
+possible.
+
+The recommended tool for managing the workflow and deployment is [GitHub Actions](https://github.com/marketplace?type=actions). Other popular options
+include [Azure DevOps Services](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services)
+and [Jenkins](https://docs.microsoft.com/azure/developer/jenkins/).
+
+Your deployment strategy must include a reliable and an automated continuous
+delivery (CD) pipeline. Changes to your workload container images should be
+automatically deployed to the cluster.
+
+![Workload CI/CD](_images/workload-ci-cd.png)
+
+Cluster CI/CD
+
+Instead of using an imperative approach like kubectl, use tools that
+automatically synchronize cluster and repository changes. To manage the
+workflow, such as release of a new version and validation of that version before
+deploying to production, consider a GitOps flow. This requires an agent in the
+cluster to make sure that the state of the cluster is coordinated with
+configuration stored in your private Git repo. Kubernetes and AKS do not support
+that experience natively. A recommended option is
+[flux](https://docs.fluxcd.io/en/1.19.0/introduction/). It uses one or more
+operators in the cluster to trigger deployments inside Kubernetes. flux monitors
+all configured repositories, detects new configuration changes, triggers
+deployments and updates the desired running configuration based on those
+changes. You can also set policies that govern how those changes are deployed.
+
+Here’s an example from the reference implementation that shows how to automate
+cluster configuration with GitOps and Flux.
+
+![GitOps Flow](_images/gitops-flow.png)
+
+1.  A developer commits changes to source code, such as configuration YAML
+    files, which are stored in a git repository. The changes are then pushed to
+    a git server.
+
+2.  flux runs in pod in alongside the workload. flux has read-only access to the
+    git repository to make sure that flux is only applying changes as requested
+    by developers.
+
+3.  flux recognizes changes in confguration and applies those changes using
+    kubectl commands.
+
+Developers do not have direct access to the Kubernetes API through kubectl.
+Have branch policies on your git server. That way, multiple developers can
+approve a change before it’s applied to production.
+
+### Workload and cluster deployment strategies
+
+Deploy *any* change (architecture components, workload, cluster configuration),
+to at least one pre-production AKS cluster. Doing so will simulate the change
+might unravel issues before deploying to production.
+
+Run tests/validations at each stage before moving on to the next to make sure
+you can push updates to the production environment in a highly controlled way
+and minimize disruption from unanticipated deployment issues. This deployment
+should follow a similar pattern as production, using the same GitHub Actions
+pipeline or Flux operators.
+
+Advanced deployment techniques such as [Blue-green deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html), A/B
+testing, and [Canary releases](https://martinfowler.com/bliki/CanaryRelease.html), will require
+additional process and potentially tooling.
+[Flagger](https://github.com/weaveworks/flagger) is a popular open source
+solution to help solve for your advanced deployment scenarios.
+
+## Cost management
+---------------
+
+Use the [Azure pricing
+calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs
+for the services used in the architecture. Other best practices are described in
+the [Cost
+Optimization](https://docs.microsoft.com/azure/architecture/framework/cost/overview)
+section in [Microsoft Azure Well-Architected
+Framework](https://docs.microsoft.com/azure/architecture/framework/cost/overview).
+
+### Provision
+
+-   There are no costs associated for AKS in deployment, management, and
+    operations of the Kubernetes cluster. The main cost driver is the virtual
+    machine instances, storage, and networking resources consumed by the
+    cluster. Consider choosing cheaper VMs for system node pools. The
+    recommended SKU is DS2_v2.
+
+-   Don’t have the same configuration for dev/test and production environments.
+    Production workloads have extra requirements for high availability and will
+    be more expensive. It may not be necessary in the dev/test environment.
+
+-   For production workloads, add an Uptime SLA. However, there are savings for
+    clusters designed for dev/test or experimental workloads where availability
+    is not required to be guaranteed. For instance, the SLO is sufficient. Also,
+    if your workload supports it, consider using dedicated spot node pools that
+    run [Spot
+    VMs](https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms).
+
+    For non-production workloads that include Azure SQL Database or Azure App
+Service as part of the AKS workload architecture, evaluate if you are
+eligible to use [Azure Dev/Test
+subscriptions](https://azure.microsoft.com/pricing/dev-test/) to
+receive service discounts.
+
+-   Instead of starting with an oversized cluster to meet the scaling needs,
+    provision a cluster with minimum number of nodes and enable the cluster
+    autoscaler to monitor and make sizing decisions.
+
+-   Set pod requests and limits to allow Kubernetes to allocate node resources
+    with higher density so that hardware is utilized to capacity.
+
+-   Enabling diagnostics on the cluster can increase the cost.
+
+-   If your workload is expected exist for a long period, you can commit to one-
+    or three-year Reserved Virtual Machine Instances to reduce the node costs.
+    For more information, see [Reserved
+    VMs](https://docs.microsoft.com/azure/architecture/framework/cost/optimize-vm#reserved-vms).
+
+-   Use tags when you create node pools. Tags are useful in creating custom
+    reports to track the incurred costs. This gives the ability to track the
+    total of expenses and map any cost to a specific resource or team. Also, if
+    the cluster is shared between teams, build chargeback reports per consumer
+    to identify metered costs for shared cloud services. For more information,
+    see [Specify a taint, label, or tag for a node
+    pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools).
+
+-   Data transfers within availability zones of a region are not free. If your
+    workload is multi-region or there are transfers across billing zones, then
+    expect additional bandwidth cost. For more information, see [Traffic across
+    billing zones and
+    regions](https://review.docs.microsoft.com/azure/architecture/framework/cost/design-regions?branch=master#traffic-across-billing-zones-and-regions).
+
+-   Create budgets to stay within the cost constraints identified by the
+    organization. One way is to create budgets through Azure Cost Management.
+    You can also create alerts to get notifications when certain thresholds are
+    exceeded. For more information, see [Create a budget using a
+    template](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-create-budget-template).
+
+### Monitor
+
+In order to monitor cost of the entire cluster, along with compute cost also
+gather cost information about storage, bandwidth, firewall, and logs. Azure
+provides various dashboards to monitor and analyze cost:
+
+-   [Azure
+    Advisor](https://review.docs.microsoft.com/azure/advisor/advisor-get-started?branch=master) 
+
+-   [Azure Cost
+    Management](https://review.docs.microsoft.com/azure/cost-management-billing/costs/)
+
+Ideally, monitor cost in real-time or at least at a regular cadence to take
+action before the end of the month when costs are already calculated. Also
+monitor the monthly trend over time to stay in the budget.
+
+To make data-driven decisions, pinpoint which resource (granular level) incurs
+most cost. Also have a good understanding of the meters that are used to
+calculate usage of each resource. By analyzing metrics, you can determine if the
+platform is over-sized for instance. You can see the usage meters in Azure
+Monitor metrics.
+
+### Optimize
+
+Act on recommendations provided by [Azure
+Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Expert/AdvisorMenuBlade/overview).
+There are other ways to optimize:
+
+-   Enable the cluster autoscaler to detect and remove underutilized nodes in
+    the node pool.
+
+-   Choose a lower SKU for the node pools, if your workload supports it.
+
+-   If the application doesn’t require burst scaling, consider sizing the
+    cluster to just the right size by analyzing performance metrics over time.
+
+For other cost related information, see [AKS
+pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/).
