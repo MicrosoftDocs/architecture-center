@@ -1969,6 +1969,11 @@
     {
       "source_path":"docs/solution-ideas/articles/telemetry-analytics.md",
       "redirect_url":"/azure/architecture/reference-architectures/iot"
-    }
+    },
+     {
+      "source_path": "docs/solution-ideas/articles/customer-360.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/product-recommendations",
+      "redirect_document_id": true
+     }
   ]
 }

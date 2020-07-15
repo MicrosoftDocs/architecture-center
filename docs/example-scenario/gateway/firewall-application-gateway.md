@@ -8,6 +8,8 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: fcp
+ms.category:
+  - networking
 ---
 
 # Azure Virtual Network security

@@ -87,7 +87,7 @@ This scenario can use Azure Active Directory to authenticate users for [access t
 
 All the code for this scenario is available in the [Microsoft Recommenders repository][github].
 
-Follow these steps to run the [ALS quickstart notebook][notebook]:
+Follow these steps to run the [ALS quickstart notebook](https://github.com/microsoft/recommenders/blob/master/examples/00_quick_start/als_movielens.ipynb):
 
 1. [Create a DSVM][dsvm-ubuntu] from the Azure portal.
 
