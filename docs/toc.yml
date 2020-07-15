@@ -653,6 +653,7 @@ items:
       - name: Container orchestration with AKS
         items:
         - name: Case study - Contoso Bicycle
+          href: reference-architectures/containers/aks/case-study-contoso.md
         - name: Baseline architecture for an AKS cluster 
           href: reference-architectures/containers/aks/secure-baseline-aks.md
       - name: Microservices on AKS
