@@ -15,13 +15,7 @@ ms.custom: seojul20, containers
 
 
 # Case study – Contoso Bicycle
-----------------------------
-
-This architecture is built for a fictitious company, Contoso Bicycle. The
-company is a small and fast-growing startup that provides online web services to
-its clientele in the west coast, North America. The web services were deployed
-to the cloud from the get-go. They have no on-premises datacenters or legacy
-applications. Here's the brief cloud profile:
+Contoso Bicycle is a fictitious company. The company is a small and fast-growing startup that provides online web services to its clientele in the west coast, North America. The web services were deployed to the cloud from the get-go. They have no on-premises datacenters or legacy applications. Here's the brief cloud profile:
 
 - Have several workloads running and operating in Azure.
 - Use Azure Active Directory for identity management.
@@ -31,13 +25,18 @@ applications. Here's the brief cloud profile:
 
 The IT teams need guidance about architectural recommendations for running their web services in an AKS cluster.
 
-### Organization structure
+Based on the company's profile and business requirements, we've created a reference architecture that serves as a baseline with focus on security. The architecture is accompanied with an implementation available on GitHub. We recommend that you start with this implementation and add components based on your needs.
+
+Reference architecture: [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](secure-baseline-aks.md)
+
+![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). 
+## Organization structure
 
 Contoso Bicycle has a single IT Team with these sub teams.
 
 ![Contoso teams](_images/contoso-teams.svg)
 
-#### Architecture team
+### Architecture team
 
 Work with the line of business from idea through deployment into production.
 They understand all aspects of the Azure components: function, integration,
@@ -45,38 +44,38 @@ controls, and monitoring capabilities. The team evaluates those aspects for
 functional, security, and compliance requirements. They coordinate and have
 representation from other teams. Their workflow aligns with Contoso's SDL process.
 
-#### Development team
+### Development team
 
 Responsible for developing Contoso’s web services. They rely on the guidance
 from the architecture team about implementing cloud design patterns. They own and run the integration and deployment pipeline for the web services.
 
-#### Security team
+### Security team
 
 Review Azure services and workloads from the lens of security. Incorporate Azure
 service best practices in configurations. They review choices for authentication, authorization, network connectivity, encryption, and key management and, or rotation. Also, they have monitoring requirements for any proposed service.
 
-#### Identity team
+### Identity team
 
 Responsible for identity and access management for the Azure environment. They
 work with the Security and Architecture teams for use of Azure Active Directory,
 role-based access controls, and segmentation. Also, monitoring service
 principles for service access and application level access.
 
-#### Networking team
+### Networking team
 
 Make sure that different architectural components can talk to each other in a secure manner. They manage the hub and spoke network topologies and IP space allocation.
 
-#### Operations team
+### Operations team
 
 Responsible for the infrastructure deployment and day-to-day operations of the
 Azure environment.
 
-### Business requirements
+## Business requirements
 
 Here are the requirements based on an initial [Well-Architected
 Framework review](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local).
 
-#### Reliability
+### Reliability
 
 - Global presence: The customer base is focused on the West Coast of North
 America.
@@ -87,7 +86,7 @@ cost. They have a Recovery Time Objective (RTO) of 4 hours.
 - On-premises connectivity: They don’t need to connect to on-premises datacenters or
 legacy applications.
 
-#### Performance efficiency
+### Performance efficiency
 
 The web service’s host should have these capabilities.
 
@@ -107,7 +106,7 @@ scaling operations. Integration with Azure Monitor is preferred.
 - Workload-based scaling: Allow granular scaling per workload and independent
 scaling between different partitions in the workload.
 
-#### Security
+### Security
 
 - Identity management: Contoso is an existing Microsoft 365 user. They rely
 heavily on Azure Active Directory as their control plane for identity.
@@ -130,7 +129,7 @@ information.
 - Container scanning: They know the importance of container scanning but
 are concerned about added cost. The information isn't sensitive, but would like the option to scan in the future.
 
-#### Operational excellence
+### Operational excellence
 
 - Logging, monitoring, metrics, alerting: They use Azure Monitor for their
 existing workloads. They would like to use it for AKS, if possible.
@@ -139,7 +138,7 @@ existing workloads. They would like to use it for AKS, if possible.
 automated processes for all infrastructure so that environments and workloads
 can easily be recreated consistently and at any time.
 
-#### Cost optimization
+### Cost optimization
 
 - Cost center: There’s only one line-of-business. So, all costs are billed to a
 single cost center.
@@ -147,7 +146,7 @@ single cost center.
 - Budget and alerts: They have certain planned budgets. They want to be alerted
 when certain thresholds like 50%, 75%, and 90% of the plan has been reached.
 
-### Design and technology choices
+## Design and technology choices
 
 -   Deploy the AKS cluster into an existing Azure Virtual Network spoke. Use the
     existing Azure Firewall in the regional hub for securing outgoing traffic

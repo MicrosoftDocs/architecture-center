@@ -25,17 +25,7 @@ starting point and configure it as per your needs.
 
 This architecture is built for a fictitious company, Contoso Bicycle. The
 company is a small and fast-growing startup that provides online web services to
-its clientele in the west coast, North America. The web services were deployed
-to the cloud from the get-go. They have no on-premises datacenters or legacy
-applications. Here's the brief cloud profile:
-
-- Have several workloads running and operating in Azure.
-- Use Azure Active Directory for identity management.
-- Knowledgeable about containers and have considered them for application development. 
-- Aware of Kubernetes as a well-known container orchestration.
-- Researched AKS as a possibility. 
-
-The IT teams need guidance about architectural recommendations for running their web services in an AKS cluster.
+its clientele in the west coast, North America. The web services are already running on Azure. The IT teams need guidance about architectural recommendations for running their web services in an AKS cluster.
 
 For information about their team structure and business requirements, see [Case study – Contoso Bicycle](case-study-contoso.md).
 
@@ -494,21 +484,20 @@ For information, see [Differences between Azure Network Policy and Calico
 policies and their capabilities](https://docs.microsoft.com/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities).
 
 >[!NOTE]
-
-> AKS supports two different networking models: kubenet and Azure Container
+>AKS supports two different networking models: kubenet and Azure Container
 Networking Interface (CNI).\
-> CNI is more advanced of the two models. CNI is required for enabling Azure
+CNI is more advanced of the two models. CNI is required for enabling Azure
 Network Policy. In this model, every pod gets an IP address from the subnet
 address space. Resources within the same network (or peered
 resources) can access the pods directly through their IP address. NAT isn't
 needed for routing that traffic. So, CNI performant because there aren’t
 additional network overlays. It also offers better security control because
 it enables the use Azure Network Policy.\
-> In general, CNI is recommended. CNI offers granular control by teams and the
+In general, CNI is recommended. CNI offers granular control by teams and the
 resources they control. Also, CNI allows for more scaled pods than kubenet.\
-> Carefully consider the choice otherwise, the cluster will need to be
+Carefully consider the choice otherwise, the cluster will need to be
 redeployed.\
-> For information about the models, see [Compare network models](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models).
+For information about the models, see [Compare network models](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models).
 >
 
 ### Management traffic
