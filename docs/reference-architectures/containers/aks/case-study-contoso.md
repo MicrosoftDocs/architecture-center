@@ -14,7 +14,7 @@ ms.custom: seojul20, containers
 ---
 
 
-## Case study – Contoso Bicycle
+# Case study – Contoso Bicycle
 ----------------------------
 
 This architecture is built for a fictitious company, Contoso Bicycle. The
