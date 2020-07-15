@@ -460,7 +460,7 @@ cluster. There are two portions of Ingress resources:
     In this architecture, Azure Load Balancer is used. It’s placed outside the
 cluster; in a subnet dedicated for ingress resources. It receives traffic
 from Azure Application Gateway and that communication is over TLS. For
-information about TLS encryption for inbound traffic, see [Ingress traffic flow](#_Ingress_traffic_flow).
+information about TLS encryption for inbound traffic, see [Ingress traffic flow](#Ingress-traffic-flow).
 
 - Ingress controller. We have chosen Traefik. It runs in the user node pool in
     the cluster. It receives traffic from the internal load balancer, terminates
@@ -565,7 +565,7 @@ is the minimum allowed version with a restricted set of cyphers. Server Name
 Indication (SNI) strict is enabled. End-to-end TLS is set up through Application
 Gateway by using two different TLS certificates, as shown in this image.
 
-![](_images/tls-termination.png)
+![TLS termination](_images/tls-termination.png)
 
 1.  The client sends an HTTPS request to the domain name: bicycle.contoso.com.
     That name is associated with through a DNS A record to the public IP address
