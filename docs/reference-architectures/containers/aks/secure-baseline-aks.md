@@ -489,7 +489,7 @@ when configuring this component.
     health of the pods at the specified interval.
 
 - Consider restricting the ingress controller’s access to specific resources
-    and the ability to perform certain actions. That can be implemented through
+    and the ability to perform certain actions. That restriction can be implemented through
     Kubernetes RBAC permissions. For example, in this architecture, Traefik has
     been granted permissions to watch, get, and list services and endpoints. by
     using rules in the Kubernetes `ClusterRole` object.
@@ -704,7 +704,7 @@ secret on a volume, and mounts that volume in the cluster. The pod can then get
 the secret from the volume file system.
 
 The CSI driver has many providers to support various managed stores. In this
-implementation, we’ve chosen the [Azure Key Vault with Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure) to retrieve the TLS certificate from Azure Key Vault and load it in the pod running the ingress controller. That is done during pod creation and the volume stores both public and the private keys.
+implementation, we’ve chosen the [Azure Key Vault with Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure) to retrieve the TLS certificate from Azure Key Vault and load it in the pod running the ingress controller. It's done during pod creation and the volume stores both public and the private keys.
 
 ## Workload storage 
 -----------------
@@ -736,7 +736,7 @@ Autoscaling is the approach because some of those manual mechanisms are built
 into the autoscaler.
 
 As a general approach, start by performance testing with a minimum number of
-pods and nodes. Use this to establish a baseline. Then use a combination of
+pods and nodes. Use those values to establish the baseline expectation. Then use a combination of
 performance metrics and manual scaling to locate bottlenecks and understand the
 application’s response to scaling. Finally, use this data to set the parameters
 for autoscaling. For information about a performance tuning scenario using AKS,
@@ -777,8 +777,7 @@ convenient way to scale KEDA workloads based on Azure Monitor metrics.
 
 ### Cluster Autoscaler
 
-The [cluster
-autoscaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) is an
+The [cluster autoscaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) is an
 AKS add-on component that scales the number of nodes in a node pool. It should
 be added during cluster provisioning. You need a separate cluster autoscaler for
 each user node pool.
@@ -820,12 +819,12 @@ identify the node pool to schedule your workload.
 
 Regular upkeep of your cluster such as timely updates is crucial for
 reliability. Also monitoring the health of the pods through probes is
-recommended. For more information see the Cluster maintenance.
+recommended. 
 
 ### Pod availability
 
 **Ensure pod resources**. It’s highly recommended that deployments specify pod
-resource requirements. This helps ensure that the scheduler can appropriately
+resource requirements. The scheduler can then appropriately
 schedule the pod. Reliability will significantly deprecate if pods cannot be
 scheduled.
 
@@ -884,7 +883,7 @@ are some considerations when enabling multizone:
 Multizone support only applies to node pools. The AKS API server is in a
 single zone. If the API server becomes unavailable as part of a zone
 failure, pods deployed on node pools will continue to run, however Kubernetes
-will lose orchestration capabilities and applications is affected.
+will lose orchestration capabilities and workload is affected.
 
 -   **Dependent resources**. For complete zonal benefit, all service
     dependencies must also support zones. If a dependent service doesn't
@@ -909,9 +908,8 @@ have higher availability, run multiple AKS clusters, in different regions.
 -   Use paired regions. Consider using a CI/CD pipeline that is configured to
     use a paired region to recover from region failures. A benefit of using
     paired regions is reliability during updates. Azure makes sure that only one
-    region in the pair is updated at a time. Certain DevOps tools such as Flux
-    can make the multi-region deployments easier. For technology options, see
-    [CI/CD](#ci-cd).
+    region in the pair is updated at a time. Certain DevOps tools such as flux
+    can make the multi-region deployments easier. 
 
 -   If an Azure resource supports geo-redundancy, provide the location where the
     redundant service will have its secondary. For example, enabling
@@ -976,7 +974,7 @@ simulate a zonal failure, or bringing down an external dependency.
 ---------------------------
 
 The Azure Monitor for containers feature is the recommended tool for monitoring
-and logging because you can view events in real-time. It captures container logs
+and logging because you can view events in real time. It captures container logs
 from the running pods and aggregates them for viewing. It also collects
 information from Metrics API about memory and CPU utilization to monitor the
 health of running resources and workloads. You can use it to monitor performance
@@ -988,12 +986,12 @@ Most workloads hosted in pods emit Prometheus metrics. Azure Monitor is capable
 of scraping Prometheus metrics and visualizing them.
 
 There are some third-party utilities integrated with Kubernetes. Take advantage
-of log and metrics platforms such as Grafana or DataDog, if your organization
+of log and metrics platforms such as Grafana or Datadog, if your organization
 already uses them.
 
 With AKS, Azure manages some core Kubernetes services. Logs from those services
 should only be enabled per request from customer support. However, it is
-recommended that you enable these two log sources as they can help you
+recommended that you enable these log sources as they can help you
 troubleshoot cluster issues:
 
 -   Logging on the ClusterAutoscaler to gain observability into the scaling
@@ -1089,7 +1087,7 @@ automatically deployed to the cluster.
 
 ![Workload CI/CD](_images/workload-ci-cd.png)
 
-Cluster CI/CD
+### Cluster CI/CD
 
 Instead of using an imperative approach like kubectl, use tools that
 automatically synchronize cluster and repository changes. To manage the
@@ -1099,10 +1097,13 @@ cluster to make sure that the state of the cluster is coordinated with
 configuration stored in your private Git repo. Kubernetes and AKS do not support
 that experience natively. A recommended option is
 [flux](https://docs.fluxcd.io/en/1.19.0/introduction/). It uses one or more
-operators in the cluster to trigger deployments inside Kubernetes. flux monitors
-all configured repositories, detects new configuration changes, triggers
-deployments and updates the desired running configuration based on those
-changes. You can also set policies that govern how those changes are deployed.
+operators in the cluster to trigger deployments inside Kubernetes. flux does these tasks:
+- Monitors all configured repositories. 
+- Detects new configuration changes. 
+- Triggers deployments.
+- Updates the desired running configuration based on those changes. 
+
+You can also set policies that govern how those changes are deployed.
 
 Here’s an example from the reference implementation that shows how to automate
 cluster configuration with GitOps and Flux.
@@ -1117,7 +1118,7 @@ cluster configuration with GitOps and Flux.
     git repository to make sure that flux is only applying changes as requested
     by developers.
 
-3.  flux recognizes changes in confguration and applies those changes using
+3.  flux recognizes changes in configuration and applies those changes using
     kubectl commands.
 
 Developers do not have direct access to the Kubernetes API through kubectl.
@@ -1139,7 +1140,7 @@ pipeline or Flux operators.
 Advanced deployment techniques such as [Blue-green deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html), A/B
 testing, and [Canary releases](https://martinfowler.com/bliki/CanaryRelease.html), will require
 additional process and potentially tooling.
-[Flagger](https://github.com/weaveworks/flagger) is a popular open source
+[Flagger](https://github.com/weaveworks/flagger) is a popular open-source
 solution to help solve for your advanced deployment scenarios.
 
 ## Cost management
@@ -1169,13 +1170,11 @@ Framework](https://docs.microsoft.com/azure/architecture/framework/cost/overview
     clusters designed for dev/test or experimental workloads where availability
     is not required to be guaranteed. For instance, the SLO is sufficient. Also,
     if your workload supports it, consider using dedicated spot node pools that
-    run [Spot
-    VMs](https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms).
+    run [Spot VMs](https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms).
 
     For non-production workloads that include Azure SQL Database or Azure App
 Service as part of the AKS workload architecture, evaluate if you are
-eligible to use [Azure Dev/Test
-subscriptions](https://azure.microsoft.com/pricing/dev-test/) to
+eligible to use [Azure Dev/Test subscriptions](https://azure.microsoft.com/pricing/dev-test/) to
 receive service discounts.
 
 -   Instead of starting with an oversized cluster to meet the scaling needs,
@@ -1189,28 +1188,23 @@ receive service discounts.
 
 -   If your workload is expected exist for a long period, you can commit to one-
     or three-year Reserved Virtual Machine Instances to reduce the node costs.
-    For more information, see [Reserved
-    VMs](https://docs.microsoft.com/azure/architecture/framework/cost/optimize-vm#reserved-vms).
+    For more information, see [Reserved VMs](https://docs.microsoft.com/azure/architecture/framework/cost/optimize-vm#reserved-vms).
 
 -   Use tags when you create node pools. Tags are useful in creating custom
-    reports to track the incurred costs. This gives the ability to track the
+    reports to track the incurred costs. Tags give the ability to track the
     total of expenses and map any cost to a specific resource or team. Also, if
     the cluster is shared between teams, build chargeback reports per consumer
     to identify metered costs for shared cloud services. For more information,
-    see [Specify a taint, label, or tag for a node
-    pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools).
+    see [Specify a taint, label, or tag for a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools).
 
 -   Data transfers within availability zones of a region are not free. If your
     workload is multi-region or there are transfers across billing zones, then
-    expect additional bandwidth cost. For more information, see [Traffic across
-    billing zones and
-    regions](https://review.docs.microsoft.com/azure/architecture/framework/cost/design-regions?branch=master#traffic-across-billing-zones-and-regions).
+    expect additional bandwidth cost. For more information, see [Traffic across billing zones and regions](https://review.docs.microsoft.com/azure/architecture/framework/cost/design-regions?branch=master#traffic-across-billing-zones-and-regions).
 
 -   Create budgets to stay within the cost constraints identified by the
     organization. One way is to create budgets through Azure Cost Management.
     You can also create alerts to get notifications when certain thresholds are
-    exceeded. For more information, see [Create a budget using a
-    template](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-create-budget-template).
+    exceeded. For more information, see [Create a budget using a template](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-create-budget-template).
 
 ### Monitor
 
@@ -1218,13 +1212,11 @@ In order to monitor cost of the entire cluster, along with compute cost also
 gather cost information about storage, bandwidth, firewall, and logs. Azure
 provides various dashboards to monitor and analyze cost:
 
--   [Azure
-    Advisor](https://review.docs.microsoft.com/azure/advisor/advisor-get-started?branch=master) 
+-   [Azure Advisor](https://review.docs.microsoft.com/azure/advisor/advisor-get-started?branch=master) 
 
--   [Azure Cost
-    Management](https://review.docs.microsoft.com/azure/cost-management-billing/costs/)
+-   [Azure Cost Management](https://review.docs.microsoft.com/azure/cost-management-billing/costs/)
 
-Ideally, monitor cost in real-time or at least at a regular cadence to take
+Ideally, monitor cost in real time or at least at a regular cadence to take
 action before the end of the month when costs are already calculated. Also
 monitor the monthly trend over time to stay in the budget.
 
@@ -1236,8 +1228,7 @@ Monitor metrics.
 
 ### Optimize
 
-Act on recommendations provided by [Azure
-Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Expert/AdvisorMenuBlade/overview).
+Act on recommendations provided by [Azure Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Expert/AdvisorMenuBlade/overview).
 There are other ways to optimize:
 
 -   Enable the cluster autoscaler to detect and remove underutilized nodes in
@@ -1248,5 +1239,4 @@ There are other ways to optimize:
 -   If the application doesn’t require burst scaling, consider sizing the
     cluster to just the right size by analyzing performance metrics over time.
 
-For other cost related information, see [AKS
-pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/).
+For other cost related information, see [AKS pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/).
