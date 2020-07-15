@@ -650,7 +650,6 @@ policies and their capabilities](https://docs.microsoft.com/azure/aks/use-networ
 >[!NOTE]
 > AKS supports two different networking models: kubenet and Azure Container
 Networking Interface (CNI).
-
 > CNI is more advanced of the two models. CNI is required for enabling Azure
 Network Policy. In this model, every pod gets an IP address from the subnet
 address space. Resources within the same network (or peered
@@ -658,13 +657,10 @@ resources) can access the pods directly through their IP address. NAT isn't
 needed for routing that traffic. So, CNI performant because there aren’t
 additional network overlays. It also offers better security control because
 it enables the use Azure Network Policy.
-
 > In general, CNI is recommended. CNI offers granular control by teams and the
 resources they control. Also, CNI allows for more scaled pods than kubenet.
-
 > Carefully consider the choice otherwise, the cluster will need to be
 redeployed.
-
 > For information about the models, see [Compare network
 models](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models).
 
@@ -680,4 +676,296 @@ your authorized IP ranges to the API server.
 
 For more information, see [Define API server authorized IP ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges).
 
+## Add secret management
+---------------------
 
+Store secrets in a managed key store, such as Azure Key Vault. The advantage is
+that the managed store handles rotation of secrets, offers strong encryption,
+provides an access audit log, and keeps core secrets out of the deployment
+pipeline.
+
+Azure Key Vault is well integrated with other Azure services. Use the built-in
+feature of those services to access secrets. For an example about how Azure
+Application Gateway accesses TLS certificates for the ingress flow, see the
+[Ingress traffic flow](#_Ingress_traffic_flow) section.
+
+### Accessing cluster secrets
+
+You will need to use pod managed identities to allow a pod to access secrets
+from a specific store.
+
+To facilitate the retrieval process, use a [Secrets Store CSI driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver). When the
+pod needs a secret, the driver connects with the specified store, retrieves
+secret on a volume, and mounts that volume in the cluster. The pod can then get
+the secret from the volume file system.
+
+The CSI driver has many providers to support various managed stores. In this
+implementation, we’ve chosen the [Azure Key Vault with Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure) for
+retrieving the TLS certificate from Azure Key Vault and loading it in the pod
+running the ingress controller. That is done during pod creation and the volume
+stores both public and the private keys.
+
+## Workload storage 
+-----------------
+
+The workload used in this architecture is stateless. If you need to store state,
+persisting it outside the cluster is recommended. Guidance for workload state is
+outside the scope of this article.
+
+To learn more about storage options, see [Storage options for applications in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/concepts-storage).
+
+## Node and pod scalability
+------------------------
+
+With increasing demand, Kubernetes can scale out by adding more pods to existing
+nodes, through horizontal pod autoscaling (HPA). When additional pods can no
+longer be scheduled, the number of nodes must be increased through AKS cluster
+autoscaling. A complete scaling solution must have ways to scale both pod
+replicas and the node count in the cluster.
+
+There are two approaches: autoscaling or manual scaling.
+
+The manual or programmatic way requires you to monitor and set alerts on CPU
+utilization or custom metrics. For pod scaling, the application operator can
+increase or decrease the number of pod replicas by adjusting the ReplicaSet
+through Kubernetes APIs. For cluster scaling, one way is to get notified when
+the Kubernetes scheduler fails or watch for pending pods for a considerable
+period of time. You can adjust the node count through Azure CLI or the portal.
+
+Autoscaling is the approach because some of those manual mechanisms are built
+into the autoscaler.
+
+As a general approach, start by performance testing with a minimum number of
+pods and nodes. Use this to establish a baseline. Then use a combination of
+performance metrics and manual scaling to locate bottlenecks and understand the
+application’s response to scaling. Finally, use this data to set the parameters
+for autoscaling. For information about a performance tuning scenario using AKS,
+see [Performance tuning scenario: Distributed business
+transactions](https://docs.microsoft.com/en-us/azure/architecture/performance/distributed-transaction).
+
+### Horizontal Pod Autoscaler
+
+The [Horizontal Pod
+Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
+(HPA) is a Kubernetes resource that scales the number of pods.
+
+In the HPA resource, setting the minimum and maximum replica count is
+recommended. Those values constrain the autoscaling bounds.
+
+HPA can scale based on the CPU utilization, memory usage, and custom metrics.
+Only CPU utilization is provided out of the box. The HorizontalPodAutoscaler
+definition specifies target values for those metrics. For instance, the spec
+sets a target CPU utilization. While pods are running, the HPA controller uses
+Kubernetes Metrics API to check each pod’s CPU utilization. It compares that
+value against the target utilization and calculates a ratio. It then uses the
+ratio to determine whether pods are overallocated or under allocated. It relies
+on the Kubernetes scheduler to assign new pods to nodes or remove pods from
+nodes.
+
+There might be a race condition where (HPA) checks before a scaling operation is
+complete. The outcome might be an incorrect ratio calculation. For details, see
+[Cooldown of scaling
+events](https://docs.microsoft.com/en-us/azure/aks/concepts-scale#cooldown-of-scaling-events).
+
+If your workload is event-driven, a popular open-source option is
+[KEDA](https://github.com/kedacore/keda). Consider KEDA if your workload is
+driven by an event source, such as message queue, rather than being CPU- or
+memory-bound. KEDA supports many event sources (or scalers). You can find the
+list of supported KEDA scalers [here](https://keda.sh/#scalers) including the
+[Azure Monitor scaler](https://keda.sh/docs/2.0/scalers/azure-monitor/); a
+convenient way to scale KEDA workloads based on Azure Monitor metrics.
+
+### Cluster Autoscaler
+
+The [cluster
+autoscaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) is an
+AKS add-on component that scales the number of nodes in a node pool. It should
+be added during cluster provisioning. You need a separate cluster autoscaler for
+each user node pool.
+
+The cluster autoscaler is triggered by the Kubernetes scheduler. When the
+Kubernetes scheduler fails to schedule a pod because of resource constraints,
+the autoscaler automatically provisions a new node in the node pool. Conversely,
+the cluster autoscaler checks the unused capacity of the nodes. If the node is
+not running at an expected capacity, the pods are moved to another node, and the
+unused node is removed.
+
+When you enable autoscaler, set the maximum and minimum node count. The
+recommended values depend on the performance expectation of the workload, how
+much you want the cluster to grow, and cost implications. The minimum number is
+the reserved capacity for that node pool. In this reference implementation, the
+minimum value is set to 2 because of the simple nature of the workload.
+
+For the system node pool, the recommended minimum value is 3.
+
+## Business continuity decisions
+-----------------------------
+
+To maintain business continuity, define the Service Level Agreement for the
+infrastructure and your application. For information about monthly uptime
+calculation, see [SLA for Azure Kubernetes Service (AKS)](see%20https:/azure.microsoft.com/en-us/support/legal/sla/kubernetes-service/v1_1/).
+
+### Cluster nodes
+
+To meet the minimum level of availability for workloads, multiple nodes in a
+node pool are needed. If a node goes down, another node in the node pool in the
+same cluster can continue running the application. For reliability, three nodes
+are recommended for the system node pool. For the user node pool, start with no
+less than two nodes. If you need higher availability, provision more nodes.
+
+Isolate your application from the system services by placing it in a separate
+node pool. This way, Kubernetes services run on dedicated nodes and don’t
+compete with your workload. Use of tags, labels, and taints is recommended to
+identify the node pool to schedule your workload.
+
+Regular upkeep of your cluster such as timely updates is crucial for
+reliability. Also monitoring the health of the pods through probes is
+recommended. For more information see the Cluster maintenance.
+
+### Pod availability
+
+**Ensure pod resources**. It’s highly recommended that deployments specify pod
+resource requirements. This helps ensure that the scheduler can appropriately
+schedule the pod. Reliability will significantly deprecate if pods cannot be
+scheduled.
+
+**Set pod disruption budgets**. This setting determines how many replicas in a
+deployment can come down during an update or upgrade event. For more
+information, see [Pod disruption
+budgets](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets).
+
+Configure multiple replicas in the deployment to handle disruptions such as
+hardware failures. For planned events such as updates and upgrades, a disruption
+budget can ensure the required number of pod replicas exist to handle expected
+application load.
+
+**Set resource quotas on the workload namespaces**. The resource quota on a
+namespace will ensure pod requests and limits are properly set on a deployment.
+For more information, see [Enforce resource
+quotas](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas).
+
+> [!NOTE] Setting resources quotas at the cluster level can cause problem when
+deploying third-party workloads that do not have proper requests and limits.
+
+**Set pod requests and limits**. Setting these limits allows Kubernetes to
+efficiently allocate CPU and, or memory resources to the pods and have higher
+container density on a node. This helps increase reliability with reduced costs
+because of better hardware utilization.
+
+To estimate the limits, test and establish a baseline. Start with equal values
+for requests and limits and tune gradually until you have an idea about the
+threshold that can cause instability in their cluster.
+
+Those limits can be specified in your deployment manifests. For more
+information, see [Set pod requests and limits](https://docs.microsoft.com/en-us/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits).
+
+### Availability zones and multi-region support
+
+If your SLA requires a higher uptime, protect against loss in a zone. You can
+use availability zones if the region supports them. The nodes in the user node
+pool are then able to spread across zones. If an entire zone is unavailable, a
+node in another zone within the region is still available. Each node pool maps
+to a separate virtual machine scale set (VMSS), which manages node instances and
+scalability. VMSS operation and configuration managed by the AKS service. Here
+are some considerations when enabling multizone:
+
+-   **Entire infrastructure.** Choose a region that supports availability zones.
+    For more information, see [Limitations and region availability](https://docs.microsoft.com/en-us/azure/aks/availability-zones#limitations-and-region-availability).
+    If you want to purchaser an Uptime SLA, choose a region that supports that
+    option.
+
+-   **Cluster**. Availability zones can only be set when the node pool is
+    created and cannot changed later. The node sizes should be supported in all
+    zones so that the expected distribution is possible. The underlying VMSS
+    provides the same hardware configuration across zones.
+
+Multizone support only applies to node pools. The AKS API server is in a
+single zone. If the API server were to be come unavailable as part of a zone
+failure, pods deployed on node pools continue to run, however Kubernetes
+will lose orchestration capabilities and applications could be impacted.
+
+-   **Dependent resources**. For complete zonal benefit, all service
+    dependencies must also support zones. If a dependent service does not
+    support zones, it is possible that a zone failure could cause that service
+    to fail.
+
+For example, a managed disk is available in the zone in which its
+provisioned. In case of a failure, the node might move to another zone, but
+the managed disk won’t move with the node to that zone.
+
+For simplicity, in this architecture AKS is deployed to a single region with
+node pools spanning availability zones 1, 2, and 3. Other resources of the
+infrastructure, such as Azure Firewall and Application Gateway are deployed to
+the same region also with multizone support. Geo-replication is enabled for
+Azure Container Registry.
+
+### Multiple regions
+
+Enabling availability zones won’t be enough if the entire region goes down. To
+have higher availability, run multiple AKS clusters, in different regions.
+
+-   Use paired regions. Consider using a CI/CD pipeline that is configured to
+    use a paired region to recover from region failures. A benefit of using
+    paired regions is reliability during updates. Azure makes sure that only one
+    region in the pair is updated at a time. Certain DevOps tools such as Flux
+    can make the multi-region deployments easier. For technology options, see
+    [CI/CD](#_CI/CD).
+
+-   If an Azure resource supports geo-redundancy, provide the location where the
+    redundant service will have its secondary. For example, enabling
+    geo-replication for Azure Container Registry will automatically replicate
+    your images to Azure regions you selected, and will provide continued access
+    to images even if a region were experiencing an outage.
+
+-   Choose a traffic router that can distribute traffic across zones or regions,
+    depending on your requirement. This architecture deploys Azure Load Balancer
+    because it can distribute non-web traffic across zones. If you need to
+    distribute traffic across regions, Azure Front Door should be considered.
+    For other considerations, see [Choose a load
+    balancer](https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/load-balancing-overview).
+
+### Disaster Recovery
+
+In case of failure in the primary region, you should be able to quickly create a
+new instance in another region. Here are some recommendations:
+
+-   Use paired regions. 
+
+-   A non-stateful workload can be replicated efficiently. If you need to store
+    state in the cluster (not recommended), make sure you back up the data
+    frequently in the paired region.
+
+-   Integrate the recovery strategy, such as replicating to another region, as
+    part of the DevOps pipeline to meet your Service Level Objectives (SLO).
+
+-   When provisioning each Azure service, choose features that support disaster
+    recovery. For example, in this architecture, Azure Container Registry is
+    enabled for geo-replication. If a region goes down, you can still pull
+    images from the replicated region.
+
+### Kubernetes API Server Uptime SLA
+
+AKS can be used as a free service, but that tier does not offer a
+financially-backed SLA. In order to obtain a that SLA, you must choose to add an
+Uptime SLA to your purchase. We recommend all production clusters use this
+option and reserve clusters without this for pre-production clusters, combined
+with Azure Availability Zones, this brings the Kubernetes API server SLA to
+99.95%. Your node pools, and other resources are covered under their own SLA,
+this is specific to the API server.
+
+### Tradeoff 
+
+There’s a cost-to-availability tradeoff for deploying the architecture across
+zones and especially regions. Some replication features, such as geo-replication
+in Azure Container Registry, are available in premium SKUs, which is more
+expensive. The cost will also increase because bandwidth charges that are
+applied when traffic moves across zones and regions.
+
+Also, expect additional network latency in node communication between zones or
+regions. Measure the impact of this architectural decision on your workload.
+
+### Test with simulations and forced failovers
+
+Ensure reliability through forced failover testing with simulated outages such
+as bring down a node, bringing down all AKS resources in a particular zone to
+simulate a zonal failure, or bringing down an external dependency.
