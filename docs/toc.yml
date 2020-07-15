@@ -650,6 +650,19 @@ items:
     items:
     - name: Architectures
       items:
+      - name: Container orchestration with AKS
+        items:
+        - name: Case study - Contoso Bicycle
+        - name: Baseline architecture for an AKS cluster 
+          href: reference-architectures/containers/aks/secure-baseline-aks.md
+      - name: Microservices on AKS
+        items:
+        - name: Microservices architecture on AKS
+          href: reference-architectures/microservices/aks.md
+        - name: Microservices with AKS and Azure DevOps
+          href: solution-ideas/articles/microservices-with-aks.md
+        - name: Secure DevOps for AKS
+          href: solution-ideas/articles/secure-devops-for-kubernetes.md
       - name: API First
         href: solution-ideas/articles/aks-api-first.md
       - name: Building a telehealth system
@@ -664,12 +677,6 @@ items:
         href: solution-ideas/articles/aks-demand-spikes.md
       - name: IoT data streaming with AKS
         href: solution-ideas/articles/aks-iot-data-streaming.md
-      - name: Microservices on AKS
-        href: reference-architectures/microservices/aks.md
-      - name: Microservices with AKS and Azure DevOps
-        href: solution-ideas/articles/microservices-with-aks.md
-      - name: Secure DevOps for AKS
-        href: solution-ideas/articles/secure-devops-for-kubernetes.md
   - name: Databases
     items:
     - name: Guides
