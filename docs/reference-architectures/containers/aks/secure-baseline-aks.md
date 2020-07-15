@@ -190,7 +190,7 @@ when certain thresholds like 50%, 75%, and 90% of the plan has been reached.
     application workload.
 
 -   To make sure the workload is scaled properly, requests and limits will be
-    enforced by assigning quotas for the Horizontal Pod Autoscaling (HPA). AKS cluster autoscaler will be enabled so that additional nodes are automatically provisioned if pods can’t be scheduled.
+    enforced by assigning quotas for the Horizontal Pod Autoscaling (HPA). AKS cluster autoscaler  will be enabled so that additional nodes are automatically provisioned if pods can’t be scheduled.
 
 ## Network topology
 -------------------------------------------------
@@ -377,7 +377,7 @@ Principals there's an overhead for managing and rotating secrets without which
 the cluster will not be accessible. With managed identities, Azure Active
 Directory (Azure AD) handles the authentication and timely rotation of secrets.
 
-It’s recommended that Managed Identities is enabled so that the cluster can interact with external Azure resources through Azure AD. This setting can only be enabled during cluster creation. Even if Azure AD isn't used immediately, you can incorporate it later. 
+It’s recommended that Managed Identities is enabled so that the cluster can interact with external Azure resources through Azure AD. You can enable this setting only during cluster creation. Even if Azure AD isn't used immediately, you can incorporate it later. 
 
 As an example for the inside-out case, let’s study the use of managed identities
 when the cluster needs to pull images from a container registry. This action requires the
@@ -575,7 +575,7 @@ Gateway by using two different TLS certificates, as shown in this image.
 
 2.  Application Gateway has an integrated web application firewall (WAF) and
     negotiates the TLS handshake for bicycle.contoso.com, allowing only secure
-    ciphers. Application Gateway is a TLS termination point, as it is required
+    ciphers. Application Gateway is a TLS termination point, as it's required
     to process WAF inspection rules, and execute routing rules that forward the
     traffic to the configured backend. The TLS certificate is stored in Azure
     Key Vault. It’s accessed using a user-assigned managed identity integrated
@@ -621,7 +621,7 @@ the target service over its public endpoint. Also, not all Azure services or
 SKUs support Private Link. For those cases, consider enabling a Service Endpoint
 on subnet to access the service.
 
-If Private Link or Service Endpoints are not an option, you can reach other
+If Private Link or Service Endpoints aren't an option, you can reach other
 services through their public endpoints, and control access through Azure
 Firewall rules and the firewall built into the target service. Because this
 traffic will go through the static IP address of the firewall, that address can
@@ -691,7 +691,7 @@ Application Gateway accesses TLS certificates for the ingress flow, see the
 
 ### Accessing cluster secrets
 
-You will need to use pod managed identities to allow a pod to access secrets
+You'll need to use pod managed identities to allow a pod to access secrets
 from a specific store.
 
 To facilitate the retrieval process, use a [Secrets Store CSI driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver). When the
@@ -700,10 +700,7 @@ secret on a volume, and mounts that volume in the cluster. The pod can then get
 the secret from the volume file system.
 
 The CSI driver has many providers to support various managed stores. In this
-implementation, we’ve chosen the [Azure Key Vault with Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure) for
-retrieving the TLS certificate from Azure Key Vault and loading it in the pod
-running the ingress controller. That is done during pod creation and the volume
-stores both public and the private keys.
+implementation, we’ve chosen the [Azure Key Vault with Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure) to retrieve the TLS certificate from Azure Key Vault and load it in the pod running the ingress controller. That is done during pod creation and the volume stores both public and the private keys.
 
 ## Workload storage 
 -----------------
@@ -712,7 +709,7 @@ The workload used in this architecture is stateless. If you need to store state,
 persisting it outside the cluster is recommended. Guidance for workload state is
 outside the scope of this article.
 
-To learn more about storage options, see [Storage options for applications in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/concepts-storage).
+To learn more about storage options, see [Storage options for applications in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/concepts-storage).
 
 ## Node and pod scalability
 ------------------------
@@ -729,8 +726,7 @@ The manual or programmatic way requires you to monitor and set alerts on CPU
 utilization or custom metrics. For pod scaling, the application operator can
 increase or decrease the number of pod replicas by adjusting the ReplicaSet
 through Kubernetes APIs. For cluster scaling, one way is to get notified when
-the Kubernetes scheduler fails or watch for pending pods for a considerable
-period of time. You can adjust the node count through Azure CLI or the portal.
+the Kubernetes scheduler fails. Another way is to watch for pending pods over time. You can adjust the node count through Azure CLI or the portal.
 
 Autoscaling is the approach because some of those manual mechanisms are built
 into the autoscaler.
@@ -741,7 +737,7 @@ performance metrics and manual scaling to locate bottlenecks and understand the
 application’s response to scaling. Finally, use this data to set the parameters
 for autoscaling. For information about a performance tuning scenario using AKS,
 see [Performance tuning scenario: Distributed business
-transactions](https://docs.microsoft.com/en-us/azure/architecture/performance/distributed-transaction).
+transactions](https://docs.microsoft.com/azure/architecture/performance/distributed-transaction).
 
 ### Horizontal Pod Autoscaler
 
@@ -758,14 +754,14 @@ definition specifies target values for those metrics. For instance, the spec
 sets a target CPU utilization. While pods are running, the HPA controller uses
 Kubernetes Metrics API to check each pod’s CPU utilization. It compares that
 value against the target utilization and calculates a ratio. It then uses the
-ratio to determine whether pods are overallocated or under allocated. It relies
+ratio to determine whether pods are overallocated or underallocated. It relies
 on the Kubernetes scheduler to assign new pods to nodes or remove pods from
 nodes.
 
 There might be a race condition where (HPA) checks before a scaling operation is
 complete. The outcome might be an incorrect ratio calculation. For details, see
 [Cooldown of scaling
-events](https://docs.microsoft.com/en-us/azure/aks/concepts-scale#cooldown-of-scaling-events).
+events](https://docs.microsoft.com/azure/aks/concepts-scale#cooldown-of-scaling-events).
 
 If your workload is event-driven, a popular open-source option is
 [KEDA](https://github.com/kedacore/keda). Consider KEDA if your workload is
@@ -778,7 +774,7 @@ convenient way to scale KEDA workloads based on Azure Monitor metrics.
 ### Cluster Autoscaler
 
 The [cluster
-autoscaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) is an
+autoscaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) is an
 AKS add-on component that scales the number of nodes in a node pool. It should
 be added during cluster provisioning. You need a separate cluster autoscaler for
 each user node pool.
@@ -803,7 +799,7 @@ For the system node pool, the recommended minimum value is 3.
 
 To maintain business continuity, define the Service Level Agreement for the
 infrastructure and your application. For information about monthly uptime
-calculation, see [SLA for Azure Kubernetes Service (AKS)](see%20https:/azure.microsoft.com/en-us/support/legal/sla/kubernetes-service/v1_1/).
+calculation, see [SLA for Azure Kubernetes Service (AKS)](https:/azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1/).
 
 ### Cluster nodes
 
@@ -832,7 +828,7 @@ scheduled.
 **Set pod disruption budgets**. This setting determines how many replicas in a
 deployment can come down during an update or upgrade event. For more
 information, see [Pod disruption
-budgets](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets).
+budgets](https://docs.microsoft.com/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets).
 
 Configure multiple replicas in the deployment to handle disruptions such as
 hardware failures. For planned events such as updates and upgrades, a disruption
@@ -842,7 +838,7 @@ application load.
 **Set resource quotas on the workload namespaces**. The resource quota on a
 namespace will ensure pod requests and limits are properly set on a deployment.
 For more information, see [Enforce resource
-quotas](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas).
+quotas](https://docs.microsoft.com/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas).
 
 > [!NOTE] Setting resources quotas at the cluster level can cause problem when
 deploying third-party workloads that do not have proper requests and limits.
@@ -853,11 +849,11 @@ container density on a node. This helps increase reliability with reduced costs
 because of better hardware utilization.
 
 To estimate the limits, test and establish a baseline. Start with equal values
-for requests and limits and tune gradually until you have an idea about the
-threshold that can cause instability in their cluster.
+for requests and limits. Then, gradually tune those values until you have established a 
+threshold that can cause instability in the cluster.
 
 Those limits can be specified in your deployment manifests. For more
-information, see [Set pod requests and limits](https://docs.microsoft.com/en-us/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits).
+information, see [Set pod requests and limits](https://docs.microsoft.com/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits).
 
 ### Availability zones and multi-region support
 
@@ -865,31 +861,31 @@ If your SLA requires a higher uptime, protect against loss in a zone. You can
 use availability zones if the region supports them. The nodes in the user node
 pool are then able to spread across zones. If an entire zone is unavailable, a
 node in another zone within the region is still available. Each node pool maps
-to a separate virtual machine scale set (VMSS), which manages node instances and
-scalability. VMSS operation and configuration managed by the AKS service. Here
+to a separate virtual machine scale set, which manages node instances and
+scalability. Scale set operations and configuration managed by the AKS service. Here
 are some considerations when enabling multizone:
 
 -   **Entire infrastructure.** Choose a region that supports availability zones.
-    For more information, see [Limitations and region availability](https://docs.microsoft.com/en-us/azure/aks/availability-zones#limitations-and-region-availability).
+    For more information, see [Limitations and region availability](https://docs.microsoft.com/azure/aks/availability-zones#limitations-and-region-availability).
     If you want to purchaser an Uptime SLA, choose a region that supports that
     option.
 
 -   **Cluster**. Availability zones can only be set when the node pool is
-    created and cannot changed later. The node sizes should be supported in all
-    zones so that the expected distribution is possible. The underlying VMSS
+    created and can't be changed later. The node sizes should be supported in all
+    zones so that the expected distribution is possible. The underlying virtual machine scale set
     provides the same hardware configuration across zones.
 
 Multizone support only applies to node pools. The AKS API server is in a
-single zone. If the API server were to be come unavailable as part of a zone
-failure, pods deployed on node pools continue to run, however Kubernetes
-will lose orchestration capabilities and applications could be impacted.
+single zone. If the API server becomes unavailable as part of a zone
+failure, pods deployed on node pools will continue to run, however Kubernetes
+will lose orchestration capabilities and applications is affected.
 
 -   **Dependent resources**. For complete zonal benefit, all service
-    dependencies must also support zones. If a dependent service does not
-    support zones, it is possible that a zone failure could cause that service
+    dependencies must also support zones. If a dependent service doesn't
+    support zones, it's possible that a zone failure could cause that service
     to fail.
 
-For example, a managed disk is available in the zone in which its
+For example, a managed disk is available in the zone in which it's
 provisioned. In case of a failure, the node might move to another zone, but
 the managed disk won’t move with the node to that zone.
 
@@ -914,7 +910,7 @@ have higher availability, run multiple AKS clusters, in different regions.
 -   If an Azure resource supports geo-redundancy, provide the location where the
     redundant service will have its secondary. For example, enabling
     geo-replication for Azure Container Registry will automatically replicate
-    your images to Azure regions you selected, and will provide continued access
+    images to the selected Azure regions, and will provide continued access
     to images even if a region were experiencing an outage.
 
 -   Choose a traffic router that can distribute traffic across zones or regions,
@@ -922,7 +918,7 @@ have higher availability, run multiple AKS clusters, in different regions.
     because it can distribute non-web traffic across zones. If you need to
     distribute traffic across regions, Azure Front Door should be considered.
     For other considerations, see [Choose a load
-    balancer](https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/load-balancing-overview).
+    balancer](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ### Disaster Recovery
 
@@ -945,13 +941,13 @@ new instance in another region. Here are some recommendations:
 
 ### Kubernetes API Server Uptime SLA
 
-AKS can be used as a free service, but that tier does not offer a
-financially-backed SLA. In order to obtain a that SLA, you must choose to add an
+AKS can be used as a free service, but that tier doesn't offer a
+financially backed SLA. To obtain that SLA, you must choose to add an
 Uptime SLA to your purchase. We recommend all production clusters use this
-option and reserve clusters without this for pre-production clusters, combined
-with Azure Availability Zones, this brings the Kubernetes API server SLA to
-99.95%. Your node pools, and other resources are covered under their own SLA,
-this is specific to the API server.
+option. Reserve clusters without this option for pre-production clusters. When combined
+with Azure Availability Zones, the Kubernetes API server SLA is increased to
+99.95%. 
+>Your node pools, and other resources are covered under their own SLA.
 
 ### Tradeoff 
 
