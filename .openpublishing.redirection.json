@@ -1949,6 +1949,26 @@
     {
       "source_path": "docs/solution-ideas/articles/ibems-shield-smart-buildings.md",
       "redirect_url": "/azure/architecture/solution-ideas/articles/safe-buildings",
-     }
+     },
+     {
+       "source_path":"docs/solution-ideas/articles/azure-iot-subsystems",
+       "redirect_url":"docs/reference-architectures/iot.md"
+     },
+     {
+      "source_path":"docs/solution-ideas/articles/iot-with-aks",
+      "redirect_url":"docs/reference-architectures/iot.md"
+    },
+    {
+      "source_path":"docs/reference-architectures/iot-with-sql.md",
+      "redirect_url":"docs/reference-architectures/iot.md"
+    },
+    {
+      "source_path":"docs/solution-ideas/articles/real-time-web-dashboard",
+      "redirect_url":"docs/reference-architectures/iot.md"
+    },
+    {
+      "source_path":"docs/solution-ideas/articles/telemetry-analytics",
+      "redirect_url":"docs/reference-architectures/iot.md"
+    }
   ]
 }
