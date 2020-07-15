@@ -447,6 +447,239 @@ files, the pod will authenticate itself against the resource.
 In this reference implementation, managed pod identities is facilitated through
 [aad-pod-identity](https://github.com/Azure/aad-pod-identity).
 
+## Deploy Ingress resources
+------------------------
 
+Kubernetes Ingress resources route and distribute incoming traffic to the
+cluster. There are two portions of Ingress resources:
+
+- Internal load balancer. Managed by AKS. This load balancer exposes the
+    ingress controller through a private static IP address. It serves as single
+    point of contact that receives inbound flows.
+
+    In this architecture, Azure Load Balancer is used. It’s placed outside the
+cluster; in a subnet dedicated for ingress resources. It receives traffic
+from Azure Application Gateway and that communication is over TLS. For
+information about TLS encryption for inbound traffic, see [Ingress traffic
+flow](#_Ingress_traffic_flow).
+
+- Ingress controller. We have chosen Traefik. It runs in the user node pool in
+    the cluster. It receives traffic from the internal load balancer, terminates
+    TLS, and forwards it to the workload pods over HTTP.
+
+    The ingress controller is a critical component of cluster. Consider these points
+when configuring this component.
+
+- As part of your design decisions, choose a scope within which the ingress
+    controller will be allowed operate. For example, you might allow the
+    controller to only interact with the pods that run a specific workload.
+
+- Avoid placing replicas on the same node. This will spread out the load and
+    can ensure business continuity if a node does down. That is achieved through
+    podAntiAffinity.
+
+- Constrain pods to be scheduled only on the user node pool by using
+    nodeSelectors. This will isolate workload and system pods.
+
+- Open ports and protocols that allow specific entities to send traffic to the
+    ingress controller. In this architecture, Traeffik only receives traffic
+    from Azure Application Gateway.
+
+- Ingress controller should send signals that indicate the health of pods.
+    Configure readinessProbe and livenessProbe settings that will monitor the
+    health of the pods at the specified interval.
+
+- Consider restricting the ingress controller’s access to specific resources
+    and the ability to perform certain actions. That can be implemented through
+    Kubernetes RBAC permissions. For example, in this architecture, Traefik has
+    been granted permissions to watch, get, and list services and endpoints. by
+    using rules in the Kubernetes ClusterRole object.
+
+### Router settings
+
+The ingress controller uses routes to determine where to send traffic. Routes
+specify the source port at which the traffic is received and information about
+the destination ports and protocols.
+
+Here’s an example from this architecture:
+
+Traefik uses the Kubernetes provider to configure routes. The annotations, tls
+and entrypoints indicate that routes will be served over HTTPS. The middlewares
+specifies that only traffic from the Azure Application Gateway subnet is
+allowed. The responses will use gzip encoding if the client accepts. Because
+Traefik does TLS termination, communication with the backend services is over
+HTTP.
+
+```
+apiVersion:networking.k8s.io/v1beta1
+kind: Ingress	
+metadata:	
+  name: aspnetapp-ingress	
+  namespace: a0008	
+  annotations:	
+    kubernetes.io/ingress.class: traefik-internal	
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure	
+    traefik.ingress.kubernetes.io/router.tls: "true"	
+    traefik.ingress.kubernetes.io/router.tls.options: default	
+    traefik.ingress.kubernetes.io/router.middlewares: app-gateway-snet@file, gzip-compress@file	
+spec:	
+  # ingressClassName: "traefik-internal"	
+  tls:	
+  - hosts:	
+      - bu0001a0008-00.aks-ingress.contoso.com	
+  rules:	
+  - host: bu0001a0008-00.aks-ingress.contoso.com	
+    http:	
+      paths:	
+      - path: /	
+        backend:	
+          serviceName: aspnetapp-service	
+          servicePort: http	
+```
+
+## Secure the network flow
+-----------------------
+
+Network flow, in this context, can be categorized as:
+
+-   **Ingress traffic**. From the client to the workload running in the cluster.
+
+-   **Egress traffic**. From a pod or node in the cluster to an external
+    service.
+
+-   **Pod-to-pod traffic**. Communication between pods. This includes traffic
+    between the ingress controller and the workload. Also, if your workload were
+    composed of multiple applications deployed to the cluster, communication
+    between those applications would fall into this category.
+
+-   **Management traffic**. Traffic that goes between the client and the
+    Kubernetes API server.
+
+![Cluster traffic flow](_images/traffic-flow.png)
+
+This architecture has several layers of security to secure all types of traffic.
+
+### Ingress traffic flow
+
+The architecture only accepts TLS encrypted requests from the client. TLS v1.2
+is the minimum allowed version with a restricted set of cyphers. Server Name
+Indication (SNI) strict is enabled. End-to-end TLS is set up through Application
+Gateway by using two different TLS certificates, as shown in this image.
+
+![](_images/tls-termination.png)
+
+1.  The client sends an HTTPS request to the domain name: bicycle.contoso.com.
+    That name is associated with through a DNS A record to the public IP address
+    of Azure Application Gateway. This traffic is encrypted to make sure that
+    the traffic between the client browser and gateway cannot be inspected or
+    changed.
+
+2.  Application Gateway has an integrated web application firewall (WAF) and
+    negotiates the TLS handshake for bicycle.contoso.com, allowing only secure
+    ciphers. Application Gateway is a TLS termination point, as it is required
+    to process WAF inspection rules, and execute routing rules that forwards the
+    traffic to the configured backend. The TLS certificate is stored in Azure
+    Key Vault. It’s accessed using a user-assigned managed identity integrated
+    with Application Gateway. For information about that feature, see [TLS
+    termination with Key Vault
+    certificates](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+
+3.  The traffic moves from Application Gateway to the backend, the traffic is
+    encrypted again with another TLS certificate (wildcard for
+    \*.aks-ingress.contoso.com) as it’s forwarded to the internal load balancer.
+    This re-encryption makes sure unsecure traffic doesn’t flow into the cluster
+    subnet.
+
+4.  The ingress controller receives the encrypted traffic through the load
+    balancer. The controller is another TLS termination point for
+    \*.aks-ingress.contso.com and forwards the traffic to the workload pods over
+    HTTP. The certificates are stored in Azure Key Vault and mounted into the
+    cluster using the Container Storage Interface (CSI) driver. For more
+    information, see Add secret management.
+
+You can implement end-to-end TLS traffic all at every hop the way through to the
+workload pod. Be sure to measure the performance, latency, and operational
+impact when making the decision to secure pod-to-pod traffic.
+
+### Egress traffic flow
+
+For zero-trust control and the ability to inspect traffic, all egress traffic
+from the cluster moves through Azure Firewall. You can implement that choice
+using user-defined routes (UDRs). The next hop of the route is the [private IP
+address](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)
+of the Azure Firewall. Here, Azure Firewall decides whether to block or allow
+the egress traffic based on the specific rules defined in the Azure Firewall or
+using the built-in threat intelligence rules.
+
+An exception to the zero-trust control is when the cluster needs to communicate
+with other Azure resources. For instance, the cluster needs to pull an updated
+image from the container registry. The recommended approach is by using  [Azure
+Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview).
+The advantage is that specific subnets reach the service directly. Also, traffic
+between the cluster and the service is not exposed to public internet. A
+downside is that Private Link needs additional configuration instead of using
+the target service over its public endpoint. Also, not all Azure services or
+SKUs support Private Link. For those cases, consider enabling a Service Endpoint
+on subnet to access the service.
+
+If Private Link or Service Endpoints are not an option, you can reach other
+services through their public endpoints, and control access through Azure
+Firewall rules and the firewall built into the target service. Because this
+traffic will go through the static IP address of the firewall, that address can
+be added the service’s IP allow list. One downside is that Azure Firewall will
+need to have additional rules to make sure only traffic from specific subnet is
+allowed.
+
+### Pod-to-pod traffic
+
+By default, a pod can accept traffic from any other pod in the cluster.
+Kubernetes NetworkPolicy is used to restrict network traffic between pods. Apply
+policies judiciously, otherwise you might have a situation where a critical
+network flow is blocked. *Only* allow specific communication paths, as needed,
+such as traffic between the ingress controller and workload. For more
+information, see Network policies.
+
+You need to enable network policy when the cluster is provisioned and that
+feature cannot be added later. There are a few choices for technologies that
+implement NetworkPolicy. Azure Network Policy is recommended, which requires
+Azure Container Networking Interface (CNI), see the note below. Other options
+include Calico Network Policy, a well-known open-source option. Consider Calico
+if you need to manage cluster-wide network policies. Be aware that Calico is not
+covered under standard Azure support.
+
+For information, see [Differences between Azure Network Policy and Calico
+policies and their capabilities](https://docs.microsoft.com/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities).
+
+[!NOTE]
+AKS supports two different networking models: kubenet and Azure Container
+Networking Interface (CNI).
+
+CNI is more advanced of the two models. CNI is required for enabling Azure
+Network Policy. In this model, every pod gets an IP address from the subnet
+address space. This allows resources within the same network (or peer-ed
+resources) to access the pods directly through their IP address. NAT is not
+needed for routing that traffic. So, CNI performant because there aren’t
+additional network overlays. It also offers better security control because
+it enables the use Azure Network Policy.
+
+In general, CNI is recommended. CNI offers granular control by teams and the
+resources they control. Also, CNI allows for more scaled pods than kubenet.
+Carefully consider the choice otherwise, the cluster will need to be
+redeployed.
+
+For information about the models, see [Compare network
+models](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models).
+
+### Management traffic
+
+As part of running the cluster, the Kubernetes API server will receive traffic
+from resources that want to do management operations on the cluster, such as
+requests to create resources or the scale the cluster. Examples of those
+resources include the build agent pool in a DevOps pipeline, a Bastion subnet,
+and node pools themselves. Instead of accepting this management traffic from all
+IP addresses, use AKS’s Authorized IP Ranges feature to only allow traffic from
+your authorized IP ranges to the API server.
+
+For more information, see [Define API server authorized IP ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges).
 
 
