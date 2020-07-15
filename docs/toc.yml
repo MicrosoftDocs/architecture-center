@@ -860,6 +860,8 @@ items:
         href: reference-architectures/hybrid-networking/shared-services.md
       - name: Troubleshoot a hybrid VPN connection
         href: reference-architectures/hybrid-networking/troubleshoot-vpn.md
+      - name: Windows Virtual Desktop for enterprises
+        href: example-scenario/wvd/windows-virtual-desktop.md
   - name: Identity
     items:
     - name: Guides
