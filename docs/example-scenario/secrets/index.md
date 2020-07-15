@@ -1,9 +1,9 @@
 ---
-title: Secure Storage of OAuth 2.0 On-Behalf-Of Refresh Tokens 
+title: Secure storage of OAuth 2.0 On-Behalf-Of refresh tokens for web services
 titleSuffix: Azure Example Scenarios
-description: Stores refresh tokens securely using Azure Key Vault with key rotation and token refresh.
+description: Store refresh tokens securely using Azure Key Vault with key rotation and token refresh.
 author: jmostella
-ms.date: 07/09/2020
+ms.date: 07/15/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -11,54 +11,46 @@ ms.custom:
 - fcp
 ---
 
-# Secure Storage of OAuth 2.0 On-Behalf-Of Refresh Tokens for Web Services
+# Secure storage of OAuth 2.0 On-Behalf-Of refresh tokens for web services
 
-When developing web services, it may become necessary to obtain tokens using [OAuth 2.0 On-Behalf-Of flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). When an access and refresh token are to be obtained in this way are to be used indefinitely, it becomes critical to store the **refresh token** in a secure way.
+When developing web services, you may need to obtain access and refresh tokens using the [OAuth 2.0 On-Behalf-Of (OBO) flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). The OBO flow serves the use case where an application invokes a service or web API, which in turn needs to call another service or web API. OBO propagates the delegated user identity and permissions through the request chain.
 
-Since these tokens can provide a malicious actor access to resources under the user's Azure Active Directory, a security breach of an application, which is configured to target _Accounts in any organizational directory (Any Azure AD directory - Multitenant)_, can become especially disastrous.
+Carefully consider the need to store tokens, since these tokens can provide a malicious actor access to resources under the user's Azure Active Directory (Azure AD). A security breach of an application that targets **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** can be especially disastrous.
 
-> [!IMPORTANT]
-> The need to store refresh tokens should be considered carefully.
-> It may seem like a good idea to store the access token also, however it poses a greater security risk, since in and of itself an access token can be used to access resources.
-> The recommended approach is to store only refresh tokens and get the access token as needed.
+When an app needs to use the access and refresh tokens indefinitely, it's critical to store the refresh token securely. Storing the access token may seem like a good idea, but poses a greater security risk, since an access token in and of itself can access resources. The recommended approach is to store only refresh tokens, and get access tokens as needed.
 
-This solution will use Azure Key Vault, Azure Functions,  and Azure DevOps. Also it will provide a way to remove access to an application for an organization by removing secrets.
+This solution uses Azure Key Vault, Azure Functions, and Azure DevOps to securely store refresh tokens. The solution also shows how to remove an organization's access to an application by removing secrets.
 
-- `Azure Key Vault` will hold a secret (encryption key) per AAD Tenant
-- `Azure Function` will refresh the **refresh token** and save with **latest** secret (version)
-- `Azure DevOps` can be used to create/update keys in a pipeline as part of a continuous delivery pipeline.  
-- Database will store encrypted and necessary opaque data
+- Azure Key Vault holds a secret encryption key per Azure AD tenant.
+- An Azure Functions function refreshes the refresh token and saves it with the latest secret version.
+- Azure DevOps Pipelines creates and updates the keys as part of a continuous delivery (CD) pipeline.
+- A database stores encrypted and necessary opaque data.
 
 ## Azure Key Vault Operations
 
 ![Key Value key creation](./media/key-creation-pipeline-2.svg)
 
-Taking the `Service Principal` for your `Azure Dev Ops Service Connection`, apply permissions, which will allow your Azure Pipelines to set secrets.
+Apply permissions to the Service Principal for your Azure Dev Ops service connection, which allows your Azure Pipelines to set secrets. Set the `vault_name` and `secret_manager_principal` variables to correct values for your environment.
 
 ```azurecli
 az keyvault set-policy --name $vault_name --spn $secret_manager_principal --secret-permissions set
 ```
 
-Set the `vault_name` and `secret_manager_principal` variables to correct values for your environment.
+After you set up your pipelines to create or update keys, schedule the pipeline to run periodically and enable key rotation. See [Configure schedules for pipelines](https://docs.microsoft.com/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops&tabs=yaml).
 
-Once you’ve setup your pipeline(s) to create or update keys, they can be scheduled to run periodically. This pipeline will enable an (eventual) key rotation. See [Configure schedules for pipelines](https://docs.microsoft.com/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops&tabs=yaml).
+When the refresh token is refreshed, a new key is available to encrypt the new refresh token. You can keep the key rotation schedule in sync with the token refresh schedule.
 
-When `refreshToken` is refreshed, a new key will be available for our new `refreshToken` to be encrypted with. You can keep the key rotation schedule in sync with the token refresh schedule (will be covered later).
-
-> [!NOTE]
-> Use of `Azure DevOps` is not strictly necessary. The point is to limit paths that secrets can be set or retrieved. If you're already using `Azure DevOps` for IaC and, or CI/CD, then this is a convenient point to add your key rotation strategy.
+It's not strictly necessary to use Azure DevOps. The point is to limit paths for setting or retrieving secrets. If you're already using Azure DevOps for infrastructure-as-code (IaC) or continuous integration and delivery (CI/CD), this is a convenient point to add your key rotation strategy.
 
 ## Azure Function Operations
 
 ![Get opaque token](./media/convert-to-opaque-token.svg)
 
-The most convenient way to allow a service access to Key Vault is to use a [Managed Identity](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-managed-identity). Access can be granted the `Azure Portal`, `Resource Manager template` (for IaC scenario), or the ``Azure CLI` as above.
+The most convenient way to allow a service to access Key Vault is to use a [Managed Identity](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-managed-identity). You can grant access through the Azure Portal, an Azure Resource Manager (ARM) template for IaC scenarios, or through the Azure CLI.
 
 ![Enable managed identity](./media/ManagedIdentity.PNG)
 
-For example, using an [Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/templates/) to set up an `Azure Function` with access to `Azure Key Vault`, you may use the following example. You may also create an `Azure Key Vault` through the portal or [Azure CLI](https://docs.microsoft.com/cli/azure/ext/keyvault-preview/keyvault?view=azure-cli-latest)
-
-__Example:__ Set `Managed Identity` using `Resource Manager template` at creation time
+Use the following [ARM template](https://docs.microsoft.com/azure/azure-resource-manager/templates/) to set up an Azure Functions function with access to Azure Key Vault. Replace the `***` variables to correct values for your environment.
 
 ```json
 {
@@ -100,7 +92,7 @@ __Example:__ Set `Managed Identity` using `Resource Manager template` at creatio
 }
 ```
 
-__Example:__ Set `Managed Identity` using `Azure Cli`
+You can also create an Azure Key Vault through the Azure portal or by using the [Azure CLI](https://docs.microsoft.com/cli/azure/ext/keyvault-preview/keyvault?view=azure-cli-latest):
 
 ```azurecli
 az keyvault set-policy --name $vault_name --spn $secret_manager_principal --secret-permissions set
@@ -108,47 +100,36 @@ az keyvault set-policy --name $vault_name --spn $function_managed_identity --sec
 ```
 
 
-## Interactive Client to Service Call
+## Interactive client to service call
 
-Any database can be used since we will be storing the data in an encrypted format. Below shows the sequence to store a user's refresh tokens in the database.
+You can use any database to store the tokens in encrypted format. The following diagram shows the sequence to store a user's refresh tokens in a database:
 
 ![Add token sequence](./media/add-token-sequence.PNG)
 
-With the cryptographic key stored as a secret, you can easily look up the __latest__ version of the key in `Azure Key Vault`
+The sequence has two functions, `userId()` and `secretId()`. You can define these functions as some combination of `token.oid`, `token.tid`, and `token.sub`, but this definition is left to the implementation. For more information, see [Use the id_token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#using-the-id_token).
 
-> [!NOTE]
-> In the sequence there are 2 functions `userId()` and `secretId()`.
-> We propose that these should be defined as some combination of `token.oid`, `token.tid`, and `token.sub`.
-> But this is left to the implementation to define.
-> See [Using the id_token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#using-the-id_token)
+With the cryptographic key stored as a secret, you can look up the latest version of the key in Azure Key Vault.
 
-## Server-side Service Call
+## Server-side service call
 
-Using the key is equally straight forward. But this time the key will be queried based on the stored `version`
+Using the key is equally straightforward, but the following sequence queries the key based on the stored `version`. It's not recommended to use Azure Key Vault in the `http` pipeline, so cache these responses whenever possible. The diagram labels the calls to Key Vault that are candidates for caching.
 
 ![Use stored token](./media/use-stored-token.PNG)
 
-> [!IMPORTANT]
-> It is not generally recommended that Azure Key Vault be used in the http pipeline. So whenever possible these responses should be cached. 
-> The calls to Key Vault that are candidate for caching are labeled. 
+The implicit key rotation is orthogonal to the application, so you can save the refresh token under a new key asynchronously. Azure Functions supports asynchronous processing with [Durable Functions](https://docs.microsoft.com/azure/azure-functions/durable/). For more information, see [HTTP features](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-http-features?tabs=csharp#http-api-url-discovery).
 
-The implicit key rotation here, is orthogonal to the unit of work we're running. So we can accomplish saving the `refreshToken` under a new key asynchronously. `Azure Functions` supports asynchronous processing using `Durable Functions`. See: [HTTP Features](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-http-features?tabs=csharp#http-api-url-discovery)
+## Key rotation and token refresh flow
 
-## Key Rotation and Token Refresh Flow
+![Token refresh diagram](./media/refresh-diagram.svg)
 
-![Token Refresh diagram](./media/refresh-diagram.svg)
+You can do key rotation at the same times that you refresh the refresh token. The following sequence diagram illustrates this process:
 
-Key rotation, can be done at the same times that the `refreshToken` gets refreshed. Below is a sequence diagram to illustrate this process.
+![Token refresh sequence](./media/token-refresh-sequence.PNG)
 
-![Token Refresh Sequence](./media/token-refresh-sequence.PNG)
+Here you use a timer trigger, as in the Azure DevOps example. When you refresh the refresh token, the token gets encrypted using the latest version of the encryption key. Azure Functions has built-in support for timer triggers. For more information, see [Timer trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-timer?tabs=csharp).
 
-Here we are also using a `timedTrigger`, as in the `AzDo` example. While we refresh our `refreshToken`, it gets encrypted using the latest version of the encryption key.
+## User management and access control
 
-> [!NOTE]
-> `timerTrigger`s are have built in support within `Azure Functions` see [Timer trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-timer?tabs=csharp)
+Removing a user or removing access per user is  straightforward. Simply remove the user's record or the `refreshToken` part of the user data.
 
-## User Management and Access Control
-
-Removing a user or removing access per user is a straight-forward path. Simply remove the user's record or the refreshToken part of the user data.
-
-To remove access for a group of users (ex. all users in a target tenant), we can simply delete the secret for this group based on `secretId()`. An `Azure Pipeline` can be a good place to implement this functionality.
+To remove access for a group of users, such as all users in a target tenant, simply delete the secret for this group based on `secretId()`. Azure Pipelines can be a good place to implement this functionality.
