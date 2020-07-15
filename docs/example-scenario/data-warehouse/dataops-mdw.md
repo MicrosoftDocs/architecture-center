@@ -107,7 +107,7 @@ The solution uses these components:
 
 The following list contains the high-level steps required to set up the Parking Sensors solution with corresponding Build and Release Pipelines. You can find detailed setup steps and prerequisites in this [Azure Samples repository](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#how-to-use-the-sample).
 
-### Setup and Deployment
+### Setup and deployment
 
 1. **Initial setup**: Install any prerequisites, import the Azure Samples GitHub repository into your own repository, and set required environment variables.
 1. **Deploy Azure resources**: The solution comes with an automated deployment script. It deploys all necessary Azure resources and AAD service principals per environment. The script also deploys Azure DevOps pipelines, variable groups, and service connections.
@@ -115,13 +115,13 @@ The following list contains the high-level steps required to set up the Parking 
 
 1. **Carry out an initial build and release**: Create a sample change in Data Factory, like enabling a schedule trigger, then watch the change automatically deploy across environments.
 
-### Deployed Resources
+### Deployed resources
 
 If deployment is successful, there should be three resources groups in Azure representing three environments: dev, stg, and prod. There should also be end-to-end build and release pipelines in Azure DevOps that can automatically deploy changes across these three environments.
 
 For a detailed list of all resources, see the [Deployed Resources](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#deployed-resources) section of the **DataOps - Parking Sensor Demo** README.
 
-### Continuous Integration and Continuous Delivery
+### Continuous integration and continuous delivery
 
 The diagram below demonstrates the CI/CD process and sequence for the build and release pipelines.
 
