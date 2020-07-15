@@ -151,7 +151,6 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Bursting from AKS with ACI](../../includes/cards/scale-using-aks-with-aci.md)]
 [!INCLUDE [CI/CD pipeline for container-based workloads](../../includes/cards/devops-with-aks.md)]
 [!INCLUDE [Elastic demand handling with AKS](../../includes/cards/aks-demand-spikes.md)]
-[!INCLUDE [Instant IoT data streaming with AKS](../../includes/cards/aks-iot-data-streaming.md)]
 [!INCLUDE [Microservices architecture on Azure Kubernetes Service (AKS)](../../includes/cards/aks.md)]
 [!INCLUDE [Microservices with AKS](../../includes/cards/microservices-with-aks.md)]
 [!INCLUDE [Secure DevOps for AKS](../../includes/cards/secure-devops-for-kubernetes.md)]
@@ -310,20 +309,15 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 <ul class="grid">
 
 [!INCLUDE [Azure IoT reference architecture](../../includes/cards/iot.md)]
-[!INCLUDE [Azure IoT reference architecture](../../includes/cards/iot-with-sql.md)]
 [!INCLUDE [COVID-19 Safe Solutions with IoT Edge](../../includes/cards/cctv-mask-detection.md)]
 [!INCLUDE [Cognizant Safe Buildings with IoT and Azure](../../includes/cards/safe-buildings.md)]
 [!INCLUDE [Contactless IoT interfaces with Azure intelligent edge](../../includes/cards/contactless-interfaces.md)]
 [!INCLUDE [Controlling IoT devices using a Voice Assistant](../../includes/cards/iot-devices.md)]
-[!INCLUDE [IoT Architecture – Azure IoT Subsystems](../../includes/cards/azure-iot-subsystems.md)]
 [!INCLUDE [IoT Connected Platform for COVID-19 detection and prevention](../../includes/cards/iot-connected-platform.md)]
 [!INCLUDE [IoT and data analytics](../../includes/cards/big-data-with-iot.md)]
-[!INCLUDE [IoT device deployment and management on demand](../../includes/cards/iot-with-aks.md)]
 [!INCLUDE [IoT using Cosmos DB](../../includes/cards/iot-using-cosmos-db.md)]
 [!INCLUDE [Process real-time vehicle data using IoT](../../includes/cards/realtime-analytics-vehicle-iot.md)]
-[!INCLUDE [Real-time Web Dashboard](../../includes/cards/real-time-web-dashboard.md)]
 [!INCLUDE [Secure your IoT SaaS app with the Microsoft identity platform](../../includes/cards/iot-aad.md)]
-[!INCLUDE [Telemetry Analytics](../../includes/cards/telemetry-analytics.md)]
 
 </ul>
 
