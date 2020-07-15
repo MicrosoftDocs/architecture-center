@@ -21,14 +21,24 @@ When an app needs to use the access and refresh tokens indefinitely, it's critic
 
 This solution uses Azure Key Vault, Azure Functions, and Azure DevOps to securely store refresh tokens. The solution also shows how to remove an organization's access to an application by removing secrets.
 
+## Architecture
+
+![Diagram showing the key and token refresh processes.](./media/refresh-diagram.png)
+
 - Azure Key Vault holds a secret encryption key per Azure AD tenant.
 - An Azure Functions function refreshes the refresh token and saves it with the latest secret key version.
-- An Azure DevOps continuous delivery pipeline creates and updates the keys.
 - A database stores the encrypted and opaque data.
+- An Azure DevOps continuous delivery pipeline creates and updates the keys.
 
-## Azure Key Vault operations
+### Azure Key Vault operations
 
-![Key Vault key creation](./media/key-creation-pipeline.png)
+![Diagram showing Key Vault key creation and update.](./media/key-creation-pipeline.png)
+
+### Azure Functions operations
+
+![Diagram showing Azure Functions operations.](./media/convert-to-opaque-token.png)
+
+### Azure DevOps
 
 Azure Pipelines is a convenient place to add your key rotation strategy, if you're already using Pipelines for infrastructure-as-code (IaC) or continuous integration and delivery (CI/CD). You don't have to use Azure DevOps, but the point is to limit the paths for setting or retrieving secrets.
 
@@ -42,15 +52,17 @@ After you set up your pipeline to create or update keys, schedule the pipeline t
 
 You can [sync the key rotation schedule with the token refresh schedule](#key-rotation-and-token-refresh-flow). Whenever the refresh token refreshes, a new key encrypts the new refresh token.
 
-## Azure Functions operations
+## Managed identity
 
-![Get opaque token](./media/convert-to-opaque-token.png)
+The most convenient way for an Azure service like Azure Functions to access Key Vault is to use the service's [Managed Identity](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-managed-identity). You can grant access through the Azure portal, Azure CLI, or through an Azure Resource Manager (ARM) template for IaC scenarios.
 
-### Create a managed identity
+### Azure portal
 
-The most convenient way for an Azure service to access Key Vault is to use the service's [Managed Identity](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-managed-identity). You can grant access through the Azure portal or Azure CLI, or through an Azure Resource Manager (ARM) template for IaC scenarios.
+You can use the Azure portal to set up a managed identity for Azure Functions. For more information, see [Add a system-assigned identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity).
 
-![Enable managed identity](./media/system-assigned-managed-identity-in-azure-portal.png)
+![Screenshot showing how to enable managed identity in the Azure portal.](./media/system-assigned-managed-identity-in-azure-portal.png)
+
+### ARM template
 
 The following [ARM template](https://docs.microsoft.com/azure/azure-resource-manager/templates/) gives Azure Functions access to Azure Key Vault. Replace the `***` variables with the correct values for your environment.
 
@@ -94,34 +106,34 @@ The following [ARM template](https://docs.microsoft.com/azure/azure-resource-man
 }
 ```
 
-You can also set Azure Key Vault policy through the Azure portal or by using the [Azure CLI](https://docs.microsoft.com/cli/azure/ext/keyvault-preview/keyvault?view=azure-cli-latest):
+### Azure CLI
+
+You can also set Azure Key Vault policy by using the [Azure CLI](https://docs.microsoft.com/cli/azure/ext/keyvault-preview/keyvault?view=azure-cli-latest):
 
 ```azurecli
 az keyvault set-policy --name $vault_name --spn $secret_manager_principal --secret-permissions set
 az keyvault set-policy --name $vault_name --spn $function_managed_identity --secret-permissions get
 ```
 
-## Interactive client to service call
+## Token storage
 
-You can use any database to store the tokens in encrypted form. The following diagram shows the sequence to store a user's refresh tokens in a database:
+You can use any database to store the tokens in encrypted form. The following diagram shows the sequence to store refresh tokens in a database:
 
 ![Diagram that shows the add token sequence.](./media/add-token-sequence-diagram.png)
 
-The sequence has two functions, `userId()` and `secretId()`. You can define these functions as some combination of `token.oid`, `token.tid`, and `token.sub`, but this definition is left to the implementation. For more information, see [Use the id_token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#using-the-id_token).
+The sequence has two functions, `userId()` and `secretId()`. You can define these functions as some combination of `token.oid`, `token.tid`, and `token.sub`. For more information, see [Use the id_token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#using-the-id_token).
 
 With the cryptographic key stored as a secret, you can look up the latest version of the key in Azure Key Vault.
 
-## Server-side service call
+## Token usage
 
-Using the key is straightforward. The following sequence queries the key based on the stored key version. It's not recommended to use Azure Key Vault in the `http` pipeline, so cache the responses whenever possible. The diagram labels the calls to Key Vault that are candidates for caching.
+Using the key is straightforward. The following sequence queries the key based on the stored key version. It's not recommended to use Azure Key Vault in the `http` pipeline, so cache the responses whenever possible. The diagram labels the calls to Key Vault that are candidates for caching. For more information, see [HTTP API URL discovery](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-http-features?tabs=csharp#http-api-url-discovery).
 
-![Diagram that shows the use stored token sequence.](./media/use-stored-token-sequence.png)
+![Diagram that shows the stored token usage sequence.](./media/use-stored-token-sequence.png)
 
-The implicit key rotation is orthogonal to the application, so you can save the refresh token under a new key asynchronously. Azure Functions supports asynchronous processing with [Durable Functions](https://docs.microsoft.com/azure/azure-functions/durable/). For more information, see [HTTP features](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-http-features?tabs=csharp#http-api-url-discovery).
+The key rotation is orthogonal to the application, so you can save the refresh token under a new key asynchronously. Azure Functions supports asynchronous processing with [Durable Functions](https://docs.microsoft.com/azure/azure-functions/durable/).
 
-## Key rotation and token refresh flow
-
-![Diagram that shows token refresh.](./media/refresh-diagram.png)
+## Key rotation and token refresh
 
 You can rotate the secret key at the same times that you refresh the refresh token. The following sequence diagram illustrates this process:
 
@@ -129,8 +141,8 @@ You can rotate the secret key at the same times that you refresh the refresh tok
 
 This process uses a timer trigger, as in the Azure DevOps example. When you refresh the refresh token, the token gets encrypted using the latest version of the encryption key. Azure Functions has built-in support for timer triggers. For more information, see [Timer trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-timer?tabs=csharp).
 
-## User management and access control
+## User and access control
 
 To remove a user, just remove the user's record. To remove application access per user, remove the `refreshToken` part of the user data.
 
-To remove access for a group of users, such as all users in a target tenant, delete the group's secret based on `secretId()`. Azure Pipelines is a good place to implement this functionality.
+To remove access for a group of users, such as all users in a target tenant, you can use Azure Pipelines to delete the group's secret based on `secretId()`.
