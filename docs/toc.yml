@@ -760,6 +760,8 @@ items:
         href: solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.md
       - name: Campaign optimization with SQL Server
         href: solution-ideas/articles/campaign-optimization-with-sql-server.md
+      - name: DataOps for modern data warehouse
+        href: example-scenario/data-warehouse/dataops-mdw.md
       - name: Data streaming
         href: solution-ideas/articles/data-streaming-scenario.md
       - name: Data cache
@@ -1055,18 +1057,12 @@ items:
       items:
       - name: IoT reference architecture
         href: reference-architectures/iot.md
-      - name: Azure IoT Subsystems
-        href: solution-ideas/articles/azure-iot-subsystems.md
       - name: IoT and data analytics
         href: example-scenario/data/big-data-with-iot.md
-      - name: On-demand IoT device deployment
-        href: solution-ideas/articles/iot-with-aks.md
       - name: IoT devices
         href: solution-ideas/articles/iot-devices.md
       - name: IoT using Cosmos DB
         href: solution-ideas/articles/iot-using-cosmos-db.md
-      - name: IoT using SQL DB
-        href: reference-architectures/iot-with-sql.md
       - name: IoT Connected Platform
         href: solution-ideas/articles/iot-connected-platform.md
       - name: Contactless IoT interfaces
@@ -1075,14 +1071,10 @@ items:
         href: solution-ideas/articles/cctv-mask-detection.md
       - name: Process real-time vehicle data using IoT
         href: example-scenario/data/realtime-analytics-vehicle-iot.md
-      - name: Real-time web dashboard
-        href: solution-ideas/articles/real-time-web-dashboard.md
       - name: Safe Buildings with IoT and Azure
         href: solution-ideas/articles/safe-buildings.md
       - name: Secure access to IoT apps with Azure AD
         href: example-scenario/iot-aad/iot-aad.md
-      - name: Telemetry Analytics
-        href: solution-ideas/articles/telemetry-analytics.md
   - name: Management and Governance
     items:
     - name: Architectures
