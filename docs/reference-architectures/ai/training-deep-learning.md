@@ -115,7 +115,7 @@ Azure Machine Learning offers many ways to [instrument your experiments][azureml
 
 ## Cost considerations
 
-Use the  [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
+Use the  [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other tips for how to [plan and manage costs][costs].
 
 ### Premium Blob Storage
 
@@ -172,3 +172,5 @@ The output from this architecture is a trained model that is saved to blob stora
 [tfrecords]: https://www.tensorflow.org/tutorials/load_data/tf_records
 [petastorm]: https://github.com/uber/petastorm
 [premium-storage]: https://azure.microsoft.com/services/storage/blobs
+[costs]: https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost
+
