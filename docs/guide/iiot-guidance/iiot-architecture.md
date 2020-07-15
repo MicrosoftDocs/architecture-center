@@ -14,7 +14,7 @@ ms.subservice: reference-architecture
 
 # Azure Industrial IoT Analytics Guidance
 
-These series of articles show a recommended architecture for an Industrial IoT (IIoT) Analytics Solution on Azure using PaaS (platform-as-a-service) components.
+This is a series of articles that show a recommended architecture for an Industrial IoT (IIoT) Analytics Solution on Azure using PaaS (platform-as-a-service) components.
 
 An IIoT Analytics Solution can be used to build a variety of applications that provide:
 
@@ -28,19 +28,15 @@ The IIoT Analytics Solution relies on real time and historical data from industr
 
 A modern IIoT Analytics Solution goes beyond moving existing industrial processes and tools to the cloud. It involves transforming your operations processes, embracing PaaS services, and leveraging the power of machine learning and the intelligent edge to optimize industrial processes.
 
-## Personas
-
 This architecture includes example personas to illustrate who would use the solution and how the solution would be used.
 
-- Plant Manager - responsible for the entire operations, production and administrative tasks of the Plant.
-- Production Manager - responsible for production of a certain number of components.
-- Process Engineer - responsible for designing, implementing, controlling and optimizing industrial processes.
-- Operations Manager - responsible for overall efficiency of operation in terms of Cost Reduction, Process Time, Process improvement, and so on.
-- Data Scientist – responsible for building and training predictive Machine Learning models using historical industrial telemetry.
+- **Plant Manager** - responsible for the entire operations, production and administrative tasks of the Plant.
+- **Production Manager** - responsible for production of a certain number of components.
+- **Process Engineer** - responsible for designing, implementing, controlling and optimizing industrial processes.
+- **Operations Manager** - responsible for overall efficiency of operation in terms of Cost Reduction, Process Time, Process improvement, and so on.
+- **Data Scientist** – responsible for building and training predictive Machine Learning models using historical industrial telemetry.
 
-## Architecture
-
-This article describes the architectural components that should go in an IIoT analytics solution. The following architecture diagram shows the core subsystems that comprise an IIoT analytics solution.
+The following architecture diagram shows the core subsystems that comprise an IIoT analytics solution.
 
 [![Azure IIoT architecture diagram](./images/iiot-architecture.png)](./images/iiot-architecture.png#lightbox)
 
@@ -52,7 +48,7 @@ The architecture consists of a number of subsystems and services and makes use o
 > [!IMPORTANT]
 > This reference architecture includes some services marked as "Preview" or "Public Preview".  Preview services are governed by [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-### Industrial Systems and Devices
+## Industrial Systems and Devices
 
 In process manufacturing, industrial equipment (e.g. flow monitors, pumps, etc.) is often geographically dispersed and must be monitored remotely. Remote Terminal Units (RTUs) connect remote equipment to a central SCADA system. RTUs work well in conditions where connectivity is intermittent, and no reliable continuous power supply exists.
 
@@ -64,11 +60,11 @@ Frequently, industrial equipment and SCADA systems are in a closed Process Contr
 
 The connection to the Historian, MES or SCADA system will depend on what protocols are available on that system. Many systems now include Industry 4.0 standards such as OPC UA. Older systems may only support legacy protocols such as Modbus, ODBC, or SOAP. If so, you will most likely require [Protocol Translation](https://docs.microsoft.com/samples/azure-samples/azure-iotedge-opc-flattener/azure-iot-edge-protocol-translation-sample/) software running on an Intelligent Edge device.
 
-### Intelligent Edge
+## Intelligent Edge
 
 Intelligent edge devices perform some data processing on the device itself or on a field gateway. In most industrial scenarios, the industrial equipment cannot have additional software installed on it. Therefore, a field gateway is required to connect the industrial equipment to the cloud.
 
-#### Azure IoT Edge
+### Azure IoT Edge
 
 To connect industrial equipment and systems to the cloud , we recommend using [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/about-iot-edge) as the field gateway for:
 
@@ -96,7 +92,7 @@ A number of third-party [IoT Edge gateway devices](https://catalog.azureiotsolut
 > [!IMPORTANT]
 > Proper hardware sizing of an IoT Edge gateway is important to ensure edge module performance. See Performance Considerations later in this document.
 
-### Gateway Patterns
+## Gateway Patterns
 
 There are [3 patterns for connecting your devices](https://docs.microsoft.com/azure/iot-edge/iot-edge-as-gateway) to Azure via an IoT Edge field gateway (or virtual machine):
 
@@ -110,7 +106,7 @@ Although you can use any of these patterns in your IIoT Analytics Solution, your
 
 IoT Edge gateways can be provisioned at scale using the [Azure IoT Hub Device Provisioning Service (DPS)](https://docs.microsoft.com/azure/iot-dps/about-iot-dps).  DPS is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT Hub without requiring human intervention, enabling customers to provision millions of devices in a secure and scalable manner.
 
-### OPC UA
+## OPC UA
 
 [OPC UA](https://opcfoundation.org/about/opc-technologies/opc-ua/) is the successor to [OPC Classic](https://opcfoundation.org/about/opc-technologies/opc-classic/) (OPC DA, AE, HDA). The OPC UA standard is maintained by the [OPC Foundation](https://opcfoundation.org/). Microsoft has been a member of the OPC Foundation since 1996 and has supported OPC UA on Azure since 2016.
 
@@ -125,7 +121,7 @@ Microsoft has developed open source [Azure Industrial IoT](https://github.com/Az
 
 The Microsoft Azure IIoT team has also developed a number of services, REST APIs, deployment scripts and configuration tools that you can integrate into your IIoT Analytics Solution. These are open source and available on [GitHub](https://azure.github.io/Industrial-IoT/).
 
-### Edge Workloads
+## Edge Workloads
 
 The ability to run custom or third-party modules at the edge is important. 
 
@@ -138,7 +134,7 @@ Microsoft, and our partners, have made available on the Azure Marketplace a numb
 
 Protocol and identity translation are the most common edge workloads used within an IIoT Analytics Solution. In the future, expect to see other workloads such as closed loop control using edge ML models.
 
-### Connecting to Historians
+## Connecting to Historians
 
 A common pattern when developing an IIoT Analytics Solution is to connect to a Process Historian and stream real time data from the Historian to Azure IoT Hub. How will depend on which protocols are installed and accessible (not blocked by firewalls) on the Historian.
 
@@ -161,7 +157,7 @@ Some Historian vendors also provide first-class capabilities to send data to Azu
 
 Once real time data streaming has been established between your Historian and Azure IoT Hub, it is important to export your Historian's historical data and import it into your IIoT Analytics Solution. For guidance on how to accomplish this, see Historical Data Ingestion.
 
-### Cloud Gateway
+## Cloud Gateway
 
 A cloud gateway provides a cloud hub for devices and field gateways to connect securely to the cloud and send data. It also provides device management capabilities. For the cloud gateway, we recommend Azure IoT Hub. IoT Hub is a hosted cloud service that ingests events from devices and IoT Edge gateways. IoT Hub provides secure connectivity, event ingestion, bidirectional communication, and device management. When IoT Hub is combined with the Azure Industrial IoT components, you can control your industrial devices using cloud-based REST APIs.
 

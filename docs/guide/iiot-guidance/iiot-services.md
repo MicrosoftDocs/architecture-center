@@ -14,7 +14,7 @@ ms.subservice: reference-architecture
 
 # Services in an IIoT analysis solution
 
-Building on the architectural components in the recommended [Azure Industrial IoT analysis solution](./iiot-guidance.md), this article discusses the subsystems and Azure services that can be used to build an IIoT Analytics Solution. Your own solution may not use all these services or may have additional services.
+Building on the architectural components in the recommended [Azure Industrial IoT analysis solution](./iiot-architecture.md), this article discusses the subsystems and Azure services that can be used to build an IIoT Analytics Solution. Your own solution may not use all these services or may have additional services.
 
 ## Time Series Service
 
