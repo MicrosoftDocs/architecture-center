@@ -1075,8 +1075,6 @@ items:
         href: example-scenario/iot-aad/iot-aad.md
       - name: Telemetry Analytics
         href: solution-ideas/articles/telemetry-analytics.md
-    - name: Design Guides
-      items:
       - name: Industrial IoT Analytics
         items:
           - name: Architecture

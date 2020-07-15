@@ -14,7 +14,7 @@ ms.subservice: reference-architecture
 
 # Azure Industrial IoT Analytics Guidance
 
-This is a series of articles that show a recommended architecture for an Industrial IoT (IIoT) Analytics Solution on Azure using PaaS (platform-as-a-service) components.
+This series of articles shows a recommended architecture for an Industrial IoT (IIoT) Analytics Solution on Azure using PaaS (platform-as-a-service) components.
 
 An IIoT Analytics Solution can be used to build a variety of applications that provide:
 
