@@ -44,12 +44,12 @@ The IT teams need guidance about architectural recommendations for running their
 
 Contoso Bicycle has a single IT Team with these sub teams.
 
-![Contoso teams](_images/contoso-teams.png)
+![Contoso teams](_images/contoso-teams.svg)
 
 #### Architecture team
 
 Work with the line of business from idea through deployment into production.
-They understand all aspects of the Azure components: ￼function, integration,
+They understand all aspects of the Azure components; ￼function, integration,
 controls, and monitoring capabilities. The team evaluates those aspects for
 functional, security, and compliance requirements. They coordinate and have
 representation from other teams. Their workflow aligns with Contoso's SDL process.
