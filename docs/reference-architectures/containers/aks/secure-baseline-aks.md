@@ -647,11 +647,11 @@ if you need to manage cluster-wide network policies. Calico isn't covered under 
 For information, see [Differences between Azure Network Policy and Calico
 policies and their capabilities](https://docs.microsoft.com/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities).
 
-[!NOTE]
-AKS supports two different networking models: kubenet and Azure Container
+>[!NOTE]
+> AKS supports two different networking models: kubenet and Azure Container
 Networking Interface (CNI).
 
-CNI is more advanced of the two models. CNI is required for enabling Azure
+> CNI is more advanced of the two models. CNI is required for enabling Azure
 Network Policy. In this model, every pod gets an IP address from the subnet
 address space. Resources within the same network (or peered
 resources) can access the pods directly through their IP address. NAT isn't
@@ -659,12 +659,13 @@ needed for routing that traffic. So, CNI performant because there aren’t
 additional network overlays. It also offers better security control because
 it enables the use Azure Network Policy.
 
-In general, CNI is recommended. CNI offers granular control by teams and the
+> In general, CNI is recommended. CNI offers granular control by teams and the
 resources they control. Also, CNI allows for more scaled pods than kubenet.
-Carefully consider the choice otherwise, the cluster will need to be
+
+> Carefully consider the choice otherwise, the cluster will need to be
 redeployed.
 
-For information about the models, see [Compare network
+> For information about the models, see [Compare network
 models](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models).
 
 ### Management traffic
