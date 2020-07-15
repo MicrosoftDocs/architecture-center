@@ -1,7 +1,7 @@
 ---
 title: Multi-region N-tier application
 description: Deploy an application on Azure virtual machines in multiple regions for high availability and resiliency.
-author: MikeWasson
+author: adamboeglin
 ms.date: 06/18/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -216,7 +216,7 @@ The following architecture uses some of the same technologies:
 
 <!-- links -->
 
-[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
 [azure-monitor]: https://azure.microsoft.com/services/monitor/
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [Sql-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/

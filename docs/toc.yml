@@ -424,16 +424,14 @@ items:
     items:
     - name: Overview
       href: data-guide/big-data/ai-overview.md
-    - name: Machine learning at scale
-      href: data-guide/big-data/machine-learning-at-scale.md
-    - name: Baseball decision analysis with ML.NET and Blazor
-      href: data-guide/big-data/baseball-ml-workload.md
-    - name: Technology choices
+    - name: Technology guide
       items:
       - name: Cognitive services
         href: data-guide/technology-choices/cognitive-services.md
       - name: Machine learning
         href: data-guide/technology-choices/data-science-and-machine-learning.md
+      - name: Machine learning at scale
+        href: data-guide/big-data/machine-learning-at-scale.md
       - name: Natural language processing
         href: data-guide/technology-choices/natural-language-processing.md
       - name: R developer's guide to Azure
@@ -448,8 +446,12 @@ items:
         href: solution-ideas/articles/ai-for-earth.md
       - name: Auditing and risk management
         href: solution-ideas/articles/auditing-and-risk-compliance.md
+      - name: Autonomous systems
+        href: solution-ideas/articles/autonomous-systems.md
       - name: Disconnected AI at the edge
         href: solution-ideas/articles/ai-at-the-edge-disconnected.md
+      - name: Baseball decision analysis with ML.NET and Blazor
+        href: data-guide/big-data/baseball-ml-workload.md
       - name: Batch scoring for deep Learning
         href: reference-architectures/ai/batch-scoring-deep-learning.md
       - name: Batch scoring with Python
@@ -502,8 +504,18 @@ items:
         href: solution-ideas/articles/interactive-voice-response-bot.md
       - name: Digital text processing
         href: solution-ideas/articles/digital-media-speech-text.md
+      - name: Machine teaching
+        href: solution-ideas/articles/machine-teaching.md
       - name: MLOps for Python models
         href: reference-architectures/ai/mlops-python.md
+      - name: MLOps technical paper
+        items:      
+        - name: Upscale ML lifecycle with MLOps
+          href: example-scenario/mlops/mlops-technical-paper.md
+        - name: MLOps maturity model
+          href: example-scenario/mlops/mlops-maturity-model.md
+        - name: Azure ML service selection guide
+          href: example-scenario/mlops/aml-decision-tree.md
       - name: Model training with AKS
         href: solution-ideas/articles/machine-learning-with-aks.md
       - name: Movie recommendations
@@ -534,6 +546,8 @@ items:
         href: solution-ideas/articles/remote-patient-monitoring.md
       - name: Retail assistant with visual capabilities
         href: solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.md
+      - name: Retail product recommendations
+        href: solution-ideas/articles/product-recommendations.md
       - name: Scalable personalization
         href: example-scenario/ai/scalable-personalization.md
       - name: Speech services
@@ -558,8 +572,6 @@ items:
         href: solution-ideas/articles/application-integration-using-event-grid.md
       - name: Automated enterprise BI
         href: reference-architectures/data/enterprise-bi-adf.md
-      - name: Customer 360
-        href: solution-ideas/articles/customer-360.md
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.md
       - name: Demand forecasting
@@ -890,6 +902,8 @@ items:
         href: solution-ideas/articles/serverless-application-architectures-using-event-grid.md
       - name: Serverless event processing
         href: reference-architectures/serverless/event-processing.md
+      - name: Unified logging for microservices apps
+        href: example-scenario/logging/unified-logging.md
   - name: DevOps
     items:
     - name: Checklist
@@ -1047,8 +1061,6 @@ items:
         href: reference-architectures/iot-with-sql.md
       - name: IoT Connected Platform
         href: solution-ideas/articles/iot-connected-platform.md
-      - name: Smart building management with IoT
-        href: solution-ideas/articles/ibems-shield-smart-buildings.md
       - name: Contactless IoT interfaces
         href: solution-ideas/articles/contactless-interfaces.md
       - name: COVID-19 IoT Safe Solutions
@@ -1207,6 +1219,8 @@ items:
         href: example-scenario/data/sentinel-threat-intelligence.md
       - name: Highly-secure IaaS apps
         href: reference-architectures/n-tier/high-security-iaas.md
+      - name: Homomorphic encryption with SEAL
+        href: solution-ideas/articles/homomorphic-encryption-seal.md
       - name: Real-time fraud detection
         href: example-scenario/data/fraud-detection.md
       - name: Securely managed web apps

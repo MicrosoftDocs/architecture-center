@@ -1,7 +1,7 @@
 ---
 title: Stream processing with Azure Stream Analytics
 description: Create an end-to-end stream processing pipeline in Azure.
-author: MikeWasson
+author: adamboeglin
 ms.date: 11/06/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -44,7 +44,7 @@ The architecture consists of the following components.
 
 To simulate a data source, this reference architecture uses the [New York City Taxi Data](https://uofi.app.box.com/v/NYCtaxidata/folder/2332218797) dataset<sup>[[1]](#note1)</sup>. This dataset contains data about taxi trips in New York City over a four-year period (2010&ndash;2013). It contains two types of record: ride data and fare data. Ride data includes trip duration, trip distance, and pickup and dropoff location. Fare data includes fare, tax, and tip amounts. Common fields in both record types include medallion number, hack license, and vendor ID. Together these three fields uniquely identify a taxi plus a driver. The data is stored in CSV format.
 
-<span id="note1">[1]</span> Donovan, Brian; Work, Dan (2016): New York City Taxi Trip Data (2010-2013). University of Illinois at Urbana-Champaign. https://doi.org/10.13012/J8PN93H8
+<span id="note1">[1]</span> Donovan, Brian; Work, Dan (2016): New York City Taxi Trip Data (2010-2013). University of Illinois at Urbana-Champaign. <https://doi.org/10.13012/J8PN93H8>
 
 <!-- markdownlint-enable MD033 -->
 
