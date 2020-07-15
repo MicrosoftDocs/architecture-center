@@ -183,7 +183,7 @@ when certain thresholds like 50%, 75%, and 90% of the plan has been reached.
 -   Azure Monitor will be used for logging, metrics, monitoring, and alerting to
     use the existing knowledge of Log Analytics.
 
--   Azure Key Vault will be used to store all secret information including SSL certificates. Key Vault data will be mounted by using Azure Key Vault with Secrets Store CSI Driver.
+-   Azure Key Vault will be used to store all secret information including SSL certificates. Key Vault data will be mounted by using Azure Key Vault with Secrets Store Container Storage Interface (CSI) driver.
 
 -   Two node pools will be used in AKS. The system node pool will be used for
     critical system pods. The second node pool will be used for the
@@ -372,12 +372,12 @@ perspective when you're making security choices:
 There are two ways to manage access: Service Principals or Managed Identities
 for Azure resources.
 
-Of the two ways, Azure Managed Identities are recommended. With Service
+Of the two ways, Azure Managed Identities is recommended. With Service
 Principals there's an overhead for managing and rotating secrets without which
 the cluster will not be accessible. With managed identities, Azure Active
 Directory (Azure AD) handles the authentication and timely rotation of secrets.
 
-It’s recommended that managed identities is enabled so that the cluster can interact with external Azure resources through Azure AD. A cluster's managed identities can only be enabled during cluster creation. Even if Azure AD isn't used immediately, you can incorporate it later. 
+It’s recommended that Managed Identities is enabled so that the cluster can interact with external Azure resources through Azure AD. This setting can only be enabled during cluster creation. Even if Azure AD isn't used immediately, you can incorporate it later. 
 
 As an example for the inside-out case, let’s study the use of managed identities
 when the cluster needs to pull images from a container registry. This action requires the
@@ -391,9 +391,9 @@ operational overhead of managing the rotation of the secret. Instead, grant
 approach addresses those concerns.
 
 In this architecture, the cluster accesses Azure resources that are secured by
-Azure AD and do operations that support managed identities. Depending on
-the operations that the cluster intends to do, role-based access control (RBAC)
-and permissions are assigned to the cluster’s managed identities. The cluster
+Azure AD and do operations that support managed identities. Assign role-based access control (RBAC)
+and permissions to the cluster’s managed identities, depending on
+the operations that the cluster intends to do. The cluster
 will authenticate itself against the resource and consequently be allowed or
 denied access. Here are some examples from this reference implementation where
 Azure RBAC built-in roles have been assigned to the cluster.
@@ -473,26 +473,26 @@ when configuring this component.
     controller will be allowed operate. For example, you might allow the
     controller to only interact with the pods that run a specific workload.
 
-- Avoid placing replicas on the same node. This will spread out the load and
-    can ensure business continuity if a node does down. That is achieved through
-    podAntiAffinity.
+- Avoid placing replicas on the same node to spread out the load and
+    ensure business continuity if a node does down. Use
+    `podAntiAffinity` for this purpose.
 
 - Constrain pods to be scheduled only on the user node pool by using
-    nodeSelectors. This will isolate workload and system pods.
+    `nodeSelectors`. This setting will isolate workload and system pods.
 
 - Open ports and protocols that allow specific entities to send traffic to the
     ingress controller. In this architecture, Traeffik only receives traffic
     from Azure Application Gateway.
 
 - Ingress controller should send signals that indicate the health of pods.
-    Configure readinessProbe and livenessProbe settings that will monitor the
+    Configure `readinessProbe` and `livenessProbe` settings that will monitor the
     health of the pods at the specified interval.
 
 - Consider restricting the ingress controller’s access to specific resources
     and the ability to perform certain actions. That can be implemented through
     Kubernetes RBAC permissions. For example, in this architecture, Traefik has
     been granted permissions to watch, get, and list services and endpoints. by
-    using rules in the Kubernetes ClusterRole object.
+    using rules in the Kubernetes `ClusterRole` object.
 
 ### Router settings
 
@@ -502,8 +502,8 @@ the destination ports and protocols.
 
 Here’s an example from this architecture:
 
-Traefik uses the Kubernetes provider to configure routes. The annotations, tls
-and entrypoints indicate that routes will be served over HTTPS. The middlewares
+Traefik uses the Kubernetes provider to configure routes. The `annotations`, `tls`, 
+and `entrypoints` indicate that routes will be served over HTTPS. The `middlewares`
 specifies that only traffic from the Azure Application Gateway subnet is
 allowed. The responses will use gzip encoding if the client accepts. Because
 Traefik does TLS termination, communication with the backend services is over
@@ -546,8 +546,8 @@ Network flow, in this context, can be categorized as:
 -   **Egress traffic**. From a pod or node in the cluster to an external
     service.
 
--   **Pod-to-pod traffic**. Communication between pods. This includes traffic
-    between the ingress controller and the workload. Also, if your workload were
+-   **Pod-to-pod traffic**. Communication between pods. This traffic includes communication
+    between the ingress controller and the workload. Also, if your workload is
     composed of multiple applications deployed to the cluster, communication
     between those applications would fall into this category.
 
@@ -576,7 +576,7 @@ Gateway by using two different TLS certificates, as shown in this image.
 2.  Application Gateway has an integrated web application firewall (WAF) and
     negotiates the TLS handshake for bicycle.contoso.com, allowing only secure
     ciphers. Application Gateway is a TLS termination point, as it is required
-    to process WAF inspection rules, and execute routing rules that forwards the
+    to process WAF inspection rules, and execute routing rules that forward the
     traffic to the configured backend. The TLS certificate is stored in Azure
     Key Vault. It’s accessed using a user-assigned managed identity integrated
     with Application Gateway. For information about that feature, see [TLS
@@ -607,15 +607,15 @@ from the cluster moves through Azure Firewall. You can implement that choice
 using user-defined routes (UDRs). The next hop of the route is the [private IP
 address](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)
 of the Azure Firewall. Here, Azure Firewall decides whether to block or allow
-the egress traffic based on the specific rules defined in the Azure Firewall or
-using the built-in threat intelligence rules.
+the egress traffic. That decision is based on the specific rules defined in the Azure Firewall or
+the built-in threat intelligence rules.
 
 An exception to the zero-trust control is when the cluster needs to communicate
 with other Azure resources. For instance, the cluster needs to pull an updated
 image from the container registry. The recommended approach is by using  [Azure
 Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview).
 The advantage is that specific subnets reach the service directly. Also, traffic
-between the cluster and the service is not exposed to public internet. A
+between the cluster and the service isn't exposed to public internet. A
 downside is that Private Link needs additional configuration instead of using
 the target service over its public endpoint. Also, not all Azure services or
 SKUs support Private Link. For those cases, consider enabling a Service Endpoint
@@ -632,19 +632,17 @@ allowed.
 ### Pod-to-pod traffic
 
 By default, a pod can accept traffic from any other pod in the cluster.
-Kubernetes NetworkPolicy is used to restrict network traffic between pods. Apply
+Kubernetes `NetworkPolicy` is used to restrict network traffic between pods. Apply
 policies judiciously, otherwise you might have a situation where a critical
 network flow is blocked. *Only* allow specific communication paths, as needed,
 such as traffic between the ingress controller and workload. For more
 information, see Network policies.
 
-You need to enable network policy when the cluster is provisioned and that
-feature cannot be added later. There are a few choices for technologies that
-implement NetworkPolicy. Azure Network Policy is recommended, which requires
+Enable network policy when the cluster is provisioned because it can't be added later. There are a few choices for technologies that
+implement `NetworkPolicy`. Azure Network Policy is recommended, which requires
 Azure Container Networking Interface (CNI), see the note below. Other options
 include Calico Network Policy, a well-known open-source option. Consider Calico
-if you need to manage cluster-wide network policies. Be aware that Calico is not
-covered under standard Azure support.
+if you need to manage cluster-wide network policies. Calico isn't covered under standard Azure support.
 
 For information, see [Differences between Azure Network Policy and Calico
 policies and their capabilities](https://docs.microsoft.com/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities).
@@ -655,8 +653,8 @@ Networking Interface (CNI).
 
 CNI is more advanced of the two models. CNI is required for enabling Azure
 Network Policy. In this model, every pod gets an IP address from the subnet
-address space. This allows resources within the same network (or peer-ed
-resources) to access the pods directly through their IP address. NAT is not
+address space. Resources within the same network (or peered
+resources) can access the pods directly through their IP address. NAT isn't
 needed for routing that traffic. So, CNI performant because there aren’t
 additional network overlays. It also offers better security control because
 it enables the use Azure Network Policy.
