@@ -1080,13 +1080,13 @@ items:
       - name: Industrial IoT Analytics
         items:
           - name: Architecture
-            href: guide/iiot-guidance/iot-architecture.md
+            href: guide/iiot-guidance/iiot-architecture.md
           - name: Recommended services
-            href: guide/iiot-guidance/iot-services.md
+            href: guide/iiot-guidance/iiot-services.md
           - name: Data visualization
-            href: guide/iiot-guidance/iot-data.md
+            href: guide/iiot-guidance/iiot-data.md
           - name: Considerations
-            href: guide/iiot-guidance/iot-considerations.md
+            href: guide/iiot-guidance/iiot-considerations.md
   - name: Management and Governance
     items:
     - name: Architectures
