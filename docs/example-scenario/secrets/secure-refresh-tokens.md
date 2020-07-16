@@ -20,18 +20,18 @@ When developing web services, you may need to get tokens using the [OAuth 2.0 On
 >
 >When an application needs to use the access and refresh tokens indefinitely, it's critical to store the refresh tokens securely. Storing the access tokens poses a greater security risk, since an access token in and of itself can access resources. The recommended approach is to store only refresh tokens, and get access tokens as needed.
 
-This solution uses Azure Key Vault, Azure Functions, and Azure DevOps to securely update and store refresh tokens.
+This solution uses Azure Key Vault, Azure Functions, and Azure DevOps to securely update and store OBO refresh tokens.
 
 ## Architecture
 
 ![Diagram showing the key and token refresh processes.](./media/refresh-diagram.png)
 
 - Azure [Key Vault](https://azure.microsoft.com/services/key-vault/) holds a secret encryption key for each [Azure AD](https://azure.microsoft.com/services/active-directory/) tenant.
-- An [Azure Functions](https://azure.microsoft.com/services/functions/) function refreshes the refresh token in Azure AD and saves it with the latest secret key version.
+- An [Azure Functions](https://azure.microsoft.com/services/functions/) function refreshes the refresh token and saves it with the latest secret key version.
 - A database stores the encrypted key and and opaque data.
 - An [Azure DevOps](https://azure.microsoft.com/services/devops/) continuous delivery pipeline creates and updates the secret keys.
 
-[Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is a convenient place to add your key rotation strategy, if you're already using Pipelines for infrastructure-as-code (IaC) or continuous integration and delivery (CI/CD). You don't have to use Azure DevOps, as long as you limit the paths for setting or retrieving secrets.
+[Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is a convenient place to add your key rotation strategy, if you're already using Pipelines for infrastructure-as-code (IaC) or continuous integration and delivery (CI/CD). But you don't have to use Azure DevOps, as long as you limit the paths for setting or retrieving secrets.
 
 You can apply the following permissions to the Service Principal for your Azure DevOps service connection, which allow Azure Pipelines to set secrets. Set the `<Key Vault Name>` and `<Service Connection Principal>` variables to the correct values for your environment.
 
