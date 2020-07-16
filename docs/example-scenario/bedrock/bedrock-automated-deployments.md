@@ -221,50 +221,48 @@ Fabrikate simplifies the front end of the GitOps workflow by taking a high-level
 
 For example, Fabrikate allows you to write DRY resource definitions (used for dry-run deployments) and configurations for multiple environments while leveraging the broad Helm chart ecosystem. These special purpose HLD scripts become shareable components that both simplify and support making deployments more auditable.
 
-### Bedrock CLI: Bedrock Automation Tool
+### Bedrock CLI: Bedrock automation tool
 
 As mentioned earlier, *Bedrock CLI* is a command-line tool unique to Bedrock. It is used to facilitate automation of the Cluster Infrastructure, Service Management, and Introspection/Monitoring (using the *Spektate Dashboard*).
 
-:::image type="content" source="./media/fig008.jpg" alt-text="diagram of relationship between Bedrock CLI and Spektate":::
+![Diagram showing the relationship between Bedrock CLI and Spektate.](./media/fig008.jpg)
 
-<p style="text-align:center;font-style:italic;" role="caption">Figure 8 - Bedrock CLI and Spektate Dashboard</p>
+The Spektate Dashboard is designed to integrate with the GitOps workflow as shown in this diagram.
 
-The Spektate Dashboard is designed to integrate with the GitOps workflow as shown in Figure 9.
+![Diagram of the GitOps workflow with Bedrock CLI and Spektate.](./media/fig009.jpg)
 
-<!-- insert fig 9 here -->
-:::image type="content" source="./media/fig009.jpg" alt-text="diagram of GitOps workflow with Bedrock CLI and Spektate":::
+### Spektate: Introspection in service deployments
 
-<p style="text-align:center;font-style:italic;" role="caption">Figure 9 - GitOps workflow with Bedrock CLI and Spektate</p>
-
-### Spektate: Introspection in Service Deployments
-
-Service introspection is an enabler for instrumentation. An introspection service can reveal information about the cloud internals to interested applications. This is the role of the Spektate service introspection tool. It provides insight into the deployment status at all times, in that way facilitating reliability, security, and auditability of deployments. And, in those use cases were additional visibility is required, Bedrock can be easily customized with additional observability or metric tools.
+Service introspection is an enabler for instrumentation. An introspection service can reveal information about the cloud internals to interested applications. This is the role of the Spektate service introspection tool. It provides insight into the deployment status at all times, allowing it to facilitate reliability, security, and auditability of deployments. In cases where additional visibility is required, Bedrock can also be easily customized with additional observability or metric tools.
 
 Kubernetes deployments can be complex. Multiple microservices become even more complicated when considering factors like latency, scalability, and reliability to deployments across multiple clusters in multiple regions and zones. This complexity creates a practical problem to determine the current state of any individual cluster or a collection of clusters that collectively carry the workload demands. Bedrock addresses this problem with Spektate. It is integrated with the GitOps pipeline and Service Management that is a key element of the Bedrock process.
 
-Spektate provides views into the current status of any change in the system. Including continuous integration builds to tracking the deployment of the container containing that commit in each of the downstream clusters consuming that container. It includes:
+Spektate provides views into the current status of any change in the system. These changes can include everything from tracking continuous integration builds to tracking the deployment of the container containing that commit in each of the downstream clusters consuming that container. Spektate includes the following:
 
-* A Bedrock GitOps pipeline that reports back with telemetry data for each of the steps of the system; currently supported in Azure DevOps
-* An Azure Storage Table that stores all of the telemetry reported back
-* Integration with the Bedrock CLI and a web dashboard
+* A Bedrock GitOps pipeline that reports back with telemetry data for each of the steps of the system; currently supported in Azure DevOps.
+* An Azure Storage Table that stores all of the telemetry that is reported back.
+* Integration with the Bedrock CLI and a web dashboard.
 
-Figure 10 shows how Spektate integrates with the Azure Pipelines in a Bedrock GitOps Workflow.
+The following diagram shows how Spektate integrates with the Azure Pipelines in a Bedrock GitOps Workflow.
 
-<!-- insert fig 10 here -->
-:::image type="content" source="./media/fig010.jpg" alt-text="diagram showing how Spektate integrates with pipelines in GitOps workflow":::
+![Diagram showing how the Spektate tool integrates with the Azure Pipelines in a Bedrock GitOps Workflow.](./media/fig010.jpg)
 
-<p style="text-align:center;font-style:italic;" role="caption">Figure 10 - How the Spektate tool integrates with the Azure Pipelines in a Bedrock GitOps Workflow</p>
+Bedrock CLI implements the Spektate Dashboard to provide deployment observability integrated with DevOps and cluster information. This web dashboard is designed to provide the baseline observability for Bedrock, but additional tools can be added to address other specific use case requirements. See [Extending Bedrock](#extending-bedrock) for more information about Bedrock customization.
 
-Bedrock CLI implements the Spektate Dashboard to provide deployment observability integrated with DevOps and cluster information. This web dashboard is designed provides the baseline observability for Bedrock, but additional tools can be added to address other specific use case requirements. (Bedrock customization is discussed further in the Appendix to this document.) A sample dashboard is shown in Figure 11.
+![sample of Spektate web dashboard](./media/fig011.jpg)
 
-<!-- insert fig 11 here -->
-:::image type="content" source="./media/fig011.jpg" alt-text="sample of Spektate web dashboard":::
+### Extending Bedrock
 
-<p style="text-align:center;font-style:italic;" role="caption">Figure 11 - Spektate Web Dashboard</p>
+While the core of Bedrock is a significant productivity improvement for dealing with Kubernetes deployments in a production environment, there will be specific use case requirements that go beyond the core Bedrock capabilities. Bedrock is designed to accommodate these added requirements by supporting the integration of additional tools to the process.
+
+For example, if a particular use case required additional monitoring or metrics collection, then Prometheus and Grafana can be added to the deployment as shown in Figure 12. In this case, Prometheus could be considered a ‘dial-tone’ for Kubernetes clusters. Also, Prometheus/Grafana can work in-cluster, aggregated by Azure Monitor for multiple clusters.
+By integrating such additional tools into the Bedrock automation, Bedrock provides a firm foundation for Kubernetes deployments to meet any specialized use case.
+
+![Diagram illustrating extending Bedrock to include additional metrics monitoring](./media/fig012.png)
 
 ## Cobalt vs Bedrock
 
-[Cobalt](https://github.com/Microsoft/cobalt) hosts reusable Terraform modules to scaffold managed container services like [ACI](https://docs.microsoft.com/azure/container-instances/) and [Application Services](https://docs.microsoft.com/azure/app-service/) following a DevOps workflow. While Bedrock targets Kubernetes based container orchestration workloads while following a [GitOps](https://medium.com/@timfpark/highly-effective-kubernetes-deployments-with-gitops-c7a0354f1446) workflow. Cobalt templates (manifests) reference Terraform modules like virtual networks, traffic manager, and so on, to define infrastructure deployments. Bedrock uses Terraform to pre-configure environment deployment, but also uses Fabrikate templates to define manifests for deployment automation.
+[Cobalt](https://github.com/Microsoft/cobalt) hosts reusable Terraform modules to scaffold managed container services like [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) and [Azure App Service](https://docs.microsoft.com/azure/app-service/) following a DevOps workflow. While Bedrock targets Kubernetes based container orchestration workloads while following a [GitOps](https://medium.com/@timfpark/highly-effective-kubernetes-deployments-with-gitops-c7a0354f1446) workflow. Cobalt templates (manifests) reference Terraform modules like virtual networks, traffic manager, and so on, to define infrastructure deployments. Bedrock uses Terraform to pre-configure environment deployment, but also uses Fabrikate templates to define manifests for deployment automation.
 
 ## Applicable Scenarios
 
@@ -274,6 +272,8 @@ Bedrock CLI implements the Spektate Dashboard to provide deployment observabilit
 ## Customer Benefits
 
 ### Bedrock Learnings/Best Practices
+
+The following are some of the best practices and lessons learned when working with Bedrock:
 
 * Use the high-level definition repo as application configuration as code.
 * Use Bedrock Terraform Templates as your declarative infrastructure as code.
@@ -287,7 +287,7 @@ Bedrock CLI implements the Spektate Dashboard to provide deployment observabilit
 
 ### Securing the Bedrock GitOps Workflow
 
-In a production scenario, it can be tempting to modify Kubernetes resource directly on the cluster via kubectl, kubernetes dashboard, or helm via tiller. Some thoughts running through an operator's head may include:
+In a production scenario, it can be tempting to modify a Kubernetes resource directly on the cluster via kubectl, kubernetes dashboard, or helm via tiller. Some thoughts running through an operator's head may include:
 
 * _“Time is of the essence; I must make changes directly on the cluster.”_
 * _“The GitOps workflow is too cumbersome, I will make changes directly to the manifest YAML repository.”_
@@ -300,9 +300,17 @@ In a worst-case scenario where the deployed cluster(s) can no longer function, r
 
 If the outage is caused by a hardware failure, you just redirect the deployment by specifying a new destination in the HLD script, commit the script, and create a new PR. In some cases, this alternate HLD script might be a standard contingency created as part of an organization’s SOP and held in the repo until needed.
 
-See also [Resiliency and Disaster Recovery](#resiliency-and-disaster-recovery).
+Things can and will go wrong at some point. When that happens, it is important that the system does not go down. Bedrock supports many strategies for keeping your application up and running.
 
-### Rollbacks
+#### Controlled Deployment
+
+Because Bedrock provides a simple method for defining and automating a deployment, there are many abnormal situations that can be planned for and executed quickly just by selecting the correct preconfigured deployment. This level of preplanning makes Bedrock useful in supporting such things as test deployments (also known as Canary deployments), rollbacks, fail-overs, regional rotations, load sharing, and other unusual scenarios.
+
+For example, to do a Canary Deployment of a revised application. You first deploy the revised application to a single pod or cluster to allow testing the application in its deployed state and verify it before allowing further deployments. If the deployment does not pass testing, the cluster can be halted, removing the application from deployment. Or, if a test cluster is chosen that is not publicly exposed, the testing can fail without affecting the operational public application.
+
+#### Rollback
+
+If a problem fails discovery in testing and that application version is fully deployed, Bedrock makes it a simple matter to redeploy the previous known working version of the application to replace the buggy version.
 
 Sometimes changes to your application configuration can yield undesired results. Being able to easily roll back to a previous state application code configuration is a must have. We recommend a few options to accomplish rollbacks:
 
@@ -319,6 +327,20 @@ Sometimes changes to your application configuration can yield undesired results.
 * Multi-cluster rollbacks
 * Ensuring created cluster resources are removed
 
+#### Blue/Green Deployments
+
+Because Bedrock gives you control over deploying clusters to different IP addresses, you can deploy two versions of your application and examine their individual performance-based on-site metrics and customer feedback to determine which version is better for full deployment. This kind of Blue/Green deployment allows for optimizing application designs as a function of actionable data.
+
+#### Failover
+
+By using the ability of Bedrock with Kubernetes to manage complex deployment schemes, you can spread your deployment over multiple regions and apply load balancing to user traffic. Then, if one or more clusters go down for any reason, the remaining clusters can pick up the load. Microservice architectures are also inherently resilient by running a service only when needed and otherwise being shut down.
+
+This scenario is illustrated in the following images where the Region 1 deployment fails, and the Region 2 deployment picks up the workload until the problem in Region 1 is resolved.
+
+![diagram of normal deployment](./media/fig013.png)
+
+![diagram of a failover scenario](./media/fig014.png)
+
 ### GitOps Checklist
 
 > [!div class="checklist"]
@@ -330,11 +352,8 @@ Sometimes changes to your application configuration can yield undesired results.
 
 ## Next Steps
 
-If you want to learn more about using Bedrock, your next steps should be:
+* [A First Workload With Bedrock](https://github.com/microsoft/bedrock/tree/master/docs/firstWorkload)
 
-1. A [Bedrock Walkthrough Demo](https://github.com/microsoft/bedrock/blob/master/docs/azure-simple/README.md) is available on GitHub so that you can see how Bedrock actually works to deploy a simple application.
-2. [Getting Started with Bedrock](https://github.com/microsoft/bedrock/tree/master/docs/firstWorkload)
-3. Detailed design information for using Bedrock is available on [GitHub](https://github.com/microsoft/bedrock/tree/master/docs/firstWorkload).
 
 ## Resources
 
@@ -375,46 +394,4 @@ Helm is a Kubernetes package manager that streamlines installing and managing Ku
 
 Helm uses charts to package pre-configured Kubernetes resources. This allows application deployments to be defined as Helm Charts, which supports reproducible builds of your Kubernetes applications. Helm also allows you to intelligently manage your Kubernetes manifest files and releases of Helm packages. Helm packages (or charts) contain at least two items: a description of the package (`Chart.YAML`) and one or more templates containing Kubernetes manifest files. All charts are stored in Git repositories, as required by GitOps. Charts are fetched as needed to render the correct templates for a deployment by communicating with the Kubernetes API.
 
-### Extending Bedrock
 
-While the core of Bedrock is a significant productivity improvement for dealing with Kubernetes deployments in a production environment, there will be specific use case requirements that go beyond the core Bedrock capabilities. Bedrock is designed to accommodate these added requirements by supporting the integration of additional tools to the process.
-
-For example, if a particular use case required additional monitoring or metrics collection, then Prometheus and Grafana can be added to the deployment as shown in Figure 12. In this case, Prometheus could be considered a ‘dial-tone’ for Kubernetes clusters. Also, Prometheus/Grafana can work in-cluster, aggregated by Azure Monitor for multiple clusters.
-By integrating such additional tools into the Bedrock automation, Bedrock provides a firm foundation for Kubernetes deployments to meet any specialized use case.
-
-<!-- insert fig 12 here -->
-:::image type="content" source="./media/fig012.png" alt-text="diagram illustrating extending Bedrock to include additional metrics monitoring":::
-
-<p style="text-align:center;font-style:italic;" role="caption">Figure 12 - Metrics Monitoring</p>
-
-### Resiliency and Disaster Recovery
-
-Things can and will go wrong at some point. When that happens, it is important that the system does not go down. Bedrock supports many strategies for keeping your application up and running.
-
-#### Controlled Deployment
-
-Because Bedrock provides a simple method for defining and automating a deployment, there are many abnormal situations that can be planned for and executed quickly just by selecting the correct preconfigured deployment. This level of preplanning makes Bedrock useful in supporting such things as test deployments (also known as Canary deployments), rollbacks, fail-overs, regional rotations, load sharing, and other unusual scenarios.
-
-For example, to do a Canary Deployment of a revised application. You first deploy the revised application to a single pod or cluster to allow testing the application in its deployed state and verified before allowing further deployments. If the deployment does not pass testing, the cluster can be halted, removing the application from deployment. Or, if a test cluster is chosen that is not publicly exposed, the testing can fail without affecting the operational public application.
-
-#### Rollback
-
-If a problem fails discovery in testing and that application version is fully deployed, Bedrock makes it a simple matter to redeploy the previous known working version of the application to replace the buggy version.
-
-#### Blue/Green Deployments
-
-Because Bedrock gives you control over deploying clusters to different IP addresses, you can deploy two versions of your application and examine their individual performance-based on-site metrics and customer feedback to determine which version is better for full deployment. This kind of Blue/Green deployment allows for optimizing application designs as a function of actionable data.
-
-#### Failover
-
-By using Bedrock with Kubernetes’ ability to manage complex deployment schemes, you can spread your deployment over multiple regions and apply load balancing to user traffic. Then, if one or more clusters go down for any reason, the remaining clusters can pick up the load. Microservice architectures are also inherently resilient by running a service only when needed and otherwise being shut down. This scenario is illustrated in Figures 13 and 14 where the Region 1 deployment fails, and the Region 2 deployment picks up the workload until the problem in Region 1 is resolved.
-
-<!-- insert fig 13 here -->
-:::image type="content" source="./media/fig013.png" alt-text="diagram of normal deployment":::
-
-<p style="text-align:center;font-style:italic;" role="caption">Figure 13 - Normal Deployment</p>
-
-<!-- insert fig 14 here -->
-:::image type="content" source="./media/fig014.png" alt-text="diagram of failover scenario":::
-
-<p style="text-align:center;font-style:italic;" role="caption">Figure 14 - Failover Scenario</p>
