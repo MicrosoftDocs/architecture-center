@@ -41,7 +41,7 @@ You can apply the following permissions to the Service Principal for your Azure 
 az keyvault set-policy --name $<Key Vault Name> --spn $<Service Connection Principal> --secret-permissions set
 ```
 
-After you set up your pipeline to create or update keys, you can schedule the pipeline to run periodically and [sync the key rotation schedule with the token refresh schedule](#key-rotation-and-token-refresh). Whenever the refresh token refreshes, a new key encrypts the new refresh token. For more information, see [Configure schedules for pipelines](https://docs.microsoft.com/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops&tabs=yaml).
+After you set up your pipeline to create or update keys, you can schedule the pipeline to run periodically and [sync the key rotation with the token refresh](#key-rotation-and-token-refresh). Whenever the refresh token refreshes, a new key encrypts the new refresh token. For more information, see [Configure schedules for pipelines](https://docs.microsoft.com/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops&tabs=yaml).
 
 ## Managed identity
 
@@ -49,7 +49,7 @@ The most convenient way for an Azure service like Azure Functions to access Key 
 
 ### Azure portal
 
-You can use the Azure portal to set up the managed identity for Azure Functions to access Key Vault. From the Functions app's **Identity** page, copy the Managed Identity Principal's **Object ID**. Then create a Key Vault access policy to enable `get` secret permissions for the Azure Functions managed identity. For more information, see [Add a system-assigned identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity).
+You can use the Azure portal to set up the managed identity for Azure Functions to access Key Vault. From the Functions app's **Identity** page, copy the Managed Identity Principal's **Object ID**. Then create a Key Vault access policy to enable `get` secret permissions for the Azure Functions managed identity. For more information, see [Add a system-assigned identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) and [Use Key Vault references for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
 
 ![Screenshot showing how to enable managed identity in the Azure portal.](./media/system-assigned-managed-identity-in-azure-portal.png)
 
@@ -112,7 +112,7 @@ You can use any database to store the tokens in encrypted form. The following di
 
 ![Diagram that shows the add token sequence.](./media/add-token-sequence-diagram.png)
 
-The sequence has two functions, `userId()` and `secretId()`. You can define these functions as some combination of `token.oid`, `token.tid`, and `token.sub`. For more information, see [Use the id_token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#using-the-id_token).
+The sequence has two functions, `userId()` and `secretId()`. You can define these functions as some combination of `token.oid`, `token.tid`, and `token.sub`. For more information, see [Using the id_token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#using-the-id_token).
 
 With the cryptographic key stored as a secret, you can look up the latest version of the key in Azure Key Vault.
 
@@ -122,7 +122,7 @@ Using the key is straightforward. The following sequence queries the key based o
 
 ![Diagram that shows the stored token usage sequence.](./media/use-stored-token-sequence.png)
 
-The token refresh is orthogonal to the `DoWork` function, so Azure Functions can perform `DoWork` and token refresh asynchronously with [Durable Functions](https://docs.microsoft.com/azure/azure-functions/durable/). For more information, see [HTTP API URL discovery](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-http-features?tabs=csharp#http-api-url-discovery).
+The token refresh is orthogonal to the `DoWork` function, so Azure Functions can perform `DoWork` and token refresh asynchronously with [Durable Functions](https://docs.microsoft.com/azure/azure-functions/durable/). For more information about HTTP-triggered functions with Durable Functions, see [HTTP features](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-http-features?tabs=csharp).
 
 It's not recommended to use Azure Key Vault in the HTTP request pipeline, so cache the responses whenever reasonable. In this example, the response to the Azure Functions to Key Vault `getSecret(secretId, secretVersion)` call is cacheable.
 
@@ -130,13 +130,13 @@ It's not recommended to use Azure Key Vault in the HTTP request pipeline, so cac
 
 You can rotate the secret key at the same time that you refresh the refresh token, so the latest token gets encrypted using the latest version of the encryption key. This process uses the built-in Azure Functions support for timer triggers. For more information, see [Timer trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-timer?tabs=csharp).
 
-The following sequence diagram illustrates this process of syncing the token refresh with the key rotation:
+The following sequence diagram illustrates the process of syncing the token refresh with the key rotation:
 
 ![Diagram that shows the sequence of syncing token refresh with key rotation.](./media/refresh-token-sequence.png)
 
 ## User and access control
 
-Microsoft Identity Platform offers the ability to revoke refresh tokens in case of compromise. See [Token revocation](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#token-revocation and [Revoke-AzureADUserAllRefreshToken](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
+Microsoft Identity Platform offers the ability to revoke refresh tokens in case of compromise. See [Token revocation](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#token-revocation) and [Revoke-AzureADUserAllRefreshToken](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
 
 To remove a user from Azure AD, just remove the user's record. To remove application access per user, remove the `refreshToken` part of the user data.
 
