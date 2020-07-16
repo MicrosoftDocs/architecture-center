@@ -64,8 +64,8 @@ Your IIoT analytics solution will require a number of microservices to perform f
   - Different industrial equipment vendors will send telemetry in different payload formats (JSON, binary, and so on) and schemas. When possible, we recommend converting the different equipment schemas to a common, canonical schema, ideally based on an industry standard.  
   - If the message body is binary, use an Azure Function to convert the incoming messages to JSON and send the converted messages back to IoT Hub or to Event Hub.
 
-         - When the message body is binary, [IoT Hub message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) cannot be used against the message body, but can be used against [message properties](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax).
-         - The Azure Industrial IoT components include the capability to decode OPC UA binary messages to JSON.
+      - When the message body is binary, [IoT Hub message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) cannot be used against the message body, but can be used against [message properties](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax).
+      - The Azure Industrial IoT components include the capability to decode OPC UA binary messages to JSON.
 
 - A [Data Ingest Administration](#data-ingest-administration) service for updating the list of tags monitored by your IIoT analytics solution.
 
