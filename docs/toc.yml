@@ -1065,6 +1065,16 @@ items:
         href: solution-ideas/articles/safe-buildings.md
       - name: Secure access to IoT apps with Azure AD
         href: example-scenario/iot-aad/iot-aad.md
+      - name: Industrial IoT Analytics
+        items:
+          - name: Architecture
+            href: guide/iiot-guidance/iiot-architecture.md
+          - name: Recommended services
+            href: guide/iiot-guidance/iiot-services.md
+          - name: Data visualization
+            href: guide/iiot-guidance/iiot-data.md
+          - name: Considerations
+            href: guide/iiot-guidance/iiot-considerations.md
   - name: Management and Governance
     items:
     - name: Architectures
