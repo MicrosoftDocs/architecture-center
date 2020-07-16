@@ -250,4 +250,4 @@ For these operations, we recommend using the [Microsoft Graph](https://developer
 
 ## Next steps
 
-Data visualization is the backbone of a well-defined analytics system. Learn about the [data visualization techniques](./iiot-data.md) that you can use with the IIoT analytics solution recommended in this series.
+Data visualization is the backbone of a well-defined analytics system. Learn about the [data visualization techniques](./iiot-data.md) that you can use with the IIoT analytics solution recommended in this series. 
