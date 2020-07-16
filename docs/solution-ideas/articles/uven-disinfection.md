@@ -3,7 +3,7 @@ title: UVEN smart and secure disinfection and lighting
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
 description: See how BrainLit's UVEN system uses IoT and Azure Sphere to provide smart, safe, secure virus disinfection and healthy, human-optimized lighting.
-ms.date: 07/09/2020
+ms.date: 07/15/2020
 ms.custom: iot, fcp
 ms.service: architecture-center
 ms.subservice: solution-idea
@@ -13,7 +13,7 @@ ms.category:
 
 # Smart and secure lighting and disinfection
 
-Smart, connected Internet of Things (IoT) devices can make life healthier and safer. For example, research increasingly confirms the importance of high-quality light and natural light cycles for promoting human alertness, health, well-being, and productivity. BrainLit's BioCentric Lighting™ (BCL) system is a dynamic, self-learning, IoT-based system that creates high-quality natural lighting for indoor environments. 
+Smart, connected Internet of Things (IoT) devices can make life healthier and safer. For example, research increasingly confirms the importance of high-quality light and natural light cycles for promoting human alertness, health, well-being, and productivity. BrainLit's patented BioCentric Lighting™ (BCL) system is a dynamic, self-learning, IoT-based system that creates high-quality natural lighting for indoor environments. 
 
 The BCL system can also deliver radiant energy in the non-visible ultraviolet (UV) spectrum to kill viruses. All UV radiation has antimicrobial capabilities. The shortest wavelength, 200-300 nm UVC radiation, causes DNA inactivation and prevents viral replication. UVC radiation disinfection is an important weapon in the fight against COVID. BrainLit's new UVEN concept combines BCL light control with UVC disinfection to promote health and well-being and help kill viruses.
 
@@ -26,7 +26,7 @@ The system can continually integrate new research developments and public health
 UVEN combined BCL and UVC technology offers:
 - A smart, safe, and secure integrated system solution for lighting and disinfection, with optimal usage of floor areas.
 - Long-term solutions that can adapt lighting and disinfection doses and recipes to changing circumstances.
-- Overall better health for occupants through optimized lighting and a virus-free environment.
+- Overall better health and improved immune systems for occupants through optimized lighting and a virus-free environment.
 
 ## Potential use cases
 
