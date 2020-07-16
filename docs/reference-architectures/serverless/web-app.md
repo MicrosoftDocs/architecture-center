@@ -2,7 +2,7 @@
 title: Serverless web application
 titleSuffix: Azure Reference Architectures
 description: Recommended architecture for a serverless web application and web API.
-author: MikeWasson
+author: adamboeglin
 ms.date: 05/28/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -20,6 +20,7 @@ This reference architecture shows a [serverless](https://azure.microsoft.com/sol
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
 
 ![Reference architecture for a serverless web application](./_images/serverless-web-app.png)
+*Download an [SVG](./_images/serverless-web-app.svg) of this architecture.* | *Download an [Visio](./_images/serverless-web-app.vsdx) of this architecture.*
 
 The term serverless has two distinct but related meanings:
 
@@ -130,7 +131,7 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 - Use [Traffic Manager][tm] to route HTTP requests to the primary region. If the Function App running in that region becomes unavailable, Traffic Manager can fail over to a secondary region.
 
-- Cosmos DB supports [multiple master regions][cosmosdb-geo], which enables writes to any region that you add to your Cosmos DB account. If you don't enable multi-master, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don't need to update any application configuration settings.
+- Cosmos DB supports [multiple write regions][cosmosdb-geo], which enables writes to any region that you add to your Cosmos DB account. If you don't enable multi-write, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don't need to update any application configuration settings.
 
 ## Security considerations
 
@@ -302,7 +303,7 @@ In this reference architecture the deployment resides in a single Azure region.
 
 To lower costs, consider increasing the cache TTL by caching resource files for a longer duration and setting the longest TTL possible on your content.
 
-For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 ## Deploy the solution
 

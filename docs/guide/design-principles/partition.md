@@ -2,7 +2,7 @@
 title: Partition around limits
 titleSuffix: Azure Application Architecture Guide
 description: Use partitioning to work around database, network, and compute limits.
-author: MikeWasson
+author: adamboeglin
 ms.date: 08/30/2018
 ms.topic: guide
 ms.service: architecture-center

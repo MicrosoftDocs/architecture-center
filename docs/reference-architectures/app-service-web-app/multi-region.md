@@ -1,7 +1,7 @@
 ---
 title: Highly available multi-region web application
 description: Recommended architecture for a highly available web application running in multiple regions in Azure.
-author: MikeWasson
+author: adamboeglin
 ms.date: 08/14/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -72,7 +72,7 @@ Use [Active Geo-Replication][sql-replication] to create a readable secondary rep
 
 ### Cosmos DB
 
-Cosmos DB supports geo-replication across regions with multi-master (multiple write regions). Alternatively, you can designate one region as the writable region and the others as read-only replicas. If there is a regional outage, you can fail over by selecting another region to be the write region. The client SDK automatically sends write requests to the current write region, so you don't need to update the client configuration after a failover. For more information, see [Global data distribution with Azure Cosmos DB][cosmosdb-geo].
+Cosmos DB supports geo-replication across regions with multiple write regions. Alternatively, you can designate one region as the writable region and the others as read-only replicas. If there is a regional outage, you can fail over by selecting another region to be the write region. The client SDK automatically sends write requests to the current write region, so you don't need to update the client configuration after a failover. For more information, see [Global data distribution with Azure Cosmos DB][cosmosdb-geo].
 
 > [!NOTE]
 > All of the replicas belong to the same resource group.
@@ -138,18 +138,27 @@ There are two factors that determine Azure Cosmos DB pricing:
 - Consumed storage.
     You are billed a flat rate for the total amount of storage (GBs) consumed for data and the indexes for a given hour.
 
-For more information, see the cost section in [Azure Architecture Framework](../../framework/cost/overview.md).
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework](../../framework/cost/overview.md).
 
 ## Manageability considerations
 
 If the primary database fails, perform a manual failover to the secondary database. See [Restore an Azure SQL Database or failover to a secondary][sql-failover]. The secondary database remains read-only until you fail over.
 
+
+## DevOps considerations
+
+This architecture follows the multi region deployment recommendation, described in the [DevOps section of the Azure Well Architected Framework][AAF-devops-deployment-multi-region].
+
+This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability], see [DevOps considerations section][guidance-web-apps-scalability-devops].
+
 <!-- links -->
 
 [AFD-pricing]: https://azure.microsoft.com/pricing/details/frontdoor
+[AAF-devops-deployment-multi-region]: /azure/architecture/framework/devops/deployment#consider-deploying-across-multiple-regions
 [bandwidth-pricing]: https://azure.microsoft.com/pricing/details/bandwidth
 [cosmosdb-geo]: https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally
 [guidance-web-apps-scalability]: ./scalable-web-app.md
+[guidance-web-apps-scalability-devops]: ./scalable-web-app.md#devops-considerations
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [ra-grs]: https://docs.microsoft.com/azure/storage/common/storage-designing-ha-apps-with-ragrs
 [regional-pairs]: https://docs.microsoft.com/azure/best-practices-availability-paired-regions

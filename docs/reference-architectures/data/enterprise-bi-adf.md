@@ -1,8 +1,8 @@
 ---
 title: Automated enterprise BI
 description: Automate an extract, load, and transform (ELT) workflow in Azure using Azure Data Factory with Azure Synapse Analytics.
-author: MikeWasson
-ms.date: 11/20/2019
+author: adamboeglin
+ms.date: 06/03/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.category:
@@ -62,7 +62,7 @@ Data Factory can also use Azure AD to authenticate to Azure Synapse, by using a 
 
 In [Azure Data Factory][adf], a pipeline is a logical grouping of activities used to coordinate a task &mdash; in this case, loading and transforming data into Azure Synapse.
 
-This reference architecture defines a master pipeline that runs a sequence of child pipelines. Each child pipeline loads data into one or more data warehouse tables.
+This reference architecture defines a parent pipeline that runs a sequence of child pipelines. Each child pipeline loads data into one or more data warehouse tables.
 
 ![Screenshot of the pipeline in Azure Data Factory](./images/adf-pipeline.png)
 
@@ -143,7 +143,7 @@ The advantage of this approach is that it preserves historical data, which can b
 
 ![Second screenshot of the city dimension table](./images/city-dimension-table-2.png)
 
-For each Sales fact, you want to associate that fact with a single row in City dimension table, corresponding to the invoice date. As part of the ETL process, create an additional column that
+For each Sales fact, you want to associate that fact with a single row in City dimension table, corresponding to the invoice date. 
 
 The following T-SQL query creates a temporary table that associates each invoice with the correct City Key from the City dimension table.
 
@@ -212,7 +212,7 @@ Be aware of the following limitations:
 - [Azure Monitor][azure-monitor] is the recommended option for analyzing the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse because it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs. 
 
 
-For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
 
 ## Cost considerations
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
@@ -261,7 +261,7 @@ For more information, see [Azure Analysis Services pricing][az-as-pricing].
 Consider using the Azure Storage reserved capacity feature to lower cost on storage. With this model, you get a discount if you can commit to reservation for fixed storage capacity for one or three years. For more information, see [Optimize costs for Blob storage with reserved capacity][az-storage-reserved].
 
 
-For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 
 ## Deploy the solution

@@ -200,6 +200,11 @@
       "redirect_url": "/azure/architecture/reliability"
     },
     {
+      "source_path": "docs/checklist/scalability.md",
+      "redirect_url": "/azure/architecture/checklist/performance-efficiency",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/resiliency/index.md",
       "redirect_url": "/azure/architecture/framework/resiliency/overview",
       "redirect_document_id": false
@@ -1903,6 +1908,72 @@
       "source_path": "docs/solution-ideas/articles/hybrid-ci-cd.md",
       "redirect_url": "/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "docs/framework/cost/optimizing.md",
+      "redirect_url": "/azure/architecture/framework/cost/optimize-checklist"
+    },
+    {
+      "source_path": "docs/framework/cost/modeling.md",
+      "redirect_url": "/azure/architecture/framework/cost/design-model"
+    },
+    {
+      "source_path": "docs/framework/cost/monitoring.md",
+      "redirect_url": "azure/architecture/framework/cost/monitor-checklist"
+    },
+    {
+      "source_path": "docs/framework/cost/provisioning.md",
+      "redirect_url": "azure/architecture/framework/cost/provision-checklist"
+    },
+    {
+      "source_path": "docs/framework/cost/data-management.md",
+      "redirect_url": "azure/architecture/framework/cost/provision-datastores" 
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/information-chatbot.md",
+      "redirect_url": "/azure/architecture/reference-architectures/ai/conversational-bot"
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/anomaly-detection-in-real-time-data-streams.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/"
+    },
+    {
+      "source_path": "https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/sap-s4-hana-vm-on-linux",
+      "redirect_url":"https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines"
+    },
+    {
+      "source_path": "docs/serverless/index.md",
+      "redirect_url": "/azure/architecture/serverless/code",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/ibems-shield-smart-buildings.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/safe-buildings",
+     },
+     {
+       "source_path":"docs/solution-ideas/articles/azure-iot-subsystems.md",
+       "redirect_url":"/azure/architecture/reference-architectures/iot"
+     },
+     {
+      "source_path":"docs/solution-ideas/articles/iot-with-aks.md",
+      "redirect_url":"/azure/architecture/reference-architectures/iot"
+    },
+    {
+      "source_path":"docs/reference-architectures/iot-with-sql.md",
+      "redirect_url":"/azure/architecture/reference-architectures/iot"
+    },
+    {
+      "source_path":"docs/solution-ideas/articles/real-time-web-dashboard.md",
+      "redirect_url":"/azure/architecture/reference-architectures/iot"
+    },
+    {
+      "source_path":"docs/solution-ideas/articles/telemetry-analytics.md",
+      "redirect_url":"/azure/architecture/reference-architectures/iot"
+    },
+     {
+      "source_path": "docs/solution-ideas/articles/customer-360.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/product-recommendations",
+      "redirect_document_id": true
+     }
   ]
 }

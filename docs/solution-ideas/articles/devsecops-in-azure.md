@@ -23,7 +23,7 @@ Security is a prime concern for business that are storing any sort of custom or 
 
 ## Data flow
 
-1. Azure Active Directory (AD) can be configured as the identity provider for GitHub. Multi-factory authentication can be enabled for extra security
+1. Azure Active Directory (AD) can be configured as the identity provider for GitHub. Multi-factor authentication can be enabled for extra security
 2. Developers commit to GitHub Enterprise, driven by work items and bugs tracked with Azure Boards
 3. GitHub Enterprise can integrate automatic security and dependency scanning through GitHub Advanced Security and GitHub Open Source Security
 4. Pull Requests trigger CI builds and automated testing in Azure Pipelines

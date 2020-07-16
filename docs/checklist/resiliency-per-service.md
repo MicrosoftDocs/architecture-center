@@ -152,11 +152,11 @@ If you are using Azure Cache for Redis as a temporary data cache and not as a pe
 
 **Enable diagnostic logs.** Include basic health metrics, infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose a boot failure if your VM gets into a nonbootable state. For more information, see [Overview of Azure Diagnostic Logs][diagnostics-logs].
 
-**Use the AzureLogCollector extension.** (Windows VMs only.) This extension aggregates Azure platform logs and uploads them to Azure storage, without the operator remotely logging into the VM. For more information, see [AzureLogCollector Extension](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-log-collector-extension/?toc=/azure/virtual-machines/windows/toc.json).
+**Configure Azure Monitor.**  Collect and analyze monitoring data from Azure virtual machines including the guest operating system and the workloads that run in it, see [Azure Monitor](/azure/azure-monitor/insights/monitor-vm-azure) and [Quickstart: Azure Monitor](/azure/azure-monitor/learn/quick-monitor-azure-vm).
 
 ## Virtual Network
 
-**To whitelist or block public IP addresses, add a network security group to the subnet.** Block access from malicious users, or allow access only from users who have privilege to access the application.
+**To allow or block public IP addresses, add a network security group to the subnet.** Block access from malicious users, or allow access only from users who have privilege to access the application.
 
 **Create a custom health probe.** Load Balancer Health Probes can test either HTTP or TCP. If a VM runs an HTTP server, the HTTP probe is a better indicator of health status than a TCP probe. For an HTTP probe, use a custom endpoint that reports the overall health of the application, including all critical dependencies. For more information, see [Azure Load Balancer overview](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
 

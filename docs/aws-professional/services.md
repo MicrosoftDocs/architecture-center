@@ -6,7 +6,7 @@ keywords: cloud services comparison, cloud services compared, multicloud, compar
 author: doodlemania2
 ms.author: pnp
 ms.date: 04/08/2020
-ms.topic: article
+ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom: fcp
@@ -46,6 +46,18 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [Rekognition](https://aws.amazon.com/rekognition/) | [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) | [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/): Extract information from images to categorize and process visual data.<br/><br/> [Face](https://azure.microsoft.com/services/cognitive-services/face/): Detect, identify, and analyze faces in photos. <br/><br/> [Emotions](https://azure.microsoft.com/services/cognitive-services/emotion/): Recognize emotions in images. |
 | [Skills Kit](https://developer.amazon.com/alexa/alexa-skills-kit) | [Virtual Assistant](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction?view=azure-bot-service-4.0) | The Virtual Assistant Template brings together a number of best practices we've identified through the building of conversational experiences and automates integration of components that we've found to be highly beneficial to Bot Framework developers.
 
+### AI and machine learning architectures
+
+<ul class="grid">
+
+[!INCLUDE [Image classification on Azure](../../includes/cards/intelligent-apps-image-processing.md)]
+[!INCLUDE [Predictive Marketing with Machine Learning](../../includes/cards/predictive-marketing-campaigns-with-machine-learning-and-spark.md)]
+[!INCLUDE [Scalable personalization on Azure](../../includes/cards/scalable-personalization.md)]
+
+</ul>
+
+[view all](/azure/architecture/browse/#ai--machine-learning)
+
 ## Big data and analytics
 
 ### Data warehouse
@@ -55,6 +67,17 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [Redshift](https://aws.amazon.com/redshift/) | [Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) | Cloud-based Enterprise Data Warehouse (EDW) that uses Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. |
 | [Lake Formation](https://aws.amazon.com/lake-formation/) | [Data Share](https://azure.microsoft.com/services/data-share/) | A simple and safe service for sharing big. data|
 
+### Data warehouse architectures
+
+<ul class="grid">
+
+[!INCLUDE [Modern Data Warehouse Architecture](../../includes/cards/modern-data-warehouse.md)]
+[!INCLUDE [Automated enterprise BI](../../includes/cards/enterprise-bi-adf.md)]
+
+</ul>
+
+[view all](/azure/architecture/browse/#databases)
+
 ### Big data processing
 
 | AWS service | Azure service | Description |
@@ -62,6 +85,17 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [EMR](https://aws.amazon.com/emr/) | [Databricks](https://azure.microsoft.com/services/databricks/) | Apache Spark-based analytics platform. |
 | [EMR](https://aws.amazon.com/emr/) | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | Managed Hadoop service. Deploy and manage Hadoop clusters in Azure. |
 | [EMR](https://aws.amazon.com/emr/) | [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) | Massively scalable, secure data lake functionality built on Azure Blob Storage. |
+
+### Big data architectures
+
+<ul class="grid">
+
+[!INCLUDE [Azure data platform end-to-end](../../includes/cards/data-platform-end-to-end.md)]
+[!INCLUDE [Campaign Optimization with Azure HDInsight Spark Clusters](../../includes/cards/campaign-optimization-with-azure-hdinsight-spark-clusters.md)]
+
+</ul>
+
+[view all](/azure/architecture/browse/#databases)
 
 ### Data orchestration / ETL
 
@@ -80,41 +114,25 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [CloudSearch](https://aws.amazon.com/cloudsearch/) | [Cognitive Search](https://azure.microsoft.com/services/search/) | Delivers full-text search and related search analytics and capabilities. |
 | [Athena](https://aws.amazon.com/athena/) | [Data Lake Analytics](https://azure.microsoft.com/services/data-lake-analytics/) | Provides a serverless interactive query service that uses standard SQL for analyzing databases. |
 
+### Analytics architectures
+
+<ul class="grid">
+
+[!INCLUDE [Advanced Analytics Architecture](../../includes/cards/advanced-analytics-on-big-data.md)]
+[!INCLUDE [Automated enterprise BI](../../includes/cards/enterprise-bi-adf.md)]
+[!INCLUDE [Mass ingestion and analysis of news feeds on Azure](../../includes/cards/newsfeed-ingestion.md)]
+
+</ul>
+
+[view all](/azure/architecture/browse/##analytics)
+
 ## Compute
 
-### Virtual servers
-
-| AWS service | Azure service | Description |
-| ----------- | ------------- | ----------- |
-| [Elastic Compute Cloud (EC2) Instances](https://aws.amazon.com/ec2/) | [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) | Virtual servers allow users to deploy, manage, and maintain OS and server software. Instance types provide combinations of CPU/RAM. Users pay for what they use with the flexibility to change sizes. |
-| [Batch](https://aws.amazon.com/batch/) | [Batch](https://azure.microsoft.com/services/batch/) | Run large-scale parallel and high-performance computing applications efficiently in the cloud. |
-| [Auto Scaling](https://aws.amazon.com/autoscaling/) | [Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) | Allows you to automatically change the number of VM instances. You set defined metric and thresholds that determine if the platform adds or removes instances. |
-| [VMware Cloud on AWS](https://aws.amazon.com/vmware/) | [VMware by CloudSimple](https://azure.microsoft.com/services/azure-vmware-cloudsimple/) | Redeploy and extend your VMware-based enterprise workloads to Azure with Azure VMware Solution by CloudSimple. Keep using the VMware tools you already know to manage workloads on Azure without disrupting network, security, or data protection policies. |
-| [Parallel Cluster](https://aws.amazon.com/hpc/parallelcluster/) | [CycleCloud](https://azure.microsoft.com/features/azure-cyclecloud/) | Create, manage, operate, and optimize HPC and big compute clusters of any scale |
-
-### Containers and container orchestrators
-
-| AWS service | Azure service | Description |
-| ----------- | ------------- | ----------- |
-| [Elastic Container Service (ECS)](https://aws.amazon.com/ecs/)<br/><br/>[Fargate](https://aws.amazon.com/fargate/) | [Container Instances](https://azure.microsoft.com/services/container-instances/) | Azure Container Instances is the fastest and simplest way to run a container in Azure, without having to provision any virtual machines or adopt a higher-level orchestration service. |
-| [Elastic Container Registry](https://aws.amazon.com/ecr/) | [Container Registry](https://azure.microsoft.com/services/container-registry/) | Allows customers to store Docker formatted images. Used to create all types of container deployments on Azure. |
-| [Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/) | [Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) | Deploy orchestrated containerized applications with Kubernetes. Simplify monitoring and cluster management through auto upgrades and a built-in operations console. |
-| [App Mesh](https://aws.amazon.com/app-mesh/) | [Service Fabric Mesh](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-overview) | Fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking.
-
-### Serverless
-
-| AWS service | Azure service | Description |
-| ----------- | ------------- | ----------- |
-| [Lambda](https://aws.amazon.com/lambda/) | [Functions](https://azure.microsoft.com/services/functions/) | Integrate systems and run backend processes in response to events or schedules without provisioning or managing servers. |
+[!INCLUDE [Compute Services](../../includes/aws/compute.md)]
 
 ## Database
 
-| Type | AWS Service | Azure Service | Description |
-| -----| ----------- | ------------- | ----------- |
-| Relational database | [RDS](https://aws.amazon.com/rds/) | [SQL Database](https://azure.microsoft.com/services/sql-database/)<br/><br/>[Database for MySQL](https://azure.microsoft.com/services/mysql/)<br/><br/>[Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) | Managed relational database service where resiliency, scale, and maintenance are primarily handled by the platform. |
-| NoSQL / Document | [DynamoDB](https://aws.amazon.com/dynamodb/)<br/><br/>[SimpleDB](https://aws.amazon.com/simpledb/)<br/><br/>[Amazon DocumentDB](https://aws.amazon.com/documentdb/) | [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) | A globally distributed, multi-model database that natively supports multiple data models: key-value, documents, graphs, and columnar. |
-| Caching | [ElastiCache](https://aws.amazon.com/elasticache/) | [Cache for Redis](https://azure.microsoft.com/services/cache/) | An in-memory–based, distributed caching service that provides a high-performance store typically used to offload nontransactional work from a database. |
-| Database migration | [Database Migration Service](https://aws.amazon.com/dms/) | [Database Migration Service](https://azure.microsoft.com/campaigns/database-migration/) | Migration of database schema and data from one database format to a specific database technology in the cloud. |
+[!INCLUDE [Database Services](../../includes/aws/databases.md)]
 
 ## DevOps and application monitoring
 
@@ -128,6 +146,18 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [OpsWorks (Chef-based)](https://aws.amazon.com/opsworks/) | [Automation](https://azure.microsoft.com/services/automation/) | Configures and operates applications of all shapes and sizes, and provides templates to create and manage a collection of resources. |
 | [CloudFormation](https://aws.amazon.com/cloudformation/) | [Resource Manager](https://azure.microsoft.com/features/resource-manager/) <br/><br/>[VM extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows?toc=/azure/virtual-machines/windows/toc.json) <br/><br/>[Azure Automation](https://azure.microsoft.com/services/automation) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks.
 
+### Devops architectures
+
+<ul class="grid">
+
+[!INCLUDE [Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)](../../includes/cards/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.md)]
+[!INCLUDE [Run a Jenkins server on Azure](../../includes/cards/jenkins.md)]
+[!INCLUDE [DevOps in a hybrid environment](../../includes/cards/devops-in-a-hybrid-environment.md)]
+
+</ul>
+
+[view all](/azure/architecture/browse/#devops)
+
 ## Internet of things (IoT)
 
 | AWS service | Azure service | Description |
@@ -136,6 +166,18 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [Greengrass](https://aws.amazon.com/greengrass/) | [IoT Edge](https://azure.microsoft.com/services/iot-edge/) | Deploy cloud intelligence directly on IoT devices to run in on-premises scenarios. |
 | [Kinesis Firehose](https://aws.amazon.com/kinesis/data-firehose/), [Kinesis Streams](https://aws.amazon.com/kinesis/data-streams/) | [Event Hubs](https://azure.microsoft.com/services/event-hubs/) | Services that allow the mass ingestion of small data inputs, typically from devices and sensors, to process and route the data. |
 | [IoT Things Graph](https://aws.amazon.com/iot-things-graph/) | [Digital Twins](https://azure.microsoft.com/services/digital-twins/) | Azure Digital Twins is an IoT service that helps you create comprehensive models of physical environments. Create spatial intelligence graphs to model the relationships and interactions between people, places, and devices. Query data from a physical space rather than disparate sensors.
+
+### IOT architectures
+
+<ul class="grid">
+
+[!INCLUDE [IoT Architecture – Azure IoT Subsystems](../../includes/cards/azure-iot-subsystems.md)]
+[!INCLUDE [Azure IoT reference architecture](../../includes/cards/iot.md)]
+[!INCLUDE [Process real-time vehicle data using IoT](../../includes/cards/realtime-analytics-vehicle-iot.md)]
+
+</ul>
+
+[view all](/azure/architecture/browse/#devops)
 
 ## Management
 
@@ -153,11 +195,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 ## Messaging and eventing
 
-| AWS service | Azure service | Description |
-|-------------|---------------|-------------|
-| [Simple Queue Service (SQS)](https://aws.amazon.com/sqs/) | [Queue Storage](https://azure.microsoft.com/services/storage/queues/) | Provides a managed message queueing service for communicating between decoupled application components. |
-| [Simple Queue Service (SQS)](https://aws.amazon.com/sqs/) | [Service Bus](https://azure.microsoft.com/services/service-bus/) | Supports a set of cloud-based, message-oriented middleware technologies including reliable message queuing and durable publish/subscribe messaging. |
-| [Simple Notification Service](https://aws.amazon.com/sns/) | [Event Grid](https://azure.microsoft.com/services/event-grid/) | A fully managed event routing service that allows for uniform event consumption using a publish/subscribe model. |
+[!INCLUDE [Messaging Components](../../includes/aws/messaging.md)]
 
 ## Mobile services
 
@@ -169,17 +207,27 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [Device Farm](https://aws.amazon.com/device-farm/) | [App Center](https://azure.microsoft.com/services/app-center/) | Provides services to support testing mobile applications. |
 | [Mobile Analytics](https://aws.amazon.com/mobileanalytics/) | [App Center](https://azure.microsoft.com/services/app-center/) | Supports monitoring, and feedback collection for the debugging and analysis of a mobile application service quality. |
 
+### Device Farm
+
+The AWS Device Farm provides cross-device testing services. In Azure, [Visual Studio App Center](https://appcenter.ms) provides similar cross-device front-end testing for mobile devices.
+
+In addition to front-end testing, the [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab) provides back-end testing resources for Linux and Windows environments.
+
+### Mobile architectures
+
+<ul class="grid">
+
+[!INCLUDE [Scalable web and mobile applications using Azure Database for PostgreSQL](../../includes/cards/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.md)]
+[!INCLUDE [Social App for Mobile and Web with Authentication](../../includes/cards/social-mobile-and-web-app-with-authentication.md)]
+[!INCLUDE [Task-Based Consumer Mobile App](../../includes/cards/task-based-consumer-mobile-app.md)]
+
+</ul>
+
+[view all](/azure/architecture/browse/#mobile)
+
 ## Networking
 
-| Area | AWS service | Azure service | Description |
-| -----| ----------- | ------------- | ----------- |
-| Cloud virtual networking | [Virtual Private Cloud (VPC)](https://aws.amazon.com/vpc/) | [Virtual Network](https://azure.microsoft.com/services/virtual-network/) | Provides an isolated, private environment in the cloud. Users have control over their virtual networking environment, including selection of their own IP address range, creation of subnets, and configuration of route tables and network gateways. |
-| Cross-premises connectivity | [VPN Gateway](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) | [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) |Connects Azure virtual networks to other Azure virtual networks, or customer on-premises networks (Site To Site). Allows end users to connect to Azure services through VPN tunneling (Point To Site). |
-| DNS management | [Route 53](https://aws.amazon.com/route53/) | [DNS](https://azure.microsoft.com/services/dns/) | Manage your DNS records using the same credentials and billing and support contract as your other Azure services |
-| &nbsp; | [53](https://aws.amazon.com/route53/) | [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) | A service that hosts domain names, plus routes users to Internet applications, connects user requests to datacenters, manages traffic to apps, and improves app availability with automatic failover. |
-Dedicated network | [Direct Connect](https://aws.amazon.com/directconnect/) | [ExpressRoute](https://azure.microsoft.com/services/expressroute/) | Establishes a dedicated, private network connection from a location to the cloud provider (not over the Internet). |
-| Load balancing | [Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html) | [Load Balancer](https://azure.microsoft.com/services/load-balancer/)  | Azure Load Balancer load-balances traffic at layer 4 (TCP or UDP). |
-| &nbsp; |  [Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html) | [Application Gateway](https://azure.microsoft.com/services/application-gateway/) | Application Gateway is a layer 7 load balancer. It supports SSL termination, cookie-based session affinity, and round robin for load-balancing traffic. |
+[!INCLUDE [Networking Services](../../includes/aws/networking.md)]
 
 ## Security, identity, and access
 
@@ -220,47 +268,21 @@ Dedicated network | [Direct Connect](https://aws.amazon.com/directconnect/) | [E
 | [Artifact](https://aws.amazon.com/artifact/) | [Service Trust Portal](https://servicetrust.microsoft.com/) | Provides access to audit reports, compliance guides, and trust documents from across cloud services. |
 | [Shield](https://aws.amazon.com/shield/) | [DDos Protection Service](https://docs.microsoft.com/azure/security/azure-ddos-best-practices) | Provides cloud services with protection from distributed denial of services (DDoS) attacks. |
 
+#### Security architectures
+
+<ul class="grid">
+
+[!INCLUDE [Real-time fraud detection](../../includes/cards/fraud-detection.md)]
+[!INCLUDE [Securely managed web applications](../../includes/cards/fully-managed-secure-apps.md)]
+[!INCLUDE [Threat indicators for cyber threat intelligence in Azure Sentinel](../../includes/cards/sentinel-threat-intelligence.md)]
+
+</ul>
+
+[view all](/azure/architecture/browse/#security)
+
 ## Storage
 
-### Object storage
-
-| AWS service | Azure service | Description |
-| ----------- | ------------- | ----------- |
-| [Simple Storage Services (S3)](https://aws.amazon.com/s3/) | [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) | Object storage service, for use cases including cloud applications, content distribution, backup, archiving, disaster recovery, and big data analytics. |
-
-### Virtual server disks
-
-| AWS service | Azure service | Description |
-| ----------- | ------------- | ----------- |
-| [Elastic Block Store (EBS)](https://aws.amazon.com/ebs/) | [managed disks](https://azure.microsoft.com/services/storage/disks/) | SSD storage optimized for I/O intensive read/write operations. For use as high-performance Azure virtual machine storage. |
-
-### Shared files
-
-| AWS service | Azure service | Description |
-| ----------- | ------------- | ----------- |
-| [Elastic File System](https://aws.amazon.com/efs/) | [Files](https://azure.microsoft.com/services/storage/files/) | Provides a simple interface to create and configure file systems quickly, and share common files. Can be used with traditional protocols that access files over a network. |
-
-### Archiving and backup
-
-| AWS service | Azure service | Description |
-| ----------- | ------------- | ----------- |
-| [S3 Infrequent Access (IA)](https://aws.amazon.com/s3/storage-classes) | [Storage cool tier](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) | Cool storage is a lower-cost tier for storing data that is infrequently accessed and long-lived. |
-| [S3 Glacier](https://aws.amazon.com/s3/storage-classes), Deep Archive | [Storage archive access tier](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) | Archive storage has the lowest storage cost and higher data retrieval costs compared to hot and cool storage. |
-| [Backup](https://aws.amazon.com/backup/) | [Backup](https://azure.microsoft.com/services/backup/) | Back up and recover files and folders from the cloud, and provide offsite protection against data loss. |
-
-### Hybrid storage
-
-| AWS service | Azure service | Description |
-| ----------- | ------------- | ----------- |
-| [Storage Gateway](https://aws.amazon.com/storagegateway/) | [StorSimple](https://azure.microsoft.com/services/storsimple/) | Integrates on-premises IT environments with cloud storage. Automates data management and storage, plus supports disaster recovery. |
-| [DataSync](https://aws.amazon.com/datasync/) | [File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning) | Azure Files can be deployed in two main ways: by directly mounting the serverless Azure file shares or by caching Azure file shares on-premises using Azure File Sync.|
-
-### Bulk data transfer
-
-| AWS service | Azure service | Description |
-| ----------- | ------------- | ----------- |
-| [Import/Export Disk](https://aws.amazon.com/snowball/disk/details/) | [Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) | A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit. |
-| [Import/Export Snowball](https://aws.amazon.com/snowball/), [Snowball Edge](https://aws.amazon.com/snowball-edge/), [Snowmobile](https://aws.amazon.com/snowmobile/) | [Data Box](https://azure.microsoft.com/services/storage/databox/) | Petabyte- to exabyte-scale data transport solution that uses secure data storage devices to transfer large amounts of data to and from Azure. |
+[!INCLUDE [Storage components](../../includes/aws/storage.md)]
 
 ## Web applications
 
@@ -269,8 +291,20 @@ Dedicated network | [Direct Connect](https://aws.amazon.com/directconnect/) | [E
 | [Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) | [App Service](https://azure.microsoft.com/services/app-service) | Managed hosting platform providing easy to use services for deploying and scaling web applications and services. |
 | [API Gateway](https://aws.amazon.com/api-gateway/) | [API Management](https://azure.microsoft.com/services/api-management/) | A turnkey solution for publishing APIs to external and internal consumers. |
 | [CloudFront](https://aws.amazon.com/cloudfront/) | [Content Delivery Network](https://azure.microsoft.com/services/cdn/) | A global content delivery network that delivers audio, video, applications, images, and other files. |
-| [Global Accelerator](https://aws.amazon.com/global-accelerator/) | [Front Door](https://azure.microsoft.com/services/frontdoor/) | Easily join your distributed microservices architectures into a single global application using HTTP load balancing and path-based routing rules. Automate turning up new regions and scale-out with API-driven global actions, and independent fault-tolerance to your back end microservices in Azure—or anywhere. |
+| [Global Accelerator](https://aws.amazon.com/global-accelerator/) | [Front Door](https://azure.microsoft.com/services/frontdoor/) | Easily join your distributed microservices architectures into a single global application using HTTP load balancing and path-based routing rules. Automate turning up new regions and scale-out with API-driven global actions, and independent fault-tolerance to your back end microservices in Azure-or anywhere. |
 | [LightSail](https://aws.amazon.com/lightsail/) | [App Service](https://azure.microsoft.com/services/app-service/) | Build, deploy, and scale web apps on a fully managed platform. |
+
+#### Web architectures
+
+<ul class="grid">
+
+[!INCLUDE [Architect scalable e-commerce web app](../../includes/cards/scalable-ecommerce-web-app.md)]
+[!INCLUDE [Multi-region N-tier application](../../includes/cards/multi-region-sql-server.md)]
+[!INCLUDE [Serverless web application](../../includes/cards/web-app.md)]
+
+</ul>
+
+[view all](/azure/architecture/browse/#web)
 
 ## Miscellaneous
 

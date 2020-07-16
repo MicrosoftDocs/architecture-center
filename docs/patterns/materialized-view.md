@@ -67,6 +67,7 @@ This pattern isn't useful in the following situations:
 - The source data is simple and easy to query.
 - The source data changes very quickly, or can be accessed without using a view. In these cases, you should avoid the processing overhead of creating views.
 - Consistency is a high priority. The views might not always be fully consistent with the original data.
+- When using microservices.  Microservices typically have well defined boundries aligning to [domain driven design (DDD)](/azure/architecture/microservices/model/tactical-ddd).
 
 ## Example
 

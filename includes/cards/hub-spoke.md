@@ -14,8 +14,8 @@
             <p>Hub-spoke network topology in Azure</p>
         </a>
         <ul class="card-content-metadata">
-            <li>1/29/2020</li>
-            <li>10 min read</li>
+            <li>5/21/2020</li>
+            <li>11 min read</li>
         </ul>
         <p class="card-content-description">This reference architecture deploys a hub-spoke network topology in Azure.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

@@ -1,8 +1,8 @@
 ---
 title: Microservices architecture on Azure Kubernetes Service (AKS)
 description: Deploy a microservices architecture on Azure Kubernetes Service (AKS)
-author: MikeWasson
-ms.date: 12/10/2019
+author: adamboeglin
+ms.date: 05/07/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.category:
@@ -27,7 +27,7 @@ The architecture consists of the following components.
 
 **Azure Kubernetes Service** (AKS). AKS is an Azure service that deploys a managed Kubernetes cluster.
 
-**Kubernetes cluster**. AKS is responsible for deploying the Kubernetes cluster and for managing the Kubernetes masters. You only manage the agent nodes.
+**Kubernetes cluster**. AKS is responsible for deploying the Kubernetes cluster and for managing the Kubernetes API server. You only manage the agent nodes.
 
 **Virtual network**. By default, AKS creates a virtual network to deploy the agent nodes into. For more advanced scenarios, you can create the virtual network first, which lets you control things like how the subnets are configured, on-premises connectivity, and IP addressing. For more information, see [Configure advanced networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking).
 
@@ -45,7 +45,7 @@ The architecture consists of the following components.
 
 **Helm**. Helm is as a package manager for Kubernetes &mdash; a way to bundle Kubernetes objects into a single unit that you can publish, deploy, version, and update.
 
-**Azure Monitor**. Azure Monitor collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with AKS to collect metrics from controllers, nodes, and containers, as well as container logs and master node logs.
+**Azure Monitor**. Azure Monitor collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with AKS to collect metrics from controllers, nodes, and containers, as well as container and node logs.
 
 ## Design considerations
 
@@ -95,7 +95,7 @@ In Kubernetes, the **Ingress controller** might implement the API gateway patter
 
 - Aggregate multiple requests into a single request, to reduce chattiness between the client and the backend.
 
-- Offload functionality from the backend services, such as SSL termination, authentication, IP whitelisting, or client rate limiting (throttling).
+- Offload functionality from the backend services, such as SSL termination, authentication, IP restrictions, or client rate limiting (throttling).
 
 Ingress abstracts the configuration settings for a proxy server. You also need an Ingress controller, which provides the underlying implementation of the Ingress. There are Ingress controllers for Nginx, HAProxy, Traefik, and Azure Application Gateway, among others.
 
@@ -265,6 +265,11 @@ Scan images and running containers for known vulnerabilities, using a scanning s
 
 Automate image patching using ACR Tasks, a feature of Azure Container Registry. A container image is built up from layers. The base layers include the OS image and application framework images, such as ASP.NET Core or Node.js. The base images are typically created upstream from the application developers, and are maintained by other project maintainers. When these images are patched upstream, it's important to update, test, and redeploy your own images, so that you don't leave any known security vulnerabilities. ACR Tasks can help to automate this process.
 
+## DevOps considerations
+
+This reference architecture provides an [Azure Resource Manager template][arm-template] for provisioning the cloud resources, and its dependencies. With the use of [Azure Resource Manager templates][arm-template] you can use [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production scenarios. This allows you save cost and provision load testing environment only when needed.
+
+Consider following the workload isolation criteria to structure your ARM template, a workload is typically defined as an arbitrary unit of functionality; you could, for exmaple, have a separate template for the cluster and then other for the dependant services. Workload isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD), since every workload is associated and managed by its corresponding DevOps team. 
 
 ## Deployment (CI/CD) considerations
 
@@ -282,7 +287,7 @@ For specific recommendations and best practices, see [CI/CD for microservices on
 
 ## Cost considerations
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 Here are some points to consider for some of the services used in this architecture.
 
@@ -312,6 +317,8 @@ For Azure Monitor Log Analytics, you are charged for data ingestion and retentio
 
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][ri-deploy].
 
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 ## Next steps
 
 
