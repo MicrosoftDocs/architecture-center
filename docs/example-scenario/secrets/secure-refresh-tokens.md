@@ -19,28 +19,18 @@ Carefully consider the need to store OBO tokens, since these tokens can give a m
 
 When an app needs to use the access and refresh tokens indefinitely, it's critical to store the refresh tokens securely. Storing the access token may seem like a good idea, but poses a greater security risk, since an access token in and of itself can access resources. The recommended approach is to store only refresh tokens, and get access tokens as needed.
 
-This solution uses Azure Key Vault, Azure Functions, and Azure DevOps to securely store refresh tokens. The solution also shows how to remove an organization's access to an application by removing secrets.
+This solution uses Azure Key Vault, Azure Functions, and Azure DevOps to securely update and store refresh tokens.
 
 ## Architecture
 
 ![Diagram showing the key and token refresh processes.](./media/refresh-diagram.png)
 
-- Azure Key Vault holds a secret encryption key per Azure AD tenant.
-- An Azure Functions function refreshes the refresh token and saves it with the latest secret key version.
-- A database stores the encrypted and opaque data.
-- An Azure DevOps continuous delivery pipeline creates and updates the keys.
+- Azure [Key Vault](https://azure.microsoft.com/services/key-vault/) holds a secret encryption key for each [Azure AD](https://azure.microsoft.com/services/active-directory/) tenant.
+- An [Azure Functions](https://azure.microsoft.com/services/functions/) function refreshes the refresh token in Azure AD and saves it with the latest secret key version.
+- A database stores the encrypted key and and opaque data.
+- An [Azure DevOps](https://azure.microsoft.com/services/devops/) continuous delivery pipeline creates and updates the secret keys.
 
-### Azure Key Vault operations
-
-![Diagram showing Key Vault key creation and update.](./media/key-creation-pipeline.png)
-
-### Azure Functions operations
-
-![Diagram showing Azure Functions operations.](./media/convert-to-opaque-token.png)
-
-### Azure DevOps
-
-Azure Pipelines is a convenient place to add your key rotation strategy, if you're already using Pipelines for infrastructure-as-code (IaC) or continuous integration and delivery (CI/CD). You don't have to use Azure DevOps, but the point is to limit the paths for setting or retrieving secrets.
+[Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is a convenient place to add your key rotation strategy, if you're already using Pipelines for infrastructure-as-code (IaC) or continuous integration and delivery (CI/CD). You don't have to use Azure DevOps, as long as you limit the paths for setting or retrieving secrets.
 
 You can apply the following permissions to the Service Principal for your Azure DevOps service connection, which allow Azure Pipelines to set secrets. Set the `<Key Vault Name>` and `<Service Connection Principal>` variables to the correct values for your environment.
 
@@ -48,9 +38,7 @@ You can apply the following permissions to the Service Principal for your Azure 
 az keyvault set-policy --name $<Key Vault Name> --spn $<Service Connection Principal> --secret-permissions set
 ```
 
-After you set up your pipeline to create or update keys, schedule the pipeline to run periodically and enable key rotation. See [Configure schedules for pipelines](https://docs.microsoft.com/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops&tabs=yaml).
-
-You can [sync the key rotation schedule with the token refresh schedule](#key-rotation-and-token-refresh). Whenever the refresh token refreshes, a new key encrypts the new refresh token.
+After you set up your pipeline to create or update keys, you can schedule the pipeline to run periodically and [sync the key rotation schedule with the token refresh schedule](#key-rotation-and-token-refresh). Whenever the refresh token refreshes, a new key encrypts the new refresh token. For more information, see [Configure schedules for pipelines](https://docs.microsoft.com/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops&tabs=yaml).
 
 ## Managed identity
 
@@ -58,9 +46,18 @@ The most convenient way for an Azure service like Azure Functions to access Key 
 
 ### Azure portal
 
-You can use the Azure portal to set up a managed identity for Azure Functions. For more information, see [Add a system-assigned identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity).
+You can use the Azure portal to set up the managed identity for Azure Functions to access Key Vault. For more information, see [Add a system-assigned identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity).
 
 ![Screenshot showing how to enable managed identity in the Azure portal.](./media/system-assigned-managed-identity-in-azure-portal.png)
+
+### Azure CLI
+
+You can also set Azure Key Vault policy by using the [Azure CLI](https://docs.microsoft.com/cli/azure/ext/keyvault-preview/keyvault?view=azure-cli-latest):
+
+```azurecli
+az keyvault set-policy --name $<Key Vault Name> --spn $<Service Connection Principal> --secret-permissions set
+az keyvault set-policy --name $<Key Vault Name> --spn $<Managed Identity Principal> --secret-permissions get
+```
 
 ### ARM template
 
@@ -104,15 +101,6 @@ The following [ARM template](https://docs.microsoft.com/azure/azure-resource-man
     ]
   }
 }
-```
-
-### Azure CLI
-
-You can also set Azure Key Vault policy by using the [Azure CLI](https://docs.microsoft.com/cli/azure/ext/keyvault-preview/keyvault?view=azure-cli-latest), as in the preceding Azure DevOps example:
-
-```azurecli
-az keyvault set-policy --name $<Key Vault Name> --spn $<Service Connection Principal> --secret-permissions set
-az keyvault set-policy --name $<Key Vault Name> --spn $<Managed Identity Principal> --secret-permissions get
 ```
 
 ## Token storage
