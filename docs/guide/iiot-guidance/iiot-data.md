@@ -88,4 +88,4 @@ One of the advantages of moving operational data to the cloud is to take advanta
 
 ## Next steps
 
-Now that you have learned the architecture of an Azure IIoT analytics solution, read [the architectural considerations](./iiot-considerations.md) that improve the resiliency and efficiency of this architecture.
+Now that you have learned the architecture of an Azure IIoT analytics solution, read [the architectural considerations](./iiot-considerations.md) that improve the resiliency and efficiency of this architecture. 
