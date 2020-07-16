@@ -151,7 +151,7 @@ Some historian vendors also provide first-class capabilities to send data to Azu
 |Historian|Options|
 |--------------|-----------------------|
 |OSIsoft PI|[PI Integrator for Azure](https://techsupport.osisoft.com/Products/PI-Integrators/PI-Integrator-for-Microsoft-Azure/Overview)|
-|Honeywell|[Uniformance Cloud Historian](https://www.automation.com/products/product03/honeywell-introduces-connected-plant-uniformance-c)|
+|Honeywell|[Uniformance Cloud Historian](https://www.honeywellprocess.com/en-US/online_campaigns/uniformance_cloud_historian/Pages/index.html)|
 
 Once real time data streaming has been established between your historian and Azure IoT Hub, it is important to export your historian's historical data and import it into your IIoT analytics solution. For guidance on how to accomplish this, see [Historical Data Ingestion](./iiot-services.md#historical-data-ingestion).
 
