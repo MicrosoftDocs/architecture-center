@@ -1,5 +1,5 @@
 ---
-title: Secure OAuth 2.0 On-Behalf-Of refresh token storage for web services
+title: Secure OAuth 2.0 On-Behalf-Of refresh tokens for web services
 titleSuffix: Azure Example Scenarios
 description: Store OAuth 2.0 On-Behalf-Of (OBO) refresh tokens securely using Azure Key Vault and Azure Functions managed identity for key rotation and token refresh.
 author: jmostella
@@ -11,13 +11,14 @@ ms.custom:
 - fcp
 ---
 
-# Secure OAuth 2.0 OBO refresh token storage
+# Secure OAuth 2.0 OBO refresh tokens
 
-When developing web services, you may need to get access and refresh tokens using the [OAuth 2.0 On-Behalf-Of (OBO) flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). The OBO flow serves the use case where an application invokes a service or web API, which in turn needs to call another service or web API. OBO propagates the delegated user identity and permissions through the request chain.
+When developing web services, you may need to get tokens using the [OAuth 2.0 On-Behalf-Of (OBO) flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). The OBO flow serves the use case where an application invokes a service or web API, which in turn needs to call another service or web API. OBO propagates the delegated user identity and permissions through the request chain.
 
-Carefully consider the need to store OBO tokens, since these tokens can give a malicious actor access to resources in the organization's Azure Active Directory (Azure AD). A security breach of an application that targets **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** can be especially disastrous.
-
-When an app needs to use the access and refresh tokens indefinitely, it's critical to store the refresh tokens securely. Storing the access token may seem like a good idea, but poses a greater security risk, since an access token in and of itself can access resources. The recommended approach is to store only refresh tokens, and get access tokens as needed.
+>[!WARNING]
+>Carefully consider the need to store OBO tokens, since these tokens can give a malicious actor access to resources in the organization's Azure Active Directory (Azure AD). A security breach of an application that targets **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** can be especially disastrous.
+>
+>When an application needs to use the access and refresh tokens indefinitely, it's critical to store the refresh tokens securely. Storing the access tokens poses a greater security risk, since an access token in and of itself can access resources. The recommended approach is to store only refresh tokens, and get access tokens as needed.
 
 This solution uses Azure Key Vault, Azure Functions, and Azure DevOps to securely update and store refresh tokens.
 
