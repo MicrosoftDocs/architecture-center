@@ -27,9 +27,8 @@ The IT teams need guidance about architectural recommendations for running their
 
 Based on the company's profile and business requirements, we've created a reference architecture that serves as a baseline with focus on security. The architecture is accompanied with an implementation available on GitHub. We recommend that you start with this implementation and add components based on your needs.
 
-Reference architecture: [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](secure-baseline-aks.md)
-
-![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). 
+> Reference architecture: [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](secure-baseline-aks.md)\
+> ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). 
 ## Organization structure
 
 Contoso Bicycle has a single IT Team with these sub teams.

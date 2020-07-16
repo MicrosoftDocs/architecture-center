@@ -48,7 +48,7 @@ Some advantages of this topology are:
 
 -   Certain resources, such as a firewall and DNS can be shared across networks.
 
-![Network Topology](_images/secure-baseline-architecture.png)
+![Network Topology](_images/secure-baseline-architecture.svg)
 
 ### Hub 
 
