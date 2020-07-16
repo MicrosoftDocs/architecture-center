@@ -18,10 +18,10 @@ This article shows you how to visualize the data collected by the [Azure Industr
 
 ## Visualization
 
-There are many options for visualizing your industrial data. Your IIoT Analytics Solution may use some or all of these options, depending on the personas using your solution.
+There are many options for visualizing your industrial data. Your IIoT analytics solution may use some or all of these options, depending on the personas using your solution.
 
 - For Process Engineers and other personas looking to perform ad-hoc analytics and trend visualizations, we recommend using [Azure Time Series Insights explorer](https://docs.microsoft.com/azure/time-series-insights/concepts-ux-panels).
-- For Plant Managers and other personas wanting to develop dashboards, we recommend using Power BI and connecting Power BI with your data in Time Series Insights using the [Power BI connector](https://docs.microsoft.com/azure/time-series-insights/concepts-power-bi). Using Power BI, these users can also combine external data from your ERP, EAM, or other systems with the data in Time Series Insights.
+- For Plant Managers and other personas wanting to develop dashboards, we recommend using Power BI, and connecting Power BI with your data in Time Series Insights using the [Power BI connector](https://docs.microsoft.com/azure/time-series-insights/concepts-power-bi). Using Power BI, these users can also combine external data from your ERP, EAM, or other systems with the data in Time Series Insights.
 - For advanced visualizations, such as schematic views and process graphics, we recommend a custom web application.
 - For Data Scientists interested in using open source data analysis and visualization tools such as Python, Jupyter Notebooks, and [*Matplotlib*](https://matplotlib.org/), we recommend [Azure Notebooks](https://notebooks.azure.com/).
 
@@ -30,11 +30,12 @@ There are many options for visualizing your industrial data. Your IIoT Analytics
 The Azure Time Series Insights explorer is a web application that provides powerful data trending and visualization capabilities that make it simple to explore and analyze billions of IIoT events simultaneously.
 
 Time Series Insights Explorer is ideally suited to personas, such as a Process Engineer or Operations Manager, who want to explore, analyze and visualize the raw data coming from your industrial systems. The insights gained from exploring the raw data can help build Azure Stream Analytics jobs, which look for conditions in the data or perform calculations over the data.  
-The Azure Time Series Insights explorer allows you to seamlessly explore both warm and cold data, or your historical data.
+
+The Azure Time Series Insights explorer allows you to seamlessly explore both warm and cold data, or your historical data, as demonstrated in the following figure.
 
 [![IIoT Warm and Cold Data](./images/warm-cold-data.png)](./images/warm-cold-data.png#lightbox)
 
-Azure Time Series Insights explorer has a powerful yet intuitive user interface.
+Azure Time Series Insights explorer has a powerful yet intuitive user interface, as shown below.
 
 [![Time Series Insights explorer](./images/preview-explorer-overview.png)](./images/preview-explorer-overview.png#lightbox)
 
@@ -50,7 +51,7 @@ Key features of Azure Time Series Insights explorer:
 
 ## Dashboards
 
-For some personas, such as a *Plant Manager*, dashboards containing factory or plant KPIs and visualizations are more important than viewing the raw data. For such users, we recommend [Power BI](https://powerbi.microsoft.com/) as the visualization solution. You can [connect](https://docs.microsoft.com/azure/time-series-insights/concepts-power-bi) Power BI with your data stored in Time Series Insights, providing you with powerful reporting and dashboard capabilities over your industrial data, and allowing you to share insights and results across your organization.
+For some personas, such as a Plant Manager, dashboards containing factory or plant KPIs and visualizations are more important than viewing the raw data. For such users, we recommend [Power BI](https://powerbi.microsoft.com/) as the visualization solution. You can [connect](https://docs.microsoft.com/azure/time-series-insights/concepts-power-bi) Power BI with your data stored in Time Series Insights, providing you with powerful reporting and dashboard capabilities over your industrial data, and allowing you to share insights and results across your organization.
 
 [![Power BI components](./images/power-bi-components.png)](./images/power-bi-components.png#lightbox)
 
@@ -63,13 +64,13 @@ By connecting your data to Power BI, you can:
 
 ## Schematic Views
 
-For advanced visualizations, such as schematic views or process graphics, you may require a custom web application. A custom web application also allows you to provide a single pane of glass user experience and other advanced capabilities including:
+For advanced visualizations, such as schematic views or process graphics, you may require a custom web application. A custom web application also allows you to provide a *single pane of glass* user experience and other advanced capabilities including:
 
-- A simplified and integrated authoring experience for Azure Stream Analytics jobs and Logic Apps;
-- Displaying real-time data using process or custom visuals;
-- Displaying KPIs and external data with embedded Power BI dashboards;
-- Displaying visual alerts using SignalR; and
-- Allowing administrators to add/remove users from the solution.
+- a simplified and integrated authoring experience for Azure Stream Analytics jobs and Logic Apps,
+- displaying real-time data using process or custom visuals,
+- displaying KPIs and external data with embedded Power BI dashboards,
+- displaying visual alerts using SignalR, and
+- allowing administrators to add/remove users from the solution.
 
 We recommend building a Single Page Application (SPA) using:
 
@@ -83,8 +84,8 @@ We recommend building a Single Page Application (SPA) using:
 
 ## Notebooks
 
-One of the advantages of moving operational data to the cloud is to take advantage of modern big-data tool sets.  One of the most common tools used by Data Scientists for ad-hoc analysis of big data are [Jupyter Notebooks](https://notebooks.azure.com/). [Jupyter (formerly IPython)](https://docs.microsoft.com/azure/notebooks/azure-notebooks-overview) is an open-source project that lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations onto a single, sharable canvas, the notebook. Production Engineers should also consider learning Jupyter Notebooks technology to assist in analysis of plant events, finding correlations, and so on.  Jupyter Notebooks provide support for Python 2/3, R, and F# programming languages and can connect to your Time Series Insights data stored Azure storage.
+One of the advantages of moving operational data to the cloud is to take advantage of modern big-data tool sets.  One of the most common tools used by Data Scientists for ad-hoc analysis of big data are [Jupyter Notebooks](https://notebooks.azure.com/). [Jupyter (formerly IPython)](https://docs.microsoft.com/azure/notebooks/azure-notebooks-overview) is an open-source project that lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations onto a single, sharable canvas - *the notebook*. Production Engineers should also consider learning Jupyter Notebooks technology to assist in analysis of plant events, finding correlations, and so on.  Jupyter Notebooks provide support for Python 2/3, R, and F# programming languages and can connect to your Time Series Insights data stored Azure storage.
 
 ## Next steps
 
-Now that you have learned about the architecture of this IIoT analysis solution, read [the architectural considerations](./iiot-considerations.md) that improve the resiliency and efficiency of this architecture.
+Now that you have learned the architecture of an Azure IIoT analytics solution, read [the architectural considerations](./iiot-considerations.md) that improve the resiliency and efficiency of this architecture.
