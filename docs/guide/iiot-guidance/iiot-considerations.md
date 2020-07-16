@@ -89,4 +89,4 @@ For additional security, industrial firewalls can be configured to only allow tr
 
 - [Azure Industrial IoT components, tutorials, and source code](https://azure.github.io/Industrial-IoT/).
 
-- For detailed documentation of the various Azure IoT services, see [Azure IoT Fundamentals](https://docs.microsoft.com/azure/iot-fundamentals/).
+- For detailed documentation of the various Azure IoT services, see [Azure IoT Fundamentals](https://docs.microsoft.com/azure/iot-fundamentals/). 
