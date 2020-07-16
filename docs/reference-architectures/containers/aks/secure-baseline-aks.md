@@ -345,20 +345,20 @@ allowed. The responses will use gzip encoding if the client accepts. Because
 Traefik does TLS termination, communication with the backend services is over
 HTTP.
 
-```
+```YAML
 apiVersion:networking.k8s.io/v1beta1
 kind: Ingress	
 metadata:	
   name: aspnetapp-ingress	
   namespace: a0008	
   annotations:	
+    kubernetes.io/ingress.allow-http: "false"
     kubernetes.io/ingress.class: traefik-internal	
     traefik.ingress.kubernetes.io/router.entrypoints: websecure	
     traefik.ingress.kubernetes.io/router.tls: "true"	
     traefik.ingress.kubernetes.io/router.tls.options: default	
     traefik.ingress.kubernetes.io/router.middlewares: app-gateway-snet@file, gzip-compress@file	
 spec:	
-  # ingressClassName: "traefik-internal"	
   tls:	
   - hosts:	
       - bu0001a0008-00.aks-ingress.contoso.com	
@@ -906,21 +906,18 @@ Store and version scripts and template files in your source control system.
 
 Pipelines for workflow and deployment must have the ability to build and deploy
 applications continuously. Updates must be deployed safely and quickly and
-rolled back in case there are issues. Automate those pipelines as much as
-possible.
-
-The recommended tool for managing the workflow and deployment is [GitHub Actions](https://github.com/marketplace?type=actions). Other popular options
-include [Azure DevOps Services](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services)
-and [Jenkins](https://docs.microsoft.com/azure/developer/jenkins/).
+rolled back in case there are issues. 
 
 Your deployment strategy must include a reliable and an automated continuous
 delivery (CD) pipeline. Changes to your workload container images should be
 automatically deployed to the cluster.
 
-![Workload CI/CD](_images/workload-ci-cd.png)
+In this architecture, we've chosen [GitHub Actions](https://github.com/marketplace?type=actions) for managing the workflow and deployment. Other popular options
+include [Azure DevOps Services](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services)
+and [Jenkins](https://docs.microsoft.com/azure/developer/jenkins/).
 
 ### Cluster CI/CD
-
+![Workload CI/CD](_images/workload-ci-cd.png)
 Instead of using an imperative approach like kubectl, use tools that
 automatically synchronize cluster and repository changes. To manage the
 workflow, such as release of a new version and validation of that version before
