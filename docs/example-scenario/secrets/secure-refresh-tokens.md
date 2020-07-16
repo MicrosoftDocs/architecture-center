@@ -18,7 +18,9 @@ When developing web services, you may need to get tokens using the [OAuth 2.0 On
 >[!WARNING]
 >Carefully consider the need to store OBO tokens, since these tokens can give a malicious actor access to resources in the organization's Azure Active Directory (Azure AD). A security breach of an application that targets **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** can be especially disastrous.
 >
->When an application needs to use the access and refresh tokens indefinitely, it's critical to store the refresh tokens securely. Storing the access tokens poses a greater security risk, since an access token in and of itself can access resources. The recommended approach is to store only refresh tokens, and get access tokens as needed.
+>When an application needs to use access and refresh tokens indefinitely, it's critical to store the refresh tokens securely. Storing access tokens poses an even greater security risk, since an access token in and of itself can access resources. The recommended approach is to store only refresh tokens, and get access tokens as needed.
+>
+>In case of compromise, you can [revoke refresh tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#token-revocation).
 
 This solution uses Azure Key Vault, Azure Functions, and Azure DevOps to securely update and store OBO refresh tokens.
 
@@ -43,11 +45,11 @@ After you set up your pipeline to create or update keys, you can schedule the pi
 
 ## Managed identity
 
-The most convenient way for an Azure service like Azure Functions to access Key Vault is to use the service's [Managed Identity](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-managed-identity). You can grant access through the Azure portal, Azure CLI, or through an Azure Resource Manager (ARM) template for IaC scenarios.
+The most convenient way for an Azure service like Azure Functions to access Key Vault is to use the service's [managed identity](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-managed-identity). You can grant access through the Azure portal, Azure CLI, or through an Azure Resource Manager (ARM) template for IaC scenarios.
 
 ### Azure portal
 
-You can use the Azure portal to set up the managed identity for Azure Functions to access Key Vault. For more information, see [Add a system-assigned identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity).
+You can use the Azure portal to set up the managed identity for Azure Functions to access Key Vault. From the Functions app's **Identity** page, copy the Managed Identity Principal's **Object ID**. Then create a Key Vault access policy to enable `get` secret permissions for the Azure Functions managed identity. For more information, see [Add a system-assigned identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity).
 
 ![Screenshot showing how to enable managed identity in the Azure portal.](./media/system-assigned-managed-identity-in-azure-portal.png)
 
@@ -67,7 +69,7 @@ The following [ARM template](https://docs.microsoft.com/azure/azure-resource-man
 ```json
 {
   "type": "Microsoft.KeyVault/vaults",
-  "apiVersion": "***",
+  "apiVersion": "2019-09-01",
   "name": "***",
   "location": "***",
   "properties": {
@@ -116,23 +118,27 @@ With the cryptographic key stored as a secret, you can look up the latest versio
 
 ## Token usage
 
-Using the key is straightforward. The following sequence queries the key based on the stored key version. It's not recommended to use Azure Key Vault in the `http` pipeline, so cache the responses whenever possible. The diagram labels the calls to Key Vault that are candidates for caching. For more information, see [HTTP API URL discovery](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-http-features?tabs=csharp#http-api-url-discovery).
+Using the key is straightforward. The following sequence queries the key based on the stored key version.
 
 ![Diagram that shows the stored token usage sequence.](./media/use-stored-token-sequence.png)
 
-The key rotation is orthogonal to the application, so you can save the refresh token under a new key asynchronously. Azure Functions supports asynchronous processing with [Durable Functions](https://docs.microsoft.com/azure/azure-functions/durable/).
+The token refresh is orthogonal to the `DoWork` function, so Azure Functions can perform `DoWork` and token refresh asynchronously with [Durable Functions](https://docs.microsoft.com/azure/azure-functions/durable/). For more information, see [HTTP API URL discovery](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-http-features?tabs=csharp#http-api-url-discovery).
+
+It's not recommended to use Azure Key Vault in the HTTP request pipeline, so cache the responses whenever reasonable. In this example, the response to the Azure Functions to Key Vault `getSecret(secretId, secretVersion)` call is cacheable.
 
 ## Key rotation and token refresh
 
-You can rotate the secret key at the same times that you refresh the refresh token. The following sequence diagram illustrates this process:
+You can rotate the secret key at the same time that you refresh the refresh token, so the latest token gets encrypted using the latest version of the encryption key. This process uses the built-in Azure Functions support for timer triggers. For more information, see [Timer trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-timer?tabs=csharp).
 
-![Diagram that shows the token refresh sequence.](./media/refresh-token-sequence.png)
+The following sequence diagram illustrates this process of syncing the token refresh with the key rotation:
 
-When you refresh the refresh token, the token gets encrypted using the latest version of the encryption key. This process uses a timer trigger. Azure Functions has built-in support for timer triggers. For more information, see [Timer trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-timer?tabs=csharp).
+![Diagram that shows the sequence of syncing token refresh with key rotation.](./media/refresh-token-sequence.png)
 
 ## User and access control
 
-To remove a user, just remove the user's record. To remove application access per user, remove the `refreshToken` part of the user data.
+Microsoft Identity Platform offers the ability to revoke refresh tokens in case of compromise. See [Token revocation](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#token-revocation and [Revoke-AzureADUserAllRefreshToken](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
+
+To remove a user from Azure AD, just remove the user's record. To remove application access per user, remove the `refreshToken` part of the user data.
 
 To remove access for a group of users, such as all users in a target tenant, you can use Azure Pipelines to delete the group's secret based on `secretId()`.
 
