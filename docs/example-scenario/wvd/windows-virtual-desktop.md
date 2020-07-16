@@ -3,7 +3,7 @@ title: Windows Virtual Desktop at enterprise scale
 titleSuffix: Azure Example Scenarios
 description: Explore Windows Virtual Desktop, and learn to build virtual desktop infrastructure solutions at enterprise scale.
 author: doodlemania2
-ms.date: 07/13/2020
+ms.date: 07/16/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -27,6 +27,13 @@ Most demand for enterprise virtual desktop solutions comes from:
 
 ![Diagram of a Windows Virtual Desktop service architecture.](images/windows-virtual-desktop.png)
 
+This diagram shows a typical architectural setup for Windows Virtual Desktop.
+
+- The application endpoints are in the customer's on-premises network. ExpressRoute extends the on-premises network into the Azure cloud, and Azure AD Connect integrates the customer's Active Directory Domain Services (AD DS) with Azure Active Directory (Azure AD).
+- The Windows Virtual Desktop control plane handles Web Access, Gateway, Broker, Diagnostics, and extensibility components like REST APIs.
+- The customer manages AD DS and Azure AD, Azure subscriptions, virtual networks, Azure file storage, and the Windows Virtual Desktop host pools and workspaces.
+- To increase capacity, the customer uses two Azure subscriptions in a hub-spoke architecture, and connects them via virtual network peering.
+
 ## Components
 
 [Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/overview) service architecture is similar to [Windows Server Remote Desktop Services](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/welcome-to-rds). Microsoft manages the infrastructure and brokering components, while enterprise customers manage their own desktop host virtual machines (VMs), data, and clients.
@@ -35,21 +42,28 @@ Most demand for enterprise virtual desktop solutions comes from:
 
 Microsoft manages the following Windows Virtual Desktop services as part of Azure:
 
-- **Web Access.** The [Web Access](https://docs.microsoft.com/azure/virtual-desktop/connect-web) service within Window Virtual Desktop lets users access virtual desktops and remote apps through an HTML5-compatible web browser as they would with a local PC, from anywhere and any device. You can secure Web Access using multifactor authentication in Azure Active Directory.
-- **Gateway**. The Remote Connection Gateway service connects remote users to Windows Virtual Desktop apps and desktops from any internet-connected device that can run a Windows Virtual Desktop client. The client connects to a gateway, which then orchestrates a connection from a VM back to the same gateway.
-- **Connection Broker**. The Connection Broker service manages user connections to virtual desktops and remote apps. The Connection Broker provides load balancing and reconnection to existing sessions.
-- **Diagnostics**. Remote Desktop Diagnostics is an event-based aggregator that marks each user or administrator action on the Windows Virtual Desktop deployment as a success or failure. Administrators can query the event aggregation to identify failing components.
-- **Extensibility components**. Windows Virtual Desktop includes several extensibility components. You can manage Windows Virtual Desktop using Windows PowerShell or with the provided REST APIs, which also enable support from third-party tools.
+- **Web Access:** The [Web Access](https://docs.microsoft.com/azure/virtual-desktop/connect-web) service within Window Virtual Desktop lets users access virtual desktops and remote apps through an HTML5-compatible web browser as they would with a local PC, from anywhere on any device. You can secure Web Access using multifactor authentication in Azure Active Directory.
+- **Gateway:** The Remote Connection Gateway service connects remote users to Windows Virtual Desktop apps and desktops from any internet-connected device that can run a Windows Virtual Desktop client. The client connects to a gateway, which then orchestrates a connection from a VM back to the same gateway.
+- **Connection Broker:** The Connection Broker service manages user connections to virtual desktops and remote apps. The Connection Broker provides load balancing and reconnection to existing sessions.
+- **Diagnostics**: Remote Desktop Diagnostics is an event-based aggregator that marks each user or administrator action on the Windows Virtual Desktop deployment as a success or failure. Administrators can query the event aggregation to identify failing components.
+- **Extensibility components**: Windows Virtual Desktop includes several extensibility components. You can manage Windows Virtual Desktop using Windows PowerShell or with the provided REST APIs, which also enable support from third-party tools.
 
 ### Components you manage
 
 Customers manage these components of Windows Virtual Desktop solutions:
 
-- **Azure Virtual Network.** [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) lets Azure resources like VMs communicate privately with each other and with the internet. By connecting Windows Virtual Desktop host pools to an Active Directory domain, you can define network topology to access virtual desktops and virtual apps from the intranet or internet, based on organizational policy. You can connect a Windows Virtual Desktop to an on-premises network using a virtual private network (VPN), or use [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) to extend the on-premises network into the Azure cloud over a private connection.
-- **Azure Active Directory**. Windows Virtual Desktop uses [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) for identity and access management. Azure AD integration uses Azure AD security features like conditional access, multi-factor authentication, and the [Intelligent Security Graph](https://www.microsoft.com/security/business/intelligence), and helps maintain app compatibility in domain-joined VMs.
-- **Active Directory Domain Services (AD DS).** Windows Virtual Desktop VMs must domain-join an [Azure Active Directory Domain Services (AD DS)](https://azure.microsoft.com/services/active-directory-ds/) service, and the AD DS must be in sync with Azure Active Directory (Azure AD) to associate users between the two services.
-- **Windows Virtual Desktop session hosts**. A host pool can run Windows 7 Enterprise, Windows 10 Enterprise, Windows 10 Enterprise Multi-session, Windows Server 2012 R2 and above, or custom Windows system images with pre-loaded apps, group policies, or other customizations. You can choose VM sizes, including GPU-enabled VMs. Each session host has a Windows Virtual Desktop host agent, which registers the VM as part of the Windows Virtual Desktop workspace or tenant. Each host pool can have one or more app groups, which are collections of remote applications or desktop sessions that users can access.
-- **Windows Virtual Desktop workspace**. The Windows Virtual Desktop workspace or tenant is a management construct to manage and publish host pool resources.
+- **Azure Virtual Network:** [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) lets Azure resources like VMs communicate privately with each other and with the internet. By connecting Windows Virtual Desktop host pools to an Active Directory domain, you can define network topology to access virtual desktops and virtual apps from the intranet or internet, based on organizational policy. You can connect a Windows Virtual Desktop to an on-premises network using a virtual private network (VPN), or use [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) to extend the on-premises network into the Azure cloud over a private connection.
+- **Azure AD:** Windows Virtual Desktop uses [Azure AD](https://azure.microsoft.com/services/active-directory/) for identity and access management. Azure AD integration applies Azure AD security features like conditional access, multi-factor authentication, and the [Intelligent Security Graph](https://www.microsoft.com/security/business/intelligence), and helps maintain app compatibility in domain-joined VMs.
+- **AD DS:** Windows Virtual Desktop VMs must domain-join an [AD DS](https://azure.microsoft.com/services/active-directory-ds/) service, and the AD DS must be in sync with Azure AD to associate users between the two services. You can use [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect) to associate AD DS with Azure AD.
+- **Windows Virtual Desktop session hosts:** A host pool can run the following operating systems:
+  - Windows 7 Enterprise
+  - Windows 10 Enterprise
+  - Windows 10 Enterprise Multi-session
+  - Windows Server 2012 R2 and above
+  - Custom Windows system images with pre-loaded apps, group policies, or other customizations
+  
+  You can choose VM sizes, including GPU-enabled VMs. Each session host has a Windows Virtual Desktop host agent, which registers the VM as part of the Windows Virtual Desktop workspace or tenant. Each host pool can have one or more app groups, which are collections of remote applications or desktop sessions that users can access.
+- **Windows Virtual Desktop workspace:** The Windows Virtual Desktop workspace or tenant is a management construct to manage and publish host pool resources.
 
 ### Personal and pooled desktops
 
@@ -68,9 +82,9 @@ There are several options for updating Windows Virtual Desktop desktops. Deployi
 - [Windows Updates for Business](https://docs.microsoft.com/windows/deployment/update/waas-manage-updates-wufb) updates desktop operating systems like Windows 10 multi-session.
 - [Azure Update Management](https://docs.microsoft.com/azure/automation/automation-update-management) updates server operating systems.
 - [Azure Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) checks compliance.
-- **Deploy a new (custom) image** to session hosts every month for the latest Windows and applications updates. You can use an image from the Azure Marketplace or a [custom Azure managed image](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource).
+- Deploy a new (custom) image to session hosts every month for the latest Windows and applications updates. You can use an image from the Azure Marketplace or a [custom Azure managed image](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource).
 
-## Issues and considerations
+## Considerations
 
 Numbers in the following sections are approximate, based on a variety of large customer deployments, and may change over time.
 
@@ -82,7 +96,7 @@ The Windows Virtual Desktop service is scalable to more than 10,000 session host
 - For automated session host scaling tools, the limits are around 2,000 VMs per Azure subscription, because VM status interaction consumes more resources.
 - To manage enterprise environments with more than 5,000 VMs, you can create multiple Azure subscriptions in a hub-spoke architecture and connect them via virtual network peering, as in the preceding example architecture.
 - Azure Resource Manager (ARM) subscription API throttling limits don't allow more than 600 Azure VM reboots per hour via the Azure portal. You can reboot all your machines at once via the operating system, which doesn't consume any Azure ARM subscription API calls. For more information about counting and troubleshooting throttling limits based on your Azure subscription, see [Troubleshoot API throttling errors](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors).
-- You can currently deploy 399 VMs per Windows Virtual Desktop ARM template deployment without Availability Sets, or 200 VMs per Availability Set. You can increase the number of VMs per deployment by switching off Availability Sets in either the ARM template or the Azure portal host pool enrollment.
+- You can currently deploy 399 VMs per Windows Virtual Desktop ARM template deployment without [Availability Sets](https://docs.microsoft.com/azure/virtual-machines/availability#availability-sets), or 200 VMs per Availability Set. You can increase the number of VMs per deployment by switching off Availability Sets in either the ARM template or the Azure portal host pool enrollment.
 - Azure VM session host name prefixes can't exceed 11 characters, due to auto-assigning of instance names and the NetBIOS limit of 15 characters per computer account.
 - By default, you can deploy up to 800 instances of most resource types in a resource group. Azure Compute doesn't have this limit.
 
@@ -98,10 +112,10 @@ Use simulation tools to test deployments with both stress tests and real-life us
 
 Architect your Windows Virtual Desktop solution to realize cost savings. Here are five different options to help manage costs for enterprises:
 
-- **Windows 10 multi-session**. By delivering a multi-session desktop experience for users that have identical compute requirements, you can let more users log onto a single VM at once, resulting in considerable cost savings.
-- **Azure Hybrid Benefit**. If you have Software Assurance, you can use [Azure Hybrid Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) to save on the cost of your Azure infrastructure.
-- [Azure Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) let you prepay for your VM usage and save money. Combine with the Azure Hybrid benefit for up to 80 percent savings over list prices.
-- **Session host load-balancing**. When setting up session hosts, **Breadth-first** is the standard default mode, which spreads users randomly across session hosts. **Depth-first** mode fills up a  session host server with the maximum number of users before it moves on to the next session host. You can adjust this setting for maximum cost benefits.
+- **Windows 10 multi-session**: By delivering a multi-session desktop experience for users that have identical compute requirements, you can let more users log onto a single VM at once, resulting in considerable cost savings.
+- **Azure Hybrid Benefit**: If you have Software Assurance, you can use [Azure Hybrid Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) to save on the cost of your Azure infrastructure.
+- **Azure Reserved Instances:** You can prepay for your VM usage and save money. Combine [Azure Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) with Azure Hybrid Benefit for up to 80 percent savings over list prices.
+- **Session host load-balancing**: When setting up session hosts, **Breadth-first** is the standard default mode, which spreads users randomly across session hosts. **Depth-first** mode fills up a  session host server with the maximum number of users before it moves on to the next session host. You can adjust this setting for maximum cost benefits.
 
 ## Next steps
 
