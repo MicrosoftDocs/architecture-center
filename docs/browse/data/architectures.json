@@ -212,6 +212,35 @@
         },
         {
             "tags": [
+                "aischool",
+                "all-items",
+                "example-code",
+                "fcp",
+                "github",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/ai-for-earth.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/ai-for-earth",
+            "word_count": 1626,
+            "read_time": "7 min read",
+            "Title": "AI for Earth",
+            "MetaDescription": "Learn how to use the AI for Earth APIs to help build solutions for environmental problems. See other AI for Earth projects and initiatives.",
+            "category": [
+                "ai-machine-learning"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/wildbook-network-diagram.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\wildbook-network-diagram.png",
+            "publish_date": "6/23/2020",
+            "Summary": "<p>The earth currently faces urgent and accelerating environmental challenges. Climate change, biodiversity and habitat loss, pollution, overpopulation, and food and fresh water shortages need quick and comprehensive mitigation, but can seem so overwhelming that philosopher Timothy Morton calls them <em>hyperobjects</em>, entities so vast and distributed that they're difficult to fully define or comprehend.</p>\n<p>Technology may have contributed to many of these issues, but we need technology to be able to conceptualize or solve them. Artificial intelligence (AI) is one tool that can help us both understand and potentially mitigate global environmental issues.</p>\n<p>AI approaches to environmental challenges require substantial amounts of data, computing power, specialized tools, and expertise. The Microsoft <a href=\"https://www.microsoft.com/ai/ai-for-earth\">AI for Earth</a> initiative provides people and organizations with AI and cloud tools like open data sets, cloud compute grants, open-source APIs, and education to help them address global environmental challenges.</p>\n<p>This article showcases the public Microsoft <a href=\"https://www.microsoft.com/ai/ai-for-earth-tech-resources\">AI for Earth APIs</a>, and how they can work with Azure services and resources to help provide conservation solutions.</p>",
+            "sample_code": true,
+            "github_url": "https://github.com/wildbookorg",
+            "name": "ai-for-earth",
+            "popularity": 0,
+            "topic": "AI + Machine Learning"
+        },
+        {
+            "tags": [
                 "acom-architecture",
                 "all-items",
                 "data-flow",
@@ -305,7 +334,7 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/advanced-analytics-on-big-data.md",
             "http_url": "/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data",
-            "word_count": 432,
+            "word_count": 431,
             "read_time": "2 min read",
             "Title": "Advanced Analytics Architecture",
             "MetaDescription": "Get near real-time data analytics on streaming services. This big data architecture allows you to combine any data at any scale with custom machine learning.",
@@ -323,7 +352,7 @@
                 "<p>Azure <a href=\"https://azure.microsoft.com/services/data-factory\">Data Factory</a> is a hybrid data integration service that allows you to create, schedule and orchestrate your ETL/ELT workflows.</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/storage/blobs\">Azure Blob storage</a> is a Massively scalable object storage for any type of unstructured data-images, videos, audio, documents, and more-easily and cost-effectively.</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/databricks\">Azure Databricks</a> is a fast, easy, and collaborative Apache Spark-based analytics platform.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/cosmos-db\">Azure Cosmos DB</a> is a globally distributed, multi-model database service. Then learn how to replicate your data across any number of Azure regions and scale your throughput independent from your storage.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/cosmos-db\">Azure Cosmos DB</a> is a globally distributed, multi-model database service. Learn how to replicate your data across any number of Azure regions and scale your throughput independent from your storage.</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/analysis-services\">Azure Analysis Services</a> is an enterprise grade analytics as a service that lets you govern, deploy, test, and deliver your BI solution with confidence.</p>",
                 "<p><a href=\"https://powerbi.microsoft.com\">Power BI</a> is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive ad hoc analysis. Produce beautiful reports, then publish them for your organization to consume on the web and across mobile devices.</p>"
             ],
@@ -620,6 +649,33 @@
         {
             "tags": [
                 "all-items",
+                "example-code",
+                "github",
+                "reference-architecture"
+            ],
+            "type": "reference-architecture",
+            "file_url": "reference-architectures/iot-with-sql.md",
+            "http_url": "/azure/architecture/reference-architectures/iot-with-sql",
+            "word_count": 2410,
+            "read_time": "10 min read",
+            "Title": "Azure IoT reference architecture",
+            "MetaDescription": "Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components",
+            "category": [
+                "iot"
+            ],
+            "image": "/azure/architecture/reference-architectures/_images/iot-with-sql.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\_images\\iot-with-sql.png",
+            "publish_date": "1/03/2020",
+            "Summary": "<p>This reference architecture shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.</p>\n<p><img alt=\"Diagram of the architecture\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/_images/iot-with-sql.png\" /></p>\n<p>IoT applications can be described as <strong>things</strong> (devices) sending data that generates <strong>insights</strong>. These insights generate <strong>actions</strong> to improve a business or process. An example is an engine (the thing) sending temperature data. This data is used to evaluate whether the engine is performing as expected (the insight). The insight is used to proactively prioritize the maintenance schedule for the engine (the action).</p>\n<p>This reference architecture uses Azure PaaS (platform-as-a-service) components. Other options for building IoT solutions on Azure include:</p>\n<ul>\n<li><a href=\"https://docs.microsoft.com/azure/iot-central/\">Azure IoT Central</a>. IoT Central is a fully managed SaaS (software-as-a-service) solution. It abstracts the technical choices and lets you focus on your solution exclusively. This simplicity comes with a tradeoff in being less customizable than a PaaS-based solution.</li>\n<li>Using OSS components such as the SMACK stack (Spark, Mesos, Akka, Cassandra, Kafka) deployed on Azure VMs. This approach offers a great deal of control but is more complex.</li>\n</ul>\n<p>At a high level, there are two ways to process telemetry data, hot path and cold path. The difference has to do with requirements for latency and data access.</p>\n<ul>\n<li>The <strong>hot path</strong> analyzes data in near-real-time, as it arrives. In the hot path, telemetry must be processed with very low latency. The hot path is typically implemented using a stream processing engine. The output may trigger an alert, or be written to a structured format that can be queried using analytical tools.</li>\n<li>The <strong>cold path</strong> performs batch processing at longer intervals (hourly or daily). The cold path typically operates over large volumes of data, but the results don't need to be as timely as the hot path. In the cold path, raw telemetry is captured and then fed into a batch process.</li>\n</ul>",
+            "sample_code": true,
+            "github_url": "https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql.",
+            "name": "iot-with-sql",
+            "popularity": 0,
+            "topic": "Internet of Things"
+        },
+        {
+            "tags": [
+                "all-items",
                 "data-flow",
                 "example-code",
                 "github",
@@ -652,29 +708,37 @@
         {
             "tags": [
                 "all-items",
-                "example-code",
-                "github",
-                "reference-architecture"
+                "data-flow",
+                "example-workload",
+                "fcp"
             ],
-            "type": "reference-architecture",
-            "file_url": "reference-architectures/iot-with-sql.md",
-            "http_url": "/azure/architecture/reference-architectures/iot-with-sql",
-            "word_count": 2410,
-            "read_time": "10 min read",
-            "Title": "Azure IoT reference architecture",
-            "MetaDescription": "Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components",
+            "type": "example-workload",
+            "file_url": "example-scenario/mlops/aml-decision-tree.md",
+            "http_url": "/azure/architecture/example-scenario/mlops/aml-decision-tree",
+            "word_count": 1602,
+            "read_time": "6 min read",
+            "Title": "Azure Machine Learning decision guide for optimal tool selection",
+            "MetaDescription": "How to choose the best services for building an end-to-end machine learning pipeline from experimentation to deployment.",
             "category": [
-                "iot"
+                "developer-tools",
+                "hybrid"
             ],
-            "image": "/azure/architecture/reference-architectures/_images/iot-with-sql.png",
-            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\reference-architectures\\_images\\iot-with-sql.png",
-            "publish_date": "1/03/2020",
-            "Summary": "<p>This reference architecture shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.</p>\n<p><img alt=\"Diagram of the architecture\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/_images/iot-with-sql.png\" /></p>\n<p>IoT applications can be described as <strong>things</strong> (devices) sending data that generates <strong>insights</strong>. These insights generate <strong>actions</strong> to improve a business or process. An example is an engine (the thing) sending temperature data. This data is used to evaluate whether the engine is performing as expected (the insight). The insight is used to proactively prioritize the maintenance schedule for the engine (the action).</p>\n<p>This reference architecture uses Azure PaaS (platform-as-a-service) components. Other options for building IoT solutions on Azure include:</p>\n<ul>\n<li><a href=\"https://docs.microsoft.com/azure/iot-central/\">Azure IoT Central</a>. IoT Central is a fully managed SaaS (software-as-a-service) solution. It abstracts the technical choices and lets you focus on your solution exclusively. This simplicity comes with a tradeoff in being less customizable than a PaaS-based solution.</li>\n<li>Using OSS components such as the SMACK stack (Spark, Mesos, Akka, Cassandra, Kafka) deployed on Azure VMs. This approach offers a great deal of control but is more complex.</li>\n</ul>\n<p>At a high level, there are two ways to process telemetry data, hot path and cold path. The difference has to do with requirements for latency and data access.</p>\n<ul>\n<li>The <strong>hot path</strong> analyzes data in near-real-time, as it arrives. In the hot path, telemetry must be processed with very low latency. The hot path is typically implemented using a stream processing engine. The output may trigger an alert, or be written to a structured format that can be queried using analytical tools.</li>\n<li>The <strong>cold path</strong> performs batch processing at longer intervals (hourly or daily). The cold path typically operates over large volumes of data, but the results don't need to be as timely as the hot path. In the cold path, raw telemetry is captured and then fed into a batch process.</li>\n</ul>",
-            "sample_code": true,
-            "github_url": "https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql.",
-            "name": "iot-with-sql",
+            "image": "/azure/architecture/example-scenario/mlops/media/dt-no-code-option.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\mlops\\media\\dt-no-code-option.png",
+            "publish_date": "7/07/2020",
+            "Summary": "<p>Microsoft Azure offers a myriad of services and capabilities. Building an end-to-end machine learning pipeline from experimentation to deployment often requires bringing together a set of services from across Azure. While it may be possible to have one pipeline do it all, there are tradeoffs when you don't use the services for what they're best at.</p>\n<p>So, then you have to ask the question: When is it worth it to adopt each service for your use case? The answer often depends on different details that are not necessarily related to the functional requirements. The main factors are:</p>\n<ul>\n<li>\n<p>The skillsets on your team.</p>\n</li>\n<li>\n<p>How the Azure service plugs into your existing architecture.</p>\n</li>\n<li>\n<p>The maintainability of the solution that you build using the service.</p>\n</li>\n<li>\n<p>The cost of these services at scale.</p>\n</li>\n</ul>\n<p>This document focuses on Azure services that you can use to support data or machine learning workloads. While not exhaustive, this document covers the most popular Azure service options for supporting the end-to-end workflow:</p>\n<ol>\n<li>\n<p>Experimentation</p>\n</li>\n<li>\n<p>Overall Orchestration/Scheduling</p>\n</li>\n<li>\n<p>Data Transfer</p>\n</li>\n<li>\n<p>Data Transformation</p>\n</li>\n<li>\n<p>Model Training</p>\n</li>\n<li>\n<p>Model Deployment</p>\n</li>\n<li>\n<p>Monitoring</p>\n</li>\n</ol>",
+            "Flow": {
+                "FlowStep_A": "Experimentation",
+                "FlowStep_B": "Overall Orchestration/Scheduling",
+                "FlowStep_C": "Data Transfer",
+                "FlowStep_D": "Data Transformation",
+                "FlowStep_E": "Model Training",
+                "FlowStep_F": "Model Deployment",
+                "FlowStep_G": "Monitoring"
+            },
+            "name": "aml-decision-tree",
             "popularity": 0,
-            "topic": "Internet of Things"
+            "topic": "Developer Tools"
         },
         {
             "tags": [
@@ -689,7 +753,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/dataplate2e/data-platform-end-to-end.md",
             "http_url": "/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end",
-            "word_count": 1754,
+            "word_count": 1787,
             "read_time": "7 min read",
             "Title": "Azure data platform end-to-end",
             "MetaDescription": "Use Azure services to ingest, process, store, serve, and visualize data from different sources.",
@@ -1107,6 +1171,55 @@
         },
         {
             "tags": [
+                "all-items",
+                "data-flow",
+                "fcp",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/cloud-native-apps.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/cloud-native-apps",
+            "word_count": 566,
+            "read_time": "3 min read",
+            "Title": "Build cloud native apps with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis",
+            "MetaDescription": "Build cloud native apps with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis",
+            "category": [
+                "databases",
+                "web",
+                "mobile"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/cloud-native-apps.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\cloud-native-apps.png",
+            "publish_date": "6/26/2020",
+            "components": [
+                "<p><a href=\"https://docs.microsoft.com/azure/aks/intro-kubernetes\">Azure Kubernetes Service</a> allows you to quickly deploy a production ready Kubernetes cluster in Azure.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/postgresql/overview\">Azure Database for PostgreSQL</a> is a fully managed relational database service based on the community edition of the open-source PostgreSQL database engine.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview\">Azure Cache for Redis</a> is a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/cosmos-db/introduction\">Azure Cosmos DB</a> is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-overview\">Azure Notification Hubs</a> sends push notifications from any backend to any mobile device.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/azure-functions/functions-overview\">Azure Functions</a> is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/databricks/scenarios/what-is-azure-databricks\">Azure Databricks</a> is an Apache Spark-based analytics service for big data analytics and AI</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview\">Azure Application Insights</a> is an extensible Application Performance Management service used to monitor live applications and continuously improve performance and usability.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is\">Azure Synapse Analytics</a> is an analytics service that brings together enterprise data warehousing and Big Data analytics within a unified experience.</p>",
+                "<p><a href=\"https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview\">Power BI</a> is a suite of business tools for self-service and enterprise business intelligence (BI). Here, it\u2019s used to analyze and visualize data.</p>"
+            ],
+            "Flow": {
+                "FlowStep_A": "Deploy and manage containerized applications easily with a continuous integration and delivery experience (CI/CD), and enterprise grade security and governance.",
+                "FlowStep_B": "Focus on your app, not the database, with a fully managed database as a service for PostgreSQL. With built-in high availability and the rich feature set of Postgres, you can build design modern experiences free from legacy constraints.",
+                "FlowStep_C": "Offload database demands by managing sessions state and asset caching with Azure Cache for Redis",
+                "FlowStep_D": "Alert based on key events such as location or user activity using the serverless compute platform of Azure Functions.",
+                "FlowStep_E": "Push timely notifications directly to your users on their preferred service or medium.",
+                "FlowStep_F": "Derive deep insights by analyzing your data with Azure Synapse Analytics, with natively integrated Apache Spark for big data processing and machine learning.",
+                "FlowStep_G": "Monitor your application\u2019s performance for degradation or anomalies, and auto-scale your application to changing performance requirements.",
+                "FlowStep_H": "Track user interactions with you application at scale using Azure Cosmos DB. Easily scale to meet changing demand requirements with a fully managed NoSQL database.",
+                "FlowStep_I": "Provide near real-time analytics and insight into user interaction by leveraging Azure Synapse Link for Azure Cosmos DB HTAP capabilities."
+            },
+            "name": "cloud-native-apps",
+            "popularity": 0,
+            "topic": "Databases"
+        },
+        {
+            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-build-high-availability-into-your-bcdr-strategy-'",
                 "acom-architecture",
                 "all-items",
@@ -1149,6 +1262,39 @@
             "name": "build-high-availability-into-your-bcdr-strategy",
             "popularity": 158,
             "topic": "Management and Governance"
+        },
+        {
+            "tags": [
+                "acom-architecture",
+                "all-items",
+                "fcp",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/webapps.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/webapps",
+            "word_count": 483,
+            "read_time": "3 min read",
+            "Title": "Build web and mobile applications with Azure Database for MySQL, Azure Cosmos DB, and Azure Cache for Redis",
+            "MetaDescription": "The reference architecture below is inspired by HSBC\u2019s digital payment platform, PayMe for Business.",
+            "category": [
+                "ai-machine-learning"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/webapps.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\webapps.png",
+            "publish_date": "6/24/2020",
+            "components": [
+                "<p><a href=\"https://docs.microsoft.com/azure/mysql/overview\">Azure Database for MySQL</a> is a fully managed relational database service based on the community edition of the open-source MySQL database engine.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/cosmos-db/\">Azure Cosmos DB</a> is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/azure-cache-for-redis/\">Azure Cache for Redis</a> is a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/aks/\">Azure Kubernetes Service</a> is a highly available, secure, and fully managed Kubernetes service that makes it easy to deploy and manage containerized applications.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/event-hubs/\">Event Hubs</a> is a fully managed, real-time data ingestion service. Stream millions of events per second from any source to build dynamic data pipelines.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/azure-databricks/\">Azure Databricks</a> is an Apache Spark-based analytics service for big data analytics and AI</p>",
+                "<p><a href=\"https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview\">Power BI</a> is a suite of business tools for self-service and enterprise business intelligence (BI). Here, it\u2019s used to analyze and visualize data.</p>"
+            ],
+            "name": "webapps",
+            "popularity": 0,
+            "topic": "AI + Machine Learning"
         },
         {
             "tags": [
@@ -2264,48 +2410,6 @@
         },
         {
             "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-customer-360-'",
-                "acom-architecture",
-                "ai-gallery",
-                "all-items",
-                "artificial-intelligence",
-                "azure",
-                "data-flow",
-                "example-code",
-                "github",
-                "interactive-diagram",
-                "solution-architectures",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/customer-360.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/customer-360",
-            "word_count": 393,
-            "read_time": "2 min read",
-            "Title": "Customer 360",
-            "MetaDescription": "A deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. This solution implements a process of aggregating customer data into a \"360-degree\" profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.",
-            "category": [
-                "analytics"
-            ],
-            "image": "/azure/architecture/solution-ideas/media/customer-360.png",
-            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\customer-360.png",
-            "publish_date": "12/16/2019",
-            "Summary": "<p>A deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. This solution implements a process of aggregating customer data into a \"360-degree\" profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.</p>",
-            "Flow": {
-                "FlowStep_A": "A Data Generator pipes simulated customer events to an Event Hub",
-                "FlowStep_B": "A Stream Analytics job reads from the EventHub, performs aggregations",
-                "FlowStep_C": "Stream Analytics persists time-grouped data to an Azure Storage Blob",
-                "FlowStep_D": "A Spark job running in HDInsight merges the latest customer browsing data with historical purchase and demographic data to build a consolidated user profile",
-                "FlowStep_E": "A second Spark job scores each customer profile against a machine learning model to predict future purchasing patterns (in other words, is a given customer likely to make a purchase in the next 30 days, and if so, in which product category?)"
-            },
-            "sample_code": true,
-            "github_url": "https://github.com/Azure/cortana-intelligence-customer360",
-            "name": "customer-360",
-            "popularity": 85,
-            "topic": "Analytics"
-        },
-        {
-            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-customer-churn-prediction-'",
                 "acom-architecture",
                 "ai-gallery",
@@ -2550,6 +2654,37 @@
             "name": "defect-prevention-with-predictive-maintenance",
             "popularity": 93,
             "topic": "AI + Machine Learning"
+        },
+        {
+            "tags": [
+                "all-items",
+                "fcp",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/erp-customer-service.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/erp-customer-service",
+            "word_count": 514,
+            "read_time": "3 min read",
+            "Title": "Deliver highly scalable customer service and ERP apps with Azure SQL and Azure Cosmos DB",
+            "MetaDescription": "Deliver highly scalable customer service and ERP apps with Azure SQL and Azure Cosmos DB",
+            "category": [
+                "databases"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/erp-customer-service.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\erp-customer-service.png",
+            "publish_date": "6/26/2020",
+            "components": [
+                "<p><a href=\"https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction\">Azure Data Lake Storage Gen 2</a> provides massively scalable and secure data lake storage for high-performance analytics workloads.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is\">Azure Synapse Analytics</a> is an analytics service that brings together enterprise data warehousing and Big Data analytics within a unified experience.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/azure-sql/database/service-tier-hyperscale\">Azure SQL Database Hyperscale</a> is a storage tier in Azure SQL Database that leverages Azure architecture to scale out storage and compute resources.  Hyperscale supports up to 100TB of storage and provides nearly instantaneous backups and fast database restores in minutes \u2013 regardless of the size of data operation.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/cosmos-db/introduction\">Azure Cosmos DB</a> is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.</p>",
+                "<p><a href=\"https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview\">Power BI</a> is a suite of business tools for self-service and enterprise business intelligence (BI). Here, it\u2019s used to analyze and visualize data.</p>"
+            ],
+            "Summary": "<p>Today\u2019s organizations are generating ever-increasing amounts of structured and unstructured data. With Azure managed databases and Azure Synapse Analytics, they can deliver insights to their employees via ERP apps and Power BI, as well as superior customer service through web and mobile apps, scaling without limits as data volumes and application users increase.</p>",
+            "name": "erp-customer-service",
+            "popularity": 0,
+            "topic": "Databases"
         },
         {
             "tags": [
@@ -3076,7 +3211,7 @@
             ],
             "Summary": "<p>Security is a prime concern for business that are storing any sort of custom or client data. The solution that is covering the management and interface of this data should be developed with security in mind. DevSecOps involves utilizing security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning using a shift-left strategy.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/devsecops-in-azure.png\" />\n<em>Download an <a href=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/devsecops-in-azure.svg\">SVG</a> of this architecture.</em></p>",
             "Flow": {
-                "FlowStep_A": "Azure Active Directory (AD) can be configured as the identity provider for GitHub. Multi-factory authentication can be enabled for extra security",
+                "FlowStep_A": "Azure Active Directory (AD) can be configured as the identity provider for GitHub. Multi-factor authentication can be enabled for extra security",
                 "FlowStep_B": "Developers commit to GitHub Enterprise, driven by work items and bugs tracked with Azure Boards",
                 "FlowStep_C": "GitHub Enterprise can integrate automatic security and dependency scanning through GitHub Advanced Security and GitHub Open Source Security",
                 "FlowStep_D": "Pull Requests trigger CI builds and automated testing in Azure Pipelines",
@@ -3388,6 +3523,38 @@
             "name": "training-deep-learning",
             "popularity": 161,
             "topic": "AI + Machine Learning"
+        },
+        {
+            "tags": [
+                "acom-architecture",
+                "all-items",
+                "data-flow",
+                "fcp",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/business-central.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/business-central",
+            "word_count": 1023,
+            "read_time": "5 min read",
+            "Title": "Dynamics Business Central as a Service on Azure",
+            "MetaDescription": "This example shows how to establish the production environment for Business Central in partner private Azure environment.",
+            "category": [
+                "compute"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/business-central-as-a-service.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\business-central-as-a-service.png",
+            "publish_date": "6/25/2020",
+            "Summary": "",
+            "Flow": {
+                "FlowStep_A": "Customers login using web browser, device (phone or tablet) or through API to access the Dynamics 365 Business Central.",
+                "FlowStep_B": "Virtual Machine as a middle-tier, provides Web Server Components and plays roles as a [NST Server](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/administration/configure-server-instance), connecting customers with databases. One Virtual Machine can be used for multiple customers and the partner just needs to provide different Business Central Server Instance with different ports numbers for each of customers. Using this model, support will be much easier as the partner needs to support only one server at a minimum. With Azure Load balancer, this system will scale applications and create highly available services.",
+                "FlowStep_C": "The application and business data reside in separate databases, both using Azure SQL for its databases. App database will be in one single database (S0 will be enough to run application database). The partner maintains the application centrally without affecting the various tenants that use the application. Tenant databases will be placed in an Azure Elastic Database Pool (for starters, S4 pool with 200 DTU\u2019s will be enough). Each tenant database contains the business data for one or more specific companies from one client and does not contain all of the application metadata. If customers require more power, it is easy to change service tier on Azure SQL and Elastic Database Pool.",
+                "FlowStep_D": "To provide better sustainability, all resources will be in one resource Group. All external services (Azure Machine Learning, Power Apps, Power Automate and Power BI) will communicate directly with the NST Server through exposed API\u2019s and OData web services."
+            },
+            "name": "business-central",
+            "popularity": 0,
+            "topic": "Compute"
         },
         {
             "tags": [
@@ -4124,6 +4291,39 @@
             "name": "finance-management-apps-using-azure-database-for-postgresql",
             "popularity": 81,
             "topic": "Databases"
+        },
+        {
+            "tags": [
+                "all-items",
+                "data-flow",
+                "example-workload",
+                "fcp"
+            ],
+            "type": "example-workload",
+            "file_url": "example-scenario/gateway/firewall-application-gateway.md",
+            "http_url": "/azure/architecture/example-scenario/gateway/firewall-application-gateway",
+            "word_count": 3267,
+            "read_time": "14 min read",
+            "Title": "Firewall and Application Gateway for virtual networks",
+            "MetaDescription": "Learn about options and best practices for using Azure Firewall and Azure Application Gateway security in virtual networks.",
+            "category": [
+                "networking"
+            ],
+            "image": "/azure/architecture/example-scenario/gateway/images/decision-tree.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\gateway\\images\\decision-tree.png",
+            "publish_date": "6/26/2020",
+            "Summary": "<p>To secure Azure application workloads, you use protective measures like authentication and encryption in the applications themselves. You can also add security layers to the virtual machine (VM) networks that host the applications. This article describes <a href=\"https://azure.microsoft.com/services/virtual-network/\">Azure Virtual Network</a> security services like Azure Firewall and Azure Application Gateway, when to use each service, and network design options that combine both services.</p>\n<ul>\n<li>\n<p><a href=\"https://docs.microsoft.com/azure/firewall/overview\">Azure Firewall</a> is a managed next-generation firewall that offers <a href=\"https://docs.microsoft.com/azure/virtual-network/nat-overview\">network address translation (NAT)</a>. Azure Firewall bases packet filtering on Internet Protocol (IP) addresses and Transmission Control Protocol and User Datagram Protocol (TCP/UDP) ports, or on application-based HTTP(S) or SQL attributes. Azure Firewall also leverages Microsoft threat intelligence to identify malicious IP addresses. For more information, see the <a href=\"https://docs.microsoft.com/azure/firewall/\">Azure Firewall documentation</a>.</p>\n</li>\n<li>\n<p><a href=\"https://docs.microsoft.com/azure/application-gateway/overview\">Azure Application Gateway</a> is a managed web traffic load balancer and HTTP(S) full reverse proxy that can do secure socket layer (SSL) encryption and decryption. Application Gateway also uses Web Application Firewall to inspect web traffic and detect attacks at the HTTP layer. For more information, see the <a href=\"https://docs.microsoft.com/azure/application-gateway/\">Application Gateway documentation</a>.</p>\n</li>\n</ul>\n<p><a href=\"https://azure.microsoft.com/services/web-application-firewall/\">Azure Web Application Firewall (WAF)</a> on top of Azure Application Gateway is a security-hardened device with a limited attack surface that operates facing the public internet. For more information, see the <a href=\"https://docs.microsoft.com/azure/web-application-firewall/\">Web Application Firewall documentation</a>.</p>\n<p>These Azure services are complementary. One or the other may be best for your workloads, or you can integrate them for optimal protection at both the network and application layers. Use the following decision tree and the examples in this article to determine the best security option for your application's virtual network.</p>\n<p><img alt=\"Virtual network security decision tree\" src=\"https://docs.microsoft.com/azure/architecture/example-scenario/gateway/images/decision-tree.png\" /></p>\n<p>In general, use:</p>\n<ul>\n<li><a href=\"#azure-firewall-only\">Azure Firewall alone</a> when there are no web applications in the virtual network.</li>\n<li><a href=\"#application-gateway-only\">Application Gateway alone</a> when there are only web applications in the virtual network, and <a href=\"https://docs.microsoft.com/azure/virtual-network/security-overview\">network security groups (NSGs)</a> provide sufficient output filtering.</li>\n<li><a href=\"#firewall-and-application-gateway-in-parallel\">Azure Firewall and Application Gateway in parallel</a>, the most common design, when you want Azure Application Gateway to protect HTTP(S) applications from web attacks, and Azure Firewall to protect all other workloads and filter outbound traffic.</li>\n<li><a href=\"#application-gateway-before-firewall\">Application Gateway in front of Azure Firewall</a> when you want Azure Firewall to inspect all traffic and WAF to protect web traffic, and the application needs to know the client's source IP address.</li>\n<li><a href=\"#application-gateway-after-firewall\">Azure Firewall in front of Application Gateway</a> when you want Azure Firewall to inspect and filter traffic before it reaches the Application Gateway.</li>\n</ul>\n<p>Variations of the previous basic designs include <a href=\"#on-premises-clients\">on-premises application clients</a>, <a href=\"#hub-and-spoke-topology\">hub and spoke networks</a>, and <a href=\"https://docs.microsoft.com/azure/aks/intro-kubernetes\">Azure Kubernetes Service (AKS)</a> implementations. You can add services like an <a href=\"https://docs.microsoft.com/azure/api-management/api-management-key-concepts\">API Management</a> gateway, or you can replace the Azure resources with third-party <a href=\"#other-network-virtual-appliances\">network virtual appliances</a>.</p>",
+            "Flow": {
+                "FlowStep_A": "The client initiates the connection to the public IP address of the Azure Application Gateway:",
+                "FlowStep_B": "The Application Gateway instance terminates the connection from the client, and establishes a new connection with one of the back ends. The UDR to `192.168.1.0/24` in the Application Gateway subnet forwards the packet to the Azure Firewall, while preserving the destination IP to the web application:",
+                "FlowStep_C": "Azure Firewall doesn't SNAT the traffic, since it's going to a private IP address, and forwards the traffic to the application VM if rules allow it. For more information, see [Azure Firewall SNAT][azfw-snat].",
+                "FlowStep_D": "The VM answers the request, reversing source and destination IP addresses. The UDR to `192.168.200.0/24` captures the packet sent back to the Application Gateway and redirects it to Azure Firewall, while preserving the destination IP toward the Application Gateway.",
+                "FlowStep_E": "Here again the Azure Firewall doesn't SNAT the traffic, since it's going to a private IP address, and forwards the traffic to the Application Gateway.",
+                "FlowStep_F": "Finally, the Application Gateway instance answers the client:"
+            },
+            "name": "firewall-application-gateway",
+            "popularity": 0,
+            "topic": "Networking"
         },
         {
             "tags": [
@@ -5246,7 +5446,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/identity/azure-ad.md",
             "http_url": "/azure/architecture/reference-architectures/identity/azure-ad",
-            "word_count": 3356,
+            "word_count": 3359,
             "read_time": "13 min read",
             "Title": "Integrate on-premises AD domains with Azure AD",
             "MetaDescription": "Implement a secure hybrid network architecture using Azure Active Directory (Azure AD).",
@@ -5886,7 +6086,7 @@
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\digital-media-live-stream.png",
             "publish_date": "12/16/2019",
             "components": [
-                "<p><a href=\"https://docs.microsoft.com/api/Redirect/documentation/articles/media-services-live-encoders-overview\">Partner on-premises live encoder</a>: Outputs the live source for ingest into the cloud as RTMP, MPEG-Transport Stream, or fragmented mp4 formats.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/media-services/latest/become-on-premises-encoder-partner\">Partner on-premises live encoder</a>: Outputs the live source for ingest into the cloud as RTMP, MPEG-Transport Stream, or fragmented mp4 formats.</p>",
                 "<p>Stores large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. You can use <a href=\"https://azure.microsoft.com/services/storage/blobs\">Blob storage</a> to expose data publicly to the world, or to store application data privately.</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/media-services\">Media Services</a>: Provides the ability to ingest, encode, preview, store, and deliver your live streaming content. Channels, programs, and streaming endpoints handle the live streaming functions, including ingestion, formatting, DVR, security, scalability, and redundancy.</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/media-services/live-on-demand\">Azure streaming endpoint</a>: Represents a streaming service that can deliver content directly to a client player application, or to a content delivery network (CDN) for further distribution.</p>",
@@ -5992,7 +6192,7 @@
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\loan-credit-risk-analyzer-and-default-modeling.png",
             "publish_date": "12/16/2019",
             "components": [
-                "<p><a href=\"https://www.microsoft.com/sql-server/sql-server-r-services\">SQL Server R Services</a>: SQL Server stores the lender and borrower data. R-based analytics provide training and predicted models, as well as predicted results for consumption.</p>",
+                "<p><a href=\"https://docs.microsoft.com/sql/machine-learning/r/sql-server-r-services?view=sql-server-2016\">SQL Server R Services</a>: SQL Server stores the lender and borrower data. R-based analytics provide training and predicted models, as well as predicted results for consumption.</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/machine-learning-studio\">Machine Learning Studio</a>: Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.</p>",
                 "<p><a href=\"https://powerbi.microsoft.com\">Power BI</a> provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.</p>"
             ],
@@ -6070,6 +6270,30 @@
         },
         {
             "tags": [
+                "all-items",
+                "example-workload",
+                "fcp"
+            ],
+            "type": "example-workload",
+            "file_url": "example-scenario/mlops/mlops-maturity-model.md",
+            "http_url": "/azure/architecture/example-scenario/mlops/mlops-maturity-model",
+            "word_count": 449,
+            "read_time": "2 min read",
+            "Title": "Machine Learning Operations maturity model",
+            "MetaDescription": "Detailed explanation of the MLOps maturity model stages and defining characteristics of each stage.",
+            "category": [
+                "developer-tools",
+                "hybrid"
+            ],
+            "image": "/azure/architecture/_images/reference-architectures.svg",
+            "publish_date": "7/07/2020",
+            "Summary": "<p>The purpose of this maturity model is to help clarify the Machine Learning Operations (MLOps) principles and practices. The maturity model shows the continuous improvement in the creation and operation of a production level machine learning application environment. You can use it as a metric for establishing the progressive requirements needed to measure the maturity of a machine learning production environment and its associated processes.</p>",
+            "name": "mlops-maturity-model",
+            "popularity": 0,
+            "topic": "Developer Tools"
+        },
+        {
+            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-machine-learning-with-aks-'",
                 "acom-architecture",
                 "ai-ml",
@@ -6106,6 +6330,109 @@
             },
             "name": "machine-learning-with-aks",
             "popularity": 91,
+            "topic": "AI + Machine Learning"
+        },
+        {
+            "tags": [
+                "all-items",
+                "example-code",
+                "example-workload",
+                "fcp",
+                "github"
+            ],
+            "type": "example-workload",
+            "file_url": "example-scenario/mlops/mlops-technical-paper.md",
+            "http_url": "/azure/architecture/example-scenario/mlops/mlops-technical-paper",
+            "word_count": 6545,
+            "read_time": "26 min read",
+            "Title": "Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning",
+            "MetaDescription": "How the machine learning operations (MLOps) maturity model was applied to implement a machine learning solution for predicting product shipping levels.",
+            "category": [
+                "developer-tools",
+                "hybrid"
+            ],
+            "image": "/azure/architecture/example-scenario/mlops/media/data-sciene-lifecycle-model-flow.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\mlops\\media\\data-sciene-lifecycle-model-flow.png",
+            "publish_date": "6/01/2020",
+            "components": [
+                "<p><a href=\"https://azure.microsoft.com/services/machine-learning/\">Azure Machine Learning Service</a></p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/machine-learning/concept-compute-instance\">Azure Machine Learning Compute</a></p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/machine-learning/concept-ml-pipelines\">Azure Machine Learning Pipelines</a></p>"
+            ],
+            "sample_code": true,
+            "github_url": "https://github.com/Microsoft/MLOpsPython",
+            "name": "mlops-technical-paper",
+            "popularity": 0,
+            "topic": "Developer Tools"
+        },
+        {
+            "tags": [
+                "all-items",
+                "data-flow",
+                "example-code",
+                "github",
+                "pcp",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/machine-teaching.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/machine-teaching",
+            "word_count": 5380,
+            "read_time": "22 min read",
+            "Title": "Machine teaching",
+            "MetaDescription": "Learn how machine teaching incorporates artificial intelligence, machine learning, deep reinforcement learning, and subject matter expertise.",
+            "category": [
+                "ai-machine-learning"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/machine-teaching-1-4.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\machine-teaching-1-4.png",
+            "publish_date": "7/05/2020",
+            "Summary": "<p>Artificial intelligence (AI) and machine learning (ML) offer unique opportunities and challenges for operations that span the virtual and physical worlds. AI and ML can recognize correlations between real-world input data and outcomes and make decisions that automate complex physical industrial systems. But AI machine learning systems can't perform higher-level cognitive functions like exploration, improvisation, creative thinking, or determination of causation.</p>\n<p><em>Machine teaching</em> is a new paradigm for machine learning systems that:\n- Infuses <em>subject matter expertise</em> into automated AI systems models.\n- Uses <a href=\"#reinforcement-learning\">deep reinforcement learning</a> to identify patterns in the learning process and adopt positive behaviors in its own methods.\n- Leverages <a href=\"#simulations\">simulated environments</a> to generate large amounts of synthetic data for domain-specific use cases and scenarios.</p>\n<p>Machine learning focuses on developing novel learning algorithms or improving existing algorithms. Machine teaching focuses on the efficacy of the teachers themselves. Abstracting away AI complexity to focus on subject matter expertise and real-world conditions creates powerful AI and ML models that turn automated control systems into <em>autonomous systems</em>.</p>",
+            "Flow": {
+                "FlowStep_A": "The problem owner collects and labels datasets, or assembles a label guideline so the labeling task can be outsourced.",
+                "FlowStep_B": "The problem owner reviews the labels until their quality is satisfactory.",
+                "FlowStep_C": "Machine-learning experts select an algorithm, model architecture, objective function, regularizers, and cross-validation sets.",
+                "FlowStep_D": "Engineers train the model cyclically, adjusting the features or creating new features to improve model accuracy and speed.",
+                "FlowStep_E": "The model is tested on a small sample. If the system doesn't do well in the test, the preceding steps are repeated.",
+                "FlowStep_F": "Model performance is monitored in the field. If performance falls below a critical level, the model is modified by repeating the preceding steps.",
+                "FlowStep_G": "The teacher first questions whether a training set is realizable.",
+                "FlowStep_H": "If the training set isn't realizable, the teacher determines whether the issue is due to inadequate labeling or feature deficiencies. After correcting the labeling or adding features, the teacher again assesses whether the training set is realizable.",
+                "FlowStep_I": "If the training set is realizable, the teacher assesses whether training quality criteria are being met.",
+                "FlowStep_J": "If quality criteria aren't being met, the teacher finds the test errors and adds the fixes to the training set, then repeats the assessment steps.",
+                "FlowStep_K": "Once the training set is realizable and quality criteria are met, the process finishes."
+            },
+            "sample_code": true,
+            "github_url": "https://github.com/Microsoft/AirSim",
+            "name": "machine-teaching",
+            "popularity": 0,
+            "topic": "AI + Machine Learning"
+        },
+        {
+            "tags": [
+                "all-items",
+                "example-code",
+                "github",
+                "pcp",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/autonomous-systems.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/autonomous-systems",
+            "word_count": 1500,
+            "read_time": "7 min read",
+            "Title": "Machine teaching with the Microsoft Autonomous Systems platform",
+            "MetaDescription": "Learn how the Microsoft Autonomous Systems platform uses machine teaching, deep reinforcement learning, and simulations to build and deploy autonomous systems with Bonsai.",
+            "category": [
+                "ai-machine-learning"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/machine-teaching-1-2.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\machine-teaching-1-2.png",
+            "publish_date": "7/05/2020",
+            "Summary": "<p>Artificial intelligence (AI) and machine learning (ML) offer unique opportunities and challenges for automating complex industrial systems. <em>Machine teaching</em> is a new paradigm for building ML systems that moves the focus away from algorithms and onto successful model generation and deployment.</p>\n<p>Machine teaching infuses subject matter expertise into automated AI system training with <em>deep reinforcement learning (DRL)</em> and <em>simulations</em>. Abstracting away AI complexity to focus on subject matter expertise and real-world conditions creates models that turn automated control systems into <em>autonomous systems</em>.</p>\n<p>Autonomous systems:</p>\n<ul>\n<li>Combine human domain knowledge with AI and ML through machine teaching.</li>\n<li>Automate generation and management of DRL algorithms and models.</li>\n<li>Integrate simulations for model optimization and scalability during training.</li>\n<li>Deploy and scale for real-world use.</li>\n</ul>\n<p>The <a href=\"https://www.microsoft.com/ai/autonomous-systems-platform\">Microsoft Autonomous Systems platform</a> is an innovative framework for building, training, and deploying models by using machine teaching and simulations. Use the Autonomous Systems platform to help automate systems when:</p>\n<ul>\n<li>Existing control systems are fragile when deployed.</li>\n<li>ML logic doesn't adequately cover all scenarios.</li>\n<li>Describing the desired system behavior requires subject matter experts who understand the problem domain.</li>\n<li>Generating sufficient real-world data to cover all scenarios is difficult or impossible.</li>\n<li>Traditional control systems are difficult to deploy and scale to the real world.</li>\n</ul>\n<p>Machine teaching bridges AI science and software with traditional engineering and domain expertise. Example applications include motion control, machine calibration, smart buildings, industrial robotics, and process control.</p>",
+            "sample_code": true,
+            "github_url": "https://github.com/microsoft/AirSim/blob/master/azure/azure-env-creation/vm-arm-template.json",
+            "name": "autonomous-systems",
+            "popularity": 0,
             "topic": "AI + Machine Learning"
         },
         {
@@ -6462,6 +6789,36 @@
         },
         {
             "tags": [
+                "all-items",
+                "fcp",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/net-app-modernization.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/net-app-modernization",
+            "word_count": 600,
+            "read_time": "3 min read",
+            "Title": "Modernize .NET applications with Azure SQL DB and Azure App Service",
+            "MetaDescription": "Modernize .NET applications with Azure SQL DB and Azure App Service",
+            "category": [
+                "integration",
+                "databases"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/net-app-modernization.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\net-app-modernization.png",
+            "publish_date": "6/26/2020",
+            "components": [
+                "<p><a href=\"https://docs.microsoft.com/azure/app-service/overview\">Azure App Service</a> is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can take advantage of its DevOps capabilities, such as continuous deployment from Docker Hub, as shown here.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/azure-sql/database/sql-database-paas-overview\">Azure SQL Database</a> is a fully managed and intelligent relational database service built for the cloud. With SQL Database, you can create a highly available and high-performance data storage layer for modern cloud applications.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/devops/\">Azure DevOps</a> provides developer services to support teams to plan work, collaborate on code development, and build and deploy applications.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/dms/dms-overview\">Azure Database Migration Service</a> enables seamless migration from multiple database sources to Azure, with minimal downtime.</p>"
+            ],
+            "name": "net-app-modernization",
+            "popularity": 0,
+            "topic": "Integration"
+        },
+        {
+            "tags": [
                 "ai",
                 "all-items",
                 "alternative-choices",
@@ -6743,7 +7100,7 @@
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\optimize-marketing-with-machine-learning.png",
             "publish_date": "12/16/2019",
             "components": [
-                "<p><a href=\"https://www.microsoft.com/sql-server/sql-server-r-services\">SQL Server R Services</a>: SQL Server stores the campaign and lead data. R-based analytics provide training and predicted models and predicted results for consumption using R.</p>",
+                "<p><a href=\"https://docs.microsoft.com/sql/machine-learning/r/sql-server-r-services?view=sql-server-2016\">SQL Server R Services</a>: SQL Server stores the campaign and lead data. R-based analytics provide training and predicted models and predicted results for consumption using R.</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/machine-learning-studio\">Machine Learning Studio</a>: Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.</p>",
                 "<p><a href=\"https://powerbi.microsoft.com\">Power BI</a> provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.</p>"
             ],
@@ -6789,6 +7146,170 @@
             },
             "name": "reference-architecture-for-oracle-database-migration-to-azure",
             "popularity": 53,
+            "topic": "Databases"
+        },
+        {
+            "tags": [
+                "all-items",
+                "example-workload",
+                "fcp"
+            ],
+            "type": "example-workload",
+            "file_url": "example-scenario/oracle-migrate/oracle-migration-cross-cloud.md",
+            "http_url": "/azure/architecture/example-scenario/oracle-migrate/oracle-migration-cross-cloud",
+            "word_count": 242,
+            "read_time": "2 min read",
+            "Title": "Oracle database migration: Cross-cloud connectivity",
+            "MetaDescription": "Create a connection between your existing Oracle Database and your Azure applications.",
+            "category": [
+                "databases",
+                "migration"
+            ],
+            "image": "/azure/architecture/example-scenario/oracle-migrate/media/cross-cloud-connectivity.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\oracle-migrate\\media\\cross-cloud-connectivity.png",
+            "publish_date": "6/23/2020",
+            "components": [
+                "<p><a href=\"https://azure.microsoft.com/services/virtual-machines/\">Azure Virtual Machines</a> lets you migrate your business and important workloads to Azure to increase operational efficiencies.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/virtual-network/\">Azure Virtual Network</a> is your private network in your Azure environment.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/vpn-gateway/\">Azure VPN Gateway</a> connects your infrastructure to the cloud.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/expressroute/\">Azure ExpressRoute</a> creates a faster private connection to Azure.</p>"
+            ],
+            "name": "oracle-migration-cross-cloud",
+            "popularity": 0,
+            "topic": "Databases"
+        },
+        {
+            "tags": [
+                "all-items",
+                "example-workload",
+                "fcp"
+            ],
+            "type": "example-workload",
+            "file_url": "example-scenario/oracle-migrate/oracle-migration-lift-shift.md",
+            "http_url": "/azure/architecture/example-scenario/oracle-migrate/oracle-migration-lift-shift",
+            "word_count": 370,
+            "read_time": "2 min read",
+            "Title": "Oracle database migration: Lift and shift",
+            "MetaDescription": "Lift and shift your Oracle database from an Oracle environment to Azure Virtual Machines.",
+            "category": [
+                "databases",
+                "migration"
+            ],
+            "image": "/azure/architecture/example-scenario/oracle-migrate/media/lift-shift-azure-vms.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\oracle-migrate\\media\\lift-shift-azure-vms.png",
+            "publish_date": "6/23/2020",
+            "components": [
+                "<p><a href=\"https://azure.microsoft.com/services/virtual-machines/\">Azure Virtual Machines</a> lets you migrate your business and important workloads to Azure to increase operational efficiencies.</p>"
+            ],
+            "name": "oracle-migration-lift-shift",
+            "popularity": 0,
+            "topic": "Databases"
+        },
+        {
+            "tags": [
+                "all-items",
+                "example-code",
+                "example-workload",
+                "fcp",
+                "github"
+            ],
+            "type": "example-workload",
+            "file_url": "example-scenario/oracle-migrate/oracle-migration-rearchitect.md",
+            "http_url": "/azure/architecture/example-scenario/oracle-migrate/oracle-migration-rearchitect",
+            "word_count": 738,
+            "read_time": "3 min read",
+            "Title": "Oracle database migration: Rearchitect",
+            "MetaDescription": "Rearchitect your Oracle database with Azure SQL Managed Instance",
+            "category": [
+                "databases",
+                "migration"
+            ],
+            "image": "/azure/architecture/example-scenario/oracle-migrate/media/rearchitect.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\oracle-migrate\\media\\rearchitect.png",
+            "publish_date": "6/23/2020",
+            "components": [
+                "<p><a href=\"https://azure.microsoft.com/services/azure-sql/sql-managed-instance/\">Azure SQL Managed Instance</a> is the intelligent, scalable, cloud database service that combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen platform as a service (PAAS).</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/azure-sql/\">Azure SQL</a> gives you a unified experience across your entire SQL portfolio and a full range of deployment options.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/virtual-network/\">Azure Virtual Network</a> is your private network in your Azure environment.</p>"
+            ],
+            "sample_code": true,
+            "github_url": "https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_Pre_v12.sql",
+            "name": "oracle-migration-rearchitect",
+            "popularity": 0,
+            "topic": "Databases"
+        },
+        {
+            "tags": [
+                "all-items",
+                "console",
+                "example-code",
+                "example-workload",
+                "fcp",
+                "github"
+            ],
+            "type": "example-workload",
+            "file_url": "example-scenario/oracle-migrate/oracle-migration-refactor.md",
+            "http_url": "/azure/architecture/example-scenario/oracle-migrate/oracle-migration-refactor",
+            "word_count": 644,
+            "read_time": "3 min read",
+            "Title": "Oracle database migration: Refactor",
+            "MetaDescription": "Refactor your Oracle database with Azure Database Migration Service and move it to PostgreSQL.",
+            "category": [
+                "databases",
+                "migration"
+            ],
+            "image": "/azure/architecture/example-scenario/oracle-migrate/media/refactor.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\oracle-migrate\\media\\refactor.png",
+            "publish_date": "6/23/2020",
+            "components": [
+                "<p><a href=\"https://azure.microsoft.com/services/database-migration/\">Azure Database Migration Service</a> is a tool that helps you simplify, guide, and automate your database migration to Azure.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/postgresql/\">Azure Database for PostgreSQL</a> lets you focus on application innovation instead of database management and scale your workload quickly and easily.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/virtual-network/\">Azure Virtual Network</a> is your private network in your Azure environment.</p>"
+            ],
+            "sample_code": true,
+            "github_url": "https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_Pre_v12.sql",
+            "code_languages": [
+                "console"
+            ],
+            "name": "oracle-migration-refactor",
+            "popularity": 0,
+            "topic": "Databases"
+        },
+        {
+            "tags": [
+                "all-items",
+                "data-flow",
+                "example-code",
+                "example-workload",
+                "fcp",
+                "github"
+            ],
+            "type": "example-workload",
+            "file_url": "example-scenario/oracle-migrate/oracle-migration-overview.md",
+            "http_url": "/azure/architecture/example-scenario/oracle-migrate/oracle-migration-overview",
+            "word_count": 591,
+            "read_time": "3 min read",
+            "Title": "Overview of Oracle database migration",
+            "MetaDescription": "Learn about Oracle database migration paths and the methods you use to migrate your schema to SQL or PostgreSQL.",
+            "category": [
+                "databases",
+                "migration"
+            ],
+            "image": "/azure/architecture/example-scenario/oracle-migrate/media/oracle-migration-process-to-sql-pg.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\example-scenario\\oracle-migrate\\media\\oracle-migration-process-to-sql-pg.png",
+            "publish_date": "6/23/2020",
+            "Summary": "<p>This series of articles provides a way for you to assess your current Oracle database environment, figure out your best migration path to Azure, and links to documents that help you make your migratory move. Your migration path can be to an Azure Virtual Machine (VM). It might also be to an Azure Managed Database that is running on an Azure VM.</p>\n<p>To migrate an Oracle database to an Azure environment, you have to:</p>\n<ul>\n<li>\n<p>Choose Azure resources as target database.</p>\n</li>\n<li>\n<p>Decide data migration method to evaluate downtime window.</p>\n</li>\n<li>\n<p>Figure out how to archive business continuity and disaster recovery requirements.</p>\n</li>\n</ul>",
+            "Flow": {
+                "FlowStep_A": "Use Oracle script artifacts to evaluate Oracle database.",
+                "FlowStep_B": "Schema conversion is different for both database types:",
+                "FlowStep_C": "Data migration is different for both database types:",
+                "FlowStep_D": "Test the conversion using functional tests.",
+                "FlowStep_E": "Switch the application's connection strings to complete the application cutover."
+            },
+            "sample_code": true,
+            "github_url": "https://github.com/microsoft/DataMigrationTeam/tree/master/Oracle%20Inventory%20Script%20Artifacts",
+            "name": "oracle-migration-overview",
+            "popularity": 0,
             "topic": "Databases"
         },
         {
@@ -6994,7 +7515,7 @@
             "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\predict-length-of-stay-and-patient-flow-with-healthcare-analytics.png",
             "publish_date": "12/16/2019",
             "components": [
-                "<p><a href=\"https://www.microsoft.com/sql-server/sql-server-r-services\">SQL Server R Services</a>: Stores the patient and hospital data. Provides training and predicted models and predicted results for consumption using R.</p>",
+                "<p><a href=\"https://docs.microsoft.com/sql/machine-learning/r/sql-server-r-services?view=sql-server-2016\">SQL Server R Services</a>: Stores the patient and hospital data. Provides training and predicted models and predicted results for consumption using R.</p>",
                 "<p><a href=\"https://powerbi.microsoft.com\">Power BI</a> provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/machine-learning-studio\">Machine Learning Studio</a>: Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.</p>"
             ],
@@ -7230,6 +7751,48 @@
             "name": "realtime-analytics-vehicle-iot",
             "popularity": 204,
             "topic": "Internet of Things"
+        },
+        {
+            "tags": [
+                "'https:--azure.microsoft.com-solutions-architecture-customer-360-'",
+                "acom-architecture",
+                "ai-gallery",
+                "all-items",
+                "artificial-intelligence",
+                "azure",
+                "data-flow",
+                "example-code",
+                "github",
+                "interactive-diagram",
+                "solution-architectures",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/product-recommendations.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/product-recommendations",
+            "word_count": 391,
+            "read_time": "2 min read",
+            "Title": "Product recommendations for retail using Azure",
+            "MetaDescription": "This solution implements a process of aggregating customer data into a complete profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.",
+            "category": [
+                "analytics"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/product-recommendations.png",
+            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\product-recommendations.png",
+            "publish_date": "12/16/2019",
+            "Summary": "<p>A deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. This solution implements a process of aggregating customer data into a \"360-degree\" profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.</p>",
+            "Flow": {
+                "FlowStep_A": "A Data Generator pipes simulated customer events to an Event Hub",
+                "FlowStep_B": "A Stream Analytics job reads from the EventHub, performs aggregations",
+                "FlowStep_C": "Stream Analytics persists time-grouped data to an Azure Storage Blob",
+                "FlowStep_D": "A Spark job running in HDInsight merges the latest customer browsing data with historical purchase and demographic data to build a consolidated user profile",
+                "FlowStep_E": "A second Spark job scores each customer profile against a machine learning model to predict future purchasing patterns (in other words, is a given customer likely to make a purchase in the next 30 days, and if so, in which product category?)"
+            },
+            "sample_code": true,
+            "github_url": "https://github.com/Azure/cortana-intelligence-customer360",
+            "name": "product-recommendations",
+            "popularity": 0,
+            "topic": "Analytics"
         },
         {
             "tags": [
@@ -7549,7 +8112,7 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/remote-patient-monitoring.md",
             "http_url": "/azure/architecture/solution-ideas/articles/remote-patient-monitoring",
-            "word_count": 308,
+            "word_count": 309,
             "read_time": "2 min read",
             "Title": "Remote Patient Monitoring Solutions",
             "MetaDescription": "Provide a high level of preventative medical care with remote patient monitoring from Azure. Analyze large amounts of medical data in a secure environment.",
@@ -7578,7 +8141,7 @@
                 "FlowStep_B": "Securely store sensor and device data in Cosmos DB.",
                 "FlowStep_C": "Analyze sensor and device data using a pre-trained Cognitive Services API or a custom developed Machine Learning model.",
                 "FlowStep_D": "Store Artificial Intelligence (AI) and Machine Learning results in Cosmos DB.",
-                "FlowStep_E": "Interact AI and Machine Learning results using PowerBI, while preserving Role-Based Access Control (RBAC).",
+                "FlowStep_E": "Interact AI and Machine Learning results using Power BI, while preserving Role-Based Access Control (RBAC).",
                 "FlowStep_F": "Integrate data insights with backend systems and processes using Logic Apps."
             },
             "name": "remote-patient-monitoring",
@@ -8669,7 +9232,7 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.md",
             "http_url": "/azure/architecture/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql",
-            "word_count": 39,
+            "word_count": 66,
             "read_time": "1 min read",
             "Title": "Scalable web and mobile applications using Azure Database for PostgreSQL",
             "MetaDescription": "Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.",
@@ -9443,7 +10006,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/data/stream-processing-stream-analytics.md",
             "http_url": "/azure/architecture/reference-architectures/data/stream-processing-stream-analytics",
-            "word_count": 2290,
+            "word_count": 2272,
             "read_time": "10 min read",
             "Title": "Stream processing with Azure Stream Analytics",
             "MetaDescription": "Create an end-to-end stream processing pipeline in Azure.",
@@ -10073,45 +10636,6 @@
             "name": "n-tier-sql-server",
             "popularity": 218,
             "topic": "Databases"
-        },
-        {
-            "tags": [
-                "all-items",
-                "data-flow",
-                "fcp",
-                "iot",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/ibems-shield-smart-buildings.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/ibems-shield-smart-buildings",
-            "word_count": 783,
-            "read_time": "4 min read",
-            "Title": "iBEMS Shield COVID-19 building management solution",
-            "MetaDescription": "Update building management systems to provide COVID-19 protections with intelligent IoT Edge devices and cloud-powered apps.",
-            "category": [
-                "iot"
-            ],
-            "image": "/azure/architecture/solution-ideas/media/ibems-shield.png",
-            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\ibems-shield.png",
-            "publish_date": "6/10/2020",
-            "components": [
-                "<p><a href=\"https://azure.microsoft.com/services/iot-edge/\">Azure IoT Edge</a> intelligent devices can recognize and respond to sensor input by using onboard processing. These devices respond quickly or even offline, and limit costs by preprocessing and sending only necessary data to the cloud.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/stream-analytics\">Azure Stream Analytics (ASA)</a> provides real-time serverless stream processing that can run the same queries on the edge and in the cloud. ASA on IoT Edge can filter or aggregate data to send to the cloud for further processing or storage.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/digital-twins/\">Azure Digital Twins</a> IoT service creates comprehensive models of physical environments in a spatial intelligence graph. Rather than simply tracking individual devices, Digital Twins can virtually replicate the physical world by modeling the relationships between people, places, and devices.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/iot-hub/\">Azure IoT Hub</a> connects virtually any IoT device with Azure cloud services. IoT Hub enables highly secure and reliable bi-directional communication, management, and provisioning for IoT Edge devices.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/storage/data-lake-storage/\">Azure Data Lake Storage</a> is a data lake storage solution for big data analytics. Data Lake Storage combines <a href=\"https://azure.microsoft.com/services/storage/blobs/\">Azure Blob Storage</a> capabilities with a high-performance file system.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/databricks/\">Azure Databricks</a> is a fast, easy, and collaborative Apache Spark-based analytics service that can read and analyze data lake data.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/cognitive-services/\">Azure Cognitive Services</a> is a family of AI services and cognitive APIs that help build intelligent apps. For example, <a href=\"https://azure.microsoft.com/services/cognitive-services/computer-vision/\">Computer Vision</a>, <a href=\"https://azure.microsoft.com/services/cognitive-services/custom-vision-service/\">Custom Vision</a>, and <a href=\"https://azure.microsoft.com/services/cognitive-services/face/\">Face</a> can help identify and track personnel on-premises.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/machine-learning/\">Azure Machine Learning</a> lets you build, train, deploy, track, and manage ML models at cloud scale. Machine learning continually retrains and updates models to improve accuracy and performance.</p>",
-                "<p><a href=\"https://azure.microsoft.com/products/powerapps/\">Power Apps</a> is a suite of apps, services, connectors, and data platform that build custom apps for business needs. Power Apps provides responsive design that can run seamlessly in browsers, mobile devices, or large video displays. Power Apps portal apps create external-facing websites that allow secure access for various identities.</p>"
-            ],
-            "Flow": {
-                "FlowStep_A": "Azure deploys the customized dashboard app via firewall, message bus, and load balancers to iBEMS on-premises Control Centers, browsers, and mobile devices."
-            },
-            "name": "ibems-shield-smart-buildings",
-            "popularity": 0,
-            "topic": "Internet of Things"
         }
     ]
 }
