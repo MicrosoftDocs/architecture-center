@@ -92,7 +92,7 @@ Numbers in the following sections are approximate, based on a variety of large c
 
 The Windows Virtual Desktop service is scalable to more than 10,000 session hosts per workspace. You can address some Azure platform and Windows Virtual Desktop control plane limitations in the design phase to avoid changes in the scaling phase.
 
-- There's a limit of 5,000 VMs per Azure subscriptions, but this limit only applies to sessions with personal host pools based on Windows 10 Enterprise single-session. Most customers use Windows 10 Enterprise multi-session, which allows multiple users to log on to each VM. You can increase the resources of individual session host VMs to accommodate more user sessions.
+- We recommend to deploy not more than 5,000 VMs per Azure subscription, this recommendation applies to both personal and pooled host pools based on Windows 10 Enterprise single and multi-session. Most customers use Windows 10 Enterprise multi-session, which allows multiple users to log on to each VM. You can increase the resources of individual session host VMs to accommodate more user sessions.
 - For automated session host scaling tools, the limits are around 2,000 VMs per Azure subscription, because VM status interaction consumes more resources.
 - To manage enterprise environments with more than 5,000 VMs, you can create multiple Azure subscriptions in a hub-spoke architecture and connect them via virtual network peering, as in the preceding example architecture.
 - Azure Resource Manager (ARM) subscription API throttling limits don't allow more than 600 Azure VM reboots per hour via the Azure portal. You can reboot all your machines at once via the operating system, which doesn't consume any Azure Resource Manager subscription API calls. For more information about counting and troubleshooting throttling limits based on your Azure subscription, see [Troubleshoot API throttling errors](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors).
@@ -120,5 +120,5 @@ Architect your Windows Virtual Desktop solution to realize cost savings. Here ar
 ## Next steps
 
 - [Windows Virtual Desktop partner integrations](https://aka.ms/wvdpartner) lists approved Windows Virtual Desktop partner providers and independent software vendors.
-- Use the resources at [Windows_10_VDI_Optimize](https://github.com/TheVDIGuys/Windows_10_VDI_Optimize) to help optimize performance in a Windows 10 Enterprise VDI environment.
+- Use the resources at [Windows_10_VDI_Optimize](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) to help optimize performance in a Windows 10 Enterprise VDI environment.
 
