@@ -18,7 +18,7 @@ When developing web services, you may need to get tokens using the [OAuth 2.0 On
 >[!WARNING]
 >Carefully consider the need to store OBO tokens, since these tokens can give a malicious actor access to resources in the organization's Azure Active Directory (Azure AD). A security breach of an application that targets **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** can be especially disastrous.
 >
->When an application needs to use access and refresh tokens indefinitely, it's critical to store the refresh tokens securely. Storing access tokens poses an even greater security risk, since an access token in and of itself can access resources. The recommended approach is to store only refresh tokens, and get access tokens as needed.
+>When an application needs to use access and refresh tokens indefinitely (typically in an `offline_access` situation), it's critical to store the refresh tokens securely. Storing access tokens poses an even greater security risk, since an access token in and of itself can access resources. The recommended approach is to securely store only refresh tokens, and get access tokens as needed; treating the security of refresh tokens with as much rigor as if they were access tokens.
 >
 >In case of compromise, you can [revoke refresh tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#token-revocation).
 
