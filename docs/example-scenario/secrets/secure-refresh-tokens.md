@@ -13,7 +13,7 @@ ms.custom:
 
 # Secure OAuth 2.0 OBO refresh tokens
 
-When developing web services, you may need to get tokens using the [OAuth 2.0 On-Behalf-Of (OBO) flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). The OBO flow serves the use case where an application invokes a service or web API, which in turn needs to call another service or web API. OBO propagates the delegated user identity and permissions through the request chain. When an application needs to use access and refresh tokens indefinitely, typically in an `offline_access` scenarios, it's critical to store the refresh tokens securely.
+When developing web services, you may need to get tokens using the [OAuth 2.0 On-Behalf-Of (OBO) flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). The OBO flow serves the use case where an application invokes a service or web API, which in turn needs to call another service or web API. OBO propagates the delegated user identity and permissions through the request chain. When an application needs to use access and refresh tokens indefinitely, typically in offline access scenarios, it's critical to store the refresh tokens securely.
 
 >[!WARNING]
 >Carefully consider the risk and responsibility involved in storing any security tokens, since these tokens can give a malicious actor access to resources protected by the organization's Azure Active Directory (Azure AD). A security breach of an application that targets **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** can be especially disastrous.
@@ -29,7 +29,7 @@ This solution uses Azure Key Vault, Azure Functions, and Azure DevOps to securel
 ![Diagram showing the key and token refresh processes.](./media/refresh-diagram.png)
 
 - Azure [Key Vault](https://azure.microsoft.com/services/key-vault/) holds secret encryption keys for each [Azure AD](https://azure.microsoft.com/services/active-directory/) tenant.
-- [Azure Functions](https://azure.microsoft.com/services/functions/) functions get updated secrets from Key Vault, and save the tokens with the latest secret version.
+- An [Azure Functions](https://azure.microsoft.com/services/functions/) timer-triggered function gets the latest secret key from Key Vault. Another Azure Functions function retrieves the refresh token from the Microsoft identity platform and saves it with the latest secret key version.
 - A database stores the latest encrypted key and opaque data.
 - An [Azure DevOps](https://azure.microsoft.com/services/devops/) continuous delivery pipeline manages and syncs the secret rotation and token refresh processes.
 
