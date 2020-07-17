@@ -180,3 +180,7 @@ when certain thresholds like 50%, 75%, and 90% of the plan has been reached.
 
 -   To make sure the workload is scaled properly, requests and limits will be
     enforced by assigning quotas for the Horizontal Pod Autoscaling (HPA). AKS cluster autoscaler  will be enabled so that additional nodes are automatically provisioned if pods can’t be scheduled.
+
+## Next steps
+> [!div class="nextstepaction"]
+> [Learn about the reference architecture](secure-baseline-aks.md)
