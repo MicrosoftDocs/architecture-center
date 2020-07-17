@@ -204,8 +204,8 @@ ingress resource might be more complex. You might need multiple ingress
 controllers that will require extra addresses.
 
 For the complete set of considerations for this architecture, see [AKS baseline
-Network
-Topology](https://github.com/mspnp/reference-architectures/blob/fcp/aks-baseline/aks/secure-baseline/networking-readme.md#aks-baseline-network-topology).
+Network Topology](https://github.com/mspnp/aks-secure-baseline/blob/main/networking/topology.md).
+
 
 For information related to planning IP for an AKS cluster, see [Plan IP
 addressing for your
