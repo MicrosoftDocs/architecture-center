@@ -30,7 +30,7 @@ This solution uses Azure Key Vault, Azure Functions, and Azure DevOps to securel
 
 - Azure [Key Vault](https://azure.microsoft.com/services/key-vault/) holds a secret encryption key for each [Azure AD](https://azure.microsoft.com/services/active-directory/) tenant, and regenerates the key periodically.
 - An [Azure Functions](https://azure.microsoft.com/services/functions/) timer-triggered function gets the latest secret key from Key Vault. Another Azure Functions function retrieves the refresh token from the Microsoft identity platform and saves it with the latest secret key version.
-- A database stores the encrypted key and and opaque data.
+- A database stores the encrypted key and opaque data.
 - An [Azure DevOps](https://azure.microsoft.com/services/devops/) continuous delivery pipeline manages and syncs the key rotation and token refresh processes.
 
 [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is a convenient place to add your key rotation strategy, if you're already using Pipelines for infrastructure-as-code (IaC) or continuous integration and delivery (CI/CD). But you don't have to use Azure DevOps, as long as you limit the paths for setting or retrieving secrets.
