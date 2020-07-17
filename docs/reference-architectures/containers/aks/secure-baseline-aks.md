@@ -70,7 +70,7 @@ starting point and configure it as per your needs.
     :::column-end:::  
     :::column:::
       #### Operations
-      [Cluster and workload operations](#cluster-and-workload-operations-devops)\
+      [Cluster and workload CI/CD pipelines](#cluster-and-workload-operations-devops)\
       [Cluster health and metrics](#monitor-and-collect-metrics)\
       [Cost management and reporting](#cost-management)
     :::column-end:::       
@@ -966,6 +966,7 @@ and [Jenkins](/azure/developer/jenkins/).
 
 ### Cluster CI/CD
 ![Workload CI/CD](_images/workload-ci-cd.png)
+
 Instead of using an imperative approach like kubectl, use tools that
 automatically synchronize cluster and repository changes. To manage the
 workflow, such as release of a new version and validation of that version before
