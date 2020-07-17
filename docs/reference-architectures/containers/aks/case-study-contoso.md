@@ -33,7 +33,7 @@ Based on the company's profile and business requirements, we've created a refere
 
 Contoso Bicycle has a single IT Team with these sub teams.
 
-![Contoso teams](_images/contoso-teams.svg)
+![Contoso teams](images/contoso-teams.svg)
 
 ### Architecture team
 

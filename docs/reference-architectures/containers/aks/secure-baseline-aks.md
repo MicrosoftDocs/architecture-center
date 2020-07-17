@@ -19,7 +19,7 @@ deploys an Azure Kubernetes Service (AKS) cluster with focus on security. This
 article includes recommendations for networking, security, identity, management,
 and monitoring of the cluster based on an organization’s business requirements.
 
-![GitHub logo](../../../_images/github.png) An implementation of this architecture is available
+![GitHub logo](../../../images/github.png) An implementation of this architecture is available
 on [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). You can use it as a
 starting point and configure it as per your needs.
 
@@ -30,7 +30,7 @@ starting point and configure it as per your needs.
 > - [Business requirements](case-study-contoso.md#business-requirements)
 > - [Design and technology choices](case-study-contoso.md#design-and-technology-choices)
 
-### Prerequisite
+### Recommended content
 > This reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, complete this workshop to deploy a multi-container application to Kubernetes on Azure Kubernetes Service (AKS).
 > [!div class="nextstepaction"]
 > [Azure Kubernetes Service Workshop](/learn/modules/aks-workshop/)
@@ -96,7 +96,7 @@ Some advantages of this topology are:
 
 -   Certain resources, such as a firewall and DNS can be shared across networks.
 
-![Network Topology](_images/secure-baseline-architecture.svg)
+![Network Topology](images/secure-baseline-architecture.svg)
 
 ### Hub 
 
@@ -156,7 +156,7 @@ Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 
 ## Plan the IP addresses
 -------------------------------------------------
-![Network Topology](_images/baseline-network-topology.png)
+![Network Topology](images/baseline-network-topology.png)
 
 The address space of the virtual network should be large enough to hold all
 subnets. Account for all entities that will receive traffic. IP addresses for
@@ -438,7 +438,7 @@ Network flow, in this context, can be categorized as:
 -   **Management traffic**. Traffic that goes between the client and the
     Kubernetes API server.
 
-![Cluster traffic flow](_images/traffic-flow.png)
+![Cluster traffic flow](images/traffic-flow.png)
 
 This architecture has several layers of security to secure all types of traffic.
 
@@ -449,7 +449,7 @@ is the minimum allowed version with a restricted set of cyphers. Server Name
 Indication (SNI) strict is enabled. End-to-end TLS is set up through Application
 Gateway by using two different TLS certificates, as shown in this image.
 
-![TLS termination](_images/tls-termination.png)
+![TLS termination](images/tls-termination.png)
 
 1.  The client sends an HTTPS request to the domain name: bicycle.contoso.com.
     That name is associated with through a DNS A record to the public IP address
@@ -752,7 +752,7 @@ are some considerations when enabling multizone:
 
 -   **Entire infrastructure.** Choose a region that supports availability zones.
     For more information, see [Limitations and region availability](/azure/aks/availability-zones#limitations-and-region-availability).
-    If you want to purchaser an Uptime SLA, choose a region that supports that
+    If you want to buy an Uptime SLA, choose a region that supports that
     option.
 
 -   **Cluster**. Availability zones can only be set when the node pool is
@@ -760,7 +760,7 @@ are some considerations when enabling multizone:
     zones so that the expected distribution is possible. The underlying virtual machine scale set
     provides the same hardware configuration across zones.
 
-Multizone support only applies to node pools. The AKS API server is in a
+    Multizone support only applies to node pools. The AKS API server is in a
 single zone. If the API server becomes unavailable as part of a zone
 failure, pods deployed on node pools will continue to run, however Kubernetes
 will lose orchestration capabilities, and workload might be affected.
@@ -887,7 +887,9 @@ determines if the pod is healthy. If it does not respond, Kubernetes will
 restart the pod. Readiness probe determines if the pod is ready to receive
 requests/traffic.
 
-Note: AKS provides built-in self-healing of infrastructure nodes using [Node Auto-Repair](/azure/aks/node-auto-repair).
+>[!NOTE] 
+> AKS provides built-in self-healing of infrastructure nodes using [Node Auto-Repair](/azure/aks/node-auto-repair).
+>
 
 ### Security updates
 
@@ -965,7 +967,7 @@ include [Azure DevOps Services](/azure/virtual-machines/windows/infrastructure-a
 and [Jenkins](/azure/developer/jenkins/).
 
 ### Cluster CI/CD
-![Workload CI/CD](_images/workload-ci-cd.png)
+![Workload CI/CD](images/workload-ci-cd.png)
 
 Instead of using an imperative approach like kubectl, use tools that
 automatically synchronize cluster and repository changes. To manage the
@@ -986,7 +988,7 @@ You can also set policies that govern how those changes are deployed.
 Here’s an example from the reference implementation that shows how to automate
 cluster configuration with GitOps and Flux.
 
-![GitOps Flow](_images/gitops-flow.png)
+![GitOps Flow](images/gitops-flow.png)
 
 1.  A developer commits changes to source code, such as configuration YAML
     files, which are stored in a git repository. The changes are then pushed to

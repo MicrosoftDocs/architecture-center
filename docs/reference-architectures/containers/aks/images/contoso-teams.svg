@@ -17,9 +17,9 @@
 		.st2 {fill:#000000;font-family:Segoe UI;font-size:0.916672em}
 		.st3 {marker-end:url(#mrkr10-21);marker-start:url(#mrkr10-19);stroke:#a5a5a5;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st4 {fill:#a5a5a5;fill-opacity:1;stroke:#a5a5a5;stroke-opacity:1;stroke-width:0.22935779816514}
-		.st5 {stroke:#000000;stroke-dasharray:3,1.5;stroke-linecap:butt;stroke-width:0.75}
-		.st6 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
-		.st7 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75;visibility:hidden}
+		.st5 {stroke:#ea700d;stroke-dasharray:3,1.5;stroke-linecap:butt;stroke-width:0.75}
+		.st6 {stroke:#ea700d;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st7 {fill:#ffffff;stroke:#ea700d;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75;visibility:hidden}
 		.st8 {fill:#595959;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st9 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st10 {fill:#0070c0;font-family:Calibri;font-size:0.75em}
@@ -112,14 +112,14 @@
 				<v:cp v:nameU="visName" v:lbl="Task Name" v:type="0" v:invis="true" v:langID="1033"
 						v:val="VT4(Interval Description)"/>
 				<v:cp v:nameU="visIntervalBegin" v:lbl="Start" v:type="5" v:format="c" v:invis="true" v:langID="1033"
-						v:val="VT17(2020-07-15T00:00:00):39"/>
+						v:val="VT17(2020-07-17T00:00:00):39"/>
 				<v:cp v:nameU="visIntervalEnd" v:lbl="Finish" v:type="5" v:format="c" v:invis="true" v:langID="1033"
-						v:val="VT17(2020-07-22T00:00:00):39"/>
+						v:val="VT17(2020-07-24T00:00:00):39"/>
 			</v:custProps>
 			<v:userDefs>
 				<v:ud v:nameU="LCID" v:val="VT0(1033):26"/>
-				<v:ud v:nameU="visIntervalBegin" v:val="VT17(2020-07-15T00:00:00):39"/>
-				<v:ud v:nameU="visIntervalEnd" v:val="VT17(2020-07-22T00:00:00):39"/>
+				<v:ud v:nameU="visIntervalBegin" v:val="VT17(2020-07-17T00:00:00):39"/>
+				<v:ud v:nameU="visIntervalEnd" v:val="VT17(2020-07-24T00:00:00):39"/>
 				<v:ud v:nameU="visIntervalPict" v:val="VT0(200):26"/>
 				<v:ud v:nameU="visAutoUpdate"/>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
