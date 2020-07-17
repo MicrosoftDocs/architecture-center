@@ -16,7 +16,7 @@ ms.custom:
 When developing web services, you may need to get tokens using the [OAuth 2.0 On-Behalf-Of (OBO) flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). The OBO flow serves the use case where an application invokes a service or web API, which in turn needs to call another service or web API. OBO propagates the delegated user identity and permissions through the request chain.
 
 >[!WARNING]
->Carefully consider the need to store OBO tokens, since these tokens can give a malicious actor access to resources in the organization's Azure Active Directory (Azure AD). A security breach of an application that targets **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** can be especially disastrous.
+>Carefully consider the risk and responisbility involved in storing any security tokens, since these tokens can give a malicious actor access to resources protected by the organization's Azure Active Directory (Azure AD). A security breach of an application that targets **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** can be especially disastrous.
 >
 >When an application needs to use access and refresh tokens indefinitely (typically in an `offline_access` situation), it's critical to store the refresh tokens securely. Storing access tokens poses an even greater security risk, since an access token in and of itself can access resources. The recommended approach is to securely store only refresh tokens, and get access tokens as needed; treating the security of refresh tokens with as much rigor as if they were access tokens.
 >
