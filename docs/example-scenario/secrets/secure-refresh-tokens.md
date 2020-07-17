@@ -13,14 +13,14 @@ ms.custom:
 
 # Secure OAuth 2.0 OBO refresh tokens
 
-When developing web services, you may need to get tokens using the [OAuth 2.0 On-Behalf-Of (OBO) flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). The OBO flow serves the use case where an application invokes a service or web API, which in turn needs to call another service or web API. OBO propagates the delegated user identity and permissions through the request chain.
+When developing web services, you may need to get tokens using the [OAuth 2.0 On-Behalf-Of (OBO) flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). The OBO flow serves the use case where an application invokes a service or web API, which in turn needs to call another service or web API. OBO propagates the delegated user identity and permissions through the request chain. When an application needs to use access and refresh tokens indefinitely, typically in an `offline_access` scenarios, it's critical to store the refresh tokens securely.
 
 >[!WARNING]
->Carefully consider the need to store OBO tokens, since these tokens can give a malicious actor access to resources in the organization's Azure Active Directory (Azure AD). A security breach of an application that targets **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** can be especially disastrous.
+>Carefully consider the risk and responsibility involved in storing any security tokens, since these tokens can give a malicious actor access to resources protected by the organization's Azure Active Directory (Azure AD). A security breach of an application that targets **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** can be especially disastrous.
 >
->When an application needs to use access and refresh tokens indefinitely, it's critical to store the refresh tokens securely. Storing access tokens poses an even greater security risk, since an access token in and of itself can access resources. The recommended approach is to store only refresh tokens, and get access tokens as needed.
+>Storing access tokens poses a greater security risk, since an access token in and of itself can access resources. The recommended approach is not to store access tokens, but get the access tokens as needed. Securely store only the refresh tokens, with as much rigor as if they were access tokens.
 >
->In case of compromise, you can [revoke refresh tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#token-revocation).
+>If necessary, you can [revoke refresh tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#token-revocation) if they become compromised.
 
 This solution uses Azure Key Vault, Azure Functions, and Azure DevOps to securely update and store OBO refresh tokens.
 
@@ -28,28 +28,28 @@ This solution uses Azure Key Vault, Azure Functions, and Azure DevOps to securel
 
 ![Diagram showing the key and token refresh processes.](./media/refresh-diagram.png)
 
-- Azure [Key Vault](https://azure.microsoft.com/services/key-vault/) holds a secret encryption key for each [Azure AD](https://azure.microsoft.com/services/active-directory/) tenant, and regenerates the key periodically.
-- An [Azure Functions](https://azure.microsoft.com/services/functions/) timer-triggered function gets the latest secret key from Key Vault. Another Azure Functions function retrieves the refresh token from the Microsoft identity platform and saves it with the latest secret key version.
-- A database stores the encrypted key and and opaque data.
-- An [Azure DevOps](https://azure.microsoft.com/services/devops/) continuous delivery pipeline manages and syncs the key rotation and token refresh processes.
+- Azure [Key Vault](https://azure.microsoft.com/services/key-vault/) holds secret encryption keys for each [Azure AD](https://azure.microsoft.com/services/active-directory/) tenant.
+- [Azure Functions](https://azure.microsoft.com/services/functions/) functions get updated secrets from Key Vault, and save the tokens with the latest secret version.
+- A database stores the latest encrypted key and opaque data.
+- An [Azure DevOps](https://azure.microsoft.com/services/devops/) continuous delivery pipeline manages and syncs the secret rotation and token refresh processes.
 
-[Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is a convenient place to add your key rotation strategy, if you're already using Pipelines for infrastructure-as-code (IaC) or continuous integration and delivery (CI/CD). But you don't have to use Azure DevOps, as long as you limit the paths for setting or retrieving secrets.
+[Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is a convenient place to add your key rotation strategy, if you're already using Pipelines for infrastructure-as-code (IaC) or continuous integration and delivery (CI/CD). You don't have to use Azure Pipelines, as long as you limit the paths for setting and retrieving secrets.
 
-You can apply the following permissions to the Service Principal for your Azure DevOps service connection, which allow Azure Pipelines to set secrets. Set the `<Key Vault Name>` and `<Service Connection Principal>` variables to the correct values for your environment.
+Apply the following policy to allow the Service Principal for your Azure DevOps service connection to set secrets in Key Vault. Replace the `<Key Vault Name>` and `<Service Connection Principal>` variables with the correct values for your environment.
 
 ```azurecli
 az keyvault set-policy --name $<Key Vault Name> --spn $<Service Connection Principal> --secret-permissions set
 ```
 
-After you set up your pipeline to create or update keys, you can schedule the pipeline to run periodically and [sync the key rotation with the token refresh](#key-rotation-and-token-refresh). Whenever the refresh token refreshes, a new key encrypts the new refresh token. For more information, see [Configure schedules for pipelines](https://docs.microsoft.com/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops&tabs=yaml).
+After you set up Azure Pipelines to create and update keys, you can schedule the pipeline to run periodically. The pipeline updates the Key Vault secret to sync with key rotation, and saves the encrypted token with the new secret version. For more information, see [Configure schedules for pipelines](https://docs.microsoft.com/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops&tabs=yaml).
 
 ## Managed identity
 
-The most convenient way for an Azure service like Azure Functions to access Key Vault is to use the service's [managed identity](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-managed-identity). You can grant access through the Azure portal, Azure CLI, or through an Azure Resource Manager (ARM) template for IaC scenarios.
+The preferred way for an Azure service like Azure Functions to access Key Vault is to use the service's [managed identity](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-managed-identity). You can grant access through the Azure portal, Azure CLI, or through an Azure Resource Manager (ARM) template for IaC scenarios.
 
 ### Azure portal
 
-You can use the Azure portal to set up the managed identity for Azure Functions to access Key Vault. From the Functions app's **Identity** page, copy the Managed Identity Principal's **Object ID**. Then create a Key Vault access policy to enable `get` secret permissions for the Azure Functions managed identity. For more information, see [Add a system-assigned identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) and [Use Key Vault references for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
+In the Azure portal, add a Key Vault access policy to allow the Azure Functions managed identity Object ID to **Get** and **Set** secrets. For more information, see [Add a system-assigned identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) and [Use Key Vault references for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
 
 ![Screenshot showing how to enable managed identity in the Azure portal.](./media/system-assigned-managed-identity-in-azure-portal.png)
 
@@ -118,17 +118,17 @@ With the cryptographic key stored as a secret, you can look up the latest versio
 
 ## Token usage
 
-Using the key is straightforward. The following sequence queries the key based on the stored key version.
+Using the key is straightforward. The following sequence queries the key based on the latest key version.
 
 ![Diagram that shows the stored token usage sequence.](./media/use-stored-token-sequence.png)
 
-The token refresh is orthogonal to the `DoWork` function, so Azure Functions can perform `DoWork` and token refresh asynchronously with [Durable Functions](https://docs.microsoft.com/azure/azure-functions/durable/). For more information about HTTP-triggered functions with Durable Functions, see [HTTP features](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-http-features?tabs=csharp).
+The token refresh is orthogonal to the `DoWork` function, so Azure Functions can perform `DoWork` and token refresh asynchronously by using [Durable Functions](https://docs.microsoft.com/azure/azure-functions/durable/). For more information about HTTP-triggered functions with Durable Functions, see [HTTP features](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-http-features?tabs=csharp).
 
-It's not recommended to use Azure Key Vault in the HTTP request pipeline, so cache the responses whenever reasonable. In this example, the response to the Azure Functions to Key Vault `getSecret(secretId, secretVersion)` call is cacheable.
+It's not recommended to use Azure Key Vault in the HTTP request pipeline, so cache responses whenever reasonable. In the example, Key Vault's response to the `getSecret(secretId, secretVersion)` call is cacheable.
 
 ## Key rotation and token refresh
 
-You can rotate the secret key at the same time that you refresh the refresh token, so the latest token gets encrypted using the latest version of the encryption key. This process uses the built-in Azure Functions support for timer triggers. For more information, see [Timer trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-timer?tabs=csharp).
+You can rotate the secret key at the same time that you refresh the refresh token, so the latest token gets encrypted with the latest version of the encryption secret. This process uses the built-in Azure Functions support for timer triggers. For more information, see [Timer trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-timer?tabs=csharp).
 
 The following sequence diagram illustrates the process of syncing the token refresh with the key rotation:
 
