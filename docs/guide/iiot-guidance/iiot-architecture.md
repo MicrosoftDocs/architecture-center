@@ -171,4 +171,4 @@ If the industrial device or system supports any of these protocols, it can send 
 
 ## Next steps
 
-To learn the services recommended for this architecture, continue reading the series with [Services in an IIoT analytics solution](./iiot-services.md).
+To learn the services recommended for this architecture, continue reading the series with [Services in an IIoT analytics solution](./iiot-services.md). 
