@@ -11,7 +11,7 @@ ms.custom:
 
 # Bedrock - Automated deployments of Kubernetes clusters with GitOps workflow
 
-Bedrock is a set of patterns and automation tools for deploying and operating production Kubernetes (Kubernetes) clusters based on a GitOps workflow. Bedrock builds on the best practices discovered from working with customers in operationalizing Kubernetes clusters. Using Bedrock, organizations can fast track their end-to-end Kubernetes deployments including infrastructure provisioning, GitOps setup, and Azure Pipelines with observability into the deployment status.
+Bedrock is a set of patterns and automation tools for deploying and operating production Kubernetes clusters based on a GitOps workflow. Bedrock builds on the best practices discovered from working with customers in operationalizing Kubernetes clusters. Using Bedrock, organizations can fast track their end-to-end Kubernetes deployments including infrastructure provisioning, GitOps setup, and Azure Pipelines with observability into the deployment status.
 
 Bedrock helps you:
 
@@ -39,8 +39,8 @@ To resolve those objectives, the team identified the following principal require
 
 * Leverages full cloud native capabilities.
 * Enable implementing complex micro services architectures on Kubernetes.
-* Providing end to end workflow for deploying a complete Kubernetes solution using best practices
-* Embody Practical Real-World Experiences at Scale
+* Providing end to end workflow for deploying a complete Kubernetes solution using best practices.
+* Embody practical real-world experiences at scale.
 * Validation and Improvement by implementation with actual customers.
 
 A major benefit of Bedrock is that, when compared to a manual deployment process that is inherently slow, Bedrock’s automated deployment process is fast and easily repeatable. This benefit equates to higher productivity and efficiencies when using Bedrock.
@@ -183,6 +183,18 @@ The Bedrock CLI is used to create the scaffolding for how Flux works.
 
 ![Diagram illustrates scaffolding a Bedrock GitOps Workflow with Bedrock CLI.](./media/fig005.jpg)
 
+#### Flux
+
+Flux is a tool that automatically ensures that the state of a cluster matches the configuration defined in Git. Flux uses an operator in the cluster to trigger deployments inside Kubernetes, fulfilling the role of a CD tool. It monitors all relevant image repositories, detects new images, triggers deployments, and updates the running configuration based on those changes and a configurable policy. Thus, Flux provides these benefits to Bedrock:
+
+* You do not need to grant your CI automation access to the cluster.
+* Every change is atomic and transactional.
+* Git provides your audit log.
+* Each transaction either fails or succeeds cleanly.
+* You are entirely code-centric, fully supporting IaC.
+
+Flux is most useful when used as a deployment tool at the end of a Continuous Delivery pipeline. Flux makes sure that your new container images and config changes are propagated to the cluster.
+
 #### Relevant GitOps benefits and advantages
 
 Git also provides a simple model for auditing deployments and rolling back to a previous state. The Git repository provides auditability for moving between the states of a deployment. The Git commit history provides a full accounting for the application deployment state transitions that are made by the cluster. In summary:
@@ -217,9 +229,15 @@ As is the typical case for addressing complexities of this kind, the solution wa
 
 The Bedrock team is responsible for developing Fabrikate to provide a frontend that uses HLD to make the creation of deployment manifests easier. Thus, Fabrikate helps to make operating Kubernetes clusters within a GitOps workflow more productive.
 
-Fabrikate simplifies the front end of the GitOps workflow by taking a high-level description of a deployment, a targeted environment configuration (such as **QA** or **Prod**), and renders the YAML resource manifests for that Kubernetes deployment utilizing templating tools (like Helm). It runs as part of the CI/CD pipeline such that every commit to your Fabrikate deployment definition triggers the generation of Kubernetes deployment manifests. The in-cluster GitOps pod Flux watches for new commits and reconciles them with the current set of applied resource manifests in the Kubernetes cluster. (See Figure 4, above.)
+Fabrikate simplifies the front end of the GitOps workflow by taking a high-level description of a deployment, a targeted environment configuration (such as **QA** or **Prod**), and renders the YAML resource manifests for that Kubernetes deployment utilizing templating tools (like Helm). It runs as part of the CI/CD pipeline such that every commit to your Fabrikate deployment definition triggers the generation of Kubernetes deployment manifests. The in-cluster GitOps pod Flux watches for new commits and reconciles them with the current set of applied resource manifests in the Kubernetes cluster.
 
 For example, Fabrikate allows you to write DRY resource definitions (used for dry-run deployments) and configurations for multiple environments while leveraging the broad Helm chart ecosystem. These special purpose HLD scripts become shareable components that both simplify and support making deployments more auditable.
+
+##### Helm
+
+Helm is a Kubernetes package manager that streamlines the installing and managing of Kubernetes deployments. It is sometimes characterized as apt/yum/homebrew for Kubernetes.
+
+Helm uses charts to package pre-configured Kubernetes resources. This allows application deployments to be defined as Helm Charts, which supports reproducible builds of your Kubernetes applications. Helm also allows you to intelligently manage your Kubernetes manifest files and releases of Helm packages. Helm packages (or charts) contain at least two items: a description of the package (`Chart.YAML`) and one or more templates containing Kubernetes manifest files. All charts are stored in Git repositories, as required by GitOps. Charts are fetched as needed to render the correct templates for a deployment by communicating with the Kubernetes API.
 
 ### Bedrock CLI: Bedrock automation tool
 
@@ -255,7 +273,7 @@ Bedrock CLI implements the Spektate Dashboard to provide deployment observabilit
 
 While the core of Bedrock is a significant productivity improvement for dealing with Kubernetes deployments in a production environment, there will be specific use case requirements that go beyond the core Bedrock capabilities. Bedrock is designed to accommodate these added requirements by supporting the integration of additional tools to the process.
 
-For example, if a particular use case required additional monitoring or metrics collection, then Prometheus and Grafana can be added to the deployment as shown in Figure 12. In this case, Prometheus could be considered a ‘dial-tone’ for Kubernetes clusters. Also, Prometheus/Grafana can work in-cluster, aggregated by Azure Monitor for multiple clusters.
+For example, if a particular use case required additional monitoring or metrics collection, then Prometheus and Grafana can be added to the deployment as shown in the following diagram. In this case, Prometheus could be considered a ‘dial-tone’ for Kubernetes clusters. Also, Prometheus/Grafana can work in-cluster, aggregated by Azure Monitor for multiple clusters.
 By integrating such additional tools into the Bedrock automation, Bedrock provides a firm foundation for Kubernetes deployments to meet any specialized use case.
 
 ![Diagram illustrating extending Bedrock to include additional metrics monitoring](./media/fig012.png)
@@ -263,11 +281,6 @@ By integrating such additional tools into the Bedrock automation, Bedrock provid
 ## Cobalt vs Bedrock
 
 [Cobalt](https://github.com/Microsoft/cobalt) hosts reusable Terraform modules to scaffold managed container services like [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) and [Azure App Service](https://docs.microsoft.com/azure/app-service/) following a DevOps workflow. While Bedrock targets Kubernetes based container orchestration workloads while following a [GitOps](https://medium.com/@timfpark/highly-effective-kubernetes-deployments-with-gitops-c7a0354f1446) workflow. Cobalt templates (manifests) reference Terraform modules like virtual networks, traffic manager, and so on, to define infrastructure deployments. Bedrock uses Terraform to pre-configure environment deployment, but also uses Fabrikate templates to define manifests for deployment automation.
-
-## Applicable Scenarios
-
-* Cloud Native Solutions
-* Complex Microservices running Kubernetes Environments
 
 ## Customer Benefits
 
@@ -354,7 +367,6 @@ This scenario is illustrated in the following images where the Region 1 deployme
 
 * [A First Workload With Bedrock](https://github.com/microsoft/bedrock/tree/master/docs/firstWorkload)
 
-
 ## Resources
 
 * [Bedrock project on GitHub](https://github.com/microsoft/bedrock/tree/master/docs/firstWorkload)
@@ -369,29 +381,3 @@ This scenario is illustrated in the following images where the Region 1 deployme
 * [GitOps - Frequently Asked Questions](https://www.weave.works/technologies/gitops-frequently-asked-questions/)
 * [Flux on GitHub](https://github.com/fluxcd/flux)
 * [Terraform on GitHub](https://github.com/hashicorp/terraform)
-
-## Appendix
-
-### Components
-
-The tech stack used by Bedrock includes many best of breed tools, but some are critical to how Bedrock approaches system solutions. These include Flux and Helm.
-
-#### Flux
-
-Flux is a tool that automatically ensures that the state of a cluster matches the configuration defined in Git. Flux uses an operator in the cluster to trigger deployments inside Kubernetes, fulfilling the role of a CD tool. It monitors all relevant image repositories, detects new images, triggers deployments, and updates the running configuration based on those changes and a configurable policy. Thus, Flux provides these benefits to Bedrock:
-
-* You do not need to grant your CI automation access to the cluster
-* Every change is atomic and transactional
-* Git provides your audit log
-* Each transaction either fails or succeeds cleanly
-* You are entirely code-centric, fully supporting IaC
-
-Flux is most useful when used as a deployment tool at the end of a Continuous Delivery pipeline. Flux makes sure that your new container images and config changes are propagated to the cluster.
-
-#### Helm
-
-Helm is a Kubernetes package manager that streamlines installing and managing Kubernetes deployments. It is sometimes characterized as apt/yum/homebrew for Kubernetes.
-
-Helm uses charts to package pre-configured Kubernetes resources. This allows application deployments to be defined as Helm Charts, which supports reproducible builds of your Kubernetes applications. Helm also allows you to intelligently manage your Kubernetes manifest files and releases of Helm packages. Helm packages (or charts) contain at least two items: a description of the package (`Chart.YAML`) and one or more templates containing Kubernetes manifest files. All charts are stored in Git repositories, as required by GitOps. Charts are fetched as needed to render the correct templates for a deployment by communicating with the Kubernetes API.
-
-
