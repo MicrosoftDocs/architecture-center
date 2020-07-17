@@ -45,7 +45,7 @@ After you set up your pipeline to create or update keys, you can schedule the pi
 
 ## Managed identity
 
-The most convenient way for an Azure service like Azure Functions to access Key Vault is to use the service's [managed identity](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-managed-identity). You can grant access through the Azure portal, Azure CLI, or through an Azure Resource Manager (ARM) template for IaC scenarios.
+The perferred way for an Azure service like Azure Functions to access Key Vault is to use the service's [managed identity](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-managed-identity). You can grant access through the Azure portal, Azure CLI, or through an Azure Resource Manager (ARM) template for IaC scenarios.
 
 ### Azure portal
 
