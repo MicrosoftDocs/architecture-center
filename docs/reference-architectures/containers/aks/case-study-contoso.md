@@ -72,7 +72,7 @@ Azure environment.
 ## Business requirements
 
 Here are the requirements based on an initial [Well-Architected
-Framework review](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local).
+Framework review](https://docs.microsoft.com/assessments/?id=azure-architecture-review).
 
 ### Reliability
 
