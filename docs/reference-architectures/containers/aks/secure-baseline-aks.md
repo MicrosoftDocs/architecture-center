@@ -31,7 +31,7 @@ starting point and configure it as per your needs.
 > - [Design and technology choices](case-study-contoso.md#design-and-technology-choices)
 
 ### Prerequisite
-> This reference architecure requires knowledge of Kubernetes and its concepts. Complete this worshop to deploy a multicontainer application to Kubernetes on Azure Kubernetes Service (AKS).
+> This reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, complete this workshop to deploy a multi-container application to Kubernetes on Azure Kubernetes Service (AKS).
 > [!div class="nextstepaction"]
 > [Azure Kubernetes Service Workshop](/learn/modules/aks-workshop/)
 
