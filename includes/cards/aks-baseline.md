@@ -14,12 +14,13 @@
             <p>Baseline architecture on Azure Kubernetes Service (AKS)</p>
         </a>
         <ul class="card-content-metadata">
-            <li>5/07/2020</li>
-            <li>17 min read</li>
+            <li>07/20/2020</li>
+            <li>37 min read</li>
         </ul>
         <p class="card-content-description">Deploy a baseline infrastructure that deploys an AKS cluster with focus on security.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>
 </li>
+
 
