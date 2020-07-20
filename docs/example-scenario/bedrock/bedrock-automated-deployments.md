@@ -1,28 +1,19 @@
 ---
-title: Bedrock - Automated Deployments of Kubernetes Clusters with GitOps Workflow
+title: Automated Kubernetes deployments with Bedrock
 titleSuffix: Azure Example Scenarios
 description: Bedrock is a set of patterns and automation tools for deploying and operating production Kubernetes clusters based on a GitOps workflow.
-author: v-daazli
-ms.date: 06/23/2020
+author: doodlemania2
+ms.date: 07/20/2020
 ms.topic: example-scenario
 ms.custom:
 - fcp
 ---
 
-# Bedrock - Automated deployments of Kubernetes clusters with GitOps workflow
+# Automated Kubernetes deployments with Bedrock
+
+Configuring Kubernetes deployments and managing clusters can be a complex and time-consuming process complicated by missteps and lurking errors. [Bedrock](https://github.com/microsoft/bedrock) was born from the collective experience of helping many customers adopt the new architectural patterns for Kubernetes. At the same time, applying DevOps principles and tooling makes the development, deployment, and maintenance of these Kubernetes based apps sustainable at a production level. [GitOps](https://www.weave.works/technologies/gitops/) is the name applied to this pattern and Bedrock is the pattern of best practices for implementing apps with GitOps in Azure.
 
 Bedrock is a set of patterns and automation tools for deploying and operating production Kubernetes clusters based on a GitOps workflow. Bedrock builds on the best practices discovered from working with customers in operationalizing Kubernetes clusters. Using Bedrock, organizations can fast track their end-to-end Kubernetes deployments including infrastructure provisioning, GitOps setup, and Azure Pipelines with observability into the deployment status.
-
-Bedrock helps you:
-
-* Define and maintain infrastructure deployments across multiple clusters.
-* Deploy and automate a secure end-to-end GitOps workflow.
-* Deploy and manage service workloads from source code to their deployment in-cluster.
-* Observe ongoing deployments across multiple services, their revisions, and multiple clusters using those services.
-
-## Problem Statement
-
-Configuring Kubernetes deployments and managing clusters can be a complex and time-consuming process complicated by missteps and lurking errors. Bedrock was born from the collective experience of helping many customers adopt the new architectural patterns for Kubernetes. At the same time, applying DevOps principles and tooling makes the development, deployment, and maintenance of these Kubernetes based apps sustainable at a production level. *GitOps* is the name applied to this pattern and Bedrock is the pattern of best practices for implementing apps with GitOps in Azure.
 
 Bedrock addresses these problems through the following objectives:
 
@@ -33,7 +24,29 @@ Bedrock addresses these problems through the following objectives:
 5. Provide a comprehensive view of cluster deployment status for developers and Site Reliability Engineers (SREs). 
 6. Provide all of these things in an efficient and repeatable process that works in the real world.
 
-### Primary requirements
+Bedrock helps you:
+
+* Define and maintain infrastructure deployments across multiple clusters.
+
+### Infrastructure as Code (IaC)
+
+The "Digitization of the Physical World" has had great impact on many areas of technology. And it continues to evolve. For example, virtualization is a main enabler of the cloud as physical resources are virtualized/digitized and provide more granular control, segmentation, and elasticity of resources in response to varying demands. It also enables automation since virtual resources are amenable to programmability and to automation. This gave rise to the concept of "Infrastructure as Code" (IaC). IaC is the process of managing and provisioning the technology stack for an application through version-controlled software, rather than using a manual process to configure discrete hardware devices and operating systems.
+
+Kubernetes is designed to work with containerized applications. Containers are readily versioned and managed through development and deployment. By including the infrastructure configuration manifests to this management structure, it becomes easier to deploy to the correct infrastructure and have alternate infrastructure definitions available for different purposes. This process is the essence of how Bedrock implements IaC using Terraform templates. Bedrock provides sample templates (`Azure Simple` and `Azure Single Key Vault`) that developers can use as starting points for their own deployments with AKS and GitOps.
+
+* Deploy and automate a secure end-to-end GitOps workflow.
+
+### What is GitOps?
+
+As mentioned earlier, [GitOps](https://www.weave.works/technologies/gitops/) is DevOps applied to Kubernetes based systems. Thus, the automation and coordination of development, orchestration, monitoring, and maintenance becomes the focus of the Bedrock pattern and process using GitOps.
+
+Because Kubernetes is declarative, the entire system can be described declaratively. This means that configuration is guaranteed by a set of facts instead of by a set of instructions and those factual declarations are versioned in Git from which they can be deployed as needed. This also means that, as described in [GitOps - Frequently Asked Questions](https://www.weave.works/technologies/gitops-frequently-asked-questions/): "one of the main differences between IaC and GitOps is the use of immutable containers as deployable artifacts that can be converged on by a suitable orchestration tool, for example Kubernetes. Your desired state is kept in source control".
+
+Therefore, Bedrock uses GitOps, in part, because its prescriptive style accommodates infrastructure as code for a cloud native environment.
+
+
+* Deploy and manage service workloads from source code to their deployment in-cluster.
+* Observe ongoing deployments across multiple services, their revisions, and multiple clusters using those services.
 
 To resolve those objectives, the team identified the following principal requirements for Bedrock:
 
@@ -45,7 +58,15 @@ To resolve those objectives, the team identified the following principal require
 
 A major benefit of Bedrock is that, when compared to a manual deployment process that is inherently slow, Bedrock’s automated deployment process is fast and easily repeatable. This benefit equates to higher productivity and efficiencies when using Bedrock.
 
-## Solution design objectives
+
+## Use Cases
+
+Bedrock helps you:
+
+* Define and maintain infrastructure deployments across multiple clusters.
+* Deploy and automate a secure end-to-end GitOps workflow.
+* Deploy and manage service workloads from source code to their deployment in-cluster.
+* Observe ongoing deployments across multiple services, their revisions, and multiple clusters using those services.
 
 ### Pre-configured environment deployment
 
@@ -69,45 +90,11 @@ Sometimes additional monitoring needs are identified and the Spektate Dashboard 
 
 Both the system cloud infrastructure and deployed services require management, and this management aspect both lends itself to, and benefits from, automation. Bedrock CLI (Command Line Interface) is a tool created to automate three key areas: Infrastructure Management, Service Management, and Introspection using Spektate.
 
-## Solution description
 
-### Underlying concepts and technology development
 
-#### Infrastructure as Code (IaC)
+## Architecture
 
-The "Digitization of the Physical World" has had great impact on many areas of technology. And it continues to evolve. For example, virtualization is a main enabler of the cloud as physical resources are virtualized/digitized and provide more granular control, segmentation, and elasticity of resources in response to varying demands. It also enables automation since virtual resources are amenable to programmability and to automation. This gave rise to the concept of "Infrastructure as Code" (IaC). IaC is the process of managing and provisioning the technology stack for an application through version-controlled software, rather than using a manual process to configure discrete hardware devices and operating systems.
-
-Kubernetes is designed to work with containerized applications. Containers are readily versioned and managed through development and deployment. By including the infrastructure configuration manifests to this management structure, it becomes easier to deploy to the correct infrastructure and have alternate infrastructure definitions available for different purposes. This process is the essence of how Bedrock implements IaC using Terraform templates. Bedrock provides sample templates (`Azure Simple` and `Azure Single Key Vault`) that developers can use as starting points for their own deployments with AKS and GitOps.
-
-#### What is GitOps?
-
-As mentioned earlier, [GitOps](https://www.weave.works/technologies/gitops/) is DevOps applied to Kubernetes based systems. Thus, the automation and coordination of development, orchestration, monitoring, and maintenance becomes the focus of the Bedrock pattern and process using GitOps.
-
-Because Kubernetes is declarative, the entire system can be described declaratively. This means that configuration is guaranteed by a set of facts instead of by a set of instructions and those factual declarations are versioned in Git from which they can be deployed as needed. This also means that, as described in [GitOps - Frequently Asked Questions](https://www.weave.works/technologies/gitops-frequently-asked-questions/): "one of the main differences between IaC and GitOps is the use of immutable containers as deployable artifacts that can be converged on by a suitable orchestration tool, for example Kubernetes. Your desired state is kept in source control".
-
-Therefore, Bedrock uses GitOps, in part, because its prescriptive style accommodates infrastructure as code for a cloud native environment.
-
-### Overview of the Bedrock process
-
-Bedrock is automation and tooling for operationalizing production Kubernetes clusters with a GitOps workflow. GitOps enables you to build a workflow around your deployments and infrastructure similar to that of a typical development workflow:
-
-* pull request based operational changes.
-* point in time auditability into what was deployed on the Kubernetes cluster.
-* providing nonrepudiation about who made those changes.
-
-At a high level, the GitOps workflow is driven by High-Level Definition (HLD) files. These definition files are maintained in a Git repository. A pull request (PR) is used to initiate the process. Then, based on a specific HLD script from the repo, the pipeline automation processes that HLD script through Fabrikate to generate the required YAML manifest files and stores them in the manifest repo. The deployment is monitored, and deployment status is available through the Spektate dashboard.
-
-This workflow includes provisions for:
-
-* Fabrikate HLD definitions allow you to leverage common elements across multiple deployments. Fabrikate also lets you share structure between different clusters differentiated only by a simple configuration change in an HLD script and a pull request.
-* Bedrock tools include [guidance and automation](https://github.com/microsoft/bedrock/blob/master/gitops/README.md) for building GitOps pipelines with Azure DevOps or other popular CI/CD orchestrators.
-* Bedrock deployment automation includes setting up the GitOps Operator [Flux](https://github.com/fluxcd/flux) in your cluster, automatically ensuring that the state of a cluster matches the configuration stored in Git. (Details are discussed further in this document’s Appendix.)
-
-### Bedrock solution components
-
-Bedrock uses these components to address its design objectives.
-
-![Diagram illustrating the key components of Bedrock.](./media/fig001.png)
+![Diagram showing how the Spektate tool integrates with the Azure Pipelines in a Bedrock GitOps Workflow.](./media/fig010.jpg)
 
 ### Typical Bedrock deployment
 
@@ -143,6 +130,31 @@ Because Kubernetes is a declarative system, GitOps leverages that fact in the fo
 * The textual nature of declarations allows easy source control management.
 
 ![Diagram illustrating implications of Kubernetes being a declarative system](./media/fig003.png)
+
+Bedrock is automation and tooling for operationalizing production Kubernetes clusters with a GitOps workflow. GitOps enables you to build a workflow around your deployments and infrastructure similar to that of a typical development workflow:
+
+* pull request based operational changes.
+* point in time auditability into what was deployed on the Kubernetes cluster.
+* providing nonrepudiation about who made those changes.
+
+At a high level, the GitOps workflow is driven by High-Level Definition (HLD) files. These definition files are maintained in a Git repository. A pull request (PR) is used to initiate the process. Then, based on a specific HLD script from the repo, the pipeline automation processes that HLD script through Fabrikate to generate the required YAML manifest files and stores them in the manifest repo. The deployment is monitored, and deployment status is available through the Spektate dashboard.
+
+This workflow includes provisions for:
+
+* Fabrikate HLD definitions allow you to leverage common elements across multiple deployments. Fabrikate also lets you share structure between different clusters differentiated only by a simple configuration change in an HLD script and a pull request.
+* Bedrock tools include [guidance and automation](https://github.com/microsoft/bedrock/blob/master/gitops/README.md) for building GitOps pipelines with Azure DevOps or other popular CI/CD orchestrators.
+* Bedrock deployment automation includes setting up the GitOps Operator [Flux](https://github.com/fluxcd/flux) in your cluster, automatically ensuring that the state of a cluster matches the configuration stored in Git. (Details are discussed further in this document’s Appendix.)
+
+### Bedrock solution components
+
+Bedrock uses these components to address its design objectives.
+
+![Diagram illustrating the key components of Bedrock.](./media/fig001.png)
+
+
+
+
+## Components
 
 #### Terraform
 
