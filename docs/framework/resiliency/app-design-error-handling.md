@@ -48,7 +48,7 @@ Configure and test health probes for your load balancers and traffic managers. E
 
 For guidance on implementing health monitoring in your application, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md).
 
-![GitHub](../../_images/github.png) Samples related to heath probes are [here](https://github.com/mspnp/samples/tree/master/ResiliencyHealthProbesSample). 
+![GitHub](../../_images/github.png) Samples related to heath probes are [here](https://github.com/mspnp/samples/tree/master/Reliability/HealthProbesSample). 
 
 - ARM template that deploys an Azure Load Balancer and health probes that detect the  health of the sample service endpoint.
 
