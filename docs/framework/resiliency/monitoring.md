@@ -48,7 +48,7 @@ Get a full-stack view of application state by using [Azure dashboards](https://
 
 For more information about monitoring and diagnostics, see [Monitoring and diagnostics](../../best-practices/monitoring.md).
 
-![GitHub](../../_images/github.png) A sample about creating resource-level health activity log alerts is [here](https://github.com/mspnp/samples/tree/master/ResiliencyHealthAlerts). The sample uses Azure Resource Manager to create alerts.
+![GitHub](../../_images/github.png) A sample about creating resource-level health activity log alerts is [here](https://github.com/mspnp/samples/tree/master/Reliability/HealthAlerts). The sample uses Azure Resource Manager to create alerts.
 
 ## Test Monitoring
 
