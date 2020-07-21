@@ -118,7 +118,7 @@ Here are some examples of failure modes and detection strategies for a specific 
 
 For more information about the FMA process, with specific recommendations for Azure, see [Failure mode analysis][failure-mode-analysis].
 
-![GitHub](../../_images/github.png) Related samples are [here](https://github.com/mspnp/samples/tree/master/ResiliencyFailureModeAnalysisSample). 
+![GitHub](../../_images/github.png) Related samples are [here](https://github.com/mspnp/samples/tree/master/Reliability/FailureModeAnalysisSample). 
 
 ## Operating in multiple regions
 
