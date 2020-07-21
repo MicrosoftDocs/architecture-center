@@ -37,7 +37,7 @@ The [Circuit Breaker pattern](../../patterns/circuit-breaker.md#related-patterns
 
 [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md). A circuit breaker might be able to test the health of a service by sending a request to an endpoint exposed by the service. The service should return information indicating its status.
 
-![GitHub](../../_images/github.png) Samples related to this pattern are [here](https://github.com/mspnp/samples/tree/master/ResiliencyRetryPatternSample). 
+![GitHub](../../_images/github.png) Samples related to this pattern are [here](https://github.com/mspnp/samples/tree/master/Reliability/RetryPatternSample). 
 
 ## Application Health Probes
 
