@@ -59,7 +59,7 @@ This article showcases a COVID-19 Safe Solution which is being implemented in wo
 
 ## Next steps
 For more information:
-- Contact [iotcovid@microsoft.com](mailto:iotcovid@microsoft.com)
+- Contact [iotcovidsupport@microsoft.com](mailto:iotcovidsupport@microsoft.com )
 - See [https://www.bosch-india-software.com](https://www.bosch-india-software.com/en/)
 
 ## Related resources
