@@ -476,7 +476,7 @@ Gateway by using two different TLS certificates, as shown in this image.
 3.  The traffic moves from Application Gateway to the backend, the traffic is
     encrypted again with another TLS certificate (wildcard for
     \*.aks-ingress.contoso.com) as it’s forwarded to the internal load balancer.
-    This re-encryption makes sure insecure traffic doesn’t flow into the cluster
+    This re-encryption makes sure traffic that is not secure doesn’t flow into the cluster
     subnet.
 
 4.  The ingress controller receives the encrypted traffic through the load
