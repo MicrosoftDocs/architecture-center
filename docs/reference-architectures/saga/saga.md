@@ -44,9 +44,9 @@ The saga pattern provides transaction management using a sequence of *local tran
 ![Saga overview.](./images/saga-overview.png)
 
 In saga patterns:
-- *compensable transactions* are transactions that can potentially be reversed by processing another transaction with the opposite effect.
+- *Compensable transactions* are transactions that can potentially be reversed by processing another transaction with the opposite effect.
 - A *pivot transaction* is the go/no-go point in a saga. If the pivot transaction commits, the saga runs until completion. A pivot transaction can be a transaction that is neither compensable nor retryable, or it can be the last compensable transaction or the first retryable transaction in the saga.
-- *retryable transactions* are transactions that follow the pivot transaction and are guaranteed to succeed.
+- *Retryable transactions* are transactions that follow the pivot transaction and are guaranteed to succeed.
 
 There are two common saga implementation approaches, *choreography* and *orchestration*. Each approach has its own set of challenges and technologies to coordinate the workflow.
 
