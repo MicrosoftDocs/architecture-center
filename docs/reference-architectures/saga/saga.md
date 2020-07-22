@@ -93,7 +93,7 @@ Consider the following points when implementing the saga pattern:
 - The saga pattern may initially be challenging, as it requires a new way of thinking on how to coordinate a transaction and maintain data consistency for a business process spanning multiple microservices.
 - The saga pattern is particularly hard to debug, and the complexity grows as participants increase.
 - Data can't be rolled back, because saga participants commit changes to their local databases.
-- The implementation must be capable of handling a set of potential transient failures, and provide idempotence for reducing side-effects and ensuring data consistency.
+- The implementation must be capable of handling a set of potential transient failures, and provide *idempotence* for reducing side-effects and ensuring data consistency. Idempotence means that the same operation can be repeated multiple times without changing the initial result.
 - It's best to implement observability to monitor and track the saga workflow.
 - The lack of participant data isolation imposes durability challenges. The saga implementation must include countermeasures to reduce anomalies.
 
@@ -119,9 +119,9 @@ Use the saga pattern when you need to:
 
 The saga pattern is less suitable for:
 
-- Tightly-coupled transactions
-- Compensating transactions that occur in earlier participants
-- Cyclic dependencies
+- Tightly coupled transactions.
+- Compensating transactions that occur in earlier participants.
+- Cyclic dependencies.
 
 ## Example
 
@@ -132,7 +132,7 @@ The saga pattern is less suitable for:
 The following patterns might also be useful when implementing this pattern:
 
 - [Choreography](https://docs.microsoft.com/azure/architecture/patterns/choreography) has each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control.
-- [Compensating transactions](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction) undo work performed by a series of steps, which together defines an eventually consistent operation if one or more of the steps fail. Cloud-hosted applications that implement complex business processes and workflows often follow this *eventual consistency model*.
+- [Compensating transactions](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction) undo work performed by a series of steps, and eventually define a consistent operation if one or more steps fail. Cloud-hosted applications that implement complex business processes and workflows often follow this *eventual consistency model*.
 - [Retry](https://docs.microsoft.com/azure/architecture/patterns/retry) lets an application handle transient failures when it tries to connect to a service or network resource, by transparently retrying the failed operation. Retry can improve the stability of the application.
 - [Circuit breaker](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) handles faults that take a variable amount of time to recover from, when connecting to a remote service or resource. Circuit breaker can improve the stability and resiliency of an application.
 - [Health endpoint monitoring](https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring) implements functional checks in an application that external tools can access through exposed endpoints at regular intervals. Health endpoint monitoring can help verify that applications and services are performing correctly.
