@@ -58,7 +58,6 @@ To resolve those objectives, the team identified the following principal require
 
 A major benefit of Bedrock is that, when compared to a manual deployment process that is inherently slow, Bedrock’s automated deployment process is fast and easily repeatable. This benefit equates to higher productivity and efficiencies when using Bedrock.
 
-
 ## Use Cases
 
 Bedrock helps you:
@@ -153,10 +152,9 @@ Bedrock uses these components to address its design objectives.
 
 
 
-
 ## Components
 
-#### Terraform
+### Terraform
 
 Terraform is an open-source tool for building, changing, and versioning infrastructure safely and efficiently. It enables users to define and provision the infrastructure of a cloud-based application using a high-level configuration language known as Hashicorp Configuration Language (HCL). These configuration files are used to describe the components needed to run simple or complex applications.
 
@@ -172,6 +170,77 @@ Like other Bedrock components, Terraform has certain features that fit well into
 
 > [!NOTE]
 > These templates can be extended to support multiple clusters.
+
+### Flux
+
+Flux is a tool that automatically ensures that the state of a cluster matches the configuration defined in Git. Flux uses an operator in the cluster to trigger deployments inside Kubernetes, fulfilling the role of a CD tool. It monitors all relevant image repositories, detects new images, triggers deployments, and updates the running configuration based on those changes and a configurable policy. Thus, Flux provides these benefits to Bedrock:
+
+* You do not need to grant your CI automation access to the cluster.
+* Every change is atomic and transactional.
+* Git provides your audit log.
+* Each transaction either fails or succeeds cleanly.
+* You are entirely code-centric, fully supporting IaC.
+
+Flux is most useful when used as a deployment tool at the end of a Continuous Delivery pipeline. Flux makes sure that your new container images and config changes are propagated to the cluster.
+
+### Fabrikate
+
+[Fabrikate](https://github.com/Microsoft/fabrikate) is a central part of GitOps in Bedrock. Fabrikate converts the HLD script files to the YAML configuration files required for Kubernetes deployment. The following diagram shows how Fabrikate is integrated into the GitOps workflow.
+
+The Bedrock team is responsible for developing Fabrikate to provide a frontend that uses HLD to make the creation of deployment manifests easier. Thus, Fabrikate helps to make operating Kubernetes clusters within a GitOps workflow more productive.
+
+Fabrikate simplifies the front end of the GitOps workflow by taking a high-level description of a deployment, a targeted environment configuration (such as **QA** or **Prod**), and renders the YAML resource manifests for that Kubernetes deployment utilizing templating tools (like Helm). It runs as part of the CI/CD pipeline such that every commit to your Fabrikate deployment definition triggers the generation of Kubernetes deployment manifests. The in-cluster GitOps pod Flux watches for new commits and reconciles them with the current set of applied resource manifests in the Kubernetes cluster.
+
+For example, Fabrikate allows you to write DRY resource definitions (used for dry-run deployments) and configurations for multiple environments while leveraging the broad Helm chart ecosystem. These special purpose HLD scripts become shareable components that both simplify and support making deployments more auditable.
+
+![Diagram showing how Fabrikate fits into a GitOps workflow.](./media/fig006.jpg)
+
+### Helm
+
+Helm is a Kubernetes package manager that streamlines the installing and managing of Kubernetes deployments. It is sometimes characterized as apt/yum/homebrew for Kubernetes.
+
+Helm uses charts to package pre-configured Kubernetes resources. This allows application deployments to be defined as Helm Charts, which supports reproducible builds of your Kubernetes applications. Helm also allows you to intelligently manage your Kubernetes manifest files and releases of Helm packages. Helm packages (or charts) contain at least two items: a description of the package (`Chart.YAML`) and one or more templates containing Kubernetes manifest files. All charts are stored in Git repositories, as required by GitOps. Charts are fetched as needed to render the correct templates for a deployment by communicating with the Kubernetes API.
+
+### Introducing a High-Level Definition Language (HCL)
+
+As is the typical case for addressing complexities of this kind, the solution was to introduce a higher level of abstraction to the task. As described earlier, the Bedrock team adopted the cloud native stack high-level definition language HCL for creating HLD files. The following example shows how some common resources are specified in a sample HLD script.
+
+![sample HLD script](./media/fig007.jpg)
+
+### Spektate: Introspection in service deployments
+
+Service introspection is an enabler for instrumentation. An introspection service can reveal information about the cloud internals to interested applications. This is the role of the Spektate service introspection tool. It provides insight into the deployment status at all times, allowing it to facilitate reliability, security, and auditability of deployments. In cases where additional visibility is required, Bedrock can also be easily customized with additional observability or metric tools.
+
+Kubernetes deployments can be complex. Multiple microservices become even more complicated when considering factors like latency, scalability, and reliability to deployments across multiple clusters in multiple regions and zones. This complexity creates a practical problem to determine the current state of any individual cluster or a collection of clusters that collectively carry the workload demands. Bedrock addresses this problem with Spektate. It is integrated with the GitOps pipeline and Service Management that is a key element of the Bedrock process.
+
+Spektate provides views into the current status of any change in the system. These changes can include everything from tracking continuous integration builds to tracking the deployment of the container containing that commit in each of the downstream clusters consuming that container. Spektate includes the following:
+
+* A Bedrock GitOps pipeline that reports back with telemetry data for each of the steps of the system; currently supported in Azure DevOps.
+* An Azure Storage Table that stores all of the telemetry that is reported back.
+* Integration with the Bedrock CLI and a web dashboard.
+
+The following diagram shows how Spektate integrates with the Azure Pipelines in a Bedrock GitOps Workflow.
+
+![Diagram showing how the Spektate tool integrates with the Azure Pipelines in a Bedrock GitOps Workflow.](./media/fig010.jpg)
+
+Bedrock CLI implements the Spektate Dashboard to provide deployment observability integrated with DevOps and cluster information. This web dashboard is designed to provide the baseline observability for Bedrock, but additional tools can be added to address other specific use case requirements. See [Extending Bedrock](#extending-bedrock) for more information about Bedrock customization.
+
+![sample of Spektate web dashboard](./media/fig011.jpg)
+
+### Cobalt vs Bedrock
+
+[Cobalt](https://github.com/Microsoft/cobalt) hosts reusable Terraform modules to scaffold managed container services like [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) and [Azure App Service](https://docs.microsoft.com/azure/app-service/) following a DevOps workflow. While Bedrock targets Kubernetes based container orchestration workloads while following a [GitOps](https://medium.com/@timfpark/highly-effective-kubernetes-deployments-with-gitops-c7a0354f1446) workflow. Cobalt templates (manifests) reference Terraform modules like virtual networks, traffic manager, and so on, to define infrastructure deployments. Bedrock uses Terraform to pre-configure environment deployment, but also uses Fabrikate templates to define manifests for deployment automation.
+
+### Bedrock CLI: Bedrock automation tool
+
+As mentioned earlier, *Bedrock CLI* is a command-line tool unique to Bedrock. It is used to facilitate automation of the Cluster Infrastructure, Service Management, and Introspection/Monitoring (using the *Spektate Dashboard*).
+
+![Diagram showing the relationship between Bedrock CLI and Spektate.](./media/fig008.jpg)
+
+The Spektate Dashboard is designed to integrate with the GitOps workflow as shown in this diagram.
+
+![Diagram of the GitOps workflow with Bedrock CLI and Spektate.](./media/fig009.jpg)
+
 
 #### GitOps: Operations by Pull Request
 
@@ -195,18 +264,6 @@ The Bedrock CLI is used to create the scaffolding for how Flux works.
 
 ![Diagram illustrates scaffolding a Bedrock GitOps Workflow with Bedrock CLI.](./media/fig005.jpg)
 
-#### Flux
-
-Flux is a tool that automatically ensures that the state of a cluster matches the configuration defined in Git. Flux uses an operator in the cluster to trigger deployments inside Kubernetes, fulfilling the role of a CD tool. It monitors all relevant image repositories, detects new images, triggers deployments, and updates the running configuration based on those changes and a configurable policy. Thus, Flux provides these benefits to Bedrock:
-
-* You do not need to grant your CI automation access to the cluster.
-* Every change is atomic and transactional.
-* Git provides your audit log.
-* Each transaction either fails or succeeds cleanly.
-* You are entirely code-centric, fully supporting IaC.
-
-Flux is most useful when used as a deployment tool at the end of a Continuous Delivery pipeline. Flux makes sure that your new container images and config changes are propagated to the cluster.
-
 #### Relevant GitOps benefits and advantages
 
 Git also provides a simple model for auditing deployments and rolling back to a previous state. The Git repository provides auditability for moving between the states of a deployment. The Git commit history provides a full accounting for the application deployment state transitions that are made by the cluster. In summary:
@@ -221,65 +278,17 @@ Git also provides a simple model for auditing deployments and rolling back to a 
 
 For more information, see Weaveworks’ [Guide to GitOps](https://www.weave.works/technologies/gitops/).
 
-#### Fabrikate
+### GitOps Checklist
 
-As mentioned earlier, [Fabrikate](https://github.com/Microsoft/fabrikate) is a central part of GitOps in Bedrock. Fabrikate converts the HLD script files to the YAML configuration files required for Kubernetes deployment. The following diagram shows how Fabrikate is integrated into the GitOps workflow.
+> [!div class="checklist"]
+> * Are you using branch policies on your high-level definition and manifest repos?
+> * Are you practicing container promotion?
+> * Are you locking high-level definition subcomponents to a version?
+> * Is your manifest repo locked down from developers and operators?
+> * Are you alerting on deployment synchronizer (flux) metrics?
 
-![Diagram showing how Fabrikate fits into a GitOps workflow.](./media/fig006.jpg)
 
-##### The problem with low-level YAML
-
-Creating Kubernetes manifests in YAML is a great enabler for automation. However, there are a number of challenges such as the fact that the vast majority of a deployment declaration is repeated in boilerplate fashion across all deployments. This duplication is prone to errors and unintended results given the low contextuality of individual entries. These challenges are compounded because real world deployments are complex. So, while there are templating solutions to the problem such as Helm, a typical deployment ends up stitching together dozens of Helm chart outputs that devolve into a complex web of shell scripts.
-
-##### Introducing a High-Level Definition Language
-
-As is the typical case for addressing complexities of this kind, the solution was to introduce a higher level of abstraction to the task. As described earlier, the Bedrock team adopted the cloud native stack high-level definition language HCL for creating HLD files. The following example shows how some common resources are specified in a sample HLD script.
-
-![sample HLD script](./media/fig007.jpg)
-
-##### Introducing Fabrikate
-
-The Bedrock team is responsible for developing Fabrikate to provide a frontend that uses HLD to make the creation of deployment manifests easier. Thus, Fabrikate helps to make operating Kubernetes clusters within a GitOps workflow more productive.
-
-Fabrikate simplifies the front end of the GitOps workflow by taking a high-level description of a deployment, a targeted environment configuration (such as **QA** or **Prod**), and renders the YAML resource manifests for that Kubernetes deployment utilizing templating tools (like Helm). It runs as part of the CI/CD pipeline such that every commit to your Fabrikate deployment definition triggers the generation of Kubernetes deployment manifests. The in-cluster GitOps pod Flux watches for new commits and reconciles them with the current set of applied resource manifests in the Kubernetes cluster.
-
-For example, Fabrikate allows you to write DRY resource definitions (used for dry-run deployments) and configurations for multiple environments while leveraging the broad Helm chart ecosystem. These special purpose HLD scripts become shareable components that both simplify and support making deployments more auditable.
-
-##### Helm
-
-Helm is a Kubernetes package manager that streamlines the installing and managing of Kubernetes deployments. It is sometimes characterized as apt/yum/homebrew for Kubernetes.
-
-Helm uses charts to package pre-configured Kubernetes resources. This allows application deployments to be defined as Helm Charts, which supports reproducible builds of your Kubernetes applications. Helm also allows you to intelligently manage your Kubernetes manifest files and releases of Helm packages. Helm packages (or charts) contain at least two items: a description of the package (`Chart.YAML`) and one or more templates containing Kubernetes manifest files. All charts are stored in Git repositories, as required by GitOps. Charts are fetched as needed to render the correct templates for a deployment by communicating with the Kubernetes API.
-
-### Bedrock CLI: Bedrock automation tool
-
-As mentioned earlier, *Bedrock CLI* is a command-line tool unique to Bedrock. It is used to facilitate automation of the Cluster Infrastructure, Service Management, and Introspection/Monitoring (using the *Spektate Dashboard*).
-
-![Diagram showing the relationship between Bedrock CLI and Spektate.](./media/fig008.jpg)
-
-The Spektate Dashboard is designed to integrate with the GitOps workflow as shown in this diagram.
-
-![Diagram of the GitOps workflow with Bedrock CLI and Spektate.](./media/fig009.jpg)
-
-### Spektate: Introspection in service deployments
-
-Service introspection is an enabler for instrumentation. An introspection service can reveal information about the cloud internals to interested applications. This is the role of the Spektate service introspection tool. It provides insight into the deployment status at all times, allowing it to facilitate reliability, security, and auditability of deployments. In cases where additional visibility is required, Bedrock can also be easily customized with additional observability or metric tools.
-
-Kubernetes deployments can be complex. Multiple microservices become even more complicated when considering factors like latency, scalability, and reliability to deployments across multiple clusters in multiple regions and zones. This complexity creates a practical problem to determine the current state of any individual cluster or a collection of clusters that collectively carry the workload demands. Bedrock addresses this problem with Spektate. It is integrated with the GitOps pipeline and Service Management that is a key element of the Bedrock process.
-
-Spektate provides views into the current status of any change in the system. These changes can include everything from tracking continuous integration builds to tracking the deployment of the container containing that commit in each of the downstream clusters consuming that container. Spektate includes the following:
-
-* A Bedrock GitOps pipeline that reports back with telemetry data for each of the steps of the system; currently supported in Azure DevOps.
-* An Azure Storage Table that stores all of the telemetry that is reported back.
-* Integration with the Bedrock CLI and a web dashboard.
-
-The following diagram shows how Spektate integrates with the Azure Pipelines in a Bedrock GitOps Workflow.
-
-![Diagram showing how the Spektate tool integrates with the Azure Pipelines in a Bedrock GitOps Workflow.](./media/fig010.jpg)
-
-Bedrock CLI implements the Spektate Dashboard to provide deployment observability integrated with DevOps and cluster information. This web dashboard is designed to provide the baseline observability for Bedrock, but additional tools can be added to address other specific use case requirements. See [Extending Bedrock](#extending-bedrock) for more information about Bedrock customization.
-
-![sample of Spektate web dashboard](./media/fig011.jpg)
+## Considerations
 
 ### Extending Bedrock
 
@@ -290,9 +299,9 @@ By integrating such additional tools into the Bedrock automation, Bedrock provid
 
 ![Diagram illustrating extending Bedrock to include additional metrics monitoring](./media/fig012.png)
 
-## Cobalt vs Bedrock
+### The problem with low-level YAML
 
-[Cobalt](https://github.com/Microsoft/cobalt) hosts reusable Terraform modules to scaffold managed container services like [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) and [Azure App Service](https://docs.microsoft.com/azure/app-service/) following a DevOps workflow. While Bedrock targets Kubernetes based container orchestration workloads while following a [GitOps](https://medium.com/@timfpark/highly-effective-kubernetes-deployments-with-gitops-c7a0354f1446) workflow. Cobalt templates (manifests) reference Terraform modules like virtual networks, traffic manager, and so on, to define infrastructure deployments. Bedrock uses Terraform to pre-configure environment deployment, but also uses Fabrikate templates to define manifests for deployment automation.
+Creating Kubernetes manifests in YAML is a great enabler for automation. However, there are a number of challenges such as the fact that the vast majority of a deployment declaration is repeated in boilerplate fashion across all deployments. This duplication is prone to errors and unintended results given the low contextuality of individual entries. These challenges are compounded because real world deployments are complex. So, while there are templating solutions to the problem such as Helm, a typical deployment ends up stitching together dozens of Helm chart outputs that devolve into a complex web of shell scripts.
 
 ## Customer Benefits
 
@@ -327,13 +336,15 @@ If the outage is caused by a hardware failure, you just redirect the deployment 
 
 Things can and will go wrong at some point. When that happens, it is important that the system does not go down. Bedrock supports many strategies for keeping your application up and running.
 
-#### Controlled Deployment
+## Deployment
+
+### Controlled Deployment
 
 Because Bedrock provides a simple method for defining and automating a deployment, there are many abnormal situations that can be planned for and executed quickly just by selecting the correct preconfigured deployment. This level of preplanning makes Bedrock useful in supporting such things as test deployments (also known as Canary deployments), rollbacks, fail-overs, regional rotations, load sharing, and other unusual scenarios.
 
 For example, to do a Canary Deployment of a revised application. You first deploy the revised application to a single pod or cluster to allow testing the application in its deployed state and verify it before allowing further deployments. If the deployment does not pass testing, the cluster can be halted, removing the application from deployment. Or, if a test cluster is chosen that is not publicly exposed, the testing can fail without affecting the operational public application.
 
-#### Rollback
+### Rollback
 
 If a problem fails discovery in testing and that application version is fully deployed, Bedrock makes it a simple matter to redeploy the previous known working version of the application to replace the buggy version.
 
@@ -352,11 +363,11 @@ Sometimes changes to your application configuration can yield undesired results.
 * Multi-cluster rollbacks
 * Ensuring created cluster resources are removed
 
-#### Blue/Green Deployments
+### Blue/Green Deployments
 
 Because Bedrock gives you control over deploying clusters to different IP addresses, you can deploy two versions of your application and examine their individual performance-based on-site metrics and customer feedback to determine which version is better for full deployment. This kind of Blue/Green deployment allows for optimizing application designs as a function of actionable data.
 
-#### Failover
+### Failover
 
 By using the ability of Bedrock with Kubernetes to manage complex deployment schemes, you can spread your deployment over multiple regions and apply load balancing to user traffic. Then, if one or more clusters go down for any reason, the remaining clusters can pick up the load. Microservice architectures are also inherently resilient by running a service only when needed and otherwise being shut down.
 
@@ -365,15 +376,6 @@ This scenario is illustrated in the following images where the Region 1 deployme
 ![diagram of normal deployment](./media/fig013.png)
 
 ![diagram of a failover scenario](./media/fig014.png)
-
-### GitOps Checklist
-
-> [!div class="checklist"]
-> * Are you using branch policies on your high-level definition and manifest repos?
-> * Are you practicing container promotion?
-> * Are you locking high-level definition subcomponents to a version?
-> * Is your manifest repo locked down from developers and operators?
-> * Are you alerting on deployment synchronizer (flux) metrics?
 
 ## Next Steps
 
