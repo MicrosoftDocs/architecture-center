@@ -31,7 +31,7 @@ This diagram shows a typical architectural setup for Windows Virtual Desktop.
 
 - The application endpoints are in the customer's on-premises network. ExpressRoute extends the on-premises network into the Azure cloud, and Azure AD Connect integrates the customer's Active Directory Domain Services (AD DS) with Azure Active Directory (Azure AD).
 - The Windows Virtual Desktop control plane handles Web Access, Gateway, Broker, Diagnostics, and extensibility components like REST APIs.
-- The customer manages AD DS and Azure AD, Azure subscriptions, virtual networks, Azure file storage, and the Windows Virtual Desktop host pools and workspaces.
+- The customer manages AD DS and Azure AD, Azure subscriptions, virtual networks, [Azure Files or Azure NetApp Files](https://docs.microsoft.com/en-us/azure/virtual-desktop/store-fslogix-profile), and the Windows Virtual Desktop host pools and workspaces.
 - To increase capacity, the customer uses two Azure subscriptions in a hub-spoke architecture, and connects them via virtual network peering.
 
 ## Components
