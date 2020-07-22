@@ -151,6 +151,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 ## Containers
 <ul class="grid">
 
+[!INCLUDE [Orchestration with AKS](../../includes/cards/aks-baseline.md)]
 [!INCLUDE [API-first SaaS business model](../../includes/cards/aks-api-first.md)]
 [!INCLUDE [Building a telehealth system on Azure](../../includes/cards/telehealth-system.md)]
 [!INCLUDE [Bursting from AKS with ACI](../../includes/cards/scale-using-aks-with-aci.md)]
