@@ -500,6 +500,18 @@ of the Azure Firewall. Here, Azure Firewall decides whether to block or allow
 the egress traffic. That decision is based on the specific rules defined in the Azure Firewall or
 the built-in threat intelligence rules.
 
+>[!NOTE]
+>If you use a public load balancer as your public point for ingress traffic and egress through Azure Firewall using UDRs, 
+you might see an [asymmetric routing situation](/azure/aks/limit-egress-traffic#add-a-dnat-rule-to-azure-firewall). 
+This architecture uses _internal_ load balancers in a dedicated ingress subnet behind the Application Gateway. 
+This design choice not only enhances security but also eliminates asymmetric routing concerns. 
+Alternatively, you could route ingress traffic through your Azure Firewall before or after your Application Gateway. 
+That approach isn't necessary or recommended for most situations.
+
+For more information about asymmetric routing, see [Integrate Azure Firewall with Azure Standard Load Balancer](/azure/firewall/integrate-lb#asymmetric-routing).
+>
+
+
 An exception to the zero-trust control is when the cluster needs to communicate
 with other Azure resources. For instance, the cluster needs to pull an updated
 image from the container registry. The recommended approach is by using  [Azure
@@ -518,10 +530,6 @@ traffic will go through the static IP address of the firewall, that address can
 be added the service’s IP allow list. One downside is that Azure Firewall will
 need to have additional rules to make sure only traffic from specific subnet is
 allowed.
-
-#### Ingress/egress asymmetric routing
-
-When using Azure Firewall to restrict egress traffic by creating the user-defined route detailed above, you might be concerned that you'll get yourself into an [asymmetric routing situation](/azure/aks/limit-egress-traffic#add-a-dnat-rule-to-azure-firewall). This happens when you use a public load balancer as your public point for ingress traffic, yet still egress through Azure Firewall. This situation is detailed on, [Integrate Azure Firewall with Azure Standard Load Balancer](/azure/firewall/integrate-lb#asymmetric-routing). This architecture uses _internal_ load balancers in a dedicated ingress subnet behind the Application Gateway, not only for the added security, but to eliminate asymmetric routing concerns. Alternatively, you could route ingress traffic through your Azure Firewall before or after your Application Gateway, but this isn't necessary or desirable for most situations.
 
 ### Pod-to-pod traffic
 
@@ -542,7 +550,7 @@ For information, see [Differences between Azure Network Policy and Calico
 policies and their capabilities](/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities).
 
 >[!NOTE]
->AKS supports two different networking models: kubenet and Azure Container
+>AKS supports these networking models: kubenet and Azure Container
 Networking Interface (CNI).\
 CNI is more advanced of the two models. CNI is required for enabling Azure
 Network Policy. In this model, every pod gets an IP address from the subnet
