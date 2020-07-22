@@ -324,7 +324,7 @@ items:
   - name: Retry
     href: patterns/retry.md
   - name: Saga
-    href: reference-architectures/saga.md
+    href: reference-architectures/saga/saga.md
   - name: Scheduler Agent Supervisor
     href: patterns/scheduler-agent-supervisor.md
   - name: Sequential Convoy
