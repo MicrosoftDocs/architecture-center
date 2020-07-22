@@ -652,7 +652,7 @@ items:
     items:
     - name: Architectures
       items:
-      - name: Container orchestration with AKS
+      - name: Orchestration with AKS
         items:
         - name: Case study - Contoso Bicycle
           href: reference-architectures/containers/aks/case-study-contoso.md
