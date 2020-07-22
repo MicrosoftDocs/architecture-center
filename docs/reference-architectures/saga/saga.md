@@ -35,7 +35,7 @@ A [database-per-microservice](https://docs.microsoft.com/dotnet/architecture/clo
 
 Distributed transactions like the [two-phase commit (2PC)](https://en.wikipedia.org/wiki/Two-phase_commit_protocol) protocol require all participants in a transaction to commit or roll back before the transaction can proceed. However some participant implementations, such as NoSQL databases and message brokering, don't support this model.
 
-Another distributed transaction limitation is [interprocess communication (IPC)](https://en.wikipedia.org/wiki/Inter-process_communication) synchronousity and availability. Operating system-provided IPC allows separate processes to share data. For distributed transactions to commit, all participating services must be available, potentially reducing overall system availability. Architectural implementations with IPC or transaction limitations are candidates for the saga pattern.
+Another distributed transaction limitation is [interprocess communication (IPC)](https://en.wikipedia.org/wiki/Inter-process_communication) synchronicity and availability. Operating system-provided IPC allows separate processes to share data. For distributed transactions to commit, all participating services must be available, potentially reducing overall system availability. Architectural implementations with IPC or transaction limitations are candidates for the saga pattern.
 
 ## Solution
 
@@ -44,9 +44,9 @@ The saga pattern provides transaction management using a sequence of *local tran
 ![Saga overview.](./images/saga-overview.png)
 
 In saga patterns:
-- *Compensatable transactions* are transactions that can potentially be reversed by processing another transaction with the opposite effect.
-- A *pivot transaction* is the go/no-go point in a saga. If the pivot transaction commits, the saga runs until completion. A pivot transaction can be a transaction that is neither compensatable nor retriable, or it can be the last compensatable transaction or the first retriable transaction in the saga.
-- *Retriable transactions* are transactions that follow the pivot transaction and are guaranteed to succeed.
+- *compensable transactions* are transactions that can potentially be reversed by processing another transaction with the opposite effect.
+- A *pivot transaction* is the go/no-go point in a saga. If the pivot transaction commits, the saga runs until completion. A pivot transaction can be a transaction that is neither compensable nor retryable, or it can be the last compensable transaction or the first retryable transaction in the saga.
+- *retryable transactions* are transactions that follow the pivot transaction and are guaranteed to succeed.
 
 There are two common saga implementation approaches, *choreography* and *orchestration*. Each approach has its own set of challenges and technologies to coordinate the workflow.
 
@@ -103,9 +103,9 @@ The following anomalies can happen without proper measures:
 - *Fuzzy/nonrepeatable reads*, when different saga steps read different data because a data update occurs between the reads.
 
 Suggested countermeasures to reduce or prevent anomalies include:
-- *Semantic lock*, an application-level lock where a saga's compensatable transaction uses a semaphore to indicate an update is in progress.
+- *Semantic lock*, an application-level lock where a saga's compensable transaction uses a semaphore to indicate an update is in progress.
 - *Commutative updates* that can be executed in any order and produce the same result.
-- *Pessimistic view:* It's possible for one saga to read dirty data, while another saga is running a compensatable transaction to roll back the operation. Pessimistic view reorders the saga so the underlying data updates in a retriable transaction, which eliminates the possibility of a dirty read.
+- *Pessimistic view:* It's possible for one saga to read dirty data, while another saga is running a compensable transaction to roll back the operation. Pessimistic view reorders the saga so the underlying data updates in a retryable transaction, which eliminates the possibility of a dirty read.
 - *Reread value* verifies that data is unchanged, and then updates the record. If the record has changed, the steps abort and the saga may restart.
 - A *version file* records the operations on a record as they arrive, and then executes them in the correct order.
 - *By value* uses each request's business risk to dynamically select the concurrency mechanism. Low-risk requests favor sagas, while high-risk requests favor distributed transactions.
