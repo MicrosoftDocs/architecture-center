@@ -14,7 +14,7 @@ ms.subservice: reference-architecture
 
 # Architectural Considerations in an IIoT Analytics Solution
 
-The [Microsoft Azure Well-Architected Framework](https://review.docs.microsoft.com/azure/architecture/framework) describes some key tenets of a good architectural design. Keeping in line with these tenets, this article describes the considerations in the reference [Azure Industrial IoT analytics solution](./iiot-architecture.md) that improve its performance and resiliency.
+The [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework) describes some key tenets of a good architectural design. Keeping in line with these tenets, this article describes the considerations in the reference [Azure Industrial IoT analytics solution](./iiot-architecture.md) that improve its performance and resiliency.
 
 ## Performance Considerations
 
@@ -89,4 +89,4 @@ For additional security, industrial firewalls can be configured to only allow tr
 
 - [Azure Industrial IoT components, tutorials, and source code](https://azure.github.io/Industrial-IoT/).
 
-- For detailed documentation of the various Azure IoT services, see [Azure IoT Fundamentals](https://docs.microsoft.com/azure/iot-fundamentals/).
+- For detailed documentation of the various Azure IoT services, see [Azure IoT Fundamentals](https://docs.microsoft.com/azure/iot-fundamentals/). 
