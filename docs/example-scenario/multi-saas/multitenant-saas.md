@@ -161,7 +161,7 @@ The price of Azure Front Door depends on the amount of data transfer in and out 
 
 The [pricing for Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/) is a fully tiered system. A free tier is available for development and testing. After that, each tier incurs a per-hour cost for each Cognitive Search instance allocated. As the tiers increase, the total storage, number of indexes, and scale-out limits also increase. Azure Cognitive Search provides image extraction as a service at the same rate to all paid tiers.
 
-## Next Steps
+## Next steps
 
 * [Application and service principal objects in Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals) is about leveraging Azure Active Directory to implement multitenant apps.
 
