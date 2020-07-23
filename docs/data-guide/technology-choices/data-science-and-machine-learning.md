@@ -20,7 +20,7 @@ The following options are available for machine learning in the Azure cloud.
 
 | Cloud&nbsp;options | What it is | What you can do with it |
 |-|-|-|
-| [Azure Machine Learning](#azure-machine-learning) | Cloud-based: Managed cloud service for machine learning  | Train, deploy, and manage models in Azure using Python and CLI |
+| [Azure&nbsp;Machine&nbsp;Learning](#azure-machine-learning) | Cloud-based: Managed cloud service for machine learning  | Train, deploy, and manage models in Azure using Python and CLI |
 
 ## On-premises options
 
@@ -36,7 +36,7 @@ The following development platforms and tools are available for machine learning
 
 | Platforms/tools | What it is | What you can do with it |
 |-|-|-|
-| [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine) | Virtual machine with pre-installed data science tools | Develop machine learning solutions in a pre-configured environment |
+| [Azure&nbsp;Data&nbsp;Science Virtual Machine](#azure-data-science-virtual-machine) | Virtual machine with pre-installed data science tools | Develop machine learning solutions in a pre-configured environment |
 | [Azure Databricks](#azure-databricks) | Spark-based analytics platform | Build and deploy models and data workflows |
 | [ML.NET](#mlnet) | Open-source, cross-platform machine learning SDK | Develop machine learning solutions for .NET applications |
 | [Windows ML](#windows-ml) | Windows 10 machine learning platform | Evaluate trained models on a Windows 10 device |
@@ -55,9 +55,9 @@ Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree)
 |||
 |-|-|
 |**Type**                   |Cloud-based machine learning solution|
-|**Supported languages**    |Python|
+|**Supported languages**    |Python, R|
 |**Machine learning phases**|Data preparation<br>Model training<br>Deployment<br>Management|
-|**Key benefits**           |Central management of scripts and run history, making it easy to compare model versions.<br/><br/>Easy deployment and management of models to the cloud or edge devices.|
+|**Key benefits**           |Code first and studio web interface authoring options. Central management of scripts and run history, making it easy to compare model versions.<br/><br/>Easy deployment and management of models to the cloud or edge devices.|
 |**Considerations**         |Requires some familiarity with the model management model.|
 
 ## Azure Cognitive Services
@@ -158,4 +158,5 @@ MMLSpark also brings new networking capabilities to the Spark ecosystem. With th
 ## Next steps
 
 - To learn about all the Artificial Intelligence (AI) development products available from Microsoft, see [Microsoft AI platform](https://www.microsoft.com/ai)
-- For training in how to develop AI solutions, see [Microsoft AI School](https://aischool.microsoft.com/learning-paths)
+    
+- For training in developing AI and Machine Learning solutions with Microsoft, see [Microsoft Learn](https://docs.microsoft.com/learn/browse/?roles=ai-engineer%2Cdata-scientist&resource_type=learning%20path)
