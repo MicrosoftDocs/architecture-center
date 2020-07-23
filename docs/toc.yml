@@ -468,7 +468,7 @@ items:
         href: reference-architectures/ai/real-time-recommendation.md
       - name: Chatbot for hotel reservations
         href: example-scenario/ai/commerce-chatbot.md
-      - name: eCommerce chatbot
+      - name: E-commerce chatbot
         href: solution-ideas/articles/commerce-chatbot.md
       - name: Enterprise chatbot disaster recovery
         href: solution-ideas/articles/enterprise-chatbot-disaster-recovery.md
