@@ -18,7 +18,7 @@ ms.custom: seojul20, containers
 In this reference architecture, we’ll build a baseline infrastructure that
 deploys an Azure Kubernetes Service (AKS) cluster with focus on security. This
 article includes recommendations for networking, security, identity, management,
-and monitoring of the cluster based on an organization’s business requirements and follows the [Azure Well-Architected Framework](azure/architecture/framework/).
+and monitoring of the cluster based on an organization’s business requirements and follows the [Azure Well-Architected Framework](/azure/architecture/framework/index.md).
 
 ![GitHub logo](../../../_images/github.png) An implementation of this architecture is available
 on [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). You can use it as a
@@ -1138,3 +1138,8 @@ There are other ways to optimize:
     cluster to just the right size by analyzing performance metrics over time.
 
 For other cost-related information, see [AKS pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/).
+
+## Next Steps
+
+- To learn about hosting Microservices on AKS, see [Microservices architecture on Azure Kubernetes Service (AKS)](reference-architectures/containers/aks-microservices/aks-microservices.md).
+- The see the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
