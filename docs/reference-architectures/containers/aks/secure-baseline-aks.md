@@ -13,7 +13,7 @@ ms.subservice: reference-architecture
 ms.custom: seojul20, containers
 ---
 
-# Baseline architecture for an Azure Kubernetes Service (AKS) cluster
+# Overview
 
 In this reference architecture, we’ll build a baseline infrastructure that
 deploys an Azure Kubernetes Service (AKS) cluster with focus on security. This
@@ -77,6 +77,8 @@ starting point and configure it as per your needs.
       [Cost management and reporting](#cost-management)
     :::column-end:::
 :::row-end:::
+
+## Operational Excellence
 
 ## Network topology
 
@@ -242,6 +244,86 @@ For the user node pool, here are some considerations:
 -   The maximum pods per node, is set to 30, which is also the default.
     Increasing this value can impact performance because of an unexpected node
     failure or expected node maintenance events.
+
+
+### Use Infrastructure as Code (IaC)
+
+Choose an idempotent declarative method over an imperative approach, where
+possible. Instead of writing a sequence of commands that specify configuration
+options, use declarative syntax that describes the resources and their
+properties. One option is an [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/overview) templates another is Terraform.
+
+Make sure as you provision resources as per the governing policies. For example,
+when selecting the right VM sizes, stay within the cost constraints,
+availability zone options to match the requirements of your application.
+
+If you do need to write a sequence of commands, use [Azure CLI](/cli/azure/what-is-azure-cli?view=azure-cli-latest).
+These commands cover a range of Azure services and can be automated through
+scripting. Azure CLI is supported on Windows and Linux. Another cross-platform
+option is Azure PowerShell. Your choice will depend on preferred skillset.
+
+Store and version scripts and template files in your source control system.
+
+### Workload CI/CD
+
+Pipelines for workflow and deployment must have the ability to build and deploy
+applications continuously. Updates must be deployed safely and quickly and
+rolled back in case there are issues.
+
+Your deployment strategy must include a reliable and an automated continuous
+delivery (CD) pipeline. Changes to your workload container images should be
+automatically deployed to the cluster.
+
+In this architecture, we've chosen [GitHub Actions](https://github.com/marketplace?type=actions) for managing the workflow and deployment. Other popular options
+include [Azure DevOps Services](/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services)
+and [Jenkins](/azure/developer/jenkins/).
+
+### Cluster CI/CD
+
+![Workload CI/CD](images/workload-ci-cd.png)
+
+Instead of using an imperative approach like kubectl, use tools that
+automatically synchronize cluster and repository changes. To manage the
+workflow, such as release of a new version and validation of that version before
+deploying to production, consider a GitOps flow. An agent is deployed in the
+cluster to make sure that the state of the cluster is coordinated with
+configuration stored in your private Git repo. Kubernetes and AKS do not support
+that experience natively. A recommended option is
+[flux](https://docs.fluxcd.io/en/1.19.0/introduction/). It uses one or more
+operators in the cluster to trigger deployments inside Kubernetes. flux does these tasks:
+- Monitors all configured repositories.
+- Detects new configuration changes.
+- Triggers deployments.
+- Updates the desired running configuration based on those changes.
+
+You can also set policies that govern how those changes are deployed.
+
+Here’s an example from the reference implementation that shows how to automate
+cluster configuration with GitOps and Flux.
+
+![GitOps Flow](images/gitops-flow.png)
+
+1.  A developer commits changes to source code, such as configuration YAML
+    files, which are stored in a git repository. The changes are then pushed to
+    a git server.
+
+2.  flux runs in pod in alongside the workload. flux has read-only access to the
+    git repository to make sure that flux is only applying changes as requested
+    by developers.
+
+3.  flux recognizes changes in configuration and applies those changes using
+    kubectl commands.
+
+Developers do not have direct access to the Kubernetes API through kubectl.
+Have branch policies on your git server. That way, multiple developers can
+approve a change before it’s applied to production.
+
+
+
+
+
+## Security
+
 
 ## Integrate Azure Active Directory for the cluster
 
@@ -605,6 +687,56 @@ the secret from the volume file system.
 The CSI driver has many providers to support various managed stores. In this
 implementation, we’ve chosen the [Azure Key Vault with Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure) to retrieve the TLS certificate from Azure Key Vault and load it in the pod running the ingress controller. It's done during pod creation and the volume stores both public and the private keys.
 
+### Security updates
+
+Keep the Kubernetes version up to date with the supported N-2 versions.
+Upgrading to the latest version of Kubernetes is critical because new versions
+are released frequently. For more information, see [Supported Kubernetes version](/azure/aks/supported-kubernetes-versions).
+
+AKS downloads and installs OS patches frequently, and some may require the node
+VMs to be rebooted. Have a process that monitors the updates and reboots the
+nodes seamlessly. An open-source option is
+[Kured](https://github.com/weaveworks/kured) (Kubernetes reboot daemon).
+
+For more information, see [Regularly update to the latest version of
+Kubernetes](/azure/aks/operator-best-practices-cluster-security#regularly-update-to-the-latest-version-of-kubernetes)
+and [Upgrade an Azure Kubernetes Service (AKS)
+cluster](/azure/aks/upgrade-cluster).
+
+### Security monitoring
+
+Consider monitoring the node image with [Azure Security Center](/azure/security-center/security-center-intro)
+(ASC). ASC monitors the nodes for suspicious activity and makes recommendations.
+
+For information about security hardening applied to AKS virtual machine hosts,
+see [Security Hardening in host OS](/azure/aks/security-hardened-vm-host-image).
+
+
+## Cluster and workload operations (DevOps)
+
+----------------------------------------
+
+Here are some considerations. For more information, see the [Operational Excellence](/azure/architecture/framework/devops/deployment) pillar.
+
+### Isolate workload responsibilities
+
+Divide the workload by teams and types of resources to individually manage each
+portion.
+
+Start with a basic workload that contains the fundamental components and build
+on it. An initial task would be to configure networking. Provision virtual
+networks for the hub and spoke and subnets within those networks. For instance,
+the spoke has separate subnets for system and user node pools, and ingress
+resources. A subnet for Azure Firewall in the hub.
+
+Another portion could be to integrate the basic workload with Azure Active
+Directory.
+
+
+
+
+## Reliability
+
 ## Workload storage
 
 -----------------
@@ -871,6 +1003,12 @@ Ensure reliability through forced failover testing with simulated outages such
 as bring down a node, bringing down all AKS resources in a particular zone to
 simulate a zonal failure, or bringing down an external dependency.
 
+
+
+
+## Performance Efficiency
+
+
 ## Monitor and collect metrics
 
 ---------------------------
@@ -912,121 +1050,15 @@ requests/traffic.
 >[!NOTE]
 > AKS provides built-in self-healing of infrastructure nodes using [Node Auto-Repair](/azure/aks/node-auto-repair).
 
-### Security updates
 
-Keep the Kubernetes version up to date with the supported N-2 versions.
-Upgrading to the latest version of Kubernetes is critical because new versions
-are released frequently. For more information, see [Supported Kubernetes version](/azure/aks/supported-kubernetes-versions).
 
-AKS downloads and installs OS patches frequently, and some may require the node
-VMs to be rebooted. Have a process that monitors the updates and reboots the
-nodes seamlessly. An open-source option is
-[Kured](https://github.com/weaveworks/kured) (Kubernetes reboot daemon).
 
-For more information, see [Regularly update to the latest version of
-Kubernetes](/azure/aks/operator-best-practices-cluster-security#regularly-update-to-the-latest-version-of-kubernetes)
-and [Upgrade an Azure Kubernetes Service (AKS)
-cluster](/azure/aks/upgrade-cluster).
 
-### Security monitoring
 
-Consider monitoring the node image with [Azure Security Center](/azure/security-center/security-center-intro)
-(ASC). ASC monitors the nodes for suspicious activity and makes recommendations.
 
-For information about security hardening applied to AKS virtual machine hosts,
-see [Security Hardening in host OS](/azure/aks/security-hardened-vm-host-image).
 
-## Cluster and workload operations (DevOps)
 
-----------------------------------------
-
-Here are some considerations. For more information, see the [Operational Excellence](/azure/architecture/framework/devops/deployment) pillar.
-
-### Isolate workload responsibilities
-
-Divide the workload by teams and types of resources to individually manage each
-portion.
-
-Start with a basic workload that contains the fundamental components and build
-on it. An initial task would be to configure networking. Provision virtual
-networks for the hub and spoke and subnets within those networks. For instance,
-the spoke has separate subnets for system and user node pools, and ingress
-resources. A subnet for Azure Firewall in the hub.
-
-Another portion could be to integrate the basic workload with Azure Active
-Directory.
-
-### Use Infrastructure as Code (IaC)
-
-Choose an idempotent declarative method over an imperative approach, where
-possible. Instead of writing a sequence of commands that specify configuration
-options, use declarative syntax that describes the resources and their
-properties. One option is an [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/overview) templates another is Terraform.
-
-Make sure as you provision resources as per the governing policies. For example,
-when selecting the right VM sizes, stay within the cost constraints,
-availability zone options to match the requirements of your application.
-
-If you do need to write a sequence of commands, use [Azure CLI](/cli/azure/what-is-azure-cli?view=azure-cli-latest).
-These commands cover a range of Azure services and can be automated through
-scripting. Azure CLI is supported on Windows and Linux. Another cross-platform
-option is Azure PowerShell. Your choice will depend on preferred skillset.
-
-Store and version scripts and template files in your source control system.
-
-### Workload CI/CD
-
-Pipelines for workflow and deployment must have the ability to build and deploy
-applications continuously. Updates must be deployed safely and quickly and
-rolled back in case there are issues.
-
-Your deployment strategy must include a reliable and an automated continuous
-delivery (CD) pipeline. Changes to your workload container images should be
-automatically deployed to the cluster.
-
-In this architecture, we've chosen [GitHub Actions](https://github.com/marketplace?type=actions) for managing the workflow and deployment. Other popular options
-include [Azure DevOps Services](/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services)
-and [Jenkins](/azure/developer/jenkins/).
-
-### Cluster CI/CD
-
-![Workload CI/CD](images/workload-ci-cd.png)
-
-Instead of using an imperative approach like kubectl, use tools that
-automatically synchronize cluster and repository changes. To manage the
-workflow, such as release of a new version and validation of that version before
-deploying to production, consider a GitOps flow. An agent is deployed in the
-cluster to make sure that the state of the cluster is coordinated with
-configuration stored in your private Git repo. Kubernetes and AKS do not support
-that experience natively. A recommended option is
-[flux](https://docs.fluxcd.io/en/1.19.0/introduction/). It uses one or more
-operators in the cluster to trigger deployments inside Kubernetes. flux does these tasks:
-- Monitors all configured repositories.
-- Detects new configuration changes.
-- Triggers deployments.
-- Updates the desired running configuration based on those changes.
-
-You can also set policies that govern how those changes are deployed.
-
-Here’s an example from the reference implementation that shows how to automate
-cluster configuration with GitOps and Flux.
-
-![GitOps Flow](images/gitops-flow.png)
-
-1.  A developer commits changes to source code, such as configuration YAML
-    files, which are stored in a git repository. The changes are then pushed to
-    a git server.
-
-2.  flux runs in pod in alongside the workload. flux has read-only access to the
-    git repository to make sure that flux is only applying changes as requested
-    by developers.
-
-3.  flux recognizes changes in configuration and applies those changes using
-    kubectl commands.
-
-Developers do not have direct access to the Kubernetes API through kubectl.
-Have branch policies on your git server. That way, multiple developers can
-approve a change before it’s applied to production.
+## Cost Optimization
 
 ### Workload and cluster deployment strategies
 
@@ -1144,7 +1176,3 @@ There are other ways to optimize:
     cluster to just the right size by analyzing performance metrics over time.
 
 For other cost-related information, see [AKS pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/).
-
-## Next steps
-
-For details about the best practices discussed in this architecture, see [Azure Kubernetes Service (AKS) concepts](/azure/aks/concepts-clusters-workloads).
