@@ -670,7 +670,7 @@ items:
       items:
       - name: Microservices architecture on AKS
         href: reference-architectures/containers/aks-microservices/aks-microservices.md
-    - name: Architectures
+    - name: Architectures 
       items:
         - name: Microservices with AKS and Azure DevOps
           href: solution-ideas/articles/microservices-with-aks.md
