@@ -11,7 +11,7 @@ ms.custom: fasttrack-edit
 
 # Monitoring for Scalability
 
-Monitoring for scalability should be part of your overall monitoring strategy that utilizes [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). The overall monitoring strategy should take into consideration not only scalability, but resiliency (infrastructure, application and dependent services) and application performance as well. Most services in Azure offer the ability to turn on both data and management plane logs as well as metrics. For purposes of scalability, looking at the metrics would allow you to scale based scale up, scale out, scale in, and scale down. The ability to scale dynamically is one of the biggest values of moving to the cloud.  
+Monitoring for scalability should be part of your overall monitoring strategy that utilizes [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). The overall monitoring strategy should take into consideration not only scalability, but resiliency (infrastructure, application, and dependent services) and application performance as well. Most services in Azure offer the ability to turn on both data and management plane logs as well as metrics. For purposes of scalability, looking at the metrics would allow you to scale based scale up, scale out, scale in, and scale down. The ability to scale dynamically is one of the biggest values of moving to the cloud.  
 
 ## What are some of the reasons for setting up auto scaling
 
@@ -28,30 +28,32 @@ Monitoring for scalability should be part of your overall monitoring strategy th
 
 ## How can metrics be used to auto scale
 
-- As stated before, most Azure services offer the ability to export logs and metrics to services such as Log Analytics and external service like Splunk for example via Azure Event Hubs. Furthermore, application leveraging technologies such as Application Insights can further enhance the telemetry coming out of the applications.  
-- The metrics coming out of Azure services include metrics such as CPU and memory,utilization, bandwidth information, current storage utilization information, and much more. You can refer to the [supported metrics for Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)
+- As stated before, most Azure services offer the ability to export logs and metrics to services such as Log Analytics and external service like Splunk through Azure Event Hubs. Furthermore, application leveraging technologies such as Application Insights can further enhance the telemetry coming out of the applications.  
+- The metrics coming out of Azure services include metrics such as CPU and memory, utilization, bandwidth information, current storage utilization information, and much more. You can refer to the [supported metrics for Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)
 
 ## How do Azure services auto scale
 
-- App Services, ASE and VM ScaleSets can be configured with auto-scaling rules that can be based on several metrics including CPU, memory, bandwidth, etc. These rules can create new instances (scale in) or remove instances (scale in) or a running service. This capability can be enhanced by generating custom events from technologies like Application Insight that could be based on some other custom metrics.
+- App Services, ASE, and virtual machine scale sets be configured with autoscaling rules that can be based on several metrics including CPU, memory, bandwidth, etc. These rules can create new instances (scale in) or remove instances (scale in) or a running service. This capability can be enhanced by generating custom events from technologies like Application Insight that could be based on some other custom metrics.
 - Azure Kubernetes Services offers both the ability to scale pods as well as to auto scale nodes. Scaling rules can be based on internal metrics or can leverage metrics from systems like Prometheus.
 - Other services, such as Application Gateway, can be scaled manually. In this case, it is important to leverage services such as Log Analytics to raise alerts when the service is no longer able to handle the load.
 
-- Monitor Metrics and auto scale on performance and schedule for [VMs and VM scalesets](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
+- Monitor Metrics and auto scale on performance and schedule for [VMs and virtual machine scale sets](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
 
 - For Container workloads, [container monitoring solution in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/containers) should be utilized.
+
+![GitHub](../../_images/github.png) The [AppServiceAutoscalingSample](https://github.com/mspnp/samples/tree/master/PerformanceEfficiency/AppServiceAutoscalingSample) sample shows autoscaling scenarios based on CPU utilization. 
 
 ## Monitoring best practices
 
 - Know the minimum number of instances that should run at any given time.
 - Determine what metrics are best for your solution to base your auto scaling rules.
-- Configure the auto scaling rules for those service that include it.
-- Create alert rules for those that could be scaled manually.
+- Configure the auto scaling rules for those services that include it.
+- Create alert rules for the services that could be scaled manually.
 - Monitor your environment to make sure that auto scaling is working as expected. For example, watch out for scaling events from the telemetry coming out of the management plane.
 - Monitor web applications using [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/learn/quick-monitor-portal).
 - [Monitor network performance](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor).
   - Consider reviewing as applicable, [network performance monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor), [service connectivity monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [ExpressRoute monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-expressroute)
-- For long term storage, consider [archiving of the Monitoring Data](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-archive-data).
+- For long-term storage, consider [archiving of the Monitoring Data](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-archive-data).
 - Track activities using [Azure Security and Audit Logs](https://docs.microsoft.com/azure/security/fundamentals/log-audit).
 
 ## Related Useful Resources
