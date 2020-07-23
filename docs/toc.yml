@@ -666,20 +666,20 @@ items:
         href: reference-architectures/containers/aks/secure-baseline-aks.md#performance-efficiency
       - name: Cost Optimization
         href: reference-architectures/containers/aks/secure-baseline-aks.md#cost-optimization
+    - name: Microservices on AKS
+      items:
+      - name: Microservices architecture on AKS
+        href: reference-architectures/containers/aks-microservices/aks-microservices.md
     - name: Architectures
       items:
-      - name: Microservices on AKS
-        items:
-        - name: Microservices architecture on AKS
-          href: reference-architectures/containers/aks-microservices/aks-microservices.md
         - name: Microservices with AKS and Azure DevOps
           href: solution-ideas/articles/microservices-with-aks.md
         - name: Secure DevOps for AKS
           href: solution-ideas/articles/secure-devops-for-kubernetes.md
-      - name: Building a telehealth system
-        href: example-scenario/apps/telehealth-system.md
-      - name: CI/CD pipeline for container-based workloads
-        href: example-scenario/apps/devops-with-aks.md
+        - name: Building a telehealth system
+          href: example-scenario/apps/telehealth-system.md
+        - name: CI/CD pipeline for container-based workloads
+          href: example-scenario/apps/devops-with-aks.md
   - name: Databases
     items:
     - name: Guides
