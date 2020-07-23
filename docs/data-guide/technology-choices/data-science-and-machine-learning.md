@@ -57,7 +57,7 @@ Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree)
 |**Type**                   |Cloud-based machine learning solution|
 |**Supported languages**    |Python, R|
 |**Machine learning phases**|Data preparation<br>Model training<br>Deployment<br>Management|
-|**Key benefits**           |Code first and studio web interface authoring options. Central management of scripts and run history, making it easy to compare model versions.<br/><br/>Easy deployment and management of models to the cloud or edge devices.|
+|**Key benefits**           |Code first (SDK) and studio & drag-and-drop designer web interface authoring options. <br/><br/>Central management of scripts and run history, making it easy to compare model versions.<br/><br/>Easy deployment and management of models to the cloud or edge devices.|
 |**Considerations**         |Requires some familiarity with the model management model.|
 
 ## Azure Cognitive Services
