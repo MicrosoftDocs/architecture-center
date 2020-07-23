@@ -13,7 +13,7 @@ ms.subservice: reference-architecture
 ms.custom: seojul20, containers
 ---
 
-# Overview
+# Azure Kubernetes Service (AKS) Production Baseline
 
 In this reference architecture, we’ll build a baseline infrastructure that
 deploys an Azure Kubernetes Service (AKS) cluster with focus on security. This
@@ -39,7 +39,6 @@ starting point and configure it as per your needs.
 
 ### Architecture choices
 
---------------------------------
 :::row:::
     :::column:::
       #### Networking configuration
@@ -80,7 +79,7 @@ starting point and configure it as per your needs.
 
 ## Operational Excellence
 
--------------------------------------------------
+---
 
 ### Network topology
 
@@ -160,7 +159,6 @@ Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 
 ### Plan the IP addresses
 
--------------------------------------------------
 ![Network Topology](images/baseline-network-topology.png)
 
 The address space of the virtual network should be large enough to hold all
@@ -217,7 +215,6 @@ cluster](/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster).
 
 ### Configure compute for the base cluster
 
--------------------------------------------------
 In AKS, each node pool maps to a virtual machine scale set. Nodes are VMs in
 each node pool. Consider using a smaller VM size for the system node pool to
 minimize costs. This reference implementation deploys the system node pool with
@@ -321,11 +318,9 @@ approve a change before it’s applied to production.
 
 ## Security
 
-------------------------------------------------
+---
 
 ### Integrate Azure Active Directory for the cluster
-
-
 
 Securing access to and from the cluster is critical. Think from the cluster’s
 perspective when you're making security choices:
@@ -404,8 +399,6 @@ roles](/azure/aks/manage-azure-rbac).
 
 ### Integrate Azure Active Directory for the workload
 
--------------------------------------------------
-
 Similar to having Azure Managed Identities for the entire cluster, you can
 assign managed identities at the pod level. A pod managed identity allows the
 hosted workload to access resources through Azure Active Directory. For example,
@@ -416,8 +409,6 @@ In this reference implementation, managed pod identities is facilitated through
 [aad-pod-identity](https://github.com/Azure/aad-pod-identity).
 
 ### Deploy Ingress resources
-
-------------------------
 
 Kubernetes Ingress resources route and distribute incoming traffic to the
 cluster. There are two portions of Ingress resources:
@@ -506,8 +497,6 @@ spec:
 ```
 
 ### Secure the network flow
-
------------------------
 
 Network flow, in this context, can be categorized as:
 
@@ -659,8 +648,6 @@ For more information, see [Define API server authorized IP ranges](/azure/aks/ap
 
 ### Add secret management
 
----------------------
-
 Store secrets in a managed key store, such as Azure Key Vault. The advantage is
 that the managed store handles rotation of secrets, offers strong encryption,
 provides an access audit log, and keeps core secrets out of the deployment
@@ -710,8 +697,6 @@ see [Security Hardening in host OS](/azure/aks/security-hardened-vm-host-image).
 
 ### Cluster and workload operations (DevOps)
 
-----------------------------------------
-
 Here are some considerations. For more information, see the [Operational Excellence](/azure/architecture/framework/devops/deployment) pillar.
 
 #### Isolate workload responsibilities
@@ -730,7 +715,7 @@ Directory.
 
 ## Reliability
 
------------------
+---
 
 ### Workload storage
 
@@ -741,8 +726,6 @@ outside the scope of this article.
 To learn more about storage options, see [Storage options for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-storage).
 
 ### Node and pod scalability
-
-------------------------
 
 With increasing demand, Kubernetes can scale out by adding more pods to existing
 nodes, through horizontal pod autoscaling (HPA). When additional pods can no
@@ -824,8 +807,6 @@ minimum value is set to 2 because of the simple nature of the workload.
 For the system node pool, the recommended minimum value is 3.
 
 ### Business continuity decisions
-
------------------------------
 
 To maintain business continuity, define the Service Level Agreement for the
 infrastructure and your application. For information about monthly uptime
@@ -998,7 +979,7 @@ simulate a zonal failure, or bringing down an external dependency.
 
 ## Performance Efficiency
 
----------------------------
+---
 
 ### Monitor and collect metrics
 
@@ -1041,7 +1022,7 @@ requests/traffic.
 
 ## Cost Optimization
 
--------------------------------
+---
 
 ### Workload and cluster deployment strategies
 
@@ -1062,8 +1043,6 @@ additional process and potentially tooling.
 solution to help solve for your advanced deployment scenarios.
 
 ### Cost management
-
----------------
 
 Use the [Azure pricing
 calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs
