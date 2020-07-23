@@ -12,16 +12,7 @@ ms.subservice: cloud-fundamentals
 
 # What are the machine learning products at Microsoft?
 
-Machine learning is a data science technique that allows computers to use existing data to forecast future behaviors, outcomes, and trends. By using machine learning, computers learn without being explicitly programmed.
-
-Machine learning solutions are built iteratively, and have distinct phases:
-
-- Preparing data
-- Experimenting and training models
-- Deploying trained models
-- Managing deployed models (MLOps)
-
-Microsoft provides a variety of product options to prep, build, deploy, and manage your machine learning models. Compare these products and choose what you need to develop your machine learning solutions most effectively.
+In this article, you will learn about the machine learning options to prep, train, deploy, and manage your models at Microsoft. Compare these options and choose what will help you build your machine learning solutions most effectively.
 
 ## Cloud-based options
 
