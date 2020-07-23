@@ -87,8 +87,7 @@ The monitoring and diagnostics process has several distinct phases:
 
 The resiliency pillar of the SAP on Azure Architecture Guide refers to the operational stability and business continuity you need to run mission-critical, tier-1 SAP applications. Designing for availability ensures SAP application uptime in the event of localized software or hardware failures.
 
-In production environments, it’s important to guard against a single point of failure. We recommend deploying the virtual machines that run SAP Central Services and databases in [availability sets](https://docs.microsoft.com/azure/virtual-machines/availability
-) or [Availability Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones), which help protect applications against planned maintenance events and unplanned
+In production environments, it’s important to guard against a single point of failure. We recommend deploying the virtual machines that run SAP Central Services and databases in [availability sets](https://docs.microsoft.com/azure/virtual-machines/availability) or [Availability Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones), which help protect applications against planned maintenance events and unplanned
 outages.
 
 When applying resiliency to the SAP application servers, we recommend using fewer, smaller servers instead of one larger application server. The practice is to configure the guest operating system’s cluster technologies, such as Windows Failover Cluster or Linux Pacemaker, to help ensure short failover times of the SAP Central Services and database management system (DBMS). To ensure there is no (or minimal) data loss, the best practice is to configure DBMS synchronous or asynchronous replication depending on the scenario.
