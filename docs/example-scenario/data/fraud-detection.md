@@ -107,6 +107,6 @@ More complex fraud detection scenarios can benefit from a machine learning model
 [docs-stream-analytics]: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction
 [docs-r-server-sample-solutions]: https://docs.microsoft.com/machine-learning-server/r/sample-solutions
 [r-server-fraud-detection]: https://microsoft.github.io/r-server-fraud-detection
-[technet-fraud-detection]: https://blogs.technet.microsoft.com/machinelearning/2017/06/28/using-azure-data-lake-and-r-for-fraud-detection
+[technet-fraud-detection]: https://beanalytics.wordpress.com/2017/06/28/using-azure-data-lake-and-r-for-fraud-detection/
 [scalability]: ../../checklist/performance-efficiency.md
 [security]: https://docs.microsoft.com/azure/security
