@@ -60,7 +60,7 @@ starting point and configure it as per your needs.
 
 :::row:::
    :::column:::
-      #### Security
+      #### Secure Data Flow
       [Secure the network flow](#secure-the-network-flow)\
       [Add secret management](#add-secret-management)
     :::column-end:::
