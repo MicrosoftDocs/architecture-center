@@ -2,7 +2,7 @@
 title: Choosing a machine learning technology
 description: Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.
 author: adamboeglin
-ms.date: 05/09/2019
+ms.date: 07/30/2020
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -19,7 +19,7 @@ Machine learning solutions are built iteratively, and have distinct phases:
 - Preparing data
 - Experimenting and training models
 - Deploying trained models
-- Managing deployed models
+- Managing deployed models (MLOps)
 
 Microsoft provides a variety of product options to prep, build, deploy, and manage your machine learning models. Compare these products and choose what you need to develop your machine learning solutions most effectively.
 
@@ -29,10 +29,7 @@ The following options are available for machine learning in the Azure cloud.
 
 | Cloud&nbsp;options | What it is | What you can do with it |
 |-|-|-|
-| [Azure Machine Learning](#azure-machine-learning) | Managed cloud service for machine learning  | Train, deploy, and manage models in Azure using Python and CLI |
-| [Azure Machine Learning Studio (classic)](#classic) | Drag&ndash;and&ndash;drop visual interface for machine learning | Build, experiment, and deploy models using preconfigured algorithms |
-
-If you want to use pre-built AI and machine learning models, [Azure Cognitive Services](#azure-cognitive-services) allows you to easily add intelligent features to your applications.
+| [Azure Machine Learning](#azure-machine-learning) | Cloud-based: Managed cloud service for machine learning  | Train, deploy, and manage models in Azure using Python and CLI |
 
 ## On-premises options
 
@@ -40,8 +37,7 @@ The following options are available for machine learning on-premises. On-premise
 
 | On-premises&nbsp;options | What it is | What you can do with it |
 |-|-|-|
-| [SQL Server Machine Learning Services](#sql-server-machine-learning-services) | Analytics engine embedded in SQL | Build and deploy models inside SQL Server |
-| [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Standalone enterprise server for predictive analysis | Build and deploy models on pre-processed data |
+| [SQL Server Machine Learning Services](#sql-server-machine-learning-services) | On-premises analytics engine embedded in SQL | Build and deploy models inside SQL Server |
 
 ## Development platforms and tools
 
@@ -59,7 +55,7 @@ The following development platforms and tools are available for machine learning
 
 [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml) is a fully managed cloud service used to train, deploy, and manage machine learning models at scale. It fully supports open-source technologies, so you can use tens of thousands of open-source Python packages such as TensorFlow, PyTorch, and scikit-learn. Rich tools are also available, such as [Azure notebooks](https://notebooks.azure.com/), [Jupyter notebooks](http://jupyter.org), or the [Azure Machine Learning for Visual Studio Code](https://aka.ms/vscodetoolsforai) extension to make it easy to explore and transform data, and then train and deploy models. Azure Machine Learning includes features that automate model generation and tuning with ease, efficiency, and accuracy.
 
-Use Azure Machine Learning to train, deploy, and manage machine learning models using Python and CLI at cloud scale. For a low-code or no-code option, use the interactive, [visual interface](https://docs.microsoft.com/azure/machine-learning/service/ui-tutorial-automobile-price-train-score) (preview) to easily and quickly build, test, and deploy models using pre-built machine learning algorithms.
+Use Azure Machine Learning to train, deploy, and manage machine learning models using Python and CLI at cloud scale. For a low-code or no-code option, use the interactive, [designer](https://docs.microsoft.com/azure/machine-learning/service/concept-designer) (preview) to easily and quickly build, test, and deploy models using pre-built machine learning algorithms.
 
 Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -72,21 +68,6 @@ Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree)
 |**Machine learning phases**|Data preparation<br>Model training<br>Deployment<br>Management|
 |**Key benefits**           |Central management of scripts and run history, making it easy to compare model versions.<br/><br/>Easy deployment and management of models to the cloud or edge devices.|
 |**Considerations**         |Requires some familiarity with the model management model.|
-
-<a name="classic"></a>
-
-## Azure ML Studio (Classic)
-
-[Studio (classic)](https://docs.microsoft.com/azure/machine-learning/studio/) gives you an interactive, visual workspace that you can use to easily and quickly build, test, and deploy models using pre-built machine learning algorithms. Studio (classic) publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
-No programming is required - you construct your machine learning model by connecting datasets and analysis modules on an interactive canvas, and then deploy it with a couple clicks.
-
-|||
-|-|-|
-|**Type**                   |Cloud-based, drag-and-drop machine learning solution|
-|**Supported languages**    |Python, R|
-|**Machine learning phases**|Data preparation<br>Model training<br>Deployment<br>Management|
-|**Key benefits**           |Interactive visual interface enables machine learning modeling with minimal code.<br/><br/>Built-in Jupyter Notebooks for data exploration.<br/><br/>Direct deployment of trained models as Azure web services.|
-|**Considerations**         |Limited scalability. The maximum size of a training dataset is 10 GB.<br/><br/>Online only. No offline development environment.|
 
 ## Azure Cognitive Services
 
@@ -120,23 +101,9 @@ Use SQL Server Machine Learning Services when you need built-in AI and predictiv
 |**Key benefits**           |Encapsulate predictive logic in a database function, making it easy to include in data-tier logic.|
 |**Considerations**         |Assumes a SQL Server database as the data tier for your application.|
 
-## Microsoft Machine Learning Server
-
-[Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server) is an enterprise server for hosting and managing parallel and distributed workloads of R and Python processes. Microsoft Machine Learning Server runs on Linux, Windows, Hadoop, and Apache Spark, and it is also available on [HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/) as [Microsoft Machine Learning Server (ML Server)](https://docs.microsoft.com/azure/hdinsight/r-server/r-server-overview). It provides an execution engine for solutions built using [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), [revoscalepy](https://docs.microsoft.com/machine-learning-server/python-reference/revoscalepy/revoscalepy-package), and  [MicrosoftML packages](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package), and extends open-source R and Python with support for high-performance analytics, statistical analysis, machine learning, and massively large datasets. This functionality is provided through proprietary packages that install with the server. For development, you can use IDEs such as [R Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) and [Python Tools for Visual Studio](https://www.visualstudio.com/vs/python/).
-
-Use Microsoft Machine Learning Server when you need to build and operationalize models built with R and Python on a server, or distribute R and Python training at scale on a Hadoop or Spark cluster.
-
-|||
-|-|-|
-|**Type**                   |On-premises enterprise server for predictive analytics|
-|**Supported languages**    |Python, R|
-|**Machine learning phases**|Model training<br>Deployment|
-|**Key benefits**           |High scalability.|
-|**Considerations**         |You need to deploy and manage Machine Learning Server in your enterprise.|
-
 ## Azure Data Science Virtual Machine
 
-The [Azure Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) is a customized virtual machine environment on the Microsoft Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics.
+The [Azure Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) is a customized virtual machine environment on the Microsoft Azure cloud. The environment is built specifically for doing data science and developing ML solutions. It has many popular data science, ML frameworks, and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics.
 
 The Data Science Virtual Machine is supported as a target for Azure Machine Learning. It is available in versions for both Windows and Linux Ubuntu. For specific version information and a list of what's included, see [Introduction to the Azure Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview).
 
