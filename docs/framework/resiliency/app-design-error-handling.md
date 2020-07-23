@@ -52,7 +52,7 @@ For guidance on implementing health monitoring in your application, see [Health 
 
 - ARM template that deploys an Azure Load Balancer and health probes that detect the  health of the sample service endpoint.
 
-- An ASP.Net Core Web API that shows configuration of health checks at startup.
+- An ASP.NET Core Web API that shows configuration of health checks at startup.
 
 ## Command and Query Responsibility Segregation (CQRS)
 
