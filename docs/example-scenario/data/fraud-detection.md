@@ -93,7 +93,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 
 ## Related resources
 
-More complex fraud detection scenarios can benefit from a machine learning model. For scenarios built using Machine Learning Server, see [Fraud detection using Machine Learning Server][r-server-fraud-detection]. For other solution templates using Machine Learning Server, see [Data science scenarios and solution templates][docs-r-server-sample-solutions]. For an example solution using Azure Data Lake Analytics, see [Using Azure Data Lake and R for Fraud Detection][technet-fraud-detection].
+More complex fraud detection scenarios can benefit from a machine learning model. For scenarios built using Machine Learning Server, see [Fraud detection using Machine Learning Server][r-server-fraud-detection]. For other solution templates using Machine Learning Server, see [Data science scenarios and solution templates][docs-r-server-sample-solutions]. 
 
 <!-- links -->
 [product-category]: https://azure.microsoft.com/product-categories/analytics
@@ -107,6 +107,6 @@ More complex fraud detection scenarios can benefit from a machine learning model
 [docs-stream-analytics]: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction
 [docs-r-server-sample-solutions]: https://docs.microsoft.com/machine-learning-server/r/sample-solutions
 [r-server-fraud-detection]: https://microsoft.github.io/r-server-fraud-detection
-[technet-fraud-detection]: https://blogs.technet.microsoft.com/machinelearning/2017/06/28/using-azure-data-lake-and-r-for-fraud-detection
+[technet-fraud-detection]: https://beanalytics.wordpress.com/2017/06/28/using-azure-data-lake-and-r-for-fraud-detection/
 [scalability]: ../../checklist/performance-efficiency.md
 [security]: https://docs.microsoft.com/azure/security

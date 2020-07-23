@@ -248,7 +248,6 @@ services.
 - **Standard IP address (ZR)**
 
 - **Azure Traffic Analytics (ZR)**
-
        </td> 
     </tr> 
 </table>
@@ -278,7 +277,7 @@ of Availability Sets can increase the level of SLA to 99.95% by protecting a set
 of VMs, ensuring they will not all be on the same hardware. Within a region, VM
 workloads can be distributed across Availability Zones to increase the SLA to
 99.99%. For more information, refer to [Availability options for VMs in
-Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability).
+Azure](/azure/virtual-machines/availability).
 
 Every organization has unique requirements, and you should design your
 applications to best meet your complex business needs. Defining a target SLA
