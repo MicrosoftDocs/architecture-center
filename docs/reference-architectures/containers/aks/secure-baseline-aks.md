@@ -46,7 +46,7 @@ starting point and configure it as per your needs.
       [Network topology](#network-topology)\
       [Plan the IP addresses](#plan-the-ip-addresses)\
       [Deploy Ingress resources](#deploy-ingress-resources)
-    :::column-end:::  
+    :::column-end:::
     :::column:::
       #### Cluster compute
       [Compute for the base cluster](#configure-compute-for-the-base-cluster)
@@ -55,17 +55,17 @@ starting point and configure it as per your needs.
       #### Identity management
       [Integrate Azure AD for the cluster](#integrate-azure-active-directory-for-the-cluster)\
       [Integrate Azure AD for the workload](#integrate-azure-active-directory-for-the-workload)
-    :::column-end:::  
+    :::column-end:::
 :::row-end:::  
 
 :::row:::
    :::column:::
-    #### Security
+      #### Security
       [Secure the network flow](#secure-the-network-flow)\
       [Add secret management](#add-secret-management)
     :::column-end:::
    :::column:::
-    #### Business continuity
+      #### Business continuity
       [Scalability](#node-and-pod-scalability)\
       [Cluster and node availability](#business-continuity-decisions)\
       [Availability and multi-region support](#availability-zones-and-multi-region-support)
