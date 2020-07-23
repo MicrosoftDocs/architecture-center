@@ -43,7 +43,7 @@ This architecture consists of the following components. Some applications may no
 
 **Machine learning** allows predictive algorithms to be executed over historical telemetry data, enabling scenarios such as predictive maintenance. For machine learning, we recommend [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/).
 
-**Warm path storage** holds data that must be available immediately from device for reporting and visualization. For warm path storage, we recommend [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) or [Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview). Cosmos DB is a globally distributed, multi-model database. Azure SQL Database is a relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server. Depending on your specific workload and data processing requirements, these two options will cover all your warm path storage needs.
+**Warm path storage** holds data that must be available immediately from device for reporting and visualization. For warm path storage, we recommend [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) or [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview). Cosmos DB is a globally distributed, multi-model database. Azure SQL Database is a relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server. Depending on your specific workload and data processing requirements, these two options will cover all your warm path storage needs.
 
 **Cold path storage** holds data that is kept longer-term and is used for batch processing. For cold path storage, we recommend [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). Data can be archived in Blob storage indefinitely at low cost, and is easily accessible for batch processing.
 
@@ -207,7 +207,7 @@ For more information, see [Logic Apps pricing](https://azure.microsoft.com/prici
 
 For cold path storage, Azure Blob Storage is the most cost-effective option.
 
-For warm path storage, consider using Azure Cosmos DB or Azure SQL Database. For more information, see [Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/) or [Azure SQL Database pricing](https://azure.microsoft.com/en-us/pricing/details/sql-database/single/).
+For warm path storage, consider using Azure Cosmos DB or Azure SQL Database. For more information, see [Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/) or [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 
 ## Next steps
