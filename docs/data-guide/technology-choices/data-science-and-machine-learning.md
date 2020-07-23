@@ -46,7 +46,7 @@ The following development platforms and tools are available for machine learning
 
 [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml) is a fully managed cloud service used to train, deploy, and manage machine learning models at scale. It fully supports open-source technologies, so you can use tens of thousands of open-source Python packages such as TensorFlow, PyTorch, and scikit-learn. Rich tools are also available, such as [Azure notebooks](https://notebooks.azure.com/), [Jupyter notebooks](http://jupyter.org), or the [Azure Machine Learning for Visual Studio Code](https://aka.ms/vscodetoolsforai) extension to make it easy to explore and transform data, and then train and deploy models. Azure Machine Learning includes features that automate model generation and tuning with ease, efficiency, and accuracy.
 
-Use Azure Machine Learning to train, deploy, and manage machine learning models using Python and CLI at cloud scale. For a low-code or no-code option, use the interactive, [designer](https://docs.microsoft.com/azure/machine-learning/service/concept-designer) (preview) to easily and quickly build, test, and deploy models using pre-built machine learning algorithms.
+Use Azure Machine Learning to train, deploy, and manage machine learning models using Python and CLI at cloud scale. For a low-code or no-code option, use the interactive, [designer](https://docs.microsoft.com/azure/machine-learning/service/concept-designer) (preview) in studio to easily and quickly build, test, and deploy models using pre-built machine learning algorithms.
 
 Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -57,7 +57,7 @@ Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree)
 |**Type**                   |Cloud-based machine learning solution|
 |**Supported languages**    |Python, R|
 |**Machine learning phases**|Data preparation<br>Model training<br>Deployment<br>Management|
-|**Key benefits**           |Code first and studio web interface authoring options. Central management of scripts and run history, making it easy to compare model versions.<br/><br/>Easy deployment and management of models to the cloud or edge devices.|
+|**Key benefits**           |Code first (SDK) and studio & drag-and-drop designer web interface authoring options. <br/><br/>Central management of scripts and run history, making it easy to compare model versions.<br/><br/>Easy deployment and management of models to the cloud or edge devices.|
 |**Considerations**         |Requires some familiarity with the model management model.|
 
 ## Azure Cognitive Services
