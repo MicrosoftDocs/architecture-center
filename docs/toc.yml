@@ -403,6 +403,8 @@ items:
     href: patterns/queue-based-load-leveling.md
   - name: Retry
     href: patterns/retry.md
+  - name: Saga
+    href: reference-architectures/saga/saga.md
   - name: Scheduler Agent Supervisor
     href: patterns/scheduler-agent-supervisor.md
   - name: Sequential Convoy
@@ -468,7 +470,7 @@ items:
         href: reference-architectures/ai/real-time-recommendation.md
       - name: Chatbot for hotel reservations
         href: example-scenario/ai/commerce-chatbot.md
-      - name: eCommerce chatbot
+      - name: E-commerce chatbot
         href: solution-ideas/articles/commerce-chatbot.md
       - name: Enterprise chatbot disaster recovery
         href: solution-ideas/articles/enterprise-chatbot-disaster-recovery.md
@@ -1283,6 +1285,8 @@ items:
         href: example-scenario/apps/apim-api-scenario.md
       - name: Multi-region N-tier application
         href: reference-architectures/n-tier/multi-region-sql-server.md
+      - name: Multitenant SaaS
+        href: example-scenario/multi-saas/multitenant-saas.md
       - name: Multi-tier web application built for HA/DR
         href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.md
       - name: SAP S/4 HANA for Large Instances
