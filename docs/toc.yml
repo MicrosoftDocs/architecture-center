@@ -655,17 +655,17 @@ items:
     - name: AKS Production Baseline
       items:
       - name: Overview
-        href: reference-architectures/aks-baseline/secure-baseline-aks.md
-      - name: Security
-        href: reference-architectures/aks-baseline/secure-baseline-aks.md
+        href: reference-architectures/containers/aks/secure-baseline-aks.md
       - name: Operational Excellence
-        href: reference-architectures/aks-baseline/secure-baseline-aks.md
-      - name: Performance Efficiency
-        href: reference-architectures/aks-baseline/secure-baseline-aks.md
+        href: reference-architectures/containers/aks/secure-baseline-aks.md#operational-excellence
+      - name: Security
+        href: reference-architectures/containers/aks/secure-baseline-aks.md#security
       - name: Reliability
-        href: reference-architectures/aks-baseline/secure-baseline-aks.md
-      - name: Cost Management
-        href: reference-architectures/aks-baseline/secure-baseline-aks.md
+        href: reference-architectures/containers/aks/secure-baseline-aks.md#reliability
+      - name: Performance Efficiency
+        href: reference-architectures/containers/aks/secure-baseline-aks.md#performance-efficiency
+      - name: Cost Optimization
+        href: reference-architectures/containers/aks/secure-baseline-aks.md#cost-optimization
     - name: Architectures
       items:
       - name: Microservices on AKS
