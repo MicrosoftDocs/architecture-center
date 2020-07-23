@@ -13,7 +13,7 @@ ms.subservice: reference-architecture
 ms.custom: seojul20, containers
 ---
 
-# Overview
+# Azure Kubernetes Service (AKS) Production Baseline
 
 In this reference architecture, we’ll build a baseline infrastructure that
 deploys an Azure Kubernetes Service (AKS) cluster with focus on security. This
