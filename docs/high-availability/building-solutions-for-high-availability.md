@@ -248,7 +248,6 @@ services.
 - **Standard IP address (ZR)**
 
 - **Azure Traffic Analytics (ZR)**
-
        </td> 
     </tr> 
 </table>
