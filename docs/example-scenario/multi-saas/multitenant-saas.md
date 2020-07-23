@@ -73,7 +73,7 @@ The primary components are the suggested components for the architecture in this
 
 ### Primary components
 
-* [Azure Front Door](https://azure.microsoft.com/services/frontdoor/): A regional load balancer that routes client traffic to the correct region. It can fail over to the second region if region failure happens and it can secure the internet-facing entry point via [Windows Application Firewall](/azure/web-application-firewall/ag/ag-overview).
+* [Azure Front Door](https://azure.microsoft.com/services/frontdoor/): A regional load balancer that routes client traffic to the correct region. It can fail over to the second region if region failure happens and it can secure the internet-facing entry point via [Azure Application Firewall](/azure/web-application-firewall/ag/ag-overview).
 
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) (Azure AD): Acts as the identity provider for the entire application, enforcing authentication and end-to-end authorization of the request in the application.
 
@@ -157,18 +157,18 @@ By design, the Azure SQL Elastic Pool pricing is highly cost-effective in a mult
 
 You can find the pricing structure for Azure Cache for Redis on the [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/) page. Adjust the cache tier at any time between a Basic, Standard, and Premium tier based on need. You'll see higher pricing on the larger cache limits and additional features such as replication and disaster recovery. Azure Cache for Redis also offers reserved capacity pricing for long-term usage commitments.
 
-The price of Azure Front Door depends on the amount of data transfer in and out of the service. For outbound data, the pricing is different based on zones. Different regions will incur different costs. If you come across a price differential, estimate the cost separately. The price includes some routing and domain capacity, but system would incur costs past the initial limits. Web Application Firewall does incur a small additional charge per policy or rule applied. You can find the pricing details for Azure Front Door on the [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/) page.
+The price of Azure Front Door depends on the amount of data transfer in and out of the service. For outbound data, the pricing is different based on zones. Different regions will incur different costs. If you come across a price differential, estimate the cost separately. The price includes some routing and domain capacity, but the system would incur costs past the initial limits. Web Application Firewall does incur a small additional charge per policy or rule applied. You can find the pricing details for Azure Front Door on the [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/) page.
 
 The [pricing for Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/) is a fully tiered system. A free tier is available for development and testing. After that, each tier incurs a per-hour cost for each Cognitive Search instance allocated. As the tiers increase, the total storage, number of indexes, and scale-out limits also increase. Azure Cognitive Search provides image extraction as a service at the same rate to all paid tiers.
 
 ## Next Steps
 
-* [Application and service principal objects in Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals) about leveraging Azure Active Directory to implement multitenant apps.
+* [Application and service principal objects in Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals) is about leveraging Azure Active Directory to implement multitenant apps.
 
 * [Multitenant SaaS database tenancy patterns](/azure/azure-sql/database/saas-tenancy-app-design-patterns) covers implementing multitenancy patterns in SQL.
 
-* [Multiregion, high availability web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region) is a reference for the multiregion requirement of the solution.
+* [Run a web application in multiple Azure regions for high availability](/azure/architecture/reference-architectures/app-service-web-app/multi-region) is a reference for the multiregion requirement of the solution.
 
-* [Multitier web app for high availability and disaster recovery](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery) is a similar example workload scenario. It describes many of the considerations for a large-scale application on Azure.
+* [Multitier web application built for high availability and disaster recovery on Azure](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery) is a similar example workload scenario. It describes many of the considerations for a large-scale application on Azure.
 
-* [Tenancy in Azure Active Directory](/azure/active-directory/develop/single-and-multi-tenant-apps) also about leveraging Azure Active Directory to implement multitenant apps.
+* [Tenancy in Azure Active Directory](/azure/active-directory/develop/single-and-multi-tenant-apps) is also about leveraging Azure Active Directory to implement multitenant apps.
