@@ -1974,6 +1974,11 @@
       "source_path": "docs/solution-ideas/articles/customer-360.md",
       "redirect_url": "/azure/architecture/solution-ideas/articles/product-recommendations",
       "redirect_document_id": true
+     },
+     {
+       "source_path": "/docs/reference-architectures/microservices/aks.md",
+       "redirect_url": "azure/reference-architectures/containers/aks-microservices/aks-microservices",
+       "redirect_document_id": true
      }
   ]
 }
