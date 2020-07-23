@@ -36,3 +36,6 @@ Applications should implement a strategy that helps to ensure that the data in t
 ## Availability of SKUs
 
 Certain Azure SKUs are only available in certain regions. Understand which SKUs are available in the regions you operate in so you can plan accordingly. Read about [global infrastructure services](https://azure.microsoft.com/global-infrastructure/services/).
+
+## Related sections
+[Performance tuning scenario: Event streaming with Azure Functions](https://docs.microsoft.com/azure/architecture/performance/event-streaming)
