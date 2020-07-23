@@ -1141,5 +1141,5 @@ For other cost-related information, see [AKS pricing](https://azure.microsoft.co
 
 ## Next Steps
 
-- To learn about hosting Microservices on AKS, see [Microservices architecture on Azure Kubernetes Service (AKS)](reference-architectures/containers/aks-microservices/aks-microservices.md).
+- To learn about hosting Microservices on AKS, see [Microservices architecture on Azure Kubernetes Service (AKS)](../aks-microservices/aks-microservices.md).
 - The see the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
