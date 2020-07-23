@@ -11,11 +11,13 @@ ms.custom:
 
 # Automated Kubernetes deployments with Bedrock
 
-Configuring Kubernetes deployments and managing clusters can be a complex and time-consuming process complicated by missteps and lurking errors. [Bedrock](https://github.com/microsoft/bedrock) was born from the collective experience of helping many customers adopt the new architectural patterns for Kubernetes. At the same time, applying DevOps principles and tooling makes the development, deployment, and maintenance of these Kubernetes based apps sustainable at a production level. [GitOps](https://www.weave.works/technologies/gitops/) is the name applied to this pattern and Bedrock is the pattern of best practices for implementing apps with GitOps in Azure.
+Configuring Kubernetes deployments and managing clusters can be a complex and time-consuming process complicated by missteps and lurking errors. [Bedrock](https://github.com/microsoft/bedrock) was born from the collective experience of helping many customers adopt the new architectural patterns for Kubernetes. At the same time, applying DevOps principles and tooling makes the development, deployment, and maintenance of these Kubernetes based apps sustainable at a production level. 
 
-Bedrock is a set of patterns and automation tools for deploying and operating production Kubernetes clusters based on a GitOps workflow. Bedrock builds on the best practices discovered from working with customers in operationalizing Kubernetes clusters. Using Bedrock, organizations can fast track their end-to-end Kubernetes deployments including infrastructure provisioning, GitOps setup, and Azure Pipelines with observability into the deployment status.
+[GitOps](https://www.weave.works/technologies/gitops/) is the name applied to this pattern and Bedrock is the pattern of best practices for implementing apps with GitOps in Azure. 
 
-Bedrock addresses these problems through the following objectives:
+Using Bedrock, organizations can fast track their end-to-end Kubernetes deployments including infrastructure provisioning, GitOps setup, and Azure Pipelines with observability into the deployment status.
+
+Bedrock has the following objectives for addressing the problems of configuring Kubernetes deployments and managing clusters:
 
 1. Provide a way to deploy infrastructure reliably and efficiently.
 2. Allow service deployments to be secure and auditable.
@@ -24,9 +26,8 @@ Bedrock addresses these problems through the following objectives:
 5. Provide a comprehensive view of cluster deployment status for developers and Site Reliability Engineers (SREs). 
 6. Provide all of these things in an efficient and repeatable process that works in the real world.
 
-Bedrock helps you:
 
-* Define and maintain infrastructure deployments across multiple clusters.
+Bedrock helps you define and maintain infrastructure deployments across multiple clusters.
 
 ### Infrastructure as Code (IaC)
 
