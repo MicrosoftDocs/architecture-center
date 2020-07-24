@@ -22,7 +22,7 @@ protect identifiable information, Intellectual Property (IP), financial informat
 consideration within risk is addressing Disaster Recovery and Business
 Continuity.
 
-**Compliance:** Are there specific industry, government, or regulatory requirements that dictate or provide recommendation on criteria that your organization’s security controls must meet? Examples of such standards, organizations, controls, and legislation are [ISO27001]( https://www.iso.org/isoiec-27001-information-security.html), [NIST]( https://www.nist.gov), [PCI-DSS]( https://www.pcicomplianceguide.org/faq).
+**Compliance:** Is there a specific industry, government, or regulatory requirements that dictate or provide recommendation on criteria that your organization’s security controls must meet? Examples of such standards, organizations, controls, and legislation are [ISO27001]( https://www.iso.org/isoiec-27001-information-security.html), [NIST]( https://www.nist.gov), [PCI-DSS]( https://www.pcicomplianceguide.org/faq).
 
 The collective role of organization(s) is to manage the security standards of
 the organization through their lifecycle:
@@ -114,7 +114,7 @@ Ensure your security organization is aware of all enrollments and associated
 subscriptions connected to your existing environment (via ExpressRoute or
 Site-Site VPN) and monitoring as part of the overall enterprise.
 
-These azure resources are part of your enterprise environment and security
+These Azure resources are part of your enterprise environment and security
 organizations require visibility into them. Security organizations need this
 access to assess risk and to identify whether organizational policies and
 applicable regulatory requirements are being followed.
@@ -144,7 +144,7 @@ functions:
 | **Network Management**               | *Typically existing network operations team.* Enterprise-wide virtual network and subnet allocation. |
 | **Server Endpoint Security**         | *Typically IT operations, security, or jointly.* Monitor and remediate server security (patching, configuration, endpoint security, etc.). |
 | **Incident Monitoring and Response** | *Typically security operations team.* Investigate and remediate security incidents in Security Information and Event Management (SIEM) or source console.|
-| **Policy Management**                | *Typically GRC team + Architecture.* Set Direction for use of Role Based Access Control (RBAC), Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources. |
+| **Policy Management**                | *Typically GRC team + Architecture.* Set Direction for use of Role-Based Access Control (RBAC), Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources. |
 | **Identity Security and Standards**  | *Typically Security Team + Identity Team jointly.* Set direction for Azure AD directories, PIM/PAM usage, MFA, password/synchronization configuration, Application Identity Standards. |
 
 
@@ -220,8 +220,8 @@ resources in their purview
 
 Security organizations require visibility into the technical environment to
 perform their duties of assessing and reporting on organizational risk. Without
-this visibility, security will have to rely on information provided from groups
-operating the environment who have a potential conflict of interest (and other
+this visibility, security will have to rely on information provided from groups,
+operating the environment, who have a potential conflict of interest (and other
 priorities).
 
 Note that security teams may separately be granted additional privileges if
@@ -260,7 +260,7 @@ like overpermissioning, reducing your overall risk.
 
 Microsoft recommends starting from these Microsoft reference models and adapting to your organization.
 
-![](images/ref-perms.png)
+![Reference permissions](images/ref-perms.png)
 
 ### Core Services Reference Permissions
 This segment hosts shared services
@@ -427,7 +427,7 @@ attempt “easy” attacks like common passwords and unpatched vulnerabilities.
 Enable [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-system-updates)
 to identify missing security updates & apply them.
 
-[Local Admin Password Solution (LAPS)](https://www.microsoft.com/download/details.aspx?id=46899) or a third party Privileged Access Management can set strong local admin passwords and just in time access to them.
+[Local Admin Password Solution (LAPS)](https://www.microsoft.com/download/details.aspx?id=46899) or a third-party Privileged Access Management can set strong local admin passwords and just in time access to them.
 
 ## Remove Virtual Machine (VM) direct internet connectivity
 
@@ -479,7 +479,7 @@ You can conduct the review manually or through an automated process by using too
 
 ## Discover and remediate common risks
 
-Identity well known risks for your Azure tenants, remediate those risks, and
+Identity well-known risks for your Azure tenants, remediate those risks, and
 track your progress using Secure Score.
 
 Identifying and remediating common security hygiene risks significantly reduces
@@ -566,7 +566,7 @@ For more information on how to do this in Azure, please review **Tutorial: Creat
 
 ## Monitor identity Risk
 
-Monitor identity related risk events for warning on potentially compromised
+Monitor identity-related risk events for warning on potentially compromised
 identities and remediate those risks.
 
 Most security incidents take place after an attacker initially gains access
@@ -627,7 +627,7 @@ as a Service (IaaS).
 Here are ways to reduce your risk:
 
 - **Discover** protocol usage by reviewing logs with Azure Sentinel’s Insecure
-    Protocol Dashboard or third party tools
+    Protocol Dashboard or third-party tools.
 
 - Restrict or Disable use of these protocols by following guidance for
     [SMB](https://support.microsoft.com/help/2696547/detect-enable-disable-smbv1-smbv2-smbv3-in-windows-and-windows-server),
