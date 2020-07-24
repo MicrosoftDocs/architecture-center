@@ -105,7 +105,7 @@ that you enable that option.
 
 An example of service-specific service provider encryption is [Azure Storage Service encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
-# Encrypt data in transit
+## Encrypt data in transit
 
 Protect data while it’s being transferred between components, locations or
 programs, such as over the network, across a service bus (from on-premises to
