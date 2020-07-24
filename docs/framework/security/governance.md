@@ -431,34 +431,31 @@ to identify missing security updates & apply them.
 
 ## Remove Virtual Machine (VM) direct internet connectivity
 
-Ensure policy and processes require restricting and monitoring direct internet
-connectivity by virtual machines.
+Make sure policies and processes require restricting and monitoring direct
+internet connectivity by virtual machines.
 
-Attackers constantly scan public cloud IP ranges for open management ports and
-attempt “easy” attacks like common passwords and known unpatched vulnerabilities.
+For Azure, you can enforce policies by,
 
-This can be accomplished with one or more methods in Azure:
+-   **Enterprise-wide prevention** - Prevent inadvertent exposure by following
+    the permissions and roles described in the reference model.
 
-- **Enterprise-wide prevention** - Prevent inadvertent exposure with an
-    enterprise network and permission model such as the reference model
-    described throughout this guidance. This significantly reduces the risk of
-    accidental VM internet exposure by
+    -   Ensures that network traffic is routed through approved egress points by
+        default.
 
-    -   Ensuring that network traffic is routed through approved egress points
-        by default.
+    -   Exceptions (such as adding a public IP address to a resource) must go
+        through a centralized group that evaluates exception requests and makes
+        sure appropriate controls are applied.
 
-    -   Exceptions (for example, add a public IP address to a resource) must go through
-        a centralized group (which can carefully evaluate exception requests to
-        ensure appropriate controls are applied).
-
-- **Identify and Remediate** exposed VMs using the [Azure Security
-    Center](https://docs.microsoft.com/azure/security-center/security-center-install-endpoint-protection)
+-   **Identify and remediate** exposed virtual machines by using the [Azure Security Center](/azure/security-center/security-center-restrict-access-through-internet-facing-endpoints)
     network visualization to quickly identify internet exposed resources.
 
-- **Restrict management ports** (RDP, SSH) using [Just in Time access](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) in Azure Security Center.
+-   **Restrict management ports** (RDP, SSH) using [Just in Time
+    access](/azure/security-center/security-center-just-in-time)
+    in Azure Security Center.
 
 
-One way of managing VMs in the virtual network is by using Azure Bastion. This service allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. To see a reference architecture that uses Bastion, see [Network DMZ between Azure and an on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
+
+One way of managing VMs in the virtual network is by using [Azure Bastion](/azure/bastion/). This service allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. To see a reference architecture that uses Bastion, see [Network DMZ between Azure and an on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
 
 ## Assign incident notification contact
 
