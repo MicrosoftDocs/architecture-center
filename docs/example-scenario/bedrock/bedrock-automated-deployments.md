@@ -11,7 +11,7 @@ ms.custom:
 
 # Automated Kubernetes deployments with Bedrock
 
-Configuring Kubernetes deployments and managing clusters can be a complex and time-consuming process complicated by missteps and lurking errors. [Bedrock](https://github.com/microsoft/bedrock) was born from the collective experience of helping many customers adopt the new architectural patterns for Kubernetes. At the same time, applying DevOps principles and tooling makes the development, deployment, and maintenance of these Kubernetes based apps sustainable at a production level. 
+Configuring Kubernetes deployments and managing clusters can be a complex and time-consuming process complicated by missteps and lurking errors. [Bedrock](https://github.com/microsoft/bedrock) was born from the collective experience of helping many customers adopt the new architectural patterns for Kubernetes. At the same time, applying DevOps principles and tooling makes the development, deployment, and maintenance of these Kubernetes based apps sustainable at a production level.
 
 [GitOps](https://www.weave.works/technologies/gitops/) is the name applied to this pattern and Bedrock is the pattern of best practices for implementing apps with GitOps in Azure. 
 
@@ -25,6 +25,26 @@ Bedrock has the following objectives for addressing the problems of configuring 
 4. Allow developers to avoid hand editing complex YAML files to define infrastructure.
 5. Provide a comprehensive view of cluster deployment status for developers and Site Reliability Engineers (SREs). 
 6. Provide all of these things in an efficient and repeatable process that works in the real world.
+
+To resolve those objectives, the team identified the following principal requirements for Bedrock:
+
+* Leverages full cloud native capabilities.
+* Enable implementing complex micro services architectures on Kubernetes.
+* Providing end to end workflow for deploying a complete Kubernetes solution using best practices
+* Embody Practical Real-World Experiences at Scale
+* Validation and Improvement by implementation with actual customers.
+
+Solution Design Objectives:
+
+* Pre-Configured Environment Deployment
+* Ease of Manifest Creation
+* Enable Deployment Observability
+* Automation
+
+Solution Description - Underlying Concepts and Technology Development
+
+* Infrastructure as Code (IaC)
+* What is GitOps?
 
 
 Bedrock helps you define and maintain infrastructure deployments across multiple clusters.
