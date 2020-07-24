@@ -125,7 +125,7 @@ By leveraging a multi-subscription deployment via provider aliasing, we can use 
 
 ## Architecture
 
-The team deployed the customer’s architecture using the **az-isolated-service-single-region** template. This template is just one of the available open-source Cobalt templates (see [Application to Other Scenarios](#application-to-other-scenarios)). The following diagram shows an overview of the architecture and what happens when the developer starts an Azure DevOps build pipeline:
+The team deployed the customer’s architecture using the **az-isolated-service-single-region** template. This template is just one of the available open-source Cobalt templates (see [Alternatives](#alternatives)). The following diagram shows an overview of the architecture and what happens when the developer starts an Azure DevOps build pipeline:
 
 :::image type="content" border="false" source="./media/single-region-architecture.png" alt-text="Diagram of Azure Isolated Service, Single Region Architecture.":::
 
@@ -160,7 +160,7 @@ When checked into GitHub, the system validates the code to ensure that newly add
 
 * [Azure App Service - Web App for Containers](https://azure.microsoft.com/services/app-service/containers/)
 
-* [Azure Container Registry (ACR)](https://azure.microsoft.com/en-us/services/container-registry/)
+* [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/)
 
 * [Azure DevOps](https://azure.microsoft.com/services/devops/)
 
@@ -198,7 +198,7 @@ The team discovered that, when managing the local state of Terraform resources a
 
 The ability to point to a version file and only require the application development team to configure a couple of files to reference the platform and infrastructure for their applications, “version and go,” is a huge benefit to simplify the developers' efforts.
 
-Cobalt is open source. It's developers encourage you to contribute new templates for the repository. You can find more information about creating new templates on GitHub. See the [Next steps](next-steps) section of this article for a link to the Cobalt repo on GItHub.
+Cobalt is open source. It's developers encourage you to contribute new templates for the repository. You can find more information about creating new templates on GitHub. See the [Next steps](#next-steps) section of this article for a link to the Cobalt repo on GItHub.
 
 ### Recommendations
 
