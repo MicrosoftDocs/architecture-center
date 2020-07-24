@@ -432,10 +432,10 @@ to identify missing security updates & apply them.
 ## Remove Virtual Machine (VM) direct internet connectivity
 
 Ensure policy and processes require restricting and monitoring direct internet
-connectivity by virtual machines
+connectivity by virtual machines.
 
 Attackers constantly scan public cloud IP ranges for open management ports and
-attempt “easy” attacks like common passwords and known unpatched vulnerabilities
+attempt “easy” attacks like common passwords and known unpatched vulnerabilities.
 
 This can be accomplished with one or more methods in Azure:
 
@@ -445,19 +445,20 @@ This can be accomplished with one or more methods in Azure:
     accidental VM internet exposure by
 
     -   Ensuring that network traffic is routed through approved egress points
-        by default
+        by default.
 
     -   Exceptions (for example, add a public IP address to a resource) must go through
         a centralized group (which can carefully evaluate exception requests to
-        ensure appropriate controls are applied)
+        ensure appropriate controls are applied).
 
 - **Identify and Remediate** exposed VMs using the [Azure Security
     Center](https://docs.microsoft.com/azure/security-center/security-center-install-endpoint-protection)
     network visualization to quickly identify internet exposed resources.
 
-- **Restrict management ports** (RDP, SSH) using [Just in Time
-    access](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
-    in Azure Security Center
+- **Restrict management ports** (RDP, SSH) using [Just in Time access](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) in Azure Security Center.
+
+
+One way of managing VMs in the virtual network is by using Azure Bastion. This service allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. To see a reference architecture that uses Bastion, see [Network DMZ between Azure and an on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
 
 ## Assign incident notification contact
 
