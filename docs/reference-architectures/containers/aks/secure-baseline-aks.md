@@ -810,7 +810,7 @@ For the system node pool, the recommended minimum value is 3.
 
 To maintain business continuity, define the Service Level Agreement for the
 infrastructure and your application. For information about monthly uptime
-calculation, see [SLA for Azure Kubernetes Service (AKS)](https:/azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1/).
+calculation, see [SLA for Azure Kubernetes Service (AKS)](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1/).
 
 #### Cluster nodes
 
