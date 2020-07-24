@@ -37,7 +37,7 @@ The [Circuit Breaker pattern](../../patterns/circuit-breaker.md#related-patterns
 
 [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md). A circuit breaker might be able to test the health of a service by sending a request to an endpoint exposed by the service. The service should return information indicating its status.
 
-![GitHub](../../_images/github.png) Samples related to this pattern are [here](https://github.com/mspnp/samples/tree/master/ResiliencyRetryPatternSample). 
+![GitHub](../../_images/github.png) Samples related to this pattern are [here](https://github.com/mspnp/samples/tree/master/Reliability/RetryPatternSample). 
 
 ## Application Health Probes
 
@@ -48,11 +48,11 @@ Configure and test health probes for your load balancers and traffic managers. E
 
 For guidance on implementing health monitoring in your application, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md).
 
-![GitHub](../../_images/github.png) Samples related to heath probes are [here](https://github.com/mspnp/samples/tree/master/ResiliencyHealthProbesSample). 
+![GitHub](../../_images/github.png) Samples related to heath probes are [here](https://github.com/mspnp/samples/tree/master/Reliability/HealthProbesSample). 
 
 - ARM template that deploys an Azure Load Balancer and health probes that detect the  health of the sample service endpoint.
 
-- An ASP.Net Core Web API that shows configuration of health checks at startup.
+- An ASP.NET Core Web API that shows configuration of health checks at startup.
 
 ## Command and Query Responsibility Segregation (CQRS)
 

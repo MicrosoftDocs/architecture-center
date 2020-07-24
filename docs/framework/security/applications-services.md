@@ -29,7 +29,7 @@ applications
 
 - **Legacy** applications are hosted on Infrastructure as a Service (IaaS) virtual machines that typically include all dependencies including OS, middleware, and other components.
 
-- **Modern** Platform as a Service (PaaS) applications don’t require the application owner to manage and secure the underlying server operating systems (OSes) and are sometimes fully “Serverless” and built primarily using functions as a service.
+- **Modern** Platform as a Service (PaaS) applications don’t require the application owner to manage and secure the underlying server operating systems and are sometimes fully “Serverless” and built primarily using functions as a service.
 
     **Notes:** Popular forms of modern applications are application code hosted on Azure App Services and containerized applications (though containers can also be hosted on IaaS VMs or on-premises as well).
 
@@ -260,9 +260,11 @@ identities](https://docs.microsoft.com/azure/active-directory/managed-identities
 to assign identities to resources like VMs and App Services so that developers
 don’t have to manage identities within the application.
 
+For multitenant best practices, see [Manage identity in multitenant applications](https://docs.microsoft.com/azure/architecture/multitenant-identity/).
+
 ## Bottom-up approach to reduce security bug volume and impact
 
-![](images/app-code.png)
+![Application Code - Bottom-up Approach](images/app-code.png)
 
 Reduce the count and potential severity of security bugs in your application by
 implementing security practices and tools during the development lifecycle.
@@ -288,7 +290,7 @@ and output validation, perform fuzz testing, attack surface reviews, and more.
 
 ## Top-down approach through threat modeling
 
-![](images/app-code2.png)
+![Application Code - Top-down approach](images/app-code2.png)
 
 Perform threat modeling on your business-critical applications to discover and
 mitigate potential risks to your organization.
