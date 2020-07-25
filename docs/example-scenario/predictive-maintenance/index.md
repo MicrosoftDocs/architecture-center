@@ -11,95 +11,77 @@ ms.custom: fcp
 
 # Predictive maintenance with the intelligent IoT Edge
 
-Edge computing processes and stores internet-of-things (IoT) data closer to its source, enabling faster responses and reducing network connectivity and cloud storage needs. Edge computing can include artificial intelligence (AI) and machine learning (ML) capabilities to make IoT devices intelligent. This article provide an example implementation of an IoT intelligent edge computing model.
+Internet-of-things (IoT) Edge computing allows data processing and storage close to the source, enabling fast, consistent responses with lower dependency on cloud connectivity and storage. Edge computing can incorporate artificial intelligence (AI) and machine learning (ML) models to create *intelligent edge* devices and networks, which can also integrate with the cloud for further processing. This article describes a collaboration between the Microsoft Commercial Software Engineering (CSE) team and a major railway company to create an [intelligent cloud and intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/) solution for train maintenance and safety.
 
-A major railway company sought to improve their railroad maintenance and safety by proactively identifying defective track and train components, predictively scheduling maintenance and repair, and continuously improving the quality of their findings and predictions.
+The railway company wants to improve railroad safety and efficiency by proactively identifying defective track and train components, predictively scheduling maintenance and repair, and continuously improving the quality of these findings and predictions. The company has more than 4,000 trackside detectors that continuously monitor and stream data from every locomotive and railcar on their network. These detectors measure heat and force of equipment on the tracks, listen for invisible wheel bearing defects or wheel cracks, and use cameras to identify missing or mis-positioned parts.
 
-The company has more than 4,000 trackside detectors that continuously monitor and stream data from every locomotive and railcar on their network. These detectors measure heat and force of equipment on the tracks, listen for wheel bearing defects or wheel cracks before they're visible, and identify missing or mis-positioned parts. Machine learning can use this data to determine the urgency of equipment repairs and spot trends to inform prescriptive maintenance and overhaul schedules.
+The *ML on Edge* solution processes and acts on this continuous streaming detector data in near-real time to identify equipment at risk of failure, determine repair urgency, and notify operations personnel. The pilot project is a train wheel health analysis system, which is deployed to Azure IoT Edge modules running on server class hardware in trackside bungalows. This infrastructure allows for future parallel deployment of other workloads. The system also sends images and data to the Azure cloud for further processing, to spot trends and inform prescriptive maintenance and overhaul schedules. The wheel health analysis system provides early identification of potential equipment failure, expediting condemnation and helping prevent catastrophic failures that could lead to train derailment.
 
-The Microsoft Commercial Software Engineering (CSE) team collaborated with the railway company to develop an *ML on Edge* solution that processes and act on continuous streaming detector data in near-real time. The system also sends images and data for Azure cloud processing.
+Bringing ML applications closer to the data source facilitates tighter decision loops and faster response times to critical system events. Implementing ML, AI, third-party services, or other business logic at the edge of the network allows devices to react more quickly to local changes, and reduces the time and bandwidth needed for communicating with the cloud. Devices can operate reliably even offline or when connectivity is limited. The edge network can also determine which data to send to the cloud, and prioritize urgent or important data first.
 
-Bringing ML applications closer to the data source facilitates tighter decision loops and faster response times to critical system events. Implementing ML, AI, third-party services, or other business logic at the edge of the network allows devices to react more quickly to local changes, and reduces the time and bandwidth needed for communicating with the cloud. Devices can operate reliably even offline or when connectivity is limited. The edge network can also determine which data to send to the cloud, and prioritize more urgent or important data first.
+## Related use cases
 
-The pilot project for the *ML on Edge* platform is a train wheel health analysis system that identifies equipment at risk of failure. This application is deployed to Azure IoT Edge systems running on server class hardware in trackside bungalows. With the infrastructure in place, other parallel workloads can also be deployed. The wheel health analysis system provides early identification of potential equipment failure, expediting condemnation and helping prevent catastrophic failures that could lead to train derailment.
-
-## Potential use cases
-
-These implementations are specifically relevant when large amounts of data are captured in real-time and actions or decisions are needed with little to no latency. 
-
-The goals of the solution architecture were as follows:
-
-- Maintain 99.999% uptime.
-- Guarantee one-hour delivery of alerts & notifications to customer's ERP/work order system.
-- Process up to 24 trains per day.
-- Identify wheel health defects using a machine learning (ML) model on the Edge and then uploading corresponding evidence of possible defect to Azure Blob Storage.
-- Do A/B testing of ML model in the cloud; with a reach goal of extension to A/B testing on the edge devices.
-
-### Considerations
-
-There were several design considerations identified by the team:
-
-- Alert/Alarm/Notification systems require message delivery to on-prem ERP systems within 24hrs (a 99% uptime requirement). There is likely concern that local ISPs may not support required QoS for edge to cloud notifications across the last mile.
-- QoS requirements on bulk data uploading is an additional concern given that local ISPs governs the last mile of connectivity.
-- Edge system does not interface with wheel camera and backing data stores. As such, Edge has no control or ability to alert on camera systems or edge NAS failures.
-- Dust can cover the cameras.
-- There is reliance on third-party vendors. An understanding of how their assets are governed and shared with the customer is critical to long-term solution maintenance. We may also need a placeholder ML module for the engagement (consider darknet), if ML assets are not available; 3 or 4-day pre-engagement lead time.
-- The customer only owns the inferencing system and not model generation. The black box nature poses some risk of dependency as noted above.
+IoT Edge implementations are especially relevant when large amounts of data captured in real time need action or decisions with little or no latency. The example system had to maintain 99.999% uptime, process data from up to 24 trains per day, and guarantee one-hour delivery of alerts and notifications to the railway's emergency response plan or work order system.
 
 ## Architecture
 
-The technical solution is an Intelligent Edge Platform with a wheel health analysis system deployed to the Edge that will identify equipment at risk of failure. The wheel health application is deployed to Azure IoT Edge systems running on server-class hardware housed in trackside bungalows. The ML model processes the images and identifies areas on the wheels that require further inspection, while the edge compute resources, leveraging customized GPUs for performance, prioritize, and alert system operators of wheel fractures and are responsible for uploading all wheel images from the edge to the cloud. Metadata is attached to and archived with images, and historical samples of high and low confidence failure images are used for ML retraining. The DevOps environment is created to build, test, deploy, and archive edge assets. More details about the solution follow below.
+:::image type="content" source="./media/solution-architecture.png" alt-text="Solution architecture diagram that shows the IoT Edge modules in the trackside bungalows delivering image data to Azure Blob Storage and metadata and communications through Azure IoT Hub." border="false":::
 
-This is a customized solution that includes technologies from both Microsoft and third parties. This solution integrates a third-party ML model called Cogniac, and other components such as Azure Blob Storage, Cosmos DB, Event Grid, and more. The prerequisites needed are shown in the following list.
+1. The IoT Edge modules run on server-class hardware in trackside bungalows, using customized industrial automation cards and GPUs for performance.
+1. Trackside detector cameras take three pictures of each wheel to create a stitched image, and send the streaming data to an image file server in each bungalow.
+1. The polling module alerts the device that new images are available for processing.
+1. A third-party open-source ML model called Cogniac scores the images and generates alerts for wheel failures or areas that need further inspection.
+1. The alert handler uploads all images into Azure Blob Storage.
+1. IoT Edge Hub uploads alert notifications via Azure IoT Hub, and uploads metadata for all archived images to Azure Cosmos DB via Azure IoT Hub, Event Hub [Grid?], and an Azure Function.
+1. Azure CosmosDB holds the image metadata and points to the location of images in Azure Blob Storage. ML uses historical samples of high- and low-confidence failure images to retrain its model.
 
-- Azure subscription
-  - Implementor requires permission to add Service Principles and the ability to create Resource Groups, as well as the ability to create resources, such as IoT Hub and Container Registry
-- Azure DevOps
-- Docker CE or Moby
-- Visual Studio or VSCode with Docker, Azure IoT, and relevant language extensions installed
-- Azure IoT Edge
-- Azure IoT Hub
-- Azure CLI
-- Hardware:
-  - One to two physical devices where IoT Edge will be installed
-  - Customized hardware, including GPU cards and industrial automation cards
+## Components
 
-:::image type="content" source="./media/solution-architecture.png" alt-text="Solution architecture diagram." border="false":::
+The deployed solution requires an Azure subscription with permission to add service principals and the ability to create Azure resources.
 
-The architecture developed for this solution is shown above. Processed and categorized train wheel images are available on an image file server (NAS) stored in a bungalow. Three pictures are taken of each wheel to create a stitched image. Wheel health defects are identified by the ML model on the Edge, and corresponding evidence is uploaded to Azure Blob Storage.
+### IoT Edge
 
-Note: The ML model used was considered a bit of a "black box" in this engagement, in that the customer only needed CSE to help make the connections. The customer assumed responsibility for the creation and functionality of this aspect of the solution.
+### Machine learning
 
-The polling module is responsible for alerting Edge modules to the presence of new images for processing. The ML Model scores images and generates alerts at the detection of a defect. The alert handler is responsible for uploading all images, irrespective of defect, into Azure Blob Storage. Azure CosmosDB holds the image metadata and points to the location of images in Azure Blob Storage.
+### Azure Container Registry
 
-:::image type="content" source="./media/edge-architecture.png" alt-text="Edge architecture diagram." border="false":::
+### Azure Blob Storage
 
-The Azure IoT Edge architecture is shown above, which illustrates how the polling module, image uploader, alert handler, ML model(s), Azure ML Services, and third-party open-source software are deployed to the edge runtime environment.
+### IoT Hub
+
+### Event Hub (Grid?)
+
+### Azure Functions
+
+### Cosmos DB
+
+### Azure DevOps
+
+An Azure Pipelines workflow builds, tests, deploys, and archives the IoT Edge solution. The following diagram shows the DevOps architecture.
 
 :::image type="content" source="./media/devops-architecture.png" alt-text="DevOps architecture diagram." border="false":::
 
-The diagram above shows the DevOps architecture used for the solution. This design uses built-in Azure IoT Edge tasks in Azure Pipelines. The first pipeline is the Continuous Integration (CI) pipeline, which is triggered through a code push into the module repository. The DevOps infrastructure builds the module and registers the module image in the Azure Container Registry. Upon completion, the Continuous Deployment (CD) pipeline is triggered; this generates the deployment manifest, which then deploys the module to IoT Edge devices. For this deployment, there are three environments: Dev, QA, and Production. Module promotion from Dev to QA and from QA to Production support both Automatic and Manual gated checks.
+This design uses built-in Azure IoT Edge tasks in Azure Pipelines. In the first, continuous integration (CI) pipeline, a code push into the Git repository triggers the build of the IoT Edge module and registers the module image in Azure Container Registry. When the CI pipeline completes, it triggers the continuous deployment (CD) pipeline, which generates the deployment manifest that deploys the module to IoT Edge devices. This deployment has three environments: Dev, QA, and Production. Module promotion from Dev to QA and from QA to Production supports both automatic and manual gated checks. The railway company hosts the build and CI/CD system on-premises.
 
-As a result of implementing this solution, the customer is better positioned to:
+Building and deploying the solution also uses:
+- Azure CLI.
+- Docker CE or Moby to build and deploy the container modules.
+- For development, Visual Studio or Visual Studio Code with the Docker, Azure IoT, and relevant language extensions.
 
-- Determine the need and urgency of equipment repairs
-- Predictive maintenance using machine learning can spot trends in mechanical wear early
-- Reduce response times to critical system events
-- Identify locomotive or railcar wheel defects by processing images and data in Microsoft Azure, thereby reducing the time to detection and ultimately making railroads safer
-- Improve asset utilization, servicing, and operational efficiency
+## Considerations
 
-In this engagement, monitoring was covered by the customer's existing third-party enterprise solution. The physical security of trackside bungalows and network security were already in place. And connectivity for IoT solutions from the edge to the cloud are secure by default. However, this solution does not replace existing manual inspection requirements as determined by the customer and federal regulatory authorities.
+There were several design considerations identified by the team:
 
-- The solution uptime availability has neared 99.9%. For system availability requirements to be 99.999% puts significant demand on system components, which must then, individually, exceed 99.9999% uptime.
-- The Quality of Service (QoS) for the last mile of connectivity between bungalow and Azure determines the QoS of alerts, alarms, and notifications from the edge compute environment.
-- A watchdog message loop to devices is needed to monitor for potential network partitions or equipment failures (such as camera flash failure).
-- The Edge architecture is currently split into multiple modules but can be condensed into single module depending on solution performance requirements or development team structure.
-- The build and CI/CD system is hosted on-premises.
-
-1. Builds on previous CSE customer engagements in the manufacturing, oil, and gas and natural resource management industries.
-1. [CloudEvents](https://github.com/cloudevents/spec)
-1. [Claim Check Patterns](https://docs.microsoft.com/azure/architecture/patterns/claim-check)
-1. [Command and Query Responsibility Segregation (CQRS) Pattern](http://udidahan.com/2011/04/22/when-to-avoid-cqrs/)
+- The alert, alarm, and notification systems require 99% uptime and message delivery to on-premises systems within 24 hours. The Quality of Service (QoS) for the last mile of connectivity between bungalow and Azure determines the QoS of alerts, alarms, and notifications from the edge. Local internet services providers (ISPs) govern the last mile of connectivity, and may not support the required QoS for edge-to-cloud notifications or bulk data uploading.
+- This IoT Edge system doesn't interface with the wheel cameras and backing data stores, and has no control or ability to alert on camera system or image server failures.
+- The railway company only owns the inferencing system, and relies on a third-party vendor for ML model generation. The black-box nature of the ML module poses some risk of dependency. An understanding of how the third party governs and shares assets with the company is critical to long-term solution maintenance. If ML assets aren't available, the system may be able to use placeholder ML modules for future engagements.
+- For this engagement, the company's existing third-party enterprise solution covered system monitoring. The physical security of trackside bungalows and network security were already in place, and connections from the IoT edge to the cloud are secure by default.
+- This solution doesn't replace existing manual inspection requirements determined by company and federal regulatory authorities.
+- The Edge architecture is currently split into multiple modules, but can be condensed into a single module, depending on solution performance requirements or development team structure.
+- This solution builds on previous CSE customer engagements in the manufacturing, oil, and gas and natural resource management industries:
+  - [CloudEvents](https://github.com/cloudevents/spec)
+  - [Claim Check Patterns](https://docs.microsoft.com/azure/architecture/patterns/claim-check)
+  - [Command and Query Responsibility Segregation (CQRS) Pattern](http://udidahan.com/2011/04/22/when-to-avoid-cqrs/)
 
 ## Related resources
 
