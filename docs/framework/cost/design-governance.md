@@ -18,7 +18,7 @@ Centralized governance can relieve some of the burden related to on-going cost m
 
 - For more detailed information on cost optimization, see the section on [Cost Management discipline](/azure/cloud-adoption-framework/govern/cost-management/). 
 - For an example of the types of guardrails provided by a governance team, see the narrative for [improving the cost management discipline](/azure/cloud-adoption-framework/govern/cost-management/discipline-improvement), which includes examples of suggested tags and policies for improving cost governance.
-- If your team isn't supported by centralized governance teams, see the article on [Cloud governance function](/azure/cloud-adoption-framework/organize/cloud-governance) to better understand the types of activities your team may need to consider including in each sprint.
+- If your team isn't supported by centralized governance teams, see [Cloud governance function](/azure/cloud-adoption-framework/organize/cloud-governance) to better understand the types of activities your team may need to consider including in each sprint.
 
 ## Follow organizational policies that define cost boundaries
 
