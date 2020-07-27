@@ -652,36 +652,34 @@ items:
         href: example-scenario/infrastructure/hpc-cfd.md
   - name: Containers
     items:
-    - name: Architectures
+    - name: AKS Production Baseline
       items:
-      - name: Orchestration with AKS
-        items:
-        - name: Case study - Contoso Bicycle
-          href: reference-architectures/containers/aks/case-study-contoso.md
-        - name: Baseline architecture for an AKS cluster 
-          href: reference-architectures/containers/aks/secure-baseline-aks.md
-      - name: Microservices on AKS
-        items:
-        - name: Microservices architecture on AKS
-          href: reference-architectures/microservices/aks.md
+      - name: Overview
+        href: reference-architectures/containers/aks/secure-baseline-aks.md
+      - name: Operational Excellence
+        href: reference-architectures/containers/aks/secure-baseline-aks.md#operational-excellence
+      - name: Security
+        href: reference-architectures/containers/aks/secure-baseline-aks.md#security
+      - name: Reliability
+        href: reference-architectures/containers/aks/secure-baseline-aks.md#reliability
+      - name: Performance Efficiency
+        href: reference-architectures/containers/aks/secure-baseline-aks.md#performance-efficiency
+      - name: Cost Optimization
+        href: reference-architectures/containers/aks/secure-baseline-aks.md#cost-optimization
+    - name: Microservices on AKS
+      items:
+      - name: Microservices architecture on AKS
+        href: reference-architectures/containers/aks-microservices/aks-microservices.md
+    - name: Architectures 
+      items:
         - name: Microservices with AKS and Azure DevOps
           href: solution-ideas/articles/microservices-with-aks.md
         - name: Secure DevOps for AKS
           href: solution-ideas/articles/secure-devops-for-kubernetes.md
-      - name: API First
-        href: solution-ideas/articles/aks-api-first.md
-      - name: Building a telehealth system
-        href: example-scenario/apps/telehealth-system.md
-      - name: Bursting from AKS with ACI
-        href: solution-ideas/articles/scale-using-aks-with-aci.md
-      - name: CI/CD pipeline for container-based workloads
-        href: example-scenario/apps/devops-with-aks.md
-      - name: Durable Functions for ACI batch processing
-        href: solution-ideas/articles/durable-functions-containers.md
-      - name: Elastic demand handling with AKS
-        href: solution-ideas/articles/aks-demand-spikes.md
-      - name: IoT data streaming with AKS
-        href: solution-ideas/articles/aks-iot-data-streaming.md
+        - name: Building a telehealth system
+          href: example-scenario/apps/telehealth-system.md
+        - name: CI/CD pipeline for container-based workloads
+          href: example-scenario/apps/devops-with-aks.md
   - name: Databases
     items:
     - name: Guides
