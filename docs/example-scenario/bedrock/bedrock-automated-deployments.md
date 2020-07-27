@@ -55,30 +55,13 @@ A typical Bedrock deployment follows three high-level steps:
 2. Create a Fabrikate high-level deployment definition.
 3. Set up a GitOps pipeline to automate deployments of the Fabrikate definition to the Kubernetes cluster based on typical application and cluster lifecycle events.
 
-#### Bedrock is designed for Kubernetes
-
-Kubernetes is an open-source container-orchestration system (maintained by the Cloud Native Computing Foundation) for automating application deployment, scaling, and management. It is designed to provide a platform for automating deployment, scaling, and operations of containerized applications across clusters of hosts. Kubernetes has proven to be a very effective foundation for building efficient and scalable applications in the cloud. Thus, Kubernetes is central to Bedrock.
-
-#### The way it works
-
-Kubernetes is a declarative system:
-
-1. The user creates Kubernetes manifests (typically in YAML) to specify a set of resources that should exist/run in the system.
-2. Kubernetes works to create resources and keep them running.
+Kubernetes, the open-source container-orchestration system, is central to Bedrock, it provides a platform for automating deployment of containerized applications across clusters of hosts. Kubernetes is a *declarative system* that uses manifests (typically written in YAML) to specify a set of resources that should exist and run in the system. Based on these manifests, Kubernetes works to create the specified resources and keep them running. No installations or manual configuration changes are required because, the textual manifest *declares* the desired state. The current state of the cluster is captured completely in the resource manifests as text where it can be programmatically audited against this declarative definition.
 
 The following image shows a sample Kubernetes manifest written in YAML.
 
 ![Image showing a typical YAML manifest with arrows calling out the places where the number of pods and the docker image are specified](./media/fig002.png)
 
 #### Implications of a declarative system
-
-Because Kubernetes is a declarative system, GitOps leverages that fact in the following ways:
-
-* The textual manifest declares the desired state.
-* No installations or manual configuration changes are required.
-* The current state of the cluster is captured completely in the resource manifests as text.
-* The current state of the cluster can be programmatically audited against this declarative definition.
-* The textual nature of declarations allows easy source control management.
 
 ![Diagram illustrating implications of Kubernetes being a declarative system](./media/fig003.png)
 
@@ -127,6 +110,18 @@ Deploy and manage containerized applications more easily with a fully managed Ku
 an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. Unite your development 
 and operations teams on a single platform to rapidly build, deliver, and scale applications with confidence.
 
+#### Implications of a declarative system
+
+Because Kubernetes is a declarative system, GitOps leverages that fact in the following ways:
+
+* The textual manifest declares the desired state.
+* No installations or manual configuration changes are required.
+* The current state of the cluster is captured completely in the resource manifests as text.
+* The current state of the cluster can be programmatically audited against this declarative definition.
+* The textual nature of declarations allows easy source control management.
+
+![Diagram illustrating implications of Kubernetes being a declarative system](./media/fig003.png)
+
 ### Terraform
 
 Terraform is an open-source tool for building, changing, and versioning infrastructure safely and efficiently. It enables users to define and provision the infrastructure of a cloud-based application using a high-level configuration language known as Hashicorp Configuration Language (HCL). These configuration files are used to describe the components needed to run simple or complex applications.
@@ -155,6 +150,14 @@ As mentioned earlier, [GitOps](https://www.weave.works/technologies/gitops/) is 
 Because Kubernetes is declarative, the entire system can be described declaratively. This means that configuration is guaranteed by a set of facts instead of by a set of instructions and those factual declarations are versioned in Git from which they can be deployed as needed. This also means that, as described in [GitOps - Frequently Asked Questions](https://www.weave.works/technologies/gitops-frequently-asked-questions/): "one of the main differences between IaC and GitOps is the use of immutable containers as deployable artifacts that can be converged on by a suitable orchestration tool, for example Kubernetes. Your desired state is kept in source control".
 
 Therefore, Bedrock uses GitOps, in part, because its prescriptive style accommodates infrastructure as code for a cloud native environment.
+
+Because Kubernetes is a declarative system, GitOps leverages that fact in the following ways:
+
+* The textual manifest declares the desired state.
+* No installations or manual configuration changes are required.
+* The current state of the cluster is captured completely in the resource manifests as text.
+* The current state of the cluster can be programmatically audited against this declarative definition.
+* The textual nature of declarations allows easy source control management.
 
 #### Secure and auditable production workflow
 
