@@ -262,7 +262,7 @@ items:
     - name: Monitoring
       href: framework/scalability/monitoring.md
     - name: Checklist
-      href: checklist/scalability.md
+      href: framework/scalability/performance-efficiency.md
   - name: Reliability
     items:
     - name: Overview

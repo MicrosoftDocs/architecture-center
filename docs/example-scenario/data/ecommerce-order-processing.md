@@ -119,6 +119,6 @@ Other related resources include:
 [docs-cosmos-db-use-cases]: https://docs.microsoft.com/azure/cosmos-db/use-cases
 [docs-kafka-high-availability]: https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-high-availability
 [availability]: ../../framework/resiliency/overview.md
-[scalability]: ../../checklist/performance-efficiency.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [resiliency]: ../../patterns/category/resiliency.md
 [security]: https://docs.microsoft.com/azure/security
