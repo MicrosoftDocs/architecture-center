@@ -164,7 +164,7 @@ For more information, see the Cost section in [Microsoft Azure Well-Architected 
 
 ## DevOps considerations
 
-Use Infrastructure as code (IaC) when possible. IaC manages the infrastructure, application, and storage resources with a declarative approach like [Azure Resource Manager][arm-template]. That will help in automating deployment using DevOps as a CI/CD solution. Templates should be versioned and included as part of the release pipeline. 
+Use Infrastructure as code (IaC) when possible. IaC manages the infrastructure, application, and storage resources with a declarative approach like [Azure Resource Manager][arm-template]. That will help in automating deployment using DevOps as a continuous integration and continuous delivery (CI/CD) solution. Templates should be versioned and included as part of the release pipeline. 
 
 When creating templates, group resources as a way to organize and isolate them per workload. A common way to think about workload is a single serveless application or a virtual network. The goal of workload isolation is to associate the resources to a team, so that the DevOps team can independently manage all aspects of those resources and perform continuous integration and continuous delivery (CI/CD).
 
