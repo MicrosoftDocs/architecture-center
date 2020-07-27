@@ -188,8 +188,8 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 
 
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
-[AAF-devops]: /azure/architecture/framework/devops/overview
+[AAF-cost]: https://docs.microsoft.com/azure/architecture/framework/cost/overview
+[AAF-devops]: https://docs.microsoft.com/azure/architecture/framework/devops/overview
 [app-insights]: https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/

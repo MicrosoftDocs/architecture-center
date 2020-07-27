@@ -252,10 +252,9 @@ Learn more about the [serverless implementations](../../serverless/index.md).
 <!-- links -->
 
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
-[AAF-devops]: /azure/architecture/framework/devops/overview
+[AAF-cost]: https://docs.microsoft.com/azure/architecture/framework/cost/overview
+[AAF-devops]: https://docs.microsoft.com/azure/architecture/framework/devops/overview
 [app-insights]: https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview
-[aaf-cost]: ../../framework/cost/overview.md
 [az-logic-apps-ISE]: https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview
 [cosmos-calculator]: https://cosmos.azure.com/capacitycalculator
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
