@@ -216,7 +216,6 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 [ru]: /azure/cosmos-db/request-units
 
 [aaf-cost]: ../../framework/cost/overview.md
-[Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator
 [cosmosdb-geo]: https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally
 [cosmosdb-scale]: https://docs.microsoft.com/azure/cosmos-db/partition-data
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
