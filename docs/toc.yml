@@ -176,22 +176,22 @@ items:
       items:
       - name: Checklist
         href: framework/cost/design-checklist.md
+      - name: Cost model
+        href: framework/cost/design-model.md
+      - name: Capture requirements
+        href: framework/cost/design-capture-requirements.md                
       - name: Azure regions
         href: framework/cost/design-regions.md 
       - name: Azure resources
         href: framework/cost/design-resources.md 
-      - name: Capture requirements
-        href: framework/cost/design-capture-requirements.md
-      - name: Performance and price options
-        href: framework/cost/design-price.md
-      - name: Cost model
-        href: framework/cost/design-model.md
       - name: Governance
         href: framework/cost/design-governance.md
       - name: Initial estimate
         href: framework/cost/design-initial-estimate.md
       - name: Managed services
         href: framework/cost/design-paas.md
+      - name: Performance and price options
+        href: framework/cost/design-price.md        
     - name: Provision
       items:
         - name: Checklist
