@@ -1,7 +1,7 @@
 ---
 title: Failure mode analysis
 description: Guidelines for performing a failure mode analysis for cloud solutions based on Azure.
-author: MikeWasson
+author: adamboeglin
 ms.date: 05/07/2018
 ms.topic: article
 ms.service: architecture-center
@@ -431,6 +431,14 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
   - Prioritize certain clients. For example, if the application has free and paid tiers, throttle customers on the free tier, but not paid customers. See [Priority queue pattern][priority-queue-pattern].
 
 **Diagnostics**. Use [App Service diagnostic logging][app-service-logging]. Use a service such as [Azure Log Analytics][azure-log-analytics], [Application Insights][app-insights], or [New Relic][new-relic] to help understand the diagnostic logs.
+
+![GitHub](../_images/github.png) A sample is available [here](https://github.com/mspnp/samples/tree/master/Reliability/FailureModeAnalysisSample). It uses [Polly](https://github.com/App-vNext/Polly) for these exceptions: 
+
+- 429 - Throttling 
+- 408 - Timeout 
+- 401 - Unauthorized
+- 503 or 5xx - Service unavailable 
+
 
 ### One of the operations in a workflow or distributed transaction fails.
 

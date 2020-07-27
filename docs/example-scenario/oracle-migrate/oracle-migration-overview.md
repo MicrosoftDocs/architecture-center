@@ -9,6 +9,9 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: fcp
+ms.category:
+    - databases
+    - migration
 ---
 
 # Oracle database migration overview

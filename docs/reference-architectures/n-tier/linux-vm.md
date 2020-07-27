@@ -154,7 +154,7 @@ For more information, see the Operationl excellence section in [Microsoft Azure 
 
 <!-- links -->
 
-[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azure-linux]: /azure/virtual-machines/virtual-machines-linux-azure-overview

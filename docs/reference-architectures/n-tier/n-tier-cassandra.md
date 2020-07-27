@@ -1,7 +1,7 @@
 ---
 title: N-tier application with Apache Cassandra
 description: Run Linux virtual machines for an N-tier architecture with Apache Cassandra in Microsoft Azure.
-author: MikeWasson
+author: adamboeglin
 ms.date: 08/21/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -260,7 +260,7 @@ For more information, see the Operational Excellence section in [Microsoft Azure
 
 <!-- links -->
 
-[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
 [WAF-devops]: /azure/architecture/framework/devops/overview
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azbb-template]: https://github.com/mspnp/template-building-blocks/wiki/overview

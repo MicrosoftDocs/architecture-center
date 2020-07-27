@@ -131,6 +131,8 @@ Power BI | [Create and use analytics reports with Power BI][pbi-learn] | [Power 
 
 ### Alternatives
 
+- For situations where device management, authentication, and provisioning are required, [Azure IOT Hub](/azure/iot-hub/) may be a preferred solution over Event Hubs.  Event Hubs should still be considrered for other streaming data sources.
+
 - In the architecture above, Azure Data Factory is the service responsible for data pipeline orchestration. Azure Databricks can also be used to perform the same role through the execution of nested notebooks.
 
 - In the architecture above, Azure Stream Analytics is the service responsible for processing streaming data. Azure Databricks can also be used to perform the same role through the execution of notebooks.

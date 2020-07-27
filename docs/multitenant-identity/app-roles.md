@@ -1,7 +1,7 @@
 ---
 title: Application roles
 description: How to perform authorization using application roles.
-author: MikeWasson
+author: adamboeglin
 ms.date: 07/21/2017
 ms.topic: guide
 ms.service: architecture-center

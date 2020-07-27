@@ -1,7 +1,7 @@
 ---
 title: Design patterns for microservices
 description: Design patterns that to implement a robust microservices architecture.
-author: MikeWasson
+author: adamboeglin
 ms.date: 02/25/2019
 ms.topic: guide
 ms.service: architecture-center

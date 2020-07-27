@@ -90,6 +90,6 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and other A
 
 ## Next steps
 
-* For more information, please contact [iotcovid@microsoft.com](mailto:iotcovid@microsoft.com).
+* For more information, please contact [iotcovidsupport@microsoft.com](mailto:iotcovidsupport@microsoft.com).
 
 * Visit the Microsoft commercial marketplace for info on Cognizant's [OneFacility](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/cognizant.one_facility).
