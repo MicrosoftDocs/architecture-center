@@ -118,6 +118,6 @@ For more information on using the Ethereum Proof-of-Authority solution template 
 [deploy]: https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium
 [source]: https://github.com/vitoc/creditscoreblockchain
 [monitor]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor
-[scalability]: ../../checklist/performance-efficiency.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [security]: https://docs.microsoft.com/azure/security
 [vault]: https://azure.microsoft.com/services/key-vault
