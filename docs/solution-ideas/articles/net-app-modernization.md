@@ -1,5 +1,5 @@
 ---
-title: Modernize .NET applications with Azure SQL DB and Azure App Service 
+title: Modernize .NET applications 
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
 description: Modernize .NET applications with Azure SQL DB and Azure App Service 
@@ -12,7 +12,7 @@ ms.category:
     - databases
 ---
 
-# Modernize .NET applications with Azure SQL DB and Azure App Service
+# Modernize .NET applications
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
