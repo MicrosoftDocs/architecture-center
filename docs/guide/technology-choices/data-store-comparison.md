@@ -2,24 +2,312 @@
 title: Criteria for choosing a data store
 titleSuffix: Azure Application Architecture Guide
 description: Overview of Azure compute options.
-author: adamboeglin
+author: dsk-2015
 ms.date: 06/01/2018
 ms.topic: guide
 ms.service: architecture-center
-ms.category:
-  - storage
-  - databases
 ms.subservice: reference-architecture
 ms.custom: seojan19
 ---
 
-# Criteria for choosing a data store
+# Choose an Azure data store for your application
 
-Azure supports many types of data storage solutions, each providing different features and capabilities. This article describes the comparison criteria you should use when evaluating a data store. The goal is to help you determine which data storage types can meet your solution's requirements.
+Azure offers a number of managed data storage solutions, each providing different features and capabilities. This article will help you to choose a data store for your application. 
 
-## General Considerations
+If your application consists of multiple workloads, evaluate each workload separately. A complete solution may incorporate multiple data stores. 
 
-To start your comparison, gather as much of the following information as you can about your data needs. This information will help you to determine which data storage types will meet your needs.
+## Choose a candidate data store
+
+Use the following flowchart to select a candidate data store.
+
+![](../images/data-store-decision-tree.svg)
+
+The output from this flowchart is a **starting point** for consideration. Next, perform a more detailed evaluation of the data store to see if it meets your needs.
+
+## Understand the data storage models
+
+Modern business systems manage increasingly large volumes of heterogeneous data. A single data store is usually not the best approach. Instead, it's often better to store different types of data in different data stores, each focused on a specific workload or usage pattern. The term *polyglot persistence* refers to solutions that use a mix of data store technologies. Therefore, it's important to understand the main storage models and their tradeoffs.
+
+### Relational database management systems
+
+Relational databases organize data as a series of two-dimensional tables with rows and columns. Most vendors provide a dialect of the Structured Query Language (SQL) for retrieving and managing data. An RDBMS typically implements a transactionally consistent mechanism that conforms to the ACID (Atomic, Consistent, Isolated, Durable) model for updating information.
+
+An RDBMS typically supports a schema-on-write model, where the data structure is defined ahead of time, and all read or write operations must use the schema. 
+
+This model is very useful when strong consistency guarantees are important &mdash; where all changes are atomic, and transactions always leave the data in a consistent state. However, an RDBMS generally can't scale out horizontally without sharding the data in some way. Also, the data in an RDBMS must normalized, which isn't appropriate for every data set. 
+
+#### Azure services
+
+- [Azure SQL Database][sql-db]
+- [Azure Database for MySQL][mysql]
+- [Azure Database for PostgreSQL][postgres]
+- [Azure Database for MariaDB][mariadb]
+
+#### Workload
+
+- Records are frequently created and updated.
+- Multiple operations have to be completed in a single transaction.
+- Relationships are enforced using database constraints.
+- Indexes are used to optimize query performance.
+
+#### Data type
+
+- Data is highly normalized.
+- Database schemas are required and enforced.
+- Many-to-many relationships between data entities in the database.
+- Constraints are defined in the schema and imposed on any data in the database.
+- Data requires high integrity. Indexes and relationships need to be maintained accurately.
+- Data requires strong consistency. Transactions operate in a way that ensures all data are 100% consistent for all users and processes.
+- Size of individual data entries is small to medium-sized.
+
+#### Examples
+
+- Inventory management
+- Order management
+- Reporting database
+- Accounting
+
+### Key/value stores
+
+A key/value store associates each data value with a unique key. Most key/value stores only support simple query, insert, and delete operations. To modify a value (either partially or completely), an application must overwrite the existing data for the entire value. In most implementations, reading or writing a single value is an atomic operation.
+
+An application can store arbitrary data as a set of values. Any schema information must be provided by the application. The key/value store simply retrieves or stores the value by key.
+
+![Diagram of a key-value store](./images/key-value.png)
+
+Key/value stores are highly optimized for applications performing simple lookups, but are less suitable if you need to query data across different key/value stores. Key/value stores are also not optimized for querying by value.
+
+A single key/value store can be extremely scalable, as the data store can easily distribute data across multiple nodes on separate machines.
+
+#### Azure services
+
+- [Cosmos DB][cosmos-db]
+- [Azure Cache for Redis][redis]
+
+#### Workload
+
+- Data is accessed using a single key, like a dictionary.
+- No joins, lock, or unions are required.
+- No aggregation mechanisms are used.
+- Secondary indexes are generally not used.
+
+#### Data type
+
+- Each key is associated with a single value.
+- There is no schema enforcement.
+- No relationships between entities.
+
+#### Examples
+
+- Data caching
+- Session management
+- User preference and profile management
+- Product recommendation and ad serving
+
+### Document databases
+
+A document database stores a collection of *documents*, where each document consists of named fields and data. The data can be simple values or complex elements such as lists and child collections. Documents are retrieves by unique keys.
+
+Typically, a document contains the data for single entity, such as a customer or an order. A document may contain information that would be spread across several relational tables in an RDBMS. Documents don't need to have the same structure. Applications can store different data in documents as business requirements change.
+
+![Diagram of a document store](./images/document.png)
+
+#### Azure service
+
+- [Cosmos DB][cosmos-db]
+
+#### Workload
+
+- Insert and update operations are common. 
+- No object-relational impedance mismatch. Documents can better match the object structures used in application code.
+- Individual documents are retrieved and written as a single block.
+- Data requires index on multiple fields.
+
+#### Data type
+
+- Data can be managed in de-normalized way.
+- Size of individual document data is relatively small.
+- Each document type can use its own schema.
+- Documents can include optional fields.
+- Document data is semi-structured, meaning that data types of each field are not strictly defined.
+
+#### Examples
+
+- Product catalog
+- Content management
+- Inventory management
+
+### Graph databases
+
+A graph database stores two types of information, nodes and edges. Edges specify relationships between nodes. Nodes and edges can have properties that provide information about that node or edge, similar to columns in a table. Edges can also have a direction indicating the nature of the relationship.
+
+Graph databases can efficiently perform queries across the network of nodes and edges and analyze the relationships between entities. The following diagram shows an organization's personnel database structured as a graph. The entities are employees and departments, and the edges indicate reporting relationships and the departments in which employees work.
+
+![Diagram of a document database](./images/graph.png)
+
+This structure makes it straightforward to perform queries such as "Find all employees who report directly or indirectly to Sarah" or "Who works in the same department as John?" For large graphs with lots of entities and relationships, you can perform very complex analyses very quickly. Many graph databases provide a query language that you can use to traverse a network of relationships efficiently.
+
+
+#### Azure service
+
+- [Cosmos DB Gremlin API][cosmos-gremlin]
+
+#### Workload
+
+ - Complex relationships between data items involving many hops between related data items.
+ - The relationship between data items are dynamic and change over time.
+ - Relationships between objects are first-class citizens, without requiring foreign-keys and joins to traverse.
+
+#### Data type
+
+ - Nodes and relationships.
+ - Nodes are similar to table rows or JSON documents.
+ - Relationships are just as important as nodes, and are exposed directly in the query language.
+ - Composite objects, such as a person with multiple phone numbers, tend to be broken into separate, smaller nodes, combined with traversable relationships 
+
+#### Examples
+
+ - Organization charts
+ - Social graphs
+ - Fraud detection
+ - Recommendation engines
+
+### Data analytics
+
+Data analytics stores provide massively parallel solutions for ingesting, storing, and analyzing data. The data is distributed across multiple servers to maximize scalability.
+
+#### Azure services
+
+- [Azure Synapse Analytics][sql-dw]
+- [Azure Data Lake][data-lake]
+- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/)
+
+#### Workload
+
+- Data analytics
+- Enterprise BI
+
+#### Data type
+
+- Historical data from multiple sources.
+- Usually denormalized in a &quot;star&quot; or &quot;snowflake&quot; schema, consisting of fact and dimension tables.
+- Usually loaded with new data on a scheduled basis.
+- Dimension tables often include multiple historic versions of an entity, referred to as a <em>slowly changing dimension</em>.
+
+#### Examples
+
+- Enterprise data warehouse
+
+### Search Engine Databases
+
+A search engine database allows applications to search for information held in external data stores. A search engine database can index massive volumes of data and provide near real-time access to these indexes. 
+
+Indexes can be multi-dimensional and may support free-text searches across large volumes of text data. Indexing can be performed using a pull model, triggered by the search engine database, or using a push model, initiated by external application code.
+
+Searching can be exact or fuzzy. A fuzzy search finds documents that match a set of terms and calculates how closely they match. Some search engines also support linguistic analysis that can return matches based on synonyms, genre expansions (for example, matching `dogs` to `pets`), and stemming (matching words with the same root).
+
+#### Azure service
+
+- [Azure Search][search]
+
+#### Workload
+
+- Data indexes from multiple sources and services.
+- Queries are ad-hoc and can be complex.
+- Full text search is required.
+- Ad hoc self-service query is required.
+
+#### Data type
+
+- Semi-structured or unstructured text
+- Text with reference to structured data
+
+#### Examples
+
+- Product catalogs
+- Site search
+- Logging
+
+### Time series databases
+
+Time series data is a set of values organized by time. Time series databases  typically collect large amounts of data in real time from a large number of sources. Updates are rare, and deletes are often done as bulk operations. Although the records written to a time-series database are generally small,  there are often a large number of records, and total data size can grow rapidly.
+
+#### Azure service
+
+- [Time Series Insights][time-series]
+
+#### Workload
+
+- Records are generally appended sequentially in time order.
+- An overwhelming proportion of operations (95-99%) are writes.
+- Updates are rare.
+- Deletes occur in bulk, and are made to contiguous blocks or records.
+- Data is read sequentially in either ascending or descending time order, often in parallel.
+
+#### Data type
+
+ - A timestamp is used as the primary key and sorting mechanism.
+ - Tags may define additional information about the type, origin, and other information about the entry.
+
+#### Examples
+
+- Monitoring and event telemetry.
+- Sensor or other IoT data.
+
+### Object storage
+
+Object storage is optimized for storing and retrieving large binary objects (images, files, video and audio streams, large application data objects and documents, virtual machine disk images). Object stores can manage extremely large amounts of unstructured data.
+
+#### Azure service
+
+- [Blob Storage][blob]
+
+#### Workload
+
+- Identified by key.
+- Content is typically an asset such as a spreadsheet, image, or video file.
+- Content must be durable and external to any application tier.
+
+#### Data type
+
+- Data size is large.
+- Value is opaque.
+
+#### Examples
+
+- Images, videos, office documents, PDFs
+- Static HTML, JSON, CSS
+- Log and audit files
+- Database backups
+
+### Shared files
+
+Sometimes, using simple flat files can be the most effective means of storing and retrieving information. Using file shares enables files to be accessed across a network. Given appropriate security and concurrent access control mechanisms, sharing data in this way can enable distributed services to provide highly scalable data access for performing basic, low-level operations such as simple read and write requests.
+
+#### Azure service
+
+[File Storage][file-storage]
+
+### Shared files
+
+#### Workload
+
+- Migration from existing apps that interact with the file system.
+- Requires SMB interface.
+
+#### Data type
+
+- Files in a hierarchical set of folders.
+- Accessible with standard I/O libraries.
+
+#### Examples
+
+- Legacy files
+- Shared content accessible among a number of VMs or app instances
+
+## General considerations
+
+Keep the following considerations in mind when making your selection. 
 
 ### Functional requirements
 
@@ -81,372 +369,21 @@ To start your comparison, gather as much of the following information as you can
 
 - **Clients** Is there good client support for your development languages?
 
-The following sections compare various data store models in terms of workload profile, data types, and example use cases.
-
-## Relational database management systems (RDBMS)
-
-<!-- markdownlint-disable MD033 -->
-
-<table>
-<tr><td><strong>Workload</strong></td>
-    <td>
-        <ul>
-            <li>Both the creation of new records and updates to existing data happen regularly.</li>
-            <li>Multiple operations have to be completed in a single transaction.</li>
-            <li>Requires aggregation functions to perform cross-tabulation.</li>
-            <li>Strong integration with reporting tools is required.</li>
-            <li>Relationships are enforced using database constraints.</li>
-            <li>Indexes are used to optimize query performance.</li>
-            <li>Allows access to specific subsets of data.</li>
-        </ul>
-    </td>
-</tr>
-<tr><td><strong>Data type</strong></td>
-    <td>
-        <ul>
-            <li>Data is highly normalized.</li>
-            <li>Database schemas are required and enforced.</li>
-            <li>Many-to-many relationships between data entities in the database.</li>
-            <li>Constraints are defined in the schema and imposed on any data in the database.</li>
-            <li>Data requires high integrity. Indexes and relationships need to be maintained accurately.</li>
-            <li>Data requires strong consistency. Transactions operate in a way that ensures all data are 100% consistent for all users and processes.</li>
-            <li>Size of individual data entries is intended to be small to medium-sized.</li>
-        </ul>
-    </td>
-</tr>
-<tr><td><strong>Examples</strong></td>
-    <td>
-        <ul>
-            <li>Line of business  (human capital management, customer relationship management, enterprise resource planning)</li>
-            <li>Inventory management</li>
-            <li>Reporting database</li>
-            <li>Accounting</li>
-            <li>Asset management</li>
-            <li>Fund management</li>
-            <li>Order management</li>
-        </ul>
-    </td>
-</tr>
-</table>
-
-## Document databases
-
-<table>
-<tr><td><strong>Workload</strong></td>
-    <td>
-        <ul>
-            <li>General purpose.</li>
-            <li>Insert and update operations are common. Both the creation of new records and updates to existing data happen regularly.</li>
-            <li>No object-relational impedance mismatch. Documents can better match the object structures used in application code.</li>
-            <li>Optimistic concurrency is more commonly used.</li>
-            <li>Data must be modified and processed by consuming application.</li>
-            <li>Data requires index on multiple fields.</li>
-            <li>Individual documents are retrieved and written as a single block.</li>
-    </td>
-</tr>
-<tr><td><strong>Data type</strong></td>
-    <td>
-        <ul>
-            <li>Data can be managed in de-normalized way.</li>
-            <li>Size of individual document data is relatively small.</li>
-            <li>Each document type can use its own schema.</li>
-            <li>Documents can include optional fields.</li>
-            <li>Document data is semi-structured, meaning that data types of each field are not strictly defined.</li>
-            <li>Data aggregation is supported.</li>
-        </ul>
-    </td>
-</tr>
-<tr><td><strong>Examples</strong></td>
-    <td>
-        <ul>
-            <li>Product catalog</li>
-            <li>User accounts</li>
-            <li>Bill of materials</li>
-            <li>Personalization</li>
-            <li>Content management</li>
-            <li>Operations data</li>
-            <li>Inventory management</li>
-            <li>Transaction history data</li>
-            <li>Materialized view of other NoSQL stores. Replaces file and Blob indexing.</li>
-        </ul>
-    </td>
-</tr>
-</table>
-
-## Key/value stores
-
-<table>
-<tr><td><strong>Workload</strong></td>
-    <td>
-        <ul>
-            <li>Data is identified and accessed using a single ID key, like a dictionary.</li>
-            <li>Massively scalable.</li>
-            <li>No joins, lock, or unions are required.</li>
-            <li>No aggregation mechanisms are used.</li>
-            <li>Secondary indexes are generally not used.</li>
-        </ul>
-    </td>
-</tr>
-<tr><td><strong>Data type</strong></td>
-    <td>
-        <ul>
-            <li>Data size tends to be large.</li>
-            <li>Each key is associated with a single value, which is an unmanaged data Blob.</li>
-            <li>There is no schema enforcement.</li>
-            <li>No relationships between entities.</li>
-        </ul>
-    </td>
-</tr>
-<tr><td><strong>Examples</strong></td>
-    <td>
-        <ul>
-            <li>Data caching</li>
-            <li>Session management</li>
-            <li>User preference and profile management</li>
-            <li>Product recommendation and ad serving</li>
-            <li>Dictionaries</li>
-        </ul>
-    </td>
-</tr>
-</table>
-
-## Graph databases
-
-<table>
-<tr><td><strong>Workload</strong></td>
-    <td>
-        <ul>
-            <li>The relationships between data items are very complex, involving many hops between related data items.</li>
-            <li>The relationship between data items are dynamic and change over time.</li>
-            <li>Relationships between objects are first-class citizens, without requiring foreign-keys and joins to traverse.</li>
-        </ul>
-    </td>
-</tr>
-<tr><td><strong>Data type</strong></td>
-    <td>
-        <ul>
-            <li>Data is comprised of nodes and relationships.</li>
-            <li>Nodes are similar to table rows or JSON documents.</li>
-            <li>Relationships are just as important as nodes, and are exposed directly in the query language.</li>
-            <li>Composite objects, such as a person with multiple phone numbers, tend to be broken into separate, smaller nodes, combined with traversable relationships </li>
-        </ul>
-    </td>
-</tr>
-<tr><td><strong>Examples</strong></td>
-    <td>
-        <ul>
-            <li>Organization charts</li>
-            <li>Social graphs</li>
-            <li>Fraud detection</li>
-            <li>Analytics</li>
-            <li>Recommendation engines</li>
-        </ul>
-    </td>
-</tr>
-</table>
-
-## Column-family databases
-
-<table>
-<tr><td><strong>Workload</strong></td>
-    <td>
-        <ul>
-            <li>Most column-family databases perform write operations extremely quickly.</li>
-            <li>Update and delete operations are rare.</li>
-            <li>Designed to provide high throughput and low-latency access.</li>
-            <li>Supports easy query access to a particular set of fields within a much larger record.</li>
-            <li>Massively scalable.</li>
-        </ul>
-    </td>
-</tr>
-<tr><td><strong>Data type</strong></td>
-    <td>
-        <ul>
-            <li>Data is stored in tables consisting of a key column and one or more column families.</li>
-            <li>Specific columns can vary by individual rows.</li>
-            <li>Individual cells are accessed via get and put commands</li>
-            <li>Multiple rows are returned using a scan command.</li>
-        </ul>
-    </td>
-</tr>
-<tr><td><strong>Examples</strong></td>
-    <td>
-        <ul>
-            <li>Recommendations</li>
-            <li>Personalization</li>
-            <li>Sensor data</li>
-            <li>Telemetry</li>
-            <li>Messaging</li>
-            <li>Social media analytics</li>
-            <li>Web analytics</li>
-            <li>Activity monitoring</li>
-            <li>Weather and other time-series data</li>
-        </ul>
-    </td>
-</tr>
-</table>
-
-## Search engine databases
-
-<table>
-<tr><td><strong>Workload</strong></td>
-    <td>
-        <ul>
-            <li>Indexing data from multiple sources and services.</li>
-            <li>Queries are ad-hoc and can be complex.</li>
-            <li>Requires aggregation.</li>
-            <li>Full text search is required.</li>
-            <li>Ad hoc self-service query is required.</li>
-            <li>Data analysis with index on all fields is required.</li>
-        </ul>
-    </td>
-</tr>
-<tr><td><strong>Data type</strong></td>
-    <td>
-        <ul>
-            <li>Semi-structured or unstructured</li>
-            <li>Text</li>
-            <li>Text with reference to structured data</li>
-        </ul>
-    </td>
-</tr>
-<tr><td><strong>Examples</strong></td>
-    <td>
-        <ul>
-            <li>Product catalogs</li>
-            <li>Site search</li>
-            <li>Logging</li>
-            <li>Analytics</li>
-            <li>Shopping sites</li>
-        </ul>
-    </td>
-</tr>
-</table>
-
-## Data warehouse
-
-<table>
-<tr><td><strong>Workload</strong></td>
-    <td>
-        <ul>
-            <li>Data analytics</li>
-            <li>Enterprise BI</li>
-        </ul>
-    </td>
-</tr>
-<tr><td><strong>Data type</strong></td>
-    <td>
-        <ul>
-            <li>Historical data from multiple sources.</li>
-            <li>Usually denormalized in a &quot;star&quot; or &quot;snowflake&quot; schema, consisting of fact and dimension tables.</li>
-            <li>Usually loaded with new data on a scheduled basis.</li>
-            <li>Dimension tables often include multiple historic versions of an entity, referred to as a <em>slowly changing dimension</em>.</li>
-        </ul>
-    </td>
-</tr>
-<tr><td><strong>Examples</strong></td>
-    <td>An enterprise data warehouse that provides data for analytical models, reports, and dashboards.
-    </td>
-</tr>
-</table>
-
-## Time series databases
-
-<table>
-<tr><td><strong>Workload</strong></td>
-    <td>
-        <ul>
-            <li>An overwhelming proportion of operations (95-99%) are writes.</li>
-            <li>Records are generally appended sequentially in time order.</li>
-            <li>Updates are rare.</li>
-            <li>Deletes occur in bulk, and are made to contiguous blocks or records.</li>
-            <li>Read requests can be larger than available memory.</li>
-            <li>It&#39;s common for multiple reads to occur simultaneously.</li>
-            <li>Data is read sequentially in either ascending or descending time order.</li>
-        </ul>
-    </td>
-</tr>
-<tr><td><strong>Data type</strong></td>
-    <td>
-        <ul>
-            <li>A timestamp that is used as the primary key and sorting mechanism.</li>
-            <li>Measurements from the entry or descriptions of what the entry represents.</li>
-            <li>Tags that define additional information about the type, origin, and other information about the entry.</li>
-        </ul>
-    </td>
-</tr>
-<tr><td><strong>Examples</strong></td>
-    <td>
-        <ul>
-            <li>Monitoring and event telemetry.</li>
-            <li>Sensor or other IoT data.</li>
-        </ul>
-    </td>
-</tr>
-</table>
-
-## Object storage
-
-<table>
-<tr><td><strong>Workload</strong></td>
-    <td>
-        <ul>
-            <li>Identified by key.</li>
-            <li>Objects may be publicly or privately accessible.</li>
-            <li>Content is typically an asset such as a spreadsheet, image, or video file.</li>
-            <li>Content must be durable (persistent), and external to any application tier or virtual machine.</li>
-        </ul>
-    </td>
-</tr>
-<tr><td><strong>Data type</strong></td>
-    <td>
-        <ul>
-            <li>Data size is large.</li>
-            <li>Blob data.</li>
-            <li>Value is opaque.</li>
-        </ul>
-    </td>
-</tr>
-<tr><td><strong>Examples</strong></td>
-    <td>
-        <ul>
-            <li>Images, videos, office documents, PDFs</li>
-            <li>CSS, Scripts, CSV</li>
-            <li>Static HTML, JSON</li>
-            <li>Log and audit files</li>
-            <li>Database backups</li>
-        </ul>
-    </td>
-</tr>
-</table>
-
-## Shared files
-
-<table>
-<tr><td><strong>Workload</strong></td>
-    <td>
-        <ul>
-            <li>Migration from existing apps that interact with the file system.</li>
-            <li>Requires SMB interface.</li>
-        </ul>
-    </td>
-</tr>
-<tr><td><strong>Data type</strong></td>
-    <td>
-        <ul>
-            <li>Files in a hierarchical set of folders.</li>
-            <li>Accessible with standard I/O libraries.</li>
-        </ul>
-    </td>
-</tr>
-<tr><td><strong>Examples</strong></td>
-    <td>
-        <ul>
-            <li>Legacy files</li>
-            <li>Shared content accessible among a number of VMs or app instances</li>
-        </ul>
-    </td>
-</tr>
-</table>
-
 <!-- markdownlint-enable MD033 -->
+
+<!-- links -->
+
+[blob]: https://azure.microsoft.com/services/storage/blobs/
+[cosmos-db]: /azure/cosmos-db/
+[cosmos-gremlin]: /azure/cosmos-db/graph-introduction
+[data-lake]: https://azure.microsoft.com/solutions/data-lake/
+[file-storage]: https://azure.microsoft.com/services/storage/files/
+[hbase]: /azure/hdinsight/hdinsight-hbase-overview
+[mysql]: https://azure.microsoft.com/services/mysql/
+[postgres]: https://azure.microsoft.com/services/postgresql/
+[mariadb]: https://azure.microsoft.com/services/mariadb/
+[redis]: https://azure.microsoft.com/services/cache/
+[search]: https://azure.microsoft.com/services/search/
+[sql-db]: https://azure.microsoft.com/services/sql-database
+[sql-dw]: https://azure.microsoft.com/services/sql-data-warehouse/
+[time-series]: https://azure.microsoft.com/services/time-series-insights/
