@@ -1049,10 +1049,10 @@ items:
         href: solution-ideas/articles/iot-devices.md
       - name: IoT using Cosmos DB
         href: solution-ideas/articles/iot-using-cosmos-db.md
-      - name: IoT using SQL DB
-        href: reference-architectures/iot-with-sql.md
       - name: IoT Connected Platform
         href: solution-ideas/articles/iot-connected-platform.md
+      - name: IoT predictive maintenance
+        href: example-scenario/predictive-maintenance/iot-predictive-maintenance.md
       - name: Smart building management with IoT
         href: solution-ideas/articles/ibems-shield-smart-buildings.md
       - name: Contactless IoT interfaces
