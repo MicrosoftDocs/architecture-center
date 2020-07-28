@@ -13,11 +13,11 @@ ms.custom: microservices
 
 # Microservices architecture on Azure Kubernetes Service (AKS)
 
-This reference architecture shows a microservices application deployed to Azure Kubernetes Service (AKS). It describes a basic AKS configuration that can be the starting point for most deployments. This article assumes basic knowledge of Kubernetes. The article focuses mainly on the infrastructure and DevOps considerations of running a microservices architecture on AKS. For guidance on how to design microservices, see [Building microservices on Azure](../../microservices/index.md).
+This reference architecture shows a microservices application deployed to Azure Kubernetes Service (AKS). It describes a basic AKS configuration that can be the starting point for most deployments. This article assumes basic knowledge of Kubernetes. The article focuses mainly on the infrastructure and DevOps considerations of running a microservices architecture on AKS. For guidance on how to design microservices, see [Building microservices on Azure](/docs/microservices/index.md).
 
-![GitHub logo](../../_images/github.png) A reference implementation of this architecture is available on [GitHub][ri].
+![GitHub logo](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub][ri].
 
-![AKS reference architecture](./_images/aks.png)
+![AKS reference architecture](./images/aks.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
@@ -65,7 +65,7 @@ In Kubernetes, the functionality of an API gateway is mostly handled by the **In
 
 ### Data storage
 
-In a microservices architecture, services should not share data storage. Each service should own its own private data in a separate logical storage, to avoid hidden dependencies among services. The reason is to avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements. For more information, see [Designing microservices: Data considerations](../../microservices/design/data-considerations.md).
+In a microservices architecture, services should not share data storage. Each service should own its own private data in a separate logical storage, to avoid hidden dependencies among services. The reason is to avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements. For more information, see [Designing microservices: Data considerations](/docs/microservices/design/data-considerations.md).
 
 Avoid storing persistent data in local cluster storage, because that ties the data to the node. Instead,
 
@@ -85,7 +85,7 @@ The Kubernetes **Service** object provides a set of capabilities that match the 
 
 The following diagram shows the conceptual relation between services and pods. The actual mapping to endpoint IP addresses and ports is done by kube-proxy, the Kubernetes network proxy.
 
-![Services and pods](./_images/aks-services.png)
+![Services and pods](./images/aks-services.png)
 
 ## Ingress
 
@@ -108,7 +108,7 @@ On the other hand, if you need complete control over the settings, you may want 
 > For AKS, you can also use Azure Application Gateway, using the [Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/). This option requires [CNI networking](https://docs.microsoft.com/azure/aks/configure-azure-cni) to be enabled when you configure the AKS cluster, because Application Gateway is deployed into a subnet of the AKS virtual network. 
 Azure Application Gateway can perform layer-7 routing and SSL termination. It also has built-in support for web application firewall (WAF).
 
-For information about load-balancing services in Azure, see [Overview of load-balancing options in Azure](../../guide/technology-choices/load-balancing-overview.md).
+For information about load-balancing services in Azure, see [Overview of load-balancing options in Azure](/docs/guide/technology-choices/load-balancing-overview.md).
 
 ### TLS/SSL encryption
 
@@ -117,7 +117,7 @@ In common implementations, the Ingress controller is used for SSL termination. S
 
 For production workloads, get signed certificates from trusted certificate authorities (CA). For information about generating and configuring [Let's Encrypt](https://letsencrypt.org/) certificates, see [Create an ingress controller with a static public IP address in Azure Kubernetes Service (AKS)](/azure/aks/ingress-static-ip).
 
-You may also need to rotate your certificates as per the organization's policies. For information, see, [Rotate certificates in Azure Kubernetes Service (AKS)](/azure/aks/certificate-rotation). 
+You may also need to rotate your certificates as per the organization's policies. For information, see, [Rotate certificates in Azure Kubernetes Service (AKS)](/azure/aks/certificate-rotation).
 
 ## Namespaces
 
@@ -183,7 +183,7 @@ Here are some considerations when designing probes:
 
 ## Resource constraints
 
-Resource contention can affect the availability of a service. Define resource constraints for containers, so that a single container cannot overwhelm the cluster resources (memory and CPU). For non-container resources, such as threads or network connections, consider using the [Bulkhead Pattern](../../patterns/bulkhead.md) to isolate resources.
+Resource contention can affect the availability of a service. Define resource constraints for containers, so that a single container cannot overwhelm the cluster resources (memory and CPU). For non-container resources, such as threads or network connections, consider using the [Bulkhead Pattern](/docs/patterns/bulkhead.md) to isolate resources.
 
 Use resource quotas to limit the total resources allowed for a namespace. That way, the front end can't starve the backend services for resources or vice-versa.
 
@@ -269,7 +269,7 @@ Automate image patching using ACR Tasks, a feature of Azure Container Registry. 
 
 This reference architecture provides an [Azure Resource Manager template][arm-template] for provisioning the cloud resources, and its dependencies. With the use of [Azure Resource Manager templates][arm-template] you can use [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production scenarios. This allows you save cost and provision load testing environment only when needed.
 
-Consider following the workload isolation criteria to structure your ARM template, a workload is typically defined as an arbitrary unit of functionality; you could, for exmaple, have a separate template for the cluster and then other for the dependant services. Workload isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD), since every workload is associated and managed by its corresponding DevOps team. 
+Consider following the workload isolation criteria to structure your ARM template, a workload is typically defined as an arbitrary unit of functionality; you could, for exmaple, have a separate template for the cluster and then other for the dependant services. Workload isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD), since every workload is associated and managed by its corresponding DevOps team.
 
 ## Deployment (CI/CD) considerations
 
@@ -281,9 +281,9 @@ Here are some goals of a robust CI/CD process for a microservices architecture:
 - Sufficient access control policies are in place.
 - For containerized workloads, you can trust the container images that are deployed to production.
 
-To learn more about the challenges, see [CI/CD for microservices architectures](../../microservices/ci-cd.md).
+To learn more about the challenges, see [CI/CD for microservices architectures](/docs/microservices/ci-cd.md).
 
-For specific recommendations and best practices, see [CI/CD for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.md).
+For specific recommendations and best practices, see [CI/CD for microservices on Kubernetes](/docs/microservices/ci-cd-kubernetes.md).
 
 ## Cost considerations
 
@@ -312,23 +312,22 @@ This reference architecture only uses Azure Pipelines. Azure offers the Azure Pi
 
 For Azure Monitor Log Analytics, you are charged for data ingestion and retention. For more information, see [Azure Monitor Pricing][az-monitor-pricing] for more information.
 
-
 ## Deploy the solution
 
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][ri-deploy].
 
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+
 ## Next steps
 
-
-- To learn about monitoring this architecture, see [Monitoring a microservices architecture in Azure Kubernetes Service (AKS)](../../microservices/logging-monitoring.md).
-- To learn how we measured the performance of this application, see [Performance tuning scenario: Distributed business transactions](../../performance/distributed-transaction.md).
+- To learn about monitoring this architecture, see [Monitoring a microservices architecture in Azure Kubernetes Service (AKS)](/docs/microservices/logging-monitoring.md).
+- To learn how we measured the performance of this application, see [Performance tuning scenario: Distributed business transactions](/docs/performance/distributed-transaction.md).
 
 [ri]: https://github.com/mspnp/microservices-reference-implementation
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.md
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/aks-reference-architecture.vsdx
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /docs/framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services
 [AppGatewayPricing]: https://azure.microsoft.com/pricing/details/application-gateway
