@@ -20,7 +20,7 @@ If your application consists of multiple workloads, evaluate each workload separ
 
 Use the following flowchart to select a candidate data store.
 
-![](../images/data-store-decision-tree.svg)
+![Data store decision tree](./images/data-store-decision-tree.svg)
 
 The output from this flowchart is a **starting point** for consideration. Next, perform a more detailed evaluation of the data store to see if it meets your needs.
 
