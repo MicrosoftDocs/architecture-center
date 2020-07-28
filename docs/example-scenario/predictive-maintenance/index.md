@@ -21,7 +21,7 @@ Bringing ML and business logic closer to the data sources lets devices react fas
 
 The wheel health analysis system provides early identification of potential equipment failure, helping prevent catastrophic failures that could lead to train derailment. The company can use stored data to spot trends and inform prescriptive maintenance and overhaul schedules.
 
-## Related use cases
+## Use cases
 
 IoT Edge implementations are most relevant when large amounts of data captured in real time need action or decisions with little or no latency. The example system had to maintain 99.999% uptime, process data from up to 24 trains and 35 million readings per day, and guarantee one-hour delivery of alerts and notifications.
 
@@ -31,8 +31,8 @@ IoT Edge implementations are most relevant when large amounts of data captured i
 
 1. An image file server (NAS) in a bungalow serves processed and categorized train wheel images. Three pictures of each wheel create a stitched image.
 1. The polling module alerts the Edge device that new images are available for processing.
-1. A third-party open-source ML model called Cogniac processes the images and identifies wheel areas that need more inspection.
-1. The alert handler uploads all images into Azure Blob Storage, starting with those that have potential defects, and returns the image blob URIs.
+1. A third-party ML model processes the images and identifies wheel areas that need more inspection.
+1. The alert handler uploads all images into Azure Blob Storage, starting with images that have potential defects, and returns the image blob URIs.
 1. IoT Edge Hub associates the image URIs with image metadata, and uploads the metadata and alerts to Azure IoT Hub.
 1. IoT Hub sends the metadata via Event Hub and Azure Functions to an Azure Cosmos DB database.
 1. The Cosmos DB database holds the image metadata and points to the location of images in Azure Blob Storage.
@@ -54,7 +54,7 @@ The deployed solution requires an Azure subscription with permission to add serv
 
 The team identified several design considerations:
 
-- The system requires 99% uptime and on-premises message delivery within 24 hours. The Quality of Service (QoS) for the last mile of connectivity between bungalow and Azure determines the QoS of alerts, alarms, and notifications from the edge. Local internet services providers (ISPs) govern the last mile of connectivity, and may not support the required QoS for notifications or bulk data uploading.
+- The system requires 99% uptime and on-premises message delivery within 24 hours. The Quality of Service (QoS) for the last mile of connectivity between bungalow and Azure determines the QoS of data from the edge. Local internet services providers (ISPs) govern the last mile of connectivity, and may not support the required QoS for notifications or bulk data uploading.
 - This system doesn't interface with the wheel cameras and backing data stores, so has no control or ability to alert on camera system or image server failures.
 - The railway company only owns the inferencing system, and relies on a third-party vendor for ML model generation. The black-box nature of the ML module poses some risk of dependency. An understanding of how the third party governs and shares assets is critical to long-term solution maintenance. If ML assets aren't available, the system may be able to use placeholder ML modules for future engagements.
 - Security and monitoring are considerations for IoT Edge systems. For this engagement, the company's existing third-party enterprise solution covered system monitoring. The physical security of trackside bungalows and network security were already in place, and connections from the IoT Edge to the cloud are secure by default.
