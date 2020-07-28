@@ -11,15 +11,15 @@ ms.custom: fcp
 
 # Predictive maintenance with the intelligent IoT Edge
 
-The *internet-of-things (IoT) Edge* brings data processing and storage close to the data source, enabling fast, consistent responses with reduced dependency on cloud connectivity and storage. Edge computing can incorporate artificial intelligence (AI) and machine learning (ML) models to create *intelligent edge* devices and networks, which can integrate with the cloud for further processing and security.
+The *Internet-of-things (IoT) Edge* brings data processing and storage close to the data source, enabling fast, consistent responses with reduced dependency on cloud connectivity and resources. Edge computing can incorporate artificial intelligence (AI) and machine learning (ML) models to create *intelligent edge* devices and networks, which can integrate with the cloud for further processing and security.
 
 This article describes a collaboration between the Microsoft Commercial Software Engineering (CSE) team and a major railway company to create an [intelligent cloud and intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/) train maintenance and safety solution. The railway company wants to improve railroad safety and efficiency by proactively identifying defective components, predictively scheduling maintenance and repair, and continuously improving their findings and predictions. The pilot project for the *ML on Edge* solution was a train wheel health analysis system.
 
-Over 4,000 trackside detectors continuously monitor and stream wheel data from all the company's trains. The detectors measure heat and force of equipment on the tracks, listen for invisible wheel bearing defects or wheel cracks, and identify missing or misplaced parts. The ML on Edge system processes and acts on this continuous streaming detector data in near-real time. The IoT Edge modules run on server class hardware in trackside bungalows, allowing for future parallel deployment of other workloads.
+Over 4,000 trackside detectors continuously monitor and stream wheel data from all the company's trains. The detectors measure heat and force of equipment on the tracks, listen for invisible wheel bearing defects or wheel cracks, and identify missing or misplaced parts. The ML on Edge system processes and acts on this continuous streaming detector data in near-real time to identify at-risk equipment, determine repair urgency, generate alerts, and send data to the Azure cloud for storage. The IoT Edge modules run on server class hardware in trackside bungalows, allowing for future parallel deployment of other workloads.
 
-The IoT Edge devices identify at-risk equipment, determine repair urgency, generate alerts, and send data to the Azure cloud for storage. This wheel health analysis system provides early identification of potential equipment failure, helping prevent catastrophic failures that could lead to train derailment. The company can use stored data to spot trends and inform prescriptive maintenance and overhaul schedules.
+Bringing ML and business logic closer to the data sources lets devices react faster to local changes and critical events. Devices can operate reliably offline or when connectivity is limited. The Edge network can determine which data to send to the cloud, or prioritize urgent and important data first.
 
-Bringing ML, AI, third-party services, and other business logic closer to data sources lets devices react faster to local changes and critical events. Devices can operate reliably offline or when connectivity is limited. The Edge network can determine which data to send to the cloud, or prioritize urgent and important data first.
+The wheel health analysis system provides early identification of potential equipment failure, helping prevent catastrophic failures that could lead to train derailment. The company can use stored data to spot trends and inform prescriptive maintenance and overhaul schedules.
 
 ## Related use cases
 
@@ -29,31 +29,25 @@ IoT Edge implementations are most relevant when large amounts of data captured i
 
 :::image type="content" source="./media/solution-architecture.png" alt-text="Solution architecture diagram showing the IoT Edge modules in the trackside bungalows. The Edge modules use machine learning to identify failure risks. The alert handler module uploads image data to Azure Blob Storage. Azure Edge Hub uploads associated metadata and messages through Azure IoT Hub to Azure Cosmos DB storage." border="false":::
 
-1. Trackside detector cameras take three pictures of each wheel to create a stitched image.
-1. An image file server (NAS) in a bungalow serves processed and categorized train wheel images.
+1. An image file server (NAS) in a bungalow serves processed and categorized train wheel images. Three pictures of each wheel create a stitched image.
 1. The polling module alerts the Edge device that new images are available for processing.
 1. A third-party open-source ML model called Cogniac processes the images and identifies wheel areas that need more inspection.
-1. The alert handler uploads all images into Azure Blob Storage, prioritizing those with potential defects, and returns the image blob URIs.
-1. IoT Edge Hub associates the image URIs with image metadata, and uploads metadata and alerts to Azure IoT Hub.
-1. IoT Hub sends the metadata via Event Hub and Azure Functions to Azure Cosmos DB.
-1. Cosmos DB stores the image metadata and points to the location of images in Azure Blob Storage.
+1. The alert handler uploads all images into Azure Blob Storage, starting with those that have potential defects, and returns the image blob URIs.
+1. IoT Edge Hub associates the image URIs with image metadata, and uploads the metadata and alerts to Azure IoT Hub.
+1. IoT Hub sends the metadata via Event Hub and Azure Functions to an Azure Cosmos DB database.
+1. The Cosmos DB database holds the image metadata and points to the location of images in Azure Blob Storage.
 
 ### Components
 
 The deployed solution requires an Azure subscription with permission to add service principals and the ability to create Azure resources.
 
-- [IoT Edge](https://docs.microsoft.com/azure/iot-edge/about-iot-edge) modules run on server-class hardware in trackside bungalows, using customized industrial automation cards and GPUs for performance.
-  
-  IoT Edge is made up of three components:
-  
-  - IoT Edge modules are containers that run Azure or third-party services.
-  - The IoT Edge runtime runs on the IoT Edge devices to manage the deployed modules.
-  - The cloud-based [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) interface enables secure bi-directional communication, management, and monitoring of IoT Edge devicess.
-  
-  Azure IoT Edge devices support ML modules based on Azure services, third-party services, or your own code. The current solution uses a third-party machine learning model from [Cogniac](https://cogniac.co/) to score train wheel data and recognize potential defects. The ML software uses historical samples of high- and low-confidence failure images to retrain its ML model.
-
+- [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/about-iot-edge) is made up of three components:
+  - IoT Edge *modules* are containers that can run Azure, third-party, or custom components. The current example deploys the IoT Edge modules in trackside bungalows, using server-class hardware with customized industrial automation cards and graphics processing units (GPUs) for performance.
+  - The IoT Edge *runtime*, consisting of the *IoT Agent* and *IoT Edge Hub*, runs on the IoT Edge devices to manage and coordinate the deployed modules.
+  - The [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) interface enables secure bi-directional cloud communication, management, and monitoring of IoT Edge modules.
+- IoT Edge supports ML modules based on Azure services, third-party services, or custom code. The current solution uses a third-party open-source ML model called [Cogniac](https://cogniac.co/) to score train wheel data and recognize potential defects. The ML software uses historical samples of high- and low-confidence failure images to retrain its ML model.
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data like the image data in this example.
-- [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) is a fully-managed, NoSQL database service that supports low response times, high availability and scalability, and open-source APIs.
+- [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) is a fully-managed, NoSQL database service with low response times and high availability and scalability.
 - An [Azure DevOps Pipelines](https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd) workflow builds, tests, deploys, and archives the IoT Edge solution through built-in Azure IoT Edge tasks.
 
 ## Considerations
@@ -83,9 +77,9 @@ The following diagram shows the DevOps architecture.
 This deployment has three environments: Dev, QA, and Production. Module promotion from Dev to QA and from QA to Production supports both automatic and manual gated checks. The railway company hosts the build and CI/CD system on-premises.
 
 Building and deploying the solution also uses:
-- Azure CLI.
-- Docker CE or Moby to build and deploy the container modules.
-- For development, Visual Studio or Visual Studio Code with the Docker, Azure IoT, and relevant language extensions.
+- Azure CLI
+- Docker CE or Moby to build and deploy the container modules
+- For development, Visual Studio or Visual Studio Code with the Docker, Azure IoT, and relevant language extensions
 
 ## Related resources
 
