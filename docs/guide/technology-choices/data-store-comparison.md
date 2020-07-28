@@ -16,6 +16,9 @@ Azure offers a number of managed data storage solutions, each providing differen
 
 If your application consists of multiple workloads, evaluate each workload separately. A complete solution may incorporate multiple data stores. 
 
+> [!NOTE]
+> Note that for simplicity, this article is limited to Azure offerings for data storage only.
+
 ## Choose a candidate data store
 
 Use the following flowchart to select a candidate data store.
