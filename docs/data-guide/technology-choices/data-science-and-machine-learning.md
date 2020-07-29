@@ -44,9 +44,9 @@ The following development platforms and tools are available for machine learning
 
 ## Azure Machine Learning
 
-[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml) is a fully managed cloud service used to train, deploy, and manage machine learning models at scale. It fully supports open-source technologies, so you can use tens of thousands of open-source Python packages such as TensorFlow, PyTorch, and scikit-learn. Rich tools are also available, such as [Azure notebooks](https://notebooks.azure.com/), [Jupyter notebooks](http://jupyter.org), or the [Azure Machine Learning for Visual Studio Code](https://aka.ms/vscodetoolsforai) extension to make it easy to explore and transform data, and then train and deploy models. Azure Machine Learning includes features that automate model generation and tuning with ease, efficiency, and accuracy.
+[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml) is a fully managed cloud service used to train, deploy, and manage machine learning models at scale. It fully supports open-source technologies, so you can use tens of thousands of open-source Python packages such as TensorFlow, PyTorch, and scikit-learn. Rich tools are also available, such as [Compute instances](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance), [Jupyter notebooks](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup), or the [Azure Machine Learning for Visual Studio Code extension](https://docs.microsoft.com/azure/machine-learning/tutorial-setup-vscode-extension), a free extension that allows you to manage your resources, model training workflows and deployments in Visual Studio Code. Azure Machine Learning includes features that automate model generation and tuning with ease, efficiency, and accuracy.
 
-Use Azure Machine Learning to train, deploy, and manage machine learning models using Python and CLI at cloud scale. For a low-code or no-code option, use the interactive, [designer](https://docs.microsoft.com/azure/machine-learning/service/concept-designer) (preview) in studio to easily and quickly build, test, and deploy models using pre-built machine learning algorithms.
+Use Python SDK, Jupyter notebooks, R, and the CLI for machine learning at cloud scale. For a low-code or no-code option, use Azure Machine Learning's interactive, [designer](https://docs.microsoft.com/azure/machine-learning/service/concept-designer) (preview) in studio to easily and quickly build, test, and deploy models using pre-built machine learning algorithms.
 
 Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -56,7 +56,7 @@ Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree)
 |-|-|
 |**Type**                   |Cloud-based machine learning solution|
 |**Supported languages**    |Python, R|
-|**Machine learning phases**|Data preparation<br>Model training<br>Deployment<br>Management|
+|**Machine learning phases**|Model training<br>Deployment<br>MLOps/Management|
 |**Key benefits**           |Code first (SDK) and studio & drag-and-drop designer web interface authoring options. <br/><br/>Central management of scripts and run history, making it easy to compare model versions.<br/><br/>Easy deployment and management of models to the cloud or edge devices.|
 |**Considerations**         |Requires some familiarity with the model management model.|
 
@@ -119,14 +119,17 @@ Use Databricks when you want to collaborate on building machine learning solutio
 
 ## ML.NET
 
-[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/) is a free, open-source, and cross-platform machine learning framework that enables you to build custom machine learning solutions and integrate them into your .NET applications.
+[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/) is a free, open-source, and cross-platform machine learning framework that enables you to build custom machine learning solutions and integrate them into your .NET applications. ML.NET offers varying levels of interoperability with popular frameworks like TensorFlow and ONNX for training and scoring machine learning and deep learning models. For more resource intensive tasks like training image classification models, you can take advantage of Azure to train your models in the cloud.
 
-Use ML.NET when you want to integrate machine learning solutions into your .NET applications.
+Use ML.NET when you want to integrate machine learning solutions into your .NET applications. Choose between the [API](https://docs.microsoft.com/dotnet/machine-learning/how-does-mldotnet-work) for a code-first experience and [Model Builder](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-model-builder) or the [CLI](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-cli) for a low-code experience.
 
 |||
 |-|-|
-|**Type**                   |Open-source framework for developing custom machine learning applications|
-|**Languages supported**    |.NET|
+|**Type**                   |Open-source cross-platform framework for developing custom machine learning applications with .NET |
+|**Languages supported**    |C#,F#|
+|**Machine learning phases**    |Data preparation<br>Training<br>Deployment|
+|**Key benefits**            |Data science & ML experience not required<br>Use familiar tools (Visual Studio, VS Code) and languages<br>Deploy where .NET runs<br>Extensible<br>Scalable<br>Local-first experience<br>|
+
 
 ## Windows ML
 

@@ -1,5 +1,5 @@
 ---
-title: Deliver highly scalable customer service and ERP apps with Azure SQL and Azure Cosmos DB 
+title: Deliver highly scalable customer service and ERP apps
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
 description: Deliver highly scalable customer service and ERP apps with Azure SQL and Azure Cosmos DB 
@@ -11,7 +11,7 @@ ms.category:
   - databases
 ---
 
-# Deliver highly scalable customer service and ERP apps with Azure SQL and Azure Cosmos DB 
+# Deliver highly scalable customer service and ERP apps
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
