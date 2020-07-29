@@ -1,5 +1,5 @@
 ---
-title: Build web and mobile applications with Azure Database for MySQL, Azure Cosmos DB, and Azure Cache for Redis 
+title: Build web and mobile applications
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
 ms.date: 06/24/2020
@@ -11,7 +11,7 @@ ms.category:
 ms.subservice: solution-idea
 ---
 
-# Build web and mobile applications with Azure Database for MySQL, Azure Cosmos DB, and Azure Cache for Redis
+# Build web and mobile applications
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
