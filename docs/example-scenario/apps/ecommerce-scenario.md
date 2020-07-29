@@ -159,7 +159,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [pci-dss-blueprint]: https://docs.microsoft.com/azure/security/blueprints/payment-processing-blueprint
 [resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service
 [resiliency]: ../../framework/resiliency/overview.md
-[scalability]: ../../checklist/performance-efficiency.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
 [service-bus]: https://docs.microsoft.com/azure/service-bus-messaging
 [sql-geo-replication]: https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview

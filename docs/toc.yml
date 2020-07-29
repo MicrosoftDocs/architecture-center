@@ -1,6 +1,8 @@
 items:
 - name: Azure Architecture Center
   href: /azure/architecture/
+- name: Architecture icons
+  href: icons/index.md
 - name: Browse all Architectures
   href: browse/index.md
 - name: What's new
@@ -174,22 +176,22 @@ items:
       items:
       - name: Checklist
         href: framework/cost/design-checklist.md
+      - name: Cost model
+        href: framework/cost/design-model.md
+      - name: Capture requirements
+        href: framework/cost/design-capture-requirements.md                
       - name: Azure regions
         href: framework/cost/design-regions.md 
       - name: Azure resources
         href: framework/cost/design-resources.md 
-      - name: Capture requirements
-        href: framework/cost/design-capture-requirements.md
-      - name: Performance and price options
-        href: framework/cost/design-price.md
-      - name: Cost model
-        href: framework/cost/design-model.md
       - name: Governance
         href: framework/cost/design-governance.md
       - name: Initial estimate
         href: framework/cost/design-initial-estimate.md
       - name: Managed services
         href: framework/cost/design-paas.md
+      - name: Performance and price options
+        href: framework/cost/design-price.md        
     - name: Provision
       items:
         - name: Checklist
@@ -260,7 +262,7 @@ items:
     - name: Monitoring
       href: framework/scalability/monitoring.md
     - name: Checklist
-      href: checklist/scalability.md
+      href: framework/scalability/performance-efficiency.md
   - name: Reliability
     items:
     - name: Overview
@@ -401,6 +403,8 @@ items:
     href: patterns/queue-based-load-leveling.md
   - name: Retry
     href: patterns/retry.md
+  - name: Saga
+    href: reference-architectures/saga/saga.md
   - name: Scheduler Agent Supervisor
     href: patterns/scheduler-agent-supervisor.md
   - name: Sequential Convoy
@@ -424,16 +428,14 @@ items:
     items:
     - name: Overview
       href: data-guide/big-data/ai-overview.md
-    - name: Machine learning at scale
-      href: data-guide/big-data/machine-learning-at-scale.md
-    - name: Baseball decision analysis with ML.NET and Blazor
-      href: data-guide/big-data/baseball-ml-workload.md
-    - name: Technology choices
+    - name: Technology guide
       items:
       - name: Cognitive services
         href: data-guide/technology-choices/cognitive-services.md
       - name: Machine learning
         href: data-guide/technology-choices/data-science-and-machine-learning.md
+      - name: Machine learning at scale
+        href: data-guide/big-data/machine-learning-at-scale.md
       - name: Natural language processing
         href: data-guide/technology-choices/natural-language-processing.md
       - name: R developer's guide to Azure
@@ -448,8 +450,12 @@ items:
         href: solution-ideas/articles/ai-for-earth.md
       - name: Auditing and risk management
         href: solution-ideas/articles/auditing-and-risk-compliance.md
+      - name: Autonomous systems
+        href: solution-ideas/articles/autonomous-systems.md
       - name: Disconnected AI at the edge
         href: solution-ideas/articles/ai-at-the-edge-disconnected.md
+      - name: Baseball decision analysis with ML.NET and Blazor
+        href: data-guide/big-data/baseball-ml-workload.md
       - name: Batch scoring for deep Learning
         href: reference-architectures/ai/batch-scoring-deep-learning.md
       - name: Batch scoring with Python
@@ -464,7 +470,7 @@ items:
         href: reference-architectures/ai/real-time-recommendation.md
       - name: Chatbot for hotel reservations
         href: example-scenario/ai/commerce-chatbot.md
-      - name: eCommerce chatbot
+      - name: E-commerce chatbot
         href: solution-ideas/articles/commerce-chatbot.md
       - name: Enterprise chatbot disaster recovery
         href: solution-ideas/articles/enterprise-chatbot-disaster-recovery.md
@@ -502,8 +508,18 @@ items:
         href: solution-ideas/articles/interactive-voice-response-bot.md
       - name: Digital text processing
         href: solution-ideas/articles/digital-media-speech-text.md
+      - name: Machine teaching
+        href: solution-ideas/articles/machine-teaching.md
       - name: MLOps for Python models
         href: reference-architectures/ai/mlops-python.md
+      - name: MLOps technical paper
+        items:      
+        - name: Upscale ML lifecycle with MLOps
+          href: example-scenario/mlops/mlops-technical-paper.md
+        - name: MLOps maturity model
+          href: example-scenario/mlops/mlops-maturity-model.md
+        - name: Azure ML service selection guide
+          href: example-scenario/mlops/aml-decision-tree.md
       - name: Model training with AKS
         href: solution-ideas/articles/machine-learning-with-aks.md
       - name: Movie recommendations
@@ -534,6 +550,8 @@ items:
         href: solution-ideas/articles/remote-patient-monitoring.md
       - name: Retail assistant with visual capabilities
         href: solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.md
+      - name: Retail product recommendations
+        href: solution-ideas/articles/product-recommendations.md
       - name: Scalable personalization
         href: example-scenario/ai/scalable-personalization.md
       - name: Speech services
@@ -558,8 +576,6 @@ items:
         href: solution-ideas/articles/application-integration-using-event-grid.md
       - name: Automated enterprise BI
         href: reference-architectures/data/enterprise-bi-adf.md
-      - name: Customer 360
-        href: solution-ideas/articles/customer-360.md
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.md
       - name: Demand forecasting
@@ -636,28 +652,34 @@ items:
         href: example-scenario/infrastructure/hpc-cfd.md
   - name: Containers
     items:
-    - name: Architectures
+    - name: AKS Production Baseline
       items:
-      - name: API First
-        href: solution-ideas/articles/aks-api-first.md
-      - name: Building a telehealth system
-        href: example-scenario/apps/telehealth-system.md
-      - name: Bursting from AKS with ACI
-        href: solution-ideas/articles/scale-using-aks-with-aci.md
-      - name: CI/CD pipeline for container-based workloads
-        href: example-scenario/apps/devops-with-aks.md
-      - name: Durable Functions for ACI batch processing
-        href: solution-ideas/articles/durable-functions-containers.md
-      - name: Elastic demand handling with AKS
-        href: solution-ideas/articles/aks-demand-spikes.md
-      - name: IoT data streaming with AKS
-        href: solution-ideas/articles/aks-iot-data-streaming.md
-      - name: Microservices on AKS
-        href: reference-architectures/microservices/aks.md
-      - name: Microservices with AKS and Azure DevOps
-        href: solution-ideas/articles/microservices-with-aks.md
-      - name: Secure DevOps for AKS
-        href: solution-ideas/articles/secure-devops-for-kubernetes.md
+      - name: Overview
+        href: reference-architectures/containers/aks/secure-baseline-aks.md
+      - name: Operational Excellence
+        href: reference-architectures/containers/aks/secure-baseline-aks.md#operational-excellence
+      - name: Security
+        href: reference-architectures/containers/aks/secure-baseline-aks.md#security
+      - name: Reliability
+        href: reference-architectures/containers/aks/secure-baseline-aks.md#reliability
+      - name: Performance Efficiency
+        href: reference-architectures/containers/aks/secure-baseline-aks.md#performance-efficiency
+      - name: Cost Optimization
+        href: reference-architectures/containers/aks/secure-baseline-aks.md#cost-optimization
+    - name: Microservices on AKS
+      items:
+      - name: Microservices architecture on AKS
+        href: reference-architectures/containers/aks-microservices/aks-microservices.md
+    - name: Architectures 
+      items:
+        - name: Microservices with AKS and Azure DevOps
+          href: solution-ideas/articles/microservices-with-aks.md
+        - name: Secure DevOps for AKS
+          href: solution-ideas/articles/secure-devops-for-kubernetes.md
+        - name: Building a telehealth system
+          href: example-scenario/apps/telehealth-system.md
+        - name: CI/CD pipeline for container-based workloads
+          href: example-scenario/apps/devops-with-aks.md
   - name: Databases
     items:
     - name: Guides
@@ -740,6 +762,8 @@ items:
         href: solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.md
       - name: Campaign optimization with SQL Server
         href: solution-ideas/articles/campaign-optimization-with-sql-server.md
+      - name: DataOps for modern data warehouse
+        href: example-scenario/data-warehouse/dataops-mdw.md
       - name: Data streaming
         href: solution-ideas/articles/data-streaming-scenario.md
       - name: Data cache
@@ -800,7 +824,7 @@ items:
         href: solution-ideas/articles/streaming-using-hdinsight.md
       - name: Windows N-tier applications
         href: reference-architectures/n-tier/n-tier-sql-server.md
-  - name: Developer Tools
+  - name: Developer Options
     items:
     - name: Microservices
       items:
@@ -890,6 +914,8 @@ items:
         href: solution-ideas/articles/serverless-application-architectures-using-event-grid.md
       - name: Serverless event processing
         href: reference-architectures/serverless/event-processing.md
+      - name: Unified logging for microservices apps
+        href: example-scenario/logging/unified-logging.md
   - name: DevOps
     items:
     - name: Checklist
@@ -973,6 +999,8 @@ items:
 
       - name: Troubleshoot a hybrid VPN connection
         href: reference-architectures/hybrid-networking/troubleshoot-vpn.md
+      - name: Windows Virtual Desktop for enterprises
+        href: example-scenario/wvd/windows-virtual-desktop.md
   - name: Identity
     items:
     - name: Guides
@@ -1021,12 +1049,6 @@ items:
       items:
       - name: Basic enterprise integration on Azure
         href: reference-architectures/enterprise-integration/basic-enterprise-integration.md
-      - name: Deployment in App Service Environments
-        items:
-          - name: Standard deployment
-            href: reference-architectures/enterprise-integration/ase-standard-deployment.md
-          - name: High availability deployment
-            href: reference-architectures/enterprise-integration/ase-high-availability-deployment.md
       - name: Enterprise business intelligence
         href: reference-architectures/data/enterprise-bi-synapse.md
       - name: Enterprise integration using queues and events
@@ -1039,36 +1061,38 @@ items:
       items:
       - name: IoT reference architecture
         href: reference-architectures/iot.md
-      - name: Azure IoT Subsystems
-        href: solution-ideas/articles/azure-iot-subsystems.md
       - name: IoT and data analytics
         href: example-scenario/data/big-data-with-iot.md
-      - name: On-demand IoT device deployment
-        href: solution-ideas/articles/iot-with-aks.md
       - name: IoT devices
         href: solution-ideas/articles/iot-devices.md
       - name: IoT using Cosmos DB
         href: solution-ideas/articles/iot-using-cosmos-db.md
       - name: IoT Connected Platform
         href: solution-ideas/articles/iot-connected-platform.md
-      - name: IoT predictive maintenance
-        href: example-scenario/predictive-maintenance/iot-predictive-maintenance.md
-      - name: Smart building management with IoT
-        href: solution-ideas/articles/ibems-shield-smart-buildings.md
       - name: Contactless IoT interfaces
         href: solution-ideas/articles/contactless-interfaces.md
       - name: COVID-19 IoT Safe Solutions
         href: solution-ideas/articles/cctv-mask-detection.md
+      - name: Lighting and disinfection system
+        href: solution-ideas/articles/uven-disinfection.md
+      - name: Predictive maintenance with IoT
+        href: example-scenario/predictive-maintenance/iot-predictive-maintenance.md
       - name: Process real-time vehicle data using IoT
         href: example-scenario/data/realtime-analytics-vehicle-iot.md
-      - name: Real-time web dashboard
-        href: solution-ideas/articles/real-time-web-dashboard.md
       - name: Safe Buildings with IoT and Azure
         href: solution-ideas/articles/safe-buildings.md
       - name: Secure access to IoT apps with Azure AD
         href: example-scenario/iot-aad/iot-aad.md
-      - name: Telemetry Analytics
-        href: solution-ideas/articles/telemetry-analytics.md
+      - name: Industrial IoT Analytics
+        items:
+          - name: Architecture
+            href: guide/iiot-guidance/iiot-architecture.md
+          - name: Recommended services
+            href: guide/iiot-guidance/iiot-services.md
+          - name: Data visualization
+            href: guide/iiot-guidance/iiot-data.md
+          - name: Considerations
+            href: guide/iiot-guidance/iiot-considerations.md
   - name: Management and Governance
     items:
     - name: Architectures
@@ -1213,10 +1237,16 @@ items:
         href: example-scenario/data/sentinel-threat-intelligence.md
       - name: Highly-secure IaaS apps
         href: reference-architectures/n-tier/high-security-iaas.md
+      - name: Homomorphic encryption with SEAL
+        href: solution-ideas/articles/homomorphic-encryption-seal.md
       - name: Real-time fraud detection
         href: example-scenario/data/fraud-detection.md
+      - name: Secure OBO refresh tokens
+        href: example-scenario/secrets/secure-refresh-tokens.md
       - name: Securely managed web apps
         href: example-scenario/apps/fully-managed-secure-apps.md
+      - name: Virtual Network security options
+        href: example-scenario/gateway/firewall-application-gateway.md
   - name: Storage
     items:
     - name: Architectures
@@ -1233,6 +1263,12 @@ items:
       items:
       - name: Basic web application
         href: reference-architectures/app-service-web-app/basic-web-app.md
+      - name: Deployment in App Service Environments
+        items:
+          - name: Standard deployment
+            href: reference-architectures/enterprise-integration/ase-standard-deployment.md
+          - name: High availability deployment
+            href: reference-architectures/enterprise-integration/ase-high-availability-deployment.md 
       - name: E-commerce front end
         href: example-scenario/apps/ecommerce-scenario.md
       - name: E-commerce website running in ASE
@@ -1249,6 +1285,8 @@ items:
         href: example-scenario/apps/apim-api-scenario.md
       - name: Multi-region N-tier application
         href: reference-architectures/n-tier/multi-region-sql-server.md
+      - name: Multitenant SaaS
+        href: example-scenario/multi-saas/multitenant-saas.md
       - name: Multi-tier web application built for HA/DR
         href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.md
       - name: SAP S/4 HANA for Large Instances

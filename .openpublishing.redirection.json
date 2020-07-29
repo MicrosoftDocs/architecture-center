@@ -1945,6 +1945,40 @@
       "source_path": "docs/serverless/index.md",
       "redirect_url": "/azure/architecture/serverless/code",
       "redirect_document_id": true
-    }
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/ibems-shield-smart-buildings.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/safe-buildings",
+     },
+     {
+       "source_path":"docs/solution-ideas/articles/azure-iot-subsystems.md",
+       "redirect_url":"/azure/architecture/reference-architectures/iot"
+     },
+     {
+      "source_path":"docs/solution-ideas/articles/iot-with-aks.md",
+      "redirect_url":"/azure/architecture/reference-architectures/iot"
+    },
+    {
+      "source_path":"docs/reference-architectures/iot-with-sql.md",
+      "redirect_url":"/azure/architecture/reference-architectures/iot"
+    },
+    {
+      "source_path":"docs/solution-ideas/articles/real-time-web-dashboard.md",
+      "redirect_url":"/azure/architecture/reference-architectures/iot"
+    },
+    {
+      "source_path":"docs/solution-ideas/articles/telemetry-analytics.md",
+      "redirect_url":"/azure/architecture/reference-architectures/iot"
+    },
+     {
+      "source_path": "docs/solution-ideas/articles/customer-360.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/product-recommendations",
+      "redirect_document_id": true
+     },
+     {
+       "source_path": "/docs/reference-architectures/microservices/aks.md",
+       "redirect_url": "azure/reference-architectures/containers/aks-microservices/aks-microservices",
+       "redirect_document_id": true
+     }
   ]
 }

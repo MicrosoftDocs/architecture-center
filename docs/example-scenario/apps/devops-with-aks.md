@@ -163,7 +163,7 @@ This scenario used Azure Container Registry and Azure Kubernetes Service to stor
 [grafana]: https://grafana.com
 [jenkins]: https://jenkins.io
 [security]: https://docs.microsoft.com/azure/security
-[scalability]: ../../checklist/performance-efficiency.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [sshkeydocs]: https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys
 [azure-pipelines]: https://docs.microsoft.com/azure/devops/pipelines
 [kubernetes]: https://kubernetes.io
