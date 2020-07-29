@@ -13,7 +13,7 @@ ms.custom: fcp
 
 # Use Cobalt to create an extensible cloud Infrastructure as Code framework
 
-Standardizing and automating the process of building production-ready cloud native managed service solutions is an important need for major enterprise customers. They need to achieve higher productivity, higher efficiency, and easier compliance with: security, governance and privacy. Microsoft's commercial software engineering (CSE) team engaged with a fortune 50 retailer. The goal was to enable their teams to build such solutions based on one or more specified patterns in an enterprise pattern library. There was a need to elevate this effort by creating a framework that can “materialize” such patterns. The CSE team chose the Cobalt framework to achieve that goal.
+Standardizing and automating the process of building production-ready cloud native managed service solutions is an important need for major enterprise customers. They need to achieve higher productivity, higher efficiency, and easier compliance with: security, governance, and privacy. Microsoft's commercial software engineering (CSE) team engaged with a fortune 50 retailer. The goal was to enable their teams to build such solutions based on one or more specified patterns in an enterprise pattern library. There was a need to elevate this effort by creating a framework that can “materialize” such patterns. The CSE team chose the Cobalt framework to achieve that goal.
 
 Cobalt is an extensible framework that uses templates. The templates define the automated process of creating complex and enterprise-grade continuous integration and continuous deployment (CI/CD) implementations. The system is used to deploy highly available applications to Azure App Service - Web App for Containers. You deploy the infrastructure using versioned files containing the reusable templates. The templates contain the infrastructure and platform details and you can customize or reuse them as needed.
 
@@ -33,7 +33,7 @@ The customer wanted a framework that provides high availability for multi-datace
 
 * The capability for manual promotion to Quality Assurance (QA), staging, and production environments.
 
-The end-result sought by the customer was to have a working reference solution including all scoped components functioning, documented, and running on their Azure subscription. The customer also wanted to enable their teams to select from a library of pre-configured templates to create App Service-based applications. The reference solution and tempaltes had to meet the customer's internal security team's technical compliance guidelines based on their regulations, policies, and standards. It also had to provide for secure data with secrets stored in Key Vault to meet their security and compliance requirements. Only then would Cobalt gain approval at the platform level. After approval and adoption, publishing new apps to the cloud using Cobalt would be quicker and easier than in the past.
+The end-result sought by the customer was to have a working reference solution including all scoped components functioning, documented, and running on their Azure subscription. The customer also wanted to enable their teams to select from a library of pre-configured templates to create App Service-based applications. The reference solution and templates had to meet the customer's internal security team's technical compliance guidelines based on their regulations, policies, and standards. It also had to provide for secure data with secrets stored in Key Vault to meet their security and compliance requirements. Only then would Cobalt gain approval at the platform level. After approval and adoption, publishing new apps to the cloud using Cobalt would be quicker and easier than in the past.
 
 ### Technical scenario
 
@@ -65,7 +65,7 @@ Anyone using Cobalt needs to have the following prerequisites in place:
 
 * Azure DevOps organization
 
-* Permissions to your organization's Azure DevOps account
+* Permissions to your organization's Azure DevOps organization
 
 * Global administrator role permissions in your organization's Azure Active Directory (AAD) tenant to set up service principals
 
@@ -83,11 +83,11 @@ Anyone using Cobalt needs to have the following prerequisites in place:
 
 ### Cobalt Templates and Provisioned Infrastructure
 
-Microsoft's CSE team worked with the customer to customize templates for provisioning a best practices implementation of App Services. Their goal was to create tempaltes that application development teams could later use to migrate or build their own LOB applications. The developers organized the Cobalt templates to handle the provisioning of infrastructure and the setup of CI/CD pipelines.
+Microsoft's CSE team worked with the customer to customize templates for provisioning a best practices implementation of App Services. Their goal was to create templates that application development teams could later use to migrate or build their own LOB applications. The developers organized the Cobalt templates to handle the provisioning of infrastructure and the setup of CI/CD pipelines.
 
 Templates are the implementation of *advocated patterns*. The scope of a template typically covers most, if not all, of the infrastructure required to host an application and may provision resources in multiple cloud providers. Templates compose modules to create an advocated pattern. Developers implement them as [Terraform modules](https://www.terraform.io/docs/configuration/modules.html) (also sometimes known as *Cobalt Modules*) so that developers can compose them if needed. It's more common that developers don't need to compose them.
 
-Each template makes use of Terraform modules across both [Bedrock](https://github.com/Microsoft/bedrock) and Cobalt. The developers categorized Cobalt's module registry by cloud provider then resource type. Each module represents an abstraction for the set of related cloud infrastructure objects that the module will manage (see [the third diagram](#figure3)). A module is a thin wrapper that enables simple common-sense configuration of related resources (typically 1-3 but sometimes more) within a cloud provider. The directory structure of [Cobalt](https://github.com/microsoft/cobalt) enables contributions for different cloud providers. You can find Cobalt infrastructure templates in the *infra/templates* folder. Each sub-folder represents a unique deployment schema packaged with:
+Each template makes use of Terraform modules across both [Bedrock](https://github.com/Microsoft/bedrock) and Cobalt. The developers categorized Cobalt's module registry by cloud provider then resource type. Each module represents an abstraction for the set of related cloud infrastructure objects that the module will manage (see [the third diagram](#figure3)). A module is a thin wrapper that enables simple common-sense configuration of related resources (typically 1-3 but sometimes more) within a cloud provider. The directory structure of [Cobalt](https://github.com/microsoft/cobalt) enables contributions for different cloud providers. You can find Cobalt infrastructure templates in the *infra/templates* folder. Each subfolder represents a unique deployment schema packaged with:
 
 * A set of Terraform scripts.
 
