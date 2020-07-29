@@ -30,7 +30,7 @@ Helping our customers design and architect new solutions is core to the Azure Ar
 
 ## Terms
 
-Microsoft permits our community of customers and partners to use these icons in architectural diagrams, training manuals or documentation about Azure to illustrate the specific function or relationship involving Azure services or products. You may copy, distribute, and display the icons only for the permitted use unless granted explicit permission by Microsoft. Microsoft reserves all other rights.
+Microsoft permits the use of these icons in architectural diagrams, training materials, or documentation. You may copy, distribute, and display the icons only for the permitted use unless granted explicit permission by Microsoft. Microsoft reserves all other rights.
 
 <div id="consent-checkbox">
 I agree to the above terms
