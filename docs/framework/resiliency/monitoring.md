@@ -50,7 +50,7 @@ For more information about monitoring and diagnostics, see [Monitoring and diagn
 
 ![GitHub](../../_images/github.png) Here are some samples about creating and querying alerts:
 
-- [HealthAlert](https://github.com/mspnp/samples/tree/master/ResiliencyHealthAlerts). A sample about creating resource-level health activity log alerts. The sample uses Azure Resource Manager to create alerts.
+- [HealthAlert](https://github.com/mspnp/samples/tree/master/Reliability/HealthAlerts). A sample about creating resource-level health activity log alerts. The sample uses Azure Resource Manager to create alerts.
 - [GraphAlertsPsSample](https://github.com/mspnp/samples/tree/master/Reliability/GraphAlertsPsSample). A set of PowerShell commands that queries for alerts generated against your subscription.
 
 ## Test Monitoring
@@ -85,7 +85,7 @@ An Azure infrastructure as a service (IaaS) VM supports attaching a number of da
 
 ### VM size
 
-If the actual CPU, memory, disk, and I/O of your VMs approach the limits of the VM size, your application may experience capacity issues. To correct the issues, increase the VM size. VM sizes are described in [Sizes for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
+If the actual CPU, memory, disk, and I/O of your VMs approach the limits of the VM size, your application may experience capacity issues. To correct the issues, increase the VM size. VM sizes are described in [Sizes for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/sizes).
 
 If your workload fluctuates over time, consider using virtual machine scale sets to automatically scale the number of VM instances. Otherwise, you need to manually increase or decrease the number of VMs. For more information, see the [virtual machine scale sets overview](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview).
 

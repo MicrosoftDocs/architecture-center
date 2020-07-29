@@ -144,7 +144,7 @@ Consider the following points when you are deciding whether to deploy background
 For more information, see:
 
 - [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
-- [Azure Virtual Machines FAQ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-classic-faq)
+- [Azure Virtual Machines FAQ](https://docs.microsoft.com/azure/virtual-machines/linux/faq)
 
 ### Azure Batch
 
@@ -166,7 +166,7 @@ For more information, see:
 
 - [What is Azure Batch?](https://docs.microsoft.com/azure/batch/batch-technical-overview)
 - [Develop large-scale parallel compute solutions with Batch](https://docs.microsoft.com/azure/batch/batch-api-basics)
-- [Batch and HPC solutions for large-scale computing workloads](https://docs.microsoft.com/azure/batch/batch-hpc-solutions)
+- [Batch and HPC solutions for large-scale computing workloads](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing)
 
 ### Azure Kubernetes Service
 
