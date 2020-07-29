@@ -39,7 +39,7 @@ IoT Edge implementations are most relevant when large amounts of data captured i
 
 ### Components
 
-The deployed solution requires an Azure subscription with permission to add service principals and the ability to create Azure resources.
+The deployed solution requires an Azure subscription with permission to add service principals and the ability to create Azure resources. For more information, see [Container registries and service principals](https://docs.microsoft.com/azure/container-registry/container-registry-auth-service-principal).
 
 - [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/about-iot-edge) is made up of three components:
   - IoT Edge *modules* are containers that can run Azure, third-party, or custom components. The current example deploys the IoT Edge modules in trackside bungalows, using server-class hardware with customized industrial automation cards and graphics processing units (GPUs) for performance.
@@ -54,20 +54,20 @@ The deployed solution requires an Azure subscription with permission to add serv
 
 The team identified several design considerations:
 
-- The system requires 99% uptime and on-premises message delivery within 24 hours. The Quality of Service (QoS) for the last mile of connectivity between bungalow and Azure determines the QoS of data from the edge. Local internet services providers (ISPs) govern the last mile of connectivity, and may not support the required QoS for notifications or bulk data uploading.
-- This system doesn't interface with the wheel cameras and backing data stores, so has no control or ability to alert on camera system or image server failures.
+- The system requires 99% uptime and on-premises message delivery within 24 hours. The Quality of Service (QoS) for the last mile of connectivity between bungalow and Azure determines the QoS of data from the edge. Local internet service providers (ISPs) govern the last mile of connectivity, and may not support the required QoS for notifications or bulk data uploading.
+- This system doesn't interface with the wheel cameras and backing data stores, so has no control or ability to raise alerts on camera system or image server failures.
 - The railway company only owns the inferencing system, and relies on a third-party vendor for ML model generation. The black-box nature of the ML module poses some risk of dependency. Long-term solution maintenance requires understanding how the third party governs and shares assets. The system may be able to use placeholder ML modules for future engagements when ML assets aren't available.
 - Security and monitoring are considerations for IoT Edge systems. For this engagement, the company's existing third-party enterprise solution covered system monitoring. The physical security of trackside bungalows and network security were already in place, and connections from the IoT Edge to the cloud are secure by default.
 - This solution doesn't replace existing manual inspection requirements determined by company and federal regulatory authorities.
 - The Edge architecture is currently split into multiple modules, but can be condensed into a single module, depending on solution performance requirements or development team structure.
-- This solution builds on the following previous CSE customer engagements in the manufacturing, oil, and gas and natural resource management industries:
+- This solution builds on the following previous CSE customer engagements in the manufacturing, oil and gas, and natural resource management industries:
   - [CloudEvents](https://github.com/cloudevents/spec)
   - [Claim Check Patterns](https://docs.microsoft.com/azure/architecture/patterns/claim-check)
   - [Command and Query Responsibility Segregation (CQRS) Pattern](http://udidahan.com/2011/04/22/when-to-avoid-cqrs/)
 
 ## Deployment
 
-The railway company hosts the build and *continuous integration/continuous deployment (CI/CD)* system on-premises. The following diagram shows the DevOps architecture for deployment:
+The railway company hosts the *continuous integration/continuous deployment (CI/CD)* system on-premises. The following diagram shows the DevOps architecture for deployment:
 
 :::image type="content" source="./media/devops-architecture.png" alt-text="DevOps architecture diagram." border="false":::
 
@@ -77,53 +77,34 @@ The railway company hosts the build and *continuous integration/continuous deplo
 The deployment has three environments: Dev, QA, and Production. Module promotion from Dev to QA and from QA to Production supports both automatic and manual gated checks.
 
 Building and deploying the solution also uses:
-- Azure CLI.
-- Docker CE or Moby to build and deploy the container modules.
-- For development, Visual Studio or Visual Studio Code with the Docker, Azure IoT, and relevant language extensions.
+- Azure CLI
+- Docker CE or Moby to build and deploy the container modules
+- For development, Visual Studio or Visual Studio Code with the Docker, Azure IoT, and relevant language extensions
+
+## Next steps
+- [The future of computing: intelligent cloud and intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/)
+- [Azure IoT Edge documentation](https://docs.microsoft.com/azure/iot-edge/)
+- [Build IoT Edge modules](https://docs.microsoft.com/azure/iot-edge/how-to-vs-code-develop-module)
+- [End-to-end solution using Azure Machine Learning and IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-machine-learning-edge-01-intro)
+- [Continuous integration and continuous deployment to Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd)
+- [Deploy Azure IoT Edge modules from the Azure portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal)
 
 ## Related resources
 
-### Solution Learning Resources
+**GitHub code projects**
 
-- Intro to Event Sourcing: [https://martinfowler.com/eaaDev/EventSourcing.html](https://martinfowler.com/eaaDev/EventSourcing.html)
-- Migrate from Dev AppInsights to Dynatrace: [https://www.dynatrace.com/technologies/azure-monitoring/azure-application-insights/](https://www.dynatrace.com/technologies/azure-monitoring/azure-application-insights/)
+- [NVIDIA Container Toolkit](https://github.com/nvidia/nvidia-docker/wiki)
+- [Azure IoT Edge and RabbitMQ](https://github.com/idavis/iot-edge-rabbitmq)
+- [Develop and deploy a Python IoT Edge module for Linux devices](https://github.com/Azure/cookiecutter-azure-iot-edge-module)
+- [Streaming at Scale](https://github.com/Azure-Samples/streaming-at-scale)
+- [ServiceBusExplorer](https://github.com/paolosalvatori/ServiceBusExplorer)
+- [DASH for Azure Storage](https://github.com/MicrosoftDX/Dash)
 
-### Data Science & Insights Resources
+**Solution learning resources**
 
-- Azure IoT Edge Python Module: [https://docs.microsoft.com/azure/iot-edge/tutorial-python-module](https://docs.microsoft.com/azure/iot-edge/tutorial-python-module)
-- Azure IoT Edge Python Template: [https://github.com/Azure/cookiecutter-azure-iot-edge-module](https://github.com/Azure/cookiecutter-azure-iot-edge-module)
-- Python Package Publishing: [https://python-packaging.readthedocs.io/en/latest/minimal.html](https://python-packaging.readthedocs.io/en/latest/minimal.html)
-- Nvidia Distributions: [https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)#centos-distributions](https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)#centos-distributions)
-- Nvidia Docker with Red Hat Enterprise Linux (RHEL): [https://developer.ibm.com/linuxonpower/2018/09/19/using-nvidia-docker-2-0-rhel-7/](https://developer.ibm.com/linuxonpower/2018/09/19/using-nvidia-docker-2-0-rhel-7/)
-- Nvidia Container Runtimes: [https://github.com/NVIDIA/nvidia-container-runtime#daemon-configuration-file](https://github.com/NVIDIA/nvidia-container-runtime#daemon-configuration-file)
-- Nvidia Cuda: [https://hub.docker.com/r/nvidia/cuda/](https://hub.docker.com/r/nvidia/cuda/)
-- Containers & Multi-GPU scenarios: [https://github.com/nvidia/nvidia-docker/wiki/Frequently-Asked-Questions#i-have-multiple-gpu-devices-how-can-i-isolate-them-between-my-containers](https://github.com/nvidia/nvidia-docker/wiki/Frequently-Asked-Questions#i-have-multiple-gpu-devices-how-can-i-isolate-them-between-my-containers)
-- Nvidia DGX: [https://www.nvidia.com/data-center/dgx-systems/](https://www.nvidia.com/data-center/dgx-systems/)
-
-### Edge Compute & Security Resources
-
-- Building IoT Edge Modules: [https://docs.microsoft.com/azure/iot-edge/how-to-vs-code-develop-module](https://docs.microsoft.com/azure/iot-edge/how-to-vs-code-develop-module)
-- Azure IoT Device Explorer: [https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
-- Azure Service Bus Explorer: [https://github.com/paolosalvatori/ServiceBusExplorer](https://github.com/paolosalvatori/ServiceBusExplorer)
-- Azure IoT Hub Protocol Ports: [https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols#port-numbers](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols#port-numbers)
-- Nvidia Docker Distributions: [https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)#centos-distributions](https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)#centos-distributions)
-- Docker Compatibility Matrix: [https://success.docker.com/article/compatibility-matrix](https://success.docker.com/article/compatibility-matrix)
-- Priority Queues for Azure IoT Edge Alerts, Alarms, and Notifications: [https://github.com/idavis/iot-edge-rabbitmq](https://github.com/idavis/iot-edge-rabbitmq)
-
-### Data Processing & Management Resources
-
-- Cosmos DB Streaming: [https://medium.com/streaming-at-scale-in-azure/serverless-streaming-at-scale-with-cosmos-db-e0e26cacd27d](https://medium.com/streaming-at-scale-in-azure/serverless-streaming-at-scale-with-cosmos-db-e0e26cacd27d)
-- Streaming at Scale: [https://github.com/Azure-Samples/streaming-at-scale](https://github.com/Azure-Samples/streaming-at-scale)
-- Java SDK for Cosmos DB: [https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-java](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-java)
-- Functions Binding for Storage: [https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob)
-- Blob Events: [https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview)
-- Blob vs Event Trigger Performance: [https://github.com/MicrosoftDocs/azure-docs/issues/5208](https://github.com/MicrosoftDocs/azure-docs/issues/5208)
-- Virtual Azure Storage Overlay: [https://github.com/MicrosoftDX/Dash](https://github.com/MicrosoftDX/Dash)
-- General Availability Announcement for Java Functions: [https://azure.microsoft.com/blog/announcing-the-general-availability-of-java-support-in-azure-functions/](https://azure.microsoft.com/blog/announcing-the-general-availability-of-java-support-in-azure-functions/)
-
-### Operations Resources
-
-- Container Registries and Service Principals: [https://docs.microsoft.com/azure/container-registry/container-registry-auth-service-principal](https://docs.microsoft.com/azure/container-registry/container-registry-auth-service-principal)
-- Jenkins Plugin for IoT Edge: [https://wiki.jenkins.io/display/JENKINS/Azure+IoT+Edge+Plugin](https://wiki.jenkins.io/display/JENKINS/Azure+IoT+Edge+Plugin)
-- Jenkins Pipelines: [https://jenkins.io/doc/pipeline/tour/hello-world/](https://jenkins.io/doc/pipeline/tour/hello-world/)
-- Azure IoT Edge CI/CD: [https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd](https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd)
+- [Docker Compatibility Matrix](https://success.docker.com/article/compatibility-matrix)
+- [Jenkins Azure IoT Edge plugin](https://plugins.jenkins.io/azure-iot-edge/)
+- [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
+- [React to Blob storage events](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview)
+- [Azure Blob storage bindings for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob)
+- [Serverless Streaming At Scale with Cosmos DB](https://medium.com/streaming-at-scale-in-azure/serverless-streaming-at-scale-with-cosmos-db-e0e26cacd27d)
