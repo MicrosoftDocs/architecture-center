@@ -60,11 +60,17 @@ Use the built-in autoscaling features of the platform, if they meet your require
 
 ## Use Azure Monitor autoscale
 
-[Azure Monitor autoscale][monitoring] provide a common set of autoscaling functionality for virtual machine scale sets, Azure App Service, and Azure Cloud Service. Scaling can be performed on a schedule, or based on a runtime metric, such as CPU or memory usage. Examples:
+[Azure Monitor autoscale][monitoring] provide a common set of autoscaling functionality for virtual machine scale sets, Azure App Service, and Azure Cloud Service. Scaling can be performed on a schedule, or based on a runtime metric, such as CPU or memory usage. 
+
+Examples:
 
 - Scale out to 10 instances on weekdays, and scale in to 4 instances on Saturday and Sunday.
 - Scale out by one instance if average CPU usage is above 70%, and scale in by one instance if CPU usage falls below 50%.
 - Scale out by one instance if the number of messages in a queue exceeds a certain threshold.
+
+Scale up the resource when load increases to ensure availability. Similarly, at times of low usage, scale down, so you can optimize cost. Always use a scale-out and scale-in rule combination. Otherwise, the autoscaling takes place only in one direction until it reaches the threshold (maximum or minimum instance counts) set in the profile. 
+
+Select a default instance count that's safe for your workload. It's scaled based on that value if maximum or minimum instance counts are not set.
 
 For a list of built-in metrics, see [Azure Monitor autoscaling common metrics][autoscale-metrics]. You can also implement custom metrics by using Application Insights.
 
@@ -79,6 +85,17 @@ Consider the following points when using Azure autoscale:
 - Configure the autoscaling rules, and then monitor the performance of your application over time. Use the results of this monitoring to adjust the way in which the system scales if necessary. However, keep in mind that autoscaling is not an instantaneous process. It takes time to react to a metric such as average CPU utilization exceeding (or falling below) a specified threshold.
 
 - Autoscaling rules that use a detection mechanism based on a measured trigger attribute (such as CPU usage or queue length) use an aggregated value over time, rather than instantaneous values, to trigger an autoscaling action. By default, the aggregate is an average of the values. This prevents the system from reacting too quickly, or causing rapid oscillation. It also allows time for new instances that are automatically started to settle into running mode, preventing additional autoscaling actions from occurring while the new instances are starting up. For Azure Cloud Services and Azure Virtual Machines, the default period for the aggregation is 45 minutes, so it can take up to this period of time for the metric to trigger autoscaling in response to spikes in demand. You can change the aggregation period by using the SDK, but periods of less than 25 minutes may cause unpredictable results. For Web Apps, the averaging period is much shorter, allowing new instances to be available in about five minutes after a change to the average trigger measure.
+
+-	Avoid _flapping_ where scale-in and scale-out actions continually go back and forth. Suppose there are two instances, and upper limit is 80% CPU, lower limit is 60%. When the load is at 85%, another instance is added. After some time, the load decreases to 60%. Before scaling in, the autoscale service calculates the distribution of total load (of three instances) when an instance is removed, taking it to 90%. This means it would have to scale out again immediately. So, it skips scaling-in and you might never see the expected scaling results. 
+
+    The flapping situation can be controlled by choosing an adequate margin between the scale-out and scale-in thresholds. 
+
+- Manual scaling is reset by maximum and minimum number of instances used for autoscaling.
+If you manually update the instance count to a value higher or lower than the maximum value, the autoscale engine automatically scales back to the minimum (if lower) or the maximum (if higher). For example, you set the range between 3 and 6. If you have one running instance, the autoscale engine scales to three instances on its next run. Likewise, if you manually set the scale to eight instances, on the next run autoscale will scale it back to six instances on its next run. Manual scaling is temporary unless you reset the autoscale rules as well.
+
+- The autoscale engine processes only one profile at a time. If a condition is not met, then it checks for the next profile. Keep key metrics out of the default profile because that profile is checked last. Within a profile, you can have multiple rules. On scale-out, autoscale runs if any rule is met. On scale-in, autoscale require all rules to be met.
+
+For details about how Azure Monitor scales, see [Best practices for Autoscale](/Azure/azure-monitor/platform/autoscale-best-practices).
 
 - If you configure autoscaling using the SDK rather than the portal, you can specify a more detailed schedule during which the rules are active. You can also create your own metrics and use them with or without any of the existing ones in your autoscaling rules. For example, you may wish to use alternative counters, such as the number of requests per second or the average memory availability, or use custom counters to measure specific business processes.
 

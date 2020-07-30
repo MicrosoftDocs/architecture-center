@@ -23,7 +23,7 @@ This scenario shows how to deploy and operate a scalable, enterprise-grade Jenki
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/Jenkins-architecture.vsdx) that contains this architecture diagram.*
 
-This architecture supports disaster recovery with Azure services but does not cover more advanced scale-out scenarios involving multiple masters or high availability (HA) with no downtime. For general insights about the various Azure components, including a step-by-step tutorial about building out a CI/CD pipeline on Azure, see [Jenkins on Azure][jenkins-on-azure].
+This architecture supports disaster recovery with Azure services but does not cover more advanced scale-out scenarios involving multiple primaries or high availability (HA) with no downtime. For general insights about the various Azure components, including a step-by-step tutorial about building out a CI/CD pipeline on Azure, see [Jenkins on Azure][jenkins-on-azure].
 
 The focus of this document is on the core Azure operations needed to support Jenkins, including the use of Azure Storage to maintain build artifacts, the security items needed for SSO, other services that can be integrated, and scalability for the pipeline. The architecture is designed to work with an existing source control repository. For example, a common scenario is to start Jenkins jobs based on GitHub commits.
 
@@ -33,7 +33,7 @@ The architecture consists of the following components:
 
 - **Resource group.** A [resource group][rg] is used to group Azure assets so they can be managed by lifetime, owner, and other criteria. Use resource groups to deploy and monitor Azure assets as a group and track billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments.
 
-- **Jenkins server.** A virtual machine is deployed to run [Jenkins][azure-market] as an automation server and serves as Jenkins Master. To deploy this VM, use the [solution template for Jenkins on Azure][solution]. Other Jenkins offerings are available in the Azure Marketplace.
+- **Jenkins server.** A virtual machine is deployed to run [Jenkins][azure-market] as an automation server and serves as Jenkins Primary. To deploy this VM, use the [solution template for Jenkins on Azure][solution]. Other Jenkins offerings are available in the Azure Marketplace.
 
   > [!NOTE]
   > Nginx is installed on the VM to act as a reverse proxy to Jenkins. You can configure Nginx to enable SSL for the Jenkins server.
@@ -75,7 +75,7 @@ Use the Jenkins [Windows Azure Storage plugin][storage-plugin], which is install
 
 ### Jenkins Azure plugins
 
-The solution template for Jenkins on Azure installs several Azure plugins. The Azure DevOps Team builds and maintains the solution template and the following plugins, which work with other Jenkins offerings in Azure Marketplace as well as any Jenkins master set up on premises:
+The solution template for Jenkins on Azure installs several Azure plugins. The Azure DevOps Team builds and maintains the solution template and the following plugins, which work with other Jenkins offerings in Azure Marketplace as well as any Jenkins primary set up on premises:
 
 - [Azure AD plugin][configure-azure-ad] allows the Jenkins server to support SSO for users based on Azure AD.
 
@@ -99,7 +99,7 @@ We also recommend reviewing the growing list of all available Azure plugins that
 
 ## Scalability considerations
 
-Jenkins can scale to support very large workloads. For elastic builds, do not run builds on the Jenkins master server. Instead, offload build tasks to Jenkins agents, which can be elastically scaled in and out as need. Consider two options for scaling agents:
+Jenkins can scale to support very large workloads. For elastic builds, do not run builds on the Jenkins primary server. Instead, offload build tasks to Jenkins agents, which can be elastically scaled in and out as need. Consider two options for scaling agents:
 
 - Use the [Azure VM Agents][vm-agent] plugin to create Jenkins agents that run in Azure VMs. This plugin enables elastic scale-out for agents and can use distinct types of virtual machines. You can select a different base image from Azure Marketplace or use a custom image. For details about how the Jenkins agents scale, see [Architecting for Scale][scale] in the Jenkins documentation.
 
@@ -113,7 +113,7 @@ Also, use Azure Storage to share build artifacts that may be used in the next st
 
 You can scale the Jenkins server VM up or down by changing the VM size. The [solution template for Jenkins on Azure][azure-market] specifies the DS2 v2 size (with two CPUs, 7 GB) by default. This size handles a small to medium team workload. Change the VM size by choosing a different option when building out the server.
 
-Selecting the correct server size depends on the size of the expected workload. The Jenkins community maintains a [selection guide][selection-guide] to help identify the configuration that best meets your requirements. Azure offers many [sizes for Linux VMs][sizes-linux] to meet any requirements. For more information about scaling the Jenkins master, refer to the Jenkins community of [best practices][best-practices], which also includes details about scaling Jenkins master.
+Selecting the correct server size depends on the size of the expected workload. The Jenkins community maintains a [selection guide][selection-guide] to help identify the configuration that best meets your requirements. Azure offers many [sizes for Linux VMs][sizes-linux] to meet any requirements. For more information about scaling the Jenkins primary, refer to the Jenkins community of [best practices][best-practices], which also includes details about scaling Jenkins.
 
 ## Availability considerations
 
@@ -123,7 +123,7 @@ Availability in the context of a Jenkins server means being able to recover any 
 
 - Recovery Point Objective (RPO) indicates how much data you can afford to lose if a disruption in service affects Jenkins.
 
-In practice, RTO and RPO imply redundancy and backup. Availability is not a question of hardware recovery &mdash; that is part of Azure &mdash; but rather ensuring you maintain the state of your Jenkins server. Microsoft offers a [service level agreement][sla] (SLA) for single VM instances. If this SLA doesn't meet your uptime requirements, make sure you have a plan for disaster recovery, or consider using a [multi-master Jenkins server][multi-master] deployment (not covered in this document).
+In practice, RTO and RPO imply redundancy and backup. Availability is not a question of hardware recovery &mdash; that is part of Azure &mdash; but rather ensuring you maintain the state of your Jenkins server. Microsoft offers a [service level agreement][sla] (SLA) for single VM instances. If this SLA doesn't meet your uptime requirements, make sure you have a plan for disaster recovery, or consider using a [multi-primary Jenkins server][multi-primary] deployment (not covered in this document).
 
 Consider using the disaster recovery [scripts][disaster] in step 7 of the deployment to create an Azure Storage account with managed disks to store the Jenkins server state. If Jenkins goes down, it can be restored to the state stored in this separate storage account.
 
@@ -248,7 +248,7 @@ You may wish to review the following [Azure example scenario](/azure/architectur
 [matrix]: https://plugins.jenkins.io/matrix-auth
 [monitor]: https://docs.microsoft.com/azure/monitoring-and-diagnostics
 [monitoring-diag]: ../../best-practices/monitoring.md
-[multi-master]: https://jenkins.io/doc/book/architecting-for-scale
+[multi-primary]: https://jenkins.io/doc/book/architecting-for-scale
 [nginx]: https://www.digitalocean.com/community/tutorials/how-to-create-an-ssl-certificate-on-nginx-for-ubuntu-14-04
 [nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
 [quick-start]: https://docs.microsoft.com/azure/security-center/security-center-get-started

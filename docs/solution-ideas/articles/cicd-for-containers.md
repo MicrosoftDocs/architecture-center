@@ -55,4 +55,4 @@ By setting up a continuous build to produce your container images and orchestrat
 
 ## Pricing Calculator
 
-* [Customize and get pricing estimates](https://azure.com/e/bf371668289e4554bc17fa87b7fe5ead)
+* [Customize and get pricing estimates](https://azure.com/e/91c84e39f4df46afaf6c6c433b2c7d78)

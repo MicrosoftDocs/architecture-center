@@ -48,7 +48,10 @@ Get a full-stack view of application state by using [Azure dashboards](https://
 
 For more information about monitoring and diagnostics, see [Monitoring and diagnostics](../../best-practices/monitoring.md).
 
-![GitHub](../../_images/github.png) A sample about creating resource-level health activity log alerts is [here](https://github.com/mspnp/samples/tree/master/ResiliencyHealthAlerts). The sample uses Azure Resource Manager to create alerts.
+![GitHub](../../_images/github.png) Here are some samples about creating and querying alerts:
+
+- [HealthAlert](https://github.com/mspnp/samples/tree/master/Reliability/HealthAlerts). A sample about creating resource-level health activity log alerts. The sample uses Azure Resource Manager to create alerts.
+- [GraphAlertsPsSample](https://github.com/mspnp/samples/tree/master/Reliability/GraphAlertsPsSample). A set of PowerShell commands that queries for alerts generated against your subscription.
 
 ## Test Monitoring
 
@@ -82,7 +85,7 @@ An Azure infrastructure as a service (IaaS) VM supports attaching a number of da
 
 ### VM size
 
-If the actual CPU, memory, disk, and I/O of your VMs approach the limits of the VM size, your application may experience capacity issues. To correct the issues, increase the VM size. VM sizes are described in [Sizes for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
+If the actual CPU, memory, disk, and I/O of your VMs approach the limits of the VM size, your application may experience capacity issues. To correct the issues, increase the VM size. VM sizes are described in [Sizes for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/sizes).
 
 If your workload fluctuates over time, consider using virtual machine scale sets to automatically scale the number of VM instances. Otherwise, you need to manually increase or decrease the number of VMs. For more information, see the [virtual machine scale sets overview](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview).
 
@@ -92,7 +95,7 @@ If your Azure SQL Database tier isn't adequate to handle your application's Data
 
 Sample:
 
-This [reference implementation](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md) monitors a Cosmos DB database for throttling. Azure Monitor alerts are triggered when data access requests to CosmosDB exceed the capacity in Request Units (or RUs). For more context, see the [Reference Architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/cloud-automation) (Throttling response scenario)
+This [reference implementation](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md) monitors a Cosmos DB database for throttling. Azure Monitor alerts are triggered when data access requests to Cosmos DB exceed the capacity in Request Units (or RUs). For more context, see the [Reference Architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/cloud-automation) (Throttling response scenario)
 
 
 ## Instrumentation
@@ -133,6 +136,9 @@ The health and performance of an application can degrade over time, and degradat
 Implement probes or check functions, and run them regularly from outside the application. These checks can be as simple as measuring response time for the application as a whole, for individual parts of the application, for specific services that the application uses, or for separate components.
 
 Check functions can run processes to ensure that they produce valid results, measure latency and check availability, and extract information from the system.
+
+![GitHub](../../_images/github.png) The [HealthProbesSample](https://github.com/mspnp/samples/tree/master/Reliability/HealthProbesSample) sample shows how to set up health probes. It provides an ARM template to set up the infrastructure. A load balancer accepts public requests and load balance to a set of virtual machines. The health probe is set up so that it can check for service's path /Health.
+
 
 ## Application logs
 

@@ -98,7 +98,7 @@ We have provided a [sample cost calculator][calculator] for configuring disaster
 
 [architecture]: ./media/architecture-disaster-recovery-multi-tier-app.png
 [security]: https://docs.microsoft.com/azure/security
-[scalability]: ../../checklist/performance-efficiency.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [docs-availability-zones]: https://docs.microsoft.com/azure/availability-zones/az-overview
 [docs-load-balancer]: https://docs.microsoft.com/azure/load-balancer/load-balancer-overview
 [docs-nsg]: https://docs.microsoft.com/azure/virtual-network/security-overview

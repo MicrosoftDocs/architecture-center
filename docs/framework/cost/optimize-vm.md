@@ -15,7 +15,7 @@ Virtual machines can be deployed in fix-sized blocks. These VMs must be adequate
 
 For example, look at a VM running the SAP on Azure project can show you how initially the VM was sized based on the size of existing hardware server (with cost around €1 K per month), but the real utilization of VM was not more than 25% - but simple choosing the right VM size in the cloud we can achieve 75% saving (resize saving). And by applying the snoozing you can get additional 14% of economy:
 
-![](../_images/run-cost-optimization.png)
+![Run cost optimization](../_images/run-cost-optimization.png)
 
 It is easy to handle cost comparison when you are well equipped and for this Microsoft provides the set of specific services and tools that help you to understand and plan costs. These include the TCO Calculator, Azure Pricing Calculator, Azure Cost Management (Cloudyn), Azure Migrate, Cosmos DB Sizing Calculator, and the Azure Site Recovery Deployment Planner.
 
@@ -23,7 +23,7 @@ Here are some strategies that you can use to lower cost for virtual machines.
 
 ## Resize virtual machines 
 You can lower cost by managing the size and the number of VMs. 
-> ![Task](../../_images/i-best-practices.png) Determine the load by analyzing the CPU utilization to make sure that the instance is adequately utilized.
+> ![Task](../../_images/i-best-practices.svg) Determine the load by analyzing the CPU utilization to make sure that the instance is adequately utilized.
 
 Ideally, with the right size, the current load should fit in a lower SKU of the same tier. Another way is to lower the number instances and still keep the load below a reasonable utilization. [Azure Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/docs)  recommends load less than 80% utilization for non-user facing workloads and 40% when user-facing workload. It also provides current and target SKU information.
 

@@ -44,60 +44,58 @@ The script automatically removes all Virtual Network peerings from the Hub Virtu
 
 ```powershell
 param (
-    # Address Prefix range (CIDR Notation, e.g., 10.0.0.0/24)
+    # Address Prefix range (CIDR Notation, e.g., 10.0.0.0/24 or 2607:f000:0000:00::/64)
     [Parameter(Mandatory = $true)]
-    [ValidatePattern('^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/(3[0-2]|[1-2][0-9]|[0-9]))$')]
     [String[]]
     $IPAddressRange,
 
-    # Address Prefix range (Subscription ID for Hub VNet)
+    # Hub VNet Subscription Name
     [Parameter(Mandatory = $true)]
     [String]
-    $HubVNetSubsID,
+    $HubVNetSubscriptionName, 
 
-    # Address Prefix range (Hub VNet Resource Group Name)
+    # Hub VNet Resource Group Name
     [Parameter(Mandatory = $true)]
     [String]
-    $HubVNetRGName,
+    $HubVNetRGName, 
 
-    # Address Prefix range (Hub VNet Name)
+    # Hub VNet Name
     [Parameter(Mandatory = $true)]
     [String]
     $HubVNetName
 )
 
-#region Set context to Hub VNet Subscription
-Set-AzContext -Subscription $HubVNetSubsID
-#endregion
+#Set context to Hub VNet Subscription
+Get-AzSubscription -SubscriptionName $HubVNetSubscriptionName | Set-AzContext
+#end
 
-#region Get All Hub VNet Peerings and Hub VNet Object
+#Get All Hub VNet Peerings and Hub VNet Object
 $hubPeerings = Get-AzVirtualNetworkPeering -ResourceGroupName $HubVNetRGName -VirtualNetworkName $HubVNetName
 $hubVNet = Get-AzVirtualNetwork -Name $HubVNetName -ResourceGroupName $HubVNetRGName
-#endregion
+#end
 
-#region Remove All Hub VNet Peerings
-$hubPeerings | Remove-AzVirtualNetworkPeering -Force
-#endregion
+#Remove All Hub VNet Peerings
+Remove-AzVirtualNetworkPeering -VirtualNetworkName $HubVNetName -ResourceGroupName $HubVNetRGName -name $hubPeerings.Name -Force
+#end
 
-#region Add IP address range to the hub vnet
-$hubVNet.AddressSpace.AddressPrefixes.AddRange($IPAddressRange)
+#Add IP address range to the hub vnet
+$hubVNet.AddressSpace.AddressPrefixes.Add($IPAddressRange)
+#end
+
+#Add $IPAddressRange to subnet
+$subnet = $HUBvnet.subnets[0]
+$subnet.addressprefix.add($IPAddressRange)
+#end
+
+#Apply configuration stored in $hubVnet
 Set-AzVirtualNetwork -VirtualNetwork $hubVNet
-#endregion
+#end
 
 foreach ($vNetPeering in $hubPeerings)
 {
     # Get remote vnet name
     $vNetFullId = $vNetPeering.RemoteVirtualNetwork.Id
     $vNetName = $vNetFullId.Substring($vNetFullId.LastIndexOf('/') + 1)
-
-    # Get subscription id
-    $vNetSubscriptionId = $vNetFullId.Substring($vNetFullId.IndexOf('/', 1) + 1, 36)
-
-    if ((Get-AzContext).Subscription.Id -ne $vNetSubscriptionId)
-    {
-        # Set the context so that we can modify the spokes
-        Set-AzContext -Subscription $vNetSubscriptionId
-    }
 
     # Pull remote vNet object
     $vNetObj = Get-AzVirtualNetwork -Name $vNetName
@@ -109,11 +107,6 @@ foreach ($vNetPeering in $hubPeerings)
     # Reset to initiated state
     Set-AzVirtualNetworkPeering -VirtualNetworkPeering $peering
 
-    if ((Get-AzContext).Subscription.Id -ne $HubVNetSubsID)
-    {
-        # Set context so that we can re-create the peering
-        Set-AzContext -Subscription $HubVNetSubsID
-    }
     # Re-create peering on hub
     Add-AzVirtualNetworkPeering -Name $vNetPeering.Name -VirtualNetwork $HubVNet -RemoteVirtualNetworkId $vNetFullId -AllowGatewayTransit
 

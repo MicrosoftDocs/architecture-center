@@ -100,8 +100,6 @@ A multi-host, scale-out deployment is generally used for BW/4HANA deployments as
 
 S/4HANA and SAP Business Suite on HANA on a single blade can scale up to 24 TB with a single-instance node. HANA Large Instances and the Azure storage infrastructure also support S/4HANA and BW/4HANA scale-out deployments. For specific SKUs that are certified for scale-out, please consult the [SAP certified hardware directory][directory].
 
-S/4HANA and SAP Business Suite on HANA on a single blade can be scaled up to 20 TB with a single HANA Large Instances instance.
-
 Memory requirements for HANA increase as data volume grows. Use your system’s current memory consumption as the basis for predicting future consumption, and then map your demand into one of the HANA Large Instances sizes.
 
 If you already have SAP deployments, SAP provides reports you can use to check the data used by existing systems and calculate memory requirements for a HANA instance. For example, see the following SAP Notes (access requires an SAP Service Marketplace account):

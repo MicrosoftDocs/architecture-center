@@ -1,7 +1,7 @@
 ---
 title: Windows N-tier application on Azure
 description: Implement a multi-tier architecture on Azure for availability, security, scalability, and manageability.
-author: MikeWasson
+author: adamboeglin
 ms.date: 08/21/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -50,7 +50,7 @@ The architecture has the following components.
 
 - **Active Directory Domain Services (AD DS) Servers**. The computer objects for the failover cluster and its associated clustered roles are created in Active Directory Domain Services (AD DS).
 
-- **Cloud Witness**. A failover cluster requires more than half of its nodes to be running, which is known as having quorum. If the cluster has just two nodes, a network partition could cause each node to think it's the master node. In that case, you need a *witness* to break ties and establish quorum. A witness is a resource such as a shared disk that can act as a tie breaker to establish quorum. Cloud Witness is a type of witness that uses Azure Blob Storage. To learn more about the concept of quorum, see [Understanding cluster and pool quorum](https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum). For more information about Cloud Witness, see [Deploy a Cloud Witness for a Failover Cluster](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).
+- **Cloud Witness**. A failover cluster requires more than half of its nodes to be running, which is known as having quorum. If the cluster has just two nodes, a network partition could cause each node to think it's the primary node. In that case, you need a *witness* to break ties and establish quorum. A witness is a resource such as a shared disk that can act as a tie breaker to establish quorum. Cloud Witness is a type of witness that uses Azure Blob Storage. To learn more about the concept of quorum, see [Understanding cluster and pool quorum](https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum). For more information about Cloud Witness, see [Deploy a Cloud Witness for a Failover Cluster](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).
 
 - **Jumpbox**. Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (RDP) traffic.
 
@@ -323,7 +323,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [sql-alwayson-listeners]: https://msdn.microsoft.com/library/hh213417.aspx
 [sql-alwayson-read-only-routing]: https://technet.microsoft.com/library/hh213417.aspx#ConnectToSecondary
 [sql-alwayson]: https://msdn.microsoft.com/library/hh510230.aspx
-[sql-keyvault]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault
+[sql-keyvault]: https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure
 [Managed-Sql-pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed
 [subscription-limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx

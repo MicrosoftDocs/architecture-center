@@ -1,7 +1,7 @@
 ---
 title: Architecting for resiliency and availability
 description: Build resiliency and availability into an Azure application
-author: MikeWasson
+author: adamboeglin
 ms.date: 11/20/2019
 ms.topic: article
 ms.service: architecture-center
@@ -50,7 +50,7 @@ The following table compares the redundancy factors across several resiliency st
 
 Use the following tasks to meet redundancy requirements:
 
-- **Deploy multiple instances of services.** If your application depends on a single instance of a service, it creates a single point of failure. Provisioning multiple instances improves both resiliency and scalability. For [Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is), select an [App Service plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview/) that offers multiple instances. For [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=/azure/virtual-machines/windows/toc.json), ensure that your architecture has more than one VM and that each VM is included in an [availability set](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability).
+- **Deploy multiple instances of services.** If your application depends on a single instance of a service, it creates a single point of failure. Provisioning multiple instances improves both resiliency and scalability. For [Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is), select an [App Service plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview/) that offers multiple instances. For [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/), ensure that your architecture has more than one VM and that each VM is included in an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
 
 - **Replicate VMs using Azure Site Recovery.** When you replicate Azure VMs using [Site Recovery](https://docs.microsoft.com/azure/site-recovery), all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes, giving an RPO on the order of minutes.
 

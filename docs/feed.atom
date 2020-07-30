@@ -2,11 +2,155 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>the Azure Architecture Center</title>
-    <updated>2020-06-24T15:24:46.447Z</updated>
+    <updated>2020-07-12T15:14:22.829Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for the Azure Architecture Center</subtitle>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Azure Machine Learning decision guide for optimal tool selection]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mlops/aml-decision-tree</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mlops/aml-decision-tree"/>
+        <updated>2020-07-09T17:58:04.000Z</updated>
+        <summary type="html"><![CDATA[How to choose the best services for building an end-to-end machine learning pipeline from experimentation to deployment.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Machine Learning Operations maturity model]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mlops/mlops-maturity-model</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mlops/mlops-maturity-model"/>
+        <updated>2020-07-09T17:58:04.000Z</updated>
+        <summary type="html"><![CDATA[Detailed explanation of the MLOps maturity model stages and defining characteristics of each stage.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mlops/mlops-technical-paper</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mlops/mlops-technical-paper"/>
+        <updated>2020-07-09T17:58:04.000Z</updated>
+        <summary type="html"><![CDATA[How the machine learning operations (MLOps) maturity model was applied to implement a machine learning solution for predicting product shipping levels.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cognizant Safe Buildings with IoT and Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/safe-buildings</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/safe-buildings"/>
+        <updated>2020-07-07T20:55:42.000Z</updated>
+        <summary type="html"><![CDATA[Deploy Cognizant Safe Buildings, IoT, and Azure services to protect buildings from COVID-19 outbreaks.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Machine teaching with the Microsoft Autonomous Systems platform]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/autonomous-systems</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/autonomous-systems"/>
+        <updated>2020-07-07T03:04:07.000Z</updated>
+        <summary type="html"><![CDATA[Learn how the Microsoft Autonomous Systems platform uses machine teaching, deep reinforcement learning, and simulations to build and deploy autonomous systems with Bonsai.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Machine teaching]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/machine-teaching</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/machine-teaching"/>
+        <updated>2020-07-07T03:04:07.000Z</updated>
+        <summary type="html"><![CDATA[Learn how machine teaching incorporates artificial intelligence, machine learning, deep reinforcement learning, and subject matter expertise.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build cloud native apps with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cloud-native-apps</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cloud-native-apps"/>
+        <updated>2020-06-26T21:21:01.000Z</updated>
+        <summary type="html"><![CDATA[Build cloud native apps with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deliver highly scalable customer service and ERP apps with Azure SQL and Azure Cosmos DB]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/erp-customer-service</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/erp-customer-service"/>
+        <updated>2020-06-26T21:21:01.000Z</updated>
+        <summary type="html"><![CDATA[Deliver highly scalable customer service and ERP apps with Azure SQL and Azure Cosmos DB]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Modernize .NET applications with Azure SQL DB and Azure App Service]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/net-app-modernization</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/net-app-modernization"/>
+        <updated>2020-06-26T21:21:01.000Z</updated>
+        <summary type="html"><![CDATA[Modernize .NET applications with Azure SQL DB and Azure App Service]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Firewall and Application Gateway for virtual networks]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway"/>
+        <updated>2020-06-26T20:01:40.000Z</updated>
+        <summary type="html"><![CDATA[Learn about options and best practices for using Azure Firewall and Azure Application Gateway security in virtual networks.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Dynamics Business Central as a Service on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/business-central</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/business-central"/>
+        <updated>2020-06-25T16:43:14.000Z</updated>
+        <summary type="html"><![CDATA[This example shows how to establish the production environment for Business Central in partner private Azure environment.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build web and mobile applications with Azure Database for MySQL, Azure Cosmos DB, and Azure Cache for Redis]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/webapps</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/webapps"/>
+        <updated>2020-06-24T19:26:14.000Z</updated>
+        <summary type="html"><![CDATA[The reference architecture below is inspired by HSBC’s digital payment platform, PayMe for Business.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AI for Earth]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/ai-for-earth</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/ai-for-earth"/>
+        <updated>2020-06-24T18:50:51.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use the AI for Earth APIs to help build solutions for environmental problems. See other AI for Earth projects and initiatives.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Oracle database migration: Cross-cloud connectivity]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/oracle-migrate/oracle-migration-cross-cloud</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/oracle-migrate/oracle-migration-cross-cloud"/>
+        <updated>2020-06-24T01:31:39.000Z</updated>
+        <summary type="html"><![CDATA[Create a connection between your existing Oracle Database and your Azure applications.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Oracle database migration: Lift and shift]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/oracle-migrate/oracle-migration-lift-shift</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/oracle-migrate/oracle-migration-lift-shift"/>
+        <updated>2020-06-24T01:31:39.000Z</updated>
+        <summary type="html"><![CDATA[Lift and shift your Oracle database from an Oracle environment to Azure Virtual Machines.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Overview of Oracle database migration]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/oracle-migrate/oracle-migration-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/oracle-migrate/oracle-migration-overview"/>
+        <updated>2020-06-24T01:31:39.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Oracle database migration paths and the methods you use to migrate your schema to SQL or PostgreSQL.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Oracle database migration: Rearchitect]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/oracle-migrate/oracle-migration-rearchitect</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/oracle-migrate/oracle-migration-rearchitect"/>
+        <updated>2020-06-24T01:31:39.000Z</updated>
+        <summary type="html"><![CDATA[Rearchitect your Oracle database with Azure SQL Managed Instance]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Oracle database migration: Refactor]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/oracle-migrate/oracle-migration-refactor</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/oracle-migrate/oracle-migration-refactor"/>
+        <updated>2020-06-24T01:31:39.000Z</updated>
+        <summary type="html"><![CDATA[Refactor your Oracle database with Azure Database Migration Service and move it to PostgreSQL.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Architectural design session]]></title>
         <id>https://docs.microsoft.com/azure/architecture/serverless-quest/ads</id>
@@ -152,14 +296,6 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[iBEMS Shield COVID-19 building management solution]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/ibems-shield-smart-buildings</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/ibems-shield-smart-buildings"/>
-        <updated>2020-06-11T21:59:27.000Z</updated>
-        <summary type="html"><![CDATA[Update building management systems to provide COVID-19 protections with intelligent IoT Edge devices and cloud-powered apps.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[COVID-19 Safe Solutions with IoT Edge]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cctv-mask-detection</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cctv-mask-detection"/>
@@ -190,6 +326,14 @@
         <updated>2020-06-02T18:05:11.000Z</updated>
         <summary type="html"><![CDATA[Learn how to use Azure Cognitive Search pre-built skills and custom extensibility to enrich large unstructured data sets into indexable structured data.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Governance, risk, and compliance in Azure | Microsoft Docs]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/governance</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/governance"/>
+        <updated>2020-06-25T17:46:07.000Z</updated>
+        <summary type="html"><![CDATA[Define the security priorities around governance, risk, and compliance]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Serverless Functions code walkthrough]]></title>
@@ -1339,142 +1483,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sharepoint"/>
         <updated>2020-03-06T18:32:28.000Z</updated>
         <summary type="html"><![CDATA[Recommended architecture for deploying a high availability SharePoint Server 2016 farm in Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure data platform end-to-end]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end"/>
-        <updated>2020-02-26T18:39:35.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure services to ingest, process, store, serve, and visualize data from different sources.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Add IP address spaces to peered virtual networks]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/networking/prefixes/add-ip-space-peered-vnet</id>
-        <link href="https://docs.microsoft.com/azure/architecture/networking/prefixes/add-ip-space-peered-vnet"/>
-        <updated>2020-02-14T18:33:15.000Z</updated>
-        <summary type="html"><![CDATA[Automation of IP address space additions to peered vNets]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Choosing a natural language processing technology]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/natural-language-processing</id>
-        <link href="https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/natural-language-processing"/>
-        <updated>2020-02-26T18:39:35.000Z</updated>
-        <summary type="html"><![CDATA[Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Event-based cloud automation]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/cloud-automation</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/cloud-automation"/>
-        <updated>2020-02-26T18:39:35.000Z</updated>
-        <summary type="html"><![CDATA[Recommended architecture for implementing cloud automation using serverless technologies.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Serverless event processing]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing"/>
-        <updated>2020-02-26T18:39:35.000Z</updated>
-        <summary type="html"><![CDATA[Reference architecture for serverless event ingestion and processing using Azure Functions.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Serverless web application]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/web-app</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/web-app"/>
-        <updated>2020-02-26T18:39:35.000Z</updated>
-        <summary type="html"><![CDATA[Recommended architecture for a serverless web application and web API.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Run SAP NetWeaver in Windows on Azure]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-netweaver</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-netweaver"/>
-        <updated>2020-02-19T18:31:48.000Z</updated>
-        <summary type="html"><![CDATA[Proven practices for running SAP NetWeaver in a Windows environment on Azure with high availability.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[SAP S/4HANA in Linux on Azure]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-s4hana</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-s4hana"/>
-        <updated>2020-02-19T18:31:48.000Z</updated>
-        <summary type="html"><![CDATA[Proven practices for running SAP S/4HANA in a Linux environment on Azure with high availability.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Choosing an Azure compute service]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree</id>
-        <link href="https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree"/>
-        <updated>2020-02-14T18:33:15.000Z</updated>
-        <summary type="html"><![CDATA[A flowchart for selecting a compute service.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Basic web application]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app"/>
-        <updated>2020-02-12T20:01:23.000Z</updated>
-        <summary type="html"><![CDATA[Recommended architecture for a basic web application running in Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Highly available multi-region web application]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region"/>
-        <updated>2020-02-12T20:01:23.000Z</updated>
-        <summary type="html"><![CDATA[Recommended architecture for a highly available web application running in multiple regions in Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Scalable web application]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app"/>
-        <updated>2020-02-12T20:01:23.000Z</updated>
-        <summary type="html"><![CDATA[Improve scalability in a web application running in Microsoft Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Run a Linux VM on Azure]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm"/>
-        <updated>2020-02-12T20:01:23.000Z</updated>
-        <summary type="html"><![CDATA[Best practices for running a Linux virtual machine on Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Multi-region N-tier application]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server"/>
-        <updated>2020-02-12T20:01:23.000Z</updated>
-        <summary type="html"><![CDATA[Deploy an application on Azure virtual machines in multiple regions for high availability and resiliency.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[N-tier application with Apache Cassandra]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra"/>
-        <updated>2020-02-12T20:01:23.000Z</updated>
-        <summary type="html"><![CDATA[Run Linux virtual machines for an N-tier architecture with Apache Cassandra in Microsoft Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Windows N-tier application on Azure]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server"/>
-        <updated>2020-02-12T20:01:23.000Z</updated>
-        <summary type="html"><![CDATA[Implement a multi-tier architecture on Azure for availability, security, scalability, and manageability.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Run a Windows VM on Azure]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm"/>
-        <updated>2020-02-12T20:01:23.000Z</updated>
-        <summary type="html"><![CDATA[Best practices for running a Windows virtual machine on Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
 </feed>

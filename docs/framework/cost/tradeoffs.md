@@ -23,19 +23,19 @@ Cost has a direct correlation with reliability.
 **Does the cost of high availability components exceed the acceptable downtime?**
 ***
 
-Overall Service Level Agreement (SLA), Recovery Time Objective (RTO), and Recovery Point Objective (RPO) may lead to expensive design choices. If your service SLAs, RTOs, and RPOs times are short, then higher investment is inevitable for high availability and disaster recovery options. 
+Overall Service Level Agreement (SLA), Recovery Time Objective (RTO), and Recovery Point Objective (RPO) may lead to expensive design choices. If your service SLAs, RTOs, and RPOs times are short, then higher investment is inevitable for high availability and disaster recovery options.
 
-For example, to support high availability, you choose to host the application across regions. This choice is costlier than single region because of the replication costs or the need provisioning extra nodes. Data transfer between regions will also add cost. 
+For example, to support high availability, you choose to host the application across regions. This choice is costlier than single region because of the replication costs or the need provisioning extra nodes. Data transfer between regions will also add cost.
 
-If the cost of high availability exceeds the cost of downtime, you can save by using Azure platform-managed replication and recover data from the backup storage. 
+If the cost of high availability exceeds the cost of downtime, you can save by using Azure platform-managed replication and recover data from the backup storage.
 
 For resiliency, availability, and reliability considerations, see the [Reliability](/azure/architecture/framework/resiliency/overview?branch=master) pillar.
 
-
 ## Cost versus performance efficiency
+
 Boosting performance will lead to higher cost.
 
-Many factors impact performance. 
+Many factors impact performance.
 
 **Fixed or consumption-based provisioning**. Avoid cost estimation of a workload at consistently high utilization. Consumption-based pricing will be more expensive that the equivalent provisioned pricing. Smooth out the peaks to get a consistent flow of compute and data. Ideally, use manual and autoscaling to find the right balance. Scaling up is more expensive than scaling out.
 

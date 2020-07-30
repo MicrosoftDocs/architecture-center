@@ -91,6 +91,9 @@ conceptualContent:
   items:
     - title: Popular Articles
       links:
+      - text: AKS Production Baseline
+        url: ./reference-architectures/containers/aks/secure-baseline-aks.md
+        itemType: reference
       - text: AWS to Azure services comparison
         url: ./aws-professional/services.md
         itemType: reference
@@ -112,7 +115,7 @@ conceptualContent:
       - text: CQRS design pattern
         url: ./patterns/cqrs.md
         itemType: concept
-    # Card
+
     - title: AI & Machine Learning
       links:
       - text: Training of Python scikit-learn models
@@ -146,7 +149,7 @@ conceptualContent:
       footerLink:
         url: ./data-guide/big-data/machine-learning-at-scale.md
         text: See more
-    # Card
+    
     - title: Data
       links:
         - url: ./data-guide/big-data/index.md
@@ -299,7 +302,7 @@ conceptualContent:
           url: service-fabric/migrate-from-cloud-services.md
         - text: Azure Kubernetes Service (AKS)
           itemType: architecture
-          url: reference-architectures/microservices/aks.md
+          url: reference-architectures/containers/aks-microservices/aks-microservices.md
         - text: Azure Service Fabric
           itemType: architecture
           url: reference-architectures/microservices/service-fabric.md
@@ -389,25 +392,31 @@ conceptualContent:
       links:
         - text: Overview
           itemType: architecture
-          url: reference-architectures/sap/sap-overview
-        - text: SAP HANA on Azure Large Instances
+          url: reference-architectures/sap/sap-overview.md
+        - text: SAP HANA on Azure (Large Instances)
           itemType: architecture
           url: reference-architectures/sap/hana-large-instances.md
-        - text: SAP NetWeaver for AnyDB
+        - text: SAP HANA Scale-up on Linux
+          itemType: architecture
+          url: reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.md
+        - text: SAP NetWeaver on Windows on Azure
           itemType: architecture
           url: reference-architectures/sap/sap-netweaver.md
-        - text: SAP S/4HANA
+        - text: SAP S/4HANA in Linux on Azure
           itemType: architecture
           url: reference-architectures/sap/sap-s4hana.md
-        - text: SAP for dev/test
-          itemType: get-started
-          url:  example-scenario/apps/sap-dev-test.md
-        - text: SAP for production
-          itemType: get-started
-          url:  example-scenario/apps/sap-production.md
-        - text: SharePoint Server 2016
+        - text: SAP BW/4HANA in Linux on Azure
           itemType: architecture
-          url: reference-architectures/sharepoint/index.md
+          url: reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.md
+        - text: SAP NetWeaver on SQL Server
+          itemType: architecture
+          url: solution-ideas/articles/sap-netweaver-on-sql-server.md  
+        - text: SAP deployment using an Oracle DB
+          itemType: architecture
+          url: example-scenario/apps/sap-production.md
+        - text: Dev/test for SAP
+          itemType: architecture
+          url: example-scenario/apps/sap-dev-test.md           
 
     - title: Web apps
       links:

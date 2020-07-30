@@ -134,7 +134,7 @@ For more information, see the Operational Excellence section in [Azure Well-Arch
 
 <!-- links -->
 
-[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [Azure Architecture Framework]: /azure/architecture/framework/cost/overview
 [azure-monitor]: https://azure.microsoft.com/services/monitor/
@@ -144,33 +144,33 @@ For more information, see the Operational Excellence section in [Azure Well-Arch
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator
-[data-disk]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds
+[data-disk]: https://docs.microsoft.com/azure/virtual-machines/windows/disks-types
 [disk-encryption]: https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss
 [enable-monitoring]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
-[fqdn]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-portal-create-fqdn
+[fqdn]: https://docs.microsoft.com/azure/virtual-machines/windows/portal-create-fqdn
 [group-policy]: https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates
-[manage-vm-availability]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability
+[manage-vm-availability]: https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability
 [managed-disks]: https://docs.microsoft.com/azure/storage/storage-managed-disks-overview
 [naming-conventions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
 [nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
 [nsg-default-rules]: https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules
-[planned-maintenance]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance
+[planned-maintenance]: https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates
 [premium-storage]: https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage
 [rbac]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
 [rbac-roles]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles
 [rbac-devtest]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#devtest-labs-user
 [rbac-network]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#network-contributor
 [reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs
-[resize-os-disk]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-expand-os-disk
+[resize-os-disk]: https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk
 [resource-lock]: https://docs.microsoft.com/azure/resource-group-lock-resources
 [resource-manager-overview]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
 [security-center]: https://docs.microsoft.com/azure/security-center/security-center-intro
 [security-center-get-started]: https://docs.microsoft.com/azure/security-center/security-center-get-started
-[select-vm-image]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-cli-ps-findimage
+[select-vm-image]: https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage
 [services-by-region]: https://azure.microsoft.com/regions/#services
 [static-ip]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-reserved-public-ip
-[virtual-machine-sizes]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes
-[vm-size-tables]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes
+[virtual-machine-sizes]: https://docs.microsoft.com/azure/virtual-machines/sizes
+[vm-size-tables]: https://docs.microsoft.com/azure/virtual-machines/sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [windows-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
 [AAF-cost]: /azure/architecture/framework/cost/overview

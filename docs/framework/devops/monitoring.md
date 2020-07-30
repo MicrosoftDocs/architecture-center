@@ -23,35 +23,38 @@ Make sure you leverage all the rich information that Application Insights can pr
 * By instrumenting your application correctly, Application Insights will give you performance statistics both from a client and a server perspective
 * The Application Map will show you application dependencies in other services such as backend APIs or databases, allowing to determine visually where performance problems lie
 * Smart Detection will warn you when anomalies in performance or utilization patterns happen
-* Usage Analysis can give you telemetry on which features of your application are most frequently used, or whether all your application functionality is being used. This is especially useful after changes to the application functionality, to verify whether those changes were successful
+* Usage Analysis can give you telemetry on which features of your application are most frequently used, or whether all your application functionality is being used. This feature is especially useful after changes to the application functionality, to verify whether those changes were successful
 * Release annotations are visual indicators in your Application Insights charts of new builds and other events, so that you can visually correlate changes in application performance to code releases, being able to quickly pinpoint performance problems.
 * Cross-component transaction diagnostics allow you to follow failed transactions to find the point in the architecture where the fault was originated.
 * Snapshot Debugger, to automatically collect a snapshot of a live application in case of an exception, to analyze it at a later stage.
 
-In order to use Application Insights you have two options: you can use **codeless monitoring**, where onboarding your app to Application Insights does not require any code change, or **code-based monitoring**, where you instrument your code to send telemetry to Application Insights using the Software Development Kit for your programming language of choice.
+To use Application Insights you have two options: you can use **codeless monitoring**, where onboarding your app to Application Insights does not require any code change, or **code-based monitoring**, where you instrument your code to send telemetry to Application Insights using the Software Development Kit for your programming language of choice.
 
 You can certainly use other Application Performance Management tools to monitor your application on Azure, such as NewRelic or AppDynamics, but Application Insights will give you the most seamless and integrated experience.
 
 ## Platform Monitoring
 
-Application Insights is actually one of the components of Azure Monitor, which gives you rich metrics and logs to verify the state of your complete Azure landscape. No matter whether your application is running on Virtual Machines, App Services or Kubernetes, Azure Monitor will help you to follow the state of your infrastructure, and to react promptly if there are any issues.
+Application Insights is actually one of the components of Azure Monitor, which gives you rich metrics and logs to verify the state of your complete Azure landscape. No matter whether your application is running on Virtual Machines, App Services, or Kubernetes, Azure Monitor will help you to follow the state of your infrastructure, and to react promptly if there are any issues.
 
-Make sure not only to monitor your compute elements supporting your application code, but your data platform as well: databases, storage accounts or data lakes should be closely monitored, since a low performance of the data tier of an application could have serious consequences.
+Make sure not only to monitor your compute elements supporting your application code, but your data platform as well: databases, storage accounts, or data lakes should be closely monitored, since a low performance of the data tier of an application could have serious consequences.
 
 ### Container Insights
 
 Should your application run on Azure Kubernetes Service, Azure Monitor allows you to easily monitor the state of your cluster, nodes, and pods. Easy to configure for AKS clusters, Container Insights delivers quick, visual, and actionable information: from the CPU and memory pressure of your nodes to the logs of individual Kubernetes pods.
 
-Additionally, for operators that prefer using the open source Kubernetes monitoring tool Prometheus but still like the ease of use of Azure Monitor Container Insights, both solutions can integrate with each other.
+Additionally, for operators that prefer using the open-source Kubernetes monitoring tool Prometheus but still like the ease of use of Azure Monitor Container Insights, both solutions can integrate with each other.
+
+  ![GitHub](../../_images/github.png) The [Sidecar Pattern](https://github.com/mspnp/samples/blob/master/OperationalExcellence/Patterns/SidecarPattern/Sidecar-pattern.md) adds a separate container with responsibilities that are required by the main container. A common use case is for running logging utilities and monitoring agents.
+
 
 ### Network monitoring
 
-No matter which form factor or programming language your application is based on, the network connecting your code to your users can make or break the experience that your application provides. As a consequence monitoring and troubleshooting the network can be decisive for an operations team. The component of Azure Monitor that manages the network components is called Network Watcher, a collection of network monitoring and troubleshooting tools. Some of these tools are the following:
+Regardless the form factor or programming language your application is based on, the network connecting your code to your users can make or break the experience that your application provides. As a consequence monitoring and troubleshooting the network can be decisive for an operations team. The component of Azure Monitor that manages the network components is called Network Watcher, a collection of network monitoring and troubleshooting tools. Some of these tools are:
 
 * Traffic Analytics will give you an overview of the traffic in your Virtual Networks, as well as the percentage coming from malicious IP addresses, leveraging Microsoft Threat Intelligence databases. This tool will show you as well the systems in your virtual networks that generate most traffic, so that you can visually identify bottlenecks before they degenerate into problems.
 * Network Performance Manager can generate synthetic traffic to measure the performance of network connections over multiple links, giving you a perspective on the evolution of WAN and Internet connections over time, as well as offering valuable monitoring information about Microsoft ExpressRoute circuits.
 * VPN diagnostics can help troubleshooting site-to-site VPN connections connecting your applications to users on-premises.
-* Connection Monitor allows to measure the network availability between sets of endpoints.
+* Connection Monitor allows you to measure the network availability between sets of endpoints.
 
 ### Other information sources
 
