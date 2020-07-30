@@ -1,6 +1,6 @@
 ---
-title: Banking System Cloud Transformation on Microsoft Azure 
-description: Solution for monitoring banking system infrastructure scalability and performance
+title: Banking system cloud transformation on Microsoft Azure 
+description: Solution for monitoring banking system infrastructure scalability and performance.
 author: tmmarshall 
 ms.date: 6/23/2020
 ms.topic: example-scenario
@@ -11,9 +11,7 @@ ms.custom: fcp
 
 # Banking System Cloud Transformation on Microsoft Azure
 
-## Introduction
-
-This paper summarizes the patterns and implementations used by CSE to build a solution for a customer that would use synthetic and actual applications and use existing workloads to monitor the reaction of the infrastructure for scalability and performance compatible with the requirements of the payment system.
+This article summarizes the patterns and implementations used by the commercial software engineer team (CSE) to build a solution for a customer that would use synthetic and actual applications and use existing workloads to monitor the reaction of the infrastructure for scalability and performance compatible with the requirements of the payment system.
 
 We will call the customer Contoso Bank, a major international Financial Services Industry (FSI) organization that is working on modernization of one of their financial transaction systems.
 
@@ -32,9 +30,13 @@ The solution involves three deliverables, summarized below.
 This deliverable runs a service called Channel Holder on Azure Red Hat OpenShift (ARO) and performs pod autoscaling tests on this service. This deliverable must achieve the following:
 
 * Provide a DevOps pipeline from on-premises to Azure for the Channel Holder service
+
 * Provide OpenShift cluster monitoring through a Grafana dashboard
+
 * Execute horizontal pod autoscaling tests for the Channel Holder service
+
 * Provide observability on the Channel Holder by activating metrics capture (for example, CPU utilization) with Prometheus and Grafana
+
 * Provide a detailed report about the tests executed, the applications' behavior and the infrastructure tuning, if any
 
 #### Node Autoscaling for Channel Holder
@@ -42,8 +44,11 @@ This deliverable runs a service called Channel Holder on Azure Red Hat OpenShift
 This deliverable focuses on running the Channel Holder service on Azure Kubernetes Service (AKS) to allow node autoscaling tests. This deliverable must achieve the following:
 
 * Provide AKS cluster monitoring through a Grafana dashboard
+
 * Execute node autoscaling tests for the Channel Holder service
+
 * Provide observability on the Channel Holder by activating metrics capture with Prometheus and Grafana
+
 * Provide a detailed report about the tests executed, the applications' behavior and the infrastructure tuning, if any
 
 #### Scalability and Performance for Transaction Simulation
@@ -51,8 +56,11 @@ This deliverable focuses on running the Channel Holder service on Azure Kubernet
 This deliverable focuses on running Channel Holder, EFT Controller, and EFT Processor services on ARO and AKS, and performs pod and node autoscaling and performance tests on all services. This deliverable must achieve the following:
 
 * Execute performance tests over the microservices until 2000 transactions per second is reached/surpassed
+
 * Execute horizontal pod/node autoscaling tests over the microservices
+
 * Provide observability on the Channel Holder by activating metrics capture with Prometheus and Grafana
+
 * Provide a detailed report about the tests executed, the applications' behavior and the Kafka partitioning strategies adopted
 
 ### Success Criteria
@@ -64,12 +72,19 @@ The following success criteria were defined during this engagement:
 The customer considered the following as successful criteria on all deliverables:
 
 * To empower the Contoso technical team with the ability to apply digital transformation and cloud adoption by providing the necessary tools and processes in Azure, and demonstrating how they could continue using their existing tools
+
 * Accompanying each deliverable would be a document on Azure DevOps covering:
+
   * Scalability and performance tests results
+
   * Parameters and metrics considered on each test
+
   * Any code or infrastructure change if needed during each test
+
   * Lessons learned on performance tweaks, performance tuning, and parameters considered for each test
+
   * Lessons learned and guidance on Kafka partitioning strategies
+
   * General architecture recommendations/guidance based on the learnings over the deliverables
 
 #### Deliverables Criteria
@@ -89,14 +104,23 @@ It is worth noting that because of a feature constraint on Azure Red Hat OpenShi
 ### Design Constraints
 
 * Because of internal requirements, the customer stipulated the use of the following:
+
   * OpenShift 3.11 as the container orchestration platform.
+
   * Java and Spring Boot for Microservice development.
+
   * Kafka as the event streaming platform with Confluent Schema Registry feature.
+
 * The solution must be cloud agnostic.
+
 * DevOps and monitoring tools must be the same ones that Contoso already uses in their on-premises development environment.
+
 * The source code that will be hosted in the on-premises environment cannot be shared to external environments. Contoso policy only allows moving container images from on-premises to Azure.
+
 * Contoso policy restricts the ability for a CI pipeline to work between both on-premises environments and any cloud. All source code hosted in the on-premises environment was deployed as container images to Azure Container Registry manually. The deployment on the on-premises side was Contoso's responsibility.
+
 * The simulated scenario for tests should use a subset of mainframe EFT workloads as a flow reference.
+
 * Horizontal pod autoscaling and performance tests must be done on Azure Red Hat OpenShift.
 
 ### Global Cross-Cutting Concerns of the Solution
@@ -130,8 +154,11 @@ The solution uses Terraform and Azure DevOps scripts for all the services. In ca
 #### Security and Privacy
 
 * All container images are stored in a private registry (Azure Container Registry).
+
 * ARO and AKS Secrets are used to inject sensitive data into pods, such as connection strings and keys.
+
 * Access to Kubernetes API server require authentication through Azure Active Directory for ARO and AKS.
+
 * Access to Jenkins require authentication through Azure Active Directory.
 
 ### Solution Description
@@ -175,9 +202,7 @@ The list below summarizes the technologies that were used in the creation of thi
 
 The following diagram shows the full solution architecture from end to end.
 
-![Figure 1 Full Solution Architecture](./images/Banking-System-MDW-Solution-Arch.png)
-
-<p style="text-align:center;font-style:italic;">Figure 1 - Full Solution Architecture</p>
+![Full Solution Architecture](./images/banking-system-mdw-solution-arch.png)
 
 The solution is made up of 3 main blocks: Backend Services, Load Testing and Monitoring, and Event Autoscaler.
 
@@ -186,8 +211,11 @@ The actual Contoso microservices containers were manually pushed through Docker 
 At the core, Backend Services provide the necessary logic for an EFT to happen:
 
 1. A new EFT starts with an HTTP request received by the Channel Holder service, which provides synchronous responses to requesters using a Publish-Subscribe pattern through Redis cache while waiting for a backend response.
+
 1. This initial request is validated using EFT-Pilot-Password service, which, besides performing validations, also enriches the data so the backend can distinguish whether the EFT should be processed by a legacy or a new microservice system.
+
 1. The Channel Holder service then starts the asynchronous flow, calling EFT Controller, which is a reactive orchestrator that coordinates a transaction flow by producing commands and consuming events from other microservices through Event Hubs/Kafka.
+
 1. One of these services is the EFT Processor, where the actual transaction is effectuated, performing credit and debit operations. KEDA, a framework that automatically scales applications based on the message numbers load, was used to scale the EFT Processor as new EFTs were being processed.
 
 Next is Load Testing, which contains a custom solution based on JMeter, ACI, and Terraform. Load Testing was used to provision the necessary integration with Azure DevOps to perform load testing. This solution generated enough load on the backend services to validate that the autoscaling mechanisms were in place, creating thousands of EFT transactions per second.
@@ -223,6 +251,7 @@ The traditional ACID (atomicity, consistency, isolation, durability properties) 
 Contoso Bank has an on-premises implementation of an orchestration-based Saga – where the orchestrator is a finite state machine (FSM) – and the following top challenges were found in the architecture design:
 
 * Implementation overhead and complexity on the stateful orchestrator to handle with states management, timeouts, and restarts in failure scenarios
+
 * Observability mechanisms for tracking the Saga workflow states per transaction request
 
 The proposed solution below is a Saga pattern implementation through an orchestration approach using a serverless architecture on Azure. It addresses the challenges by using Azure Functions for the implementation of Saga participants, Azure Durable Functions for orchestration – where the workflow programming model and state management are provided by design – Azure Event Hubs as the data streaming platform, and Azure Cosmos DB as the database service to store data models.
@@ -231,9 +260,7 @@ For more information, see [Saga Pattern](https://microservices.io/patterns/data/
 
 ##### Architecture
 
-![Figure 2 Orchestration-based Saga on Serverless Architecture](./images/Orchestration-based-Saga-on-Serverless-Arch.png)
-
-<p style="text-align:center;font-style:italic;">Figure 2 - Orchestration-based Saga on Serverless Architecture</p>
+![Orchestration-based Saga on Serverless Architecture](./images/orchestration-based-saga-serverless-arch.png)
 
 #### KEDA with Java support for Event Hubs and Kafka
 
@@ -246,16 +273,17 @@ A sample for Kafka trigger scaler with KEDA using Event Hubs with Java applicati
 ##### How KEDA was Implemented in Solution
 
 1. The application that needs to be scaled out automatically based on incoming message count is deployed on the AKS cluster. A Kafka scaler is used in this sample to detect if deployment should be activated or deactivated and to feed custom metrics for a specific event source. The event source in this example is an Azure Event Hub.
+
 1. When the number of messages in the Azure Event Hub exceeds a threshold, KEDA triggers the pods to scale out, increasing the number of messages processed by the application. Automatic scale down of the pods occurs when the number of messages in the event source falls below the threshold value.
+
 1. The Apache Kafka Topic Trigger was used to provide the ability to scale the EFT Processor service if the maximum number of messages consumed under an interval was exceeded.
 
-![Figure 3 EFT-Processor Autoscaling with KEDA Kafka Topic Trigger](./images/EFT-Processor-Autoscaling-with-KEDA-Kafka-Trigger.png)
-
-<p style="text-align:center;font-style:italic;">Figure 3 - EFT Autoscaling with KEDA Kafka Topic Trigger</p>
+![EFT-Processor Autoscaling with KEDA Kafka Topic Trigger](./images/eft-processor-autoscaling-keda-kafka-trigger.png)
 
 The following contributions on KEDA scalers were provided during the engagement:
 
 * [Azure Event Hubs Trigger](https://keda.sh/docs/scalers/azure-event-hub/): Compatibility for reading Azure blob storage URI for Java applications using the [Event Processor Host](https://docs.microsoft.com/azure/event-hubs/event-hubs-event-processor-host) SDK, allowing the ability to scale Java consumers that read AMQP protocol messages from Event Hubs. Earlier the Event Hubs scaler worked only with Azure Functions.
+
 * [Apache Kafka Topic Trigger](https://keda.sh/docs/scalers/apache-kafka-topic/): Support for SASL_SSL Plain authentication, allowing the ability to scale Java consumers that read Kafka protocol messages from Event Hubs.
 
 #### Load Testing Framework - Pipeline with JMeter, ACI, and Terraform
@@ -271,27 +299,27 @@ The solution brings a great experience for developers and testers by integrating
 The load testing framework is structured into two Azure Pipelines:
 
 1. A pipeline that builds a custom JMeter Docker container and pushes the image to Azure Container Registry (ACR). This structure brings flexibility for adding any JMeter plugin.
+
 1. A pipeline that validates the JMeter test definition (.jmx file), dynamically provisions the load testing infrastructure, runs the load test, publishes the test results and artifacts to Azure DevOps and destroys the infrastructure.
 
-![Figure 4 Load Testing Pipeline with JMeter, ACI and Terraform](./images/Load-testing-pipeline-with-JMeter.png)
-
-<p style="text-align:center;font-style:italic;">Figure 4 - Load Testing Pipeline with JMeter, ACI, and Terraform</p>
+![Load Testing Pipeline with JMeter, ACI and Terraform](./images/load-testing-pipeline-jmeter.png)
 
 JMeter agents are provisioned as ACI instances using the Remote Testing approach, where a JMeter controller configures all workers using its own protocol and consolidates all load testing results and generates the resulting artifacts (for example, dashboard and logs).
 
 A Python script was created to convert the JMeter test results format (.jtl file) to JUnit format (.xml file), allowing the integration of JMeter results with the Azure DevOps test results.
 
-:::image type="content" source="./images/Azure-DevOps-Test-Results-Dashboard.png" alt-text="diagram of Azure DevOps test results dashboard":::
-
-<p style="text-align:center;font-style:italic;">Figure 5 - Azure DevOps Test Results Dashboard</p>
+:::image type="content" source="./images/azure-devops-test-results-dashboard.png" alt-text="Diagram of Azure DevOps test results dashboard.":::
 
 For more information about the load testing pipeline solution, see [Implementation Reference for JMeter Load Testing Pipeline Solution](jmeter-load-testing-pipeline-implementation-reference.md).
 
 #### Applicable Scenarios
 
 * High availability scenarios
+
 * Event-driven scenarios
+
 * Settlement transactions and order services scenarios (for example, e-commerce, food delivery, flight/hotel/taxi booking)
+
 * Hybrid Architecture where AKS and ARO Clusters Coexist: Deployment definitions for backend services that were created in YAML.
 
 ## Conclusions
@@ -299,9 +327,13 @@ For more information about the load testing pipeline solution, see [Implementati
 ### Solution / Engagement Outcome
 
 * A high level of compatibility was observed between AKS and ARO for services deployment.
+
 * Application Insights Codeless makes it easier to create observability, collaborating to the cloud adoption on lift-and-shift migrations.
+
 * Load testing is an important part of large scale intended solutions and requires previous analysis and planning to consider the microservice specificities.
+
 * The load testing potential to find microservices side effects is frequently underestimated by customers.
+
 * Creating a test environment may require an infrastructure disposal strategy to avoid unnecessary infrastructure cost.
 
 ### Key Learnings
@@ -309,15 +341,23 @@ For more information about the load testing pipeline solution, see [Implementati
 The following key learnings were identified:
 
 * There is a smooth application migration from ARO to AKS.
+
   * The Node Autoscaling feature was not available on Red Hat OpenShift version 3.11, which was the version being used during the engagement. As such, node autoscaling testing scenarios were done through Azure Kubernetes Service (AKS).
+
 * A product's end-of-life may require creative customizations and a preparation phase plays an important role in the process of delivering a successful solution.
+
   * The use of the Azure DevOps Cloud Load Testing (CLT) functionality with Apache JMeter tests was recommended, but during the investigation phase the team identified that this functionality was deprecated in Azure DevOps and would no longer be available as of March 31, 2020 to load test functionality in Visual Studio and cloud load testing in Azure DevOps. So, a new solution was created integrating ACI, JMeter in the pipeline.
+
 * Use of the Azure Event Hubs for Kafka is recommended, but for this customer, Schema Registry was an important feature. The Schema Registry feature was expected to be available as a private preview to Event Hubs in the middle of January 2020. To attend to the customer in the requested time frame, the team had to consider the use of Schema Registry in another instance of AKS.
+
 * The Kafka protocol with Schema Registry was not supported by Event Hub Scaler in KEDA.
 
 ## Resources
 
-1. [Load Testing Pipeline with JMeter, ACI, and Terraform](https://github.com/Azure-Samples/jmeter-aci-terraform): GitHub project site
-1. [Implementation Reference for JMeter Load Testing Pipeline Solution](./jmeter-load-testing-pipeline-implementation-reference.md): Implementation reference documentation
-1. [Sample Java Kafka Event Hub scaler](https://github.com/Azure-Samples/keda-eventhub-kafka-scaler-terraform): KEDA for Java sample
-1. [Saga Pattern](https://microservices.io/patterns/data/saga.html): Information about the Saga pattern on Microservices.io
+* [Load Testing Pipeline with JMeter, ACI, and Terraform](https://github.com/Azure-Samples/jmeter-aci-terraform): GitHub project site
+
+* [Implementation Reference for JMeter Load Testing Pipeline Solution](./jmeter-load-testing-pipeline-implementation-reference.md): Implementation reference documentation
+
+* [Sample Java Kafka Event Hub scaler](https://github.com/Azure-Samples/keda-eventhub-kafka-scaler-terraform): KEDA for Java sample
+
+* [Saga Pattern](https://microservices.io/patterns/data/saga.html): Information about the Saga pattern on Microservices.io
