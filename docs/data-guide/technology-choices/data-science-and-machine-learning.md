@@ -45,7 +45,7 @@ The following development platforms and tools are available for machine learning
 | [ML.NET](#mlnet) | Open-source, cross-platform machine learning SDK | Develop machine learning solutions for .NET applications |
 | [Windows ML](#windows-ml) | Windows 10 machine learning platform | Evaluate trained models on a Windows 10 device |
 | [MMLSpark](#mmlspark) | Open-source, distributed, machine learning and microservices framework for Apache Spark | Create and deploy scalable machine learning applications for Scala and Python. |
-| [Machine Learning extension for Azure Data Studio](#mmlspark) | Open-source and cross-platform machine learning extension for manage packages, import machine learning models, make predictions, and create notebooks to run experiments for your SQL databases in Azure Data Studio. |
+| [Machine Learning extension for Azure Data Studio](#sql-machine-learning) | Open-source and cross-platform machine learning extension for Azure Data Studio | Manage packages, import machine learning models, make predictions, and create notebooks to run experiments for your SQL databases |
 
 ## Azure Machine Learning
 
