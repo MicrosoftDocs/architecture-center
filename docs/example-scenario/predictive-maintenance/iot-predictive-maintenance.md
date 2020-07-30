@@ -48,7 +48,7 @@ The deployed solution requires an Azure subscription with permission to add serv
 - IoT Edge ML modules support [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), third-party ML models, or custom code. The current solution uses a third-party open-source ML model called [Cogniac](https://cogniac.co/) to score train wheel data and recognize potential defects. The ML software uses historical samples of high- and low-confidence failure images to retrain its ML model.
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data like the image data in this example.
 - [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) is a fully-managed, NoSQL database service with low response times and high availability and scalability.
-- An [Azure DevOps Pipelines](https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd) workflow builds, tests, deploys, and archives the IoT Edge solution through built-in Azure IoT Edge tasks.
+- An [Azure Pipelines](https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd) workflow builds, tests, deploys, and archives the IoT Edge solution through built-in Azure IoT Edge tasks.
 
 ## Considerations
 
