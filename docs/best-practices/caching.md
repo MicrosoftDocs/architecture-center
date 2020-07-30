@@ -1,7 +1,7 @@
 ---
 title: Caching guidance
 titleSuffix: Best practices for cloud applications
-description: Guidance on caching to improve performance and scalability.
+description: Learn caching can improve the performance and scalability of a system by temporarily copying frequently accessed data to fast storage close to the application.
 author: dragon119
 ms.date: 05/24/2017
 ms.topic: best-practice

@@ -1,7 +1,7 @@
 ---
 title: Monitoring and diagnostics guidance
 titleSuffix: Best practices for cloud applications
-description: Best practices for monitoring distributed applications in the cloud.
+description: Distributed applications and services running in the cloud are, by their nature, complex pieces of software that comprise many moving parts.
 author: dragon119
 ms.date: 07/13/2016
 ms.topic: best-practice

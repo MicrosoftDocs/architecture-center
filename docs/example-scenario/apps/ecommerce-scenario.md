@@ -1,7 +1,7 @@
 ---
 title: E-commerce front end
 titleSuffix: Azure Example Scenarios
-description: Host an e-commerce site on Azure.
+description: This example scenario implements an e-commerce front end using Azure platform as a service tools, which allow you to handle increases in transactions.
 author: chrismason
 ms.date: 07/13/2018
 ms.category:

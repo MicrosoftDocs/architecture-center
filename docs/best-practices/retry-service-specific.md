@@ -1,7 +1,7 @@
 ---
 title: Retry guidance for Azure services
 titleSuffix: Best practices for cloud applications
-description: Service-specific guidance for setting the retry mechanism.
+description: Learn about the retry mechanism features for many Azure services. Retry mechanisms differ because services have different characteristics and requirements.
 author: dragon119
 ms.date: 08/13/2018
 ms.topic: best-practice
