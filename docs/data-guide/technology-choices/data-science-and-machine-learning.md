@@ -21,6 +21,9 @@ The following options are available for machine learning in the Azure cloud.
 | Cloud&nbsp;options | What it is | What you can do with it |
 |-|-|-|
 | [Azure&nbsp;Machine&nbsp;Learning](#azure-machine-learning) | Cloud-based: Managed cloud service for machine learning  | Train, deploy, and manage models in Azure using Python and CLI |
+| [Azure SQL Managed Instance Machine Learning Services](#sql-machine-learning) | Cloud-based machine learning in SQL | Train and deploy models inside Azure SQL Managed Instance |
+| [Machine learning in Azure Synapse Analytics](#sql-machine-learning) | Cloud-based analytics service with machine learning | Train and deploy models inside Azure SQL Managed Instance |
+| [Machine learning and AI with ONNX in Azure SQL Edge](#sql-machine-learning) | Cloud-based machine learning in SQL on IoT | Train and deploy models inside Azure SQL Edge |
 
 ## On-premises options
 
@@ -28,7 +31,8 @@ The following options are available for machine learning on-premises. On-premise
 
 | On-premises&nbsp;options | What it is | What you can do with it |
 |-|-|-|
-| [SQL Server Machine Learning Services](#sql-server-machine-learning-services) | On-premises analytics engine embedded in SQL | Build and deploy models inside SQL Server |
+| [SQL Server Machine Learning Services](#sql-machine-learning) | On-premises machine learning in SQL | Train and deploy models inside SQL Server |
+| [Machine Learning Services on SQL Server Big Data Clusters](#sql-machine-learning) | On-premises machine learning in Big Data Clusters | Train and deploy models on SQL Server Big Data Clusters|
 
 ## Development platforms and tools
 
@@ -41,6 +45,7 @@ The following development platforms and tools are available for machine learning
 | [ML.NET](#mlnet) | Open-source, cross-platform machine learning SDK | Develop machine learning solutions for .NET applications |
 | [Windows ML](#windows-ml) | Windows 10 machine learning platform | Evaluate trained models on a Windows 10 device |
 | [MMLSpark](#mmlspark) | Open-source, distributed, machine learning and microservices framework for Apache Spark | Create and deploy scalable machine learning applications for Scala and Python. |
+| [Machine Learning extension for Azure Data Studio](#mmlspark) | Open-source and cross-platform machine learning extension for manage packages, import machine learning models, make predictions, and create notebooks to run experiments for your SQL databases in Azure Data Studio. |
 
 ## Azure Machine Learning
 
@@ -78,19 +83,26 @@ Use Cognitive Services to develop apps across devices and platforms. The APIs ke
 |**Machine learning phases**|Deployment|
 |**Key benefits**           |Incorporating machine learning capabilities in applications using pre-trained models.<br/><br/>Variety of models for natural communication methods with vision and speech.|
 
-## SQL Server Machine Learning Services
+## SQL machine learning
 
-[SQL Server Microsoft Machine Learning Service](https://docs.microsoft.com/sql/advanced-analytics/r/r-services) adds statistical analysis, data visualization, and predictive analytics in R and Python for relational data in SQL Server databases. R and Python libraries from Microsoft include advanced modeling and machine learning algorithms, which can run in parallel and at scale, in SQL Server.
+[SQL machine learning](https://docs.microsoft.com/sql/machine-learning) adds statistical analysis, data visualization, and predictive analytics in Python and R for relational data, both on-premises and in the cloud. Current platforms and tools include:
 
-Use SQL Server Machine Learning Services when you need built-in AI and predictive analytics on relational data in SQL Server.
+- [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/machine-learning/sql-server-machine-learning-services)
+- [Machine Learning Services on SQL Server Big Data Clusters](https://docs.microsoft.com/sql/big-data-cluster/machine-learning-services)
+- [Azure SQL Managed Instance Machine Learning Services](https://docs.microsoft.com/azure/azure-sql/managed-instance/machine-learning-services-overview)
+- [Machine learning in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-machine-learning-mllib-notebook)
+- [Machine learning and AI with ONNX in Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/onnx-overview)
+- [Machine Learning extension for Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/machine-learning-extension)
+
+Use SQL machine learning when you need built-in AI and predictive analytics on relational data in SQL.
 
 |||
 |-|-|
 |**Type**                   |On-premises predictive analytics for relational data|
-|**Supported languages**    |Python, R|
+|**Supported languages**    |Python, R, SQL|
 |**Machine learning phases**|Data preparation<br>Model training<br>Deployment|
 |**Key benefits**           |Encapsulate predictive logic in a database function, making it easy to include in data-tier logic.|
-|**Considerations**         |Assumes a SQL Server database as the data tier for your application.|
+|**Considerations**         |Assumes a SQL database as the data tier for your application.|
 
 ## Azure Data Science Virtual Machine
 
