@@ -18,7 +18,7 @@ Azure provides several different relational database services that are the equiv
 - [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview)
 - [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview)
 
-Other database engines such as [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server), [Oracle](https://azure.microsoft.com/campaigns/oracle), and [MySQL](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-classic-mysql-2008r2) can be deployed using Azure VM Instances.
+Other database engines such as [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server), [Oracle](https://azure.microsoft.com/campaigns/oracle), and [MySQL](https://docs.microsoft.com/azure/mysql/) can be deployed using Azure VM Instances.
 
 Costs for AWS RDS are determined by the amount of hardware resources that your instance uses, like CPU, RAM, storage, and network bandwidth. In the Azure database services, cost depends on your database size, concurrent connections, and throughput levels.
 

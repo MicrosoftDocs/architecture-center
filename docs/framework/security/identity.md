@@ -44,6 +44,8 @@ in one place and have confidence that their change will take effect everywhere.
 For Azure, designate a single Azure Active Directory (Azure AD) instance
 directory as the authoritative source for corporate/organizational accounts. For more information on [hybrid identity providers](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity).
 
+The [Integrate on-premises Active Directory domains with Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad) reference architecture integrates on-premises AD domains with Azure AD to provide cloud-based identity authentication.
+
 ## Synchronize identity systems
 
 Synchronize your cloud identity with your existing identity systems

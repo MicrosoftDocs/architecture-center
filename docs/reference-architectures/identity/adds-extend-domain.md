@@ -219,14 +219,14 @@ After deployment completes, you can test connectivity from the simulated on-prem
 [ad-ds-ports]: https://technet.microsoft.com/library/dd772723(v=ws.11).aspx
 
 [arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
-[availability-set]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-availability-set
+[availability-set]: https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets
 [azure-expressroute]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
 [azure-monitor]: https://azure.microsoft.com/services/monitor
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [az-pipelines]: https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops
 
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
-[availability-set]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-availability-set
+[availability-set]: https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets
 [azure-expressroute]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway
 
@@ -241,4 +241,4 @@ After deployment completes, you can test connectivity from the simulated on-prem
 [set-a-static-ip-address]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-pportal
 [standby-operations-masters]: https://technet.microsoft.com/library/cc794737(v=ws.10).aspx
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
-[vm-windows-sizes]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes
+[vm-windows-sizes]: https://docs.microsoft.com/azure/virtual-machines/sizes

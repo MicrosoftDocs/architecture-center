@@ -12,7 +12,7 @@ ms.subservice: cloud-fundamentals
 
 # What are the machine learning products at Microsoft?
 
-In this article, you will learn about the machine learning options to prep, train, deploy, and manage your models at Microsoft. Compare these options and choose what will help you build your machine learning solutions most effectively.
+In this article, you learn about the machine learning offerings at Microsoft. Compare these options and choose what will help you build your machine learning solutions most effectively.
 
 ## Cloud-based options
 
@@ -21,6 +21,11 @@ The following options are available for machine learning in the Azure cloud.
 | Cloud&nbsp;options | What it is | What you can do with it |
 |-|-|-|
 | [Azure&nbsp;Machine&nbsp;Learning](#azure-machine-learning) | Cloud-based: Managed cloud service for machine learning  | Train, deploy, and manage models in Azure using Python and CLI |
+| [Azure&nbsp;Cognitive&nbsp;Services](#azure-cognitive-services) | Cloud-based: Pre-built AI capabilities made available through REST APIs and SDK. Does not require machine learning and data science expertise.  | Build intelligent applications quickly using standard programming languages   |
+| [Azure SQL Managed Instance Machine Learning Services](#sql-machine-learning) | Cloud-based machine learning in SQL | Train and deploy models inside Azure SQL Managed Instance |
+| [Machine learning in Azure Synapse Analytics](#sql-machine-learning) | Cloud-based analytics service with machine learning | Train and deploy models inside Azure SQL Managed Instance |
+| [Machine learning and AI with ONNX in Azure SQL Edge](#sql-machine-learning) | Cloud-based machine learning in SQL on IoT | Train and deploy models inside Azure SQL Edge |
+| [Azure Databricks](#azure-databricks) | Spark-based analytics platform | Build and deploy models and data workflows |
 
 ## On-premises options
 
@@ -28,7 +33,8 @@ The following options are available for machine learning on-premises. On-premise
 
 | On-premises&nbsp;options | What it is | What you can do with it |
 |-|-|-|
-| [SQL Server Machine Learning Services](#sql-server-machine-learning-services) | On-premises analytics engine embedded in SQL | Build and deploy models inside SQL Server |
+| [SQL Server Machine Learning Services](#sql-machine-learning) | On-premises machine learning in SQL | Train and deploy models inside SQL Server |
+| [Machine Learning Services on SQL Server Big Data Clusters](#sql-machine-learning) | On-premises machine learning in Big Data Clusters | Train and deploy models on SQL Server Big Data Clusters|
 
 ## Development platforms and tools
 
@@ -37,10 +43,10 @@ The following development platforms and tools are available for machine learning
 | Platforms/tools | What it is | What you can do with it |
 |-|-|-|
 | [Azure&nbsp;Data&nbsp;Science Virtual Machine](#azure-data-science-virtual-machine) | Virtual machine with pre-installed data science tools | Develop machine learning solutions in a pre-configured environment |
-| [Azure Databricks](#azure-databricks) | Spark-based analytics platform | Build and deploy models and data workflows |
 | [ML.NET](#mlnet) | Open-source, cross-platform machine learning SDK | Develop machine learning solutions for .NET applications |
 | [Windows ML](#windows-ml) | Windows 10 machine learning platform | Evaluate trained models on a Windows 10 device |
 | [MMLSpark](#mmlspark) | Open-source, distributed, machine learning and microservices framework for Apache Spark | Create and deploy scalable machine learning applications for Scala and Python. |
+| [Machine Learning extension for Azure Data Studio](#sql-machine-learning) | Open-source and cross-platform machine learning extension for Azure Data Studio | Manage packages, import machine learning models, make predictions, and create notebooks to run experiments for your SQL databases |
 
 ## Azure Machine Learning
 
@@ -62,35 +68,42 @@ Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree)
 
 ## Azure Cognitive Services
 
-[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/welcome) is a set of APIs that enable you to build apps that use natural methods of communication. These APIs allow your apps to see, hear, speak, understand, and interpret user needs with just a few lines of code. Easily add intelligent features to your apps, such as:
+[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/welcome) is a set of *pre-built* APIs that enable you to build apps that use natural methods of communication. The term pre-built suggests that you do not need to bring datasets or data science expertise to train models to use in your applications. That's all done for you and packaged as APIs and SDKs that allow your apps to see, hear, speak, understand, and interpret user needs with just a few lines of code. You can easily add intelligent features to your apps, such as:
 
-- Emotion and sentiment detection
-- Vision and speech recognition
-- Language understanding (LUIS)
-- Knowledge and search
+- **Vision** - Object detection, face recognition, OCR, etc. See [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/), [Face](https://docs.microsoft.com/azure/cognitive-services/face/), [Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
+- **Speech** - Speech-to-text, text-to-speech, speaker recognition, etc. See [Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+- **Language** - Translation, Sentiment analysis, key phrase extraction, language understanding, etc. See [Translator](https://docs.microsoft.com/azure/cognitive-services/translator/), [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/), [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/), [QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/)
+- **Decision** - Anomaly detection, content moderation, reinforcement learning. See [Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/), [Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/), [Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/).
 
 Use Cognitive Services to develop apps across devices and platforms. The APIs keep improving, and are easy to set up.
 
 |||
 |-|-|
 |**Type**                   |APIs for building intelligent applications|
-|**Supported languages**    |many options depending on the service|
+|**Supported languages**    |Various options depending on the service. Standard ones are C#, Java, JavaScript, and Python. |
 |**Machine learning phases**|Deployment|
-|**Key benefits**           |Incorporating machine learning capabilities in applications using pre-trained models.<br/><br/>Variety of models for natural communication methods with vision and speech.|
+|**Key benefits**           |Build intelligent applications using pre-trained models available through REST API and SDK.<br/>Variety of models for natural communication methods with vision, speech, language, and decision.<br/>No machine learning or data science expertise required. |
 
-## SQL Server Machine Learning Services
+## SQL machine learning
 
-[SQL Server Microsoft Machine Learning Service](https://docs.microsoft.com/sql/advanced-analytics/r/r-services) adds statistical analysis, data visualization, and predictive analytics in R and Python for relational data in SQL Server databases. R and Python libraries from Microsoft include advanced modeling and machine learning algorithms, which can run in parallel and at scale, in SQL Server.
+[SQL machine learning](https://docs.microsoft.com/sql/machine-learning) adds statistical analysis, data visualization, and predictive analytics in Python and R for relational data, both on-premises and in the cloud. Current platforms and tools include:
 
-Use SQL Server Machine Learning Services when you need built-in AI and predictive analytics on relational data in SQL Server.
+- [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/machine-learning/sql-server-machine-learning-services)
+- [Machine Learning Services on SQL Server Big Data Clusters](https://docs.microsoft.com/sql/big-data-cluster/machine-learning-services)
+- [Azure SQL Managed Instance Machine Learning Services](https://docs.microsoft.com/azure/azure-sql/managed-instance/machine-learning-services-overview)
+- [Machine learning in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-machine-learning-mllib-notebook)
+- [Machine learning and AI with ONNX in Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/onnx-overview)
+- [Machine Learning extension for Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/machine-learning-extension)
+
+Use SQL machine learning when you need built-in AI and predictive analytics on relational data in SQL.
 
 |||
 |-|-|
 |**Type**                   |On-premises predictive analytics for relational data|
-|**Supported languages**    |Python, R|
+|**Supported languages**    |Python, R, SQL|
 |**Machine learning phases**|Data preparation<br>Model training<br>Deployment|
 |**Key benefits**           |Encapsulate predictive logic in a database function, making it easy to include in data-tier logic.|
-|**Considerations**         |Assumes a SQL Server database as the data tier for your application.|
+|**Considerations**         |Assumes a SQL database as the data tier for your application.|
 
 ## Azure Data Science Virtual Machine
 
@@ -115,7 +128,7 @@ Use Databricks when you want to collaborate on building machine learning solutio
 |-|-|
 |**Type**                   |Apache Spark-based analytics platform|
 |**Supported languages**    |Python, R, Scala, SQL|
-|**Machine learning phases**|Data query<br>Model training|
+|**Machine learning phases**|Data preparation<br>Data preprocessing<br>Model training<br>Model tuning<br>Model inference<br>Management<br>Deployment|
 
 ## ML.NET
 
@@ -129,7 +142,6 @@ Use ML.NET when you want to integrate machine learning solutions into your .NET 
 |**Languages supported**    |C#,F#|
 |**Machine learning phases**    |Data preparation<br>Training<br>Deployment|
 |**Key benefits**            |Data science & ML experience not required<br>Use familiar tools (Visual Studio, VS Code) and languages<br>Deploy where .NET runs<br>Extensible<br>Scalable<br>Local-first experience<br>|
-
 
 ## Windows ML
 
@@ -159,5 +171,4 @@ MMLSpark also brings new networking capabilities to the Spark ecosystem. With th
 ## Next steps
 
 - To learn about all the Artificial Intelligence (AI) development products available from Microsoft, see [Microsoft AI platform](https://www.microsoft.com/ai)
-    
 - For training in developing AI and Machine Learning solutions with Microsoft, see [Microsoft Learn](https://docs.microsoft.com/learn/browse/?roles=ai-engineer%2Cdata-scientist&resource_type=learning%20path)
