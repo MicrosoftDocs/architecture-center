@@ -192,7 +192,7 @@ Consider adding a network virtual appliance (NVA) to create a DMZ between the in
 
 ### Encryption
 
-Encrypt sensitive data at rest and use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) to manage the database encryption keys. Key Vault can store encryption keys in hardware security modules (HSMs). For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault). It's also recommended to store application secrets, such as database connection strings, in Key Vault.
+Encrypt sensitive data at rest and use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) to manage the database encryption keys. Key Vault can store encryption keys in hardware security modules (HSMs). For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure). It's also recommended to store application secrets, such as database connection strings, in Key Vault.
 
 ### DDoS protection
 
