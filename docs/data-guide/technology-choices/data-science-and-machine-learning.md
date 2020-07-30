@@ -12,7 +12,7 @@ ms.subservice: cloud-fundamentals
 
 # What are the machine learning products at Microsoft?
 
-In this article, you will learn about the machine learning options to prep, train, deploy, and manage your models at Microsoft. Compare these options and choose what will help you build your machine learning solutions most effectively.
+In this article, you learn about the machine learning offerings at Microsoft. Compare these options and choose what will help you build your machine learning solutions most effectively.
 
 ## Cloud-based options
 
