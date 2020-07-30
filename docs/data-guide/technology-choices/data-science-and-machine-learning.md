@@ -128,7 +128,7 @@ Use Databricks when you want to collaborate on building machine learning solutio
 |-|-|
 |**Type**                   |Apache Spark-based analytics platform|
 |**Supported languages**    |Python, R, Scala, SQL|
-|**Machine learning phases**|Data query<br>Model training|
+|**Machine learning phases**|Data preparation<br>Data preprocessing<br>Model training<br>Model tuning<br>Model inference<br>Management<br>Deployment|
 
 ## ML.NET
 
