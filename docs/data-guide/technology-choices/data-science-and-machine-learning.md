@@ -21,6 +21,7 @@ The following options are available for machine learning in the Azure cloud.
 | Cloud&nbsp;options | What it is | What you can do with it |
 |-|-|-|
 | [Azure&nbsp;Machine&nbsp;Learning](#azure-machine-learning) | Cloud-based: Managed cloud service for machine learning  | Train, deploy, and manage models in Azure using Python and CLI |
+| [Azure&nbsp;Cognitive&nbsp;Services](#azure-cognitive-services) | Cloud-based: Pre-built AI capabilities made available through REST APIs and SDK. Does not require machine learning and data science expertise.  | Build intelligent applications quickly using standard programming languages   |
 | [Azure SQL Managed Instance Machine Learning Services](#sql-machine-learning) | Cloud-based machine learning in SQL | Train and deploy models inside Azure SQL Managed Instance |
 | [Machine learning in Azure Synapse Analytics](#sql-machine-learning) | Cloud-based analytics service with machine learning | Train and deploy models inside Azure SQL Managed Instance |
 | [Machine learning and AI with ONNX in Azure SQL Edge](#sql-machine-learning) | Cloud-based machine learning in SQL on IoT | Train and deploy models inside Azure SQL Edge |
@@ -67,21 +68,21 @@ Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree)
 
 ## Azure Cognitive Services
 
-[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/welcome) is a set of APIs that enable you to build apps that use natural methods of communication. These APIs allow your apps to see, hear, speak, understand, and interpret user needs with just a few lines of code. Easily add intelligent features to your apps, such as:
+[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/welcome) is a set of *pre-built* APIs that enable you to build apps that use natural methods of communication. The term pre-built suggests that you do not need to bring datasets or data science expertise to train models to use in your applications. That's all done for you and packaged as APIs and SDKs that allow your apps to see, hear, speak, understand, and interpret user needs with just a few lines of code. You can easily add intelligent features to your apps, such as:
 
-- Emotion and sentiment detection
-- Vision and speech recognition
-- Language understanding (LUIS)
-- Knowledge and search
+- **Vision** - Object detection, face recognition, OCR, etc. See [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/), [Face](https://docs.microsoft.com/azure/cognitive-services/face/), [Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
+- **Speech** - Speech-to-text, text-to-speech, speaker recognition, etc. See [Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+- **Language** - Translation, Sentiment analysis, key phrase extraction, language understanding, etc. See [Translator](https://docs.microsoft.com/azure/cognitive-services/translator/), [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/), [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/), [QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/)
+- **Decision** - Anomaly detection, content moderation, reinforcement learning. See [Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/), [Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/), [Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/).
 
 Use Cognitive Services to develop apps across devices and platforms. The APIs keep improving, and are easy to set up.
 
 |||
 |-|-|
 |**Type**                   |APIs for building intelligent applications|
-|**Supported languages**    |many options depending on the service|
+|**Supported languages**    |Various options depending on the service. Standard ones are C#, Java, JavaScript, and Python. |
 |**Machine learning phases**|Deployment|
-|**Key benefits**           |Incorporating machine learning capabilities in applications using pre-trained models.<br/><br/>Variety of models for natural communication methods with vision and speech.|
+|**Key benefits**           |Build intelligent applications using pre-trained models available through REST API and SDK.<br/>Variety of models for natural communication methods with vision, speech, language, and decision.<br/>No machine learning or data science expertise required. |
 
 ## SQL machine learning
 
@@ -142,7 +143,6 @@ Use ML.NET when you want to integrate machine learning solutions into your .NET 
 |**Machine learning phases**    |Data preparation<br>Training<br>Deployment|
 |**Key benefits**            |Data science & ML experience not required<br>Use familiar tools (Visual Studio, VS Code) and languages<br>Deploy where .NET runs<br>Extensible<br>Scalable<br>Local-first experience<br>|
 
-
 ## Windows ML
 
 [Windows ML](https://docs.microsoft.com/windows/uwp/machine-learning/) inference engine allows you to use trained machine learning models in your applications, evaluating trained models locally on Windows 10 devices.
@@ -171,5 +171,4 @@ MMLSpark also brings new networking capabilities to the Spark ecosystem. With th
 ## Next steps
 
 - To learn about all the Artificial Intelligence (AI) development products available from Microsoft, see [Microsoft AI platform](https://www.microsoft.com/ai)
-    
 - For training in developing AI and Machine Learning solutions with Microsoft, see [Microsoft Learn](https://docs.microsoft.com/learn/browse/?roles=ai-engineer%2Cdata-scientist&resource_type=learning%20path)
