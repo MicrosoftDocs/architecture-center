@@ -13,7 +13,7 @@ ms.custom: fcp
 
 # Use Cobalt to create an extensible cloud framework
 
-Standardizing and automating the process of building production-ready cloud native managed service solutions is an important need for major enterprise customers. The customers need to achieve higher productivity, higher efficiency, and easier compliance with security, governance, and privacy. Microsoft's commercial software engineering (CSE) team engaged with a Fortune 50 retailer.
+Standardizing and automating the process of building production-ready cloud native managed service solutions is an important need for major enterprise customers. The customers need to achieve higher productivity, higher efficiency, and easier compliance with security, governance, and privacy. The Microsoft commercial software engineering (CSE) team engaged with a Fortune 50 retailer.
 
 The goal was to enable the customer's teams to build such solutions based on one or more specified patterns in an enterprise pattern library. There was a need to elevate this effort by creating a framework that can materialize such patterns. The CSE team leveraged the Cobalt framework to achieve that goal.
 
@@ -100,7 +100,7 @@ Anyone using Cobalt needs to have the following prerequisites in place:
 
 ### Cobalt templates and provisioned infrastructure
 
-Microsoft's CSE team worked with the customer to customize templates for provisioning a best practices implementation of App Services. Their goal was to create templates that application development teams could later use to migrate or build their own LOB applications. The developers organized the Cobalt templates to handle the provisioning of infrastructure and the setup of CI/CD pipelines.
+The Microsoft CSE team worked with the customer to customize templates for provisioning a best practices implementation of App Services. Their goal was to create templates that application development teams could later use to migrate or build their own LOB applications. The developers organized the Cobalt templates to handle the provisioning of infrastructure and the setup of CI/CD pipelines.
 
 Templates are the implementation of *advocated patterns*. The scope of a template typically covers most, if not all, of the infrastructure required to host an application and may provision resources in multiple cloud providers. Templates compose modules to create an advocated pattern. Developers implement them as [Terraform modules](https://www.terraform.io/docs/configuration/modules.html) (also sometimes known as *Cobalt modules*) so that developers can compose them if needed. It's more common that developers don't need to compose them.
 
