@@ -1137,6 +1137,8 @@ items:
       items:
       - name: Adding modern front-ends to legacy apps
         href: solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.md
+      - name: Cobalt extensible cloud framework
+        href: example-scenario/cobalt/cobalt-extensible-cloud-framework.md
       - name: Lift and shift LOB apps
         href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md
       - name: Lift and shift with AKS

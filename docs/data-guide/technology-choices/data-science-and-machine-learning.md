@@ -12,7 +12,7 @@ ms.subservice: cloud-fundamentals
 
 # What are the machine learning products at Microsoft?
 
-In this article, you will learn about the machine learning options to prep, train, deploy, and manage your models at Microsoft. Compare these options and choose what will help you build your machine learning solutions most effectively.
+In this article, you learn about the machine learning offerings at Microsoft. Compare these options and choose what will help you build your machine learning solutions most effectively.
 
 ## Cloud-based options
 
@@ -25,6 +25,7 @@ The following options are available for machine learning in the Azure cloud.
 | [Azure SQL Managed Instance Machine Learning Services](#sql-machine-learning) | Cloud-based machine learning in SQL | Train and deploy models inside Azure SQL Managed Instance |
 | [Machine learning in Azure Synapse Analytics](#sql-machine-learning) | Cloud-based analytics service with machine learning | Train and deploy models inside Azure SQL Managed Instance |
 | [Machine learning and AI with ONNX in Azure SQL Edge](#sql-machine-learning) | Cloud-based machine learning in SQL on IoT | Train and deploy models inside Azure SQL Edge |
+| [Azure Databricks](#azure-databricks) | Spark-based analytics platform | Build and deploy models and data workflows |
 
 ## On-premises options
 
@@ -42,7 +43,6 @@ The following development platforms and tools are available for machine learning
 | Platforms/tools | What it is | What you can do with it |
 |-|-|-|
 | [Azure&nbsp;Data&nbsp;Science Virtual Machine](#azure-data-science-virtual-machine) | Virtual machine with pre-installed data science tools | Develop machine learning solutions in a pre-configured environment |
-| [Azure Databricks](#azure-databricks) | Spark-based analytics platform | Build and deploy models and data workflows |
 | [ML.NET](#mlnet) | Open-source, cross-platform machine learning SDK | Develop machine learning solutions for .NET applications |
 | [Windows ML](#windows-ml) | Windows 10 machine learning platform | Evaluate trained models on a Windows 10 device |
 | [MMLSpark](#mmlspark) | Open-source, distributed, machine learning and microservices framework for Apache Spark | Create and deploy scalable machine learning applications for Scala and Python. |
@@ -128,7 +128,7 @@ Use Databricks when you want to collaborate on building machine learning solutio
 |-|-|
 |**Type**                   |Apache Spark-based analytics platform|
 |**Supported languages**    |Python, R, Scala, SQL|
-|**Machine learning phases**|Data query<br>Model training|
+|**Machine learning phases**|Data preparation<br>Data preprocessing<br>Model training<br>Model tuning<br>Model inference<br>Management<br>Deployment|
 
 ## ML.NET
 
