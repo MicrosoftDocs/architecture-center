@@ -1,7 +1,7 @@
 ---
 title: Serverless event processing
 description: Reference architecture for serverless event ingestion and processing using Azure Functions.
-author: MikeWasson
+author: adamboeglin
 ms.date: 10/16/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -126,7 +126,7 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 - **Function App**. Deploy a second function app that is waiting to read from the secondary Event Hubs namespace. This function writes to a secondary storage account for dead letter queue.
 
-- **Cosmos DB**. Cosmos DB supports [multiple master regions][cosmosdb-geo], which enables writes to any region that you add to your Cosmos DB account. If you don’t enable multi-master, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don’t need to update any application configuration settings.
+- **Cosmos DB**. Cosmos DB supports [multiple write regions][cosmosdb-geo], which enables writes to any region that you add to your Cosmos DB account. If you don’t enable multi-write, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don’t need to update any application configuration settings.
 
 - **Azure Storage**. Use [RA-GRS][ra-grs] storage for the dead letter queue. This creates a read-only replica in another region. If the primary region becomes unavailable, you can read the items currently in the queue. In addition, provision another storage account in the secondary region that the function can write to after a fail-over.
 
@@ -159,7 +159,7 @@ Storage is billed for each GB used for your stored data and index.
 
 Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
 
-For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 ## Deploy the solution
 

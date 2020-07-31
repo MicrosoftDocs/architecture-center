@@ -38,7 +38,7 @@ The predictive models are validated against known data, measured by performance 
 
 Deep learning uses artificial neural networks, which consist of multiple layers of algorithms. Each layer looks at the incoming data, performs its own specialized analysis, and produces an output that other layers can understand. This output is then passed to the next layer, where a different algorithm does its own analysis, and so on.
 
-With many layers in each neural network—and sometimes using multiple neural networks—a machine can learn through its own data processing. This requires much more data and much more computing power than ML.
+With many layers in each neural network-and sometimes using multiple neural networks-a machine can learn through its own data processing. This requires much more data and much more computing power than ML.
 
 - [Deep learning versus machine learning](https://docs.microsoft.com/azure/machine-learning/concept-deep-learning-vs-machine-learning)
 
@@ -84,7 +84,7 @@ enterprise-grade bot development.
 
 *Autonomous systems* are part of an evolving new class that goes beyond basic automation. Instead of performing a specific task repeatedly with little or no variation (like bots do), autonomous systems bring intelligence to machines so they can adapt to changing environments to accomplish a desired goal.
 
-Smart buildings use autonomous systems to automatically control operations like lighting, ventilation, air conditioning, and security. A more sophisticated example would be a self-directed robot exploring a collapsed mine shaft to thoroughly map its interior, determine which portions are structurally sound, analyze the air for breathability, and detect signs of trapped miners in need of rescue—all without a human monitoring in real time on the remote end.
+Smart buildings use autonomous systems to automatically control operations like lighting, ventilation, air conditioning, and security. A more sophisticated example would be a self-directed robot exploring a collapsed mine shaft to thoroughly map its interior, determine which portions are structurally sound, analyze the air for breathability, and detect signs of trapped miners in need of rescue-all without a human monitoring in real time on the remote end.
 
 - [Autonomous systems and solutions from Microsoft
     AI](https://www.microsoft.com/ai/autonomous-systems)
@@ -105,13 +105,13 @@ Learn more about Microsoft AI, and keep up-to-date with related news:
 - [Microsoft AI on GitHub: Samples, reference architectures, and best
     practices](https://github.com/microsoft/AI)
 
-- [Azure Architecture Center](../../index.md)
+- [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)
 
 ## High-level architectural types
 
 ### Prebuilt AI
 
-*Prebuilt AI* is exactly what it sounds like—off-the-shelf AI models, services,
+*Prebuilt AI* is exactly what it sounds like-off-the-shelf AI models, services,
 and APIs that are ready to use. These help you add intelligence to apps,
 websites, and flows without having to gather data and then build, train, and
 publish your own models.
@@ -321,7 +321,7 @@ can generate many different types of values:
 then processed in a batch. This might include generating business reports or
 analyzing customer loyalty.
 
-***Real-time scoring*** is exactly that—scoring that is ongoing and performed as
+***Real-time scoring*** is exactly that-scoring that is ongoing and performed as
 quickly as possible. The classic example is credit card fraud detection, but
 real-time scoring can also be used in speech recognition, medical diagnoses,
 market analyses, and many other applications.

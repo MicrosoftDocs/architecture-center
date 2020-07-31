@@ -19,7 +19,7 @@ ms.custom: azcat-ai
 
 This reference architecture shows how to train a recommendation model using Azure Databricks and deploy it as an API by using Azure Cosmos DB, Azure Machine Learning, and Azure Kubernetes Service (AKS). This architecture can be generalized for most recommendation engine scenarios, including recommendations for products, movies, and news.
 
-A reference implementation for this architecture is available on [GitHub][als-example].
+A reference implementation for this architecture is available on [GitHub](https://github.com/Microsoft/Recommenders/blob/master/examples/05_operationalize/als_movie_o16n.ipynb)
 
 ![Architecture of a machine learning model for training movie recommendations](./_images/recommenders-architecture.png)
 
@@ -123,7 +123,7 @@ To deploy this architecture, follow the **Azure Databricks** instructions in the
 
     b. Right-click on white space in your home directory. Select **Import**.
 
-    c. Select **URL**, and paste the following into the text field: `https://github.com/Microsoft/Recommenders/blob/master/notebooks/05_operationalize/als_movie_o16n.ipynb`
+    c. Select **URL**, and paste the following into the text field: `https://github.com/Microsoft/Recommenders/blob/master/examples/05_operationalize/als_movie_o16n.ipynb`
 
     d. Click **Import**.
 
@@ -140,7 +140,7 @@ We have also built a reference architecture that uses Spark and Azure Databricks
 [adbauthentication]: https://docs.azuredatabricks.net/api/latest/authentication.html#generate-a-token
 [aks]: https://docs.microsoft.com/azure/aks/intro-kubernetes
 [als]: https://spark.apache.org/docs/latest/ml-collaborative-filtering.html
-[als-example]: https://github.com/Microsoft/Recommenders/blob/master/notebooks/05_operationalize/als_movie_o16n.ipynb
+[als-example]: https://github.com/Microsoft/Recommenders/blob/master/examples/05_operationalize/als_movie_o16n.ipynb
 [autoscaling]: https://docs.azuredatabricks.net/user-guide/clusters/sizing.html
 [batch-scoring]: ../../reference-architectures/ai/batch-scoring-databricks.md
 [blog]: https://blogs.technet.microsoft.com/machinelearning/2018/03/20/scaling-azure-container-service-cluster
@@ -148,9 +148,9 @@ We have also built a reference architecture that uses Spark and Azure Databricks
 [data-source]: https://docs.azuredatabricks.net/spark/latest/data-sources/index.html
 [databricks]: https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks
 [dsvm]: https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview
-[eval-guide]: https://github.com/Microsoft/Recommenders/blob/master/notebooks/03_evaluate/evaluation.ipynb
+[eval-guide]: https://github.com/Microsoft/Recommenders/blob/master/examples/03_evaluate/evaluation.ipynb
 [github]: https://github.com/Microsoft/Recommenders
-[guide]: https://github.com/Microsoft/Recommenders/blob/master/notebooks/01_prepare_data/data_split.ipynb
+[guide]: https://github.com/Microsoft/Recommenders/blob/master/examples/01_prepare_data/data_split.ipynb
 [latency]: https://github.com/jessebenson/azure-performance
 [mls]: https://docs.microsoft.com/azure/machine-learning/service
 [nodes]: https://docs.microsoft.com/azure/aks/scale-cluster

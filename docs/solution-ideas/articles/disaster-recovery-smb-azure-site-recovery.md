@@ -34,7 +34,7 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 
 ## Next steps
 
-* [Configure Failover routing method](https://docs.microsoft.com/api/Redirect/documentation/articles/traffic-manager-configure-failover-routing-method)
-* [How does Azure Site Recovery work?](https://docs.microsoft.com/api/Redirect/documentation/articles/site-recovery-components)
-* [Designing your network infrastructure for disaster recovery](https://docs.microsoft.com/api/Redirect/documentation/articles/site-recovery-network-design)
-* [Introduction to Microsoft Azure Storage](https://docs.microsoft.com/api/Redirect/documentation/articles/storage-introduction)
+* [Configure Failover routing method](/azure/traffic-manager/traffic-manager-configure-priority-routing-method)
+* [How does Azure Site Recovery work?](/azure/site-recovery/azure-to-azure-architecture)
+* [Designing your network infrastructure for disaster recovery](/azure/site-recovery/concepts-on-premises-to-azure-networking)
+* [Introduction to Microsoft Azure Storage](/azure/storage/common/storage-introduction)

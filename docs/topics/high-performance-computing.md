@@ -249,7 +249,7 @@ There are a number of workload managers offered in the [Azure Marketplace](https
 
 - [RogueWave CentOS-based HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc)
 - [SUSE Linux Enterprise Server for HPC](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-15-sp1-hpc)
-- [TIBCO Grid Server Engine](https://azuremarketplace.microsoft.com/marketplace/apps/tibco-software.gridserverlinuxengine?tab=Overview)
+- [TIBCO Grid Server Engine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tibco-software.tibco_datasynapse_gridserver)
 - [Azure Data Science VM for Windows and Linux](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview)
 - [D3View](https://azuremarketplace.microsoft.com/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
 - [UberCloud](https://azure.microsoft.com/search/marketplace/?q=ubercloud)
@@ -423,7 +423,7 @@ There are a number of customers who have seen great success by using Azure for t
 
 For the latest announcements, see:
 
-- [Microsoft HPC and Batch team blog](https://blogs.technet.com/b/windowshpc)
+- [Microsoft HPC and Batch team blog](https://blogs.technet.microsoft.com/windowshpc/)
 - Visit the [Azure blog](https://azure.microsoft.com/blog/tag/hpc).
 
 ### Microsoft Batch Examples

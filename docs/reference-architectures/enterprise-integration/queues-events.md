@@ -72,6 +72,10 @@ Review the SLA for each service:
 
 To enable failover if a serious outage occurs, consider implementing geo-disaster recovery in Service Bus Premium. For more information, see [Azure Service Bus geo-disaster recovery](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-geo-dr).
 
+## DevOps considerations
+
+See DevOps considerations in [Basic Enterprise Integration reference architecture](./basic-enterprise-integration.md#devops-considerations)
+
 ## Security considerations
 
 To secure Service Bus, use shared access signature (SAS). You can grant a user access to Service Bus resources with specific rights by using [SAS authentication](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-sas). For more information, see [Service Bus authentication and authorization](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-authentication-and-authorization).
@@ -103,7 +107,7 @@ Event Grid uses a serverless model. Billing is calculated based on the number of
 
 For more information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/). 
 
-For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 
 [aaf-cost]: ../../framework/cost/overview.md

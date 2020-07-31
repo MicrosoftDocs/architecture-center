@@ -1,5 +1,5 @@
 ---
-title: Dev/test environments for SAP workloads
+title: Development and test environments for SAP workloads on Azure
 titleSuffix: Azure Example Scenarios
 description: Build a dev/test environment for SAP workloads.
 author: AndrewDibbins
@@ -15,7 +15,7 @@ ms.custom:
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-sap-dev-test.png
 ---
 
-# Dev/test environments for SAP workloads on Azure
+# Development and test environments for SAP workloads on Azure
 
 This example shows how to establish a dev/test environment for SAP NetWeaver in a Windows or Linux environment on Azure. The database used is AnyDB, the SAP term for any supported DBMS (that isn't SAP HANA). Because this architecture is designed for non-production environments, it's deployed with only one virtual machine (VM), and the virtual machine size can be changed to accommodate your organization's needs.
 
@@ -59,7 +59,7 @@ Microsoft offers a service level agreement (SLA) for single VM instances. For mo
 
 ### Scalability
 
-For general guidance on designing scalable solutions, see the [scalability checklist][scalability] in the Azure Architecture Center.
+For general guidance on designing scalable solutions, see the [performance efficiency checklist][scalability] in the Azure Architecture Center.
 
 ### Security
 
@@ -103,7 +103,7 @@ Click the link below to deploy the solution.
 
 [resiliency]: ../../framework/resiliency/overview.md
 [security]: https://docs.microsoft.com/azure/security
-[scalability]: ../../checklist/scalability.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [sap-netweaver]: ../../reference-architectures/sap/sap-netweaver.md
 [sap-hana]: ../../reference-architectures/sap/sap-s4hana.md
 [sap-large]: ../../reference-architectures/sap/hana-large-instances.md

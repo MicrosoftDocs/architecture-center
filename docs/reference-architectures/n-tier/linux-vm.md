@@ -113,7 +113,7 @@ Use [Azure Spot VMs](https://docs.microsoft.com/azure/virtual-machines/windows/s
 
 Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs.
 
-For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
 
 
 
@@ -134,6 +134,19 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 **Data encryption**. Use [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks.
 
+## DevOps considerations
+
+Use a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources and its dependencies. Since all the resources are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables the DevOps Team to perform continuous integration and continuous delivery (CI/CD).
+
+Also, you can use different [Azure Resource Manager templates][arm-template] and integrate them with [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
+
+For higher availability architecture see [Linux N-tier application in Azure with Apache Cassandra](./n-tier-cassandra.md), the reference architecture includes more than one VM and each VM is included in an availability set.
+
+Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines.
+
+
+For more information, see the Operationl excellence section in [Microsoft Azure Well-Architected Framework][WAF-devops].
+
 ## Next steps
 
 - To provision a Linux VM, see [Create and Manage Linux VMs with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
@@ -141,26 +154,29 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
-[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more
-[azure-linux]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-azure-overview
-[azure-storage]: https://docs.microsoft.com/azure/storage/common/storage-introduction
-[blob-storage]: https://docs.microsoft.com/azure/storage/common/storage-introduction
-[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
+[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[azure-linux]: https://docs.microsoft.com/azure/virtual-machines/linux/overview
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
+[azure-storage]: /azure/storage/common/storage-introduction
+[blob-storage]: /azure/storage/common/storage-introduction
+[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
-[data-disk]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-about-disks-vhds
+[data-disk]: https://docs.microsoft.com/azure/virtual-machines/windows/disks-types
 [disk-encryption]: https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss
 [enable-monitoring]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
-[fqdn]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-portal-create-fqdn
+[fqdn]: https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal
 [group-policy]: https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates
 [iostat]: https://en.wikipedia.org/wiki/Iostat
-[manage-vm-availability]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-manage-availability
+[linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
+[manage-vm-availability]: https://docs.microsoft.com/azure/virtual-machines/linux/manage-availability
 [managed-disks]: https://docs.microsoft.com/azure/storage/storage-managed-disks-overview
 [naming-conventions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
 [nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
 [nsg-default-rules]: https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules
-[planned-maintenance]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-planned-maintenance
+[planned-maintenance]: https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates
 [premium-storage]: https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage
 [rbac]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
 [rbac-roles]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles
@@ -171,11 +187,12 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 [resource-manager-overview]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
 [security-center]: https://docs.microsoft.com/azure/security-center/security-center-intro
 [security-center-get-started]: https://docs.microsoft.com/azure/security-center/security-center-get-started
-[select-vm-image]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-cli-ps-findimage
+[select-vm-image]: https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage
 [services-by-region]: https://azure.microsoft.com/regions/#services
-[ssh-linux]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys
+[ssh-linux]: https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys
 [static-ip]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-reserved-public-ip
-[virtual-machine-sizes]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes
-[linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
-[vm-size-tables]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes
+[virtual-machine-sizes]: https://docs.microsoft.com/azure/virtual-machines/sizes
+[vm-size-tables]: https://docs.microsoft.com/azure/virtual-machines/sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
+[WAF-devops]: /azure/architecture/framework/devops/overview
+[WAF-cost]: /azure/architecture/framework/cost/overview

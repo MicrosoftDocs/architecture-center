@@ -1,7 +1,7 @@
 ---
 title: Azure Application Architecture Guide
 description: A structured approach for designing applications on Azure that are scalable, resilient, and highly available
-author: MikeWasson
+author: adamboeglin
 ms.author: pnp
 ms.topic: guide
 ms.service: architecture-center
@@ -87,7 +87,7 @@ We have identified 10 high-level design principles that will make your applicati
 
 ### Design patterns
 
-Software design patterns are repeatable patterns that are proven to solve specific patterns. Our catalog of Cloud design patterns addresses specific challenges in distributed systems. They address aspects such as availability, resiliency, performance, and security. You can find our catalog of design patterns [here](../patterns/index.md).
+Software design patterns are repeatable patterns that are proven to solve specific problems. Our catalog of Cloud design patterns addresses specific challenges in distributed systems. They address aspects such as availability, resiliency, performance, and security. You can find our catalog of design patterns [here](../patterns/index.md).
 
 ### Best practices
 
@@ -96,17 +96,9 @@ Our [best practices](/azure/architecture/best-practices) articles cover various 
 
 ## Quality pillars
 
-A successful cloud application will focus on five pillars of software quality: Cost, DevOps, resiliency, scalability, and security. 
+A successful cloud application will focus on five pillars of software quality: Cost optimization, Operational excellence, Performance efficiency, Reliability, and Security. 
 
-| Pillar | Description |
-|--------|-------------|
-| Cost | Managing costs to maximize the value delivered. |
-| DevOps | Operations processes that keep a system running in production. |
-| Resiliency | The ability of a system to recover from failures and continue to function. |
-| Scalability | The ability of a system to adapt to changes in load. |
-| Security | Protecting applications and data from threats. |
-
-Use the [Azure Architecture Framework](../framework/index.md) to assess your architecture across these five pillars.
+Leverage the [Microsoft Azure Well-Architected Framework](../framework/index.md) to assess your architecture across these five pillars.
 
 ## Next steps
 

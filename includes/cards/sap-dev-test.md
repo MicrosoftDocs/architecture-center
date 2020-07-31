@@ -11,7 +11,7 @@
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/example-scenario/apps/sap-dev-test">
-            <p>Dev/test environments for SAP workloads</p>
+            <p>Development and test environments for SAP workloads on Azure</p>
         </a>
         <ul class="card-content-metadata">
             <li>7/11/2018</li>

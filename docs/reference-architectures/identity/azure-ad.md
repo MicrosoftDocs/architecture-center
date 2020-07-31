@@ -2,7 +2,7 @@
 title: Integrate on-premises AD domains with Azure AD
 titleSuffix: Azure Reference Architectures
 description: Implement a secure hybrid network architecture using Azure Active Directory (Azure AD).
-author: MikeWasson
+author: adamboeglin
 ms.date: 08/28/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -167,7 +167,7 @@ For the Azure AD Connect sync server, determine how many objects you are likely 
 The Azure AD service is geo-distributed and runs in multiple datacenters spread around the world with automated failover. If a datacenter becomes unavailable, Azure AD ensures that your directory data is available for instance access in at least two more regionally dispersed datacenters.
 
 > [!NOTE]
-> The service level agreement (SLA) for Azure AD Basic and Premium services guarantees at least 99.9% availability. There is no SLA for the Free tier of Azure AD. For more information, see [SLA for Azure Active Directory][sla-aad].
+> The service level agreement (SLA) for the Office 365 Apps AD tier and Premium services guarantees at least 99.9% availability. There is no SLA for the Free tier of Azure AD. For more information, see [SLA for Azure Active Directory][sla-aad].
 >
 
 Consider provisioning a second instance of Azure AD Connect sync server in staging mode to increase availability, as discussed in the topology recommendations section.
@@ -218,7 +218,7 @@ For DevOps considerations, see [DevOps: Extending Active Directory Domain Servic
 
 ## Cost considerations
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 Here are cost considerations for the services used in this architecture.
 
@@ -252,7 +252,7 @@ A deployment for a reference architecture that implements these recommendations 
 [aad-health-adfs]: https://docs.microsoft.com/azure/active-directory/active-directory-aadconnect-health-adfs
 [aad-identity-protection]: https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection
 [aad-password-management]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-customize
-[aad-powershell]: https://msdn.microsoft.com/library/azure/mt757189.aspx
+[aad-powershell]: https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0
 [aad-reporting-guide]: https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide
 [aad-scalability]: https://blogs.technet.microsoft.com/enterprisemobility/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-distributed-cloud-directory
 [aad-sync-best-practices]: https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration

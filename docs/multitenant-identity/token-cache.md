@@ -1,12 +1,13 @@
 ---
 title: Cache access tokens in a multitenant application
 description: Caching access tokens used for invoking a backend Web API.
-author: MikeWasson
+author: adamboeglin
 ms.date: 07/21/2017
 ms.topic: guide
 ms.service: architecture-center
 ms.category:
   - identity
+ms.custom: has-adal-ref
 ms.subservice: reference-architecture
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: web-api

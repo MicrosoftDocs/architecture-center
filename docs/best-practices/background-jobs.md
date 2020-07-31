@@ -119,7 +119,7 @@ Azure WebJobs have the following characteristics:
 
 Background tasks might be implemented in a way that prevents them from being deployed to Azure Web Apps, or these options might not be convenient. Typical examples are Windows services, and third-party utilities and executable programs. Another example might be programs written for an execution environment that is different than that hosting the application. For example, it might be a Unix or Linux program that you want to execute from a Windows or .NET application. You can choose from a range of operating systems for an Azure virtual machine, and run your service or executable on that virtual machine.
 
-To help you choose when to use Virtual Machines, see [Azure App Services, Cloud Services and Virtual Machines comparison](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm). For information about the options for Virtual Machines, see [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes). For more information about the operating systems and prebuilt images that are available for Virtual Machines, see [Azure Virtual Machines Marketplace](https://azure.microsoft.com/gallery/virtual-machines).
+To help you choose when to use Virtual Machines, see [Azure App Services, Cloud Services and Virtual Machines comparison](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm). For information about the options for Virtual Machines, see [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes). For more information about the operating systems and prebuilt images that are available for Virtual Machines, see [Azure Virtual Machines Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute).
 
 To initiate the background task in a separate virtual machine, you have a range of options:
 
@@ -144,7 +144,7 @@ Consider the following points when you are deciding whether to deploy background
 For more information, see:
 
 - [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
-- [Azure Virtual Machines FAQ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-classic-faq)
+- [Azure Virtual Machines FAQ](https://docs.microsoft.com/azure/virtual-machines/linux/faq)
 
 ### Azure Batch
 
@@ -166,7 +166,7 @@ For more information, see:
 
 - [What is Azure Batch?](https://docs.microsoft.com/azure/batch/batch-technical-overview)
 - [Develop large-scale parallel compute solutions with Batch](https://docs.microsoft.com/azure/batch/batch-api-basics)
-- [Batch and HPC solutions for large-scale computing workloads](https://docs.microsoft.com/azure/batch/batch-hpc-solutions)
+- [Batch and HPC solutions for large-scale computing workloads](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing)
 
 ### Azure Kubernetes Service
 

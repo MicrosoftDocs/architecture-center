@@ -44,6 +44,8 @@ in one place and have confidence that their change will take effect everywhere.
 For Azure, designate a single Azure Active Directory (Azure AD) instance
 directory as the authoritative source for corporate/organizational accounts. For more information on [hybrid identity providers](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity).
 
+The [Integrate on-premises Active Directory domains with Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad) reference architecture integrates on-premises AD domains with Azure AD to provide cloud-based identity authentication.
+
 ## Synchronize identity systems
 
 Synchronize your cloud identity with your existing identity systems
@@ -65,7 +67,7 @@ including vendors, partners, and customers in a corporate directory.
 
 This reduces risk by granting the appropriate level of access to external
 entities instead of the full default permissions given to full-time employees.
-This least privilege approach and clear clearly differentiation of external
+This least privilege approach and clear differentiation of external
 accounts from company staff makes it easier to prevent and detect attacks coming
 in from these vectors. Additionally, management of these identities is done by
 the external also increases productivity by parties, reducing ingeffort required

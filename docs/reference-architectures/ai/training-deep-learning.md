@@ -115,7 +115,7 @@ Azure Machine Learning offers many ways to [instrument your experiments][azureml
 
 ## Cost considerations
 
-Use the  [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other tips for how to [plan and manage costs][costs].
 
 ### Premium Blob Storage
 
@@ -129,7 +129,7 @@ Azure Container Registry offers **Basic**, **Standard** and **Premium**. Choose 
 
 In this architecture, Azure ML Compute is one of the main cost drivers. The implementation needs a cluster of GPU compute nodes and selected VM sizes can impact cost. For more information on the VM sizes that include GPUs, see [GPU-optimized virtual machine sizes][gpu-vm-sizes] and [Azure Virtual Machines Pricing][az-vm-pricing].
 
-For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 ## Deployment
 
@@ -172,3 +172,5 @@ The output from this architecture is a trained model that is saved to blob stora
 [tfrecords]: https://www.tensorflow.org/tutorials/load_data/tf_records
 [petastorm]: https://github.com/uber/petastorm
 [premium-storage]: https://azure.microsoft.com/services/storage/blobs
+[costs]: https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost
+

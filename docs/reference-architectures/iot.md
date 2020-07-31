@@ -2,7 +2,7 @@
 title: Azure IoT reference architecture
 description: Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components
 titleSuffix: Azure Reference Architectures
-author: MikeWasson
+author: adamboeglin
 ms.date: 01/09/2019
 ms.service: architecture-center
 ms.category:
@@ -43,7 +43,7 @@ This architecture consists of the following components. Some applications may no
 
 **Machine learning** allows predictive algorithms to be executed over historical telemetry data, enabling scenarios such as predictive maintenance. For machine learning, we recommend [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/).
 
-**Warm path storage** holds data that must be available immediately from device for reporting and visualization. For warm path storage, we recommend [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction). Cosmos DB is a globally distributed, multi-model database.
+**Warm path storage** holds data that must be available immediately from device for reporting and visualization. For warm path storage, we recommend [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) or [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview). Cosmos DB is a globally distributed, multi-model database. Azure SQL Database is a relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server. Depending on your specific workload and data processing requirements, these two options will cover all your warm path storage needs.
 
 **Cold path storage** holds data that is kept longer-term and is used for batch processing. For cold path storage, we recommend [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). Data can be archived in Blob storage indefinitely at low cost, and is easily accessible for batch processing.
 
@@ -76,6 +76,16 @@ IoT Hub automatically partitions device messages based on the device ID. All of 
 
 - If you store and update a single document per device, the device ID is a good partition key. Writes are evenly distributed across the keys. The size of each partition is strictly bounded, because there is a single document for each key value.
 - If you store a separate document for every device message, using the device ID as a partition key would quickly exceed the 10-GB limit per partition. Message ID is a better partition key in that case. Typically you would still include device ID in the document for indexing and querying.
+
+**Azure SQL Database**. You have multiple options to scale an Azure SQL Database instance, depending on your workload and requirements, see [Azure SQL Database Scalability](https://docs.microsoft.com/azure/sql-database/sql-database-scalability-index). Both single databases and managed instances can be scaled up (for compute or storage, independently) or scaled out, through read scale-out replicas or database sharding. Some of the features you may find relevant while designing IoT solutions with Azure SQL Database are:
+
+- A single instance can scale up to 128 vCores (with M-Series hardware configuration) or 100s of TBs (with Hyperscale service tier). This means ingesting 100Ks messages/sec and storing trillions of them in a single database instance, simplifying your data management operations. 
+- Multiple secondary replicas can be added to scale out read workloads and support 10Ks of concurrent queries on ingested data.
+- Where additional scalability is required, Azure SQL Database provides Elastic Database tools to partition messages (e.g. using device or message ID sharding keys) across multiple database instances, providing linear scale for compute and storage, see [database sharding](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-introduction).
+- When ingesting messages from 100Ks devices, Azure SQL Database provides the ability to batch multiple requests into a single database interaction, increasing overall scalability and maximizing resource utilization. See [batching](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance) best practices for more details.
+- In-Memory technologies in Azure SQL Database let you achieve significant performance improvements with various workloads, including transactional, analytical and hybrid (HTAP). In-memory OLTP optimized tables help increasing number of transactions per second and reduce latency for scenarios like large data ingestion from IoT devices. Clustered ColumnStore indexes help reduce storage footprint through compression (up to 10 times) and improve performance for reporting and analytics queries on ingested messages. See [In-memory technologies](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) for additional details.
+- Azure SQL Database scales well on both relational and non-relational data structures. Multi-model databases enable you to store and work with data represented in multiple data formats such as relational data, graphs, JSON/XML documents, key-value pairs, etc and still benefit from all capabilities described before, like In-memory technologies. See more on [multi-model](https://docs.microsoft.com/azure/sql-database/sql-database-multi-model-features).
+- In many IoT scenarios, historical analysis of ingested data is an important part of database workload. Temporal Tables are a feature of Azure SQL Database that allows to track and analyze full history of your data points, without the need for custom coding. By keeping data closely related to time context, stored data points can be interpreted as valid only within the specific period. This property of Temporal Tables allows for efficient time-based analysis and getting insights from data evolution. See more information on [temporal tables](https://docs.microsoft.com/azure/sql-database/sql-database-temporal-tables).
 
 ## Security considerations
 
@@ -140,8 +150,20 @@ Logging systems are integral in understanding what actions or activities a solut
 
 Though plain-text logging is lower impact on upfront development costs, it is more challenging for a machine to parse/read. We recommend structured logging be used, as collected information is both machine parsable and human readable. Structured logging adds situational context and metadata to the log information. In structured logging, properties are first class citizens formatted as key/value pairs, or with a fixed schema, to enhance search and query capabilities.
 
+## DevOps considerations
+
+Use the Infrastructure as code (IaC). IaC is the management of infrastructure (networks, virtual machines, load balancers, and connection topology) with a declarative approach, using the same version as DevOps team uses for source code. The most reliable deployment processes are automated and idempotent. One way is to create [Azure Resource Manager template][arm-template] for provisioning the IoT resources and the infrastructure.
+
+To automate infrastructure deployment, you can use Azure DevOps Services, Jenkins, or other CI/CD solutions. Azure [Pipelines][pipelines] is part of [Azure DevOps Services][az-devops] and runs automated builds, tests, and deployments.
+
+Consider staging your workloads by deploying to various stages and running validations at each stage before moving on to the next one; that way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases] are recommended deployment strategies for updating live production environments. Also consider having a good rollback strategy for when a deployment fails; for example you could automatically redeploy an earlier, successful deployment from your deployment history, the --rollback-on-error flag parameter in Azure CLI is good example. 
+
+Consider monitoring your solution by using [Azure Monitor][az-monitor]. Azure Monitor is the main source of monitoring and logging for all your Azure services, it provides diagnostics information for Azure resources. You can for example, monitor the operations that take place within your IoT hub. There are specific metrics and events that Azure Monitor supports, as well as services, schemas, and categories for Azure Diagnostic Logs.
+
+For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+
 ## Cost considerations
-In general, use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost].
+In general, use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 There are ways to optimize costs associated the services used in this reference architecture. 
 
@@ -185,7 +207,7 @@ For more information, see [Logic Apps pricing](https://azure.microsoft.com/prici
 
 For cold path storage, Azure Blob Storage is the most cost-effective option.
 
-For warm path storage, consider using Azure Cosmos DB. For more information, see [Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
+For warm path storage, consider using Azure Cosmos DB or Azure SQL Database. For more information, see [Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/) or [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 
 ## Next steps
@@ -196,5 +218,12 @@ For warm path storage, consider using Azure Cosmos DB. For more information, see
 
 - A sample IoT implementation is available on [GitHub](https://github.com/mspnp/iot-guidance).
 
+[AAF-devops]: /azure/architecture/framework/devops/overview
+[az-devops]: https://docs.microsoft.com/azure/devops/index?view=azure-devops
+[az-monitor]: https://azure.microsoft.com/services/monitor/
+[blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
+[cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
+[pipelines]: https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [aaf-cost]: ../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator

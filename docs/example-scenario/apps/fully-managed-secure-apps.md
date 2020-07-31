@@ -110,7 +110,7 @@ Another point to consider is regarding DNS. In order to allow applications withi
 - Review best practices for [cloud apps autoscale][design-best-practice-cloud-apps-autoscale].
 - When building a cloud application, be aware of the [typical design patterns for scalability][design-patterns-scalability].
 - Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
-- For other scalability topics, see the [scalability checklist][scalability] available in the Azure Architecture Center.
+- For other scalability topics, see the [performance efficiency checklist][scalability] available in the Azure Architecture Center.
 
 ### Security
 
@@ -190,7 +190,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [pci-dss-blueprint]: https://docs.microsoft.com/azure/security/blueprints/payment-processing-blueprint
 [resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service
 [resiliency]: ../../framework/resiliency/overview.md
-[scalability]: ../../checklist/scalability.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
 [sql-geo-replication]: https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview
 [storage-geo-redudancy]: https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs

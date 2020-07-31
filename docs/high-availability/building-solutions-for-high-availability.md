@@ -82,8 +82,8 @@ support resiliency.
 <hr />
 </div>
 
-When architecting for resilience, all three layers—foundation, services, and
-applications—should be considered to achieve the highest level of reliability.
+When architecting for resilience, all three layers-foundation, services, and
+applications-should be considered to achieve the highest level of reliability.
 Since a solution can be made up of many components, each component should be
 designed for reliability.
 
@@ -108,8 +108,8 @@ requirements. Resiliency is self-architected by replicating applications and
 data to one or more zones within the region. You can choose specific
 Availability Zones for synchronous replication, providing high availability, or
 asynchronous replication, providing backup or cost advantage. You can pin
-resources—for example, virtual machines, managed disks, or standard IP
-addresses—to a specific zone, allowing for increased resilience by having one or
+resources-for example, virtual machines, managed disks, or standard IP
+addresses-to a specific zone, allowing for increased resilience by having one or
 more instances of resources spread across zones.
 
 With *zone-redundant* architecture, the Azure platform automatically replicates
@@ -121,7 +121,7 @@ A failure to a zone affects zonal and zone-redundant services differently. In
 the case of a zone failure, the zonal services in the failed zone become
 unavailable until the zone has recovered. By architecting your solutions to use
 replicated VMs in zones, you can protect your applications and data from a zone
-becoming unavailable—for example, due to a power outage. If one zone is
+becoming unavailable-for example, due to a power outage. If one zone is
 compromised, replicated apps and data are instantly available in another zone.
 
 Zonal architecture applies to a specific resource, typically an infrastructure
@@ -248,7 +248,6 @@ services.
 - **Standard IP address (ZR)**
 
 - **Azure Traffic Analytics (ZR)**
-
        </td> 
     </tr> 
 </table>
@@ -278,7 +277,7 @@ of Availability Sets can increase the level of SLA to 99.95% by protecting a set
 of VMs, ensuring they will not all be on the same hardware. Within a region, VM
 workloads can be distributed across Availability Zones to increase the SLA to
 99.99%. For more information, refer to [Availability options for VMs in
-Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability).
+Azure](/azure/virtual-machines/availability).
 
 Every organization has unique requirements, and you should design your
 applications to best meet your complex business needs. Defining a target SLA
@@ -301,7 +300,7 @@ requirements. Some things to consider include:
 
 - Does your application have specific latency requirements?
 
-For additional guidance, refer to [Azure Architecture Framework define
+For additional guidance, refer to [Microsoft Azure Well-Architected Framework define
 requirements](../framework/resiliency/overview.md#define-requirements).
 
 Depending on the availability needs of an application, the cost and design

@@ -87,7 +87,7 @@ This scenario can use Azure Active Directory to authenticate users for [access t
 
 All the code for this scenario is available in the [Microsoft Recommenders repository][github].
 
-Follow these steps to run the [ALS quickstart notebook][notebook]:
+Follow these steps to run the [ALS quickstart notebook](https://github.com/microsoft/recommenders/blob/master/examples/00_quick_start/als_movielens.ipynb):
 
 1. [Create a DSVM][dsvm-ubuntu] from the Azure portal.
 
@@ -133,4 +133,4 @@ For an in-depth guide to building and scaling a recommender service, see [Build 
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8
 [sla-aks]: https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_0
 [storage-security]: https://docs.microsoft.com/azure/storage/common/storage-service-encryption
-[vm-size]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-change-vm-size
+[vm-size]: https://docs.microsoft.com/azure/virtual-machines/linux/change-vm-size

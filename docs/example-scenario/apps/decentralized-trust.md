@@ -76,7 +76,7 @@ For other extended or different scenarios, concerns such as transaction privacy 
 
 A popular concern for blockchain is the number of transactions that a blockchain can include within a preset amount of time. This scenario uses Proof-of-Authority where such scalability can be better managed than Proof-of-Work. In Proof-of-Authority&ndash;based networks, consensus participants are known and managed, making it more suitable for private blockchain for a consortium of organization that knows one another. Parameters such as average block time, transactions per minute and compute resource consumption can be easily monitored via the custom dashboard. Resources can then be adjusted accordingly based on scale requirements.
 
-For general guidance on designing scalable solutions, see the [scalability checklist][scalability] in the Azure Architecture Center.
+For general guidance on designing scalable solutions, see the [performance efficiency checklist][scalability] in the Azure Architecture Center.
 
 ### Security
 
@@ -118,6 +118,6 @@ For more information on using the Ethereum Proof-of-Authority solution template 
 [deploy]: https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium
 [source]: https://github.com/vitoc/creditscoreblockchain
 [monitor]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor
-[scalability]: ../../checklist/scalability.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [security]: https://docs.microsoft.com/azure/security
 [vault]: https://azure.microsoft.com/services/key-vault

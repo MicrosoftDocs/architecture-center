@@ -3,7 +3,7 @@ title: Scalable Sitecore marketing website
 titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/16/2019
-description: With the Sitecore Experience Platform (xP), you have at your fingertips the complete data, integrated tools, and automation capabilities to engage your customers throughout an iterative life cycle—the technology foundation necessary to win customers for life.
+description: With the Sitecore Experience Platform (xP), you have at your fingertips the complete data, integrated tools, and automation capabilities to engage your customers throughout an iterative life cycle-the technology foundation necessary to win customers for life.
 ms.custom: acom-architecture, web-apps, 'https://azure.microsoft.com/solutions/architecture/digital-marketing-sitecore/'
 ms.service: architecture-center
 ms.category:
@@ -16,7 +16,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/digital-mark
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-With the Sitecore Experience Platform (xP), you have at your fingertips the complete data, integrated tools, and automation capabilities to engage your customers throughout an iterative life cycle—the technology foundation necessary to win customers for life.
+With the Sitecore Experience Platform (xP), you have at your fingertips the complete data, integrated tools, and automation capabilities to engage your customers throughout an iterative life cycle-the technology foundation necessary to win customers for life.
 
 This solution is built on the Azure managed services: [Azure SQL Database](https://azure.microsoft.com/services/sql-database), [Azure Cache for Redis](https://azure.microsoft.com/services/cache), [Azure Cognitive Search](https://azure.microsoft.com/services/search) and [Azure Monitor](https://azure.microsoft.com/services/monitor). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 

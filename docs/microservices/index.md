@@ -2,7 +2,7 @@
 title: Building microservices on Azure
 description: Designing, building, and operating microservices architectures on Azure
 ms.date: 10/30/2019
-author: MikeWasson
+author: adamboeglin
 ms.topic: guide
 ms.service: architecture-center
 ms.category:
@@ -34,3 +34,8 @@ The articles listed here present a structured approach for designing, building, 
 - [CI/CD for microservices architectures](./ci-cd.md)
 - [Build a CI/CD pipeline for microservices on Kubernetes](./ci-cd-kubernetes.md)
 - [Monitor microservices running on Azure Kubernetes Service (AKS)](./logging-monitoring.md)
+
+## Microservices reference architectures for Azure
+
+- [Microservices architecture on Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/microservices/aks)
+- [Microservices architecture on Azure Service Fabric](/azure/architecture/reference-architectures/microservices/service-fabric)

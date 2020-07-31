@@ -17,7 +17,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/data-soverei
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Azure with Azure Stack enables organizations to make technology placement decisions based on business needs—simplifying meeting custom compliance, sovereignty, and data gravity requirements.
+Azure with Azure Stack enables organizations to make technology placement decisions based on business needs-simplifying meeting custom compliance, sovereignty, and data gravity requirements.
 
 ## Architecture
 

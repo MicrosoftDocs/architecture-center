@@ -34,12 +34,12 @@ In many scenarios, the adoption of the Azure cloud as a business solution involv
 
 ## Components
 
-* [Azure Boards](https://docs.microsoft.com/azure/devops/boards/github/connect-to-github?view=azure-devops): Use Azure Board to plan work and track its progress, using Agile tools such as Kanban boards.
+* [Azure Boards](/azure/devops/boards/github/connect-to-github?view=azure-devops): Use Azure Board to plan work and track its progress, using Agile tools such as Kanban boards.
 * Source code is hosted on [GitHub Enterprise](https://github.com/enterprise), where developers can collaborate within your organization and the open source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open source dependencies.
-* [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops)  runs Continuous Integration and Continuous Delivery jobs for your application, as well as the creation of your infrastructure with the integration with Terraform.
-* You can use [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/basic-concepts) to store certificates, connection strings, tokens, and other secrets. These are read by your application at run-time, so they're abstracted away from your developers
-* [Terraform](https://docs.microsoft.com/azure/terraform/terraform-install-configure) is a third-party product developed by HashiCorp that allows infrastructure automation on Azure, on-premises, and other environments
-* Using [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) lets you get insights on the availability and performance of your application and infrastructure.
-* [Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) provides identity and access management services for your application, both on-premises and on the cloud. Azure AD can synchronize with an on-premises Active Directory to seamlessly allow your users to authenticate everywhere.
-* [Azure Web Apps](https://docs.microsoft.com/azure/app-service/overview) is a managed platform for hosting web-based applications in the cloud.
-* [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) is a managed database service for transactional applications.
+* [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops)  runs Continuous Integration and Continuous Delivery jobs for your application, as well as the creation of your infrastructure with the integration with Terraform.
+* You can use [Azure Key Vault](/azure/key-vault/basic-concepts) to store certificates, connection strings, tokens, and other secrets. These are read by your application at run-time, so they're abstracted away from your developers
+* [Terraform](/azure/terraform/terraform-install-configure) is a third-party product developed by HashiCorp that allows infrastructure automation on Azure, on-premises, and other environments
+* Using [Azure Monitor](/azure/azure-monitor/overview) lets you get insights on the availability and performance of your application and infrastructure.
+* [Azure AD](/azure/active-directory/fundamentals/active-directory-whatis) provides identity and access management services for your application, both on-premises and on the cloud. Azure AD can synchronize with an on-premises Active Directory to seamlessly allow your users to authenticate everywhere.
+* [Azure Web Apps](/azure/app-service/overview) is a managed platform for hosting web-based applications in the cloud.
+* [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) is a managed database service for transactional applications.

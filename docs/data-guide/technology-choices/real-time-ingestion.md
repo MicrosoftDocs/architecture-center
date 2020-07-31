@@ -69,8 +69,8 @@ The following tables summarize the key differences in capabilities.
 | --- | --- | --- | --- |
 | Cloud-to-device communications | Yes | No | No |
 | Device-initiated file upload | Yes | No | No |
-| Device state information | [Device twins](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) | No | No |
-| Protocol support | MQTT, AMQP, HTTPS <sup>1</sup> | AMQP, HTTPS, [Kafka Protocol](https://cwiki.apache.org/confluence/display/KAFKA/A+Guide+To+The+Kafka+Protocol) | [Kafka Protocol](https://cwiki.apache.org/confluence/display/KAFKA/A+Guide+To+The+Kafka+Protocol) |
+| Device state information | [Device twins](/azure/iot-hub/iot-hub-devguide-device-twins) | No | No |
+| Protocol support | MQTT, AMQP, HTTPS <sup>1</sup> | AMQP, HTTPS, [Kafka Protocol](https://docs.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview) | [Kafka Protocol](https://cwiki.apache.org/confluence/display/KAFKA/A+Guide+To+The+Kafka+Protocol) |
 | Security | Per-device identity; revocable access control. | Shared access policies; limited revocation through publisher policies. | Authentication using SASL; pluggable authorization; integration with external authentication services supported. |
 
 <!-- markdownlint-enable MD026 -->

@@ -62,7 +62,7 @@ Cosmos DB doesn't autoscale in terms of provisioned request units (RUs). For gui
 
 NoSQL databases frequently trade consistency (in the sense of the CAP theorem) for availability, scalability, and partitioning. In this example scenario, a key-value data model is used and transaction consistency is rarely needed as most operations are by definition atomic. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the Azure Architecture Center. If your implementation requires high consistency, you can [choose your consistency level](https://docs.microsoft.com/azure/cosmos-db/consistency-levels) in Cosmos DB.
 
-For general guidance on designing scalable solutions, see the [scalability checklist][scalability] in the Azure Architecture Center.
+For general guidance on designing scalable solutions, see the [performance efficiency checklist][scalability] in the Azure Architecture Center.
 
 ### Security
 
@@ -101,6 +101,6 @@ Before deploying this example scenario in a production environment, review recom
 [cv-categories]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy
 [resiliency]: ../../framework/resiliency/overview.md
 [security]: https://docs.microsoft.com/azure/security
-[scalability]: ../../checklist/scalability.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [functions-best-practices]: https://docs.microsoft.com/azure/azure-functions/functions-best-practices
 [msi]: https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity

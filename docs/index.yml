@@ -9,7 +9,7 @@ metadata:
   google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 
 title: Azure Architecture Center # < 60 chars
-summary: Guidance for architecting solutions on Azure using established patterns and practices.. # < 160 chars
+summary: Guidance for architecting solutions on Azure using established patterns and practices. # < 160 chars
 brand: azure
 
 # highlightedContent section (optional)
@@ -43,7 +43,9 @@ productDirectory:
       imageSrc: https://docs.microsoft.com/media/common/i_design.svg
       links:
         - url: ./guide/design-principles/index.md
-          text: Principals of a well designed application
+          text: Principles of a well-designed application
+        - url: ./guide/responsible-innovation/index.md
+          text: Responsible innovation
         - url: ./best-practices/api-design.md
           text: Web API design
         - url: ./microservices/index.md
@@ -89,6 +91,9 @@ conceptualContent:
   items:
     - title: Popular Articles
       links:
+      - text: AKS Production Baseline
+        url: ./reference-architectures/containers/aks/secure-baseline-aks.md
+        itemType: reference
       - text: AWS to Azure services comparison
         url: ./aws-professional/services.md
         itemType: reference
@@ -110,7 +115,7 @@ conceptualContent:
       - text: CQRS design pattern
         url: ./patterns/cqrs.md
         itemType: concept
-    # Card
+
     - title: AI & Machine Learning
       links:
       - text: Training of Python scikit-learn models
@@ -144,7 +149,7 @@ conceptualContent:
       footerLink:
         url: ./data-guide/big-data/machine-learning-at-scale.md
         text: See more
-    # Card
+    
     - title: Data
       links:
         - url: ./data-guide/big-data/index.md
@@ -297,7 +302,7 @@ conceptualContent:
           url: service-fabric/migrate-from-cloud-services.md
         - text: Azure Kubernetes Service (AKS)
           itemType: architecture
-          url: reference-architectures/microservices/aks.md
+          url: reference-architectures/containers/aks-microservices/aks-microservices.md
         - text: Azure Service Fabric
           itemType: architecture
           url: reference-architectures/microservices/service-fabric.md
@@ -340,6 +345,9 @@ conceptualContent:
         - text: Highly available network virtual appliances
           itemType: architecture
           url: reference-architectures/dmz/nva-ha.md
+        - text : Segmenting Virtual Networks
+          itemType: architecture
+          url: reference-architectures/hybrid-networking/network-level-segmentation.md
 
     - title: Serverless applications
       links:
@@ -382,24 +390,33 @@ conceptualContent:
 
     - title: SAP
       links:
-        - text: SAP HANA on Azure Large Instances
+        - text: Overview
+          itemType: architecture
+          url: reference-architectures/sap/sap-overview.md
+        - text: SAP HANA on Azure (Large Instances)
           itemType: architecture
           url: reference-architectures/sap/hana-large-instances.md
-        - text: SAP NetWeaver for AnyDB
+        - text: SAP HANA Scale-up on Linux
+          itemType: architecture
+          url: reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.md
+        - text: SAP NetWeaver on Windows on Azure
           itemType: architecture
           url: reference-architectures/sap/sap-netweaver.md
-        - text: SAP S/4HANA
+        - text: SAP S/4HANA in Linux on Azure
           itemType: architecture
           url: reference-architectures/sap/sap-s4hana.md
-        - text: SAP for dev/test
-          itemType: get-started
-          url:  example-scenario/apps/sap-dev-test.md
-        - text: SAP for production
-          itemType: get-started
-          url:  example-scenario/apps/sap-production.md
-        - text: SharePoint Server 2016
+        - text: SAP BW/4HANA in Linux on Azure
           itemType: architecture
-          url: reference-architectures/sharepoint/index.md
+          url: reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.md
+        - text: SAP NetWeaver on SQL Server
+          itemType: architecture
+          url: solution-ideas/articles/sap-netweaver-on-sql-server.md  
+        - text: SAP deployment using an Oracle DB
+          itemType: architecture
+          url: example-scenario/apps/sap-production.md
+        - text: Dev/test for SAP
+          itemType: architecture
+          url: example-scenario/apps/sap-dev-test.md           
 
     - title: Web apps
       links:
@@ -441,15 +458,15 @@ additionalContent:
   sections:
     - title: Build your skills with Microsoft Learn # < 60 chars (optional)
       items:
-        - title: Pillars of a great Azure architecture
-          url: https://docs.microsoft.com/learn/modules/pillars-of-a-great-azure-architecture/
-        - title: Design for efficiency and operations in Azure
-          url: https://docs.microsoft.com/learn/modules/design-for-efficiency-and-operations-in-azure/
-        - title: Design for security in Azure
-          url: https://docs.microsoft.com/learn/modules/design-for-security-in-azure/
-        - title: Design for availability and recovery in Azure
-          url: https://docs.microsoft.com/learn/modules/design-for-availability-and-recoverability-in-azure/
-        - title: Design for performance and scalability in Azure
-          url: https://docs.microsoft.com/learn/modules/design-for-performance-and-scalability-in-azure/
+        - title: Build great solutions with the Microsoft Azure Well-Architected Framework
+          url: https://docs.microsoft.com/learn/paths/azure-well-architected-framework/
+        - title: Introduction to the Well Architected Framework
+          url: https://docs.microsoft.com/learn/modules/azure-well-architected-introduction/
+        - title: Azure Fundamentals
+          url: https://docs.microsoft.com/learn/paths/azure-fundamentals/
+        - title: Security, responsibility, and trust in Azure
+          url: https://docs.microsoft.com/learn/modules/intro-to-security-in-azure/
+        - title: Architect infrastructure operations in Azure
+          url: https://docs.microsoft.com/learn/paths/architect-infrastructure-operations/
         - title: Tour the N-tier architecture style
           url: https://docs.microsoft.com/learn/modules/n-tier-architecture/
