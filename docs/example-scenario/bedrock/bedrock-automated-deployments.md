@@ -81,6 +81,16 @@ This workflow includes provisions for:
 
 ## Components
 
+- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/services/kubernetes-service/) 
+- [Terraform]((https://github.com/hashicorp/terraform)) is an open-source tool for building, changing, and versioning infrastructure safely and efficiently. It enables you to define and provision the infrastructure of a cloud-based application using a high-level configuration language known as [Hashicorp Configuration Language (HCL)](https://github.com/hashicorp/hcl). These configuration files are used to describe the components needed to run simple or complex applications.
+- [GitOps](https://www.weave.works/technologies/gitops/) is DevOps applied to Kubernetes based systems. Thus, the automation and coordination of development, orchestration, monitoring, and maintenance becomes the focus of the Bedrock pattern and process using GitOps.
+- [Fabrikate](https://github.com/Microsoft/fabrikate) is a central part of GitOps in Bedrock. Fabrikate converts the HLD script files to the YAML configuration files required for Kubernetes deployment. The following diagram shows how Fabrikate is integrated into the GitOps workflow.
+- [Spektate](https://github.com/Microsoft/Spektate) Service introspection is an enabler for instrumentation. An introspection service can reveal information about the cloud internals to interested applications. The Spektate service introspection tool provides insight into the deployment status at all times, allowing it to facilitate reliability, security, and auditability of deployments.
+- [Flux](https://github.com/fluxcd/flux) is a tool that automatically ensures that the state of a cluster matches the configuration defined in Git. Flux uses an operator in the cluster to trigger deployments inside Kubernetes, fulfilling the role of a CD tool. It monitors all relevant image repositories, detects new images, triggers deployments, and updates the running configuration based on those changes and a configurable policy.
+- [Helm](https://helm.sh/) is a Kubernetes package manager that streamlines the installing and managing of Kubernetes deployments. It is sometimes characterized as apt/yum/homebrew for Kubernetes.
+- [Cobalt](https://github.com/Microsoft/cobalt) hosts reusable Terraform modules to scaffold managed container services like [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) and [Azure App Service](https://docs.microsoft.com/azure/app-service/) following a DevOps workflow. Cobalt templates (manifests) reference Terraform modules like virtual networks, traffic manager, and so on, to define infrastructure deployments. Bedrock uses Terraform to pre-configure environment deployment, but also uses Fabrikate templates to define manifests for deployment automation.
+
+
 Bedrock uses these components to address its design objectives.
 
 Solution Design Objectives:
