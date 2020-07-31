@@ -1,6 +1,6 @@
 ---
 title: Identifying microservice boundaries
-description: Identifying microservice boundaries.
+description: Learn how to start from a carefully designed domain model to determine the right size for a microservice.
 author: adamboeglin
 ms.date: 02/25/2019
 ms.topic: guide

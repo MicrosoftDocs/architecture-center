@@ -1,6 +1,6 @@
 ---
 title: Choosing an Azure compute service
-description: A flowchart for selecting a compute service.
+description: Use this chart and other information to decide which compute service, or hosting model for computing resources, best suits your application.
 author: adamboeglin
 ms.date: 01/10/2020
 ms.topic: guide

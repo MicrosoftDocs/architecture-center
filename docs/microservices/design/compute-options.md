@@ -1,6 +1,6 @@
 ---
 title: Choosing an Azure compute option for microservices
-description: Guidelines for choosing an Azure compute service for microservices
+description: Learn about service orchestrator and serverless architecture as compute options, or hosting models for the computing resources where your application runs.
 author: adamboeglin
 ms.date: 02/25/2019
 ms.topic: guide
