@@ -65,15 +65,9 @@ Events represent *device-to-cloud* communication in an IoT solution, and may be 
 
 |Event type|Description|Examples|
 |-|-|-|
-|Notifications|Unsolicited events the device sends to convey state, or requests from a device to its cloud application. These types of events are often used for alerts, state changes, and requests from a device for an application to take an action.|• An alert from a device that it's experiencing a malfunction.<br/>
-• A request from a device for information to be sent to it.<br/>
-• An update on local device state or property change.|
-|Acknowledgments|Events a device sends to indicate receipt, progress, or completion of a requested asynchronous operation. Acknowledgments are often used in transactions between a device and cloud where the application logic relies on stateful communication from the device.|• Progress updates on a long-running request from an application.<br/>
-• Success or failure signals for completing an asynchronous request.<br/>
-• Tightly coupled multi-step device and application transactions.|
-|Telemetry|Recurring transmission of measurements or state sent at regular intervals from a device to the cloud. These types of events are typically used for remote sensor monitoring.|• Continual sensor data from devices to applications to interpret.<br/>
-• Monitored health and diagnostics data sent from devices.<br/>
-• Tracked assets regularly sending their location data.|
+|Notifications|Unsolicited events the device sends to convey state, or requests from a device to its cloud application. These types of events are often used for alerts, state changes, and requests from a device for an application to take an action.|• An alert from a device that it's experiencing a malfunction.<br/>• A request from a device for information to be sent to it.<br/>• An update on local device state or property change.|
+|Acknowledgments|Events a device sends to indicate receipt, progress, or completion of a requested asynchronous operation. Acknowledgments are often used in transactions between a device and cloud where the application logic relies on stateful communication from the device.|• Progress updates on a long-running request from an application.<br/>• Success or failure signals for completing an asynchronous request.<br/>• Tightly coupled multi-step device and application transactions.|
+|Telemetry|Recurring transmission of measurements or state sent at regular intervals from a device to the cloud. These types of events are typically used for remote sensor monitoring.|• Continual sensor data from devices to applications to interpret.<br/>• Monitored health and diagnostics data sent from devices.<br/>• Tracked assets regularly sending their location data.|
 
 ### Types of insights
 
