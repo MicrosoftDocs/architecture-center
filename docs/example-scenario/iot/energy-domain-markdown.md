@@ -2,7 +2,7 @@
 title: Monitor and optimize a wind farm & accompanying energy storage
 titleSuffix: Azure Example Scenarios
 description: A customer scenario utilizing real-time data to understand whether or not to generate power for the grid fromg a wind farm.
-author: falloutxAY,mcosner
+author: mcosner
 ms.date: 06/01/2020
 ms.topic: example-scenario
 ms.service: architecture-center

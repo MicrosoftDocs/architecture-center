@@ -61,20 +61,17 @@ Here a cooling system can send its operating temperature as telemetry events to 
 
 ### Types of events
 
-Events represent *device-to-cloud* communication in an IoT solution, and may be *notifications*, *acknowledgements*, or *telemetry*.
+Events represent *device-to-cloud* communication in an IoT solution, and may be *notifications*, *acknowledgments*, or *telemetry*.
 
-|Event type|Description
-|-|-|
-|Notifications|Unsolicited events the device sends to convey state, or requests from a device to its cloud application. These types of events are often used for alerts, state changes, and requests from a device for an application to take an action. Examples are:
-- An alert from a device that it's experiencing a malfunction.
+|Event type|Description|Examples|
+|-|-|-|
+|Notifications|Unsolicited events the device sends to convey state, or requests from a device to its cloud application. These types of events are often used for alerts, state changes, and requests from a device for an application to take an action.|- An alert from a device that it's experiencing a malfunction.
 - A request from a device for information to be sent to it.
 - An update on local device state or property change.  |
-|Acknowledgements|Events a device sends to indicate receipt, progress, or completion of a requested asynchronous operation. Acknowledgements are often used in transactions between a device and cloud where the application logic relies on stateful communication from the device. Examples are:
-- Progress updates on a long-running request from an application.
+|Acknowledgments|Events a device sends to indicate receipt, progress, or completion of a requested asynchronous operation. Acknowledgments are often used in transactions between a device and cloud where the application logic relies on stateful communication from the device.|Progress updates on a long-running request from an application.
 - Success or failure signals for completing an asynchronous request.
 - Tightly coupled multi-step device and application transactions.  |
-|Telemetry|Recurring transmission of measurements or state sent at regular intervals from a device to the cloud. These types of events are typically used for remote sensor monitoring. Examples are:
-- Continual sensor data from devices to applications to interpret.
+|Telemetry|Recurring transmission of measurements or state sent at regular intervals from a device to the cloud. These types of events are typically used for remote sensor monitoring.|- Continual sensor data from devices to applications to interpret.
 - Monitored health and diagnostics data sent from devices.
 - Tracked assets regularly sending their location data.  |
 
@@ -85,7 +82,7 @@ Insights are interpretations of events. Insights may derive from events directly
 - *Contextual insights* are context-sensitive interpretations of events to determine where they should be routed or what immediate actions application logic should execute. Examples are:
   - Determining where to route a message based on contextual data, such as message header content or the type of device.
   - Runtime decisions by event handling code that decide to take immediate action based on an event.
-  - Reconciling acknowledgements to complete a stateful transaction.
+  - Reconciling acknowledgments to complete a stateful transaction.
 
 - *Real-time insights* are interpretations gathered and observed in real-time for monitoring and decision-making purposes. Examples are:
   - Gathering and observing metrics for a solution in near real-time.
