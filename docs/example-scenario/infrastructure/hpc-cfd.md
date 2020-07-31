@@ -1,7 +1,7 @@
 ---
 title: Running CFD simulations
 titleSuffix: Azure Example Scenarios
-description: Execute computational fluid dynamics (CFD) simulations on Azure.
+description: Learn about running Computational Fluid Dynamics simulations using Azure. Create, manage, and optimize clusters using Azure CycleCloud.
 author: mikewarr
 ms.date: 09/20/2018
 ms.category:

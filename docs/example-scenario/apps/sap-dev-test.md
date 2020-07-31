@@ -1,7 +1,7 @@
 ---
 title: Development and test environments for SAP workloads on Azure
 titleSuffix: Azure Example Scenarios
-description: Build a dev/test environment for SAP workloads.
+description: Learn how to establish a dev/test environment for SAP NetWeaver on Azure. This architecture is designed for non-production environments.
 author: AndrewDibbins
 ms.date: 07/11/2018
 ms.category:
