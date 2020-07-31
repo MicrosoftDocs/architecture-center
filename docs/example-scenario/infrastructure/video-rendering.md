@@ -1,7 +1,7 @@
 ---
 title: 3D video rendering
 titleSuffix: Azure Example Scenarios
-description:Use Azure Batch to manage existing Windows or Linux applications, including AutoDesk Maya and Blender, to run large-scale 3D video render jobs in Azure.
+description: Use Azure Batch to manage existing Windows or Linux applications, including AutoDesk Maya and Blender, to run large-scale 3D video render jobs in Azure.
 author: adamboeglin
 ms.date: 07/13/2018
 ms.category:
