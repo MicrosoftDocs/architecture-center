@@ -1097,12 +1097,12 @@ items:
         href: guide/iiot-guidance/iiot-considerations.md
     - name: IoT solutions
       items:
-      - name: Overview of IoT solutions
+      - name: IoT solutions overview
         href: example-scenario/iot/introduction-to-solutions.md
-      - name: Design, develop, and operate
+      - name: IoT solution roles and workflows
         href: example-scenario/iot/builders-developers-operators.md
-      - name: Field and cloud edge gateways
-        href: example-scenario/iot/field-and-cloud.md
+      - name: IoT devices, platform, and applications
+        href: example-scenario/iot/introduction-to-solutions.md
       - name: Attestation, provisioning, and authentication
         href: example-scenario/iot/attestation-provisioning-authentication.md
       - name: Cloud to device commands

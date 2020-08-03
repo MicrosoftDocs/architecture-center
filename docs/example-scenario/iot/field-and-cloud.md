@@ -1,54 +1,28 @@
 ---
-title: Field and Cloud Edge Gateways
+title: Field and cloud edge gateways
 titleSuffix: Azure Example Scenarios
-description: Introduction to Edge Gateways and how they fit into the device, platform and application topology.
+description: Learn about field or edge, and cloud or protocol gateways, and how they fit into the device, platform and application topology for IoT solutions.
 author: wamachine
-ms.date: 06/26/2020
+ms.date: 08/03/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom:
-- fcp
+ms.custom: fcp
 ---
 
-# Field and Cloud Edge Gateways
-While devices can connect to the IoT Platform directly, they can also be
-connected to **Edge Gateways** to implement intelligent capabilities
-outside the application. This enables functionality such as aggregation,
-or filtering, of device events before being sent to the IoT Platform,
-localized decision-making, and [protocol and identity
-translation](https://docs.microsoft.com/azure/iot-edge/iot-edge-as-gateway)
-on-behalf-of devices.
+# Field and cloud Edge Gateways
 
-![A diagram illustrating the flow of events, commands, and protocols as they are routed through a field or cloud edge gateway to the Azure IoT Platform](media/field-edge-gateways.png) 
+Internet-of-things (IoT) devices can connect to the IoT platform directly, or they can be connected to *edge gateways* that implement intelligent capabilities outside the application. *IoT edge gateways* enable functionality like:
+- Aggregating or filtering device events before they're sent to the IoT platform
+- Localized decision-making
+- [Protocol and identity translation](https://docs.microsoft.com/azure/iot-edge/iot-edge-as-gateway) on behalf of devices
 
-<table>
-<thead>
-    <tr>
-        <th>Gateway Type</th>
-        <th>Description</th>
-    </tr>
-</thead>
-<tbody>
-    <tr>
-        <td width=20%><a href="https://docs.microsoft.com/azure/iot-edge/iot-edge-as-gateway">Field Gateway <br> (IoT Edge)</a></td>
-        <td><b>Extends cloud capabilities into Edge Devices:</b> Edge Devices act as a communication enabler, local device control system, and data processor for an IoT Hub. Some characteristics include:<br>
-            <ul>
-                <li>Specialized on-premises device that connect to IoT Platform.</li>
-                <li>Can run cloud workflows on-premises using <a href="https://docs.microsoft.com/azure/iot-edge/iot-edge-modules">Edge Modules</a>.</li>
-                <li>Can receive events from devices in offline scenarios.</li>
-            </ul>
-        </td>
-    </tr>
-        <tr>
-        <td><a href="https://docs.microsoft.com/azure/iot-hub/iot-hub-protocol-gateway">Cloud Gateway<br>(Protocol Gateway)</a></td>
-        <td><b>Extends device capabilities into the cloud:</b> Enable communication to and from devices with the IoT Platform. Some characteristics include:<br>
-            <ul>
-                <li>Can do protocol and identity translation to and from IoT Hub.</li>
-                <li>Device instances are hosted in the cloud gateway.</li>
-                <li>Gateway can execute additional logic on behalf of devices.</li>
-            </ul>
-        </td>
-    </tr>
-</tbody>
-</table>
+There are two types of edge gateways: *field* and *cloud*.
+
+![A diagram illustrating the flow of events, commands, and protocols as they are routed through a field or cloud edge gateway to the Azure IoT Platform.](media/field-edge-gateways.png) 
+
+Field or [IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-as-gateway) gateways are located close to devices on-premises, and extend cloud capabilities into devices. IoT Edge devices act as communication enablers, local device control systems, and data processors for an [IoT Hub]() in the cloud.
+
+IoT Edge devices are specialized on-premises devices that connect to the IoT platform. IoT Edge devices can run cloud workflows on-premises by using [Edge modules](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules), and can communicate with devices even in offline scenarios.
+
+Cloud or [protocol gateways](https://docs.microsoft.com/azure/iot-hub/iot-hub-protocol-gateway) extend device capabilities into the cloud by enabling communication between devices and the IoT platform. The cloud gateway hosts device instances. Cloud gateways can do protocol and identity translation to and from IoT Hub, and can execute additional logic on behalf of devices.
