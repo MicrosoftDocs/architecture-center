@@ -29,6 +29,9 @@ Definitions:
 
 The output from this flowchart is a **starting point** for consideration. Next, perform a more detailed evaluation of the service to see if it meets your needs. 
 
+This article includes several tables which may help you to make these tradeoff decisions. Based on this analysis, you may find that the initial candidate isn't suitable for your particular application or workload. In that case, expand your analysis to include other compute services.
+
+
 ## Understand the basic features
 
 If you're not familiar with the Azure service selected in the previous step, read the overview documentation to understand the basics of the service.
@@ -55,21 +58,6 @@ There is a spectrum from IaaS to pure PaaS. For example, Azure VMs can autoscale
 
 In general, there is a tradeoff between control and ease of management. IaaS gives the most control, flexibility, and portability, but you have to provision, configure and manage the VMs and network components you create. FaaS services automatically manage nearly all aspects of running an application. PaaS services fall somewhere in between.
 
-## Consider limits and cost
-
-Next, perform a more detailed evaluation, looking at the following aspects of the service:
-
-- [Service limits](https://docs.microsoft.com/azure/azure-subscription-service-limits)
-- [Cost](https://azure.microsoft.com/pricing/)
-- [SLA](https://azure.microsoft.com/support/legal/sla/)
-- [Regional availability](https://azure.microsoft.com/global-infrastructure/services/)
-
-Based on this analysis, you may find that the initial candidate isn't suitable for your particular application or workload. In that case, expand your analysis to include other compute services.
-
-The following tables contain additional comparison points, which may be useful when choosing.
-
-### Hosting model
-
 <!-- markdownlint-disable MD033 -->
 
 | Criteria | Virtual Machines | App Service | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
@@ -92,7 +80,7 @@ Notes
 6. <span id="note6">Use [Azure App Service Hybrid Connections][app-service-hybrid].</span>
 7. <span id="note7">Requires App Service plan.</span>
 
-### DevOps
+## DevOps
 
 | Criteria | Virtual Machines | App Service | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
 |----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
@@ -105,7 +93,7 @@ Notes
 1. <span id="note1b">Options include IIS Express for ASP.NET or node.js (iisnode); PHP web server; Azure Toolkit for IntelliJ, Azure Toolkit for Eclipse. App Service also supports remote debugging of deployed web app.</span>
 2. <span id="note2b">See [Resource Manager providers, regions, API versions and schemas][resource-manager-supported-services].</span>
 
-### Scalability
+## Scalability
 
 | Criteria | Virtual Machines | App Service | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
 |----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
@@ -119,7 +107,7 @@ Notes
 2. <span id="note2c">See [Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/cluster-autoscaler).</span>
 3. <span id="note3c">See [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits)</span>.
 
-### Availability
+## Availability
 
 | Criteria | Virtual Machines | App Service | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
 |----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
@@ -128,7 +116,7 @@ Notes
 
 For guided learning on Service Guarantees, review [Core Cloud Services - Azure architecture and service guarantees](https://docs.microsoft.com/learn/modules/explore-azure-infrastructure).
 
-### Other criteria
+## Other criteria
 
 | Criteria | Virtual Machines | App Service | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
 |----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
@@ -138,29 +126,15 @@ For guided learning on Service Guarantees, review [Core Cloud Services - Azure a
 
 The output from this flowchart is a **starting point** for consideration. Next, perform a more detailed evaluation of the service to see if it meets your needs. 
 
-## Understand the basic features
-
-If you're not familiar with the Azure service selected in the previous step, read one of the following overview articles:
-
-- [App Service](https://docs.microsoft.com/azure/app-service/)
-- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes)
-- [Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview)
-- [Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-overview)
-- [Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)
-- [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
-- [Virtual machines](https://docs.microsoft.com/azure/virtual-machines/)
-
 ## Consider limits and cost
 
-Next, perform a more detailed evaluation, looking at the following aspects of the service:
+Perform a more detailed evaluation looking at the following aspects of the service:
 
 - [Service limits](https://docs.microsoft.com/azure/azure-subscription-service-limits)
 - [Cost](https://azure.microsoft.com/pricing/)
 - [SLA](https://azure.microsoft.com/support/legal/sla/)
 - [Regional availability](https://azure.microsoft.com/global-infrastructure/services/)
 - [Compute comparison tables](./compute-decision-tree.md)
-
-Based on this analysis, you may find that the initial candidate isn't suitable for your particular application or workload. In that case, expand your analysis to include other compute services. 
 
 ## Next steps
 
