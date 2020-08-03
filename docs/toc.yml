@@ -1102,7 +1102,7 @@ items:
       - name: IoT solution roles and workflows
         href: example-scenario/iot/builders-developers-operators.md
       - name: IoT devices, platform, and applications
-        href: example-scenario/iot/introduction-to-solutions.md
+        href: example-scenario/iot/devices-platform-application.md
       - name: Attestation, provisioning, and authentication
         href: example-scenario/iot/attestation-provisioning-authentication.md
       - name: Cloud to device commands

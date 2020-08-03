@@ -7,7 +7,7 @@ ms.date: 08/03/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom: - fcp
+ms.custom: fcp
 ---
 
 # Cloud-to-device commands
@@ -15,8 +15,6 @@ ms.custom: - fcp
 There are two primary mechanisms for sending commands to an IoT device, *cloud-to-device messages* and *direct methods*. An application sends [cloud-to-device messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-c2d) to a message queue on the IoT Hub for a device to read when it is connected. The device decides when to read the messages.
 
 With [direct methods](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods), the application calls a function directly on a device when it is connected. Specified methods are immediately invoked over a dedicated IoT endpoint for the device using a request-response pattern.
-
-[Cloud-to-device communications guidance](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-c2d-guidance) provides scenario-based guidance about when to use cloud-to-device messages or direct methods.
 
 ## Cloud-to-device messages
 
@@ -45,3 +43,4 @@ The following considerations apply when using direct methods:
 - Invoking direct methods from an application allows two timeouts to be set. One timeout specifies how long the IoT Hub should wait for a device to connect before giving up. The other timeout specifies how long the caller should wait for the method to complete and respond before giving up.
 
 ## See also
+[Cloud-to-device communications guidance](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-c2d-guidance) provides scenario-based guidance about when to use cloud-to-device messages or direct methods.

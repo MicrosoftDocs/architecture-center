@@ -12,7 +12,7 @@ ms.custom: fcp
 
 # Builders, developers, and operators
 
-Device builders, solution developers, and solution operators represent the typical roles surrounding the ongoing development, monitoring, and maintenance of an internet-of-things (IoT) solution throughout its lifecycle.
+*Device builders*, *solution developers*, and *solution operators* represent the typical roles surrounding the ongoing development, monitoring, and maintenance of an internet-of-things (IoT) solution throughout its lifecycle.
 
 Device builders create the IoT-compatible devices that interact with applications. Solution developers develop the software that makes up IoT applications. Solution operators run and monitor IoT solutions during their lifecycles.
 
@@ -26,7 +26,7 @@ In addition to providing the devices and their *firmware*, or built-in software,
 
 ![A diagram showing activities of a device builder, and relationships with other roles in developing an IoT solution.](media/device-builder.png)
 
-## Device builder considerations
+### Device builder considerations
 
 Consider the following requirements when choosing or developing devices for an IoT solution:
 
@@ -48,7 +48,7 @@ Just as a device builder provides updates to devices in the field, solution deve
 
 ![A diagram showing activities of a solution developer, and relationships with other roles in developing an IoT solution.](media/solution-developer.png)
 
-## Solution developer considerations
+### Solution developer considerations
 
 Consider the following requirements when developing an IoT application:
 
@@ -64,7 +64,7 @@ Distributing updates to devices can be complex, because they may need orchestrat
 
 ![A diagram showing activities of a solution operator, and relationships with other roles in developing an IoT solution.](media/solution-operator.png)
 
-## Solution operator considerations
+### Solution operator considerations
 
 Consider the following requirements when operating an IoT application:
 
