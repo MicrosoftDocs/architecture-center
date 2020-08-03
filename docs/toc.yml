@@ -1097,15 +1097,15 @@ items:
         href: guide/iiot-guidance/iiot-considerations.md
     - name: IoT solutions
       items:
-      - name: IoT solutions overview
+      - name: Events, insights, and actions in IoT solutions
         href: example-scenario/iot/introduction-to-solutions.md
       - name: IoT solution roles and workflows
         href: example-scenario/iot/builders-developers-operators.md
       - name: IoT devices, platform, and applications
         href: example-scenario/iot/devices-platform-application.md
-      - name: Attestation, provisioning, and authentication
+      - name: Attestation, authentication, and provisioning
         href: example-scenario/iot/attestation-provisioning-authentication.md
-      - name: Cloud to device commands
+      - name: Cloud-to-device commands
         href: example-scenario/iot/cloud-to-device.md
       - name: Commands with connected standby devices
         href: example-scenario/iot/connected-standby-devices.md

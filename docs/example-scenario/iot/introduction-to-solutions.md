@@ -26,13 +26,13 @@ IoT solutions use these relationships between events, insights, and actions to c
 
 ## Events, insights, and actions
 
-While Azure IoT solutions are structurally divided across [devices, IoT platform, and applications](devices-platform-application.md), *events*, *insights*, and *actions* are functional concepts that exist across the three parts of a solution.
+Azure IoT solutions are structurally divided across [devices, IoT platform, and applications](devices-platform-application.md). *Events*, *insights*, and *actions* are functional concepts that exist across the three parts of a solution.
 
 To illustrate, consider an application that monitors cooling system temperatures for food storage, and calls emergency maintenance services if a temperature becomes dangerously low or high:
 
 ![A diagram illustrating the relationship between events, insights, and actions in an IoT solution used to monitor a food storage system.](media/events-insights-actions.png)
 
-The cooling system can send its operating temperature as telemetry events to a connected application through [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub). Backup systems also exist in case a primary cooling system malfunctions or goes offline. The devices can receive commands to adjust temperature or start and stop operation. 
+The cooling system sends operating temperatures as telemetry to a connected application through [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub). Backup systems exist in case a primary cooling system malfunctions or goes offline. Devices can receive commands to adjust temperature or start and stop operation. 
 
 The following process occurs in this example:
 
@@ -57,7 +57,7 @@ Events represent *device-to-cloud* communication in an IoT solution, and may be 
 *Telemetry* is recurring transmission of measurements or state sent at regular intervals from a device to the cloud. These types of events are typically used for remote sensor monitoring. Examples include:
 - Continual sensor data from devices to applications to interpret.
 - Monitored health and diagnostics data sent from devices.
-- Tracked assets regularly sending their location data.|
+- Tracked assets regularly sending their location data.
 
 ### Types of insights
 
@@ -65,7 +65,7 @@ Insights are interpretations of events. Insights may derive from events directly
 
 *Contextual insights* are context-sensitive interpretations of events to determine where they should be routed or what immediate actions application logic should execute. Examples are:
 - Determining where to route a message based on contextual data, such as message header content or the type of device.
-- Runtime decisions by event handling code that decide to take immediate action based on an event.
+- Runtime decisions by event handling code that decide whether to take immediate action based on an event.
 - Reconciling acknowledgments to complete a stateful transaction.
 
 *Real-time insights* are interpretations gathered and observed in real-time for monitoring and decision-making purposes. Examples are:
@@ -80,14 +80,15 @@ Insights are interpretations of events. Insights may derive from events directly
 
 ### Types of actions
 
-Actions are deliberate activity undertaken in a solution either programmatically or manually as *device*, *service *, or *analog* actions.
+Actions are deliberate activity undertaken in a solution either programmatically or manually as *device*, *service*, or *analog* actions.
 
 *Device actions* are instructions or information sent to a device from an IoT application, for the device to act on locally. Examples are:
 - Commands sent from a user application to control a device.
 - Configuration data sent to a device to modify its behavior.
 - Requests to a device to provide data or state on-demand.
 
-*Service actions* are service or intra-process communication sent from one part of a solution to another. These actions may also be requests sent to an external service as part of an application's logic. Examples are: - Requesting data from an external service for use by a solution.
+*Service actions* are service or intra-process communications sent from one part of a solution to another. These actions may also be requests sent to an external service as part of an application's logic. Examples are:
+- Requesting data from an external service for use by a solution.
 - Transactions with another service as part of application logic.
 - Summoning emergency, police, or other external services.
 

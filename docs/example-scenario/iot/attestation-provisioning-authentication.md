@@ -20,7 +20,7 @@ The [attestation mechanism](https://docs.microsoft.com/azure/iot-dps/concepts-se
 
 [Provisioning](https://docs.microsoft.com/azure/iot-dps/about-iot-dps#provisioning-process) a device is the act of enrolling the device into Azure IoT Hub. Provisioning makes IoT Hub aware of the device and the attestation mechanism the device uses.
 
-## Azure IoT Hub Device Provisioning Service
+## Azure IoT Hub Device Provisioning Service (DPS)
 
 Device provisioning can happen through the [Azure IoT Hub Device Provisioning Service (DPS)](https://docs.microsoft.com/azure/iot-dps/) or directly via [IoT Hub Registry Manager APIs](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.registrymanager). Using DPS confers the benefit of *late binding*, which allows removing and reprovisioning field devices to IoT Hub without changing the device software.
 
@@ -30,13 +30,13 @@ The following example shows how to implement a test-to-production environment tr
 
 1. The solution developer links the Test and Production IoT clouds to the provisioning service.
 2. The device implements the DPS protocol to find the IoT Hub if it's no longer provisioned. The device is initially provisioned to the Test environment.
-3. Since the device is registered with the test environment, it connects there and testing is carried out.
+3. Since the device is registered with the Test environment, it connects there and testing occurs.
 4. The developer re-provisions the device to the Production environment through the solution control plane, and removes it from the Test hub. The Test hub rejects the device the next time it reconnects.
 5. The device connects and re-negotiates the provisioning flow. The device is now directed to the Production environment, and connects and authenticates there.
 
 ## Considerations
 
-Consider the combinations of [Azure IoT Hub supported protocols](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols) when working through a solution end-to-end. Combinations indicated by red lines in the following diagram may be incompatible or have added considerations:
+Consider the combinations of [Azure IoT Hub supported protocols](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols) when working through an end-to-end solution. Combinations shown with red lines in the following diagram may be incompatible or have added considerations:
 
 ![A diagram showing authentication flows for various topologies connecting to Azure IoT Hub.](media/authentication-matrix.png) 
 
