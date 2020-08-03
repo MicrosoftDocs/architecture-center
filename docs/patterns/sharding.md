@@ -1,7 +1,7 @@
 ---
 title: Sharding pattern
 titleSuffix: Cloud Design Patterns
-description: Divide a data store into a set of horizontal partitions or shards.
+description: Use the Sharding design pattern to divide a data store into a set of horizontal partitions or shards. 
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017

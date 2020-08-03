@@ -1,7 +1,7 @@
 ---
 title: Cache-Aside pattern
 titleSuffix: Cloud Design Patterns
-description: Load data on demand into a cache from a data store.
+description: Learn how to load data on demand into a cache, which can improve performance and maintain consistency between cached data and the underlying data store.
 keywords: design pattern
 author: dragon119
 ms.date: 11/01/2018

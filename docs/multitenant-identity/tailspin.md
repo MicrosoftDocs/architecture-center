@@ -1,6 +1,6 @@
 ---
 title: About the Tailspin Surveys application
-description: An overview of the Tailspin Surveys application.
+description: Several examples use the Tailspin scenario about a fictional company that is developing a SaaS application named Surveys to create and publish online surveys.
 author: adamboeglin
 ms.date: 07/21/2017
 ms.topic: guide
