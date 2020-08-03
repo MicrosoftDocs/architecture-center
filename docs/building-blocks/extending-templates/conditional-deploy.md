@@ -131,7 +131,7 @@ An example template is available on [GitHub][github]. To deploy the template, ru
 
 ```bash
 az group create --location <location> --name <resource-group-name>
-az group deployment create -g <resource-group-name> \
+az deployment group create -g <resource-group-name> \
     --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example2-conditional/deploy.json
 ```
 
