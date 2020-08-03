@@ -357,9 +357,24 @@ Things can and will go wrong at some point. When that happens, it is important t
 
 ### Controlled Deployment
 
+The following diagram shows a normal Bedrock deployment:
+
+![Diagram showing a normal Berock deployment.](./media/fig013.png) 
+
+Test Deployments/Canary Deployments
+Rollback
+Blue/Green Deployments
+Failover
+
+
+
+The use of Terraform templates provides a simple method for defining and automating a deployment, there are many abnormal situations that can be planned for and executed quickly just by selecting the correct preconfigured deployment. This level of preplanning makes Bedrock useful in supporting such things as test deployments (also known as Canary deployments), rollbacks, fail-overs, regional rotations, load sharing, and other unusual scenarios.
+
 Because Bedrock provides a simple method for defining and automating a deployment, there are many abnormal situations that can be planned for and executed quickly just by selecting the correct preconfigured deployment. This level of preplanning makes Bedrock useful in supporting such things as test deployments (also known as Canary deployments), rollbacks, fail-overs, regional rotations, load sharing, and other unusual scenarios.
 
 For example, to do a Canary Deployment of a revised application. You first deploy the revised application to a single pod or cluster to allow testing the application in its deployed state and verify it before allowing further deployments. If the deployment does not pass testing, the cluster can be halted, removing the application from deployment. Or, if a test cluster is chosen that is not publicly exposed, the testing can fail without affecting the operational public application.
+
+
 
 ### Rollback
 
@@ -390,7 +405,7 @@ By using the ability of Bedrock with Kubernetes to manage complex deployment sch
 
 This scenario is illustrated in the following images where the Region 1 deployment fails, and the Region 2 deployment picks up the workload until the problem in Region 1 is resolved.
 
-![diagram of normal deployment](./media/fig013.png)
+
 
 ![diagram of a failover scenario](./media/fig014.png)
 
