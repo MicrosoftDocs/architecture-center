@@ -232,7 +232,7 @@ For the user node pool, here are some considerations:
     count without recreating the cluster.
 
 -   Actual node sizes for your workload will depend on the requirements
-    determined by the design team. Based on the [requirements of the Contoso Bicycle company](case-study-contoso.md#business-requirements), we chose DS4_v2 for the production workload. To lower costs
+    determined by the design team. We chose DS4_v2 for the production workload. To lower costs
     one could drop the size to DS3_v2, which is the minimum recommendation.
 
 -   When planning capacity for your cluster, assume that your workload can
