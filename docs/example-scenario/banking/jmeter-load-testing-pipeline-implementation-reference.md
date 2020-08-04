@@ -1,7 +1,8 @@
 ---
 title: JMeter Implementation Reference for Load Testing Pipeline Solution
 description: Scalable cloud load testing pipeline creates and destroys infrastructure on-demand for stress testing
-author: tmmarshall
+author: doodlemania2
+ms.author: pnp
 ms.date: 6/23/2020
 ms.topic: example-scenario
 ms.service: architecture-center
