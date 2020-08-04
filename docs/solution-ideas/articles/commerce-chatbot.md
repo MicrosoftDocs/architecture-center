@@ -21,7 +21,7 @@ Together, the Azure Bot Service and Language Understanding service enable develo
 
 ## Architecture
 
-![Architecture diagram](../media/commerce-chatbot.png)
+![Architecture diagram](../media/commerce-chatbot.svg)
 *Download an [SVG](../media/commerce-chatbot.svg) of this architecture.*
 
 ## Data Flow
