@@ -14,9 +14,9 @@ ms.custom: fcp
 
 *Device builders*, *application developers*, and *solution operators* are the typical roles surrounding the ongoing development, monitoring, and maintenance of an internet-of-things (IoT) solution throughout its lifecycle.
 
-Device builders create the IoT-compatible devices that interact with applications. Application developers develop the software that makes up IoT applications. Solution operators run and monitor IoT solutions.
+Device builders create the device hardware and software that interact with applications. Application developers develop the software that makes up IoT applications. Solution operators run and monitor the IoT solutions.
 
-These roles may be filled by different companies, organizations, or individuals, or by the same individuals taking on different roles as they interact with IoT solutions during their lifetimes. While many other roles can exist around IoT solutions, these three roles provide helpful perspectives for viewing an IoT solution during its design, development, and deployment.
+These roles may be filled by different companies, organizations, or individuals, or by the same individuals taking on different roles during the IoT solution lifecycle. While many other roles can exist around IoT solutions, these three roles provide helpful perspectives for viewing an IoT solution during its design, development, and deployment.
 
 ## Device builder
 

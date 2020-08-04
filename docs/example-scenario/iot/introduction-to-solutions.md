@@ -26,7 +26,7 @@ IoT solutions use these relationships between events, insights, and actions to c
 
 ## Events, insights, and actions
 
-Azure IoT solutions are structurally divided across [devices, IoT platform, and applications](devices-platform-application.md). *Events*, *insights*, and *actions* are functional concepts that exist across the three parts of a solution.
+*Events*, *insights*, and *actions* are functional concepts that exist across the [devices, IoT platform, and applications](devices-platform-application.md) of an IoT solution. 
 
 To illustrate, consider an application that monitors cooling system temperatures for food storage, and calls emergency maintenance services if a temperature becomes dangerously low or high:
 
@@ -40,7 +40,7 @@ The following process occurs in this example:
 2. *Events generate insights.* Routing rules in the IoT Hub evaluate events for any immediate contextual insights, such as temperatures at malfunctioning levels.
 3. *Insights inform actions.* If the temperature is at a malfunctioning level, event routing sends the event to a specific handler to take action. The handler invokes an action to another process to dispatch maintenance to the site, and sends a command to the backup system to start while maintenance is enroute to the location.
 
-### Types of events
+## Events
 
 Events represent *device-to-cloud* communication in an IoT solution, and may be *notifications*, *acknowledgments*, or *telemetry*.
 
@@ -59,7 +59,7 @@ Events represent *device-to-cloud* communication in an IoT solution, and may be 
 - Monitored health and diagnostics data sent from devices.
 - Tracked assets regularly sending their location data.
 
-### Types of insights
+## Insights
 
 Insights are interpretations of events. Insights may derive from events directly as *contextual* insights, or from transformed or stored event data by application event processing for *real-time* or *aggregated* insights.
 
@@ -78,7 +78,7 @@ Insights are interpretations of events. Insights may derive from events directly
 - Gathering and observing trends and characteristics over a long period of time for use in improving processes.
 - Building on-demand query capabilities around multiple data sources to use in business planning.
 
-### Types of actions
+## Actions
 
 Actions are deliberate activity undertaken in a solution either programmatically or manually as *device*, *service*, or *analog* actions.
 
@@ -97,7 +97,7 @@ Actions are deliberate activity undertaken in a solution either programmatically
 - Stocking, packaging, or staging physical items in a retail workflow. The solution is notified when items are stocked or staged.
 - Human-conducted scoring and tuning of training data for AI.
 
-### Plan for events, insights, and actions
+## Plan with events, insights, and actions
 
 Considering events, insights, and actions allows expansion of the cooling system monitoring scenario. The system can add more complex insights and actions by using the events from the cooling system devices:
 

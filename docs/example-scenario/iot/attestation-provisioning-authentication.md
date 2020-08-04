@@ -34,9 +34,9 @@ The following example shows how to implement a test-to-production environment tr
 4. The developer re-provisions the device to the Production environment through the solution control plane, and removes it from the Test hub. The Test hub rejects the device the next time it reconnects.
 5. The device connects and re-negotiates the provisioning flow. The device is now directed to the Production environment, and connects and authenticates there.
 
-## Considerations
+## IoT Hub supported protocol considerations
 
-Consider the combinations of [Azure IoT Hub supported protocols](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols) when working through an end-to-end solution. Combinations shown with red lines in the following diagram may be incompatible or have added considerations:
+Consider the combinations of [Azure IoT Hub supported protocols](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols) when working through an end-to-end IoT solution. Combinations shown with red lines in the following diagram may be incompatible or have added considerations:
 
 ![A diagram showing authentication flows for various topologies connecting to Azure IoT Hub.](media/authentication-matrix.png) 
 

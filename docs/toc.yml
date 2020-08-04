@@ -1097,7 +1097,7 @@ items:
         href: guide/iiot-guidance/iiot-considerations.md
     - name: IoT solutions
       items:
-      - name: Events, insights, and actions in IoT solutions
+      - name: Overview of IoT solutions
         href: example-scenario/iot/introduction-to-solutions.md
       - name: IoT solution roles and workflows
         href: example-scenario/iot/builders-developers-operators.md
@@ -1109,8 +1109,6 @@ items:
         href: example-scenario/iot/cloud-to-device.md
       - name: Commands with connected standby devices
         href: example-scenario/iot/connected-standby-devices.md
-      - name: Direct methods with protocol gateways
-        href: example-scenario/iot/protocol-gateways.md
       - name: Scale solutions with application stamps
         href: example-scenario/iot/application-stamps.md
       - name: Analyze and optimize loop
