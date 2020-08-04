@@ -234,6 +234,13 @@ If the automation covers multiple applications, keep the resources required by t
 
 If the workflow involves a number of automation functions, group the functions catering to one scenario in a single function app. Read [Manage function app](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) for more information.
 
+
+As you deploy your application you will need to monitor it. Consider using [Application Insights][app-insights] to enable the developers to monitor performance and detect issues.
+
+
+For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
+
+
 ## Deploy the solution
 
 To deploy the reference implementations for this architecture, see the [deployment steps on GitHub](https://github.com/mspnp/serverless-automation) for the desired workflow.
@@ -244,7 +251,10 @@ Learn more about the [serverless implementations](../../serverless/index.md).
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
+
+[AAF-cost]: https://docs.microsoft.com/azure/architecture/framework/cost/overview
+[AAF-devops]: https://docs.microsoft.com/azure/architecture/framework/devops/overview
+[app-insights]: https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview
 [az-logic-apps-ISE]: https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview
 [cosmos-calculator]: https://cosmos.azure.com/capacitycalculator
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
