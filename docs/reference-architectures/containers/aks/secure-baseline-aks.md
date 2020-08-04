@@ -24,13 +24,6 @@ and monitoring of the cluster based on an organization’s business requirements
 on [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). You can use it as a
 starting point and configure it as per your needs.
 
->[!div class="box has-box-shadow-medium has-margin-none has-margin-small-desktop"]
-> #### Company profile
-> This architecture is built for a fictitious company, Contoso Bicycle. The company is a small and fast-growing startup that provides online web services to its clientele in the west coast, North America. The web services are already running on Azure. The IT teams need guidance about architectural recommendations for running their web services in an AKS cluster.
-> - [Organization structure](case-study-contoso.md#organization-structure)
-> - [Business requirements](case-study-contoso.md#business-requirements)
-> - [Design and technology choices](case-study-contoso.md#design-and-technology-choices)
-
 ### Recommended content
 
 > This reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, complete this workshop to deploy a multi-container application to Kubernetes on Azure Kubernetes Service (AKS).
@@ -91,6 +84,13 @@ Some advantages of this topology are:
 -   Segregated management. It allows for a way to apply governance and control
     the blast radius. It also supports the concept of landing zone with
     separation of duties.
+
+-   Minimizes direct exposure to Azure resources to the public
+    internet. Their existing architecture runs with regional hub and spoke
+    topologies. This way, the network can be expanded in the future and also provide workload isolation.
+
+-   All web applications should require a web application firewall (WAF) service to help
+    govern HTTP traffic flows.
 
 -   A natural choice for workloads that span multiple subscriptions.
 
@@ -243,6 +243,9 @@ For the user node pool, here are some considerations:
     Increasing this value can impact performance because of an unexpected node
     failure or expected node maintenance events.
 
+-   Deploy the AKS cluster into an existing Azure Virtual Network spoke. Use the
+    existing Azure Firewall in the regional hub for securing outgoing traffic
+    from the cluster.
 
 #### Use Infrastructure as Code (IaC)
 
@@ -557,7 +560,8 @@ Gateway by using two different TLS certificates, as shown in this image.
 
 You can implement end-to-end TLS traffic all at every hop the way through to the
 workload pod. Be sure to measure the performance, latency, and operational
-impact when making the decision to secure pod-to-pod traffic.
+impact when making the decision to secure pod-to-pod traffic. In this design, traffic from public facing website should be encrypted. This encryption is implemented with Azure Application Gateway with integrated web
+application firewall (WAF).
 
 #### Egress traffic flow
 
