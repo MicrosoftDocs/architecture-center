@@ -81,15 +81,14 @@ This workflow includes provisions for:
 
 ## Components
 
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/services/kubernetes-service/) 
-- [Terraform]((https://github.com/hashicorp/terraform)) is an open-source tool for building, changing, and versioning infrastructure safely and efficiently. It enables you to define and provision the infrastructure of a cloud-based application using a high-level configuration language known as [Hashicorp Configuration Language (HCL)](https://github.com/hashicorp/hcl). These configuration files are used to describe the components needed to run simple or complex applications.
-- [GitOps](https://www.weave.works/technologies/gitops/) is DevOps applied to Kubernetes based systems. Thus, the automation and coordination of development, orchestration, monitoring, and maintenance becomes the focus of the Bedrock pattern and process using GitOps.
-- [Fabrikate](https://github.com/Microsoft/fabrikate) is a central part of GitOps in Bedrock. Fabrikate converts the HLD script files to the YAML configuration files required for Kubernetes deployment. The following diagram shows how Fabrikate is integrated into the GitOps workflow.
-- [Spektate](https://github.com/Microsoft/Spektate) Service introspection is an enabler for instrumentation. An introspection service can reveal information about the cloud internals to interested applications. The Spektate service introspection tool provides insight into the deployment status at all times, allowing it to facilitate reliability, security, and auditability of deployments.
-- [Flux](https://github.com/fluxcd/flux) is a tool that automatically ensures that the state of a cluster matches the configuration defined in Git. Flux uses an operator in the cluster to trigger deployments inside Kubernetes, fulfilling the role of a CD tool. It monitors all relevant image repositories, detects new images, triggers deployments, and updates the running configuration based on those changes and a configurable policy.
-- [Helm](https://helm.sh/) is a Kubernetes package manager that streamlines the installing and managing of Kubernetes deployments. It is sometimes characterized as apt/yum/homebrew for Kubernetes.
-- [Cobalt](https://github.com/Microsoft/cobalt) hosts reusable Terraform modules to scaffold managed container services like [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) and [Azure App Service](https://docs.microsoft.com/azure/app-service/) following a DevOps workflow. Cobalt templates (manifests) reference Terraform modules like virtual networks, traffic manager, and so on, to define infrastructure deployments. Bedrock uses Terraform to pre-configure environment deployment, but also uses Fabrikate templates to define manifests for deployment automation.
-
+* [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/services/kubernetes-service/) 
+* [Terraform]((https://github.com/hashicorp/terraform)) is an open-source tool for building, changing, and versioning infrastructure safely and efficiently. It enables you to define and provision the infrastructure of a cloud-based application using a high-level configuration language known as [Hashicorp Configuration Language (HCL)](https://github.com/hashicorp/hcl). These configuration files are used to describe the components needed to run simple or complex applications.
+* [GitOps](https://www.weave.works/technologies/gitops/) is DevOps applied to Kubernetes based systems. Thus, the automation and coordination of development, orchestration, monitoring, and maintenance becomes the focus of the Bedrock pattern and process using GitOps.
+* [Fabrikate](https://github.com/Microsoft/fabrikate) is a central part of GitOps in Bedrock. Fabrikate converts the HLD script files to the YAML configuration files required for Kubernetes deployment. The following diagram shows how Fabrikate is integrated into the GitOps workflow.
+* [Spektate](https://github.com/Microsoft/Spektate) Service introspection is an enabler for instrumentation. An introspection service can reveal information about the cloud internals to interested applications. The Spektate service introspection tool provides insight into the deployment status at all times, allowing it to facilitate reliability, security, and auditability of deployments.
+* [Flux](https://github.com/fluxcd/flux) is a tool that automatically ensures that the state of a cluster matches the configuration defined in Git. Flux uses an operator in the cluster to trigger deployments inside Kubernetes, fulfilling the role of a CD tool. It monitors all relevant image repositories, detects new images, triggers deployments, and updates the running configuration based on those changes and a configurable policy.
+* [Helm](https://helm.sh/) is a Kubernetes package manager that streamlines the installing and managing of Kubernetes deployments. It is sometimes characterized as apt/yum/homebrew for Kubernetes.
+* [Cobalt](https://github.com/Microsoft/cobalt) hosts reusable Terraform modules to scaffold managed container services like [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) and [Azure App Service](https://docs.microsoft.com/azure/app-service/) following a DevOps workflow. Cobalt templates (manifests) reference Terraform modules like virtual networks, traffic manager, and so on, to define infrastructure deployments. Bedrock uses Terraform to pre-configure environment deployment, but also uses Fabrikate templates to define manifests for deployment automation.
 
 Bedrock uses these components to address its design objectives.
 
@@ -355,30 +354,29 @@ Things can and will go wrong at some point. When that happens, it is important t
 
 ## Deployment
 
-### Controlled Deployment
+Because Bedrock provides a simple method for defining and automating a deployment, there are many abnormal situations that can be planned for and executed quickly just by selecting the correct preconfigured deployment. This level of preplanning makes Bedrock useful in supporting:
+
+* Test deployments (also known as Canary deployments)
+* Rollbacks 
+* Blue/Green deployments
+* Fail-overs
+* Regional rotations, load sharing, and other unusual scenarios.
 
 The following diagram shows a normal Bedrock deployment:
 
-![Diagram showing a normal Berock deployment.](./media/fig013.png) 
+![Diagram showing a normal Bedrock deployment.](./media/fig013.png)
 
-Test Deployments/Canary Deployments
-Rollback
-Blue/Green Deployments
-Failover
+### Test deployments (Canary deployments)
 
-
-
-The use of Terraform templates provides a simple method for defining and automating a deployment, there are many abnormal situations that can be planned for and executed quickly just by selecting the correct preconfigured deployment. This level of preplanning makes Bedrock useful in supporting such things as test deployments (also known as Canary deployments), rollbacks, fail-overs, regional rotations, load sharing, and other unusual scenarios.
-
-Because Bedrock provides a simple method for defining and automating a deployment, there are many abnormal situations that can be planned for and executed quickly just by selecting the correct preconfigured deployment. This level of preplanning makes Bedrock useful in supporting such things as test deployments (also known as Canary deployments), rollbacks, fail-overs, regional rotations, load sharing, and other unusual scenarios.
-
-For example, to do a Canary Deployment of a revised application. You first deploy the revised application to a single pod or cluster to allow testing the application in its deployed state and verify it before allowing further deployments. If the deployment does not pass testing, the cluster can be halted, removing the application from deployment. Or, if a test cluster is chosen that is not publicly exposed, the testing can fail without affecting the operational public application.
-
-
+To do a Canary Deployment of a revised application, you first deploy the revised application to a single pod or cluster to allow testing the application in its deployed state and verify it before allowing further deployments. If the deployment does not pass testing, the cluster can be halted, removing the application from deployment. Or, if a test cluster is chosen that is not publicly exposed, the testing can fail without affecting the operational public application.
 
 ### Rollback
 
-If a problem fails discovery in testing and that application version is fully deployed, Bedrock makes it a simple matter to redeploy the previous known working version of the application to replace the buggy version.
+If a problem fails discovery in testing and that application version is fully deployed, Bedrock makes it a simple matter to redeploy the previous known working version of the application to replace the buggy version. Other rollback scenarios that are made easier by Bedrock, include:
+
+* Rolling back a promoted container
+* Multi-cluster rollbacks
+* Ensuring created cluster resources are removed
 
 Sometimes changes to your application configuration can yield undesired results. Being able to easily roll back to a previous state application code configuration is a must have. We recommend a few options to accomplish rollbacks:
 
@@ -389,12 +387,6 @@ Sometimes changes to your application configuration can yield undesired results.
 * Use `Git revert HEAD` to create a new commit with the inverse of the last commit
   * This command allows you to see that a something was reverted in the Git history
 
-#### Rollback Scenarios
-
-* Rolling back a promoted container
-* Multi-cluster rollbacks
-* Ensuring created cluster resources are removed
-
 ### Blue/Green Deployments
 
 Because Bedrock gives you control over deploying clusters to different IP addresses, you can deploy two versions of your application and examine their individual performance-based on-site metrics and customer feedback to determine which version is better for full deployment. This kind of Blue/Green deployment allows for optimizing application designs as a function of actionable data.
@@ -404,8 +396,6 @@ Because Bedrock gives you control over deploying clusters to different IP addres
 By using the ability of Bedrock with Kubernetes to manage complex deployment schemes, you can spread your deployment over multiple regions and apply load balancing to user traffic. Then, if one or more clusters go down for any reason, the remaining clusters can pick up the load. Microservice architectures are also inherently resilient by running a service only when needed and otherwise being shut down.
 
 This scenario is illustrated in the following images where the Region 1 deployment fails, and the Region 2 deployment picks up the workload until the problem in Region 1 is resolved.
-
-
 
 ![diagram of a failover scenario](./media/fig014.png)
 
