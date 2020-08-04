@@ -103,7 +103,6 @@ Proper load-balancing allows you to meet availability requirements and to minimi
 
 ## Failure mode analysis
 
-Failure mode analysis (FMA) is a process for building resiliency into a system, by identifying possible failure points in the system. The FMA should be part of the architecture and design phases, so that you can build failure recovery into the system from the beginning.
 *Failure mode analysis* (FMA) builds resiliency into a system by identifying possible failure points and defining how the application responds to those failures. The FMA should be part of the architecture and design phases, so failure recovery is built into the system from the beginning. The goals of an FMA are to:
 
 - Determine what types of failures an application might experience and how the application detects those failures.
