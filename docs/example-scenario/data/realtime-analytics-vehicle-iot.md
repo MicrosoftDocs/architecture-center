@@ -1,6 +1,6 @@
 ---
 title: Process real-time vehicle data using IoT
-description: Ingest and process real-time vehicle data using IoT.
+description: This example builds a real-time data ingestion/processing pipeline to ingest and process messages from IoT devices into a big data analytic platform in Azure.
 author: khilscher
 ms.date: 03/10/2020
 ms.category:

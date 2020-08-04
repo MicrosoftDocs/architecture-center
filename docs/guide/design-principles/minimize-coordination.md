@@ -1,7 +1,7 @@
 ---
 title: Minimize coordination
 titleSuffix: Azure Application Architecture Guide
-description: Minimize coordination between application services to achieve scalability.
+description: Follow these recommendations to improve scalability by minimizing coordination between application services.
 author: adamboeglin
 ms.date: 08/30/2018
 ms.topic: guide

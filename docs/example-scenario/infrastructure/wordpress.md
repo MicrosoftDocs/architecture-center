@@ -1,7 +1,7 @@
 ---
 title: Scalable and secure WordPress on Azure
 titleSuffix: Azure Example Scenarios
-description: Build a highly scalable and secure WordPress website for media events.
+description: This example shows a highly scalable and secure installation of WordPress. The scenario was used for a large convention and scaled to meet spike traffic.
 author: david-stanford
 ms.date: 09/18/2018
 ms.category:
