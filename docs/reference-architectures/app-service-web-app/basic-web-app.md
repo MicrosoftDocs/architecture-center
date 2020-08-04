@@ -1,7 +1,7 @@
 ---
 title: Basic web application
 titleSuffix: Azure Reference Architectures
-description: Recommended architecture for a basic web application running in Azure.
+description: Learn about proven practices for a web application that uses Azure App Service and Azure SQL Database by using this reference architecture.
 author: adamboeglin
 ms.date: 12/12/2017
 ms.topic: reference-architecture

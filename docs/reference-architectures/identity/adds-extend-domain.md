@@ -1,6 +1,6 @@
 ---
 title: Deploy AD DS in an Azure virtual network
-description: Deploy Active Directory Domain Services (AD DS) in an Azure virtual network.
+description: Use this reference architecture to extend an on-premises Active Directory domain to Azure to provide distributed authentication services.
 author: telmosampaio
 ms.date: 05/02/2018
 ms.topic: reference-architecture
