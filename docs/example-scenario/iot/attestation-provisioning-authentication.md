@@ -12,13 +12,13 @@ ms.custom: fcp
 
 # IoT Hub attestation, authentication, and provisioning
 
-Connecting IoT devices to Azure IoT Hub involves the three primary concepts of *attestation*, *provisioning*, and *authentication*.
+Connecting IoT devices to Azure IoT Hub involves the three processes of *attestation*, *authentication*, and *provisioning*.
 
 The [attestation mechanism](https://docs.microsoft.com/azure/iot-dps/concepts-security#attestation-mechanism) represents the method chosen for a device to confirm its identity when it connects to a service like IoT Hub. Azure IoT supports [symmetric key, X.509 thumbprint, and X.509 CA](https://azure.microsoft.com/blog/iot-device-authentication-options/) attestation methods.
 
 [Authentication](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#authentication) is how the device identifies itself. IoT Hub grants access to a device based on the device's ability to prove itself using its unique device identity in combination with its attestation mechanism.
 
-[Provisioning](https://docs.microsoft.com/azure/iot-dps/about-iot-dps#provisioning-process) a device is the act of enrolling the device into Azure IoT Hub. Provisioning makes IoT Hub aware of the device and the attestation mechanism the device uses.
+[Provisioning](https://docs.microsoft.com/azure/iot-dps/about-iot-dps#provisioning-process) is the act of enrolling a device into Azure IoT Hub. Provisioning makes IoT Hub aware of the device and the attestation mechanism the device uses.
 
 ## Azure IoT Hub Device Provisioning Service (DPS)
 

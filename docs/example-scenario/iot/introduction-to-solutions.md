@@ -1,5 +1,5 @@
 ---
-title: Introduction to Azure IoT solutions
+title: IoT solutions conceptual overview
 titleSuffix: Azure Example Scenarios
 description: Get an overview of the functional interactions between events, insights, and actions in Azure Internet of Things (IoT) solutions.
 author: wamachine
@@ -10,9 +10,9 @@ ms.subservice: example-scenario
 ms.custom: fcp
 ---
 
-# Overview of IoT solutions
+# IoT solutions conceptual overview
 
-Connected sensors, devices, and intelligent operations can transform businesses and enable new growth opportunities with [Azure Internet of Things (IoT)](https://azure.microsoft.com/overview/iot/) solutions. This content complements existing [Azure IoT documentation](https://docs.microsoft.com/azure/iot-fundamentals) with concepts and patterns to consider when designing and developing IoT solutions.
+Connected sensors, devices, and intelligent operations can transform businesses and enable new growth opportunities with [Azure Internet of Things (IoT)](https://azure.microsoft.com/overview/iot/) solutions. The IoT solutions content complements existing [Azure IoT documentation](https://docs.microsoft.com/azure/iot-fundamentals) with concepts and patterns to consider when designing and developing IoT solutions.
 
 Azure *IoT solutions* involve:
 - *Devices* sending

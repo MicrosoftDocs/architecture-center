@@ -22,3 +22,5 @@ IoT applications benefit from the connectivity enforcement and request-response 
 4. The IoT Hub completes the direct method by populating a method result for the caller.
 
 The [Azure Protocol Gateway](https://docs.microsoft.com/azure/iot-hub/iot-hub-protocol-gateway) open-source project provides this capability natively for translating methods to MQTT messages, and is easily extensible. The MQTT adapter also demonstrates the programming model for other protocol adapters.
+
+
