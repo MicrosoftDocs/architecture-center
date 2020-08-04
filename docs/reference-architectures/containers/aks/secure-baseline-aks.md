@@ -2,7 +2,7 @@
 title: Baseline architecture for an Azure Kubernetes Service (AKS) cluster
 description: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster with focus on security.
 author: PageWriter-MSFT
-ms.date: 07/19/2020
+ms.date: 08/01/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.category:
