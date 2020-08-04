@@ -1,7 +1,7 @@
 ---
 title: Architecture styles
 titleSuffix: Azure Application Architecture Guide
-description: Common architecture styles for cloud applications.
+description: Learn about architecture styles for cloud applications, including descriptions, recommendations, best practices, and recommended deployment with Azure services.
 author: adamboeglin
 ms.author: pnp
 ms.topic: guide

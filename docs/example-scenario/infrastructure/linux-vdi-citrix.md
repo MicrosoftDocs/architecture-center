@@ -1,7 +1,7 @@
 ---
 title: Linux virtual desktops with Citrix
 titleSuffix: Azure Example Scenarios
-description: Build a VDI environment for Linux Desktops using Citrix on Azure.
+description: Learn about Virtual Desktop Infrastructure. This example uses a Citrix-based solution for Linux desktops on Azure.
 author: miguelangelopereira
 ms.date: 09/12/2018
 ms.category:

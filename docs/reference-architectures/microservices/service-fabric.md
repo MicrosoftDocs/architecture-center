@@ -1,6 +1,6 @@
 ---
 title: Microservices architecture on Azure Service Fabric
-description: Deploy a microservices architecture on Azure Service Fabric
+description: Use this reference architecture to see microservices deployed to Azure Service Fabric. This cluster configuration can be a starting point for most deployments.
 author: PageWriter-MSFT
 ms.date: 06/13/2019
 ms.topic: reference-architecture
