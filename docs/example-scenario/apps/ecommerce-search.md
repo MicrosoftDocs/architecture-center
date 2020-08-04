@@ -1,7 +1,7 @@
 ---
 title: Intelligent product search engine for e-commerce
 titleSuffix: Azure Example Scenarios
-description: Provide a world-class search experience in an e-commerce application.
+description: This example scenario shows how using Azure Search can dramatically increase the relevance of search results for your e-commerce customers.
 author: jelledruyts
 ms.date: 09/14/2018
 ms.category:
