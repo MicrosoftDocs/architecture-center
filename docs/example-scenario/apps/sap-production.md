@@ -1,6 +1,6 @@
 ---
 title: SAP deployment on Azure using an Oracle DB
-description: This example demonstrates an SAP deployment on virtual machines on Azure, along with a High Availability Oracle database.
+description: This example demonstrates a SAP deployment on virtual machines on Azure, along with a High Availability Oracle database.
 author: DharmeshBhagat
 ms.date: 09/12/2018
 ms.category:
