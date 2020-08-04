@@ -1,6 +1,6 @@
 ---
 title: Data warehousing and analytics
-description: Consolidate data from multiple sources and optimize data analytics.
+description: This example demonstrates a data pipeline that integrates large amounts of data from multiple sources into a unified analytics platform in Azure.
 author: alexbuckgit
 ms.date: 11/20/2019
 ms.category:

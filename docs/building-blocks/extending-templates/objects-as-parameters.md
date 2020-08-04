@@ -312,7 +312,7 @@ An example template is available on [GitHub][github]. To deploy the template, cl
 git clone https://github.com/mspnp/template-examples.git
 cd template-examples/example3-object-param
 az group create --location <location> --name <resource-group-name>
-az group deployment create -g <resource-group-name> \
+az deployment group create -g <resource-group-name> \
     --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example3-object-param/deploy.json \
     --parameters deploy.parameters.json
 ```
