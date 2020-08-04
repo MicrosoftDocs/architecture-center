@@ -1,6 +1,6 @@
 ---
 title: Design principles for Azure applications
-description: Design principles for Azure applications.
+description: Follow these design principles to make your Azure application more scalable, resilient, and manageable.
 author: adamboeglin
 ms.date: 08/30/2018
 ms.topic: guide

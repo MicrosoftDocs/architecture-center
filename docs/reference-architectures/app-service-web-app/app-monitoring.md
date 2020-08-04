@@ -1,6 +1,6 @@
 ---
 title: Web application monitoring on Azure
-description: Monitor a web application hosted in Azure App Service.
+description: Learn about the monitoring services and a dataflow model for use with multiple data sources. Many monitoring tools and services work with Azure deployments.
 author: adamboeglin
 ms.date: 12/12/2018
 ms.topic: reference-architecture

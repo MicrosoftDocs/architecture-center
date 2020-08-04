@@ -1,7 +1,7 @@
 ---
 title: Chatty I/O antipattern
 titleSuffix: Performance antipatterns for cloud apps
-description: A large number of I/O requests can hurt performance and responsiveness.
+description: Learn about the cumulative effect of many I/O requests, which can have a significant impact on performance and responsiveness.
 author: dragon119
 ms.date: 06/05/2017
 ms.topic: article
