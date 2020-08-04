@@ -173,5 +173,5 @@ For more information, see the Operational Excellence section in [Azure Well-Arch
 [vm-size-tables]: https://docs.microsoft.com/azure/virtual-machines/sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [windows-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
-[AAF-cost]: /azure/architecture/framework/cost/overview
-[AAF-devops]: /azure/architecture/framework/devops/overview
+[WAF-cost]: /azure/architecture/framework/cost/overview
+[WAF-devops]: /azure/architecture/framework/devops/overview
