@@ -85,7 +85,7 @@ In Blazor Server, the state of many components might be maintained concurrently 
 Server](https://docs.microsoft.com/aspnet/core/security/blazor/server/threat-mitigation). Applying these best practices allows a server-side Blazor application to scale
 to thousands of concurrent users—even on relatively small server hosts.
 
-General guidance on designing scalable solutions is provided in the Azure Architecture Center’s [Performance efficiency checklist](https://docs.microsoft.com/azure/architecture/checklist/performance-efficiency).
+General guidance on designing scalable solutions is provided in the Azure Architecture Center’s [Performance efficiency checklist](https://docs.microsoft.com/azure/architecture/framework/scalability/performance-efficiency).
 
 ### Resiliency and support
 
