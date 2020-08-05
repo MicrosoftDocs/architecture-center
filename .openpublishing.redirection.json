@@ -1976,8 +1976,8 @@
       "redirect_document_id": true
      },
      {
-       "source_path": "/docs/reference-architectures/microservices/aks.md",
-       "redirect_url": "azure/reference-architectures/containers/aks-microservices/aks-microservices",
+       "source_path": "docs/reference-architectures/microservices/aks.md",
+       "redirect_url": "/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices",
        "redirect_document_id": true
      }
   ]
