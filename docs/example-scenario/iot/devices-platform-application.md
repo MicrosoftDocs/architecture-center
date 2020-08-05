@@ -60,17 +60,6 @@ Connecting IoT devices to the IoT platform involves the three processes of *atte
 
 - [Provisioning](https://docs.microsoft.com/azure/iot-dps/about-iot-dps#provisioning-process) is the act of enrolling a device into Azure IoT Hub. Provisioning makes IoT Hub aware of the device and the attestation mechanism the device uses.
 
-### IoT Hub supported protocol considerations
-
-Consider the combinations of [Azure IoT Hub supported protocols](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols) when working through an end-to-end IoT solution. Combinations shown with red lines in the following diagram may be incompatible or have added considerations.
-
-![A diagram showing authentication flows for various topologies connecting to Azure IoT Hub.](media/authentication-matrix.png) 
-
-- Symmetric keys like SAS tokens are always registered as symmetric keys with IoT Hub.
-- IoT Hub supports x.509 CA authentication. However, provisioning devices with x.509 CA through DPS provisions them to the IoT Hub as x.509 thumbprint.
-- Web socket variants of AMQP and MQTT aren't supported with x.509 CA certificates in IoT Hub.
-- Revoking certificates through DPS doesn't prevent currently provisioned devices from continuing to authenticate with IoT Hub. After revoking a certificate in DPS, individually remove the device from the IoT Hub, either manually through the dashboard or programmatically using [Registry Manager APIs](https://docs.microsoft.com/rest/api/iothub/service/registrymanager).
-
 ### Azure IoT Hub Device Provisioning Service (DPS)
 
 Device provisioning can happen through the [Azure IoT Hub Device Provisioning Service (DPS)](https://docs.microsoft.com/azure/iot-dps/) or directly via [IoT Hub Registry Manager APIs](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.registrymanager). Using DPS confers the benefit of *late binding*, which allows removing and reprovisioning field devices to IoT Hub without changing the device software.
@@ -84,4 +73,15 @@ The following example shows how to implement a test-to-production environment tr
 3. Since the device is registered with the Test environment, it connects there and testing occurs.
 4. The developer re-provisions the device to the Production environment through the solution control plane, and removes it from the Test hub. The Test hub rejects the device the next time it reconnects.
 5. The device connects and re-negotiates the provisioning flow. The device is now directed to the Production environment, and connects and authenticates there.
+
+## IoT Hub supported protocols
+
+Consider the combinations of [Azure IoT Hub supported protocols](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols) when working through end-to-end IoT solutions. Combinations shown with red lines in the following diagram may be incompatible or have added considerations.
+
+![A diagram showing authentication flows for various topologies connecting to Azure IoT Hub.](media/authentication-matrix.png) 
+
+- Symmetric keys like SAS tokens are always registered as symmetric keys with IoT Hub.
+- IoT Hub supports x.509 CA authentication. However, provisioning devices with x.509 CA through DPS provisions them to the IoT Hub as x.509 thumbprint.
+- Web socket variants of AMQP and MQTT aren't supported with x.509 CA certificates in IoT Hub.
+- Revoking certificates through DPS doesn't prevent currently provisioned devices from continuing to authenticate with IoT Hub. After revoking a certificate in DPS, individually remove the device from the IoT Hub, either manually through the dashboard or programmatically using [Registry Manager APIs](https://docs.microsoft.com/rest/api/iothub/service/registrymanager).
 

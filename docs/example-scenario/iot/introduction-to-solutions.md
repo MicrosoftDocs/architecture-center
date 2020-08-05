@@ -10,9 +10,9 @@ ms.subservice: example-scenario
 ms.custom: fcp
 ---
 
-# IoT solutions conceptual overview
+# IoT solution overview
 
-Connected sensors, devices, and intelligent operations can transform businesses and enable new growth opportunities with [Azure Internet of Things (IoT)](https://azure.microsoft.com/overview/iot/) solutions. The IoT solutions content complements existing [Azure IoT documentation](https://docs.microsoft.com/azure/iot-fundamentals) with concepts and patterns to consider when designing and developing IoT solutions.
+Connected sensors, devices, and intelligent operations can transform businesses and enable new growth opportunities with [Azure Internet of Things (IoT)](https://azure.microsoft.com/overview/iot/) solutions. This IoT solutions content complements existing [Azure IoT documentation](https://docs.microsoft.com/azure/iot-fundamentals) with concepts and patterns to consider when designing and developing IoT solutions.
 
 Azure *IoT solutions* involve:
 - *Devices* sending
@@ -26,7 +26,7 @@ IoT solutions use these relationships between events, insights, and actions to c
 
 ## Events, insights, and actions
 
-*Events*, *insights*, and *actions* are functional concepts that exist across the [devices, IoT platform, and applications](devices-platform-application.md) of an IoT solution. 
+*Events*, *insights*, and *actions* are functional concepts that exist across the [devices, platform, and applications](devices-platform-application.md) of an IoT solution. 
 
 To illustrate, consider an application that monitors cooling system temperatures for food storage, and calls emergency maintenance services if a temperature becomes dangerously low or high:
 
@@ -39,6 +39,12 @@ The following process occurs in this example:
 1. *Devices generate events.* Devices send temperature samples from the primary cooling system to the application's IoT Hub, via device-to-cloud events, every 30 seconds. 
 2. *Events generate insights.* Routing rules in the IoT Hub evaluate events for any immediate contextual insights, such as temperatures at malfunctioning levels.
 3. *Insights inform actions.* If the temperature is at a malfunctioning level, event routing sends the event to a specific handler to take action. The handler invokes an action to another process to dispatch maintenance to the site, and sends a command to the backup system to start while maintenance is enroute to the location.
+
+Considering events, insights, and actions allows expansion of the cooling system monitoring scenario. The system can add more complex insights and actions by using the events from the cooling system devices:
+
+![A diagram illustrating the events, insights, and actions associated with the cooling system monitoring scenario.](media/events-downstream.png)
+
+While the series of events doesn't change, gathering events and applying different types of insights to them introduces richer capabilities and enables taking additional actions with the data. This strategy becomes more powerful when applied to large numbers of devices operating at multiple locations.
 
 ## Events
 
@@ -93,15 +99,7 @@ Actions are deliberate activity undertaken in a solution either programmatically
 - Summoning emergency, police, or other external services.
 
 *Analog actions* are tracked by a solution as part of a workflow, but usually take place outside of the solution automation. These types of actions often have a mechanism for a human operator to signal when the action is complete. Examples are:
-- Field maintenance on devices where someone is sent to repair or replace a device. The solution is notified when repair is complete.
-- Stocking, packaging, or staging physical items in a retail workflow. The solution is notified when items are stocked or staged.
+- Field maintenance on devices where someone is sent to repair or replace a device. The operator notifies the solution when they complete the repair.
+- Stocking, packaging, or staging physical items in a retail workflow. The operator notifies the solution when they've stocked or staged the items.
 - Human-conducted scoring and tuning of training data for AI.
-
-## Plan with events, insights, and actions
-
-Considering events, insights, and actions allows expansion of the cooling system monitoring scenario. The system can add more complex insights and actions by using the events from the cooling system devices:
-
-![A diagram illustrating the events, insights, and actions associated with the cooling system monitoring scenario.](media/events-downstream.png)
-
-While the series of events doesn't change, gathering events and applying different types of insights to them introduces richer capabilities and enables taking additional actions with the data. This strategy becomes more powerful when applied to large numbers of devices operating at multiple locations.
 

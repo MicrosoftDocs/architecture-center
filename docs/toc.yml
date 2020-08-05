@@ -1101,14 +1101,10 @@ items:
         href: example-scenario/iot/introduction-to-solutions.md
       - name: IoT solution roles and workflows
         href: example-scenario/iot/builders-developers-operators.md
-      - name: IoT devices, platform, and applications
+      - name: IoT solution architecture
         href: example-scenario/iot/devices-platform-application.md
-      - name: Attestation, authentication, and provisioning
-        href: example-scenario/iot/attestation-provisioning-authentication.md
-      - name: Cloud-to-device commands
+      - name: IoT application-to-device commands
         href: example-scenario/iot/cloud-to-device.md
-      - name: Commands with connected standby devices
-        href: example-scenario/iot/connected-standby-devices.md
       - name: Scale solutions with application stamps
         href: example-scenario/iot/application-stamps.md
       - name: Analyze and optimize loop
