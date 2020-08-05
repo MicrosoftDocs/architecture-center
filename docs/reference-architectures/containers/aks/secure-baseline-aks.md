@@ -560,8 +560,7 @@ Gateway by using two different TLS certificates, as shown in this image.
 
 You can implement end-to-end TLS traffic all at every hop the way through to the
 workload pod. Be sure to measure the performance, latency, and operational
-impact when making the decision to secure pod-to-pod traffic. In this design, traffic from public facing website should be encrypted. This encryption is implemented with Azure Application Gateway with integrated web
-application firewall (WAF).
+impact when making the decision to secure pod-to-pod traffic. For most single-tenant clusters, with proper control plane RBAC and mature Software Development Lifecycle practices in place, it is usually sufficient to TLS encrypt up through the ingress controller and protect with a Web Application Firewall (WAF); minimizing workload management concerns and network performance impacts. Your workload and compliance requirements will dictate where you perform [TLS termination](/azure/application-gateway/ssl-overview#tls-termination), if at all.
 
 #### Egress traffic flow
 
