@@ -59,7 +59,7 @@ Kubernetes, the open-source container-orchestration system, is central to Bedroc
 
 The following image shows a sample Kubernetes manifest written in YAML.
 
-![Image showing a typical YAML manifest with arrows calling out the places where the number of pods and the docker image are specified](./media/fig002.png)
+![Image showing a typical YAML manifest with arrows calling out the places where the number of pods and the docker image are specified.](./media/fig002.png)
 
 #### Implications of a declarative system
 
