@@ -1,136 +1,54 @@
 ---
-title: Analyze and Optimize Loop
+title: IoT analyze and optimize loops
 titleSuffix: Azure Example Scenarios
-description: An IoT pattern for the generation and application of business optimization insights based on the entire business context.
+description: Learn about analyze and optimize loops, an IoT pattern for generating and applying optimization insights based on the entire business context.
 author: mcosner
-ms.date: 05/04/2020
+ms.date: 08/04/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom:
-- fcp
+ms.custom: fcp
 ---
 
-# Analyze and Optimize Loop
+# Analyze and optimize loops
 
-## Intent
+The Internet-of-Things (IoT) *analyze and optimize loop (AOL)* enables generation and application of business optimization insights to one or more [Cyber Physical System (CPS)](https://en.wikipedia.org/wiki/Cyber-physical_system) deployments, based on the entire enterprise business context.
 
-Enable the generation and application of business optimization insights
-to one or more [Cyber Physical
-System](https://en.wikipedia.org/wiki/Cyber-physical_system) (CPS) deployments based on the entire enterprise business context.
+In an AOL, data from various IoT, enterprise, private, and public sources flows into cloud data lakes. Offline analytics consume the data lakes to discover hidden trends and business optimization insights. The optimization insights from the offline analytics processes flow back to IoT installations through [monitor and manage loops (MMLs)](monitor-and-manage-loop.md) and [measure and control loops (MCLs)](measure-and-control-loop.md).
 
-## Motivation
+## Use cases
 
-Businesses collect data from various IoT, enterprise, private and public
-data sources into data lakes which will be consumed in offline analytics
-for the discovery of hidden trends and business optimization insights.
-These optimizations will flow back to IoT installations through Monitor
-and Manage Loop (MML) and Measure and Control Loops (MCL). Analyze and
-Optimize Loop (AOL) operates asynchronously and hence no tight timing
-deadlines expected for sending the optimization signals to things.
+Some example scenarios for AOLs include:
 
-Some example scenarios where Analyze and Optimize process will be
-useful:
+- Smart spaces: Compute campus safety index and take appropriate measures.
+- Power transmission: Correlate power outage and wildfire event trends to produce proactive transmission repairs and replacement of monitoring devices.
+- Oil and gas production: Compute a basin's oil production trends and compare it with site performance.
+- Transportation and logistics: Compute carbon footprint trends, compare them with organizational goals, and take corrective measures.
+- Wind farm: Compute the power factor of the entire wind farm operation, and devise means to improve efficiency of each wind turbine.
+- Discrete manufacturing: Increase the widget production rate of many factories to meet market demand.
 
--   Smart Spaces: Compute campus safety index and take appropriate
-    measures
+## Architecture
 
--   Power Transmission: Correlate power outage and wildfire event trends
-    to produce proactive transmission repairs and replacement of
-    monitoring devices
+The following diagram shows the schematic of a typical AOL and its relationships with other IoT process loops.
 
--   Oil and Gas Production: Compute a basin's oil production trends and
-    compare it with site's performance
+![Diagram showing an analyze and optimize loop in context with measure and control and monitor and manage loops.](./media/analyze-optimize-loop.png)
 
--   Transportation and Logistics: Compute the carbon footprint trends
-    and compare it with the organizational goals and take corrective
-    measures
-
--   Solar Farm: Compute power factor of the entire wind farm operations
-    and devise means to improve efficiency of each wind turbine
-
--   Discrete Manufacturing: increase the widget production rate of many
-    plants to meet the market demands
-
-The optimization insights from the offline analytics processes will flow
-back into IoT Things on the edge through MML and MCL processes.
+The AOL sources telemetry, typically from MML processes, refines it, and combines it with enterprise data sources to generate insights.
 
 ## Characteristics
 
--   **Cycle time**: this operates on async time meaning that no specific
-    time duration expected for the consumption of the data and
-    production and application of the insights to Things.
+- The AOL operates asynchronously, so there are no tight timing deadlines for analyzing data or sending optimization signals to devices. AOLs depend on long telemetry history and enterprise operational data history for running batch jobs.
+- System dependencies include multiple systems to feed data through the data lake, which include IoT systems and feeds from enterprise systems. The optimization loop primarily uses web service protocols to integrate with supervisory systems and other enterprise systems.
 
--   **System Dependencies**: the logic will depend on multiple systems
-    to feed data through data lake which include IoT systems and feeds
-    from enterprise systems like ERP, CRM, PLM and Support systems.
+## Components
 
--   **Data dependencies**: this loop will depend on long telemetry
-    history and enterprise operational data history for running batch
-    jobs
+The important components of business optimization control are:
 
--   **Optimizes IoT Operations**: the optimization insights relevant for
-    IoT will flow into things through Monitor and Manage and Measure and
-    Control loops
+- A **data lake**, large-scale storage optimized for lower usage costs over longer periods. HDFS storage in the context of map-reduce processing is an example of such a data lake. Data lake defers the structure of the data to the processing time, so is good for storing both structured and unstructured data.
+- **Cold time series data**, raw or processed telemetry that is important for offline analytics and often comes from multiple IoT systems. Analytics jobs further refine and combine this data with enterprise and external data sets.
+- **Enterprise data** produced by enterprise systems like product lifecycle management, supply chain, finance, sales, manufacturing and distribution, and customer relationship management. Enterprise data combined with external data sets like weather can contextualize IoT telemetry at business scope for generating compatible insights.
+- **Offline analytics** to process big data in batch mode. Spark jobs and Hadoop map-reduce processing are a couple of examples. MML and MCL processes then apply the AOL insights to IoT devices.
 
--   **Network protocols**: the optimization loop primarily integrates
-    with supervisory systems and other enterprise systems through web
-    service protocols
-
-## Structure
-
-![An Analyze and Optimize Loop, shown in context with Measure and Control and Monitor and Manage Loops.](./media/analyze-optimize-loop.png)
-
-Analyze and Optimize Loop (AOL) sources telemetry typically from Monitor
-and Manage process, refines it and combines it with the enterprise data
-sources to generate insights. The following picture shows the schematic
-of a typical AOL loop and its relationships with the rest of the IoT
-process loops.
-
-The important components of business optimization control are discussed
-below.
-
-**Data Lake** is a large-scale storage optimized for lower cost of usage
-over a longer period; HDFS storage in the context of map-reduce
-processing is an example of such a data lake. Data lake defers the
-structure of the data to the processing time and hence friendlier to
-store both structured and unstructured data.
-
-**Cold Time Series Data** is the raw and/or processed telemetry deemed
-to be important for offline analytics and often sourced from multiple
-IoT systems. This data will be further refined and combined with
-enterprise as well external data sets to execute analytics jobs.
-
-**Enterprise Data** is a class of data that is produced by enterprise
-systems which include Product lifecycle Management, supply chain,
-finance, sales, manufacturing and distribution, and customer
-relationship management. The data from these systems may be combined
-with external data sets (e. g. weather) to contextualize IoT operational
-telemetry at appropriate business scope for generating compatible
-insights.
-
-**Offline Analytics** is a type of analytics performed on Big Data in a
-batch mode; Spark jobs and Hadoop map-reduce processing are a couple of
-such examples. The insights produced form offline analytics will be
-applied to IoT things through supervisory and regulatory control loops.
-
-## Examples
-
--   Compute campus safety index and take appropriate measures
-
--   Correlate power outage and wildfire event trends to produce
-    proactive transmission repairs and replacement of monitoring devices
-
--   Compute a basin's oil production trends and compare it with site's
-    performance
-
--   Compute the carbon footprint trends and compare it with the
-    organizational goals and take corrective measures
-
--   Compute power factor of the entire wind farm operations and devise
-    means to improve efficiency of each wind turbine
-
-## Implementation
-
-Note: give pointers to implementations or some concise inline code
-examples if it makes sense.
+## See also
+- [Monitor and manage loops](monitor-and-manage-loop.md)
+- [Measure and control loops](measure-and-control-loop.md)

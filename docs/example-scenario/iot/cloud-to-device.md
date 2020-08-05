@@ -100,6 +100,7 @@ Sending wakeup messages through SMS gateways can be costly. To avoid unnecessary
 
 To simply check connectivity, use an empty method with a connection timeout of zero to implement a simple ping:
 Example: `var method = new CloudToDeviceMethod("Ping", 0, 0);`
+
 ## See also
 - [Cloud-to-device communications guidance](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-c2d-guidance) provides scenario-based guidance about when to use cloud-to-device messages or direct methods.
 - The [Azure Protocol Gateway](https://docs.microsoft.com/azure/iot-hub/iot-hub-protocol-gateway) open-source project translates direct methods to MQTT protocol messages natively, is easily extensible, and demonstrates this programming model for other protocol adapters.

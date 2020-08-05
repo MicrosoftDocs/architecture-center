@@ -12,7 +12,7 @@ ms.custom: fcp
 
 # IoT solution architecture
 
-Topologically, Azure IoT solutions are a collection of assets and components divided across *devices*, the *IoT platform*, and *applications*. [Events, insights, and actions](introduction-to-solutions.md) are data flow and processing pipelines that occur across these parts.
+Topologically, Azure Internet-of-Things (IoT) solutions are a collection of assets and components divided across *IoT devices*, the *IoT platform*, and *IoT applications*. [Events, insights, and actions](introduction-to-solutions.md) are data flow and processing pipelines that occur across these structural parts.
 
 ![A diagram showing the relationship between devices, the IoT platform, and an application.](media/devices-platform-application.png)
 
@@ -37,7 +37,7 @@ The *IoT platform* is the collection of services that allow devices and applicat
 
 ## Field and cloud edge gateways
 
-IoT devices can connect to the IoT platform directly, or can connect through *edge gateways* that implement intelligent capabilities. *IoT edge gateways* enable functionality like:
+IoT devices can connect to the IoT platform directly, or through *edge gateways* that implement intelligent capabilities. *IoT edge gateways* enable functionality like:
 - Aggregating or filtering device events before they're sent to the IoT platform
 - Localized decision-making
 - [Protocol and identity translation](https://docs.microsoft.com/azure/iot-edge/iot-edge-as-gateway) on behalf of devices
@@ -54,7 +54,7 @@ There are two types of edge gateways, *field* or [IoT Edge](https://docs.microso
 
 Connecting IoT devices to the IoT platform involves the three processes of *attestation*, *authentication*, and *provisioning*.
 
-- The [attestation mechanism](https://docs.microsoft.com/azure/iot-dps/concepts-security#attestation-mechanism) represents the method chosen for a device to confirm its identity when it connects to an IoT platform service like Azure IoT Hub. IoT Hub supports [symmetric key, X.509 thumbprint, and X.509 CA](https://azure.microsoft.com/blog/iot-device-authentication-options/) attestation methods.
+- The [attestation mechanism](https://docs.microsoft.com/azure/iot-dps/concepts-security#attestation-mechanism) represents the method chosen for a device to confirm its identity when it connects to an IoT platform service like [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub). IoT Hub supports [symmetric key, X.509 thumbprint, and X.509 CA](https://azure.microsoft.com/blog/iot-device-authentication-options/) attestation methods.
 
 - [Authentication](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#authentication) is how the device identifies itself. IoT Hub grants access to a device based on the device's ability to prove itself using its unique device identity in combination with its attestation mechanism.
 
@@ -71,17 +71,21 @@ The following example shows how to implement a test-to-production environment tr
 1. The solution developer links the Test and Production IoT clouds to the provisioning service.
 2. The device implements the DPS protocol to find the IoT Hub if it's no longer provisioned. The device is initially provisioned to the Test environment.
 3. Since the device is registered with the Test environment, it connects there and testing occurs.
-4. The developer re-provisions the device to the Production environment through the solution control plane, and removes it from the Test hub. The Test hub rejects the device the next time it reconnects.
-5. The device connects and re-negotiates the provisioning flow. The device is now directed to the Production environment, and connects and authenticates there.
+4. The developer re-provisions the device to the Production environment and removes it from the Test hub. The Test hub rejects the device the next time it reconnects.
+5. The device connects and re-negotiates the provisioning flow. DPS now directs the device to the Production environment, and the device connects and authenticates there.
 
-## IoT Hub supported protocols
+### IoT Hub supported protocols
 
-Consider the combinations of [Azure IoT Hub supported protocols](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols) when working through end-to-end IoT solutions. Combinations shown with red lines in the following diagram may be incompatible or have added considerations.
+Consider the combinations of [Azure IoT Hub supported authentication protocols](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols) when working through end-to-end IoT solutions. Combinations shown with red lines in the following diagram may be incompatible or have added considerations.
 
 ![A diagram showing authentication flows for various topologies connecting to Azure IoT Hub.](media/authentication-matrix.png) 
 
+- Revoking certificates through DPS doesn't prevent currently provisioned devices from continuing to authenticate with IoT Hub. After revoking a certificate in DPS, also remove the device from the IoT Hub, either manually through the portal dashboard or programmatically using [Registry Manager APIs](https://docs.microsoft.com/rest/api/iothub/service/registrymanager).
 - Symmetric keys like SAS tokens are always registered as symmetric keys with IoT Hub.
 - IoT Hub supports x.509 CA authentication. However, provisioning devices with x.509 CA through DPS provisions them to the IoT Hub as x.509 thumbprint.
 - Web socket variants of AMQP and MQTT aren't supported with x.509 CA certificates in IoT Hub.
-- Revoking certificates through DPS doesn't prevent currently provisioned devices from continuing to authenticate with IoT Hub. After revoking a certificate in DPS, individually remove the device from the IoT Hub, either manually through the dashboard or programmatically using [Registry Manager APIs](https://docs.microsoft.com/rest/api/iothub/service/registrymanager).
 
+## See also
+- [IoT builder, developer, and operator roles](builders-developers-operators.md)
+- [IoT application-to-device commands](cloud-to-device.md)
+- [Scale IoT solutions with application stamps](application-stamps.md)

@@ -1097,26 +1097,28 @@ items:
         href: guide/iiot-guidance/iiot-considerations.md
     - name: IoT solutions
       items:
-      - name: Overview of IoT solutions
+      - name: Events, insights, and actions
         href: example-scenario/iot/introduction-to-solutions.md
-      - name: IoT solution roles and workflows
+      - name: IoT process loops
+        items:
+        - name: Analyze and optimize loops
+          href: example-scenario/iot/analyze-and-optimize-loop.md
+        - name: Monitor and manage loops
+          href: example-scenario/iot/monitor-and-manage-loop.md
+        - name: Measure and control loops
+          href: example-scenario/iot/measure-and-control-loop.md
+        - name: Wind farm example
+          href: example-scenario/iot/energy-domain-markdown.md
+        - name: Strawberry farm example
+          href: example-scenario/iot/observe-strawberry-farm.md
+      - name: Builders, developers, and operators
         href: example-scenario/iot/builders-developers-operators.md
-      - name: IoT solution architecture
+      - name: IoT devices, platform, and applications
         href: example-scenario/iot/devices-platform-application.md
-      - name: IoT application-to-device commands
+      - name: Application-to-device commands
         href: example-scenario/iot/cloud-to-device.md
       - name: Scale solutions with application stamps
         href: example-scenario/iot/application-stamps.md
-      - name: Analyze and optimize loop
-        href: example-scenario/iot/analyze-and-optimize-loop.md
-      - name: Monitor and manage loop
-        href: example-scenario/iot/monitor-and-manage-loop.md
-      - name: Measure and control loop
-        href: example-scenario/iot/measure-and-control-loop.md
-      - name: Wind farm solution
-        href: example-scenario/iot/energy-domain-markdown.md
-      - name: Strawberry farm solution
-        href: example-scenario/iot/observe-strawberry-farm.md
   - name: Management and Governance
     items:
     - name: Architectures

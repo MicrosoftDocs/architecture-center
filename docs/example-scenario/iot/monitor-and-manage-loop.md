@@ -1,169 +1,66 @@
 ---
-title: Monitor and Manage Loop
+title: IoT monitor and manage loops
 titleSuffix: Azure Example Scenarios
-description: A pattern for continually monitoring networked Things to ensure it remains within tolerance.
+description: Learn about monitor and manage loops, an IoT process pattern that continually monitors networked devices and ensures they remain within tolerance.
 author: mcosner
-ms.date: 05/04/2020
+ms.date: 08/04/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom:
-- fcp
+ms.custom: fcp
 ---
 
-# Monitor and Manage Loop
+# Monitor and manage loops
 
-## Intent
+An Internet-of-Things (IoT) *monitor and manage loop (MML)* is a supervisory system that continually monitors a [Cyber Physical System (CPS)](https://en.wikipedia.org/wiki/Cyber-physical_system) of networked IoT devices to make sure it's within the tolerable range of the desired state setpoint, and issues commands to control the system.
 
-A [Cyber Physical
-System](https://en.wikipedia.org/wiki/Cyber-physical_system) (CPS),
-composed of multiple networked Things, is continually monitored to make
-sure it is within the tolerable range of the desired state setpoint
-configuration.
+Multiple devices in a CPS system must act in concert to achieve and stay within the tolerable range of the desired state. The MML observes and correlates telemetry emitted by multiple devices, combines it with external inputs, and computes new insights. The MML then pushes the insights through a rules engine to deliver imperative actions and setpoint change actions against the relevant devices.
 
-## Motivation
+## Use cases
 
-Multiple Things inside a CPS system needs to act in concert to achieve
-and stay within the tolerable range of the desired state. The Monitor
-and Manage Loop (MML) observes telemetry emitted by multiple Things,
-correlates, combines with external inputs and computes new insights.
-These insights are then pushed through rules engine to arrive at the
-actions that will result in setpoint changes and imperative actions
-against the relevant Things.
+Some example scenarios for MMLs include:
 
-The following are instances of Monitor and Manage Loop in action:
+- Smart garbage collection: Direct the truck to the route that has the most need for garbage collection.
+- Smart campus: Issue campus evacuation alert upon fire detection in multiple buildings.
+- Power distribution: Proactively shut down the power to multiple city blocks based on a high wind and rain forecast.
+- Gas pipeline monitoring: Shut down a gas pumping station upon sensing pressure drops at multiple segments in a remote pipeline.
+- Smart meters: Monitor power consumption and combine it with weather forecasts to automatically raise the setpoint of home thermostats, as part of a program to give discounts to frugal power consumers.
+- Wind farm: Upon noticing a power factor drop in a wind farm, schedule the inspection of the suspect wind turbines.
+- Process industries: Monitor and control crude oil cracking process in an oil refinery. Monitor and control paint and bulk chemical manufacturing.
+- Discrete manufacturing: Monitor and control a widget inspection and packaging cell.
 
--   Smart Garbage Collection: direct the truck to the route that has the
-    most need for garbage collection.
-
--   Smart Campus: Issue campus evacuation alert upon fire detection in
-    multiple buildings
-
--   Power Distribution: Proactively shutdown the power to the multiple
-    city blocks based on the high wind and rain forecast
-
--   Gas Pipeline Monitoring: Shutdown the gas pumping station upon
-    sensing pressure drops at multiple segments in a remote pipeline
-
--   Smart Meters: Utility company monitors power consumption and
-    combines it with weather forecast to automatically raise the
-    setpoint of the home thermostats as a part of a program that gives
-    discounts to frugal power consumers
-
--   Wind Farm: upon noticing power factor drop in a wind farm, the
-    monitoring systems schedules the inspection of the suspect wind
-    turbines
-
--   Process Industries: monitor and control crude oil cracking process
-    in an oil refinery, monitor and control paints and bulk chemical
-    manufacturing
-
--   Discrete Manufacturing: monitor and control widget inspection and
-    packaging cell
-
-## Characteristics
-
--   **Deployment**: Monitor and Manage Loop (MML) may be deployed closer
-    to the premise in case of process industries like oil refining and
-    chemical manufacturing. Similarly, discreate manufacturing may also
-    deploy MML locally as network downtime can cost the company in terms
-    of production schedules. Those premises that are remote by nature
-    (e. g. remote oil and gas pipelines, remote power transformers,
-    smart door bells, hazardous environment monitoring sensors, asset
-    trackers) can\'t accommodate the infrastructure needed by MML loops
-    and hence MML operates from remote facilities like public or private
-    clouds.
-
--   **Cycle Time**: depending on the IoT scenario, this may be a few
-    seconds (e. g. \< 3 sec); the network jitter is expected due to the
-    usage of non-time sensitive network protocols like MQTT, HTTP and
-    AMQP.
-
--   **Autonomy**: the control logic will depend on multiple Measure and
-    Control loops for the core monitoring and management process to
-    work. The system may be integrated with other enterprise systems
-    like ERP, CRM, PLM and Support systems to contextualize the
-    operations. However, failures to these systems shouldn't take down a
-    Monitor and Manage loop.
-
--   **Inputs**: this loop will consume sensor telemetry stream and
-    contribute to last known Thing state, hot time series cache, warm
-    time series history and aggregate rollups.
-
--   **Outputs**: produces supervisory commands back to things upon
-    detection of conditions that need to be corrected. This loop also
-    computes dependent thing states as well as event feeds for external
-    systems.
-
--   **Networking**: the supervisory loop primarily integrates with
-    things and enterprise systems over HTTP, MQTT and AMQP.
-
-## Structure
+## Architecture
 
 ![Monitor and Manage Loop](./media/monitor-manage-loop.png)
 
-Monitor and Manage Loop (MML) in IoT is a supervisory system that
-ensures that the Cyber Physical System operates within the confines of
-the operational thresholds. Example thresholds include the widget
-production rate in a discrete manufacturing cell, power generation rate
-in a small wind farm, or gas flow rate in a natural gas pipeline. MML
-logic takes the perspectives of multiple things into consideration for
-deducing the current state. This involves the correlation of hot
-telemetry signal trends from multiple things and combine them with
-previously known warm time series history and enterprise system
-operational signals to generate actuator commands or create alarms. The
-components of MML in detail are described below:
+The IoT MML is a supervisory system that ensures that the CPS operates within operational thresholds. MML logic considers the perspectives of multiple devices to deduce current state. The process involves correlating hot telemetry signal trends from multiple devices, combining trends with previously-known warm time series history and enterprise system operational signals, and generating actuator commands or creating alarms.
 
-Supervisory systems often are located remotely from the actual Things
-that represent the physical environment; the things emit timestamped
-telemetry using IoT protocols like HTTP, MQTT or AMQP through **Message
-Broker**. The telemetry is processed by supervisory system and sends
-commands to Things through Messaging Broker to adjust the CPS to be
-around the desired sate in the event of a detected deviation. Important
-components of the supervisory control system are described below.
+## Characteristics
 
-**Thing Registry** is the system of record (aka single truth) for all
-IoT things; it stores metadata about things as well the relationships
-among them. The information in the registry is used by Telemetry Stream
-Processor for understanding telemetry message structure as well as parse
-and execute stream processing logic. Thing Registry will be used by
-Message Broker for validating device connection requests as well as for
-message routing decisions. The event computation and handling logic will
-use the entity metadata to ensure that inputs, outputs and the
-processing logic conforms to the structural as well as semantic
-relationships of the entities and their interactions.
+MMLs have the following characteristics:
 
-**Telemetry Stream Processor** (TSP) receives Thing telemetry and
-deduces the current state of individual things as well as the state of
-the correlated set of things to detect errors as well as deviations from
-the desired state. The error conditions, aggregated data points as well
-as raw data points, if needed, will be sent to event handling,
-appropriate hot and warm storage for further processing as well as
-record keeping.
+- May be remote or close to the physical IoT devices. Premises that are remote by nature, like oil and gas pipelines, power transformers, smart doorbells, hazardous environments, and asset trackers can't accommodate MML loop infrastructure, so MML operates from remote facilities like public or private clouds. In process industries, like oil refining and chemical manufacturing, MMLs may be deployed closer to the devices. Discrete manufacturing may also deploy MML locally, as network downtimes can be costly.
+- Depend on device-based [measure and control loops (MCLs)](measure-and-control-loop.md) for core monitoring and management processes.
+- May integrate with other enterprise systems like ERP, CRM, PLM, and support systems to contextualize operations, but don't depend on those systems to work.
+- Consume sensor telemetry streams and contribute to last known device state, hot time series cache, warm time series history, and aggregate rollups.
+- Produce supervisory commands back to devices for conditions that need to be corrected.
+- Compute dependent device states and provide event feeds for external systems.
+- Primarily integrate with devices and enterprise systems over HTTP, MQTT, and AMQP network protocols.
+- May have cycle times of a few seconds, depending on the IoT scenario. Network jitter can occur when using time-insensitive network protocols like MQTT, HTTP, and AMQP.
 
-**Hot Time Series History** is a high-speed storage (in-memory or remote
-cache) for accessing Last Known State (LKS) of Thing metrics as well as
-for storing a set of data points for detecting near real time trends.
+## Components
 
-**Warm Time Series History** storage is meant for storing a few weeks\'
-worth of data points to help with correlation of near real time trends
-with long term trends to sense potential deviations from the desired
-state. The trends may be pre-computed and made available through indexed
-storage not shown.
+MMLs include the following components:
 
-**Event Computation** will combine events from stream processor, last
-known state of things, near real-time trends from hot time series and if
-needed, correlates with warm time series to compute actionable business
-events.
+- **Message brokers** to process telemetry and send commands to devices.
+- A **device registry**, or system of record and single truth for all IoT devices, to store metadata about devices and relationships among devices. The Telemetry Stream Processor uses registry information to understand telemetry message structure and parse and execute stream processing logic. The message broker uses the registry to validate device connection requests and make message routing decisions. Event handling logic uses entity metadata to ensure that inputs, outputs, and processing logic conform to structural and semantic entity relationships and interactions.
+- A **Telemetry Stream Processor (TSP)** to receive device telemetry, deduce individual device and device set status, and detect errors and deviations from the desired state. The TSP sends error conditions and aggregated or raw data points to appropriate event handlers and to hot and warm storage for further processing and recordkeeping.
+- **Hot time series history**, high-speed in-memory or remote cache storage for the last known state of device metrics and a set of data points for detecting near real-time trends.
+- **Warm time series history** for storing a few weeks of data points, to help correlate near real-time trends with longterm trends and sense potential deviations from the desired state. MMLs can also use indexed storage to pre-compute trends and make them available.
+- **Event computation** to compute actionable business events by combining events from stream processors, last known device states, and near real-time trends from hot time series and warm time series if needed.
+- A **rules engine** to consume and handle business events by adjusting desired device states through appropriate commands. The rules engine may also publish events and alarms to the monitoring console.
+- A **monitoring console** to provide visual display and human intervention if necessary.
 
-**Rules Engine** will consume the business events and handles them by
-adjusting the things\' desired state through appropriate commands. The
-rules engine may also publish events and alarms to the **Monitoring
-Console** for visual display as well as human intervention if need be.
-
-## Implementation
-
-Implement Monitor and Manage Loop at the edge (link to be provided)
-
-Implement Monitor and Manage Loop at remote location (link to be
-provided)
+## See also
+- [Measure and control loops](measure-and-control-loop.md)
+- [Analyze and optimize loops](analyze-and-optimize-loop.md)

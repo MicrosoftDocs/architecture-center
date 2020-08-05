@@ -1,167 +1,90 @@
 ---
-title: Dynamically adjust scale of an Azure IoT solution by using application stamps
+title: Scale IoT solutions with application stamps
 titleSuffix: Azure Example Scenarios
-description: Strategies for building discrete units of scale (stamps) which support an increasing population of connected devices.
+description: Learn about scaling up IoT device populations with application stamps, and strategies for moving devices and applications between stamps.
 author: wamachine
-ms.date: 05/05/2020
+ms.date: 08/05/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom:
-- fcp
+ms.custom: fcp
 ---
 
-# Dynamically adjust scale of an Azure IoT solution by using application stamps
+# Scale Azure IoT solutions with application stamps
 
-Application stamping is an architecture approach of implementing a discrete unit of scale approach towards supporting a steadily increasing population of connected devices using replica implementations of core IoT solution components.
-
+The *application stamping* strategy in an Internet-of-Things (IoT) solution supports scaling up the numbers of connected IoT devices by replicating *stamps*. Stamps are discrete units of core solution components that optimally support a defined number of devices.
 
 ![A diagram describing an application stamping strategy for use in Azure IoT](media/application-stamping.png)
+
+The application stamping strategy is to build atomic stamps consisting of an [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub), routing endpoints like [Azure Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-about), and processing components, to optimally support a defined device population. As incoming device population grows, added stamp instances accommodate the growth, rather than independently scaling up different parts of the solution.
  
+You can design stamps to support explicit capacities from 1 thousand to 1 million devices. Determine the right-sized population by considering how much communication traffic you expect from targeted device populations.
 
-The basic strategy is that an IoT Hub, routing endpoints (e.g. Event Hub), and processing components are built to optimally support a defined population of devices. As solutions grow in scale and the incoming device population grows, new atomic stamps are added to a solution to accommodate the growth vs. independently scaling up different parts of the solution. 
- 
-> **Note:** Stamps can be built to accommodate device populations of 1
-thousand to 1 million devices. The right-sized population is best
-informed by considering how much communication traffic is expected from
-targeted populations of device. It's advisable to design stamps to
-support explicit capacity. 
+## Application stamping benefits
 
-## Benefits of Application Stamping
+Application stamping provides several key benefits:
 
-Application stamps provide several key benefits toward flexibility,
-predictability, and cost management:
+Flexibility:
+- Place and distribute devices by geo-dependency, lifecycle, test to production migration, or other criteria.
+- Target deployment of new features and capabilities to specific stamps.
+- Scope generational changes to align capabilities and services to specified device populations.
+- Facilitate a multi-generational device management strategy.
 
-<table>
-<thead>
-    <tr>
-        <th>Key benefits</th>
-        <th>Description</th>
-    </tr>
-</thead>
-<tbody>
-    <tr>
-        <td width=10%><b>Flexibility</b></td>
-        <td>
-            <ul>
-                <li>Placement and distribution of devices by geo-dependency, lifecycle, test to production migration, or other criteria.</li>
-                <li>Deployment of new features and capabilities can be targeted to specific stamps.</li>
-                <li>Scoping of generational changes to align capabilities and services to specified device population.</li>
-                <li>Facilitates strategy for management of multi-generational devices.</li>
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <td><b>Predictability</b></td>
-        <td>
-            <ul>
-                <li>Blast radius of outages or service degradations are contained to device population of a specific stamp vs. large scale impact.</li>
-                <li>Provides predictable scaling model for expansion.</li>
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <td><b>Cost Management</b></td>
-        <td>
-            <ul>
-                <li>Predictable scale cost by stamp as new atomic scale units can be added to accommodate future growth as solution scales up.</li>
-                <li>Supports observability of cost-per-device in solution.</li>
-                <li> Architectural changes that reduce components and associated costs can be targeted to specific device populations ready to support changes.</li>
-            </ul>
-        </td>
-    </tr>
-</tbody>
-</table>
+Predictability:
+- Contain the blast radius of outages or service degradations to specific stamp device populations rather than a large-scale impact.
+- Provide a predictable scaling model for expansion.
 
+Cost management:
+- Predictably scale costs by stamp to accommodate future growth.
+- Support observability of cost-per-device in the solution.
+- Target architectural changes that reduce components and associated costs to specific device populations ready to support the changes.
 
-## Moving Devices Between Stamps
+## Move devices between stamps
 
-While application stamps are intended to represent atomic units of
-deployment, there are cases where it is desirable to move populations of
-devices between stamps. Some examples include: 
+While application stamps are intended for atomic deployment, sometimes it's desirable to move device populations between stamps. Some examples include: 
+- Moving populations of devices from test stamps to production stamps as part of a release cycle.
+- In a high-availability strategy, moving devices and consumers to another stamp as part of outage remediation.
+- Load balancing to distribute device population more evenly across stamps.
 
+[Azure IoT Device Provisioning Service (DPS)](https://docs.microsoft.com/azure/iot-dps/) provides a way to move devices between hub instances gracefully. If the stamps only encompass device-to-cloud behavior, moving devices between hubs is adequate for end-to-end migration of devices from one stamp to another. To use DPS in stamping strategy, be sure to understand the [IoT Hub Device Provisioning Service device concepts](https://docs.microsoft.com/azure/iot-dps/concepts-device).
 
--   Populations of devices are moved from test stamps to production
-    stamps as part of a release cycle. 
+>[!NOTE]
+>DPS uses *registration IDs*, while IoT Hub uses *device IDs*. These IDs are often the same value, but can be different. When querying device status with DPS APIs, remember to use the device's registration ID.
 
--   Stamps are employed as part of a high availability strategy. In
-    these cases, devices and consumers are moved to another stamp as
-    part of outage remediation. 
+## Move applications between stamps
 
--   Load balancing of device population is done as a way to distribute
-    population more evenly across stamps. 
- 
+If the application stamps include web front ends or API applications that speak to IoT Hub, those components will also need to migrate to new IoT Hubs to continue communicating with the devices that moved.
 
-In the cases of devices, [Azure IoT Device Provisioning
-Service](https://docs.microsoft.com/azure/iot-dps/) provides a way
-for devices to be moved between hub instances gracefully. Should
-the application stamps only encompass Device-to-Cloud behavior,
-this gives adequate end-to-end migration of
-devices from one stamp to another. 
+There are a couple of strategies for moving devices and application end-users from one application stamp to another. These strategies may not cover all cases, but elements of them cover most cases.
 
-> **Note:** DPS uses **registration IDs** while IoT Hub uses **device
-IDs**. While are often the same value, they can be different. It's
-important when dealing with DPS APIs to remember to use
-the **registration ID** for the device you are querying status on. If
-using DPS in stamping strategy, it is important to understand the [IoT
-Hub Device Provisioning Service device
-concepts](https://docs.microsoft.com/azure/iot-dps/concepts-device) outlined
-in the DPS documentation. 
+### Move between fully self-contained application stamps
 
-## Moving applications between stamps
+Where stamps encompass an end-to-end application, [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-how-it-works) can move traffic from one stamp to another. This strategy involves creating multiple stamps, each containing the entire application with its own URL, and moving entire populations of devices and application users from one stamp to another.
 
-Components such as web front ends or API applications that speak to IoT Hub, will also need to have a strategy for migrating to new IoT Hubs. This ensures communication with the devices that have moved.
+![A diagram explaining how to move a set of devices from one stamp to another stamp.](media/moving-devices-using-dps.png) 
 
-Here, we’ll explore a couple of strategies for moving devices and application end-users from one application stamp to another. While these may not cover all cases, elements of them can be readily employed to cover additional cases.
+This fully self-contained strategy is:
+- Simple to implement
+- Appropriate when using stamps as part of a high-availability strategy
+- Useful for migrating devices and users through test and production environments
 
-## Moving between fully self-contained application stamps
+### Move between application stamps behind a single gateway
 
-Where stamps encompass an end-to-end application, [Azure Traffic
-Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-how-it-works) can
-be used to move traffic from one stamp to another. This strategy
-involves creating multiple stamps of an entire application, each with
-its own URL, and moving entire populations of devices
-and application users from one stamp to another. 
+Where solutions consist of a single application front-end and multiple stamps, the application front-end will need to be aware of multiple IoT Hubs, and be able to dynamically update its device-to-hub mapping to maintain cloud-to-device communication.
 
-![A diagram explaining how to move a set of devices from one stamp to another stamp](media/moving-devices-using-dps.png) 
+To gracefully manage devices moving to different stamps and IoT Hubs, gateways can use a caching mechanism of device-to-hub mapping. If lookup exists as part of a set of shared components, service clients can dynamically detect and migrate device calls to new IoT Hubs.
 
-This strategy is simple to implement and useful in cases where stamps are used as part of a high-availability strategy or for migrating devices and users from one stamp to another to move them through different test and production environments.
+![A diagram demonstrating how devices can move from one hub to another using an app gateway.](media/moving-devices-behind-gateway.png)
 
-## Moving between multiple application stamps behind a single gateway
-
-Where solutions consist of a single application front-end and multiple stamps the application front-ends will need to be aware of multiple IoT Hubs, and able to dynamically update their Device-to-Hub mapping to communication with devices via Cloud-to-Device functionality.
-
-To gracefully manage devices moving to different stamps, and by extension different IoT Hubs, a caching mechanism of “device to hub” mapping can be used in gateways. Assuming lookup exists as part of a set of shared components, service clients can dynamically detect and migrate calls to devices to new IoT Hubs.
-
-
-![A diagram demonstrating how devices can be moved from one hub to another using an app gateway](media/moving-devices-behind-gateway.png)
-
-In this model, the gateway uses a cache to map devices to IoT Hubs,
-defaulting to that endpoint unless it receives an [error indicating the
-device is
-not registered](https://docs.microsoft.com/azure/iot-hub/iot-hub-troubleshoot-error-404001-devicenotfound) to
-the known Hub. When this happens, the individual device enrollment in DPS
-can be queried ([using the DPS Service
-SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)) to
-determine which Hub the device is now registered to. Should the Hub
-successfully be found for the device, the cache can be updated to avoid
-re-negotiating the device-to-hub mapping on future calls.  
+In this model, the gateway uses a cache to map devices to IoT Hubs, defaulting to the cached endpoint unless it receives an [error](https://docs.microsoft.com/azure/iot-hub/iot-hub-troubleshoot-error-404001-devicenotfound) indicating the device is not registered to the known IoT Hub. When this error occurs, the gateway uses the [DPS Service SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks) to query individual device enrollment and determine which IoT Hub the device is now registered to. The gateway then updates the cache with the new mapping to avoid re-negotiating the device-to-hub mapping on future calls.
  
 ## Additional considerations
 
--   It's possible for a device enrollment to be
-    in-progress, meaning it will not be reachable. The device's assigned
-    IoT Hub and its current enrollment status can be obtained using DPS
-    APIs such [Get Device Registration
-    State](https://docs.microsoft.com/rest/api/iot-dps/getdeviceregistrationstate/getdeviceregistrationstate). 
+- If device enrollment is in progress, the device won't be reachable. Use DPS APIs like [Get Device Registration State](https://docs.microsoft.com/rest/api/iot-dps/getdeviceregistrationstate/getdeviceregistrationstate) to get the device's assigned IoT Hub and its current enrollment status.
+- While caching in a shared lookup avoids re-negotiating endpoints on every call, it's possible for the cache endpoint to fail. A secondary cache or fallback plan of renegotiating with DPS can improve solution reliability.
+- In the device-only case, devices are disconnected when moved from one IoT Hub to another, either through a disconnect or an error on the next attempted call. In the application-to-device case, the error occurs as the result of attempting to reach the device through the IoT Hub.
 
--   While caching in a shared lookup saves re-negotiating endpoints on
-    every call, there is always the possibility of the caching endpoint
-    failing. Having a fallback plan of re-negotiating with DPS or 
-    secondary cache can further improve solution resiliency. 
+## See also
+- [IoT devices, platform, and applications](devices-platform-application.md)
+- [IoT application-to-device commands](cloud-to-device.md)
 
--   In the device case, devices will be disconnected when moved from one
-    Hub to another, either through a disconnect or via an error
-    occurring the next time a call is attempted. In the Cloud-to-Device
-    case, an error will occur as the result of attempting to reach the
-    device through the Hub. 
