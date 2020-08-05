@@ -85,9 +85,9 @@ Some advantages of this topology are:
     the blast radius. It also supports the concept of landing zone with
     separation of duties.
 
--   Minimizes direct exposure to Azure resources to the public
-    internet. Their existing architecture runs with regional hub and spoke
-    topologies. This way, the network can be expanded in the future and also provide workload isolation.
+-   Minimizes direct exposure to Azure resources to the public internet.
+
+-   Organizations often operator with regional hub-spoke topologies. This way, the network can be expanded in the future and also provide workload isolation.
 
 -   All web applications should require a web application firewall (WAF) service to help
     govern HTTP traffic flows.
