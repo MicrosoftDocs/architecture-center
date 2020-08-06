@@ -10,6 +10,8 @@ ms.subservice: example-scenario
 ms.custom: fcp
 ---
 
+# Patterns and implementations
+
 This article covers the patterns and implementations the commercial software engineer (CSE) team used when they created the [Banking system cloud transformation on Azure](banking-system-cloud-transformation.md).
 
 ## Saga pattern

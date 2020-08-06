@@ -94,9 +94,9 @@ To integrate with Azure DevOps test results, the solution uses a Python script t
 
   * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 
-  * [Azure Container Registry (ACR)](https://azure.microsoft.com/en-us/services/container-registry/)
+  * [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/)
 
-  * [Azure Container Instances (ACI)](https://azure.microsoft.com/en-us/services/container-instances/)
+  * [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/)
 
 * Third-party
 
