@@ -18,7 +18,7 @@ Topologically, Azure Internet-of-Things (IoT) solutions are a collection of ass
 
 ## IoT devices, platform, and applications
 
-*IoT devices* are the physical or virtual things that connect to IoT applications, send events, and receive commands. The terms *thing* and *device* both mean a connected physical device in an IoT solution. 
+*IoT devices* are the physical or virtual things that send events to and receive commands from IoT applications. The terms *thing* and *device* both mean a connected physical device in an IoT solution.
 
 An IoT device has one or more of the following characteristics:
 - Possesses a unique *identity* that distinguishes it within the solution.
@@ -26,18 +26,20 @@ An IoT device has one or more of the following characteristics:
 - Sends *events* to the IoT platform for applications to act on.
 - Receives *commands* from applications to execute.
 
-The *IoT platform* is the collection of services that allow devices and applications to connect and communicate with each other. The IoT platform at least:
+The *IoT platform* is the collection of services that allow devices and applications to connect and communicate with each other. The Azure IoT platform usually consists of [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) and event routing services like [Azure Event Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-compare-event-hubs).
+
+The IoT platform at least:
 - Brokers secure *connectivity*, *authentication*, and *communication* between devices and trusted applications.
 - Generates *contextual insights* on incoming events to determine the routing of events to endpoints.
 
-*Applications* are the collection of scenario-specific services and components unique to a given IoT solution. IoT applications typically have:
+*Applications* are the collection of scenario-specific services and components that are unique to an IoT solution. IoT applications typically have:
 - A mix of Azure or other services for compute, storage, and event endpoints, combined with unique application business logic.
 - *Event* workflows to receive and process incoming device events.
 - *Action* workflows to send commands to devices or other processes.
 
 ## Field and cloud edge gateways
 
-IoT devices can connect to the IoT platform directly, or through *edge gateways* that implement intelligent capabilities. *IoT edge gateways* enable functionality like:
+IoT devices can connect to the IoT platform directly, or through *IoT edge gateways* that implement intelligent capabilities. Edge gateways enable functionality like:
 - Aggregating or filtering device events before they're sent to the IoT platform
 - Localized decision-making
 - [Protocol and identity translation](https://docs.microsoft.com/azure/iot-edge/iot-edge-as-gateway) on behalf of devices
@@ -54,7 +56,7 @@ There are two types of edge gateways, *field* or [IoT Edge](https://docs.microso
 
 Connecting IoT devices to the IoT platform involves the three processes of *attestation*, *authentication*, and *provisioning*.
 
-- The [attestation mechanism](https://docs.microsoft.com/azure/iot-dps/concepts-security#attestation-mechanism) represents the method chosen for a device to confirm its identity when it connects to an IoT platform service like [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub). IoT Hub supports [symmetric key, X.509 thumbprint, and X.509 CA](https://azure.microsoft.com/blog/iot-device-authentication-options/) attestation methods.
+- The [attestation mechanism](https://docs.microsoft.com/azure/iot-dps/concepts-security#attestation-mechanism) represents the method chosen for a device to confirm its identity when it connects to an IoT platform service like Azure IoT Hub. IoT Hub supports [symmetric key, X.509 thumbprint, and X.509 CA](https://azure.microsoft.com/blog/iot-device-authentication-options/) attestation methods.
 
 - [Authentication](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#authentication) is how the device identifies itself. IoT Hub grants access to a device based on the device's ability to prove itself using its unique device identity in combination with its attestation mechanism.
 
@@ -80,10 +82,10 @@ Consider the combinations of [Azure IoT Hub supported authentication protocols](
 
 ![A diagram showing authentication flows for various topologies connecting to Azure IoT Hub.](media/authentication-matrix.png) 
 
+- SAS tokens are always registered as symmetric keys with IoT Hub.
 - Revoking certificates through DPS doesn't prevent currently provisioned devices from continuing to authenticate with IoT Hub. After revoking a certificate in DPS, also remove the device from the IoT Hub, either manually through the portal dashboard or programmatically using [Registry Manager APIs](https://docs.microsoft.com/rest/api/iothub/service/registrymanager).
-- Symmetric keys like SAS tokens are always registered as symmetric keys with IoT Hub.
-- IoT Hub supports x.509 CA authentication. However, provisioning devices with x.509 CA through DPS provisions them to the IoT Hub as x.509 thumbprint.
-- Web socket variants of AMQP and MQTT aren't supported with x.509 CA certificates in IoT Hub.
+- Although IoT Hub supports X.509 CA authentication, provisioning devices with X.509 CA through DPS provisions them to the IoT Hub as X.509 thumbprint.
+- Web socket variants of AMQP and MQTT aren't supported with X.509 CA certificates in IoT Hub.
 
 ## See also
 - [IoT builder, developer, and operator roles](builders-developers-operators.md)
