@@ -12,7 +12,7 @@ ms.custom: fcp
 
 # Banking system cloud transformation on Azure
 
-This article summarizes the patterns and implementations used by the commercial software engineer (CSE) team to build a solution for a customer. For the sake of anonymity, the customer is fictionalized here as Contoso Bank. It's a major international Financial Services Industry (FSI) organization that wanted to modernize one of its financial transaction systems.
+This article summarizes the patterns and implementations used by the commercial software engineer (CSE) team to build a solution for a customer. For the sake of anonymity, the article refers to the customer as Contoso Bank. It's a major international Financial Services Industry (FSI) organization that wanted to modernize one of its financial transaction systems.
 
 Contoso Bank wanted to use simulated and actual applications and existing workloads to monitor the reaction of the solution infrastructure for scalability and performance. The solution had to be compatible with the requirements of the existing payment system.
 
@@ -42,7 +42,7 @@ The actual Contoso microservices containers were manually pushed through Docker 
 
   * Scalability and Performance for Transaction Simulation deliverables.
 
-* AKS for the Node Autoscale for Channel Holder.
+* Azure Kubernetes Services (AKS) for the node autoscale for Channel Holder.
 
  The CSE team created the other microservices as stubs to specifically isolate the actual Contoso microservices from other external mainframe services that the solution pushed through ADO pipelines.
 
@@ -50,7 +50,7 @@ At the core, Backend Services provides the necessary logic for an EFT to happen:
 
 1. A new EFT starts with an HTTP request received by the Channel Holder service.
 
-    The service provides synchronous responses to requesters using a Publish-Subscribe pattern through Redis cache and waits for a backend response.
+    The service provides synchronous responses to requesters using a _publish-subscribe_ pattern through Redis cache and waits for a backend response.
 
 1. The solution validates this initial request using the EFT Pilot Password service.
 
@@ -62,15 +62,19 @@ At the core, Backend Services provides the necessary logic for an EFT to happen:
 
 1. One of these services is the EFT Processor, where the solution effectuates the actual transaction, carrying out credit and debit operations.
 
-    The CSE team used [KEDA](https://keda.sh/). It's a framework that automatically scales applications based on the load of messages being processed. In the solution, it's used to scale the EFT Processor as new EFTs were processed.
+    The CSE team used [KEDA](https://keda.sh/). It's a framework that automatically scales applications based on the load of messages the solution processed. In the solution, it's used to scale the EFT Processor as the solution processed new EFTs.
 
-Next is Load Testing. It contains a custom solution based on JMeter, ACI, and Terraform. The team used the Load Testing block of the solution to provision the necessary integration with Azure Pipelines to handle load testing. This solution generated enough load on the backend services to validate that the autoscaling mechanisms were in place, creating thousands of EFT transactions per second.
+1. Next is Load Testing. It contains a custom solution based on JMeter, ACI, and Terraform.
 
-Finally, Monitoring was responsible for integrating load testing results, infrastructure, and application metrics. The team correlated a load testing run with the side effects on the storage and container orchestration layer, allowing a quick feedback cycle for application tuning. Prometheus, Grafana, Application Insights, and Azure Monitor were the core components that allowed this monitoring and observability capability. The Event Autoscaler supported the validation of a scenario where applications scale based on the message loading received. To implement this behavior the CSE team adapted KEDA to support the Java applications scaling.
+    The team used the Load Testing block of the solution to provision the necessary integration with Azure Pipelines. This solution generated enough load on the backend services to validate that the autoscaling mechanisms were in place, creating thousands of EFT transactions per second.
+
+1. Finally, Monitoring was responsible for integrating load testing results, infrastructure, and application metrics.
+
+    The team correlated a load testing run with the side effects caused by microservices on the storage and container orchestration layer. It allowed a quick feedback cycle for application tuning. Prometheus, Grafana, Application Insights in Azure Monitor were the core components that allowed this monitoring and observability capability. The Event Autoscaler supported the validation of a scenario where applications scale based on the message loading received. To implement this behavior the CSE team adapted KEDA to support the Java applications scaling.
 
 ## Components
 
-The list below summarizes the technologies that the CSE team used to create this solution.
+The list below summarizes the technologies that the CSE team used to create this solution:
 
 * Azure
   
@@ -85,6 +89,8 @@ The list below summarizes the technologies that the CSE team used to create this
   * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) - [(Kafka)](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
 
   * [Azure Monitor](https://azure.microsoft.com/services/monitor/)
+
+  * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 
 * Third-party
 
@@ -136,9 +142,9 @@ This component runs a service called Channel Holder on Azure Red Hat OpenShift (
 
 #### Node autoscaling for Channel Holder
 
-First HPA scales the replicas up to a point where it saturates the cluster infrastructure. Then a scale in and out mechanism for the nodes keeps the applications receiving and processing new requests. For that mechanism, the team used Kubernetes Node Autoscaling, which allowed the cluster to grow even when all nodes were close to their full capacity.
+First HPA scales the replicas up to a point where it saturates the cluster infrastructure. Then a scale in and out mechanism for the nodes keeps the applications receiving and processing new requests. For that mechanism, the team used Kubernetes node autoscaling, which allowed the cluster to grow even when all nodes were close to their full capacity.
 
-This component focuses on running the Channel Holder service on Azure Kubernetes Service (AKS) to allow node autoscaling tests. It had to achieve the following capabilities:
+This component focuses on running the Channel Holder service on AKS to allow node autoscaling tests. It had to achieve the following capabilities:
 
 * Provide AKS cluster monitoring through a Grafana dashboard.
 
@@ -150,7 +156,7 @@ This component focuses on running the Channel Holder service on Azure Kubernetes
 
 #### Scalability and performance for transaction simulation
 
-Using the load testing framework, the CSE team generated enough load to trigger both HPA and Node Autoscaling mechanisms. When the solution triggered the components, it generated infrastructure and application metrics for the team to validate Channel Holder scaling response times and the application behavior under high load.
+Using the load testing framework, the CSE team generated enough load to trigger both HPA and node autoscaling mechanisms. When the solution triggered the components, it generated infrastructure and application metrics for the team to validate Channel Holder scaling response times and the application behavior under high load.
 
 This component focuses on running Channel Holder, EFT Controller, and EFT Processor services on ARO and AKS. Also, it carries out pod and node autoscaling and performance tests on all services. It had to achieve the following capabilities:
 
@@ -164,13 +170,13 @@ This component focuses on running Channel Holder, EFT Controller, and EFT Proces
 
 ### Success criteria
 
-The Contoso team and CSE team defined the following success criteria or this engagement:
+The Contoso team and CSE team defined the following success criteria for this engagement:
 
 #### General criteria
 
 Contoso Bank considered the following general points as successful criteria on all components:
 
-* To provide the Contoso technical team with the ability to apply digital transformation and cloud adoption. The CSE team:
+* Provide the Contoso technical team with the ability to apply digital transformation and cloud adoption. The CSE team:
 
   * Provided the necessary tools and processes in Azure.
 
@@ -194,9 +200,9 @@ Contoso Bank considered the following general points as successful criteria on a
 
 | Metric | Value (range) |
 | ------ | ------------- |
-| Ability to run pod autoscaling tests on Channel Holder | Target: The system automatically creates a new Channel Holder pod replica after achieving 50% CPU utility. |
-| Ability to run node autoscaling based on Channel Holder | Target: The system creates new Kubernetes nodes because of resource constraints on pods (for example, CPU utility). Kubernetes restricts the number of nodes that the system can create. The node limit is three nodes. |
-| Ability to run pod/node autoscaling and performance tests on EFT Simulation | Target: The system automatically creates new pod replicas for all services. The replication occurs after achieving 50% CPU usage and the creation of a new Kubernetes node related to CPU resource constraints. The application must support 2000 transactions per second. |
+| Ability to run pod autoscaling tests on Channel Holder | Target: The system automatically creates a new Channel Holder pod replica after achieving 50% CPU usage. |
+| Ability to run node autoscaling based on Channel Holder | Target: The system creates new Kubernetes nodes because of resource constraints on pods (for example, CPU usage). Kubernetes restricts the number of nodes that the system can create. The node limit is three nodes. |
+| Ability to run pod/node autoscaling and performance tests on EFT Simulation | Target: The system automatically creates new pod replicas for all services. The replication occurs after achieving 50% CPU usage and the creation of a new Kubernetes node related to CPU resource constraints. The solution must support 2000 transactions per second. |
 
 ### Technical solution
 
@@ -210,7 +216,7 @@ There were a number of design constraints that the CSE team had to consider:
 
   * OpenShift 3.11 as the container orchestration platform.
 
-  * Java and Spring Boot for Microservice development.
+  * Java and Spring Boot for microservice development.
 
   * Kafka as the event streaming platform with Confluent Schema Registry feature.
 
@@ -222,7 +228,7 @@ There were a number of design constraints that the CSE team had to consider:
 
 * Contoso policy restricts the ability for a CI pipeline to work between both on-premises environments and any cloud. Contoso manually deployed all source code hosted in the on-premises environment, as container images, to Azure Container Registry. The deployment on the on-premises side was Contoso's responsibility.
 
-* The simulated scenario for tests should use a subset of mainframe EFT workloads as a flow reference.
+* The simulated scenario for tests had to use a subset of mainframe EFT workloads as a flow reference.
 
 * Contos Bank must do all Horizontal pod autoscaling and performance tests on Azure Red Hat OpenShift.
 
@@ -284,7 +290,7 @@ At the end of the project, the CSE team shared the following insights:
 
   * There's a smooth application migration from ARO to AKS.
 
-  * The Node Autoscaling feature wasn't available on Red Hat OpenShift version 3.11, which was the version used during the engagement. As such, the CSE team carried out node autoscaling testing scenarios through Azure Kubernetes Service (AKS).
+  * The node autoscaling feature wasn't available on Red Hat OpenShift version 3.11, which was the version used during the engagement. As such, the CSE team carried out node autoscaling testing scenarios through AKS.
 
   * A product's end-of-life may require creative customizations. A preparation phase plays an important role when the team delivers a successful solution.
 
@@ -298,16 +304,14 @@ At the end of the project, the CSE team shared the following insights:
 
 For more detail about the processes and technologies used to create this solution, see the following articles:
 
-* [Patterns and implementations]()
+* [Patterns and implementations](patterns-and-implementations.md)
 
-* []()
+* [JMeter implementation reference for load testing pipeline solution](jmeter-load-testing-pipeline-implementation-reference.md)
 
 ## Related resources
 
 * [Load Testing Pipeline with JMeter, ACI, and Terraform](https://github.com/Azure-Samples/jmeter-aci-terraform): GitHub project site
 
-* [Implementation Reference for JMeter Load Testing Pipeline Solution](./jmeter-load-testing-pipeline-implementation-reference.md): Implementation reference documentation
+* [Autoscaling Java applications with KEDA using Azure Event Hubs](https://github.com/Azure-Samples/keda-eventhub-kafka-scaler-terraform): KEDA for Java sample
 
-* [Sample Java Kafka Event Hub scaler](https://github.com/Azure-Samples/keda-eventhub-kafka-scaler-terraform): KEDA for Java sample
-
-* [Saga Pattern](https://microservices.io/patterns/data/saga.html): Information about the Saga pattern on Microservices.io
+* [Pattern: Saga](https://microservices.io/patterns/data/saga.html): Information about the Saga pattern on Microservices.io
