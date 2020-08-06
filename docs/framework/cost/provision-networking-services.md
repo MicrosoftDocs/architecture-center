@@ -40,7 +40,7 @@ For more information, see:
 -  [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
 
 ### Reference architecture
-- [Microservices architecture on Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/microservices/aks) uses Application Gateway as the ingress controller.
+- [Microservices architecture on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices) uses Application Gateway as the ingress controller.
 
 - [Securely managed web applications](/azure/architecture/example-scenario/apps/fully-managed-secure-apps) uses Application Gateway as a web traffic load balancer operating at Layer 7 that manages traffic to the web application. Web Application Firewall (WAF) is enabled to  enhance security. 
 

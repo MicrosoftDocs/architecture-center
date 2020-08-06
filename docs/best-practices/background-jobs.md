@@ -1,7 +1,7 @@
 ---
 title: Background jobs guidance
 titleSuffix: Best practices for cloud applications
-description: Guidance on background tasks that run independently of the user interface.
+description: Learn about background tasks that run independently of the user interface, such as batch jobs, intensive processing tasks, and long-running processes.
 author: dragon119
 ms.date: 11/05/2018
 ms.topic: best-practice

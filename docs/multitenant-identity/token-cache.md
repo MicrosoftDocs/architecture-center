@@ -1,6 +1,6 @@
 ---
 title: Cache access tokens in a multitenant application
-description: Caching access tokens used for invoking a backend Web API.
+description: Learn how to implement a custom token cache that derives from the Azure AD Authentication Library TokenCache class suitable for web apps.
 author: adamboeglin
 ms.date: 07/21/2017
 ms.topic: guide

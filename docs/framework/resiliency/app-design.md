@@ -86,8 +86,6 @@ A third-party service might not provide monitoring and diagnostics capabilities,
 
 ## Load balancing
 
-To load balance traffic across regions requires a traffic management solution. Azure provides [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager). You can also take advantage of third-party services that provide similar traffic management capabilities.
-
 Proper load-balancing allows you to meet availability requirements and to minimize costs associated with availability.
 
 - **Use load-balancing to distribute requests.** Load-balancing distributes your application's requests to healthy service instances by removing unhealthy instances from rotation. If your service uses Azure App Service or Azure Cloud Services, it's already load-balanced for you. However, if your application uses Azure VMs, you need to provision a load-balancer. For more information, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview/)
@@ -103,7 +101,6 @@ Proper load-balancing allows you to meet availability requirements and to minimi
 
 ## Failure mode analysis
 
-Failure mode analysis (FMA) is a process for building resiliency into a system, by identifying possible failure points in the system. The FMA should be part of the architecture and design phases, so that you can build failure recovery into the system from the beginning.
 *Failure mode analysis* (FMA) builds resiliency into a system by identifying possible failure points and defining how the application responds to those failures. The FMA should be part of the architecture and design phases, so failure recovery is built into the system from the beginning. The goals of an FMA are to:
 
 - Determine what types of failures an application might experience and how the application detects those failures.

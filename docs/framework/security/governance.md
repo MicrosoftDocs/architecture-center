@@ -446,7 +446,7 @@ For Azure, you can enforce policies by,
         through a centralized group that evaluates exception requests and makes
         sure appropriate controls are applied.
 
--   **Identify and remediate** exposed virtual machines by using the [Azure Security Center](/azure/security-center/security-center-restrict-access-through-internet-facing-endpoints)
+-   **Identify and remediate** exposed virtual machines by using the [Azure Security Center](https://docs.microsoft.com/azure/security-center/)
     network visualization to quickly identify internet exposed resources.
 
 -   **Restrict management ports** (RDP, SSH) using [Just in Time

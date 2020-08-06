@@ -74,7 +74,7 @@ New and updated articles in the Azure Architecture Center
 - [Governance, risk, and compliance in Azure | Microsoft Docs](https://docs.microsoft.com/azure/architecture/framework/security/governance)  ([#5d970b84](https://github.com/MicrosoftDocs/architecture-center/commit/5d970b84))
 - [Serverless Functions code walkthrough](https://docs.microsoft.com/azure/architecture/serverless/code)  ([#af5443d4](https://github.com/MicrosoftDocs/architecture-center/commit/af5443d4))
 - [Azure IoT reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot)  ([#8294ec86](https://github.com/MicrosoftDocs/architecture-center/commit/8294ec86))
-- [Microservices architecture on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/aks)  ([#8294ec86](https://github.com/MicrosoftDocs/architecture-center/commit/8294ec86))
+- [Microservices architecture on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)  ([#8294ec86](https://github.com/MicrosoftDocs/architecture-center/commit/8294ec86))
 - [Microservices architecture on Azure Service Fabric](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric)  ([#8294ec86](https://github.com/MicrosoftDocs/architecture-center/commit/8294ec86))
 - [Extend an on-premises network using ExpressRoute](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute)  ([#1b14c3c9](https://github.com/MicrosoftDocs/architecture-center/commit/1b14c3c9))
 - [Extend an on-premises network using VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vpn)  ([#1b14c3c9](https://github.com/MicrosoftDocs/architecture-center/commit/1b14c3c9))
@@ -158,7 +158,7 @@ New and updated articles in the Azure Architecture Center
 - [Build a CI/CD pipeline for chatbots with ARM templates](https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-cicd-chatbot)  ([#20d88b45](https://github.com/MicrosoftDocs/architecture-center/commit/20d88b45))
 - [Overview of the reliability pillar](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)  ([#20d88b45](https://github.com/MicrosoftDocs/architecture-center/commit/20d88b45))
 - [Choosing an Azure compute service](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree)  ([#20d88b45](https://github.com/MicrosoftDocs/architecture-center/commit/20d88b45))
-- [Microservices architecture on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/aks)  ([#20d88b45](https://github.com/MicrosoftDocs/architecture-center/commit/20d88b45))
+- [Microservices architecture on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)  ([#20d88b45](https://github.com/MicrosoftDocs/architecture-center/commit/20d88b45))
 
 ## April 2020
 
@@ -229,7 +229,7 @@ New and updated articles in the Azure Architecture Center
 - [Extend an on-premises network using VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vpn)  ([#f2048cf5](https://github.com/MicrosoftDocs/architecture-center/commit/f2048cf5))
 - [Create an AD DS resource forest in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-forest)  ([#f2048cf5](https://github.com/MicrosoftDocs/architecture-center/commit/f2048cf5))
 - [Hub-spoke network topology in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)  ([#5de32683](https://github.com/MicrosoftDocs/architecture-center/commit/5de32683))
-- [Microservices architecture on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/aks)  ([#5de32683](https://github.com/MicrosoftDocs/architecture-center/commit/5de32683))
+- [Microservices architecture on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)  ([#5de32683](https://github.com/MicrosoftDocs/architecture-center/commit/5de32683))
 - [Microservices architecture on Azure Service Fabric](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric)  ([#5de32683](https://github.com/MicrosoftDocs/architecture-center/commit/5de32683))
 - [Build an enterprise-grade conversational bot](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/conversational-bot)  ([#7817e3da](https://github.com/MicrosoftDocs/architecture-center/commit/7817e3da))
 - [Real-time scoring of Python models](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/realtime-scoring-python)  ([#7817e3da](https://github.com/MicrosoftDocs/architecture-center/commit/7817e3da))
