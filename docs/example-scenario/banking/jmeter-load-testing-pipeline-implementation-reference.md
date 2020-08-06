@@ -74,7 +74,7 @@ Docker pipeline and JMeter pipeline definition files are in YAML (.yml) format. 
 
 To integrate with Azure DevOps test results, the solution uses a Python script to convert the JMeter test results format (.jtl file) to JUnit format (.xml file).
 
-:::image type="content" source="./images/Azure-DevOps-Test-Results-Dashboard.png" alt-text="sample of Azure DevOps Dashboard Displaying Successful Requests":::
+:::image type="content" source="./images/azure-test-results-dashboard.png" alt-text="sample of Azure DevOps Dashboard Displaying Successful Requests":::
 
 <p style="text-align:center;font-style:italic;">Figure 2 - Azure DevOps Dashboard Displaying Successful Requests</p>
 
