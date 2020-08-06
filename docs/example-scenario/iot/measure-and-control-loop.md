@@ -35,7 +35,7 @@ An MCL is scoped as a single device abstraction composed of sensors, actuators, 
 
 ## Characteristics
 
-An MCL:
+An MCL has the following characteristics:
 - Runs close to the device or embedded inside the device.
 - Has a cycle time depending on IoT scenario, which may be a few milliseconds in a time-sensitive networking environment.
 - Takes input measurements depending on setpoint configuration, last known sensor measurements, and a small time series history of each measurement.
@@ -51,8 +51,10 @@ An MCL:
 An IoT *thing* or device is composed of sensors, actuators, and a controller. All three components work in concert to make sure that the device is operating in its environment as expected. Example devices include wind turbines, washing machines, car washes, and gas storage tanks. Example setpoints include safe RPM of a wind turbine, safe temperature and pressure of a gas tank, and safe distance for auto unlock of a smart door lock.
 
 - **Sensors** continually measure current device conditions and report them to the controller. Example measurements include natural gas storage tank temperature and pressure, smart home temperature and humidity, or wind turbine rotor RPM and power generation rate. The sensor sampling rate depends on the function of the device. Slow-changing devices like large gas tanks need low frequency sampling, while fast-changing devices like wind turbines need high-frequency sampling.
+
 - **Actuators** are the physical components that affect device state. Examples include the inlet valve of a natural gas tank, a brake that slows down the rotor of a wind turbine, or a smart front door lock that locks when the owner is away. The controller drives the actuators based on sensor measurements and external stimuli. Some sensing-only devices don't have any actuators, so that part of the loop isn't needed.
-- **Control logic** keeps device state within the tolerable desired range. The current state is computed from sensor measurements. If the current state deviates from the desired state, the controller  takes corrective action by sending commands to the actuators. Such corrective actions include closing the valve of a natural gas tank, turning on a home heater, or applying brakes to a wind turbine rotor. The controller can also emit telemetry and receive external commands from MMLs as needed.
+
+- **Control logic** keeps device state within the tolerable desired range. The current state is computed from sensor measurements. If the current state deviates from the desired state, the controller  takes corrective action by sending commands to the actuators. Examples of corrective actions include closing the valve of a natural gas tank, turning on a home heater, or applying brakes to a wind turbine rotor. The controller can also emit telemetry and receive external commands from MMLs as needed.
 
 ## See also
 - [Analyze and optimize loops](analyze-and-optimize-loop.md)

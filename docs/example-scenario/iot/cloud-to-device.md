@@ -45,7 +45,7 @@ The following considerations apply when using direct methods:
 
 ### Direct methods with protocol gateways
 
-IoT applications that use [protocol gateways](https://docs.microsoft.com/azure/iot-hub/iot-hub-protocol-gateway) can benefit from the direct methods connectivity enforcement and request-response model. Cloud or protocol gateways allow connecting pre-existing and diverse devices to IoT Hub by acting on behalf of devices to broker custom protocol communications. Protocol gateways can likewise abstract the direct methods model by serializing methods into device-compatible protocol messages.
+IoT applications that use [protocol gateways](https://docs.microsoft.com/azure/iot-hub/iot-hub-protocol-gateway) can benefit from the connectivity enforcement and request-response model of direct methods. Cloud or protocol gateways allow connecting pre-existing and diverse devices to IoT Hub by acting on behalf of devices to broker custom protocol communications. Protocol gateways can likewise abstract the direct methods model by serializing methods into device-compatible protocol messages.
 
 ![A diagram illustrating the sequence of direct methods calls to use a protocol gateway to broker custom protocol communication from a device to IoT Hub.](media/protocol-gateways.png)
 
@@ -53,6 +53,8 @@ IoT applications that use [protocol gateways](https://docs.microsoft.com/azure/i
 2. For the method implementation, the gateway translates the method into a device-specific protocol and sends the message to the device. The device is unaware of any changes to cloud implementation.
 3. When the device completes the message and responds, the gateway translate the device-specific status to the method response.
 4. The IoT Hub completes the direct method by populating a method result for the caller.
+
+The [Azure Protocol Gateway](https://docs.microsoft.com/azure/iot-hub/iot-hub-protocol-gateway) open-source project translates direct methods to MQTT protocol messages natively, is easily extensible, and demonstrates this programming model for other protocol adapters.
 
 ### Connected standby devices
 
@@ -66,7 +68,7 @@ IoT command scenarios may involve *connected standby devices* that are in a low-
 
 #### Use direct methods to determine device connection status
 
-Sending wakeup messages through SMS gateways can be costly. To avoid unnecessary expense, use the direct methods connection and method timeouts to determine whether a device is already connected to the hub and send a wakeup if necessary, before sending actual commands to the device.
+Sending unnecessary wakeup messages through SMS gateways is costly. Before sending actual commands to a device, use the connection and method timeouts to determine whether the device is connected, and send a wakeup if necessary.
 
 ```csharp
     TimeSpan connTimeOut = FromSeconds(0); // Period to wait for device to connect.
@@ -98,9 +100,12 @@ Sending wakeup messages through SMS gateways can be costly. To avoid unnecessary
     }
 ```
 
-To simply check connectivity, use an empty method with a connection timeout of zero to implement a simple ping:
-Example: `var method = new CloudToDeviceMethod("Ping", 0, 0);`
+To simply check connectivity, use an empty method with a connection timeout of zero to implement a simple ping. For example:
+```csharp
+var method = new CloudToDeviceMethod("Ping", 0, 0);
+```
 
 ## See also
 - [Cloud-to-device communications guidance](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-c2d-guidance) provides scenario-based guidance about when to use cloud-to-device messages or direct methods.
-- The [Azure Protocol Gateway](https://docs.microsoft.com/azure/iot-hub/iot-hub-protocol-gateway) open-source project translates direct methods to MQTT protocol messages natively, is easily extensible, and demonstrates this programming model for other protocol adapters.
+- [IoT devices, platform, and applications](devices-platform-application.md)
+- [Scale IoT solutions with application stamps](application-stamps.md)
