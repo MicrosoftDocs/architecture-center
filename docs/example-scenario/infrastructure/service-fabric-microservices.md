@@ -1,7 +1,7 @@
 ---
 title: Using Service Fabric to decompose applications
 titleSuffix: Azure Example Scenarios
-description: Decompose a large monolithic application into microservices.
+description: Learn about Azure Service Fabric as a platform for decomposing an unwieldy monolithic application into multiple, manageable microservices.
 author: timomta
 ms.date: 09/20/2018
 ms.category:

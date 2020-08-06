@@ -1,8 +1,8 @@
 ---
 title: 3D video rendering
 titleSuffix: Azure Example Scenarios
-description: Run native HPC workloads in Azure using the Azure Batch service.
-author: adamboeglin
+description: Use Azure Batch to manage existing Windows or Linux applications, including AutoDesk Maya and Blender, to run large-scale 3D video render jobs in Azure.
+author: doodlemania2
 ms.date: 07/13/2018
 ms.category:
   - compute

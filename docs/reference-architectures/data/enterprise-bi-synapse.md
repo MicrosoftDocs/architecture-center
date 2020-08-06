@@ -2,7 +2,7 @@
 title: Enterprise business intelligence
 titleSuffix: Azure Reference Architectures
 description: See an extract, load, and transform pipeline that moves data from an on-premises SQL Server database into Azure Synapse and transforms the data for analysis.
-author: adamboeglin
+author: doodlemania2
 ms.date: 11/20/2019
 ms.topic: reference-architecture
 ms.service: architecture-center

@@ -1,8 +1,8 @@
 ---
 title: Choose the right data store
 titleSuffix: Azure Application Architecture Guide
-description: Overview of choosing data stores in Azure.
-author: adamboeglin
+description: Use this overview of data stores in Azure to help choose a storage model and then a particular data store, based on features set, cost, and other factors.
+author: doodlemania2
 ms.date: 11/20/2019
 ms.topic: guide
 ms.service: architecture-center

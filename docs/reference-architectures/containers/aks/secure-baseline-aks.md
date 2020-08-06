@@ -2,7 +2,7 @@
 title: Baseline architecture for an Azure Kubernetes Service (AKS) cluster
 description: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster with focus on security.
 author: PageWriter-MSFT
-ms.date: 07/19/2020
+ms.date: 08/01/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.category:
@@ -23,13 +23,6 @@ and monitoring of the cluster based on an organization’s business requirements
 ![GitHub logo](../../../_images/github.png) An implementation of this architecture is available
 on [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). You can use it as a
 starting point and configure it as per your needs.
-
->[!div class="box has-box-shadow-medium has-margin-none has-margin-small-desktop"]
-> #### Company profile
-> This architecture is built for a fictitious company, Contoso Bicycle. The company is a small and fast-growing startup that provides online web services to its clientele in the west coast, North America. The web services are already running on Azure. The IT teams need guidance about architectural recommendations for running their web services in an AKS cluster.
-> - [Organization structure](case-study-contoso.md#organization-structure)
-> - [Business requirements](case-study-contoso.md#business-requirements)
-> - [Design and technology choices](case-study-contoso.md#design-and-technology-choices)
 
 ### Recommended content
 
@@ -91,6 +84,13 @@ Some advantages of this topology are:
 -   Segregated management. It allows for a way to apply governance and control
     the blast radius. It also supports the concept of landing zone with
     separation of duties.
+
+-   Minimizes direct exposure to Azure resources to the public internet.
+
+-   Organizations often operator with regional hub-spoke topologies. This way, the network can be expanded in the future and also provide workload isolation.
+
+-   All web applications should require a web application firewall (WAF) service to help
+    govern HTTP traffic flows.
 
 -   A natural choice for workloads that span multiple subscriptions.
 
@@ -232,7 +232,7 @@ For the user node pool, here are some considerations:
     count without recreating the cluster.
 
 -   Actual node sizes for your workload will depend on the requirements
-    determined by the design team. Based on the [requirements of the Contoso Bicycle company](case-study-contoso.md#business-requirements), we chose DS4_v2 for the production workload. To lower costs
+    determined by the design team. We chose DS4_v2 for the production workload. To lower costs
     one could drop the size to DS3_v2, which is the minimum recommendation.
 
 -   When planning capacity for your cluster, assume that your workload can
@@ -243,6 +243,9 @@ For the user node pool, here are some considerations:
     Increasing this value can impact performance because of an unexpected node
     failure or expected node maintenance events.
 
+-   Deploy the AKS cluster into an existing Azure Virtual Network spoke. Use the
+    existing Azure Firewall in the regional hub for securing outgoing traffic
+    from the cluster.
 
 #### Use Infrastructure as Code (IaC)
 
@@ -557,7 +560,7 @@ Gateway by using two different TLS certificates, as shown in this image.
 
 You can implement end-to-end TLS traffic all at every hop the way through to the
 workload pod. Be sure to measure the performance, latency, and operational
-impact when making the decision to secure pod-to-pod traffic.
+impact when making the decision to secure pod-to-pod traffic. For most single-tenant clusters, with proper control plane RBAC and mature Software Development Lifecycle practices in place, it is usually sufficient to TLS encrypt up through the ingress controller and protect with a Web Application Firewall (WAF); minimizing workload management concerns and network performance impacts. Your workload and compliance requirements will dictate where you perform [TLS termination](/azure/application-gateway/ssl-overview#tls-termination), if at all.
 
 #### Egress traffic flow
 

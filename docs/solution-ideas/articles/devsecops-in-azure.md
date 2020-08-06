@@ -1,7 +1,7 @@
 ---
 title: DevSecOps in Azure
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: DevSecOps involves utilizing security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning
 ms.custom: acom-architecture

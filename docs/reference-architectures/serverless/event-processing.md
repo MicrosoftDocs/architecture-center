@@ -1,7 +1,7 @@
 ---
 title: Serverless event processing
 description: Reference architecture for serverless event ingestion and processing using Azure Functions.
-author: adamboeglin
+author: doodlemania2
 ms.date: 10/16/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -161,6 +161,21 @@ Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estima
 
 For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
+
+## DevOps considerations
+
+Use Infrastructure as code (IaC) when possible. IaC manages the infrastructure, application, and storage resources with a declarative approach like [Azure Resource Manager][arm-template]. That will help in automating deployment using DevOps as a continuous integration and continuous delivery (CI/CD) solution. Templates should be versioned and included as part of the release pipeline. 
+
+When creating templates, group resources as a way to organize and isolate them per workload. A common way to think about workload is a single serveless application or a virtual network. The goal of workload isolation is to associate the resources to a team, so that the DevOps team can independently manage all aspects of those resources and perform CI/CD.
+
+This architecture includes steps to configure the Drone Status Function App using Azure Pipelines with YAML and Azure Functions Slots. 
+
+As you deploy your services you will need to monitor them. Consider using [Application Insights][app-insights] to enable the developers to monitor performance and detect issues.
+
+
+For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
+
+
 ## Deploy the solution
 
 To deploy this reference architecture, view the [GitHub readme][readme].
@@ -171,9 +186,35 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
-[Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator
-[cosmosdb]: https://docs.microsoft.com/azure/cosmos-db/introduction
+
+
+[AAF-cost]: https://docs.microsoft.com/azure/architecture/framework/cost/overview
+[AAF-devops]: https://docs.microsoft.com/azure/architecture/framework/devops/overview
+[app-insights]: https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
+[cosmosdb]: /azure/cosmos-db/introduction
+[cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
+[cosmosdb-scale]: /azure/cosmos-db/partition-data
+[cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
+[cosmosdb-sql]: /azure/cosmos-db/sql-api-introduction
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[eh]: /azure/event-hubs/
+[eh-autoscale]: /azure/event-hubs/event-hubs-auto-inflate
+[eh-dr]: /azure/event-hubs/event-hubs-geo-dr
+[eh-throughput]: /azure/event-hubs/event-hubs-scalability#throughput-units
+[eh-trigger]: /azure/azure-functions/functions-bindings-event-hubs
+[functions]: /azure/azure-functions/functions-overview
+[iot]: /azure/iot-hub/iot-hub-compare-event-hubs
+[log-analytics]: /azure/log-analytics/log-analytics-queries
+[monitor]: /azure/azure-monitor/overview
+[partition-key]: /azure/cosmos-db/partition-data
+[pipelines]: /azure/devops/pipelines/index
+[queue]: /azure/storage/queues/storage-queues-introduction
+[queue-binding]: /azure/azure-functions/functions-bindings-storage-queue-output
+[ra-grs]: /azure/storage/common/storage-redundancy-grs
+[ru]: /azure/cosmos-db/request-units
+
 [cosmosdb-geo]: https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally
 [cosmosdb-scale]: https://docs.microsoft.com/azure/cosmos-db/partition-data
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db

@@ -2,7 +2,7 @@
 title: Web-Queue-Worker architecture style
 titleSuffix: Azure Application Architecture Guide
 description: Describes benefits, challenges, and best practices for Web-Queue-Worker architectures on Azure.
-author: adamboeglin
+author: doodlemania2
 ms.date: 04/10/2019
 ms.topic: guide
 ms.service: architecture-center

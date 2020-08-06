@@ -1,7 +1,7 @@
 ---
 title: Image classification with Convolutional Neural Networks
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Explore transfer learning, convolutional neural networks, and gradient-boosting decision tree algorithms.
 ms.custom: acom-architecture, convolutional neural network, discrete manufacturing, decision tree algorithm, image classification, gradient boosting decision tree, ai-ml, failure detection, automated manufacturing solutions, 'https://azure.microsoft.com/solutions/architecture/image-classification-with-convolutional-neural-networks/'
@@ -31,7 +31,6 @@ Using this solution to automate failure detection instead of relying solely on h
 
 * Azure Blob Storage: Data is ingested and stored in Azure Blob Storage.
 * GPU based Azure Data Science Virtual Machine: The core development environment is the Azure Ubuntu-based GPU DSVM. The data is pulled from blob onto an Azure virtual hard disk (VHD) attached to the DSVM. On that VHD, the data is processed, the images are featurized using a Deep Neural Network, and a Boosted Tree model is trained. DSVM IPython Notebook server is used for solution development.
-* Azure Batch AI training (BAIT): As an alternative to DSVM-based training, for computing-intensive jobs that use deep-learning image processing, we use BAIT as a managed Azure Batch framework for parallel and distributed computing using clusters of GPU compute nodes.
 * Microsoft Machine Learning for Apache Spark HDInsight Spark Cluster: As an alternative to DSVM-based training, for big datasets, we use MMLSpark to build a highly scalable training solution.
 * Azure Container Registry: The model and web application are packaged into a Docker image and written to Azure Container Registry.
 * Azure Machine Learning Model Management Service: Azure Machine Learning Model Management service is used to deploy and manage the final model on a VM and to scale out using Azure Kubernetes Service to a Kubernetes managed Azure cluster. A predictive web service and a Java ETL service are also written onto the VM, each in its own container.
@@ -40,7 +39,6 @@ Using this solution to automate failure detection instead of relying solely on h
 ## Next steps
 
 * [Learn more about Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
-* [Learn more about Batch AI Training](https://azure.microsoft.com/roadmap/azure-batch-ai-training-for-deep-learning-models)
 * [Browse on GitHub](https://github.com/azure/mmlspark)
 * [Learn more about Azure Container Registry](https://azure.microsoft.com/services/container-registry)
 * [Learn more about Model Management](/azure/machine-learning/concept-model-management-and-deployment)

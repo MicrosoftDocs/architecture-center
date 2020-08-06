@@ -1,8 +1,8 @@
 ---
 title: Criteria for choosing a data store
 titleSuffix: Azure Application Architecture Guide
-description: Overview of Azure compute options.
-author: adamboeglin
+description: Learn about the comparison criteria to use when evaluating a data store to help you determine which data storage types can meet your requirements.
+author: doodlemania2
 ms.date: 06/01/2018
 ms.topic: guide
 ms.service: architecture-center

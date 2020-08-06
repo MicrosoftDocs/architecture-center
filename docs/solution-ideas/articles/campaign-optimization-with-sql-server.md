@@ -1,7 +1,7 @@
 ---
 title: Campaign Optimization with SQL Server
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: This solution demonstrates how to build and deploy a machine learning model with SQL Server 2016 with R Services to recommend actions to maximize the purchase rate of leads targeted by a campaign.
 ms.custom: acom-architecture, artificial intelligence, sql-server, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/campaign-optimization-with-sql-server/'
