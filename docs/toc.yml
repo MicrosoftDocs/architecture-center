@@ -1108,9 +1108,9 @@ items:
         - name: Measure and control loops
           href: example-scenario/iot/measure-and-control-loop.md
         - name: Wind farm example
-          href: example-scenario/iot/energy-domain-markdown.md
+          href: example-scenario/iot/energy-domain-example.md
         - name: Strawberry farm example
-          href: example-scenario/iot/observe-strawberry-farm.md
+          href: example-scenario/iot/strawberry-farm-example.md
       - name: Builders, developers, and operators
         href: example-scenario/iot/builders-developers-operators.md
       - name: IoT devices, platform, and applications
