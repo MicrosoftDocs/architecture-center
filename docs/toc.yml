@@ -1143,7 +1143,6 @@ items:
           href: example-scenario/banking/banking-system-cloud-transformation.md
         - name: JMeter reference
           href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.md
-        href: example-scenario/cobalt/cobalt-extensible-cloud-framework.md
       - name: Lift and shift LOB apps
         href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md
       - name: Lift and shift with AKS
