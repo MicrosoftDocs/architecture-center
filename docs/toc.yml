@@ -1139,7 +1139,7 @@ items:
         href: solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.md
       - name: Banking system
         items:
-        - name: Cloud transformation
+        - name: Banking cloud transformation
           href: example-scenario/banking/banking-system-cloud-transformation.md
         - name: JMeter reference
           href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.md
