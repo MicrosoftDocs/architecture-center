@@ -1,8 +1,8 @@
 ---
 title: Condition Monitoring for Industrial IoT
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
-ms.date: 04/17/2020
+author: doodlemania2
+ms.date: 08/05/2020
 description: This example demonstrates how manufacturers can connect their assets to the cloud using OPC UA and the Industrial Components.
 ms.custom: acom-architecture
 ms.service: architecture-center
@@ -15,9 +15,11 @@ ms.author: losampai
 social_image_url: /azure/architecture/solution-ideas/media/condition-monitoring.png
 ---
 
+[!INCLUDE [header_file](../header.md)]
+
 # Condition Monitoring for Industrial IoT
 
-This example demonstrates how manufacturers can connect their assets to the cloud using OPC UA and the Industrial Components. They can monitor their equipment's key parameters to discover anomalies before they become critical issues.
+This example scenario demonstrates how end manufacturers can connect their assets to the cloud using OPC UA (Open Platform Communication Unified Architecture) and the Industrial Components. They can monitor their equipment's key parameters to discover anomalies before they become critical issues. OPC UA is a platform-independent and service-oriented interoperability standard for a secure and reliable data exchange. OPC UA is used by various industrial systems and devices such as industry PCs, PLCs, and sensors. It's a standard that is driven by the OPC Foundation.
 
 ## Architecture
 
@@ -55,9 +57,6 @@ Data is loaded from these different data sources using several Azure components:
 - [Power BI](/power-bi) is a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
 - Azure Stream Analytics
 - [Azure Functions](/azure/azure-functions/) allows you to run small pieces of code (called "functions") without worrying about application infrastructure. Azure Function is a great solution for processing bulk data, integrating systems, working with the internet-of-things (IoT), and building simple APIs and micro-services.
-
-##
-
 
 ## Next Steps
 
