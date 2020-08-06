@@ -1062,7 +1062,7 @@ items:
       - name: IoT reference architecture
         href: reference-architectures/iot.md
       - name: Condition Monitoring
-        href: solution-idea/articles/condition-monitoring.md
+        href: solution-ideas/articles/condition-monitoring.md
       - name: IoT and data analytics
         href: example-scenario/data/big-data-with-iot.md
       - name: IoT devices
@@ -1070,7 +1070,7 @@ items:
       - name: IoT using Cosmos DB
         href: solution-ideas/articles/iot-using-cosmos-db.md
       - name: Predictive Maintenance for Industrial IoT
-        href: solution-idea/articles/iot-predictive-maintenance.md
+        href: solution-ideas/articles/iot-predictive-maintenance.md
       - name: IoT Connected Platform
         href: solution-ideas/articles/iot-connected-platform.md
       - name: Contactless IoT interfaces
