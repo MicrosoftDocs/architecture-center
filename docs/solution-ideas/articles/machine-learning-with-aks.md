@@ -1,7 +1,7 @@
 ---
 title: Machine Learning model training with AKS
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Machine Learning with AKS
 ms.custom: acom-architecture, chat, signalr service, interactive-diagram, devops, microservices, ai-ml, 'https://azure.microsoft.com/solutions/architecture/machine-learning-with-aks/'
@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/machine-lear
 
 # Machine Learning model training with AKS
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Training of models using large datasets is a complex and resource intensive task. Use familiar tools such as TensorFlow and Kubeflow to simplify training of Machine Learning models. Your ML models will run in AKS clusters backed by GPU enabled VMs.
 

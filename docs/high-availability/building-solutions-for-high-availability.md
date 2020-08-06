@@ -82,8 +82,8 @@ support resiliency.
 <hr />
 </div>
 
-When architecting for resilience, all three layers—foundation, services, and
-applications—should be considered to achieve the highest level of reliability.
+When architecting for resilience, all three layers-foundation, services, and
+applications-should be considered to achieve the highest level of reliability.
 Since a solution can be made up of many components, each component should be
 designed for reliability.
 
@@ -108,8 +108,8 @@ requirements. Resiliency is self-architected by replicating applications and
 data to one or more zones within the region. You can choose specific
 Availability Zones for synchronous replication, providing high availability, or
 asynchronous replication, providing backup or cost advantage. You can pin
-resources—for example, virtual machines, managed disks, or standard IP
-addresses—to a specific zone, allowing for increased resilience by having one or
+resources-for example, virtual machines, managed disks, or standard IP
+addresses-to a specific zone, allowing for increased resilience by having one or
 more instances of resources spread across zones.
 
 With *zone-redundant* architecture, the Azure platform automatically replicates
@@ -121,7 +121,7 @@ A failure to a zone affects zonal and zone-redundant services differently. In
 the case of a zone failure, the zonal services in the failed zone become
 unavailable until the zone has recovered. By architecting your solutions to use
 replicated VMs in zones, you can protect your applications and data from a zone
-becoming unavailable—for example, due to a power outage. If one zone is
+becoming unavailable-for example, due to a power outage. If one zone is
 compromised, replicated apps and data are instantly available in another zone.
 
 Zonal architecture applies to a specific resource, typically an infrastructure
@@ -165,90 +165,89 @@ services.
 
  **Analytics** 
 
--   **Azure Data Explorer (ZR)**
+- **Azure Data Explorer (ZR)**
 
--   **Azure Event Hubs (ZR)**
+- **Azure Event Hubs (ZR)**
 
 **Compute**
 
--   **Linux virtual machines (Z)**
+- **Linux virtual machines (Z)**
 
--   **Windows virtual machines (Z)**
+- **Windows virtual machines (Z)**
 
--   **Virtual machine scale sets (Z, ZR)**
+- **Virtual machine scale sets (Z, ZR)**
 
--   **Azure App Service (Z)**
+- **Azure App Service (Z)**
 
 **Containers**
 
--   **Azure Kubernetes Service (AKS) (Z)**
+- **Azure Kubernetes Service (AKS) (Z)**
 
--   **Azure Service Fabric (Z)**
+- **Azure Service Fabric (Z)**
 
 **Databases**
 
--   **Azure SQL Database (ZR)**
+- **Azure SQL Database (ZR)**
 
--   **Azure Cache for Redis (Z, ZR)**
+- **Azure Cache for Redis (Z, ZR)**
 
--   **Azure Cosmos DB (ZR)**
+- **Azure Cosmos DB (ZR)**
 
 **DevOps**
 
--   **Azure DevOps (ZR)**
+- **Azure DevOps (ZR)**
 
 **Identity**
 
--   **Azure Active Directory Domain Services (ZR)**
+- **Azure Active Directory Domain Services (ZR)**
 
 **Integration**
 
--   **Azure Event Grid (ZR)**
+- **Azure Event Grid (ZR)**
 
--   **Azure Service Bus (ZR)** 
+- **Azure Service Bus (ZR)** 
     </td>
     <td> 
 
 **Management and governance** 
 
--   **Azure Traffic Manager (ZR)** 
+- **Azure Traffic Manager (ZR)** 
 
 **Networking**
 
--   **Azure Load Balancer (Z, ZR)**
+- **Azure Load Balancer (Z, ZR)**
 
--   **VPN gateway (ZR)**
+- **VPN gateway (ZR)**
 
--   **Azure ExpressRoute (ZR)**
+- **Azure ExpressRoute (ZR)**
 
--   **Azure Application Gateway (ZR)**
+- **Azure Application Gateway (ZR)**
 
--   **Azure Firewall (ZR)**
+- **Azure Firewall (ZR)**
 
--   **Azure Virtual WAN (ZR)**
+- **Azure Virtual WAN (ZR)**
 
 **Security**
 
--   **Azure Active Directory Domain Services (ZR)**
+- **Azure Active Directory Domain Services (ZR)**
 
 **Storage**
 
--   **Azure Data Lake Storage (ZRS)**
+- **Azure Data Lake Storage (ZRS)**
 
--   **Azure Blob storage (ZRS, ZR)**
+- **Azure Blob storage (ZRS, ZR)**
 
--   **Azure Managed Disks (Z)**
+- **Azure Managed Disks (Z)**
 
 **Additional capabilities**
 
--   **Azure Premium Files (ZRS)**
+- **Azure Premium Files (ZRS)**
 
--   **Zone-redundant storage (ZRS)**
+- **Zone-redundant storage (ZRS)**
 
--   **Standard IP address (ZR)**
+- **Standard IP address (ZR)**
 
--   **Azure Traffic Analytics (ZR)**
-
+- **Azure Traffic Analytics (ZR)**
        </td> 
     </tr> 
 </table>
@@ -278,31 +277,31 @@ of Availability Sets can increase the level of SLA to 99.95% by protecting a set
 of VMs, ensuring they will not all be on the same hardware. Within a region, VM
 workloads can be distributed across Availability Zones to increase the SLA to
 99.99%. For more information, refer to [Availability options for VMs in
-Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability).
+Azure](/azure/virtual-machines/availability).
 
 Every organization has unique requirements, and you should design your
 applications to best meet your complex business needs. Defining a target SLA
 will make it possible to evaluate whether the architecture meets your business
 requirements. Some things to consider include:
 
--   What are the availability requirements?
+- What are the availability requirements?
 
--   How much downtime is acceptable?
+- How much downtime is acceptable?
 
--   How much will potential downtime cost your business?
+- How much will potential downtime cost your business?
 
--   How much should you invest in making the application highly available?
+- How much should you invest in making the application highly available?
 
--   What are the data backup requirements?
+- What are the data backup requirements?
 
--   What are the data replication requirements?
+- What are the data replication requirements?
 
--   What are the monitoring requirements?
+- What are the monitoring requirements?
 
--   Does your application have specific latency requirements?
+- Does your application have specific latency requirements?
 
-For additional guidance, refer to [Azure Architecture Framework define
-requirements](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview#define-requirements).
+For additional guidance, refer to [Microsoft Azure Well-Architected Framework define
+requirements](../framework/resiliency/overview.md#define-requirements).
 
 Depending on the availability needs of an application, the cost and design
 complexity will vary. When building for a VM workload, there will be a cost

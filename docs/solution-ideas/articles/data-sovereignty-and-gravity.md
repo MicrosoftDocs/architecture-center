@@ -1,7 +1,7 @@
 ---
 title: Custom Data Sovereignty & Data Gravity Requirements
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Learn how to set custom data sovereignty and data gravity requirements in the cloud with Azure Stack. Find a step-by-step flow chart to implement this solution.
 ms.custom: acom-architecture, cloud data sovereignty, data gravity cloud, azure data sovereignty, data gravity, data sovereignty, data sovereignty requirements, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/data-sovereignty-and-gravity/'
@@ -15,9 +15,9 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/data-soverei
 
 # Custom Data Sovereignty & Data Gravity Requirements
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Azure with Azure Stack enables organizations to make technology placement decisions based on business needs—simplifying meeting custom compliance, sovereignty, and data gravity requirements.
+Azure with Azure Stack enables organizations to make technology placement decisions based on business needs-simplifying meeting custom compliance, sovereignty, and data gravity requirements.
 
 ## Architecture
 

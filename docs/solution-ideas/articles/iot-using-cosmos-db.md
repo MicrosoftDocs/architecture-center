@@ -11,6 +11,9 @@ ms.category:
   - iot
   - databases
 ---
+
+<!-- cSpell:ignore khilscher Etcd Jupyter eventhubs -->
+
 # IoT using Cosmos DB
 
 Scale instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.
@@ -49,15 +52,15 @@ This architecture uses the following Azure components:
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) acts as the cloud gateway, ingesting device telemetry at-scale. IoT Hub also supports bi-directional communication back to devices, allowing actions to be sent from the cloud or [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) to the device. Azure IoT Edge can be used to run applications at the edge, such as machine learning models.
 - [Azure Databricks](https://azure.microsoft.com/services/databricks) with Apache Spark Streaming is located in the transformation and analytics layer. Databricks uses the azure-eventhubs-spark_2.11:2.3.6 Maven library to connect to IoT Hub's Event Hub compatible endpoint. Apache Spark Streaming is a scalable fault-tolerant streaming processing system that natively supports both batch and streaming workloads.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a globally distributed, multi-model database.
-    - Consistency Levels - Cosmos DB supports 5 consistency levels (Strong, Bounded Staleness, Session, Consistent Prefix, Eventual) allowing you to make the tradeoff between the read consistency vs. availability, latency, and throughput.
-    - TTL - Azure Cosmos DB provides the ability to delete items automatically from a container after a certain time period. This allows Cosmos DB to act as a hot data store for recent data, with long-term data stored in Azure Blob cold storage.
-    - Change Feed - Outputs a sorted list of documents that were changed in the order in which they were modified. You can create small reactive Azure Functions that will be automatically triggered on each new event in your Azure Cosmos container's change feed. Depending on the contents of the JSON document, the Azure Function can connect to Azure IoT Hub Service API and execute an action on the device using Device Twin, Cloud to Device messaging, or Direct Methods.
-    - Request Unit (RU) - Is the measure of throughput in Azure Cosmos DB. RUs are compute units for both performance and cost. With RUs, you can dynamically scale up and down while maintaining availability, optimizing for cost, performance and availability at the same time.
-    - Partitioning - The partition key is what will determine how data is routed in the various partitions by Cosmos DB and needs to make sense in the context of your specific scenario. The IoT Device Id is generally the “natural” partition key for IoT applications.
-- [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) is the relational database for transactional and other non-IoT data.
+  - Consistency Levels - Cosmos DB supports 5 consistency levels (Strong, Bounded Staleness, Session, Consistent Prefix, Eventual) allowing you to make the tradeoff between the read consistency vs. availability, latency, and throughput.
+  - TTL - Azure Cosmos DB provides the ability to delete items automatically from a container after a certain time period. This allows Cosmos DB to act as a hot data store for recent data, with long-term data stored in Azure Blob cold storage.
+  - Change Feed - Outputs a sorted list of documents that were changed in the order in which they were modified. You can create small reactive Azure Functions that will be automatically triggered on each new event in your Azure Cosmos container's change feed. Depending on the contents of the JSON document, the Azure Function can connect to Azure IoT Hub Service API and execute an action on the device using Device Twin, Cloud to Device messaging, or Direct Methods.
+  - Request Unit (RU) - Is the measure of throughput in Azure Cosmos DB. RUs are compute units for both performance and cost. With RUs, you can dynamically scale up and down while maintaining availability, optimizing for cost, performance and availability at the same time.
+  - Partitioning - The partition key is what will determine how data is routed in the various partitions by Cosmos DB and needs to make sense in the context of your specific scenario. The IoT Device Id is generally the “natural” partition key for IoT applications.
+- [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) is the relational database for transactional and other non-IoT data.
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) is the data warehouse and reporting platform, containing aggregated data from Azure SQL and Cosmos DB. For enterprise data warehousing and big data analytics.
 - [Power BI](https://powerbi.microsoft.com/) is a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Azure Analysis Services, or it can query Azure Synapse directly.
-- [Azure App Services](/azure/app-service/app-service-web-overview) can be used to build web and mobile applications. [Azure API App](https://azure.microsoft.com/services/app-service/api) can be used to expose data to third parties, based on the data stored in the Serving Layer.
+- [Azure App Services](https://docs.microsoft.com/azure/app-service/app-service-web-overview) can be used to build web and mobile applications. [Azure API App](https://azure.microsoft.com/services/app-service/api) can be used to expose data to third parties, based on the data stored in the Serving Layer.
 - [Azure Functions](https://azure.microsoft.com/services/functions) can be used to translate IoT message payloads (for example, from binary to JSON) or trigger actions when connected to Cosmos DB Change Feed. Azure Functions is an event-driven serverless compute platform. Build and debug locally without additional setup, deploy and operate at scale in the cloud, and integrate services using triggers and bindings.
 
 ## Alternatives
@@ -68,17 +71,17 @@ This architecture uses the following Azure components:
 ## Considerations
 
 - Cosmos DB has a [20-GB limit](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview) (in the past it was 10GB) for a single logical partition. For most IoT solutions, this size is sufficient. If not, we recommend either:
-    - Setting the partition key to an artificial field and assign a composite value (for example, Device ID + Current Month and Year). This will ensure an extremely high cardinality of values.
-    - Tier old Cosmos DB data out to cold storage (for example, Azure Blob Storage) using a combination of TTL to automatically prune data from Cosmos DB and change feed to replicate data to cold storage.
+  - Setting the partition key to an artificial field and assign a composite value (for example, Device ID + Current Month and Year). This will ensure an extremely high cardinality of values.
+  - Tier old Cosmos DB data out to cold storage (for example, Azure Blob Storage) using a combination of TTL to automatically prune data from Cosmos DB and change feed to replicate data to cold storage.
 
-## Next Steps
+## Next steps
 
 Review the following articles on IoT and Cosmos DB.
 
-- [Azure IoT reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/)
-- [IoT Solutions and Cosmos DB](https://techcommunity.microsoft.com/t5/internet-of-things/iot-solutions-and-azure-cosmos-db/ba-p/1015605)
-- [Cosmos DB Change Feed](https://docs.microsoft.com/azure/cosmos-db/change-feed)
-- [Cosmos DB TTL](https://docs.microsoft.com/azure/cosmos-db/time-to-live)
-- [Cosmos DB Consistency Levels](https://docs.microsoft.com/azure/cosmos-db/consistency-levels)
-- [Cosmos DB Request Units](https://docs.microsoft.com/azure/cosmos-db/request-units)
-- [Cosmos DB Partitioning](https://docs.microsoft.com/azure/cosmos-db/partition-data)
+- [Azure IoT reference architecture](../../reference-architectures/iot.md)
+- [IoT solutions and Cosmos DB](https://techcommunity.microsoft.com/t5/internet-of-things/iot-solutions-and-azure-cosmos-db/ba-p/1015605)
+- [Change feed in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/change-feed)
+- [Time to Live (TTL) in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/time-to-live)
+- [Consistency levels in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/consistency-levels)
+- [Request Units in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/request-units)
+- [Partitioning and horizontal scaling in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/partition-data)

@@ -1,8 +1,8 @@
 ---
-title: Serverless web application 
+title: Serverless web application
 titleSuffix: Azure Reference Architectures
 description: Recommended architecture for a serverless web application and web API.
-author: MikeWasson
+author: doodlemania2
 ms.date: 05/28/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -20,6 +20,7 @@ This reference architecture shows a [serverless](https://azure.microsoft.com/sol
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
 
 ![Reference architecture for a serverless web application](./_images/serverless-web-app.png)
+*Download an [SVG](./_images/serverless-web-app.svg) of this architecture.* | *Download an [Visio](./_images/serverless-web-app.vsdx) of this architecture.*
 
 The term serverless has two distinct but related meanings:
 
@@ -94,6 +95,8 @@ Use Functions [bindings][functions-bindings] when possible. Bindings provide a d
 
 For example, the `GetStatus` function in the reference implementation uses the Cosmos DB [input binding][cosmosdb-input-binding]. This binding is configured to look up a document in Cosmos DB, using query parameters that are taken from the query string in the HTTP request. If the document is found, it is passed to the function as a parameter.
 
+<!-- cSpell:ignore CosmosDB -->
+
 ```csharp
 [FunctionName("GetStatusFunction")]
 public static Task<IActionResult> Run(
@@ -128,7 +131,7 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 - Use [Traffic Manager][tm] to route HTTP requests to the primary region. If the Function App running in that region becomes unavailable, Traffic Manager can fail over to a secondary region.
 
-- Cosmos DB supports [multiple master regions][cosmosdb-geo], which enables writes to any region that you add to your Cosmos DB account. If you don't enable multi-master, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don't need to update any application configuration settings.
+- Cosmos DB supports [multiple write regions][cosmosdb-geo], which enables writes to any region that you add to your Cosmos DB account. If you don't enable multi-write, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don't need to update any application configuration settings.
 
 ## Security considerations
 
@@ -165,7 +168,7 @@ In many applications, the back-end API must check whether a user has permission 
 
 The ID token that Azure AD returns to the client contains some of the user's claims. Within the function app, these claims are available in the X-MS-CLIENT-PRINCIPAL header of the request. However, it's simpler to read this information from binding data. For other claims, use [Microsoft Graph][graph] to query Azure AD. (The user must consent to this action when signing in.)
 
-For more information, see [Working with client identities](/azure/azure-functions/functions-bindings-http-webhook-trigger#working-with-client-identities
+For more information, see [Working with client identities](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger#working-with-client-identities
 ).
 
 ### CORS
@@ -300,7 +303,7 @@ In this reference architecture the deployment resides in a single Azure region.
 
 To lower costs, consider increasing the cache TTL by caching resource files for a longer duration and setting the longest TTL possible on your content.
 
-For more information, see the Cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 ## Deploy the solution
 
@@ -319,52 +322,49 @@ Related guidance:
 
 [aaf-cost]: https://docs.microsoft.com/azure/architecture/framework/cost/overview
 [api-versioning]: ../../best-practices/api-design.md#versioning-a-restful-web-api
-[apim]: /azure/api-management/api-management-key-concepts
-[apim-ip]: /azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services
-[api-geo]: /azure/api-management/api-management-howto-deploy-multi-region
-[apim-scale]: /azure/api-management/api-management-howto-autoscale
-[apim-validate-jwt]: /azure/api-management/api-management-access-restriction-policies#ValidateJWT
-[apim-versioning]: /azure/api-management/api-management-get-started-publish-versions
-[apim-versioning-schemes]: /azure/api-management/api-management-get-started-publish-versions#choose-a-versioning-scheme
-[app-service-auth]: /azure/app-service/app-service-authentication-overview
-[app-service-ip-restrictions]: /azure/app-service/app-service-ip-restrictions
-[app-service-security]: /azure/app-service/app-service-security
-[ase]: /azure/app-service/environment/intro
-[azure-messaging]: /azure/event-grid/compare-messaging-services
+[apim]: https://docs.microsoft.com/azure/api-management/api-management-key-concepts
+[apim-ip]: https://docs.microsoft.com/azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services
+[api-geo]: https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region
+[apim-scale]: https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale
+[apim-validate-jwt]: https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies#ValidateJWT
+[apim-versioning]: https://docs.microsoft.com/azure/api-management/api-management-get-started-publish-versions
+[apim-versioning-schemes]: https://docs.microsoft.com/azure/api-management/api-management-get-started-publish-versions#choose-a-versioning-scheme
+[app-service-auth]: https://docs.microsoft.com/azure/app-service/app-service-authentication-overview
+[app-service-ip-restrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
+[app-service-security]: https://docs.microsoft.com/azure/app-service/app-service-security
+[ase]: https://docs.microsoft.com/azure/app-service/environment/intro
+[azure-messaging]: https://docs.microsoft.com/azure/event-grid/compare-messaging-services
 [claims]: https://en.wikipedia.org/wiki/Claims-based_identity
-[cdn]: https://azure.microsoft.com/services/cdn/
-[cdn-https]: /azure/cdn/cdn-custom-ssl
-[cors-policy]: /azure/api-management/api-management-cross-domain-policies
-[Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
-[cosmosdb]: /azure/cosmos-db/introduction
-[cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
-[cosmosdb-input-binding]: /azure/azure-functions/functions-bindings-cosmosdb-v2-input
-[cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
-[cosmosdb-scale]: /azure/cosmos-db/partition-data
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
+[cdn]: https://azure.microsoft.com/services/cdn
+[cdn-https]: https://docs.microsoft.com/azure/cdn/cdn-custom-ssl
+[cors-policy]: https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies
+[cosmosdb]: https://docs.microsoft.com/azure/cosmos-db/introduction
+[cosmosdb-geo]: https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally
+[cosmosdb-input-binding]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb-v2-input
+[cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
+[cosmosdb-scale]: https://docs.microsoft.com/azure/cosmos-db/partition-data
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [event-driven]: ../../guide/architecture-styles/event-driven.md
-[functions]: /azure/azure-functions/functions-overview
-[functions-bindings]: /azure/azure-functions/functions-triggers-bindings
-[functions-cold-start]: https://blogs.msdn.microsoft.com/appserviceteam/2018/02/07/understanding-serverless-cold-start/
-[functions-https]: /azure/app-service/app-service-web-tutorial-custom-ssl#enforce-https
-[functions-proxy]: /azure/azure-functions/functions-proxies
-[functions-run-from-package]: /azure/azure-functions/run-functions-from-deployment-package
-[functions-scale]: /azure/azure-functions/functions-scale
-[functions-timeout]: /azure/azure-functions/functions-scale#consumption-plan
-[functions-zip-deploy]: /azure/azure-functions/deployment-zip-push
+[functions]: https://docs.microsoft.com/azure/azure-functions/functions-overview
+[functions-bindings]: https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings
+[functions-cold-start]: https://blogs.msdn.microsoft.com/appserviceteam/2018/02/07/understanding-serverless-cold-start
+[functions-https]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl#enforce-https
+[functions-proxy]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[functions-run-from-package]: https://docs.microsoft.com/azure/azure-functions/run-functions-from-deployment-package
+[functions-scale]: https://docs.microsoft.com/azure/azure-functions/functions-scale
+[functions-timeout]: https://docs.microsoft.com/azure/azure-functions/functions-scale#consumption-plan
 [graph]: https://developer.microsoft.com/graph/docs/concepts/overview
-[key-vault-web-app]: /azure/key-vault/tutorial-web-application-keyvault
+[key-vault-web-app]: https://docs.microsoft.com/azure/key-vault/tutorial-web-application-keyvault
 [microservices-domain-analysis]: ../../microservices/model/domain-analysis.md
-[monitor]: /azure/azure-monitor/overview
+[monitor]: https://docs.microsoft.com/azure/azure-monitor/overview
 [oauth-flow]: https://auth0.com/docs/api-auth/which-oauth-flow-to-use
-[partition-key]: /azure/cosmos-db/partition-data
-[pipelines]: /azure/devops/pipelines/index
-[ru]: /azure/cosmos-db/request-units
-[scopes]: /azure/active-directory/develop/v2-permissions-and-consent
-[static-hosting]: /azure/storage/blobs/storage-blob-static-website
-[static-hosting-preview]: https://azure.microsoft.com/blog/azure-storage-static-web-hosting-public-preview/
-[storage-https]: /azure/storage/common/storage-require-secure-transfer
-[tm]: /azure/traffic-manager/traffic-manager-overview
+[partition-key]: https://docs.microsoft.com/azure/cosmos-db/partition-data
+[pipelines]: https://docs.microsoft.com/azure/devops/pipelines/index
+[ru]: https://docs.microsoft.com/azure/cosmos-db/request-units
+[scopes]: https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent
+[static-hosting]: https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website
+[storage-https]: https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer
+[tm]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview
 
 [github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0-update
 [readme]: https://github.com/mspnp/serverless-reference-implementation/blob/v0.1.0-update/README.md

@@ -1,7 +1,7 @@
 ---
 title: Commerce Chatbot
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Together, the Azure Bot Service and Language Understanding service enable developers to create conversational interfaces for various scenarios like banking, travel, and entertainment. For example, a hotel's concierge can use a bot to enhance traditional e-mail and phone call interactions by validating a customer via Azure Active Directory and using Cognitive Services to better contextually process customer requests using text and voice. The Speech recognition service can be added to support voice commands.
 ms.custom: acom-architecture, chatbot, bot service, luis, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/commerce-chatbot/'
@@ -15,13 +15,13 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/commerce-cha
 
 # Commerce Chatbot
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Together, the Azure Bot Service and Language Understanding service enable developers to create conversational interfaces for various scenarios like banking, travel, and entertainment. For example, a hotel's concierge can use a bot to enhance traditional e-mail and phone call interactions by validating a customer via Azure Active Directory and using Cognitive Services to better contextually process customer requests using text and voice. The Speech recognition service can be added to support voice commands.
 
 ## Architecture
 
-![Architecture diagram](../media/commerce-chatbot.png)
+![Architecture diagram](../media/commerce-chatbot.svg)
 *Download an [SVG](../media/commerce-chatbot.svg) of this architecture.*
 
 ## Data Flow

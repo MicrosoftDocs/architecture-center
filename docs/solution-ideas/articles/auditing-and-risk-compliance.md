@@ -1,7 +1,7 @@
 ---
 title: Auditing, risk, and compliance management
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Developers could use knowledge mining to help attorneys quickly identify entities of importance from discovery documents and flag important ideas across documents
 ms.custom: acom-architecture
@@ -12,6 +12,8 @@ ms.subservice: solution-idea
 ms.author: pracjain
 social_image_url: /azure/architecture/solution-ideas/articles/media/auditing-and-risk-compliance.png
 ---
+
+<!-- cSpell:ignore pracjain -->
 
 # Auditing, risk, and compliance management
 
@@ -29,7 +31,7 @@ Ingest, Enrich and Exploration. First, the unstructured and structured data is i
 
 1. The user can ingest different types of content like affidavits, meeting minutes, operating agreements, non-disclosure agreements, privacy policies, terms of use, memorandums of understanding, licensing agreements, letters of intent, power of attorney, deeds, discovery documentation,company bylaws, operating agreements, bank statements, legal agreements, balance sheets, income statements, cash flow statements, company disclosures, SEC documents, annual reports, transcripts from shareholder meetings
 2. This content is enriched by using key phrase extraction, language detection, language translation,entity extraction (organizations and people) and custom models to identify certain regulatory obligations and custom models to identify specific legal terms and clauses
-3. And finally, the user can index data in a searchable internal application or leverage the data for a searchable web application for financial risks
+3. And finally, the user can index data in a searchable internal application or use the data for a searchable web application for financial risks
 
 ## Components
 

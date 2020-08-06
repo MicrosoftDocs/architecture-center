@@ -87,7 +87,8 @@ For Active Directory-specific security considerations, see the security consider
 For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.md#devops-considerations).
 
 ## Cost considerations
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Azure Architecture Framework][aaf-cost]. 
+
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 Here are cost considerations for the services used in this architecture.
 
@@ -97,12 +98,11 @@ Consider having Active Directory Domain Services as a shared service that is con
 
 ### Azure VPN Gateway
 
-The main component of this architecture is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available. 
+The main component of this architecture is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available.
 
 All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.  
 
 For more information, see [VPN Gateway Pricing][azure-gateway-charges].
-
 
 ## Deploy the solution
 
@@ -112,7 +112,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 1. Clone, fork, or download the zip file for the [GitHub repository](https://github.com/mspnp/identity-reference-architectures).
 
-2. Install [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
+2. Install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 3. Install the [Azure building blocks](https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks) npm package.
 
@@ -181,30 +181,19 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
-[adds-extend-domain]: adds-extend-domain.md
-[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
-[adfs]: adfs.md
-[azure-cli-2]: /azure/install-azure-cli
-[azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway/
-[azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
-[AAF-devops]: /azure/architecture/framework/devops/overview
-[running-VMs-for-an-N-tier-architecture-on-Azure]: ../virtual-machines-windows/n-tier.md
-
-[ad-azure-guidelines]: https://msdn.microsoft.com/library/azure/jj156090.aspx
-[azure-expressroute]: /azure/expressroute/expressroute-introduction
-[azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
-[considerations]: ./considerations.md
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
+[aaf-cost]: ../../framework/cost/overview.md
+[adds-extend-domain]: ./adds-extend-domain.md
+[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
+[adfs]: ./adfs.md
+[azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway
+[azure-expressroute]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
+[azure-vpn-gateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
+[considerations]: ./index.md
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [creating-external-trusts]: https://technet.microsoft.com/library/cc816837(v=ws.10).aspx
 [creating-forest-trusts]: https://technet.microsoft.com/library/cc816810(v=ws.10).aspx
 [github]: https://github.com/mspnp/identity-reference-architectures/tree/master/adds-forest
-[incoming-trust]: https://raw.githubusercontent.com/mspnp/identity-reference-architectures/master/adds-forest/extensions/incoming-trust.ps1
 [microsoft_systems_center]: https://microsoft.com/cloud-platform/system-center
 [monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
-[solution-script]: https://raw.githubusercontent.com/mspnp/identity-reference-architectures/master/adds-forest/Deploy-ReferenceArchitecture.ps1
 [standby-operations-masters]: https://technet.microsoft.com/library/cc794737(v=ws.10).aspx
-[outgoing-trust]: https://raw.githubusercontent.com/mspnp/identity-reference-architectures/master/adds-forest/extensions/outgoing-trust.ps1
-[verify-a-trust]: https://technet.microsoft.com/library/cc753821.aspx
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx

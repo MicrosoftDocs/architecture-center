@@ -1,16 +1,14 @@
 ---
 title: Use client assertion to get access tokens from Azure AD
-description: How to use client assertion to get access tokens from Azure AD.
-author: MikeWasson
-ms.date: 07/21/2017
+description: Learn how to add client assertion, where the client uses an X.509 certificate to prove the token request is genuine, to the Tailspin Surveys sample application.
+author: doodlemania2
+ms.date: 04/02/2020
 ms.topic: guide
 ms.service: architecture-center
 ms.category:
   - identity
+ms.custom: has-adal-ref
 ms.subservice: reference-architecture
-pnp.series.title: Manage Identity in Multitenant Applications
-pnp.series.prev: adfs
-pnp.series.next: key-vault
 ---
 
 # Use client assertion to get access tokens from Azure AD
@@ -69,7 +67,7 @@ At run time, the web application reads the certificate from the certificate stor
 
 ## Implementing client assertion
 
-The Surveys application includes a helper class that creates a [ClientAssertionCertificate](/dotnet/api/microsoft.identitymodel.clients.activedirectory.clientassertioncertificate) that you can pass to the [AuthenticationContext.AcquireTokenSilentAsync](/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokensilentasync) method to acquire a token from Azure AD.
+The Surveys application includes a helper class that creates a [ClientAssertionCertificate](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory.clientassertioncertificate) that you can pass to the [AuthenticationContext.AcquireTokenSilentAsync](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokensilentasync) method to acquire a token from Azure AD.
 
 ```csharp
 public class CertificateCredentialService : ICredentialService
@@ -98,14 +96,15 @@ public class CertificateCredentialService : ICredentialService
     }
 }
 ```
+> [!NOTE]
+> For more information on ID Tokens, please see [this](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) document. 
 
 [**Next**](./adfs.md)
 
 <!-- links -->
 
-[configure-web-app]: /azure/app-service-web/web-sites-configure/
-[azure-management-portal]: https://portal.azure.com
+[configure-web-app]: https://docs.microsoft.com/azure/app-service-web/web-sites-configure
 [client assertion]: https://tools.ietf.org/html/rfc7521
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
-[Surveys]: tailspin.md
-[using-certs-in-websites]: https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/
+[Surveys]: ./tailspin.md
+[using-certs-in-websites]: https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications

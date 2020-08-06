@@ -1,7 +1,7 @@
 ---
 title: E-commerce front end
 titleSuffix: Azure Example Scenarios
-description: Host an e-commerce site on Azure.
+description: This example scenario implements an e-commerce front end using Azure platform as a service tools, which allow you to handle increases in transactions.
 author: chrismason
 ms.date: 07/13/2018
 ms.category:
@@ -75,7 +75,7 @@ Other options for the web tier and functions include:
 
 Other options for the data tier include:
 
-- [Cosmos DB](/azure/cosmos-db/introduction): Microsoft's globally distributed, multi-model database. This service provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage.
+- [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction): Microsoft's globally distributed, multi-model database. This service provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage.
 
 ## Considerations
 
@@ -89,7 +89,7 @@ Other options for the data tier include:
 
 - When building a cloud application be aware of the [typical design patterns for scalability][design-patterns-scalability].
 - Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
-- For other scalability topics, see the [scalability checklist][scalability] available in the Azure Architecture Center.
+- For other scalability topics, see the [performance efficiency checklist][scalability] available in the Azure Architecture Center.
 
 ### Security
 
@@ -159,7 +159,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [pci-dss-blueprint]: https://docs.microsoft.com/azure/security/blueprints/payment-processing-blueprint
 [resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service
 [resiliency]: ../../framework/resiliency/overview.md
-[scalability]: ../../checklist/scalability.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
 [service-bus]: https://docs.microsoft.com/azure/service-bus-messaging
 [sql-geo-replication]: https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview

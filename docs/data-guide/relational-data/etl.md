@@ -32,7 +32,7 @@ Relevant Azure service:
 
 Other tools:
 
-- [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
+- [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
 
 ## Extract, load, and transform (ELT)
 
@@ -57,7 +57,7 @@ Relevant Azure service:
 
 Other tools:
 
-- [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
+- [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
 
 ## Data flow and control flow
 
@@ -75,7 +75,7 @@ Relevant Azure service:
 
 Other tools:
 
-- [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
+- [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
 
 ## Technology choices
 

@@ -1,7 +1,7 @@
 ---
 title: Oil and Gas Tank Level Forecasting
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Today, most facilities operate reactively to problems in tank levels. This often leads to spills, emergency shutdowns, expensive remediation costs, regulatory issues, costly repairs and fines. Tank level forecasting helps manage and abate these and other problems.
 ms.custom: acom-architecture, artificial intelligence, hpc, analytics, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/oil-and-gas-tank-level-forecasting/'
@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/oil-and-gas-
 
 # Oil and Gas Tank Level Forecasting
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Today, most facilities operate reactively to problems in tank levels. This often leads to spills, emergency shutdowns, expensive remediation costs, regulatory issues, costly repairs and fines. Tank level forecasting helps manage and abate these and other problems.
 
@@ -41,13 +41,13 @@ The Cortana Intelligence Suite is adaptable and can be customized to meet differ
 
 For more details on how this solution is built, visit the solution guide in [GitHub](https://github.com/Azure/cortana-intelligence-tank-level-forecast).
 
-The Cortana Intelligence Suite provides advanced analytics tools through Microsoft Azure — data ingestion, data storage, data processing and advanced analytics components — all of the essential elements for building a tank level forecasting solution.
+The Cortana Intelligence Suite provides advanced analytics tools through Microsoft Azure - data ingestion, data storage, data processing and advanced analytics components - all of the essential elements for building a tank level forecasting solution.
 
 This solution combines several Azure services to provide powerful advantages. Event Hubs collects real-time tank level data. Stream Analytics aggregates the streaming data and makes it available for visualization. Azure Synapse Analytics stores and transforms the tank level data. Machine Learning implements and executes the forecasting model. Power BI visualizes the real-time tank level as well as the forecast results. Finally, Data Factory orchestrates and schedules the entire data flow.
 
 The 'Deploy' button will launch a workflow that will deploy an instance of the solution within a Resource Group in the Azure subscription you specify. The solution includes multiple Azure services (described below) along with a web job that simulates data so that immediately after deployment you have a working end-to-end solution.
 
-After deployment, see the post deployment instructions [here](https://github.com/Azure/cortana-intelligence-tank-level-forecast/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md).
+After deployment, see the post deployment instructions.
 
 ## Technical details and workflow
 

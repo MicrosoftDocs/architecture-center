@@ -1,7 +1,7 @@
 ---
 title: Identifying microservice boundaries
-description: Identifying microservice boundaries.
-author: MikeWasson
+description: Learn how to start from a carefully designed domain model to determine the right size for a microservice.
+author: doodlemania2
 ms.date: 02/25/2019
 ms.topic: guide
 ms.service: architecture-center
@@ -82,9 +82,3 @@ At this point, you should have a clear understanding of the purpose and function
 
 > [!div class="nextstepaction"]
 > [Design a microservices architecture](../design/index.md)
-
-<!-- links -->
-
-[event-grid]: /azure/event-grid/
-[functions]: /azure/azure-functions/functions-overview
-[functions-triggers]: /azure/azure-functions/functions-triggers-bindings

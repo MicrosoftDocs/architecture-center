@@ -1,7 +1,7 @@
 ---
 title: Highly available SharePoint farm
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Learn how to deploy a highly available SharePoint farm for intranet capabilities with a step-by-step solution architecture template from Azure.
 ms.custom: acom-architecture, sharepoint intranet, sharepoint intranet template, bcdr, sharepoint intranet solutions, sharepoint farm solution, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/highly-available-sharepoint-farm/'
@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/highly-avail
 
 # Highly available SharePoint farm
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This solution provides a highly available deployment of SharePoint using a load balanced Azure Active Directory (Azure AD), highly available SQL always on instance, and highly available SharePoint resources. It addresses the requirement to deliver highly available intranet capability using the latest and greatest supported platforms.
 

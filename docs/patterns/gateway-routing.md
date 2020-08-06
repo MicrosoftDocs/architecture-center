@@ -1,7 +1,7 @@
 ---
 title: Gateway Routing pattern
 titleSuffix: Cloud Design Patterns
-description: Route requests to multiple services using a single endpoint.
+description: Use the Gateway Routing design pattern to route requests to multiple services using a single endpoint.
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
@@ -71,7 +71,7 @@ server {
 }
 ```
 
-On Azure, multiple services can be set up behind an [Application Gateway instance](/azure/application-gateway/tutorial-multiple-sites-cli), which provides layer-7 routing.
+On Azure, multiple services can be set up behind an [Application Gateway instance](https://docs.microsoft.com/azure/application-gateway/tutorial-multiple-sites-cli), which provides layer-7 routing.
 
 ## Related guidance
 

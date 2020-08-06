@@ -1,7 +1,7 @@
 ---
 title: Real Time Analytics on Big Data Architecture
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Get deep learning analytics and insights live from streaming data. Review logs from website clickstream in near real-time for advanced analytics processing.
 ms.custom: acom-architecture, Advanced analytics, deep learning analytics, advanced analytics architecture, interactive-diagram, pricing-calculator, 'https://azure.microsoft.com/solutions/architecture/real-time-analytics/'
@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/real-time-an
 
 # Real Time Analytics on Big Data Architecture
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Get insights from live streaming data with ease. Capture data continuously from any IoT device, or logs from website clickstreams, and process it in near-real time.
 
@@ -51,6 +51,7 @@ Get insights from live streaming data with ease. Capture data continuously from 
 * [Synapse Analytics Documentation](https://docs.microsoft.com/azure/sql-data-warehouse)
 * [Azure Data Factory V2 Preview Documentation](https://docs.microsoft.com/azure/data-factory)
 * [Azure Data Lake Storage documentation](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)
+* [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/data-explorer-overview)
 * [Azure Databricks Documentation](https://docs.microsoft.com/azure/azure-databricks)
 * [Azure HDInsight Documentation](https://docs.microsoft.com/azure/hdinsight)
 * [Azure Cosmos DB Documentation](https://docs.microsoft.com/azure/cosmos-db)

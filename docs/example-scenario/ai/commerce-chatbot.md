@@ -12,6 +12,8 @@ ms.subservice: example-scenario
 social_image_url: /azure/architecture/example-scenario/ai/media/architecture-commerce-chatbot.png
 ---
 
+<!-- cSpell:ignore iainfoulds botservice -->
+
 # Conversational chatbot for hotel reservations on Azure
 
 This example scenario is applicable to businesses that need to integrate a conversational chatbot into applications. In this scenario, a C# chatbot is used for a hotel chain that allows customers to check availability and book accommodation through a web or mobile application.
@@ -58,7 +60,7 @@ This scenario covers a conversational bot that functions as a concierge for a ho
 
 ## Considerations
 
-### Availabilit'
+### Availability
 
 This scenario uses Azure SQL Database for storing customer reservations. SQL Database includes zone redundant databases, failover groups, and geo-replication. For more information, see [Azure SQL Database availability capabilities][sqlavailability-docs].
 
@@ -66,7 +68,7 @@ This scenario uses Azure SQL Database for storing customer reservations. SQL Dat
 
 This scenario uses Azure App Service. With App Service, you can automatically scale the number of instances that run your bot. This functionality lets you keep up with customer demand for your web application and chatbot. For more information on autoscale, see [Autoscaling best practices][autoscaling] in the Azure Architecture Center.
 
-For other scalability topics, see the [scalability checklist][scalability] in the Azure Architecture Center.
+For other scalability topics, see the [performance efficiency checklist][scalability] in the Azure Architecture Center.
 
 ### Security
 
@@ -103,7 +105,7 @@ To deploy the infrastructure components with a Resource Manager template, perfor
 1. Click the link below to deploy the solution.
 
     [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fcommerce-chatbot.json)
-    
+
 2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
    - Choose to **Create new** resource group, then provide a name such as *myCommerceChatBotInfrastructure* in the text box.
    - Select a region from the **Location** drop-down box.
@@ -166,11 +168,9 @@ For a set of guided tutorials for the Azure Bot Service, see the [tutorial secti
 [autoscaling]: ../../best-practices/auto-scaling.md
 [botservice-docs]: https://docs.microsoft.com/azure/bot-service
 [cognitive-docs]: https://docs.microsoft.com/azure/cognitive-services
-[resiliency]: ../../resiliency/index.md
-[resource-groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
 [security]: https://docs.microsoft.com/azure/security
-[scalability]: ../../checklist/scalability.md
-[sqlavailability-docs]: /azure/sql-database/sql-database-technical-overview#availability-capabilities
+[scalability]: https://docs.microsoft.com/azure/architecture/framework/scalability/performance-efficiency
+[sqlavailability-docs]: https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview#availability-capabilities
 [sqldatabase-docs]: https://docs.microsoft.com/azure/sql-database
 [sqlsecurity-docs]: https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance
 [qna-maker]: https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview

@@ -104,7 +104,7 @@ For scenarios with more sensitive data, make sure that all of your storage keys 
 
 ### Encrypt data at rest and in motion
 
-In scenarios that use sensitive data, encrypt the data at rest—that is, the data in storage. Each time data moves from one location to the next, use SSL to secure the data transfer. For more information, see the [Azure Storage security guide][storage-security].
+In scenarios that use sensitive data, encrypt the data at rest-that is, the data in storage. Each time data moves from one location to the next, use SSL to secure the data transfer. For more information, see the [Azure Storage security guide][storage-security].
 
 ### Secure data in a virtual network
 
@@ -123,25 +123,23 @@ To operationalize the model, see [Machine learning operationalization (MLOps) fo
 
 [0]: ./_images//training-python-models.png
 [1]: ./_images/run-object.png
-[acr]: /azure/container-registry/container-registry-intro
-[ai]: /azure/application-insights/app-insights-overview
-[aml]: /azure/machine-learning/service/overview-what-is-azure-ml
-[aml-compute]: /azure/machine-learning/service/concept-compute-target
-[amls]: /azure/machine-learning/service/overview-what-is-azure-ml
-[blob]: /azure/storage/blobs/storage-blobs-introduction
-[dsvm]: /azure/machine-learning/data-science-virtual-machine/overview
-[endpoints]: /azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network
+[acr]: https://docs.microsoft.com/azure/container-registry/container-registry-intro
+[aml]: https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml
+[aml-compute]: https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target
+[blob]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
+[dsvm]: https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview
+[endpoints]: https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network
 [github1]: https://github.com/Microsoft/MLHyperparameterTuning
 [github2]: https://github.com/Microsoft/HyperdriveDeepLearning
-[hyperparameter]: /azure/machine-learning/service/how-to-tune-hyperparameters
+[hyperparameter]: https://docs.microsoft.com/azure/machine-learning/service/how-to-tune-hyperparameters
 [jupyter]: http://jupyter.org/widgets
 [lightgbm]: https://github.com/Microsoft/LightGBM
-[mlops]: /azure/machine-learning/service/concept-model-management-and-deployment
-[pipeline]: /azure/machine-learning/service/concept-ml-pipelines
-[scaling]: /azure/virtual-machine-scale-sets/overview
-[scikit]: https://pypi.org/project/scikit-learn/
+[mlops]: https://docs.microsoft.com/azure/machine-learning/service/concept-model-management-and-deployment
+[pipeline]: https://docs.microsoft.com/azure/machine-learning/service/concept-ml-pipelines
+[scaling]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview
+[scikit]: https://pypi.org/project/scikit-learn
 [scikit-sample]:/azure/machine-learning/service/how-to-train-scikit-learn
-[storage]: /azure/storage/common/storage-introduction
-[storage-security]: /azure/storage/common/storage-security-guide
-[target]: /azure/machine-learning/service/how-to-auto-train-remote
-[training-deep-learning]: /azure/architecture/reference-architectures/ai/training-deep-learning
+[storage]: https://docs.microsoft.com/azure/storage/common/storage-introduction
+[storage-security]: https://docs.microsoft.com/azure/storage/common/storage-security-guide
+[target]: https://docs.microsoft.com/azure/machine-learning/service/how-to-auto-train-remote
+[training-deep-learning]: ./training-deep-learning.md

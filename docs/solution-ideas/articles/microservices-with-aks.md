@@ -1,7 +1,7 @@
 ---
 title: Microservices with AKS
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Microservices with AKS
 ms.custom: acom-architecture, microservices, devops, kubernetes, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/microservices-with-aks/'
@@ -16,7 +16,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/microservice
 
 # Microservices with AKS
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Use AKS to simplify the deployment and management of microservices based architecture. AKS streamlines horizontal scaling, self-healing, load balancing, secret management.
 

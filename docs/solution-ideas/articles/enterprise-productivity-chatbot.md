@@ -1,7 +1,7 @@
 ---
 title: Enterprise Productivity Chatbot
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Office 365 calendar, customer cases stored in Dynamics CRM and much more.
 ms.custom: acom-architecture, bot service, luis, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/enterprise-productivity-chatbot/'
@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/enterprise-p
 
 # Enterprise Productivity Chatbot
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Office 365 calendar, customer cases stored in Dynamics CRM and much more.
 

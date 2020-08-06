@@ -1,7 +1,7 @@
 ---
 title: API implementation guidance
 titleSuffix: Best practices for cloud applications
-description: Guidance on how to implement an API.
+description: Learn about best practices for implementing a web API and publishing it to make it available to client applications.
 author: dragon119
 ms.date: 07/13/2016
 ms.topic: best-practice
@@ -26,7 +26,7 @@ Consider the following points when you implement the code to handle requests.
 The code that implements these requests should not impose any side-effects. The same request repeated over the same resource should result in the same state. For example, sending multiple DELETE requests to the same URI should have the same effect, although the HTTP status code in the response messages may be different. The first DELETE request might return status code 204 (No Content), while a subsequent DELETE request might return status code 404 (Not Found).
 
 > [!NOTE]
-> The article [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns/) on Jonathan Oliver's blog provides an overview of idempotency and how it relates to data management operations.
+> The article [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns) on Jonathan Oliver's blog provides an overview of idempotency and how it relates to data management operations.
 
 ### POST actions that create new resources should not have unrelated side-effects
 
@@ -36,7 +36,7 @@ If a POST request is intended to create a new resource, the effects of the reque
 
 Support POST, PUT and DELETE requests over resource collections. A POST request can contain the details for multiple new resources and add them all to the same collection, a PUT request can replace the entire set of resources in a collection, and a DELETE request can remove an entire collection.
 
-The OData support included in ASP.NET Web API 2 provides the ability to batch requests. A client application can package up several web API requests and send them to the server in a single HTTP request, and receive a single HTTP response that contains the replies to each request. For more information, [Introducing batch support in Web API and Web API OData](https://blogs.msdn.microsoft.com/webdev/2013/11/01/introducing-batch-support-in-web-api-and-web-api-odata/).
+The OData support included in ASP.NET Web API 2 provides the ability to batch requests. A client application can package up several web API requests and send them to the server in a single HTTP request, and receive a single HTTP response that contains the replies to each request. For more information, [Introducing batch support in Web API and Web API OData](https://blogs.msdn.microsoft.com/webdev/2013/11/01/introducing-batch-support-in-web-api-and-web-api-odata).
 
 ### Follow the HTTP specification when sending a response
 
@@ -125,7 +125,7 @@ The HATEOAS links shown in the example HTTP response indicate that a client appl
 - An HTTP PUT request to the URI `https://adventure-works.com/customers/2` to modify the details of the customer. The new data must be provided in the request message in x-www-form-urlencoded format.
 - An HTTP DELETE request to the URI `https://adventure-works.com/customers/2` to delete the customer. The request does not expect any additional information or return data in the response message body.
 - An HTTP GET request to the URI `https://adventure-works.com/customers/2/orders` to find all the orders for the customer. The data can be returned as XML or JSON.
-- An HTTP PUT request to the URI `https://adventure-works.com/customers/2/orders` to create a new order for this customer. The data must be provided in the request message in x-www-form-urlencoded format.
+- An HTTP POST request to the URI `https://adventure-works.com/customers/2/orders` to create a new order for this customer. The data must be provided in the request message in x-www-form-urlencoded format.
 
 ## Handling exceptions
 
@@ -712,7 +712,7 @@ You should also create and run performance tests to check that the web API opera
 
 ## Using Azure API Management
 
-On Azure, consider using [Azure API Management](/azure/api-management/) to publish and manage a web API. Using this facility, you can generate a service that acts as a façade for one or more web APIs. The service is itself a scalable web service that you can create and configure by using the Azure portal. You can use this service to publish and manage a web API as follows:
+On Azure, consider using [Azure API Management](https://docs.microsoft.com/azure/api-management) to publish and manage a web API. Using this facility, you can generate a service that acts as a façade for one or more web APIs. The service is itself a scalable web service that you can create and configure by using the Azure portal. You can use this service to publish and manage a web API as follows:
 
 1. Deploy the web API to a website, Azure cloud service, or Azure virtual machine.
 
@@ -737,7 +737,7 @@ On Azure, consider using [Azure API Management](/azure/api-management/) to publi
 For more information, see the [API Management documentation](https://docs.microsoft.com/azure/api-management).
 
 > [!TIP]
-> Azure provides the Azure Traffic Manager which enables you to implement failover and load-balancing, and reduce latency across multiple instances of a web site hosted in different geographic locations. You can use Azure Traffic Manager in conjunction with the API Management Service; the API Management Service can route requests to instances of a web site through Azure Traffic Manager. For more information, see [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods/).
+> Azure provides the Azure Traffic Manager which enables you to implement failover and load-balancing, and reduce latency across multiple instances of a web site hosted in different geographic locations. You can use Azure Traffic Manager in conjunction with the API Management Service; the API Management Service can route requests to instances of a web site through Azure Traffic Manager. For more information, see [Traffic Manager routing methods](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods).
 >
 > In this structure, if you are using custom DNS names for your web sites, you should configure the appropriate CNAME record for each web site to point to the DNS name of the Azure Traffic Manager web site.
 
@@ -782,7 +782,7 @@ If you have implemented your web API by using the ASP.NET Web API template (eith
 
 You can view this data in real time in the Azure portal. You can also create web tests that monitor the health of the web API. A web test sends a periodic request to a specified URI in the web API and captures the response. You can specify the definition of a successful response (such as HTTP status code 200), and if the request does not return this response you can arrange for an alert to be sent to an administrator. If necessary, the administrator can restart the server hosting the web API if it has failed.
 
-For more information, see [Application Insights - Get started with ASP.NET](/azure/application-insights/app-insights-asp-net/).
+For more information, see [Application Insights - Get started with ASP.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
 
 ### Monitoring a web API through the API Management Service
 
@@ -801,12 +801,12 @@ You can use this information to determine whether a particular web API or operat
 ## More information
 
 - [ASP.NET Web API OData](https://www.asp.net/web-api/overview/odata-support-in-aspnet-web-api) contains examples and further information on implementing an OData web API by using ASP.NET.
-- [Introducing batch support in Web API and Web API OData](https://blogs.msdn.microsoft.com/webdev/2013/11/01/introducing-batch-support-in-web-api-and-web-api-odata/) describes how to implement batch operations in a web API by using OData.
-- [Idempotency patterns](https://blog.jonathanoliver.com/idempotency-patterns/) on Jonathan Oliver's blog provides an overview of idempotency and how it relates to data management operations.
+- [Introducing batch support in Web API and Web API OData](https://blogs.msdn.microsoft.com/webdev/2013/11/01/introducing-batch-support-in-web-api-and-web-api-odata) describes how to implement batch operations in a web API by using OData.
+- [Idempotency patterns](https://blog.jonathanoliver.com/idempotency-patterns) on Jonathan Oliver's blog provides an overview of idempotency and how it relates to data management operations.
 - [Status code definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) on the W3C website contains a full list of HTTP status codes and their descriptions.
 - [Run background tasks with WebJobs](https://docs.microsoft.com/azure/app-service-web/web-sites-create-web-jobs) provides information and examples on using WebJobs to perform background operations.
 - [Azure Notification Hubs notify users](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification) shows how to use an Azure Notification Hub to push asynchronous responses to client applications.
 - [API Management](https://azure.microsoft.com/services/api-management) describes how to publish a product that provides controlled and secure access to a web API.
 - [Azure API Management REST API reference](https://msdn.microsoft.com/library/azure/dn776326.aspx) describes how to use the API Management REST API to build custom management applications.
-- [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods) summarizes how Azure Traffic Manager can be used to load-balance requests across multiple instances of a website hosting a web API.
-- [Application Insights - Get started with ASP.NET](/azure/application-insights/app-insights-asp-net) provides detailed information on installing and configuring Application Insights in an ASP.NET Web API project.
+- [Traffic Manager routing methods](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) summarizes how Azure Traffic Manager can be used to load-balance requests across multiple instances of a website hosting a web API.
+- [Application Insights - Get started with ASP.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) provides detailed information on installing and configuring Application Insights in an ASP.NET Web API project.

@@ -10,6 +10,8 @@ ms.subservice: cloud-fundamentals
 ms.custom: fasttrack-new, fcp
 ---
 
+<!-- cSpell:ignore johndowns myapi backplane -->
+
 # Deployment stamps
 
 The deployment stamp pattern involves deploying multiple independent copies of application components, including data stores. Each individual copy is called a *stamp*, or sometimes a *service unit* or *scale unit*. This approach can improve the scalability of your solution, allow you to deploy instances across multiple regions, and separate your customer data.
@@ -59,9 +61,9 @@ Use load and performance testing to determine the approximate load that a given 
 
 The Deployment Stamp pattern works well if each stamp is addressed independently. For example, if Contoso deploys the same API application across multiple stamps, they might consider using DNS to route traffic to the relevant stamp:
 
-* `unit1.aus.myapi.contoso.com` routes traffic to stamp `unit1` within an Australian region.
-* `unit2.aus.myapi.contoso.com` routes traffic to stamp `unit2` within an Australian region.
-* `unit1.eu.myapi.contoso.com` routes traffic to stamp `unit1` within a European region.
+- `unit1.aus.myapi.contoso.com` routes traffic to stamp `unit1` within an Australian region.
+- `unit2.aus.myapi.contoso.com` routes traffic to stamp `unit2` within an Australian region.
+- `unit1.eu.myapi.contoso.com` routes traffic to stamp `unit1` within a European region.
 
 Clients are then responsible for connecting to the correct stamp.
 
@@ -69,7 +71,7 @@ If a single ingress point for all traffic is required, a traffic routing service
 
 A centralized traffic routing service can be a complex component to design, especially when a solution runs across multiple regions. Consider deploying the traffic routing service into multiple regions (potentially including every region that stamps are deployed into), and then ensuring the data store (mapping tenants to stamps) is synchronized. The traffic routing component may itself by an instance of the [geode pattern](geodes.md).
 
-For example, [Azure API Management](https://docs.microsoft.com/azure/api-management/) could be deployed to act in the traffic routing service role. It can determine the appropriate stamp for a request by looking up data in a [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) collection storing the mapping between tenants and stamps. API Management can then [dynamically set the back-end URL](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetBackendService) to the relevant stamp's API service.
+For example, [Azure API Management](https://docs.microsoft.com/azure/api-management/) could be deployed to act in the traffic routing service role. It can determine the appropriate stamp for a request by looking up data in a [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db) collection storing the mapping between tenants and stamps. API Management can then [dynamically set the back-end URL](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetBackendService) to the relevant stamp's API service.
 
 To enable geo-distribution of requests and geo-redundancy of the traffic routing service, [API Management can be deployed across multiple regions](https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region), or [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/) can be used to direct traffic to the closest instance. Front Door can be configured with a [backend pool](https://docs.microsoft.com/azure/frontdoor/front-door-backend-pool#backend-pools), enabling requests to be directed to the closest available API Management instance. The [global distribution features of Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally) can be used to keep the mapping information updated across each region.
 
@@ -82,7 +84,7 @@ If a traffic routing service is included in your solution, consider whether it a
 You should consider the following points when deciding how to implement this pattern:
 
 - **Deployment process.** When deploying multiple stamps, it is highly advisable to have automated and fully repeatable deployment processes. Consider using Resource Manager templates or Terraform templates to declaratively define the stamp.
-- **Cross-stamp operations.** When your solution is deployed independently across multiple stamps, questions like "how many customers do we have across all of our stamps?" can become more complex to answer. Queries will need to be executed against each stamp and the results aggregated.
+- **Cross-stamp operations.** When your solution is deployed independently across multiple stamps, questions like "how many customers do we have across all of our stamps?" can become more complex to answer. Queries may need to be executed against each stamp and the results aggregated. Alternatively, consider having all of the stamps publish data into a centralized data warehouse for consolidated reporting.
 - **Determining scale-out policies.** Stamps have a finite capacity, which might be defined using a proxy metric such as the number of tenants that can be deployed to the stamp. It is important to monitor the available capacity and used capacity for each stamp, and to proactively deploy additional stamps to allow for new tenants to be directed to them.
 - **Cost.** The Deployment Stamp pattern involves deploying multiple copies of your infrastructure component, which will likely involve a substantial increase in the cost of operating your solution.
 - **Moving between stamps.** As each stamp is deployed and operated independently, moving tenants between stamps can be difficult. Your application would need custom logic to transmit the information about a given customer to a different stamp, and then to remove the tenant's information from the original stamp. This process may require a backplane for communication between stamps, further increasing the complexity of the overall solution.

@@ -1,12 +1,12 @@
 ---
 title: DevOps checklist
 titleSuffix: Azure Design Review Framework
-description: Checklist that provides guidance related to DevOps.
+description: DevOps integrates development, quality assurance, and IT operations and offers processes for delivering software. Assess your DevOps culture and process.
 author: dragon119
 ms.date: 01/10/2018
 ms.topic: checklist
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ms.custom: checklist
 ---
 
@@ -141,17 +141,17 @@ For more about DevOps, see [What is DevOps?][what-is-devops] on the Visual Studi
 
 <!-- links -->
 
-[app-insights]: /azure/application-insights/
-[azure-ad]: https://azure.microsoft.com/services/active-directory/
-[azure-diagnostics]: /azure/monitoring-and-diagnostics/azure-diagnostics
-[azure-monitor]: /azure/monitoring-and-diagnostics/monitoring-overview
-[azure-support-plans]: https://azure.microsoft.com/support/plans/
+[app-insights]: https://docs.microsoft.com/azure/application-insights
+[azure-ad]: https://azure.microsoft.com/services/active-directory
+[azure-diagnostics]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics
+[azure-monitor]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview
+[azure-support-plans]: https://azure.microsoft.com/support/plans
 [blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [canary-release]:https://martinfowler.com/bliki/CanaryRelease.html
-[dev-test]: https://azure.microsoft.com/solutions/dev-test/
+[dev-test]: https://azure.microsoft.com/solutions/dev-test
 [feature-toggles]: https://www.martinfowler.com/articles/feature-toggles.html
 [oms]: https://www.microsoft.com/cloud-platform/operations-management-suite
-[rbac]: /azure/active-directory/role-based-access-control-what-is
-[resource-manager]: /azure/azure-resource-manager/
-[trunk-based]: https://trunkbaseddevelopment.com/
-[what-is-devops]: https://www.visualstudio.com/learn/what-is-devops/
+[rbac]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
+[resource-manager]: https://docs.microsoft.com/azure/azure-resource-manager
+[trunk-based]: https://trunkbaseddevelopment.com
+[what-is-devops]: https://www.visualstudio.com/learn/what-is-devops

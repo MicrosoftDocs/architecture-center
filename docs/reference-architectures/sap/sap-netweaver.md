@@ -31,9 +31,9 @@ This reference architecture describes a production system. It is deployed with s
 
 The following components are required.
 
-**Virtual network.** The [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)(VNet) service securely connects Azure resources to each other. In this architecture, the virtual network connects to an on-premises environment through a virtual private network (VPN) gateway deployed in the hub of a [hub-spoke topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). The spoke is the VNet used for the SAP applications and the database tiers.
+**Virtual network.** The [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)(VNet) service securely connects Azure resources to each other. In this architecture, the virtual network connects to an on-premises environment through a virtual private network (VPN) gateway deployed in the hub of a [hub-spoke topology](../../reference-architectures/hybrid-networking/hub-spoke.md). The spoke is the VNet used for the SAP applications and the database tiers.
 
-**Virtual network peering.** This architecture uses a hub-and-spoke networking topology with multiple VNets that are [peered together](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). This topology offers network segmentation and isolation for services deployed on Azure. Peering enables transparent connectivity between peered VNets through the Microsoft backbone network and does not incur a performance penalty if deployed within a single region. The VNet is subdivided into separate subnets for each tier—application (SAP NetWeaver), database, and shared services (such as a jumpbox and Active Directory).
+**Virtual network peering.** This architecture uses a hub-and-spoke networking topology with multiple VNets that are [peered together](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). This topology offers network segmentation and isolation for services deployed on Azure. Peering enables transparent connectivity between peered VNets through the Microsoft backbone network and does not incur a performance penalty if deployed within a single region. The VNet is subdivided into separate subnets for each tier-application (SAP NetWeaver), database, and shared services (such as a jumpbox and Active Directory).
 
 **Virtual machines.** This architecture uses virtual machines for the application tier and database tier, grouped as follows:
 
@@ -57,7 +57,7 @@ The following components are required.
 
 **Application security groups.** To define fine-grained network security policies based on workloads that are centered on applications, use [application security groups](https://docs.microsoft.com/azure/virtual-network/security-overview) instead of explicit IP addresses. They let you group VMs by name and secure applications by filtering traffic from trusted segments of your network.
 
-**Gateway.** A gateway connects distinct networks, extending your on-premises network to the Azure VNet. [ExpressRoute](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute) is the recommended Azure service for creating private connections that do not go over the public internet, but a [site-to-site](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vpn) connection can also be used. To reduce latency or increase throughput, consider [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) and [ExpressRoute FastPath](https://docs.microsoft.com/azure/expressroute/about-fastpath) as discussed later in this article.
+**Gateway.** A gateway connects distinct networks, extending your on-premises network to the Azure VNet. [ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.md) is the recommended Azure service for creating private connections that do not go over the public internet, but a [site-to-site](../../reference-architectures/hybrid-networking/expressroute.md) connection can also be used. To reduce latency or increase throughput, consider [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) and [ExpressRoute FastPath](https://docs.microsoft.com/azure/expressroute/about-fastpath) as discussed later in this article.
 
 **Azure Storage.** To provide data persistence for a virtual machine in the form of a virtual hard disk (VHD). [Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) are recommended.
 
@@ -100,8 +100,7 @@ Availability sets distribute servers to different physical infrastructures and u
 
 All virtual machines in a set must perform the same role. Do not mix servers of different roles in the same availability set. For example, don't place an ASCS node in the same availability set with the application servers.
 
-You can deploy Azure availability sets within [Azure Availability
-Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) when you use a [proximity placement group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
+You can deploy Azure availability sets within [Azure Availability Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) when you use a [proximity placement group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
 
 ### Networking
 
@@ -174,11 +173,11 @@ Some SAP applications require frequent communication with the database. The phys
 
 ### Availability Zones
 
-[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview) give you the option to deploy virtual machines across zones—that is, physically separated locations within a specific Azure region. Their purpose is to enhance service availability, but consider performance when deploying resources with zones. Administrators need a clear network latency profile between all zones of a target region before they can decide on the resource placement with minimum inter-zone latency. To create this profile, deploy small virtual machines in each zone for testing. Recommended tools for the test include [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) and [Iperf](https://sourceforge.net/projects/iperf). Afterwards, remove the virtual machines used for testing.
+[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview) give you the option to deploy virtual machines across zones-that is, physically separated locations within a specific Azure region. Their purpose is to enhance service availability, but consider performance when deploying resources with zones. Administrators need a clear network latency profile between all zones of a target region before they can decide on the resource placement with minimum inter-zone latency. To create this profile, deploy small virtual machines in each zone for testing. Recommended tools for the test include [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) and [Iperf](https://sourceforge.net/projects/iperf). Afterwards, remove the virtual machines used for testing.
 
 ## Scalability considerations
 
-At the SAP application layer, Azure offers a wide range of virtual machine sizes for scaling up and scaling out. For an inclusive list, see [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533)—SAP Applications on Azure: Supported Products and Azure VM Types. (To access the SAP notes, you must have an SAP Service Marketplace account.)
+At the SAP application layer, Azure offers a wide range of virtual machine sizes for scaling up and scaling out. For an inclusive list, see [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533)-SAP Applications on Azure: Supported Products and Azure VM Types. (To access the SAP notes, you must have an SAP Service Marketplace account.)
 
 SAP application servers and the Central Services clusters can scale up and down or scale out by adding more instances. The AnyDB database can scale up and down but does not scale out. The SAP database container for AnyDB does not support sharding.
 
@@ -310,7 +309,7 @@ To provide SAP-based monitoring of resources and service performance of the SAP 
 
 SAP has its own Users Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For detailed application security guidance, refer to the [SAP NetWeaver Security Guide](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/4a/af6fd65e233893e10000000a42189c/frameset.htm).
 
-For additional network security, consider implementing a [network DMZ](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid), which uses a network virtual appliance (NVA) to create a firewall in front of the subnet for Web Dispatcher.
+For additional network security, consider implementing a [network DMZ](../../reference-architectures/dmz/secure-vnet-dmz.md), which uses a network virtual appliance (NVA) to create a firewall in front of the subnet for Web Dispatcher.
 
 You can deploy an NVA to filter traffic between VNets, but do not place it in between the SAP application and the database. Also, check the routing rules configured on the subnet and avoid directing traffic to a single-instance NVA, which can lead to maintenance downtime and network or clustered node failures.
 
@@ -326,7 +325,7 @@ As always, make sure to manage security updates and patches, a necessary and ong
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 
-For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 ### Virtual machines
 
@@ -380,14 +379,14 @@ See the following articles for more information and for examples of SAP workload
 
 - [Use Azure to host and run SAP workload scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)
 
-- [Running SAP production workloads using an Oracle Database on Azure](https://docs.microsoft.com/azure/architecture/example-scenario/apps/sap-production)
+- [Running SAP production workloads using an Oracle Database on Azure](../../example-scenario/apps/sap-production.md)
 
-- [Dev/test environments for SAP workloads on Azure](https://docs.microsoft.com/azure/architecture/example-scenario/apps/sap-dev-test)
+- [Dev/test environments for SAP workloads on Azure](../../example-scenario/apps/sap-dev-test.md)
 
 <!-- links -->
 
-[aaf-cost]: https://docs.microsoft.com/azure/architecture/framework/cost/overview
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
-[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
+[aaf-cost]: ../../framework/cost/overview.md
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-netweaver.vsdx
 [az-spot-vms]: https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms

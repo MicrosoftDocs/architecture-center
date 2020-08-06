@@ -1,7 +1,7 @@
 ---
 title: Contract Management
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid.
 ms.custom: acom-architecture
@@ -12,6 +12,8 @@ ms.subservice: solution-idea
 ms.author: pracjain
 social_image_url: /azure/architecture/solution-ideas/articles/media/contract-management.png
 ---
+
+<!-- cSpell:ignore pracjain -->
 
 # Contract Management
 
@@ -39,7 +41,7 @@ Key technologies used to implement tools for technical content review and resear
 - [Microsoft Form Recognizer](https://azure.microsoft.com/services/cognitive-services/form-recognizer/)
 - [Web API custom skill interface](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)
 
-## Next Steps
+## Next steps
 
 Using the [knowledge mining solution accelerator](https://docs.microsoft.com/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
 

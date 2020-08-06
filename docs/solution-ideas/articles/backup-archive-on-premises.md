@@ -1,7 +1,7 @@
 ---
 title: Archive on-premises data to cloud
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Archive your on-premises data to Azure Blob storage.
 ms.custom: acom-architecture, bcdr, 'https://azure.microsoft.com/solutions/architecture/backup-archive-on-premises/'
@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/backup-archi
 
 # Archive on-premises data to cloud
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Archive your on-premises data to Azure Blob storage.
 

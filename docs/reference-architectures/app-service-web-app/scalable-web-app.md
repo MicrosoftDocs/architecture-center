@@ -1,8 +1,8 @@
 ---
 title: Scalable web application
 titleSuffix: Azure Reference Architectures
-description: Improve scalability in a web application running in Microsoft Azure.
-author: MikeWasson
+description: Use the proven practices in this reference architecture to improve scalability and performance in an Azure App Service web application..
+author: doodlemania2
 ms.date: 10/03/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -11,6 +11,8 @@ ms.category:
 ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
+
+<!-- cSpell:ignore PDFs -->
 
 # Improve scalability in an Azure web application
 
@@ -27,7 +29,7 @@ This reference architecture shows proven practices for improving scalability and
 This architecture builds on the one shown in [Basic web application][basic-web-app]. It includes the following components:
 
 - **[Web app][app-service-web-app]**. A typical modern application might include both a website and one or more RESTful web APIs. A web API might be consumed by browser clients through AJAX, by native client applications, or by server-side applications. For considerations on designing web APIs, see [API design guidance][api-guidance].
-- **Front Door**. [Front Door](/azure/frontdoor/) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Front Door also provides a [web application firewall](/azure/frontdoor/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities.
+- **Front Door**. [Front Door](https://docs.microsoft.com/azure/frontdoor) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Front Door also provides a [web application firewall](https://docs.microsoft.com/azure/frontdoor/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities.
 - **Function App**. Use [Function Apps][functions] to run background tasks. Functions are invoked by a trigger, such as a timer event or a message being placed on queue. For long-running stateful tasks, use [Durable Functions][durable-functions].
 - **Queue**. In the architecture shown here, the application queues background tasks by putting a message onto an [Azure Queue storage][queue-storage] queue. The message triggers a function app. Alternatively, you can use Service Bus queues. For a comparison, see [Azure Queues and Service Bus queues - compared and contrasted][queues-compared].
 - **Cache**. Store semi-static data in [Azure Cache for Redis][azure-redis].
@@ -88,18 +90,15 @@ See [Choose the right data store][datastore].
 
 Use caching to reduce the load on servers that serve content that doesn't change frequently. Every render cycle of a page can impact cost because it consumes compute, memory, and bandwidth. Those costs can be reduced significantly by using caching, especially for static content services, such as JavaScript single-page apps and media streaming content.
 
-If your app has static content, use CDN to decrease the load on the front end servers. For data that doesn't change frequently, use Azure Cache for Redis. 
+If your app has static content, use CDN to decrease the load on the front end servers. For data that doesn't change frequently, use Azure Cache for Redis.
 
-Stateless apps that are configured for autoscaling are more cost effective that stateful apps. For an ASP.NET application, store your session state in-memory with Azure Cache for Redis. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-aspnet-session-state-provider). Another option is to use CosmosDB as a backend state store through a session state provider. See [Support Azure Cosmos DB and Azure Redis](https://github.com/Microsoft/service-fabric-services-and-actors-dotnet/issues/32). 
+Stateless apps that are configured for autoscaling are more cost effective that stateful apps. For an ASP.NET application, store your session state in-memory with Azure Cache for Redis. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-aspnet-session-state-provider). Another option is to use Cosmos DB as a backend state store through a session state provider. See [Support Azure Cosmos DB and Azure Redis](https://github.com/Microsoft/service-fabric-services-and-actors-dotnet/issues/32).
 
-For more information, see the cost section in [Azure Architecture Framework](/azure/architecture/framework/cost/overview).
+For more information, see the cost section in the [Microsoft Azure Well-Architected Framework](../../framework/cost/overview.md).
 
-
-Consider placing a function app into a dedicated App Service plan so that background tasks don't run on the same instances that handle HTTP requests. If background tasks run intermittently, consider using a [consumption plan](/azure/azure-functions/functions-scale#consumption-plan), which is billed based on the number of executions, rather than hourly.
-
+Consider placing a function app into a dedicated App Service plan so that background tasks don't run on the same instances that handle HTTP requests. If background tasks run intermittently, consider using a [consumption plan](https://docs.microsoft.com/azure/azure-functions/functions-scale#consumption-plan), which is billed based on the number of executions, rather than hourly.
 
 Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
-
 
 ## Scalability considerations
 
@@ -108,7 +107,6 @@ A major benefit of Azure App Service is the ability to scale your application ba
 ### App Service app
 
 If your solution includes several App Service apps, consider deploying them to separate App Service plans. This approach enables you to scale them independently because they run on separate instances.
-
 
 ### SQL Database
 
@@ -131,7 +129,7 @@ This section lists security considerations that are specific to the Azure servic
 
 ### Restrict incoming traffic
 
-Configure the application to accept traffic only from Front Door. This ensures that all traffic goes through the WAF before reaching the app. For more information, see [How do I lock down the access to my backend to only Azure Front Door?](/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
+Configure the application to accept traffic only from Front Door. This ensures that all traffic goes through the WAF before reaching the app. For more information, see [How do I lock down the access to my backend to only Azure Front Door?](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
 
 ### Cross-Origin Resource Sharing (CORS)
 
@@ -147,39 +145,46 @@ App Services has built-in support for CORS, without needing to write any applica
 
 Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at rest in the database. This feature performs real-time encryption and decryption of an entire database (including backups and transaction log files) and requires no changes to the application. Encryption does add some latency, so it's a good practice to separate the data that must be secure into its own database and enable encryption only for that database.
 
+
+## DevOps considerations
+
+### Front-end deployment
+
+This architecture builds on the one shown in [Basic web application][basic-web-app], see the [DevOps considerations section][basic-web-app-devops].
+
+
 ## Next steps
 
 - [Run a web application in multiple Azure regions for high availability][web-app-multi-region]
 - [Overview of load-balancing options in Azure](../../guide/technology-choices/load-balancing-overview.md)
 
-
 <!-- links -->
 
 [api-guidance]: ../../best-practices/api-design.md
-[app-service-security]: /azure/app-service-web/web-sites-security
-[app-service-web-app]: /azure/app-service-web/app-service-web-overview
-[app-service-pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[azure-cdn]: https://azure.microsoft.com/services/cdn/
-[azure-dns]: /azure/dns/dns-overview
-[azure-redis]: https://azure.microsoft.com/services/cache/
-[azure-search]: /azure/search
-[azure-search-scaling]: /azure/search/search-capacity-planning
-[basic-web-app]: basic-web-app.md
+[app-service-security]: https://docs.microsoft.com/azure/app-service-web/web-sites-security
+[app-service-web-app]: https://docs.microsoft.com/azure/app-service-web/app-service-web-overview
+[app-service-pricing]: https://azure.microsoft.com/pricing/details/app-service
+[azure-cdn]: https://azure.microsoft.com/services/cdn
+[azure-dns]: https://docs.microsoft.com/azure/dns/dns-overview
+[azure-redis]: https://azure.microsoft.com/services/cache
+[azure-search]: https://docs.microsoft.com/azure/search
+[azure-search-scaling]: https://docs.microsoft.com/azure/search/search-capacity-planning
+[basic-web-app]: ./basic-web-app.md
+[basic-web-app-devops]: ./basic-web-app.md#devops-considerations
 [caching-guidance]: ../../best-practices/caching.md
-[cdn-app-service]: /azure/app-service-web/cdn-websites-with-cdn
-[cdn-storage-account]: /azure/cdn/cdn-create-a-storage-account-with-cdn
+[cdn-app-service]: https://docs.microsoft.com/azure/app-service-web/cdn-websites-with-cdn
+[cdn-storage-account]: https://docs.microsoft.com/azure/cdn/cdn-create-a-storage-account-with-cdn
 [cdn-guidance]: ../../best-practices/cdn.md
-[cors]: /azure/app-service-api/app-service-api-cors-consume-javascript
-[cosmosdb]: /azure/cosmos-db/
+[cors]: https://docs.microsoft.com/azure/app-service-api/app-service-api-cors-consume-javascript
+[cosmosdb]: https://docs.microsoft.com/azure/cosmos-db
 [datastore]: ../..//guide/technology-choices/data-store-overview.md
-[durable-functions]: /azure/azure-functions/durable-functions-overview
-[functions]: /azure/azure-functions/functions-overview
-[functions-consumption-plan]: /azure/azure-functions/functions-scale#consumption-plan
+[durable-functions]: https://docs.microsoft.com/azure/azure-functions/durable-functions-overview
+[functions]: https://docs.microsoft.com/azure/azure-functions/functions-overview
 [github]: https://github.com/mspnp/reference-architectures/tree/master/web-app
-[queue-storage]: /azure/storage/storage-dotnet-how-to-use-queues
-[queues-compared]: /azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted
-[sql-db]: /azure/sql-database/
-[sql-elastic]: /azure/sql-database/sql-database-elastic-scale-introduction
+[queue-storage]: https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-queues
+[queues-compared]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted
+[sql-db]: https://docs.microsoft.com/azure/sql-database
+[sql-elastic]: https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-introduction
 [sql-encryption]: https://msdn.microsoft.com/library/dn948096.aspx
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx
 [web-app-multi-region]: ./multi-region.md

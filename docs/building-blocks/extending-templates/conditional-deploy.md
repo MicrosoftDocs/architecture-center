@@ -131,13 +131,13 @@ An example template is available on [GitHub][github]. To deploy the template, ru
 
 ```bash
 az group create --location <location> --name <resource-group-name>
-az group deployment create -g <resource-group-name> \
+az deployment group create -g <resource-group-name> \
     --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example2-conditional/deploy.json
 ```
 
 ## Next steps
 
-* Use objects instead of scalar values as template parameters. See [Use an object as a parameter in an Azure Resource Manager template](./objects-as-parameters.md)
+- Use objects instead of scalar values as template parameters. See [Use an object as a parameter in an Azure Resource Manager template](./objects-as-parameters.md)
 
 <!-- links -->
 [azure-resource-manager-condition]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#resources

@@ -40,7 +40,7 @@ This architecture is suitable for hybrid applications where the traffic between 
 
 ## Azure ExpressRoute connection
 
-[ExpressRoute](/azure/expressroute/) connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure.
+[ExpressRoute](https://docs.microsoft.com/azure/expressroute/) connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure.
 
 This architecture is suitable for hybrid applications running large-scale, mission-critical workloads that require a high degree of scalability.
 

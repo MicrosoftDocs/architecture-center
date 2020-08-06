@@ -20,10 +20,12 @@ This article compares technology choices for search data stores in Azure. A sear
 
 In Azure, all of the following data stores will meet the core requirements for search against free-form text data by providing a search index:
 
-- [Azure Search](/azure/search/search-what-is-azure-search)
-- [Elasticsearch](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.elasticsearch?tab=Overview)
-- [HDInsight with Solr](/azure/hdinsight/hdinsight-hadoop-solr-install-linux)
-- [Azure SQL Database with full text search](/sql/relational-databases/search/full-text-search)
+- [Azure Search](https://docs.microsoft.com/azure/search/search-what-is-azure-search)
+  - using [CosmosDb](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb)
+  - using [Azure SQL Database](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers)
+- [Elasticsearch](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.elasticsearch_service?tab=Overview)
+- [HDInsight with Solr](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-solr-install-linux)
+- [Azure SQL Database with full text search](https://docs.microsoft.com/sql/relational-databases/search/full-text-search)
 
 ## Key selection criteria
 
@@ -78,6 +80,21 @@ The following tables summarize the key differences in capabilities.
 | Restrict access to specific IP addresses | Yes | Yes | Yes | Yes |
 | Restrict access to allow virtual network access only | Yes | Yes | Yes | Yes |  
 | Active Directory authentication (integrated authentication) | No | No | No | Yes |
+
+## Performance Analysis
+
+The file [movies.json](https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json) contains the data used in this section to compare the performance of the search technologies previously mentioned. The dataset weights around 5 Mb and includes almost 27000 documents.
+
+Notice that the following figures are only for guidance and were obtained using a default deployment, without any manual tuning or proper escalation.
+
+Performance for Elasticsearch and HDInsight with Solr, which are based in Lucene engine, should be similar to Azure Search.
+
+### Performance Comparison
+
+| Capability | Azure Search & CosmosDB | Azure Search & SQL Database | Azure SQL Database Full Text Search |
+| --- | --- | --- | --- |
+| Indexation | ~1 min  | ~45 secs | ~5 mins |
+| Search | ~0.2 secs | ~0.2 secs | ~0.5 secs |
 
 ## See also
 

@@ -1,7 +1,7 @@
 ---
 title: Digital Asset Management
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Knowledge mining through a search index makes it easy for end customers and employees to locate what they are looking for faster.
 ms.custom: acom-architecture
@@ -12,6 +12,8 @@ ms.subservice: solution-idea
 ms.author: pracjain
 social_image_url: /azure/architecture/solution-ideas/articles/media/digital-asset-management.png
 ---
+
+<!-- cSpell:ignore pracjain -->
 
 # Digital Asset Management
 
@@ -38,7 +40,7 @@ Key technologies used to implement tools for technical content review and resear
 - [Microsoft Face API](https://azure.microsoft.com/services/cognitive-services/face/)
 - [Web API custom skill interface](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)
 
-## Next Steps
+## Next steps
 
 Using the [knowledge mining solution accelerator](https://docs.microsoft.com/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
 

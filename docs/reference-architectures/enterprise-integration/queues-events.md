@@ -49,9 +49,9 @@ The recommendations described in [Basic enterprise integration][basic-enterprise
 
 Service Bus has two delivery modes, *pull* or *push*. In the pull model, the receiver continuously polls for new messages. Polling can be inefficient, especially if you have many queues that each receive a few messages, or if there a lot of time between messages. In the push model, Service Bus sends an event through Event Grid when there are new messages. The receiver subscribes to the event. When the event is triggered, the receiver pulls the next batch of messages from Service Bus.
 
-When you create a logic app to consume Service Bus messages, we recommend using the push model with Event Grid integration. It's often more cost efficient, because the logic app doesn't need to poll Service Bus. For more information, see [Azure Service Bus to Event Grid integration overview](/azure/service-bus-messaging/service-bus-to-event-grid-integration-concept). Currently, Service Bus [Premium tier](https://azure.microsoft.com/pricing/details/service-bus/) is required for Event Grid notifications.
+When you create a logic app to consume Service Bus messages, we recommend using the push model with Event Grid integration. It's often more cost efficient, because the logic app doesn't need to poll Service Bus. For more information, see [Azure Service Bus to Event Grid integration overview](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-to-event-grid-integration-concept). Currently, Service Bus [Premium tier](https://azure.microsoft.com/pricing/details/service-bus/) is required for Event Grid notifications.
 
-Use [PeekLock](/azure/service-bus-messaging/service-bus-messaging-overview#queues) for accessing a group of messages. When you use PeekLock, the logic app can perform steps to validate each message before completing or abandoning the message. This approach protects against accidental message loss.
+Use [PeekLock](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview#queues) for accessing a group of messages. When you use PeekLock, the logic app can perform steps to validate each message before completing or abandoning the message. This approach protects against accidental message loss.
 
 ### Event Grid
 
@@ -59,7 +59,7 @@ When an Event Grid trigger fires, it means *at least one* event happened. For ex
 
 ## Scalability considerations
 
-To achieve higher scalability, the Service Bus Premium tier can scale out the number of messaging units. Premium tier configurations can have one, two, or four messaging units. For more information about scaling Service Bus, see [Best practices for performance improvements by using Service Bus Messaging](/azure/service-bus-messaging/service-bus-performance-improvements).
+To achieve higher scalability, the Service Bus Premium tier can scale out the number of messaging units. Premium tier configurations can have one, two, or four messaging units. For more information about scaling Service Bus, see [Best practices for performance improvements by using Service Bus Messaging](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-performance-improvements).
 
 ## Availability considerations
 
@@ -70,15 +70,19 @@ Review the SLA for each service:
 - [Logic Apps SLA][logic-apps-sla]
 - [Service Bus SLA][sb-sla]
 
-To enable failover if a serious outage occurs, consider implementing geo-disaster recovery in Service Bus Premium. For more information, see [Azure Service Bus geo-disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr).
+To enable failover if a serious outage occurs, consider implementing geo-disaster recovery in Service Bus Premium. For more information, see [Azure Service Bus geo-disaster recovery](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-geo-dr).
+
+## DevOps considerations
+
+See DevOps considerations in [Basic Enterprise Integration reference architecture](./basic-enterprise-integration.md#devops-considerations)
 
 ## Security considerations
 
-To secure Service Bus, use shared access signature (SAS). You can grant a user access to Service Bus resources with specific rights by using [SAS authentication](/azure/service-bus-messaging/service-bus-sas). For more information, see [Service Bus authentication and authorization](/azure/service-bus-messaging/service-bus-authentication-and-authorization).
+To secure Service Bus, use shared access signature (SAS). You can grant a user access to Service Bus resources with specific rights by using [SAS authentication](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-sas). For more information, see [Service Bus authentication and authorization](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-authentication-and-authorization).
 
 If you need to expose a Service Bus queue as an HTTP endpoint, for example, to post new messages, use API Management to secure the queue by fronting the endpoint. You can then secure the endpoint with certificates or OAuth authentication as appropriate. The easiest way to secure an endpoint is using a logic app with an HTTP request/response trigger as an intermediary.
 
-The Event Grid service secures event delivery through a validation code. If you use Logic Apps to consume the event, validation is automatically performed. For more information, see [Event Grid security and authentication](/azure/event-grid/security-authentication).
+The Event Grid service secures event delivery through a validation code. If you use Logic Apps to consume the event, validation is automatically performed. For more information, see [Event Grid security and authentication](https://docs.microsoft.com/azure/event-grid/security-authentication).
 
 ## Cost Considerations
 In general, use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
@@ -89,7 +93,7 @@ You are charged for all API Management instances when they are running. If you h
 
 ### Logic Apps
 
-Logic Apps uses a [serverless](/azure/logic-apps/logic-apps-serverless-overview) model. Billing is calculated based on action and connector execution. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). 
+Logic Apps uses a [serverless](https://docs.microsoft.com/azure/logic-apps/logic-apps-serverless-overview) model. Billing is calculated based on action and connector execution. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 ### Service Bus queues
 
@@ -103,19 +107,19 @@ Event Grid uses a serverless model. Billing is calculated based on the number of
 
 For more information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/). 
 
-For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
-[apim]: /azure/api-management
-[apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management/
-[apim-autoscale]: /azure/api-management/api-management-howto-autoscale
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
-[event-grid]: /azure/event-grid/
+[aaf-cost]: ../../framework/cost/overview.md
+[apim]: https://docs.microsoft.com/azure/api-management
+[apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management
+[apim-autoscale]: https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[event-grid]: https://docs.microsoft.com/azure/event-grid
 [event-grid-sla]: https://azure.microsoft.com/support/legal/sla/event-grid
-[logic-apps]: /azure/logic-apps/logic-apps-overview
+[logic-apps]: https://docs.microsoft.com/azure/logic-apps/logic-apps-overview
 [logic-apps-sla]: https://azure.microsoft.com/support/legal/sla/logic-apps
-[sb-sla]: https://azure.microsoft.com/support/legal/sla/service-bus/
-[service-bus]: /azure/service-bus-messaging/
-[service-bus-pricing]: https://azure.microsoft.com/pricing/details/service-bus/
+[sb-sla]: https://azure.microsoft.com/support/legal/sla/service-bus
+[service-bus]: https://docs.microsoft.com/azure/service-bus-messaging
+[service-bus-pricing]: https://azure.microsoft.com/pricing/details/service-bus
 [basic-enterprise-integration]: ./basic-enterprise-integration.md

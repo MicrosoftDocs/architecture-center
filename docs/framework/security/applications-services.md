@@ -1,11 +1,11 @@
 ---
 title: Application security in Azure | Microsoft Docs
-description: How to secure your applications and services in Azure 
+description: How to secure your applications and services in Azure.
 author: dsk-2015
 ms.date: 07/08/2019
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ---
 
 # Applications and services
@@ -15,11 +15,8 @@ store of business value on a cloud platform. While the platform components like
 identity and storage are critical elements of the security environment,
 applications play an outsize role in risks to the business because:
 
--   **Business Processes** are encapsulated and executed by applications and
-    services need to be available and provided with high integrity
-
--   **Business Data** is stored and processed by application workloads and
-    requires high assurances of confidentiality, integrity, and availability.
+- **Business Processes** are encapsulated and executed by applications and services need to be available and provided with high integrity.
+- **Business Data** is stored and processed by application workloads and requires high assurances of confidentiality, integrity, and availability.
 
 This section focuses on applications written by your organization or by others
 on behalf of your organization vs. SaaS or commercially available applications
@@ -30,42 +27,20 @@ installed on IaaS VMs.
 Modern cloud platforms like Azure can host both legacy and modern generations of
 applications
 
--   **Legacy** applications are hosted on Infrastructure as a Service (IaaS)
-    virtual machines that typically include all dependencies including OS,
-    middleware, and other components.
+- **Legacy** applications are hosted on Infrastructure as a Service (IaaS) virtual machines that typically include all dependencies including OS, middleware, and other components.
 
--   **Modern** Platform as a Service (PaaS) applications don’t require the
-    application owner to manage and secure the underlying server operating
-    systems (OSes) and are sometimes fully “Serverless” and built primarily
-    using functions as a service.
+- **Modern** Platform as a Service (PaaS) applications don’t require the application owner to manage and secure the underlying server operating systems and are sometimes fully “Serverless” and built primarily using functions as a service.
 
-    **Notes:** Popular forms of modern applications are application code hosted
-    on Azure App Services and containerized applications (though containers can
-    also be hosted on IaaS VMs or on-premises as well).
+    **Notes:** Popular forms of modern applications are application code hosted on Azure App Services and containerized applications (though containers can also be hosted on IaaS VMs or on-premises as well).
 
--   **Hybrid** – While hybrid applications can take many forms, the most common
-    is an “IaaS plus” state where legacy applications are transitioning to a
-    modern architecture with modern services replacing legacy components or
-    being added a legacy application.
+- **Hybrid:** While hybrid applications can take many forms, the most common is an “IaaS plus” state where legacy applications are transitioning to a modern architecture with modern services replacing legacy components or being added a legacy application.
 
 Securing an application requires security assurances for three different
 component types:
 
--   **Application Code** – This is the logic that defines the custom application
-    that you write. The security of this code is the application owners’
-    responsibility in all generations of application architecture including any
-    open-source snippets or components included in the code. Securing the code
-    requires identifying and mitigating risks from the design and implementation
-    of the application as well as assessing supply chain risk of included
-    components. Note that the evolution of applications into [microservices
-    architectures](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview-microservices)
-    will break various aspects of application code into smaller services vs. a
-    single monolithic codebase.
+- **Application Code:** This is the logic that defines the custom application that you write. The security of this code is the application owners’ responsibility in all generations of application architecture including any open-source snippets or components included in the code. Securing the code requires identifying and mitigating risks from the design and implementation of the application as well as assessing supply chain risk of included components. Note that the evolution of applications into [microservices architectures](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview-microservices) will break various aspects of application code into smaller services vs. a single monolithic codebase.
 
--   **Application Services** – These are the various standardized components
-    that the application uses such as databases, identity providers, event hubs,
-    IoT device management, and so on. For cloud services this is a shared
-    responsibility:
+- **Application Services:** These are the various standardized components that the application uses such as databases, identity providers, event hubs, IoT device management, and so on. For cloud services this is a shared responsibility:
 
     -   **Cloud Provider -** The security of the underlying service is the
         responsibility of the cloud provider
@@ -75,7 +50,7 @@ component types:
         instance(s) used by the application including any data stored and
         processed on the service.
 
--   **Application Hosting Platform** – This is the computing environment where
+- **Application Hosting Platform** – This is the computing environment where
     the application actually executes and runs. In an enterprise with
     applications hosted on premises, in Azure and in third-party clouds like
     Amazon Web Services (AWS), this could take many forms with significant
@@ -127,7 +102,7 @@ program.
 Identify applications that have a high potential impact and/or a high potential
 exposure to risk.
 
--   **High potential impact** – Identify application that would a significant
+- **High potential impact** – Identify application that would a significant
     impact on the business if compromised. This could take the form of one or
     more of:
 
@@ -153,13 +128,13 @@ exposure to risk.
 
         -   *Permissions* granted via access control lists or other means
 
--   **High exposure to attacks** – Applications that are easily accessible to
+- **High exposure to attacks** – Applications that are easily accessible to
     attackers such as web applications on the open internet. Legacy applications
     can also be higher exposure as attackers and penetration testers
     frequently target them because they know these legacy applications often
     have vulnerabilities that are difficult to fix.
 
-## Adopt the DevOps approach 
+## Adopt the DevOps approach
 
 Organizations should shift from a ‘Waterfall’ development cycle to DevOps
 lifecycle of continuous integration, continuous delivery (CI/CD) for
@@ -183,10 +158,10 @@ Using resources and lessons learned by external organizations that are early
 adopters of these models can accelerate the improvement of an organization’s
 security posture with less expenditure of effort and resources.
 
--   Microsoft has released a toolkit for Secure DevOps on Azure –  
+- Microsoft has released a toolkit for Secure DevOps on Azure –  
     <https://azsk.azurewebsites.net/>
 
--   Organization for Web App Security Project (OWASP) has published guidance
+- Organization for Web App Security Project (OWASP) has published guidance
     DevOps Pipeline security  
     <https://www.owasp.org/index.php/OWASP_AppSec_Pipeline#tab=Main>
 
@@ -208,7 +183,7 @@ application update.
 Several capabilities that should be prioritized first because of potential
 security impact:
 
--   **Identity** – User directories and other authentication functions are
+- **Identity** – User directories and other authentication functions are
     complex to develop and critically important to security assurances. Avoid
     using homegrown authentication solutions and favor mature capabilities like
     Azure Active Directory ([Azure
@@ -218,7 +193,7 @@ security impact:
     third-party solutions to authenticate and grant permission to users, partners,
     customers, applications, services, and other entities.
 
--   **Data Protection** – Developers should use established capabilities from
+- **Data Protection** – Developers should use established capabilities from
     cloud providers such as native encryption in cloud services to encrypt and
     protect data. The security world is littered with examples of failed
     attempts to protect data or passwords that didn’t stand up to real world
@@ -226,7 +201,7 @@ security impact:
     well-established cryptographic algorithms and not attempt to invent their
     own.
 
--   **Key management** – Ideally use identity for authentication rather than
+- **Key management** – Ideally use identity for authentication rather than
     directly handling keys (see [Prefer Identity Authentication over Keys](#prefer-identity-authentication-over-keys)).
     For situations where accessing services that require access to keys,
     leverage a key management service like [Azure Key
@@ -236,7 +211,7 @@ security impact:
     can use [CredScan](https://secdevtools.azurewebsites.net/helpcredscan.html)
     to discover potentially exposed keys in your application code.
 
--   **Application Configurations** – Inconsistent configurations for
+- **Application Configurations** – Inconsistent configurations for
     applications can create security Risks. Azure App Configuration provides a
     service to centrally manage application settings and feature flags, which
     helps mitigate this risk.
@@ -254,10 +229,10 @@ greatly increases the burden of maintaining an external tool and increases risk
 of losing security visibility and protections from these tools if the tool
 doesn’t keep up with the cloud service.
 
--   List of Azure Services  
+- List of Azure Services  
     <https://azure.microsoft.com/services/>
 
--   Native security capabilities of each service  
+- Native security capabilities of each service  
     <https://docs.microsoft.com/azure/security/common-security-attributes>
 
 ## Prefer Identity Authentication over Keys
@@ -285,9 +260,11 @@ identities](https://docs.microsoft.com/azure/active-directory/managed-identities
 to assign identities to resources like VMs and App Services so that developers
 don’t have to manage identities within the application.
 
+For multitenant best practices, see [Manage identity in multitenant applications](https://docs.microsoft.com/azure/architecture/multitenant-identity/).
+
 ## Bottom-up approach to reduce security bug volume and impact
 
-![](images/app-code.png)
+![Application Code - Bottom-up Approach](images/app-code.png)
 
 Reduce the count and potential severity of security bugs in your application by
 implementing security practices and tools during the development lifecycle.
@@ -313,7 +290,7 @@ and output validation, perform fuzz testing, attack surface reviews, and more.
 
 ## Top-down approach through threat modeling
 
-![](images/app-code2.png)
+![Application Code - Top-down approach](images/app-code2.png)
 
 Perform threat modeling on your business-critical applications to discover and
 mitigate potential risks to your organization.
@@ -374,63 +351,52 @@ measures to minimize time investment while maximizing security value:
         threat modeling on a best effort basis with what application
         knowledge/expertise you have available.
 
-### Simple questions method 
+### Simple questions method
 
->   This simple questioning method is designed to get security professionals and
->   developers started on threat modelling before moving on to a more advanced
->   method like STRIDE or OWASP’s method (see, [Top-down approach through threat modeling](#top-down-approach-through-threat-modeling)).
+> This simple questioning method is designed to get security professionals and developers started on threat modelling before moving on to a more advanced method like STRIDE or OWASP’s method (see, [Top-down approach through threat modeling](#top-down-approach-through-threat-modeling)).
+> For each application or component, ask and answer these questions
 
->   For each application or component, ask and answer these questions
-
--   Are you authenticating connections using Azure AD, TLS (with mutual
+- Are you authenticating connections using Azure AD, TLS (with mutual
     authentication), or another modern security protocol approved by your
     security team? This protects against unauthorized access to the application
     and data
 
-    -   Between users and the application (if applicable)
+    - Between users and the application (if applicable)
 
-    -   Between different application components and services (if applicable)
+    - Between different application components and services (if applicable)
 
--   Do you limit which accounts have access to write or modify data in the
+- Do you limit which accounts have access to write or modify data in the
     application to only those required to do so? This reduces risk of
     unauthorized data tampering/alteration
 
--   Is the application activity logged and fed into a Security Information and
+- Is the application activity logged and fed into a Security Information and
     Event Management (SIEM) via Azure Monitor or a similar solution? This helps
     the security team detect attacks and quickly investigate them.
 
--   Is business-critical data protected with encryption that has been approved
+- Is business-critical data protected with encryption that has been approved
     by the security team? This helps protect against unauthorized copying of
     data while at rest.
 
--   Is inbound and outbound network traffic encrypted using TLS? This helps
+- Is inbound and outbound network traffic encrypted using TLS? This helps
     protect against unauthorized copying of data while in transit.
 
--   Is the application protected against Distributed Denial of Service (DDoS)
-    attacks using services like Azure DDoS protection, Akamai, or similar? This
-    protects against attacks designed to overload the application so it can’t be
-    used
+- Is the application protected against Distributed Denial of Service (DDoS) attacks using services like Azure DDoS protection, Akamai, or similar? This protects against attacks designed to overload the application so it can’t be used.
 
--   Does the application store any sign in credentials or keys to access other
+- Does the application store any sign in credentials or keys to access other
     applications, databases, or services? This helps identify whether an attack
     can use your application to attack other systems.
 
--   Do the application controls allow you to fulfill security and privacy
+- Do the application controls allow you to fulfill security and privacy
     requirements for the localities you operate in? (This helps protect user’s private data and avoid compliance fines)
 
->   **Important:** Security is a complex topic and the potential risks are
->   limited only by the imagination of smart motivated attackers. These
->   questions are designed to help identify readily discoverable gaps that are
->   easily exploited by attackers. As you develop comfort and competencies with
->   this method, you can look to grow your ability to threat model by
->   progressing to advanced threat modelling techniques.
+> **Important:** Security is a complex topic and the potential risks are
+limited only by the imagination of smart motivated attackers. These questions are designed to help identify readily discoverable gaps that are easily exploited by attackers. As you develop comfort and competencies with this method, you can look to grow your ability to threat model by progressing to advanced threat modelling techniques.
 
 ### Advanced threat modeling techniques
 
->   A more comprehensive threat model can identify more potential risks, two
->   popular techniques are STRIDE and OWASP
+> A more comprehensive threat model can identify more potential risks, two popular techniques are STRIDE and OWASP 
 
--   **Microsoft** Security Development Lifecycle has documented a process of
+- **Microsoft** Security Development Lifecycle has documented a process of
     threat modeling in and released a free tool to assist with this process
 
     -   This method evaluates application components and
@@ -452,7 +418,7 @@ measures to minimize time investment while maximizing security value:
     -   This method can be applied to any level of the design from the high
         level architectural specific application components.
 
--   **OWASP –** The Open Web Application Security Project (OWASP) has documented
+- **OWASP –** The Open Web Application Security Project (OWASP) has documented
     a threat modeling approach for applications, which refers to STRIDE and
     other methods
     <https://www.owasp.org/index.php/Application_Threat_Modeling>
@@ -467,12 +433,12 @@ WAFs are an important mitigation as attackers target web applications for an
 ingress point into an organization similar to a client endpoint. WAFs are
 appropriate for both
 
--   Organizations without a strong application security program as it’s a
+- Organizations without a strong application security program as it’s a
     critical safety measure(much like a parachute in a plane. Note that this
     shouldn’t be the only planned safety mechanism to reduce the volume and
     severity of security bugs in your applications. For details, see [Reduce security bug volume and impact](#bottom-up-approach-to-reduce-security-bug-volume-and-impact).
 
--   Organizations who have invested in application security as WAFs provide a
+- Organizations who have invested in application security as WAFs provide a
     valuable additional defense in-depth mitigation. WAFs in this case act as a
     final safety mechanism in case a security bug was missed by security
     practices in the development lifecycle.
@@ -499,14 +465,14 @@ productivity and adoption of DevOps principles.
 While this is an emerging space that is evolving rapidly, several key lessons
 learned and best practices have become clear:
 
--   **Use a Kubernetes managed service instead of installing and managing
+- **Use a Kubernetes managed service instead of installing and managing
     Kubernetes**  
     Kubernetes is a very complex system and still has a number of default
     settings that are not secure and few Kubernetes security experts in the
     marketplace. While this has been improving in recent years with each
     release, there are still a lot of risks that have to be mitigated.
 
--   **Validate container + container supply chain**  
+- **Validate container + container supply chain**  
     Just as you should validate the security of any open-source code added to
     your applications, you should also validate containers you add to your
     applications.
@@ -520,17 +486,17 @@ learned and best practices have become clear:
     -   Regularly scan containers for known risks in the container registry,
         before use, or during use.
 
--   **Set up registry of known good containers**  
+- **Set up registry of known good containers**  
     This allows developers in your organization to use containers validated by
     security rapidly with low friction. Additionally, build a process for
     developer to request and rapidly get security validation of new containers
     to encourage developers to use this process vs. working around it.
 
--   **Don’t run containers as root or administrator unless explicitly
+- **Don’t run containers as root or administrator unless explicitly
     required**  
     Early versions of containers required root privileges (which makes attacks
     easier), but this is no longer required with current versions.
 
--   **Monitor containers**  
+- **Monitor containers**  
     Ensure you deploy security monitoring tools that are container aware to
     monitor for anomalous behavior and enable investigation of incidents.

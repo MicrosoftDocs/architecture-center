@@ -1,7 +1,7 @@
 ---
 title: N-tier application with Apache Cassandra
 description: Run Linux virtual machines for an N-tier architecture with Apache Cassandra in Microsoft Azure.
-author: MikeWasson
+author: doodlemania2
 ms.date: 08/21/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -29,15 +29,15 @@ The architecture has the following components.
 
 - **Resource group**. [Resource groups][resource-manager-overview] are used to group Azure resources so they can be managed by lifetime, owner, or other criteria.
 
-- **Availability zones**. [Availability zones](/azure/availability-zones/az-overview) are physical locations within an Azure region. Each zone consists of one or more datacenters with independent power, cooling, and networking. By placing VMs across zones, the application becomes resilient to failures within a zone.
+- **Availability zones**. [Availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview) are physical locations within an Azure region. Each zone consists of one or more datacenters with independent power, cooling, and networking. By placing VMs across zones, the application becomes resilient to failures within a zone.
 
 ### Networking and load balancing
 
 - **Virtual network and subnets**. Every Azure VM is deployed into a virtual network that can be segmented into subnets. Create a separate subnet for each tier.
 
-- **Application gateway**. [Application Gateway](/azure/application-gateway/) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Application Gateway also provides a [web application firewall](/azure/application-gateway/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities.
+- **Application gateway**. [Application Gateway](https://docs.microsoft.com/azure/application-gateway/) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Application Gateway also provides a [web application firewall](https://docs.microsoft.com/azure/application-gateway/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities.
 
-- **Load balancers**. Use [Azure Standard Load Balancer][load-balancer] to distribute network traffic from the web tier to the business tier, and from the business tier to SQL Server.
+- **Load balancers**. Use [Azure Standard Load Balancer][load-balancer] to distribute network traffic from the web tier to the business tier.
 
 - **Network security groups** (NSGs). Use [NSGs][nsg] to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the database tier does not accept traffic from the web front end, only from the business tier and the management subnet.
 
@@ -71,7 +71,7 @@ Design subnets with functionality and security requirements in mind. All VMs wit
 
 ### Application Gateway
 
-For information about configuring Application Gateway, see [Application Gateway configuration overview](/azure/application-gateway/configuration-overview).
+For information about configuring Application Gateway, see [Application Gateway configuration overview](https://docs.microsoft.com/azure/application-gateway/configuration-overview).
 
 ### Load balancers
 
@@ -121,7 +121,7 @@ There are two basic ways to configure VMs deployed in a scale set:
 
 - Use extensions to configure the VM after it's deployed. With this approach, new VM instances may take longer to start up than a VM with no extensions.
 
-- Deploy a [managed disk](/azure/storage/storage-managed-disks-overview) with a custom disk image. This option may be quicker to deploy. However, it requires you to keep the image up-to-date.
+- Deploy a [managed disk](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview) with a custom disk image. This option may be quicker to deploy. However, it requires you to keep the image up-to-date.
 
 For more information, see [Design considerations for scale sets][vmss-design].
 
@@ -148,16 +148,16 @@ Not all regions support availability zones, and not all VM sizes are supported i
 
 ```bash
 az vm list-skus --resource-type virtualMachines --zone false --location <location> \
-    --query "[].{Name:name, Zones:locationInfo[].zones[] | join(','@)}" -o table  
+    --query "[].{Name:name, Zones:locationInfo[].zones[] | join(','@)}" -o table
 ```
 
 If you deploy this architecture to a region that does not support availability zones, put the VMs for each tier inside an *availability set*. VMs within the same availability are deployed across multiple physical servers, compute racks, storage units, and network switches for redundancy. Scale sets automatically use *placement groups*, which act as an implicit availability set.
 
 When deploying to availability zones, use the Standard SKU of Azure Load Balancer and the v2 SKU of Application Gateway. These SKUs support cross-zone redundancy. For more information, see:
 
-- [Standard Load Balancer and Availability Zones](/azure/load-balancer/load-balancer-standard-availability-zones)
+- [Standard Load Balancer and Availability Zones](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
 - [Autoscaling and Zone-redundant Application Gateway v2][app-gw-scaling]
-- [How does Application Gateway support high availability and scalability?](/azure/application-gateway/application-gateway-faq#how-does-application-gateway-support-high-availability-and-scalability)
+- [How does Application Gateway support high availability and scalability?](https://docs.microsoft.com/azure/application-gateway/application-gateway-faq#how-does-application-gateway-support-high-availability-and-scalability)
 
 A single Application Gateway deployment can run multiple instances of the gateway. For production workloads, run at least two instances.
 
@@ -178,8 +178,8 @@ HTTP probes send an HTTP GET request to a specified path and listen for an HTTP 
 
 For more information about health probes, see:
 
-- [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview)
-- [Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
+- [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
+- [Application Gateway health monitoring overview](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview)
 
 For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md).
 
@@ -198,7 +198,7 @@ For single VMs pricing options See [Linux VMs pricing][Linux-vm-pricing].
 
 You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
 
-For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
 
 
 ## Security considerations
@@ -217,7 +217,7 @@ For incoming Internet traffic, the load balancer rules define which traffic can 
 
 A deployment for this reference architecture is available on [GitHub][github-folder].
 
-If you specify a region that supports availability zones, the VMs are deployed into availability zones. Otherwise, the VMs are deployed into availability sets. For a list of regions that support availability zones, see [Services support by region](/azure/availability-zones/az-overview#services-support-by-region).
+If you specify a region that supports availability zones, the VMs are deployed into availability zones. Otherwise, the VMs are deployed into availability sets. For a list of regions that support availability zones, see [Services support by region](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region).
 
 ### Prerequisites
 
@@ -237,38 +237,60 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
    azbb -s <your subscription_id> -g <your resource_group_name> -l <azure region> -p n-tier-linux.json --deploy
    ```
 
+## DevOps considerations
+
+In this architecture you use an [Azure Building Blocks template][azbb-template] for provisioning the Azure resources and its dependencies. Since all the main resources and their dependencies are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps Teams and Services to perform continuous integration and continuous delivery (CI/CD).
+
+Also, you can use different deployment templates and integrate them with [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
+
+In this sceanario you virtual machines are configured by using Virtual Machine Extensions, since they offer the possibility of installing certain additional software, such as Apache Cassandra. In particular, the Custom Script Extension allows the download and execution of arbitrary code on a Virtual Machine, allowing unlimited customization of the Operating System of an Azure VM. VM Extensions are installed and executed only at VM creation time. That means if the Operating System gets configured incorrectly at a later stage, it will require a manual intervention to move it back to its correct state. Configuration Management Tools can be used to address this issue.
+
+Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines. Application Insights is actually one of the components of Azure Monitor, which gives you rich metrics and logs to verify the state of your complete Azure landscape. Azure Monitor will help you to follow the state of your infrastructure.
+
+Make sure not only to monitor your compute elements supporting your application code, but your data platform as well, in particular your databases, since a low performance of the data tier of an application could have serious consequences.
+
+In order to test the Azure environment where the applications are running, it should be version-controlled and deployed through the same mechanisms as application code, then it can be tested and validated using DevOps testing paradigms too.
+
+
+For more information, see the Operational Excellence section in [Microsoft Azure Well-Architecture Framework][WAF-devops].
+
 ## Next steps
 
-- [Microsoft Learn module: Tour the N-tier architecture style](/learn/modules/n-tier-architecture/)
+- [Microsoft Learn module: Tour the N-tier architecture style](https://docs.microsoft.com/learn/modules/n-tier-architecture/)
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
-[app-gw-scaling]: /azure/application-gateway/
-[azure-dns]: /azure/dns/dns-overview
+[arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
+[WAF-devops]: /azure/architecture/framework/devops/overview
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[azbb-template]: https://github.com/mspnp/template-building-blocks/wiki/overview
+[WAF-cost]: ../../framework/cost/overview.md
+[app-gw-scaling]: https://docs.microsoft.com/azure/application-gateway
+[azure-dns]: https://docs.microsoft.com/azure/dns/dns-overview
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cassandra-in-azure]: https://academy.datastax.com/resources/deployment-guide-azure
 [cassandra-consistency]: https://docs.datastax.com/en/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html
 [cassandra-replication]: https://academy.datastax.com/planet-cassandra/data-replication-in-nosql-databases-explained
 [cassandra-consistency-usage]: https://medium.com/@foundev/cassandra-how-many-nodes-are-talked-to-with-quorum-also-should-i-use-it-98074e75d7d5#.b4pb4alb2
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [datastax]: https://www.datastax.com/products/datastax-enterprise
-[ddos-best-practices]: /azure/security/azure-ddos-best-practices
-[ddos]: /azure/virtual-network/ddos-protection-overview
+[ddos-best-practices]: https://docs.microsoft.com/azure/security/azure-ddos-best-practices
+[ddos]: https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview
 [dmz]: ../dmz/secure-vnet-dmz.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-linux
-[Linux-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
-[load-balancer-hashing]: /azure/load-balancer/concepts-limitations#load-balancer-concepts
-[load-balancer]: /azure/load-balancer/load-balancer-get-started-internet-arm-cli
-[network-security]: /azure/best-practices-network-security
-[nsg]: /azure/virtual-network/virtual-networks-nsg
-[plan-network]: /azure/virtual-network/virtual-network-vnet-plan-design-arm
+[Linux-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
+[load-balancer-hashing]: https://docs.microsoft.com/azure/load-balancer/components#load-balancing-rules
+[load-balancer]: https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-internet-arm-cli
+[network-security]: https://docs.microsoft.com/azure/best-practices-network-security
+[nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
+[plan-network]: https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm
 [private-ip-space]: https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces
-[public IP address]: /azure/virtual-network/virtual-network-ip-addresses-overview-arm
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
-[subscription-limits]: /azure/azure-subscription-service-limits
+[public IP address]: https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm
+[resource-manager-overview]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
+[subscription-limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
-[vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
-[vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
+[vmss-design]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
+[vmss]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview

@@ -74,7 +74,7 @@ When batch scoring data with R models, consider how to parallelize the workload.
 
 In the scenario used for this example, the model objects are large, and it takes only a few seconds to generate a forecast for individual products. For this reason, you can group the products and execute a single Batch job per node. A loop within each job generates forecasts for the products sequentially. This method turns out to be the most efficient way to parallelize this particular workload. It avoids the overhead of starting many smaller Batch jobs and repeatedly loading the R models.
 
-An alternative approach is to trigger one Batch job per product. Azure Batch automatically forms a queue of jobs and submits them to be executed on the cluster as nodes become available. Use [automatic scaling][autoscale] to adjust the number of nodes in the cluster depending on the number of jobs. This approach makes more sense if it takes a relatively long time to complete each scoring operation, justifying the overhead of starting the jobs and reloading the model objects. This approach is also simpler to implement and gives you the flexibility to use automatic scaling—an important consideration if the size of the total workload is not known in advance.
+An alternative approach is to trigger one Batch job per product. Azure Batch automatically forms a queue of jobs and submits them to be executed on the cluster as nodes become available. Use [automatic scaling][autoscale] to adjust the number of nodes in the cluster depending on the number of jobs. This approach makes more sense if it takes a relatively long time to complete each scoring operation, justifying the overhead of starting the jobs and reloading the model objects. This approach is also simpler to implement and gives you the flexibility to use automatic scaling-an important consideration if the size of the total workload is not known in advance.
 
 ## Monitoring and logging considerations
 
@@ -105,12 +105,12 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 
 [0]: ./_images/batch-scoring-r-models.png
 [1]: ./_images/sales-forecasts.png
-[aci]: /azure/container-instances/container-instances-overview
-[autoscale]: /azure/batch/batch-automatic-scaling
-[batch]: /azure/batch/batch-technical-overview
-[blob]: /azure/storage/blobs/storage-blobs-introduction
+[aci]: https://docs.microsoft.com/azure/container-instances/container-instances-overview
+[autoscale]: https://docs.microsoft.com/azure/batch/batch-automatic-scaling
+[batch]: https://docs.microsoft.com/azure/batch/batch-technical-overview
+[blob]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
 [doAzureParallel]: https://github.com/Azure/doAzureParallel/blob/master/docs/32-autoscale.md
-[getJobFiles]: /azure/machine-learning/service/how-to-train-ml-models
+[getJobFiles]: https://docs.microsoft.com/azure/machine-learning/service/how-to-train-ml-models
 [github]: https://github.com/Azure/RBatchScoring
-[logic-apps]: /azure/logic-apps/logic-apps-overview
-[storage-explorer]: /azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows
+[logic-apps]: https://docs.microsoft.com/azure/logic-apps/logic-apps-overview
+[storage-explorer]: https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows

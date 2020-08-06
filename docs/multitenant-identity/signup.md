@@ -1,7 +1,7 @@
 ---
 title: Sign-up and tenant onboarding in multitenant applications
-description: How to onboard tenants in a multitenant application.
-author: MikeWasson
+description: Learn how to implement a sign-up process in a multitenant application, which allows a customer to sign up their organization for your application.
+author: doodlemania2
 ms.date: 07/21/2017
 ms.topic: guide
 ms.service: architecture-center
@@ -12,6 +12,9 @@ pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: claims
 pnp.series.next: app-roles
 ---
+
+<!-- cSpell:ignore signup nameof -->
+
 # Tenant sign-up and onboarding
 
 [![GitHub](../_images/github.png) Sample code][sample application]
@@ -266,9 +269,9 @@ Here is a summary of the entire sign-up flow in the Surveys application:
 
 <!-- links -->
 
-[app roles]: app-roles.md
-[Tailspin]: tailspin.md
+[app roles]: ./app-roles.md
+[Tailspin]: ./tailspin.md
 
 [state]: https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
-[Authentication]: authenticate.md
+[Authentication]: ./authenticate.md
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance

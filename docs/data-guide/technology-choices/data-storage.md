@@ -1,7 +1,7 @@
 ---
 title: Choosing a data storage technology
 description: Compare big data storage technology options in Azure, including key selection criteria and a capability matrix.
-author: MikeWasson
+author: doodlemania2
 ms.date: 11/20/2019
 ms.topic: guide
 ms.service: architecture-center
@@ -102,12 +102,12 @@ The following tables summarize the key differences in capabilities.
 | Purpose | Optimized storage for big data analytics workloads |General purpose object store for a wide variety of storage scenarios |
 | Use cases | Batch, streaming analytics, and machine learning data such as log files, IoT data, click streams, large datasets | Any type of text or binary data, such as application back end, backup data, media storage for streaming, and general purpose data |
 | Structure | Hierarchical file system | Object store with flat namespace |
-| Authentication | Based on [Azure Active Directory Identities](https://docs.microsoft.com/azure/active-directory/active-directory-authentication-scenarios) | Based on shared secrets [Account Access Keys](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage) and [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1), and [role-based access control (RBAC)](https://docs.microsoft.com/azure/security/security-storage-overview) |
+| Authentication | Based on [Azure Active Directory Identities](https://docs.microsoft.com/azure/active-directory/active-directory-authentication-scenarios) | Based on shared secrets [Account Access Keys](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage) and [Shared Access Signature Keys](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), and [role-based access control (RBAC)](https://docs.microsoft.com/azure/security/security-storage-overview) |
 | Authentication protocol | OAuth 2.0. Calls must contain a valid JWT (JSON web token) issued by Azure Active Directory | Hash-based message authentication code (HMAC). Calls must contain a Base64-encoded SHA-256 hash over a part of the HTTP request. |
 | Authorization | POSIX access control lists (ACLs). ACLs based on Azure Active Directory identities can be set file and folder level. | For account-level authorization use [Account Access Keys](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage). For account, container, or blob authorization use [Shared Access Signature Keys](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1). |
 | Auditing | Available.  |Available |
 | Encryption at rest | Transparent, server side | Transparent, server side; Client-side encryption |
-| Developer SDKs | .NET, Java, Python, Node.js | .Net, Java, Python, Node.js, C++, Ruby |
+| Developer SDKs | .NET, Java, Python, Node.js | .NET, Java, Python, Node.js, C++, Ruby |
 | Analytics workload performance | Optimized performance for parallel analytics workloads, High Throughput and IOPS | Not optimized for analytics workloads |
 | Size limits | No limits on account sizes, file sizes or number of files | Specific limits documented [here](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits) |
 | Geo-redundancy | Locally-redundant (LRS), globally redundant (GRS), read-access globally redundant (RA-GRS), zone-redundant (ZRS). | Locally redundant (LRS), globally redundant (GRS), read-access globally redundant (RA-GRS), zone-redundant (ZRS). See [here](https://docs.microsoft.com/azure/storage/common/storage-redundancy) for more information |
@@ -121,5 +121,5 @@ The following tables summarize the key differences in capabilities.
 |        SQL language support        |                                                 Yes                                                 |                                     Yes (using the [Phoenix](https://phoenix.apache.org) JDBC driver)                                      |
 |            Consistency             |                   Strong, bounded-staleness, session, consistent prefix, eventual                   |                                                                   Strong                                                                   |
 | Native Azure Functions integration |                        [Yes](https://docs.microsoft.com/azure/cosmos-db/serverless-computing-database)                        |                                                                     No                                                                     |
-|   Automatic global distribution    |                          [Yes](/azure/cosmos-db/distribute-data-globally)                           | No [HBase cluster replication can be configured](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-replication) across regions with eventual consistency |
+|   Automatic global distribution    |                          [Yes](https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally)                           | No [HBase cluster replication can be configured](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-replication) across regions with eventual consistency |
 |           Pricing model            | Elastically scalable request units (RUs) charged per-second as needed, elastically scalable storage |                              Per-minute pricing for HDInsight cluster (horizontal scaling of nodes), storage                               |

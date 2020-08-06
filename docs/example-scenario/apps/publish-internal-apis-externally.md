@@ -1,6 +1,6 @@
 ---
 title: Publishing internal APIs to external users
-description: Use Azure API Management to modernize and expose intranet legacy web APIs.
+description: In this scenario, an organization consolidates multiple APIs internally using Azure API Management deployed inside a Virtual Network.
 author: ssarwa
 ms.date: 03/12/2019
 ms.author: ssarwa
@@ -57,9 +57,9 @@ The data flows as follows:
 
 ## Considerations
 
-- The web APIs are hosted over secured HTTPS protocol and will be using an [SSL Certificate][ssl].
+- The web APIs are hosted over secured HTTPS protocol and will be using a [TLS Certificate][ssl].
 - The Application Gateway also is configured over port 443 for secured and reliable outbound calls.
-- The API Management service is configured to use custom domains using SSL certificates.
+- The API Management service is configured to use custom domains using TLS certificates.
 - Review the suggested [network configuration][ntwkcons] for App Service Environments
 - There needs to be an explicit mention about [port 3443 allowing API Management][apim-port-nsg] to manage via the Azure portal or PowerShell.
 - Leverage policies within APIM to add a HOST header for the API hosted on ASE.  This ensures that the ASE's load balancer will properly forward the request.
@@ -83,7 +83,7 @@ Azure Application Gateway auto scaling is available as a part of the Zone redund
 
 ### Security
 
-Since the above example scenario is hosted completely on an internal network, API Management and ASE are already deployed on [secured infrastructure (Azure VNet)][vnet-security]. Application Gateways can be [integrated with Azure Security Center][appgtwy-asc] to provide a seamless way to prevent, detect, and respond to threats to the environment.  For general guidance on designing secure solutions, see the [Azure Security Documentation][security]
+Since the above example scenario is hosted completely on an internal network, API Management and ASE are already deployed on [secured infrastructure (Azure VNet)][vnet-security]. Application Gateways can be [integrated with Azure Security Center][appgtwy-asc] to provide a seamless way to prevent, detect, and respond to threats to the environment.  For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
 ### Resiliency
 
@@ -94,11 +94,11 @@ This example scenario though talks more about configuration, the APIs hosted on 
 ### Prerequisites and assumptions
 
 1. A custom domain name will need to be purchased.
-2. An SSL certificate (we used a wild-card certificate from Azure Certificates Service) to use one for all our custom domains. You could also procure a self-signed certificate for Dev Test scenarios.
-3. This specific deployment uses the domain name contoso.org and a wild-card SSL certificate for the domain.
-4. The deployment is using the resource names and address spaces mentioned in the deployment section, which can be configured.
+1. A TLS certificate (we used a wild-card certificate from Azure Certificates Service) to use one for all our custom domains. You could also procure a self-signed certificate for Dev Test scenarios.
+1. This specific deployment uses the domain name contoso.org and a wild-card TLS certificate for the domain.
+1. The deployment is using the resource names and address spaces mentioned in the deployment section, which can be configured.
 
-### Deployment and putting the pieces together  
+### Deployment and putting the pieces together
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.svg)](https://deploy.azure.com/?repository=https://github.com/ssarwa/API-Management-ASE-AppGateway)
 
@@ -117,7 +117,7 @@ The components deployed using the above Resource Manager template needs to be fu
 3. App Service Environment with Internal Load Balancer (ILB) option: aseinternal (DNS: aseinternal.contoso.org). Once the Deployment is complete, upload the wild-card cert for the ILB
 4. App Service Plan with ASE as location
 5. An API App (App Services for simplicity) - srasprest (URL: `https://srasprest.contoso.org`) – ASP.NET MVC-based web API. After the deployment, configure
-   - web app to use the SSL certificate
+   - web app to use the TLS certificate
    - Application Insights to the above apps: api-insights
    - Create a Cosmos DB service for web APIs hosted internal to VNet: noderestapidb
    - Create DNS entries on the Private DNS zone created
@@ -125,16 +125,16 @@ The components deployed using the above Resource Manager template needs to be fu
    - For testing the API App internally, create a test VM within the VNet subnet
 6. Creates API Management service: apim-internal
 7. Configure the service to connect to internal VNet on Subnet: apimsubnet. After the deployment is complete, perform the below additional steps
-   - Configure custom domains for APIM Services using SSL Cert
+   - Configure custom domains for APIM Services using TLS
      - API portal (api.contoso.org)
      - Dev Portal (portal.contoso.org)
      - In the APIs section, configure the ASE Apps using ASE's DNS name added Policy for HOST Header for the Web app
      - Use the above created test VM to test the API Management service internal on the Virtual Network
 
-> [!NOTE]
-> The testing the APIM APIs from Azure portal will still NOT work as we don't have api.contoso.org not be able to publicly resolve*
+    > [!NOTE]
+    > The testing the APIM APIs from Azure portal will still NOT work as api.contoso.org is not able to be publicly resolved.*
 
-8. Configure Application Gateway (WAF V1) to access the APU service: apim-gateway on Port 80. Add SSL Certs to the App Gateway and corresponding Health probes and Http settings. Also configure the Rules and Listeners to use SSL Cert
+8. Configure Application Gateway (WAF V1) to access the API service: apim-gateway on Port 80. Add TLS certs to the App Gateway and corresponding Health probes and Http settings. Also configure the Rules and Listeners to use the TLS cert.
 
 Once the above steps are successfully completed, Configure the DNS entries in GoDaddy CNAME entries of api.contoso.org and portal.contoso.org with App Gateway's public DNS name: ase-appgtwy.westus.cloudapp.azure.com and verify if you are able to reach the Dev Portal from Public and are able to test the APIM services APIs using Azure portal
 
@@ -153,7 +153,7 @@ To view projected costs and customize to your deployment needs, you can modify t
 
 Similarly, the [App Service Environments pricing guidance is provided here][ase-pricing]
 
-Application Gateway pricing can be [configured here][appgtwy-pricing] depending upon the required tier and resources 
+Application Gateway pricing can be [configured here][appgtwy-pricing] depending upon the required tier and resources.
 
 ## Related resources
 
@@ -162,41 +162,39 @@ Check out the related scenario on [Migrating legacy web APIs to API Management][
 <!-- links -->
 
 [architecture]: ./media/architecture-publish-internal-apis-externally.png
-[dns]: /azure/dns/private-dns-overview
-[ase]: /azure/app-service/environment/intro
-[apim]: /azure/api-management/api-management-key-concepts
-[appgtwy]: /azure/application-gateway/overview
-[ssl]: /azure/app-service/web-sites-purchase-ssl-web-site
-[ntwkcons]: /azure/app-service/environment/network-info
-[apim-port-nsg]: /azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues
-[apim-policy]: /azure/api-management/api-management-transformation-policies#SetHTTPheader
-[hosted-agent]: /azure/devops/pipelines/agents/v2-windows?view=azure-devops
-[vnet]: /azure/virtual-network/virtual-networks-overview
-[devops]: /azure/devops/index?view=azure-devops&viewFallbackFrom=vsts
-[appinsights]: /azure/azure-monitor/app/app-insights-overview
-[cosmos-db]: /azure/cosmos-db/introduction
-[dnsguide]: /azure/dns/private-dns-getstarted-cli
-[related-scenario]: /azure/architecture/example-scenario/apps/apim-api-scenario
-[apim-pricing]: https://azure.microsoft.com/pricing/details/api-management/
+[dns]: https://docs.microsoft.com/azure/dns/private-dns-overview
+[ase]: https://docs.microsoft.com/azure/app-service/environment/intro
+[apim]: https://docs.microsoft.com/azure/api-management/api-management-key-concepts
+[appgtwy]: https://docs.microsoft.com/azure/application-gateway/overview
+[ssl]: https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site
+[ntwkcons]: https://docs.microsoft.com/azure/app-service/environment/network-info
+[apim-port-nsg]: https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues
+[apim-policy]: https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetHTTPheader
+[hosted-agent]: https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=azure-devops
+[vnet]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
+[devops]: https://docs.microsoft.com/azure/devops/index?view=azure-devops&viewFallbackFrom=vsts
+[appinsights]: https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview
+[cosmos-db]: https://docs.microsoft.com/azure/cosmos-db/introduction
+[dnsguide]: https://docs.microsoft.com/azure/dns/private-dns-getstarted-cli
+[related-scenario]: ../../example-scenario/apps/apim-api-scenario.md
+[apim-pricing]: https://azure.microsoft.com/pricing/details/api-management
 [pricing-calculator]: https://azure.com/e/0e916a861fac464db61342d378cc0bd6
-[azure-er]: /azure/expressroute/expressroute-introduction
-[azure-mon]: /azure/monitoring-and-diagnostics/monitoring-overview
-[ase-pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/
-[appgtwy-pricing]: https://azure.microsoft.com/pricing/details/application-gateway/
-[availability]: /azure/architecture/checklist/availability
-[scalability]: /azure/architecture/checklist/scalability
-[security]: /azure/security/
-[resiliency]: /azure/architecture/framework/resiliency/overview
-[azure-vpn]: /azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
-[azure-hybrid]: /azure/architecture/reference-architectures/hybrid-networking/
-[azure-vm-lift-shift]: https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/
-[azure-apim-ai]: /azure/api-management/api-management-howto-app-insights
-[apim-multiregion]: /azure/api-management/api-management-howto-deploy-multi-region
-[ase-trafficmanager]: /azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
-[apim-scale]: /azure/api-management/upgrade-and-scale
-[apim-autoscale]: /azure/api-management/api-management-howto-autoscale
-[ase-scale]: /azure/app-service/environment/app-service-web-scale-a-web-app-in-an-app-service-environment
-[vnet-security]: /azure/security/azure-network-security
-[appgtwy-asc]: /azure/application-gateway/application-gateway-integration-security-center
-[appgtwy-scale]: /azure/application-gateway/application-gateway-autoscaling-zone-redundant
-[api-pattern]: https://azure.microsoft.com/blog/using-the-retry-pattern-to-make-your-cloud-application-more-resilient/
+[azure-er]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
+[azure-mon]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview
+[ase-pricing]: https://azure.microsoft.com/pricing/details/app-service/windows
+[appgtwy-pricing]: https://azure.microsoft.com/pricing/details/application-gateway
+[security]: https://docs.microsoft.com/azure/security
+[resiliency]: ../../framework/resiliency/overview.md
+[azure-vpn]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
+[azure-hybrid]: ../../reference-architectures/hybrid-networking/index.md
+[azure-vm-lift-shift]: https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide
+[azure-apim-ai]: https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights
+[apim-multiregion]: https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region
+[ase-trafficmanager]: https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
+[apim-scale]: https://docs.microsoft.com/azure/api-management/upgrade-and-scale
+[apim-autoscale]: https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale
+[ase-scale]: https://docs.microsoft.com/azure/app-service/environment/app-service-web-scale-a-web-app-in-an-app-service-environment
+[vnet-security]: https://docs.microsoft.com/azure/security/azure-network-security
+[appgtwy-asc]: https://docs.microsoft.com/azure/application-gateway/application-gateway-integration-security-center
+[appgtwy-scale]: https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant
+[api-pattern]: https://azure.microsoft.com/blog/using-the-retry-pattern-to-make-your-cloud-application-more-resilient

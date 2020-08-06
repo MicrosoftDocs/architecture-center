@@ -1,7 +1,7 @@
 ---
 title: E-commerce website running in secured App Service Environment
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Secure your e-commerce website's sensitive user and payment data using the Microsoft Azure App Service Environment.
 ms.custom: acom-architecture, app service environment, security for ecommerce websites, e-commerce security solutions, e-commerce site security, web-apps, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/ecommerce-website-running-in-secured-ase/'
@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/ecommerce-we
 
 # E-commerce website running in secured App Service Environment
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 ## Architecture
 
@@ -48,7 +48,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/ecommerce-we
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache): Power applications with high-throughput, low-latency data access
 * [Content Delivery Network](https://azure.microsoft.com/services/cdn): Ensure secure, reliable content delivery with broad global reach
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
-* [Blob Storage](https://azure.microsoft.com/services/storage/blobs): Azure Blob storage is a Massively scalable object storage for any type of unstructured data—images, videos, audio, documents, and more—easily and cost-effectively.
+* [Blob Storage](https://azure.microsoft.com/services/storage/blobs): Azure Blob storage is a Massively scalable object storage for any type of unstructured data-images, videos, audio, documents, and more-easily and cost-effectively.
 
 ## Next steps
 

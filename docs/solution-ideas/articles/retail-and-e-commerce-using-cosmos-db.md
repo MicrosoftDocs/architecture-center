@@ -1,7 +1,7 @@
 ---
 title: Retail and e-commerce using Cosmos DB
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Support in-depth queries over diverse product catalogs, traffic spikes, and rapidly changing inventory.
 ms.custom: acom-architecture, web-apps, Cosmos DB, ecommerce,'https://azure.microsoft.com/solutions/architecture/retail-and-e-commerce-using-cosmos-db/'
@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/retail-and-e
 
 # Retail and e-commerce using Cosmos DB
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Support in-depth queries over diverse product catalogs, traffic spikes, and rapidly changing inventory.
 

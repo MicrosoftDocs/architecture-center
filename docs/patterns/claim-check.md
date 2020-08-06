@@ -26,7 +26,7 @@ Sending such large messages to the message bus directly is not recommended, beca
 
 Store the entire message payload into an external service, such as a database. Get the reference to the stored payload, and send just that reference to the message bus. The reference acts like a claim check used to retrieve a piece of luggage, hence the name of the pattern. Clients interested in processing that specific message can use the obtained reference to retrieve the payload, if needed.
 
-![Diagram of the Claim-Check pattern](./_images/claim-check.jpg)
+![Diagram of the Claim-Check pattern](./_images/claim-check.png)
 
 ## Issues and considerations
 
@@ -46,17 +46,17 @@ The pattern can also be used if the payload should be accessed only by services 
 
 On Azure, this pattern can be implemented in several ways and with different technologies, but there are two main categories. In both cases, the receiver has the responsibility to read the claim check and use it to retrieve the payload.
 
-- **Automatic claim-check generation**. This approach uses [Azure Event Grid](/azure/event-grid/) to automatically generate the claim check and push it into the message bus.
+- **Automatic claim-check generation**. This approach uses [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) to automatically generate the claim check and push it into the message bus.
 
 - **Manual claim-check generation**. In this approach, the sender is responsible for managing the payload. The sender stores the payload using the appropriate service, gets or generates the claim check, and sends the claim check to the message bus.
 
-Event Grid is an event routing service and tries to deliver events within a configurable amount of time up to 24 hours. After that, events are either discarded or dead lettered. If you need to archive the event payloads or replay the event stream, you can add an Event Grid subscription to Event Hubs or Queue Storage, where messages can be retained for longer periods and archiving messages is supported. For information about fine tuning Event Grid message delivery and retry, and dead letter configuration, see  [Dead letter and retry policies](/azure/event-grid/manage-event-delivery).
+Event Grid is an event routing service and tries to deliver events within a configurable amount of time up to 24 hours. After that, events are either discarded or dead lettered. If you need to archive the event payloads or replay the event stream, you can add an Event Grid subscription to Event Hubs or Queue Storage, where messages can be retained for longer periods and archiving messages is supported. For information about fine tuning Event Grid message delivery and retry, and dead letter configuration, see  [Dead letter and retry policies](https://docs.microsoft.com/azure/event-grid/manage-event-delivery).
 
 ### Automatic claim-check generation with Blob Storage and Event Grid
 
 In this approach, the sender drops the message payload into a designated Azure Blob Storage container. Event Grid automatically generates a tag/reference and sends it to a supported message bus, such as Azure Storage Queues. The receiver can poll the queue, get the message, and then use the stored reference data to download the payload directly from Blob Storage.
 
-The same Event Grid message can be directly consumed by [Azure Functions](/azure/azure-functions/), without needing to go through a message bus. This approach takes full advantage of the serverless nature of both Event Grid and Functions.
+The same Event Grid message can be directly consumed by [Azure Functions](https://docs.microsoft.com/azure/azure-functions/), without needing to go through a message bus. This approach takes full advantage of the serverless nature of both Event Grid and Functions.
 
 You can find example code for this approach [here][example-1].
 
@@ -102,7 +102,7 @@ You can find example code for this approach [here][example-3].
 
 ### Manual claim-check generation with Kafka
 
-In this example, a Kafka client writes the payload to Azure Blob Storage. Then it sends a notification message using [Kafka-enabled Event Hubs](/azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs). The consumer receives the message and can access the payload from Blob Storage. This example shows how a different messaging protocol can be used to implement the claim-check pattern in Azure. For example, you might need to support existing Kafka clients.
+In this example, a Kafka client writes the payload to Azure Blob Storage. Then it sends a notification message using [Kafka-enabled Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs). The consumer receives the message and can access the payload from Blob Storage. This example shows how a different messaging protocol can be used to implement the claim-check pattern in Azure. For example, you might need to support existing Kafka clients.
 
 You can find example code for this approach [here][example-4].
 

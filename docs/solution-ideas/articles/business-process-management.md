@@ -1,7 +1,7 @@
 ---
 title: Business Process Management
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes
 ms.custom: acom-architecture
@@ -12,6 +12,8 @@ ms.subservice: solution-idea
 ms.author: pracjain
 social_image_url: /azure/architecture/solution-ideas/articles/media/business-process-management.png
 ---
+
+<!-- cSpell:ignore pracjain -->
 
 # Business Process Management
 
@@ -34,11 +36,11 @@ There are three steps: Ingest, Enrich and Exploration. First, the unstructured a
 Key technologies used to implement tools for technical content review and research
 
 - [Azure Cognitive Search](https://docs.microsoft.com/azure/search/)
-- [Microsoft Form Recognizer](https://azure.microsoft.com/services/cognitive-services/form-recognizer/)
+- [Microsoft Form Recognizer](https://azure.microsoft.com/services/cognitive-services/form-recognizer)
 - [Web API custom skill interface](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)
 
-## Next Steps
+## Next steps
 
-Using the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
+Using the [knowledge mining solution accelerator](https://docs.microsoft.com/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
 
-Building custom skills with Microsoft's [Custom Web API](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface)
+Building custom skills with Microsoft's [Custom Web API](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)

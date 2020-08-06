@@ -1,7 +1,7 @@
 ---
 title: Back up cloud applications and data to cloud
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Back up data and applications running in Azure to another Azure location by using Azure Backup or a partner solution.
 ms.custom: acom-architecture, bcdr, 'https://azure.microsoft.com/solutions/architecture/backup-archive-cloud-application/'
@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/backup-archi
 
 # Back up cloud applications and data to cloud
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Back up data and applications running in Azure to another Azure location by using Azure Backup or a partner solution.
 

@@ -1,8 +1,8 @@
 ---
 title: Make all things redundant
 titleSuffix: Azure Application Architecture Guide
-description: Avoid single points of failure by building redundancy into your application.
-author: MikeWasson
+description: Use these recommendations to avoid having single points of failure, by building redundancy into your application.
+author: doodlemania2
 ms.date: 08/30/2018
 ms.topic: guide
 ms.service: architecture-center
@@ -42,9 +42,8 @@ A resilient application routes around failure. Identify the critical paths in yo
 
 <!-- links -->
 
-[multi-vm-blueprint]: ../../reference-architectures/virtual-machines-windows/multi-vm.md
+[multi-vm-blueprint]: ../../reference-architectures/n-tier/n-tier-sql-server.md
 
-[cassandra]: https://cassandra.apache.org/
-[cosmos-db-geo-replication]: /azure/cosmos-db/distribute-data-globally
+[cosmos-db-geo-replication]: https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally
 [sql-always-on]: https://msdn.microsoft.com/library/hh510230.aspx
-[sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview
+[sql-geo-replication]: https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview

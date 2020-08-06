@@ -1,7 +1,7 @@
 ---
 title: Custom Mobile Workforce App
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Learn how the custom mobile workforce management app architecture is built and implemented with a step-by-step diagram that illustrates the integration of Active Directory, SAP, and Azure App Service.
 ms.custom: acom-architecture, Mobile Workforce App, Mobile Workforce Management App, Workforce Management App, Mobile Workforce Management Solution, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/custom-mobile-workforce-app/'
@@ -16,7 +16,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/custom-mobil
 
 # Custom Mobile Workforce App
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This mobile workforce app architecture uses Active Directory to secure corporate data from an SAP back end system, delivered to devices via Azure App Service API Management.
 

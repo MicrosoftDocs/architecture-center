@@ -1,7 +1,7 @@
 ---
 title: Scalable Umbraco CMS web app
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Medium Umbraco CMS web app configured to scale and optimal for high-traffic sites. It uses two web apps, one for your front-end app and the other for your back-office app, deployed in a single region with autoscaling enabled.
 ms.custom: acom-architecture, web-apps, app-dev, is-deployable, 'https://azure.microsoft.com/solutions/architecture/medium-umbraco-web-app/'
@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/medium-umbra
 
 # Scalable Umbraco CMS web app
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Medium Umbraco CMS web app configured to scale and optimal for high-traffic sites. It uses two web apps, one for your front-end app and the other for your back-office app, deployed in a single region with autoscaling enabled.
 
@@ -44,11 +44,11 @@ Use the following pre-built template to deploy this architecture to Azure
 
 ## Next steps
 
-* [Create a web app from the Azure Marketplace](/api/Redirect/documentation/articles/app-service-web-create-web-app-from-marketplace)
-* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/api/Redirect/documentation/articles/sql-database-get-started)
-* [Get started with Azure Blob storage using .NET](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs)
-* [Logs, exceptions and custom diagnostics for ASP.NET in Application Insights](/api/Redirect/documentation/articles/app-insights-search-diagnostic-logs)
-* [How to create a Web App with Azure Cache for Redis](/api/Redirect/documentation/articles/cache-web-app-howto)
+* [Create a web app from the Azure Marketplace](https://docs.microsoft.com/api/Redirect/documentation/articles/app-service-web-create-web-app-from-marketplace)
+* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](https://docs.microsoft.com/api/Redirect/documentation/articles/sql-database-get-started)
+* [Get started with Azure Blob storage using .NET](https://docs.microsoft.com/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs)
+* [Logs, exceptions and custom diagnostics for ASP.NET in Application Insights](https://docs.microsoft.com/api/Redirect/documentation/articles/app-insights-search-diagnostic-logs)
+* [How to create a Web App with Azure Cache for Redis](https://docs.microsoft.com/api/Redirect/documentation/articles/cache-web-app-howto)
 
 <!-- markdownlint-disable MD024 -->
 

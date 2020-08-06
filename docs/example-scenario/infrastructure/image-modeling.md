@@ -1,7 +1,7 @@
 ---
 title: Digital image-based modeling on Azure
 description: Accelerate digital image-based modeling on Azure using Avere and Agisoft PhotoScan
-author: adamboeglin
+author: doodlemania2
 ms.date: 01/11/2019
 ms.category:
   - compute
@@ -47,15 +47,15 @@ This architecture also includes Active Directory domain controllers to control a
 ### Components
 
 - [Agisoft PhotoScan](http://www.agisoft.com/): The PhotoScan Scheduler runs on a Windows 2016 Server VM, and the processing nodes use five VMs with GPUs that run CentOS Linux 7.5.
-- [Avere vFXT](/azure/avere-vfxt/avere-vfxt-overview) is a file caching solution that uses object storage and traditional network-attached storage (NAS) to optimize storage of large datasets. It includes:
+- [Avere vFXT](https://docs.microsoft.com/azure/avere-vfxt/avere-vfxt-overview) is a file caching solution that uses object storage and traditional network-attached storage (NAS) to optimize storage of large datasets. It includes:
   - Avere Controller. This VM executes the script that installs the Avere vFXT cluster and runs Ubuntu 18.04 LTS. The VM can be used later to add or remove cluster nodes and to destroy the cluster as well.
   - vFXT cluster. At least three VMs are used, one for each of the Avere vFXT nodes based on Avere OS 5.0.2.1. These VMs form the vFXT cluster, which is attached to Azure Blob storage.
-- [Microsoft Active Directory domain controllers](/windows/desktop/ad/active-directory-domain-services) allow the host access to domain resources and provide DNS name resolution. Avere vFXT adds a number of A records &mdash; for example, each A record in a vFXT cluster points to the IP address of each Avere vFXT node. In this setup, all VMs use the round-robin pattern to access vFXT exports.
-- [Other VMs](/azure/virtual-machines/) serve as jump boxes used by the administrator to access the scheduler and processing nodes. The Windows jumpbox is mandatory to allow the administrator to access the head node via remote desktop protocol. The second jumpbox is optional and runs Linux for administration of the worker nodes.
-- [Network security groups](/azure/virtual-network/manage-network-security-group)  limit access to the public IP address (PIP) and allow ports 3389 and 22 for access to the VMs attached to the Jumpbox subnet.
-- [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) connects a PhotoScan virtual network to an Avere virtual network.
-- [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction) works with Avere vFXT as the core filer to store the committed data being processed. Avere vFXT identifies the active data stored in Azure Blob and tiers it into solid-state drives (SSD) used for caching in its compute nodes while a PhotoScan job is running. If changes are made, the data is asynchronously committed back to the core filer.
-- [Azure Key Vault](/azure/key-vault/key-vault-overview) is used to store the administrator passwords and PhotoScan activation code.
+- [Microsoft Active Directory domain controllers](https://docs.microsoft.com/windows/desktop/ad/active-directory-domain-services) allow the host access to domain resources and provide DNS name resolution. Avere vFXT adds a number of A records &mdash; for example, each A record in a vFXT cluster points to the IP address of each Avere vFXT node. In this setup, all VMs use the round-robin pattern to access vFXT exports.
+- [Other VMs](https://docs.microsoft.com/azure/virtual-machines/) serve as jump boxes used by the administrator to access the scheduler and processing nodes. The Windows jumpbox is mandatory to allow the administrator to access the head node via remote desktop protocol. The second jumpbox is optional and runs Linux for administration of the worker nodes.
+- [Network security groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)  limit access to the public IP address (PIP) and allow ports 3389 and 22 for access to the VMs attached to the Jumpbox subnet.
+- [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) connects a PhotoScan virtual network to an Avere virtual network.
+- [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) works with Avere vFXT as the core filer to store the committed data being processed. Avere vFXT identifies the active data stored in Azure Blob and tiers it into solid-state drives (SSD) used for caching in its compute nodes while a PhotoScan job is running. If changes are made, the data is asynchronously committed back to the core filer.
+- [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) is used to store the administrator passwords and PhotoScan activation code.
 
 ### Alternatives
 
@@ -70,24 +70,24 @@ This scenario is designed specifically to provide high-performance storage for a
 
 Deployment considerations depend on the applications and services used, but a few notes apply:
 
-- When building high-performance applications, use Azure Premium Storage and [optimize the application layer](/azure/virtual-machines/windows/premium-storage-performance). Optimize storage for frequent access using Azure Blob [hot tier access](/azure/storage/blobs/storage-blob-storage-tiers).
-- Use a storage [replication option](/azure/storage/common/storage-redundancy) that meets your availability and performance requirements. In this example, Avere vFXT is configured for high availability by default, with locally redundant storage (LRS). For load balancing, all VMs in this setup use the round-robin pattern to access vFXT exports.
+- When building high-performance applications, use Azure Premium Storage and [optimize the application layer](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance). Optimize storage for frequent access using Azure Blob [hot tier access](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
+- Use a storage [replication option](https://docs.microsoft.com/azure/storage/common/storage-redundancy) that meets your availability and performance requirements. In this example, Avere vFXT is configured for high availability by default, with locally redundant storage (LRS). For load balancing, all VMs in this setup use the round-robin pattern to access vFXT exports.
 - If the backend storage will be consumed by both Windows clients and Linux clients, use Samba servers to support the Windows nodes. A [version](https://github.com/paulomarquesc/beegfs-template) of this example scenario based on BeeGFS uses Samba to support the scheduler node of the HPC workload (PhotoScan) running on Windows. A load balancer is deployed to act like a smart replacement for DNS round robin.
-- Run HPC applications using the VM type best suited for your [Windows](/azure/virtual-machines/windows/sizes-hpc) or [Linux](/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) workload.
-- To isolate the HPC workload from the storage resources, deploy each in its own virtual network, then use virtual network [peering](/azure/virtual-network/virtual-network-peering-overview) to connect the two. Peering creates a low-latency, high-bandwidth connection between resources in different virtual networks and routes traffic through the Microsoft backbone infrastructure through private IP addresses only.
+- Run HPC applications using the VM type best suited for your [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) or [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) workload.
+- To isolate the HPC workload from the storage resources, deploy each in its own virtual network, then use virtual network [peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) to connect the two. Peering creates a low-latency, high-bandwidth connection between resources in different virtual networks and routes traffic through the Microsoft backbone infrastructure through private IP addresses only.
 
 ### Security
 
 This example focuses on deploying a high-performance storage solution for an HPC workload and is not a security solution. Make sure to involve your security team for any changes.
 
-For added security, this example infrastructure enables all the Windows VMs to be domain-joined and uses Active Directory for central authentication. It also provides custom DNS services for all VMs. To help protect the environment, this template relies on [network security groups](/azure/virtual-network/security-overview). Network security group offer basic traffic filters and security rules.
+For added security, this example infrastructure enables all the Windows VMs to be domain-joined and uses Active Directory for central authentication. It also provides custom DNS services for all VMs. To help protect the environment, this template relies on [network security groups](https://docs.microsoft.com/azure/virtual-network/security-overview). Network security group offer basic traffic filters and security rules.
 
 Consider the following options to further improve security in this scenario:
 
 - Use network virtual appliances such as Fortinet, Checkpoint, and Juniper.
-- Apply [role-based access control](/azure/role-based-access-control/overview) to the resource groups.
-- Enable VM [JIT](/azure/security-center/security-center-just-in-time) access if jump boxes are accessed via the Internet.
-- Use [Azure Key Vault](/azure/key-vault/quick-create-portal) to store the passwords used by administrator accounts.
+- Apply [role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview) to the resource groups.
+- Enable VM [JIT](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) access if jump boxes are accessed via the Internet.
+- Use [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal) to store the passwords used by administrator accounts.
 
 ## Pricing
 
@@ -115,10 +115,10 @@ For step-by-step instructions for deploying this architecture, including all the
 
 The following resources will provide more information on the components used in this scenario, along with alternative approaches for batch computing on Azure.
 
-- Overview of [Avere vFXT for Azure](/azure/avere-vfxt/avere-vfxt-overview)
+- Overview of [Avere vFXT for Azure](https://docs.microsoft.com/azure/avere-vfxt/avere-vfxt-overview)
 - [Agisoft PhotoScan](https://www.agisoft.com/) home page
-- [Azure Storage Performance and Scalability Checklist](/azure/storage/common/storage-performance-checklist)
+- [Azure Storage Performance and Scalability Checklist](https://docs.microsoft.com/azure/storage/common/storage-performance-checklist)
 - [Parallel Virtual File Systems on Microsoft Azure: Performance tests of Lustre, GlusterFS, and BeeGFS](https://azure.microsoft.com/mediahandler/files/resourcefiles/parallel-virtual-file-systems-on-microsoft-azure/Parallel_Virtual_File_Systems_on_Microsoft_Azure.pdf) (PDF)
-- An example scenario for [computer-aided engineering (CAE) on Azure](/azure/architecture/example-scenario/apps/hpc-saas)
+- An example scenario for [computer-aided engineering (CAE) on Azure](../../example-scenario/apps/hpc-saas.md)
 - [HPC on Azure](https://azure.microsoft.com/solutions/high-performance-computing/) home page
 - Overview of [Big Compute: HPC &amp; Microsoft Batch](https://azure.microsoft.com/solutions/big-compute)

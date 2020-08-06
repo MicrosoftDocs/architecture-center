@@ -106,7 +106,7 @@ For logic apps, we recommend a configuration-as-code approach to backing up and 
 
 If you deploy a logic app to a different region, update the configuration in API Management. You can update the API's **Backend** property by using a basic PowerShell script.
 
-## Manageability considerations
+## DevOps considerations
 
 Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
 
@@ -122,7 +122,13 @@ When you assign resources to resource groups, consider these factors:
 
 ### Deployment
 
-Use [Azure Resource Manager templates][arm] to deploy the Azure resources. Templates make it easier to automate deployments using PowerShell or the Azure CLI.
+Use [Azure Resource Manager templates][arm] to deploy the Azure resources, follow the infrastructure as Code (IaC) Process. Templates make it easier to automate deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions.
+
+### Staging
+
+Consider staging your workloads, which means deploying to various stages and running validations at each stage before moving on to the next one; that way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases] are recommended deployment strategies for updating live production environments. Also consider having a good rollback strategy for when a deployment fails; for example you could automatically redeploy an earlier, successful deployment from your deployment history, the --rollback-on-error flag parameter in Azure CLI is good example. 
+
+### Workload isolation
 
 Put API Management and any individual logic apps in their own separate Resource Manager templates. By using separate templates, you can store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process.
 
@@ -186,9 +192,9 @@ You are charged for all API Management instances when they are running. If you h
 
 ### Logic Apps
 
-Logic Apps uses a [serverless](/azure/logic-apps/logic-apps-serverless-overview) model. Billing is calculated based on action and connector execution. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). 
+Logic Apps uses a [serverless](https://docs.microsoft.com/azure/logic-apps/logic-apps-serverless-overview) model. Billing is calculated based on action and connector execution. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
-For more information, see the cost section in [Azure Architecture Framework][aaf-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 
 ## Next steps
@@ -197,37 +203,40 @@ For greater reliability and scalability, use message queues and events to decoup
 
 <!-- links -->
 
-[aad]: /azure/active-directory
-[aaf-cost]: /azure/architecture/framework/cost/overview
-[apim]: /azure/api-management
-[apim-autoscale]: /azure/api-management/api-management-howto-autoscale
-[apim-backup]: /azure/api-management/api-management-howto-disaster-recovery-backup-restore
-[apim-caching]: /azure/api-management/api-management-howto-cache
-[apim-capacity]: /azure/api-management/api-management-capacity
-[apim-dev-portal]: /azure/api-management/api-management-key-concepts#developer-portal
-[apim-domain]: /azure/api-management/configure-custom-domain
-[apim-jwt]: /azure/api-management/policies/authorize-request-based-on-jwt-claims
-[apim-logic-app]: /azure/api-management/import-logic-app-as-api
-[apim-monitor]: /azure/api-management/api-management-howto-use-azure-monitor
-[apim-oauth]: /azure/api-management/api-management-howto-protect-backend-with-aad
-[apim-openapi]: /azure/api-management/import-api-from-oas
-[apim-pbi]: https://azure.microsoft.com/updates/azure-api-management-analytics-powerbi-solution-template/
-[apim-pricing]: https://azure.microsoft.com/pricing/details/api-management/
-[apim-properties]: /azure/api-management/api-management-howto-properties
-[apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management/
-[apim-soap]: /azure/api-management/import-soap-api
-[apim-versions]: /azure/api-management/api-management-get-started-publish-versions
-[arm]: /azure/azure-resource-manager/resource-group-authoring-templates
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
-[dns]: /azure/dns/
-[integration-services]: https://azure.microsoft.com/product-categories/integration/
-[logic-apps]: /azure/logic-apps/logic-apps-overview
-[logic-apps-connectors]: /azure/connectors/apis-list
-[logic-apps-log-analytics]: /azure/logic-apps/logic-apps-monitor-your-logic-apps-oms
-[logic-apps-monitor]: /azure/logic-apps/logic-apps-monitor-your-logic-apps
-[logic-apps-restrict-ip]: /azure/logic-apps/logic-apps-securing-a-logic-app#restrict-inbound-ip-addresses
-[logic-apps-secure]: /azure/logic-apps/logic-apps-securing-a-logic-app#access-to-parameter-inputs
+[aad]: https://docs.microsoft.com/azure/active-directory
+[aaf-cost]: ../../framework/cost/overview.md
+[apim]: https://docs.microsoft.com/azure/api-management
+[apim-autoscale]: https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale
+[apim-backup]: https://docs.microsoft.com/azure/api-management/api-management-howto-disaster-recovery-backup-restore
+[apim-caching]: https://docs.microsoft.com/azure/api-management/api-management-howto-cache
+[apim-capacity]: https://docs.microsoft.com/azure/api-management/api-management-capacity
+[apim-dev-portal]: https://docs.microsoft.com/azure/api-management/api-management-key-concepts#developer-portal
+[apim-domain]: https://docs.microsoft.com/azure/api-management/configure-custom-domain
+[apim-jwt]: https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims
+[apim-logic-app]: https://docs.microsoft.com/azure/api-management/import-logic-app-as-api
+[apim-monitor]: https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor
+[apim-oauth]: https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad
+[apim-openapi]: https://docs.microsoft.com/azure/api-management/import-api-from-oas
+[apim-pbi]: https://azure.microsoft.com/updates/azure-api-management-analytics-powerbi-solution-template
+[apim-pricing]: https://azure.microsoft.com/pricing/details/api-management
+[apim-properties]: https://docs.microsoft.com/azure/api-management/api-management-howto-properties
+[apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management
+[apim-soap]: https://docs.microsoft.com/azure/api-management/import-soap-api
+[apim-versions]: https://docs.microsoft.com/azure/api-management/api-management-get-started-publish-versions
+[arm]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
+[cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
+[dns]: https://docs.microsoft.com/azure/dns
+[integration-services]: https://azure.microsoft.com/product-categories/integration
+[logic-apps]: https://docs.microsoft.com/azure/logic-apps/logic-apps-overview
+[logic-apps-connectors]: https://docs.microsoft.com/azure/connectors/apis-list
+[logic-apps-log-analytics]: https://docs.microsoft.com/azure/logic-apps/logic-apps-monitor-your-logic-apps-oms
+[logic-apps-monitor]: https://docs.microsoft.com/azure/logic-apps/logic-apps-monitor-your-logic-apps
+[logic-apps-restrict-ip]: https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#restrict-inbound-ip-addresses
+[logic-apps-secure]: https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-parameter-inputs
 [logic-apps-sla]: https://azure.microsoft.com/support/legal/sla/logic-apps
-[monitor]: /azure/azure-monitor/overview
-[rbac]: /azure/role-based-access-control/overview
+[monitor]: https://docs.microsoft.com/azure/azure-monitor/overview
+[rbac]: https://docs.microsoft.com/azure/role-based-access-control/overview
 [rto]: ../../framework/resiliency/business-metrics.md

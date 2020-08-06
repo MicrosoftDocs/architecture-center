@@ -1,7 +1,7 @@
 ---
 title: Extend an on-premises network using VPN
 description: A secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using a VPN.
-author: MikeWasson
+author: doodlemania2
 ms.date: 01/24/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -47,7 +47,7 @@ The architecture consists of the following components.
 
 - **Internal load balancer**. Network traffic from the VPN gateway is routed to the cloud application through an internal load balancer. The load balancer is located in the front-end subnet of the application.
 
-- **Bastion**. [Azure Bastion](/azure/bastion/) allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. If you lose connectivity through the VPN, you can still use Bastion to manage the VMs in the virtual network.
+- **Bastion**. [Azure Bastion](https://docs.microsoft.com/azure/bastion/) allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. If you lose connectivity through the VPN, you can still use Bastion to manage the VMs in the virtual network.
 
 ## Recommendations
 
@@ -151,7 +151,15 @@ For details about service level agreements, see [SLA for VPN Gateway][sla-for-vp
 
 On Azure Stack, you can expand VPN gateways to include interfaces to multiple Azure Stack stamps and Azure deployments.
 
-## Manageability considerations
+## DevOps considerations
+
+Use the Infrastructure as Code (IaC) process for deploying the infrastructure. In this architecture, we've used a set of [Azure Building Blocks][azbb] custom templates deployed using the Azure portal. To automate infrastructure deployment, you can use Azure DevOps Services or other CI/CD solutions. The deployment process is also idempotent. 
+
+For a given resource, there can be other resources that must exist before the resource is deployed. Azure Building Blocks templates are also good for dependency tracking because they allow you to define dependencies for resources that are deployed in the same template. 
+
+All the main resources (Virtual machine scale set, VPN gateway, Azure Bastion) are in the same virtual network so they are isolated in the same basic workload. It's then  easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
+
+### Monitoring
 
 Monitor diagnostic information from on-premises VPN appliances. This process depends on the features provided by the VPN appliance. For example, if you are using the Routing and Remote Access Service on Windows Server 2012, [RRAS logging][rras-logging].
 
@@ -190,7 +198,7 @@ If the application in the virtual network sends data to the Internet, consider [
 
 ## Cost considerations
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. For general considerations, see the Cost section in [Azure Architecture Framework][aaf-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. For general considerations, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 The services used in this architecture are charged as follows:
 
@@ -211,7 +219,7 @@ All traffic that occurs within the boundaries of a virtual network is free. So, 
 
 ### Azure Bastion
 
-Azure Bastion securely connects to your virtual machine in the virtual network over RDP and SSH without having the need to configure a public IP on the virtual machine. You will need Bastion in every virtual network that contains virtual machines that you want to connect to. This solution is more economical and secure than using jumpboxes. 
+Azure Bastion securely connects to your virtual machine in the virtual network over RDP and SSH without having the need to configure a public IP on the virtual machine. You will need Bastion in every virtual network that contains virtual machines that you want to connect to. This solution is more economical and secure than using jump boxes. 
 
 For examples, see [Azure Bastion Pricing][Bastion-pricing].
 
@@ -234,32 +242,32 @@ Although VPNs can be used to connect virtual networks within Azure, it's not alw
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [adds-extend-domain]: ../identity/adds-extend-domain.md
-[az-vpn]: /azure/azure-stack/azure-stack-connect-vpn
-[azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway/
-[azure-gateway-skus]: /azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku
-[azure-virtual-network]: /azure/virtual-network/virtual-networks-overview
-[azure-vpn-gateway]: https://azure.microsoft.com/services/vpn-gateway/
-[Bastion-pricing]: https://azure.microsoft.com/pricing/details/azure-bastion/
-[changing-SKUs]: https://azure.microsoft.com/blog/azure-virtual-network-gateway-improvements/
+[az-vpn]: https://docs.microsoft.com/azure/azure-stack/azure-stack-connect-vpn
+[azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway
+[azure-gateway-skus]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku
+[azure-virtual-network]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
+[azure-vpn-gateway]: https://azure.microsoft.com/services/vpn-gateway
+[Bastion-pricing]: https://azure.microsoft.com/pricing/details/azure-bastion
+[changing-SKUs]: https://azure.microsoft.com/blog/azure-virtual-network-gateway-improvements
 [CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
-[connect-to-an-Azure-vnet]: /office365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
-[forced-tunneling]: /azure/vpn-gateway/vpn-gateway-about-forced-tunneling
-[gateway-diagnostic-logs]: https://blogs.technet.microsoft.com/keithmayer/2016/10/12/step-by-step-capturing-azure-resource-manager-arm-vnet-gateway-diagnostic-logs/
-[linux-vm-ra]: ../virtual-machines-linux/index.md
-[linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
-[nagios]: https://www.nagios.org/
+[connect-to-an-Azure-vnet]: https://docs.microsoft.com/office365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[forced-tunneling]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling
+[gateway-diagnostic-logs]: https://blogs.technet.microsoft.com/keithmayer/2016/10/12/step-by-step-capturing-azure-resource-manager-arm-vnet-gateway-diagnostic-logs
+[linux-vm-ra]: ../n-tier/n-tier-cassandra.md
+[linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
+[nagios]: https://www.nagios.org
 [policy-based-routing]: https://en.wikipedia.org/wiki/Policy-based_routing
-[pricing]: https://azure.microsoft.com/pricing/calculator
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/hybrid-networking/vpn/README.md
 [route-based-routing]: https://en.wikipedia.org/wiki/Static_routing
 [rras-logging]: https://www.petri.com/enable-diagnostic-logging-in-windows-server-2012-r2-routing-and-remote-access
-[sla-for-vpn-gateway]: https://azure.microsoft.com/support/legal/sla/vpn-gateway/
+[sla-for-vpn-gateway]: https://azure.microsoft.com/support/legal/sla/vpn-gateway
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx
-[vpn-appliance-ipsec]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec
-[vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
-[vpn-appliances]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
-[vpn-gateway-multi-site]: /azure/vpn-gateway/vpn-gateway-multi-site
-[windows-vm-ra]: ../virtual-machines-windows/index.md
+[vpn-appliance-ipsec]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec
+[vpn-appliance]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices
+[vpn-appliances]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices
+[vpn-gateway-multi-site]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site
+[windows-vm-ra]: ../n-tier/n-tier-sql-server.md
+[azbb]: https://github.com/mspnp/template-building-blocks/wiki

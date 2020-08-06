@@ -1,7 +1,7 @@
 ---
 title: Demand Forecasting and Price Optimization
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Pricing is recognized as a pivotal determinant of success in many industries and can be one of the most challenging tasks. Companies often struggle with several aspects of the pricing process, including accurately forecasting the financial impact of potential tactics, taking reasonable consideration of core business constraints, and fairly validating the executed pricing decisions. Expanding product offerings add further computational requirements to make real-time pricing decisions, compounding the difficulty of this already overwhelming task.
 ms.custom: acom-architecture, anomaly-detection, artificial intelligence, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/demand-forecasting-and-price-optimization/'
@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/demand-forec
 
 # Demand Forecasting and Price Optimization
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Pricing is recognized as a pivotal determinant of success in many industries and can be one of the most challenging tasks. Companies often struggle with several aspects of the pricing process, including accurately forecasting the financial impact of potential tactics, taking reasonable consideration of core business constraints, and fairly validating the executed pricing decisions. Expanding product offerings add further computational requirements to make real-time pricing decisions, compounding the difficulty of this already overwhelming task.
 
@@ -30,7 +30,7 @@ The process described above is operationalized and deployed in the Cortana Intel
 
 ## Description
 
-Save time and let one of these [trained SI partners](https://aka.ms/priceoptimization-sipartners) help you with a proof of concept, deployment & integration of this solution.
+Save time and let one of these trained SI partners help you with a proof of concept, deployment & integration of this solution.
 
 The Cortana Intelligence Suite provides advanced analytics tools through Microsoft Azure - data ingestion, data storage, data processing and advanced analytics components - all of the essential elements for building a demand forecasting and price optimization solution.
 

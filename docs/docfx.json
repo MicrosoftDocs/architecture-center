@@ -41,7 +41,8 @@
           "**/*.svg",
           "**/*.js",
           "**/*.json",
-          "feed.xml"
+          "**/*.docx",
+          "feed.atom"
         ],
         "exclude": [
           "**/obj/**",
@@ -71,6 +72,7 @@
       "feedback_github_repo": "MicrosoftDocs/architecture-center",
       "breadcrumb_path": "/azure/architecture/bread/toc.json",
       "brand": "azure",
+      "uhfHeaderId": "azure",
       "titleSuffix": "Azure Architecture Center",
       "ms.author": "pnp",
       "ms.service": "architecture-center",

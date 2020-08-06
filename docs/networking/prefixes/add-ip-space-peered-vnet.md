@@ -31,12 +31,12 @@ Another use case can be where the hub virtual network is in one subscription and
 
 ## Considerations
 
-* Running the script will result in outage or disconnections between the Hub and Spoke virtual networks.  Execute it during an approved maintenance window.
-* Run `Get-Module -ListAvailable Az` to find the installed version.  The script requires the Azure PowerShell module version 1.0.0 or later.  If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
-* If not already connected, run `Connect-AzAccount` to create a connection with Azure.
-* Consider assigning accounts, used for virtual network peering, to the [Network Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [Custom Role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) containing the necessary actions found under [virtual network peering permissions](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#permissions).
-* Assign accounts used to add IP address spaces, to the [Network Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [Custom Role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) containing the necessary actions found under [virtual network permissions](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#permissions).
-* The IP address space that you want to add to the hub virtual network must not overlap with any of the IP address spaces of the spoke virtual networks that you intend to peer with the hub virtual network.
+- Running the script will result in outage or disconnections between the Hub and Spoke virtual networks.  Execute it during an approved maintenance window.
+- Run `Get-Module -ListAvailable Az` to find the installed version.  The script requires the Azure PowerShell module version 1.0.0 or later.  If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- If not already connected, run `Connect-AzAccount` to create a connection with Azure.
+- Consider assigning accounts, used for virtual network peering, to the [Network Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [Custom Role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) containing the necessary actions found under [virtual network peering permissions](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#permissions).
+- Assign accounts used to add IP address spaces, to the [Network Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [Custom Role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) containing the necessary actions found under [virtual network permissions](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#permissions).
+- The IP address space that you want to add to the hub virtual network must not overlap with any of the IP address spaces of the spoke virtual networks that you intend to peer with the hub virtual network.
 
 ## Add the IP address range
 
@@ -44,60 +44,58 @@ The script automatically removes all Virtual Network peerings from the Hub Virtu
 
 ```powershell
 param (
-    # Address Prefix range (CIDR Notation, e.g., 10.0.0.0/24)
+    # Address Prefix range (CIDR Notation, e.g., 10.0.0.0/24 or 2607:f000:0000:00::/64)
     [Parameter(Mandatory = $true)]
-    [ValidatePattern('^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/(3[0-2]|[1-2][0-9]|[0-9]))$')]
     [String[]]
     $IPAddressRange,
 
-    # Address Prefix range (Subscription ID for Hub VNet)
+    # Hub VNet Subscription Name
     [Parameter(Mandatory = $true)]
     [String]
-    $HubVNetSubsID,
+    $HubVNetSubscriptionName, 
 
-    # Address Prefix range (Hub VNet Resource Group Name)
+    # Hub VNet Resource Group Name
     [Parameter(Mandatory = $true)]
     [String]
-    $HubVNetRGName,
+    $HubVNetRGName, 
 
-    # Address Prefix range (Hub VNet Name)
+    # Hub VNet Name
     [Parameter(Mandatory = $true)]
     [String]
     $HubVNetName
 )
 
-#region Set context to Hub VNet Subscription
-Set-AzContext -Subscription $HubVNetSubsID
-#endregion
+#Set context to Hub VNet Subscription
+Get-AzSubscription -SubscriptionName $HubVNetSubscriptionName | Set-AzContext
+#end
 
-#region Get All Hub VNet Peerings and Hub VNet Object
+#Get All Hub VNet Peerings and Hub VNet Object
 $hubPeerings = Get-AzVirtualNetworkPeering -ResourceGroupName $HubVNetRGName -VirtualNetworkName $HubVNetName
 $hubVNet = Get-AzVirtualNetwork -Name $HubVNetName -ResourceGroupName $HubVNetRGName
-#endregion
+#end
 
-#region Remove All Hub VNet Peerings
-$hubPeerings | Remove-AzVirtualNetworkPeering -Force
-#endregion
+#Remove All Hub VNet Peerings
+Remove-AzVirtualNetworkPeering -VirtualNetworkName $HubVNetName -ResourceGroupName $HubVNetRGName -name $hubPeerings.Name -Force
+#end
 
-#region Add IP address range to the hub vnet
-$hubVNet.AddressSpace.AddressPrefixes.AddRange($IPAddressRange)
+#Add IP address range to the hub vnet
+$hubVNet.AddressSpace.AddressPrefixes.Add($IPAddressRange)
+#end
+
+#Add $IPAddressRange to subnet
+$subnet = $HUBvnet.subnets[0]
+$subnet.addressprefix.add($IPAddressRange)
+#end
+
+#Apply configuration stored in $hubVnet
 Set-AzVirtualNetwork -VirtualNetwork $hubVNet
-#endregion
+#end
 
 foreach ($vNetPeering in $hubPeerings)
 {
     # Get remote vnet name
     $vNetFullId = $vNetPeering.RemoteVirtualNetwork.Id
     $vNetName = $vNetFullId.Substring($vNetFullId.LastIndexOf('/') + 1)
-
-    # Get subscription id
-    $vNetSubscriptionId = $vNetFullId.Substring($vNetFullId.IndexOf('/', 1) + 1, 36)
-
-    if ((Get-AzContext).Subscription.Id -ne $vNetSubscriptionId)
-    {
-        # Set the context so that we can modify the spokes
-        Set-AzContext -Subscription $vNetSubscriptionId
-    }
 
     # Pull remote vNet object
     $vNetObj = Get-AzVirtualNetwork -Name $vNetName
@@ -109,11 +107,6 @@ foreach ($vNetPeering in $hubPeerings)
     # Reset to initiated state
     Set-AzVirtualNetworkPeering -VirtualNetworkPeering $peering
 
-    if ((Get-AzContext).Subscription.Id -ne $HubVNetSubsID)
-    {
-        # Set context so that we can re-create the peering
-        Set-AzContext -Subscription $HubVNetSubsID
-    }
     # Re-create peering on hub
     Add-AzVirtualNetworkPeering -Name $vNetPeering.Name -VirtualNetwork $HubVNet -RemoteVirtualNetworkId $vNetFullId -AllowGatewayTransit
 
@@ -127,6 +120,6 @@ There is a nominal charge for ingress and egress traffic that utilizes a virtual
 
 ## Next steps
 
-* Learn more about [managing Virtual Network peerings](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering)
+- Learn more about [managing Virtual Network peerings](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering).
 
-* Learn more about [managing IP Address ranges](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#add-or-remove-an-address-range) on Virtual Networks
+- Learn more about [managing IP Address ranges](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#add-or-remove-an-address-range) on Virtual Networks.

@@ -1,7 +1,7 @@
 ---
 title: Background jobs guidance
 titleSuffix: Best practices for cloud applications
-description: Guidance on background tasks that run independently of the user interface.
+description: Learn about background tasks that run independently of the user interface, such as batch jobs, intensive processing tasks, and long-running processes.
 author: dragon119
 ms.date: 11/05/2018
 ms.topic: best-practice
@@ -100,7 +100,7 @@ Azure WebJobs have the following characteristics:
 
 - **Security**: WebJobs are protected by the deployment credentials of the web app.
 - **Supported file types**: You can define WebJobs by using command scripts (.cmd), batch files (.bat), PowerShell scripts (.ps1), bash shell scripts (.sh), PHP scripts (.php), Python scripts (.py), JavaScript code (.js), and executable programs (.exe, .jar, and more).
-- **Deployment**: You can deploy scripts and executables by using the [Azure portal](/azure/app-service-web/web-sites-create-web-jobs), by using [Visual Studio](/azure/app-service-web/websites-dotnet-deploy-webjobs), by using the [Azure WebJobs SDK](/azure/app-service/webjobs-sdk-get-started), or by copying them directly to the following locations:
+- **Deployment**: You can deploy scripts and executables by using the [Azure portal](https://docs.microsoft.com/azure/app-service-web/web-sites-create-web-jobs), by using [Visual Studio](https://docs.microsoft.com/azure/app-service-web/websites-dotnet-deploy-webjobs), by using the [Azure WebJobs SDK](https://docs.microsoft.com/azure/app-service/webjobs-sdk-get-started), or by copying them directly to the following locations:
   - For triggered execution: site/wwwroot/app_data/jobs/triggered/{job name}
   - For continuous execution: site/wwwroot/app_data/jobs/continuous/{job name}
 - **Logging**: Console.Out is treated (marked) as INFO. Console.Error is treated as ERROR. You can access monitoring and diagnostics information by using the Azure portal. You can download log files directly from the site. They are saved in the following locations:
@@ -119,7 +119,7 @@ Azure WebJobs have the following characteristics:
 
 Background tasks might be implemented in a way that prevents them from being deployed to Azure Web Apps, or these options might not be convenient. Typical examples are Windows services, and third-party utilities and executable programs. Another example might be programs written for an execution environment that is different than that hosting the application. For example, it might be a Unix or Linux program that you want to execute from a Windows or .NET application. You can choose from a range of operating systems for an Azure virtual machine, and run your service or executable on that virtual machine.
 
-To help you choose when to use Virtual Machines, see [Azure App Services, Cloud Services and Virtual Machines comparison](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm). For information about the options for Virtual Machines, see [Sizes for Windows virtual machines in Azure](/azure/virtual-machines/windows/sizes). For more information about the operating systems and prebuilt images that are available for Virtual Machines, see [Azure Virtual Machines Marketplace](https://azure.microsoft.com/gallery/virtual-machines).
+To help you choose when to use Virtual Machines, see [Azure App Services, Cloud Services and Virtual Machines comparison](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm). For information about the options for Virtual Machines, see [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes). For more information about the operating systems and prebuilt images that are available for Virtual Machines, see [Azure Virtual Machines Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute).
 
 To initiate the background task in a separate virtual machine, you have a range of options:
 
@@ -144,7 +144,7 @@ Consider the following points when you are deciding whether to deploy background
 For more information, see:
 
 - [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
-- [Azure Virtual Machines FAQ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-classic-faq)
+- [Azure Virtual Machines FAQ](https://docs.microsoft.com/azure/virtual-machines/linux/faq)
 
 ### Azure Batch
 
@@ -158,15 +158,15 @@ The Batch service provisions the VMs, assign tasks to the VMs, runs the tasks, a
 
 <!-- markdownlint-enable MD024 -->
 
-Batch works well with intrinsically parallel workloads. It can also perform parallel calculations with a reduce step at the end, or run [Message Passing Interface (MPI) applications](/azure/batch/batch-mpi) for parallel tasks that require message passing between nodes.
+Batch works well with intrinsically parallel workloads. It can also perform parallel calculations with a reduce step at the end, or run [Message Passing Interface (MPI) applications](https://docs.microsoft.com/azure/batch/batch-mpi) for parallel tasks that require message passing between nodes.
 
-An Azure Batch job runs on a pool of nodes (VMs). One approach is to allocate a pool only when needed and then delete it after the job completes. This maximizes utilization, because nodes are not idle, but the job must wait for nodes to be allocated. Alternatively, you can create a pool ahead of time. That approach minimizes the time that it takes for a job to start, but can result in having nodes that sit idle. For more information, see [Pool and compute node lifetime](/azure/batch/batch-api-basics#pool-and-compute-node-lifetime).
+An Azure Batch job runs on a pool of nodes (VMs). One approach is to allocate a pool only when needed and then delete it after the job completes. This maximizes utilization, because nodes are not idle, but the job must wait for nodes to be allocated. Alternatively, you can create a pool ahead of time. That approach minimizes the time that it takes for a job to start, but can result in having nodes that sit idle. For more information, see [Pool and compute node lifetime](https://docs.microsoft.com/azure/batch/batch-api-basics#pool-and-compute-node-lifetime).
 
 For more information, see:
 
-- [What is Azure Batch?](/azure/batch/batch-technical-overview)
-- [Develop large-scale parallel compute solutions with Batch](/azure/batch/batch-api-basics)
-- [Batch and HPC solutions for large-scale computing workloads](/azure/batch/batch-hpc-solutions)
+- [What is Azure Batch?](https://docs.microsoft.com/azure/batch/batch-technical-overview)
+- [Develop large-scale parallel compute solutions with Batch](https://docs.microsoft.com/azure/batch/batch-api-basics)
+- [Batch and HPC solutions for large-scale computing workloads](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing)
 
 ### Azure Kubernetes Service
 

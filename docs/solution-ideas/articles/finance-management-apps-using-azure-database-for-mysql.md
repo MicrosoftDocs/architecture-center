@@ -1,7 +1,7 @@
 ---
 title: Finance management apps using Azure Database for MySQL
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Securely store critical data and provide high-value analytics and insights over aggregated data to users, using in-built security and performance.
 ms.custom: acom-architecture, mysql, analytics, use cases, azure, solutions, 'https://azure.microsoft.com/solutions/architecture/finance-management-apps-using-azure-database-for-mysql/'
@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/finance-mana
 
 # Finance management apps using Azure Database for MySQL
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Securely store critical data and provide high-value analytics and insights over aggregated data to users, using in-built security and performance.
 

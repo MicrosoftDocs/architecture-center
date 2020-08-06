@@ -1,7 +1,7 @@
 ---
 title: Personalized marketing solutions
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Find essential technology to market your products with personalized offers. Individualize your marketing for greater customer response using big-data insights.
 ms.custom: acom-architecture, personalized marketing, ai-ml, marketing personalization, targeted marketing, 'https://azure.microsoft.com/solutions/architecture/personalized-marketing/'
@@ -14,7 +14,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/personalized
 
 # Personalized marketing solutions
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Personalized marketing is essential for building customer loyalty and remaining profitable. Reaching customers and getting them to engage is harder than ever, and generic offers are easily missed or ignored. Current marketing systems fail to take advantage of data that can help solve this problem.
 
@@ -45,6 +45,6 @@ By personalizing your offers, you'll deliver an individualized experience for ev
 * [Learn how to use Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db)
 * [Learn more about Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)
 * [Learn how to create functions](https://docs.microsoft.com/azure/azure-functions)
-* [Learn more about machine learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning)
+* [Learn more about machine learning](/azure/machine-learning/overview-what-is-azure-ml)
 * [Learn how to use Azure Cache for Redis](https://docs.microsoft.com/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache)
 * [Learn about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)

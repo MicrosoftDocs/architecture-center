@@ -79,7 +79,7 @@ Azure Kubernetes Service lets you scale the number of cluster nodes to meet the 
 
 Application data is stored in Azure Cosmos DB, a globally distributed, multi-model database that can scale globally. Cosmos DB abstracts the need to scale your infrastructure as with traditional database components, and you can choose to replicate your Cosmos DB globally to meet the demands of your customers.
 
-For other scalability topics, see the [scalability checklist][scalability] available in the Azure Architecture Center.
+For other scalability topics, see the [performance efficiency checklist][scalability] available in the Azure Architecture Center.
 
 ### Security
 
@@ -153,7 +153,6 @@ This scenario used Azure Container Registry and Azure Kubernetes Service to stor
 
 <!-- links -->
 [architecture]: ./media/architecture-devops-with-aks.png
-[autoscaling]: ../../best-practices/auto-scaling.md
 [docs-aci]: https://docs.microsoft.com/azure/container-instances/container-instances-overview
 [docs-acr]: https://docs.microsoft.com/azure/container-registry/container-registry-intro
 [docs-aks]: https://docs.microsoft.com/azure/aks/intro-kubernetes
@@ -163,9 +162,8 @@ This scenario used Azure Container Registry and Azure Kubernetes Service to stor
 [createsp]: https://docs.microsoft.com/cli/azure/ad/sp#az-ad-sp-create
 [grafana]: https://grafana.com
 [jenkins]: https://jenkins.io
-[resource-groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
 [security]: https://docs.microsoft.com/azure/security
-[scalability]: ../../checklist/scalability.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [sshkeydocs]: https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys
 [azure-pipelines]: https://docs.microsoft.com/azure/devops/pipelines
 [kubernetes]: https://kubernetes.io

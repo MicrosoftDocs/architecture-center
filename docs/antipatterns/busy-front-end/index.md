@@ -89,7 +89,7 @@ public class WorkInBackgroundController : ApiController
     [Route("api/workinbackground")]
     public async Task<long> Post()
     {
-        return await ServiceBusQueuehandler.AddWorkLoadToQueueAsync(QueueClient, QueueName, 0);
+        return await ServiceBusQueueHandler.AddWorkLoadToQueueAsync(QueueClient, QueueName, 0);
     }
 }
 ```
@@ -106,7 +106,7 @@ public async Task RunAsync(CancellationToken cancellationToken)
             try
             {
                 // Simulate processing of message
-                Thread.SpinWait(Int32.Maxvalue / 1000);
+                Thread.SpinWait(Int32.MaxValue / 1000);
 
                 await receivedMessage.CompleteAsync();
             }

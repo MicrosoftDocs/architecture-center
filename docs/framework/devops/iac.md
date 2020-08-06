@@ -5,7 +5,7 @@ author: jose-moreno
 ms.date: 10/21/2019
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
 ms.custom: fasttrack-edit
 ---
 
@@ -30,6 +30,7 @@ A declarative automation framework is characterized for handling some of the det
 
 * [Resource Manager templates][arm]: Resource Manager templates are declarative text files containing a description of Azure resources to be deployed. Resource Manager templates are specific to Azure, and its most important advantage is the extensive coverage of Azure resource types and properties.
 * [Terraform][terraform]: Terraform is a cloud-agnostic declarative framework that supports many private and public clouds, Azure being one of them. It has the main advantage of offering a cloud-agnostic framework: while Terraform configurations are specific to each cloud, the framework itself is the same for all of them.
+* [Pulumi][pulumi]: Pulumi is an open source cloud-agnostic declarative infrastructure as code tool for creating, deploying, and managing cloud infrastructure. Pulumi works with traditional infrastructure like VMs, networks, and databases, in addition to modern architectures, including containers, Kubernetes clusters, and serverless functions. With Pulumi, you can feel comfortable deploying instrastructure to Azure with your favorite programming lanugage; Pulumi supports JavaScript, TypeScript, Python, C#, F#, VB and Go. By using real languages for infrastructure as code, you get many benefits: IDEs, abstractions including functions, classes, and packages, existing debugging and testing tools, and more. The result is greater productivity with far less copy and paste, and it works the same way no matter which cloud you're targeting.
 * [Ansible][ansible]: Ansible is an open-source software provisioning, configuration management, and application-deployment tool. It runs on many Unix-like systems, and can configure both Unix-like systems as well as Windows. Ansible is agentless, temporarily connecting remotely via SSH or remote PowerShell to do its tasks. Ansible's language, despite being based on the declarative YAML language, is imperative. Ansible playbooks are a sequence of plays to be carried out on different groups of hosts. Plays are in turn sequences of tasks that invoke modules to commit changes to individual hosts. Ansible has evolved to describe infrastructure in multiple clouds, such as Azure.
 * Other: other declarative frameworks such as Chef or Puppet support deploying infrastructure to Azure as well.
 
@@ -40,7 +41,7 @@ Which of these frameworks is better for you will depend on factors such as wheth
 You can use imperative frameworks to deploy infrastructure to Azure. Imperative frameworks do not describe what to deploy, but indicate a prescriptive order of operations to execute. Examples of imperative frameworks for Azure automation are the following:
 
 * [Azure CLI][cli]: the Azure Command Line Interface is a multi-platform command line supported in Windows, Linux, and Mac OS X. It offers a series of commands that can be used to create, modify, and delete Azure resources.
-* [Azure Powershell][psh]: the Azure Powershell module for Azure includes a series of commandlets to interact with Azure. The object-oriented character of Powershell gives this tool a high degree of versatility. Thanks to the advent of Powershell Core, the Azure Powershell module can be used not only on Windows systems, but on Linux and Mac OS X too.
+* [Azure Powershell][psh]: the Azure Powershell module for Azure includes a series of cmdlets to interact with Azure. The object-oriented character of Powershell gives this tool a high degree of versatility. Thanks to the advent of Powershell Core, the Azure Powershell module can be used not only on Windows systems, but on Linux and Mac OS X too.
 * [Azure SDKs][sdks]: if you are writing an application that needs to interact with Azure, coding in the same programming language as the application itself would be more desirable than scripting frameworks such as the Azure CLI or Azure Powershell. Whether it is Python, Java, C# or Go, you can find Software Development Kits to manage Azure from many different languages.
 
 ## Configuration of Virtual Machines
@@ -106,6 +107,7 @@ And lastly, do not forget to version-control your infrastructure code, and use c
 [cli]: https://docs.microsoft.com/cli/azure
 [psh]: https://docs.microsoft.com/powershell/azure
 [sdks]: https://docs.microsoft.com/azure
+[pulumi]: https://www.pulumi.com/docs/get-started/azure
 [extensions]: https://docs.microsoft.com/azure/virtual-machines/extensions/overview
 [cloudinit]: https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init
 [packer-linux]: https://docs.microsoft.com/azure/virtual-machines/linux/build-image-with-packer
@@ -113,5 +115,5 @@ And lastly, do not forget to version-control your infrastructure code, and use c
 [azuredevops]: https://docs.microsoft.com/azure/devops
 [pipelines]: https://docs.microsoft.com/azure/devops/pipelines
 [repos]: https://docs.microsoft.com/azure/devops/repos/?view=azure-devops
-[git]: https://git-scm.com/
+[git]: https://git-scm.com
 [github]: https://github.com

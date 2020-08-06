@@ -1,7 +1,7 @@
 ---
 title: Secure a backend web API in a multitenant application
-description: How to secure a backend web API.
-author: MikeWasson
+description: Learn how to secure a backend web API for multitenant applications by using the Tailspin Surveys app, which has a backend API to manage operations on surveys.
+author: doodlemania2
 ms.date: 07/21/2017
 ms.topic: guide
 ms.service: architecture-center
@@ -9,6 +9,7 @@ ms.category:
   - security
   - developer-tools
   - identity
+ms.custom: has-adal-ref
 ms.subservice: reference-architecture
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: authorize
@@ -61,7 +62,7 @@ The Tailspin application implements delegated user identity. Here are the main d
 **Application identity:**
 
 * The web API does not get information about the user.
-* The web API cannot perform any authorization based on the user identity. All authorization decisions are made by the web application.  
+* The web API cannot perform any authorization based on the user identity. All authorization decisions are made by the web application.
 * The web API cannot be used by an untrusted client (JavaScript or native client application).
 * This approach may be somewhat simpler to implement, because there is no authorization logic in the Web API.
 
@@ -113,7 +114,7 @@ public override async Task AuthorizationCodeReceived(AuthorizationCodeReceivedCo
 
 Here are the various parameters that are needed:
 
-* `authority`. Derived from the tenant ID of the signed in user. (Not the tenant ID of the SaaS provider)  
+* `authority`. Derived from the tenant ID of the signed in user. (Not the tenant ID of the SaaS provider)
 * `authorizationCode`. the auth code that you got back from the IDP.
 * `clientId`. The web application's client ID.
 * `clientSecret`. The web application's client secret.
@@ -307,17 +308,17 @@ At startup, the application reads settings from every registered configuration p
 [**Next**][token-cache]
 
 <!-- links -->
-[Authorization]: authorize.md
-[ADAL]: /azure/active-directory/develop/active-directory-authentication-libraries
-[claims-transformation]: claims.md#claims-transformations
+
+[Authorization]: ./authorize.md
+[ADAL]: https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries
+[claims-transformation]: ./claims.md#claims-transformations
 [IdentityServer4]: https://github.com/IdentityServer/IdentityServer4
 [JwtBearer]: https://www.nuget.org/packages/Microsoft.AspNet.Authentication.JwtBearer
-[KeyVault]: https://azure.microsoft.com/services/key-vault/
-[options]: /aspnet/core/fundamentals/configuration/options
-[tenant sign-up]: signup.md
-[Token caching]: token-cache.md
+[KeyVault]: https://azure.microsoft.com/services/key-vault
+[options]: https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options
+[tenant sign-up]: ./signup.md
+[Token caching]: ./token-cache.md
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
-[surveys]: tailspin.md
-[token-cache]: token-cache.md
-[user-secrets]: /aspnet/core/security/app-secrets
-
+[surveys]: ./tailspin.md
+[token-cache]: ./token-cache.md
+[user-secrets]: https://docs.microsoft.com/aspnet/core/security/app-secrets

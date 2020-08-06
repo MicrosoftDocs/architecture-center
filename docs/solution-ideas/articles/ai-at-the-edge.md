@@ -1,7 +1,7 @@
 ---
 title: AI at the Edge with Azure Stack
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Move AI models to the edge with a solution architecture that includes Azure Stack.
 ms.custom: ai-ml, acom-architecture, ai at the edge, azure stack edge, edge ai, machine learning, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/ai-at-the-edge/'
@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/ai-at-the-ed
 
 # AI at the Edge with Azure Stack
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 With the Azure AI tools and cloud platform, the next generation of AI-enabled hybrid applications can run where your data lives. With Azure Stack, bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence, with no tool or process changes for local applications.
 

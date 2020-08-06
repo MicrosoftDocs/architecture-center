@@ -1,10 +1,11 @@
 ---
-title: Implement a serverless application with Azure Functions
-description: Code walk-through of a serverless application using Azure Functions
-author: MikeWasson
-ms.date: 06/13/2019
+title: Serverless Functions code walkthrough
+titleSuffix: Azure Example Scenarios
+description: Follow this code walkthrough to implement an example serverless application with Azure Functions.
+author: rogeriohc
+ms.date: 06/22/2020
 ms.author: pnp
-ms.topic: reference-architecture
+ms.topic: guide
 ms.service: architecture-center
 ms.category:
   - developer-tools
@@ -12,13 +13,23 @@ ms.category:
 ms.subservice: reference-architecture
 ---
 
-# Code walkthrough: Serverless application with Azure Functions
+<!--cSpell:ignore Gyrometer upsert deadletterqueue -->
 
-This article walks through the code for a serverless web application that uses [Azure Functions](/azure/azure-functions). It describes the design decisions, implementation details, and some of the "gotchas" that you might encounter.
+# Code walkthrough: Serverless application with Functions
 
-![GitHub logo](../_images/github.png) The source code for this application is available on [GitHub][github].
+Serverless models abstract code from the underlying compute infrastructure, allowing developers to focus on business logic without extensive setup. Serverless code reduces costs, because you pay only for the code execution resources and duration.
 
-This article assumes a basic level of familiarity with the following technologies:
+The serverless event-driven model fits situations where a certain event triggers a defined action. For example, receiving an incoming device message triggers storage for later use, or a database update triggers some further processing.
+
+To help you explore Azure serverless technologies in Azure, Microsoft developed and tested a serverless application that uses [Azure Functions](https://docs.microsoft.com/azure/azure-functions). This article walks through the code for the serverless Functions solution, and describes design decisions, implementation details, and some of the "gotchas" you might encounter.
+
+## Explore the solution
+
+The two-part solution describes a hypothetical drone delivery system. Drones send in-flight status to the cloud, which stores these messages for later use. A web app lets users retrieve the messages to get the latest status of the devices.
+
+You can download the code for this solution from [GitHub](https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0).
+
+This walkthrough assumes basic familiarity with the following technologies:
 
 - [Azure Functions](https://docs.microsoft.com/azure/azure-functions)
 - [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs)
@@ -26,10 +37,10 @@ This article assumes a basic level of familiarity with the following technologie
 
 You don't need to be an expert in Functions or Event Hubs, but you should understand their features at a high level. Here are some good resources to get started:
 
-- [An introduction to Azure Functions](/azure/azure-functions/functions-overview)
-- [Features and terminology in Azure Event Hubs](/azure/event-hubs/event-hubs-features)
+- [An introduction to Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)
+- [Features and terminology in Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-features)
 
-## The scenario
+## Understand the scenario
 
 ![Diagram of the functional blocks](./images/functional-diagram.png)
 
@@ -45,11 +56,13 @@ Here's a screenshot of the web app, showing the result of a query:
 
 ![Screenshot of client app](./images/client-app.png)
 
-## Designing the application
+## Design the application
 
-Fabrikam has decided to use Azure Functions to implement the application business logic. Azure Functions is an example of "Functions as a Service" (FaaS). In this computing model, a *function*"* is a piece of code that is deployed to the cloud and runs in a hosting environment. This hosting environment completely abstracts the servers that run the code.
+Fabrikam has decided to use Azure Functions to implement the application business logic. Azure Functions is an example of "Functions as a Service" (FaaS). In this computing model, a *function* is a piece of code that is deployed to the cloud and runs in a hosting environment. This hosting environment completely abstracts the servers that run the code.
 
-### Why choose a serverless approach? 
+<!-- markdownlint-disable MD026 -->
+
+### Why choose a serverless approach?
 
 A serverless architecture with Functions is an example of an event-driven architecture. The function code is a triggered by some event that's external to the function &mdash; in this case, either a message from a drone, or an HTTP request from a client application. With a function app, you don't need to write any code for the trigger. You only write the code that runs in response to the trigger. That means you can focus on your business logic, rather than writing a lot of code to handle infrastructure concerns like messaging.
 
@@ -115,7 +128,7 @@ This class has several dependencies, which are injected into the constructor usi
 
 - The `ITelemetryProcessor` and `IStateChangeProcessor` interfaces define two helper objects. As we'll see, these objects do most of the work.
 
-- The [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) is part of the Application Insights SDK. It is used to send custom application metrics to Application Insights.
+- The [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) is part of the Application Insights SDK. It is used to send custom application metrics to Application Insights.
 
 Later, we'll look at how to configure the dependency injection. For now, just assume these dependencies exist.
 
@@ -141,16 +154,15 @@ The method takes the following parameters:
 - `deadLetterMessages` is an Azure Storage Queue, used for storing dead letter messages.
 - `logging` provides a logging interface, for writing application logs. These logs are sent to Azure Monitor.
 
-The `EventHubTrigger` attribute on the `messages` parameter configures the trigger. The properties of the attribute specify an event hub name, a connection string, and a [consumer group](/azure/event-hubs/event-hubs-features#event-consumers). (A *consumer group* is an isolated view of the Event Hubs event stream. This abstraction allows for multiple consumers of the same event hub.)
+The `EventHubTrigger` attribute on the `messages` parameter configures the trigger. The properties of the attribute specify an event hub name, a connection string, and a [consumer group](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers). (A *consumer group* is an isolated view of the Event Hubs event stream. This abstraction allows for multiple consumers of the same event hub.)
 
 Notice the percent signs (%) in some of the attribute properties. These indicate that the property specifies the name of an app setting, and the actual value is taken from that app setting at run time. Otherwise, without percent signs, the property gives the literal value.
 
 The `Connection` property is an exception. This property always specifies an app setting name, never a literal value, so the percent sign is not needed. The reason for this distinction is that a connection string is secret and should never be checked into source code.
 
-While the other two properties (event hub name and consumer group) are not sensitive data like a connection string, it's still better to put them into app settings, rather than hard coding. That way, they can be updated without recompiling the app. 
+While the other two properties (event hub name and consumer group) are not sensitive data like a connection string, it's still better to put them into app settings, rather than hard coding. That way, they can be updated without recompiling the app.
 
-For more information about configuring this trigger, see [Azure Event Hubs bindings for Azure Functions](/azure/azure-functions/functions-bindings-event-hubs-trigger#attributes-and-annotations).
-
+For more information about configuring this trigger, see [Azure Event Hubs bindings for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-hubs-trigger#attributes-and-annotations).
 
 ## Message processing logic
 
@@ -193,8 +205,7 @@ public async Task RunAsync(
 }
 ```
 
-When the function is invoked, the `messages` parameter contains an array of messages from the event hub. 
-Processing messages in batches will generally yield better performance than reading one message at a time. However, you have to make sure the function is resilient and handles failures and exceptions gracefully. Otherwise, if the function throws an unhandled exception in the middle of a batch, you might lose the remaining messages. This consideration is discussed in more detail in the section [Error handling](#error-handling). 
+When the function is invoked, the `messages` parameter contains an array of messages from the event hub. Processing messages in batches will generally yield better performance than reading one message at a time. However, you have to make sure the function is resilient and handles failures and exceptions gracefully. Otherwise, if the function throws an unhandled exception in the middle of a batch, you might lose the remaining messages. This consideration is discussed in more detail in the section [Error handling](#error-handling).
 
 But if you ignore the exception handling, the processing logic for each message is simple:
 
@@ -324,7 +335,7 @@ public class StateChangeProcessor : IStateChangeProcessor
 
 This code uses the `IDocumentClient` interface to fetch a document from Cosmos DB. If the document exists, the new state values are merged into the existing document. Otherwise, a new document is created. Both cases are handled by the `UpsertDocumentAsync` method.
 
-This code is optimized for the case where the document already exists and can be merged. On the first telemetry message from a given drone, the `ReadDocumentAsync` method will throw an exception, because there is no document for that drone. After the first message, the document will be available. 
+This code is optimized for the case where the document already exists and can be merged. On the first telemetry message from a given drone, the `ReadDocumentAsync` method will throw an exception, because there is no document for that drone. After the first message, the document will be available.
 
 Notice that this class uses dependency injection to inject the `IDocumentClient` for Cosmos DB and an `IOptions<T>` with configuration settings. We'll see how to set up the dependency injection later.
 
@@ -345,7 +356,7 @@ catch (Exception ex)
 }
  ```
 
-The dead-letter queue is defined using an [output binding](/azure/azure-functions/functions-bindings-storage-queue-output) to a storage queue:
+The dead-letter queue is defined using an [output binding](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-queue-output) to a storage queue:
 
 ```csharp
 [FunctionName("RawTelemetryFunction")]
@@ -359,7 +370,7 @@ public async Task RunAsync(
 
 Here the `Queue` attribute specifies the output binding, and the `StorageAccount` attribute specifies the name of an app setting that holds the connection string for the storage account.
 
-**Deployment tip:** In the Resource Manager template that creates the storage account, you can automatically populate an app setting with the connection string. The trick is to use the [listkeys](/azure/azure-resource-manager/resource-group-template-functions-resource#listkeys) function.
+**Deployment tip:** In the Resource Manager template that creates the storage account, you can automatically populate an app setting with the connection string. The trick is to use the [listKeys](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions-resource#listkeys) function.
 
 Here is the section of the template that creates the storage account for the queue:
 
@@ -403,7 +414,7 @@ Here is the section of the template that creates the function app.
 
 ```
 
-This defines an app setting named `DeadLetterStorage` whose value is populated using the `listkeys` function. It's important to make the function app resource depend on the storage account resource (see the `dependsOn` element). This guarantees that the storage account is created first and the connection string is available.
+This defines an app setting named `DeadLetterStorage` whose value is populated using the `listKeys` function. It's important to make the function app resource depend on the storage account resource (see the `dependsOn` element). This guarantees that the storage account is created first and the connection string is available.
 
 ## Setting up dependency injection
 
@@ -439,22 +450,22 @@ namespace DroneTelemetryFunctionApp
 }
 ```
 
-Azure Functions written for .NET can use the ASP.NET Core dependency injection framework. The basic idea is that you declare a startup method for your assembly. The method takes an `IFunctionsHostBuilder` interface, which is used to declare the dependencies for DI. You do this by calling `Add*` method on the `Services` object. When you add a dependency, you specify its lifetime: 
+Azure Functions written for .NET can use the ASP.NET Core dependency injection framework. The basic idea is that you declare a startup method for your assembly. The method takes an `IFunctionsHostBuilder` interface, which is used to declare the dependencies for DI. You do this by calling `Add*` method on the `Services` object. When you add a dependency, you specify its lifetime:
 
 - *Transient* objects are created each time they're requested.
 - *Scoped* objects are created once per function execution.
-- *Singleton* objects are reused across function executions, within the lifetime of the function host. 
+- *Singleton* objects are reused across function executions, within the lifetime of the function host.
 
-In this example, the `TelemetryProcessor` and `StateChangeProcessor` objects are declared as transient. This is appropriate for lightweight, stateless services. The `DocumentClient` class, on the other hand, should be a singleton for best performance. For more information, see [Performance tips for Azure Cosmos DB and .NET](/azure/cosmos-db/performance-tips#sdk-usage). 
+In this example, the `TelemetryProcessor` and `StateChangeProcessor` objects are declared as transient. This is appropriate for lightweight, stateless services. The `DocumentClient` class, on the other hand, should be a singleton for best performance. For more information, see [Performance tips for Azure Cosmos DB and .NET](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage).
 
-If you refer back to the code for the [RawTelemetryFunction](#drone-telemetry-function), you'll see there another dependency that doesn't appear in DI setup code, namely the `TelemetryClient` class that is used to log application metrics. The Functions runtime automatically registers this class into the DI container, so you don't need to register it explicitly. 
+If you refer back to the code for the [RawTelemetryFunction](#drone-telemetry-function), you'll see there another dependency that doesn't appear in DI setup code, namely the `TelemetryClient` class that is used to log application metrics. The Functions runtime automatically registers this class into the DI container, so you don't need to register it explicitly.
 
 For more information about DI in Azure Functions, see the following articles:
 
-- [Use dependency injection in .NET Azure Functions](/azure/azure-functions/functions-dotnet-dependency-injection)
-- [Dependency injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
+- [Use dependency injection in .NET Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection)
+- [Dependency injection in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)
 
-### Passing configuration settings in DI 
+### Passing configuration settings in DI
 
 Sometimes an object must be initialized with some configuration values. Generally, these settings should come from app settings or (in the case of secrets) from Azure Key Vault.
 
@@ -469,7 +480,7 @@ builder.Services.AddSingleton<IDocumentClient>(ctx => {
 });
 ```
 
-The second example is the `StateChangeProcessor` class. For this object, we use an approach called the [options pattern](/aspnet/core/fundamentals/configuration/options). Here's how it works:
+The second example is the `StateChangeProcessor` class. For this object, we use an approach called the [options pattern](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options). Here's how it works:
 
 1. Define a class `T` that contains your configuration settings. In this case, the Cosmos DB database name and collection name.
 
@@ -511,6 +522,8 @@ There are several advantages of this approach:
 The other Functions app in this solution implements a simple REST API to get the last-known status of a drone.
 This function is defined in a class named `GetStatusFunction`. Here is the complete code for the function:
 
+<!-- cSpell:ignore CosmosDB -->
+
 ```csharp
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -528,13 +541,13 @@ namespace DroneStatusFunctionApp
 
         [FunctionName("GetStatusFunction")]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequest req, 
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequest req,
             [CosmosDB(
                 databaseName: "%COSMOSDB_DATABASE_NAME%",
                 collectionName: "%COSMOSDB_DATABASE_COL%",
                 ConnectionStringSetting = "COSMOSDB_CONNECTION_STRING",
                 Id = "{Query.deviceId}",
-                PartitionKey = "{Query.deviceId}")] dynamic deviceStatus, 
+                PartitionKey = "{Query.deviceId}")] dynamic deviceStatus,
             ClaimsPrincipal principal,
             ILogger log)
         {
@@ -568,7 +581,7 @@ This function uses an HTTP trigger to process an HTTP GET request. The function 
 
 ## Authentication and authorization
 
-The web app uses Azure AD to authenticate users. Because the app is a single-page application (SPA) running in the browser, the [implicit grant flow](/azure/active-directory/develop/v1-oauth2-implicit-grant-flow) is appropriate:
+The web app uses Azure AD to authenticate users. Because the app is a single-page application (SPA) running in the browser, the [implicit grant flow](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-implicit-grant-flow) is appropriate:
 
 1. The web app redirects the user to the identity provider (in this case, Azure AD).
 1. The user enters their credentials.
@@ -577,13 +590,13 @@ The web app uses Azure AD to authenticate users. Because the app is a single-pag
 
 ![Implicit flow diagram](./images/implicit-flow.png)
 
-A Function application can be configured to authenticate users with zero code. For more information, see [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
+A Function application can be configured to authenticate users with zero code. For more information, see [Authentication and authorization in Azure App Service](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
 
-Authorization, on the other hand, generally requires some business logic. Azure AD supports *claims based authentication*. In this model, a user's identity is represented as a set of claims that come from the identity provider. A claim can be any piece of information about the user, such as their name or email address. 
+Authorization, on the other hand, generally requires some business logic. Azure AD supports *claims based authentication*. In this model, a user's identity is represented as a set of claims that come from the identity provider. A claim can be any piece of information about the user, such as their name or email address.
 
 The access token contains a subset of user claims. Among these are any application roles that the user is assigned to.
 
-The `principal` parameter of the function is a [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal) object that contains the claims from the access token. Each claim is a key/value pair of claim type and claim value. The application uses these to authorize the request.
+The `principal` parameter of the function is a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) object that contains the claims from the access token. Each claim is a key/value pair of claim type and claim value. The application uses these to authorize the request.
 
 The following extension method tests whether a `ClaimsPrincipal` object contains a set of roles. It returns `false` if any of the specified roles is missing. If this method returns false, the function returns HTTP 401 (Unauthorized).
 
@@ -615,12 +628,12 @@ For more information about authentication and authorization in this application,
 
 ## Next steps
 
-- View the source code on [GitHub][github].
+Once you get a feel for how this reference solution works, learn best practices and recommendations for similar solutions.
+- For a serverless event ingestion solution, see [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.md). 
+- For a serverless web app, see [Serverless web application on Azure](../reference-architectures/serverless/web-app.md).
 
-- This application is an example of an event-driven architecture. Read more about the [Event-driven architecture style](../guide/architecture-styles/event-driven.md).
+Azure Functions is just one Azure compute option. For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree.md).
 
-- Azure Functions is just one of the compute options on Azure. For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree.md).
-
-<!-- links -->
-
-[github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0
+## Related resources
+- For in-depth discussion on developing serverless solutions on premises as well as in the cloud, read [Serverless apps: Architecture, patterns, and Azure implementation](https://docs.microsoft.com/dotnet/standard/serverless-architecture).
+- Read more about the [Event-driven architecture style](../guide/architecture-styles/event-driven.md).

@@ -1,7 +1,7 @@
 ---
 title: Dev-Test deployment for testing PaaS solutions
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: This architecture represents how to configure your infrastructure for development and testing of a standard PaaS-style system.
 ms.custom: acom-architecture, devops, 'https://azure.microsoft.com/solutions/architecture/dev-test-paas/'
@@ -16,7 +16,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/dev-test-paa
 
 # Dev-Test deployment for testing PaaS solutions
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This architecture represents how to configure your infrastructure for development and testing of a standard PaaS-style system.
 
@@ -39,7 +39,7 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 
 ## Next steps
 
-* [Set up Azure DevOps](https://www.visualstudio.com/docs/setup-admin/get-started)
+* [Set up Azure DevOps](https://docs.microsoft.com/azure/devops/get-started/?view=azure-devops)
 * [Configure Microsoft Release Management agents](https://www.visualstudio.com/docs/release/getting-started/configure-agents)
 * [Deploy using Azure Resource Groups](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2)
 * [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-dotnet-framework)

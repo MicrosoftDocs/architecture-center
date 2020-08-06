@@ -1,7 +1,7 @@
 ---
 title: HPC Risk Analysis Template – Solution Architecture
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Build an HPC risk analysis solution architecture with a step-by-step flowchart from Microsoft Azure that combines CycleCloud, Avere vFXT and Tibco Gridserver.
 ms.custom: acom-architecture, risk analysis template, risk analysis solution, hpc risk analysis, hybrid risk analysis, interactive-diagram, hpc, finance, 'https://azure.microsoft.com/solutions/architecture/hpc-risk-analysis/'
@@ -17,7 +17,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/hpc-risk-ana
 
 # HPC Risk Analysis Template – Solution Architecture
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This templated risk analysis solution uses Azure HPC compute and GPU virtual machines (VMs) to expand on-premises Tibco GridServer compute to Azure using Azure CycleCloud for auto-scaling integration. The job executes both on-premises and in the cloud by using Avere vFXT fast caching and native NFS access to market data available on-premises.
 
@@ -43,7 +43,7 @@ This templated risk analysis solution uses Azure HPC compute and GPU virtual mac
 * [H-Series Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/linux): The H-series is a new family specifically designed to handle high performance computing workloads such as financial risk modeling, seismic and reservoir simulation, molecular modeling, and genomic research.
 * Effectively manage common workloads with ease while creating and optimizing HPC clusters with Microsoft [Azure CycleCloud](https://azure.microsoft.com/features/azure-cyclecloud).
 * [Avere vFXT](https://azure.microsoft.com/services/storage/avere-vfxt): Faster, more accessible data storage for high-performance computing at the edge
-* [TIBCO GridServer](https://www.tibco.com/resources/datasheet/tibco-gridserver)&reg; is a market-leading infrastructure platform for grid and elastic computing—and the backbone of businesses operating in the world's most demanding markets. More than a million CPUs spread across a thousand global installations form enterprise grids managed by GridServer.
+* [TIBCO GridServer](https://www.tibco.com/resources/datasheet/tibco-gridserver)&reg; is a market-leading infrastructure platform for grid and elastic computing-and the backbone of businesses operating in the world's most demanding markets. More than a million CPUs spread across a thousand global installations form enterprise grids managed by GridServer.
 
 ## Next steps
 
