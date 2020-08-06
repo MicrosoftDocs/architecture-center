@@ -2,7 +2,7 @@
 title: Serverless web application
 titleSuffix: Azure Reference Architectures
 description: Recommended architecture for a serverless web application and web API.
-author: adamboeglin
+author: doodlemania2
 ms.date: 05/28/2019
 ms.topic: reference-architecture
 ms.service: architecture-center

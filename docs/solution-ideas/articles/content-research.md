@@ -1,7 +1,7 @@
 ---
 title: Content Research
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Knowledge mining with a search index makes it easy for customers and employees to locate what they are looking for faster.
 ms.custom: acom-architecture

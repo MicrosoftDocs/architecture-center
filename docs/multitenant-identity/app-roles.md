@@ -1,7 +1,7 @@
 ---
 title: Application roles
 description: Learn how to perform authorization by using Azure AD application roles, which are used to assign permissions to users.
-author: adamboeglin
+author: doodlemania2
 ms.date: 07/21/2017
 ms.topic: guide
 ms.service: architecture-center

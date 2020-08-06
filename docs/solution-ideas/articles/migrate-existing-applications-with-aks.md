@@ -1,7 +1,7 @@
 ---
 title: Lift and shift to containers with AKS
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Lift and shift to containers with AKS
 ms.custom: acom-architecture, app-dev, devops, chat, signalr service, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/migrate-existing-applications-with-aks/'

@@ -2,7 +2,7 @@
 title: Enterprise business intelligence
 titleSuffix: Azure Reference Architectures
 description: Use Azure to gain business insights from relational data stored on-premises.
-author: adamboeglin
+author: doodlemania2
 ms.date: 11/20/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
