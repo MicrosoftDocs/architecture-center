@@ -1,5 +1,5 @@
 ---
-title: JMeter Implementation Reference for Load Testing Pipeline Solution
+title: JMeter implementation reference for load testing pipeline solution
 description: Scalable cloud load testing pipeline creates and destroys infrastructure on-demand for stress testing
 author: doodlemania2
 ms.author: pnp
@@ -10,59 +10,71 @@ ms.subservice: example-scenario
 ms.custom: fcp
 ---
 
-# JMeter Implementation Reference for Load Testing Pipeline Solution
+# JMeter implementation reference for load testing pipeline solution
 
-This article provides an overview of an implementation for a scalable cloud load testing pipeline. It creates and destroys infrastructure on-demand to carry out stress testing. The pipeline also enables observation and viewing of test results. This load testing implementation has been recently tested in and analysis use cases related to the Corona virus pandemic. The implementation uses [Apache JMeter](https://jmeter.apache.org/) and [Terraform](https://www.terraform.io/) to provision and destroy the required infrastructure from Azure.
+This article provides an overview of an implementation for a scalable cloud load testing pipeline. It creates and destroys infrastructure on-demand to carry out stress testing. The pipeline also enables observation and viewing of test results. It was used by the commercial software engineer (CSE) team to help a customer create a [banking system cloud transformation scenario](banking-system-cloud-transformation.md).
 
-## Capabilities
+This load testing implementation has been recently tested in and analysis use cases related to the Corona virus pandemic. The implementation uses [Apache JMeter](https://jmeter.apache.org/) and [Terraform](https://www.terraform.io/) to provision and destroy the required infrastructure from Azure.
 
-This implementation enables the following capabilities:
+* Capabilities
 
-* Viewing combined data in a dashboard to monitor the scalability and performance of a solution infrastructure.
+  This implementation enables the following capabilities:
 
-* The ability to determine:
+  * Viewing combined data in a dashboard to monitor the scalability and performance of a solution infrastructure.
 
-  * The impact of infrastructure scalability.
+  * The ability to determine:
 
-  * The reaction to failures in the existing architectural design and various workloads.
+    * The impact of infrastructure scalability.
+
+    * The reaction to failures in the existing architectural design and various workloads.
 
     The CSE team made these determinations by observing a set of simulations. They ran functional scenarios in the simulations and monitored the performance and scalability of the infrastructure.
 
-* Supports any system that exposes a JMeter supported endpoint. For example: Azure Container Instances (ACI), Azure Kubernetes Service (AKS), and so on. Carries out pod/node autoscaling and performance tests on all services. The implementation also supports:
+  * Supports any system that exposes a JMeter supported endpoint. For example: Azure Container Instances (ACI), Azure Kubernetes Service (AKS), and so on. Carries out pod/node autoscaling and performance tests on all services. The implementation also supports:
 
-  * Executing performance tests over the microservices until the solution reaches or surpasses a target of a set number of transactions per second
+    * Executing performance tests over the microservices until the solution reaches or surpasses a target of a set number of transactions per second.
 
-  * Executing horizontal pod/node autoscaling tests over microservices
+    * Executing horizontal pod/node autoscaling tests over microservices.
 
-  * Providing observability on specific solution component(s) by activating metrics captured (for example, with Prometheus and Grafana)
+    * Providing observability on specific solution component(s) by activating metrics captured (for example, with Prometheus and Grafana).
 
-  * Providing a detailed report about the tests executed, the applications' behavior and the partitioning strategies adopted where applicable (for example, Kafka)
+    * Providing a detailed report about the tests executed, the applications' behavior and the partitioning strategies adopted where applicable (for example, Kafka).
 
-## Advantages
+* Advantages
 
-* Full integration with Azure DevOps
+  * Full integration with Azure.
 
-* Alternative to other proprietary/deprecating solutions
+  * Alternative to other proprietary/deprecating solutions.
 
-* Fully open-source
+  * Fully open-source.
 
-## Solution Overview
+## Use case
 
-### Architecture
+Any scenario in which there's a need to evaluate the capability of different infrastructure designs and configurations to handle different types of loads.
+
+## Architecture
+
+:::image type="content" source="./images/load-testing-pipeline-jmeter.png" alt-text="diagram of Load Testing Pipeline with JMeter, ACI, and Terraform":::
 
 The CSE team structured the load testing implementation into two Azure Pipelines:
 
 1. One pipeline builds a custom JMeter Docker container and pushes the image to Azure Container Registry (ACR). This structure provides flexibility for adding any JMeter plugin.
 
-1. The other pipeline validates the JMeter test definition (.jmx file), dynamically provisions the load testing infrastructure, runs the load test, publishes the test results and artifacts to Azure DevOps, and then destroys the infrastructure.
+1. The other pipeline:
 
-:::image type="content" source="./images/load-testing-pipeline-jmeter.png" alt-text="diagram of Load Testing Pipeline with JMeter, ACI, and Terraform":::
+    1. Validates the JMeter test definition (.jmx file).
 
-<p style="text-align:center;font-style:italic;">Figure 1 - Load Testing Pipeline with JMeter, ACI, and Terraform</p>
+    1. dynamically provisions the load testing infrastructure.
+
+    1. Runs the load test.
+
+    1. Publishes the test results and artifacts to Azure Pipelines.
+
+    1. Destroys the infrastructure.
 
 First the solution creates and runs the Docker pipeline, and then it creates the JMeter pipeline.
 
-An Azure Pipeline on Azure DevOps triggers and controls the flow. During setup, the solution provisions JMeter agents as ACI instances using the [Remote Testing](https://jmeter.apache.org/usermanual/remote-test.html) approach. A JMeter controller:
+An Azure Pipelines triggers and controls the flow. During setup, the solution provisions JMeter agents as ACI instances using the [Remote Testing](https://jmeter.apache.org/usermanual/remote-test.html) approach. A JMeter controller:
 
 * Configures all workers using its own protocol.
 
@@ -70,43 +82,37 @@ An Azure Pipeline on Azure DevOps triggers and controls the flow. During setup, 
 
 * Generates resulting artifacts like dashboards and logs.
 
-Docker pipeline and JMeter pipeline definition files are in YAML (.yml) format. The files contain setting like branch, path, variable, and so on. First the solution creates the pipelines. Then the developer can run the JMeter pipeline from the command line. They run the pipeline by defining which JMeter test definition file (.jmx) and the number of JMeter workers required for the test.
+Docker pipeline and JMeter pipeline definition files are in YAML (.yml) format. The files contain setting like branch, path, variable, and so on. First the solution creates the pipelines. Then the developer can run the JMeter pipeline from the command line. They run the pipeline by defining which JMeter test definition file and the number of JMeter workers required for the test.
 
 To integrate with Azure DevOps test results, the solution uses a Python script to convert the JMeter test results format (.jtl file) to JUnit format (.xml file).
 
 :::image type="content" source="./images/azure-test-results-dashboard.png" alt-text="sample of Azure DevOps Dashboard Displaying Successful Requests":::
 
-<p style="text-align:center;font-style:italic;">Figure 2 - Azure DevOps Dashboard Displaying Successful Requests</p>
+### Components
 
-### Tech Stack
+* Azure
 
-* Azure DevOps
+  * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 
-* Azure Container Registry (ACR)
+  * [Azure Container Registry (ACR)](https://azure.microsoft.com/en-us/services/container-registry/)
 
-* Azure Container Instances (ACI)
+  * [Azure Container Instances (ACI)](https://azure.microsoft.com/en-us/services/container-instances/)
 
-* Apache JMeter
+* Third-party
 
-* Terraform
+  * [Apache JMeter](https://jmeter.apache.org/)
 
-## Applicable Scenarios
+  * [Terraform](https://www.terraform.io/)
 
-* Any scenario in which there's a need to evaluate the capability of different infrastructure designs and configurations to handle different types of loads.
-
-## Next Steps
+## Next steps
 
 * Visit the project page on GitHub: [Load Testing Pipeline with JMeter, ACI, and Terraform](https://github.com/Azure-Samples/jmeter-aci-terraform)
 
 ## Additional Reading
 
-* [Banking System Cloud Transformation on Microsoft Azure](banking-system-cloud-transformation.md)  – describes the use of this load testing pipeline in the Financial Services Industry (FSI)
+* [Banking system cloud transformation on Azure](banking-system-cloud-transformation.md)  – describes the use of this load testing pipeline in the Financial Services Industry (FSI)
 
 * [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/#documentation) – additional documentation and resources on ACI
-
-* [Apache JMeter](https://jmeter.apache.org/)
-
-* [Terraform](https://www.terraform.io/)
 
 * [A Guide to Getting Started with Successful Load Testing (PDF file)](https://www.proxy-sniffer.com/en/doc/LoadTestKnowHowEN.pdf) – Guide from [Apica](https://www.proxy-sniffer.com/)
 

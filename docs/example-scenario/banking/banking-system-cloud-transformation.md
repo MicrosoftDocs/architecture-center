@@ -1,5 +1,5 @@
 ---
-title: Banking system cloud transformation on Microsoft Azure 
+title: Banking system cloud transformation on Azure 
 description: Solution for monitoring banking system infrastructure scalability and performance.
 author: doodlemania2
 ms.author: pnp
@@ -10,7 +10,7 @@ ms.subservice: example-scenario
 ms.custom: fcp
 ---
 
-# Banking System Cloud Transformation on Microsoft Azure
+# Banking system cloud transformation on Azure
 
 This article summarizes the patterns and implementations used by the commercial software engineer (CSE) team to build a solution for a customer. For the sake of anonymity, the customer is fictionalized here as Contoso Bank. It's a major international Financial Services Industry (FSI) organization that wanted to modernize one of its financial transaction systems.
 
@@ -293,6 +293,14 @@ At the end of the project, the CSE team shared the following insights:
   * The team recommended the use of the Azure Event Hubs for Kafka, but for Contoso Bank, Schema Registry was an important feature. The bank expected the Schema Registry feature to be available as a preview to Event Hubs in the middle of January 2020. To attend to Contoso Bank in the requested time frame, the team had to consider the use of Schema Registry in another instance of AKS.
 
   * The Kafka protocol with Schema Registry was not supported by Event Hub Scaler in KEDA.
+
+## Next steps
+
+For more detail about the processes and technologies used to create this solution, see the following articles:
+
+* [Patterns and implementations]()
+
+* []()
 
 ## Related resources
 

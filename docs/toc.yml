@@ -1141,6 +1141,8 @@ items:
         items:
         - name: Banking cloud transformation
           href: example-scenario/banking/banking-system-cloud-transformation.md
+        - name: Patterns and implementations
+          href: example-scenario/banking/patterns-and-implementations.md
         - name: JMeter reference
           href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.md
       - name: Lift and shift LOB apps
