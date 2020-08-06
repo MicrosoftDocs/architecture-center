@@ -1,7 +1,7 @@
 ---
 title: Hybrid HPC in Azure with HPC Pack
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Get a hybrid high performance computing solution built with Windows Server technology. Use Azure HPC Pack to create a hybrid HPC environment.
 ms.custom: acom-architecture, hybrid hpc, hpc pack, azure hpc pack, interactive-diagram, hybrid-infrastructure, hpc, 'https://azure.microsoft.com/solutions/architecture/hybrid-hpc-in-azure-with-hpc-pack/'

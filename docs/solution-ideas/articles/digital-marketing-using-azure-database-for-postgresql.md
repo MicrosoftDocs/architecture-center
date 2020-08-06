@@ -1,7 +1,7 @@
 ---
 title: Digital Campaign Management
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Engage with customers around the world with rich, personalized digital marketing experiences. Quickly build and launch digital campaigns that automatically scale based on customer demand.
 ms.custom: acom-architecture, postgresql, use cases, azure, solutions, web-apps, 'https://azure.microsoft.com/solutions/architecture/digital-marketing-using-azure-database-for-postgresql/'

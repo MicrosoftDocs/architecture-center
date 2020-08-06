@@ -1,7 +1,7 @@
 ---
 title: Implement a secure hybrid network
 description: Implement a secure hybrid network architecture in Azure.
-author: adamboeglin
+author: doodlemania2
 ms.date: 01/07/2020
 ms.topic: reference-architecture
 ms.service: architecture-center

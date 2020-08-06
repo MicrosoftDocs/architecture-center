@@ -1,7 +1,7 @@
 ---
 title: High Performance Computing (HPC) on Azure
 description: A guide to building running HPC workloads on Azure
-author: adamboeglin
+author: doodlemania2
 ms.date: 8/14/2019
 ms.custom: fcp
 ms.service: architecture-center

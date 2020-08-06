@@ -1,7 +1,7 @@
 ---
 title: Comparing AWS and Azure resource management
 description: A comparison of resource management between Azure and AWS
-author: adamboeglin
+author: doodlemania2
 ms.date: 05/21/2020
 ms.topic: reference
 ms.service: architecture-center
