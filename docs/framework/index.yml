@@ -1,5 +1,7 @@
+### YamlMime:Landing
+
 title: Microsoft Azure Well-Architected Framework
-summary: The Azure Well-Architected Framework is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architecture excellence, Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
+summary: The Azure Well-Architected Framework is a set of guiding tenets that can be used to improve the quality of a workload. 
 
 metadata: 
   author: PageWriter-MSFT
