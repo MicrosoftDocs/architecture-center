@@ -21,7 +21,6 @@ landingContent:
 
  # Card
   - title: Key points
-    text: Use these checklists and principles to assess, monitor, and optimize your expenditure.
     linkLists:
       - linkListType: quickstart
         links:
