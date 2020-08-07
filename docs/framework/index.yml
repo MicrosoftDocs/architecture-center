@@ -22,7 +22,6 @@ landingContent:
   - title: Cost Optimization
     linkLists:
       - linkListType: quickstart
-      - text: Use these checklists
         links:
           - text: Principles
             url: cost/overview.md
@@ -87,7 +86,7 @@ landingContent:
           - text: linktext1
             url: /azure-well-architected-introduction/3-cost-optimization
           - text: linktext2
-            url: file2.md
+
 
  # Card
   - title: Security
@@ -103,7 +102,7 @@ landingContent:
           - text: linktext1
             url: /azure-well-architected-introduction/3-cost-optimization
           - text: linktext2
-            url: file2.md
+
 
  # Card
   - title: Reliability
@@ -118,5 +117,3 @@ landingContent:
         links:
           - text: linktext1
             url: /azure-well-architected-introduction/3-cost-optimization
-          - text: linktext2
-            url: file2.md
