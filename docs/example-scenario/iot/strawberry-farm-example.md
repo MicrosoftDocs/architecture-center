@@ -10,7 +10,7 @@ ms.subservice: example-scenario
 ms.custom: fcp
 ---
 
-# Farm monitoring and management solution
+# IoT farm monitoring and management solution
 
 Tailwind is a farm that grows strawberries in greenhouses. Tailwind currently has five greenhouses and wants to expand in the future.
 
@@ -36,7 +36,7 @@ Tailwind also wants to better understand how their farming methods impact produc
 
 Tailwind wants an Internet of Things (IoT) solution to help them collect and measure real-time data across their farm, which will help them achieve more consistent agricultural output. The solution should include collecting data like temperature, getting insights from the data like temperature too hot or cold, and taking effective actions like adjusting thermostats.
 
-The following use cases are examples of applying IoT process patterns to this real-world scenario:
+The following use cases are examples of applying IoT process loop patterns to this real-world scenario:
 
 Use case|IoT solution|Pattern|
 ---|---|---|

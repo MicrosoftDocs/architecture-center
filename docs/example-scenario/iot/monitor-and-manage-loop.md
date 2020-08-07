@@ -14,8 +14,6 @@ ms.custom: fcp
 
 An Internet-of-Things (IoT) *monitor and manage loop (MML)* is a supervisory system that continually monitors a [Cyber Physical System (CPS)](https://en.wikipedia.org/wiki/Cyber-physical_system) of networked IoT devices. The MML makes sure the CPS is within the tolerable range of the desired state setpoint, and issues commands to control the system.
 
-Multiple devices in a CPS system must act in concert to achieve and stay within the tolerable range of the desired state. The MML observes and correlates telemetry emitted by multiple devices, combines it with external inputs, and computes new insights. The MML then pushes the insights through a rules engine to deliver imperative actions and setpoint change actions against the relevant devices.
-
 ## Use cases
 
 Some example scenarios for MMLs include:
@@ -33,7 +31,7 @@ Some example scenarios for MMLs include:
 
 ![Monitor and Manage Loop](./media/monitor-manage-loop.png)
 
-The IoT MML is a supervisory system that ensures that the CPS operates within operational thresholds. MML logic considers the perspectives of multiple devices to deduce current state. The process involves correlating hot telemetry signal trends from multiple devices, and combining them with warm time series history and enterprise system signals. The MML then generates actuator commands or creates alarms as necessary.
+The IoT MML is a supervisory system that ensures that the CPS operates within operational thresholds. Multiple devices in a CPS system must act in concert to achieve and stay within the tolerable range of the desired state. The MML observes and correlates hot telemetry signal trends from multiple devices to deduce current state. MML logic combines these trends with warm time series history and enterprise system signals to compute new insights. The MML then pushes the insights through a rules engine to generate actuator commands or create alarms as necessary.
 
 ## Characteristics
 
@@ -46,7 +44,7 @@ MMLs have the following characteristics:
 - Produce supervisory commands back to devices for conditions that need to be corrected.
 - Compute dependent device states and provide event feeds for external systems.
 - Primarily integrate with devices and enterprise systems over HTTP, MQTT, and AMQP network protocols.
-- May have cycle times of a few seconds, depending on the IoT scenario. Network jitter can occur when using time-insensitive network protocols like MQTT, HTTP, and AMQP.
+- May have cycle times of a few seconds, depending on the IoT scenario. Network packet delay variance or *jitter* can occur when using time-insensitive network protocols like MQTT, HTTP, and AMQP.
 
 ## Components
 

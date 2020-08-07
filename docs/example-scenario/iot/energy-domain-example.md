@@ -30,7 +30,7 @@ Contoso also wants to enable real-time monitoring and control of their integrate
 
 Contoso wants to apply an Internet of Things (IoT) solution to provides real-time visibility of the power each wind turbine produces on a given day. The solution should determine how much to adjust power generators for demand-supply balance in the grid.
 
-The following use cases are examples of applying Internet of Things (IoT) process patterns to this real-world scenario:
+The following use cases are examples of applying Internet of Things (IoT) process loop patterns to this real-world scenario:
 
 Use case|IoT solution|Pattern|
 ---|---|---|

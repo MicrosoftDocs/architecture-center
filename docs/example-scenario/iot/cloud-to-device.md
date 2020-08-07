@@ -41,7 +41,7 @@ The following considerations apply when using direct methods:
 
 - Direct methods fail if the connection is broken between the IoT Hub and the device before the method completes. Applications can catch and handle failures to re-attempt commands.
 - Since there's no queue, applications that require sequencing of direct methods need to manage the sequencing of method calls, such that completing the previous method calls the next method.
-- Invoking direct methods allows an application to set two timeouts. One timeout specifies how long the IoT Hub should wait for a device to connect before giving up, and the other specifies how long the caller should wait for the method to complete and respond before giving up.
+- Invoking direct methods allows an application to set two timeouts. One timeout specifies how long the IoT Hub should wait for a device to connect before giving up, and the other timeout specifies how long the caller should wait for the method to complete and respond before giving up.
 
 ### Direct methods with protocol gateways
 

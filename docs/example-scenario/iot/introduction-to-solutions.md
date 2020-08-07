@@ -101,5 +101,6 @@ Actions are deliberate activity undertaken either programmatically or manually a
 ## See also
 - [IoT devices, platform, and applications](devices-platform-application.md)
 - [IoT builder, developer, and operator roles](builders-developers-operators.md)
-- [IoT application-to-device commands](cloud-to-device.md)
-- [Scale IoT solutions with application stamps](application-stamps.md)
+- [Analyze and optimize process loops](analyze-and-optimize-loop.md)
+- [Monitor and manage process loops](monitor-and-manage-loop.md)
+- [Measure and control process loops](measure-and-control-loop.md)

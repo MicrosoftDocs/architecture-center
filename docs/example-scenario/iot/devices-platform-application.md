@@ -50,7 +50,7 @@ There are two types of edge gateways, *field* or [IoT Edge](https://docs.microso
 
 - IoT Edge *field gateways* are located close to devices on-premises, and connect to the IoT platform to extend cloud capabilities into devices. IoT Edge devices can act as communication enablers, local device control systems, and data processors for the IoT platform. IoT Edge devices can run cloud workflows on-premises by using [Edge modules](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules), and can communicate with devices even in offline scenarios.
 
-- *Protocol gateways* allow connecting existing and diverse device populations to IoT solutions by hosting device instances and enabling communication between devices and the IoT platform. Cloud gateways can do protocol and identity translation to and from the IoT platform, and can execute additional logic on behalf of devices.
+- *Protocol* or *cloud gateways* enable connecting existing and diverse device populations to IoT solutions by hosting device instances and enabling communication between devices and the IoT platform. Cloud gateways can do protocol and identity translation to and from the IoT platform, and can execute additional logic on behalf of devices.
 
 ## Attestation, authentication, and provisioning
 
@@ -88,6 +88,5 @@ Consider the combinations of [Azure IoT Hub supported authentication protocols](
 - Web socket variants of AMQP and MQTT aren't supported with X.509 CA certificates in IoT Hub.
 
 ## See also
-- [IoT builder, developer, and operator roles](builders-developers-operators.md)
 - [IoT application-to-device commands](cloud-to-device.md)
 - [Scale IoT solutions with application stamps](application-stamps.md)
