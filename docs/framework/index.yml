@@ -21,13 +21,19 @@ landingContent:
   # Card (optional)
   - title: About Cost Optimization
     linkLists:
-      - linkListType: overview
+      - linkListType: how-to-guide
         links:
           - text: Principles
             url: cost/overview.md
-          - text: Develop a cost model
-            url: cost/design-model.md
-      - linkListType: learn
+          - text: Design checklist
+            url: cost/design-checklist.md
+          - text: Provision checklist
+            url: cost/design-checklist.md
+          - text: Monitor checklist
+            url: cost/design-checklist.md
+          - text: Optimize checklist
+            url: cost/design-checklist.md            
+      - linkListType: concepts
         links:
           - text: What is cost Optimization
             url: /azure-well-architected-introduction/3-cost-optimization
@@ -48,7 +54,21 @@ landingContent:
           - text: What trade-offs have you made to optimize for cost?
             url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=f0069507-d5f7-42aa-aeb8-beb2b4561cf1&question=5&category=Cost
 
-
+ # Card
+  - title: Performance efficiency
+    linkLists:
+      - linkListType: linkListType
+        links:
+          - text: linktext1
+            url: /azure-well-architected-introduction/3-cost-optimization
+          - text: linktext2
+            url: /azure-well-architected-introduction/3-cost-optimization
+      - linkListType: linkListType
+        links:
+          - text: linktext1
+            url: /azure-well-architected-introduction/3-cost-optimization
+          - text: linktext2
+            url: file2.md
 
 
 
