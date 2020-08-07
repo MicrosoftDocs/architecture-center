@@ -1,7 +1,7 @@
 ---
 title: Windows N-tier application on Azure
 description: Implement a multi-tier architecture on Azure for availability, security, scalability, and manageability.
-author: adamboeglin
+author: doodlemania2
 ms.date: 08/21/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -323,7 +323,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [sql-alwayson-listeners]: https://msdn.microsoft.com/library/hh213417.aspx
 [sql-alwayson-read-only-routing]: https://technet.microsoft.com/library/hh213417.aspx#ConnectToSecondary
 [sql-alwayson]: https://msdn.microsoft.com/library/hh510230.aspx
-[sql-keyvault]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault
+[sql-keyvault]: https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure
 [Managed-Sql-pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed
 [subscription-limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx

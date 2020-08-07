@@ -169,7 +169,7 @@ For a set of guided tutorials for the Azure Bot Service, see the [tutorial secti
 [botservice-docs]: https://docs.microsoft.com/azure/bot-service
 [cognitive-docs]: https://docs.microsoft.com/azure/cognitive-services
 [security]: https://docs.microsoft.com/azure/security
-[scalability]: /azure/architecture/checklist/performance-efficiency
+[scalability]: https://docs.microsoft.com/azure/architecture/framework/scalability/performance-efficiency
 [sqlavailability-docs]: https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview#availability-capabilities
 [sqldatabase-docs]: https://docs.microsoft.com/azure/sql-database
 [sqlsecurity-docs]: https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance

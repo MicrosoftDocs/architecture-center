@@ -1,7 +1,7 @@
 ---
 title: Keyword search/speech-to-text/OCR digital media
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: A speech-to-text solution allows you to identify speech in static video files so you can manage it as standard content, such as allowing employees to search within training videos for spoken words or phrases, and then enabling them to quickly navigate to the specific moment in the video.
 ms.custom: acom-architecture, speech, 'https://azure.microsoft.com/solutions/architecture/digital-media-speech-text/'

@@ -2,7 +2,7 @@
 title: Serverless web application
 titleSuffix: Azure Reference Architectures
 description: Recommended architecture for a serverless web application and web API.
-author: adamboeglin
+author: doodlemania2
 ms.date: 05/28/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -320,7 +320,7 @@ Related guidance:
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: https://docs.microsoft.com/azure/architecture/framework/cost/overview
 [api-versioning]: ../../best-practices/api-design.md#versioning-a-restful-web-api
 [apim]: https://docs.microsoft.com/azure/api-management/api-management-key-concepts
 [apim-ip]: https://docs.microsoft.com/azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services

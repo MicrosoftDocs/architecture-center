@@ -1,6 +1,6 @@
 ---
 title: SAP on Azure Architecture Guide
-description: This guide is based on the Azure Architecture Framework, but the recommendations are specific to deployments of SAP solutions. 
+description: This guide is based on the Microsoft Azure Well-Architected Framework, but the recommendations are specific to deployments of SAP solutions. 
 author: maggsl
 ms.date: 06/10/2020
 ms.topic: reference-architecture
@@ -13,7 +13,7 @@ ms.category:
 
 # SAP on Azure Architecture Guide
 
-The SAP on Azure Architecture Guide describes a set of guiding tenets that are used to help ensure the quality of SAP workloads running on Azure. This guide is based on the [Azure Architecture Framework](https://docs.microsoft.com/azure/architecture/framework/), but the recommendations are specific to deployments of SAP solutions. A solid architectural foundation starts with five pillars of excellence: cost, DevOps, resiliency, scalability, and security.
+The SAP on Azure Architecture Guide describes a set of guiding tenets that are used to help ensure the quality of SAP workloads running on Azure. This guide is based on the [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/), but the recommendations are specific to deployments of SAP solutions. A solid architectural foundation starts with five pillars of excellence: cost, DevOps, resiliency, scalability, and security.
 
 Microsoft and SAP work in [partnership](https://blogs.microsoft.com/blog/2019/05/09/microsoft-partners-with-sap-as-the-first-global-cloud-provider-to-launch-project-embrace/) to provide a clear roadmap for organizations that want to innovate in the cloud. Azure supports SAP applications on Linux and Windows across development, test, and production environments. Our customers run SAP deployments of all sizes on Azure—including SAP NetWeaver, SAP S/4HANA, SAP BW/4HANA, SAP BI, and SAP HANA in scale-up and scale-out scenarios.
 

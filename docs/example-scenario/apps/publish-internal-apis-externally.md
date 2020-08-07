@@ -1,6 +1,6 @@
 ---
 title: Publishing internal APIs to external users
-description: Use Azure API Management to modernize and expose intranet legacy web APIs.
+description: In this scenario, an organization consolidates multiple APIs internally using Azure API Management deployed inside a Virtual Network.
 author: ssarwa
 ms.date: 03/12/2019
 ms.author: ssarwa

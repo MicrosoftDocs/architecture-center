@@ -2,7 +2,7 @@
 title: Big compute architecture style
 titleSuffix: Azure Application Architecture Guide
 description: Describes benefits, challenges, and best practices for Big Compute architectures on Azure.
-author: adamboeglin
+author: doodlemania2
 ms.date: 08/30/2018
 ms.topic: guide
 ms.service: architecture-center
@@ -75,7 +75,7 @@ In this scenario, an organization is running HPC Pack on-premises, and uses Azur
 <!-- links -->
 
 [batch]: https://docs.microsoft.com/azure/batch
-[batch-hpc-solutions]: https://docs.microsoft.com/azure/batch/batch-hpc-solutions
+[batch-hpc-solutions]: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing
 [deploy-hpc-azure]: https://docs.microsoft.com/azure/virtual-machines/windows/hpcpack-2016-cluster
 [embarrassingly-parallel]: https://en.wikipedia.org/wiki/Embarrassingly_parallel
 [hpc-pack]: https://technet.microsoft.com/library/cc514029

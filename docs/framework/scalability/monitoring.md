@@ -33,7 +33,7 @@ Monitoring for scalability should be part of your overall monitoring strategy th
 
 ## How do Azure services auto scale
 
-- App Services, ASE, and virtual machine scale sets be configured with autoscaling rules that can be based on several metrics including CPU, memory, bandwidth, etc. These rules can create new instances (scale in) or remove instances (scale in) or a running service. This capability can be enhanced by generating custom events from technologies like Application Insight that could be based on some other custom metrics.
+- App Services, ASE, and virtual machine scale sets be configured with autoscaling rules that can be based on several metrics including CPU, memory, bandwidth, etc. These rules can create new instances (scale out) or remove instances (scale in) or a running service. This capability can be enhanced by generating custom events from technologies like Application Insight that could be based on some other custom metrics.
 - Azure Kubernetes Services offers both the ability to scale pods as well as to auto scale nodes. Scaling rules can be based on internal metrics or can leverage metrics from systems like Prometheus.
 - Other services, such as Application Gateway, can be scaled manually. In this case, it is important to leverage services such as Log Analytics to raise alerts when the service is no longer able to handle the load.
 

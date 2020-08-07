@@ -2,7 +2,7 @@
 title: Integrate on-premises AD domains with Azure AD
 titleSuffix: Azure Reference Architectures
 description: Implement a secure hybrid network architecture using Azure Active Directory (Azure AD).
-author: adamboeglin
+author: doodlemania2
 ms.date: 08/28/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -252,7 +252,7 @@ A deployment for a reference architecture that implements these recommendations 
 [aad-health-adfs]: https://docs.microsoft.com/azure/active-directory/active-directory-aadconnect-health-adfs
 [aad-identity-protection]: https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection
 [aad-password-management]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-customize
-[aad-powershell]: https://msdn.microsoft.com/library/azure/mt757189.aspx
+[aad-powershell]: https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0
 [aad-reporting-guide]: https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide
 [aad-scalability]: https://blogs.technet.microsoft.com/enterprisemobility/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-distributed-cloud-directory
 [aad-sync-best-practices]: https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration

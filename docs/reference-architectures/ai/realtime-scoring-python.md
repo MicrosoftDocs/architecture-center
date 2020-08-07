@@ -140,7 +140,7 @@ Azure Container Registry offers **Basic**, **Standard**, and **Premium**. Choose
 You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources, see the [Container Services calculator][aks-Calculator].
 
 
-For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][AAF-cost].
 
 ## DevOps considerations
 

@@ -1,7 +1,7 @@
 ---
 title: Auditing, risk, and compliance management
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Developers could use knowledge mining to help attorneys quickly identify entities of importance from discovery documents and flag important ideas across documents
 ms.custom: acom-architecture

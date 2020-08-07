@@ -1079,6 +1079,8 @@ items:
         href: solution-ideas/articles/cctv-mask-detection.md
       - name: Lighting and disinfection system
         href: solution-ideas/articles/uven-disinfection.md
+      - name: Predictive maintenance with IoT
+        href: example-scenario/predictive-maintenance/iot-predictive-maintenance.md
       - name: Process real-time vehicle data using IoT
         href: example-scenario/data/realtime-analytics-vehicle-iot.md
       - name: Safe Buildings with IoT and Azure
@@ -1139,6 +1141,8 @@ items:
       items:
       - name: Adding modern front-ends to legacy apps
         href: solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.md
+      - name: Cobalt extensible cloud framework
+        href: example-scenario/cobalt/cobalt-extensible-cloud-framework.md
       - name: Lift and shift LOB apps
         href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md
       - name: Lift and shift with AKS
