@@ -9,45 +9,46 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
-   sodipodi:docname="data-store-decision-tree.svg"
-   id="svg751"
-   version="1.1"
-   class="st18"
-   color-interpolation-filters="sRGB"
-   xml:space="preserve"
-   viewBox="0 0 654.204 898.76"
+   width="9.08617in"
    height="12.4828in"
-   width="9.08617in"><metadata
+   viewBox="0 0 654.204 898.76"
+   xml:space="preserve"
+   color-interpolation-filters="sRGB"
+   class="st18"
+   version="1.1"
+   id="svg751"
+   sodipodi:docname="data-store-decision-tree.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"><metadata
    id="metadata755"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
          rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><sodipodi:namedview
-   inkscape:current-layer="group1106-1"
-   inkscape:window-maximized="1"
-   inkscape:window-y="-8"
-   inkscape:window-x="-8"
-   inkscape:cy="504.68347"
-   inkscape:cx="436.13617"
-   inkscape:zoom="0.70930937"
-   showgrid="false"
-   id="namedview753"
-   inkscape:window-height="1017"
-   inkscape:window-width="1920"
-   inkscape:pageshadow="2"
-   inkscape:pageopacity="0"
-   guidetolerance="10"
-   gridtolerance="10"
-   objecttolerance="10"
-   borderopacity="1"
+   inkscape:document-rotation="0"
+   pagecolor="#ffffff"
    bordercolor="#666666"
-   pagecolor="#ffffff" />
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1920"
+   inkscape:window-height="1017"
+   id="namedview753"
+   showgrid="false"
+   inkscape:zoom="0.70930937"
+   inkscape:cx="436.13617"
+   inkscape:cy="504.68347"
+   inkscape:window-x="-8"
+   inkscape:window-y="-8"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="group1106-1" />
 	<v:documentProperties
-   v:viewMarkup="false"
-   v:langID="1033" />
+   v:langID="1033"
+   v:viewMarkup="false" />
 
 	<style
-   id="style2"
-   type="text/css">
+   type="text/css"
+   id="style2">
 	<![CDATA[
 		.st1 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st2 {fill:#f2f2f2;marker-end:url(#mrkr13-8);stroke:#7f7f7f;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
@@ -75,102 +76,102 @@
 		<g
    id="lend13">
 			<path
-   id="path4"
+   d="M 3 1 L 0 0 L 3 -1 L 3 1 "
    style="stroke:none"
-   d="M 3 1 L 0 0 L 3 -1 L 3 1 " />
+   id="path4" />
 		</g>
 		<marker
-   overflow="visible"
-   markerUnits="strokeWidth"
-   orient="auto"
-   refX="-13.08"
-   v:setback="13.08"
-   v:arrowSize="2"
-   v:arrowType="13"
+   id="mrkr13-8"
    class="st3"
-   id="mrkr13-8">
+   v:arrowType="13"
+   v:arrowSize="2"
+   v:setback="13.08"
+   refX="-13.08"
+   orient="auto"
+   markerUnits="strokeWidth"
+   overflow="visible">
 			<use
-   id="use7"
+   xlink:href="#lend13"
    transform="scale(-4.36,-4.36) "
-   xlink:href="#lend13" />
+   id="use7" />
 		</marker>
 		<marker
-   overflow="visible"
-   markerUnits="strokeWidth"
-   orient="auto"
-   refX="-13.08"
-   v:setback="13.08"
-   v:arrowSize="2"
-   v:arrowType="13"
+   id="mrkr13-33"
    class="st6"
-   id="mrkr13-33">
+   v:arrowType="13"
+   v:arrowSize="2"
+   v:setback="13.08"
+   refX="-13.08"
+   orient="auto"
+   markerUnits="strokeWidth"
+   overflow="visible">
 			<use
-   id="use10"
+   xlink:href="#lend13"
    transform="scale(-4.36,-4.36) "
-   xlink:href="#lend13" />
+   id="use10" />
 		</marker>
 		<marker
-   overflow="visible"
-   markerUnits="strokeWidth"
-   orient="auto"
-   refX="-13.08"
-   v:setback="13.08"
-   v:arrowSize="2"
-   v:arrowType="13"
+   id="mrkr13-86"
    class="st12"
-   id="mrkr13-86">
+   v:arrowType="13"
+   v:arrowSize="2"
+   v:setback="13.08"
+   refX="-13.08"
+   orient="auto"
+   markerUnits="strokeWidth"
+   overflow="visible">
 			<use
-   id="use13"
+   xlink:href="#lend13"
    transform="scale(-4.36,-4.36) "
-   xlink:href="#lend13" />
+   id="use13" />
 		</marker>
 	</defs>
 	<g
-   id="g749"
-   v:groupContext="foregroundPage"
+   v:mID="0"
    v:index="1"
-   v:mID="0">
+   v:groupContext="foregroundPage"
+   id="g749">
 		<title
    id="title17">Page-1</title>
 		<v:pageProperties
-   v:shadowOffsetY="-9"
-   v:shadowOffsetX="9"
-   v:drawingUnits="19"
+   v:drawingScale="1"
    v:pageScale="1"
-   v:drawingScale="1" />
+   v:drawingUnits="19"
+   v:shadowOffsetX="9"
+   v:shadowOffsetY="-9" />
 		<g
-   v:groupContext="group"
-   v:mID="1106"
+   id="group1106-1"
    transform="translate(10.3406,-10.3406)"
-   id="group1106-1">
+   v:mID="1106"
+   v:groupContext="group">
 			<title
    id="title19">Sheet.1106</title>
 			<g
-   transform="translate(3.80529E-05,-0.578599)"
-   v:groupContext="shape"
+   id="shape1105-2"
    v:mID="1105"
-   id="shape1105-2">
+   v:groupContext="shape"
+   transform="translate(3.80529E-05,-0.578599)">
 				<title
    id="title21">Sheet.1105</title>
 				<rect
-   id="rect23"
-   class="st1"
-   height="877.5"
-   width="634.5"
+   x="0"
    y="21.2599"
-   x="0" />
+   width="634.5"
+   height="877.5"
+   class="st1"
+   id="rect23" />
 			</g>
 			<g
-   v:groupContext="group"
+   id="group1104-4"
    v:mID="1104"
-   id="group1104-4">
+   v:groupContext="group">
 				<title
    id="title26">Sheet.1104</title>
 				<g
-   transform="translate(381.139,-766.166)"
-   v:groupContext="shape"
+   id="shape1000-5"
    v:mID="1000"
-   id="shape1000-5">
+   v:groupContext="shape"
+   transform="translate(381.139,-766.166)">
 					<title
    id="title28">Sheet.1000</title>
 					<desc
@@ -178,31 +179,31 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect32"
-   class="st2"
-   ry="18"
-   rx="18"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect32" />
 					<text
-   id="text34"
-   v:langID="1033"
-   class="st4"
+   x="15.28"
    y="878.36"
-   x="15.28"><v:paragraph
+   class="st4"
+   v:langID="1033"
+   id="text34"><v:paragraph
    v:horizAlign="1" /><v:tabList />Relational data?</text>				</g>
 				<g
-   transform="translate(381.139,-604.44)"
-   v:groupContext="shape"
+   id="shape1001-10"
    v:mID="1001"
-   id="shape1001-10">
+   v:groupContext="shape"
+   transform="translate(381.139,-604.44)">
 					<title
    id="title37">Sheet.1001</title>
 					<desc
@@ -210,31 +211,31 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect41"
-   class="st2"
-   ry="18"
-   rx="18"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect41" />
 					<text
-   id="text43"
-   v:langID="1033"
-   class="st4"
+   x="4.37"
    y="878.36"
-   x="4.37"><v:paragraph
+   class="st4"
+   v:langID="1033"
+   id="text43"><v:paragraph
    v:horizAlign="1" /><v:tabList />Need SMB interface?</text>				</g>
 				<g
-   transform="translate(381.139,-523.577)"
-   v:groupContext="shape"
+   id="shape1002-14"
    v:mID="1002"
-   id="shape1002-14">
+   v:groupContext="shape"
+   transform="translate(381.139,-523.577)">
 					<title
    id="title46">Sheet.1002</title>
 					<desc
@@ -242,31 +243,31 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect50"
-   class="st2"
-   ry="18"
-   rx="18"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect50" />
 					<text
-   id="text52"
-   v:langID="1033"
-   class="st4"
+   x="31.84"
    y="878.36"
-   x="31.84"><v:paragraph
+   class="st4"
+   v:langID="1033"
+   id="text52"><v:paragraph
    v:horizAlign="1" /><v:tabList />Archive?</text>				</g>
 				<g
-   transform="translate(381.139,-442.714)"
-   v:groupContext="shape"
+   id="shape1003-18"
    v:mID="1003"
-   id="shape1003-18">
+   v:groupContext="shape"
+   transform="translate(381.139,-442.714)">
 					<title
    id="title55">Sheet.1003</title>
 					<desc
@@ -274,31 +275,31 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect59"
-   class="st2"
-   ry="18"
-   rx="18"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect59" />
 					<text
-   id="text61"
-   v:langID="1033"
-   class="st4"
+   x="9.11"
    y="878.36"
-   x="9.11"><v:paragraph
+   class="st4"
+   v:langID="1033"
+   id="text61"><v:paragraph
    v:horizAlign="1" /><v:tabList />Search index data?</text>				</g>
 				<g
-   transform="translate(381.139,-361.851)"
-   v:groupContext="shape"
+   id="shape1004-22"
    v:mID="1004"
-   id="shape1004-22">
+   v:groupContext="shape"
+   transform="translate(381.139,-361.851)">
 					<title
    id="title64">Sheet.1004</title>
 					<desc
@@ -306,31 +307,31 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect68"
-   class="st2"
-   ry="18"
-   rx="18"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect68" />
 					<text
-   id="text70"
-   v:langID="1033"
-   class="st4"
+   x="12.52"
    y="878.36"
-   x="12.52"><v:paragraph
+   class="st4"
+   v:langID="1033"
+   id="text70"><v:paragraph
    v:horizAlign="1" /><v:tabList />Time series data?</text>				</g>
 				<g
-   transform="translate(381.139,-38.4)"
-   v:groupContext="shape"
+   id="shape1009-26"
    v:mID="1009"
-   id="shape1009-26">
+   v:groupContext="shape"
+   transform="translate(381.139,-38.4)">
 					<title
    id="title73">Sheet.1009</title>
 					<desc
@@ -338,31 +339,31 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect77"
-   class="st2"
-   ry="18"
-   rx="18"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect77" />
 					<text
-   id="text79"
-   v:langID="1033"
-   class="st4"
+   x="16.86"
    y="878.36"
-   x="16.86"><v:paragraph
+   class="st4"
+   v:langID="1033"
+   id="text79"><v:paragraph
    v:horizAlign="1" /><v:tabList />Transient data?</text>				</g>
 				<g
-   transform="translate(532.723,-604.44)"
-   v:groupContext="shape"
+   id="shape1010-30"
    v:mID="1010"
-   id="shape1010-30">
+   v:groupContext="shape"
+   transform="translate(532.723,-604.44)">
 					<title
    id="title82">Sheet.1010</title>
 					<desc
@@ -370,29 +371,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect86"
-   class="st5"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect86" />
 					<text
-   id="text88"
-   v:langID="1033"
-   class="st7"
+   x="21.1"
    y="878.96"
-   x="21.1"><v:paragraph
+   class="st7"
+   v:langID="1033"
+   id="text88"><v:paragraph
    v:horizAlign="1" /><v:tabList />Azure Files</text>				</g>
 				<g
-   transform="translate(532.723,-765.129)"
-   v:groupContext="shape"
+   id="shape1011-35"
    v:mID="1011"
-   id="shape1011-35">
+   v:groupContext="shape"
+   transform="translate(532.723,-765.129)">
 					<title
    id="title91">Sheet.1011</title>
 					<desc
@@ -400,65 +401,65 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect95"
-   class="st5"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect95" />
 					<text
-   id="text97"
-   v:langID="1033"
-   class="st7"
+   x="12.76"
    y="878.96"
-   x="12.76"><v:paragraph
+   class="st7"
+   v:langID="1033"
+   id="text97"><v:paragraph
    v:horizAlign="1" /><v:tabList />SQL Database</text>				</g>
 				<g
-   v:groupContext="group"
-   v:mID="1015"
+   id="group1015-39"
    transform="translate(532.723,-516.377)"
-   id="group1015-39">
+   v:mID="1015"
+   v:groupContext="group">
 					<title
    id="title100">Sheet.1015</title>
 					<g
-   v:groupContext="shape"
+   id="shape1016-40"
    v:mID="1016"
-   id="shape1016-40">
+   v:groupContext="shape">
 						<title
    id="title102">Sheet.1016</title>
 						<desc
    id="desc104">Blob Storage</desc>
 						<v:textBlock
-   v:verticalAlign="0"
-   v:margins="rect(4,4,4,4)" />
+   v:margins="rect(4,4,4,4)"
+   v:verticalAlign="0" />
 						<v:textRect
-   height="61.2"
-   width="100.8"
+   cx="50.4"
    cy="868.16"
-   cx="50.4" />
-						<rect
-   id="rect106"
-   class="st5"
-   height="61.2"
    width="100.8"
+   height="61.2" />
+						<rect
+   x="0"
    y="837.56"
-   x="0" />
+   width="100.8"
+   height="61.2"
+   class="st5"
+   id="rect106" />
 						<text
-   id="text108"
-   v:langID="1033"
-   class="st7"
+   x="15.19"
    y="852.36"
-   x="15.19"><v:paragraph
+   class="st7"
+   v:langID="1033"
+   id="text108"><v:paragraph
    v:horizAlign="1" /><v:tabList />Blob Storage<v:newlineChar /></text>					</g>
 					<g
-   v:groupContext="shape"
+   id="shape1017-44"
    v:mID="1017"
-   id="shape1017-44">
+   v:groupContext="shape">
 						<title
    id="title111">Sheet.1017</title>
 						<desc
@@ -466,34 +467,34 @@
 						<v:textBlock
    v:margins="rect(4,4,4,4)" />
 						<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-						<rect
-   id="rect115"
-   class="st8"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+						<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   class="st8"
+   id="rect115" />
 						<text
-   id="text119"
-   v:langID="1033"
-   class="st9"
+   x="19.55"
    y="872.66"
-   x="19.55"><v:paragraph
+   class="st9"
+   v:langID="1033"
+   id="text119"><v:paragraph
    v:horizAlign="1" /><v:tabList />cool access tier<v:newlineChar /><tspan
-   id="tspan117"
-   class="st10"
+   x="13.62"
    dy="1.2em"
-   x="13.62">archive access tier</tspan></text>					</g>
+   class="st10"
+   id="tspan117">archive access tier</tspan></text>					</g>
 				</g>
 				<g
-   transform="translate(532.723,-442.714)"
-   v:groupContext="shape"
+   id="shape1018-49"
    v:mID="1018"
-   id="shape1018-49">
+   v:groupContext="shape"
+   transform="translate(532.723,-442.714)">
 					<title
    id="title123">Sheet.1018</title>
 					<desc
@@ -501,29 +502,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect127"
-   class="st5"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect127" />
 					<text
-   id="text129"
-   v:langID="1033"
-   class="st7"
+   x="14.91"
    y="878.96"
-   x="14.91"><v:paragraph
+   class="st7"
+   v:langID="1033"
+   id="text129"><v:paragraph
    v:horizAlign="1" /><v:tabList />Azure Search</text>				</g>
 				<g
-   transform="translate(532.723,-361.851)"
-   v:groupContext="shape"
+   id="shape1019-53"
    v:mID="1019"
-   id="shape1019-53">
+   v:groupContext="shape"
+   transform="translate(532.723,-361.851)">
 					<title
    id="title132">Sheet.1019</title>
 					<desc
@@ -531,33 +532,33 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect136"
-   class="st5"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect136" />
 					<text
-   id="text140"
-   v:langID="1033"
-   class="st7"
+   x="19.35"
    y="871.76"
-   x="19.35"><v:paragraph
+   class="st7"
+   v:langID="1033"
+   id="text140"><v:paragraph
    v:horizAlign="1" /><v:tabList />Time Series <tspan
-   id="tspan138"
-   class="st10"
+   x="29.13"
    dy="1.2em"
-   x="29.13">Insights</tspan></text>				</g>
+   class="st10"
+   id="tspan138">Insights</tspan></text>				</g>
 				<g
-   transform="translate(72,-280.989)"
-   v:groupContext="shape"
+   id="shape1020-58"
    v:mID="1020"
-   id="shape1020-58">
+   v:groupContext="shape"
+   transform="translate(72,-280.989)">
 					<title
    id="title143">Sheet.1020</title>
 					<desc
@@ -565,29 +566,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect147"
-   class="st5"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect147" />
 					<text
-   id="text149"
-   v:langID="1033"
-   class="st7"
+   x="7.54"
    y="878.96"
-   x="7.54"><v:paragraph
+   class="st7"
+   v:langID="1033"
+   id="text149"><v:paragraph
    v:horizAlign="1" /><v:tabList />Data Lake Store</text>				</g>
 				<g
-   transform="translate(72,-206.229)"
-   v:groupContext="shape"
+   id="shape1021-62"
    v:mID="1021"
-   id="shape1021-62">
+   v:groupContext="shape"
+   transform="translate(72,-206.229)">
 					<title
    id="title152">Sheet.1021</title>
 					<desc
@@ -595,29 +596,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect156"
-   class="st5"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect156" />
 					<text
-   id="text158"
-   v:langID="1033"
-   class="st7"
+   x="15.19"
    y="878.96"
-   x="15.19"><v:paragraph
+   class="st7"
+   v:langID="1033"
+   id="text158"><v:paragraph
    v:horizAlign="1" /><v:tabList />Blob Storage</text>				</g>
 				<g
-   transform="translate(532.723,-119.263)"
-   v:groupContext="shape"
+   id="shape1022-66"
    v:mID="1022"
-   id="shape1022-66">
+   v:groupContext="shape"
+   transform="translate(532.723,-119.263)">
 					<title
    id="title161">Sheet.1022</title>
 					<desc
@@ -625,33 +626,33 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect165"
-   class="st5"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect165" />
 					<text
-   id="text169"
-   v:langID="1033"
-   class="st7"
+   x="19.44"
    y="871.76"
-   x="19.44"><v:paragraph
+   class="st7"
+   v:langID="1033"
+   id="text169"><v:paragraph
    v:horizAlign="1" /><v:tabList />Cosmos DB <tspan
-   id="tspan167"
-   class="st10"
+   x="22.82"
    dy="1.2em"
-   x="22.82">Graph API</tspan></text>				</g>
+   class="st10"
+   id="tspan167">Graph API</tspan></text>				</g>
 				<g
-   transform="translate(532.723,0)"
-   v:groupContext="shape"
+   id="shape1023-71"
    v:mID="1023"
-   id="shape1023-71">
+   v:groupContext="shape"
+   transform="translate(532.723,0)">
 					<title
    id="title172">Sheet.1023</title>
 					<desc
@@ -659,33 +660,33 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect176"
-   class="st5"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect176" />
 					<text
-   id="text180"
-   v:langID="1033"
-   class="st7"
+   x="7.06"
    y="871.76"
-   x="7.06"><v:paragraph
+   class="st7"
+   v:langID="1033"
+   id="text180"><v:paragraph
    v:horizAlign="1" /><v:tabList />Cosmos DB SQL <tspan
-   id="tspan178"
-   class="st10"
+   x="41.12"
    dy="1.2em"
-   x="41.12">API</tspan></text>				</g>
+   class="st10"
+   id="tspan178">API</tspan></text>				</g>
 				<g
-   transform="translate(532.723,-59.4)"
-   v:groupContext="shape"
+   id="shape1024-76"
    v:mID="1024"
-   id="shape1024-76">
+   v:groupContext="shape"
+   transform="translate(532.723,-59.4)">
 					<title
    id="title183">Sheet.1024</title>
 					<desc
@@ -693,225 +694,225 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect187"
-   class="st5"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect187" />
 					<text
-   id="text191"
-   v:langID="1033"
-   class="st7"
+   x="7.15"
    y="871.76"
-   x="7.15"><v:paragraph
+   class="st7"
+   v:langID="1033"
+   id="text191"><v:paragraph
    v:horizAlign="1" /><v:tabList />Azure Cache for <tspan
-   id="tspan189"
-   class="st10"
+   x="35.71"
    dy="1.2em"
-   x="35.71">Redis</tspan></text>				</g>
+   class="st10"
+   id="tspan189">Redis</tspan></text>				</g>
 				<g
-   transform="translate(1330.3,296.017) rotate(90)"
-   v:groupContext="shape"
+   id="shape1027-81"
    v:mID="1027"
-   id="shape1027-81">
+   v:groupContext="shape"
+   transform="translate(1330.3,296.017) rotate(90)">
 					<title
    id="title194">Sheet.1027</title>
 					<path
-   id="path196"
+   d="M0 898.76 L22.33 898.76"
    class="st11"
-   d="M0 898.76 L22.33 898.76" />
+   id="path196" />
 				</g>
 				<g
-   transform="translate(336.653,-788.529)"
-   v:groupContext="shape"
+   id="shape1030-87"
    v:mID="1030"
-   id="shape1030-87">
+   v:groupContext="shape"
+   transform="translate(336.653,-788.529)">
 					<title
    id="title199">Sheet.1030</title>
 					<path
-   id="path201"
+   d="M0 898.76 L34.68 898.76"
    class="st11"
-   d="M0 898.76 L34.68 898.76" />
+   id="path201" />
 				</g>
 				<g
-   transform="translate(1330.3,375.474) rotate(90)"
-   v:groupContext="shape"
+   id="shape1031-92"
    v:mID="1031"
-   id="shape1031-92">
+   v:groupContext="shape"
+   transform="translate(1330.3,375.474) rotate(90)">
 					<title
    id="title204">Sheet.1031</title>
 					<path
-   id="path206"
+   d="M0 898.76 L22.33 898.76"
    class="st11"
-   d="M0 898.76 L22.33 898.76" />
+   id="path206" />
 				</g>
 				<g
-   transform="translate(1330.3,457.966) rotate(90)"
-   v:groupContext="shape"
+   id="shape1032-97"
    v:mID="1032"
-   id="shape1032-97">
+   v:groupContext="shape"
+   transform="translate(1330.3,457.966) rotate(90)">
 					<title
    id="title209">Sheet.1032</title>
 					<path
-   id="path211"
+   d="M0 898.76 L22.33 898.76"
    class="st11"
-   d="M0 898.76 L22.33 898.76" />
+   id="path211" />
 				</g>
 				<g
-   transform="translate(1330.3,536.908) rotate(90)"
-   v:groupContext="shape"
+   id="shape1033-102"
    v:mID="1033"
-   id="shape1033-102">
+   v:groupContext="shape"
+   transform="translate(1330.3,536.908) rotate(90)">
 					<title
    id="title214">Sheet.1033</title>
 					<path
-   id="path216"
+   d="M0 898.76 L22.33 898.76"
    class="st11"
-   d="M0 898.76 L22.33 898.76" />
+   id="path216" />
 				</g>
 				<g
-   transform="translate(1330.3,617.771) rotate(90)"
-   v:groupContext="shape"
+   id="shape1034-107"
    v:mID="1034"
-   id="shape1034-107">
+   v:groupContext="shape"
+   transform="translate(1330.3,617.771) rotate(90)">
 					<title
    id="title219">Sheet.1034</title>
 					<path
-   id="path221"
+   d="M0 898.76 L22.33 898.76"
    class="st11"
-   d="M0 898.76 L22.33 898.76" />
+   id="path221" />
 				</g>
 				<g
-   transform="translate(392.128,1495.24) rotate(-179.691)"
-   v:groupContext="shape"
+   id="shape1035-112"
    v:mID="1035"
-   id="shape1035-112">
+   v:groupContext="shape"
+   transform="translate(392.128,1495.24) rotate(-179.691)">
 					<title
    id="title224">Sheet.1035</title>
 					<path
-   id="path226"
+   d="M0 898.76 L39.34 898.76"
    class="st11"
-   d="M0 898.76 L39.34 898.76" />
+   id="path226" />
 				</g>
 				<g
-   transform="translate(1330.3,698.634) rotate(90)"
-   v:groupContext="shape"
+   id="shape1036-117"
    v:mID="1036"
-   id="shape1036-117">
+   v:groupContext="shape"
+   transform="translate(1330.3,698.634) rotate(90)">
 					<title
    id="title229">Sheet.1036</title>
 					<path
-   id="path231"
+   d="M0 898.76 L22.33 898.76"
    class="st11"
-   d="M0 898.76 L22.33 898.76" />
+   id="path231" />
 				</g>
 				<g
-   transform="translate(481.029,-627.84)"
-   v:groupContext="shape"
+   id="shape1040-122"
    v:mID="1040"
-   id="shape1040-122">
+   v:groupContext="shape"
+   transform="translate(481.029,-627.84)">
 					<title
    id="title234">Sheet.1040</title>
 					<path
-   id="path236"
+   d="M0 898.76 L42.55 898.76"
    class="st11"
-   d="M0 898.76 L42.55 898.76" />
+   id="path236" />
 				</g>
 				<g
-   transform="translate(481.029,-546.977)"
-   v:groupContext="shape"
+   id="shape1041-127"
    v:mID="1041"
-   id="shape1041-127">
+   v:groupContext="shape"
+   transform="translate(481.029,-546.977)">
 					<title
    id="title239">Sheet.1041</title>
 					<path
-   id="path241"
+   d="M0 898.76 L42.55 898.76"
    class="st11"
-   d="M0 898.76 L42.55 898.76" />
+   id="path241" />
 				</g>
 				<g
-   transform="translate(481.029,-466.114)"
-   v:groupContext="shape"
+   id="shape1042-132"
    v:mID="1042"
-   id="shape1042-132">
+   v:groupContext="shape"
+   transform="translate(481.029,-466.114)">
 					<title
    id="title244">Sheet.1042</title>
 					<path
-   id="path246"
+   d="M0 898.76 L42.55 898.76"
    class="st11"
-   d="M0 898.76 L42.55 898.76" />
+   id="path246" />
 				</g>
 				<g
-   transform="translate(481.029,-385.251)"
-   v:groupContext="shape"
+   id="shape1043-137"
    v:mID="1043"
-   id="shape1043-137">
+   v:groupContext="shape"
+   transform="translate(481.029,-385.251)">
 					<title
    id="title249">Sheet.1043</title>
 					<path
-   id="path251"
+   d="M0 898.76 L42.55 898.76"
    class="st11"
-   d="M0 898.76 L42.55 898.76" />
+   id="path251" />
 				</g>
 				<g
-   transform="translate(482.66,-142.663)"
-   v:groupContext="shape"
+   id="shape1044-142"
    v:mID="1044"
-   id="shape1044-142">
+   v:groupContext="shape"
+   transform="translate(482.66,-142.663)">
 					<title
    id="title254">Sheet.1044</title>
 					<path
-   id="path256"
+   d="M0 898.76 L40.25 898.76"
    class="st11"
-   d="M0 898.76 L40.25 898.76" />
+   id="path256" />
 				</g>
 				<g
-   transform="translate(672.159,1412.64) rotate(153.053)"
-   v:groupContext="shape"
+   id="shape1045-147"
    v:mID="1045"
-   id="shape1045-147">
+   v:groupContext="shape"
+   transform="translate(672.159,1412.64) rotate(153.053)">
 					<title
    id="title259">Sheet.1045</title>
 					<path
-   id="path261"
+   d="M0 898.76 L92.91 898.76"
    class="st11"
-   d="M0 898.76 L92.91 898.76" />
+   id="path261" />
 				</g>
 				<g
-   transform="translate(247.029,1494.99) rotate(180)"
-   v:groupContext="shape"
+   id="shape1046-152"
    v:mID="1046"
-   id="shape1046-152">
+   v:groupContext="shape"
+   transform="translate(247.029,1494.99) rotate(180)">
 					<title
    id="title264">Sheet.1046</title>
 					<path
-   id="path266"
+   d="M0 898.76 L64.42 898.76"
    class="st11"
-   d="M0 898.76 L64.42 898.76" />
+   id="path266" />
 				</g>
 				<g
-   transform="translate(393.666,1573.99) rotate(180)"
-   v:groupContext="shape"
+   id="shape1047-157"
    v:mID="1047"
-   id="shape1047-157">
+   v:groupContext="shape"
+   transform="translate(393.666,1573.99) rotate(180)">
 					<title
    id="title269">Sheet.1047</title>
 					<path
-   id="path271"
+   d="M0 898.76 L210.24 898.76"
    class="st11"
-   d="M0 898.76 L210.24 898.76" />
+   id="path271" />
 				</g>
 				<g
-   transform="translate(479.071,-626.75)"
-   v:groupContext="shape"
+   id="shape1051-162"
    v:mID="1051"
-   id="shape1051-162">
+   v:groupContext="shape"
+   transform="translate(479.071,-626.75)">
 					<title
    id="title274">Sheet.1051</title>
 					<desc
@@ -919,29 +920,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="20"
-   width="43.82"
+   cx="21.9094"
    cy="888.76"
-   cx="21.9094" />
+   width="43.82"
+   height="20" />
 					<rect
-   id="rect278"
-   class="st13"
-   height="20"
-   width="43.8188"
+   x="0"
    y="878.76"
-   x="0" />
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect278" />
 					<text
-   id="text280"
-   v:langID="1033"
-   class="st14"
+   x="14.21"
    y="891.76"
-   x="14.21"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text280"><v:paragraph
    v:horizAlign="1" /><v:tabList />Yes</text>				</g>
 				<g
-   transform="translate(479.071,-547)"
-   v:groupContext="shape"
+   id="shape1052-166"
    v:mID="1052"
-   id="shape1052-166">
+   v:groupContext="shape"
+   transform="translate(479.071,-547)">
 					<title
    id="title283">Sheet.1052</title>
 					<desc
@@ -949,29 +950,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="20"
-   width="43.82"
+   cx="21.9094"
    cy="888.76"
-   cx="21.9094" />
+   width="43.82"
+   height="20" />
 					<rect
-   id="rect287"
-   class="st13"
-   height="20"
-   width="43.8188"
+   x="0"
    y="878.76"
-   x="0" />
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect287" />
 					<text
-   id="text289"
-   v:langID="1033"
-   class="st14"
+   x="14.21"
    y="891.76"
-   x="14.21"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text289"><v:paragraph
    v:horizAlign="1" /><v:tabList />Yes</text>				</g>
 				<g
-   transform="translate(479.071,-466)"
-   v:groupContext="shape"
+   id="shape1053-170"
    v:mID="1053"
-   id="shape1053-170">
+   v:groupContext="shape"
+   transform="translate(479.071,-466)">
 					<title
    id="title292">Sheet.1053</title>
 					<desc
@@ -979,29 +980,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="20"
-   width="43.82"
+   cx="21.9094"
    cy="888.76"
-   cx="21.9094" />
+   width="43.82"
+   height="20" />
 					<rect
-   id="rect296"
-   class="st13"
-   height="20"
-   width="43.8188"
+   x="0"
    y="878.76"
-   x="0" />
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect296" />
 					<text
-   id="text298"
-   v:langID="1033"
-   class="st14"
+   x="14.21"
    y="891.76"
-   x="14.21"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text298"><v:paragraph
    v:horizAlign="1" /><v:tabList />Yes</text>				</g>
 				<g
-   transform="translate(479.071,-388.25)"
-   v:groupContext="shape"
+   id="shape1054-174"
    v:mID="1054"
-   id="shape1054-174">
+   v:groupContext="shape"
+   transform="translate(479.071,-388.25)">
 					<title
    id="title301">Sheet.1054</title>
 					<desc
@@ -1009,29 +1010,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="20"
-   width="43.82"
+   cx="21.9094"
    cy="888.76"
-   cx="21.9094" />
+   width="43.82"
+   height="20" />
 					<rect
-   id="rect305"
-   class="st13"
-   height="20"
-   width="43.8188"
+   x="0"
    y="878.76"
-   x="0" />
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect305" />
 					<text
-   id="text307"
-   v:langID="1033"
-   class="st14"
+   x="14.21"
    y="891.76"
-   x="14.21"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text307"><v:paragraph
    v:horizAlign="1" /><v:tabList />Yes</text>				</g>
 				<g
-   transform="translate(344.756,-224.8)"
-   v:groupContext="shape"
+   id="shape1055-178"
    v:mID="1055"
-   id="shape1055-178">
+   v:groupContext="shape"
+   transform="translate(344.756,-224.8)">
 					<title
    id="title310">Sheet.1055</title>
 					<desc
@@ -1039,29 +1040,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="20"
-   width="43.82"
+   cx="21.9094"
    cy="888.76"
-   cx="21.9094" />
+   width="43.82"
+   height="20" />
 					<rect
-   id="rect314"
-   class="st13"
-   height="20"
-   width="43.8188"
+   x="0"
    y="878.76"
-   x="0" />
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect314" />
 					<text
-   id="text316"
-   v:langID="1033"
-   class="st14"
+   x="14.21"
    y="891.76"
-   x="14.21"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text316"><v:paragraph
    v:horizAlign="1" /><v:tabList />Yes</text>				</g>
 				<g
-   transform="translate(346.029,-312.229)"
-   v:groupContext="shape"
+   id="shape1056-182"
    v:mID="1056"
-   id="shape1056-182">
+   v:groupContext="shape"
+   transform="translate(346.029,-312.229)">
 					<title
    id="title319">Sheet.1056</title>
 					<desc
@@ -1069,29 +1070,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="20"
-   width="43.82"
+   cx="21.9094"
    cy="888.76"
-   cx="21.9094" />
+   width="43.82"
+   height="20" />
 					<rect
-   id="rect323"
-   class="st13"
-   height="20"
-   width="43.8188"
+   x="0"
    y="878.76"
-   x="0" />
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect323" />
 					<text
-   id="text325"
-   v:langID="1033"
-   class="st14"
+   x="14.21"
    y="891.76"
-   x="14.21"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text325"><v:paragraph
    v:horizAlign="1" /><v:tabList />Yes</text>				</g>
 				<g
-   transform="translate(481.029,-145.029)"
-   v:groupContext="shape"
+   id="shape1057-186"
    v:mID="1057"
-   id="shape1057-186">
+   v:groupContext="shape"
+   transform="translate(481.029,-145.029)">
 					<title
    id="title328">Sheet.1057</title>
 					<desc
@@ -1099,29 +1100,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="20"
-   width="43.82"
+   cx="21.9094"
    cy="888.76"
-   cx="21.9094" />
+   width="43.82"
+   height="20" />
 					<rect
-   id="rect332"
-   class="st13"
-   height="20"
-   width="43.8188"
+   x="0"
    y="878.76"
-   x="0" />
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect332" />
 					<text
-   id="text334"
-   v:langID="1033"
-   class="st14"
+   x="14.21"
    y="891.76"
-   x="14.21"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text334"><v:paragraph
    v:horizAlign="1" /><v:tabList />Yes</text>				</g>
 				<g
-   transform="translate(438.038,-172.029)"
-   v:groupContext="shape"
+   id="shape1058-190"
    v:mID="1058"
-   id="shape1058-190">
+   v:groupContext="shape"
+   transform="translate(438.038,-172.029)">
 					<title
    id="title337">Sheet.1058</title>
 					<desc
@@ -1129,29 +1130,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="20"
-   width="37.4"
+   cx="18.6953"
    cy="888.76"
-   cx="18.6953" />
+   width="37.4"
+   height="20" />
 					<rect
-   id="rect341"
-   class="st13"
-   height="20"
-   width="37.3907"
+   x="0"
    y="878.76"
-   x="0" />
+   width="37.3907"
+   height="20"
+   class="st13"
+   id="rect341" />
 					<text
-   id="text343"
-   v:langID="1033"
-   class="st14"
+   x="11.87"
    y="891.76"
-   x="11.87"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text343"><v:paragraph
    v:horizAlign="1" /><v:tabList />No</text>				</g>
 				<g
-   transform="translate(436.14,-253.029)"
-   v:groupContext="shape"
+   id="shape1059-194"
    v:mID="1059"
-   id="shape1059-194">
+   v:groupContext="shape"
+   transform="translate(436.14,-253.029)">
 					<title
    id="title346">Sheet.1059</title>
 					<desc
@@ -1159,29 +1160,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="20"
-   width="41.19"
+   cx="20.5938"
    cy="888.76"
-   cx="20.5938" />
+   width="41.19"
+   height="20" />
 					<rect
-   id="rect350"
-   class="st13"
-   height="20"
-   width="41.1875"
+   x="0"
    y="878.76"
-   x="0" />
+   width="41.1875"
+   height="20"
+   class="st13"
+   id="rect350" />
 					<text
-   id="text352"
-   v:langID="1033"
-   class="st14"
+   x="13.77"
    y="891.76"
-   x="13.77"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text352"><v:paragraph
    v:horizAlign="1" /><v:tabList />No</text>				</g>
 				<g
-   transform="translate(436.14,-334.029)"
-   v:groupContext="shape"
+   id="shape1060-198"
    v:mID="1060"
-   id="shape1060-198">
+   v:groupContext="shape"
+   transform="translate(436.14,-334.029)">
 					<title
    id="title355">Sheet.1060</title>
 					<desc
@@ -1189,29 +1190,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="20"
-   width="41.19"
+   cx="20.5938"
    cy="888.76"
-   cx="20.5938" />
+   width="41.19"
+   height="20" />
 					<rect
-   id="rect359"
-   class="st13"
-   height="20"
-   width="41.1875"
+   x="0"
    y="878.76"
-   x="0" />
+   width="41.1875"
+   height="20"
+   class="st13"
+   id="rect359" />
 					<text
-   id="text361"
-   v:langID="1033"
-   class="st14"
+   x="13.77"
    y="891.76"
-   x="13.77"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text361"><v:paragraph
    v:horizAlign="1" /><v:tabList />No</text>				</g>
 				<g
-   transform="translate(436.14,-415.029)"
-   v:groupContext="shape"
+   id="shape1061-202"
    v:mID="1061"
-   id="shape1061-202">
+   v:groupContext="shape"
+   transform="translate(436.14,-415.029)">
 					<title
    id="title364">Sheet.1061</title>
 					<desc
@@ -1219,29 +1220,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="20"
-   width="41.19"
+   cx="20.5938"
    cy="888.76"
-   cx="20.5938" />
+   width="41.19"
+   height="20" />
 					<rect
-   id="rect368"
-   class="st13"
-   height="20"
-   width="41.1875"
+   x="0"
    y="878.76"
-   x="0" />
+   width="41.1875"
+   height="20"
+   class="st13"
+   id="rect368" />
 					<text
-   id="text370"
-   v:langID="1033"
-   class="st14"
+   x="13.77"
    y="891.76"
-   x="13.77"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text370"><v:paragraph
    v:horizAlign="1" /><v:tabList />No</text>				</g>
 				<g
-   transform="translate(436.14,-496.029)"
-   v:groupContext="shape"
+   id="shape1062-206"
    v:mID="1062"
-   id="shape1062-206">
+   v:groupContext="shape"
+   transform="translate(436.14,-496.029)">
 					<title
    id="title373">Sheet.1062</title>
 					<desc
@@ -1249,29 +1250,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="20"
-   width="41.19"
+   cx="20.5938"
    cy="888.76"
-   cx="20.5938" />
+   width="41.19"
+   height="20" />
 					<rect
-   id="rect377"
-   class="st13"
-   height="20"
-   width="41.1875"
+   x="0"
    y="878.76"
-   x="0" />
+   width="41.1875"
+   height="20"
+   class="st13"
+   id="rect377" />
 					<text
-   id="text379"
-   v:langID="1033"
-   class="st14"
+   x="13.77"
    y="891.76"
-   x="13.77"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text379"><v:paragraph
    v:horizAlign="1" /><v:tabList />No</text>				</g>
 				<g
-   transform="translate(436.14,-577.029)"
-   v:groupContext="shape"
+   id="shape1063-210"
    v:mID="1063"
-   id="shape1063-210">
+   v:groupContext="shape"
+   transform="translate(436.14,-577.029)">
 					<title
    id="title382">Sheet.1063</title>
 					<desc
@@ -1279,29 +1280,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="20"
-   width="41.19"
+   cx="20.5938"
    cy="888.76"
-   cx="20.5938" />
+   width="41.19"
+   height="20" />
 					<rect
-   id="rect386"
-   class="st13"
-   height="20"
-   width="41.1875"
+   x="0"
    y="878.76"
-   x="0" />
+   width="41.1875"
+   height="20"
+   class="st13"
+   id="rect386" />
 					<text
-   id="text388"
-   v:langID="1033"
-   class="st14"
+   x="13.77"
    y="891.76"
-   x="13.77"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text388"><v:paragraph
    v:horizAlign="1" /><v:tabList />No</text>				</g>
 				<g
-   transform="translate(166.029,-303.3)"
-   v:groupContext="shape"
+   id="shape1066-214"
    v:mID="1066"
-   id="shape1066-214">
+   v:groupContext="shape"
+   transform="translate(166.029,-303.3)">
 					<title
    id="title391">Sheet.1066</title>
 					<desc
@@ -1309,29 +1310,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="26.2286"
-   width="76.51"
+   cx="38.25"
    cy="885.646"
-   cx="38.25" />
+   width="76.51"
+   height="26.2286" />
 					<rect
-   id="rect395"
-   class="st13"
-   height="26.2286"
-   width="76.5"
+   x="0"
    y="872.531"
-   x="0" />
+   width="76.5"
+   height="26.2286"
+   class="st13"
+   id="rect395" />
 					<text
-   id="text397"
-   v:langID="1033"
-   class="st14"
+   x="13.35"
    y="888.65"
-   x="13.35"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text397"><v:paragraph
    v:horizAlign="1" /><v:tabList />File system</text>				</g>
 				<g
-   transform="translate(226.326,-254.435)"
-   v:groupContext="shape"
+   id="shape1067-218"
    v:mID="1067"
-   id="shape1067-218">
+   v:groupContext="shape"
+   transform="translate(226.326,-254.435)">
 					<title
    id="title400">Sheet.1067</title>
 					<desc
@@ -1339,41 +1340,41 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="15.1875"
-   width="52.21"
+   cx="26.1016"
    cy="891.166"
-   cx="26.1016" />
+   width="52.21"
+   height="15.1875" />
 					<rect
-   id="rect404"
-   class="st13"
-   height="15.1875"
-   width="52.2031"
+   x="0"
    y="883.572"
-   x="0" />
+   width="52.2031"
+   height="15.1875"
+   class="st13"
+   id="rect404" />
 					<text
-   id="text406"
-   v:langID="1033"
-   class="st14"
+   x="11.19"
    y="894.17"
-   x="11.19"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text406"><v:paragraph
    v:horizAlign="1" /><v:tabList />Object</text>				</g>
 				<g
-   transform="translate(1330.41,778.268) rotate(90.3511)"
-   v:groupContext="shape"
+   id="shape1068-222"
    v:mID="1068"
-   id="shape1068-222">
+   v:groupContext="shape"
+   transform="translate(1330.41,778.268) rotate(90.3511)">
 					<title
    id="title409">Sheet.1068</title>
 					<path
-   id="path411"
+   d="M0 898.76 L30.99 898.76"
    class="st11"
-   d="M0 898.76 L30.99 898.76" />
+   id="path411" />
 				</g>
 				<g
-   transform="translate(440.028,-91.0286)"
-   v:groupContext="shape"
+   id="shape1069-227"
    v:mID="1069"
-   id="shape1069-227">
+   v:groupContext="shape"
+   transform="translate(440.028,-91.0286)">
 					<title
    id="title414">Sheet.1069</title>
 					<desc
@@ -1381,29 +1382,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="20"
-   width="33.42"
+   cx="16.7063"
    cy="888.76"
-   cx="16.7063" />
+   width="33.42"
+   height="20" />
 					<rect
-   id="rect418"
-   class="st13"
-   height="20"
-   width="33.4125"
+   x="0"
    y="878.76"
-   x="0" />
+   width="33.4125"
+   height="20"
+   class="st13"
+   id="rect418" />
 					<text
-   id="text420"
-   v:langID="1033"
-   class="st14"
+   x="9.88"
    y="891.76"
-   x="9.88"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text420"><v:paragraph
    v:horizAlign="1" /><v:tabList />No</text>				</g>
 				<g
-   transform="translate(473.21,-73.0286)"
-   v:groupContext="shape"
+   id="shape1070-231"
    v:mID="1070"
-   id="shape1070-231">
+   v:groupContext="shape"
+   transform="translate(473.21,-73.0286)">
 					<title
    id="title423">Sheet.1070</title>
 					<desc
@@ -1411,41 +1412,41 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="20"
-   width="43.82"
+   cx="21.9094"
    cy="888.76"
-   cx="21.9094" />
+   width="43.82"
+   height="20" />
 					<rect
-   id="rect427"
-   class="st13"
-   height="20"
-   width="43.8188"
+   x="0"
    y="878.76"
-   x="0" />
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect427" />
 					<text
-   id="text429"
-   v:langID="1033"
-   class="st14"
+   x="14.21"
    y="891.76"
-   x="14.21"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text429"><v:paragraph
    v:horizAlign="1" /><v:tabList />Yes</text>				</g>
 				<g
-   transform="translate(128.129,8.9308) rotate(-23.2829)"
-   v:groupContext="shape"
+   id="shape1071-235"
    v:mID="1071"
-   id="shape1071-235">
+   v:groupContext="shape"
+   transform="translate(128.129,8.9308) rotate(-23.2829)">
 					<title
    id="title432">Sheet.1071</title>
 					<path
-   id="path434"
+   d="M0 898.76 L43.93 898.76"
    class="st11"
-   d="M0 898.76 L43.93 898.76" />
+   id="path434" />
 				</g>
 				<g
-   transform="translate(497.588,-41.0786)"
-   v:groupContext="shape"
+   id="shape1072-240"
    v:mID="1072"
-   id="shape1072-240">
+   v:groupContext="shape"
+   transform="translate(497.588,-41.0786)">
 					<title
    id="title437">Sheet.1072</title>
 					<desc
@@ -1453,62 +1454,62 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="16.5938"
-   width="33.42"
+   cx="16.7063"
    cy="890.463"
-   cx="16.7063" />
+   width="33.42"
+   height="16.5938" />
 					<rect
-   id="rect441"
-   class="st13"
-   height="16.5938"
-   width="33.4125"
+   x="0"
    y="882.166"
-   x="0" />
+   width="33.4125"
+   height="16.5938"
+   class="st13"
+   id="rect441" />
 					<text
-   id="text443"
-   v:langID="1033"
-   class="st14"
+   x="9.88"
    y="893.46"
-   x="9.88"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text443"><v:paragraph
    v:horizAlign="1" /><v:tabList />No</text>				</g>
 				<g
-   transform="translate(975.655,91.9852) rotate(33.2161)"
-   v:groupContext="shape"
+   id="shape1073-244"
    v:mID="1073"
-   id="shape1073-244">
+   v:groupContext="shape"
+   transform="translate(975.655,91.9852) rotate(33.2161)">
 					<title
    id="title446">Sheet.1073</title>
 					<path
-   id="path448"
+   d="M0 898.76 L49.27 898.76"
    class="st11"
-   d="M0 898.76 L49.27 898.76" />
+   id="path448" />
 				</g>
 				<g
-   transform="translate(-626.854,82.7813) rotate(-90)"
-   v:groupContext="shape"
+   id="shape1074-249"
    v:mID="1074"
-   id="shape1074-249">
+   v:groupContext="shape"
+   transform="translate(-626.854,82.7813) rotate(-90)">
 					<title
    id="title451">Simple Arrow.1002</title>
 					<v:userDefs>
 						<v:ud
-   v:val="VT0(15):26"
-   v:nameU="visVersion" />
+   v:nameU="visVersion"
+   v:val="VT0(15):26" />
 						<v:ud
-   v:val="VT0(2):26"
+   v:nameU="ArrowType"
    v:prompt=""
-   v:nameU="ArrowType" />
+   v:val="VT0(2):26" />
 					</v:userDefs>
 					<path
-   id="path453"
+   d="M0 898.76 L12 886.76 L12 892.76 L45 892.76 L45 898.76 L45 904.76 L12 904.76 L12 910.76 L0 898.76 Z"
    class="st15"
-   d="M0 898.76 L12 886.76 L12 892.76 L45 892.76 L45 898.76 L45 904.76 L12 904.76 L12 910.76 L0 898.76 Z" />
+   id="path453" />
 				</g>
 				<g
-   transform="translate(237.813,-838.479)"
-   v:groupContext="shape"
+   id="shape1075-251"
    v:mID="1075"
-   id="shape1075-251">
+   v:groupContext="shape"
+   transform="translate(237.813,-838.479)">
 					<title
    id="title456">Sheet.1075</title>
 					<desc
@@ -1516,43 +1517,43 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="39.6"
-   width="68.19"
+   cx="34.0937"
    cy="878.96"
-   cx="34.0937" />
+   width="68.19"
+   height="39.6" />
 					<rect
-   id="rect460"
-   class="st16"
-   ry="18"
-   rx="18"
-   height="39.6"
-   width="68.1875"
+   x="0"
    y="859.16"
-   x="0" />
+   width="68.1875"
+   height="39.6"
+   rx="18"
+   ry="18"
+   class="st16"
+   id="rect460" />
 					<text
-   id="text462"
-   v:langID="1033"
-   class="st4"
+   x="19.98"
    y="881.96"
-   x="19.98"><v:paragraph
+   class="st4"
+   v:langID="1033"
+   id="text462"><v:paragraph
    v:horizAlign="1" /><v:tabList />START</text>				</g>
 				<g
-   transform="translate(179.494,-789.429)"
-   v:groupContext="shape"
+   id="shape1091-255"
    v:mID="1091"
-   id="shape1091-255">
+   v:groupContext="shape"
+   transform="translate(179.494,-789.429)">
 					<title
    id="title465">Sheet.1091</title>
 					<path
-   id="path467"
+   d="M0 898.76 L45 898.76"
    class="st17"
-   d="M0 898.76 L45 898.76" />
+   id="path467" />
 				</g>
 				<g
-   transform="translate(327.862,-790.679)"
-   v:groupContext="shape"
+   id="shape1092-258"
    v:mID="1092"
-   id="shape1092-258">
+   v:groupContext="shape"
+   transform="translate(327.862,-790.679)">
 					<title
    id="title470">Sheet.1092</title>
 					<desc
@@ -1560,41 +1561,41 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="20"
-   width="50.41"
+   cx="25.2049"
    cy="888.76"
-   cx="25.2049" />
+   width="50.41"
+   height="20" />
 					<rect
-   id="rect474"
-   class="st13"
-   height="20"
-   width="50.4098"
+   x="0"
    y="878.76"
-   x="0" />
+   width="50.4098"
+   height="20"
+   class="st13"
+   id="rect474" />
 					<text
-   id="text476"
-   v:langID="1033"
-   class="st14"
+   x="12.88"
    y="891.76"
-   x="12.88"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text476"><v:paragraph
    v:horizAlign="1" /><v:tabList />Else...</text>				</g>
 				<g
-   transform="translate(480.363,-788.529)"
-   v:groupContext="shape"
+   id="shape1093-262"
    v:mID="1093"
-   id="shape1093-262">
+   v:groupContext="shape"
+   transform="translate(480.363,-788.529)">
 					<title
    id="title479">Sheet.1093</title>
 					<path
-   id="path481"
+   d="M0 898.76 L42.55 898.76"
    class="st11"
-   d="M0 898.76 L42.55 898.76" />
+   id="path481" />
 				</g>
 				<g
-   transform="translate(479.071,-790.679)"
-   v:groupContext="shape"
+   id="shape1094-267"
    v:mID="1094"
-   id="shape1094-267">
+   v:groupContext="shape"
+   transform="translate(479.071,-790.679)">
 					<title
    id="title484">Sheet.1094</title>
 					<desc
@@ -1602,29 +1603,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="20"
-   width="43.82"
+   cx="21.9094"
    cy="888.76"
-   cx="21.9094" />
+   width="43.82"
+   height="20" />
 					<rect
-   id="rect488"
-   class="st13"
-   height="20"
-   width="43.8188"
+   x="0"
    y="878.76"
-   x="0" />
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect488" />
 					<text
-   id="text490"
-   v:langID="1033"
-   class="st14"
+   x="14.21"
    y="891.76"
-   x="14.21"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text490"><v:paragraph
    v:horizAlign="1" /><v:tabList />Yes</text>				</g>
 				<g
-   transform="translate(381.139,-685.303)"
-   v:groupContext="shape"
+   id="shape1095-271"
    v:mID="1095"
-   id="shape1095-271">
+   v:groupContext="shape"
+   transform="translate(381.139,-685.303)">
 					<title
    id="title493">Sheet.1095</title>
 					<desc
@@ -1632,51 +1633,51 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect497"
-   class="st2"
-   ry="18"
-   rx="18"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect497" />
 					<text
-   id="text503"
-   v:langID="1033"
-   class="st4"
+   x="15.1"
    y="866.36"
-   x="15.1"><v:paragraph
+   class="st4"
+   v:langID="1033"
+   id="text503"><v:paragraph
    v:horizAlign="1" /><v:tabList />Semi-structured <tspan
-   id="tspan499"
-   class="st10"
+   x="11.74"
    dy="1.2em"
-   x="11.74">data, schema</tspan>-on-<tspan
-   id="tspan501"
    class="st10"
+   id="tspan499">data, schema</tspan>-on-<tspan
+   x="38.32"
    dy="1.2em"
-   x="38.32">read?</tspan></text>				</g>
+   class="st10"
+   id="tspan501">read?</tspan></text>				</g>
 				<g
-   transform="translate(1330.46,147.184) rotate(90.8394)"
-   v:groupContext="shape"
+   id="shape1096-277"
    v:mID="1096"
-   id="shape1096-277">
+   v:groupContext="shape"
+   transform="translate(1330.46,147.184) rotate(90.8394)">
 					<title
    id="title506">Sheet.1096</title>
 					<path
-   id="path508"
+   d="M0 898.76 L25.29 898.76"
    class="st11"
-   d="M0 898.76 L25.29 898.76" />
+   id="path508" />
 				</g>
 				<g
-   transform="translate(436.14,-738.029)"
-   v:groupContext="shape"
+   id="shape1097-282"
    v:mID="1097"
-   id="shape1097-282">
+   v:groupContext="shape"
+   transform="translate(436.14,-738.029)">
 					<title
    id="title511">Sheet.1097</title>
 					<desc
@@ -1684,29 +1685,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="20"
-   width="41.19"
+   cx="20.5938"
    cy="888.76"
-   cx="20.5938" />
+   width="41.19"
+   height="20" />
 					<rect
-   id="rect515"
-   class="st13"
-   height="20"
-   width="41.1875"
+   x="0"
    y="878.76"
-   x="0" />
+   width="41.1875"
+   height="20"
+   class="st13"
+   id="rect515" />
 					<text
-   id="text517"
-   v:langID="1033"
-   class="st14"
+   x="13.77"
    y="891.76"
-   x="13.77"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text517"><v:paragraph
    v:horizAlign="1" /><v:tabList />No</text>				</g>
 				<g
-   transform="translate(532.723,-685.303)"
-   v:groupContext="shape"
+   id="shape1098-286"
    v:mID="1098"
-   id="shape1098-286">
+   v:groupContext="shape"
+   transform="translate(532.723,-685.303)">
 					<title
    id="title520">Sheet.1098</title>
 					<desc
@@ -1714,45 +1715,45 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect524"
-   class="st5"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect524" />
 					<text
-   id="text528"
-   v:langID="1033"
-   class="st7"
+   x="8.71"
    y="871.76"
-   x="8.71"><v:paragraph
+   class="st7"
+   v:langID="1033"
+   id="text528"><v:paragraph
    v:horizAlign="1" /><v:tabList />CosmosDB SQL <tspan
-   id="tspan526"
-   class="st10"
+   x="41.12"
    dy="1.2em"
-   x="41.12">API</tspan></text>				</g>
+   class="st10"
+   id="tspan526">API</tspan></text>				</g>
 				<g
-   transform="translate(481.939,-708.703)"
-   v:groupContext="shape"
+   id="shape1099-291"
    v:mID="1099"
-   id="shape1099-291">
+   v:groupContext="shape"
+   transform="translate(481.939,-708.703)">
 					<title
    id="title531">Sheet.1099</title>
 					<path
-   id="path533"
+   d="M0 898.76 L42.55 898.76"
    class="st11"
-   d="M0 898.76 L42.55 898.76" />
+   id="path533" />
 				</g>
 				<g
-   transform="translate(479.071,-710.029)"
-   v:groupContext="shape"
+   id="shape1100-296"
    v:mID="1100"
-   id="shape1100-296">
+   v:groupContext="shape"
+   transform="translate(479.071,-710.029)">
 					<title
    id="title536">Sheet.1100</title>
 					<desc
@@ -1760,29 +1761,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="20"
-   width="43.82"
+   cx="21.9094"
    cy="888.76"
-   cx="21.9094" />
+   width="43.82"
+   height="20" />
 					<rect
-   id="rect540"
-   class="st13"
-   height="20"
-   width="43.8188"
+   x="0"
    y="878.76"
-   x="0" />
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect540" />
 					<text
-   id="text542"
-   v:langID="1033"
-   class="st14"
+   x="14.21"
    y="891.76"
-   x="14.21"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text542"><v:paragraph
    v:horizAlign="1" /><v:tabList />Yes</text>				</g>
 				<g
-   transform="translate(214.15,-766.029)"
-   v:groupContext="shape"
+   id="shape1026-300"
    v:mID="1026"
-   id="shape1026-300">
+   v:groupContext="shape"
+   transform="translate(214.15,-766.029)">
 					<title
    id="title545">Sheet.1026</title>
 					<desc
@@ -1790,46 +1791,46 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="119.71"
+   cx="59.8535"
    cy="875.36"
-   cx="59.8535" />
+   width="119.71"
+   height="46.8" />
 					<rect
-   id="rect549"
-   class="st2"
-   ry="18"
-   rx="18"
-   height="46.799999"
-   width="119.707"
+   x="0"
    y="851.96002"
-   x="0" />
+   width="119.707"
+   height="46.799999"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect549" />
 					<text
-   id="text553"
-   v:langID="1033"
-   class="st4"
+   x="12.92"
    y="872.35999"
-   x="12.92"><tspan
-     y="872.35999"
-     x="12.92"
+   class="st4"
+   v:langID="1033"
+   id="text553"><tspan
+     sodipodi:role="line"
      id="tspan757"
-     sodipodi:role="line"><v:paragraph
-   v:horizAlign="1" /><v:tabList />Require compatible </tspan><tspan
-     y="884.86005"
      x="12.92"
+     y="872.35999"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Require compatible </tspan><tspan
+     sodipodi:role="line"
      id="tspan759"
-     sodipodi:role="line">         format?</tspan></text>				</g>
+     x="12.92"
+     y="884.86005">         format?</tspan></text>				</g>
 				<g
-   v:groupContext="group"
-   v:mID="1101"
+   id="group1101-305"
    transform="translate(-6.39488E-14,-577.029)"
-   id="group1101-305">
+   v:mID="1101"
+   v:groupContext="group">
 					<title
    id="title556">Sheet.1101</title>
 					<g
-   transform="translate(0,-211.5)"
-   v:groupContext="shape"
+   id="shape1013-306"
    v:mID="1013"
-   id="shape1013-306">
+   v:groupContext="shape"
+   transform="translate(0,-211.5)">
 						<title
    id="title558">Sheet.1013</title>
 						<desc
@@ -1837,33 +1838,33 @@
 						<v:textBlock
    v:margins="rect(4,4,4,4)" />
 						<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-						<rect
-   id="rect562"
-   class="st5"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+						<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect562" />
 						<text
-   id="text566"
-   v:langID="1033"
-   class="st7"
+   x="7.77"
    y="871.76"
-   x="7.77"><v:paragraph
+   class="st7"
+   v:langID="1033"
+   id="text566"><v:paragraph
    v:horizAlign="1" /><v:tabList />Azure Database <tspan
-   id="tspan564"
-   class="st10"
+   x="21.55"
    dy="1.2em"
-   x="21.55">for MySQL</tspan></text>					</g>
+   class="st10"
+   id="tspan564">for MySQL</tspan></text>					</g>
 					<g
-   transform="translate(0,-158.625)"
-   v:groupContext="shape"
+   id="shape1014-311"
    v:mID="1014"
-   id="shape1014-311">
+   v:groupContext="shape"
+   transform="translate(0,-158.625)">
 						<title
    id="title569">Sheet.1014</title>
 						<desc
@@ -1871,45 +1872,45 @@
 						<v:textBlock
    v:margins="rect(4,4,4,4)" />
 						<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-						<rect
-   id="rect573"
-   class="st5"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+						<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect573" />
 						<text
-   id="text577"
-   v:langID="1033"
-   class="st7"
+   x="7.77"
    y="871.76"
-   x="7.77"><v:paragraph
+   class="st7"
+   v:langID="1033"
+   id="text577"><v:paragraph
    v:horizAlign="1" /><v:tabList />Azure Database <tspan
-   id="tspan575"
-   class="st10"
+   x="9.28"
    dy="1.2em"
-   x="9.28">for PostgreSQL</tspan></text>					</g>
+   class="st10"
+   id="tspan575">for PostgreSQL</tspan></text>					</g>
 					<g
-   transform="translate(179.494,1562.62) rotate(180)"
-   v:groupContext="shape"
+   id="shape1039-316"
    v:mID="1039"
-   id="shape1039-316">
+   v:groupContext="shape"
+   transform="translate(179.494,1562.62) rotate(180)">
 						<title
    id="title580">Sheet.1039</title>
 						<path
-   id="path582"
+   d="M0 898.76 L68.38 898.76"
    class="st11"
-   d="M0 898.76 L68.38 898.76" />
+   id="path582" />
 					</g>
 					<g
-   transform="translate(121.584,-236.5)"
-   v:groupContext="shape"
+   id="shape1049-321"
    v:mID="1049"
-   id="shape1049-321">
+   v:groupContext="shape"
+   transform="translate(121.584,-236.5)">
 						<title
    id="title585">Sheet.1049</title>
 						<desc
@@ -1917,29 +1918,29 @@
 						<v:textBlock
    v:margins="rect(4,4,4,4)" />
 						<v:textRect
-   height="20"
-   width="43.82"
+   cx="21.9094"
    cy="888.76"
-   cx="21.9094" />
+   width="43.82"
+   height="20" />
 						<rect
-   id="rect589"
-   class="st13"
-   height="20"
-   width="43.8188"
+   x="0"
    y="878.76"
-   x="0" />
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect589" />
 						<text
-   id="text591"
-   v:langID="1033"
-   class="st14"
+   x="7.71"
    y="891.76"
-   x="7.71"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text591"><v:paragraph
    v:horizAlign="1" /><v:tabList />MySql</text>					</g>
 					<g
-   transform="translate(0,-105.75)"
-   v:groupContext="shape"
+   id="shape1079-325"
    v:mID="1079"
-   id="shape1079-325">
+   v:groupContext="shape"
+   transform="translate(0,-105.75)">
 						<title
    id="title594">Sheet.1079</title>
 						<desc
@@ -1947,33 +1948,33 @@
 						<v:textBlock
    v:margins="rect(4,4,4,4)" />
 						<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-						<rect
-   id="rect598"
-   class="st5"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+						<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect598" />
 						<text
-   id="text602"
-   v:langID="1033"
-   class="st7"
+   x="7.77"
    y="871.76"
-   x="7.77"><v:paragraph
+   class="st7"
+   v:langID="1033"
+   id="text602"><v:paragraph
    v:horizAlign="1" /><v:tabList />Azure Database <tspan
-   id="tspan600"
-   class="st10"
+   x="17.35"
    dy="1.2em"
-   x="17.35">for MariaDB</tspan></text>					</g>
+   class="st10"
+   id="tspan600">for MariaDB</tspan></text>					</g>
 					<g
-   transform="translate(0,-52.875)"
-   v:groupContext="shape"
+   id="shape1080-330"
    v:mID="1080"
-   id="shape1080-330">
+   v:groupContext="shape"
+   transform="translate(0,-52.875)">
 						<title
    id="title605">Sheet.1080</title>
 						<desc
@@ -1981,32 +1982,32 @@
 						<v:textBlock
    v:margins="rect(4,4,4,4)" />
 						<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-						<rect
-   id="rect609"
-   class="st5"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+						<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect609" />
 						<text
-   id="text613"
-   v:langID="1033"
-   class="st7"
+   x="21.09"
    y="871.76"
-   x="21.09"><v:paragraph
+   class="st7"
+   v:langID="1033"
+   id="text613"><v:paragraph
    v:horizAlign="1" /><v:tabList />CosmosDB <tspan
-   id="tspan611"
-   class="st10"
+   x="11.83"
    dy="1.2em"
-   x="11.83">Cassandra API</tspan></text>					</g>
+   class="st10"
+   id="tspan611">Cassandra API</tspan></text>					</g>
 					<g
-   v:groupContext="shape"
+   id="shape1081-335"
    v:mID="1081"
-   id="shape1081-335">
+   v:groupContext="shape">
 						<title
    id="title616">Sheet.1081</title>
 						<desc
@@ -2014,45 +2015,45 @@
 						<v:textBlock
    v:margins="rect(4,4,4,4)" />
 						<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-						<rect
-   id="rect620"
-   class="st5"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+						<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect620" />
 						<text
-   id="text624"
-   v:langID="1033"
-   class="st7"
+   x="21.09"
    y="871.76"
-   x="21.09"><v:paragraph
+   class="st7"
+   v:langID="1033"
+   id="text624"><v:paragraph
    v:horizAlign="1" /><v:tabList />CosmosDB <tspan
-   id="tspan622"
-   class="st10"
+   x="11.71"
    dy="1.2em"
-   x="11.71">MongoDB API</tspan></text>					</g>
+   class="st10"
+   id="tspan622">MongoDB API</tspan></text>					</g>
 					<g
-   transform="translate(179.494,1615.49) rotate(180)"
-   v:groupContext="shape"
+   id="shape1082-340"
    v:mID="1082"
-   id="shape1082-340">
+   v:groupContext="shape"
+   transform="translate(179.494,1615.49) rotate(180)">
 						<title
    id="title627">Sheet.1082</title>
 						<path
-   id="path629"
+   d="M0 898.76 L68.38 898.76"
    class="st11"
-   d="M0 898.76 L68.38 898.76" />
+   id="path629" />
 					</g>
 					<g
-   transform="translate(111.994,-182.5)"
-   v:groupContext="shape"
+   id="shape1083-345"
    v:mID="1083"
-   id="shape1083-345">
+   v:groupContext="shape"
+   transform="translate(111.994,-182.5)">
 						<title
    id="title632">Sheet.1083</title>
 						<desc
@@ -2060,41 +2061,41 @@
 						<v:textBlock
    v:margins="rect(4,4,4,4)" />
 						<v:textRect
-   height="20"
-   width="63.01"
+   cx="31.5"
    cy="888.76"
-   cx="31.5" />
+   width="63.01"
+   height="20" />
 						<rect
-   id="rect636"
-   class="st13"
-   height="20"
-   width="63"
+   x="0"
    y="878.76"
-   x="0" />
+   width="63"
+   height="20"
+   class="st13"
+   id="rect636" />
 						<text
-   id="text638"
-   v:langID="1033"
-   class="st14"
+   x="8.18"
    y="891.76"
-   x="8.18"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text638"><v:paragraph
    v:horizAlign="1" /><v:tabList />PostreSQL</text>					</g>
 					<g
-   transform="translate(179.494,1668.37) rotate(180)"
-   v:groupContext="shape"
+   id="shape1084-349"
    v:mID="1084"
-   id="shape1084-349">
+   v:groupContext="shape"
+   transform="translate(179.494,1668.37) rotate(180)">
 						<title
    id="title641">Sheet.1084</title>
 						<path
-   id="path643"
+   d="M0 898.76 L68.38 898.76"
    class="st11"
-   d="M0 898.76 L68.38 898.76" />
+   id="path643" />
 					</g>
 					<g
-   transform="translate(117.392,-129.5)"
-   v:groupContext="shape"
+   id="shape1085-354"
    v:mID="1085"
-   id="shape1085-354">
+   v:groupContext="shape"
+   transform="translate(117.392,-129.5)">
 						<title
    id="title646">Sheet.1085</title>
 						<desc
@@ -2102,41 +2103,41 @@
 						<v:textBlock
    v:margins="rect(4,4,4,4)" />
 						<v:textRect
-   height="20"
-   width="52.21"
+   cx="26.1016"
    cy="888.76"
-   cx="26.1016" />
+   width="52.21"
+   height="20" />
 						<rect
-   id="rect650"
-   class="st13"
-   height="20"
-   width="52.2031"
+   x="0"
    y="878.76"
-   x="0" />
+   width="52.2031"
+   height="20"
+   class="st13"
+   id="rect650" />
 						<text
-   id="text652"
-   v:langID="1033"
-   class="st14"
+   x="6.5"
    y="891.76"
-   x="6.5"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text652"><v:paragraph
    v:horizAlign="1" /><v:tabList />MariaDB</text>					</g>
 					<g
-   transform="translate(179.494,1721.24) rotate(180)"
-   v:groupContext="shape"
+   id="shape1086-358"
    v:mID="1086"
-   id="shape1086-358">
+   v:groupContext="shape"
+   transform="translate(179.494,1721.24) rotate(180)">
 						<title
    id="title655">Sheet.1086</title>
 						<path
-   id="path657"
+   d="M0 898.76 L68.38 898.76"
    class="st11"
-   d="M0 898.76 L68.38 898.76" />
+   id="path657" />
 					</g>
 					<g
-   transform="translate(111.994,-76.5)"
-   v:groupContext="shape"
+   id="shape1087-363"
    v:mID="1087"
-   id="shape1087-363">
+   v:groupContext="shape"
+   transform="translate(111.994,-76.5)">
 						<title
    id="title660">Sheet.1087</title>
 						<desc
@@ -2144,41 +2145,41 @@
 						<v:textBlock
    v:margins="rect(4,4,4,4)" />
 						<v:textRect
-   height="20"
-   width="63.01"
+   cx="31.5"
    cy="888.76"
-   cx="31.5" />
+   width="63.01"
+   height="20" />
 						<rect
-   id="rect664"
-   class="st13"
-   height="20"
-   width="63"
+   x="0"
    y="878.76"
-   x="0" />
+   width="63"
+   height="20"
+   class="st13"
+   id="rect664" />
 						<text
-   id="text666"
-   v:langID="1033"
-   class="st14"
+   x="8.47"
    y="891.76"
-   x="8.47"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text666"><v:paragraph
    v:horizAlign="1" /><v:tabList />Cassandra</text>					</g>
 					<g
-   transform="translate(179.494,1774.12) rotate(180)"
-   v:groupContext="shape"
+   id="shape1088-367"
    v:mID="1088"
-   id="shape1088-367">
+   v:groupContext="shape"
+   transform="translate(179.494,1774.12) rotate(180)">
 						<title
    id="title669">Sheet.1088</title>
 						<path
-   id="path671"
+   d="M0 898.76 L68.38 898.76"
    class="st11"
-   d="M0 898.76 L68.38 898.76" />
+   id="path671" />
 					</g>
 					<g
-   transform="translate(111.994,-22.5)"
-   v:groupContext="shape"
+   id="shape1089-372"
    v:mID="1089"
-   id="shape1089-372">
+   v:groupContext="shape"
+   transform="translate(111.994,-22.5)">
 						<title
    id="title674">Sheet.1089</title>
 						<desc
@@ -2186,54 +2187,54 @@
 						<v:textBlock
    v:margins="rect(4,4,4,4)" />
 						<v:textRect
-   height="20"
-   width="63.01"
+   cx="31.5"
    cy="888.76"
-   cx="31.5" />
+   width="63.01"
+   height="20" />
 						<rect
-   id="rect678"
-   class="st13"
-   height="20"
-   width="63"
+   x="0"
    y="878.76"
-   x="0" />
+   width="63"
+   height="20"
+   class="st13"
+   id="rect678" />
 						<text
-   id="text680"
-   v:langID="1033"
-   class="st14"
+   x="8.37"
    y="891.76"
-   x="8.37"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text680"><v:paragraph
    v:horizAlign="1" /><v:tabList />MongoDB</text>					</g>
 					<g
-   transform="translate(-719.266,876.617) rotate(-90)"
-   v:groupContext="shape"
+   id="shape1090-376"
    v:mID="1090"
-   id="shape1090-376">
+   v:groupContext="shape"
+   transform="translate(-719.266,876.617) rotate(-90)">
 						<title
    id="title683">Sheet.1090</title>
 						<path
-   id="path685"
+   d="M0 898.76 L212.76 898.76"
    class="st17"
-   d="M0 898.76 L212.76 898.76" />
+   id="path685" />
 					</g>
 				</g>
 				<g
-   transform="translate(1331.54,227.799) rotate(90.8394)"
-   v:groupContext="shape"
+   id="shape1102-379"
    v:mID="1102"
-   id="shape1102-379">
+   v:groupContext="shape"
+   transform="translate(1331.54,227.799) rotate(90.8394)">
 					<title
    id="title689">Sheet.1102</title>
 					<path
-   id="path691"
+   d="M0 898.76 L25.29 898.76"
    class="st11"
-   d="M0 898.76 L25.29 898.76" />
+   id="path691" />
 				</g>
 				<g
-   transform="translate(436.14,-657.414)"
-   v:groupContext="shape"
+   id="shape1103-384"
    v:mID="1103"
-   id="shape1103-384">
+   v:groupContext="shape"
+   transform="translate(436.14,-657.414)">
 					<title
    id="title694">Sheet.1103</title>
 					<desc
@@ -2241,29 +2242,29 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="20"
-   width="41.19"
+   cx="20.5938"
    cy="888.76"
-   cx="20.5938" />
+   width="41.19"
+   height="20" />
 					<rect
-   id="rect698"
-   class="st13"
-   height="20"
-   width="41.1875"
+   x="0"
    y="878.76"
-   x="0" />
+   width="41.1875"
+   height="20"
+   class="st13"
+   id="rect698" />
 					<text
-   id="text700"
-   v:langID="1033"
-   class="st14"
+   x="13.77"
    y="891.76"
-   x="13.77"><v:paragraph
+   class="st14"
+   v:langID="1033"
+   id="text700"><v:paragraph
    v:horizAlign="1" /><v:tabList />No</text>				</g>
 				<g
-   transform="translate(381.139,-119.263)"
-   v:groupContext="shape"
+   id="shape1008-388"
    v:mID="1008"
-   id="shape1008-388">
+   v:groupContext="shape"
+   transform="translate(381.139,-119.263)">
 					<title
    id="title703">Sheet.1008</title>
 					<desc
@@ -2271,31 +2272,31 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect707"
-   class="st2"
-   ry="18"
-   rx="18"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect707" />
 					<text
-   id="text709"
-   v:langID="1033"
-   class="st4"
+   x="23.58"
    y="878.36"
-   x="23.58"><v:paragraph
+   class="st4"
+   v:langID="1033"
+   id="text709"><v:paragraph
    v:horizAlign="1" /><v:tabList />Graph data?</text>				</g>
 				<g
-   transform="translate(247.029,-280.989)"
-   v:groupContext="shape"
+   id="shape1006-392"
    v:mID="1006"
-   id="shape1006-392">
+   v:groupContext="shape"
+   transform="translate(247.029,-280.989)">
 					<title
    id="title712">Sheet.1006</title>
 					<desc
@@ -2303,35 +2304,35 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect716"
-   class="st2"
-   ry="18"
-   rx="18"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect716" />
 					<text
-   id="text720"
-   v:langID="1033"
-   class="st4"
+   x="5.17"
    y="872.36"
-   x="5.17"><v:paragraph
+   class="st4"
+   v:langID="1033"
+   id="text720"><v:paragraph
    v:horizAlign="1" /><v:tabList />File system or object <tspan
-   id="tspan718"
-   class="st10"
+   x="37.06"
    dy="1.2em"
-   x="37.06">store?</tspan></text>				</g>
+   class="st10"
+   id="tspan718">store?</tspan></text>				</g>
 				<g
-   transform="translate(381.139,-200.126)"
-   v:groupContext="shape"
+   id="shape1007-397"
    v:mID="1007"
-   id="shape1007-397">
+   v:groupContext="shape"
+   transform="translate(381.139,-200.126)">
 					<title
    id="title723">Sheet.1007</title>
 					<desc
@@ -2339,39 +2340,39 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect727"
-   class="st2"
-   ry="18"
-   rx="18"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect727" />
 					<text
-   id="text733"
-   v:langID="1033"
-   class="st4"
+   x="23.28"
    y="866.36"
-   x="23.28"><v:paragraph
+   class="st4"
+   v:langID="1033"
+   id="text733"><v:paragraph
    v:horizAlign="1" /><v:tabList />Binary blobs <tspan
-   id="tspan729"
-   class="st10"
+   x="10.77"
    dy="1.2em"
-   x="10.77">(images, PDF files, </tspan><tspan
-   id="tspan731"
    class="st10"
+   id="tspan729">(images, PDF files, </tspan><tspan
+   x="38.95"
    dy="1.2em"
-   x="38.95">etc.)?</tspan></text>				</g>
+   class="st10"
+   id="tspan731">etc.)?</tspan></text>				</g>
 				<g
-   transform="translate(381.139,-280.989)"
-   v:groupContext="shape"
+   id="shape1005-403"
    v:mID="1005"
-   id="shape1005-403">
+   v:groupContext="shape"
+   transform="translate(381.139,-280.989)">
 					<title
    id="title736">Sheet.1005</title>
 					<desc
@@ -2379,66 +2380,66 @@
 					<v:textBlock
    v:margins="rect(4,4,4,4)" />
 					<v:textRect
-   height="46.8"
-   width="100.8"
+   cx="50.4"
    cy="875.36"
-   cx="50.4" />
-					<rect
-   id="rect740"
-   class="st2"
-   ry="18"
-   rx="18"
-   height="46.8"
    width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
    y="851.96"
-   x="0" />
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect740" />
 					<text
-   id="text744"
-   v:langID="1033"
-   class="st4"
+   x="13.84"
    y="872.35999"
-   x="13.84"><tspan
-     y="872.35999"
-     x="13.84"
-     id="tspan761"
-     sodipodi:role="line"><v:paragraph
-   v:horizAlign="1" /><v:tabList />Large data (TB/PB) </tspan><tspan
-     y="884.86005"
-     x="13.84"
-     id="tspan763"
-     sodipodi:role="line">     for analysis?</tspan></text>				</g>
-			<text
-   id="text767"
-   y="592.94873"
-   x="497.19516"
-   style="font-style:normal;font-weight:normal;font-size:30px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.75"
-   xml:space="preserve"><tspan
-     style="stroke-width:0.75"
-     y="592.94873"
-     x="497.19516"
-     id="tspan765"
-     sodipodi:role="line" /></text></g>
-		<text
-   style="font-size:11px;font-family:'Segoe UI';fill:#000000;stroke-width:0.999997"
-   x="491.58902"
-   y="582.06738"
    class="st4"
    v:langID="1033"
-   id="text744-7"><tspan
-     style="font-size:11px;stroke-width:0.999997"
+   id="text744"><tspan
      sodipodi:role="line"
+     id="tspan761"
+     x="13.84"
+     y="872.35999"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Large data (TB/PB) </tspan><tspan
+     sodipodi:role="line"
+     id="tspan763"
+     x="13.84"
+     y="884.86005">     for analysis?</tspan></text>				</g>
+			<text
+   xml:space="preserve"
+   style="font-style:normal;font-weight:normal;font-size:30px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.75"
+   x="497.19516"
+   y="592.94873"
+   id="text767"><tspan
+     sodipodi:role="line"
+     id="tspan765"
+     x="497.19516"
+     y="592.94873"
+     style="stroke-width:0.75" /></text></g>
+		<text
+   id="text744-7"
+   v:langID="1033"
+   class="st4"
+   y="582.06738"
+   x="491.58902"
+   style="font-size:11px;font-family:'Segoe UI';fill:#000000;stroke-width:0.999997"><tspan
+     y="582.06738"
+     x="491.58902"
      id="tspan763-9"
-     x="491.58902"
-     y="582.06738">Analyse with</tspan><tspan
-     id="tspan792"
-     style="font-size:11px;stroke-width:0.999997"
      sodipodi:role="line"
+     style="font-size:11px;stroke-width:0.999997">Analyse with</tspan><tspan
+     y="595.81738"
      x="491.58902"
-     y="595.81738">Synapse, Databricks, </tspan><tspan
-     id="tspan794"
-     style="font-size:11px;stroke-width:0.999997"
      sodipodi:role="line"
+     style="font-size:11px;stroke-width:0.999997"
+     id="tspan792">Azure Synapse, Databricks, </tspan><tspan
+     y="609.56738"
      x="491.58902"
-     y="609.56738">Azure Analytics Services.</tspan></text></g>
+     sodipodi:role="line"
+     style="font-size:11px;stroke-width:0.999997"
+     id="tspan794">Azure Analytics Services.</tspan></text></g>
 	</g>
 </svg>

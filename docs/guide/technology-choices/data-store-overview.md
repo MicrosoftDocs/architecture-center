@@ -74,7 +74,7 @@ A single key/value store can be extremely scalable, as the data store can easily
 
 ### Azure services
 
-- [Cosmos DB][cosmos-db]
+- [Azure Cosmos DB][cosmos-db]
 - [Azure Cache for Redis][redis]
 
 ### Workload
@@ -107,7 +107,7 @@ Typically, a document contains the data for single entity, such as a customer or
 
 ### Azure service
 
-- [Cosmos DB][cosmos-db]
+- [Azure Cosmos DB][cosmos-db]
 
 ### Workload
 
@@ -142,7 +142,7 @@ This structure makes it straightforward to perform queries such as "Find all emp
 
 ### Azure services
 
-- [Cosmos DB Gremlin API][cosmos-gremlin]
+- [Azure Cosmos DB Gremlin API][cosmos-gremlin]
 - [SQL Server][sqlserver]
 
 ### Workload
@@ -210,7 +210,7 @@ Read and write operations for a row are usually atomic with a single column-fami
 
 ### Azure services
 
-- [Cosmos DB Cassandra API][cassandra]
+- [Azure Cosmos DB Cassandra API][cassandra]
 - [HBase in HDInsight][hbase]
 
 ### Workload
@@ -276,7 +276,7 @@ Time series data is a set of values organized by time. Time series databases  ty
 
 ### Azure service
 
-- [Time Series Insights][time-series]
+- [Azure Time Series Insights][time-series]
 
 ### Workload
 
@@ -302,7 +302,7 @@ Object storage is optimized for storing and retrieving large binary objects (ima
 
 ### Azure service
 
-- [Blob Storage][blob]
+- [Azure Blob Storage][blob]
 - [Azure Data Lake Storage Gen2][datalakegen2]
 
 ### Workload
@@ -329,7 +329,7 @@ Sometimes, using simple flat files can be the most effective means of storing an
 
 ### Azure service
 
-[File Storage][file-storage]
+- [Azure Files][file-storage]
 
 ### Workload
 
