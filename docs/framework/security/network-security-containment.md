@@ -1,6 +1,6 @@
 ---
 title: Network security and containment in Azure | Microsoft Docs
-description: Secure assets through network-based access
+description: Review best practices for network security in Azure, including network segmentation, network management, containment strategy, and internet edge strategy.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
 ms.topic: article

@@ -1,7 +1,7 @@
 ---
 title: Resiliency patterns
 titleSuffix: Cloud Design Patterns
-description: Resiliency is the ability of a system to gracefully handle and recover from failures. The nature of cloud hosting, where applications are often multi-tenant, use shared platform services, compete for resources and bandwidth, communicate over the Internet, and run on commodity hardware means there is an increased likelihood that both transient and more permanent faults will arise. Detecting failures, and recovering quickly and efficiently, is necessary to maintain resiliency.
+description: Use these resiliency patterns to help your application detect failures and recover, which is important to maintain resiliency for cloud hosted applications.
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017

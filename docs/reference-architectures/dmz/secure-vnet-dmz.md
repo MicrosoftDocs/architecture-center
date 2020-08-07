@@ -1,6 +1,6 @@
 ---
 title: Implement a secure hybrid network
-description: Implement a secure hybrid network architecture in Azure.
+description: See a secure hybrid network that extends an on-premises network to Azure with a perimeter network between the on-premises network and an Azure virtual network.
 author: doodlemania2
 ms.date: 01/07/2020
 ms.topic: reference-architecture

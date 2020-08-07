@@ -1,7 +1,7 @@
 ---
 title: Serverless web application
 titleSuffix: Azure Reference Architectures
-description: Recommended architecture for a serverless web application and web API.
+description: This reference architecture shows a serverless web application, which serves static content from Azure Blob Storage and implements an API using Azure Functions.
 author: doodlemania2
 ms.date: 05/28/2019
 ms.topic: reference-architecture
