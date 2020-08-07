@@ -19,9 +19,10 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Cost Optimization
+  - title: Cost Optimization
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: quickstart
+      - text: Use these checklists
         links:
           - text: Principles
             url: cost/overview.md
@@ -35,8 +36,6 @@ landingContent:
             url: cost/design-checklist.md            
       - linkListType: concept
         links:
-          - text: What is cost Optimization
-            url: /azure-well-architected-introduction/3-cost-optimization
           - text: Develop a cost model
             url: cost/design-model.md   
       - linkListType: learn
