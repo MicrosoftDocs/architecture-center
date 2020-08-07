@@ -56,7 +56,13 @@ items:
     - name: Choose a compute service
       href: guide/technology-choices/compute-decision-tree.md
     - name: Choose a data store
-      href: guide/technology-choices/data-store-overview.md
+      items:
+      - name: Understand data storage models
+        href: guide/technology-choices/data-store-models.md
+      - name: Select a data store
+        href: guide/technology-choices/data-store-decision-tree.md
+      - name: Criteria for choosing a data store
+        href: guide/technology-choices/data-store-considerations.md
     - name: Choose a load balancing service
       href: guide/technology-choices/load-balancing-overview.md
     - name: Choose a messaging service
@@ -726,8 +732,6 @@ items:
           href: data-guide/scenarios/data-lake.md
         - name: Data storage
           href: data-guide/technology-choices/data-storage.md
-        - name: Data store comparison
-          href: guide/technology-choices/data-store-comparison.md
         - name: Pipeline orchestration
           href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
         - name: Real-time message ingestion
