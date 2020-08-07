@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Microsoft Azure Well-Architected Framework
-summary: The Azure Well-Architected Framework is a set of guiding tenets that can be used to improve the quality of a workload. 
+title: Cost Optimization
+summary: When you are designing a cloud solution, focus on generating incremental value early. Apply the principles of Build-Measure-Learn, to accelerate your time to market while avoiding capital-intensive solutions. Use the pay-as-you-go strategy for your architecture, and invest in scaling out, rather than delivering a large investment first version. Consider opportunity costs in your architecture, and the balance between first mover advantage versus "fast follow". Use the cost calculators to estimate the initial cost and operational costs. Finally, establish policies, budgets, and controls that set cost limits for your solution.
 
 metadata: 
   author: PageWriter-MSFT
-  description: "Learn how to protect, monitor, and audit access to critical assets while ensuring employee productivity."
+  description: "Use the cost calculators to estimate the initial cost and operational costs. Finally, establish policies, budgets, and controls that set cost limits for your solution."
   manager: scottboc
   ms.author: prwilk
   ms.collection: na
@@ -13,16 +13,17 @@ metadata:
   ms.service: architecture-center
   ms.subservice: well-architected
   ms.topic: landing-page
-  services: active-directory
+  services: na
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
-  # Card (optional)
-  - title: Cost Optimization
+
+ # Card
+  - title: Key points
+    text: Use these checklists and principles to assess, monitor, and optimize your expenditure.
     linkLists:
       - linkListType: quickstart
-      - text: Use these checklists
         links:
           - text: Principles
             url: cost/overview.md
@@ -33,7 +34,22 @@ landingContent:
           - text: Monitor checklist
             url: cost/design-checklist.md
           - text: Optimize checklist
-            url: cost/design-checklist.md            
+            url: cost/design-checklist.md  
+
+  # Card (optional)
+  - title: Design
+    linkLists:
+      - linkListType: get-started
+      - text: Develop a cost model
+        links:
+          - text: Organization structure
+            url: cost/design-model.md#organization-structure
+          - text: Capture clear requirements
+            url: cost/design-capture-requirements.md   
+          - text: Consider the cost constraints
+            url: cost/design-model.md#cost-constraints
+          - text: Consider tradeoffs
+            url: cost/tradeoffs.md                                
       - linkListType: concept
         links:
           - text: Develop a cost model.
