@@ -70,8 +70,6 @@ landingContent:
           - text: linktext1
             url: /azure-well-architected-introduction/3-cost-optimization
 
-
-
  # Card
   - title: Operational excellence
     linkLists:
@@ -85,8 +83,6 @@ landingContent:
         links:
           - text: linktext1
             url: /azure-well-architected-introduction/3-cost-optimization
-
-
 
  # Card
   - title: Security
@@ -102,7 +98,6 @@ landingContent:
           - text: linktext1
             url: /azure-well-architected-introduction/3-cost-optimization
           - text: linktext2
-
 
  # Card
   - title: Reliability
