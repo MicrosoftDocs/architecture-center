@@ -1,5 +1,5 @@
 ---
-title: Estimate the initial cost
+title: Intial cost estimate
 description: Describes strategies to model your cloud costs
 author:  PageWriter-MSFT
 ms.date: 05/12/2020
