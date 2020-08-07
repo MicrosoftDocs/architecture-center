@@ -29,11 +29,11 @@ landingContent:
           - text: Design checklist
             url: design-checklist.md
           - text: Provision checklist
-            url: design-checklist.md
+            url: provision-checklist.md
           - text: Monitor checklist
-            url: design-checklist.md
+            url: monitor-checklist.md
           - text: Optimize checklist
-            url: design-checklist.md  
+            url: optimize-checklist.md  
 
   # Card (optional)
   - title: Design
@@ -55,7 +55,7 @@ landingContent:
           - text: Estimate the cost of your SKU choices. 
             url: provision-checklist.md
           - text: Estimate the cost of your SKU choices. 
-            url: cost/provision-checklist.md                                
+            url: provision-checklist.md                                
       - linkListType: learn
         links:
           - text: What is cost Optimization
