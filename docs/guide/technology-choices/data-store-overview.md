@@ -1,5 +1,5 @@
 ---
-title: Understand data storage models
+title: Understand data store models
 titleSuffix: Azure Application Architecture Guide
 description: Describes different data storage models found in Azure data services.
 author: dsk-2015
@@ -9,7 +9,7 @@ ms.service: architecture-center
 ms.subservice: reference-architecture
 ---
 
-# Understand data storage models
+# Understand data store models
 
 Modern business systems manage increasingly large volumes of heterogeneous data. A single data store is usually not the best approach. Instead, it's often better to store different types of data in different data stores, each focused on a specific workload or usage pattern. The term *polyglot persistence* refers to solutions that use a mix of data store technologies. Therefore, it's important to understand the main storage models and their tradeoffs.
 
