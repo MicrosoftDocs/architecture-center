@@ -78,9 +78,9 @@ For example, Tailwind greenhouses are large, and currently take random soil samp
 
 Understanding on-ground conditions enables the right hardware selection. To determine hardware requirements, consider the following factors:
 
-- Environment conditions and hardware durability. Because of farming conditions, Tailwind will need to find hardware of certain reliability and [ingress protection](https://en.wikipedia.org/wiki/IP_Code) level to protect against dust and water.
+- Environment conditions and hardware durability. Because of farming conditions, Tailwind will need to find hardware of certain reliability and [ingress protection](https://en.wikipedia.org/wiki/IP_Code) levels to protect against dust and water.
 - Hardware maintenance requirements
-- Hardware power methods and requirements
+- Hardware power sources and requirements
 - Number of required sensors and gateways
 - Sensor calibration requirements
 - Sensor location for optimal reading. For example, soil moisture at a certain depth may be crucial.
@@ -89,7 +89,7 @@ Understanding on-ground conditions enables the right hardware selection. To dete
 
 ### Connectivity
 
-Network selection can be complex, due to site conditions as well as data size and collection frequency requirements. Some farm locations have poor connectivity, which makes it difficult to use mobile network solutions in agriculture. To select the right connectivity option, Tailwinds must consider connectivity challenges, power requirements, and factors like:
+Network selection can be complex due to site conditions as well as data size and collection frequency requirements. Some farm locations have poor connectivity, which makes it difficult to use mobile network solutions in agriculture. To select the right connectivity option, Tailwinds must consider connectivity challenges, power requirements, and factors like:
 
 - Type of connectivity available at the site
 - Effect on the business if connectivity drops

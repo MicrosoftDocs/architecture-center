@@ -22,11 +22,13 @@ Also, Contoso's current forecasting application makes a best estimate of the win
 
 ## Goals
 
-Ideally, Contoso wants the ability to view its operating conditions remotely to reduce the effort and resources spent on commissioning and troubleshooting issues with wind turbines. Viewing operating conditions remotely will also decrease unplanned downtime, because Contoso can send field engineers on-site for maintenance with real-time condition data.
+Contoso wants the ability to view operating conditions remotely to reduce the effort and resources spent on commissioning and troubleshooting issues with wind turbines. Viewing operating conditions remotely will also decrease unplanned downtime, because Contoso can send field engineers on-site for maintenance with real-time condition data.
 
-Contoso wants to apply an Internet of Things (IoT) solution to enable real-time monitoring and control of their integrated energy business. The solution should provide accurate production forecasts to improve Contoso's operational efficiencies and help optimize its energy generation plan. The application should provide real-time visibility of the power each wind turbine produces on a given day, and determine how much to adjust power generators for demand-supply balance in the grid.
+Contoso also wants to enable real-time monitoring and control of their integrated energy business. Accurate production forecasts will improve Contoso's operational efficiencies and help optimize its energy generation plan.
 
 ## Solution
+
+Contoso wants to apply an Internet of Things (IoT) solution to provides real-time visibility of the power each wind turbine produces on a given day. The solution should determine how much to adjust power generators for demand-supply balance in the grid.
 
 The following use cases are examples of applying Internet of Things (IoT) process patterns to this real-world scenario:
 

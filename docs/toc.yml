@@ -1107,9 +1107,9 @@ items:
           href: example-scenario/iot/monitor-and-manage-loop.md
         - name: Measure and control loops
           href: example-scenario/iot/measure-and-control-loop.md
-        - name: Farm monitoring and management solution
+        - name: Farm monitoring and management
           href: example-scenario/iot/strawberry-farm-example.md
-        - name: Energy monitoring and optimization solution
+        - name: Energy monitoring and optimization
           href: example-scenario/iot/energy-domain-example.md
       - name: Builders, developers, and operators
         href: example-scenario/iot/builders-developers-operators.md

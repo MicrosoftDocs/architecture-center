@@ -40,8 +40,8 @@ An MCL has the following characteristics:
 - Has a cycle time depending on IoT scenario, which may be a few milliseconds in a time-sensitive networking environment.
 - Takes input measurements depending on setpoint configuration, last known sensor measurements, and a small time series history of each measurement.
 - Accepts commands from MMLs to adjust setpoint configuration, and imperative commands to control actuators.
-- Doesn't depend on any external systems, to ensure low cycle time and operational autonomy.
 - Implements actuator commands to maintain the device state around the setpoint configuration.
+- Doesn't depend on any external systems, to ensure low cycle time and operational autonomy.
 - May emit telemetry to be used by supervisory systems.
 - For sensor metrics and actuator commands, uses field bus protocols like Modbus, RS485, EtherCAT, and SERCOS.
 - May integrate with supervisory systems like MMLs through IoT protocols like HTTP, MQTT, and AMQP.
