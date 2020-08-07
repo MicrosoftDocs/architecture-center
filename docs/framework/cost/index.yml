@@ -40,7 +40,6 @@ landingContent:
   - title: Design
     linkLists:
       - linkListType: get-started
-      - text: Develop a cost model
         links:
           - text: Organization structure
             url: cost/design-model.md#organization-structure
