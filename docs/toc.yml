@@ -168,7 +168,6 @@ items:
   items:
   - name: Overview
     href: framework/index.yml
-  - name: Cost Optimization
     items:
     - name: About
       href: framework/cost/index.yml
