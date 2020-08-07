@@ -33,7 +33,7 @@ landingContent:
             url: cost/design-checklist.md
           - text: Optimize checklist
             url: cost/design-checklist.md            
-      - linkListType: concepts
+      - linkListType: concept
         links:
           - text: What is cost Optimization
             url: /azure-well-architected-introduction/3-cost-optimization
@@ -57,19 +57,63 @@ landingContent:
  # Card
   - title: Performance efficiency
     linkLists:
-      - linkListType: linkListType
+      - linkListType: deploy
         links:
           - text: linktext1
             url: /azure-well-architected-introduction/3-cost-optimization
           - text: linktext2
             url: /azure-well-architected-introduction/3-cost-optimization
-      - linkListType: linkListType
+      - linkListType: overview
         links:
           - text: linktext1
             url: /azure-well-architected-introduction/3-cost-optimization
           - text: linktext2
             url: file2.md
 
+ # Card
+  - title: Operational excellence
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: linktext1
+            url: /azure-well-architected-introduction/3-cost-optimization
+          - text: linktext2
+            url: /azure-well-architected-introduction/3-cost-optimization
+      - linkListType: overview
+        links:
+          - text: linktext1
+            url: /azure-well-architected-introduction/3-cost-optimization
+          - text: linktext2
+            url: file2.md
 
+ # Card
+  - title: Security
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: linktext1
+            url: /azure-well-architected-introduction/3-cost-optimization
+          - text: linktext2
+            url: /azure-well-architected-introduction/3-cost-optimization
+      - linkListType: overview
+        links:
+          - text: linktext1
+            url: /azure-well-architected-introduction/3-cost-optimization
+          - text: linktext2
+            url: file2.md
 
-
+ # Card
+  - title: Reliability
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: linktext1
+            url: /azure-well-architected-introduction/3-cost-optimization
+          - text: linktext2
+            url: /azure-well-architected-introduction/3-cost-optimization
+      - linkListType: overview
+        links:
+          - text: linktext1
+            url: /azure-well-architected-introduction/3-cost-optimization
+          - text: linktext2
+            url: file2.md
