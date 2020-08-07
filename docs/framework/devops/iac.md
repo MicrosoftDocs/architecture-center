@@ -30,6 +30,7 @@ A declarative automation framework is characterized for handling some of the det
 
 * [Resource Manager templates][arm]: Resource Manager templates are declarative text files containing a description of Azure resources to be deployed. Resource Manager templates are specific to Azure, and its most important advantage is the extensive coverage of Azure resource types and properties.
 * [Terraform][terraform]: Terraform is a cloud-agnostic declarative framework that supports many private and public clouds, Azure being one of them. It has the main advantage of offering a cloud-agnostic framework: while Terraform configurations are specific to each cloud, the framework itself is the same for all of them.
+* [Pulumi][pulumi]: Pulumi is an open source cloud-agnostic declarative infrastructure as code tool for creating, deploying, and managing cloud infrastructure. Pulumi works with traditional infrastructure like VMs, networks, and databases, in addition to modern architectures, including containers, Kubernetes clusters, and serverless functions. With Pulumi, you can feel comfortable deploying instrastructure to Azure with your favorite programming lanugage; Pulumi supports JavaScript, TypeScript, Python, C#, F#, VB and Go. By using real languages for infrastructure as code, you get many benefits: IDEs, abstractions including functions, classes, and packages, existing debugging and testing tools, and more. The result is greater productivity with far less copy and paste, and it works the same way no matter which cloud you're targeting.
 * [Ansible][ansible]: Ansible is an open-source software provisioning, configuration management, and application-deployment tool. It runs on many Unix-like systems, and can configure both Unix-like systems as well as Windows. Ansible is agentless, temporarily connecting remotely via SSH or remote PowerShell to do its tasks. Ansible's language, despite being based on the declarative YAML language, is imperative. Ansible playbooks are a sequence of plays to be carried out on different groups of hosts. Plays are in turn sequences of tasks that invoke modules to commit changes to individual hosts. Ansible has evolved to describe infrastructure in multiple clouds, such as Azure.
 * Other: other declarative frameworks such as Chef or Puppet support deploying infrastructure to Azure as well.
 
@@ -106,6 +107,7 @@ And lastly, do not forget to version-control your infrastructure code, and use c
 [cli]: https://docs.microsoft.com/cli/azure
 [psh]: https://docs.microsoft.com/powershell/azure
 [sdks]: https://docs.microsoft.com/azure
+[pulumi]: https://www.pulumi.com/docs/get-started/azure
 [extensions]: https://docs.microsoft.com/azure/virtual-machines/extensions/overview
 [cloudinit]: https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init
 [packer-linux]: https://docs.microsoft.com/azure/virtual-machines/linux/build-image-with-packer

@@ -2,7 +2,7 @@
 title: Performance tuning - Event streaming with Azure Functions
 titleSuffix: Azure Architecture Center
 description: Using load testing to improve the performance of an event streaming application.
-author: adamboeglin
+author: doodlemania2
 ms.author: pnp
 ms.date: 08/27/2019
 ms.topic: article

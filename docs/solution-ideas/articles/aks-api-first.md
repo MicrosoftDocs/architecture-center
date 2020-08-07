@@ -1,7 +1,7 @@
 ---
 title: API-first SaaS business model
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 04/17/2020
 description: Adapt, evolve, and allow faster innovation to turn opportunities into strategic advantages.
 ms.custom: acom-architecture

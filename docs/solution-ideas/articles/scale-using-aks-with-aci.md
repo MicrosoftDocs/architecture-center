@@ -1,7 +1,7 @@
 ---
 title: Bursting from AKS with ACI
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Bursting from AKS with ACI
 ms.custom: acom-architecture, devops, kubernetes, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/scale-using-aks-with-aci/'
