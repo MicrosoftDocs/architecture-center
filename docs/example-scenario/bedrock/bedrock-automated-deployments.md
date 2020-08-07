@@ -47,6 +47,16 @@ Bedrock helps you with these use cases:
 
 ![Diagram showing how the Spektate tool integrates with the Azure Pipelines in a Bedrock GitOps Workflow.](./media/fig010.jpg)
 
+* The Bedrock GitOps workflow is driven by High-Level Definition (HLD) files that are maintained in a Git repository.
+* A pull request (PR) initiates the process, and based on a specific HLD script from the repo, the pipeline automation processes the HLD script through Fabrikate to generate the required YAML manifest files and stores them in the manifest repo.
+* The deployment is monitored, and deployment status is available through the Spektate dashboard.
+
+This workflow includes provisions for:
+
+* Fabrikate HLD definitions allow you to leverage common elements across multiple deployments. Fabrikate also lets you share structure between different clusters differentiated only by a simple configuration change in an HLD script and a pull request.
+* Bedrock tools include [guidance and automation](https://github.com/microsoft/bedrock/blob/master/gitops/README.md) for building GitOps pipelines with Azure DevOps or other popular CI/CD orchestrators.
+* Bedrock deployment automation includes setting up the GitOps Operator [Flux](https://github.com/fluxcd/flux) in your cluster, automatically ensuring that the state of a cluster matches the configuration stored in Git. (Details are discussed further in this document’s Appendix.)
+
 ### Typical Bedrock deployment
 
 A typical Bedrock deployment follows three high-level steps:
@@ -71,13 +81,7 @@ Bedrock is automation and tooling for operationalizing production Kubernetes clu
 * point in time auditability into what was deployed on the Kubernetes cluster.
 * providing nonrepudiation about who made those changes.
 
-At a high level, the GitOps workflow is driven by High-Level Definition (HLD) files. These definition files are maintained in a Git repository. A pull request (PR) is used to initiate the process. Then, based on a specific HLD script from the repo, the pipeline automation processes that HLD script through Fabrikate to generate the required YAML manifest files and stores them in the manifest repo. The deployment is monitored, and deployment status is available through the Spektate dashboard.
 
-This workflow includes provisions for:
-
-* Fabrikate HLD definitions allow you to leverage common elements across multiple deployments. Fabrikate also lets you share structure between different clusters differentiated only by a simple configuration change in an HLD script and a pull request.
-* Bedrock tools include [guidance and automation](https://github.com/microsoft/bedrock/blob/master/gitops/README.md) for building GitOps pipelines with Azure DevOps or other popular CI/CD orchestrators.
-* Bedrock deployment automation includes setting up the GitOps Operator [Flux](https://github.com/fluxcd/flux) in your cluster, automatically ensuring that the state of a cluster matches the configuration stored in Git. (Details are discussed further in this document’s Appendix.)
 
 ## Components
 
