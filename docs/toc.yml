@@ -167,7 +167,7 @@ items:
 - name: Microsoft Azure Well-Architected Framework
   items:
   - name: Overview
-    href: framework/index.md
+    href: framework/index.yml
   - name: Cost Optimization
     items:
     - name: Principles
