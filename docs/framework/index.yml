@@ -69,8 +69,8 @@ landingContent:
         links:
           - text: linktext1
             url: /azure-well-architected-introduction/3-cost-optimization
-          - text: linktext2
-            url: file2.md
+
+
 
  # Card
   - title: Operational excellence
@@ -85,7 +85,7 @@ landingContent:
         links:
           - text: linktext1
             url: /azure-well-architected-introduction/3-cost-optimization
-          - text: linktext2
+
 
 
  # Card
