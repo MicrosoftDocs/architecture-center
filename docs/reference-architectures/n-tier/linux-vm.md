@@ -145,7 +145,7 @@ For higher availability architecture see [Linux N-tier application in Azure with
 Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines.
 
 
-For more information, see the Operationl excellence section in [Microsoft Azure Well-Architected Framework][WAF-devops].
+For more information, see the Operational excellence section in [Microsoft Azure Well-Architected Framework][WAF-devops].
 
 ## Next steps
 
