@@ -25,15 +25,15 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Principles
-            url: cost/overview.md
+            url: overview.md
           - text: Design checklist
-            url: cost/design-checklist.md
+            url: design-checklist.md
           - text: Provision checklist
-            url: cost/design-checklist.md
+            url: design-checklist.md
           - text: Monitor checklist
-            url: cost/design-checklist.md
+            url: design-checklist.md
           - text: Optimize checklist
-            url: cost/design-checklist.md  
+            url: design-checklist.md  
 
   # Card (optional)
   - title: Design
@@ -41,19 +41,19 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Organization structure
-            url: cost/design-model.md#organization-structure
+            url: design-model.md#organization-structure
           - text: Capture clear requirements
-            url: cost/design-capture-requirements.md   
+            url: design-capture-requirements.md   
           - text: Consider the cost constraints
-            url: cost/design-model.md#cost-constraints
+            url: design-model.md#cost-constraints
           - text: Consider tradeoffs
-            url: cost/tradeoffs.md                                
+            url: tradeoffs.md                                
       - linkListType: concept
         links:
           - text: Develop a cost model.
-            url: cost/design-model.md 
+            url: design-model.md 
           - text: Estimate the cost of your SKU choices. 
-            url: cost/provision-checklist.md
+            url: provision-checklist.md
           - text: Estimate the cost of your SKU choices. 
             url: cost/provision-checklist.md                                
       - linkListType: learn
@@ -61,7 +61,7 @@ landingContent:
           - text: What is cost Optimization
             url: /azure-well-architected-introduction/3-cost-optimization
           - text: Develop a cost model
-            url: cost/design-model.md                         
+            url: design-model.md                         
       - linkListType: video
         links:
           - text: What actions are you taking to optimize cloud costs?
