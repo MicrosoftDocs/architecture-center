@@ -16,9 +16,9 @@ The *application stamping* strategy in an Internet-of-Things (IoT) solution supp
 
 ![A diagram describing an application stamping strategy for use in Azure IoT](media/application-stamping.png)
 
-The application stamping strategy is to build atomic stamps consisting of an [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub), routing endpoints like [Azure Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-about), and processing components, to optimally support a defined device population. As incoming device population grows, added stamp instances accommodate the growth, rather than independently scaling up different parts of the solution.
+The application stamping strategy is to build atomic stamps that consist of an [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub), routing endpoints like [Azure Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-about), and processing components. The stamps optimally support a defined device population, from 1 thousand to 1 million devices. As incoming device population grows, added stamp instances accommodate the growth, rather than independently scaling up different parts of the solution.
 
-You can design stamps to support explicit capacities from 1 thousand to 1 million devices. Determine the right-sized population by considering how much communication traffic you expect from targeted device populations.
+Always design stamps to support explicit capacities. To determine the right-sized population, consider how much communication traffic to expect from targeted device populations.
 
 ## Application stamping benefits
 
@@ -46,7 +46,7 @@ While application stamps are intended for atomic deployment, sometimes it's desi
 - In a high-availability strategy, moving devices and consumers to another stamp as part of outage remediation.
 - Load balancing to distribute device population more evenly across stamps.
 
-[Azure IoT Device Provisioning Service (DPS)](https://docs.microsoft.com/azure/iot-dps/) provides a way to move devices between hub instances gracefully. If the stamps only encompass device-to-cloud behavior, moving devices between hubs is adequate for end-to-end migration of devices from one stamp to another. To use DPS in stamping strategy, be sure to understand the [IoT Hub Device Provisioning Service device concepts](https://docs.microsoft.com/azure/iot-dps/concepts-device).
+[Azure IoT Device Provisioning Service (DPS)](https://docs.microsoft.com/azure/iot-dps/) provides a way to move devices between hub instances gracefully. If the stamps only encompass device-to-cloud behavior, moving devices between hubs is adequate to migrate the devices from one stamp to another. To use DPS in stamping strategy, be sure to understand the [IoT Hub Device Provisioning Service device concepts](https://docs.microsoft.com/azure/iot-dps/concepts-device).
 
 >[!NOTE]
 >DPS uses *registration IDs*, while IoT Hub uses *device IDs*. These IDs are often the same value, but can be different. When querying device status with DPS APIs, be sure to use the device's registration ID.

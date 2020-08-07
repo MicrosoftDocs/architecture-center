@@ -22,7 +22,7 @@ Different companies, organizations, or individuals may fill these roles, or the 
 
 The IoT device builder is usually an Original Device Manufacturer (ODM) or Original Equipment Manufacturer (OEM). The builder may build IoT-compatible devices for specific solutions or for sets of solutions made by Independent Software Vendors (ISVs) or System Integrators (SIs). It's common for device builders and application developers to work closely together in developing devices tailored to solutions.
 
-In addition to providing devices and their *firmware*, or built-in software, the device builder is responsible for publishing updates for devices to address bugs and security patches and enable additional capabilities. Device builders can use Content Delivery Networks (CDNs) to publish device updates, or design solutions that can programmatically consume updates on behalf of devices.
+In addition to providing devices and their *firmware*, or built-in software, the device builder is responsible for publishing device updates to address bugs and security patches and enable additional capabilities. Device builders can use Content Delivery Networks (CDNs) to publish device updates, or design solutions that can programmatically consume updates on behalf of devices.
 
 ![A diagram showing activities of a device builder and relationships with other roles in developing an IoT solution.](media/device-builder.png)
 
@@ -36,7 +36,7 @@ Devices for an IoT solution should have:
 
 ## Application developer
 
-IoT application developers can be ISVs, SIs, or organizations. Application developers might collaborate closely with device builders on new categories of devices, and with solution operators to ensure adequate solution monitoring and maintenance.
+IoT application developers can be ISVs, SIs, or organizations. Application developers might collaborate closely with device builders on new device categories, and with solution operators to ensure adequate solution monitoring and maintenance.
 
 Just as device builders provide updates to devices in the field, application developers provide application updates to fix issues, add new features, and improve stability and performance.
 
@@ -53,7 +53,7 @@ IoT solution operators manage IoT solutions throughout their lifecycles. The sol
 
 ![A diagram showing activities of a solution operator and relationships with other roles in developing an IoT solution.](media/solution-operator.png)
 
-Deploying updates to IoT devices can be complex, because updates might need orchestration with applications to ensure they happen when appropriate. If the device builder update workflow is highly decoupled from the cloud application, it's best to design an workflow that distributes device updates through the cloud application.
+Deploying updates to IoT devices can be complex, because updates might need orchestration with applications to ensure they happen when appropriate. If the device builder update workflow is highly decoupled from the cloud application, it's best to design a workflow that distributes device updates through the cloud application.
 
 An IoT solution operator workflow should:
 

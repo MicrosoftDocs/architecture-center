@@ -12,7 +12,7 @@ ms.custom: fcp
 
 # Monitor and manage loops
 
-An Internet-of-Things (IoT) *monitor and manage loop (MML)* is a supervisory system that continually monitors a [Cyber Physical System (CPS)](https://en.wikipedia.org/wiki/Cyber-physical_system) of networked IoT devices to make sure it's within the tolerable range of the desired state setpoint, and issues commands to control the system.
+An Internet-of-Things (IoT) *monitor and manage loop (MML)* is a supervisory system that continually monitors a [Cyber Physical System (CPS)](https://en.wikipedia.org/wiki/Cyber-physical_system) of networked IoT devices. The MML makes sure the CPS is within the tolerable range of the desired state setpoint, and issues commands to control the system.
 
 Multiple devices in a CPS system must act in concert to achieve and stay within the tolerable range of the desired state. The MML observes and correlates telemetry emitted by multiple devices, combines it with external inputs, and computes new insights. The MML then pushes the insights through a rules engine to deliver imperative actions and setpoint change actions against the relevant devices.
 
@@ -33,13 +33,13 @@ Some example scenarios for MMLs include:
 
 ![Monitor and Manage Loop](./media/monitor-manage-loop.png)
 
-The IoT MML is a supervisory system that ensures that the CPS operates within operational thresholds. MML logic considers the perspectives of multiple devices to deduce current state. The process involves correlating hot telemetry signal trends from multiple devices, combining trends with previously-known warm time series history and enterprise system operational signals, and generating actuator commands or creating alarms.
+The IoT MML is a supervisory system that ensures that the CPS operates within operational thresholds. MML logic considers the perspectives of multiple devices to deduce current state. The process involves correlating hot telemetry signal trends from multiple devices, and combining them with warm time series history and enterprise system signals. The MML then generates actuator commands or creates alarms as necessary.
 
 ## Characteristics
 
 MMLs have the following characteristics:
 
-- May be remote or close to the physical IoT devices. Premises that are remote by nature, like oil and gas pipelines, power transformers, smart doorbells, hazardous environments, and asset trackers can't accommodate MML loop infrastructure, so MML operates from remote facilities like public or private clouds. In process industries, like oil refining and chemical manufacturing, MMLs may be deployed closer to the devices. Discrete manufacturing may also deploy MML locally, as network downtimes can be costly.
+- May be remote or close to the physical IoT devices. Premises that are remote by nature, like oil and gas pipelines, power transformers, smart doorbells, hazardous environments, and asset trackers can't accommodate MML loop infrastructure. For these environments, MML operates from remote facilities like public or private clouds. In process industries, like oil refining and chemical manufacturing, MMLs may be deployed closer to the devices. Discrete manufacturing may also deploy MML locally, as network downtimes can be costly.
 - Depend on device-based [measure and control loops (MCLs)](measure-and-control-loop.md) for core monitoring and management processes.
 - May integrate with other enterprise systems like ERP, CRM, PLM, and support systems to contextualize operations, but don't depend on those systems to work.
 - Consume sensor telemetry streams and contribute to last known device state, hot time series cache, warm time series history, and aggregate rollups.
@@ -52,14 +52,14 @@ MMLs have the following characteristics:
 
 MMLs include the following components:
 
-- **Message brokers** to process telemetry and send commands to devices.
-- A **device registry**, or system of record and single truth for all IoT devices, to store metadata about devices and relationships among devices. The Telemetry Stream Processor uses registry information to understand telemetry message structure and parse and execute stream processing logic. The message broker uses the registry to validate device connection requests and make message routing decisions. Event handling logic uses entity metadata to ensure that inputs, outputs, and processing logic conform to structural and semantic entity relationships and interactions.
-- A **Telemetry Stream Processor (TSP)** to receive device telemetry, deduce individual device and device set status, and detect errors and deviations from the desired state. The TSP sends error conditions and aggregated or raw data points to appropriate event handlers and to hot and warm storage for further processing and recordkeeping.
-- **Hot time series history**, high-speed in-memory or remote cache storage for the last known state of device metrics and a set of data points for detecting near real-time trends.
-- **Warm time series history** for storing a few weeks of data points, to help correlate near real-time trends with longterm trends and sense potential deviations from the desired state. MMLs can also use indexed storage to pre-compute trends and make them available.
-- **Event computation** to compute actionable business events by combining events from stream processors, last known device states, and near real-time trends from hot time series and warm time series if needed.
-- A **rules engine** to consume and handle business events by adjusting desired device states through appropriate commands. The rules engine may also publish events and alarms to the monitoring console.
-- A **monitoring console** to provide visual display and human intervention if necessary.
+- **Message brokers** process telemetry and send commands to devices.
+- A **device registry**, or system of record and single truth for all IoT devices, stores metadata about devices and relationships among devices. The Telemetry Stream Processor uses registry information to understand telemetry message structure and parse and execute stream processing logic. The message broker uses the registry to validate device connection requests and make message routing decisions. Event handling logic uses entity metadata to ensure that inputs, outputs, and processing logic conform to structural and semantic entity relationships and interactions.
+- A **Telemetry Stream Processor (TSP)** receivs device telemetry, deduces individual device and device set status, and detects errors and deviations from the desired state. The TSP sends error conditions and aggregated or raw data points to appropriate event handlers and to hot and warm storage for further processing and recordkeeping.
+- **Hot time series history** is high-speed in-memory or remote cache storage that provides last known device metrics and a set of data points for detecting near real-time trends.
+- **Warm time series history** stores a few weeks of data points, to help correlate near real-time trends with long-term trends and sense potential deviations from the desired state. MMLs can also use indexed storage to pre-compute trends.
+- **Event computation** computes actionable events by combining stream processor events, last known device states, near real-time trends from hot time series history, and warm time series history if necessary.
+- A **rules engine** consumes and handles business events by adjusting desired device states through appropriate commands. The rules engine may also publish events and alarms to the monitoring console.
+- A **monitoring console** provides visual display and human intervention if necessary.
 
 ## See also
 - [Measure and control loops](measure-and-control-loop.md)
