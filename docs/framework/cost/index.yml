@@ -5,7 +5,7 @@ summary: When you are designing a cloud solution, focus on generating incrementa
 
 metadata: 
   author: PageWriter-MSFT
-  description: "Use the cost calculators to estimate the initial cost and operational costs. Finally, establish policies, budgets, and controls that set cost limits for your solution."
+  description: "Apply the cost principles in your architecture to accelerate your time to market while avoiding capital-intensive solutions. Consider opportunity costs. Use the cost calculators to estimate the initial and operational costs. Finally, establish policies, budgets, and controls that set cost limits for your solution.""
   manager: scottboc
   ms.author: prwilk
   ms.collection: na
@@ -26,8 +26,6 @@ landingContent:
         links:
           - text: Principles
             url: overview.md
-      - linkListType: quickstart
-        links:
           - text: Design checklist
             url: design-checklist.md
           - text: Provision checklist
@@ -36,13 +34,8 @@ landingContent:
             url: monitor-checklist.md
           - text: Optimize checklist
             url: optimize-checklist.md  
-      - linkListType: quickstart
-        links:
           - text: Tradeoffs
             url: tradeoffs.md
-## Card
-  - title: Learn module
-    linkLists:
       - linkListType: learn
         links:
           - text: Cost optimization 
