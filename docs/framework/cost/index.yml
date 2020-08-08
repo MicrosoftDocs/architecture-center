@@ -42,7 +42,7 @@ landingContent:
             url: https://docs.microsoft.com/learn/modules/azure-well-architected-introduction/3-cost-optimization
       - linkListType: video
         links:
-          - text: How is your organization modeling cloud costs
+          - text: What actions are you taking to optimize cloud costs?
             url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=2&category=Cost
   # Card 
   - title: Design for cost
@@ -90,22 +90,7 @@ landingContent:
         links:
           - text: How are you monitoring your costs?
             url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=4&category=Cost
-            
- # Card
-  - title: Optimize
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Autoscale instances
-            url: optimize-autoscale.md
-          - text: Reserved instances
-            url: optimize-reserved.md
-          - text: Right-size VMs
-            url: optimize-vm.md
-      - linkListType: video
-        links:
-          - text: What actions are you taking to optimize cloud costs?
-            url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=0&category=Cost                  
+                      
  # Card
   - title: Provision
     linkLists:
@@ -124,7 +109,22 @@ landingContent:
           - text: How do you ensure that cloud resources are appropriately provisioned?
             url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=1&category=Cost
           - text: How do you manage the storage footprint of your digital assets?
-            url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=3&category=Cost    
+            url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=3&category=Cost 
+ # Card
+  - title: Optimize
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Autoscale instances
+            url: optimize-autoscale.md
+          - text: Reserved instances
+            url: optimize-reserved.md
+          - text: Right-size VMs
+            url: optimize-vm.md
+      - linkListType: video
+        links:
+          - text: What actions are you taking to optimize cloud costs?
+            url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=0&category=Cost                      
  # Card
   - title: Cost tools and services
     linkLists:
