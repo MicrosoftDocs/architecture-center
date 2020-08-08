@@ -26,7 +26,7 @@ landingContent:
         links:
           - text: Principles
             url: overview.md
-      - linkListType: overview
+      - linkListType: 
         links:
           - text: Design checklist
             url: design-checklist.md
@@ -36,7 +36,7 @@ landingContent:
             url: monitor-checklist.md
           - text: Optimize checklist
             url: optimize-checklist.md  
-      - linkListType: overview
+      - linkListType: 
         links:
           - text: Tradeoffs
             url: tradeoffs.md
@@ -108,6 +108,13 @@ landingContent:
             url: /azure/cost-management-billing/costs/
           - text: Visualize cost reports
             url: /power-bi/desktop-connect-azure-cost-management
+ # Card
+  - title: Learn module
+    linkLists:
+      - linkListType: learn
+        links:
+         - text: Cost optimization
+            url: /learn/modules/azure-well-architected-introduction/3-cost-optimization
  # Card
   - title: Consumption APIs
     linkLists:
