@@ -3,7 +3,7 @@
 title: service documentation # < 60 chars
 summary: summary # < 160 chars
 # brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-bi | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
-brand: brand
+brand: azure
 
 metadata:
   title: title # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -24,15 +24,15 @@ highlightedContent:
   items:
     # Card
     - title: cardtitle1
-      itemType: itemType
+      itemType: overview
       url: file1.md OR https://docs.microsoft.com/file1
     # Card
     - title: cardtitle2
-      itemType: itemType
+      itemType: overview
       url: file2.md OR https://docs.microsoft.com/file2
     # Card
     - title: cardtitle3
-      itemType: itemType
+      itemType: overview
       url: file3.md OR https://docs.microsoft.com/file3
 
 # productDirectory section (optional)
@@ -43,7 +43,7 @@ productDirectory:
     # Card
     - title: cardtitle1
       # imageSrc should be square in ratio with no whitespace
-      imageSrc: ./media/index/image1.svg OR https://docs.microsoft.com/media/logos/image1.svg
+      imageSrc: https://docs.microsoft.com/media/logos/image1.svg
       links:
         - url: file1a.md OR https://docs.microsoft.com/file1a
           text: linktext1a
@@ -51,19 +51,19 @@ productDirectory:
           text: linktext1b
     # Card
     - title: cardtitle2
-      imageSrc: ./media/index/image2.svg OR https://docs.microsoft.com/media/logos/image2.svg
+      imageSrc: https://docs.microsoft.com/media/logos/image2.svg
       links:
-        - url: file2a.md OR https://docs.microsoft.com/file2a
+        - url: https://docs.microsoft.com/file2a
           text: linktext2a
-        - url: file2b.md OR https://docs.microsoft.com/file2b
+        - url: https://docs.microsoft.com/file2b
           text: linktext2b
     # Card
     - title: cardtitle3
-      imageSrc: ./media/index/image3.svg OR https://docs.microsoft.com/media/logos/image3.svg
+      imageSrc: https://docs.microsoft.com/media/logos/image3.svg
       links:
-        - url: file3a.md OR https://docs.microsoft.com/file3a
+        - url: https://docs.microsoft.com/file3a
           text: linktext3a
-        - url: file3b.md OR https://docs.microsoft.com/file3b
+        - url: https://docs.microsoft.com/file3b
           text: linktext3b
 
 # conceptualContent section (optional)
@@ -76,13 +76,13 @@ conceptualContent:
     - title: cardtitle1
       links:
         - url: file1.md OR https://docs.microsoft.com/file1
-          itemType: itemType
+          itemType: overview
           text: linktext1
         - url: file2.md OR https://docs.microsoft.com/file2
-          itemType: itemType
+          itemType: overview
           text: linktext2
         - url: file3.md OR https://docs.microsoft.com/file3
-          itemType: itemType
+          itemType: overview
           text: linktext3
       # footerLink (optional)
       footerLink:
@@ -92,13 +92,13 @@ conceptualContent:
     - title: cardtitle2
       links:
         - url: file1.md OR https://docs.microsoft.com/file1
-          itemType: itemType
+          itemType: overview
           text: linktext1
         - url: file2.md OR https://docs.microsoft.com/file2
-          itemType: itemType
+          itemType: overview
           text: linktext2
         - url: file3.md OR https://docs.microsoft.com/file3
-          itemType: itemType
+          itemType: overview
           text: linktext3
       # footerLink (optional)
       footerLink:
@@ -108,13 +108,13 @@ conceptualContent:
     - title: cardtitle3
       links:
         - url: file1.md OR https://docs.microsoft.com/file1
-          itemType: itemType
+          itemType: overview
           text: linktext1
         - url: file2.md OR https://docs.microsoft.com/file2
-          itemType: itemType
+          itemType: overview
           text: linktext2
         - url: file3.md OR https://docs.microsoft.com/file3
-          itemType: itemType
+          itemType: overview
           text: linktext3
       # footerLink (optional)
       footerLink:
@@ -129,14 +129,14 @@ tools:
     # Card
     - title: cardtitle1
       # imageSrc should be square in ratio with no whitespace
-      imageSrc: ./media/index/image1.svg OR https://docs.microsoft.com/media/logos/image1.svg
+      imageSrc: https://docs.microsoft.com/media/logos/image1.svg
       url: file1.md
     # Card
     - title: cardtitle2
-      imageSrc: ./media/index/image2.svg OR https://docs.microsoft.com/media/logos/image2.svg
+      imageSrc: https://docs.microsoft.com/media/logos/image2.svg
       url: file2.md
     # Card
     - title: cardtitle3
-      imageSrc: ./media/index/image3.svg OR https://docs.microsoft.com/media/logos/image3.svg
+      imageSrc: https://docs.microsoft.com/media/logos/image3.svg
       url: file3.md
 
