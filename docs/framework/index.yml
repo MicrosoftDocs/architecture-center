@@ -13,8 +13,8 @@ metadata:
   ms.subservice: subservice # Optional; Remove if no subservice is used.
   ms.topic: hub-page # Required
   ms.collection: collection # Optional; Remove if no collection is used.
-  author: githubauthor #Required; your GitHub user alias, with correct capitalization.
-  ms.author: msauthor #Required; microsoft alias of author; optional team alias.
+  author: PageWriter-MSFT #Required; your GitHub user alias, with correct capitalization.
+  ms.author: prwilk #Required; microsoft alias of author; optional team alias.
   ms.date: 01/27/2020 #Required; mm/dd/yyyy format.
 
 # highlightedContent section (optional)
@@ -130,13 +130,13 @@ tools:
     - title: cardtitle1
       # imageSrc should be square in ratio with no whitespace
       imageSrc: https://docs.microsoft.com/media/logos/image1.svg
-      url: file1.md
+      url: cost/checklist.md
     # Card
     - title: cardtitle2
       imageSrc: https://docs.microsoft.com/media/logos/image2.svg
-      url: file2.md
+      url: cost/checklist.md
     # Card
     - title: cardtitle3
       imageSrc: https://docs.microsoft.com/media/logos/image3.svg
-      url: file3.md
+      url: cost/checklist.md
 
