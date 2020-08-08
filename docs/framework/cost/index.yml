@@ -45,7 +45,7 @@ landingContent:
           - text: What trade-offs have you made to optimize for cost?
             url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=2&category=Cost
   # Card 
-  - title: Design for cost
+  - title: Design
     linkLists:
       - linkListType: get-started
         links:
