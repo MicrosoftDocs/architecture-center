@@ -109,22 +109,7 @@ landingContent:
           - text: How do you ensure that cloud resources are appropriately provisioned?
             url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=1&category=Cost
           - text: How do you manage the storage footprint of your digital assets?
-            url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=3&category=Cost 
- # Card
-  - title: Optimize
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Autoscale instances
-            url: optimize-autoscale.md
-          - text: Reserved instances
-            url: optimize-reserved.md
-          - text: Right-size VMs
-            url: optimize-vm.md
-      - linkListType: video
-        links:
-          - text: What actions are you taking to optimize cloud costs?
-            url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=0&category=Cost                      
+            url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=3&category=Cost                 
  # Card
   - title: Cost tools and services
     linkLists:
@@ -142,6 +127,21 @@ landingContent:
             url: /azure/cost-management-billing/costs/
           - text: Visualize cost reports
             url: /power-bi/desktop-connect-azure-cost-management
+ # Card
+  - title: Optimize
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Autoscale instances
+            url: optimize-autoscale.md
+          - text: Reserved instances
+            url: optimize-reserved.md
+          - text: Right-size VMs
+            url: optimize-vm.md
+      - linkListType: video
+        links:
+          - text: What actions are you taking to optimize cloud costs?
+            url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=0&category=Cost                 
  # Card
   - title: Consumption APIs
     linkLists:
