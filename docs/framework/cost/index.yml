@@ -143,17 +143,6 @@ landingContent:
           - text: Visualize cost reports
             url: /power-bi/desktop-connect-azure-cost-management
  # Card
-  - title: Assessment
-    linkLists:
-      - linkListType: video
-        links:
-
-          - text: How do you ensure that cloud resources are appropriately provisioned?
-            url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=1&category=Cost
-          - text: What trade-offs have you made to optimize for cost?
-            url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=f0069507-d5f7-42aa-aeb8-beb2b4561cf1&question=5&category=Cost
-
- # Card
   - title: Consumption APIs
     linkLists:
       - linkListType: reference
