@@ -33,20 +33,7 @@ landingContent:
             url: cost/design-checklist.md
           - text: Optimize checklist
             url: cost/design-checklist.md            
-      - linkListType: concept
-        links:
-          - text: Develop a cost model
-            url: cost/design-model.md 
-          - text: Understand the usage meters
-            url: cost/design-resources.md
-          - text: Cost impact across regions 
-            url: cost/design-regions.md
-          - text: Consumption or fixed? 
-            url: cost/design-price.md
-          - text: Use PaaS 
-            url: cost/design-paas.md                                                           
-          - text: Estimate an initial cost 
-            url: cost/provision-checklist.md                                              
+                                           
       - linkListType: learn
         links:
           - text: What is cost Optimization
