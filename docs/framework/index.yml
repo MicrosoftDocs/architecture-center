@@ -1,106 +1,142 @@
-### YamlMime:Landing
+### YamlMime:Hub
 
-title: Microsoft Azure Well-Architected Framework
-summary: The Azure Well-Architected Framework is a set of guiding tenets that can be used to improve the quality of a workload. 
+title: service documentation # < 60 chars
+summary: summary # < 160 chars
+# brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-bi | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
+brand: brand
 
-metadata: 
-  author: PageWriter-MSFT
-  description: "Learn how to protect, monitor, and audit access to critical assets while ensuring employee productivity."
-  manager: scottboc
-  ms.author: prwilk
-  ms.collection: na
-  ms.date: 08/07/2020
-  ms.service: architecture-center
-  ms.subservice: well-architected
-  ms.topic: landing-page
-  services: active-directory
+metadata:
+  title: title # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: description # Required; article description that is displayed in search results. < 160 chars.
+  services: service
+  ms.service: service #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.subservice: subservice # Optional; Remove if no subservice is used.
+  ms.topic: hub-page # Required
+  ms.collection: collection # Optional; Remove if no collection is used.
+  author: githubauthor #Required; your GitHub user alias, with correct capitalization.
+  ms.author: msauthor #Required; microsoft alias of author; optional team alias.
+  ms.date: 01/27/2020 #Required; mm/dd/yyyy format.
 
-landingContent:
-# Cards and links should be based on top customer tasks or top subjects
-# Start card title with a verb
-  # Card (optional)
-  - title: Cost Optimization
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Principles
-            url: cost/overview.md
-          - text: Design checklist
-            url: cost/design-checklist.md
-          - text: Provision checklist
-            url: cost/design-checklist.md
-          - text: Monitor checklist
-            url: cost/design-checklist.md
-          - text: Optimize checklist
-            url: cost/design-checklist.md            
-                                           
-      - linkListType: learn
-        links:
-          - text: What is cost Optimization
-            url: /azure-well-architected-introduction/3-cost-optimization
-          - text: Develop a cost model
-            url: cost/design-model.md                         
-      - linkListType: video
-        links:
-          - text: What actions are you taking to optimize cloud costs?
-            url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=0&category=Cost
-          - text: How do you ensure that cloud resources are appropriately provisioned?
-            url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=1&category=Cost
-          - text: What trade-offs have you made to optimize for cost?
-            url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=f0069507-d5f7-42aa-aeb8-beb2b4561cf1&question=5&category=Cost
+# highlightedContent section (optional)
+# Maximum of 8 items
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    # Card
+    - title: cardtitle1
+      itemType: itemType
+      url: file1.md OR https://docs.microsoft.com/file1
+    # Card
+    - title: cardtitle2
+      itemType: itemType
+      url: file2.md OR https://docs.microsoft.com/file2
+    # Card
+    - title: cardtitle3
+      itemType: itemType
+      url: file3.md OR https://docs.microsoft.com/file3
 
- # Card
-  - title: Performance efficiency
-    linkLists:
-      - linkListType: deploy
-        links:
-          - text: linktext1
-            url: /azure-well-architected-introduction/3-cost-optimization
-          - text: linktext2
-            url: /azure-well-architected-introduction/3-cost-optimization
-      - linkListType: overview
-        links:
-          - text: linktext1
-            url: /azure-well-architected-introduction/3-cost-optimization
+# productDirectory section (optional)
+productDirectory:
+  title: sectiontitle # < 60 chars (optional)
+  summary: sectionsummary # < 160 chars (optional)
+  items:
+    # Card
+    - title: cardtitle1
+      # imageSrc should be square in ratio with no whitespace
+      imageSrc: ./media/index/image1.svg OR https://docs.microsoft.com/media/logos/image1.svg
+      links:
+        - url: file1a.md OR https://docs.microsoft.com/file1a
+          text: linktext1a
+        - url: file1b.md OR https://docs.microsoft.com/file1b
+          text: linktext1b
+    # Card
+    - title: cardtitle2
+      imageSrc: ./media/index/image2.svg OR https://docs.microsoft.com/media/logos/image2.svg
+      links:
+        - url: file2a.md OR https://docs.microsoft.com/file2a
+          text: linktext2a
+        - url: file2b.md OR https://docs.microsoft.com/file2b
+          text: linktext2b
+    # Card
+    - title: cardtitle3
+      imageSrc: ./media/index/image3.svg OR https://docs.microsoft.com/media/logos/image3.svg
+      links:
+        - url: file3a.md OR https://docs.microsoft.com/file3a
+          text: linktext3a
+        - url: file3b.md OR https://docs.microsoft.com/file3b
+          text: linktext3b
 
- # Card
-  - title: Operational excellence
-    linkLists:
-      - linkListType: deploy
-        links:
-          - text: linktext1
-            url: /azure-well-architected-introduction/3-cost-optimization
-          - text: linktext2
-            url: /azure-well-architected-introduction/3-cost-optimization
-      - linkListType: overview
-        links:
-          - text: linktext1
-            url: /azure-well-architected-introduction/3-cost-optimization
+# conceptualContent section (optional)
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  title: sectiontitle # < 60 chars (optional)
+  summary: sectionsummary # < 160 chars (optional)
+  items:
+    # Card
+    - title: cardtitle1
+      links:
+        - url: file1.md OR https://docs.microsoft.com/file1
+          itemType: itemType
+          text: linktext1
+        - url: file2.md OR https://docs.microsoft.com/file2
+          itemType: itemType
+          text: linktext2
+        - url: file3.md OR https://docs.microsoft.com/file3
+          itemType: itemType
+          text: linktext3
+      # footerLink (optional)
+      footerLink:
+        url: filefooter.md OR https://docs.microsoft.com/filefooter
+        text: See more
+    # Card
+    - title: cardtitle2
+      links:
+        - url: file1.md OR https://docs.microsoft.com/file1
+          itemType: itemType
+          text: linktext1
+        - url: file2.md OR https://docs.microsoft.com/file2
+          itemType: itemType
+          text: linktext2
+        - url: file3.md OR https://docs.microsoft.com/file3
+          itemType: itemType
+          text: linktext3
+      # footerLink (optional)
+      footerLink:
+        url: filefooter.md OR https://docs.microsoft.com/filefooter
+        text: See more
+    # Card
+    - title: cardtitle3
+      links:
+        - url: file1.md OR https://docs.microsoft.com/file1
+          itemType: itemType
+          text: linktext1
+        - url: file2.md OR https://docs.microsoft.com/file2
+          itemType: itemType
+          text: linktext2
+        - url: file3.md OR https://docs.microsoft.com/file3
+          itemType: itemType
+          text: linktext3
+      # footerLink (optional)
+      footerLink:
+        url: filefooter.md OR https://docs.microsoft.com/filefooter
+        text: See more
 
- # Card
-  - title: Security
-    linkLists:
-      - linkListType: deploy
-        links:
-          - text: linktext1
-            url: /azure-well-architected-introduction/3-cost-optimization
-          - text: linktext2
-            url: /azure-well-architected-introduction/3-cost-optimization
-      - linkListType: overview
-        links:
-          - text: linktext1
-            url: /azure-well-architected-introduction/3-cost-optimization
+# tools section (optional)
+tools:
+  title: sectiontitle # < 60 chars (optional)
+  summary: sectionsummary # < 160 chars (optional)
+  items:
+    # Card
+    - title: cardtitle1
+      # imageSrc should be square in ratio with no whitespace
+      imageSrc: ./media/index/image1.svg OR https://docs.microsoft.com/media/logos/image1.svg
+      url: file1.md
+    # Card
+    - title: cardtitle2
+      imageSrc: ./media/index/image2.svg OR https://docs.microsoft.com/media/logos/image2.svg
+      url: file2.md
+    # Card
+    - title: cardtitle3
+      imageSrc: ./media/index/image3.svg OR https://docs.microsoft.com/media/logos/image3.svg
+      url: file3.md
 
- # Card
-  - title: Reliability
-    linkLists:
-      - linkListType: deploy
-        links:
-          - text: linktext1
-            url: /azure-well-architected-introduction/3-cost-optimization
-          - text: linktext2
-            url: /azure-well-architected-introduction/3-cost-optimization
-      - linkListType: overview
-        links:
-          - text: linktext1
-            url: /azure-well-architected-introduction/3-cost-optimization
