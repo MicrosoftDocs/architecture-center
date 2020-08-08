@@ -26,6 +26,8 @@ landingContent:
         links:
           - text: Principles
             url: overview.md
+      - linkListType: overview
+        links:
           - text: Design checklist
             url: design-checklist.md
           - text: Provision checklist
@@ -34,9 +36,12 @@ landingContent:
             url: monitor-checklist.md
           - text: Optimize checklist
             url: optimize-checklist.md  
-
+      - linkListType: overview
+        links:
+          - text: Tradeoffs
+            url: tradeoffs.md
   # Card (optional)
-  - title: Design
+  - title: Design for cost
     linkLists:
       - linkListType: get-started
         links:
@@ -61,67 +66,61 @@ landingContent:
           - text: Use PaaS 
             url: design-paas.md                                                           
           - text: Estimate an initial cost 
-            url: provision-checklist.md                               
+            url: design-initial-estimate.md                               
  # Card
   - title: Provision
     linkLists:
+      - linkListType: overview
+        links:
+          - text: AI + Machine Learning
+            url: provision-ai-ml.md
+          - text: Big Data
+            url: provision-analytics.md            
+          - text: Data store
+            url: provision-datastores.md
+          - url: Networking
+            text: provision-networking.md
+ # Card
+  - title: Monitor
+    linkLists:
       - linkListType: concept
         links:
-          - text: Networking
-            url: /azure-well-architected-introduction/3-cost-optimization
-          - text: Data store
-            url: /azure-well-architected-introduction/3-cost-optimization
-      - linkListType: overview
+          - text: Review alerts
+            url: monitor-alert.md
+          - text: Generate cost reports
+            url: monitor-reports.md
+          - text: Conduct cost reviews
+            url: monitor-reviews
+ # Card
+  - title: Cost tools and services
+    linkLists:
+      - linkListType: concept
         links:
-          - text: linktext1
-            url: /azure-well-architected-introduction/3-cost-optimization
-          - text: linktext2
-            url: design-model.md  
+          - text: Azure Pricing Calculator
+            url: https://azure.microsoft.com/pricing/calculator
+          - text: Azure Migrate
+            url: /azure/migrate/migrate-services-overview
+          - text: Microsoft Azure Total Cost of Ownership (TCO) Calculator
+            url: https://azure.microsoft.com/pricing/tco/calculator/
+          - text: Azure Advisor
+            url: /azure/advisor/advisor-cost-recommendations
+          - text: Azure Cost Management
+            url: /azure/cost-management-billing/costs/
+          - text: Visualize cost reports
+            url: /power-bi/desktop-connect-azure-cost-management
 
  # Card
-  - title: Operational excellence
+  - title: Consumption APIs
     linkLists:
-      - linkListType: deploy
+      - linkListType: reference
         links:
-          - text: linktext1
-            url: /azure-well-architected-introduction/3-cost-optimization
-          - text: linktext2
-            url: /azure-well-architected-introduction/3-cost-optimization
-      - linkListType: overview
-        links:
-          - text: linktext1
-            url: /azure-well-architected-introduction/3-cost-optimization
-          - text: linktext2
-            url: design-model.md  
-
- # Card
-  - title: Security
-    linkLists:
-      - linkListType: deploy
-        links:
-          - text: linktext1
-            url: /azure-well-architected-introduction/3-cost-optimization
-          - text: linktext2
-            url: /azure-well-architected-introduction/3-cost-optimization
-      - linkListType: overview
-        links:
-          - text: linktext1
-            url: /azure-well-architected-introduction/3-cost-optimization
-          - text: linktext2
-            url: design-model.md  
-
- # Card
-  - title: Reliability
-    linkLists:
-      - linkListType: deploy
-        links:
-          - text: linktext1
-            url: /azure-well-architected-introduction/3-cost-optimization
-          - text: linktext2
-            url: /azure-well-architected-introduction/3-cost-optimization
-      - linkListType: overview
-        links:
-          - text: linktext1
-            url: /azure-well-architected-introduction/3-cost-optimization
-          - text: linktext2
-            url: design-model.md  
+          - text: Billing account API
+            url: /rest/api/billing/2019-10-01-preview/billingaccounts
+          - text: Billing Periods API
+            url: /rest/api/billing/enterprise/billing-enterprise-api-billing-periods
+          - text: Usage Detail API
+            url: rest/api/billing/enterprise/billing-enterprise-api-usage-detail
+          - text: Marketplace Store Charge API  
+            url: /rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge
+          - text: Price Sheet API  
+            url: /rest/api/billing/enterprise/billing-enterprise-api-pricesheet      
