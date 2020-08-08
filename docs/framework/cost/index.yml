@@ -26,7 +26,7 @@ landingContent:
         links:
           - text: Principles
             url: overview.md
-      - linkListType: 
+      - linkListType: quickstart
         links:
           - text: Design checklist
             url: design-checklist.md
@@ -36,7 +36,7 @@ landingContent:
             url: monitor-checklist.md
           - text: Optimize checklist
             url: optimize-checklist.md  
-      - linkListType: 
+      - linkListType: quickstart
         links:
           - text: Tradeoffs
             url: tradeoffs.md
