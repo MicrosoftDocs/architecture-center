@@ -40,7 +40,15 @@ landingContent:
         links:
           - text: Tradeoffs
             url: tradeoffs.md
-  # Card (optional)
+## Card
+  - title: Learn module
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Cost optimization 
+            url: https://docs.microsoft.com/learn/modules/azure-well-architected-introduction/3-cost-optimization
+
+  # Card 
   - title: Design for cost
     linkLists:
       - linkListType: get-started
@@ -108,13 +116,6 @@ landingContent:
             url: /azure/cost-management-billing/costs/
           - text: Visualize cost reports
             url: /power-bi/desktop-connect-azure-cost-management
- # Card
-  - title: Learn module
-    linkLists:
-      - linkListType: learn
-        links:
-         - text: Cost optimization
-            url: /learn/modules/azure-well-architected-introduction/3-cost-optimization
  # Card
   - title: Consumption APIs
     linkLists:
