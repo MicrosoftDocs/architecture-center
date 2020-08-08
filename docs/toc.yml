@@ -168,9 +168,10 @@ items:
   items:
   - name: Overview
     href: framework/index.yml
+  - name: Cost Optimization
     items:
     - name: About
-      href: framework/cost/index.yml
+      href: framework/cost/toc.yml
     - name: Principles
       href: framework/cost/overview.md
     - name: Design
