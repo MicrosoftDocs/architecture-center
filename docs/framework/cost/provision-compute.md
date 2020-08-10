@@ -91,7 +91,7 @@ Use the Pricing Calculator to create your total cost estimate. After you run you
 
 ## Next steps
 
-[Provisioning cloud resources to optimize cost](https://docs.microsoft.com/azure/architecture/framework/cost/provision-checklist)
-[Virtual Machines documentation](https://docs.microsoft.com/azure/virtual-machines/)
-[VM payment options](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#a-series)
-[Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+- [Provisioning cloud resources to optimize cost](https://docs.microsoft.com/azure/architecture/framework/cost/provision-checklist)
+- [Virtual Machines documentation](https://docs.microsoft.com/azure/virtual-machines/)
+- [VM payment options](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#a-series)
+- [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
