@@ -399,7 +399,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [Deploying_a_federation_server_farm]: https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm
 [install_and_configure_the_web_application_proxy_server]: https://technet.microsoft.com/library/dn383662.aspx
 [publish_applications_using_AD_FS_preauthentication]: https://technet.microsoft.com/library/dn383640.aspx
-[oms-adfs-pack]: https://www.microsoft.com/download/details.aspx?id=41184
+[oms-adfs-pack]: https://www.microsoft.com/en-us/download/details.aspx?id=54526
 [adfs-intro]: https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity
 [github]: https://github.com/mspnp/identity-reference-architectures/tree/master/adfs
 [adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
