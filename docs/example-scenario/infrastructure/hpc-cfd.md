@@ -1,7 +1,7 @@
 ---
 title: Running CFD simulations
 titleSuffix: Azure Example Scenarios
-description: Execute computational fluid dynamics (CFD) simulations on Azure.
+description: Learn about running Computational Fluid Dynamics simulations using Azure. Create, manage, and optimize clusters using Azure CycleCloud.
 author: mikewarr
 ms.date: 09/20/2018
 ms.category:
@@ -96,13 +96,13 @@ To set up and configure an Avere vFXT installation, follow the [Avere Setup and 
 
 ## Pricing
 
-The cost of running an HPC implementation using CycleCloud server will vary depending on a number of factors. For example, CycleCloud is charged by the amount of compute time that is used, with the Master and CycleCloud server typically being constantly allocated and running. The cost of running the Execute nodes will depend on how long these are up and running as well as what size is used. The normal Azure charges for storage and networking also apply.
+The cost of running an HPC implementation using CycleCloud server will vary depending on a number of factors. For example, CycleCloud is charged by the amount of compute time that is used, with the Primary and CycleCloud server typically being constantly allocated and running. The cost of running the Execute nodes will depend on how long these are up and running as well as what size is used. The normal Azure charges for storage and networking also apply.
 
 This scenario shows how CFD applications can be run in Azure, so the machines will require RDMA functionality, which is only available on specific VM sizes. The following are examples of costs that could be incurred for a scale set that is allocated continuously for eight hours per day for one month, with data egress of 1 TB. It also includes pricing for the Azure CycleCloud server and the Avere vFXT for Azure install:
 
 - Region: North Europe
 - Azure CycleCloud Server: 1 x Standard D3 (4 x CPUs, 14 GB Memory, Standard HDD 32 GB)
-- Azure CycleCloud Master Server: 1 x Standard D12 v (4 x CPUs, 28 GB Memory, Standard HDD 32 GB)
+- Azure CycleCloud Primary Server: 1 x Standard D12 v (4 x CPUs, 28 GB Memory, Standard HDD 32 GB)
 - Azure CycleCloud Node Array: 10 x Standard H16r (16 x CPUs, 112 GB Memory)
 - Avere vFXT on Azure Cluster: 3 x D16s v3 (200 GB OS, Premium SSD 1-TB data disk)
 - Data Egress: 1 TB

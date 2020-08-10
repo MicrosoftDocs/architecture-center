@@ -1,7 +1,7 @@
 ---
 title: Extend an on-premises network using ExpressRoute
 description: Implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using Azure ExpressRoute.
-author: MikeWasson
+author: doodlemania2
 ms.date: 07/23/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -245,7 +245,7 @@ Use the Network Watcher to monitor and troubleshoot the network components, tool
 
 You also can use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor connectivity between your on-premises datacenter and Azure.
 
-For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops]. For information specific to monitoring, see [Monitoring For DevOps][devops-monitoring].
+For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops]. For information specific to monitoring, see [Monitoring For DevOps][devops-monitoring].
 
 
 ## Cost considerations

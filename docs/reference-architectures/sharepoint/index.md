@@ -191,6 +191,21 @@ This architecture builds on the architecture deployed in [Run Windows VMs for an
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
+## DevOps considerations
+
+Consider using separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights. In general, put resources that have the same lifecycle in the same resource group. Use the Developer tier for development and test environments. To minimize costs during preproduction, deploy a replica of your production environment, run your tests, and then shut down.
+
+In this architecture the entire Sharepoint farm infrastructure is deployed by using [Azure Building Blocks templates][azbb]. You can also use Azure [Azure Resource Manager templates][arm-template], in both cases you follow the Infrastructure as code (IaC) practice for deploying the resources. To automate infrastructure deployment, you can use Azure DevOps Services or other CI/CD solutions. The deployment process is also idempotent - that is, repeatable to produce the same results. Azure [Pipelines][pipelines] is part of [Azure DevOps Services][az-devops] and runs automated builds, tests, and deployments.
+
+Structure you deployment templates following the workload criteria, identify single units of works and include them in its own template. In this scenario
+at least seven workloads are identified and isolated in their own templates: the Azure VNet and the VPN gateway, the management jumpbox, AD domain controllers, and SQL Server VMs, the Failover cluster and the availability group and the Remaining VMs, Sharepoint primary node, Sharepoint cache and NSG rules. Workload isolation makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD) it also allows the staging your workloads, which means deploying to various stages and running validations at each stage before moving on to the next one; that way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues.
+
+
+Consider using the [Azure Monitor][az-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines.
+
+
+For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops].
+
 ## Deploy the solution
 
 A deployment for this reference architecture is available on [GitHub][github]. The entire deployment can take several hours to complete.
@@ -305,6 +320,18 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 
 <!-- links -->
 
+
+
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
+[arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/management/overview
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
+[availability-set]: /azure/virtual-machines/windows/manage-availability
+[az-devops]: https://docs.microsoft.com/azure/devops/index?view=azure-devops
+[az-monitor]: https://azure.microsoft.com/services/monitor/
+[azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
+[azure-gateway-pricing]: https://azure.microsoft.com/pricing/details/vpn-gateway/
 [aaf-cost]: ../../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
@@ -322,9 +349,11 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 [minroles]: https://docs.microsoft.com/SharePoint/install/overview-of-minrole-server-roles-in-sharepoint-server
 [nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
 [office-web-apps]: https://support.microsoft.com/help/3199955/office-web-apps-and-office-online-server-supportability-in-azure
-[paired-regions]: https://docs.microsoft.com/azure/best-practices-availability-paired-regions
-[resource-group]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
-[quotas]: https://docs.microsoft.com/azure/azure-subscription-service-limits
+[paired-regions]: /azure/best-practices-availability-paired-regions
+[pipelines]: https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops
+[readme]: https://github.com/mspnp/reference-architectures/tree/master/sharepoint/sharepoint-2016
+[resource-group]: /azure/azure-resource-manager/resource-group-overview
+[quotas]: /azure/azure-subscription-service-limits
 [sharepoint-accounts]: https://technet.microsoft.com/library/ee662513(v=office.16).aspx
 [sharepoint-crawling]: https://technet.microsoft.com/library/dn535606(v=office.16).aspx
 [sharepoint-dr]: https://technet.microsoft.com/library/ff628971(v=office.16).aspx

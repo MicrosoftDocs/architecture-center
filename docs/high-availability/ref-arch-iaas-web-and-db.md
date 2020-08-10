@@ -65,7 +65,7 @@ The architecture has the following components.
 
 - **SQL Server Always On availability group**. SQL Server Always On availability group provides high availability at the data tier by enabling replication and failover. It uses Windows Server Failover Cluster (WSFC) technology for failover.
 
-- **Cloud Witness**. A failover cluster requires more than half of its nodes to be running, which is known as having quorum. If the cluster has just two nodes, a network partition could cause each node to think it's the master node. In that case, you need a witness to break ties and establish quorum. A witness is a resource such as a shared disk that can act as a tie breaker to establish quorum. Cloud Witness is a type of witness that uses Azure Blob Storage. The Azure Blob Storage must use Zone Redundant Storage (ZRS) to not  be impacted by zonal failure.
+- **Cloud Witness**. A failover cluster requires more than half of its nodes to be running, which is known as having quorum. If the cluster has just two nodes, a network partition could cause each node to think it's the primary node. In that case, you need a witness to break ties and establish quorum. A witness is a resource such as a shared disk that can act as a tie breaker to establish quorum. Cloud Witness is a type of witness that uses Azure Blob Storage. The Azure Blob Storage must use Zone Redundant Storage (ZRS) to not be impacted by zonal failure.
 
     To learn more about the concept of quorum, see [Understanding cluster and  pool quorum](https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum). For more information about Cloud Witness, see [Deploy a Cloud Witness for a Failover Cluster](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).
 
@@ -100,7 +100,7 @@ Configure the SQL Server Always On availability group as follows:
 
 - Create an internal load balancer with a static private IP address.
 
-- Create an availability group listener and map the listener's DNS name to the     IP address of an internal load balancer.
+- Create an availability group listener and map the listener's DNS name to the IP address of an internal load balancer.
 
 - Create a load balancer rule for the SQL Server listening port (TCP port 1433 by default). The load balancer rule must enable floating IP, also called Direct Server Return. This causes the VM to reply directly to the client, which enables a direct connection to the primary replica.
 
@@ -192,7 +192,7 @@ Consider adding a network virtual appliance (NVA) to create a DMZ between the in
 
 ### Encryption
 
-Encrypt sensitive data at rest and use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) to manage the database encryption keys. Key Vault can store encryption keys in hardware security modules (HSMs). For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault). It's also recommended to store application secrets, such as database connection strings, in Key Vault.
+Encrypt sensitive data at rest and use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) to manage the database encryption keys. Key Vault can store encryption keys in hardware security modules (HSMs). For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure). It's also recommended to store application secrets, such as database connection strings, in Key Vault.
 
 ### DDoS protection
 

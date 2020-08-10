@@ -1,7 +1,7 @@
 ---
 title: Domain analysis for microservices
-description: Domain analysis for microservices.
-author: MikeWasson
+description: This article shows a domain-driven approach to designing microservices so that each service follows the general rule of doing just one thing.
+author: doodlemania2
 ms.date: 02/25/2019
 ms.topic: guide
 ms.service: architecture-center

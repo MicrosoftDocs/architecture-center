@@ -1,7 +1,7 @@
 ---
 title: Building a CI/CD pipeline for microservices on Kubernetes
 description: Describes an example CI/CD pipeline for deploying microservices to Azure Kubernetes Service (AKS).
-author: MikeWasson
+author: doodlemania2
 ms.date: 04/11/2019
 ms.topic: guide
 ms.service: architecture-center

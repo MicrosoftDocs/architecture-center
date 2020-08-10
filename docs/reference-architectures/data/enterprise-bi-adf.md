@@ -1,7 +1,7 @@
 ---
 title: Automated enterprise BI
 description: Automate an extract, load, and transform (ELT) workflow in Azure using Azure Data Factory with Azure Synapse Analytics.
-author: adamboeglin
+author: doodlemania2
 ms.date: 06/03/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -62,7 +62,7 @@ Data Factory can also use Azure AD to authenticate to Azure Synapse, by using a 
 
 In [Azure Data Factory][adf], a pipeline is a logical grouping of activities used to coordinate a task &mdash; in this case, loading and transforming data into Azure Synapse.
 
-This reference architecture defines a master pipeline that runs a sequence of child pipelines. Each child pipeline loads data into one or more data warehouse tables.
+This reference architecture defines a parent pipeline that runs a sequence of child pipelines. Each child pipeline loads data into one or more data warehouse tables.
 
 ![Screenshot of the pipeline in Azure Data Factory](./images/adf-pipeline.png)
 

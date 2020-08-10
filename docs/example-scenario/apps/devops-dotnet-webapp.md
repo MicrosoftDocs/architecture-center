@@ -1,7 +1,7 @@
 ---
 title: Design a CI/CD pipeline using Azure DevOps
 titleSuffix: Azure Example Scenarios
-description: Build and release a .NET app to Azure Web Apps using Azure DevOps.
+description: This architecture and design guidance example is a continuous integration and deployment pipeline for a two-tier .NET web application to the Azure App Service.
 author: chrisreddington
 ms.date: 12/06/2018
 ms.category:

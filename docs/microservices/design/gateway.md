@@ -1,7 +1,7 @@
 ---
 title: API gateways
-description: API gateways in microservices.
-author: MikeWasson
+description: An API gateway sits between clients and services and acts as a reverse proxy. Learn how to choose an API gateway technology for a microservice.
+author: doodlemania2
 ms.date: 10/23/2018
 ms.topic: guide
 ms.service: architecture-center
@@ -45,7 +45,7 @@ Here are some examples of functionality that could be offloaded to a gateway:
 
 - SSL termination
 - Authentication
-- IP whitelisting
+- IP allow/block list
 - Client rate limiting (throttling)
 - Logging and monitoring
 - Response caching
@@ -63,7 +63,7 @@ Here are some options for implementing an API gateway in your application.
 
 - [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/). Application Gateway is a managed load balancing service that can perform layer-7 routing and SSL termination. It also provides a web application firewall (WAF).
 
-- [Azure API Management](https://docs.microsoft.com/azure/api-management/). API Management is a turnkey solution for publishing APIs to external and internal customers. It provides features that are useful for managing a public-facing API, including rate limiting, IP white listing, and authentication using Azure Active Directory or other identity providers. API Management doesn't perform any load balancing, so it should be used in conjunction with a load balancer such as Application Gateway or a reverse proxy. For information about using API Management with Application Gateway, see [Integrate API Management in an internal VNet with Application Gateway](https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway).
+- [Azure API Management](https://docs.microsoft.com/azure/api-management/). API Management is a turnkey solution for publishing APIs to external and internal customers. It provides features that are useful for managing a public-facing API, including rate limiting, IP restrictions, and authentication using Azure Active Directory or other identity providers. API Management doesn't perform any load balancing, so it should be used in conjunction with a load balancer such as Application Gateway or a reverse proxy. For information about using API Management with Application Gateway, see [Integrate API Management in an internal VNet with Application Gateway](https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway).
 
 When choosing a gateway technology, consider the following:
 
@@ -71,7 +71,7 @@ When choosing a gateway technology, consider the following:
 
 **Deployment**. Azure Application Gateway and API Management are managed services. Nginx and HAProxy will typically run in containers inside the cluster, but can also be deployed to dedicated VMs outside of the cluster. This isolates the gateway from the rest of the workload, but incurs higher management overhead.
 
-**Management**. When services are updated or new services are added, the gateway routing rules may need to be updated. Consider how this process will be managed. Similar considerations apply to managing SSL certificates, IP whitelists, and other aspects of configuration.
+**Management**. When services are updated or new services are added, the gateway routing rules may need to be updated. Consider how this process will be managed. Similar considerations apply to managing SSL certificates, IP allow lists, and other aspects of configuration.
 
 ## Deploying Nginx or HAProxy to Kubernetes
 
@@ -91,7 +91,7 @@ Also consider running the gateway on a dedicated set of nodes in the cluster. Be
 
 ## Next steps
 
-The previous articles have looked at the interfaces *between* microservices or between microservices and client applications. By design, these interfaces treat each service as a black box. In particular, microservices should never expose implementation details about how they manage data. That has implications for data integrity and data consistency, explored in the next article.
+The previous articles have looked at the interfaces *between* microservices or between microservices and client applications. By design, these interfaces treat each service as a opaque box. In particular, microservices should never expose implementation details about how they manage data. That has implications for data integrity and data consistency, explored in the next article.
 
 > [!div class="nextstepaction"]
 > [Data considerations for microservices](./data-considerations.md)

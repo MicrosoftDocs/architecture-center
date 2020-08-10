@@ -107,7 +107,7 @@ The article [Deploying a Federation Server Farm][Deploying_a_federation_server_f
 3. Add each AD FS server VM to the domain.
 
 > [!NOTE]
-> To install AD FS, the domain controller running the primary domain controller (PDC) emulator flexible single master operation (FSMO) role for the domain must be running and accessible from the AD FS VMs. <<RBC: Is there a way to make this less repetitive?>>
+> To install AD FS, the domain controller running the primary domain controller (PDC) emulator flexible single master operation (FSMO) role for the domain must be running and accessible from the AD FS VMs.
 >
 
 ### AD FS trust

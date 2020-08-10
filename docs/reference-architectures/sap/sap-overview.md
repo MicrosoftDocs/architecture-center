@@ -1,6 +1,6 @@
 ---
 title: SAP on Azure Architecture Guide
-description: This guide is based on the Azure Architecture Framework, but the recommendations are specific to deployments of SAP solutions. 
+description: This guide is based on the Microsoft Azure Well-Architected Framework, but the recommendations are specific to deployments of SAP solutions. 
 author: maggsl
 ms.date: 06/10/2020
 ms.topic: reference-architecture
@@ -13,7 +13,7 @@ ms.category:
 
 # SAP on Azure Architecture Guide
 
-The SAP on Azure Architecture Guide describes a set of guiding tenets that are used to help ensure the quality of SAP workloads running on Azure. This guide is based on the [Azure Architecture Framework](https://docs.microsoft.com/azure/architecture/framework/), but the recommendations are specific to deployments of SAP solutions. A solid architectural foundation starts with five pillars of excellence: cost, DevOps, resiliency, scalability, and security.
+The SAP on Azure Architecture Guide describes a set of guiding tenets that are used to help ensure the quality of SAP workloads running on Azure. This guide is based on the [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/), but the recommendations are specific to deployments of SAP solutions. A solid architectural foundation starts with five pillars of excellence: cost, DevOps, resiliency, scalability, and security.
 
 Microsoft and SAP work in [partnership](https://blogs.microsoft.com/blog/2019/05/09/microsoft-partners-with-sap-as-the-first-global-cloud-provider-to-launch-project-embrace/) to provide a clear roadmap for organizations that want to innovate in the cloud. Azure supports SAP applications on Linux and Windows across development, test, and production environments. Our customers run SAP deployments of all sizes on Azure—including SAP NetWeaver, SAP S/4HANA, SAP BW/4HANA, SAP BI, and SAP HANA in scale-up and scale-out scenarios.
 
@@ -87,7 +87,7 @@ The monitoring and diagnostics process has several distinct phases:
 
 The resiliency pillar of the SAP on Azure Architecture Guide refers to the operational stability and business continuity you need to run mission-critical, tier-1 SAP applications. Designing for availability ensures SAP application uptime in the event of localized software or hardware failures.
 
-In production environments, it’s important to guard against a single point of failure. We recommend deploying the virtual machines that run SAP Central Services and databases in [availability sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) or [Availability Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones), which help protect applications against planned maintenance events and unplanned
+In production environments, it’s important to guard against a single point of failure. We recommend deploying the virtual machines that run SAP Central Services and databases in [availability sets](https://docs.microsoft.com/azure/virtual-machines/availability) or [Availability Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones), which help protect applications against planned maintenance events and unplanned
 outages.
 
 When applying resiliency to the SAP application servers, we recommend using fewer, smaller servers instead of one larger application server. The practice is to configure the guest operating system’s cluster technologies, such as Windows Failover Cluster or Linux Pacemaker, to help ensure short failover times of the SAP Central Services and database management system (DBMS). To ensure there is no (or minimal) data loss, the best practice is to configure DBMS synchronous or asynchronous replication depending on the scenario.

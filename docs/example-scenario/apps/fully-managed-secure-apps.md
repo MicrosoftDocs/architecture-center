@@ -1,7 +1,7 @@
 ---
 title: Securely managed web applications
 titleSuffix: Azure Example Scenarios
-description: Securely deploy an expense application to Azure App Service Environment.
+description: Learn about deploying secure applications using the Azure App Service Environment, the Azure Application Gateway service, and Web Application Firewall.
 author: fmustaf
 ms.date: 05/09/2019
 ms.author: faisalm
@@ -190,7 +190,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [pci-dss-blueprint]: https://docs.microsoft.com/azure/security/blueprints/payment-processing-blueprint
 [resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service
 [resiliency]: ../../framework/resiliency/overview.md
-[scalability]: ../../checklist/performance-efficiency.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
 [sql-geo-replication]: https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview
 [storage-geo-redudancy]: https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs

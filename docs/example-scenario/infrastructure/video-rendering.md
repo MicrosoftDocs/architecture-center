@@ -1,8 +1,8 @@
 ---
 title: 3D video rendering
 titleSuffix: Azure Example Scenarios
-description: Run native HPC workloads in Azure using the Azure Batch service.
-author: adamboeglin
+description: Use Azure Batch to manage existing Windows or Linux applications, including AutoDesk Maya and Blender, to run large-scale 3D video render jobs in Azure.
+author: doodlemania2
 ms.date: 07/13/2018
 ms.category:
   - compute
@@ -109,7 +109,7 @@ While there is currently no failover capability in Azure Batch, we recommend usi
 
 This scenario demonstrates how Azure Batch works while showcasing Azure Batch Labs as an example SaaS solution that can be developed for your own customers:
 
-[Azure Batch Masterclass][batch-labs-masterclass]
+[Azure Batch Labs][batch-labs]
 
 ### Deploy the components
 
@@ -173,7 +173,7 @@ Azure Batch also supports the use of low-priority VMs in the node pools, which c
 [hpc-est-high]: https://azure.com/e/9ac25baf44ef49c3a6b156935ee9544c
 [hpc-est-med]: https://azure.com/e/0286f1d6f6784310af4dcda5aec8c893
 [hpc-est-low]: https://azure.com/e/e39afab4e71949f9bbabed99b428ba4a
-[batch-labs-masterclass]: https://github.com/azurebigcompute/BigComputeLabs/tree/master/Azure%20Batch%20Masterclass%20Labs
+[batch-labs]: https://github.com/azurebigcompute/BigComputeLabs/tree/master/Azure%20Batch%20Masterclass%20Labs
 [batch-scaling]: https://docs.microsoft.com/azure/batch/batch-automatic-scaling
 [hpc-alt-solutions]: https://docs.microsoft.com/azure/virtual-machines/linux/high-performance-computing
 [batch-monitor]: https://docs.microsoft.com/azure/batch/monitoring-overview

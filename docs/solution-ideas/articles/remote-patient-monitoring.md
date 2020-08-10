@@ -1,7 +1,7 @@
 ---
 title: Remote Patient Monitoring Solutions
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Provide a high level of preventative medical care with remote patient monitoring from Azure. Analyze large amounts of medical data in a secure environment.
 ms.custom: acom-architecture, ai-ml, healthcare, remote patient monitoring, remote patient monitoring system, medical data analysis, remote patient monitoring solutions, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/remote-patient-monitoring/'
@@ -30,7 +30,7 @@ Predict and prevent future incidents by combining IoT and intelligence to optimi
 1. Securely store sensor and device data in Cosmos DB.
 1. Analyze sensor and device data using a pre-trained Cognitive Services API or a custom developed Machine Learning model.
 1. Store Artificial Intelligence (AI) and Machine Learning results in Cosmos DB.
-1. Interact AI and Machine Learning results using PowerBI, while preserving Role-Based Access Control (RBAC).
+1. Interact AI and Machine Learning results using Power BI, while preserving Role-Based Access Control (RBAC).
 1. Integrate data insights with backend systems and processes using Logic Apps.
 
 ## Components

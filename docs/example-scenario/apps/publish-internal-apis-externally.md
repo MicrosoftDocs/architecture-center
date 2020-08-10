@@ -1,6 +1,6 @@
 ---
 title: Publishing internal APIs to external users
-description: Use Azure API Management to modernize and expose intranet legacy web APIs.
+description: In this scenario, an organization consolidates multiple APIs internally using Azure API Management deployed inside a Virtual Network.
 author: ssarwa
 ms.date: 03/12/2019
 ms.author: ssarwa
@@ -57,9 +57,9 @@ The data flows as follows:
 
 ## Considerations
 
-- The web APIs are hosted over secured HTTPS protocol and will be using an [SSL Certificate][ssl].
+- The web APIs are hosted over secured HTTPS protocol and will be using a [TLS Certificate][ssl].
 - The Application Gateway also is configured over port 443 for secured and reliable outbound calls.
-- The API Management service is configured to use custom domains using SSL certificates.
+- The API Management service is configured to use custom domains using TLS certificates.
 - Review the suggested [network configuration][ntwkcons] for App Service Environments
 - There needs to be an explicit mention about [port 3443 allowing API Management][apim-port-nsg] to manage via the Azure portal or PowerShell.
 - Leverage policies within APIM to add a HOST header for the API hosted on ASE.  This ensures that the ASE's load balancer will properly forward the request.
@@ -83,7 +83,7 @@ Azure Application Gateway auto scaling is available as a part of the Zone redund
 
 ### Security
 
-Since the above example scenario is hosted completely on an internal network, API Management and ASE are already deployed on [secured infrastructure (Azure VNet)][vnet-security]. Application Gateways can be [integrated with Azure Security Center][appgtwy-asc] to provide a seamless way to prevent, detect, and respond to threats to the environment.  For general guidance on designing secure solutions, see the [Azure Security Documentation][security]
+Since the above example scenario is hosted completely on an internal network, API Management and ASE are already deployed on [secured infrastructure (Azure VNet)][vnet-security]. Application Gateways can be [integrated with Azure Security Center][appgtwy-asc] to provide a seamless way to prevent, detect, and respond to threats to the environment.  For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
 ### Resiliency
 
@@ -94,9 +94,9 @@ This example scenario though talks more about configuration, the APIs hosted on 
 ### Prerequisites and assumptions
 
 1. A custom domain name will need to be purchased.
-2. An SSL certificate (we used a wild-card certificate from Azure Certificates Service) to use one for all our custom domains. You could also procure a self-signed certificate for Dev Test scenarios.
-3. This specific deployment uses the domain name contoso.org and a wild-card SSL certificate for the domain.
-4. The deployment is using the resource names and address spaces mentioned in the deployment section, which can be configured.
+1. A TLS certificate (we used a wild-card certificate from Azure Certificates Service) to use one for all our custom domains. You could also procure a self-signed certificate for Dev Test scenarios.
+1. This specific deployment uses the domain name contoso.org and a wild-card TLS certificate for the domain.
+1. The deployment is using the resource names and address spaces mentioned in the deployment section, which can be configured.
 
 ### Deployment and putting the pieces together
 
@@ -117,7 +117,7 @@ The components deployed using the above Resource Manager template needs to be fu
 3. App Service Environment with Internal Load Balancer (ILB) option: aseinternal (DNS: aseinternal.contoso.org). Once the Deployment is complete, upload the wild-card cert for the ILB
 4. App Service Plan with ASE as location
 5. An API App (App Services for simplicity) - srasprest (URL: `https://srasprest.contoso.org`) – ASP.NET MVC-based web API. After the deployment, configure
-   - web app to use the SSL certificate
+   - web app to use the TLS certificate
    - Application Insights to the above apps: api-insights
    - Create a Cosmos DB service for web APIs hosted internal to VNet: noderestapidb
    - Create DNS entries on the Private DNS zone created
@@ -125,16 +125,16 @@ The components deployed using the above Resource Manager template needs to be fu
    - For testing the API App internally, create a test VM within the VNet subnet
 6. Creates API Management service: apim-internal
 7. Configure the service to connect to internal VNet on Subnet: apimsubnet. After the deployment is complete, perform the below additional steps
-   - Configure custom domains for APIM Services using SSL Cert
+   - Configure custom domains for APIM Services using TLS
      - API portal (api.contoso.org)
      - Dev Portal (portal.contoso.org)
      - In the APIs section, configure the ASE Apps using ASE's DNS name added Policy for HOST Header for the Web app
      - Use the above created test VM to test the API Management service internal on the Virtual Network
 
     > [!NOTE]
-    > The testing the APIM APIs from Azure portal will still NOT work as we don't have api.contoso.org not be able to publicly resolve*
+    > The testing the APIM APIs from Azure portal will still NOT work as api.contoso.org is not able to be publicly resolved.*
 
-8. Configure Application Gateway (WAF V1) to access the APU service: apim-gateway on Port 80. Add SSL Certs to the App Gateway and corresponding Health probes and Http settings. Also configure the Rules and Listeners to use SSL Cert
+8. Configure Application Gateway (WAF V1) to access the API service: apim-gateway on Port 80. Add TLS certs to the App Gateway and corresponding Health probes and Http settings. Also configure the Rules and Listeners to use the TLS cert.
 
 Once the above steps are successfully completed, Configure the DNS entries in GoDaddy CNAME entries of api.contoso.org and portal.contoso.org with App Gateway's public DNS name: ase-appgtwy.westus.cloudapp.azure.com and verify if you are able to reach the Dev Portal from Public and are able to test the APIM services APIs using Azure portal
 

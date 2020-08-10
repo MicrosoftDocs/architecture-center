@@ -1,7 +1,7 @@
 ---
 title: Demand Forecasting for Shipping and Distribution
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Use historical demand data to forecast future periods across various customers, products and destinations.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/demand-forecasting-for-shipping-and-distribution/'

@@ -1,0 +1,2445 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="9.08617in"
+   height="12.4828in"
+   viewBox="0 0 654.204 898.76"
+   xml:space="preserve"
+   color-interpolation-filters="sRGB"
+   class="st18"
+   version="1.1"
+   id="svg751"
+   sodipodi:docname="data-store-decision-tree.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"><metadata
+   id="metadata755"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><sodipodi:namedview
+   inkscape:document-rotation="0"
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1920"
+   inkscape:window-height="1017"
+   id="namedview753"
+   showgrid="false"
+   inkscape:zoom="0.70930937"
+   inkscape:cx="436.13617"
+   inkscape:cy="504.68347"
+   inkscape:window-x="-8"
+   inkscape:window-y="-8"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="group1106-1" />
+	<v:documentProperties
+   v:langID="1033"
+   v:viewMarkup="false" />
+
+	<style
+   type="text/css"
+   id="style2">
+	<![CDATA[
+		.st1 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st2 {fill:#f2f2f2;marker-end:url(#mrkr13-8);stroke:#7f7f7f;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st3 {fill:#7f7f7f;fill-opacity:1;stroke:#7f7f7f;stroke-opacity:1;stroke-width:0.22935779816514}
+		.st4 {fill:#000000;font-family:Segoe UI;font-size:0.833336em}
+		.st5 {fill:#3ca0f0;marker-end:url(#mrkr13-33);stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st6 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.22935779816514}
+		.st7 {fill:#ffffff;font-family:Segoe UI Semibold;font-size:1.00001em}
+		.st8 {fill:none;marker-end:url(#mrkr13-33);stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st9 {fill:#ffffff;font-family:Segoe UI Semibold;font-size:0.75em}
+		.st10 {font-size:1em}
+		.st11 {marker-end:url(#mrkr13-86);stroke:#0070c0;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st12 {fill:#0070c0;fill-opacity:1;stroke:#0070c0;stroke-opacity:1;stroke-width:0.22935779816514}
+		.st13 {fill:none;marker-end:url(#mrkr13-86);stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st14 {fill:#3f3f3f;font-family:Segoe UI Semibold;font-size:0.833336em}
+		.st15 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.24}
+		.st16 {fill:#dbeef3;marker-end:url(#mrkr13-8);stroke:#7f7f7f;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st17 {stroke:#0070c0;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st18 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs
+   id="Markers">
+		<g
+   id="lend13">
+			<path
+   d="M 3 1 L 0 0 L 3 -1 L 3 1 "
+   style="stroke:none"
+   id="path4" />
+		</g>
+		<marker
+   id="mrkr13-8"
+   class="st3"
+   v:arrowType="13"
+   v:arrowSize="2"
+   v:setback="13.08"
+   refX="-13.08"
+   orient="auto"
+   markerUnits="strokeWidth"
+   overflow="visible">
+			<use
+   xlink:href="#lend13"
+   transform="scale(-4.36,-4.36) "
+   id="use7" />
+		</marker>
+		<marker
+   id="mrkr13-33"
+   class="st6"
+   v:arrowType="13"
+   v:arrowSize="2"
+   v:setback="13.08"
+   refX="-13.08"
+   orient="auto"
+   markerUnits="strokeWidth"
+   overflow="visible">
+			<use
+   xlink:href="#lend13"
+   transform="scale(-4.36,-4.36) "
+   id="use10" />
+		</marker>
+		<marker
+   id="mrkr13-86"
+   class="st12"
+   v:arrowType="13"
+   v:arrowSize="2"
+   v:setback="13.08"
+   refX="-13.08"
+   orient="auto"
+   markerUnits="strokeWidth"
+   overflow="visible">
+			<use
+   xlink:href="#lend13"
+   transform="scale(-4.36,-4.36) "
+   id="use13" />
+		</marker>
+	</defs>
+	<g
+   v:mID="0"
+   v:index="1"
+   v:groupContext="foregroundPage"
+   id="g749">
+		<title
+   id="title17">Page-1</title>
+		<v:pageProperties
+   v:drawingScale="1"
+   v:pageScale="1"
+   v:drawingUnits="19"
+   v:shadowOffsetX="9"
+   v:shadowOffsetY="-9" />
+		<g
+   id="group1106-1"
+   transform="translate(10.3406,-10.3406)"
+   v:mID="1106"
+   v:groupContext="group">
+			<title
+   id="title19">Sheet.1106</title>
+			<g
+   id="shape1105-2"
+   v:mID="1105"
+   v:groupContext="shape"
+   transform="translate(3.80529E-05,-0.578599)">
+				<title
+   id="title21">Sheet.1105</title>
+				<rect
+   x="0"
+   y="21.2599"
+   width="634.5"
+   height="877.5"
+   class="st1"
+   id="rect23" />
+			</g>
+			<g
+   id="group1104-4"
+   v:mID="1104"
+   v:groupContext="group">
+				<title
+   id="title26">Sheet.1104</title>
+				<g
+   id="shape1000-5"
+   v:mID="1000"
+   v:groupContext="shape"
+   transform="translate(381.139,-766.166)">
+					<title
+   id="title28">Sheet.1000</title>
+					<desc
+   id="desc30">Relational data?</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect32" />
+					<text
+   x="15.28"
+   y="878.36"
+   class="st4"
+   v:langID="1033"
+   id="text34"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Relational data?</text>				</g>
+				<g
+   id="shape1001-10"
+   v:mID="1001"
+   v:groupContext="shape"
+   transform="translate(381.139,-604.44)">
+					<title
+   id="title37">Sheet.1001</title>
+					<desc
+   id="desc39">Need SMB interface?</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect41" />
+					<text
+   x="4.37"
+   y="878.36"
+   class="st4"
+   v:langID="1033"
+   id="text43"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Need SMB interface?</text>				</g>
+				<g
+   id="shape1002-14"
+   v:mID="1002"
+   v:groupContext="shape"
+   transform="translate(381.139,-523.577)">
+					<title
+   id="title46">Sheet.1002</title>
+					<desc
+   id="desc48">Archive?</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect50" />
+					<text
+   x="31.84"
+   y="878.36"
+   class="st4"
+   v:langID="1033"
+   id="text52"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Archive?</text>				</g>
+				<g
+   id="shape1003-18"
+   v:mID="1003"
+   v:groupContext="shape"
+   transform="translate(381.139,-442.714)">
+					<title
+   id="title55">Sheet.1003</title>
+					<desc
+   id="desc57">Search index data?</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect59" />
+					<text
+   x="9.11"
+   y="878.36"
+   class="st4"
+   v:langID="1033"
+   id="text61"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Search index data?</text>				</g>
+				<g
+   id="shape1004-22"
+   v:mID="1004"
+   v:groupContext="shape"
+   transform="translate(381.139,-361.851)">
+					<title
+   id="title64">Sheet.1004</title>
+					<desc
+   id="desc66">Time series data?</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect68" />
+					<text
+   x="12.52"
+   y="878.36"
+   class="st4"
+   v:langID="1033"
+   id="text70"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Time series data?</text>				</g>
+				<g
+   id="shape1009-26"
+   v:mID="1009"
+   v:groupContext="shape"
+   transform="translate(381.139,-38.4)">
+					<title
+   id="title73">Sheet.1009</title>
+					<desc
+   id="desc75">Transient data?</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect77" />
+					<text
+   x="16.86"
+   y="878.36"
+   class="st4"
+   v:langID="1033"
+   id="text79"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Transient data?</text>				</g>
+				<g
+   id="shape1010-30"
+   v:mID="1010"
+   v:groupContext="shape"
+   transform="translate(532.723,-604.44)">
+					<title
+   id="title82">Sheet.1010</title>
+					<desc
+   id="desc84">Azure Files</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect86" />
+					<text
+   x="21.1"
+   y="878.96"
+   class="st7"
+   v:langID="1033"
+   id="text88"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Azure Files</text>				</g>
+				<g
+   id="shape1011-35"
+   v:mID="1011"
+   v:groupContext="shape"
+   transform="translate(532.723,-765.129)">
+					<title
+   id="title91">Sheet.1011</title>
+					<desc
+   id="desc93">SQL Database</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect95" />
+					<text
+   x="12.76"
+   y="878.96"
+   class="st7"
+   v:langID="1033"
+   id="text97"><v:paragraph
+   v:horizAlign="1" /><v:tabList />SQL Database</text>				</g>
+				<g
+   id="group1015-39"
+   transform="translate(532.723,-516.377)"
+   v:mID="1015"
+   v:groupContext="group">
+					<title
+   id="title100">Sheet.1015</title>
+					<g
+   id="shape1016-40"
+   v:mID="1016"
+   v:groupContext="shape">
+						<title
+   id="title102">Sheet.1016</title>
+						<desc
+   id="desc104">Blob Storage</desc>
+						<v:textBlock
+   v:margins="rect(4,4,4,4)"
+   v:verticalAlign="0" />
+						<v:textRect
+   cx="50.4"
+   cy="868.16"
+   width="100.8"
+   height="61.2" />
+						<rect
+   x="0"
+   y="837.56"
+   width="100.8"
+   height="61.2"
+   class="st5"
+   id="rect106" />
+						<text
+   x="15.19"
+   y="852.36"
+   class="st7"
+   v:langID="1033"
+   id="text108"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Blob Storage<v:newlineChar /></text>					</g>
+					<g
+   id="shape1017-44"
+   v:mID="1017"
+   v:groupContext="shape">
+						<title
+   id="title111">Sheet.1017</title>
+						<desc
+   id="desc113">cool access tier archive access tier</desc>
+						<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+						<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+						<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   class="st8"
+   id="rect115" />
+						<text
+   x="19.55"
+   y="872.66"
+   class="st9"
+   v:langID="1033"
+   id="text119"><v:paragraph
+   v:horizAlign="1" /><v:tabList />cool access tier<v:newlineChar /><tspan
+   x="13.62"
+   dy="1.2em"
+   class="st10"
+   id="tspan117">archive access tier</tspan></text>					</g>
+				</g>
+				<g
+   id="shape1018-49"
+   v:mID="1018"
+   v:groupContext="shape"
+   transform="translate(532.723,-442.714)">
+					<title
+   id="title123">Sheet.1018</title>
+					<desc
+   id="desc125">Azure Search</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect127" />
+					<text
+   x="14.91"
+   y="878.96"
+   class="st7"
+   v:langID="1033"
+   id="text129"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Azure Search</text>				</g>
+				<g
+   id="shape1019-53"
+   v:mID="1019"
+   v:groupContext="shape"
+   transform="translate(532.723,-361.851)">
+					<title
+   id="title132">Sheet.1019</title>
+					<desc
+   id="desc134">Time Series Insights</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect136" />
+					<text
+   x="19.35"
+   y="871.76"
+   class="st7"
+   v:langID="1033"
+   id="text140"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Time Series <tspan
+   x="29.13"
+   dy="1.2em"
+   class="st10"
+   id="tspan138">Insights</tspan></text>				</g>
+				<g
+   id="shape1020-58"
+   v:mID="1020"
+   v:groupContext="shape"
+   transform="translate(72,-280.989)">
+					<title
+   id="title143">Sheet.1020</title>
+					<desc
+   id="desc145">Data Lake Store</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect147" />
+					<text
+   x="7.54"
+   y="878.96"
+   class="st7"
+   v:langID="1033"
+   id="text149"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Data Lake Store</text>				</g>
+				<g
+   id="shape1021-62"
+   v:mID="1021"
+   v:groupContext="shape"
+   transform="translate(72,-206.229)">
+					<title
+   id="title152">Sheet.1021</title>
+					<desc
+   id="desc154">Blob Storage</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect156" />
+					<text
+   x="15.19"
+   y="878.96"
+   class="st7"
+   v:langID="1033"
+   id="text158"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Blob Storage</text>				</g>
+				<g
+   id="shape1022-66"
+   v:mID="1022"
+   v:groupContext="shape"
+   transform="translate(532.723,-119.263)">
+					<title
+   id="title161">Sheet.1022</title>
+					<desc
+   id="desc163">Cosmos DB Graph API</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect165" />
+					<text
+   x="19.44"
+   y="871.76"
+   class="st7"
+   v:langID="1033"
+   id="text169"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Cosmos DB <tspan
+   x="22.82"
+   dy="1.2em"
+   class="st10"
+   id="tspan167">Graph API</tspan></text>				</g>
+				<g
+   id="shape1023-71"
+   v:mID="1023"
+   v:groupContext="shape"
+   transform="translate(532.723,0)">
+					<title
+   id="title172">Sheet.1023</title>
+					<desc
+   id="desc174">Cosmos DB SQL API</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect176" />
+					<text
+   x="7.06"
+   y="871.76"
+   class="st7"
+   v:langID="1033"
+   id="text180"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Cosmos DB SQL <tspan
+   x="41.12"
+   dy="1.2em"
+   class="st10"
+   id="tspan178">API</tspan></text>				</g>
+				<g
+   id="shape1024-76"
+   v:mID="1024"
+   v:groupContext="shape"
+   transform="translate(532.723,-59.4)">
+					<title
+   id="title183">Sheet.1024</title>
+					<desc
+   id="desc185">Azure Cache for Redis</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect187" />
+					<text
+   x="7.15"
+   y="871.76"
+   class="st7"
+   v:langID="1033"
+   id="text191"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Azure Cache for <tspan
+   x="35.71"
+   dy="1.2em"
+   class="st10"
+   id="tspan189">Redis</tspan></text>				</g>
+				<g
+   id="shape1027-81"
+   v:mID="1027"
+   v:groupContext="shape"
+   transform="translate(1330.3,296.017) rotate(90)">
+					<title
+   id="title194">Sheet.1027</title>
+					<path
+   d="M0 898.76 L22.33 898.76"
+   class="st11"
+   id="path196" />
+				</g>
+				<g
+   id="shape1030-87"
+   v:mID="1030"
+   v:groupContext="shape"
+   transform="translate(336.653,-788.529)">
+					<title
+   id="title199">Sheet.1030</title>
+					<path
+   d="M0 898.76 L34.68 898.76"
+   class="st11"
+   id="path201" />
+				</g>
+				<g
+   id="shape1031-92"
+   v:mID="1031"
+   v:groupContext="shape"
+   transform="translate(1330.3,375.474) rotate(90)">
+					<title
+   id="title204">Sheet.1031</title>
+					<path
+   d="M0 898.76 L22.33 898.76"
+   class="st11"
+   id="path206" />
+				</g>
+				<g
+   id="shape1032-97"
+   v:mID="1032"
+   v:groupContext="shape"
+   transform="translate(1330.3,457.966) rotate(90)">
+					<title
+   id="title209">Sheet.1032</title>
+					<path
+   d="M0 898.76 L22.33 898.76"
+   class="st11"
+   id="path211" />
+				</g>
+				<g
+   id="shape1033-102"
+   v:mID="1033"
+   v:groupContext="shape"
+   transform="translate(1330.3,536.908) rotate(90)">
+					<title
+   id="title214">Sheet.1033</title>
+					<path
+   d="M0 898.76 L22.33 898.76"
+   class="st11"
+   id="path216" />
+				</g>
+				<g
+   id="shape1034-107"
+   v:mID="1034"
+   v:groupContext="shape"
+   transform="translate(1330.3,617.771) rotate(90)">
+					<title
+   id="title219">Sheet.1034</title>
+					<path
+   d="M0 898.76 L22.33 898.76"
+   class="st11"
+   id="path221" />
+				</g>
+				<g
+   id="shape1035-112"
+   v:mID="1035"
+   v:groupContext="shape"
+   transform="translate(392.128,1495.24) rotate(-179.691)">
+					<title
+   id="title224">Sheet.1035</title>
+					<path
+   d="M0 898.76 L39.34 898.76"
+   class="st11"
+   id="path226" />
+				</g>
+				<g
+   id="shape1036-117"
+   v:mID="1036"
+   v:groupContext="shape"
+   transform="translate(1330.3,698.634) rotate(90)">
+					<title
+   id="title229">Sheet.1036</title>
+					<path
+   d="M0 898.76 L22.33 898.76"
+   class="st11"
+   id="path231" />
+				</g>
+				<g
+   id="shape1040-122"
+   v:mID="1040"
+   v:groupContext="shape"
+   transform="translate(481.029,-627.84)">
+					<title
+   id="title234">Sheet.1040</title>
+					<path
+   d="M0 898.76 L42.55 898.76"
+   class="st11"
+   id="path236" />
+				</g>
+				<g
+   id="shape1041-127"
+   v:mID="1041"
+   v:groupContext="shape"
+   transform="translate(481.029,-546.977)">
+					<title
+   id="title239">Sheet.1041</title>
+					<path
+   d="M0 898.76 L42.55 898.76"
+   class="st11"
+   id="path241" />
+				</g>
+				<g
+   id="shape1042-132"
+   v:mID="1042"
+   v:groupContext="shape"
+   transform="translate(481.029,-466.114)">
+					<title
+   id="title244">Sheet.1042</title>
+					<path
+   d="M0 898.76 L42.55 898.76"
+   class="st11"
+   id="path246" />
+				</g>
+				<g
+   id="shape1043-137"
+   v:mID="1043"
+   v:groupContext="shape"
+   transform="translate(481.029,-385.251)">
+					<title
+   id="title249">Sheet.1043</title>
+					<path
+   d="M0 898.76 L42.55 898.76"
+   class="st11"
+   id="path251" />
+				</g>
+				<g
+   id="shape1044-142"
+   v:mID="1044"
+   v:groupContext="shape"
+   transform="translate(482.66,-142.663)">
+					<title
+   id="title254">Sheet.1044</title>
+					<path
+   d="M0 898.76 L40.25 898.76"
+   class="st11"
+   id="path256" />
+				</g>
+				<g
+   id="shape1045-147"
+   v:mID="1045"
+   v:groupContext="shape"
+   transform="translate(672.159,1412.64) rotate(153.053)">
+					<title
+   id="title259">Sheet.1045</title>
+					<path
+   d="M0 898.76 L92.91 898.76"
+   class="st11"
+   id="path261" />
+				</g>
+				<g
+   id="shape1046-152"
+   v:mID="1046"
+   v:groupContext="shape"
+   transform="translate(247.029,1494.99) rotate(180)">
+					<title
+   id="title264">Sheet.1046</title>
+					<path
+   d="M0 898.76 L64.42 898.76"
+   class="st11"
+   id="path266" />
+				</g>
+				<g
+   id="shape1047-157"
+   v:mID="1047"
+   v:groupContext="shape"
+   transform="translate(393.666,1573.99) rotate(180)">
+					<title
+   id="title269">Sheet.1047</title>
+					<path
+   d="M0 898.76 L210.24 898.76"
+   class="st11"
+   id="path271" />
+				</g>
+				<g
+   id="shape1051-162"
+   v:mID="1051"
+   v:groupContext="shape"
+   transform="translate(479.071,-626.75)">
+					<title
+   id="title274">Sheet.1051</title>
+					<desc
+   id="desc276">Yes</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="21.9094"
+   cy="888.76"
+   width="43.82"
+   height="20" />
+					<rect
+   x="0"
+   y="878.76"
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect278" />
+					<text
+   x="14.21"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text280"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Yes</text>				</g>
+				<g
+   id="shape1052-166"
+   v:mID="1052"
+   v:groupContext="shape"
+   transform="translate(479.071,-547)">
+					<title
+   id="title283">Sheet.1052</title>
+					<desc
+   id="desc285">Yes</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="21.9094"
+   cy="888.76"
+   width="43.82"
+   height="20" />
+					<rect
+   x="0"
+   y="878.76"
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect287" />
+					<text
+   x="14.21"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text289"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Yes</text>				</g>
+				<g
+   id="shape1053-170"
+   v:mID="1053"
+   v:groupContext="shape"
+   transform="translate(479.071,-466)">
+					<title
+   id="title292">Sheet.1053</title>
+					<desc
+   id="desc294">Yes</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="21.9094"
+   cy="888.76"
+   width="43.82"
+   height="20" />
+					<rect
+   x="0"
+   y="878.76"
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect296" />
+					<text
+   x="14.21"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text298"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Yes</text>				</g>
+				<g
+   id="shape1054-174"
+   v:mID="1054"
+   v:groupContext="shape"
+   transform="translate(479.071,-388.25)">
+					<title
+   id="title301">Sheet.1054</title>
+					<desc
+   id="desc303">Yes</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="21.9094"
+   cy="888.76"
+   width="43.82"
+   height="20" />
+					<rect
+   x="0"
+   y="878.76"
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect305" />
+					<text
+   x="14.21"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text307"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Yes</text>				</g>
+				<g
+   id="shape1055-178"
+   v:mID="1055"
+   v:groupContext="shape"
+   transform="translate(344.756,-224.8)">
+					<title
+   id="title310">Sheet.1055</title>
+					<desc
+   id="desc312">Yes</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="21.9094"
+   cy="888.76"
+   width="43.82"
+   height="20" />
+					<rect
+   x="0"
+   y="878.76"
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect314" />
+					<text
+   x="14.21"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text316"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Yes</text>				</g>
+				<g
+   id="shape1056-182"
+   v:mID="1056"
+   v:groupContext="shape"
+   transform="translate(346.029,-312.229)">
+					<title
+   id="title319">Sheet.1056</title>
+					<desc
+   id="desc321">Yes</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="21.9094"
+   cy="888.76"
+   width="43.82"
+   height="20" />
+					<rect
+   x="0"
+   y="878.76"
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect323" />
+					<text
+   x="14.21"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text325"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Yes</text>				</g>
+				<g
+   id="shape1057-186"
+   v:mID="1057"
+   v:groupContext="shape"
+   transform="translate(481.029,-145.029)">
+					<title
+   id="title328">Sheet.1057</title>
+					<desc
+   id="desc330">Yes</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="21.9094"
+   cy="888.76"
+   width="43.82"
+   height="20" />
+					<rect
+   x="0"
+   y="878.76"
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect332" />
+					<text
+   x="14.21"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text334"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Yes</text>				</g>
+				<g
+   id="shape1058-190"
+   v:mID="1058"
+   v:groupContext="shape"
+   transform="translate(438.038,-172.029)">
+					<title
+   id="title337">Sheet.1058</title>
+					<desc
+   id="desc339">No</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="18.6953"
+   cy="888.76"
+   width="37.4"
+   height="20" />
+					<rect
+   x="0"
+   y="878.76"
+   width="37.3907"
+   height="20"
+   class="st13"
+   id="rect341" />
+					<text
+   x="11.87"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text343"><v:paragraph
+   v:horizAlign="1" /><v:tabList />No</text>				</g>
+				<g
+   id="shape1059-194"
+   v:mID="1059"
+   v:groupContext="shape"
+   transform="translate(436.14,-253.029)">
+					<title
+   id="title346">Sheet.1059</title>
+					<desc
+   id="desc348">No</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="20.5938"
+   cy="888.76"
+   width="41.19"
+   height="20" />
+					<rect
+   x="0"
+   y="878.76"
+   width="41.1875"
+   height="20"
+   class="st13"
+   id="rect350" />
+					<text
+   x="13.77"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text352"><v:paragraph
+   v:horizAlign="1" /><v:tabList />No</text>				</g>
+				<g
+   id="shape1060-198"
+   v:mID="1060"
+   v:groupContext="shape"
+   transform="translate(436.14,-334.029)">
+					<title
+   id="title355">Sheet.1060</title>
+					<desc
+   id="desc357">No</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="20.5938"
+   cy="888.76"
+   width="41.19"
+   height="20" />
+					<rect
+   x="0"
+   y="878.76"
+   width="41.1875"
+   height="20"
+   class="st13"
+   id="rect359" />
+					<text
+   x="13.77"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text361"><v:paragraph
+   v:horizAlign="1" /><v:tabList />No</text>				</g>
+				<g
+   id="shape1061-202"
+   v:mID="1061"
+   v:groupContext="shape"
+   transform="translate(436.14,-415.029)">
+					<title
+   id="title364">Sheet.1061</title>
+					<desc
+   id="desc366">No</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="20.5938"
+   cy="888.76"
+   width="41.19"
+   height="20" />
+					<rect
+   x="0"
+   y="878.76"
+   width="41.1875"
+   height="20"
+   class="st13"
+   id="rect368" />
+					<text
+   x="13.77"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text370"><v:paragraph
+   v:horizAlign="1" /><v:tabList />No</text>				</g>
+				<g
+   id="shape1062-206"
+   v:mID="1062"
+   v:groupContext="shape"
+   transform="translate(436.14,-496.029)">
+					<title
+   id="title373">Sheet.1062</title>
+					<desc
+   id="desc375">No</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="20.5938"
+   cy="888.76"
+   width="41.19"
+   height="20" />
+					<rect
+   x="0"
+   y="878.76"
+   width="41.1875"
+   height="20"
+   class="st13"
+   id="rect377" />
+					<text
+   x="13.77"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text379"><v:paragraph
+   v:horizAlign="1" /><v:tabList />No</text>				</g>
+				<g
+   id="shape1063-210"
+   v:mID="1063"
+   v:groupContext="shape"
+   transform="translate(436.14,-577.029)">
+					<title
+   id="title382">Sheet.1063</title>
+					<desc
+   id="desc384">No</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="20.5938"
+   cy="888.76"
+   width="41.19"
+   height="20" />
+					<rect
+   x="0"
+   y="878.76"
+   width="41.1875"
+   height="20"
+   class="st13"
+   id="rect386" />
+					<text
+   x="13.77"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text388"><v:paragraph
+   v:horizAlign="1" /><v:tabList />No</text>				</g>
+				<g
+   id="shape1066-214"
+   v:mID="1066"
+   v:groupContext="shape"
+   transform="translate(166.029,-303.3)">
+					<title
+   id="title391">Sheet.1066</title>
+					<desc
+   id="desc393">File system</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="38.25"
+   cy="885.646"
+   width="76.51"
+   height="26.2286" />
+					<rect
+   x="0"
+   y="872.531"
+   width="76.5"
+   height="26.2286"
+   class="st13"
+   id="rect395" />
+					<text
+   x="13.35"
+   y="888.65"
+   class="st14"
+   v:langID="1033"
+   id="text397"><v:paragraph
+   v:horizAlign="1" /><v:tabList />File system</text>				</g>
+				<g
+   id="shape1067-218"
+   v:mID="1067"
+   v:groupContext="shape"
+   transform="translate(226.326,-254.435)">
+					<title
+   id="title400">Sheet.1067</title>
+					<desc
+   id="desc402">Object</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="26.1016"
+   cy="891.166"
+   width="52.21"
+   height="15.1875" />
+					<rect
+   x="0"
+   y="883.572"
+   width="52.2031"
+   height="15.1875"
+   class="st13"
+   id="rect404" />
+					<text
+   x="11.19"
+   y="894.17"
+   class="st14"
+   v:langID="1033"
+   id="text406"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Object</text>				</g>
+				<g
+   id="shape1068-222"
+   v:mID="1068"
+   v:groupContext="shape"
+   transform="translate(1330.41,778.268) rotate(90.3511)">
+					<title
+   id="title409">Sheet.1068</title>
+					<path
+   d="M0 898.76 L30.99 898.76"
+   class="st11"
+   id="path411" />
+				</g>
+				<g
+   id="shape1069-227"
+   v:mID="1069"
+   v:groupContext="shape"
+   transform="translate(440.028,-91.0286)">
+					<title
+   id="title414">Sheet.1069</title>
+					<desc
+   id="desc416">No</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="16.7063"
+   cy="888.76"
+   width="33.42"
+   height="20" />
+					<rect
+   x="0"
+   y="878.76"
+   width="33.4125"
+   height="20"
+   class="st13"
+   id="rect418" />
+					<text
+   x="9.88"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text420"><v:paragraph
+   v:horizAlign="1" /><v:tabList />No</text>				</g>
+				<g
+   id="shape1070-231"
+   v:mID="1070"
+   v:groupContext="shape"
+   transform="translate(473.21,-73.0286)">
+					<title
+   id="title423">Sheet.1070</title>
+					<desc
+   id="desc425">Yes</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="21.9094"
+   cy="888.76"
+   width="43.82"
+   height="20" />
+					<rect
+   x="0"
+   y="878.76"
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect427" />
+					<text
+   x="14.21"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text429"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Yes</text>				</g>
+				<g
+   id="shape1071-235"
+   v:mID="1071"
+   v:groupContext="shape"
+   transform="translate(128.129,8.9308) rotate(-23.2829)">
+					<title
+   id="title432">Sheet.1071</title>
+					<path
+   d="M0 898.76 L43.93 898.76"
+   class="st11"
+   id="path434" />
+				</g>
+				<g
+   id="shape1072-240"
+   v:mID="1072"
+   v:groupContext="shape"
+   transform="translate(497.588,-41.0786)">
+					<title
+   id="title437">Sheet.1072</title>
+					<desc
+   id="desc439">No</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="16.7063"
+   cy="890.463"
+   width="33.42"
+   height="16.5938" />
+					<rect
+   x="0"
+   y="882.166"
+   width="33.4125"
+   height="16.5938"
+   class="st13"
+   id="rect441" />
+					<text
+   x="9.88"
+   y="893.46"
+   class="st14"
+   v:langID="1033"
+   id="text443"><v:paragraph
+   v:horizAlign="1" /><v:tabList />No</text>				</g>
+				<g
+   id="shape1073-244"
+   v:mID="1073"
+   v:groupContext="shape"
+   transform="translate(975.655,91.9852) rotate(33.2161)">
+					<title
+   id="title446">Sheet.1073</title>
+					<path
+   d="M0 898.76 L49.27 898.76"
+   class="st11"
+   id="path448" />
+				</g>
+				<g
+   id="shape1074-249"
+   v:mID="1074"
+   v:groupContext="shape"
+   transform="translate(-626.854,82.7813) rotate(-90)">
+					<title
+   id="title451">Simple Arrow.1002</title>
+					<v:userDefs>
+						<v:ud
+   v:nameU="visVersion"
+   v:val="VT0(15):26" />
+						<v:ud
+   v:nameU="ArrowType"
+   v:prompt=""
+   v:val="VT0(2):26" />
+					</v:userDefs>
+					<path
+   d="M0 898.76 L12 886.76 L12 892.76 L45 892.76 L45 898.76 L45 904.76 L12 904.76 L12 910.76 L0 898.76 Z"
+   class="st15"
+   id="path453" />
+				</g>
+				<g
+   id="shape1075-251"
+   v:mID="1075"
+   v:groupContext="shape"
+   transform="translate(237.813,-838.479)">
+					<title
+   id="title456">Sheet.1075</title>
+					<desc
+   id="desc458">START</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="34.0937"
+   cy="878.96"
+   width="68.19"
+   height="39.6" />
+					<rect
+   x="0"
+   y="859.16"
+   width="68.1875"
+   height="39.6"
+   rx="18"
+   ry="18"
+   class="st16"
+   id="rect460" />
+					<text
+   x="19.98"
+   y="881.96"
+   class="st4"
+   v:langID="1033"
+   id="text462"><v:paragraph
+   v:horizAlign="1" /><v:tabList />START</text>				</g>
+				<g
+   id="shape1091-255"
+   v:mID="1091"
+   v:groupContext="shape"
+   transform="translate(179.494,-789.429)">
+					<title
+   id="title465">Sheet.1091</title>
+					<path
+   d="M0 898.76 L45 898.76"
+   class="st17"
+   id="path467" />
+				</g>
+				<g
+   id="shape1092-258"
+   v:mID="1092"
+   v:groupContext="shape"
+   transform="translate(327.862,-790.679)">
+					<title
+   id="title470">Sheet.1092</title>
+					<desc
+   id="desc472">Else...</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="25.2049"
+   cy="888.76"
+   width="50.41"
+   height="20" />
+					<rect
+   x="0"
+   y="878.76"
+   width="50.4098"
+   height="20"
+   class="st13"
+   id="rect474" />
+					<text
+   x="12.88"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text476"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Else...</text>				</g>
+				<g
+   id="shape1093-262"
+   v:mID="1093"
+   v:groupContext="shape"
+   transform="translate(480.363,-788.529)">
+					<title
+   id="title479">Sheet.1093</title>
+					<path
+   d="M0 898.76 L42.55 898.76"
+   class="st11"
+   id="path481" />
+				</g>
+				<g
+   id="shape1094-267"
+   v:mID="1094"
+   v:groupContext="shape"
+   transform="translate(479.071,-790.679)">
+					<title
+   id="title484">Sheet.1094</title>
+					<desc
+   id="desc486">Yes</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="21.9094"
+   cy="888.76"
+   width="43.82"
+   height="20" />
+					<rect
+   x="0"
+   y="878.76"
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect488" />
+					<text
+   x="14.21"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text490"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Yes</text>				</g>
+				<g
+   id="shape1095-271"
+   v:mID="1095"
+   v:groupContext="shape"
+   transform="translate(381.139,-685.303)">
+					<title
+   id="title493">Sheet.1095</title>
+					<desc
+   id="desc495">Semi-structured data, schema-on-read?</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect497" />
+					<text
+   x="15.1"
+   y="866.36"
+   class="st4"
+   v:langID="1033"
+   id="text503"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Semi-structured <tspan
+   x="11.74"
+   dy="1.2em"
+   class="st10"
+   id="tspan499">data, schema</tspan>-on-<tspan
+   x="38.32"
+   dy="1.2em"
+   class="st10"
+   id="tspan501">read?</tspan></text>				</g>
+				<g
+   id="shape1096-277"
+   v:mID="1096"
+   v:groupContext="shape"
+   transform="translate(1330.46,147.184) rotate(90.8394)">
+					<title
+   id="title506">Sheet.1096</title>
+					<path
+   d="M0 898.76 L25.29 898.76"
+   class="st11"
+   id="path508" />
+				</g>
+				<g
+   id="shape1097-282"
+   v:mID="1097"
+   v:groupContext="shape"
+   transform="translate(436.14,-738.029)">
+					<title
+   id="title511">Sheet.1097</title>
+					<desc
+   id="desc513">No</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="20.5938"
+   cy="888.76"
+   width="41.19"
+   height="20" />
+					<rect
+   x="0"
+   y="878.76"
+   width="41.1875"
+   height="20"
+   class="st13"
+   id="rect515" />
+					<text
+   x="13.77"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text517"><v:paragraph
+   v:horizAlign="1" /><v:tabList />No</text>				</g>
+				<g
+   id="shape1098-286"
+   v:mID="1098"
+   v:groupContext="shape"
+   transform="translate(532.723,-685.303)">
+					<title
+   id="title520">Sheet.1098</title>
+					<desc
+   id="desc522">CosmosDB SQL API</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect524" />
+					<text
+   x="8.71"
+   y="871.76"
+   class="st7"
+   v:langID="1033"
+   id="text528"><v:paragraph
+   v:horizAlign="1" /><v:tabList />CosmosDB SQL <tspan
+   x="41.12"
+   dy="1.2em"
+   class="st10"
+   id="tspan526">API</tspan></text>				</g>
+				<g
+   id="shape1099-291"
+   v:mID="1099"
+   v:groupContext="shape"
+   transform="translate(481.939,-708.703)">
+					<title
+   id="title531">Sheet.1099</title>
+					<path
+   d="M0 898.76 L42.55 898.76"
+   class="st11"
+   id="path533" />
+				</g>
+				<g
+   id="shape1100-296"
+   v:mID="1100"
+   v:groupContext="shape"
+   transform="translate(479.071,-710.029)">
+					<title
+   id="title536">Sheet.1100</title>
+					<desc
+   id="desc538">Yes</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="21.9094"
+   cy="888.76"
+   width="43.82"
+   height="20" />
+					<rect
+   x="0"
+   y="878.76"
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect540" />
+					<text
+   x="14.21"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text542"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Yes</text>				</g>
+				<g
+   id="shape1026-300"
+   v:mID="1026"
+   v:groupContext="shape"
+   transform="translate(214.15,-766.029)">
+					<title
+   id="title545">Sheet.1026</title>
+					<desc
+   id="desc547">Require compatibility with … ?</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="59.8535"
+   cy="875.36"
+   width="119.71"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96002"
+   width="119.707"
+   height="46.799999"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect549" />
+					<text
+   x="12.92"
+   y="872.35999"
+   class="st4"
+   v:langID="1033"
+   id="text553"><tspan
+     sodipodi:role="line"
+     id="tspan757"
+     x="12.92"
+     y="872.35999"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Require compatible </tspan><tspan
+     sodipodi:role="line"
+     id="tspan759"
+     x="12.92"
+     y="884.86005">         format?</tspan></text>				</g>
+				<g
+   id="group1101-305"
+   transform="translate(-6.39488E-14,-577.029)"
+   v:mID="1101"
+   v:groupContext="group">
+					<title
+   id="title556">Sheet.1101</title>
+					<g
+   id="shape1013-306"
+   v:mID="1013"
+   v:groupContext="shape"
+   transform="translate(0,-211.5)">
+						<title
+   id="title558">Sheet.1013</title>
+						<desc
+   id="desc560">Azure Database for MySQL</desc>
+						<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+						<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+						<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect562" />
+						<text
+   x="7.77"
+   y="871.76"
+   class="st7"
+   v:langID="1033"
+   id="text566"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Azure Database <tspan
+   x="21.55"
+   dy="1.2em"
+   class="st10"
+   id="tspan564">for MySQL</tspan></text>					</g>
+					<g
+   id="shape1014-311"
+   v:mID="1014"
+   v:groupContext="shape"
+   transform="translate(0,-158.625)">
+						<title
+   id="title569">Sheet.1014</title>
+						<desc
+   id="desc571">Azure Database for PostgreSQL</desc>
+						<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+						<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+						<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect573" />
+						<text
+   x="7.77"
+   y="871.76"
+   class="st7"
+   v:langID="1033"
+   id="text577"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Azure Database <tspan
+   x="9.28"
+   dy="1.2em"
+   class="st10"
+   id="tspan575">for PostgreSQL</tspan></text>					</g>
+					<g
+   id="shape1039-316"
+   v:mID="1039"
+   v:groupContext="shape"
+   transform="translate(179.494,1562.62) rotate(180)">
+						<title
+   id="title580">Sheet.1039</title>
+						<path
+   d="M0 898.76 L68.38 898.76"
+   class="st11"
+   id="path582" />
+					</g>
+					<g
+   id="shape1049-321"
+   v:mID="1049"
+   v:groupContext="shape"
+   transform="translate(121.584,-236.5)">
+						<title
+   id="title585">Sheet.1049</title>
+						<desc
+   id="desc587">MySql</desc>
+						<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+						<v:textRect
+   cx="21.9094"
+   cy="888.76"
+   width="43.82"
+   height="20" />
+						<rect
+   x="0"
+   y="878.76"
+   width="43.8188"
+   height="20"
+   class="st13"
+   id="rect589" />
+						<text
+   x="7.71"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text591"><v:paragraph
+   v:horizAlign="1" /><v:tabList />MySql</text>					</g>
+					<g
+   id="shape1079-325"
+   v:mID="1079"
+   v:groupContext="shape"
+   transform="translate(0,-105.75)">
+						<title
+   id="title594">Sheet.1079</title>
+						<desc
+   id="desc596">Azure Database for MariaDB</desc>
+						<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+						<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+						<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect598" />
+						<text
+   x="7.77"
+   y="871.76"
+   class="st7"
+   v:langID="1033"
+   id="text602"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Azure Database <tspan
+   x="17.35"
+   dy="1.2em"
+   class="st10"
+   id="tspan600">for MariaDB</tspan></text>					</g>
+					<g
+   id="shape1080-330"
+   v:mID="1080"
+   v:groupContext="shape"
+   transform="translate(0,-52.875)">
+						<title
+   id="title605">Sheet.1080</title>
+						<desc
+   id="desc607">CosmosDB Cassandra API</desc>
+						<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+						<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+						<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect609" />
+						<text
+   x="21.09"
+   y="871.76"
+   class="st7"
+   v:langID="1033"
+   id="text613"><v:paragraph
+   v:horizAlign="1" /><v:tabList />CosmosDB <tspan
+   x="11.83"
+   dy="1.2em"
+   class="st10"
+   id="tspan611">Cassandra API</tspan></text>					</g>
+					<g
+   id="shape1081-335"
+   v:mID="1081"
+   v:groupContext="shape">
+						<title
+   id="title616">Sheet.1081</title>
+						<desc
+   id="desc618">CosmosDB MongoDB API</desc>
+						<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+						<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+						<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   class="st5"
+   id="rect620" />
+						<text
+   x="21.09"
+   y="871.76"
+   class="st7"
+   v:langID="1033"
+   id="text624"><v:paragraph
+   v:horizAlign="1" /><v:tabList />CosmosDB <tspan
+   x="11.71"
+   dy="1.2em"
+   class="st10"
+   id="tspan622">MongoDB API</tspan></text>					</g>
+					<g
+   id="shape1082-340"
+   v:mID="1082"
+   v:groupContext="shape"
+   transform="translate(179.494,1615.49) rotate(180)">
+						<title
+   id="title627">Sheet.1082</title>
+						<path
+   d="M0 898.76 L68.38 898.76"
+   class="st11"
+   id="path629" />
+					</g>
+					<g
+   id="shape1083-345"
+   v:mID="1083"
+   v:groupContext="shape"
+   transform="translate(111.994,-182.5)">
+						<title
+   id="title632">Sheet.1083</title>
+						<desc
+   id="desc634">PostreSQL</desc>
+						<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+						<v:textRect
+   cx="31.5"
+   cy="888.76"
+   width="63.01"
+   height="20" />
+						<rect
+   x="0"
+   y="878.76"
+   width="63"
+   height="20"
+   class="st13"
+   id="rect636" />
+						<text
+   x="8.18"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text638"><v:paragraph
+   v:horizAlign="1" /><v:tabList />PostreSQL</text>					</g>
+					<g
+   id="shape1084-349"
+   v:mID="1084"
+   v:groupContext="shape"
+   transform="translate(179.494,1668.37) rotate(180)">
+						<title
+   id="title641">Sheet.1084</title>
+						<path
+   d="M0 898.76 L68.38 898.76"
+   class="st11"
+   id="path643" />
+					</g>
+					<g
+   id="shape1085-354"
+   v:mID="1085"
+   v:groupContext="shape"
+   transform="translate(117.392,-129.5)">
+						<title
+   id="title646">Sheet.1085</title>
+						<desc
+   id="desc648">MariaDB</desc>
+						<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+						<v:textRect
+   cx="26.1016"
+   cy="888.76"
+   width="52.21"
+   height="20" />
+						<rect
+   x="0"
+   y="878.76"
+   width="52.2031"
+   height="20"
+   class="st13"
+   id="rect650" />
+						<text
+   x="6.5"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text652"><v:paragraph
+   v:horizAlign="1" /><v:tabList />MariaDB</text>					</g>
+					<g
+   id="shape1086-358"
+   v:mID="1086"
+   v:groupContext="shape"
+   transform="translate(179.494,1721.24) rotate(180)">
+						<title
+   id="title655">Sheet.1086</title>
+						<path
+   d="M0 898.76 L68.38 898.76"
+   class="st11"
+   id="path657" />
+					</g>
+					<g
+   id="shape1087-363"
+   v:mID="1087"
+   v:groupContext="shape"
+   transform="translate(111.994,-76.5)">
+						<title
+   id="title660">Sheet.1087</title>
+						<desc
+   id="desc662">Cassandra</desc>
+						<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+						<v:textRect
+   cx="31.5"
+   cy="888.76"
+   width="63.01"
+   height="20" />
+						<rect
+   x="0"
+   y="878.76"
+   width="63"
+   height="20"
+   class="st13"
+   id="rect664" />
+						<text
+   x="8.47"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text666"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Cassandra</text>					</g>
+					<g
+   id="shape1088-367"
+   v:mID="1088"
+   v:groupContext="shape"
+   transform="translate(179.494,1774.12) rotate(180)">
+						<title
+   id="title669">Sheet.1088</title>
+						<path
+   d="M0 898.76 L68.38 898.76"
+   class="st11"
+   id="path671" />
+					</g>
+					<g
+   id="shape1089-372"
+   v:mID="1089"
+   v:groupContext="shape"
+   transform="translate(111.994,-22.5)">
+						<title
+   id="title674">Sheet.1089</title>
+						<desc
+   id="desc676">MongoDB</desc>
+						<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+						<v:textRect
+   cx="31.5"
+   cy="888.76"
+   width="63.01"
+   height="20" />
+						<rect
+   x="0"
+   y="878.76"
+   width="63"
+   height="20"
+   class="st13"
+   id="rect678" />
+						<text
+   x="8.37"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text680"><v:paragraph
+   v:horizAlign="1" /><v:tabList />MongoDB</text>					</g>
+					<g
+   id="shape1090-376"
+   v:mID="1090"
+   v:groupContext="shape"
+   transform="translate(-719.266,876.617) rotate(-90)">
+						<title
+   id="title683">Sheet.1090</title>
+						<path
+   d="M0 898.76 L212.76 898.76"
+   class="st17"
+   id="path685" />
+					</g>
+				</g>
+				<g
+   id="shape1102-379"
+   v:mID="1102"
+   v:groupContext="shape"
+   transform="translate(1331.54,227.799) rotate(90.8394)">
+					<title
+   id="title689">Sheet.1102</title>
+					<path
+   d="M0 898.76 L25.29 898.76"
+   class="st11"
+   id="path691" />
+				</g>
+				<g
+   id="shape1103-384"
+   v:mID="1103"
+   v:groupContext="shape"
+   transform="translate(436.14,-657.414)">
+					<title
+   id="title694">Sheet.1103</title>
+					<desc
+   id="desc696">No</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="20.5938"
+   cy="888.76"
+   width="41.19"
+   height="20" />
+					<rect
+   x="0"
+   y="878.76"
+   width="41.1875"
+   height="20"
+   class="st13"
+   id="rect698" />
+					<text
+   x="13.77"
+   y="891.76"
+   class="st14"
+   v:langID="1033"
+   id="text700"><v:paragraph
+   v:horizAlign="1" /><v:tabList />No</text>				</g>
+				<g
+   id="shape1008-388"
+   v:mID="1008"
+   v:groupContext="shape"
+   transform="translate(381.139,-119.263)">
+					<title
+   id="title703">Sheet.1008</title>
+					<desc
+   id="desc705">Graph data?</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect707" />
+					<text
+   x="23.58"
+   y="878.36"
+   class="st4"
+   v:langID="1033"
+   id="text709"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Graph data?</text>				</g>
+				<g
+   id="shape1006-392"
+   v:mID="1006"
+   v:groupContext="shape"
+   transform="translate(247.029,-280.989)">
+					<title
+   id="title712">Sheet.1006</title>
+					<desc
+   id="desc714">File system or object store?</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect716" />
+					<text
+   x="5.17"
+   y="872.36"
+   class="st4"
+   v:langID="1033"
+   id="text720"><v:paragraph
+   v:horizAlign="1" /><v:tabList />File system or object <tspan
+   x="37.06"
+   dy="1.2em"
+   class="st10"
+   id="tspan718">store?</tspan></text>				</g>
+				<g
+   id="shape1007-397"
+   v:mID="1007"
+   v:groupContext="shape"
+   transform="translate(381.139,-200.126)">
+					<title
+   id="title723">Sheet.1007</title>
+					<desc
+   id="desc725">Binary blobs (images, PDF files, etc.)?</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect727" />
+					<text
+   x="23.28"
+   y="866.36"
+   class="st4"
+   v:langID="1033"
+   id="text733"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Binary blobs <tspan
+   x="10.77"
+   dy="1.2em"
+   class="st10"
+   id="tspan729">(images, PDF files, </tspan><tspan
+   x="38.95"
+   dy="1.2em"
+   class="st10"
+   id="tspan731">etc.)?</tspan></text>				</g>
+				<g
+   id="shape1005-403"
+   v:mID="1005"
+   v:groupContext="shape"
+   transform="translate(381.139,-280.989)">
+					<title
+   id="title736">Sheet.1005</title>
+					<desc
+   id="desc738">Large amount of data (TB/PB)?</desc>
+					<v:textBlock
+   v:margins="rect(4,4,4,4)" />
+					<v:textRect
+   cx="50.4"
+   cy="875.36"
+   width="100.8"
+   height="46.8" />
+					<rect
+   x="0"
+   y="851.96"
+   width="100.8"
+   height="46.8"
+   rx="18"
+   ry="18"
+   class="st2"
+   id="rect740" />
+					<text
+   x="13.84"
+   y="872.35999"
+   class="st4"
+   v:langID="1033"
+   id="text744"><tspan
+     sodipodi:role="line"
+     id="tspan761"
+     x="13.84"
+     y="872.35999"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Large data (TB/PB) </tspan><tspan
+     sodipodi:role="line"
+     id="tspan763"
+     x="13.84"
+     y="884.86005">     for analysis?</tspan></text>				</g>
+			<text
+   xml:space="preserve"
+   style="font-style:normal;font-weight:normal;font-size:30px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.75"
+   x="497.19516"
+   y="592.94873"
+   id="text767"><tspan
+     sodipodi:role="line"
+     id="tspan765"
+     x="497.19516"
+     y="592.94873"
+     style="stroke-width:0.75" /></text></g>
+		<text
+   id="text744-7"
+   v:langID="1033"
+   class="st4"
+   y="582.06738"
+   x="491.58902"
+   style="font-size:11px;font-family:'Segoe UI';fill:#000000;stroke-width:0.999997"><tspan
+     y="582.06738"
+     x="491.58902"
+     id="tspan763-9"
+     sodipodi:role="line"
+     style="font-size:11px;stroke-width:0.999997">Analyse with</tspan><tspan
+     y="595.81738"
+     x="491.58902"
+     sodipodi:role="line"
+     style="font-size:11px;stroke-width:0.999997"
+     id="tspan792">Azure Synapse, Databricks, </tspan><tspan
+     y="609.56738"
+     x="491.58902"
+     sodipodi:role="line"
+     style="font-size:11px;stroke-width:0.999997"
+     id="tspan794">Azure Analytics Services.</tspan></text></g>
+	</g>
+</svg>

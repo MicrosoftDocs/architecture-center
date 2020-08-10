@@ -56,9 +56,9 @@ This article describes a Connected Platform solution to help provide COVID-19 de
 
 ## Next steps
 
-- For more information, please contact [iotcovid@microsoft.com](mailto:iotcovid@microsoft.com), and see [Connected Platform for Detection and Prevention](https://www.insight.com/en_US/what-we-do/digital-innovation/solutions/connected-platform-for-detection-and-prevention.html).
+- For more information, please contact [iotcovidsupport@microsoft.com](mailto:iotcovidsupport@microsoft.com), and see [Connected Platform for Detection and Prevention](https://www.insight.com/en_US/what-we-do/digital-innovation/solutions/connected-platform-for-detection-and-prevention.html).
 - For more information about the Insight Connected Platform, see [Connected Platform](https://www.insight.com/en_US/what-we-do/digital-innovation/connected-platform.html).
 
 ## Related resources
 - [Anomaly detection in Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection)
-- [Microservices architecture on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/aks)
+- [Microservices architecture on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)

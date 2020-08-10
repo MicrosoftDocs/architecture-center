@@ -226,6 +226,7 @@ with open(path.join(root, "popularity.csv"), newline='') as csvfile:
     for line in reader:
         popularity.append(dict(line))
 
+bad_articles = []
 for file in all_architectures_list:
     article = {}
     pricing = False
@@ -295,8 +296,13 @@ for file in all_architectures_list:
         article['MetaDescription'] = article_meta['description']
 
     logging.debug("Getting categories")
-    if article_meta['ms.category']:
-        article['category'] = article_meta['ms.category']
+    try:
+        if article_meta['ms.category']:
+            article['category'] = article_meta['ms.category']
+    except:
+        print("Unable to get category for "+ str_path)
+        bad_articles.append(str_path)
+        continue
 
     logging.debug("Finding images")
     # Find the first image in the article
@@ -546,3 +552,7 @@ output_file.close()
 # output_file = open(path.join(root_dir, "data", "dev-langs.json"), "wb")
 # output_file.write(json.dumps(sorted(all_langs), indent=4).encode('utf-8'))
 # output_file.close()
+
+if bad_articles:
+    print("\n\nUpdate ms.category for: \n")
+    print("\n".join(bad_articles))

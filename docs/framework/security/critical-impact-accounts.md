@@ -1,6 +1,6 @@
 ---
 title: Administration in Azure | Microsoft Docs
-description: Secure administrator accounts in Azure.
+description: Learn about best practices for security of administrator accounts in Azure. Administration introduces some of the highest impact security risks.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
 ms.topic: article

@@ -1,7 +1,7 @@
 ---
 title: Run a Windows VM on Azure
 titleSuffix: Azure Reference Architectures
-description: Best practices for running a Windows virtual machine on Azure.
+description: Learn the best practices for running a Windows virtual machine on Azure, which requires some additional components, including networking and storage resources.
 author: telmosampaio
 ms.date: 12/13/2018
 ms.topic: reference-architecture
@@ -114,7 +114,7 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 ## DevOps considerations
 
-Use infrastructure as Code (IaC) either by using a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources (declarative approach) or by using a single Powershell script (imperative approach). Since all the resources are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables the DevOps Team and Services to perform continuous integration and continuous delivery (CI/CD).
+Use infrastructure as Code (IaC) either by using a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources (declarative approach) or by using a single PowerShell script (imperative approach). Since all the resources are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables the DevOps Team and Services to perform continuous integration and continuous delivery (CI/CD).
 
 Also, you can use different [Azure Resource Manager templates][arm-template] and integrate them with [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
 
@@ -134,9 +134,9 @@ For more information, see the Operational Excellence section in [Azure Well-Arch
 
 <!-- links -->
 
-[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
-[Azure Architecture Framework]: /azure/architecture/framework/cost/overview
+[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/cost/overview
 [azure-monitor]: https://azure.microsoft.com/services/monitor/
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-storage]: https://docs.microsoft.com/azure/storage/common/storage-introduction
@@ -144,34 +144,34 @@ For more information, see the Operational Excellence section in [Azure Well-Arch
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator
-[data-disk]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds
+[data-disk]: https://docs.microsoft.com/azure/virtual-machines/windows/disks-types
 [disk-encryption]: https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss
 [enable-monitoring]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
-[fqdn]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-portal-create-fqdn
+[fqdn]: https://docs.microsoft.com/azure/virtual-machines/windows/portal-create-fqdn
 [group-policy]: https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates
-[manage-vm-availability]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability
+[manage-vm-availability]: https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability
 [managed-disks]: https://docs.microsoft.com/azure/storage/storage-managed-disks-overview
 [naming-conventions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
 [nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
 [nsg-default-rules]: https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules
-[planned-maintenance]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance
+[planned-maintenance]: https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates
 [premium-storage]: https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage
 [rbac]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
 [rbac-roles]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles
 [rbac-devtest]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#devtest-labs-user
 [rbac-network]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#network-contributor
 [reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs
-[resize-os-disk]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-expand-os-disk
+[resize-os-disk]: https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk
 [resource-lock]: https://docs.microsoft.com/azure/resource-group-lock-resources
 [resource-manager-overview]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
 [security-center]: https://docs.microsoft.com/azure/security-center/security-center-intro
 [security-center-get-started]: https://docs.microsoft.com/azure/security-center/security-center-get-started
-[select-vm-image]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-cli-ps-findimage
+[select-vm-image]: https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage
 [services-by-region]: https://azure.microsoft.com/regions/#services
 [static-ip]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-reserved-public-ip
-[virtual-machine-sizes]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes
-[vm-size-tables]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes
+[virtual-machine-sizes]: https://docs.microsoft.com/azure/virtual-machines/sizes
+[vm-size-tables]: https://docs.microsoft.com/azure/virtual-machines/sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [windows-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
-[AAF-cost]: /azure/architecture/framework/cost/overview
-[AAF-devops]: /azure/architecture/framework/devops/overview
+[WAF-cost]: https://docs.microsoft.com/azure/architecture/framework/cost/overview
+[WAF-devops]: https://docs.microsoft.com/azure/architecture/framework/devops/overview

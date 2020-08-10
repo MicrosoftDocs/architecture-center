@@ -1,7 +1,7 @@
 ---
 title: Federate with a customer's AD FS
-description: How to federate with a customer's AD FS in a multitenant application.
-author: MikeWasson
+description: Learn how a multitenant SaaS application can support authentication by using Active Directory Federation Services, in order to federate with a customer AD FS.
+author: doodlemania2
 ms.date: 07/21/2017
 ms.topic: guide
 ms.service: architecture-center

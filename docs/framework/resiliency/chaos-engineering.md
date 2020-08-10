@@ -28,9 +28,7 @@ Chaos engineering is aimed at increasing your service’s resiliency and the abi
 - Instill guardrails and graceful mitigations
 - Minimize blast radius
 - Build immunity​
-- Adjust the engineering process
-​
-Chaos engineering should be a part of the development team culture and an ongoing practice, not a short-term tactical effort in response to an outage.
+- Chaos engineering should be a part of the development team culture and an ongoing practice, not a short-term tactical effort in response to an outage.
 
 Development team are partners in the process. They must have resources to triage issues, implement testability required for fault injection, and drive the necessary product changes.
 
@@ -44,7 +42,6 @@ Ideally chaos should be applied all the time.  There is constant change in the e
 
 ## Process
 Chaos engineering requires specialized expertise, technology, and practices. Similar to security and performance teams, the model of a central team supporting the service teams is a common effective approach.
-Here is one way of organizing teams that are practicing simulated handling of potentially catastrophic scenarios under controlled conditions.
 
 Here is one way of organizing teams that are practicing simulated handling of potentially catastrophic scenarios under controlled conditions.
 
@@ -142,6 +139,11 @@ Faults that can be leveraged to inject chaos.
 |  | Data loss |  |
 |  | Move primary node |  |
 |  | Remove replica |  |
+| **Functions** | Latency |  |
+|  | Exceptions |  |
+|  | Status codes |  |
+|  | Intercept / Denylist calls |  |
+|  | Disk capacity |  |
 | **Application specific** | Intercept / Re-route calls | *No access to service code* |
 | **Hardware** | Machine | *Storage* |
 |  | Network devices |  |
@@ -152,4 +154,3 @@ Faults that can be leveraged to inject chaos.
 
 > [!NOTE]
 > This is not intended to be an exhaustive list, but a representation of commonly injected faults.  
-

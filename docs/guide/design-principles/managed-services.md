@@ -2,7 +2,7 @@
 title: Use platform as a service (PaaS) options
 titleSuffix: Azure Application Architecture Guide
 description: When possible, choose platform as a service (PaaS) over infrastructure as a service (IaaS).
-author: MikeWasson
+author: doodlemania2
 ms.date: 08/30/2018
 ms.topic: guide
 ms.service: architecture-center

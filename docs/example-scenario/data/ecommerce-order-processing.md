@@ -1,7 +1,7 @@
 ---
 title: Scalable order processing
 titleSuffix: Azure Example Scenarios
-description: Build a highly scalable order processing pipeline using Azure Cosmos DB.
+description: This example demonstrates a highly scalable, resilient architecture for online order processing, using managed Azure services such as Cosmos DB and HDInsight.
 author: alexbuckgit
 ms.date: 07/10/2018
 ms.category:
@@ -119,6 +119,6 @@ Other related resources include:
 [docs-cosmos-db-use-cases]: https://docs.microsoft.com/azure/cosmos-db/use-cases
 [docs-kafka-high-availability]: https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-high-availability
 [availability]: ../../framework/resiliency/overview.md
-[scalability]: ../../checklist/performance-efficiency.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [resiliency]: ../../patterns/category/resiliency.md
 [security]: https://docs.microsoft.com/azure/security

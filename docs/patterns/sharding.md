@@ -1,7 +1,7 @@
 ---
 title: Sharding pattern
 titleSuffix: Cloud Design Patterns
-description: Divide a data store into a set of horizontal partitions or shards.
+description: Use the Sharding design pattern to divide a data store into a set of horizontal partitions or shards. 
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
@@ -144,7 +144,7 @@ Consider the following points when deciding how to implement this pattern:
 Use this pattern when a data store is likely to need to scale beyond the resources available to a single storage node, or to improve performance by reducing contention in a data store.
 
 > [!NOTE]
-The primary focus of sharding is to improve the performance and scalability of a system, but as a by-product it can also improve availability due to how the data is divided into separate partitions. A failure in one partition doesn't necessarily prevent an application from accessing data held in other partitions, and an operator can perform maintenance or recovery of one or more partitions without making the entire data for an application inaccessible. For more information, see the [Data Partitioning Guidance](https://msdn.microsoft.com/library/dn589795.aspx).
+> The primary focus of sharding is to improve the performance and scalability of a system, but as a by-product it can also improve availability due to how the data is divided into separate partitions. A failure in one partition doesn't necessarily prevent an application from accessing data held in other partitions, and an operator can perform maintenance or recovery of one or more partitions without making the entire data for an application inaccessible. For more information, see the [Data Partitioning Guidance](https://msdn.microsoft.com/library/dn589795.aspx).
 
 ## Example
 
@@ -181,7 +181,7 @@ var results = new ConcurrentBag<string>();
 
 // Execute the query against each shard in the shard list.
 // This list would typically be retrieved from configuration
-// or from a root/master shard store.
+// or from a root/primary shard store.
 Parallel.ForEach(shards, shard =>
 {
   // NOTE: Transient fault handling isn't included,

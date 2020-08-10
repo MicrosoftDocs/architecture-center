@@ -1,6 +1,6 @@
 ---
 title: Image classification on Azure
-description: Build image processing into your Azure applications.
+description: Learn how to build image processing into your applications by using Azure services such as the Computer Vision API and Azure Functions.
 author: david-stanford
 ms.date: 07/05/2018
 ms.category:
@@ -101,6 +101,6 @@ Before deploying this example scenario in a production environment, review recom
 [cv-categories]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy
 [resiliency]: ../../framework/resiliency/overview.md
 [security]: https://docs.microsoft.com/azure/security
-[scalability]: ../../checklist/performance-efficiency.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [functions-best-practices]: https://docs.microsoft.com/azure/azure-functions/functions-best-practices
 [msi]: https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity
