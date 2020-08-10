@@ -21,7 +21,7 @@ ms.custom:
 
 **What are the cost implications to consider for choosing a hosting model?**
 
-If your application can be broken down into short pieces of code, a FaaS hosting model might be the best choice. You’re charged only for the time it takes to execute your code. For example, [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) is a FaaS service that processes events with serverless code. Azure Functions allows you to run short pieces of code (called functions) without worrying about application infrastructure. Use one of the three Azure Functions pricing plans to fit your need. To learn more about the pricing plans, see [How much does Functions cost?](https://docs.microsoft.com/azure/azure-functions/functions-overview#pricing).
+If your application can be broken down into short pieces of code, a FaaS hosting model might be the best choice. You’re charged only for the time it takes to execute your code. For example, [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) is a FaaS service that processes events with serverless code. Azure Functions allows you to run short pieces of code (called functions) without worrying about application infrastructure. Use one of the three Azure Functions pricing plans to fit your need. To learn more about the pricing plans, see [How much does Functions cost?](https://docs.microsoft.com/azure/azure-functions/functions-overview#pricing)
 
 If you want to deploy a larger or more complex application, PaaS may be the better choice. With PaaS, your application is always running, as opposed to FaaS, where your code is executed only when needed. Since more resources are used with PaaS, the price increases.
 
@@ -81,20 +81,17 @@ In this example, Service Fabric may be a better choice than AKS. The biggest dif
 
 Use the Pricing Calculator to create your total cost estimate. After you run your initial scenario, you may find that your plan is beyond the scope of your budget. You can adjust the overall cost and create various cost scenarios to make sure your needs are met before you commit to purchasing.
 
-[!NOTE]
-The costs in this example are based on the current price and are subject to change. The calculation is for information purposes only. It shows the Collapsed view of the cost in this estimate.
+> [!NOTE]
+> The costs in this example are based on the current price and are subject to change. The calculation is for information purposes only. It shows the Collapsed view of the cost in this estimate.
 
 ![Azure Pricing Calculator - Collapsed view](../_images/pricing-calc-collapsed.png)
 
-[!TIP]
-You can start building your cost estimate at any time and re-visit it later. The changes will be saved until you modify or delete your estimate.
+> [!TIP]
+> You can start building your cost estimate at any time and re-visit it later. The changes will be saved until you modify or delete your estimate.
 
 ## Next steps
 
 [Provisioning cloud resources to optimize cost](https://docs.microsoft.com/azure/architecture/framework/cost/provision-checklist)
-
 [Virtual Machines documentation](https://docs.microsoft.com/azure/virtual-machines/)
-
 [VM payment options](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#a-series)
-
 [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
