@@ -228,7 +228,7 @@ You may wish to review the following [Azure example scenario](/azure/architectur
 [ad-sp]: https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications
 [app-service]: https://plugins.jenkins.io/azure-app-service
 [azure-ad]: https://docs.microsoft.com/azure/active-directory
-[azure-market]: https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview
+[azure-market]: https://docs.microsoft.com/en-us/azure/developer/jenkins/deploy-to-azure-app-service-using-plugin
 [best-practices]: https://jenkins.io/doc/book/architecting-for-scale
 [blob]: https://docs.microsoft.com/azure/storage/common/storage-java-jenkins-continuous-integration-solution
 [configure-azure-ad]: https://plugins.jenkins.io/azure-ad
