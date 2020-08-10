@@ -3,7 +3,7 @@ title: Builders, developers, and operators
 titleSuffix: Azure Example Scenarios
 description: Learn about the device builder, application developer, and solution operator roles and how they interact in an IoT solution.
 author: wamachine
-ms.date: 08/03/2020
+ms.date: 08/10/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -12,7 +12,7 @@ ms.custom: fcp
 
 # Builders, developers, and operators
 
-*Device builders*, *application developers*, and *solution operators* are the typical roles surrounding the ongoing development, monitoring, and maintenance of an internet-of-things (IoT) solution throughout its lifecycle.
+*Device builders*, *application developers*, and *solution operators* are the typical roles surrounding the ongoing development, monitoring, and maintenance of an internet-of-things (IoT) solution throughout its lifecycle. This article provides an overview of these three roles.
 
 Device builders create the device hardware and software that interact with applications. Application developers develop the software that makes up IoT applications. Solution operators run and monitor the IoT solutions.
 
@@ -43,7 +43,7 @@ Just as device builders provide updates to devices in the field, application dev
 ![A diagram showing activities of a solution developer and relationships with other roles in developing an IoT solution.](media/solution-developer.png)
 
 IoT applications should have:
-- Upgrade mechanisms that minimize customer impact to key scenarios
+- Upgrade mechanisms that minimize customer impact to key scenarios.
 - Built-in live monitoring and insights that include issue detection and diagnosis, alerting, and remediation.
 - The ability to absorb future scale and traffic demands as device and user populations grow.
 
@@ -65,5 +65,5 @@ An IoT solution operator workflow should:
 ## Related resources
 
 - [Overview of device management with IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-device-management-overview)
-- [Streamlined IoT device certification with Azure IoT](https://azure.microsoft.com/blog/streamlined-iot-device-certification-with-azure-iot-certification-service/)
+- [Streamlined IoT device certification with Azure IoT certification service](https://azure.microsoft.com/blog/streamlined-iot-device-certification-with-azure-iot-certification-service/)
 - [Azure DevOps integration](https://azure.microsoft.com/product-categories/devops/)

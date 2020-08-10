@@ -3,7 +3,7 @@ title: IoT analyze and optimize loops
 titleSuffix: Azure Example Scenarios
 description: Learn about analyze and optimize loops, an IoT pattern for generating and applying optimization insights based on the entire business context.
 author: mcosner
-ms.date: 08/04/2020
+ms.date: 08/10/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -12,9 +12,9 @@ ms.custom: fcp
 
 # Analyze and optimize loops
 
-The Internet-of-Things (IoT) *analyze and optimize loop (AOL)* enables generation and application of business optimization insights to one or more [Cyber Physical System (CPS)](https://en.wikipedia.org/wiki/Cyber-physical_system) deployments, based on the entire enterprise business context.
+The Internet-of-Things (IoT) *analyze and optimize loop (AOL)* enables the generation and application of business optimization insights to one or more [Cyber Physical System (CPS)](https://en.wikipedia.org/wiki/Cyber-physical_system) deployments, based on the entire enterprise business context. The AOL sources telemetry, typically from [monitor and manage loop (MML)](monitor-and-manage-loop.md) processes, refines it, and combines it with enterprise data sources to generate insights.
 
-The AOL sources telemetry, typically from MML processes, refines it, and combines it with enterprise data sources to generate insights.
+This article provides an overview of AOL process loop architecture, characteristics, and components.
 
 ## Use cases
 
@@ -33,7 +33,7 @@ The following diagram shows the schematic of a typical AOL and its relationships
 
 ![Diagram showing an analyze and optimize loop in context with measure and control and monitor and manage loops.](./media/analyze-optimize-loop.png)
 
-In an AOL, data from various IoT, enterprise, private, and public sources flows into cloud data lakes. Offline analytics consume the data lakes to discover hidden trends and business optimization insights. The optimization insights from the offline analytics processes flow back to IoT installations through [monitor and manage loops (MMLs)](monitor-and-manage-loop.md) and [measure and control loops (MCLs)](measure-and-control-loop.md).
+In an AOL, data from various IoT, enterprise, private, and public sources flows into cloud data lakes. Offline analytics consume the data lakes to discover hidden trends and business optimization insights. The optimization insights from the offline analytics processes flow back to IoT installations through [MMLs](monitor-and-manage-loop.md) and [measure and control loops (MCLs)](measure-and-control-loop.md).
 
 ## Characteristics
 

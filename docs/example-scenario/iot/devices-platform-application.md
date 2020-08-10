@@ -3,7 +3,7 @@ title: IoT solution architecture
 titleSuffix: Azure Example Scenarios
 description: Understand the topological relationship between IoT devices, platform, and applications. Learn about Iot gateways, communications protocols, and provisioning.
 author: wamachine
-ms.date: 08/05/2020
+ms.date: 08/10/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -16,9 +16,11 @@ Topologically, Azure Internet-of-Things (IoT) solutions are a collection of ass
 
 ![A diagram showing the relationship between devices, the IoT platform, and an application.](media/devices-platform-application.png)
 
+This article describes IoT device, platform, and application characteristics. The article also discusses IoT edge gateways, and IoT platform attestation, authentication, protocols, and provisioning.
+
 ## IoT devices, platform, and applications
 
-*IoT devices* are the physical or virtual things that send events to and receive commands from IoT applications. The terms *thing* and *device* both mean a connected physical device in an IoT solution.
+*IoT devices* are the physical or virtual things that send events to and receive commands from IoT applications. The terms *thing* and *device* both mean a connected device in an IoT solution.
 
 An IoT device has one or more of the following characteristics:
 - Possesses a unique *identity* that distinguishes it within the solution.

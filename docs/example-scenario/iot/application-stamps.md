@@ -3,7 +3,7 @@ title: Scale IoT solutions with application stamps
 titleSuffix: Azure Example Scenarios
 description: Learn about scaling up IoT device populations with application stamps, and strategies for moving devices and applications between stamps.
 author: wamachine
-ms.date: 08/05/2020
+ms.date: 08/10/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -14,11 +14,13 @@ ms.custom: fcp
 
 The *application stamping* strategy in an Internet-of-Things (IoT) solution supports scaling up the numbers of connected IoT devices by replicating *stamps*. Stamps are discrete units of core solution components that optimally support a defined number of devices.
 
-![A diagram describing an application stamping strategy for use in Azure IoT](media/application-stamping.png)
+This article describes application stamping benefits and considerations, and how to move devices and applications between stamps.
 
-The application stamping strategy is to build atomic stamps that consist of an [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub), routing endpoints like [Azure Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-about), and processing components. The stamps optimally support a defined device population, from 1 thousand to 1 million devices. As incoming device population grows, added stamp instances accommodate the growth, rather than independently scaling up different parts of the solution.
+![A diagram showing an application stamping strategy for use in Azure IoT](media/application-stamping.png)
 
-Always design stamps to support explicit capacities. To determine the right-sized population, consider how much communication traffic to expect from targeted device populations.
+The application stamping strategy is to build atomic stamps that consist of an [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub), routing endpoints like [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-about), and processing components. The stamps optimally support a defined device population, from 1 thousand to 1 million devices. As the incoming device population grows, stamp instances are added to accommodate the growth, rather than independently scaling up different parts of the solution.
+
+Stamps should always be designed to support explicit capacities. To determine the right-sized population, consider how much communication traffic to expect from targeted device populations.
 
 ## Application stamping benefits
 
@@ -72,7 +74,7 @@ This fully self-contained strategy is:
 
 Where solutions consist of a single application front-end and multiple stamps, the application front-end will need to be aware of multiple IoT Hubs, and be able to dynamically update its device-to-hub mapping to maintain cloud-to-device communication.
 
-To gracefully manage devices moving to different stamps and IoT Hubs, gateways can use a caching mechanism of device-to-hub mapping. If lookup exists as part of a set of shared components, service clients can dynamically detect and migrate device calls to new IoT Hubs.
+To gracefully manage devices moving to different stamps and IoT Hubs, gateways can use a caching mechanism of device-to-hub mapping. If a lookup routine exists as part of a set of shared components, service clients can dynamically detect and migrate device calls to new IoT Hubs.
 
 ![A diagram demonstrating how devices can move from one hub to another using an app gateway.](media/moving-devices-behind-gateway.png)
 

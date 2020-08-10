@@ -3,7 +3,7 @@ title: Use IoT process loops for energy monitoring and management
 titleSuffix: Azure Example Scenarios
 description: See how a global integrated energy company can use real-time data and IoT process loops to design a monitoring and management solution.
 author: mcosner
-ms.date: 08/05/2020
+ms.date: 08/10/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -13,6 +13,8 @@ ms.custom: fcp
 # Energy monitoring and optimization solution
 
 Contoso, a global integrated energy company, has capabilities across the energy and utilities value chain. Contoso owns assets like solar arrays, wind farms, and energy storage.
+
+This article describes how Contoso can use Internet-of-Things (IoT) process loops to design an energy monitoring, management, and optimization solution.
 
 ## Problem
 
@@ -28,17 +30,17 @@ Contoso also wants to enable real-time monitoring and control of their integrate
 
 ## Solution
 
-Contoso wants to apply an Internet of Things (IoT) solution to provides real-time visibility of the power each wind turbine produces on a given day. The solution should determine how much to adjust power generators for demand-supply balance in the grid.
+Contoso wants to apply an IoT solution to provide real-time visibility of the power each wind turbine produces on a given day. The solution should determine how much to adjust power generators for demand-supply balance in the grid.
 
-The following use cases are examples of applying Internet of Things (IoT) process loop patterns to this real-world scenario:
+The following use cases are examples of applying IoT process loop patterns to this real-world scenario:
 
 Use case|IoT solution|Pattern|
 ---|---|---|
-Measure wind turbine vibrations to ensure optimal performance.|Accelerometers send data at set intervals to an application that trigger alerts when data exceeds set thresholds.|[Measure and control loop](measure-and-control-loop.md)|
+Measure wind turbine vibrations to ensure optimal performance.|Accelerometers send data at set intervals to an application that triggers alerts when data exceeds set thresholds.|[Measure and control loop](measure-and-control-loop.md)|
 Measure wind turbine blade angle to achieve optimum generation.|High Performance Liquid Chromatography (HPLC) sends pitch, yaw, and wind speed data at set intervals to an application, which controls blade angles to achieve optimal generation.|[Measure and control loop](measure-and-control-loop.md)|
 Compare conditions like amount of energy generated, speed, RPM, and direction for different wind turbines in the same area.|The application overlays all real-time wind turbine data with historical data for operation analysis and anomaly detection and reporting.|[Monitor and manage loop](monitor-and-manage-loop.md)|
 Optimize energy storage based on battery conditions and demand and supply forecasting.|An application optimizes storage based on remaining useful life (RUL) and projected energy demand and supply.|[Monitor and manage loop](monitor-and-manage-loop.md)|
-Optimize power production.|An application optimizes different power generation plants based on energy market prices, demand and supply forecast. and energy storage.|[Analyze and optimize loop](analyze-and-optimize-loop.md)|
+Optimize power production.|An application optimizes different power generation plants based on energy market prices, demand and supply forecast, and energy storage.|[Analyze and optimize loop](analyze-and-optimize-loop.md)|
 
 ## Considerations
 

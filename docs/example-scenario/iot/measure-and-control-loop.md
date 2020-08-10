@@ -3,18 +3,20 @@ title: IoT measure and control loops
 titleSuffix: Azure Example Scenarios
 description: Learn about measure and control loops, an IoT process pattern to keep IoT devices within tolerable ranges.
 author: mcosner
-ms.date: 08/05/2020
+ms.date: 08/10/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: fcp
 ---
 
-# Measure and control loop
+# Measure and control loops
 
 An Internet-of-Things *measure and control loop (MCL)* keeps an IoT device within the tolerable range of setpoint configuration, through a real-time closed-loop control process. The device may be part of a larger [Cyber Physical System (CPS)](https://en.wikipedia.org/wiki/Cyber-physical_system) that contains one or more networked devices.
 
 An IoT device that is prone to disturbances from external events requires a closed-loop control process to keep it near its desired setpoint configuration. The MCL loop *control logic* observes the device through *sensor* metrics and takes corrective measures through *actuator* actions.
+
+This article provides an overview of MCL process loop architecture, characteristics, and components.
 
 ## Use cases
 
@@ -44,7 +46,7 @@ An MCL has the following characteristics:
 - Doesn't depend on any external systems, to ensure low cycle time and operational autonomy.
 - May emit telemetry to be used by supervisory systems.
 - For sensor metrics and actuator commands, uses field bus protocols like Modbus, RS485, EtherCAT, and SERCOS.
-- May integrate with supervisory systems like MMLs through IoT protocols like HTTP, MQTT, and AMQP.
+- May integrate with supervisory systems like MMLs through IoT Hub protocols like HTTP, MQTT, and AMQP.
 
 ## Components
 

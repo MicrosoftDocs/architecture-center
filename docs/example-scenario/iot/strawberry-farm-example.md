@@ -14,6 +14,8 @@ ms.custom: fcp
 
 Tailwind is a farm that grows strawberries in greenhouses. Tailwind currently has five greenhouses and wants to expand in the future.
 
+This article describes how Tailwind can use Internet-of-Things (IoT) process loops to design a real-time greenhouse monitoring and management solution.
+
 ## Problem
 
 Many factors affect strawberry growth. Some key parameters are:
@@ -34,7 +36,7 @@ Tailwind also wants to better understand how their farming methods impact produc
 
 ## Solution
 
-Tailwind wants an Internet of Things (IoT) solution to help them collect and measure real-time data across their farm, which will help them achieve more consistent agricultural output. The solution should include collecting data like temperature, getting insights from the data like temperature too hot or cold, and taking effective actions like adjusting thermostats.
+Tailwind wants an IoT solution to help them collect and measure real-time data across their farm, which will help them achieve more consistent agricultural output. The solution should include collecting data like temperature, getting insights from the data like temperature too hot or cold, and taking effective actions like adjusting thermostats.
 
 The following use cases are examples of applying IoT process loop patterns to this real-world scenario:
 

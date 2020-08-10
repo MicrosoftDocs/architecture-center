@@ -3,7 +3,7 @@ title: IoT monitor and manage loops
 titleSuffix: Azure Example Scenarios
 description: Learn about monitor and manage loops, an IoT process pattern that continually monitors networked devices and ensures they remain within tolerance.
 author: mcosner
-ms.date: 08/04/2020
+ms.date: 08/10/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -13,6 +13,8 @@ ms.custom: fcp
 # Monitor and manage loops
 
 An Internet-of-Things (IoT) *monitor and manage loop (MML)* is a supervisory system that continually monitors a [Cyber Physical System (CPS)](https://en.wikipedia.org/wiki/Cyber-physical_system) of networked IoT devices. The MML makes sure the CPS is within the tolerable range of the desired state setpoint, and issues commands to control the system.
+
+This article provides an overview of MML process loop architecture, characteristics, and components.
 
 ## Use cases
 
@@ -39,7 +41,7 @@ MMLs have the following characteristics:
 
 - May be remote or close to the physical IoT devices. Premises that are remote by nature, like oil and gas pipelines, power transformers, smart doorbells, hazardous environments, and asset trackers can't accommodate MML loop infrastructure. For these environments, MML operates from remote facilities like public or private clouds. In process industries, like oil refining and chemical manufacturing, MMLs might be deployed closer to the devices. Discrete manufacturing might also deploy MML locally, as network downtimes can be costly.
 - Depend on device-based [measure and control loops (MCLs)](measure-and-control-loop.md) for core monitoring and management processes.
-- Might integrate with other enterprise systems like ERP, CRM, PLM, and support systems to contextualize operations, but don't depend on those systems to work.
+- Might integrate with other enterprise systems like enterprise resource planning (ERP), customer relationship management (CRM), product lifecycle management (PLM), and support systems to contextualize operations. The MMLs don't depend on those systems to work.
 - Consume sensor telemetry streams and contribute to last known device state, hot time series cache, warm time series history, and aggregate rollups.
 - Produce supervisory commands back to devices for conditions that need to be corrected.
 - Compute dependent device states and provide event feeds for external systems.

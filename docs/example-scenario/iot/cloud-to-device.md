@@ -3,7 +3,7 @@ title: IoT application-to-device commands
 titleSuffix: Azure Example Scenarios
 description: Learn about how applications can use cloud-to-device messaging or direct methods to send commands to IoT devices.
 author: wamachine
-ms.date: 08/03/2020
+ms.date: 08/10/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -18,6 +18,8 @@ Applications use two primary mechanisms to send commands to IoT devices, *cloud-
 
 - Applications invoke [direct methods](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods) directly on connected devices, using a request-response pattern over dedicated IoT device endpoints.
 
+This article discusses characteristics of cloud-to-device messaging and direct methods. The article also describes how to use direct methods with protocol gateways and connected standby devices.
+
 ## Cloud-to-device messaging
 
 Applications send cloud-to-device command messages for specific devices to [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/), which stores the messages in device-specific queues. IoT Hub delivers the messages to the device-specific queues regardless of whether the devices are connected.
@@ -26,7 +28,7 @@ Applications send cloud-to-device command messages for specific devices to [Azur
 
 The following considerations apply when using cloud-to-device messaging:
 
-- Message queues effectively acts as mailboxes for devices, and devices are responsible for polling their message queues for new messages when they're connected.
+- Message queues effectively act as mailboxes for devices, and devices are responsible for polling their message queues for new messages when they're connected.
 - Devices receive messages in a first-in, first-out fashion, making cloud-to-device messaging ideal for sequentially reading and acting on messages.
 - Messages have a configurable expiration, so unread messages can eventually be removed from the device's message queue.
 - For stateful communication, applications can use a [feedback receiver](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-c2d#receive-delivery-feedback) to monitor message delivery and acknowledgment. The application can use a single feedback receiver to monitor all message queues for all devices.
@@ -62,9 +64,9 @@ IoT command scenarios may involve *connected standby devices* that are in a low-
 
 ![A diagram illustrating how SMS messages or commands sent through the Azure IoT APIs can wake up a device and connect it to IoT Hub to receive commands.](media/connected-standby-devices.png)
 
-1. The application sends commands to devices using the [service client SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.serviceclient) APIs. One instance of service client can send messages and invoke methods for multiple devices. 
+1. The application sends commands to devices using the [ServiceClient API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.serviceclient). One instance of **ServiceClient** can send messages and invoke methods for multiple devices. 
 1. The application also sends SMS wakeup calls to standby devices via the mobile provider's SMS gateway.
-1. On wakeup, standby devices use the [device client SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient) APIs to connect to IoT Hub and receive commands. One instance of device client represents a single device connected to IoT Hub.
+1. On wakeup, standby devices use the [DeviceClient API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient) to connect to IoT Hub and receive commands. One instance of **DeviceClient** represents a single device connected to IoT Hub.
 
 #### Use direct methods to determine device connection status
 

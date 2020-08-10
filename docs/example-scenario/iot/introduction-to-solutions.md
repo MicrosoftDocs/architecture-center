@@ -3,7 +3,7 @@ title: IoT solutions conceptual overview
 titleSuffix: Azure Example Scenarios
 description: Get an overview of the functional interactions between events, insights, and actions in Azure Internet of Things (IoT) solutions.
 author: wamachine
-ms.date: 08/01/2020
+ms.date: 08/10/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -14,12 +14,7 @@ ms.custom: fcp
 
 Connected sensors, devices, and intelligent operations can transform businesses and enable new growth opportunities with [Azure Internet of Things (IoT)](https://azure.microsoft.com/overview/iot/) solutions. This content complements existing [Azure IoT documentation](https://docs.microsoft.com/azure/iot-fundamentals) with concepts and patterns to consider when designing and developing IoT solutions.
 
-Azure *IoT solutions* involve:
-- *Events* that generate
-- *Insights* to inform
-- *Actions* that improve a business or process.
-
-IoT solutions use events, insights, and actions to connect devices, or things, to cloud applications and achieve end-to-end scenarios. The terms *thing* and *device* both mean a connected physical device in an IoT solution.
+Azure *IoT solutions* involve *events* that generate *insights* to inform *actions* that improve a business or process. IoT solutions use events, insights, and actions to connect devices, or things, to cloud applications and achieve end-to-end scenarios. The terms *thing* and *device* both mean a connected physical device in an IoT solution.
 
 ![A diagram showing devices generating events, which inform insights and actions.](media/devices-events-insights.png) 
 
@@ -56,7 +51,7 @@ Events represent *device-to-cloud* communication in an IoT solution, and may be 
 - Tightly coupled multi-step device and application transactions.
 
 **Telemetry** is recurring transmission of measurements or state sent at regular intervals from a device to the cloud. These types of events are typically used for remote sensor monitoring. Examples include:
-- Continual sensor data from devices to applications to interpret.
+- Continual sensor data from devices to applications for interpretation.
 - Monitored health and diagnostics data sent from devices.
 - Tracked assets regularly sending their location data.
 
@@ -66,7 +61,7 @@ Insights are interpretations of events. Insights may derive from events directly
 
 **Contextual insights** are context-sensitive interpretations of events to determine where they should be routed or what immediate actions application logic should execute. Examples are:
 - Determining where to route a message based on contextual data, such as message header content or the type of device.
-- Runtime decisions by event handling code that decide whether to take immediate action based on an event.
+- Runtime decisions by event handling code that decides whether to take immediate action based on an event.
 - Reconciling acknowledgments to complete a stateful transaction.
 
 **Real-time insights** are interpretations gathered and observed in real-time for monitoring and decision-making purposes. Examples are:
@@ -75,7 +70,7 @@ Insights are interpretations of events. Insights may derive from events directly
 - Combining events with other data sources for real-time transformation and output to display and analyze.
 
 **Aggregated insights** are interpretations made by gathering larger quantities of events over time, storing them, and executing batch processing on the aggregated data. Examples are:
-- Building training data from real events for machine learning and artificial intelligence (AI) insights to use in improving device and service algorithms.
+- Building training data from real events for machine learning and artificial intelligence (AI) to use in improving device and service algorithms.
 - Gathering and observing trends and characteristics over a long period of time for use in improving processes.
 - Building on-demand query capabilities around multiple data sources to use in business planning.
 
