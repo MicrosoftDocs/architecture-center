@@ -16,7 +16,7 @@ Topologically, Azure Internet-of-Things (IoT) solutions are a collection of ass
 
 ![A diagram showing the relationship between devices, the IoT platform, and an application.](media/devices-platform-application.png)
 
-This article describes IoT device, platform, and application characteristics. The article also discusses IoT edge gateways, and IoT platform attestation, authentication, protocols, and provisioning.
+This article describes IoT device, platform, and application characteristics. The article also discusses IoT Edge gateways, and IoT platform attestation, authentication, protocols, and provisioning.
 
 ## IoT devices, platform, and applications
 
@@ -41,7 +41,7 @@ The IoT platform at least:
 
 ## Field and cloud edge gateways
 
-IoT devices can connect to the IoT platform directly, or through *IoT edge gateways* that implement intelligent capabilities. Edge gateways enable functionality like:
+IoT devices can connect to the IoT platform directly, or through *IoT Edge gateways* that implement intelligent capabilities. Edge gateways enable functionality like:
 - Aggregating or filtering device events before they're sent to the IoT platform
 - Localized decision-making
 - [Protocol and identity translation](https://docs.microsoft.com/azure/iot-edge/iot-edge-as-gateway) on behalf of devices
