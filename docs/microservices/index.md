@@ -1,8 +1,8 @@
 ---
 title: Building microservices on Azure
-description: Designing, building, and operating microservices architectures on Azure
+description: Learn about microservices on Azure, an architectural style for applications that are resilient, highly scalable, and independently deployable.
 ms.date: 10/30/2019
-author: adamboeglin
+author: doodlemania2
 ms.topic: guide
 ms.service: architecture-center
 ms.category:

@@ -1,7 +1,7 @@
 ---
 title: Simple branded website
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Quickly build and launch digital campaigns that automatically scale based on customer demand.
 ms.custom: acom-architecture, web-app, web applications, easy deploy, content delivery, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/simple-branded-website/'

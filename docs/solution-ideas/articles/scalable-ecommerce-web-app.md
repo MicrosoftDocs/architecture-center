@@ -1,7 +1,7 @@
 ---
 title: Architect scalable e-commerce web app
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: The e-commerce website includes simple order processing workflows with the help of Azure services. Using Azure Functions and Web Apps, developers can focus on building personalized experiences and let Azure take care of the infrastructure.
 ms.custom: acom-architecture, ecommerce, scalability, web-app, architect scalable e-commerce web app, web apps, search for products, submits order, process order payment, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/scalable-ecommerce-web-app/'

@@ -2,7 +2,7 @@
 title: Use the best data store for the job
 titleSuffix: Azure Application Architecture Guide
 description: Pick the storage technology that is the best fit for your data and how it will be used.
-author: adamboeglin
+author: doodlemania2
 ms.date: 08/30/2018
 ms.topic: guide
 ms.service: architecture-center

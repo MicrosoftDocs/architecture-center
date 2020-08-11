@@ -1,7 +1,7 @@
 ---
 title: Customer Feedback and Analytics
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Knowledge mining can help customer support teams quickly find the right answer for a customer inquiry or assess customer sentiment at scale.
 ms.custom: acom-architecture

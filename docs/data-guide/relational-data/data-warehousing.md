@@ -1,7 +1,7 @@
 ---
 title: Data warehousing in Microsoft Azure
 description: Learn about data warehousing in Azure. A data warehouse is a repository of integrated data from disparate sources used for reporting and analysis of the data.
-author: adamboeglin
+author: doodlemania2
 ms.date: 11/20/2019
 ms.topic: guide
 ms.service: architecture-center
@@ -84,7 +84,7 @@ When deciding which SMP solution to use, see [A closer look at Azure SQL Databas
 
 Azure Synapse (formerly Azure SQL Data Warehouse) can also be used for small and medium datasets, where the workload is compute and memory intensive. Read more about Azure Synapse patterns and common scenarios:
 
-- [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://techcommunity.microsoft.com/t5/datacat/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/ba-p/305472)
+- [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://docs.microsoft.com/azure/architecture/data-guide/relational-data/data-warehousing#data-warehousing-in-azure)
 
 - [Azure SQL Data Warehouse loading patterns and strategies](https://blogs.msdn.microsoft.com/sqlcat/2017/05/17/azure-sql-data-warehouse-loading-patterns-and-strategies)
 
@@ -106,7 +106,7 @@ To narrow the choices, start by answering these questions:
 
 - Do you need to integrate data from several sources, beyond your OLTP data store? If so, consider options that easily integrate multiple data sources.
 
-- Do you have a multitenancy requirement? If so, Azure Synapse is not ideal for this requirement. For more information, see [Azure Synapse Patterns and Anti-Patterns](https://techcommunity.microsoft.com/t5/datacat/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/ba-p/305472).
+- Do you have a multitenancy requirement? If so, Azure Synapse is not ideal for this requirement. For more information, see [Azure Synapse Patterns and Anti-Patterns](https://docs.microsoft.com/azure/architecture/data-guide/relational-data/data-warehousing#data-warehousing-in-azure).
 
 - Do you prefer a relational data store? If so, choose an option with a relational data store, but also note that you can use a tool like PolyBase to query non-relational data stores if needed. If you decide to use PolyBase, however, run performance tests against your unstructured data sets for your workload.
 
