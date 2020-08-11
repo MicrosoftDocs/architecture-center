@@ -28,7 +28,7 @@ This example scenario demonstrates how as and end manufacturers you can connect 
 The data flows through the solution as follows:
 
 1. Industrial devices that can natively communicate OPC UA can directly connect to IoT Edge. IoT Edge is the compute power that sits on your on-premises network. It’s the runtime environment of the Industrial Modules (OPC Publisher, OPC Twin, and Discovery Module). Modules are containers that run Azure services, 3rd party services, or your own code. The OPC Publisher module connects to OPC UA servers and publishes OPC UA telemetry data to Azure IoT Hub. OPC Twin creates a digital twin of an OPC UA server in the cloud and provides OPC UA browse/read/write/method call capabilities via a cloud-based REST (Representational State Transfer) interface. The Discovery module provides discovery services on the edge, which include OPC UA server discovery.
-1. Industrial devices that can’t communicate through OPC UA need a 3rd party PLC adapter to connect to IoT Edge. Adapters are obtainable as modules in the Azure Marketplace.
+1. Industrial devices that can’t communicate through OPC UA need a 3rd party PLC adapter to connect to IoT Edge. Adapters are obtainable as modules in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/).
 1. The 3rd party PLC adapters enable a connectivity between the devices and IoT Edge.
 1. For analytical capabilities closer to where the data originates, there are modules like Machine Learning on Edge or Functions obtainable from the Azure Marketplace, allowing low latency and operation in disconnected state.
 1. Azure IoT Hub connects the devices virtually to the cloud for further data processing. It enables a security-enhanced bidirectional communication between IoT applications and devices.
@@ -56,4 +56,3 @@ Data is loaded from these different data sources using several Azure components:
 
 - For a detailed view of the Industrial Modules and Services, see the Azure Industrial IoT Platform [architecture](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture.md) and a detailed view of all the individual Microservices and Agent processes is shown [here](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture-details.md).
 - You can find more information on how to get started with the Azure Industrial IoT Platform in the [Industrial IoT GitHub repository](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture-details.md).
-- 
