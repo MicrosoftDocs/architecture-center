@@ -1,7 +1,7 @@
 ---
 title: Predict Length of Stay and Patient Flow
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Learn how to predict capacity and patient flow for your hospital or healthcare facility to enhance the quality of care and improve operational efficiency.
 ms.custom: acom-architecture, ai-ml, hospital length of stay, patient flow, length of stay, healthcare analytics, healthcare machine learning, 'https://azure.microsoft.com/solutions/architecture/predict-length-of-stay-and-patient-flow-with-healthcare-analytics/'

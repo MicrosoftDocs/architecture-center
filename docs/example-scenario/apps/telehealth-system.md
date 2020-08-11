@@ -1,7 +1,7 @@
 ---
 title: Building a telehealth system on Azure
 description: A healthcare system connecting users, devices, and providers built using Kubernetes and PostgreSQL 
-author: adamboeglin
+author: doodlemania2
 ms.author: jeanyd
 ms.date: 05/25/2019
 ms.category:

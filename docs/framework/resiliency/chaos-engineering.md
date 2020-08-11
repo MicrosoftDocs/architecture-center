@@ -42,7 +42,6 @@ Ideally chaos should be applied all the time.  There is constant change in the e
 
 ## Process
 Chaos engineering requires specialized expertise, technology, and practices. Similar to security and performance teams, the model of a central team supporting the service teams is a common effective approach.
-Here is one way of organizing teams that are practicing simulated handling of potentially catastrophic scenarios under controlled conditions.
 
 Here is one way of organizing teams that are practicing simulated handling of potentially catastrophic scenarios under controlled conditions.
 

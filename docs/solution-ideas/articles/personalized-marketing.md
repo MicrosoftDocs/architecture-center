@@ -1,7 +1,7 @@
 ---
 title: Personalized marketing solutions
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Find essential technology to market your products with personalized offers. Individualize your marketing for greater customer response using big-data insights.
 ms.custom: acom-architecture, personalized marketing, ai-ml, marketing personalization, targeted marketing, 'https://azure.microsoft.com/solutions/architecture/personalized-marketing/'

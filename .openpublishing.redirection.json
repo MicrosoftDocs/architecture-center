@@ -1979,6 +1979,11 @@
        "source_path": "docs/reference-architectures/microservices/aks.md",
        "redirect_url": "/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices",
        "redirect_document_id": true
+     },
+     {
+      "source_path": "docs/guide/technology-choices/data-store-comparison.md",
+      "redirect_url": "/azure/architecture/guide/technology-choices/data-store-overview",
+      "redirect_document_id": true
      }
   ]
 }

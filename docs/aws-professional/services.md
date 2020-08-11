@@ -5,7 +5,7 @@ description: Compare Azure cloud services to Amazon Web Services (AWS) for multi
 keywords: cloud services comparison, cloud services compared, multicloud, compare Azure AWS, compare Azure and AWS, compare AWS and Azure, IT capabilities
 author: doodlemania2
 ms.author: pnp
-ms.date: 04/08/2020
+ms.date: 08/11/2020
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -65,7 +65,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | [Redshift](https://aws.amazon.com/redshift/) | [Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) | Cloud-based Enterprise Data Warehouse (EDW) that uses Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. |
-| [Lake Formation](https://aws.amazon.com/lake-formation/) | [Data Share](https://azure.microsoft.com/services/data-share/) | A simple and safe service for sharing big. data|
+| [Lake Formation](https://aws.amazon.com/lake-formation/) | [Data Share](https://azure.microsoft.com/services/data-share/) | A simple and safe service for sharing big data|
 
 ### Data warehouse architectures
 

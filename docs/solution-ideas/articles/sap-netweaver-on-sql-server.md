@@ -1,7 +1,7 @@
 ---
 title: SAP NetWeaver on SQL Server
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: The NetWeaver on SQL Server application solution illustrates how a user request flows through an SAP landscape built on NetWeaver by utilizing Azure Virtual Machines to host SAP applications and a SQL Server database.
 ms.custom: acom-architecture, sap, SAP on Azure, Azure SQL Server, SAP NetWeaver, SQL Server, Azure Virtual Machine, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/sap-netweaver-on-sql-server/'

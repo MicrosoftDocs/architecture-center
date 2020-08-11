@@ -148,7 +148,7 @@ Similarly, the maximum DTU utilization of the log database only reaches about 70
 [Data-Access-Guide]: https://msdn.microsoft.com/library/dn271399.aspx
 [DataPartitioningGuidance]: ../../best-practices/data-partitioning.md
 [data-store-overview]: ../../guide/technology-choices/data-store-overview.md
-[data-store-comparison]: ../../guide/technology-choices/data-store-comparison.md
+[data-store-comparison]: ../../guide/technology-choices/data-store-considerations.md
 
 [MonolithicScenarioLoadTest]: _images/MonolithicScenarioLoadTest.jpg
 [MonolithicDatabaseUtilization]: _images/MonolithicDatabaseUtilization.jpg

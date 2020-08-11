@@ -2,7 +2,7 @@
 title: Performance tuning - Multiple backend services
 titleSuffix: Azure Architecture Center
 description: Using load testing to improve the performance of an application with multiple backend services
-author: adamboeglin
+author: doodlemania2
 ms.author: pnp
 ms.date: 08/27/2019
 ms.topic: article
