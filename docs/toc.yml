@@ -233,6 +233,8 @@ items:
         href: framework/cost/optimize-reserved.md
       - name: VM instances
         href: framework/cost/optimize-vm.md
+      - name: Caching 
+        href: framework/cost/optimize-cache.md
     - name: Tradeoffs
       href: framework/cost/tradeoffs.md
   - name: Operational Excellence
