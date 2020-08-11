@@ -72,7 +72,7 @@ Use [Active Geo-Replication][sql-replication] to create a readable secondary rep
 
 ### Cosmos DB
 
-Cosmos DB supports geo-replication across regions with multiple write regions. Alternatively, you can designate one region as the writable region and the others as read-only replicas. If there is a regional outage, you can fail over by selecting another region to be the write region. The client SDK automatically sends write requests to the current write region, so you don't need to update the client configuration after a failover. For more information, see [Global data distribution with Azure Cosmos DB][cosmosdb-geo].
+Cosmos DB supports geo-replication across regions in active-active pattern with multiple write regions. Alternatively, you can designate one region as the writable region and the others as read-only replicas. If there is a regional outage, you can fail over by selecting another region to be the write region. The client SDK automatically sends write requests to the current write region, so you don't need to update the client configuration after a failover. For more information, see [Global data distribution with Azure Cosmos DB][cosmosdb-geo].
 
 > [!NOTE]
 > All of the replicas belong to the same resource group.
@@ -102,6 +102,10 @@ Front Door is a possible failure point in the system. If the service fails, clie
 ### SQL Database
 
 The recovery point objective (RPO) and estimated recovery time (ERT) for SQL Database are documented in [Overview of business continuity with Azure SQL Database][sql-rpo].
+
+### Cosmos DB
+
+Recovery point objective (RPO) and recovery time objective (RTO) for Cosmos DB are configurable via the consistency levels used which provide trade-offs between availability, data durability and throughput. Cosmos provides a minimum RTO of 0 for relaxed consistency level with multi-master or an RPO of 0 for strong consistency with single-master. To learn more about Cosmos DB consistency levels see [Consistency levels and data durability in Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-tradeoffs#rto)
 
 ### Storage
 
@@ -133,7 +137,7 @@ There are two factors that determine Azure Cosmos DB pricing:
 
 - The provisioned throughput or [Request Units per second (RU/s)](https://docs.microsoft.com/azure/cosmos-db/request-units).
 
-    Cosmos DB allocates the resources required to guarantee the RU/s that you specify. You are billed hourly for the maximum provisioned throughput per hour. Because of the resources dedicated to your container or database, you are charged for the specified throughput even if you don't run any workload.
+    There are two types of throughput that can be provisioned in Cosmos DB, standard and autoscale. Standard throughput allocates the resources required to guarantee the RU/s that you specify. For autoscale, you provision the maximum throughput and Cosmos DB will instantly scale up or down depending on the load with a minimum of 10% of the maximum autoscale throughput. Standard throughput is billed for the throughput provisioned hourly. Autoscale throughput is billed for the maximum throughput consumed hourly.
 
 - Consumed storage.
     You are billed a flat rate for the total amount of storage (GBs) consumed for data and the indexes for a given hour.
