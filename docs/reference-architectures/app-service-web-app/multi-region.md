@@ -105,7 +105,7 @@ The recovery point objective (RPO) and estimated recovery time (ERT) for SQL Dat
 
 ### Cosmos DB
 
-Recovery point objective (RPO) and recovery time objective (RTO) for Cosmos DB are configurable via the consistency levels used which provide trade-offs between availability, data durability and throughput. Cosmos provides a minimum RTO of 0 for relaxed consistency level with multi-master or an RPO of 0 for strong consistency with single-master. To learn more about Cosmos DB consistency levels see [Consistency levels and data durability in Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-tradeoffs#rto)
+RPO and recovery time objective (RTO) for Cosmos DB are configurable via the consistency levels used, which provide trade-offs between availability, data durability, and throughput. Cosmos DB provides a minimum RTO of 0 for a relaxed consistency level with multi-master or an RPO of 0 for strong consistency with single-master. To learn more about Cosmos DB consistency levels, see [Consistency levels and data durability in Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-tradeoffs#rto).
 
 ### Storage
 
@@ -137,7 +137,7 @@ There are two factors that determine Azure Cosmos DB pricing:
 
 - The provisioned throughput or [Request Units per second (RU/s)](https://docs.microsoft.com/azure/cosmos-db/request-units).
 
-    There are two types of throughput that can be provisioned in Cosmos DB, standard and autoscale. Standard throughput allocates the resources required to guarantee the RU/s that you specify. For autoscale, you provision the maximum throughput and Cosmos DB will instantly scale up or down depending on the load with a minimum of 10% of the maximum autoscale throughput. Standard throughput is billed for the throughput provisioned hourly. Autoscale throughput is billed for the maximum throughput consumed hourly.
+    There are two types of throughput that can be provisioned in Cosmos DB, standard and autoscale. Standard throughput allocates the resources required to guarantee the RU/s that you specify. For autoscale, you provision the maximum throughput, and Cosmos DB instantly scales up or down depending on the load, with a minimum of 10% of the maximum autoscale throughput. Standard throughput is billed for the throughput provisioned hourly. Autoscale throughput is billed for the maximum throughput consumed hourly.
 
 - Consumed storage.
     You are billed a flat rate for the total amount of storage (GBs) consumed for data and the indexes for a given hour.
