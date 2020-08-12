@@ -75,7 +75,7 @@ Your business requirements may necessitate that you store container images so th
 
 **Can I save money if my containerized workload does NOT need full orchestration?**
 
-Your business requirements may NOT necessitate full orchestration. If this is the case AND you are using App Service containers, we recommend that you use one of the App Service plans Choose the appropriate plan based on your environment and workload.
+Your business requirements may not necessitate full orchestration. If this is the case and you are using App Service containers, we recommend that you use one of the App Service plans Choose the appropriate plan based on your environment and workload.
 
 There is no charge to use SNI-based SSL. Standard and Premium service plans include the right to use one IP SSL at no additional charge. Free and shared service plans do not support SSL. You can purchase the right to use additional SSL connections for a fee. In all cases the SSL certificate itself must be purchased separately. For details on each plan, see [App services plans](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
