@@ -158,5 +158,3 @@ Not all Azure products and services are available in all regions. Consult the [P
 - [Get started with Azure](https://azure.microsoft.com/get-started)
 - [Azure solution architectures](https://azure.microsoft.com/solutions/architecture)
 - [Azure Reference Architectures](https://azure.microsoft.com/documentation/articles/guidance-architecture)
-
-## Feedback
