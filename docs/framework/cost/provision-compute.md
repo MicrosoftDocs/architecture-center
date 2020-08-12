@@ -42,6 +42,8 @@ The best choice is driven by the business requirements of your workload. If you 
 
 - **Spot pricing** lets you purchase unused compute capacity at major discounts. If your workload can tolerate interruptions, and its execution time is flexible, then using spot pricing for VMs can significantly reduce the cost of running your workload in Azure.
 
+- **Dev-Test pricing** offers discounted rates on Azure to support your ongoing development and testing. Here you can quickly create consistent development and test environments through a scalable, on-demand infrastructure. This will allow you to spin up what you need, when you need it, and explore scenarios before going into production. To learn more about Azure Dev-Test reduced rates, see [Azure Dev/Test Pricing](https://azure.microsoft.com/pricing/dev-test/).
+
 For details on available sizes and options for the Azure VMs you can use to run your apps and workloads, see [Sizes for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/sizes). For
 details on specific Azure VM types, see [Virtual Machine series](https://azure.microsoft.com/pricing/details/virtual-machines/series/).
 
@@ -59,6 +61,10 @@ incorporate PaaS options, see [Managed services](https://review.docs.microsoft.c
 If you host you web apps in PaaS, you’ll need to choose an App Service plan to run your apps. The plan will define the set of compute resources on which your app will run. If you have more than one app, they will run using the same resources. This is where you will see the most significant cost savings, as you don’t incur cost for VMs.
 
 If your apps are event-driven with a short-lived process using a microservices architecture, we recommend using Azure Functions. Your cost is determined by execution time and memory for a single function execution. For pricing details, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
+
+**Is it more cost-effective to deploy development testing (dev-test) on a PaaS or IaaS hosting model?**
+
+If your dev-test is built on Azure managed services such as Azure DevOps, Azure SQL Database, Azure Cache for Redis, and Application Insights, the cheapest solution might be using the PaaS hosting model. Here you won’t incur the cost and maintenance of hardware. If your dev-test is built on Azure managed services such as Azure DevOps, Azure DevTest Labs, VMs, and Application Insights, you need to add the cost of the VMs, which can greatly increase your cost. For details on evaluating, see [Azure Dev/Test Pricing](https://azure.microsoft.com/pricing/dev-test/).
 
 ## A special case of PaaS - Containers
 
