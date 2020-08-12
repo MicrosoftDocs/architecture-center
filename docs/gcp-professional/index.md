@@ -102,10 +102,10 @@ The following table summarizes each option.
 
 | | **Availability Set** | **Availability Zone** | **Paired region** |
 | --- | --- | --- | --- |
-| Scope of failure | Rack | Datacenter | Region |
-| Request routing | Load Balancer | Cross-zone Load Balancer | Traffic Manager |
-| Network latency | Very low | Low | Mid to high |
-| Virtual networking | VNet | VNet | Cross-region VNet peering |
+| **Scope of failure** | Rack | Datacenter | Region |
+| **Request routing** | Load Balancer | Cross-zone Load Balancer | Traffic Manager |
+| **Network latency** | Very low | Low | Mid to high |
+| **Virtual networking** | VNet | VNet | Cross-region VNet peering |
 
 ### **Availability sets**
 
