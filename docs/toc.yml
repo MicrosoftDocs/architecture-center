@@ -1089,16 +1089,30 @@ items:
         href: solution-ideas/articles/safe-buildings.md
       - name: Secure access to IoT apps with Azure AD
         href: example-scenario/iot-aad/iot-aad.md
-      - name: Industrial IoT Analytics
-        items:
-          - name: Architecture
-            href: guide/iiot-guidance/iiot-architecture.md
-          - name: Recommended services
-            href: guide/iiot-guidance/iiot-services.md
-          - name: Data visualization
-            href: guide/iiot-guidance/iiot-data.md
-          - name: Considerations
-            href: guide/iiot-guidance/iiot-considerations.md
+      - name: Telemetry Analytics
+        href: solution-ideas/articles/telemetry-analytics.md
+    - name: Industrial IoT Analytics
+      items:
+      - name: Architecture
+        href: guide/iiot-guidance/iiot-architecture.md
+      - name: Recommended services
+        href: guide/iiot-guidance/iiot-services.md
+      - name: Data visualization
+        href: guide/iiot-guidance/iiot-data.md
+      - name: Considerations
+        href: guide/iiot-guidance/iiot-considerations.md
+    - name: IoT solutions
+      items:
+      - name: Events, insights, and actions
+        href: example-scenario/iot/introduction-to-solutions.md
+      - name: Builders, developers, and operators
+        href: example-scenario/iot/builders-developers-operators.md
+      - name: Devices, platform, and applications
+        href: example-scenario/iot/devices-platform-application.md
+      - name: Application-to-device commands
+        href: example-scenario/iot/cloud-to-device.md
+      - name: Solution scaling with application stamps
+        href: example-scenario/iot/application-stamps.md
   - name: Management and Governance
     items:
     - name: Architectures

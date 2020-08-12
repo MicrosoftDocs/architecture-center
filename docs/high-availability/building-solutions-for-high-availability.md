@@ -10,7 +10,7 @@ ms.category:
   - management-and-governance
   - solutions
 ms.subservice: reference-architecture
-ms.custom: high-availability
+ms.custom: high-availability,fasttrack-edit
 ---
 
 <!-- cSpell:ignore lbrader -->
@@ -177,7 +177,7 @@ services.
 
 - **Virtual machine scale sets (Z, ZR)**
 
-- **Azure App Service (Z)**
+- **Azure App Service Environments (Z)**
 
 **Containers**
 
