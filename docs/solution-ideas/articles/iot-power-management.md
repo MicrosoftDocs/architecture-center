@@ -1,8 +1,8 @@
 ---
-title: IoT Connected Platform for COVID-19 detection and prevention
+title: IoT-connected light and power for emerging markets
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
-description: Deploy a connected ecosystem of intelligent IoT Edge devices, Azure services, and cloud-powered apps to create safe and healthy public spaces.
+description: Learn how Veriown uses solar-powered IoT devices with Azure cloud services to provide power and connectivity to remote rural customers.
 ms.date: 08/12/2020
 ms.custom: fcp
 ms.service: architecture-center
@@ -51,18 +51,18 @@ Content and service providers can use the devices' built-in Azure cloud capabili
 ![Diagram showing an analytics loop that runs post-processed telemetry data through a trained AI model to control the device.](../media/iot-power-analytics.png)
 
 ## Components
-Azure Machine Learning
-, artificial intelligence
-, big data, 
-real-time streaming
-[Azure Databricks](https://azure.microsoft.com/services/databricks/)
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
-[Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
-, IoT Edge and IoT Gateway, 
-Power BI,  
-Docker containers, 
-Kubernetes 
+- Azure Machine Learning
+- Artificial intelligence
+- Big data
+- Real-time streaming
+- [Azure Databricks](https://azure.microsoft.com/services/databricks/)
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
+- IoT Gateway
+- Power BI
+- Docker containers
+- Kubernetes
 
 ## See also
 - https://www.thehindubusinessline.com/info-tech/soon-a-solar-powered-device-will-bring-online-entertainment-education-to-villages/article26945331.ece
-- [predictive maintenance] 
+- [Predictive maintenance] 
