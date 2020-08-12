@@ -2,7 +2,7 @@
 title: Compute
 description: Describes cost tradeoffs for compute services
 author:  v-aangie
-ms.date: 08/10/2020
+ms.date: 08/12/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -11,7 +11,7 @@ ms.custom:
 
 # Compute
 
-“*Compute”* refers to the hosting model for the computing resources that your application runs on. Whether you’re hosting model is Infrastructure as a Service (IaaS), Platform as a Service (PaaS), or Function as a service (FaaS), each resource requires your evaluation to understand the tradeoffs that can be made that impact your cost. To learn more about hosting models, see [Understand the hosting models](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree#understand-the-hosting-models).
+*Compute* refers to the hosting model for the computing resources that your application runs on. Whether you’re hosting model is Infrastructure as a Service (IaaS), Platform as a Service (PaaS), or Function as a service (FaaS), each resource requires your evaluation to understand the tradeoffs that can be made that impact your cost. To learn more about hosting models, see [Understand the hosting models](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree#understand-the-hosting-models).
 
 - **Infrastructure-as-a-Service** (IaaS) lets you provision individual virtual machines (VMs) along with the associated networking and storage components. Then you deploy whatever software and applications you want onto those VMs. This model is the closest to a traditional on-premises environment, except that Microsoft manages the infrastructure. You still manage the individual VMs.
 
@@ -60,7 +60,7 @@ incorporate PaaS options, see [Managed services](https://review.docs.microsoft.c
 
 If you host you web apps in PaaS, you’ll need to choose an App Service plan to run your apps. The plan will define the set of compute resources on which your app will run. If you have more than one app, they will run using the same resources. This is where you will see the most significant cost savings, as you don’t incur cost for VMs.
 
-If your apps are event-driven with a short-lived process using a microservices architecture, we recommend using Azure Functions. Your cost is determined by execution time and memory for a single function execution. For pricing details, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
+If your apps are event-driven with a short-lived process using a microservices architecture style, we recommend using Azure Functions. Your cost is determined by execution time and memory for a single function execution. For pricing details, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
 **Is it more cost-effective to deploy development testing (dev-test) on a PaaS or IaaS hosting model?**
 
@@ -75,7 +75,7 @@ Your business requirements may necessitate that you store container images so th
 
 **Can I save money if my containerized workload does not need full orchestration?**
 
-Your business requirements may not necessitate full orchestration. If this is the case and you are using App Service containers, we recommend that you use one of the App Service plans Choose the appropriate plan based on your environment and workload.
+Your business requirements may not necessitate full orchestration. If this is the case and you are using App Service containers, we recommend that you use one of the App Service plans. Choose the appropriate plan based on your environment and workload.
 
 There is no charge to use SNI-based SSL. Standard and Premium service plans include the right to use one IP SSL at no additional charge. Free and shared service plans do not support SSL. You can purchase the right to use additional SSL connections for a fee. In all cases the SSL certificate itself must be purchased separately. For details on each plan, see [App services plans](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
