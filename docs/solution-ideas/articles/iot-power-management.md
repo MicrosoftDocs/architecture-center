@@ -1,31 +1,68 @@
-Document for submission to the Azure Engineering Team – a story about Veriown.
-From: Bob Rapp (Hybrid Cloud Gurus) v-rorapp@microsoft.com +1 425 442 0945
-To: Derek Martin (Microsoft) derek.martin@microsoft.com  +1 (469) 7752918
+---
+title: IoT Connected Platform for COVID-19 detection and prevention
+titleSuffix: Azure Solution Ideas
+author: doodlemania2
+description: Deploy a connected ecosystem of intelligent IoT Edge devices, Azure services, and cloud-powered apps to create safe and healthy public spaces.
+ms.date: 08/12/2020
+ms.custom: fcp
+ms.service: architecture-center
+ms.subservice: solution-idea
+ms.category: iot
+---
 
-First Draft – not for public release until agreed to by DWarne@Veriown.com – VP of Product – and Bob Rapp v-rorapp@microsoft.com – single-point-of-contact
-June 9, 2020 2:58pm – first draft - 
-Article starts below:
+# Light and power for emerging markets
 
-“We are using Microsoft Azure – machine learning, artificial intelligence, big data, real-time streaming, data bricks, cosmos db, sql warehouse (new name), IOT Edge and IOT Gateway, Power BI,  Docker containers, Kubernetes – all the ensure that power never goes out”  Shared Derek Martin, Vice President of Product at Veriown – who have the mission of replacing kerosene with solar, improving the lives of millions, and doing it all powered by Microsoft.
+Globally, over 1 billion people lack access to electricity, and over 3 billion people have no internet access. Veriown is an energy company with a mission to provide life-changing electricity and connectivity access for these remote and rural customers off the power grid.
 
-“One of the hardest problems of having a device in a customer’s home that provides power to their devices, entertainment and education to the entire family, communication for their business and light for their home, all in a package that they can afford to own – is that we have to provide it for pennies a day – with very high reliability and low downtime. “
+Veriown has run large-scale network and telecommunications infrastructures for years, but has never before provided such a wide scope of services at such low cost. Veriown's proprietary Internet-of-Things (IoT) devices combine solar power with internet connectivity to deliver monumental improvements to quality of life.
 
-Derek has been running massive scale infrastructure for many years in the network and telco space, but never at such a low cost and high scale – so he was very interested in how Azure could help “Keep the lights on – and the battery always charged”.  
+Veriown's CONNECT device combines IoT hardware and mobile applications with Azure cloud services to act as a clean energy, internet, media, education, and commerce hub. CONNECT delivers solar-powered clean electricity, LED light, and internet connectivity with very low cost, high reliability, and minimal downtime. An integrated SIM card and tablet provide access to online content and services like communications, telemedicine, education, news, entertainment, and commerce.
 
-There are two major workstreams that Azure powers – real-time telematics on each IOT device so that Veriown can see in real-time any anomaly – whether transient or long-running – and begin to respond with real-time chatbots and direct software reprogramming to help the customers device automatically reduce it’s power usages for usb charging or reduce the intensity of the lumanaries (led lights) so that the user gets a great experience, delivered via Azure.
+Azure powers two major workstreams in Veriown's system:
 
-The second workstream is the data analytics post-processing so that after an incident Veriown can analyze the anomaly and determine if there is an algorithm that can be used to improve preventative maintenance – sending the customer the part that will fail in the future, improve response time to an issue via a chat powered by AI and to see what customer usage patterns of the content streams can allow Veriown to target the customers with the right content, at the right time as bandwidth is very limited and expensive in emerging markets.
+– Real-time telemetry on each IoT device lets Veriown see transient or long-running anomalies and respond with real-time chatbots and direct software reprogramming. For example, low-power conditions can trigger the customer's device to automatically reduce power usage for USB charging, so the customer continues to get a good experience.
 
-For case number one, we will show the data stream coming from the power subsystem to iot edge/hub, to sql warehouse, data bricks , to cosmodb and finally to power bi dashboard to show real-time customer view 
+- Post-processing data analytics let Veriown analyze usage and incidents to determine algorithms for future needs and preventive maintenance. For example, based on analytics results, Veriown could send customers parts that are likely to fail soon, or improve the response time of an artificial intelligence (AI) chatbot. Since bandwidth is very limited and expensive in emerging markets, analyzing customer usage patterns lets Veriown target customers with only the right services at the right time.
 
-(three or four architecture  diagrams – 
-1.	Data structure (not all some propr)
-2.	Input and output by each azure subsystem used 
-3.	A screen shot of the power bi 
-4.	Possibly one more shot 
+## Potential use cases
+A solar-powered CONNECT device in a customer's home or business can provide:
+- LED light to replace kerosene
+- USB device charging
+- Communications
+- Commerce and banking services
+- Telemedicine support
+- Education, news and weather, and entertainment programming
 
-The second is a short workflow taking post-processing data and running through a trained ai model – about power or defect (prevent main)
+The basic CONNECT device provides light, electricity, and internet connectivity. Customers can purchase additional services and content as one-offs or subscriptions.
 
-Edit at will – please put revision marks on – so we can track
+Content and service providers can use the devices' built-in Azure cloud capabilities to monitor and analyze usage and anomalies, and take real-time or future device actions.
 
-Thanks all 
+## Architecture
+
+![Diagram showing data stream coming from the power subsystem to IoT Edge and Azure cloud components.](../media/iot-power-architecture.png)
+
+1. The data stream coming from the power subsystem
+2. IoT Hub
+3. Azure Synapse Analytics
+4. Azure Databricks
+5. Azure Cosmos DB
+6. Power BI dashboard
+
+![Diagram showing an analytics loop that runs post-processed telemetry data through a trained AI model to control the device.](../media/iot-power-analytics.png)
+
+## Components
+Azure Machine Learning
+, artificial intelligence
+, big data, 
+real-time streaming
+[Azure Databricks](https://azure.microsoft.com/services/databricks/)
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
+[Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
+, IoT Edge and IoT Gateway, 
+Power BI,  
+Docker containers, 
+Kubernetes 
+
+## See also
+- https://www.thehindubusinessline.com/info-tech/soon-a-solar-powered-device-will-bring-online-entertainment-education-to-villages/article26945331.ece
+- [predictive maintenance] 
