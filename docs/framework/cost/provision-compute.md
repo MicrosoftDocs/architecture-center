@@ -73,7 +73,7 @@ full orchestration?**
 
 Your business requirements may necessitate that you store container images so that you have fast, scalable retrieval, and network-close deployment of container workloads. Although there are choices as to how you will run them, we recommend that you use AKS to set up instances with a minimum of 3 nodes. AKS reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure. There is no charge for AKS Cluster Management. Any additional costs are minimal. The containers themselves have no impact on cost. You pay only for per-second billing and custom machine sizes.
 
-**Can I save money if my containerized workload does NOT need full orchestration?**
+**Can I save money if my containerized workload does not need full orchestration?**
 
 Your business requirements may not necessitate full orchestration. If this is the case and you are using App Service containers, we recommend that you use one of the App Service plans Choose the appropriate plan based on your environment and workload.
 
