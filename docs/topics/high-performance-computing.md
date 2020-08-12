@@ -78,7 +78,7 @@ The following scenarios outline a few of the common ways HPC solutions are built
             href="/azure/architecture/example-scenario/apps/hpc-saas">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="../example-scenario/apps/media/architecture-hpc-saas.png">
+                        <img role="presentation" alt="Diagram shows example HPC architecture for computer-aided engineering services on Azure." src="../example-scenario/apps/media/architecture-hpc-saas.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -97,7 +97,7 @@ The following scenarios outline a few of the common ways HPC solutions are built
             href="/azure/architecture/example-scenario/infrastructure/hpc-cfd">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="../example-scenario/infrastructure/media/architecture-hpc-cfd.png">
+                        <img role="presentation" alt="Diagram shows example HPC architecture for computational fluid dynamics simulations on Azure." src="../example-scenario/infrastructure/media/architecture-hpc-cfd.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -115,7 +115,7 @@ The following scenarios outline a few of the common ways HPC solutions are built
             href="/azure/architecture/example-scenario/infrastructure/video-rendering">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="../example-scenario/infrastructure/media/architecture-video-rendering.png">
+                        <img role="presentation" alt="Diagram shows example HPC architecture for 3D video rendering on Azure." src="../example-scenario/infrastructure/media/architecture-video-rendering.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -190,7 +190,7 @@ First, review the [Options for connecting an on-premises network to Azure](../re
             href="/azure/architecture/reference-architectures/hybrid-networking/vpn">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="/azure/architecture/reference-architectures/hybrid-networking/images/vpn.png">
+                        <img role="presentation" alt="Schematic diagram showing how to connect an on-premises network to Azure using a VPN gateway." src="/azure/architecture/reference-architectures/hybrid-networking/images/vpn.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -208,7 +208,7 @@ First, review the [Options for connecting an on-premises network to Azure](../re
             href="/azure/architecture/reference-architectures/hybrid-networking/expressroute">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="/azure/architecture/reference-architectures/hybrid-networking/images/expressroute.png">
+                        <img role="presentation" alt="Schematic diagram showing how to connect an on-premises network to Azure using ExpressRoute." src="/azure/architecture/reference-architectures/hybrid-networking/images/expressroute.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -226,7 +226,7 @@ First, review the [Options for connecting an on-premises network to Azure](../re
             href="/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="/azure/architecture/reference-architectures/hybrid-networking/images/expressroute-vpn-failover.png">
+                        <img role="presentation" alt="Schematic diagram showing how to connect an on-premises network to Azure using ExpressRoute with VPN failover." src="/azure/architecture/reference-architectures/hybrid-networking/images/expressroute-vpn-failover.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -310,7 +310,7 @@ In addition to the network configurations available in the [Cloud Bursting](#hyb
             href="/azure/architecture/reference-architectures/hybrid-networking/hub-spoke">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="/azure/architecture/reference-architectures/hybrid-networking/images/hub-spoke.png">
+                        <img role="presentation" alt="Schematic diagram showing hwo to implement a hub-spoke network topology in Azure." src="/azure/architecture/reference-architectures/hybrid-networking/images/hub-spoke.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -328,7 +328,7 @@ In addition to the network configurations available in the [Cloud Bursting](#hyb
             href="/azure/architecture/reference-architectures/hybrid-networking/shared-services">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="/azure/architecture/reference-architectures/hybrid-networking/images/shared-services.png">
+                        <img role="presentation" alt="Schematic diagram showing how to implement a hub-spoke network topoloyg with shared services in Azure." src="/azure/architecture/reference-architectures/hybrid-networking/images/shared-services.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -379,7 +379,7 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
             href="/azure/architecture/example-scenario/infrastructure/linux-vdi-citrix">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="../example-scenario/infrastructure/media/azure-citrix-sample-diagram.png">
+                        <img role="presentation" alt="Schematic diagram of an architecture for Linux virtual desktops with Citrix." src="../example-scenario/infrastructure/media/azure-citrix-sample-diagram.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">

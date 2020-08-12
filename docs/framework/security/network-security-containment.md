@@ -72,7 +72,7 @@ through automation.
 
 Please compare images in [Network security and containment](./governance.md#enterprise-segmentation-strategy).
 
-![](images/ref-entp-design-az-network-security.png)
+![Diagram shows a reference enterprise design for Azure network security in a hybrid cloud infrastructure.](images/ref-entp-design-az-network-security.png)
 
 ## Evolve security beyond network controls
 
