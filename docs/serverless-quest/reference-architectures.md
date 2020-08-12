@@ -36,14 +36,14 @@ Common serverless architecture patterns include:
         <h3>Mobile application backends</h3>
         <p>Financial services scenario: Colleagues use mobile banking to reimburse each other for lunch. Whoever paid for lunch requests payment through a mobile app, triggering a notification on colleagues' phones.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/mobile-app-backends.png" width="550" alt="Diagram shows an HTTP API call, processed by a function and sent to Cosmos DB which triggers another function to send notifications." /></td>
+        <td style="vertical-align: middle;"><img src="./images/mobile-app-backends.png" width="550" alt="Diagram shows an H T T P A P I call, processed by a function and sent to Cosmos DB which triggers another function to send notifications." /></td>
 </tr>
 <tr>
     <td style="width: 250px;">
         <h3>IoT-connected backends</h3>
         <p>Manufacturing scenario: A manufacturing company uses IoT to monitor its machines. Functions detects anomalous data and triggers a message to the service department when repair is required.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/iot-connected-backends.png" width="550" alt="Diagram shows IoT devices that produce data including requests for repair, which are sent to the IoT Hub, then routed for processing by using Zendesk." /></td>
+        <td style="vertical-align: middle;"><img src="./images/iot-connected-backends.png" width="550" alt="Diagram shows I o T devices that produce requests for repair, which are sent to the I o T Hub, then routed for processing by using Zendesk." /></td>
 </tr>
 <tr>
     <td style="width: 250px;">
@@ -64,7 +64,7 @@ Common serverless architecture patterns include:
         <h3>Real-time stream processing</h3>
         <p>Independent software vendor (ISV) scenario: A massive cloud app collects huge amounts of telemetry data. The app processes that data in near real-time and stores it in a database for use in an analytics dashboard.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/real-time-stream-processing.png" width="550" alt="Diagram shows an app that collects data, which is ingrested by Event Hubs, processed by a function and sent to Cosmos DB." /></td>
+        <td style="vertical-align: middle;"><img src="./images/real-time-stream-processing.png" width="550" alt="Diagram shows an app that collects data, which is ingrested by Event Hubs, processed by a function, and sent to Cosmos DB." /></td>
 </tr>
 <tr>
     <td style="width: 250px;">
