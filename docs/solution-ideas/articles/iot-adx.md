@@ -11,7 +11,7 @@ ms.custom:
 - fcp
 ---
 
-# IoT Telemetry Analytics with Azure Data Explorer
+# IoT telemetry analytics with Azure Data Explorer
 
 This architecture pattern demonstrates near real-time analytics over fast flowing, high volume diverse streaming data from IoT devices, sensors, connected buildings and vehicles, and so on. It focuses on integration of Azure Data Explorer with other IoT services to cater to both operational and analytical workloads using Cosmos DB and Azure Data Explorer. 
 

@@ -11,7 +11,7 @@ ms.custom:
 - fcp
 ---
 
-# Big Data Analytics with Azure Data Explorer
+# Big Data analytics with Azure Data Explorer
 
 This architecture pattern demonstrates big data analytics over large volumes of high velocity data from various sources. This pattern illustrates how Azure Data Explorer and Synapse Analytics complement each other for near real-time analytics and modern data warehousing use cases.
 

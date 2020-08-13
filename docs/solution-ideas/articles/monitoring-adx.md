@@ -11,7 +11,7 @@ ms.custom:
 - fcp
 ---
 
-# End-to-End Monitoring Solution with Azure Data Explorer
+# End-to-end monitoring solution with Azure Data Explorer
 
 This architecture pattern demonstrates a hybrid end-to-end monitoring solution integrated with Azure Sentinel and Azure Monitor for ingesting streamed and batched logs from diverse sources, on-premises or any cloud, within an enterprise ecosystem. 
 

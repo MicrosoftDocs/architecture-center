@@ -11,7 +11,7 @@ ms.custom:
 - fcp
 ---
 
-# Interactive Analytics with Azure Data Explorer
+# Interactive analytics with Azure Data Explorer
 
 This architecture pattern demonstrates interactive analytics with Azure Data Explorer for exploration of data with ad hoc, interactive, and lightning fast queries over both small to large volumes of data. This data exploration can be performed using native Azure Data Explorer tools or alternative tools of your choice. This architecture pattern focuses on the integration of Azure Data Explorer with rest of the data platform ecosystem.
 

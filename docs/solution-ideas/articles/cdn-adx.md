@@ -11,7 +11,7 @@ ms.custom:
 - fcp
 ---
 
-# Content Delivery Network Analytics with Azure Data Explorer
+# Content Delivery Network analytics with Azure Data Explorer
 
 This architecture pattern demonstrates low-latency high throughput ingestion for large volumes of Content Delivery Network (CDN) logs for building near real-time analytics dashboards. 
 
