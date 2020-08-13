@@ -66,13 +66,14 @@ The overall system includes the following data analysis and control loop:
 - [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview)
 - [Azure Container Registry (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-intro)
 - [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)
-- [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml)
 - [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub)
 - [Azure Databricks](https://docs.microsoft.com/azure/databricks/scenarios/what-is-azure-databricks)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is)
 - [Power BI](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview)
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
+- [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml)
+- [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction)
 
 ## See also
-- [A solar-powered device will bring online entertainment, education to villages}(https://www.thehindubusinessline.com/info-tech/soon-a-solar-powered-device-will-bring-online-entertainment-education-to-villages/article26945331.ece)
-- {Veriown website](https://veriown.com)
+- [Azure IoT documentation](https://docs.microsoft.com/azure/iot-fundamentals/)
+- [A solar-powered device will bring online entertainment, education to villages](https://www.thehindubusinessline.com/info-tech/soon-a-solar-powered-device-will-bring-online-entertainment-education-to-villages/article26945331.ece)
+- [Veriown website](https://veriown.com)
