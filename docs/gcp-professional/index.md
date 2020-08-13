@@ -102,10 +102,10 @@ The following table summarizes each option.
 
 | | **Availability Set** | **Availability Zone** | **Paired region** |
 | --- | --- | --- | --- |
-| Scope of failure | Rack | Datacenter | Region |
-| Request routing | Load Balancer | Cross-zone Load Balancer | Traffic Manager |
-| Network latency | Very low | Low | Mid to high |
-| Virtual networking | VNet | VNet | Cross-region VNet peering |
+| **Scope of failure** | Rack | Datacenter | Region |
+| **Request routing** | Load Balancer | Cross-zone Load Balancer | Traffic Manager |
+| **Network latency** | Very low | Low | Mid to high |
+| **Virtual networking** | VNet | VNet | Cross-region VNet peering |
 
 ### **Availability sets**
 
@@ -158,5 +158,3 @@ Not all Azure products and services are available in all regions. Consult the [P
 - [Get started with Azure](https://azure.microsoft.com/get-started)
 - [Azure solution architectures](https://azure.microsoft.com/solutions/architecture)
 - [Azure Reference Architectures](https://azure.microsoft.com/documentation/articles/guidance-architecture)
-
-## Feedback
