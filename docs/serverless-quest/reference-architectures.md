@@ -57,14 +57,14 @@ Common serverless architecture patterns include:
         <h3>Real-time file processing</h3>
         <p>Healthcare scenario: The solution securely uploads patient records as PDF files. The solution then decomposes the data, processes it using OCR detection, and adds it to a database for easy queries.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/real-time-file-processing.png" width="550" alt="Diagram shows patient records uploaded, then decomposed and sent to Cognative Services to be structured into a database." /></td>
+        <td style="vertical-align: middle;"><img src="./images/real-time-file-processing.png" width="550" alt="Diagram shows patient records uploaded, then decomposed and sent to Cognitive Services to be structured into a database." /></td>
 </tr>
 <tr>
     <td style="width: 250px;">
         <h3>Real-time stream processing</h3>
         <p>Independent software vendor (ISV) scenario: A massive cloud app collects huge amounts of telemetry data. The app processes that data in near real-time and stores it in a database for use in an analytics dashboard.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/real-time-stream-processing.png" width="550" alt="Diagram shows an app that collects data, which is ingrested by Event Hubs, processed by a function, and sent to Cosmos DB." /></td>
+        <td style="vertical-align: middle;"><img src="./images/real-time-stream-processing.png" width="550" alt="Diagram shows an app that collects data, which is ingested by Event Hubs, processed by a function, and sent to Cosmos DB." /></td>
 </tr>
 <tr>
     <td style="width: 250px;">
