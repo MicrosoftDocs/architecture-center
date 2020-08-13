@@ -11,7 +11,7 @@ ms.custom:
 
 # Compute
 
-*Compute* refers to the hosting model for the computing resources that your application runs on. Whether you’re hosting model is Infrastructure as a Service (IaaS), Platform as a Service (PaaS), or Function as a service (FaaS), each resource requires your evaluation to understand the tradeoffs that can be made that impact your cost. To learn more about hosting models, see [Understand the hosting models](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree#understand-the-hosting-models).
+*Compute* refers to the hosting model for the computing resources that your application runs on. Whether you’re hosting model is Infrastructure as a Service (IaaS), Platform as a Service (PaaS), or Function as a service (FaaS), each resource requires your evaluation to understand the tradeoffs that can be made that impact your cost. To learn more about hosting models, read [Understand the hosting models](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree#understand-the-hosting-models).
 
 - **Infrastructure-as-a-Service** (IaaS) lets you provision individual virtual machines (VMs) along with the associated networking and storage components. Then you deploy whatever software and applications you want onto those VMs. This model is the closest to a traditional on-premises environment, except that Microsoft manages the infrastructure. You still manage the individual VMs.
 
