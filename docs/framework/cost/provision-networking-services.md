@@ -9,7 +9,7 @@ ms.subservice: well-architected
 ms.custom: 
 ---
 
-# Networking cost estimates
+# Networking resources provisioning
 
 For design considerations, see [Networking resource choices](provision-networking.md).
 
