@@ -1,5 +1,5 @@
 ---
-title: Data Management
+title: Data Management for Reliability
 description: 
 author: david-stanford
 ms.date: 10/16/2019
@@ -9,7 +9,7 @@ ms.subservice: well-architected
 ms.custom: How are you managing your data? 
 ---
 
-# Data Management
+# Data Management for Reliability
 
 ## Database resiliency
 
