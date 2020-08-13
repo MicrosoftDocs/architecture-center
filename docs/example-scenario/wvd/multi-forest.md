@@ -80,3 +80,12 @@ For more details, read the [Staging server section of Azure AD Connect topologie
 1. Landing Zone is Azure using Hub-spoke topology with shared services hub VNET for domain controllers.
 1. For WVD deployments in a simple POC and Cloud born companies using AAD DS, no private connectivity (VPN or ExpressRoute) is needed. Azure AD Connect syncs the customer's AD DS with Azure AD using the internet.
 1. From WVD deployments in hybrid implementations, use a virtual private connectivity using VPN or Azure ExpressRoute. WVD Sessions hosts will join the domain controller in Azure.
+
+
+## Next steps
+
+For more information, refer to these articles:
+
+- [Azure AD Connect Topology](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies)
+- [Compare different Identity options: Self-managed Active Directory Domain Services (AD DS), Azure Active Directory (Azure AD), and Azure Active Directory Domain Services (Azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions)
+- [Windows Virtual Desktop Documentation](https://docs.microsoft.com/azure/virtual-desktop/)
