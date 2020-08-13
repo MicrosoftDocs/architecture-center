@@ -119,6 +119,9 @@ Architect your Windows Virtual Desktop solution to realize cost savings. Here ar
 
 ## Next steps
 
+For multiple AD forests architecture, read [Multiple AD Forests Architecture in Windows Virtual Desktop](./multi-forest.md).
+
+For more information, read these articles:
+
 - [Windows Virtual Desktop partner integrations](https://aka.ms/wvdpartner) lists approved Windows Virtual Desktop partner providers and independent software vendors.
 - Use the resources at [Windows_10_VDI_Optimize](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) to help optimize performance in a Windows 10 Enterprise VDI environment.
-
