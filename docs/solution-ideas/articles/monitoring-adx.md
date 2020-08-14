@@ -1,7 +1,7 @@
 ---
 title: End-to-End Monitoring Solution with Azure Data Explorer
 titleSuffix: Azure Solution Ideas
-description: End-to-End Monitoring Solution with Azure Data Explorer demonstrates hybrid end-to-end monitoring solutions integrated with Azure Sentinel and Azure Monitor for ingesting streaming and batched logs from diverse sources within an enterprise ecosystem. 
+description: End-to-end monitoring solution with Azure Data Explorer demonstrates a hybrid monitoring solution integrated with Azure Sentinel and Azure Monitor for ingesting streaming and batched logs from diverse sources within an enterprise ecosystem. 
 author: orspod
 ms.date: 08/11/2020
 ms.topic: solution-ideas
@@ -21,11 +21,11 @@ This architecture pattern demonstrates a hybrid end-to-end monitoring solution i
 
 1. Combine features provided by Azure Sentinel and Azure Monitor with Azure Data Explorer to build a flexible and cost-optimized end-to-end monitoring solution. 
 For example:
-   * Use Azure Sentinel as a SIEM and SOAR component in the overall monitoring solution where you can ingest security logs from firewalls, and security center.
+   * Use Azure Sentinel as a SIEM and SOAR component in the overall monitoring solution where you can ingest security logs from firewalls, security center, and so on.
    * Use Azure Monitor’s native capabilities for IT asset monitoring, dashboarding, and alerting so you can ingest logs from VMs, services, and so on.
-   * Use Azure Data Explorer for full flexibility or custom solutions to ingest logs from diverse systems in the following scenarios:  
-     * No out of the box features provided by Azure Sentinel and Azure Monitor SaaS solutions.
-     * Greater flexibility or custom solution to collect and ingest logs from diverse systems.
+   * Use Azure Data Explorer for full flexibility and control in all aspects for all log types in the following scenarios:  
+     * No out of the box features provided by Azure Sentinel and Azure Monitor SaaS solutions such as application trace logs.
+     * Greater flexibility for building quick and easy near-real-time analytics dashboards, granular role-based access control, [time series analysis](https://docs.microsoft.com/azure/data-explorer/time-series-analysis), pattern recognition, [anomaly detection and forecasting](https://docs.microsoft.com/azure/data-explorer/anomaly-detection), and [machine learning](https://docs.microsoft.com/azure/data-explorer/machine-learning-clustering). Azure Data Explorer is also well integrated with ML services such as Databricks and Azure Machine Learning. This integration allows you to build models using other tools and services and export ML models to Azure Data Explorer for scoring data.  
      - Longer data retention in cost effective manner
      * Centralized repository for different types of logs. Azure Data Explorer, as a unified big data analytics platform, allows you to build advanced predictive analytic models by integration with other services.
 1. Query across different products without moving data using the [Azure Data Explorer proxy](https://docs.microsoft.com/azure/data-explorer/query-monitor-data) feature to analyze data from Azure Sentinel, Azure Monitor, and Azure Data Explorer in a single query.
