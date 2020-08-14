@@ -838,7 +838,7 @@ items:
             href: microservices/ci-cd.md
           - name: CI/CD for microservices on Kubernetes
             href: microservices/ci-cd-kubernetes.md
-          - name: Leveraging Bedrock with Kubernetes
+          - name: Automated Kubernetes deployments with Bedrock
             href: example-scenario/bedrock/bedrock-automated-deployments.md
         - name: Migrate to a microservices architecture
           items:
