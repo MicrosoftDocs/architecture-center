@@ -272,6 +272,11 @@ downtime will have negative impact on the business.
 An example of advanced DDoS protection is the [Azure DDoS Protection
 Service](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
+The [Windows N-tier application on Azure with SQL Server](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server) reference architecture uses DDoS Protection Standard because this option:
+- Uses adaptive tuning, based on the application's network traffic patterns, to detect threats. 
+- Guarantees 100% SLA. 
+- Can be cost effective. For example, during a DDoS attack, the first set of attacks cause  the provisioned resources to scale out. For a resource such as a virtual machine scale set, 10 machines can grow to 100, increasing overall costs. With Standard protection, you don't have to worry about the cost of the scaled resources because Azure will provide the cost credit. 
+
 ## Decide upon an internet ingress/egress policy
 
 Choose to route traffic destined for the Internet through on-premises security

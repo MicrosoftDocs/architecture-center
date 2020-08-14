@@ -50,15 +50,15 @@ This section describes how to configure the authentication middleware in ASP.NET
 In your [startup class](https://docs.microsoft.com/aspnet/core/fundamentals/startup), add the OpenID Connect middleware:
 
 ```csharp
-app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions {
-    ClientId = configOptions.AzureAd.ClientId,
-    ClientSecret = configOptions.AzureAd.ClientSecret, // for code flow
-    Authority = Constants.AuthEndpointPrefix,
-    ResponseType = OpenIdConnectResponseType.CodeIdToken,
-    PostLogoutRedirectUri = configOptions.AzureAd.PostLogoutRedirectUri,
-    SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme,
-    TokenValidationParameters = new TokenValidationParameters { ValidateIssuer = false },
-    Events = new SurveyAuthenticationEvents(configOptions.AzureAd, loggerFactory),
+app.AddAuthentication().AddOpenIdConnect(options => {
+    options.ClientId = configOptions.AzureAd.ClientId;
+    options.ClientSecret = configOptions.AzureAd.ClientSecret; // for code flow
+    options.Authority = Constants.AuthEndpointPrefix;
+    options.ResponseType = OpenIdConnectResponseType.CodeIdToken;
+    options.PostLogoutRedirectUri = configOptions.AzureAd.PostLogoutRedirectUri;
+    options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.TokenValidationParameters = new TokenValidationParameters { ValidateIssuer = false };
+    options.Events = new SurveyAuthenticationEvents(configOptions.AzureAd, loggerFactory);
 });
 ```
 
@@ -74,15 +74,15 @@ Notice that some of the settings are taken from runtime configuration options. H
 Also add the Cookie Authentication middleware to the pipeline. This middleware is responsible for writing the user claims to a cookie, and then reading the cookie during subsequent page loads.
 
 ```csharp
-app.UseCookieAuthentication(new CookieAuthenticationOptions {
-    AutomaticAuthenticate = true,
-    AutomaticChallenge = true,
-    AccessDeniedPath = "/Home/Forbidden",
-    CookieSecure = CookieSecurePolicy.Always,
+app.AddAuthentication().AddCookie(options => {
+    options.AutomaticAuthenticate = true;
+    options.AutomaticChallenge = true;
+    options.AccessDeniedPath = "/Home/Forbidden";
+    options.CookieSecure = CookieSecurePolicy.Always;
 
     // The default setting for cookie expiration is 14 days. SlidingExpiration is set to true by default
-    ExpireTimeSpan = TimeSpan.FromHours(1),
-    SlidingExpiration = true
+    options.ExpireTimeSpan = TimeSpan.FromHours(1);
+    options.SlidingExpiration = true;
 });
 ```
 
@@ -183,7 +183,7 @@ When the OIDC middleware redirects to the authorization endpoint, the redirect U
 To specify a different flow, set the **ResponseType** property on the options. For example:
 
 ```csharp
-app.UseOpenIdConnectAuthentication(options =>
+app.AddAuthentication().AddOpenIdConnect(options =>
 {
     options.ResponseType = "code"; // Authorization code flow
 
