@@ -206,6 +206,8 @@ items:
           href: framework/cost/provision-ai-ml.md
         - name: Big data
           href: framework/cost/provision-analytics.md
+        - name: Compute
+          href: framework/cost/provision-compute.md
         - name: Data stores
           href: framework/cost/provision-datastores.md
         - name: Networking

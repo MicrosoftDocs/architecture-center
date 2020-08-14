@@ -32,7 +32,7 @@ While the capabilities of both platforms are similar, the resources that provide
 
 Azure has a hierarchy of Management group and subscriptions and resource groups to manage resources effectively. This is similar to the Folders and Project hierarchy for resources in Google Cloud.
 
-![](./images/subscription_hierarchy.png)
+![Diagram shows a tree structure with management groups as the root, then subscriptions, then resource groups as leaf nodes.](./images/subscription_hierarchy.png)
 
 Azure levels of management scope
 
@@ -115,7 +115,7 @@ When VM instances are added to availability sets, they are also assigned an [upd
 
 Availability sets should be organized by the instance's role in your application to ensure one instance in each role is operational. For example, in a three-tier web application, create separate availability sets for the front-end, application, and data tiers.
 
-![](./images/availability_set.png)
+![Diagram that contains availability sets for a web tier with Web Instances, an app tier with App Instances, and a data cluster with Database Instances.](./images/availability_set.png)
 
 Availability sets
 
@@ -123,7 +123,7 @@ Availability sets
 
 Like GCP, Azure regions can have Availability zones. An [Availability Zone](https://docs.microsoft.com/azure/availability-zones/az-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures.
 
-![](./images/availability_zones.png)
+![Diagram showing a zone redundant virtual machine deployment with a Region that contains three zones with a subnet that crosses all three zones.](./images/availability_zones.png)
 
 Zone redundant VM deployment on Azure
 
@@ -135,7 +135,7 @@ Unlike Availability Zones, which are physically separate datacenters but may be 
 
 Azure [geo-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs) is automatically backed up to the appropriate paired region. For all other resources, creating a fully redundant solution using paired regions means creating a full copy of your solution in both regions.
 
-![](./images/region_pairs.png)
+![Diagram shows region pairs in Azure, where Geography contains a Region Pair, which contains two Regions, which each contain Datacenters.](./images/region_pairs.png)
 
 Region Pairs in Azure
 

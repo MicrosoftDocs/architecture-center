@@ -219,7 +219,7 @@ The following scenarios outline a few of the common ways SAP solutions are built
             href="/azure/architecture/reference-architectures/sap/hana-large-instances">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="./images/sap-hana-large-instances.png">
+                        <img role="presentation" alt="Diagram shows infrastructure needed to run S A P HANA on Azure." src="./images/sap-hana-large-instances.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -237,7 +237,7 @@ The following scenarios outline a few of the common ways SAP solutions are built
             href="/azure/architecture/reference-architectures/sap/sap-netweaver">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="./images/sap-netweaver.png">
+                        <img role="presentation" alt="Diagram shows infrastructure needed to run S A P NetWeaver in Windows on Azure." src="./images/sap-netweaver.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -255,7 +255,7 @@ The following scenarios outline a few of the common ways SAP solutions are built
             href="/azure/architecture/reference-architectures/sap/sap-s4hana">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="./images/sap-s4hana.png">
+                        <img role="presentation" alt="Diagram shows infrastructure needed to run S A P /4HANA in Linux on Azure." src="./images/sap-s4hana.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -276,7 +276,7 @@ The following scenarios outline a few of the common ways SAP solutions are built
             href="/azure/architecture/reference-architectures/sap/run-sap-hana-for-Linux-virtual-machines">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="./images/sap-hana-scaleup.png">
+                        <img role="presentation" alt="Diagram shows infrastructure needed to run S A P HANA on Linux virtual machines in a scale-up architecture on Azure." src="./images/sap-hana-scaleup.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -294,7 +294,7 @@ The following scenarios outline a few of the common ways SAP solutions are built
             href="/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-Linux-virtual-machines">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="./images/sap-bw4hana.png">
+                        <img role="presentation" alt="Diagram shows infrastructure needed to run S A P B W/4HANA with Linux virtual machines on Azure." src="./images/sap-bw4hana.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
