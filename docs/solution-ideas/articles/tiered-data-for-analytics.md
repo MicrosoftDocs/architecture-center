@@ -42,6 +42,6 @@ Easily tier data and applications on-premises and in Azure with architecture tha
 
 ## Next steps
 
-* [Storage documentation](https://docs.microsoft.com/azure/storage)
-* [Azure Functions documentation](https://docs.microsoft.com/azure/azure-functions)
-* [Azure Stack documentation](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-staged-data-analytics)
+* [Storage documentation](/azure/storage)
+* [Azure Functions documentation](/azure/azure-functions)
+* [Azure Stack documentation](/azure/azure-stack/user/azure-stack-solution-staged-data-analytics)
