@@ -15,7 +15,7 @@ ms.custom:
 
 This architecture pattern demonstrates interactive analytics with Azure Data Explorer for exploration of data with ad hoc, interactive, and lightning fast queries over small to extremely large volumes of data. This data exploration can be performed using native Azure Data Explorer tools or alternative tools of your choice. This architecture pattern focuses on the integration of Azure Data Explorer with rest of the data platform ecosystem.
 
-This pattern is already being used by Microsoft customers to track user activity, manage user profiles and user segmentation scenarios. For an example, see [Global software company Episerver uses Azure Data Explorer to gain enhanced consumer insight](https://customers.microsoft.com/en-us/story/817285-episerver-professional-services-azure-sweden).
+This pattern is already being used by Microsoft customers to track user activity, manage user profiles and user segmentation scenarios. For example, see how [Global software company Episerver uses Azure Data Explorer to gain enhanced consumer insight](https://customers.microsoft.com/en-us/story/817285-episerver-professional-services-azure-sweden).
 
 :::image type="content" source="../media/interactive-adx.png" alt-text="Interactive Analytics with Azure Data Explorer":::
 
