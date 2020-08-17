@@ -57,8 +57,8 @@ The links to the right provide documentation on deploying and managing the Azure
 
 ## Components
 
-* Build the web front end, mobile apps, and back end services with C# in [Visual Studio](https://docs.microsoft.com/visualstudio) 2017 or [Visual Studio](https://docs.microsoft.com/visualstudio) for Mac.
-* [Xamarin](https://docs.microsoft.com/xamarin): Create mobile apps for iOS and Android using C# and Azure SDKs.
+* Build the web front end, mobile apps, and back end services with C# in [Visual Studio](/visualstudio) 2017 or [Visual Studio](/visualstudio) for Mac.
+* [Xamarin](/xamarin): Create mobile apps for iOS and Android using C# and Azure SDKs.
 * [Visual Studio App Center](https://azure.microsoft.com/services/app-center): App Center enables a continuous integration and deployment workflow by pulling code from BitBucket, GitHub, and Visual Studio Team Services.
 * An [App Service](https://azure.microsoft.com/services/app-service) web app can host a customer-facing web app and a service that is used by both the web and mobile client.
 * Use [Azure Functions](https://azure.microsoft.com/services/functions) for serverless background processing. For example, one Azure function can automatically resize new blobs when they're added to a container, while another function listens for messages on a queue in order to delete multiple background images.
@@ -71,14 +71,14 @@ The links to the right provide documentation on deploying and managing the Azure
 
 ## Next steps
 
-* [Visual Studio Documentation](https://docs.microsoft.com/visualstudio)
-* [Xamarin Documentation](https://docs.microsoft.com/xamarin)
-* [Visual Studio App Center Documentation](https://docs.microsoft.com/appcenter)
+* [Visual Studio Documentation](/visualstudio)
+* [Xamarin Documentation](/xamarin)
+* [Visual Studio App Center Documentation](/appcenter)
 * [Azure App Service Overview](https://azure.microsoft.com/services/app-service)
-* [Azure Functions Documentation](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings)
-* [Application Insights Documentation](https://docs.microsoft.com/azure/application-insights)
-* [Azure Cosmos DB Documentation](https://docs.microsoft.com/azure/cosmos-db)
-* [Queue Storage Documentation](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
-* [Blob Storage Documentation](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
-* [Notification Hubs Documentation](https://docs.microsoft.com/azure/notification-hubs)
-* [Traffic Manager Documentation](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)
+* [Azure Functions Documentation](/azure/azure-functions/functions-triggers-bindings)
+* [Application Insights Documentation](/azure/application-insights)
+* [Azure Cosmos DB Documentation](/azure/cosmos-db)
+* [Queue Storage Documentation](/azure/storage/queues/storage-dotnet-how-to-use-queues)
+* [Blob Storage Documentation](/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
+* [Notification Hubs Documentation](/azure/notification-hubs)
+* [Traffic Manager Documentation](/azure/traffic-manager/traffic-manager-overview)

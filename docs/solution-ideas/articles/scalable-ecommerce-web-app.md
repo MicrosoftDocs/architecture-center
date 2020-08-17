@@ -44,7 +44,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/scalable-eco
 
 ## Next steps
 
-* [Get started easily with Web Apps using the five-minute quick starts](https://docs.microsoft.com/azure/app-service)
-* [Build an ASP.NET app in Azure with SQL Database](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
-* [Learn what can you do with Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)
-* [Application Performance Management with Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)
+* [Get started easily with Web Apps using the five-minute quick starts](/azure/app-service)
+* [Build an ASP.NET app in Azure with SQL Database](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
+* [Learn what can you do with Azure Functions](/azure/azure-functions/functions-overview)
+* [Application Performance Management with Application Insights](/azure/application-insights/app-insights-overview)

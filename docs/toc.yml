@@ -1,6 +1,6 @@
 items:
 - name: Azure Architecture Center
-  href: /azure/architecture/
+  href: ./index.yml
 - name: Architecture icons
   href: icons/index.md
 - name: Browse all Architectures
@@ -1092,7 +1092,7 @@ items:
       - name: Secure access to IoT apps with Azure AD
         href: example-scenario/iot-aad/iot-aad.md
       - name: Telemetry Analytics
-        href: solution-ideas/articles/telemetry-analytics.md
+        href: ./reference-architectures/iot.md
     - name: Industrial IoT Analytics
       items:
       - name: Architecture
@@ -1344,4 +1344,4 @@ items:
       - name: Dynamics Business Central as a Service on Azure
         href: solution-ideas/articles/business-central.md
 - name: Cloud Adoption Framework
-  href: https://docs.microsoft.com/azure/cloud-adoption-framework
+  href: /azure/cloud-adoption-framework

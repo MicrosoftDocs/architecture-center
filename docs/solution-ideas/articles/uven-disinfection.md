@@ -73,5 +73,5 @@ Azure Sphere *greenfield* implementations involve designing and building new IoT
 
 - For more information, please contact [iotcovidsupport@microsoft.com](mailto:iotcovidsupport@microsoft.com).
 - For more information about the BCL system, see the [BrainLit](https://www.brainlit.com/) website.
-- For more information about Azure Sphere, see the [Azure Sphere documentation](https://docs.microsoft.com/azure-sphere/).
+- For more information about Azure Sphere, see the [Azure Sphere documentation](/azure-sphere/).
 - For Azure Sphere code samples, see [Azure Sphere Samples](https://github.com/Azure/azure-sphere-samples).

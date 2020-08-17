@@ -41,7 +41,7 @@ Quickly build and launch digital campaigns that automatically scale based on cus
 ## Next steps
 
 * [Deploy web apps with CMS using pre-built templates](https://azure.microsoft.com/resources/templates/?term=CMS)
-* [Build an ASP.NET app in Azure with SQL Database](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
-* [Use Azure Content Delivery Network in Azure App Service](https://docs.microsoft.com/azure/cdn/cdn-add-to-web-app)
-* [How to use Azure Cache for Redis](https://docs.microsoft.com/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache)
-* [Application Performance Management with Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-detect-triage-diagnose)
+* [Build an ASP.NET app in Azure with SQL Database](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
+* [Use Azure Content Delivery Network in Azure App Service](/azure/cdn/cdn-add-to-web-app)
+* [How to use Azure Cache for Redis](/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache)
+* [Application Performance Management with Application Insights](/azure/application-insights/app-insights-detect-triage-diagnose)
