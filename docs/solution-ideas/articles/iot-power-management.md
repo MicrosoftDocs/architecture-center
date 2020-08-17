@@ -14,7 +14,7 @@ ms.category: iot
 
 Globally, over 1 billion people lack access to electricity, and over 3 billion people have no internet access. Veriown is an energy provider working with Azure Internet-of-Things (IoT) cloud services to provide life-changing, low-cost electricity and connectivity to remote and rural customers. Veriown's IoT devices combine solar power with internet communications to deliver monumental improvements to users' quality of life.
 
-Veriown has run large-scale network and telecommunications infrastructures for years, but has never before provided such a wide scope of services at such low cost. Veriown's Connect devices combine IoT hardware and mobile applications with Azure cloud capabilities to act as energy and internet hubs.
+Veriown has run large-scale network and telecommunications infrastructures for years, but has never before provided such a wide scope of services at such low cost. Veriown's Connect devices combine IoT hardware and mobile applications with Azure cloud capabilities to act as energy and internet hubs for homes and small businesses.
 
 The Connect IoT device uses a rooftop solar panel and charged battery to deliver clean electricity, light, and cellular internet connectivity for pennies a day, with high reliability and minimal downtime. An integrated SIM card and tablet provide individualized access to online content and services like telemedicine, education, news and weather, entertainment, and commerce.
 
@@ -66,7 +66,7 @@ The system includes the following data analysis and control loop:
 1. Databricks sends some events, like alarms, directly to Customer Support for intervention.
 1. Synapse Analytics performs analytics on the ETL data.
 1. The analyzed data populates Power BI reports.
-1. Azure ML combines current data with external data, like historical weather and forecasts, and uses the results to retrain the power management ML models.
+1. Azure ML combines current data with stored external data, like historical weather and forecasts, and uses the results to retrain the power management ML models.
 1. IoT Hub sends the retrained models to the Connect devices, which adjust their behavior and schedules accordingly.
 
 ## Components
@@ -74,7 +74,6 @@ The system includes the following data analysis and control loop:
 - [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes) hosts and simplifies [Kubernetes](https://kubernetes.io/) orchestration of [Docker](https://www.docker.com/) containerized apps.
 - [Azure Container Registry (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-intro) is a managed, private registry service that supports AKS applications at scale.
 - [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) is a central cloud message hub for bi-directional communications between IoT applications and devices.
-- [Azure Event Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) acts as a central message hub in the cloud for bi-directional communication between IoT applications and devices.
 - [Azure Databricks](https://docs.microsoft.com/azure/databricks/scenarios/what-is-azure-databricks) is a fast, easy, and collaborative [Apache Spark](https://spark.apache.org/)-based analytics service for big data pipelines.
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is), formerly SQL Data Warehouse, is an analytics service that brings together enterprise data warehousing and big data analytics.
 - [Power BI](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that turn data into coherent, immersive, interactive visualizations and reports.
