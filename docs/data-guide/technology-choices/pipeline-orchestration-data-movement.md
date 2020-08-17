@@ -20,9 +20,9 @@ Most big data solutions consist of repeated data processing operations, encapsul
 
 In Azure, the following services and tools will meet the core requirements for pipeline orchestration, control flow, and data movement:
 
-- [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/)
-- [Oozie on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-oozie-linux-mac)
-- [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
+- [Azure Data Factory](/azure/data-factory/)
+- [Oozie on HDInsight](/azure/hdinsight/hdinsight-use-oozie-linux-mac)
+- [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
 
 These services and tools can be used independently from one another, or used together to create a hybrid solution. For example, the Integration Runtime (IR) in Azure Data Factory V2 can natively execute SSIS packages in a managed Azure compute environment. While there is some overlap in functionality between these services, there are a few key differences.
 

@@ -52,8 +52,8 @@ Read and write operations for a row are typically atomic within a single column 
 
 Relevant Azure service:  
 
-- [Cosmos DB Cassandra API](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction)
-- [HBase in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hbase-overview)
+- [Cosmos DB Cassandra API](/azure/cosmos-db/cassandra-introduction)
+- [HBase in HDInsight](/azure/hdinsight/hdinsight-hbase-overview)
 
 ## Key/value data stores
 
@@ -73,7 +73,7 @@ A single key/value store can be extremely scalable, as the data store can easily
 
 Relevant Azure services:  
 
-- [Azure Cosmos DB Table API](https://docs.microsoft.com/azure/cosmos-db/table-introduction)
+- [Azure Cosmos DB Table API](/azure/cosmos-db/table-introduction)
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)  
 - [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/)
 
@@ -89,7 +89,7 @@ This structure makes it straightforward to perform queries such as "Find all emp
 
 Relevant Azure service:  
 
-- [Azure Cosmos DB Graph API](https://docs.microsoft.com/azure/cosmos-db/graph-introduction)  
+- [Azure Cosmos DB Graph API](/azure/cosmos-db/graph-introduction)  
 
 ## Time series data stores
 
@@ -104,7 +104,7 @@ For more information, see [Time series solutions](../scenarios/time-series.md)
 Relevant Azure services:
 
 - [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)  
-- [OpenTSDB with HBase on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hbase-overview)
+- [OpenTSDB with HBase on HDInsight](/azure/hdinsight/hdinsight-hbase-overview)
 
 ## Object data stores
 

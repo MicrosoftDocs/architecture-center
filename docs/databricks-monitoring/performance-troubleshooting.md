@@ -16,7 +16,7 @@ ms.subservice: reference-architecture
 
 This article describes how to use monitoring dashboards to find performance bottlenecks in Spark jobs on Azure Databricks.
 
-[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks) is an [Apache Spark](https://spark.apache.org)–based analytics service that makes it easy to rapidly develop and deploy big data analytics. Monitoring and troubleshooting performance issues is a critical when operating production Azure Databricks workloads. To identify common performance issues, it's helpful to use monitoring visualizations based on telemetry data.
+[Azure Databricks](/azure/azure-databricks) is an [Apache Spark](https://spark.apache.org)–based analytics service that makes it easy to rapidly develop and deploy big data analytics. Monitoring and troubleshooting performance issues is a critical when operating production Azure Databricks workloads. To identify common performance issues, it's helpful to use monitoring visualizations based on telemetry data.
 
 ## Prerequisites
 

@@ -20,13 +20,13 @@ These recommendations are based on the results of performance tests, which you c
 
 ## Azure VM sizes and disk types
 
-Cassandra workloads on Azure commonly use either [Standard_DS14_v2][dsv2] or [Standard_DS13_v2][dsv2] virtual machines. Cassandra workloads benefit from having more memory in the VM, so consider [memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory) virtual machine sizes, such as Standard_DS14_v2, or [local-storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage) sizes such as Standard_L16s_v2.
+Cassandra workloads on Azure commonly use either [Standard_DS14_v2][dsv2] or [Standard_DS13_v2][dsv2] virtual machines. Cassandra workloads benefit from having more memory in the VM, so consider [memory optimized](/azure/virtual-machines/sizes-memory) virtual machine sizes, such as Standard_DS14_v2, or [local-storage optimized](/azure/virtual-machines/sizes-storage) sizes such as Standard_L16s_v2.
 
-For durability, data and commit logs are commonly stored on a stripe set of two to four 1-TB [premium managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) (P30).
+For durability, data and commit logs are commonly stored on a stripe set of two to four 1-TB [premium managed disks](/azure/virtual-machines/windows/disks-types#premium-ssd) (P30).
 
 Cassandra nodes should not be too data-dense. We recommend having at most 1 &ndash; 2 TB of data per VM and enough free space for compaction. To achieve the highest possible combined throughput and IOPS using premium managed disks, we recommend creating a stripe set from a few 1-TB disks, instead of using a single 2-TB or 4-TB disk. For example, on a DS14_v2 VM, four 1-TB disks have a maximum IOPS of 4 &times; 5000 = 20 K, versus 7.5 K for a single 4-TB disk.
 
-As [Azure Ultra Disks](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd) become more widely available across regions, evaluate them for Cassandra workloads that need smaller disk capacity. They can provide higher IOPS/throughput and lower latency on VM sizes like [Standard_D32s_v3][dsv3] and [Standard_D16s_v3][dsv3].
+As [Azure Ultra Disks](/azure/virtual-machines/linux/disks-enable-ultra-ssd) become more widely available across regions, evaluate them for Cassandra workloads that need smaller disk capacity. They can provide higher IOPS/throughput and lower latency on VM sizes like [Standard_D32s_v3][dsv3] and [Standard_D16s_v3][dsv3].
 
 For Cassandra workloads that don't need durable storage &mdash; that is, where data can be easily reconstructed from another storage medium &mdash; consider using [Standard_L32s_v2][lsv2] or [Standard_L16s_v2][lsv2] VMs. These VMs sizes have large and fast local *temporary* NVMe disks.
 
@@ -36,18 +36,18 @@ For more information, see [Comparing performance of Azure local/ephemeral vs att
 
 Cassandra nodes make heavy use of the network to send and receive data from the client VM and to communicate between nodes for replication. For optimal performance, Cassandra VMs benefit from high-throughput and low-latency network.
 
-We recommended enabling [Accelerated Networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) on the NIC of the Cassandra node and on VMs running client applications accessing Cassandra.
+We recommended enabling [Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli) on the NIC of the Cassandra node and on VMs running client applications accessing Cassandra.
 
 Accelerated networking requires a modern Linux distribution
-with the latest drivers, such as Cent OS 7.5+ or Ubuntu 16.x/18.x. For more information, see [Create a Linux virtual machine with Accelerated Networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#confirm-that-accelerated-networking-is-enabled).
+with the latest drivers, such as Cent OS 7.5+ or Ubuntu 16.x/18.x. For more information, see [Create a Linux virtual machine with Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli#confirm-that-accelerated-networking-is-enabled).
 
 ## Azure VM data disk caching
 
-Cassandra read workloads perform best when random-access disk latency is low. We recommend using Azure managed disks with [ReadOnly](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-caching) caching enabled. ReadOnly caching provides lower average latency, because the data is read from the cache on the host instead of going to the backend storage.
+Cassandra read workloads perform best when random-access disk latency is low. We recommend using Azure managed disks with [ReadOnly](/azure/virtual-machines/windows/premium-storage-performance#disk-caching) caching enabled. ReadOnly caching provides lower average latency, because the data is read from the cache on the host instead of going to the backend storage.
 
-Read-heavy, random-read workloads like Cassandra benefit from the lower read latency even though cached mode has lower throughput limits than uncached mode. (For example, [DS14_v2](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series-memory) virtual machines have a maximum cached throughput of 512 MB/s versus uncached of 768 MB/s.)
+Read-heavy, random-read workloads like Cassandra benefit from the lower read latency even though cached mode has lower throughput limits than uncached mode. (For example, [DS14_v2](/azure/virtual-machines/dv2-dsv2-series-memory) virtual machines have a maximum cached throughput of 512 MB/s versus uncached of 768 MB/s.)
 
-ReadOnly caching is particularly helpful for Cassandra time-series and other workloads where the working dataset fits in the host cache and data is not constantly overwritten. For example, [DS14_v2](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series-memory) provides a cache size of 512 GB, which could store up to 50% of the data from a Cassandra node with 1-2 TB data density.
+ReadOnly caching is particularly helpful for Cassandra time-series and other workloads where the working dataset fits in the host cache and data is not constantly overwritten. For example, [DS14_v2](/azure/virtual-machines/dv2-dsv2-series-memory) provides a cache size of 512 GB, which could store up to 50% of the data from a Cassandra node with 1-2 TB data density.
 
 There is no significant performance penalty from cache-misses when ReadOnly caching is enabled, so cached mode is recommended for all but the most write-heavy workloads.
 
@@ -87,7 +87,7 @@ For more information, see [Observations on ext4 and xfs file systems and compres
 
 ## Measuring baseline VM performance
 
-After deploying the VMs for the Cassandra ring, run a few synthetic tests to establish baseline network and disk performance. Use these tests to confirm that performance is in line with expectations, based on the [VM size](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+After deploying the VMs for the Cassandra ring, run a few synthetic tests to establish baseline network and disk performance. Use these tests to confirm that performance is in line with expectations, based on the [VM size](/azure/virtual-machines/linux/sizes).
 
 Later, when you run the actual workload, knowing the performance baseline makes it easier to investigate potential bottlenecks. For example, knowing the baseline performance for network egress on the VM can help to rule out network as a bottleneck.
 
@@ -115,7 +115,7 @@ For more information, see [Observations on Cassandra usage of Linux page caching
 
 ## Multi-datacenter replication
 
-Cassandra natively supports the concept of multiple data centers, making it easy to configure one Cassandra ring across multiple [Azure regions](https://azure.microsoft.com/global-infrastructure/regions) or across [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview) within one region.
+Cassandra natively supports the concept of multiple data centers, making it easy to configure one Cassandra ring across multiple [Azure regions](https://azure.microsoft.com/global-infrastructure/regions) or across [availability zones](/azure/availability-zones/az-overview) within one region.
 
 For a multiregion deployment, use Azure Global VNet-peering to connect the virtual networks in the different regions. When VMs are deployed in the same region but in separate availability zones, the VMs can be in the same virtual network.
 
@@ -149,8 +149,8 @@ The following reference architecture deploys Cassandra as part of an n-tier conf
 
 - [Linux N-tier application in Azure with Apache Cassandra](../reference-architectures/n-tier/n-tier-cassandra.md)
 
-[dsv2]: https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series-memory
-[dsv3]: https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series
-[lsv2]: https://docs.microsoft.com/azure/virtual-machines/lsv2-series
+[dsv2]: /azure/virtual-machines/dv2-dsv2-series-memory
+[dsv3]: /azure/virtual-machines/dv3-dsv3-series
+[lsv2]: /azure/virtual-machines/lsv2-series
 
 [repo]: https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments
