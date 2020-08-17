@@ -15,7 +15,7 @@ ms.custom:
 
 This architecture pattern demonstrates big data analytics over large volumes of high velocity data from various sources. This pattern illustrates how Azure Data Explorer and Azure Synapse Analytics complement each other for near real-time analytics and modern data warehousing use cases.
 
-This pattern is already being used by Microsoft customers. For an example, see how Grab implemented real-time analytics over a huge amount of data collected from their taxi and food delivery services as well as merchant partner apps. The [team from Grab presented their solution at MS Ignite in this video (20:30 onwards)](https://myignite.techcommunity.microsoft.com/sessions/81060?source=sessions) Using this pattern, Grab processed more than trillion events per day.
+This pattern is already being used by Microsoft customers. For example, see how Grab implemented real-time analytics over a huge amount of data collected from their taxi and food delivery services as well as merchant partner apps. The [team from Grab presented their solution at MS Ignite in this video (20:30 onwards)](https://myignite.techcommunity.microsoft.com/sessions/81060?source=sessions) Using this pattern, Grab processed more than trillion events per day.
 
 :::image type="content" source="../media/bigdata-adx.png" alt-text="![Big Data analytics with Azure Data Explorer](../images/bigdata-adx.png)":::
 
