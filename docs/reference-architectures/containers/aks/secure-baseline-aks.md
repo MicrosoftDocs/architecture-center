@@ -155,7 +155,7 @@ the Contoso workload and the ingress controller to facilitate inbound
 communication to the workload. The workload is a simple ASP.NET application.
 
 For additional information, [Hub-spoke network topology in
-Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+Azure](../../hybrid-networking/hub-spoke.md).
 
 ### Plan the IP addresses
 
@@ -700,7 +700,7 @@ see [Security Hardening in host OS](/azure/aks/security-hardened-vm-host-image).
 
 ### Cluster and workload operations (DevOps)
 
-Here are some considerations. For more information, see the [Operational Excellence](/azure/architecture/framework/devops/deployment) pillar.
+Here are some considerations. For more information, see the [Operational Excellence](../../../framework/devops/deployment.md) pillar.
 
 #### Isolate workload responsibilities
 
@@ -753,7 +753,7 @@ performance metrics and manual scaling to locate bottlenecks and understand the
 application’s response to scaling. Finally, use this data to set the parameters
 for autoscaling. For information about a performance tuning scenario using AKS,
 see [Performance tuning scenario: Distributed business
-transactions](/azure/architecture/performance/distributed-transaction).
+transactions](../../../performance/distributed-transaction.md).
 
 #### Horizontal Pod Autoscaler
 
@@ -932,7 +932,7 @@ have higher availability, run multiple AKS clusters, in different regions.
     because it can distribute non-web traffic across zones. If you need to
     distribute traffic across regions, Azure Front Door should be considered.
     For other considerations, see [Choose a load
-    balancer](/azure/architecture/guide/technology-choices/load-balancing-overview).
+    balancer](../../../guide/technology-choices/load-balancing-overview.md).
 
 #### Disaster Recovery
 
@@ -1051,9 +1051,9 @@ Use the [Azure pricing
 calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs
 for the services used in the architecture. Other best practices are described in
 the [Cost
-Optimization](/azure/architecture/framework/cost/overview)
+Optimization](../../../framework/cost/overview.md)
 section in [Microsoft Azure Well-Architected
-Framework](/azure/architecture/framework/cost/overview).
+Framework](../../../framework/cost/overview.md).
 
 ### Provision
 
@@ -1089,7 +1089,7 @@ receive service discounts.
 
 -   If your workload is expected exist for a long period, you can commit to one-
     or three-year Reserved Virtual Machine Instances to reduce the node costs.
-    For more information, see [Reserved VMs](/azure/architecture/framework/cost/optimize-vm#reserved-vms).
+    For more information, see [Reserved VMs](../../../framework/cost/optimize-vm.md#reserved-vms).
 
 -   Use tags when you create node pools. Tags are useful in creating custom
     reports to track the incurred costs. Tags give the ability to track the
@@ -1100,7 +1100,7 @@ receive service discounts.
 
 -   Data transfers within availability zones of a region are not free. If your
     workload is multi-region or there are transfers across billing zones, then
-    expect additional bandwidth cost. For more information, see [Traffic across billing zones and regions](/azure/architecture/framework/cost/design-regions?branch=master#traffic-across-billing-zones-and-regions).
+    expect additional bandwidth cost. For more information, see [Traffic across billing zones and regions](../../../framework/cost/design-regions.md?branch=master#traffic-across-billing-zones-and-regions).
 
 -   Create budgets to stay within the cost constraints identified by the
     organization. One way is to create budgets through Azure Cost Management.

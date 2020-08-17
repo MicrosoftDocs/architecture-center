@@ -35,7 +35,7 @@ The Surveys application uses the OpenID Connect (OIDC) protocol to authenticate 
 
 To enable OpenID Connect, the SaaS provider registers the application inside their own Azure AD tenant.
 
-To register the application, follow the steps in [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
+To register the application, follow the steps in [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
 To enable this functionality in the sample Surveys application, see the [GitHub readme](https://github.com/mspnp/multitenant-saas-guidance/blob/master/get-started.md). Note the following:
 
@@ -47,7 +47,7 @@ To enable this functionality in the sample Surveys application, see the [GitHub 
 
 This section describes how to configure the authentication middleware in ASP.NET Core for multitenant authentication with OpenID Connect.
 
-In your [startup class](https://docs.microsoft.com/aspnet/core/fundamentals/startup), add the OpenID Connect middleware:
+In your [startup class](/aspnet/core/fundamentals/startup), add the OpenID Connect middleware:
 
 ```csharp
 app.AddAuthentication().AddOpenIdConnect(options => {
@@ -194,6 +194,6 @@ app.AddAuthentication().AddOpenIdConnect(options =>
 [**Next**][claims]
 
 [claims]: ./claims.md
-[cookie-options]: https://docs.microsoft.com/aspnet/core/security/authentication/cookie#absolute-cookie-expiration
+[cookie-options]: /aspnet/core/security/authentication/cookie#absolute-cookie-expiration
 [session-cookie]: https://wikipedia.org/wiki/HTTP_cookie#Session_cookie
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
