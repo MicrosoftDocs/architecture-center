@@ -23,7 +23,7 @@ This architecture pattern demonstrates a hybrid end-to-end monitoring solution i
 For example:
    * Use Azure Sentinel as a SIEM and SOAR component in the overall monitoring solution where you can ingest security logs from firewalls, security center, and so on.
    * Use Azure Monitor’s native capabilities for IT asset monitoring, dashboarding, and alerting so you can ingest logs from VMs, services, and so on.
-   * Use Azure Data Explorer for full flexibility and control in all aspects for all log types in the following scenarios:  
+   * Use Azure Data Explorer for full flexibility and control in all aspects for all types of logs in the following scenarios:  
      * No out of the box features provided by Azure Sentinel and Azure Monitor SaaS solutions such as application trace logs.
      * Greater flexibility for building quick and easy near-real-time analytics dashboards, granular role-based access control, [time series analysis](https://docs.microsoft.com/azure/data-explorer/time-series-analysis), pattern recognition, [anomaly detection and forecasting](https://docs.microsoft.com/azure/data-explorer/anomaly-detection), and [machine learning](https://docs.microsoft.com/azure/data-explorer/machine-learning-clustering). Azure Data Explorer is also well integrated with ML services such as Databricks and Azure Machine Learning. This integration allows you to build models using other tools and services and export ML models to Azure Data Explorer for scoring data.  
      - Longer data retention in cost effective manner
