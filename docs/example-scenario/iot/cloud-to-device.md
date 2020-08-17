@@ -14,15 +14,15 @@ ms.custom: fcp
 
 Applications use two primary mechanisms to send commands to IoT devices, *cloud-to-device messaging* and *direct methods*.
 
-- Applications send [cloud-to-device messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-c2d) to device-specific message queues on the IoT platform for devices to read when they're connected. The devices decide when to read the messages.
+- Applications send [cloud-to-device messages](/azure/iot-hub/iot-hub-csharp-csharp-c2d) to device-specific message queues on the IoT platform for devices to read when they're connected. The devices decide when to read the messages.
 
-- Applications invoke [direct methods](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods) directly on connected devices, using a request-response pattern over dedicated IoT device endpoints.
+- Applications invoke [direct methods](/azure/iot-hub/iot-hub-devguide-direct-methods) directly on connected devices, using a request-response pattern over dedicated IoT device endpoints.
 
 This article discusses characteristics of cloud-to-device messaging and direct methods. The article also describes how to use direct methods with protocol gateways and connected standby devices.
 
 ## Cloud-to-device messaging
 
-Applications send cloud-to-device command messages for specific devices to [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/), which stores the messages in device-specific queues. IoT Hub delivers the messages to the device-specific queues regardless of whether the devices are connected.
+Applications send cloud-to-device command messages for specific devices to [Azure IoT Hub](/azure/iot-hub/), which stores the messages in device-specific queues. IoT Hub delivers the messages to the device-specific queues regardless of whether the devices are connected.
 
 ![A diagram showing how the IoT Hub stores messages on an internal message queue for each device, and the devices polling for these messages.](media/cloud-to-device-message.png)
 
@@ -31,7 +31,7 @@ The following considerations apply when using cloud-to-device messaging:
 - Message queues effectively act as mailboxes for devices, and devices are responsible for polling their message queues for new messages when they're connected.
 - Devices receive messages in a first-in, first-out fashion, making cloud-to-device messaging ideal for sequentially reading and acting on messages.
 - Messages have a configurable expiration, so unread messages can eventually be removed from the device's message queue.
-- For stateful communication, applications can use a [feedback receiver](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-c2d#receive-delivery-feedback) to monitor message delivery and acknowledgment. The application can use a single feedback receiver to monitor all message queues for all devices.
+- For stateful communication, applications can use a [feedback receiver](/azure/iot-hub/iot-hub-csharp-csharp-c2d#receive-delivery-feedback) to monitor message delivery and acknowledgment. The application can use a single feedback receiver to monitor all message queues for all devices.
 
 ## Direct methods
 
@@ -47,7 +47,7 @@ The following considerations apply when using direct methods:
 
 ### Direct methods with protocol gateways
 
-IoT applications that use [protocol gateways](https://docs.microsoft.com/azure/iot-hub/iot-hub-protocol-gateway) can benefit from the connectivity enforcement and request-response model of direct methods. Cloud or protocol gateways allow connecting pre-existing and diverse devices to IoT Hub by acting on behalf of devices to broker custom protocol communications. Protocol gateways can likewise abstract the direct methods model by serializing methods into device-compatible protocol messages.
+IoT applications that use [protocol gateways](/azure/iot-hub/iot-hub-protocol-gateway) can benefit from the connectivity enforcement and request-response model of direct methods. Cloud or protocol gateways allow connecting pre-existing and diverse devices to IoT Hub by acting on behalf of devices to broker custom protocol communications. Protocol gateways can likewise abstract the direct methods model by serializing methods into device-compatible protocol messages.
 
 ![A diagram illustrating the sequence of direct methods calls to use a protocol gateway to broker custom protocol communication from a device to IoT Hub.](media/protocol-gateways.png)
 
@@ -56,7 +56,7 @@ IoT applications that use [protocol gateways](https://docs.microsoft.com/azure/i
 3. When the device completes the message and responds, the gateway translate the device-specific status to the method response.
 4. The IoT Hub completes the direct method by populating a method result for the caller.
 
-The [Azure Protocol Gateway](https://docs.microsoft.com/azure/iot-hub/iot-hub-protocol-gateway) open-source project translates direct methods to MQTT protocol messages natively, is easily extensible, and demonstrates this programming model for other protocol adapters.
+The [Azure Protocol Gateway](/azure/iot-hub/iot-hub-protocol-gateway) open-source project translates direct methods to MQTT protocol messages natively, is easily extensible, and demonstrates this programming model for other protocol adapters.
 
 ### Connected standby devices
 
@@ -64,9 +64,9 @@ IoT command scenarios may involve *connected standby devices* that are in a low-
 
 ![A diagram illustrating how SMS messages or commands sent through the Azure IoT APIs can wake up a device and connect it to IoT Hub to receive commands.](media/connected-standby-devices.png)
 
-1. The application sends commands to devices using the [ServiceClient API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.serviceclient). One instance of **ServiceClient** can send messages and invoke methods for multiple devices. 
+1. The application sends commands to devices using the [ServiceClient API](/dotnet/api/microsoft.azure.devices.serviceclient). One instance of **ServiceClient** can send messages and invoke methods for multiple devices. 
 1. The application also sends SMS wakeup calls to standby devices via the mobile provider's SMS gateway.
-1. On wakeup, standby devices use the [DeviceClient API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient) to connect to IoT Hub and receive commands. One instance of **DeviceClient** represents a single device connected to IoT Hub.
+1. On wakeup, standby devices use the [DeviceClient API](/dotnet/api/microsoft.azure.devices.client.deviceclient) to connect to IoT Hub and receive commands. One instance of **DeviceClient** represents a single device connected to IoT Hub.
 
 #### Use direct methods to determine device connection status
 
@@ -108,6 +108,6 @@ var method = new CloudToDeviceMethod("Ping", 0, 0);
 ```
 
 ## See also
-- [Cloud-to-device communications guidance](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-c2d-guidance) provides scenario-based guidance about when to use cloud-to-device messages or direct methods.
+- [Cloud-to-device communications guidance](/azure/iot-hub/iot-hub-devguide-c2d-guidance) provides scenario-based guidance about when to use cloud-to-device messages or direct methods.
 - [IoT devices, platform, and applications](devices-platform-application.md)
 - [Scale IoT solutions with application stamps](application-stamps.md)

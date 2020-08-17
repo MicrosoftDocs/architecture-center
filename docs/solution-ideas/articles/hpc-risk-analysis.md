@@ -47,8 +47,8 @@ This templated risk analysis solution uses Azure HPC compute and GPU virtual mac
 
 ## Next steps
 
-* [N-Series Virtual Machines Documentation](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)
-* [H-Series Virtual Machines Documentation](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc)
-* [Azure CycleCloud Documentation](https://docs.microsoft.com/azure/cyclecloud)
-* [Avere vFXT Documentation](https://docs.microsoft.com/azure/avere-vfxt)
+* [N-Series Virtual Machines Documentation](/azure/virtual-machines/linux/sizes-gpu)
+* [H-Series Virtual Machines Documentation](/azure/virtual-machines/linux/sizes-hpc)
+* [Azure CycleCloud Documentation](/azure/cyclecloud)
+* [Avere vFXT Documentation](/azure/avere-vfxt)
 * [TIBCO GridServer Documentation](https://docs.tibco.com/products/tibco-datasynapse-gridserver-6-2-0)

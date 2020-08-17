@@ -34,6 +34,6 @@ This solution is built on the Azure managed services: [Backup Server](https://az
 
 ## Next steps
 
-* [Back up workloads using Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup)
-* [Back up files and folders using Azure Backup](https://docs.microsoft.com/azure/backup/backup-configure-vault)
-* [Store backed up files in Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet)
+* [Back up workloads using Azure Backup Server](/azure/backup/backup-azure-microsoft-azure-backup)
+* [Back up files and folders using Azure Backup](/azure/backup/backup-configure-vault)
+* [Store backed up files in Blob storage](/azure/storage/blobs/storage-quickstart-blobs-dotnet)

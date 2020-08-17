@@ -44,9 +44,9 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 
 ## Next steps
 
-* [HDInsight documentation](https://docs.microsoft.com/azure/hdinsight)
-* [Machine Learning Studio documentation](https://docs.microsoft.com/azure/machine-learning/studio)
-* [Virtual Machines documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json)
-* [Azure Kubernetes Service (AKS) documentation](https://docs.microsoft.com/azure/aks)
-* [Storage documentation](https://docs.microsoft.com/azure/storage)
-* [Azure Stack documentation](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-machine-learning)
+* [HDInsight documentation](/azure/hdinsight)
+* [Machine Learning Studio documentation](/azure/machine-learning/studio)
+* [Virtual Machines documentation](/azure/virtual-machines/workloads/sap/get-started?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Azure Kubernetes Service (AKS) documentation](/azure/aks)
+* [Storage documentation](/azure/storage)
+* [Azure Stack documentation](/azure/azure-stack/user/azure-stack-solution-machine-learning)

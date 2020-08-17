@@ -1,6 +1,6 @@
 items:
 - name: Azure Architecture Center
-  href: /azure/architecture/
+  href: ./index.yml
 - name: Architecture icons
   href: icons/index.md
 - name: Browse all Architectures
@@ -1083,6 +1083,8 @@ items:
         href: solution-ideas/articles/cctv-mask-detection.md
       - name: Lighting and disinfection system
         href: solution-ideas/articles/uven-disinfection.md
+      - name: Light and power for emerging markets
+        href: solution-ideas/articles/iot-power-management.md
       - name: Predictive maintenance with IoT
         href: example-scenario/predictive-maintenance/iot-predictive-maintenance.md
       - name: Process real-time vehicle data using IoT
@@ -1092,7 +1094,7 @@ items:
       - name: Secure access to IoT apps with Azure AD
         href: example-scenario/iot-aad/iot-aad.md
       - name: Telemetry Analytics
-        href: solution-ideas/articles/telemetry-analytics.md
+        href: ./reference-architectures/iot.md
     - name: Industrial IoT Analytics
       items:
       - name: Architecture
@@ -1344,4 +1346,4 @@ items:
       - name: Dynamics Business Central as a Service on Azure
         href: solution-ideas/articles/business-central.md
 - name: Cloud Adoption Framework
-  href: https://docs.microsoft.com/azure/cloud-adoption-framework
+  href: /azure/cloud-adoption-framework

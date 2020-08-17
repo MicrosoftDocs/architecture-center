@@ -48,13 +48,13 @@ Predict and prevent future incidents by combining IoT and intelligence to optimi
 
 ## Next steps
 
-* [IoT Hub Documentation](https://docs.microsoft.com/azure/iot-hub)
-* [Azure Security Center Documentation](https://docs.microsoft.com/azure/security-center)
-* [Get Started with Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide)
-* [What is Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
-* [Azure Logic Apps Documentation](https://docs.microsoft.com/azure/logic-apps)
-* [Power BI Embedded Documentation](https://docs.microsoft.com/azure/power-bi-embedded)
-* [Azure Cosmos DB Documentation](https://docs.microsoft.com/azure/cosmos-db)
-* [Application Insights Documentation](https://docs.microsoft.com/azure/application-insights)
-* [Azure Machine Learning Documentation](https://docs.microsoft.com/azure/machine-learning)
-* [Azure Monitor Documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics)
+* [IoT Hub Documentation](/azure/iot-hub)
+* [Azure Security Center Documentation](/azure/security-center)
+* [Get Started with Azure](/azure/guides/developer/azure-developer-guide)
+* [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)
+* [Azure Logic Apps Documentation](/azure/logic-apps)
+* [Power BI Embedded Documentation](/azure/power-bi-embedded)
+* [Azure Cosmos DB Documentation](/azure/cosmos-db)
+* [Application Insights Documentation](/azure/application-insights)
+* [Azure Machine Learning Documentation](/azure/machine-learning)
+* [Azure Monitor Documentation](/azure/monitoring-and-diagnostics)

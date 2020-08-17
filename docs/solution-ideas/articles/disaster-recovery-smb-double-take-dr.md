@@ -33,6 +33,6 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 
 ## Next steps
 
-* [Configure Failover routing method](https://docs.microsoft.com/api/Redirect/documentation/articles/traffic-manager-configure-failover-routing-method)
-* [Create a VNet with a Site-to-Site connection using the Azure portal](https://docs.microsoft.com/api/Redirect/documentation/articles/vpn-gateway-howto-site-to-site-resource-manager-portal)
-* [Designing your network infrastructure for disaster recovery](https://docs.microsoft.com/api/Redirect/documentation/articles/site-recovery-network-design)
+* [Configure Failover routing method](/api/Redirect/documentation/articles/traffic-manager-configure-failover-routing-method)
+* [Create a VNet with a Site-to-Site connection using the Azure portal](/api/Redirect/documentation/articles/vpn-gateway-howto-site-to-site-resource-manager-portal)
+* [Designing your network infrastructure for disaster recovery](/api/Redirect/documentation/articles/site-recovery-network-design)

@@ -36,5 +36,5 @@ This line-of-business application solution provides a mechanism for monitoring a
 
 - [Matching the architecture to your business needs](../../guide/design-principles/build-for-business.md)
 - [Managing identities in your applications](../../multitenant-identity/index.md)
-- [Automate access and use of data across applications with Logic Apps](https://docs.microsoft.com/azure/logic-apps)
-- [Infuse intelligence into your apps with Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/welcome)
+- [Automate access and use of data across applications with Logic Apps](/azure/logic-apps)
+- [Infuse intelligence into your apps with Cognitive Services](/azure/cognitive-services/welcome)

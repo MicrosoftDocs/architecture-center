@@ -35,8 +35,8 @@ This solution is built on the Azure managed services: [Azure SQL Database](https
 
 ## Next steps
 
-* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-dotnet)
-* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started)
-* [How to create a Web App with Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-web-app-howto)
+* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](/azure/app-service/app-service-web-get-started-dotnet)
+* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/azure/sql-database/sql-database-single-database-get-started)
+* [How to create a Web App with Azure Cache for Redis](/azure/azure-cache-for-redis/cache-web-app-howto)
 * [Use Azure Cognitive Search](https://azure.microsoft.com/services/search)
-* [Application Performance Management with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
+* [Application Performance Management with Azure Monitor](/azure/azure-monitor/app/app-insights-overview)

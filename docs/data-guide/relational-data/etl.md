@@ -32,7 +32,7 @@ Relevant Azure service:
 
 Other tools:
 
-- [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
+- [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
 
 ## Extract, load, and transform (ELT)
 
@@ -50,14 +50,14 @@ The final phase of the ELT pipeline is typically to transform the source data in
 
 Relevant Azure service:
 
-- [Azure Synapse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
-- [HDInsight with Hive](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-hive)
+- [Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
+- [HDInsight with Hive](/azure/hdinsight/hadoop/hdinsight-use-hive)
 - [Azure Data Factory v2](https://azure.microsoft.com/services/data-factory)
-- [Oozie on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-oozie-linux-mac)
+- [Oozie on HDInsight](/azure/hdinsight/hdinsight-use-oozie-linux-mac)
 
 Other tools:
 
-- [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
+- [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
 
 ## Data flow and control flow
 
@@ -75,7 +75,7 @@ Relevant Azure service:
 
 Other tools:
 
-- [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
+- [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
 
 ## Technology choices
 

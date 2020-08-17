@@ -52,13 +52,13 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/ecommerce-we
 
 ## Next steps
 
-* [Create and use an internal load balancer with an App Service Environment](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase)
+* [Create and use an internal load balancer with an App Service Environment](/azure/app-service/environment/create-ilb-ase)
 * [Deploy web apps with CMS using pre-built templates](https://azure.microsoft.com/resources/templates/?term=CMS)
-* [Build an ASP.NET app in Azure with SQL Database](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
-* [Deploy your first API app](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api)
-* [Application Performance Management with Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)
-* [Overview of Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)
-* [Azure Cache for Redis documentation](https://docs.microsoft.com/azure/redis-cache)
-* [Quickstart: Create an Azure Content Delivery Network profile and endpoint](https://docs.microsoft.com/azure/cdn/cdn-create-new-endpoint)
-* [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad)
-* [Quickstart: Upload, download, and list blobs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows)
+* [Build an ASP.NET app in Azure with SQL Database](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
+* [Deploy your first API app](/azure/app-service/app-service-web-tutorial-rest-api)
+* [Application Performance Management with Application Insights](/azure/application-insights/app-insights-overview)
+* [Overview of Application Gateway](/azure/application-gateway/application-gateway-introduction)
+* [Azure Cache for Redis documentation](/azure/redis-cache)
+* [Quickstart: Create an Azure Content Delivery Network profile and endpoint](/azure/cdn/cdn-create-new-endpoint)
+* [Get started with Azure AD](/azure/active-directory/get-started-azure-ad)
+* [Quickstart: Upload, download, and list blobs](/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows)

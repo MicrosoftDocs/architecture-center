@@ -26,7 +26,7 @@ As part of your test plan, include:
 - Third-party service testing
 
 ## Chaos engineering
-Harden services against failures in production to attain consistent reliability by adopting [chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering).
+Harden services against failures in production to attain consistent reliability by adopting [chaos engineering](./chaos-engineering.md).
 
 ## Simulation testing
 
@@ -58,7 +58,7 @@ Your test plan should incorporate possible failure points identified during the 
 - Measure the recovery times, and be sure that your business requirements are met.
 - Verify that failures don't cascade and are handled in an isolated way.
 
-Best practices for [Chaos Engineering](/azure/architecture/framework/resiliency/chaos-engineering#best-practices), for more information about failure scenarios, see [Failure and disaster recovery for Azure applications](../../framework/resiliency/backup-and-recovery.md).
+Best practices for [Chaos Engineering](./chaos-engineering.md#best-practices), for more information about failure scenarios, see [Failure and disaster recovery for Azure applications](../../framework/resiliency/backup-and-recovery.md).
 
 ## Test under peak loads
 

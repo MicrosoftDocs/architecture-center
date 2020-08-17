@@ -12,7 +12,7 @@ ms.custom: fcp
 
 # IoT solution overview
 
-Connected sensors, devices, and intelligent operations can transform businesses and enable new growth opportunities with [Azure Internet of Things (IoT)](https://azure.microsoft.com/overview/iot/) solutions. This content complements existing [Azure IoT documentation](https://docs.microsoft.com/azure/iot-fundamentals) with concepts and patterns to consider when designing and developing IoT solutions.
+Connected sensors, devices, and intelligent operations can transform businesses and enable new growth opportunities with [Azure Internet of Things (IoT)](https://azure.microsoft.com/overview/iot/) solutions. This content complements existing [Azure IoT documentation](/azure/iot-fundamentals) with concepts and patterns to consider when designing and developing IoT solutions.
 
 Azure *IoT solutions* involve *events* that generate *insights* to inform *actions* that improve a business or process. IoT solutions use events, insights, and actions to connect devices, or things, to cloud applications and achieve end-to-end scenarios. The terms *thing* and *device* both mean a connected physical device in an IoT solution.
 
@@ -22,7 +22,7 @@ Events, insights, and actions are functional concepts that exist across the [dev
 
 ![A diagram illustrating the relationship between events, insights, and actions in an IoT solution used to monitor a food storage system.](media/events-insights-actions.png)
 
-The cooling system sends operating temperatures as telemetry to a connected application through [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub). Backup systems exist in case a primary cooling system malfunctions or goes offline. Devices can receive commands to adjust temperature or start and stop operation.
+The cooling system sends operating temperatures as telemetry to a connected application through [Azure IoT Hub](/azure/iot-hub/about-iot-hub). Backup systems exist in case a primary cooling system malfunctions or goes offline. Devices can receive commands to adjust temperature or start and stop operation.
 
 The following process occurs in this example:
 

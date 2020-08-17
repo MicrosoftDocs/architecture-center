@@ -42,6 +42,6 @@ Virtual machines (VMs) are physically separated across zones, and a virtual netw
 
 ## Next steps
 
-* [Virtual Machines documentation](https://docs.microsoft.com/azure/virtual-machines)
-* [SQL Database documentation](https://docs.microsoft.com/azure/sql-database)
-* [Load Balancer documentation](https://docs.microsoft.com/azure/load-balancer)
+* [Virtual Machines documentation](/azure/virtual-machines)
+* [SQL Database documentation](/azure/sql-database)
+* [Load Balancer documentation](/azure/load-balancer)

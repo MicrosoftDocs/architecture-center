@@ -81,7 +81,7 @@ With an Azure account, you can access Open Datasets through the Azure portal or 
 
 You don't need an Azure account to get Open Datasets. You can access them from any Python environment, with or without Spark.
 
-- [Overview of Azure Open Datasets](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets)
+- [Overview of Azure Open Datasets](/azure/open-datasets/overview-what-are-open-datasets)
 - [Full catalog of Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/)
 
 ### Azure Notebooks
@@ -93,11 +93,11 @@ You don't need an Azure account to get Open Datasets. You can access them from a
 These Azure components can contribute to an AI for Earth solution:
 
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) stores raw or preprocessed data.
-- Cognitive Service APIs like [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) extract and process structured data and text from unstructured sources.
+- Cognitive Service APIs like [Computer Vision](/azure/cognitive-services/computer-vision/) extract and process structured data and text from unstructured sources.
 - High-performing Linux [virtual machines](https://azure.microsoft.com/services/virtual-machines/) (VMs) scale out to process and analyze data as needed. [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) come preconfigured with data science modeling and machine learning tools.
 - [Azure Backup](https://azure.microsoft.com/services/backup/) backs up VMs and protects critical data.
 - [Container Registry](https://azure.microsoft.com/services/container-registry/) stores containers for apps and data.
-- [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) monitors servers and services for performance and outages.
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview) monitors servers and services for performance and outages.
 - [Azure DevOps](https://azure.microsoft.com/services/devops/) monitors and manages operations during development.
 
 ## Issues and considerations

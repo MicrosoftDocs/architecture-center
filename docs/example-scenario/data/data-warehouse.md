@@ -59,19 +59,19 @@ The company has data sources on many different platforms:
 
 Data is loaded from these different data sources using several Azure components:
 
-- [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) is used to stage source data before it's loaded into Azure Synapse.
-- [Data Factory](https://docs.microsoft.com/azure/data-factory) orchestrates the transformation of staged data into a common structure in Azure Synapse. Data Factory [uses PolyBase when loading data into Azure Synapse](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#use-polybase-to-load-data-into-azure-sql-data-warehouse) to maximize throughput.
-- [Azure Synapse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) is a distributed system for storing and analyzing large datasets. Its use of massive parallel processing (MPP) makes it suitable for running high-performance analytics. Azure Synapse can use [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) to rapidly load data from Blob storage.
-- [Analysis Services](https://docs.microsoft.com/azure/analysis-services) provides a semantic model for your data. It can also increase system performance when analyzing your data.
-- [Power BI](https://docs.microsoft.com/power-bi) is a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
-- [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory) authenticates users who connect to the Analysis Services server through Power BI. Data Factory can also use Azure AD to authenticate to Azure Synapse via a service principal or [Managed identity for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+- [Blob storage](/azure/storage/blobs/storage-blobs-introduction) is used to stage source data before it's loaded into Azure Synapse.
+- [Data Factory](/azure/data-factory) orchestrates the transformation of staged data into a common structure in Azure Synapse. Data Factory [uses PolyBase when loading data into Azure Synapse](/azure/data-factory/connector-azure-sql-data-warehouse#use-polybase-to-load-data-into-azure-sql-data-warehouse) to maximize throughput.
+- [Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) is a distributed system for storing and analyzing large datasets. Its use of massive parallel processing (MPP) makes it suitable for running high-performance analytics. Azure Synapse can use [PolyBase](/sql/relational-databases/polybase/polybase-guide) to rapidly load data from Blob storage.
+- [Analysis Services](/azure/analysis-services) provides a semantic model for your data. It can also increase system performance when analyzing your data.
+- [Power BI](/power-bi) is a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
+- [Azure Active Directory (Azure AD)](/azure/active-directory) authenticates users who connect to the Analysis Services server through Power BI. Data Factory can also use Azure AD to authenticate to Azure Synapse via a service principal or [Managed identity for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ### Alternatives
 
 - The example pipeline includes several different kinds of data sources. This architecture can handle a wide variety of relational and non-relational data sources.
 - Data Factory orchestrates the workflows for your data pipeline. If you want to load data only one time or on demand, you could use tools like SQL Server bulk copy (bcp) and AzCopy to copy data into Blob storage. You can then load the data directly into Azure Synapse using PolyBase.
-- If you have very large datasets, consider using [Data Lake Storage](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction), which provides limitless storage for analytics data.
-- An on-premises [SQL Server Parallel Data Warehouse](https://docs.microsoft.com/sql/analytics-platform-system) appliance can also be used for big data processing. However, operating costs are often much lower with a managed cloud-based solution like Azure Synapse.
+- If you have very large datasets, consider using [Data Lake Storage](/azure/storage/data-lake-storage/introduction), which provides limitless storage for analytics data.
+- An on-premises [SQL Server Parallel Data Warehouse](/sql/analytics-platform-system) appliance can also be used for big data processing. However, operating costs are often much lower with a managed cloud-based solution like Azure Synapse.
 - Azure Synapse is not a good fit for OLTP workloads or data sets smaller than 250 GB. For those cases you should use Azure SQL Database or SQL Server.
 - For comparisons of other alternatives, see:
 
@@ -84,12 +84,12 @@ Data is loaded from these different data sources using several Azure components:
 
 The technologies in this architecture were chosen because they met the company's requirements for scalability and availability, while helping them control costs.
 
-- The [massively parallel processing architecture](https://docs.microsoft.com/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture) of Azure Synapse provides scalability and high performance.
-- Azure Synapse has [guaranteed SLAs](https://azure.microsoft.com/support/legal/sla/sql-data-warehouse) and [recommended practices for achieving high availability](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-best-practices).
-- When analysis activity is low, the company can [scale Azure Synapse on demand](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview), reducing or even pausing compute to lower costs.
-- Azure Analysis Services can be [scaled out](https://docs.microsoft.com/azure/analysis-services/analysis-services-scale-out) to reduce response times during high query workloads. You can also separate processing from the query pool, so that client queries aren't slowed down by processing operations.
-- Azure Analysis Services also has [guaranteed SLAs](https://azure.microsoft.com/support/legal/sla/analysis-services) and [recommended practices for achieving high availability](https://docs.microsoft.com/azure/analysis-services/analysis-services-bcdr).
-- The [Azure Synapse security model](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security) provides connection security, [authentication and authorization](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-authentication) via Azure AD or SQL Server authentication, and encryption. [Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-manage-users) uses Azure AD for identity management and user authentication.
+- The [massively parallel processing architecture](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture) of Azure Synapse provides scalability and high performance.
+- Azure Synapse has [guaranteed SLAs](https://azure.microsoft.com/support/legal/sla/sql-data-warehouse) and [recommended practices for achieving high availability](/azure/sql-data-warehouse/sql-data-warehouse-best-practices).
+- When analysis activity is low, the company can [scale Azure Synapse on demand](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview), reducing or even pausing compute to lower costs.
+- Azure Analysis Services can be [scaled out](/azure/analysis-services/analysis-services-scale-out) to reduce response times during high query workloads. You can also separate processing from the query pool, so that client queries aren't slowed down by processing operations.
+- Azure Analysis Services also has [guaranteed SLAs](https://azure.microsoft.com/support/legal/sla/analysis-services) and [recommended practices for achieving high availability](/azure/analysis-services/analysis-services-bcdr).
+- The [Azure Synapse security model](/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security) provides connection security, [authentication and authorization](/azure/sql-data-warehouse/sql-data-warehouse-authentication) via Azure AD or SQL Server authentication, and encryption. [Azure Analysis Services](/azure/analysis-services/analysis-services-manage-users) uses Azure AD for identity management and user authentication.
 
 ## Pricing
 

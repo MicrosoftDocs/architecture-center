@@ -276,9 +276,9 @@ You should compare the results with the bandwidth available to the VPN gateway (
 
 <!-- links -->
 
-[application-insights]: https://docs.microsoft.com/azure/application-insights/app-insights-overview-usage
+[application-insights]: /azure/application-insights/app-insights-overview-usage
 [azure-vm-diagnostics]: https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension
-[gateway-diagnostic-logs]: https://blogs.technet.microsoft.com/keithmayer/2016/10/12/step-by-step-capturing-azure-resource-manager-arm-vnet-gateway-diagnostic-logs
-[psping]: https://technet.microsoft.com/sysinternals/jj729731.aspx
-[troubleshooting-vpn-errors]: https://docs.microsoft.com/archive/blogs/asksbs/troubleshooting-common-vpn-issues
-[vpn-appliance]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices
+[gateway-diagnostic-logs]: /archive/blogs/keithmayer/step-by-step-capturing-azure-resource-manager-arm-vnet-gateway-diagnostic-logs
+[psping]: /sysinternals/downloads/psping
+[troubleshooting-vpn-errors]: /archive/blogs/asksbs/troubleshooting-common-vpn-issues
+[vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
