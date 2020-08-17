@@ -143,12 +143,12 @@ To deploy the solution, perform the following steps.
 
 [windows-vm-ra]: ../n-tier/n-tier-sql-server.md
 [linux-vm-ra]: ../n-tier/n-tier-cassandra.md
-[vpn-appliance]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices
-[connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
-[expressroute-prereq]: https://docs.microsoft.com/azure/expressroute/expressroute-prerequisites
+[vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
+[connect-to-an-Azure-vnet]: /microsoft-365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network?view=o365-worldwide
+[expressroute-prereq]: /azure/expressroute/expressroute-prerequisites
 [implementing-expressroute]: ./expressroute.md
 [implementing-vpn]: ./vpn.md
 [guidance-expressroute]: ./expressroute.md
 [guidance-vpn]: ./vpn.md
-[best-practices-security]: https://docs.microsoft.com/azure/best-practices-network-security
+[best-practices-security]: /azure/best-practices-network-security
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx
