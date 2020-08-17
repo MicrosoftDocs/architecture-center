@@ -82,7 +82,7 @@ Experiment early, experiment often. Incorporate fault injection configurations a
 Verify that the service is resilient where it counts in a pre-production or production environment with actual customer load.  Adopt a proactive approach as opposed to reacting to failures. Be a part of determining and controlling requirements for the blast radius.
 
 #### Blast radius
-Stop the experiment when it goes beyond scope. An expected outcome of experiments is unknown results. Strive to achieve balance between collecting substantial result data while affecting as few production users as possible. The [Bulkhead pattern](/azure/architecture/patterns/bulkhead) practices that principle.
+Stop the experiment when it goes beyond scope. An expected outcome of experiments is unknown results. Strive to achieve balance between collecting substantial result data while affecting as few production users as possible. The [Bulkhead pattern](../../patterns/bulkhead.md) practices that principle.
 
 #### Error Budget Testing
 Establish an error budget as an investment in chaos and fault injection. Your error budget is difference between 100% and agreed-upon Service Level Objective (SLO).
@@ -658,4 +658,4 @@ Faults that can be leveraged to inject chaos.
 :::row-end:::
 
 > [!NOTE]
-> This is not intended to be an exhaustive list, but a representation of commonly injected faults.  
+> This is not intended to be an exhaustive list, but a representation of commonly injected faults.

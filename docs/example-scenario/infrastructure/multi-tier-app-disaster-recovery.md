@@ -40,7 +40,7 @@ Other relevant use cases include:
 
 ## Architecture
 
-This scenario demonstrates a multitier application that uses ASP.NET and Microsoft SQL Server. In [Azure regions that support availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region), you can deploy your virtual machines (VMs) in a source region across availability zones and replicate the VMs to the target region used for disaster recovery. In Azure regions that don't support availability zones, you can deploy your VMs within an availability set and replicate the VMs to the target region.
+This scenario demonstrates a multitier application that uses ASP.NET and Microsoft SQL Server. In [Azure regions that support availability zones](/azure/availability-zones/az-overview#services-support-by-region), you can deploy your virtual machines (VMs) in a source region across availability zones and replicate the VMs to the target region used for disaster recovery. In Azure regions that don't support availability zones, you can deploy your VMs within an availability set and replicate the VMs to the target region.
 
 ![Architecture overview of a highly resilient multitier web application][architecture]
 
@@ -97,14 +97,14 @@ We have provided a [sample cost calculator][calculator] for configuring disaster
 <!-- links -->
 
 [architecture]: ./media/architecture-disaster-recovery-multi-tier-app.png
-[security]: https://docs.microsoft.com/azure/security
+[security]: /azure/security
 [scalability]: ../../framework/scalability/performance-efficiency.md
-[docs-availability-zones]: https://docs.microsoft.com/azure/availability-zones/az-overview
-[docs-load-balancer]: https://docs.microsoft.com/azure/load-balancer/load-balancer-overview
-[docs-nsg]: https://docs.microsoft.com/azure/virtual-network/security-overview
-[docs-sql-always-on]: https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server
-[docs-sql-server-linux]: https://docs.microsoft.com/sql/linux/sql-server-linux-overview?view=sql-server-linux-2017
-[docs-traffic-manager]: https://docs.microsoft.com/azure/traffic-manager
-[docs-azure-site-recovery]: https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart
-[docs-availability-sets]: https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability
+[docs-availability-zones]: /azure/availability-zones/az-overview
+[docs-load-balancer]: /azure/load-balancer/load-balancer-overview
+[docs-nsg]: /azure/virtual-network/security-overview
+[docs-sql-always-on]: /sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server
+[docs-sql-server-linux]: /sql/linux/sql-server-linux-overview?view=sql-server-linux-2017
+[docs-traffic-manager]: /azure/traffic-manager
+[docs-azure-site-recovery]: /azure/site-recovery/azure-to-azure-quickstart
+[docs-availability-sets]: /azure/virtual-machines/windows/manage-availability
 [calculator]: https://azure.com/e/6835332265044d6d931d68c917979e6d

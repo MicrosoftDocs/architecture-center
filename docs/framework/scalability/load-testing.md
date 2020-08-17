@@ -13,11 +13,11 @@ ms.custom: How are you handling user load?
 
 ## Testing at expected peak load
 
-Load test your application at the expected peak load to ensure there are no challenges around performance or stability when operating at full capacity. Review [Changes to load test functionality in Visual Studio and cloud load testing in Azure DevOps](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops) to get an overview of the Microsoft provided load testing tools, along with a comprehensive list of third-party tools you can leverage as well.
+Load test your application at the expected peak load to ensure there are no challenges around performance or stability when operating at full capacity. Review [Changes to load test functionality in Visual Studio and cloud load testing in Azure DevOps](/azure/devops/test/load-test/overview?view=azure-devops) to get an overview of the Microsoft provided load testing tools, along with a comprehensive list of third-party tools you can leverage as well.
 
 ## Azure service limits
 
-Different Azure services have soft and hard limits associated with them. Understand the limits for the services you consume so that you are not blocked if you need to exceed them. Review [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits) to get a list of the most common Azure limits.
+Different Azure services have soft and hard limits associated with them. Understand the limits for the services you consume so that you are not blocked if you need to exceed them. Review [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits) to get a list of the most common Azure limits.
 
   ![GitHub](../../_images/github.png) The [ResourceLimits](https://github.com/mspnp/samples/tree/master/OperationalExcellence/ResourceLimits) sample shows how to query the limits and quotas for commonly used resources.
 
@@ -38,4 +38,4 @@ Applications should implement a strategy that helps to ensure that the data in t
 Certain Azure SKUs are only available in certain regions. Understand which SKUs are available in the regions you operate in so you can plan accordingly. Read about [global infrastructure services](https://azure.microsoft.com/global-infrastructure/services/).
 
 ## Related sections
-[Performance tuning scenario: Event streaming with Azure Functions](https://docs.microsoft.com/azure/architecture/performance/event-streaming)
+[Performance tuning scenario: Event streaming with Azure Functions](../../performance/event-streaming.md)
