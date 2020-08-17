@@ -23,7 +23,7 @@ This pattern is already being used by Microsoft customers for IoT device telemet
  
 1. Ingest fast flowing wide variety of streaming data such as logs, business events, and user activities from various sources such as Azure Event Hub, Azure IoT Hub, or Kafka.
 1. Process data in real-time using Azure Function or Azure Stream Analytics.
-1. Store streamed messages in Cosmos DB as JSON files for a real time-application operational data store. 
+1. Store streamed JSON messages in Cosmos DB to serve a real-time operational application. 
 1. Ingest data into Azure Data Explorer with low-latency and high throughput using its connectors for Azure Event Hub](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-hub), [Azure IoT Hub](https://docs.microsoft.com/azure/data-explorer/ingest-data-iot-hub), [Kafka](https://docs.microsoft.com/azure/data-explorer/ingest-data-kafka), and so on. Alternatively, ingest data through Azure Storage (Blob or ADLS Gen2), which uses [Azure Event Grid](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-grid) and triggers the ingestion pipeline to Azure Data Explorer. You can also continuously export data to Azure Storage in compressed, partitioned parquet format and seamlessly query that data as detailed in [Azure Data Explorer external tables and continuous export](https://docs.microsoft.com/azure/data-explorer/kusto/management/data-export/continuous-data-export).
 1. Azure Data Explorer is a big data analytics store for serving near real-time analytics applications and dashboards.
 As this pattern serves both operational and analytical use cases, data can be routed to Azure Data Explorer and Cosmos DB in parallel or from Cosmos DB to Azure Data Explorer. 
