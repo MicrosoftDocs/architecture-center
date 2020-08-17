@@ -12,7 +12,7 @@ ms.custom:
 ---
 # Application assessment
 
-[Cloud rationalization](https://docs.microsoft.com/azure/cloud-adoption-framework/digital-estate/5-rs-of-rationalization) is the process of evaluating applications to determine the best way to migrate or modernize them for the cloud.
+[Cloud rationalization](/azure/cloud-adoption-framework/digital-estate/5-rs-of-rationalization) is the process of evaluating applications to determine the best way to migrate or modernize them for the cloud.
  
 Rationalization methods include:
 
@@ -135,7 +135,7 @@ If the app does need code changes, determine the complexity and extent of the ne
 
 - If there are applications serving similar needs in your portfolio, this might be an opportunity to rearchitect or rebuild the entire solution.
 
-- If you want to [implement multi-tier or microservices architecture](https://docs.microsoft.com/azure/architecture/microservices/migrate-monolith) for a monolithic app, you must rearchitect or rebuild the app. If you don't mind retaining the monolithic structure, you might be able to rehost or refactor.
+- If you want to [implement multi-tier or microservices architecture](../microservices/migrate-monolith.md) for a monolithic app, you must rearchitect or rebuild the app. If you don't mind retaining the monolithic structure, you might be able to rehost or refactor.
 
 - Rearchitect or rebuild the app to take advantage of cloud capabilities if you plan to update the app more often than yearly, if the app has peak or variable usage times, or if you expect the app to handle high traffic.
 
@@ -160,4 +160,3 @@ To decide between rearchitecting or rebuilding, assess the following factors. Th
 | A web application saves its session state in process, rather than to an external data store.| ✔ | |
 | The app has peak and variable usage times and loads.| ✔ | ✔ |
 | You expect the application to handle high traffic.| ✔ | ✔ |
-

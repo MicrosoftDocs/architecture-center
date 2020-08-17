@@ -40,11 +40,11 @@ By personalizing your offers, you'll deliver an individualized experience for ev
 
 ## Next steps
 
-* [Learn more about Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
-* [Learn more about Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction)
-* [Learn how to use Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db)
-* [Learn more about Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)
-* [Learn how to create functions](https://docs.microsoft.com/azure/azure-functions)
+* [Learn more about Event Hubs](/azure/event-hubs/event-hubs-what-is-event-hubs)
+* [Learn more about Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
+* [Learn how to use Azure Cosmos DB](/azure/cosmos-db)
+* [Learn more about Azure Storage](/azure/storage/common/storage-introduction)
+* [Learn how to create functions](/azure/azure-functions)
 * [Learn more about machine learning](/azure/machine-learning/overview-what-is-azure-ml)
-* [Learn how to use Azure Cache for Redis](https://docs.microsoft.com/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache)
+* [Learn how to use Azure Cache for Redis](/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache)
 * [Learn about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)

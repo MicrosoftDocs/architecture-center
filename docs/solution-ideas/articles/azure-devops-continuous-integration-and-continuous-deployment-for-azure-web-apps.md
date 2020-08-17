@@ -45,10 +45,10 @@ Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, 
 
 ## Next steps
 
-* [Performance monitoring with Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-detect-triage-diagnose)
-* [Use Azure DevOps to deploy to an Azure Web App](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp)
-* [Git on Azure DevOps](https://docs.microsoft.com/vsts/git/gitquickstart?tabs=visual-studio)
-* [Deploy to Azure Web Apps using Visual Studio and Azure DevOps](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-docker-webapp)
+* [Performance monitoring with Application Insights](/azure/application-insights/app-insights-detect-triage-diagnose)
+* [Use Azure DevOps to deploy to an Azure Web App](/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp)
+* [Git on Azure DevOps](/vsts/git/gitquickstart?tabs=visual-studio)
+* [Deploy to Azure Web Apps using Visual Studio and Azure DevOps](/vsts/build-release/apps/cd/deploy-docker-webapp)
 
 ## Pricing Calculator
 
