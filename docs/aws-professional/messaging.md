@@ -18,9 +18,9 @@ AWS provides the Simple Email Service (SES) for sending notification, transactio
 
 AWS Simple Queueing Service (SQS) provides a messaging system for connecting applications, services, and devices within the AWS platform. Azure has two services that provide similar functionality:
 
-- [Queue storage](https://docs.microsoft.com/azure/storage/queues/storage-nodejs-how-to-use-queues): a cloud messaging service that allows communication between application components within Azure.
+- [Queue storage](/azure/storage/queues/storage-nodejs-how-to-use-queues): a cloud messaging service that allows communication between application components within Azure.
 
-- [Service Bus](https://azure.microsoft.com/services/service-bus): a more robust messaging system for connecting applications, services, and devices. Using the related [Service Bus relay](https://docs.microsoft.com/azure/service-bus-relay/relay-what-is-it), Service Bus can also connect to remotely hosted applications and services.
+- [Service Bus](https://azure.microsoft.com/services/service-bus): a more robust messaging system for connecting applications, services, and devices. Using the related [Service Bus relay](/azure/service-bus-relay/relay-what-is-it), Service Bus can also connect to remotely hosted applications and services.
 
 ## Messaging components
 

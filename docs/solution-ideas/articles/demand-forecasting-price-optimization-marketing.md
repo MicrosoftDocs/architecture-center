@@ -37,7 +37,7 @@ By using this solution to ingest historical transaction data, predict future dem
 
 ## Next steps
 
-* [Learn more about Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview)
-* [Get started with HDInsight using a Spark cluster with R Server](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview)
-* [Learn more about Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-introduction)
+* [Learn more about Data Lake Store](/azure/data-lake-store/data-lake-store-overview)
+* [Get started with HDInsight using a Spark cluster with R Server](/azure/hdinsight/hdinsight-apache-spark-overview)
+* [Learn more about Data Factory](/azure/data-factory/data-factory-introduction)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)

@@ -1,6 +1,6 @@
 items:
 - name: Azure Architecture Center
-  href: /azure/architecture/
+  href: ./index.yml
 - name: Architecture icons
   href: icons/index.md
 - name: Browse all Architectures
@@ -206,6 +206,8 @@ items:
           href: framework/cost/provision-ai-ml.md
         - name: Big data
           href: framework/cost/provision-analytics.md
+        - name: Compute
+          href: framework/cost/provision-compute.md
         - name: Data stores
           href: framework/cost/provision-datastores.md
         - name: Networking
@@ -233,6 +235,8 @@ items:
         href: framework/cost/optimize-reserved.md
       - name: VM instances
         href: framework/cost/optimize-vm.md
+      - name: Caching 
+        href: framework/cost/optimize-cache.md
     - name: Tradeoffs
       href: framework/cost/tradeoffs.md
   - name: Operational Excellence
@@ -1079,6 +1083,8 @@ items:
         href: solution-ideas/articles/cctv-mask-detection.md
       - name: Lighting and disinfection system
         href: solution-ideas/articles/uven-disinfection.md
+      - name: Light and power for emerging markets
+        href: solution-ideas/articles/iot-power-management.md
       - name: Predictive maintenance with IoT
         href: example-scenario/predictive-maintenance/iot-predictive-maintenance.md
       - name: Process real-time vehicle data using IoT
@@ -1087,16 +1093,30 @@ items:
         href: solution-ideas/articles/safe-buildings.md
       - name: Secure access to IoT apps with Azure AD
         href: example-scenario/iot-aad/iot-aad.md
-      - name: Industrial IoT Analytics
-        items:
-          - name: Architecture
-            href: guide/iiot-guidance/iiot-architecture.md
-          - name: Recommended services
-            href: guide/iiot-guidance/iiot-services.md
-          - name: Data visualization
-            href: guide/iiot-guidance/iiot-data.md
-          - name: Considerations
-            href: guide/iiot-guidance/iiot-considerations.md
+      - name: Telemetry Analytics
+        href: ./reference-architectures/iot.md
+    - name: Industrial IoT Analytics
+      items:
+      - name: Architecture
+        href: guide/iiot-guidance/iiot-architecture.md
+      - name: Recommended services
+        href: guide/iiot-guidance/iiot-services.md
+      - name: Data visualization
+        href: guide/iiot-guidance/iiot-data.md
+      - name: Considerations
+        href: guide/iiot-guidance/iiot-considerations.md
+    - name: IoT solutions
+      items:
+      - name: Events, insights, and actions
+        href: example-scenario/iot/introduction-to-solutions.md
+      - name: Builders, developers, and operators
+        href: example-scenario/iot/builders-developers-operators.md
+      - name: Devices, platform, and applications
+        href: example-scenario/iot/devices-platform-application.md
+      - name: Application-to-device commands
+        href: example-scenario/iot/cloud-to-device.md
+      - name: Solution scaling with application stamps
+        href: example-scenario/iot/application-stamps.md
   - name: Management and Governance
     items:
     - name: Architectures
@@ -1326,4 +1346,4 @@ items:
       - name: Dynamics Business Central as a Service on Azure
         href: solution-ideas/articles/business-central.md
 - name: Cloud Adoption Framework
-  href: https://docs.microsoft.com/azure/cloud-adoption-framework
+  href: /azure/cloud-adoption-framework

@@ -53,7 +53,7 @@ Immutable infrastructure<br/>
 
 The Azure Application Architecture Guide is organized as a series of steps, from the architecture and design to implementation. For each step, there is supporting guidance that will help you with the design of your application architecture.
 
-![](./images/a3g.svg)
+![Diagram that shows the structure of this guide, with the sections of this article represented in a flow diagram.](./images/a3g.svg)
 
 ## Architecture styles
 

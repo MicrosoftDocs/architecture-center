@@ -48,10 +48,10 @@ By setting up a continuous build to produce your container images and orchestrat
 
 ## Next steps
 
-* [Pushing Docker images to Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli)
-* [Authenticate Azure Kubernetes Service (AKS) cluster to Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks)
-* [Performance monitoring with Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-detect-triage-diagnose)
-* [Git on Azure DevOps](https://docs.microsoft.com/vsts/git/gitquickstart?tabs=visual-studio)
+* [Pushing Docker images to Azure Container Registry](/azure/container-registry/container-registry-get-started-docker-cli)
+* [Authenticate Azure Kubernetes Service (AKS) cluster to Azure Container Registry](/azure/container-registry/container-registry-auth-aks)
+* [Performance monitoring with Application Insights](/azure/application-insights/app-insights-detect-triage-diagnose)
+* [Git on Azure DevOps](/vsts/git/gitquickstart?tabs=visual-studio)
 
 ## Pricing Calculator
 

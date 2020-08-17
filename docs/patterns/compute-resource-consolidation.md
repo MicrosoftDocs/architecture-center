@@ -31,7 +31,7 @@ In Azure, this concern applies to roles in a Cloud Service, App Services, and Vi
 
 To help reduce costs, increase utilization, improve communication speed, and reduce management it's possible to consolidate multiple tasks or operations into a single computational unit.
 
-Tasks can be grouped according to criteria based on the features provided by the environment and the costs associated with these features. A common approach is to look for tasks that have a similar profile concerning their scalability, lifetime, and processing requirements. Grouping these together allows them to scale as a unit. The elasticity provided by many cloud environments enables additional instances of a computational unit to be started and stopped according to the workload. For example, Azure provides autoscaling that you can apply to roles in a Cloud Service, App Services, and Virtual Machines. For more information, see [Autoscaling Guidance](https://msdn.microsoft.com/library/dn589774.aspx).
+Tasks can be grouped according to criteria based on the features provided by the environment and the costs associated with these features. A common approach is to look for tasks that have a similar profile concerning their scalability, lifetime, and processing requirements. Grouping these together allows them to scale as a unit. The elasticity provided by many cloud environments enables additional instances of a computational unit to be started and stopped according to the workload. For example, Azure provides autoscaling that you can apply to roles in a Cloud Service, App Services, and Virtual Machines. For more information, see [Autoscaling Guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)).
 
 As a counter example to show how scalability can be used to determine which operations shouldn't be grouped together, consider the following two tasks:
 
@@ -67,7 +67,7 @@ Consider the following points when implementing this pattern:
 
 **Stable logical architecture**. Design and implement the code in each task so that it shouldn't need to change, even if the physical environment the task runs in does change.
 
-**Other strategies**. Consolidating compute resources is only one way to help reduce costs associated with running multiple tasks concurrently. It requires careful planning and monitoring to ensure that it remains an effective approach. Other strategies might be more appropriate, depending on the nature of the work and where the users these tasks are running are located. For example, functional decomposition of the workload (as described by the [Compute Partitioning Guidance](https://msdn.microsoft.com/library/dn589773.aspx)) might be a better option.
+**Other strategies**. Consolidating compute resources is only one way to help reduce costs associated with running multiple tasks concurrently. It requires careful planning and monitoring to ensure that it remains an effective approach. Other strategies might be more appropriate, depending on the nature of the work and where the users these tasks are running are located. For example, functional decomposition of the workload (as described by the [Compute Partitioning Guidance](/previous-versions/msp-n-p/dn589773(v=pandp.10))) might be a better option.
 
 ## When to use this pattern
 
@@ -83,7 +83,7 @@ When building a cloud service on Azure, it’s possible to consolidate the proce
 
 The role is responsible for starting and stopping the tasks. When the Azure fabric controller loads a role, it raises the `Start` event for the role. You can override the `OnStart` method of the `WebRole` or `WorkerRole` class to handle this event, perhaps to initialize the data and other resources the tasks in this method depend on.
 
-When the `OnStart` method completes, the role can start responding to requests. You can find more information and guidance about using the `OnStart` and `Run` methods in a role in the [Application Startup Processes](https://msdn.microsoft.com/library/ff803371.aspx#sec16) section in the patterns & practices guide [Moving Applications to the Cloud](https://msdn.microsoft.com/library/ff728592.aspx).
+When the `OnStart` method completes, the role can start responding to requests. You can find more information and guidance about using the `OnStart` and `Run` methods in a role in the [Application Startup Processes](/previous-versions/msp-n-p/ff803371(v=pandp.10)#sec16) section in the patterns & practices guide [Moving Applications to the Cloud](/previous-versions/msp-n-p/ff728592(v=pandp.10)).
 
 > Keep the code in the `OnStart` method as concise as possible. Azure doesn't impose any limit on the time taken for this method to complete, but the role won't be able to start responding to network requests sent to it until this method completes.
 
@@ -233,8 +233,8 @@ private void Stop(TimeSpan timeout)
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 
-- [Autoscaling Guidance](https://msdn.microsoft.com/library/dn589774.aspx). Autoscaling can be used to start and stop instances of service hosting computational resources, depending on the anticipated demand for processing.
+- [Autoscaling Guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)). Autoscaling can be used to start and stop instances of service hosting computational resources, depending on the anticipated demand for processing.
 
-- [Compute Partitioning Guidance](https://msdn.microsoft.com/library/dn589773.aspx). Describes how to allocate the services and components in a cloud service in a way that helps to minimize running costs while maintaining the scalability, performance, availability, and security of the service.
+- [Compute Partitioning Guidance](/previous-versions/msp-n-p/dn589773(v=pandp.10)). Describes how to allocate the services and components in a cloud service in a way that helps to minimize running costs while maintaining the scalability, performance, availability, and security of the service.
 
 - This pattern includes a downloadable [sample application](https://github.com/mspnp/cloud-design-patterns/tree/master/compute-resource-consolidation).

@@ -74,7 +74,7 @@ Select a default instance count that's safe for your workload. It's scaled based
 
 For a list of built-in metrics, see [Azure Monitor autoscaling common metrics][autoscale-metrics]. You can also implement custom metrics by using Application Insights.
 
-You can configure autoscaling by using PowerShell, the Azure CLI, an Azure Resource Manager template, or the Azure portal. For more detailed control, use the [Azure Resource Manager REST API](https://msdn.microsoft.com//library/azure/dn790568.aspx). The [Azure Monitoring Service Management Library](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring) and the [Microsoft Insights Library](https://www.nuget.org/packages/Microsoft.Azure.Insights) (in preview) are SDKs that allow collecting metrics from different resources, and perform autoscaling by making use of the REST APIs. For resources where Azure Resource Manager support isn't available, or if you are using Azure Cloud Services, the Service Management REST API can be used for autoscaling. In all other cases, use Azure Resource Manager.
+You can configure autoscaling by using PowerShell, the Azure CLI, an Azure Resource Manager template, or the Azure portal. For more detailed control, use the [Azure Resource Manager REST API](/rest/api/resources/). The [Azure Monitoring Service Management Library](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring) and the [Microsoft Insights Library](https://www.nuget.org/packages/Microsoft.Azure.Insights) (in preview) are SDKs that allow collecting metrics from different resources, and perform autoscaling by making use of the REST APIs. For resources where Azure Resource Manager support isn't available, or if you are using Azure Cloud Services, the Service Management REST API can be used for autoscaling. In all other cases, use Azure Resource Manager.
 
 Consider the following points when using Azure autoscale:
 
@@ -101,14 +101,14 @@ For details about how Azure Monitor scales, see [Best practices for Autoscale](/
 
 - When autoscaling Service Fabric, the node types in your cluster are made of virtual machine scale sets at the back end, so you need to set up autoscale rules for each node type. Take into account the number of nodes that you must have before you set up autoscaling. The minimum number of nodes that you must have for the primary node type is driven by the reliability level you have chosen. For more information, see [scale a Service Fabric cluster in or out using autoscale rules](/azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling).
 
-- You can use the portal to link resources such as SQL Database instances and queues to a Cloud Service instance. This allows you to more easily access the separate manual and automatic scaling configuration options for each of the linked resources. For more information, see [How to: Link a resource to a cloud service](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-manage).
+- You can use the portal to link resources such as SQL Database instances and queues to a Cloud Service instance. This allows you to more easily access the separate manual and automatic scaling configuration options for each of the linked resources. For more information, see [How to: Link a resource to a cloud service](/azure/cloud-services/cloud-services-how-to-manage).
 
 - When you configure multiple policies and rules, they could conflict with each other. Autoscale uses the following conflict resolution rules to ensure that there is always a sufficient number of instances running:
   - Scale-out operations always take precedence over scale-in operations.
   - When scale-out operations conflict, the rule that initiates the largest increase in the number of instances takes precedence.
   - When scale in operations conflict, the rule that initiates the smallest decrease in the number of instances takes precedence.
 
-- In an App Service Environment, any worker pool or front-end metrics can be used to define autoscale rules. For more information, see [Autoscaling and App Service Environment](https://docs.microsoft.com/azure/app-service/app-service-environment-auto-scale).
+- In an App Service Environment, any worker pool or front-end metrics can be used to define autoscale rules. For more information, see [Autoscaling and App Service Environment](/azure/app-service/app-service-environment-auto-scale).
 
 ## Application design considerations
 
@@ -146,11 +146,11 @@ The following patterns and guidance may also be relevant to your scenario when i
 
 <!-- links -->
 
-[monitoring]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-autoscale
-[app-service-autoscale]: https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-best-practices#manual-scaling-is-reset-by-autoscale-min-and-max
-[autoscale-metrics]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics
-[cloud-services-autoscale]: https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-scale-portal
-[functions-scale]: https://docs.microsoft.com/azure/azure-functions/functions-scale
+[monitoring]: /azure/monitoring-and-diagnostics/monitoring-overview-autoscale
+[app-service-autoscale]: /azure/azure-monitor/platform/autoscale-best-practices#manual-scaling-is-reset-by-autoscale-min-and-max
+[autoscale-metrics]: /azure/monitoring-and-diagnostics/insights-autoscale-common-metrics
+[cloud-services-autoscale]: /azure/cloud-services/cloud-services-how-to-scale-portal
+[functions-scale]: /azure/azure-functions/functions-scale
 [service-fabric-autoscale]: /azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling
-[vm-scale-sets]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
-[vm-scale-sets-autoscale]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
+[vm-scale-sets]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
+[vm-scale-sets-autoscale]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
