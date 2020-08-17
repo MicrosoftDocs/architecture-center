@@ -43,9 +43,9 @@ landingContent:
       - linkListType: video
         links:
           - text: What trade-offs have you made to optimize for cost?
-            url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=2&category=Cost
+            url: https://www.microsoft.com/videoplayer/embed/RE4zw3n
   # Card 
-  - title: Design
+  - title: Design within the cost limits
     linkLists:
       - linkListType: get-started
         links:
@@ -74,25 +74,9 @@ landingContent:
       - linkListType: video
         links:
           - text: How is your organization modeling cloud costs?
-            url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=2&category=Cost                             
+            url: https://www.microsoft.com/videoplayer/embed/RE4zlDU      
  # Card
-  - title: Monitor
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Review alerts
-            url: monitor-alert.md
-          - text: Generate cost reports
-            url: monitor-reports.md
-          - text: Conduct cost reviews
-            url: monitor-reviews.md
-      - linkListType: video
-        links:
-          - text: How are you monitoring your costs?
-            url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=4&category=Cost
-                      
- # Card
-  - title: Provision
+  - title: Provision the right resources
     linkLists:
       - linkListType: overview
         links:
@@ -107,9 +91,39 @@ landingContent:
       - linkListType: video
         links:
           - text: How do you ensure that cloud resources are appropriately provisioned?
-            url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=1&category=Cost
+            url: https://www.microsoft.com/videoplayer/embed/RE4zw3m
           - text: How do you manage the storage footprint of your digital assets?
-            url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=3&category=Cost                 
+            url: https://www.microsoft.com/videoplayer/embed/RE4zdQC                                         
+ # Card
+  - title: Monitor your cloud spend
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Review alerts
+            url: monitor-alert.md
+          - text: Generate cost reports
+            url: monitor-reports.md
+          - text: Conduct cost reviews
+            url: monitor-reviews.md
+      - linkListType: video
+        links:
+          - text: How are you monitoring your costs?
+            url: https://www.microsoft.com/videoplayer/embed/RE4zgrp
+ # Card
+  - title: Optimize based on audits
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Autoscale instances
+            url: optimize-autoscale.md
+          - text: Reserved instances
+            url: optimize-reserved.md
+          - text: Right-size VMs
+            url: optimize-vm.md
+      - linkListType: video
+        links:
+          - text: What actions are you taking to optimize cloud costs?
+            url: https://www.microsoft.com/videoplayer/embed/RE4yYLM          
  # Card
   - title: Cost tools and services
     linkLists:
@@ -126,22 +140,7 @@ landingContent:
           - text: Azure Cost Management
             url: /azure/cost-management-billing/costs/
           - text: Visualize cost reports
-            url: /power-bi/desktop-connect-azure-cost-management
- # Card
-  - title: Optimize
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Autoscale instances
-            url: optimize-autoscale.md
-          - text: Reserved instances
-            url: optimize-reserved.md
-          - text: Right-size VMs
-            url: optimize-vm.md
-      - linkListType: video
-        links:
-          - text: What actions are you taking to optimize cloud costs?
-            url: https://docs.microsoft.com/en-us/assessments/?mode=questionnaire&session=3a68711f-3877-4af4-bced-b5dc2c8a2662&question=0&category=Cost                 
+            url: /power-bi/desktop-connect-azure-cost-management                
  # Card
   - title: Consumption APIs
     linkLists:
