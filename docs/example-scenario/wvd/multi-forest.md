@@ -18,7 +18,7 @@ Many organizations desire to leverage Windows Virtual Desktop (WVD) and have env
 ## Relevant use cases
 
 - Mergers and acquisitions, organization re-branding and multiple on-premises identities requirements. 
-- Complex Active Directory Domain Services (Multi-Forest, Multi-domains) (TBD).
+- Complex Active Directory environments (Multi-Forest, Multi-domains) (TBD).
 - Hybrid and MVP/PoC scenarios (TBD).
 
 ## Architecture
@@ -29,10 +29,10 @@ Many organizations desire to leverage Windows Virtual Desktop (WVD) and have env
 
 This architecture diagram shows a typical scenario that involves:
 
-- Hybrid identity,
-- Complex Active Directory Environments,
+- Hybrid identity
+- Complex Active Directory Environments
 - Dependency on Legacy authentication such as Kerberos, NTLM, and LDAP, (TBD links to these)
-- Domain Controllers on-premises, and
+- Domain Controllers on-premises
 - Azure environments that still require On-premises infrastructure.
 
 (TBD can we elaborate this architectural difference from the existing WVD article?) 
