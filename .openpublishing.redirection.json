@@ -201,7 +201,7 @@
     },
     {
       "source_path": "docs/checklist/scalability.md",
-      "redirect_url": "/azure/architecture/checklist/performance-efficiency",
+      "redirect_url": "/azure/architecture/framework/scalability/overview",
       "redirect_document_id": true
     },
     {

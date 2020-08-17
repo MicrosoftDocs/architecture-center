@@ -124,7 +124,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 </ul>
 
-[view all](../browse/index.md##analytics)
+[view all](../browse/index.md#analytics)
 
 ## Compute
 
