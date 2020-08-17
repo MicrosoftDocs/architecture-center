@@ -1,7 +1,7 @@
 ---
 title: Big Data Analytics with Azure Data Explorer
 titleSuffix: Azure Solution Ideas
-description: Big Data Analytics with Azure Data Explorer demonstrates Azure Data Explorer's abilities to supply the three V's of big data - volume, velocity, and variety of data.
+description: Big Data Analytics with Azure Data Explorer demonstrates Azure Data Explorer's abilities to cater to volume, velocity, and variety of data, the three V's of big data.
 author: orspod
 ms.date: 08/11/2020
 ms.topic: solution-ideas
