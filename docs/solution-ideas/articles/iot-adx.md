@@ -13,7 +13,7 @@ ms.custom:
 
 # IoT telemetry analytics with Azure Data Explorer
 
-This architecture pattern demonstrates near real-time analytics over fast flowing, high volume diverse streaming data from IoT devices, sensors, connected buildings and vehicles, and so on. It focuses on integration of Azure Data Explorer with other IoT services to cater to both operational and analytical workloads using Cosmos DB and Azure Data Explorer. 
+This architecture pattern demonstrates near real-time analytics over fast flowing, high volume streaming data from IoT devices, sensors, connected buildings and vehicles, and so on. It focuses on integration of Azure Data Explorer with other IoT services to cater to both operational and analytical workloads using Cosmos DB and Azure Data Explorer respectively. 
 
 This pattern is already being used by Microsoft customers for IoT device telemetry analytics. For example, see how [Bosch combined real-time road conditions with weather data for safer autonomous driving](https://customers.microsoft.com/en-us/story/816933-bosch-automotive-azure-germany).
 
