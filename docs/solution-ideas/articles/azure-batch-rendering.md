@@ -45,8 +45,8 @@ This HPC media rendering solution architecture shows Azure CycleCloud monitoring
 
 ## Next steps
 
-* [N-Series Virtual Machines Documentation](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)
-* [H-Series Virtual Machines Documentation](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc)
-* [Azure CycleCloud Documentation](https://docs.microsoft.com/azure/cyclecloud)
-* [Avere vFXT Documentation](https://docs.microsoft.com/azure/avere-vfxt)
-* [Azure Batch Documentation](https://docs.microsoft.com/azure/batch)
+* [N-Series Virtual Machines Documentation](/azure/virtual-machines/linux/sizes-gpu)
+* [H-Series Virtual Machines Documentation](/azure/virtual-machines/linux/sizes-hpc)
+* [Azure CycleCloud Documentation](/azure/cyclecloud)
+* [Avere vFXT Documentation](/azure/avere-vfxt)
+* [Azure Batch Documentation](/azure/batch)

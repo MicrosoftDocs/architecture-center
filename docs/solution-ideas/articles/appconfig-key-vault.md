@@ -13,7 +13,7 @@ ms.category:
 ---
 # Centralize Azure app configuration and security
 
-Cloud-based applications often run on multiple virtual machines or containers in multiple regions, and use multiple external services. Creating a robust and scalable application in a distributed environment presents a significant challenge. [Azure App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/overview) lets you manage and store all your app's configuration settings and feature flags, and secure access settings, in one place.
+Cloud-based applications often run on multiple virtual machines or containers in multiple regions, and use multiple external services. Creating a robust and scalable application in a distributed environment presents a significant challenge. [Azure App Configuration](/azure/azure-app-configuration/overview) lets you manage and store all your app's configuration settings and feature flags, and secure access settings, in one place.
 
 App Configuration works seamlessly with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), which stores passwords, keys, and secrets for secure access. This article presents best practices for using App Configuration and Key Vault in development and Azure environments.
 
@@ -37,7 +37,7 @@ In the development environment, the app uses Visual Studio or Azure CLI 2.0 `Azu
 
 ### Azure staging or production environment
 
-The Azure staging and production environments use an [Azure Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for sign-in and authentication.
+The Azure staging and production environments use an [Azure Managed Service Identity (MSI)](/azure/active-directory/managed-identities-azure-resources/overview) for sign-in and authentication.
 
 ![Azure environment](../media/appconfig-azure.png)
 
@@ -60,8 +60,8 @@ The Azure staging and production environments use an [Azure Managed Service Iden
 
 ## Next steps
 
-- [Azure App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/)
-- [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/basic-concepts)
-- [Use Key Vault references for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references)
-- [App Configuration and Managed Service Identity](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core2x)
-- [Local development and security](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows)
+- [Azure App Configuration](/azure/azure-app-configuration/)
+- [Azure Key Vault](/azure/key-vault/general/basic-concepts)
+- [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references)
+- [App Configuration and Managed Service Identity](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core2x)
+- [Local development and security](/aspnet/core/security/app-secrets?tabs=windows&view=aspnetcore-3.1)
