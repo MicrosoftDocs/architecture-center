@@ -93,7 +93,7 @@ The solution uses these components:
 
 * [Azure Databricks](https://azure.microsoft.com/services/databricks/)
 
-* [Azure Data Lake Storage (ADLS) Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)
+* [Azure Data Lake Storage (ADLS) Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 
 * [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/)
 
@@ -193,8 +193,8 @@ If you'd like to deploy the solution, follow the steps in the [How to use the sa
 
 Azure Databricks
 
-* [Monitoring Azure Databricks with Azure Monitor](/azure/architecture/databricks-monitoring/)
-* [Monitoring Azure Databricks Jobs with Application Insights](https://msdn.microsoft.com/magazine/mt846727.aspx)
+* [Monitoring Azure Databricks with Azure Monitor](../../databricks-monitoring/index.md)
+* [Monitoring Azure Databricks Jobs with Application Insights](/archive/msdn-magazine/2018/june/azure-databricks-monitoring-azure-databricks-jobs-with-application-insights)
 
 Data Factory
 

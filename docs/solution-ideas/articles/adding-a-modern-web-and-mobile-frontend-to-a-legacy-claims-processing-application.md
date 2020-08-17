@@ -40,5 +40,5 @@ This line-of-business application solution consolidates data from multiple busin
 
 ## Next steps
 
-* [Running SAP on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json)
-* [Running SQL server in Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal)
+* [Running SAP on Azure](/azure/virtual-machines/workloads/sap/get-started?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Running SQL server in Azure](/azure/sql-database/sql-database-get-started-portal)

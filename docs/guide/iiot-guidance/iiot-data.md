@@ -20,8 +20,8 @@ This article shows you how to visualize the data collected by the [Azure Industr
 
 There are many options for visualizing your industrial data. Your IIoT analytics solution may use some or all of these options, depending on the personas using your solution.
 
-- For Process Engineers and other personas looking to perform ad-hoc analytics and trend visualizations, we recommend using [Azure Time Series Insights explorer](https://docs.microsoft.com/azure/time-series-insights/concepts-ux-panels).
-- For Plant Managers and other personas wanting to develop dashboards, we recommend using Power BI, and connecting Power BI with your data in Time Series Insights using the [Power BI connector](https://docs.microsoft.com/azure/time-series-insights/concepts-power-bi). Using Power BI, these users can also combine external data from your ERP, EAM, or other systems with the data in Time Series Insights.
+- For Process Engineers and other personas looking to perform ad-hoc analytics and trend visualizations, we recommend using [Azure Time Series Insights explorer](/azure/time-series-insights/concepts-ux-panels).
+- For Plant Managers and other personas wanting to develop dashboards, we recommend using Power BI, and connecting Power BI with your data in Time Series Insights using the [Power BI connector](/azure/time-series-insights/concepts-power-bi). Using Power BI, these users can also combine external data from your ERP, EAM, or other systems with the data in Time Series Insights.
 - For advanced visualizations, such as schematic views and process graphics, we recommend a custom web application.
 - For Data Scientists interested in using open source data analysis and visualization tools such as Python, Jupyter Notebooks, and [*Matplotlib*](https://matplotlib.org/), we recommend [Azure Notebooks](https://notebooks.azure.com/).
 
@@ -51,7 +51,7 @@ Key features of Azure Time Series Insights explorer:
 
 ## Dashboards
 
-For some personas, such as a Plant Manager, dashboards containing factory or plant KPIs and visualizations are more important than viewing the raw data. For such users, we recommend [Power BI](https://powerbi.microsoft.com/) as the visualization solution. You can [connect](https://docs.microsoft.com/azure/time-series-insights/concepts-power-bi) Power BI with your data stored in Time Series Insights, providing you with powerful reporting and dashboard capabilities over your industrial data, and allowing you to share insights and results across your organization.
+For some personas, such as a Plant Manager, dashboards containing factory or plant KPIs and visualizations are more important than viewing the raw data. For such users, we recommend [Power BI](https://powerbi.microsoft.com/) as the visualization solution. You can [connect](/azure/time-series-insights/concepts-power-bi) Power BI with your data stored in Time Series Insights, providing you with powerful reporting and dashboard capabilities over your industrial data, and allowing you to share insights and results across your organization.
 
 [![Power BI components](./images/power-bi-components.png)](./images/power-bi-components.png#lightbox)
 
@@ -76,16 +76,16 @@ We recommend building a Single Page Application (SPA) using:
 
 - JavaScript, HTML5, and CSS3
 - [Time Series Insights JavaScript SDK](https://tsiclientsample.azurewebsites.net/) for displaying process or custom visuals with data from Time Series Insights
-- [MSAL.js](https://docs.microsoft.com/graph/toolkit/providers/msal) to sign in users and acquire tokens to use with the Microsoft Graph
+- [MSAL.js](/graph/toolkit/providers/msal) to sign in users and acquire tokens to use with the Microsoft Graph
 - [Azure App Services Web Apps](https://azure.microsoft.com/services/app-service/web/) to host the web application
-- Power BI to [embed Power BI dashboards](https://docs.microsoft.com/power-bi/collaborate-share/service-embed-secure) directly in the web app
-- [Azure Maps](https://docs.microsoft.com/azure/azure-maps/) to render map visualizations
+- Power BI to [embed Power BI dashboards](/power-bi/collaborate-share/service-embed-secure) directly in the web app
+- [Azure Maps](/azure/azure-maps/) to render map visualizations
 - [Microsoft Graph SDK for JavaScript](https://developer.microsoft.com/graph/blogs/microsoft-graph-sdk-for-javascript-2-0-0/) to integrate with Office 365
 
 ## Notebooks
 
-One of the advantages of moving operational data to the cloud is to take advantage of modern big-data tool sets.  One of the most common tools used by Data Scientists for ad-hoc analysis of big data are [Jupyter Notebooks](https://notebooks.azure.com/). [Jupyter (formerly IPython)](https://docs.microsoft.com/azure/notebooks/azure-notebooks-overview) is an open-source project that lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations onto a single, sharable canvas - *the notebook*. Production Engineers should also consider learning Jupyter Notebooks technology to assist in analysis of plant events, finding correlations, and so on.  Jupyter Notebooks provide support for Python 2/3, R, and F# programming languages and can connect to your Time Series Insights data stored Azure storage.
+One of the advantages of moving operational data to the cloud is to take advantage of modern big-data tool sets.  One of the most common tools used by Data Scientists for ad-hoc analysis of big data are [Jupyter Notebooks](https://notebooks.azure.com/). [Jupyter (formerly IPython)](/azure/notebooks/azure-notebooks-overview) is an open-source project that lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations onto a single, sharable canvas - *the notebook*. Production Engineers should also consider learning Jupyter Notebooks technology to assist in analysis of plant events, finding correlations, and so on.  Jupyter Notebooks provide support for Python 2/3, R, and F# programming languages and can connect to your Time Series Insights data stored Azure storage.
 
 ## Next steps
 
-Now that you have learned the architecture of an Azure IIoT analytics solution, read [the architectural considerations](./iiot-considerations.md) that improve the resiliency and efficiency of this architecture. 
+Now that you have learned the architecture of an Azure IIoT analytics solution, read [the architectural considerations](./iiot-considerations.md) that improve the resiliency and efficiency of this architecture.

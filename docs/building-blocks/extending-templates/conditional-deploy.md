@@ -140,7 +140,7 @@ az deployment group create -g <resource-group-name> \
 - Use objects instead of scalar values as template parameters. See [Use an object as a parameter in an Azure Resource Manager template](./objects-as-parameters.md)
 
 <!-- links -->
-[azure-resource-manager-condition]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#resources
-[vnet-peering-resource-schema]: https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks/virtualnetworkpeerings
-[cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest
+[azure-resource-manager-condition]: /azure/azure-resource-manager/resource-group-authoring-templates#resources
+[vnet-peering-resource-schema]: /azure/templates/microsoft.network/virtualnetworks/virtualnetworkpeerings
+[cli]: /cli/azure/?view=azure-cli-latest
 [github]: https://github.com/mspnp/template-examples

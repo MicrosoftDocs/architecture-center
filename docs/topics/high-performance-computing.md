@@ -78,7 +78,7 @@ The following scenarios outline a few of the common ways HPC solutions are built
             href="/azure/architecture/example-scenario/apps/hpc-saas">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="../example-scenario/apps/media/architecture-hpc-saas.png">
+                        <img role="presentation" alt="Diagram shows example HPC architecture for computer-aided engineering services on Azure." src="../example-scenario/apps/media/architecture-hpc-saas.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -97,7 +97,7 @@ The following scenarios outline a few of the common ways HPC solutions are built
             href="/azure/architecture/example-scenario/infrastructure/hpc-cfd">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="../example-scenario/infrastructure/media/architecture-hpc-cfd.png">
+                        <img role="presentation" alt="Diagram shows example HPC architecture for computational fluid dynamics simulations on Azure." src="../example-scenario/infrastructure/media/architecture-hpc-cfd.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -115,7 +115,7 @@ The following scenarios outline a few of the common ways HPC solutions are built
             href="/azure/architecture/example-scenario/infrastructure/video-rendering">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="../example-scenario/infrastructure/media/architecture-video-rendering.png">
+                        <img role="presentation" alt="Diagram shows example HPC architecture for 3D video rendering on Azure." src="../example-scenario/infrastructure/media/architecture-video-rendering.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -136,36 +136,36 @@ Azure offers a range of sizes that are optimized for both CPU & GPU intensive wo
 
 #### CPU-based virtual machines
 
-- [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc)
-- [Windows VMs](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) VMs
+- [Linux VMs](/azure/virtual-machines/linux/sizes-hpc)
+- [Windows VMs](/azure/virtual-machines/windows/sizes-hpc) VMs
   
 #### GPU-enabled virtual machines
 
 N-series VMs feature NVIDIA GPUs designed for compute-intensive or graphics-intensive applications including artificial intelligence (AI) learning and visualization.
 
-- [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)
-- [Windows VMs](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu)
+- [Linux VMs](/azure/virtual-machines/linux/sizes-gpu)
+- [Windows VMs](/azure/virtual-machines/windows/sizes-gpu)
 
 ### Storage
 
 Large-scale Batch and HPC workloads have demands for data storage and access that exceed the capabilities of traditional cloud file systems.  There are a number of solutions to manage both the speed and capacity needs of HPC applications on Azure
 
 - [Avere vFXT](https://azure.microsoft.com/services/storage/avere-vfxt) for faster, more accessible data storage for high-performance computing at the edge
-- [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction)
+- [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction)
 - [BeeGFS](https://azure.microsoft.com/resources/implement-glusterfs-on-azure)
-- [Storage Optimized Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-storage)
-- [Blob, table, and queue storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)
-- [Azure SMB File storage](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)
+- [Storage Optimized Virtual Machines](/azure/virtual-machines/windows/sizes-storage)
+- [Blob, table, and queue storage](/azure/storage/common/storage-introduction)
+- [Azure SMB File storage](/azure/storage/files/storage-files-introduction)
 
-For more information comparing Lustre, GlusterFS, and BeeGFS on Azure, review the [Parallel Files Systems on Azure](https://blogs.msdn.microsoft.com/azurecat/2018/06/11/azurecat-ebook-parallel-virtual-file-systems-on-microsoft-azure) e-book and the [Lustre on Azure](https://techcommunity.microsoft.com/t5/azurecat/lustre-on-azure/ba-p/1052536) blog.
+For more information comparing Lustre, GlusterFS, and BeeGFS on Azure, review the [Parallel Files Systems on Azure](/archive/blogs/azurecat/azurecat-ebook-parallel-virtual-file-systems-on-microsoft-azure) e-book and the [Lustre on Azure](https://techcommunity.microsoft.com/t5/azurecat/lustre-on-azure/ba-p/1052536) blog.
 
 ### Networking
 
 H16r, H16mr, A8, and A9 VMs can connect to a high throughput back-end RDMA network. This network can improve the performance of tightly coupled parallel applications running under Microsoft MPI or Intel MPI.
 
-- [RDMA Capable Instances](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
-- [Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-- [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)
+- [RDMA Capable Instances](/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
+- [Virtual Network](/azure/virtual-network/virtual-networks-overview)
+- [ExpressRoute](/azure/expressroute/expressroute-introduction)
 
 ## Management
 
@@ -173,7 +173,7 @@ H16r, H16mr, A8, and A9 VMs can connect to a high throughput back-end RDMA netwo
 
 Building an HPC system from scratch on Azure offers a significant amount of flexibility, but is often very maintenance intensive.  
 
-1. Set up your own cluster environment in Azure virtual machines or [virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+1. Set up your own cluster environment in Azure virtual machines or [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
 2. Use Azure Resource Manager templates to deploy leading [workload managers](#workload-managers), infrastructure, and [applications](#hpc-applications).
 3. Choose HPC and GPU [VM sizes](#compute) that include specialized hardware and network connections for MPI or GPU workloads.
 4. Add [high performance storage](#storage) for I/O-intensive workloads.
@@ -190,7 +190,7 @@ First, review the [Options for connecting an on-premises network to Azure](../re
             href="/azure/architecture/reference-architectures/hybrid-networking/vpn">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="/azure/architecture/reference-architectures/hybrid-networking/images/vpn.png">
+                        <img role="presentation" alt="Diagram showing how to connect an on-premises network to Azure using a VPN gateway." src="/azure/architecture/reference-architectures/hybrid-networking/images/vpn.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -208,7 +208,7 @@ First, review the [Options for connecting an on-premises network to Azure](../re
             href="/azure/architecture/reference-architectures/hybrid-networking/expressroute">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="/azure/architecture/reference-architectures/hybrid-networking/images/expressroute.png">
+                        <img role="presentation" alt="Diagram showing how to connect an on-premises network to Azure using ExpressRoute." src="/azure/architecture/reference-architectures/hybrid-networking/images/expressroute.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -226,7 +226,7 @@ First, review the [Options for connecting an on-premises network to Azure](../re
             href="/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="/azure/architecture/reference-architectures/hybrid-networking/images/expressroute-vpn-failover.png">
+                        <img role="presentation" alt="Diagram showing how to connect an on-premises network to Azure using ExpressRoute with VPN failover." src="/azure/architecture/reference-architectures/hybrid-networking/images/expressroute-vpn-failover.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -250,19 +250,19 @@ There are a number of workload managers offered in the [Azure Marketplace](https
 - [RogueWave CentOS-based HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc)
 - [SUSE Linux Enterprise Server for HPC](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-15-sp1-hpc)
 - [TIBCO Grid Server Engine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tibco-software.tibco_datasynapse_gridserver)
-- [Azure Data Science VM for Windows and Linux](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview)
+- [Azure Data Science VM for Windows and Linux](/azure/machine-learning/data-science-virtual-machine/overview)
 - [D3View](https://azuremarketplace.microsoft.com/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
 - [UberCloud](https://azure.microsoft.com/search/marketplace/?q=ubercloud)
 
 ### Azure Batch
 
-[Azure Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview) is a platform service for running large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. Azure Batch schedules compute-intensive work to run on a managed pool of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
+[Azure Batch](/azure/batch/batch-technical-overview) is a platform service for running large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. Azure Batch schedules compute-intensive work to run on a managed pool of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
 
 SaaS providers or developers can use the Batch SDKs and tools to integrate HPC applications or container workloads with Azure, stage data to Azure, and build job execution pipelines.
 
 ### Azure CycleCloud
 
-[Azure CycleCloud](https://docs.microsoft.com/azure/cyclecloud) Provides the simplest way to manage HPC workloads using any scheduler (like Slurm, Grid Engine, HPC Pack, HTCondor, LSF, PBS Pro, or Symphony), on Azure
+[Azure CycleCloud](/azure/cyclecloud) Provides the simplest way to manage HPC workloads using any scheduler (like Slurm, Grid Engine, HPC Pack, HTCondor, LSF, PBS Pro, or Symphony), on Azure
 
 CycleCloud allows you to:
 
@@ -283,16 +283,16 @@ The following are examples of cluster and workload managers that can run in Azur
 - [IBM Spectrum Symphony and Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf)
 - [Altair PBS Works](https://www.altair.com/pbs-works)
 - [Rescale](https://www.rescale.com/azure)
-- [Microsoft HPC Pack](https://technet.microsoft.com/library/mt744885.aspx)
-  - [HPC Pack for Windows](https://docs.microsoft.com/azure/virtual-machines/windows/hpcpack-cluster-options)
-  - [HPC Pack for Linux](https://docs.microsoft.com/azure/virtual-machines/linux/hpcpack-cluster-options)
+- [Microsoft HPC Pack](/powershell/high-performance-computing/overview?view=hpc19-ps)
+  - [HPC Pack for Windows](/azure/virtual-machines/windows/hpcpack-cluster-options)
+  - [HPC Pack for Linux](/azure/virtual-machines/linux/hpcpack-cluster-options)
 
 #### Containers
 
 Containers can also be used to manage some HPC workloads.  Services like the Azure Kubernetes Service (AKS) makes it simple to deploy a managed Kubernetes cluster in Azure.
 
-- [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)
-- [Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro)
+- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
+- [Container Registry](/azure/container-registry/container-registry-intro)
 
 ## Cost management
 
@@ -300,7 +300,7 @@ Managing your HPC cost on Azure can be done through a few different ways.  Ensur
 
 ## Security
 
-For an overview of security best practices on Azure, review the [Azure Security Documentation](https://docs.microsoft.com/azure/security/azure-security).  
+For an overview of security best practices on Azure, review the [Azure Security Documentation](/azure/security/azure-security).  
 
 In addition to the network configurations available in the [Cloud Bursting](#hybrid-and-cloud-bursting) section, you may want to implement a hub/spoke configuration to isolate your compute resources:
 
@@ -310,7 +310,7 @@ In addition to the network configurations available in the [Cloud Bursting](#hyb
             href="/azure/architecture/reference-architectures/hybrid-networking/hub-spoke">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="/azure/architecture/reference-architectures/hybrid-networking/images/hub-spoke.png">
+                        <img role="presentation" alt="Diagram showing how to implement a hub-spoke network topology in Azure." src="/azure/architecture/reference-architectures/hybrid-networking/images/hub-spoke.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -328,7 +328,7 @@ In addition to the network configurations available in the [Cloud Bursting](#hyb
             href="/azure/architecture/reference-architectures/hybrid-networking/shared-services">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="/azure/architecture/reference-architectures/hybrid-networking/images/shared-services.png">
+                        <img role="presentation" alt="Diagram showing how to implement a hub-spoke network topology with shared services in Azure." src="/azure/architecture/reference-architectures/hybrid-networking/images/shared-services.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -354,22 +354,22 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 
 - [Altair RADIOSS](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure)
 - [ANSYS CFD](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud)
-- [MATLAB Distributed Computing Server](https://docs.microsoft.com/azure/virtual-machines/windows/matlab-mdcs-cluster)
-- [StarCCM+](https://blogs.msdn.microsoft.com/azurecat/2017/07/07/run-star-ccm-in-an-azure-hpc-cluster)
+- [MATLAB Distributed Computing Server](/azure/virtual-machines/windows/matlab-mdcs-cluster)
+- [StarCCM+](/archive/blogs/azurecat/run-star-ccm-in-an-azure-hpc-cluster)
 - [OpenFOAM](https://simulation.azure.com/casestudies/Team-182-ABB-UC-Final.pdf)
 
 ### Graphics and rendering
 
-- [Autodesk Maya, 3ds Max, and Arnold](https://docs.microsoft.com/azure/batch/batch-rendering-service) on Azure Batch
+- [Autodesk Maya, 3ds Max, and Arnold](/azure/batch/batch-rendering-service) on Azure Batch
 
 ### AI and deep learning
 
-- [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
+- [Microsoft Cognitive Toolkit](/cognitive-toolkit/cntk-on-azure)
 - [Batch Shipyard recipes for deep learning](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
 
 ### MPI Providers
 
-- [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi)
+- [Microsoft MPI](/message-passing-interface/microsoft-mpi)
 
 ## Remote visualization
 
@@ -379,7 +379,7 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
             href="/azure/architecture/example-scenario/infrastructure/linux-vdi-citrix">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="" src="../example-scenario/infrastructure/media/azure-citrix-sample-diagram.png">
+                        <img role="presentation" alt="Diagram of an architecture for Linux virtual desktops with Citrix." src="../example-scenario/infrastructure/media/azure-citrix-sample-diagram.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -396,7 +396,7 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 
 ## Performance Benchmarks
 
-- [Compute benchmarks](https://docs.microsoft.com/azure/virtual-machines/windows/compute-benchmark-scores)
+- [Compute benchmarks](/azure/virtual-machines/windows/compute-benchmark-scores)
 
 ## Customer stories
 
@@ -417,23 +417,23 @@ There are a number of customers who have seen great success by using Azure for t
 
 ## Other important information
 
-- Ensure your [vCPU quota](https://docs.microsoft.com/azure/virtual-machines/linux/quotas) has been increased before attempting to run large-scale workloads.
+- Ensure your [vCPU quota](/azure/virtual-machines/linux/quotas) has been increased before attempting to run large-scale workloads.
 
 ## Next steps
 
 For the latest announcements, see:
 
-- [Microsoft HPC and Batch team blog](https://blogs.technet.microsoft.com/windowshpc/)
+- [Microsoft HPC and Batch team blog](/archive/blogs/windowshpc/)
 - Visit the [Azure blog](https://azure.microsoft.com/blog/tag/hpc).
 
 ### Microsoft Batch Examples
 
 These tutorials will provide you with details on running applications on Microsoft Batch
 
-- [Get started developing with Batch](https://docs.microsoft.com/azure/batch/quick-run-dotnet)
+- [Get started developing with Batch](/azure/batch/quick-run-dotnet)
 - [Use Azure Batch code samples](https://github.com/Azure/azure-batch-samples)
-- [Use low-priority VMs with Batch](https://docs.microsoft.com/azure/batch/batch-low-pri-vms)
+- [Use low-priority VMs with Batch](/azure/batch/batch-low-pri-vms)
 - [Run containerized HPC workloads with Batch Shipyard](https://github.com/Azure/batch-shipyard)
 - [Run parallel R workloads on Batch](https://github.com/Azure/doAzureParallel)
 - [Run on-demand Spark jobs on Batch](https://github.com/Azure/aztk)
-- [Use compute-intensive VMs in Batch pools](https://docs.microsoft.com/azure/batch/batch-pool-compute-intensive-sizes)
+- [Use compute-intensive VMs in Batch pools](/azure/batch/batch-pool-compute-intensive-sizes)

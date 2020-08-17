@@ -58,7 +58,7 @@ N-tier architectures are very common in traditional on-premises applications, so
 ## Best practices
 
 - Use autoscaling to handle changes in load. See [Autoscaling best practices][autoscaling].
-- Use [asynchronous messaging](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-async-messaging) to decouple tiers.
+- Use [asynchronous messaging](/azure/service-bus-messaging/service-bus-async-messaging) to decouple tiers.
 - Cache semistatic data. See [Caching best practices][caching].
 - Configure the database tier for high availability, using a solution such as [SQL Server Always On availability groups][sql-always-on].
 - Place a web application firewall (WAF) between the front end and the Internet.
@@ -87,7 +87,7 @@ For more information about running N-tier applications on Azure:
 
 - [Run Windows VMs for an N-tier application][n-tier-linux]
 - [Windows N-tier application on Azure with SQL Server][n-tier-windows-SQL]
-- [Microsoft Learn module: Tour the N-tier architecture style](https://docs.microsoft.com/learn/modules/n-tier-architecture/)
+- [Microsoft Learn module: Tour the N-tier architecture style](/learn/modules/n-tier-architecture/)
 - [Azure Bastion](/azure/bastion/bastion-overview)
 
 ### Additional considerations
@@ -122,4 +122,4 @@ For more information about running N-tier applications on Azure:
 [multiregion-windows]: ../../reference-architectures/n-tier/multi-region-sql-server.md
 [n-tier-linux]: ../../reference-architectures/n-tier/n-tier-cassandra.md
 [n-tier-windows-SQL]: ../../reference-architectures/n-tier/n-tier-sql-server.md
-[sql-always-on]: https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server
+[sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server

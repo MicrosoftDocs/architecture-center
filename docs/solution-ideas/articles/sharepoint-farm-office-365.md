@@ -54,15 +54,15 @@ This solution provides a highly available deployment of SharePoint using a load 
 
 ## Next steps
 
-* [Azure Resource Group Documentation](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
-* [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-* [Storage Documentation](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
+* [Azure Resource Group Documentation](/azure/azure-resource-manager/resource-group-overview)
+* [Virtual Network Documentation](/azure/virtual-network/virtual-networks-overview)
+* [Storage Documentation](/azure/storage/blobs/storage-blobs-introduction)
 * [Active Directory Documentation](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
-* [SharePoint Server Documentation](https://docs.microsoft.com/sharepoint/administration/intranet-sharepoint-server-2016-in-azure-dev-test-environment)
-* [SQL Server Documentation](https://docs.microsoft.com/sql/relational-databases/databases/deploy-a-sql-server-database-to-a-microsoft-azure-virtual-machine?view=sql-server-2017)'
-* [Load Balancer Documentation](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
-* [ExpressRoute Documentation](https://docs.microsoft.com/azure/expressroute)
-* [VPN Gateway Documentation](https://docs.microsoft.com/azure/vpn-gateway)
-* [Azure AD Connect Documentation](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)
-* [Active Directory Federation Services Documentation](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectfed-whatis)
-* [Hybrid Workloads Documentation](https://docs.microsoft.com/sharepoint/hybrid/hybrid)
+* [SharePoint Server Documentation](/sharepoint/administration/intranet-sharepoint-server-2016-in-azure-dev-test-environment)
+* [SQL Server Documentation](/sql/relational-databases/databases/deploy-a-sql-server-database-to-a-microsoft-azure-virtual-machine?view=sql-server-2017)'
+* [Load Balancer Documentation](/azure/load-balancer/load-balancer-standard-overview)
+* [ExpressRoute Documentation](/azure/expressroute)
+* [VPN Gateway Documentation](/azure/vpn-gateway)
+* [Azure AD Connect Documentation](/azure/active-directory/connect/active-directory-aadconnect)
+* [Active Directory Federation Services Documentation](/azure/active-directory/connect/active-directory-aadconnectfed-whatis)
+* [Hybrid Workloads Documentation](/sharepoint/hybrid/hybrid)

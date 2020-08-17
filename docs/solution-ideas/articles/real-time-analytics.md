@@ -48,15 +48,15 @@ Get insights from live streaming data with ease. Capture data continuously from 
 
 ## Next steps
 
-* [Synapse Analytics Documentation](https://docs.microsoft.com/azure/sql-data-warehouse)
-* [Azure Data Factory V2 Preview Documentation](https://docs.microsoft.com/azure/data-factory)
-* [Azure Data Lake Storage documentation](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)
-* [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/data-explorer-overview)
-* [Azure Databricks Documentation](https://docs.microsoft.com/azure/azure-databricks)
-* [Azure HDInsight Documentation](https://docs.microsoft.com/azure/hdinsight)
-* [Azure Cosmos DB Documentation](https://docs.microsoft.com/azure/cosmos-db)
-* [Analysis Services Documentation](https://docs.microsoft.com/azure/analysis-services)
-* [Power BI Documentation](https://docs.microsoft.com/power-bi)
+* [Synapse Analytics Documentation](/azure/sql-data-warehouse)
+* [Azure Data Factory V2 Preview Documentation](/azure/data-factory)
+* [Azure Data Lake Storage documentation](/azure/storage/blobs/data-lake-storage-introduction)
+* [Azure Data Explorer](/azure/data-explorer/data-explorer-overview)
+* [Azure Databricks Documentation](/azure/azure-databricks)
+* [Azure HDInsight Documentation](/azure/hdinsight)
+* [Azure Cosmos DB Documentation](/azure/cosmos-db)
+* [Analysis Services Documentation](/azure/analysis-services)
+* [Power BI Documentation](/power-bi)
 
 ## Pricing Calculator
 

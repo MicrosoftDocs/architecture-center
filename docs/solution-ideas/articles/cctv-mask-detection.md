@@ -63,6 +63,6 @@ For more information:
 - See [https://www.bosch-india-software.com](https://www.bosch-india-software.com/en/)
 
 ## Related resources
-- [What is Azure Digital Twins?](https://docs.microsoft.com/azure/digital-twins/overview)
-- [Azure Stream Analytics on IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge)
-- [Store data at the edge with Azure Blob Storage on IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-store-data-blob)
+- [What is Azure Digital Twins?](/azure/digital-twins/overview)
+- [Azure Stream Analytics on IoT Edge](/azure/stream-analytics/stream-analytics-edge)
+- [Store data at the edge with Azure Blob Storage on IoT Edge](/azure/iot-edge/how-to-store-data-blob)

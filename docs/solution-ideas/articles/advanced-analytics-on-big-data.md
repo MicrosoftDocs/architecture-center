@@ -46,15 +46,14 @@ Transform your data into actionable insights using the best-in-class machine lea
 
 ## Next steps
 
-* [Synapse Analytics Documentation](https://docs.microsoft.com/azure/sql-data-warehouse)
-* [Azure Data Factory V2 Preview Documentation](https://docs.microsoft.com/azure/data-factory)
-* [Introduction to object storage in Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
-* [Azure Databricks Documentation](https://docs.microsoft.com/azure/azure-databricks)
-* [Azure Cosmos DB Documentation](https://docs.microsoft.com/azure/cosmos-db)
-* [Analysis Services Documentation](https://docs.microsoft.com/azure/analysis-services)
-* [Power BI Documentation](https://docs.microsoft.com/power-bi)
+* [Synapse Analytics Documentation](/azure/sql-data-warehouse)
+* [Azure Data Factory V2 Preview Documentation](/azure/data-factory)
+* [Introduction to object storage in Azure](/azure/storage/blobs/storage-blobs-introduction)
+* [Azure Databricks Documentation](/azure/azure-databricks)
+* [Azure Cosmos DB Documentation](/azure/cosmos-db)
+* [Analysis Services Documentation](/azure/analysis-services)
+* [Power BI Documentation](/power-bi)
 
 ## Pricing Calculator
 
 * [Customize and get pricing estimates](https://azure.com/e/96162a623bda4911bb8f631e317affc6)
-

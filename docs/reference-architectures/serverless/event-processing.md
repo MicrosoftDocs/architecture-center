@@ -188,9 +188,9 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 
 
 
-[AAF-cost]: https://docs.microsoft.com/azure/architecture/framework/cost/overview
-[AAF-devops]: https://docs.microsoft.com/azure/architecture/framework/devops/overview
-[app-insights]: https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview
+[AAF-cost]: ../../framework/cost/overview.md
+[AAF-devops]: ../../framework/devops/overview.md
+[app-insights]: /azure/azure-monitor/app/app-insights-overview
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
 [cosmosdb]: /azure/cosmos-db/introduction
@@ -215,26 +215,26 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 [ra-grs]: /azure/storage/common/storage-redundancy-grs
 [ru]: /azure/cosmos-db/request-units
 
-[cosmosdb-geo]: https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally
-[cosmosdb-scale]: https://docs.microsoft.com/azure/cosmos-db/partition-data
+[cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
+[cosmosdb-scale]: /azure/cosmos-db/partition-data
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
-[cosmosdb-sql]: https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction
+[cosmosdb-sql]: /azure/cosmos-db/sql-api-introduction
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[eh]: https://docs.microsoft.com/azure/event-hubs
-[eh-autoscale]: https://docs.microsoft.com/azure/event-hubs/event-hubs-auto-inflate
-[eh-dr]: https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr
-[eh-throughput]: https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units
-[eh-trigger]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-hubs
-[functions]: https://docs.microsoft.com/azure/azure-functions/functions-overview
-[iot]: https://docs.microsoft.com/azure/iot-hub/iot-hub-compare-event-hubs
-[log-analytics]: https://docs.microsoft.com/azure/log-analytics/log-analytics-queries
-[monitor]: https://docs.microsoft.com/azure/azure-monitor/overview
-[partition-key]: https://docs.microsoft.com/azure/cosmos-db/partition-data
-[pipelines]: https://docs.microsoft.com/azure/devops/pipelines/index
-[queue]: https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction
-[queue-binding]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-queue-output
-[ra-grs]: https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs
-[ru]: https://docs.microsoft.com/azure/cosmos-db/request-units
+[eh]: /azure/event-hubs
+[eh-autoscale]: /azure/event-hubs/event-hubs-auto-inflate
+[eh-dr]: /azure/event-hubs/event-hubs-geo-dr
+[eh-throughput]: /azure/event-hubs/event-hubs-scalability#throughput-units
+[eh-trigger]: /azure/azure-functions/functions-bindings-event-hubs
+[functions]: /azure/azure-functions/functions-overview
+[iot]: /azure/iot-hub/iot-hub-compare-event-hubs
+[log-analytics]: /azure/log-analytics/log-analytics-queries
+[monitor]: /azure/azure-monitor/overview
+[partition-key]: /azure/cosmos-db/partition-data
+[pipelines]: /azure/devops/pipelines/index
+[queue]: /azure/storage/queues/storage-queues-introduction
+[queue-binding]: /azure/azure-functions/functions-bindings-storage-queue-output
+[ra-grs]: /azure/storage/common/storage-redundancy-grs
+[ru]: /azure/cosmos-db/request-units
 
 [github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0
 [readme]: https://github.com/mspnp/serverless-reference-implementation/blob/v0.1.0/README.md
