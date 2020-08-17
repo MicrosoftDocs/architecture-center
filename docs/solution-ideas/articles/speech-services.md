@@ -1,7 +1,7 @@
 ---
 title: Speech Services
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: A custom acoustic model helps Speech Services understand speakers even with background noise or poor phone connections.
 ms.custom: acom-architecture, speech service, speech, services, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/speech-services/'

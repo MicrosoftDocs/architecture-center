@@ -1,8 +1,8 @@
 ---
 title: Design to scale out
 titleSuffix: Azure Application Architecture Guide
-description: Cloud applications should be designed for horizontal scaling.
-author: adamboeglin
+description: Use these recommendations to design your applications for horizontal scaling, which is the ability to use as much capacity as the application needs.
+author: doodlemania2
 ms.date: 08/30/2018
 ms.topic: guide
 ms.service: architecture-center

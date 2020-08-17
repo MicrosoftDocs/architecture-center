@@ -2,7 +2,7 @@
 title: Provisioning cloud resources to optimize cost
 description: Describes guidance on how to provision your cloud resources to minimize cost.
 author: david-stanford
-ms.date: 10/21/2019
+ms.date: 08/13/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -18,5 +18,6 @@ Use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 - [AI + Machine Learning](./provision-ai-ml.md)
 - [Big data analytics](./provision-analytics.md)
+- [Compute](./provision-compute.md)
 - [Networking](./provision-networking.md)
 - [Data stores](./provision-datastores.md)

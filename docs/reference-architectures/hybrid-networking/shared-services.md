@@ -2,7 +2,7 @@
 title: Implement a hub-spoke network topology
 titleSuffix: Azure Reference Architectures
 description: Learn how to implement shared services in a hub-spoke topology in Azure, building on another reference architecture for hub-spoke topology.
-author: adamboeglin
+author: doodlemania2
 ms.date: 08/19/2019
 ms.topic: reference-architecture
 ms.service: architecture-center

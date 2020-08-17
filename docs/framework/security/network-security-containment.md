@@ -1,6 +1,6 @@
 ---
 title: Network security and containment in Azure | Microsoft Docs
-description: Secure assets through network-based access
+description: Review best practices for network security in Azure, including network segmentation, network management, containment strategy, and internet edge strategy.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
 ms.topic: article
@@ -72,7 +72,7 @@ through automation.
 
 Please compare images in [Network security and containment](./governance.md#enterprise-segmentation-strategy).
 
-![](images/ref-entp-design-az-network-security.png)
+![Diagram shows a reference enterprise design for Azure network security in a hybrid cloud infrastructure.](images/ref-entp-design-az-network-security.png)
 
 ## Evolve security beyond network controls
 
@@ -271,6 +271,11 @@ downtime will have negative impact on the business.
 
 An example of advanced DDoS protection is the [Azure DDoS Protection
 Service](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+
+The [Windows N-tier application on Azure with SQL Server](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server) reference architecture uses DDoS Protection Standard because this option:
+- Uses adaptive tuning, based on the application's network traffic patterns, to detect threats. 
+- Guarantees 100% SLA. 
+- Can be cost effective. For example, during a DDoS attack, the first set of attacks cause  the provisioned resources to scale out. For a resource such as a virtual machine scale set, 10 machines can grow to 100, increasing overall costs. With Standard protection, you don't have to worry about the cost of the scaled resources because Azure will provide the cost credit. 
 
 ## Decide upon an internet ingress/egress policy
 

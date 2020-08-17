@@ -1,7 +1,7 @@
 ---
 title: Azure Architectures
 description: Browse Azure Reference Architectures
-author: adamboeglin
+author: doodlemania2
 layout: Hub
 ms.date: 04/03/2020
 ---

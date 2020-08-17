@@ -29,56 +29,56 @@ Common serverless architecture patterns include:
         <h3>Web application backends</h3>
         <p>Retail scenario: Pick up online orders from a queue, process them, and store the resulting data in a database</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/web-app-backends.png" width="550"/></td>
+        <td style="vertical-align: middle;"><img src="./images/web-app-backends.png" width="550" alt="Diagram shows a request made in a web app queued in Service Bus, then processed by a function and sent to Cosmos DB." /></td>
 </tr>
 <tr>
     <td style="width: 250px;">
         <h3>Mobile application backends</h3>
         <p>Financial services scenario: Colleagues use mobile banking to reimburse each other for lunch. Whoever paid for lunch requests payment through a mobile app, triggering a notification on colleagues' phones.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/mobile-app-backends.png" width="550"/></td>
+        <td style="vertical-align: middle;"><img src="./images/mobile-app-backends.png" width="550" alt="Diagram shows an H T T P A P I call, processed by a function and sent to Cosmos DB which triggers another function to send notifications." /></td>
 </tr>
 <tr>
     <td style="width: 250px;">
         <h3>IoT-connected backends</h3>
         <p>Manufacturing scenario: A manufacturing company uses IoT to monitor its machines. Functions detects anomalous data and triggers a message to the service department when repair is required.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/iot-connected-backends.png" width="550"/></td>
+        <td style="vertical-align: middle;"><img src="./images/iot-connected-backends.png" width="550" alt="Diagram shows I o T devices that produce requests for repair, which are sent to the I o T Hub, then routed for processing by using Zendesk." /></td>
 </tr>
 <tr>
     <td style="width: 250px;">
         <h3>Conversational bot processing</h3>
         <p>Hospitality scenario: Customers ask for available vacation accommodations on their smartphones. A serverless bot deciphers requests and returns vacation options.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/conversational-bot-processing.png" width="550"/></td>
+        <td style="vertical-align: middle;"><img src="./images/conversational-bot-processing.png" width="550" alt="Diagram shows a user request through a conversational interface that a bot deciphers for another function to process the request." /></td>
 </tr>
 <tr>
     <td style="width: 250px;">
         <h3>Real-time file processing</h3>
         <p>Healthcare scenario: The solution securely uploads patient records as PDF files. The solution then decomposes the data, processes it using OCR detection, and adds it to a database for easy queries.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/real-time-file-processing.png" width="550"/></td>
+        <td style="vertical-align: middle;"><img src="./images/real-time-file-processing.png" width="550" alt="Diagram shows patient records uploaded, then decomposed and sent to Cognitive Services to be structured into a database." /></td>
 </tr>
 <tr>
     <td style="width: 250px;">
         <h3>Real-time stream processing</h3>
         <p>Independent software vendor (ISV) scenario: A massive cloud app collects huge amounts of telemetry data. The app processes that data in near real-time and stores it in a database for use in an analytics dashboard.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/real-time-stream-processing.png" width="550"/></td>
+        <td style="vertical-align: middle;"><img src="./images/real-time-stream-processing.png" width="550" alt="Diagram shows an app that collects data, which is ingested by Event Hubs, processed by a function, and sent to Cosmos DB." /></td>
 </tr>
 <tr>
     <td style="width: 250px;">
         <h3>Scheduled task automation</h3>
         <p>Financial services scenario: The app analyzes a customer database for duplicate entries every 15 minutes, to avoid sending out multiple communications to the same customers.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/automation-scheduled-tasks.png" width="550"/></td>
+        <td style="vertical-align: middle;"><img src="./images/automation-scheduled-tasks.png" width="550" alt="Diagram shows a database which is cleaned by a function every 15 minutes, which removes duplicate entries." /></td>
 </tr>
 <tr>
     <td style="width: 250px;">
         <h3>Extending SaaS applications</h3>
         <p>Professional services scenario: A SaaS solution provides extensibility through webhooks, which Functions can implement to automate certain workflows.</p>
     </td>
-        <td style="vertical-align: middle;"><img src="./images/extending-saas-app.png" width="550"/></td>
+        <td style="vertical-align: middle;"><img src="./images/extending-saas-app.png" width="550"  alt="Diagram shows an issue created in GitHub, which triggers a webhook call, which is processed by a function by posting the issue details to Slack." /></td>
 </tr>
 </table>
 

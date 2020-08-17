@@ -2,7 +2,7 @@
 title: Azure IoT reference architecture
 description: Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components
 titleSuffix: Azure Reference Architectures
-author: adamboeglin
+author: doodlemania2
 ms.date: 01/09/2019
 ms.service: architecture-center
 ms.category:

@@ -1,8 +1,8 @@
 ---
 title: Comparing AWS and Azure regions and zones
 description: A comparison of the regions and zones between Azure and AWS
-author: adamboeglin
-ms.date: 05/21/2020
+author: doodlemania2
+ms.date: 08/12/2020
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -43,7 +43,7 @@ An [Availability Zone](https://docs.microsoft.com/azure/availability-zones/az-ov
 
 ## Paired regions
 
-To protect an application against a regional outage, you can deploy the application across multiple regions, using [Azure Traffic Manager][traffic-manager] to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair][paired-regions]. With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
+To protect an application against a regional outage, you can deploy the application across multiple regions, using [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager) to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair][paired-regions]. With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
 
 Unlike Availability Zones, which are physically separate datacenters but may be in relatively nearby geographic areas, paired regions are typically separated by at least 300 miles. This design ensures that large-scale disasters only affect one of the regions in the pair. Neighboring pairs can be set to sync database and storage service data, and are configured so that platform updates are rolled out to only one region in the pair at a time.
 

@@ -1,6 +1,6 @@
 ---
 title: Governance, risk, and compliance in Azure | Microsoft Docs
-description: Define the security priorities around governance, risk, and compliance
+description: Learn how to define security priorities around governance, risk, and compliance, beginning with definitions of these concepts and how they affect security.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
 ms.topic: article
@@ -60,14 +60,17 @@ follow first:
 Microsoft has provided some prioritized lists of security initiatives to help organizations start with these decisions based on our experience with threats and mitigation initiatives in our own environments and across our customers. See [Module 4a](https://docs.microsoft.com/office365/securitycompliance/ciso-workshop-module-4a)
 of the [Microsoft CISO Workshop](https://aka.ms/cisoworkshop).
 
-
 ## Operationalize Azure Secure Score
 
 Assign stakeholders to use [Secure Score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls)  in Azure Security Center to monitor risk profile and continuously improve security posture.
 This will help you continuously improve your security posture by rapidly identifying and remediating common security hygiene risks, which can significantly reduce your organization's risk. 
 Set up a regular cadence (typically monthly) to review Azure secure score and plan initiatives with specific improvement goals. You should also look into gamifying the activity if possible to increase engagement and focus from the responsible teams (e.g. creating a friendly competition on who increased their score more).
 
-**NOTE:** Security posture management is an emerging function, this may be a single dedicated team or the responsibility may be taken on by one or more existing teams described below. See LINK TO ORGANIZATIONAL FUNCTION for more details. 
+
+**NOTE:** Security posture management is an emerging function, this may be a single dedicated team or the responsibility may be taken on by one or more existing teams described below. 
+
+<!--See LINK TO ORGANIZATIONAL FUNCTION for more details. -->
+
 
 ### Monitor Secure Score
 
@@ -105,8 +108,7 @@ Set up a regular cadence (typically monthly) to review Azure secure score and pl
 **NOTE:** Note that in the DevOps model, some application teams may be responsible for their own application resources.
 
 
-
-
+![GitHub](../../_images/github.png) The [Azure Secure Score sample](https://github.com/mspnp/samples/tree/master/Security/AzureSecureScoreSample) shows how to get your Azure Secure Score for a subscription by calling the Azure Security Center REST API. The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time.
 
 ## Manage connected tenants
 

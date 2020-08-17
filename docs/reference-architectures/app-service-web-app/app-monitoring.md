@@ -1,7 +1,7 @@
 ---
 title: Web application monitoring on Azure
 description: Learn about the monitoring services and a dataflow model for use with multiple data sources. Many monitoring tools and services work with Azure deployments.
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/12/2018
 ms.topic: reference-architecture
 ms.service: architecture-center

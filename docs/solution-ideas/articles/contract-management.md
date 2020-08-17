@@ -1,7 +1,7 @@
 ---
 title: Contract Management
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid.
 ms.custom: acom-architecture
