@@ -39,10 +39,10 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 
 ## Next steps
 
-* [Set up Azure DevOps](https://docs.microsoft.com/azure/devops/get-started/?view=azure-devops)
+* [Set up Azure DevOps](/azure/devops/get-started/?view=azure-devops)
 * [Configure Microsoft Release Management agents](https://www.visualstudio.com/docs/release/getting-started/configure-agents)
 * [Deploy using Azure Resource Groups](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2)
-* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-dotnet-framework)
-* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal)
-* [How to create a web app with Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-web-app-howto)
-* [Set up Application Insights for ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)
+* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](/azure/app-service/app-service-web-get-started-dotnet-framework)
+* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal)
+* [How to create a web app with Azure Cache for Redis](/azure/azure-cache-for-redis/cache-web-app-howto)
+* [Set up Application Insights for ASP.NET](/azure/azure-monitor/app/asp-net)

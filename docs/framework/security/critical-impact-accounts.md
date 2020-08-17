@@ -128,7 +128,7 @@ emergency
 While rare, sometimes extreme circumstances arise where all normal means of
 administrative access are unavailable.
 
-We recommend following the instructions at [Managing emergency access administrative accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
+We recommend following the instructions at [Managing emergency access administrative accounts in Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
 and ensure that security operations monitor these accounts carefully.
 
 ## Admin workstation security
@@ -236,7 +236,7 @@ Attackers compromising Azure Admin accounts can cause significant harm.
 Conditional Access can significantly reduce that risk by enforcing security
 hygiene before allowing access to Azure management.
 
-Configure [Conditional Access policy for Azure management](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+Configure [Conditional Access policy for Azure management](/azure/role-based-access-control/conditional-access-azure-management)
 that meets your organization's risk appetite and operational needs.
 
 - Require Multifactor Authentication and/or connection from designated work
@@ -274,8 +274,8 @@ Customization leads to complexity that increases confusion and makes automation
 more complex, challenging, and fragile. These factors all negatively impact
 security
 
-We recommend that you evaluate the [built-in roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)
-designed to cover most normal scenarios. [Custom roles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)
+We recommend that you evaluate the [built-in roles](/azure/active-directory/role-based-access-built-in-roles)
+designed to cover most normal scenarios. [Custom roles](/azure/active-directory/role-based-access-control-custom-roles)
 are a powerful and sometimes useful capability, but they should be reserved for
 cases when built in roles won't work.
 
@@ -296,5 +296,5 @@ access to critical impact accounts. Ensuring these users (and ideally all users)
 have the knowledge and skills to avoid and resist attacks will reduce your
 overall organizational risk.
 
-You can use [Office 365 Attack Simulation](https://docs.microsoft.com/office365/securitycompliance/attack-simulator)
+You can use [Office 365 Attack Simulation](/office365/securitycompliance/attack-simulator)
 capabilities or any number of third party offerings.

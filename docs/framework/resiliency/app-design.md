@@ -17,10 +17,10 @@ Building *resiliency* (recovering from failures) and *availability* (running in 
 
 Choose the right subscription and service features for your app by working through these tasks:
 
-- **Evaluate requirements against [Azure subscription and service limits](https://docs.microsoft.com/azure/azure-subscription-service-limits/).** *Azure subscriptions* have limits on certain resource types, such as number of resource groups, cores, and storage accounts. If your application requirements exceed Azure subscription limits, create another Azure subscription and provision sufficient resources there. Individual Azure services have consumption limits &mdash; for example, limits on storage, throughput, number of connections, requests per second, and other metrics. Your application will fail if it attempts to use resources beyond these limits, resulting in service throttling and possible downtime for affected users. Depending on the specific service and your application requirements, you can often avoid these limits by scaling up (for example, choosing another pricing tier) or scaling out (such as adding new instances).
-- **Determine how many storage accounts you need.** Azure allows a specific number of storage accounts per subscription. For more information, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits/#storage-limits).
-- **Select the right service tier for Azure SQL Database.** If your application uses Azure SQL Database, select the appropriate service tier. If the tier cannot handle your application's database transaction unit (DTU) requirements, your data use will be throttled. For more information on selecting the correct service plan, see [SQL Database options and performance: Understand what's available in each service tier](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers/).
-- **Provision sufficient request units (RUs) in Azure Cosmos DB**. With Azure Cosmos DB, you pay for the throughput you provision and the storage you consume on an hourly basis. The cost of all database operations is normalized as RUs, which abstracts the system resources such as CPU, IOPS, and memory. For more information, see [Request Units in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/request-units).
+- **Evaluate requirements against [Azure subscription and service limits](/azure/azure-subscription-service-limits/).** *Azure subscriptions* have limits on certain resource types, such as number of resource groups, cores, and storage accounts. If your application requirements exceed Azure subscription limits, create another Azure subscription and provision sufficient resources there. Individual Azure services have consumption limits &mdash; for example, limits on storage, throughput, number of connections, requests per second, and other metrics. Your application will fail if it attempts to use resources beyond these limits, resulting in service throttling and possible downtime for affected users. Depending on the specific service and your application requirements, you can often avoid these limits by scaling up (for example, choosing another pricing tier) or scaling out (such as adding new instances).
+- **Determine how many storage accounts you need.** Azure allows a specific number of storage accounts per subscription. For more information, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits/#storage-limits).
+- **Select the right service tier for Azure SQL Database.** If your application uses Azure SQL Database, select the appropriate service tier. If the tier cannot handle your application's database transaction unit (DTU) requirements, your data use will be throttled. For more information on selecting the correct service plan, see [SQL Database options and performance: Understand what's available in each service tier](/azure/sql-database/sql-database-service-tiers/).
+- **Provision sufficient request units (RUs) in Azure Cosmos DB**. With Azure Cosmos DB, you pay for the throughput you provision and the storage you consume on an hourly basis. The cost of all database operations is normalized as RUs, which abstracts the system resources such as CPU, IOPS, and memory. For more information, see [Request Units in Azure Cosmos DB](/azure/cosmos-db/request-units).
 
 ## Resiliency strategies
 
@@ -48,7 +48,7 @@ This section describes some common resiliency strategies. Most of these strategi
       ![Diagram of the Bulkhead pattern](../../framework/_images/bulkhead.png)
 
 - **Apply [*compensating transactions*](../../patterns/compensating-transaction.md)**. A compensating transaction is a transaction that undoes the effects of another completed transaction. In a distributed system, it can be difficult to achieve strong transactional consistency. Compensating transactions help to achieve consistency by using a series of smaller, individual transactions that can be undone at each step. For example, to book a trip, a customer might reserve a car, a hotel room, and a flight. If one of these steps fails, the entire operation fails. Instead of trying to use a single distributed transaction for the entire operation, you can define a compensating transaction for each step.
-- **Implement asynchronous operations, whenever possible.** Synchronous operations can monopolize resources and block other operations while the caller waits for the process to complete. Design each part of your application to allow for asynchronous operations, whenever possible. For more information on how to implement asynchronous programming in C\#, see [Asynchronous Programming](https://docs.microsoft.com/dotnet/articles/csharp/async).
+- **Implement asynchronous operations, whenever possible.** Synchronous operations can monopolize resources and block other operations while the caller waits for the process to complete. Design each part of your application to allow for asynchronous operations, whenever possible. For more information on how to implement asynchronous programming in C\#, see [Asynchronous Programming](/dotnet/articles/csharp/async).
 
 ## Plan for usage patterns
 
@@ -88,14 +88,14 @@ A third-party service might not provide monitoring and diagnostics capabilities,
 
 Proper load-balancing allows you to meet availability requirements and to minimize costs associated with availability.
 
-- **Use load-balancing to distribute requests.** Load-balancing distributes your application's requests to healthy service instances by removing unhealthy instances from rotation. If your service uses Azure App Service or Azure Cloud Services, it's already load-balanced for you. However, if your application uses Azure VMs, you need to provision a load-balancer. For more information, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview/)
+- **Use load-balancing to distribute requests.** Load-balancing distributes your application's requests to healthy service instances by removing unhealthy instances from rotation. If your service uses Azure App Service or Azure Cloud Services, it's already load-balanced for you. However, if your application uses Azure VMs, you need to provision a load-balancer. For more information, see [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview/)
 
   You can use Azure Load Balancer to:
 
-  - Load-balance incoming Internet traffic to your VMs. This configuration is known as a [*public Load Balancer*](https://docs.microsoft.com/azure/load-balancer/components#frontend-ip-configurations).
-  - Load-balance traffic across VMs inside a virtual network. You can also reach a Load Balancer front end from an on-premises network in a hybrid scenario. Both scenarios use a configuration that is known as an [*internal Load Balancer*](https://docs.microsoft.com/azure/load-balancer/components#frontend-ip-configurations).
+  - Load-balance incoming Internet traffic to your VMs. This configuration is known as a [*public Load Balancer*](/azure/load-balancer/components#frontend-ip-configurations).
+  - Load-balance traffic across VMs inside a virtual network. You can also reach a Load Balancer front end from an on-premises network in a hybrid scenario. Both scenarios use a configuration that is known as an [*internal Load Balancer*](/azure/load-balancer/components#frontend-ip-configurations).
   - Port forward traffic to an itemized port on specific VMs with inbound network address translation (NAT) rules.
-  - Provide [outbound connectivity](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) for VMs inside your virtual network by using a public Load Balancer.
+  - Provide [outbound connectivity](/azure/load-balancer/load-balancer-outbound-connections) for VMs inside your virtual network by using a public Load Balancer.
 
 - **Balance loads across regions with a traffic manager, such as Azure Traffic Manager.** To load-balance traffic across regions requires a traffic management solution, and Azure provides [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). You can also take advantage of third-party services that provide similar traffic-management capabilities.
 
@@ -127,7 +127,7 @@ If your application is deployed to a single region, in the rare event the entire
 Many failures are manageable within the same Azure region. However, in the unlikely event of a region-wide service disruption, the locally redundant copies of your data aren't available. If you've enabled geo-replication, there are three additional copies of your blobs and tables in a different region. If Microsoft declares the region lost, Azure remaps all the DNS entries to the secondary region.
 
 > [!NOTE]
-> This process occurs only for region-wide service disruptions and is not within your control. Consider using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) to achieve better RPO and RTO. Using Site Recovery, you decide what is an acceptable outage and when to fail over to the replicated VMs.
+> This process occurs only for region-wide service disruptions and is not within your control. Consider using [Azure Site Recovery](/azure/site-recovery/) to achieve better RPO and RTO. Using Site Recovery, you decide what is an acceptable outage and when to fail over to the replicated VMs.
 
 <!-- -->
 
@@ -160,16 +160,16 @@ To protect your storage in the event of a region-wide service disruption:
 - Know where your storage is geo-replicated. This affects where you deploy other instances of your data that require regional affinity with your storage.
 - Check data for consistency after failover and, if necessary, restore from a backup.
 
-To learn more, see [Designing highly available applications using RA-GRS](https://docs.microsoft.com/azure/storage/common/storage-designing-ha-apps-with-ragrs).
+To learn more, see [Designing highly available applications using RA-GRS](/azure/storage/common/storage-designing-ha-apps-with-ragrs).
 
 ### SQL Database and SQL Server
 
 Azure SQL Database provides two types of recovery:
 
-- Use geo-restore to restore a database from a backup copy in another region. For more information, see [Recover an Azure SQL database using automated database backups](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups).
-- Use active geo-replication to fail over to a secondary database. For more information, see [Creating and using active geo-replication](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication).
+- Use geo-restore to restore a database from a backup copy in another region. For more information, see [Recover an Azure SQL database using automated database backups](/azure/sql-database/sql-database-recovery-using-backups).
+- Use active geo-replication to fail over to a secondary database. For more information, see [Creating and using active geo-replication](/azure/sql-database/sql-database-active-geo-replication).
 
-For SQL Server running on VMs, see [High availability and disaster recovery for SQL Server in Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr).
+For SQL Server running on VMs, see [High availability and disaster recovery for SQL Server in Azure Virtual Machines](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr).
 
 <!-- links -->
 [failure-mode-analysis]: ../../resiliency/failure-mode-analysis.md

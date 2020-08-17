@@ -38,7 +38,7 @@ Let's dig into the monitoring data to learn what's happening inside the system. 
 
 This chart shows that one operation in particular, `GetDroneUtilization`, takes much longer on average &mdash; by an order of magnitude. The gateway makes these calls in parallel, so the slowest operation determines how long it takes for the entire request to complete. 
 
-Clearly the next step is dig into the `GetDroneUtilization` operation and look for any bottlenecks. One possibility is resource exhaustion. Perhaps this particular backend service is running out of CPU or memory. For an AKS cluster, this information is available in the Azure portal through the [Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) feature. The following graphs show resource utilization at the cluster level:
+Clearly the next step is dig into the `GetDroneUtilization` operation and look for any bottlenecks. One possibility is resource exhaustion. Perhaps this particular backend service is running out of CPU or memory. For an AKS cluster, this information is available in the Azure portal through the [Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-overview) feature. The following graphs show resource utilization at the cluster level:
 
 ![Graph of AKS node utilization](./images/backend-services//read-perf-1.png)
 

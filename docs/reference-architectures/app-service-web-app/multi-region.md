@@ -27,10 +27,10 @@ This reference architecture shows how to run an Azure App Service application in
 This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability]. The main differences are:
 
 - **Primary and secondary regions**. This architecture uses two regions to achieve higher availability. The application is deployed to each region. During normal operations, network traffic is routed to the primary region. If the primary region becomes unavailable, traffic is routed to the secondary region.
-- **Front Door**. [Front Door](https://docs.microsoft.com/azure/frontdoor) routes incoming requests to the primary region. If the application running that region becomes unavailable, Front Door fails over to the secondary region.
+- **Front Door**. [Front Door](/azure/frontdoor) routes incoming requests to the primary region. If the application running that region becomes unavailable, Front Door fails over to the secondary region.
 - **Geo-replication** of SQL Database and/or Cosmos DB.
 
-A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use [Front Door](https://docs.microsoft.com/azure/frontdoor) to fail over to the secondary region. This architecture can also help if an individual subsystem of the application fails.
+A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use [Front Door](/azure/frontdoor) to fail over to the secondary region. This architecture can also help if an individual subsystem of the application fails.
 
 There are several general approaches to achieving high availability across regions:
 
@@ -60,9 +60,9 @@ Consider placing the primary region, secondary region, and Traffic Manager into 
 
 ### Front Door configuration
 
-**Routing**. Front Door supports several [routing mechanisms](https://docs.microsoft.com/azure/frontdoor/front-door-routing-methods#priority-based-traffic-routing). For the scenario described in this article, use *priority* routing. With this setting, Front Door sends all requests to the primary region unless the endpoint for that region becomes unreachable. At that point, it automatically fails over to the secondary region. Set the backend pool with different priority values, 1 for the active region and 2 or higher for the standby or passive region.
+**Routing**. Front Door supports several [routing mechanisms](/azure/frontdoor/front-door-routing-methods#priority-based-traffic-routing). For the scenario described in this article, use *priority* routing. With this setting, Front Door sends all requests to the primary region unless the endpoint for that region becomes unreachable. At that point, it automatically fails over to the secondary region. Set the backend pool with different priority values, 1 for the active region and 2 or higher for the standby or passive region.
 
-**Health probe**. Front Door uses an HTTP (or HTTPS) probe to monitor the availability of each back end. The probe gives Front Door a pass/fail test for failing over to the secondary region. It works by sending a request to a specified URL path. If it gets a non-200 response within a timeout period, the probe fails. You can configure the health probe frequency, number of samples required for evaluation, and the number of successful samples required for the backend to be marked as healthy. If Front Door marks the backend as degraded, it fails over to the other backend. For details, see [Health Probes](https://docs.microsoft.com/azure/frontdoor/front-door-health-probes).
+**Health probe**. Front Door uses an HTTP (or HTTPS) probe to monitor the availability of each back end. The probe gives Front Door a pass/fail test for failing over to the secondary region. It works by sending a request to a specified URL path. If it gets a non-200 response within a timeout period, the probe fails. You can configure the health probe frequency, number of samples required for evaluation, and the number of successful samples required for the backend to be marked as healthy. If Front Door marks the backend as degraded, it fails over to the other backend. For details, see [Health Probes](/azure/frontdoor/front-door-health-probes).
 
 As a best practice, create a health probe path in your application backend that reports the overall health of the application. This health probe should check critical dependencies such as the App Service apps, storage queue, and SQL Database. Otherwise, the probe might report a healthy backend when critical parts of the application are actually failing. On the other hand, don't use the health probe to check lower priority services. For example, if an email service goes down the application can switch to a second provider or just send emails later. For further discussion of this design pattern, see [Health Endpoint Monitoring Pattern](../../patterns/health-endpoint-monitoring.md).
 
@@ -105,7 +105,7 @@ The recovery point objective (RPO) and estimated recovery time (ERT) for SQL Dat
 
 ### Cosmos DB
 
-RPO and recovery time objective (RTO) for Cosmos DB are configurable via the consistency levels used, which provide trade-offs between availability, data durability, and throughput. Cosmos DB provides a minimum RTO of 0 for a relaxed consistency level with multi-master or an RPO of 0 for strong consistency with single-master. To learn more about Cosmos DB consistency levels, see [Consistency levels and data durability in Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-tradeoffs#rto).
+RPO and recovery time objective (RTO) for Cosmos DB are configurable via the consistency levels used, which provide trade-offs between availability, data durability, and throughput. Cosmos DB provides a minimum RTO of 0 for a relaxed consistency level with multi-master or an RPO of 0 for strong consistency with single-master. To learn more about Cosmos DB consistency levels, see [Consistency levels and data durability in Cosmos DB](/azure/cosmos-db/consistency-levels-tradeoffs#rto).
 
 ### Storage
 
@@ -135,7 +135,7 @@ Azure Front Door billing has three pricing tiers: outbound data transfers, inbou
 
 There are two factors that determine Azure Cosmos DB pricing:
 
-- The provisioned throughput or [Request Units per second (RU/s)](https://docs.microsoft.com/azure/cosmos-db/request-units).
+- The provisioned throughput or [Request Units per second (RU/s)](/azure/cosmos-db/request-units).
 
     There are two types of throughput that can be provisioned in Cosmos DB, standard and autoscale. Standard throughput allocates the resources required to guarantee the RU/s that you specify. For autoscale, you provision the maximum throughput, and Cosmos DB instantly scales up or down depending on the load, with a minimum of 10% of the maximum autoscale throughput. Standard throughput is billed for the throughput provisioned hourly. Autoscale throughput is billed for the maximum throughput consumed hourly.
 
@@ -158,18 +158,18 @@ This architecture builds on the one shown in [Improve scalability in a web appli
 <!-- links -->
 
 [AFD-pricing]: https://azure.microsoft.com/pricing/details/frontdoor
-[AAF-devops-deployment-multi-region]: /azure/architecture/framework/devops/deployment#consider-deploying-across-multiple-regions
+[AAF-devops-deployment-multi-region]: ../../framework/devops/deployment.md#consider-deploying-across-multiple-regions
 [bandwidth-pricing]: https://azure.microsoft.com/pricing/details/bandwidth
-[cosmosdb-geo]: https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally
+[cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
 [guidance-web-apps-scalability]: ./scalable-web-app.md
 [guidance-web-apps-scalability-devops]: ./scalable-web-app.md#devops-considerations
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[ra-grs]: https://docs.microsoft.com/azure/storage/common/storage-designing-ha-apps-with-ragrs
-[regional-pairs]: https://docs.microsoft.com/azure/best-practices-availability-paired-regions
-[resource groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
+[ra-grs]: /azure/storage/common/storage-designing-ha-apps-with-ragrs
+[regional-pairs]: /azure/best-practices-availability-paired-regions
+[resource groups]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [services-by-region]: https://azure.microsoft.com/regions/#services
-[sql-failover]: https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery
-[sql-replication]: https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview
-[sql-rpo]: https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity#sql-database-features-that-you-can-use-to-provide-business-continuity
-[storage-outage]: https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance
+[sql-failover]: /azure/sql-database/sql-database-disaster-recovery
+[sql-replication]: /azure/sql-database/sql-database-geo-replication-overview
+[sql-rpo]: /azure/sql-database/sql-database-business-continuity#sql-database-features-that-you-can-use-to-provide-business-continuity
+[storage-outage]: /azure/storage/storage-disaster-recovery-guidance
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx

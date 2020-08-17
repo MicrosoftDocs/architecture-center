@@ -512,7 +512,7 @@ You may want to adopt OpenAPI for your web APIs. Some points to consider:
 
 - OpenAPI promotes a contract-first approach, rather than an implementation-first approach. Contract-first means you design the API contract (the interface) first and then write code that implements the contract.
 
-- Tools like Swagger can generate client libraries or documentation from API contracts. For example, see [ASP.NET Web API help pages using Swagger](https://docs.microsoft.com/aspnet/core/tutorials/web-api-help-pages-using-swagger).
+- Tools like Swagger can generate client libraries or documentation from API contracts. For example, see [ASP.NET Web API help pages using Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger).
 
 ## More information
 

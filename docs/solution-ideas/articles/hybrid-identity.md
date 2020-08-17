@@ -41,6 +41,6 @@ The need to keep application components on-premises doesn't have to be a barrier
 
 ## Next steps
 
-* [Azure Stack User Documentation](https://docs.microsoft.com/azure/azure-stack/user)
+* [Azure Stack User Documentation](/azure/azure-stack/user)
 * [Virtual Machines Overview](https://azure.microsoft.com/services/virtual-machines)
-* [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory)
+* [Azure Active Directory Documentation](/azure/active-directory)

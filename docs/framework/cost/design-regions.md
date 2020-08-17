@@ -35,9 +35,9 @@ Azure also offers differentiated cloud regions for specific security and complia
 *** 
 
 
-If your solution needs to follow certain government regulations, the cost will be higher. Otherwise you can meet less rigid compliance, through [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview), which is free. 
+If your solution needs to follow certain government regulations, the cost will be higher. Otherwise you can meet less rigid compliance, through [Azure Policy](/azure/governance/policy/overview), which is free. 
 
-Certain Azure regions are built specifically for high compliance and security needs. For example, with [Azure Government (USA)](https://docs.microsoft.com/azure/azure-government/) you're given an isolated instance of Azure. [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/) has datacenters that meet privacy certifications. These specialized regions have higher cost.
+Certain Azure regions are built specifically for high compliance and security needs. For example, with [Azure Government (USA)](/azure/azure-government/) you're given an isolated instance of Azure. [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/) has datacenters that meet privacy certifications. These specialized regions have higher cost.
 
 Regulatory requirements can dictate restrictions on data residency. These requirements may impact your data replication options for resiliency and redundancy. 
 
@@ -55,4 +55,3 @@ Suppose, you want to build a cost-effective solution by provisioning resources i
 - Not all Azure services support zones and not all regions in Azure support zones. 
 
 >![Task](../../_images/i-best-practices.svg) Before choosing a location, consider how important is the application to justify the cost of having resources cross zones and/or cross regions. For non-mission critical applications such as, developer or test, consider keeping the solution and its dependencies in a single region or single zone to leverage the advantages of choosing the lower-cost region.
-

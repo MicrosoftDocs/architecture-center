@@ -39,16 +39,16 @@ IoT Edge implementations are most relevant when large amounts of data captured i
 
 ### Components
 
-The deployed solution requires an Azure subscription with permission to add service principals and the ability to create Azure resources. For more information, see [Container registries and service principals](https://docs.microsoft.com/azure/container-registry/container-registry-auth-service-principal).
+The deployed solution requires an Azure subscription with permission to add service principals and the ability to create Azure resources. For more information, see [Container registries and service principals](/azure/container-registry/container-registry-auth-service-principal).
 
-- [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/about-iot-edge) is made up of three components:
+- [Azure IoT Edge](/azure/iot-edge/about-iot-edge) is made up of three components:
   - IoT Edge *modules* are containers that can run Azure, third-party, or custom components. The current example deploys the IoT Edge modules in trackside bungalows, using server-class hardware with customized industrial automation cards and graphics processing units (GPUs) for performance.
   - The IoT Edge *runtime*, consisting of the *IoT Agent* and *IoT Edge Hub*, runs on the IoT Edge devices to manage and coordinate the deployed modules.
   - The [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) interface enables secure bi-directional cloud communication, management, and monitoring of IoT Edge modules.
 - IoT Edge ML modules support [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), third-party ML models, or custom code. The current solution uses a third-party open-source ML model called [Cogniac](https://cogniac.co/) to score train wheel data and recognize potential defects. The ML software uses historical samples of high- and low-confidence failure images to retrain its ML model.
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data like the image data in this example.
-- [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) is a fully-managed, NoSQL database service with low response times and high availability and scalability.
-- An [Azure Pipelines](https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd) workflow builds, tests, deploys, and archives the IoT Edge solution through built-in Azure IoT Edge tasks.
+- [Azure Cosmos DB](/azure/cosmos-db/introduction) is a fully-managed, NoSQL database service with low response times and high availability and scalability.
+- An [Azure Pipelines](/azure/iot-edge/how-to-ci-cd) workflow builds, tests, deploys, and archives the IoT Edge solution through built-in Azure IoT Edge tasks.
 
 ## Considerations
 
@@ -62,7 +62,7 @@ The team identified several design considerations:
 - The Edge architecture is currently split into multiple modules, but can be condensed into a single module, depending on solution performance requirements or development team structure.
 - This solution builds on the following previous CSE customer engagements in the manufacturing, oil and gas, and natural resource management industries:
   - [CloudEvents](https://github.com/cloudevents/spec)
-  - [Claim Check Patterns](https://docs.microsoft.com/azure/architecture/patterns/claim-check)
+  - [Claim Check Patterns](../../patterns/claim-check.md)
   - [Command and Query Responsibility Segregation (CQRS) Pattern](http://udidahan.com/2011/04/22/when-to-avoid-cqrs/)
 
 ## Deployment
@@ -83,11 +83,11 @@ Building and deploying the solution also uses:
 
 ## Next steps
 - [The future of computing: intelligent cloud and intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/)
-- [Azure IoT Edge documentation](https://docs.microsoft.com/azure/iot-edge/)
-- [Build IoT Edge modules](https://docs.microsoft.com/azure/iot-edge/how-to-vs-code-develop-module)
-- [End-to-end solution using Azure Machine Learning and IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-machine-learning-edge-01-intro)
-- [Continuous integration and continuous deployment to Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd)
-- [Deploy Azure IoT Edge modules from the Azure portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal)
+- [Azure IoT Edge documentation](/azure/iot-edge/)
+- [Build IoT Edge modules](/azure/iot-edge/how-to-vs-code-develop-module)
+- [End-to-end solution using Azure Machine Learning and IoT Edge](/azure/iot-edge/tutorial-machine-learning-edge-01-intro)
+- [Continuous integration and continuous deployment to Azure IoT Edge](/azure/iot-edge/how-to-ci-cd)
+- [Deploy Azure IoT Edge modules from the Azure portal](/azure/iot-edge/how-to-deploy-modules-portal)
 
 ## Related resources
 
@@ -105,6 +105,6 @@ Building and deploying the solution also uses:
 - [Docker Compatibility Matrix](https://success.docker.com/article/compatibility-matrix)
 - [Jenkins Azure IoT Edge plugin](https://plugins.jenkins.io/azure-iot-edge/)
 - [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
-- [React to Blob storage events](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview)
-- [Azure Blob storage bindings for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob)
+- [React to Blob storage events](/azure/storage/blobs/storage-blob-event-overview)
+- [Azure Blob storage bindings for Azure Functions](/azure/azure-functions/functions-bindings-storage-blob)
 - [Serverless Streaming At Scale with Cosmos DB](https://medium.com/streaming-at-scale-in-azure/serverless-streaming-at-scale-with-cosmos-db-e0e26cacd27d)

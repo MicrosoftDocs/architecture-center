@@ -364,12 +364,13 @@ Aided with this understanding of different data storage models, the next step is
 [sql-db]: https://azure.microsoft.com/services/sql-database
 [sql-dw]: https://azure.microsoft.com/services/sql-data-warehouse/
 [time-series]: https://azure.microsoft.com/services/time-series-insights/
-[sqlserver]: https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver15
+[sqlserver]: /sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver15
 [hdinsight]: https://azure.microsoft.com/services/hdinsight/
 [databricks]: https://azure.microsoft.com/free/databricks/
-[analysissvc]: https://docs.microsoft.com/azure/analysis-services/analysis-services-overview
-[datalakegen2]: https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction
+[analysissvc]: /azure/analysis-services/analysis-services-overview
+[datalakegen2]: /azure/storage/blobs/data-lake-storage-introduction
 [prq]: https://parquet.apache.org/documentation/latest/
 [orc]: https://orc.apache.org/docs/
-[synapseexternal]: https://docs.microsoft.com/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool
+[synapseexternal]: /azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool
 [cassandra]: https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction
+

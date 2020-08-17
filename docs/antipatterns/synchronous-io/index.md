@@ -197,8 +197,8 @@ Throughput is far higher. Over the same duration as the previous test, the syste
 
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/SynchronousIO
 [async-wrappers]: https://blogs.msdn.microsoft.com/pfxteam/2012/03/24/should-i-expose-asynchronous-wrappers-for-synchronous-methods
-[performance-counters]: https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-performance-counters
-[web-sites-monitor]: https://docs.microsoft.com/azure/app-service-web/web-sites-monitor
+[performance-counters]: /azure/cloud-services/cloud-services-dotnet-diagnostics-performance-counters
+[web-sites-monitor]: /azure/app-service-web/web-sites-monitor
 
 [sync-performance]: _images/SyncPerformance.jpg
 [async-performance]: _images/AsyncPerformance.jpg
