@@ -1986,7 +1986,7 @@
       "redirect_document_id": true
      },
      {
-      "source_path": "/docs/solution-ideas/articles/backup-archive-cloud-application.md",
+      "source_path": "docs/solution-ideas/articles/backup-archive-cloud-application.md",
       "redirect_url": "/azure/backup/guidance-best-practices",
       "redirect_document_id": true
      }
