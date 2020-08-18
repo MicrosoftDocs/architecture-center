@@ -10,7 +10,6 @@ ms.category:
   - management-and-governance
   - hybrid
 ms.subservice: solution-idea
-social_image_url: /azure/architecture/solution-ideas/articles/media/backup-archive-cloud-application.png
 ---
 
 # Back up on-premises applications and data to cloud
