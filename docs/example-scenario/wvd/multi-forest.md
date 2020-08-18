@@ -19,7 +19,7 @@ Many organizations desire to leverage Windows Virtual Desktop (WVD) and have env
 
 - Mergers and acquisitions, organization re-branding and multiple on-premises identities requirements. 
 - [Complex on-premises active directory environments (Multi-Forest, Multi-domains, GPO Requirements, Legacy Authentication)](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/concepts-resource-forest).
-- [Using AAD-DS for Cloud organizations, Minimum Viable Product(MVP) and Proof-of-Concept(POC)](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview)
+- [Using AAD DS for Cloud organizations, Minimum Viable Product(MVP) and Proof-of-Concept(POC)](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview)
 
 ## Architecture
 
@@ -36,14 +36,21 @@ This architecture diagram shows a typical scenario that involves:
 - [Azure Hub-spoke Architecture with Shared services hub vnet](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 - Complex hybrid on-premises Active Directory Environments with two or more AD forests. Domains live in separate forests (companyA.local, companyB.local)
 - Use of GPO and legacy authentication such as [Kerberos](https://docs.microsoft.com/en-us/windows-server/security/kerberos/kerberos-authentication-overview), [NTLM](https://docs.microsoft.com/en-us/windows-server/security/kerberos/ntlm-overview), and [LDAP](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx)
-- Azure environments that still have dependency on-premises infrastructure. VPN or ExpressRoute connectivity is setup between on-premises and Azure.
+- Azure environments that still have dependency on-premises infrastructure, private connectivity (Site-to-Site VPN or ExpressRoute) is setup between on-premises and Azure.
 - The WVD session hosts join domain controllers in Azure (companyA session hosts joining companyA.local domain, CompanyB session hosts joining CompanyB.local)
 - Separate Azure Storage accounts leverage Azure Files for Fslogix profiles. Azure files domain join the corresponding domain for companyA.local and companyB.local
-- NOTE: This design can leverage  Azure AD Domain Services for POC/MVP environments. In that use case, WVD session hosts will join AAD-DS domain controllers and private connectivity will not be needed (AAD-DS Domain: aadds.newcompanyAB.com)
+- NOTE: This design can leverage  Azure AD Domain Services for POC/MVP environments. In that use case, WVD session hosts will join AAD DS domain controllers and private connectivity will not be needed (AAD DS Domain: aadds.newcompanyAB.com)
 
 ## Additional Components
 
-In addition to [components](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop) listed in [WVD at enterprise scale Architecture](./windows-virtual-desktop.md)
+In addition to [components](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop#components-you-manage) listed in [WVD at enterprise scale Architecture](./windows-virtual-desktop.md)
+
+- **Azure AD connect in staging mode:** [Staging server for Azure AD Connect topologies](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies#staging-server)  provides additional redundancy for the Azure AD connect instance.
+
+- **AAD DS:** [Azure AD DS](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/overview) Managed instance in Azure that is ideal for cloud organizations, MVP or PoC.
+
+- **Azure subscriptions, WVD workspaces and host pools:** Multiple Subscriptions, WVD workspaces and host pools can be leveraged for administration boundaries and business requirements. 
+
 
 ## Data Flow
 
@@ -76,12 +83,18 @@ Supported identity topologies:
 
 For more details, read the [Staging server section of Azure AD Connect topologies](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies#staging-server).
 
+### Group Policy Objects (GPO)
+
+For Cloud first, MVP and PoC, leveraging AAD DS and having large dependency on GPOs, will need to migrate the GPOs to AAD DS manually.
+For hybrid implementation, GPOs will sync from On-premises DC to Azure DC and will requires private connectivity.
+Note: TBD
+
 ### Network and Connectivity
 
 Design considerations from a network and connectivity standpoint
 - Landing Zone is Azure using Hub-spoke topology with shared services hub VNET for domain controllers.
-- For WVD deployments in a cloud first, MVP and POC leveraging AAD DS, no private connectivity (VPN or ExpressRoute) is needed. 
-- From WVD deployments in hybrid implementations, use a virtual private connectivity using VPN or Azure ExpressRoute. WVD Sessions hosts will join the domain controller in Azure.
+- For WVD deployments in a cloud first, MVP and POC leveraging AAD DS, no private connectivity is needed. 
+- From WVD deployments in hybrid implementations, use a virtual private connectivity. WVD Sessions hosts will join the domain controller in Azure.
 
 
 ## Next steps
