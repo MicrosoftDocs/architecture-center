@@ -2,7 +2,7 @@
 title: Application design for DevOps
 description: Describes considerations that you should take into account while doing application design to optimize for DevOps.
 author: UmarMohamedUsman
-ms.date: 11/01/2019
+ms.date: 08/18/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -30,7 +30,7 @@ Use Azure Resource Manager templates to define dependencies for resources that a
 
 ## Limits
 
-Azure Resource Manager (ARM) enforces limits and quotas on how many resources of each type you can provision per Azure Subscription, and even per Azure Region. Some limits are a hard maximum, while others are a soft limit that can be increases upon request through a support case at no charge. When working with Virtual Machines, App Service, Storage Accounts, Databases, and other resources in Azure you can easily hit up against these limits, so it’s important to know they exist and how to work around them.
+Azure Resource Manager (ARM) enforces limits and quotas on how many resources of each type you can provision per Azure Subscription, and even per Azure Region. Some limits are a hard maximum, while others are a soft limit that can be increased upon request through a support case at no charge. When working with Virtual Machines, App Service, Storage Accounts, Databases, and other resources in Azure you can easily hit up against these limits, so it’s important to know they exist and how to work around them.
 
 [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits#app-service-limits)
 
