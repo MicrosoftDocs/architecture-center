@@ -18,8 +18,8 @@ Many organizations desire to leverage Windows Virtual Desktop (WVD) and have env
 ## Relevant use cases
 
 - Mergers and acquisitions, organization re-branding and multiple on-premises identities requirements. 
-- [Complex on-premises active directory environments (Multi-Forest, Multi-domains, GPO Requirements, Legacy Authentication)](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/concepts-resource-forest).
-- [Using AAD DS for Cloud organizations, Minimum Viable Product(MVP) and Proof-of-Concept(POC)](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview)
+- [Complex on-premises active directory environments (Multi-Forest, Multi-domains, GPO Requirements, Legacy Authentication)](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest).
+- [Using AAD DS for Cloud organizations, Minimum Viable Product(MVP) and Proof-of-Concept(POC)](https://docs.microsoft.com/azure/virtual-desktop/overview)
 
 ## Architecture
 
@@ -33,9 +33,9 @@ This architecture diagram shows a typical scenario that involves:
 - Azure Tenant (newcompanyAB.onmicrosoft.com)
 - Azure AD connect syncing multiple users from on-premises active directory
 - Different Azure subscriptions (Shared Services Subscription, Subscription for Company A, Subscription for Company B)
-- [Azure Hub-spoke Architecture with Shared services hub vnet](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+- [Azure Hub-spoke Architecture with Shared services hub vnet](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 - Complex hybrid on-premises Active Directory Environments with two or more AD forests. Domains live in separate forests (companyA.local, companyB.local)
-- Use of GPO and legacy authentication such as [Kerberos](https://docs.microsoft.com/en-us/windows-server/security/kerberos/kerberos-authentication-overview), [NTLM](https://docs.microsoft.com/en-us/windows-server/security/kerberos/ntlm-overview), and [LDAP](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx)
+- Use of GPO and legacy authentication such as [Kerberos](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-authentication-overview), [NTLM](https://docs.microsoft.com/windows-server/security/kerberos/ntlm-overview), and [LDAP](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx)
 - Azure environments that still have dependency on-premises infrastructure, private connectivity (Site-to-Site VPN or ExpressRoute) is setup between on-premises and Azure.
 - The WVD session hosts join domain controllers in Azure (companyA session hosts joining companyA.local domain, CompanyB session hosts joining CompanyB.local)
 - Separate Azure Storage accounts leverage Azure Files for Fslogix profiles. Azure files domain join the corresponding domain for companyA.local and companyB.local
@@ -43,11 +43,11 @@ This architecture diagram shows a typical scenario that involves:
 
 ## Additional Components
 
-In addition to [components](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop#components-you-manage) listed in [WVD at enterprise scale Architecture](./windows-virtual-desktop.md)
+In addition to [components](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop#components-you-manage) listed in [WVD at enterprise scale Architecture](./windows-virtual-desktop.md)
 
 - **Azure AD connect in staging mode:** [Staging server for Azure AD Connect topologies](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies#staging-server)  provides additional redundancy for the Azure AD connect instance.
 
-- **AAD DS:** [Azure AD DS](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/overview) Managed instance in Azure that is ideal for cloud organizations, MVP or PoC.
+- **AAD DS:** [Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/overview) Managed instance in Azure that is ideal for cloud organizations, MVP or PoC.
 
 - **Azure subscriptions, WVD workspaces and host pools:** Multiple Subscriptions, WVD workspaces and host pools can be leveraged for administration boundaries and business requirements. 
 
