@@ -80,7 +80,7 @@ The solution provisions JMeter agents as [Azure Container Instances (ACI)](https
 
 The CSE team created a Python script to convert the JMeter test results format (.jtl file) to JUnit format (.xml file). The script allowed the integration of JMeter results with the Azure Pipelines test results.
 
-### Load testing Implementation
+### Load testing implementation
 
 The CSE team structured the load testing framework into two Azure Pipelines:
 
