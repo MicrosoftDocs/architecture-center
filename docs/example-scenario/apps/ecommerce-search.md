@@ -64,7 +64,7 @@ This scenario covers an e-commerce solution where customers can search through a
 
 Other options for the data tier include:
 
-- [Cosmos DB](/azure/cosmos-db/introduction) - Microsoft's globally distributed, multi-model database. Costmos DB provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage. Azure Search also supports indexing the data from Cosmos DB directly.
+- [Cosmos DB](/azure/cosmos-db/introduction) - Microsoft's globally distributed, multi-model database. Cosmos DB provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage. Azure Search also supports indexing the data from Cosmos DB directly.
 
 ## Considerations
 
