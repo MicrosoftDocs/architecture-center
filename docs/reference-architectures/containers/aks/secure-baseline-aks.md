@@ -334,15 +334,13 @@ perspective when you're making security choices:
 -   *Inside-out access*. Authorize only those resources that the cluster is
     allowed access.
 
-There are two ways to manage access: Service Principals or Managed Identities
-for Azure resources.
+There are two ways to manage access through Azure Active Directory (Azure AD): *service principals* or *managed identities
+for Azure resources*.
 
-Of the two ways, Azure Managed Identities is recommended. With Service
-Principals there's an overhead for managing and rotating secrets without which
-the cluster will not be accessible. With managed identities, Azure Active
-Directory (Azure AD) handles the authentication and timely rotation of secrets.
+Of the two ways, managed identities is recommended. With service
+principals, you are responsible for managing and rotating secrets, either manually or programmatically. With managed identities, Azure AD manages and performs the authentication and timely rotation of secrets for you.
 
-It’s recommended that Managed Identities is enabled so that the cluster can interact with external Azure resources through Azure AD. You can enable this setting only during cluster creation. Even if Azure AD isn't used immediately, you can incorporate it later.
+It’s recommended that managed identities is enabled so that the cluster can interact with external Azure resources through Azure AD. You can enable this setting only during cluster creation. Even if Azure AD isn't used immediately, by enabling it during deployment you can integrate your cluster with Azure AD later.
 
 As an example for the inside-out case, let’s study the use of managed identities
 when the cluster needs to pull images from a container registry. This action requires the
@@ -356,9 +354,9 @@ operational overhead of managing the rotation of the secret. Instead, grant
 approach addresses those concerns.
 
 In this architecture, the cluster accesses Azure resources that are secured by
-Azure AD and do operations that support managed identities. Assign role-based access control (RBAC)
+Azure AD and perform operations that support managed identities. Assign role-based access control (RBAC)
 and permissions to the cluster’s managed identities, depending on
-the operations that the cluster intends to do. The cluster
+the operations that the cluster needs to perform. The cluster
 will authenticate itself against the resource and consequently be allowed or
 denied access. Here are some examples from this reference implementation where
 Azure RBAC built-in roles have been assigned to the cluster.
