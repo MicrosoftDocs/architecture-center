@@ -1124,7 +1124,7 @@ items:
       - name: Archive on-premises data to cloud
         href: solution-ideas/articles/backup-archive-on-premises.md
       - name: Back up cloud applications
-        href: solution-ideas/articles/backup-archive-cloud-application.md
+        href: /azure/backup/guidance-best-practices
       - name: Back up on-premises applications
         href: solution-ideas/articles/backup-archive-on-premises-applications.md
       - name: Centralize app configuration and security
