@@ -255,13 +255,13 @@ options, use declarative syntax that describes the resources and their
 properties. [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/overview) and Terraform are both examples of declaritive deployment solutions.
 
 Make sure as you provision resources as per the governing policies. For example,
-when selecting the right VM sizes, stay within the cost constraints,
+when selecting the right VM sizes, stay within the cost constraints and
 availability zone options to match the requirements of your application.
 
 If you do need to write a sequence of commands, use [Azure CLI](/cli/azure/what-is-azure-cli?view=azure-cli-latest).
 These commands cover a range of Azure services and can be automated through
 scripting. Azure CLI is supported on Windows and Linux. Another cross-platform
-option is Azure PowerShell. Your choice will depend on preferred skillset.
+option is Azure PowerShell. Your choice will depend on your scripting language and tooling preference.
 
 Store and version scripts and template files in your source control system.
 
@@ -291,7 +291,7 @@ cluster to make sure that the state of the cluster is coordinated with
 configuration stored in your private Git repo. Kubernetes and AKS do not support
 that experience natively. A recommended option is
 [flux](https://docs.fluxcd.io/en/1.19.0/introduction/). It uses one or more
-operators in the cluster to trigger deployments inside Kubernetes. flux does these tasks:
+operators in the cluster to trigger deployments inside Kubernetes. flux performs these tasks:
 - Monitors all configured repositories.
 - Detects new configuration changes.
 - Triggers deployments.
@@ -315,8 +315,8 @@ cluster configuration with GitOps and Flux.
 3.  flux recognizes changes in configuration and applies those changes using
     kubectl commands.
 
-Developers do not have direct access to the Kubernetes API through kubectl.
-Have branch policies on your git server. That way, multiple developers can
+4.  Developers do not have direct access to the Kubernetes API through kubectl.
+Use branch policies on your git server so multiple developers can
 approve a change before it’s applied to production.
 
 ## Security
