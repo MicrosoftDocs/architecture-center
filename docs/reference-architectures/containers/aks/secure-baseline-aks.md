@@ -252,7 +252,7 @@ For the user node pool, here are some considerations:
 Choose an idempotent declarative method over an imperative approach, where
 possible. Instead of writing a sequence of commands that specify configuration
 options, use declarative syntax that describes the resources and their
-properties. One option is an [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/overview) templates another is Terraform.
+properties. [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/overview) and Terraform are both examples of declaritive deployment solutions.
 
 Make sure as you provision resources as per the governing policies. For example,
 when selecting the right VM sizes, stay within the cost constraints,
