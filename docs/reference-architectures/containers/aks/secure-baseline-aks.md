@@ -87,7 +87,7 @@ Some advantages of this topology are:
 
 -   Minimizes direct exposure to Azure resources to the public internet.
 
--   Organizations often operator with regional hub-spoke topologies. This way, the network can be expanded in the future and also provide workload isolation.
+-   Organizations often operate with regional hub-spoke topologies. This way, the network can be expanded in the future and also provide workload isolation.
 
 -   All web applications should require a web application firewall (WAF) service to help
     govern HTTP traffic flows.
