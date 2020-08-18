@@ -87,7 +87,7 @@ Some advantages of this topology are:
 
 -   Minimizes direct exposure to Azure resources to the public internet.
 
--   Organizations often operator with regional hub-spoke topologies. This way, the network can be expanded in the future and also provide workload isolation.
+-   Organizations often operate with regional hub-spoke topologies. This way, the network can be expanded in the future and also provide workload isolation.
 
 -   All web applications should require a web application firewall (WAF) service to help
     govern HTTP traffic flows.
@@ -252,16 +252,16 @@ For the user node pool, here are some considerations:
 Choose an idempotent declarative method over an imperative approach, where
 possible. Instead of writing a sequence of commands that specify configuration
 options, use declarative syntax that describes the resources and their
-properties. One option is an [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/overview) templates another is Terraform.
+properties. [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/overview) and Terraform are both examples of declaritive deployment solutions.
 
 Make sure as you provision resources as per the governing policies. For example,
-when selecting the right VM sizes, stay within the cost constraints,
+when selecting the right VM sizes, stay within the cost constraints and
 availability zone options to match the requirements of your application.
 
 If you do need to write a sequence of commands, use [Azure CLI](/cli/azure/what-is-azure-cli?view=azure-cli-latest).
 These commands cover a range of Azure services and can be automated through
 scripting. Azure CLI is supported on Windows and Linux. Another cross-platform
-option is Azure PowerShell. Your choice will depend on preferred skillset.
+option is Azure PowerShell. Your choice will depend on your scripting language and tooling preference.
 
 Store and version scripts and template files in your source control system.
 
@@ -291,7 +291,7 @@ cluster to make sure that the state of the cluster is coordinated with
 configuration stored in your private Git repo. Kubernetes and AKS do not support
 that experience natively. A recommended option is
 [flux](https://docs.fluxcd.io/en/1.19.0/introduction/). It uses one or more
-operators in the cluster to trigger deployments inside Kubernetes. flux does these tasks:
+operators in the cluster to trigger deployments inside Kubernetes. flux performs these tasks:
 - Monitors all configured repositories.
 - Detects new configuration changes.
 - Triggers deployments.
@@ -315,8 +315,8 @@ cluster configuration with GitOps and Flux.
 3.  flux recognizes changes in configuration and applies those changes using
     kubectl commands.
 
-Developers do not have direct access to the Kubernetes API through kubectl.
-Have branch policies on your git server. That way, multiple developers can
+4.  Developers do not have direct access to the Kubernetes API through kubectl.
+Use branch policies on your git server so multiple developers can
 approve a change before it’s applied to production.
 
 ## Security
@@ -334,15 +334,13 @@ perspective when you're making security choices:
 -   *Inside-out access*. Authorize only those resources that the cluster is
     allowed access.
 
-There are two ways to manage access: Service Principals or Managed Identities
-for Azure resources.
+There are two ways to manage access through Azure Active Directory (Azure AD): *service principals* or *managed identities
+for Azure resources*.
 
-Of the two ways, Azure Managed Identities is recommended. With Service
-Principals there's an overhead for managing and rotating secrets without which
-the cluster will not be accessible. With managed identities, Azure Active
-Directory (Azure AD) handles the authentication and timely rotation of secrets.
+Of the two ways, managed identities is recommended. With service
+principals, you are responsible for managing and rotating secrets, either manually or programmatically. With managed identities, Azure AD manages and performs the authentication and timely rotation of secrets for you.
 
-It’s recommended that Managed Identities is enabled so that the cluster can interact with external Azure resources through Azure AD. You can enable this setting only during cluster creation. Even if Azure AD isn't used immediately, you can incorporate it later.
+It’s recommended that managed identities is enabled so that the cluster can interact with external Azure resources through Azure AD. You can enable this setting only during cluster creation. Even if Azure AD isn't used immediately, by enabling it during deployment you can integrate your cluster with Azure AD later.
 
 As an example for the inside-out case, let’s study the use of managed identities
 when the cluster needs to pull images from a container registry. This action requires the
@@ -356,9 +354,9 @@ operational overhead of managing the rotation of the secret. Instead, grant
 approach addresses those concerns.
 
 In this architecture, the cluster accesses Azure resources that are secured by
-Azure AD and do operations that support managed identities. Assign role-based access control (RBAC)
+Azure AD and perform operations that support managed identities. Assign role-based access control (RBAC)
 and permissions to the cluster’s managed identities, depending on
-the operations that the cluster intends to do. The cluster
+the operations that the cluster needs to perform. The cluster
 will authenticate itself against the resource and consequently be allowed or
 denied access. Here are some examples from this reference implementation where
 Azure RBAC built-in roles have been assigned to the cluster.
