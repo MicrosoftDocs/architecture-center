@@ -67,8 +67,6 @@ In this reference architecture, we’ll build a baseline infrastructure that dep
 
 ## Operational Excellence
 
----
-
 ### Network topology
 
 This architecture uses a hub-spoke network topology. The hub and spoke(s) are deployed in separate virtual networks connected through [peering](/azure/virtual-network/virtual-network-peering-overview).
@@ -218,8 +216,6 @@ Here’s an example from the reference implementation that shows how to automate
 4.  Developers do not have direct access to the Kubernetes API through kubectl. Use branch policies on your git server so multiple developers can approve a change before it’s applied to production.
 
 ## Security
-
----
 
 ### Integrate Azure Active Directory for the cluster
 
@@ -429,8 +425,6 @@ Another portion could be to integrate the basic workload with Azure Active Direc
 
 ## Reliability
 
----
-
 ### Workload storage
 
 The workload used in this architecture is stateless. If you need to store state, persisting it outside the cluster is recommended. Guidance for workload state is outside the scope of this article.
@@ -556,8 +550,6 @@ Ensure reliability through forced failover testing with simulated outages such a
 
 ## Performance Efficiency
 
----
-
 ### Monitor and collect metrics
 
 The Azure Monitor for containers feature is the recommended tool for monitoring and logging because you can view events in real time. It captures container logs from the running pods and aggregates them for viewing. It also collects information from Metrics API about memory and CPU utilization to monitor the health of running resources and workloads. You can use it to monitor performance as the pods scale. Another advantage is that you can easily use Azure portal to configure charts and dashboards. It has the capability to create alerts that trigger Automation Runbooks, Azure Functions, and others.
@@ -580,8 +572,6 @@ Monitor the health of pods by setting [Liveness and Readiness probes](https://ku
 > AKS provides built-in self-healing of infrastructure nodes using [Node Auto-Repair](/azure/aks/node-auto-repair).
 
 ## Cost Optimization
-
----
 
 ### Workload and cluster deployment strategies
 
