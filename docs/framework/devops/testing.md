@@ -87,7 +87,7 @@ In order to deploy software quickly and reliably, testing is a fundamental compo
 
 <!-- testing -->
 [iac]: ../../framework/devops/iac.md
-[pipelines]: https://docs.microsoft.com/azure/devops/pipelines
-[devopstests]: https://docs.microsoft.com/azure/devops/test
-[telemetry]: https://docs.microsoft.com/azure/azure-monitor/app/usage-overview
-[slots]: https://docs.microsoft.com/azure/app-service/deploy-staging-slots
+[pipelines]: /azure/devops/pipelines
+[devopstests]: /azure/devops/test
+[telemetry]: /azure/azure-monitor/app/usage-overview
+[slots]: /azure/app-service/deploy-staging-slots

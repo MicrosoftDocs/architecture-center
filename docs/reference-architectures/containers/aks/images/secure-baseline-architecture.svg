@@ -623,14 +623,14 @@
 				<text x="19.37" y="422.65" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Kubernetes user nodes</text>			</g>
 			<g id="shape920-156" v:mID="920" v:groupContext="shape" transform="translate(5.97047,-30.6196)">
 				<title>Rectangle.5710021</title>
-				<desc>Traeffik ingress controller</desc>
+				<desc>Traefik ingress controller</desc>
 				<v:userDefs>
 					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 				</v:userDefs>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="63.7795" cy="515.255" width="127.56" height="15.75"/>
 				<rect x="0" y="507.38" width="127.559" height="15.75" class="st30"/>
-				<text x="7.91" y="518.25" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Traeffik ingress controller</text>			</g>
+				<text x="7.91" y="518.25" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Traefik ingress controller</text>			</g>
 			<g id="shape921-159" v:mID="921" v:groupContext="shape" transform="translate(9,5.62499)">
 				<title>Rectangle.5710022</title>
 				<desc>Workload</desc>

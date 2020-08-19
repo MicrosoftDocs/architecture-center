@@ -239,30 +239,30 @@ Microsoft products aren't the only choice to implement web application firewall 
 - Azure-managed NVAs like Application Gateway and Azure Firewall reduce complexity, compared to NVAs where users need to handle scalability and resiliency across multiple appliances.
 - When using NVAs in Azure, use *active-active* and *autoscaling* setups, so these appliances aren't a bottleneck for applications running in the virtual network.
 
-[azfw-overview]: https://docs.microsoft.com/azure/firewall/overview
-[azfw-docs]: https://docs.microsoft.com/azure/firewall/
-[azfw-dnat]: https://docs.microsoft.com/azure/firewall/tutorial-firewall-dnat
-[azfw-snat]: https://docs.microsoft.com/azure/firewall/snat-private-range
-[azfw-issues]: https://docs.microsoft.com/azure/firewall/overview#known-issues
-[appgw-overview]: https://docs.microsoft.com/azure/application-gateway/overview
-[appgw-docs]: https://docs.microsoft.com/azure/application-gateway/
-[waf-docs]: https://docs.microsoft.com/azure/web-application-firewall/
-[appgw-apim]: https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
-[api-gws]: https://docs.microsoft.com/azure/architecture/microservices/design/gateway
-[agic_overview]: https://docs.microsoft.com/azure/application-gateway/ingress-controller-overview
-[apim-overview]: https://docs.microsoft.com/azure/api-management/api-management-key-concepts
-[aks-overview]: https://docs.microsoft.com/azure/aks/intro-kubernetes
-[aks-egress]: https://docs.microsoft.com/azure/aks/limit-egress-traffic
-[afd-overview]: https://docs.microsoft.com/azure/frontdoor/front-door-overview
-[afd-vs-appgw]: https://docs.microsoft.com/azure/frontdoor/front-door-faq#what-is-the-difference-between-azure-front-door-and-azure-application-gateway
-[appgw-networking]: https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works
+[azfw-overview]: /azure/firewall/overview
+[azfw-docs]: /azure/firewall/
+[azfw-dnat]: /azure/firewall/tutorial-firewall-dnat
+[azfw-snat]: /azure/firewall/snat-private-range
+[azfw-issues]: /azure/firewall/overview#known-issues
+[appgw-overview]: /azure/application-gateway/overview
+[appgw-docs]: /azure/application-gateway/
+[waf-docs]: /azure/web-application-firewall/
+[appgw-apim]: /azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
+[api-gws]: ../../microservices/design/gateway.md
+[agic_overview]: /azure/application-gateway/ingress-controller-overview
+[apim-overview]: /azure/api-management/api-management-key-concepts
+[aks-overview]: /azure/aks/intro-kubernetes
+[aks-egress]: /azure/aks/limit-egress-traffic
+[afd-overview]: /azure/frontdoor/front-door-overview
+[afd-vs-appgw]: /azure/frontdoor/front-door-faq#what-is-the-difference-between-azure-front-door-and-azure-application-gateway
+[appgw-networking]: /azure/application-gateway/how-application-gateway-works
 [azure-virtual-network]: https://azure.microsoft.com/services/virtual-network/
 [web-application-firewall]: https://azure.microsoft.com/services/web-application-firewall/
-[nat]: https://docs.microsoft.com/azure/virtual-network/nat-overview
+[nat]: /azure/virtual-network/nat-overview
 [expressroute]: https://azure.microsoft.com/services/expressroute/
 [apim]: https://azure.microsoft.com/services/api-management/
 [app-gws]: https://microservices.io/patterns/apigateway.html
 [frontdoor]: https://azure.microsoft.com/services/frontdoor/
-[nsgs]: https://docs.microsoft.com/azure/virtual-network/security-overview
-[azfw-defaultroute]: https://docs.microsoft.com/azure/firewall/forced-tunneling
+[nsgs]: /azure/virtual-network/security-overview
+[azfw-defaultroute]: /azure/firewall/forced-tunneling
 [appgw-defaultroute]:https://docs.microsoft.com/azure/application-gateway/configuration-overview#azure-virtual-network-and-dedicated-subnet

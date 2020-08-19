@@ -2,7 +2,7 @@
 title: Microsoft Azure Well-Architected Framework
 titleSuffix: Microsoft Azure Well-Architected Framework introduction
 description: Describes five pillars of software quality, scalability, devops, resiliency, cost, and security.
-author: adamboeglin
+author: doodlemania2
 ms.date: 11/20/2019
 ms.topic: guide
 ms.service: architecture-center
@@ -14,7 +14,7 @@ ms.custom: seojan19
 
 The Azure Well-Architected Framework is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
 
-To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=azure-architecture-review).
+To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
 | Pillar | Description |
 |--------|-------------|
@@ -30,10 +30,10 @@ When you are designing a cloud solution, focus on generating incremental value e
 
 ### Cost guidance
 
-- Review [cost principles](/azure/architecture/framework/cost/overview)
-- [Develop a cost model](/azure/architecture/framework/cost/design-model)
-- Create [budgets and alerts](/azure/architecture/framework/cost/monitor-alert)
-- Review the [cost optimization checklist](/azure/architecture/framework/cost/optimize-checklist)
+- Review [cost principles](./cost/overview.md)
+- [Develop a cost model](./cost/design-model.md)
+- Create [budgets and alerts](./cost/monitor-alert.md)
+- Review the [cost optimization checklist](./cost/optimize-checklist.md)
 
 ## Operational Excellence
 
@@ -77,7 +77,7 @@ Just adding more instances doesn't mean an application will scale, however. It m
 
 Always conduct performance and load testing to find these potential bottlenecks. The stateful parts of a system, such as databases, are the most common cause of bottlenecks, and require careful design to scale horizontally. Resolving one bottleneck may reveal other bottlenecks elsewhere.
 
-Use the [Performance efficiency checklist](../checklist/performance-efficiency.md) to review your design from a scalability standpoint.
+Use the [Performance efficiency checklist](scalability/performance-efficiency.md) to review your design from a scalability standpoint.
 
 ### Performance efficiency guidance
 
@@ -150,16 +150,16 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 
 [identity-ref-arch]: ../reference-architectures/identity/index.md
 [resiliency]: ../framework/resiliency/overview.md
-[ad-subscriptions]: https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory
-[data-warehouse-encryption]: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview#data-protection
-[cosmos-db-encryption]: https://docs.microsoft.com/azure/cosmos-db/database-security
-[rbac]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
-[paired-region]: https://docs.microsoft.com/azure/best-practices-availability-paired-regions
-[resource-manager-auditing]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit
+[ad-subscriptions]: /azure/active-directory/active-directory-how-subscriptions-associated-directory
+[data-warehouse-encryption]: /azure/data-lake-store/data-lake-store-security-overview#data-protection
+[cosmos-db-encryption]: /azure/cosmos-db/database-security
+[rbac]: /azure/active-directory/role-based-access-control-what-is
+[paired-region]: /azure/best-practices-availability-paired-regions
+[resource-manager-auditing]: /azure/azure-resource-manager/resource-group-audit
 [security-center]: https://azure.microsoft.com/services/security-center
-[security-documentation]: https://docs.microsoft.com/azure/security
-[sql-db-encryption]: https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault
-[storage-encryption]: https://docs.microsoft.com/azure/storage/storage-service-encryption
+[security-documentation]: /azure/security
+[sql-db-encryption]: /azure/sql-database/sql-database-always-encrypted-azure-key-vault
+[storage-encryption]: /azure/storage/storage-service-encryption
 [trust-center]: https://azure.microsoft.com/support/trust-center
 
 <!-- patterns -->
@@ -174,7 +174,7 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 [cdn]: ../best-practices/cdn.md
 [data-partitioning]: ../best-practices/data-partitioning.md
 [monitoring]: ../best-practices/monitoring.md
-[cost]: https://docs.microsoft.com/azure/cost-management/cost-mgt-best-practices
+[cost]: /azure/cost-management/cost-mgt-best-practices
 [retry-service-specific]: ../best-practices/retry-service-specific.md
 [transient-fault-handling]: ../best-practices/transient-faults.md
 

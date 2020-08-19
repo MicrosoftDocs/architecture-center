@@ -12,7 +12,7 @@ ms.custom:
 # Develop a cost model
 _Cost modeling_ is an exercise where you create logical groups of cloud resources that are mapped to the organization's hierarchy and then estimate costs for those groups. The goal of cost modeling is to estimate the overall cost of the organization in the cloud. 
 
-1.  [**Create a structured view of the organization in the cloud**](#organization-structure)
+1.  [**Understand how your responsibilities align with your organization**](#organization-structure)
     
     Map the organization's needs to logical groupings offered by cloud services. This way the business leaders of the company get a clear view of the cloud services and how they're controlled.
 2.  [**Capture clear requirements**](design-capture-requirements.md)
@@ -50,20 +50,21 @@ At the end of this exercise, you should have identified the lower and upper limi
 ## Organization structure
 Map the organization's needs to logical groupings offered by cloud services. This way the business leaders of the company get a clear view of the cloud services and how they're controlled.
 
-> When cost reduction is a primary driver, it's important to create a cost-conscious organization.For more information, see [CAF: Build a cost-conscious organization](/azure/cloud-adoption-framework/organize/cost-conscious-organization).
+1. Understand how your workload fits into cost optimization across the portfolio of cloud workloads.
 
-1. Map company’s hierarchy to logical groups of cloud services.
+If you are working on a workload that fits into a broader portfolio of workloads, see CAF to [get started guide to document foundational decisions](/azure/cloud-adoption-framework/get-started/cloud-concepts). That guide will help your team capture the broader portfolio view of business units, resources organizations, responsibilities, and a view of the long term portfolio.
 
-    **Which business units in your company are adopting the cloud?**  
-    ***
+If cost optimization is being executed by a central team across the portfolio, see CAF to [get started managing enterprise costs](/azure/cloud-adoption-framework/get-started/manage-costs). 
 
-    One of the first tasks is to understand the company’s hierarchy and identify the business units with cloud consumption needs. Those needs are mapped to logical groupings offered by cloud services. This mapping helps business leaders of the company get a clear view where cloud services are deployed and how they're governed. 
-    
-    For example, how is the hierarchy represented through management groups, subscriptions, resource groups, and so on. 
-    
-    > ![Task](../../_images/i-best-practices.svg) Create hierarchies and groups through [Azure management groups](/azure/governance/management-groups/), [subscriptions](/azure/cost-management-billing/manage/create-subscription), [resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group) across the services that you intend to use.
+2. Encourage a culture of democratized cost optimization decisions
 
-2. Calculate the ROI by understanding what is included in each grouping and what isn't.
+As a workload owner, you can have a measurable impact on cost optimization. There are other roles in the organization which can help improve cost management activites. To help embed the pillar of cost optimization into your organization beyond your workload team, see the CAF article: [Build a cost-conscious organization](/azure/cloud-adoption-framework/organize/cost-conscious-organization).
+
+3. Reduce costs through shared cloud services and landing zones
+
+If your workload has depedencies on shared assets like Active Directory, Network connectivity, security devices, or other services that are also used by other workloads, encourage your central IT organization to provide those services through a centrally managed landing zone to reduce duplicate costs. See the CAF article: [get started with centralized design & configuration](/azure/cloud-adoption-framework/get-started/design-and-configuration) to get started with the development of landing zones.
+
+4. Calculate the ROI by understanding what is included in each grouping and what isn't.
 
  
     **Which aspects of the hierarchy are covered by cloud services?**  
@@ -71,7 +72,7 @@ Map the organization's needs to logical groupings offered by cloud services. Thi
 
     Azure pricing model is based on expenses incurred for the service. Expenses include hardware, software, development, operations, security, and data center space to name a few. Evaluate the cost benefit of shifting away from owned technology infrastructure to leased technology solutions.
 
-3. Identify scenarios where you can use shared cloud services to lower cost. 
+5. Identify scenarios where you can use shared cloud services to lower cost. 
 
 
     **Can some services be shared by other consumers?**

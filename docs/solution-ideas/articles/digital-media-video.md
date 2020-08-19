@@ -1,7 +1,7 @@
 ---
 title: Video-on-demand digital media
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: A basic video-on-demand solution that gives you the capability to stream recorded video content such as movies, news clips, sports segments, training videos, and customer support tutorials to any video-capable endpoint device, mobile application, or desktop browser. Video files are uploaded to Azure Blob storage, encoded to a multi-bitrate standard format, and then distributed via all major adaptive bit-rate streaming protocols (HLS, MPEG-DASH, Smooth) to the Azure Media Player client.
 ms.custom: acom-architecture, media, 'https://azure.microsoft.com/solutions/architecture/digital-media-video/'
@@ -38,9 +38,9 @@ This solution is built on the Azure managed services: [Blob Storage](https://azu
 ## Next steps
 
 * [Azure Media Services overview](/azure/media-services/latest/media-services-overview)
-* [How to use Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-* [How to encode an asset using Media Encoder](https://docs.microsoft.com/azure/media-services/media-services-rest-encode-asset)
-* [How to manage streaming endpoints](https://docs.microsoft.com/azure/media-services/media-services-portal-manage-streaming-endpoints)
-* [Using Azure Content Delivery Network](https://docs.microsoft.com/api/Redirect/documentation/articles/cdn-create-new-endpoint)
-* [Develop video player applications](https://docs.microsoft.com/api/Redirect/documentation/articles/media-services-develop-video-players)
+* [How to use Azure Blob storage](/azure/storage/blobs/storage-quickstart-blobs-portal)
+* [How to encode an asset using Media Encoder](/azure/media-services/media-services-rest-encode-asset)
+* [How to manage streaming endpoints](/azure/media-services/media-services-portal-manage-streaming-endpoints)
+* [Using Azure Content Delivery Network](/api/Redirect/documentation/articles/cdn-create-new-endpoint)
+* [Develop video player applications](/api/Redirect/documentation/articles/media-services-develop-video-players)
 * [Deliver content securely](https://azure.microsoft.com/services/media-services/content-protection)

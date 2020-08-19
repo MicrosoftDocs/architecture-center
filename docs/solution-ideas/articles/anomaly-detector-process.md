@@ -1,7 +1,7 @@
 ---
 title: Anomaly Detector Process
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Learn more about Anomaly Detector with a step-by-step flowchart that details the process. See how anomaly detection models are selected with time-series data.
 ms.custom: acom-architecture, anomaly detection process, anomaly detection model, anomaly detector, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
@@ -40,7 +40,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/anomaly-dete
 
 ## Next steps
 
-* [Service Bus Documentation](https://docs.microsoft.com/azure/service-bus)
-* [Azure Databricks Documentation](https://docs.microsoft.com/azure/azure-databricks)
-* [Power BI Documentation](https://docs.microsoft.com/power-bi)
-* [Storage Documentation](https://docs.microsoft.com/azure/storage)
+* [Service Bus Documentation](/azure/service-bus)
+* [Azure Databricks Documentation](/azure/azure-databricks)
+* [Power BI Documentation](/power-bi)
+* [Storage Documentation](/azure/storage)

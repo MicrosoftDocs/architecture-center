@@ -1,7 +1,7 @@
 ---
 title: Auditing, risk, and compliance management
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Developers could use knowledge mining to help attorneys quickly identify entities of importance from discovery documents and flag important ideas across documents
 ms.custom: acom-architecture
@@ -37,10 +37,10 @@ Ingest, Enrich and Exploration. First, the unstructured and structured data is i
 
 Key technologies used to implement tools for technical content review and research
 
-- [Azure Cognitive Search](https://docs.microsoft.com/azure/search/)
+- [Azure Cognitive Search](/azure/search/)
 - [Microsoft Text Analytics API](https://azure.microsoft.com/services/cognitive-services/text-analytics/)
 - [Microsoft Translator Text API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
-- [Web API custom skill interface](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)
+- [Web API custom skill interface](/azure/search/cognitive-search-custom-skill-interface)
 
 ## Next Steps
 

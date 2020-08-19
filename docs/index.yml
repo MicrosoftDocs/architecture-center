@@ -60,7 +60,7 @@ productDirectory:
       links:
         - url: ./framework/index.md
           text: Guiding tenets for your architecture
-        - url: https://docs.microsoft.com/en-us/assessments/?id=azure-architecture-review
+        - url: /assessments/?id=azure-architecture-review
           text: Examine your workload
         - url: ./performance/index.md
           text: Performance tuning
@@ -74,7 +74,7 @@ productDirectory:
       # imageSrc should be square in ratio with no whitespace
       imageSrc: https://docs.microsoft.com/media/common/i_overview.svg
       links:
-        - url: ./guide/technology-choices/compute-overview.md
+        - url: ./guide/technology-choices/compute-decision-tree.md
           text: Choosing a Compute Service
         - url: ./guide/technology-choices/load-balancing-overview.md
           text: Choosing a Load Balancing Service
@@ -91,6 +91,9 @@ conceptualContent:
   items:
     - title: Popular Articles
       links:
+      - text: AKS Production Baseline
+        url: ./reference-architectures/containers/aks/secure-baseline-aks.md
+        itemType: reference
       - text: AWS to Azure services comparison
         url: ./aws-professional/services.md
         itemType: reference
@@ -112,7 +115,7 @@ conceptualContent:
       - text: CQRS design pattern
         url: ./patterns/cqrs.md
         itemType: concept
-    # Card
+
     - title: AI & Machine Learning
       links:
       - text: Training of Python scikit-learn models
@@ -146,7 +149,7 @@ conceptualContent:
       footerLink:
         url: ./data-guide/big-data/machine-learning-at-scale.md
         text: See more
-    # Card
+    
     - title: Data
       links:
         - url: ./data-guide/big-data/index.md
@@ -163,7 +166,7 @@ conceptualContent:
           url: reference-architectures/data/enterprise-bi-adf.md
         - text: Enterprise BI with SQL Data Warehouse
           itemType: architecture
-          url: reference-architectures/data/enterprise-bi-sqldw.md
+          url: ./reference-architectures/data/enterprise-bi-synapse.md
         - text: Stream processing with Azure Databricks
           itemType: architecture
           url: reference-architectures/data/stream-processing-databricks.md
@@ -299,7 +302,7 @@ conceptualContent:
           url: service-fabric/migrate-from-cloud-services.md
         - text: Azure Kubernetes Service (AKS)
           itemType: architecture
-          url: reference-architectures/microservices/aks.md
+          url: reference-architectures/containers/aks-microservices/aks-microservices.md
         - text: Azure Service Fabric
           itemType: architecture
           url: reference-architectures/microservices/service-fabric.md
@@ -308,7 +311,7 @@ conceptualContent:
           url:  example-scenario/infrastructure/service-fabric-microservices.md
       footerLink:
         text: Introduction to microservices on Azure
-        url: microservices/introduction.md
+        url: ./microservices/index.md
 
     - title: Networking
       links:
@@ -335,7 +338,7 @@ conceptualContent:
           url: reference-architectures/hybrid-networking/shared-services.md
         - text: DMZ between Azure and on-premises
           itemType: architecture
-          url: reference-architectures/dmz/secure-vnet-hybrid.md
+          url: ./reference-architectures/dmz/secure-vnet-dmz.md
         - text: DMZ between Azure and the Internet
           itemType: architecture
           url: reference-architectures/dmz/secure-vnet-dmz.md
@@ -359,7 +362,7 @@ conceptualContent:
           url: reference-architectures/serverless/web-app.md
       footerLink:
         text: Introduction to Serverless Applications on Azure
-        url: serverless/index.md
+        url: ./serverless/code.md
 
     - title: VM workloads
       links:
@@ -383,7 +386,7 @@ conceptualContent:
           url:  example-scenario/infrastructure/wordpress.md
         - text: Multi-tier Windows
           itemType: get-started
-          url:  example-scenario/infrastructure/regulated-multitier-app.md
+          url:  ./reference-architectures/n-tier/n-tier-sql-server.md
 
     - title: SAP
       links:
@@ -456,14 +459,14 @@ additionalContent:
     - title: Build your skills with Microsoft Learn # < 60 chars (optional)
       items:
         - title: Build great solutions with the Microsoft Azure Well-Architected Framework
-          url: https://docs.microsoft.com/learn/paths/azure-well-architected-framework/
+          url: /learn/paths/azure-well-architected-framework/
         - title: Introduction to the Well Architected Framework
-          url: https://docs.microsoft.com/learn/modules/azure-well-architected-introduction/
+          url: /learn/modules/azure-well-architected-introduction/
         - title: Azure Fundamentals
-          url: https://docs.microsoft.com/learn/paths/azure-fundamentals/
+          url: /learn/paths/azure-fundamentals/
         - title: Security, responsibility, and trust in Azure
-          url: https://docs.microsoft.com/learn/modules/intro-to-security-in-azure/
+          url: /learn/modules/intro-to-security-in-azure/
         - title: Architect infrastructure operations in Azure
-          url: https://docs.microsoft.com/learn/paths/architect-infrastructure-operations/
+          url: /learn/paths/architect-infrastructure-operations/
         - title: Tour the N-tier architecture style
-          url: https://docs.microsoft.com/learn/modules/n-tier-architecture/
+          url: /learn/modules/n-tier-architecture/

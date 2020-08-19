@@ -118,7 +118,7 @@ Your choice of formats might depend on the particular workload or technology eco
 
 For example:
 
-- Azure Stream Analytics has native support for JSON, CSV, and Avro. When using Stream Analytics, it makes sense to choose one of these formats if possible. If not, you can provide a [custom deserializer](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer), but this adds some additional complexity to your solution.
+- Azure Stream Analytics has native support for JSON, CSV, and Avro. When using Stream Analytics, it makes sense to choose one of these formats if possible. If not, you can provide a [custom deserializer](/azure/stream-analytics/custom-deserializer), but this adds some additional complexity to your solution.
 
 - JSON is a standard interchange format for HTTP REST APIs. If your application receives JSON payloads from clients and then places these onto a message queue for asynchronous processing, it might make sense to use JSON for the messaging, rather than re-encode into a different format.
 

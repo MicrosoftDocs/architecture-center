@@ -1,7 +1,7 @@
 ---
 title: SharePoint Farm for Development Testing
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Learn how to deploy a SharePoint farm for use as a development testing environment with a step-by-step flowchart from Azure.
 ms.custom: acom-architecture, sharepoint dev, sharepoint agile, sharepoint dev environment, lob-app, azure sharepoint development environment, sharepoint farm solution, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/sharepoint-farm-devtest/'
@@ -52,12 +52,12 @@ This solution provides a small scale deployment of SharePoint using a single Azu
 
 ## Next steps
 
-* [Azure Resource Group Documentation](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
-* [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-* [Storage Documentation](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
+* [Azure Resource Group Documentation](/azure/azure-resource-manager/resource-group-overview)
+* [Virtual Network Documentation](/azure/virtual-network/virtual-networks-overview)
+* [Storage Documentation](/azure/storage/blobs/storage-blobs-introduction)
 * [Active Directory Documentation](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
-* [SharePoint Server Documentation](https://docs.microsoft.com/sharepoint/administration/intranet-sharepoint-server-2016-in-azure-dev-test-environment)
-* [SQL Server Documentation](https://docs.microsoft.com/sql/relational-databases/databases/deploy-a-sql-server-database-to-a-microsoft-azure-virtual-machine?view=sql-server-2017)
-* [Load Balancer Documentation](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
-* [ExpressRoute Documentation](https://docs.microsoft.com/azure/expressroute)
-* [VPN Gateway Documentation](https://docs.microsoft.com/azure/vpn-gateway)
+* [SharePoint Server Documentation](/sharepoint/administration/intranet-sharepoint-server-2016-in-azure-dev-test-environment)
+* [SQL Server Documentation](/sql/relational-databases/databases/deploy-a-sql-server-database-to-a-microsoft-azure-virtual-machine?view=sql-server-2017)
+* [Load Balancer Documentation](/azure/load-balancer/load-balancer-standard-overview)
+* [ExpressRoute Documentation](/azure/expressroute)
+* [VPN Gateway Documentation](/azure/vpn-gateway)

@@ -14,7 +14,7 @@ ms.category:
 
 # Vision classifier model with Azure Custom Vision Cognitive Service
 
-Azure Cognitive Services offers many possibilities for Artificial Intelligence (AI) solutions. One of them is [Azure Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/), which allows you to build, deploy, and improve your image classifiers. This architecture uses Custom Vision to classify images taken by a simulated drone. It provides a way to combine AI and the Internet of Things (IoT).
+Azure Cognitive Services offers many possibilities for Artificial Intelligence (AI) solutions. One of them is [Azure Custom Vision](/azure/cognitive-services/custom-vision-service/), which allows you to build, deploy, and improve your image classifiers. This architecture uses Custom Vision to classify images taken by a simulated drone. It provides a way to combine AI and the Internet of Things (IoT).
 
 ## Potential use case
 
@@ -51,5 +51,5 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 ## Next steps
 
 * [Learn more about Microsoft AirSim](https://github.com/microsoft/AirSim)
-* [Learn more about Azure Custom Vision Cognitive Service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/)
-* [Learn more about Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
+* [Learn more about Azure Custom Vision Cognitive Service](/azure/cognitive-services/custom-vision-service/)
+* [Learn more about Azure Cognitive Services](/azure/cognitive-services/)

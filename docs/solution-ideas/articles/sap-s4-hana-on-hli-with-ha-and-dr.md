@@ -1,7 +1,7 @@
 ---
 title: SAP S/4 HANA for Large Instances
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Learn more about SAP HANA on Azure for large instances that includes high reliability and disaster recovery. Find out how NFS storage is used for large instances of SAP HANA.
 ms.custom: acom-architecture, sap, Azure hana large instances, sap hana large instances, sap hana on azure large instances, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/sap-s4-hana-on-hli-with-ha-and-dr/'
@@ -48,9 +48,9 @@ This solution architecture illustrates how a user request flows through an SAP l
 
 ## Next steps
 
-* [Getting started](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)
-* [High performance NFS storage for SAP HANA large instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
-* [SAP Certifications for Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
-* [Premium Storage: high-performance storage for Azure Virtual Machine workloads](https://docs.microsoft.com/azure/storage/storage-premium-storage)
+* [Getting started](/azure/virtual-machines/workloads/sap/get-started)
+* [High performance NFS storage for SAP HANA large instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+* [SAP Certifications for Azure](/azure/virtual-machines/workloads/sap/sap-certifications)
+* [Premium Storage: high-performance storage for Azure Virtual Machine workloads](/azure/storage/storage-premium-storage)
 * [ExpressRoute overview](https://azure.microsoft.com/services/expressroute)
-* [Back end Network to HANA large instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+* [Back end Network to HANA large instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture)

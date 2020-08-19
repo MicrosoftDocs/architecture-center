@@ -1,5 +1,5 @@
 ---
-title: Modernize .NET applications with Azure SQL DB and Azure App Service 
+title: Modernize .NET applications 
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
 description: Modernize .NET applications with Azure SQL DB and Azure App Service 
@@ -12,7 +12,7 @@ ms.category:
     - databases
 ---
 
-# Modernize .NET applications with Azure SQL DB and Azure App Service
+# Modernize .NET applications
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
@@ -43,14 +43,14 @@ Now, customers can connect to the online retail catalog via the web app. The loa
 
 ## Components
 
-- [Azure App Service](https://docs.microsoft.com/azure/app-service/overview) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can take advantage of its DevOps capabilities, such as continuous deployment from Docker Hub, as shown here.
-- [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/sql-database-paas-overview) is a fully managed and intelligent relational database service built for the cloud. With SQL Database, you can create a highly available and high-performance data storage layer for modern cloud applications.
+- [Azure App Service](/azure/app-service/overview) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can take advantage of its DevOps capabilities, such as continuous deployment from Docker Hub, as shown here.
+- [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is a fully managed and intelligent relational database service built for the cloud. With SQL Database, you can create a highly available and high-performance data storage layer for modern cloud applications.
 - [Azure DevOps](https://azure.microsoft.com/services/devops/) provides developer services to support teams to plan work, collaborate on code development, and build and deploy applications.
-- [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) enables seamless migration from multiple database sources to Azure, with minimal downtime.
+- [Azure Database Migration Service](/azure/dms/dms-overview) enables seamless migration from multiple database sources to Azure, with minimal downtime.
 
 ## Next Steps
 
-- [Learn more](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql) about the migration process used in this example. 
+- [Learn more](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql) about the migration process used in this example. 
 - Learn how [Stackify](https://customers.microsoft.com/story/726302-stackify) uses Azure SQL Database and Azure App Service to power their .NET applications.
-- [Learn how](https://docs.microsoft.com/learn/paths/migrate-sql-workloads-azure/) to migrate your on-premises SQL workloads to Azure.
-- Explore [learning paths](https://docs.microsoft.com/learn/browse/?products=azure-app-service&roles=developer) and training modules for developers using Azure App Service
+- [Learn how](/learn/paths/migrate-sql-workloads-azure/) to migrate your on-premises SQL workloads to Azure.
+- Explore [learning paths](/learn/browse/?products=azure-app-service&roles=developer) and training modules for developers using Azure App Service

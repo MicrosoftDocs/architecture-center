@@ -1,7 +1,7 @@
 ---
 title: Archive on-premises data to cloud
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Archive your on-premises data to Azure Blob storage.
 ms.custom: acom-architecture, bcdr, 'https://azure.microsoft.com/solutions/architecture/backup-archive-on-premises/'
@@ -33,5 +33,5 @@ This solution is built on the Azure managed services: [StorSimple](https://azure
 
 ## Next steps
 
-* [Learning path for StorSimple](https://docs.microsoft.com/azure/storsimple)
-* [Azure Blob Storage: Hot, cool, and Archive storage tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)
+* [Learning path for StorSimple](/azure/storsimple)
+* [Azure Blob Storage: Hot, cool, and Archive storage tiers](/azure/storage/blobs/storage-blob-storage-tiers)

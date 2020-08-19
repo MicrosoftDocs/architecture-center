@@ -215,7 +215,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 1. Clone, fork, or download the zip file for the [GitHub repository](https://github.com/mspnp/identity-reference-architectures).
 
-1. Install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Install [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 1. Install the [Azure building blocks](https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks) npm package.
 
@@ -304,7 +304,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
     At the `Get-Credential` prompt, enter the password that you specified in the deployment parameter file.
 
-1. Run the following command to monitor the progress of the [DSC](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview) configuration:
+1. Run the following command to monitor the progress of the [DSC](/powershell/scripting/dsc/overview/overview) configuration:
 
     ```powershell
     Get-DscConfigurationStatus
@@ -375,7 +375,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 1. From the jumpbox, open a remote desktop session to the VM named `ra-adfs-adfs-vm1`. The private IP address is 10.0.5.4.
 
-1. Follow the steps in [Enable the Idp-Initiated Sign on page](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-initiatedsignon#enable-the-idp-initiated-sign-on-page) to enable the sign-on page.
+1. Follow the steps in [Enable the Idp-Initiated Sign on page](/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-initiatedsignon#enable-the-idp-initiated-sign-on-page) to enable the sign-on page.
 
 1. From the jump box, browse to `https://adfs.contoso.com/adfs/ls/idpinitiatedsignon.htm`. You may receive a certificate warning that you can ignore for this test.
 
@@ -386,24 +386,24 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [extending-ad-to-azure]: ./adds-extend-domain.md
 [aaf-cost]: ../../framework/cost/overview.md
 [Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory
-[where-to-place-an-fs-proxy]: https://technet.microsoft.com/library/dd807048.aspx
+[where-to-place-an-fs-proxy]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807048(v=ws.11)
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
-[ADDRS]: https://technet.microsoft.com/library/dn486831.aspx
-[plan-your-adfs-deployment]: https://msdn.microsoft.com/library/azure/dn151324.aspx
+[ADDRS]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn486831(v=ws.11)
+[plan-your-adfs-deployment]: /previous-versions/azure/azure-services/dn151324(v=azure.100)
 [ad_network_recommendations]: #network_configuration_recommendations_for_AD_DS_VMs
-[adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
-[adfs-configuration-database]: https://technet.microsoft.com/library/ee913581(v=ws.11).aspx
-[active-directory-federation-services]: https://docs.microsoft.com/windows-server/identity/active-directory-federation-services
-[active-directory-federation-services-overview]: https://technet.microsoft.com/library/hh831502(v=ws.11).aspx
-[establishing-federation-trust]: https://blogs.msdn.microsoft.com/alextch/2011/06/27/establishing-federation-trust
-[Deploying_a_federation_server_farm]: https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm
-[install_and_configure_the_web_application_proxy_server]: https://technet.microsoft.com/library/dn383662.aspx
-[publish_applications_using_AD_FS_preauthentication]: https://technet.microsoft.com/library/dn383640.aspx
-[oms-adfs-pack]: https://www.microsoft.com/download/details.aspx?id=41184
-[adfs-intro]: https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity
+[adfs_certificates]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn781428(v=ws.11)
+[adfs-configuration-database]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/ee913581(v=ws.11)
+[active-directory-federation-services]: /windows-server/identity/active-directory-federation-services
+[active-directory-federation-services-overview]: /windows-server/identity/active-directory-federation-services
+[establishing-federation-trust]: /archive/blogs/alextch/establishing-federation-trust
+[Deploying_a_federation_server_farm]: /windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm
+[install_and_configure_the_web_application_proxy_server]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11)
+[publish_applications_using_AD_FS_preauthentication]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383640(v=ws.11)
+[oms-adfs-pack]: https://www.microsoft.com/en-us/download/details.aspx?id=54526
+[adfs-intro]: /azure/active-directory/hybrid/whatis-hybrid-identity
 [github]: https://github.com/mspnp/identity-reference-architectures/tree/master/adfs
-[adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
+[adfs_certificates]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn781428(v=ws.11)
 [considerations]: ./index.md
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
-[psise]: https://docs.microsoft.com/powershell/scripting/windows-powershell/ise/introducing-the-windows-powershell-ise
+[psise]: /powershell/scripting/windows-powershell/ise/introducing-the-windows-powershell-ise
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator

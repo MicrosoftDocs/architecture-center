@@ -1,5 +1,5 @@
 ---
-title: Build web and mobile applications with Azure Database for MySQL, Azure Cosmos DB, and Azure Cache for Redis 
+title: Build web and mobile applications
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
 ms.date: 06/24/2020
@@ -11,7 +11,7 @@ ms.category:
 ms.subservice: solution-idea
 ---
 
-# Build web and mobile applications with Azure Database for MySQL, Azure Cosmos DB, and Azure Cache for Redis
+# Build web and mobile applications
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
@@ -31,15 +31,15 @@ The data from Azure Database for MySQL read replicas along with Azure Cosmos DB 
 
 ## Components
 
-- [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) is a fully managed relational database service based on the community edition of the open-source MySQL database engine.
-- [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.
-- [Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/) is a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications.
-- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) is a highly available, secure, and fully managed Kubernetes service that makes it easy to deploy and manage containerized applications.
-- [Event Hubs](https://docs.microsoft.com/azure/event-hubs/) is a fully managed, real-time data ingestion service. Stream millions of events per second from any source to build dynamic data pipelines.
-- [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) is an Apache Spark-based analytics service for big data analytics and AI
-- [Power BI](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview) is a suite of business tools for self-service and enterprise business intelligence (BI). Here, it’s used to analyze and visualize data.
+- [Azure Database for MySQL](/azure/mysql/overview) is a fully managed relational database service based on the community edition of the open-source MySQL database engine.
+- [Azure Cosmos DB](/azure/cosmos-db/) is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/) is a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications.
+- [Azure Kubernetes Service](/azure/aks/) is a highly available, secure, and fully managed Kubernetes service that makes it easy to deploy and manage containerized applications.
+- [Event Hubs](/azure/event-hubs/) is a fully managed, real-time data ingestion service. Stream millions of events per second from any source to build dynamic data pipelines.
+- [Azure Databricks](/azure/azure-databricks/) is an Apache Spark-based analytics service for big data analytics and AI
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a suite of business tools for self-service and enterprise business intelligence (BI). Here, it’s used to analyze and visualize data.
 
 ## Next Steps
 
 - [Learn](https://www.youtube.com/watch?v=KEYqG0IcUy8&feature=youtu.be) how HSBC built their digital payment platform using Azure Database for MySQL and Azure Cosmos DB
-- Learn how to [migrate MySQL workloads](https://docs.microsoft.com/learn/paths/migrate-open-source-workloads/) from on-premises to Azure
+- Learn how to [migrate MySQL workloads](/learn/paths/migrate-open-source-workloads/) from on-premises to Azure
