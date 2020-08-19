@@ -245,29 +245,76 @@ items:
     items:
     - name: Overview
       href: framework/devops/overview.md
-    - name: Contributing Factors
-      href: framework/devops/app-design.md
+    - name: Contributing factors
       items:
-      - name: Cloud Computing Capabilities
+      - name: Overview
         href: framework/devops/app-design.md
-      - name: Application Architecture
+      - name: Cloud computing capabilities
+        href: framework/devops/app-design.md
+      - name: Application architecture
         href: framework/devops/app-design.md
       - name: Culture
         href: framework/devops/app-design.md
-    - name: Development
-      href: framework/devops/development.md
-    - name: Deployment
-      href: framework/devops/deployment.md
-    - name: Infrastructure Deployments
-      href: framework/devops/iac.md
-    - name: Monitoring
-      href: framework/devops/monitoring.md
-    - name: Performance
-      href: framework/devops/performance.md
-    - name: Testing
-      href: framework/devops/testing.md
-    - name: Checklist
-      href: checklist/dev-ops.md
+    - name: Configuration Management
+      items:
+      - name: Overview
+        href: framework/devops/app-design.md
+      - name: Provision infrastructure
+        href: framework/devops/app-design.md
+      - name: Configure infrastructure
+        href: framework/devops/app-design.md
+      - name: Automate operational tasks
+        href: framework/devops/app-design.md
+    - name: Service delivery
+      items:
+      - name: Overview
+        href: framework/devops/app-design.md
+      - name: Application development
+        href: framework/devops/app-design.md
+      - name: Source control
+        href: framework/devops/app-design.md
+      - name: Continuous integration
+        href: framework/devops/app-design.md
+      - name: Continuous deployment
+        href: framework/devops/app-design.md
+      - name: Package artifacts
+        href: framework/devops/app-design.md
+      - name: Release strategies
+        href: framework/devops/app-design.md
+      - name: Staging environments
+        href: framework/devops/app-design.md
+      - name: Rollback
+        href: framework/devops/app-design.md
+    - name: Observability
+      items:
+      - name: Overview
+        href: framework/devops/app-design.md
+      - name: Monitoring Solutions
+        href: framework/devops/app-design.md
+      - name: What to monitor
+        href: framework/devops/app-design.md
+      - name: Data analysis
+        href: framework/devops/app-design.md
+      - name: Alerting
+        href: framework/devops/app-design.md
+      - name: Automated response
+        href: framework/devops/app-design.md
+      - name: Escalation
+        href: framework/devops/app-design.md
+    - name: Incident management
+      items:
+      - name: Overview
+        href: framework/devops/app-design.md
+      - name: Service level agreements
+        href: framework/devops/app-design.md
+      - name: Service level objectives
+        href: framework/devops/app-design.md
+      - name: Roster management
+        href: framework/devops/app-design.md
+      - name: Post-incident review
+        href: framework/devops/app-design.md
+      - name: Reconciliation
+        href: framework/devops/app-design.md
   - name: Performance Efficiency
     items:
     - name: Overview
