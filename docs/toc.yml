@@ -247,6 +247,8 @@ items:
       href: framework/devops/overview.md
     - name: Contributing factors
       items:
+      - name: Checklist
+        href: framework/scalability/performance-efficiency.md
       - name: Overview
         href: framework/devops/app-design.md
       - name: Cloud computing capabilities
@@ -255,18 +257,22 @@ items:
         href: framework/devops/app-design.md
       - name: Culture
         href: framework/devops/app-design.md
-    - name: Configuration Management
+    - name: Automation
       items:
+      - name: Checklist
+        href: framework/scalability/performance-efficiency.md
       - name: Overview
         href: framework/devops/app-design.md
-      - name: Provision infrastructure
+      - name: Repeatable infrastructure
         href: framework/devops/app-design.md
       - name: Configure infrastructure
         href: framework/devops/app-design.md
       - name: Automate operational tasks
         href: framework/devops/app-design.md
-    - name: Service delivery
+    - name: Release engineering﻿ 
       items:
+      - name: Checklist
+        href: framework/scalability/performance-efficiency.md
       - name: Overview
         href: framework/devops/app-design.md
       - name: Application development
@@ -277,35 +283,29 @@ items:
         href: framework/devops/app-design.md
       - name: Continuous deployment
         href: framework/devops/app-design.md
-      - name: Package artifacts
-        href: framework/devops/app-design.md
-      - name: Release strategies
-        href: framework/devops/app-design.md
-      - name: Staging environments
-        href: framework/devops/app-design.md
       - name: Rollback
         href: framework/devops/app-design.md
     - name: Observability
       items:
+      - name: Checklist
+        href: framework/scalability/performance-efficiency.md
       - name: Overview
         href: framework/devops/app-design.md
       - name: Monitoring Solutions
         href: framework/devops/app-design.md
       - name: What to monitor
         href: framework/devops/app-design.md
-      - name: Data analysis
+      - name: Distributed tracing
         href: framework/devops/app-design.md
       - name: Alerting
         href: framework/devops/app-design.md
       - name: Automated response
         href: framework/devops/app-design.md
-      - name: Escalation
-        href: framework/devops/app-design.md
     - name: Incident management
       items:
+      - name: Checklist
+        href: framework/scalability/performance-efficiency.md
       - name: Overview
-        href: framework/devops/app-design.md
-      - name: Service level agreements
         href: framework/devops/app-design.md
       - name: Service level objectives
         href: framework/devops/app-design.md
