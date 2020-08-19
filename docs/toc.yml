@@ -245,8 +245,14 @@ items:
     items:
     - name: Overview
       href: framework/devops/overview.md
-    - name: Application design
+    - name: Contributing Factors
       href: framework/devops/app-design.md
+      - name: Cloud Computing Capabilities
+        href: framework/devops/app-design.md
+      - name: Application Architecture
+        href: framework/devops/app-design.md
+      - name: Culture
+        href: framework/devops/app-design.md
     - name: Development
       href: framework/devops/development.md
     - name: Deployment
