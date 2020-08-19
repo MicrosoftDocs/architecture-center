@@ -176,6 +176,8 @@ items:
     href: framework/index.md
   - name: Cost Optimization
     items:
+    - name: About
+      href: framework/cost/index.yml
     - name: Principles
       href: framework/cost/overview.md
     - name: Design
@@ -1124,7 +1126,7 @@ items:
       - name: Archive on-premises data to cloud
         href: solution-ideas/articles/backup-archive-on-premises.md
       - name: Back up cloud applications
-        href: solution-ideas/articles/backup-archive-cloud-application.md
+        href: /azure/backup/guidance-best-practices
       - name: Back up on-premises applications
         href: solution-ideas/articles/backup-archive-on-premises-applications.md
       - name: Centralize app configuration and security

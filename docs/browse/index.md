@@ -346,7 +346,6 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 <ul class="grid">
 
 [!INCLUDE [Archive on-premises data to cloud](../../includes/cards/backup-archive-on-premises.md)]
-[!INCLUDE [Back up cloud applications and data to cloud](../../includes/cards/backup-archive-cloud-application.md)]
 [!INCLUDE [Back up on-premises applications and data to cloud](../../includes/cards/backup-archive-on-premises-applications.md)]
 [!INCLUDE [Build high availability into your BCDR strategy](../../includes/cards/build-high-availability-into-your-bcdr-strategy.md)]
 [!INCLUDE [Custom Data Sovereignty & Data Gravity Requirements](../../includes/cards/data-sovereignty-and-gravity.md)]

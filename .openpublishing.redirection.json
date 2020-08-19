@@ -1984,6 +1984,11 @@
       "source_path": "docs/guide/technology-choices/data-store-comparison.md",
       "redirect_url": "/azure/architecture/guide/technology-choices/data-store-overview",
       "redirect_document_id": true
+     },
+     {
+      "source_path": "docs/solution-ideas/articles/backup-archive-cloud-application.md",
+      "redirect_url": "/azure/backup/guidance-best-practices",
+      "redirect_document_id": false
      }
   ]
 }
