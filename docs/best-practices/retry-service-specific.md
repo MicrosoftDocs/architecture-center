@@ -873,6 +873,9 @@ Alternate retries switch between primary and secondary storage service location 
 
 ### Policy configuration
 
+> [!NOTE]
+> The examples below utilize **version 11** of the Azure Storage API.  We are tracking updates to utilize the latest version on our backlog.
+
 Retry policies are configured programmatically. A typical procedure is to create and populate a **TableRequestOptions**, **BlobRequestOptions**, **FileRequestOptions**, or **QueueRequestOptions** instance.
 
 ```csharp
