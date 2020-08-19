@@ -41,12 +41,13 @@ The example scenario features:
 
 ![Diagram showing virtual network integrated microservices](./media/vnet-microservices1.png)
 
-1. Outside services and clients make a POST request to the **Patient API** in API Management, with a data body that includes patient information.
+1. Outside services and clients make a POST request to **Patient API** in API Management, with a data body that includes patient information.
 1. Since **Patient API** uses the **PatientTests API** function app as its backend, it calls the `CreatePatient` function in the **PatientTests API** function app with the given patient information.
 1. The `CreatePatient` function in **PatientTests** API calls the `CreateAuditRecord` function in the **Audit API** function app to create an audit record.
 1. The `CreateAuditRecord` function creates the audit record in Cosmos DB, and returns a success response to the `CreatePatient` function.
 1. The `CreatePatient` function creates a patient document in Cosmos DB, and returns a success response to API Management.
 1. The outside services and clients receive the success response from API Management.
+1. Telemetry, Application Insights in Azure Monitor.
 
 ## Components
 
@@ -59,11 +60,11 @@ Only the API Management instance is accessible from the public internet.
 
 ### Azure Virtual Network
 
-The **Audit API** is locked down and configured to be accessible at a network level only from other systems in a known subnet in the same virtual network. The **PatientTests API** is locked down to only be accessible from known IP addresses assigned to API Management. The APIs reject traffic from other sources.
+The **Audit API** is locked down and configured to be accessible at a network level only from other services in the known subnet in the same virtual network. The **PatientTests API** is locked down to  be accessible only from known IP addresses assigned to API Management. The APIs reject traffic from other sources.
 
 ### Key Vault
 
-In this solution, in addition to network-level security, the function apps require service keys for access. These keys are maintained in Azure Key Vault, along with other sensitive data like the Azure Cosmos DB connection strings, and are only available to specified identities.
+In this solution, in addition to network-level security, the function apps require service keys for access. The keys are maintained in Azure Key Vault along with other sensitive data like the Azure Cosmos DB connection strings, and are only available to specified identities.
 
 Although it's technically possible to keep host keys and connection strings in the application settings, it's not good practice. The keys and connection string are then exposed to all developers who can access the app. The best practice is keeping sensitive information like the host keys and connection strings in Key Vault, especially for the production environment.
 
@@ -72,7 +73,7 @@ The following components use a Managed Service Identity (MSI), which is granted 
 - The **PatientTests API** function app gets the **Audit API** function app host key and the Cosmos DB connection string.
 - The **Audit API** function app gets the Cosmos DB connection string.
 
- Keys are also automatically rotated to make the system more secure.
+Keys are also automatically rotated to make the system more secure.
 
 More information on the security aspects can be found here. More information about key rotation can be found here.
 
