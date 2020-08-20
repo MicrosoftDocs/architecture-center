@@ -11,15 +11,17 @@ ms.custom:
 - fcp
 ---
 
-# Virtual network integrated serverless microservices
+# Serverless microservices integrated security and deployment
 
-This article describes an Azure microservices scenario that securely creates and stores patient health records. A health organization needs to digitally store the results of patient medical tests. Other internal and third-party systems need to interface with this data, via an application programming interface (API) that allows reading and writing the data. For auditing purposes, all operations and interactions with this information must be recorded in an audit register. Access to the API must be managed by a system that allows for easy integration with different authentication mechanisms. The API isn't publicly accessible outside of a single managed endpoint.
+This article describes an Azure serverless microservices scenario that securely creates and stores patients' medical test results. For auditing purposes, the system also records all operations and interactions with patient data in an audit register.
 
-The core of the solution is a set of microservices deployed together in an [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/). The solution architecture has one [API Management](https://azure.microsoft.com/services/api-management/) instance, two [Azure Functions](https://azure.microsoft.com/services/functions/) function apps, one [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) database instance, and associated [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) data.
+Internal and third-party systems interface with the data via an application programming interface (API) that allows reading and writing the data. The API is publicly accessible only through a single managed endpoint. Access to the API is managed by [Azure API Management (APIM)](https://azure.microsoft.com/services/api-management/) to allow for easy integration with different authentication mechanisms.
+
+The core of the solution is a set of microservices deployed together in an [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/). The solution architecture has one APIM instance, two [Azure Functions](https://azure.microsoft.com/services/functions/) function apps, one [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) database instance, and associated keys, secrets, and connection strings stored in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 The **PatientTests API** service provides the *create, read, update, delete (CRUD)* operations for patients and their test results. The **Audit API** function app provides operations to create auditing entries. Both services store data in Cosmos DB, using the [MongoDB Node.JS Driver](https://mongodb.github.io/node-mongodb-native/). You can replace the Cosmos DB endpoint with another MongoDB service without changing the code. The services don't share data, and you can deploy each service to its own independent database.
 
-To avoid exposing APIs and functions publicly, services integrate with other designated services within a *virtual network*. Network access restrictions limit API and function access to only specific IP addresses. Both API Management and Azure Functions support access restriction and deployment in virtual networks. The current scenario uses network access restriction and virtual network deployment for the two function apps, but not for API Management. The organization wants to expose API Management publicly to allow clients to test it from anywhere.
+To avoid exposing APIs and functions publicly, services integrate with other designated services within a *virtual network*. Network access restrictions limit API and function access to only specific IP addresses. Both API Management and Azure Functions support access restriction and deployment in virtual networks. The current scenario uses network access restriction and virtual network deployment for the two serverless function apps, but not for APIM. The organization wants to expose the APIM endpoint publicly to allow clients to test it from anywhere.
 
 This article and the referenced code project distill the example scenario down to the main technical components, to serve as a scaffold for future work. The solution automates all code and infrastructure deployments.
 
@@ -88,7 +90,7 @@ The source code for this sample may be found [here](https://github.com/Azure-Sam
 The function apps are protected using service keys in the Azure Functions runtime. These keys are stored in Azure Key Vault and only available to specified identities.
 
 ### Application Insights
-A common issue in microservices based architectures is that failures can be caused by a set of circumstances distributed over a variety of components. This can make it hard to diagnose issues when looking at components in isolation. The ability to correlate the telemetry for an operation across components becomes vital to diagnose certain issues.
+A common issue in microservices based architectures is that failures can be caused by circumstances distributed over a variety of components, so can't be diagnosed when looking at components in isolation. The ability to correlate the telemetry for an operation across components becomes vital to diagnose certain issues.
 
 This solution uses Application Insights telemetry to centralize logging across the whole request pipeline, including API Management and the APIs running on Azure Functions. API Management and the Azure Functions runtime have built-in support for Application Insights to generate and correlate a wide variety of telemetry, including standard application output. The telemetry shares a common operation ID, allowing it to be correlated across these components. 
 
@@ -99,12 +101,12 @@ The telemetry sent to Application Insights can feed into a wider Azure Monitor w
 ## Locust load testing
 
 Assuming API performance is one of your concerns, you may want to use some tools to run load testing against your APIs.
-The project contains a [Locust load test](https://github.com/Azure-Samples/project-newcastle/blob/master/src/LoadTest/README.md) in the `/src/LoadTest` folder. [Locust](https://locust.io/) is an open source load testing tool and the tests are written in Python. The load tests can be run locally and remotely in AKS cluster. The tests will perform a variety of operations against the API Management endpoint, verifying behaviours against sucess and failure expectations.
+The project contains a [Locust load test](https://github.com/Azure-Samples/project-newcastle/blob/master/src/LoadTest/README.md) in the `/src/LoadTest` folder. [Locust](https://locust.io/) is an open-source load testing tool, and the tests are written in Python. The load tests can be run locally and remotely in AKS cluster. The tests will perform a variety of operations against the API Management endpoint, verifying behaviors against success and failure expectations.
 
 ### Terraform
-We used Terraform to provision all resources and configurations, including the networking lockdown and the security pattern for access keys. You can use the Terraform templates in the /env folder to deploy and configure this solution in your own Azure environment. This will include deploying API Management and the Function apps and configuring them to use the deployed Application Insights instance. The complete code can be found in the /env folder.
+We used Terraform to provision all resources and configurations, including the networking lockdown and the security pattern for access keys. You can use the Terraform templates in the /env folder to deploy and configure this solution in your own Azure environment. Terraform deploys API Management and the Function apps and configures them to use the deployed Application Insights instance. The complete code can be found in the /env folder.
 
 ## Deployment
 
-This reference architecture includes scripts for deployment using Terraform. The terraform templates and code is available in the `/env` folder. The deployment [readme](https://github.com/Azure-Samples/project-newcastle/blob/master/env/readme.md) explains how to deploy the environment in your own Azure subscription. You can also automate deployment with a system like Azure DevOps or Github Actions. The `/env` folder also includes a [dev container](https://code.visualstudio.com/docs/remote/containers).
+This reference architecture includes scripts for deployment using Terraform. The Terraform templates and code are available in the `/env` folder. The deployment [readme](https://github.com/Azure-Samples/project-newcastle/blob/master/env/readme.md) explains how to deploy the environment in your own Azure subscription. You can also automate deployment with a system like Azure DevOps or GitHub Actions. The `/env` folder also includes a [dev container](https://code.visualstudio.com/docs/remote/containers).
 
