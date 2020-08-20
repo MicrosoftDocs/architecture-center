@@ -15,7 +15,7 @@ Configuring Kubernetes deployments and managing clusters can be a complex and ti
 
 [GitOps](https://www.weave.works/technologies/gitops/) is the name applied to this pattern and Bedrock is the pattern of best practices for implementing apps with GitOps in Azure.
 
-Using Bedrock, organizations can fast track their end-to-end Kubernetes deployments including infrastructure provisioning, GitOps setup, and Azure Pipelines with observability into the deployment status.
+Using Bedrock, organizations can fast track their end-to-end Kubernetes deployments including infrastructure provisioning, GitOps setup, and [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) with observability into the deployment status.
 
 Bedrock has the following objectives for addressing the challenges of configuring Kubernetes deployments and managing clusters:
 
@@ -45,10 +45,10 @@ Bedrock helps you with these use cases:
 
 ## Architecture
 
-![Diagram showing how the Spektate tool integrates with the Azure Pipelines in a Bedrock GitOps Workflow.](./media/fig010.jpg)
+![Diagram showing the Bedrock GitOps workflow driven by HLD scripts in a Git repository, executed in an automated process through Azure Pipelines with the deployment of resources monitored by the Spektate dashboard.](./media/fig010.png)
 
 1. The Bedrock GitOps workflow is driven by High-Level Definition (HLD) files that are maintained in a Git repository.
-2. A pull request (PR) initiates the process, and based on a specific HLD script from the repo, the pipeline automation processes the HLD script through Fabrikate to generate the required YAML manifest files and stores them in the manifest repo.
+2. A Git pull request (PR) initiates the process, and based on a specific HLD script from the repo, the pipeline automation processes the HLD script through Fabrikate to generate the required YAML manifest files and stores them in the manifest repo.
 3. The deployment is monitored, and deployment status is available through the Spektate dashboard.
 
 This workflow includes provisions for:
@@ -59,7 +59,7 @@ This workflow includes provisions for:
 
 ## Components
 
-![Diagram illustrating the key components of Bedrock.](./media/fig001.png)
+Bedrock makes use of the following components.
 
 ### Kubernetes
 
@@ -89,7 +89,7 @@ Bedrock leverages the following aspects of GitOps:
 
 The following image shows how these aspects all interact.
 
-![Diagram showing the Bedrock GitOps Workflow with Flux.](./media/fig004.jpg)
+![Diagram showing how the aspects of GitOps interact within Bedrock. Cloud Environment images are pulled via Flux into an Azure container registry and YAML manifests are pulled into a Git manifest repository. The kubectl is not used to apply changes.](./media/fig004.png)
 
 For more information about GitOps benefits and advantages, see Weaveworks’ [Guide to GitOps](https://www.weave.works/technologies/gitops/).
 
@@ -120,13 +120,13 @@ Fabrikate simplifies the front end of the GitOps workflow by using templating to
 
 The following diagram shows how Fabrikate is integrated into the GitOps workflow.
 
-![Diagram showing how Fabrikate fits into a GitOps workflow.](./media/fig006.jpg)
+![Diagram showing how Fabrikate fits into a GitOps workflow by building a new deployment definition that is output in YAML, stored in Git, and applied via Flux.](./media/fig006.png)
 
 For example, Fabrikate allows you to write DRY resource definitions (used for dry-run deployments) and configurations for multiple environments while taking advantage of the broad Helm chart ecosystem. These special purpose HLD scripts become shareable components that both simplify and support making deployments more auditable.
 
 The following example shows how some common resources are specified in a sample HLD script.
 
-![sample HLD script](./media/fig007.jpg)
+![Image showing how some common resources are specified in a HLD script with arrows indicating which line defines resources such as Fluentd logs, Prometheus/Grafana monitoring, and Jaeger distributed tracing, among others.](./media/fig007.png)
 
 ### Spektate
 
@@ -134,9 +134,11 @@ The following example shows how some common resources are specified in a sample 
 
 Kubernetes deployments can be complex. Multiple microservices become even more complicated when considering factors like latency, scalability, and reliability to deployments across multiple clusters in multiple regions and zones. This complexity creates a practical problem to determine the current state of any individual cluster or a collection of clusters that collectively carry the workload demands. Bedrock addresses this problem with Spektate by integrating it with the GitOps pipeline and service management that is a key element of the Bedrock process.
 
-Spektate provides views into the current status of any change in the system. These changes can include everything from tracking continuous integration builds to tracking the deployment of the container containing that commit in each of the downstream clusters consuming that container. The following screeenshot shows a sample of a Spektate view.
+Spektate provides views into the current status of any change in the system. These changes can include everything from tracking continuous integration builds to tracking the deployment of the container containing that commit in each of the downstream clusters consuming that container.
 
-![sample of Spektate web dashboard](./media/fig011.jpg)
+The following screenshot shows a view of Bedrock deployments in the Spektate dashboard.
+
+![Screenshot showing a list of Bedrock deployments in the Spektate dashboard with status information for each deployment.](./media/fig011.png)
 
 Spektate includes the following:
 
@@ -144,11 +146,13 @@ Spektate includes the following:
 * An [Azure Storage](https://azure.microsoft.com/services/storage/) table that stores all of the telemetry that is reported back.
 * Integration with the [Bedrock Command Line Interface (CLI)]((https://github.com/microsoft/bedrock-cli)) and a web dashboard.
 
-Developers and SREs need to be able to monitor and observe the end-to-end deployment and workflow. Bedrock includes the *Spektate Dashboard* as part of the [Bedrock CLI](#bedrock-cli) to allow an easy to use view of the deployment process and operational clusters. This level of monitoring simplifies deployment management. For example, developers and SREs need a comprehensive view of deployment status changes as they make their way from application level changes to the cluster, including the GitOps sync status. The Spektate Dashboard is designed to provide this valuable overview capability.
+Developers and SREs need to be able to monitor and observe the end-to-end deployment and workflow. Bedrock includes the *Spektate Dashboard* as part of the [Bedrock CLI](#bedrock-cli) to allow an easy to use view of the deployment process and operational clusters. This level of monitoring simplifies deployment management. 
 
-The following diagram shows how the Bedrock CLI and Spektate integrate with the GitOps workflow.
+For example, developers and SREs need a comprehensive view of deployment status changes as they make their way from application level changes to the cluster, including the GitOps sync status. The Spektate Dashboard is designed to provide this valuable overview capability.
 
-![Diagram of the GitOps workflow with Bedrock CLI and Spektate.](./media/fig009.jpg)
+The following diagram shows how Spektate and the Bedrock CLI integrate with the GitOps workflow.
+
+![Diagram showing how Spektate which includes Spektate Dashboard as part of the Bedrock CLI, integrates with the GitOps workflow to monitor, store, and eport system telementry.](./media/fig009.png)
 
 Sometimes additional monitoring needs are identified and the Spektate dashboard cannot fulfill those new needs. Bedrock is designed to accommodate additional tools that can be deployed to fulfill those special monitoring needs. See [Extending Bedrock](#extending-bedrock) for more information.
 
@@ -164,11 +168,9 @@ Flux provides these benefits to Bedrock:
 * Each transaction either fails or succeeds cleanly.
 * You are entirely code-centric, fully supporting IaC.
 
-Flux is most useful when used as a deployment tool at the end of a CD pipeline. Flux makes sure that your new container images and config changes are propagated to the cluster.
+Flux is most useful when used as a deployment tool at the end of a CD pipeline. Flux makes sure that your new container images and config changes are propagated to the cluster. The following diagram shows how the [Bedrock CLI](#bedrock-cli) is used to create the scaffolding for how Flux works.
 
-The [Bedrock CLI](#bedrock-cli) is used to create the scaffolding for how Flux works.
-
-![Diagram illustrates scaffolding a Bedrock GitOps Workflow with Bedrock CLI.](./media/fig005.jpg)
+![Diagram showing how the Bedrock CLI is used to create the scaffolding for how Flux works.](./media/fig005.png)
 
 ### Helm
 
@@ -182,7 +184,7 @@ Helm uses charts to package pre-configured Kubernetes resources. This allows app
 
 Both the system cloud infrastructure and deployed services require management, and this management aspect both lends itself to, and benefits from, automation. Bedrock CLI is a tool created to automate three key areas: infrastructure management, service management, and introspection using Spektate.
 
-![Diagram showing the relationship between Bedrock CLI and Spektate.](./media/fig008.jpg)
+![Diagram showing how automation commands are sent through the Bedrock CLI for service introspection, service management, and cloud infrastructure management that are moinitored by Spektate and reported on the Spektate dashboard.](./media/fig008.png)
 
 ## Considerations
 
@@ -192,21 +194,21 @@ The following considerations apply when using Bedrock:
 
 While the core of Bedrock is a significant productivity improvement for dealing with Kubernetes deployments in a production environment, there will be specific use case requirements that go beyond the core Bedrock capabilities. Bedrock is designed to accommodate these added requirements by supporting the integration of additional tools to the process.
 
-For example, if a particular use case required additional monitoring or metrics collection, then Prometheus and Grafana could be added to the deployment as shown in the following diagram. In this case, Prometheus could be considered a dial-tone for Kubernetes clusters. Also, Prometheus/Grafana can work in-cluster, aggregated by Azure Monitor for multiple clusters.
+For example, if a particular use case required additional monitoring or metrics collection, then [Prometheus](https://prometheus.io/docs/introduction/overview/) and [Grafana](https://grafana.com/docs/grafana-cloud/grafana/) could be added to the deployment as shown in the following diagram. In this case, Prometheus could be considered a dial-tone for Kubernetes clusters. Also, Prometheus/Grafana can work in-cluster, aggregated by [Azure Monitor](https://azure.microsoft.com/services/monitor/) for multiple clusters.
 
 By integrating such additional tools into the Bedrock automation, Bedrock provides a firm foundation for Kubernetes deployments to meet any specialized use case.
 
-![Diagram illustrating extending Bedrock to include additional metrics monitoring](./media/fig012.png)
+![Diagram showing how Bedrock can be extendewd to include metrics monitoring in addition to Flux, by adding tools like Prometheus and Grafana.](./media/fig012.png)
 
 ### Cobalt vs Bedrock
 
-* [Cobalt](https://github.com/Microsoft/cobalt) hosts reusable Terraform modules to scaffold managed container services like [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) and [Azure App Service](https://docs.microsoft.com/azure/app-service/) following a DevOps workflow. Cobalt templates (manifests) reference Terraform modules like virtual networks, traffic manager, and so on, to define infrastructure deployments. Bedrock uses Terraform to pre-configure environment deployment, but also uses Fabrikate templates to define manifests for deployment automation.
+[Cobalt](https://github.com/Microsoft/cobalt) hosts reusable Terraform modules to scaffold managed container services like [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) and [Azure App Service](https://docs.microsoft.com/azure/app-service/) following a DevOps workflow. 
 
-[Cobalt](https://github.com/Microsoft/cobalt) hosts reusable Terraform modules to scaffold managed container services like [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) and [Azure App Service](https://docs.microsoft.com/azure/app-service/) following a DevOps workflow. While Bedrock targets Kubernetes based container orchestration workloads while following a [GitOps](https://medium.com/@timfpark/highly-effective-kubernetes-deployments-with-gitops-c7a0354f1446) workflow. Cobalt templates (manifests) reference Terraform modules like virtual networks, traffic manager, and so on, to define infrastructure deployments. Bedrock uses Terraform to pre-configure environment deployment, but also uses Fabrikate templates to define manifests for deployment automation.
+While Bedrock targets Kubernetes based container orchestration workloads and follows a [GitOps](https://medium.com/@timfpark/highly-effective-kubernetes-deployments-with-gitops-c7a0354f1446) workflow, Cobalt templates (manifests) reference Terraform modules like virtual networks, traffic manager, and so on, to define infrastructure deployments. Bedrock uses Terraform to pre-configure environment deployment, but also uses Fabrikate templates to define manifests for deployment automation.
 
 ### Pre-configured environment deployment
 
-Creating, configuring, and deploying environments is typically time consuming and presents many opportunities for error and, in some scenarios, requires specialized knowledge. The ability to have pre-configured environments where creation and deployment is automated enables development teams to be more productive and reduces the probability of starting with misconfigured environments. This positively impacts both project time and cost. Bedrock uses Terraform and infrastructure deployment automation to address these objectives. Also, by maintaining multiple profiles in repos accessible to the deployment workflow, it becomes a simple task to initiate a specific deployment.
+Creating, configuring, and deploying environments is typically time consuming and presents many opportunities for error and, in some scenarios, requires specialized knowledge. The ability to have pre-configured environments where creation and deployment is automated enables development teams to be more productive and reduces the probability of starting with misconfigured environments. This positively impacts both project time and cost. to address these issues, Bedrock uses Terraform to pre-configure environment deployment and Fabrikate templates to define manifests for deployment automation. Also, by maintaining multiple profiles in repos accessible to the deployment workflow, it becomes a simple task to initiate a specific deployment.
 
 ### The problem with low-level YAML
 
@@ -214,18 +216,18 @@ Creating Kubernetes manifests in YAML is a great enabler for automation. However
 
 ### Securing the Bedrock GitOps workflow
 
-In a production scenario, it can be tempting to modify a Kubernetes resource directly on the cluster via kubectl, Kubernetes dashboard, or Helm via tiller. 
+In a production scenario, it can be tempting to modify a Kubernetes resource directly using the [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) command line tool or the web-based UI [Kubernetes Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
 
-Doing this is not advisable! The reason to avoid this practice is that GitOps are centered around a single interface and tooling infrastructure where the repos will always contain the ***single source of truth*** for a given deployment. Git's version control system is the basis for managing all configuration. Any configuration scenario that circumvents Git in GitOps loses out on the ability to roll back changes, audit logs, and raises the potential for buggy or unsanctioned functionality in the clusters. Moreover, the ability to detect changes and automate actions (such as alerts and updates) is compromised.
+Doing this is not advisable! The reason to avoid this practice is that GitOps are centered around a single interface and tooling infrastructure where the repos will always contain the **single source of truth** for a given deployment. Git's version control system is the basis for managing all configuration. Any configuration scenario that circumvents Git in GitOps loses out on the ability to roll back changes, audit logs, and raises the potential for buggy or unsanctioned functionality in the clusters. Moreover, the ability to detect changes and automate actions (such as alerts and updates) is compromised.
 
 > [!NOTE]
-> While Kubectl can duplicate some of the GitOps automation steps here, doing so will break the automation. Avoid any use of Kubectl to directly make changes to the cluster.
+> While kubectl can duplicate some of the GitOps automation steps here, doing so will break the automation. Avoid any use of kubectl to directly make changes to the cluster.
 
 ### Disaster recovery
 
 Things can and will go wrong at some point. When that happens, it is important that the system does not go down. Bedrock supports many strategies for keeping your application up and running.
 
-In a worst-case scenario where the deployed cluster(s) can no longer function, recovery is accomplished by merely redeploying the clusters. To do this, you simply point to the correct manifest repo after you deploy the new cluster with Flux. Bedrock takes care of the rest.
+In a worst-case scenario where the deployed clusters can no longer function, recovery is accomplished by merely redeploying the clusters. To do this, you simply point to the correct manifest repo after you deploy the new cluster with Flux. Bedrock takes care of the rest.
 
 If the outage is caused by a hardware failure, you just redirect the deployment by specifying a new destination in the HLD script, commit the script, and create a new PR. In some cases, this alternate HLD script might be a standard contingency created as part of an organization’s standard operating procedure and held in the repo until needed.
 
@@ -233,15 +235,15 @@ If the outage is caused by a hardware failure, you just redirect the deployment 
 
 The following are some of the best practices and lessons learned when working with Bedrock:
 
-* Use the high-level definition repo as application configuration as code.
-* Use Bedrock Terraform Templates as your declarative infrastructure as code.
+* Use the HLD repo as application configuration as code.
+* Use Bedrock Terraform templates as your declarative infrastructure as code.
 * Use existing HLD templates as starting points for your HLD scripts.
-* All operational changes are made by pull request.
-* Do not publish changes to the cluster by hand or via command-line tools (such as helm or tiller) for any reason as it will break GitOps and the IaC functionality.
+* All operational changes are made by Git PR.
+* Do not publish changes to the cluster by hand or via command-line tools (such as kubectl) for any reason, as it will break GitOps and the IaC functionality.
 * Practice container image promotion.
 * Build once and promote to environments via testing gates.
 * Promotion is configured in HLD scripts only.
-* Bedrock supports an organization with multiple operational roles (Devs, SWEng, and so on) where the different roles can use Bedrock for specific operational tasks. Repo access permissions can also be used to allow specific roles access through Bedrock.
+* Bedrock supports an organization with multiple operational roles (Devs, SWEng, and so on) where the different roles can use Bedrock for specific operational tasks. Repo access permissions can also be used to allow access for specific roles through Bedrock.
 
 ## Deployment
 
@@ -271,7 +273,7 @@ Because Bedrock provides a simple method for defining and automating a deploymen
 
 The following diagram shows a normal Bedrock deployment:
 
-![Diagram showing a normal Bedrock deployment.](./media/fig013.png)
+![Diagram showing how a normal Bedrock deployment across two regions.](./media/fig013.png)
 
 ### Test deployments (Canary deployments)
 
@@ -279,29 +281,33 @@ To do a Canary Deployment of a revised application, you first deploy the revised
 
 ### Rollback
 
-If a problem fails discovery in testing and that application version is fully deployed, Bedrock makes it a simple matter to redeploy the previous known working version of the application to replace the buggy version. Other rollback scenarios that are made easier by Bedrock include:
+If a problem fails discovery in testing and that application version is fully deployed, Bedrock makes it a simple matter to redeploy the previous known working version of the application to replace the buggy version. 
+
+Other rollback scenarios that are made easier by Bedrock include:
 
 * Rolling back a promoted container
 * Multi-cluster rollbacks
 * Ensuring created cluster resources are removed
 
-Sometimes changes to your application configuration can yield undesired results. Being able to easily roll back to a previous state application code configuration is a must have. We recommend a few options to accomplish rollbacks:
+Sometimes, changes to your application configuration can yield undesired results. Being able to easily roll back your application code configuration to a previous state is a must have. 
+
+We recommend a few options to accomplish rollbacks:
 
 * Create a new commit to your high-level deployment repo to reverse rollback application changes. This approach is probably the easiest and most straightforward method.
 * Use the `Git reset --hard (COMMIT_ID)` command to revert the undesired COMMIT_ID. This command alters the history of your Git repo. So, it might not be the most transparent approach as to what actually may have happened on your cluster.
-* Use `Git revert HEAD` to create a new commit with the inverse of the last commit. This command allows you to see that a something was reverted in the Git history
+* Use `Git revert HEAD` to create a new commit with the inverse of the last commit. This command allows you to see that a something was reverted in the Git history.
 
 ### Blue/Green deployments
 
-Because Bedrock gives you control over deploying clusters to different IP addresses, you can deploy two versions of your application and examine their individual performance-based on-site metrics and customer feedback to determine which version is better for full deployment. This kind of Blue/Green deployment allows for optimizing application designs as a function of actionable data.
+Because Bedrock gives you control over deploying clusters to different IP addresses, you can deploy two versions of your application and examine their individual performance based on on-site metrics and customer feedback to determine which version is better for full deployment. This kind of Blue/Green deployment allows for optimizing application designs as a function of actionable data.
 
 ### Failover
 
 By using the ability of Bedrock with Kubernetes to manage complex deployment schemes, you can spread your deployment over multiple regions and apply load balancing to user traffic. Then, if one or more clusters go down for any reason, the remaining clusters can pick up the load. Microservice architectures are also inherently resilient by running a service only when needed and otherwise being shut down.
 
-This scenario is illustrated in the following images where the Region 1 deployment fails, and the Region 2 deployment picks up the workload until the problem in Region 1 is resolved.
+This scenario is illustrated in the following image where the Region 1 deployment fails, and the Region 2 deployment picks up the workload until the problem in Region 1 is resolved.
 
-![diagram of a failover scenario](./media/fig014.png)
+![Diagram showing a failover scenario handled by Bedrock where the Region 1 deployment fails, and the Region 2 deployment picks up the workload until the problem in Region 1 is resolved.](./media/fig014.png)
 
 ## Next steps
 
