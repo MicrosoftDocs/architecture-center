@@ -1111,14 +1111,16 @@ items:
       items:
       - name: Introduction to IoT solutions
         href: example-scenario/iot/introduction-to-solutions.md
-      - name: Builders, developers, and operators
-        href: example-scenario/iot/builders-developers-operators.md
       - name: Devices, platform, and applications
         href: example-scenario/iot/devices-platform-application.md
+      - name: Attestation, authentication, and provisioning
+        href: example-scenario/iot/attestation-provisioning.md 
       - name: Field and cloud edge gateways
         href: example-scenario/iot/field-and-cloud-edge-gateways.md        
       - name: Application-to-device commands
         href: example-scenario/iot/cloud-to-device.md
+      - name: Builders, developers, and operators
+        href: example-scenario/iot/builders-developers-operators.md
       - name: Solution scaling with application stamps
         href: example-scenario/iot/application-stamps.md
   - name: Management and Governance
