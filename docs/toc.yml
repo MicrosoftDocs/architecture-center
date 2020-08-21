@@ -268,7 +268,7 @@ items:
       - name: Configure infrastructure
         href: framework/devops/automation-configuration.md
       - name: Automate operational tasks
-        href: framework/devops/operational-tasks.md
+        href: framework/devops/automation-tasks.md
     - name: Release engineering 
       items:
       - name: Checklist
