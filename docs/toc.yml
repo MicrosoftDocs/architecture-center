@@ -262,14 +262,14 @@ items:
       - name: Checklist
         href: framework/scalability/performance-efficiency.md
       - name: Overview
-        href: framework/devops/app-design.md
+        href: framework/devops/automation-introduction.md
       - name: Repeatable infrastructure
-        href: framework/devops/app-design.md
+        href: framework/devops/repeatable-infrastructure.md
       - name: Configure infrastructure
-        href: framework/devops/app-design.md
+        href: framework/devops/configure-infrastructure.md
       - name: Automate operational tasks
-        href: framework/devops/app-design.md
-    - name: Release engineering﻿ 
+        href: framework/devops/operational-tasks.md
+    - name: Release engineering 
       items:
       - name: Checklist
         href: framework/scalability/performance-efficiency.md
