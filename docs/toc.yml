@@ -1094,7 +1094,7 @@ items:
       - name: Secure access to IoT apps with Azure AD
         href: example-scenario/iot-aad/iot-aad.md
       - name: Telemetry Analytics
-        href: ./reference-architectures/iot.md
+        href: solution-ideas/articles/telemetry-analytics.md
       - name: Voice assistants and IoT devices
         href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.md
     - name: Industrial IoT Analytics
