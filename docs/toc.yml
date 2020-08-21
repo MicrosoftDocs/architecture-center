@@ -1107,7 +1107,7 @@ items:
         href: guide/iiot-guidance/iiot-data.md
       - name: Considerations
         href: guide/iiot-guidance/iiot-considerations.md
-    - name: IoT solutions
+    - name: IoT concepts
       items:
       - name: Events, insights, and actions
         href: example-scenario/iot/introduction-to-solutions.md
@@ -1115,6 +1115,8 @@ items:
         href: example-scenario/iot/builders-developers-operators.md
       - name: Devices, platform, and applications
         href: example-scenario/iot/devices-platform-application.md
+      - name: Field and cloud edge gateways
+        href: example-scenario/iot/field-and-cloud-edge-gateways.md        
       - name: Application-to-device commands
         href: example-scenario/iot/cloud-to-device.md
       - name: Solution scaling with application stamps
