@@ -1,6 +1,6 @@
 ---
-title: "test"
-description: "test"
+title: "Automation checklist"
+description: "Automation checklist"
 author: neilpeterson
 ms.date: 08/18/2020
 ms.topic: article
@@ -9,4 +9,4 @@ ms.subservice: well-architected
 ms.custom: fasttrack-edit
 ---
 
-# Automate operational tasks
+# Automation checklist

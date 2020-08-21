@@ -260,13 +260,13 @@ items:
     - name: Automation
       items:
       - name: Checklist
-        href: framework/scalability/performance-efficiency.md
+        href: framework/devops/automation-checklist.md
       - name: Overview
         href: framework/devops/automation-introduction.md
       - name: Repeatable infrastructure
         href: framework/devops/repeatable-infrastructure.md
       - name: Configure infrastructure
-        href: framework/devops/configure-infrastructure.md
+        href: framework/devops/automation-configuration.md
       - name: Automate operational tasks
         href: framework/devops/operational-tasks.md
     - name: Release engineering 
