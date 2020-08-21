@@ -179,7 +179,7 @@ New and updated articles in the Azure Architecture Center
 
 ### Updated Articles
 
-- [Controlling IoT devices using a Voice Assistant](./solution-ideas/articles/iot-devices.md)  ([#5fe5ece0](https://github.com/MicrosoftDocs/architecture-center/commit/5fe5ece0))
+- [Controlling IoT devices using a Voice Assistant](./solution-ideas/articles/iot-controlling-devices-with-voice-assistant.md)  ([#5fe5ece0](https://github.com/MicrosoftDocs/architecture-center/commit/5fe5ece0))
 - [IoT using Cosmos DB](./solution-ideas/articles/iot-using-cosmos-db.md)  ([#5fe5ece0](https://github.com/MicrosoftDocs/architecture-center/commit/5fe5ece0))
 - [AWS to Azure services comparison](./aws-professional/services.md)  ([#8ec934a7](https://github.com/MicrosoftDocs/architecture-center/commit/8ec934a7))
 - [Error handling for resilient applications in Azure](./framework/resiliency/app-design-error-handling.md)  ([#8ec934a7](https://github.com/MicrosoftDocs/architecture-center/commit/8ec934a7))
