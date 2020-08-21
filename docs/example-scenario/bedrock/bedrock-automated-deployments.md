@@ -142,7 +142,7 @@ Spektate includes:
 
 * A Bedrock GitOps pipeline that reports back with telemetry data for each of the steps of the system; currently supported in Azure DevOps.
 * An [Azure Storage](https://azure.microsoft.com/services/storage/) table that stores all of the telemetry that is reported back.
-* Integration with the [Bedrock Command Line Interface (CLI)]((https://github.com/microsoft/bedrock-cli)) and a web dashboard.
+* Integration with the [Bedrock Command Line Interface (CLI)](https://github.com/microsoft/bedrock-cli) and a web dashboard.
 
 Developers and SREs need to be able to monitor and observe the end-to-end deployment and workflow. Bedrock includes the Spektate dashboard as part of the [Bedrock CLI](#bedrock-cli) to allow an easy to use view of the deployment process and operational clusters. This level of monitoring simplifies deployment management.
 
@@ -152,7 +152,7 @@ The following diagram shows how Spektate and the Bedrock CLI integrate with the 
 
 ![Diagram showing how Spektate and the Bedrock CLI integrate with the GitOps workflow to monitor, store, and report system telemetry.](./media/fig009.png)
 
-Sometimes additional monitoring needs are identified and the Spektate dashboard cannot fulfill those new needs. Bedrock is designed to accommodate additional tools that can be deployed to fulfill those special monitoring needs. For more information, see [Extending Bedrock](#extending-bedrock).
+Sometimes additional monitoring needs are identified and the Spektate dashboard cannot fulfill those new needs. Bedrock is designed to accommodate additional tools that can be deployed to fulfill those special monitoring needs. For more information, see [Extending Bedrock](#extend-bedrock).
 
 ### Flux
 
