@@ -1073,8 +1073,6 @@ items:
         href: reference-architectures/iot.md
       - name: IoT and data analytics
         href: example-scenario/data/big-data-with-iot.md
-      - name: IoT devices
-        href: solution-ideas/articles/iot-devices.md
       - name: IoT using Cosmos DB
         href: solution-ideas/articles/iot-using-cosmos-db.md
       - name: IoT Connected Platform
@@ -1097,6 +1095,8 @@ items:
         href: example-scenario/iot-aad/iot-aad.md
       - name: Telemetry Analytics
         href: ./reference-architectures/iot.md
+      - name: Voice assistants and IoT devices
+        href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.md
     - name: Industrial IoT Analytics
       items:
       - name: Architecture
