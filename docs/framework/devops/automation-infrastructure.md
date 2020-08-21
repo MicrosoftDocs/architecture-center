@@ -1,6 +1,6 @@
 ---
-title: "test"
-description: "test"
+title: "Deploy infrastructure"
+description: "Deploy infrastructure"
 author: neilpeterson
 ms.date: 08/18/2020
 ms.topic: article
@@ -10,3 +10,8 @@ ms.custom: fasttrack-edit
 ---
 
 # Deploy infrastructure
+
+#### Next steps
+
+> [!div class="nextstepaction"]
+> [Automate infrastructure configuration](./automation-configuration.md)

@@ -264,7 +264,7 @@ items:
       - name: Overview
         href: framework/devops/automation-introduction.md
       - name: Repeatable infrastructure
-        href: framework/devops/repeatable-infrastructure.md
+        href: framework/devops/automation-infrastructure.md
       - name: Configure infrastructure
         href: framework/devops/automation-configuration.md
       - name: Automate operational tasks

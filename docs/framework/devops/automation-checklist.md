@@ -10,3 +10,8 @@ ms.custom: fasttrack-edit
 ---
 
 # Automation checklist
+
+#### Next steps
+
+> [!div class="nextstepaction"]
+> [Introduction to Automation in Azure](./automation-introduction.md)

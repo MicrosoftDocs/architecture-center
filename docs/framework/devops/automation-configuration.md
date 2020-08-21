@@ -1,6 +1,6 @@
 ---
-title: "test"
-description: "test"
+title: "Configure infrastructure"
+description: "Configure infrastructure"
 author: neilpeterson
 ms.date: 08/18/2020
 ms.topic: article
@@ -10,3 +10,5 @@ ms.custom: fasttrack-edit
 ---
 
 # Configure infrastructure
+
+
