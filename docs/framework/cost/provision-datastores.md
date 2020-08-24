@@ -1,6 +1,6 @@
 ---
 title: Data store cost estimates
-description: Describes cost strategies for database design choices
+description: Describes cost strategies for database design
 author:  v-aangie
 ms.date: 08/25/2020
 ms.topic: article
@@ -62,7 +62,7 @@ For example, one business transaction can be processed by these distinct operati
 - If your design requires SQL, store a lookup table in SQL Database and retrieve the document when needed to serve it to the user in your application middle tier. SQL Database is highly targeted for high-speed data lookups and set-based operations.
 - The hot access tier of Azure Block Blob Storage cost is cheaper than the equivalent size of the Premium SSD volume that has the database.
 
-Read this [decision chart](../../guide/technology-choices/data-store-decision-tree) to make your choices.
+Read this [decision chart](../../guide/technology-choices/data-store-overview) to make your choices.
 
 ## Guidelines: Identify a data store appropriate for the type of data
 
