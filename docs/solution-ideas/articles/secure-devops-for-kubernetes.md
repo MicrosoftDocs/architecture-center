@@ -57,3 +57,5 @@ DevOps and Kubernetes are better together. Implementing secure DevOps together w
 1. Policy enforcement and auditing is added to CI/CD pipeline using Azure Policy
 1. App telemetry, container health monitoring, and real-time log analytics are obtained using Azure Monitor
 1. Insights used to address issues and fed into next sprint plans
+
+[Build and deploy to Azure Kubernetes Service](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops)
