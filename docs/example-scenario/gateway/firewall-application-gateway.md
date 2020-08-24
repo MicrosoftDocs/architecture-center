@@ -148,7 +148,7 @@ Outbound flows from the VMs to the public internet go through Azure Firewall, as
 
 This design lets Azure Firewall filter and discard malicious traffic before it reaches the Application Gateway. Another benefit of this design is that the application gets the same public IP address for both inbound and outbound traffic.
 
-A downside of this design is that the application can't see the original source IP address of the web traffic, because Azure Firewall SNATs the packets as they come in to the virtual network. A workaround is to use Azure Front Door in front of the firewall to inject the client's IP address in the client request before it enters the Virtual Network.
+A downside of this design is that the application can't see the original source IP address of the web traffic, because Azure Firewall SNATs the packets as they come in to the virtual network. A workaround is to use Azure Front Door in front of the firewall to inject the client's IP address in the client request before it enters the virtual network.
 
 ![Application Gateway after Azure Firewall](./images/design5_500.png)
 
@@ -229,7 +229,7 @@ When using Application Gateway and Azure Firewall together to protect an AKS clu
 
 In some situations, you can simplify virtual network design by replacing Application Gateway with a decentralized Azure Front Door. Most of the designs described in this document are still valid, except for the option of placing Azure Firewall in front of Azure Front Door.
 
-One interesting use case is when you are using the design with the Azure Firewall in front of the Application Gateway in your Virtual Network. As described above, the X-Forwarded-For header will not contain the client's IP address but the firewall's. A workaround is using Azure Front Door in front of the firewall to inject the client's IP address in the client request before it enters the Virtual Network.
+An interesting use case is using Azure Firewall in front of Application Gateway in your virtual network. As described earlier, the `X-Forwarded-For` header contains the firewall's IP address, not the client's IP address. A workaround is to use Azure Front Door in front of the firewall to inject the client's IP address in the client request before it enters the virtual network.
 
 For more information about the differences between the two services, or when to use each one, see [Frequently Asked Questions for Azure Front Door][afd-vs-appgw].
 
