@@ -37,9 +37,9 @@ When using NLP to extract information and insight from free-form text, the start
 
 In Azure, the following services provide natural language processing (NLP) capabilities:
 
-- [Azure HDInsight with Spark and Spark MLlib](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-overview)
-- [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks)
-- [Microsoft Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/welcome)
+- [Azure HDInsight with Spark and Spark MLlib](/azure/hdinsight/spark/apache-spark-overview)
+- [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)
+- [Microsoft Cognitive Services](/azure/cognitive-services/welcome)
 
 ## Key selection criteria
 

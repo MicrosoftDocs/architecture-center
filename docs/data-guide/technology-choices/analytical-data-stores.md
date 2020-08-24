@@ -20,20 +20,20 @@ There is no single best data management choice for all data storage tasks. Diffe
 
 There are several options for data serving storage in Azure, depending on your needs:
 
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
-- [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)
-- [SQL Server in Azure VM](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation)
-- [HBase/Phoenix on HDInsight](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-overview)
-- [Hive LLAP on HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
-- [Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview)
-- [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db)
+- [Azure Synapse Analytics](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
+- [Azure SQL Database](/azure/sql-database/)
+- [SQL Server in Azure VM](/sql/sql-server/sql-server-technical-documentation)
+- [HBase/Phoenix on HDInsight](/azure/hdinsight/hbase/apache-hbase-overview)
+- [Hive LLAP on HDInsight](/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
+- [Azure Analysis Services](/azure/analysis-services/analysis-services-overview)
+- [Azure Cosmos DB](/azure/cosmos-db)
 
 These options provide various database models that are optimized for different types of tasks:
 
-- [Key/value](https://msdn.microsoft.com/library/dn313285.aspx#sec7) databases hold a single serialized object for each key value. They're good for storing large volumes of data where you want to get one item for a given key value and you don't have to query based on other properties of the item.
-- [Document](https://msdn.microsoft.com/library/dn313285.aspx#sec8) databases are key/value databases in which the values are *documents*. A "document" in this context is a collection of named fields and values. The database typically stores the data in a format such as XML, YAML, JSON, or BSON, but may use plain text. Document databases can query on non-key fields and define secondary indexes to make querying more efficient. This makes a document database more suitable for applications that need to retrieve data based on criteria more complex than the value of the document key. For example, you could query on fields such as product ID, customer ID, or customer name.
-- [Column-family](https://msdn.microsoft.com/library/dn313285.aspx#sec9) databases are key/value data stores that structure data storage into collections of related columns called column families. For example, a census database might have one group of columns for a person's name (first, middle, last), one group for the person's address, and one group for the person's profile information (data of birth, gender). The database can store each column family in a separate partition, while keeping all of the data for one person related to the same key. An application can read a single column family without reading through all of the data for an entity.
-- [Graph](https://msdn.microsoft.com/library/dn313285.aspx#sec10) databases store information as a collection of objects and relationships. A graph database can efficiently perform queries that traverse the network of objects and the relationships between them. For example, the objects might be employees in a human resources database, and you might want to facilitate queries such as "find all employees who directly or indirectly work for Scott."
+- [Key/value](/previous-versions/msp-n-p/dn313285(v=pandp.10)#sec7) databases hold a single serialized object for each key value. They're good for storing large volumes of data where you want to get one item for a given key value and you don't have to query based on other properties of the item.
+- [Document](/previous-versions/msp-n-p/dn313285(v=pandp.10)#sec8) databases are key/value databases in which the values are *documents*. A "document" in this context is a collection of named fields and values. The database typically stores the data in a format such as XML, YAML, JSON, or BSON, but may use plain text. Document databases can query on non-key fields and define secondary indexes to make querying more efficient. This makes a document database more suitable for applications that need to retrieve data based on criteria more complex than the value of the document key. For example, you could query on fields such as product ID, customer ID, or customer name.
+- [Column-family](/previous-versions/msp-n-p/dn313285(v=pandp.10)#sec9) databases are key/value data stores that structure data storage into collections of related columns called column families. For example, a census database might have one group of columns for a person's name (first, middle, last), one group for the person's address, and one group for the person's profile information (data of birth, gender). The database can store each column family in a separate partition, while keeping all of the data for one person related to the same key. An application can read a single column family without reading through all of the data for an entity.
+- [Graph](/previous-versions/msp-n-p/dn313285(v=pandp.10)#sec10) databases store information as a collection of objects and relationships. A graph database can efficiently perform queries that traverse the network of objects and the relationships between them. For example, the objects might be employees in a human resources database, and you might want to facilitate queries such as "find all employees who directly or indirectly work for Scott."
 
 ## Key selection criteria
 
@@ -81,10 +81,10 @@ The following tables summarize the key differences in capabilities.
 | Supports firewalls | Yes | Yes | Yes <sup>4</sup> | Yes <sup>4</sup> | Yes | Yes |
 | Dynamic data masking | Yes | Yes | Yes <sup>1</sup> | Yes | No | No |
 
-[1] Requires using a [domain-joined HDInsight cluster](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
+[1] Requires using a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
 
 [2] Requires using transparent data encryption (TDE) to encrypt and decrypt your data at rest.
 
-[3] Filter predicates only. See [Row-Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)
+[3] Filter predicates only. See [Row-Level Security](/sql/relational-databases/security/row-level-security)
 
-[4] When used within an Azure Virtual Network. See [Extend Azure HDInsight using an Azure Virtual Network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).
+[4] When used within an Azure Virtual Network. See [Extend Azure HDInsight using an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).

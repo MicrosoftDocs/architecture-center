@@ -63,7 +63,7 @@ Message priorities can be determined logically by the system. For example, rathe
 
 There might be a financial and processing cost associated with checking a queue for a message (some commercial messaging systems charge a small fee each time a message is posted or retrieved, and each time a queue is queried for messages). This cost increases when checking multiple queues.
 
-It's possible to dynamically adjust the size of a pool of consumers based on the length of the queue that the pool is servicing. For more information, see the [Autoscaling Guidance](https://msdn.microsoft.com/library/dn589774.aspx).
+It's possible to dynamically adjust the size of a pool of consumers based on the length of the queue that the pool is servicing. For more information, see the [Autoscaling Guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)).
 
 ## When to use this pattern
 
@@ -161,12 +161,12 @@ The following patterns and guidance might also be relevant when implementing thi
 
 - A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/priority-queue).
 
-- [Asynchronous Messaging Primer](https://msdn.microsoft.com/library/dn589781.aspx). A consumer service that processes a request might need to send a reply to the instance of the application that posted the request. Provides information on the strategies that you can use to implement request/response messaging.
+- [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)). A consumer service that processes a request might need to send a reply to the instance of the application that posted the request. Provides information on the strategies that you can use to implement request/response messaging.
 
 - [Competing Consumers pattern](./competing-consumers.md). To increase the throughput of the queues, it’s possible to have multiple consumers that listen on the same queue, and process the tasks in parallel. These consumers will compete for messages, but only one should be able to process each message. Provides more information on the benefits and tradeoffs of implementing this approach.
 
 - [Throttling pattern](./throttling.md). You can implement throttling by using queues. Priority messaging can be used to ensure that requests from critical applications, or applications being run by high-value customers, are given priority over requests from less important applications.
 
-- [Autoscaling Guidance](https://msdn.microsoft.com/library/dn589774.aspx). It might be possible to scale the size of the pool of consumer processes handling a queue depending on the length of the queue. This strategy can help to improve performance, especially for pools handling high priority messages.
+- [Autoscaling Guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)). It might be possible to scale the size of the pool of consumer processes handling a queue depending on the length of the queue. This strategy can help to improve performance, especially for pools handling high priority messages.
 
 - [Enterprise Integration Patterns with Service Bus](https://abhishekrlal.com/2013/01/11/enterprise-integration-patterns-with-service-bus-part-2/) on Abhishek Lal’s blog.

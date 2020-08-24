@@ -47,9 +47,9 @@ Enable your team and employees to learn new processes and materials faster, with
 
 ## Next steps
 
-* [Share Spatial Anchors across devices](https://docs.microsoft.com/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices)
-* [Create a new tenant in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
-* [Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal](https://docs.microsoft.com/azure/cosmos-db)
-* [Authenticate and authorize users end-to-end in Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-auth-aad)
-* [Upload, encode, and stream videos using .NET](https://docs.microsoft.com/azure/media-services/latest/stream-files-tutorial-with-api)
-* [What is Video Indexer?](https://docs.microsoft.com/azure/media-services/latest/stream-files-tutorial-with-api)
+* [Share Spatial Anchors across devices](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices)
+* [Create a new tenant in Azure Active Directory](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal](/azure/cosmos-db)
+* [Authenticate and authorize users end-to-end in Azure App Service](/azure/app-service/app-service-web-tutorial-auth-aad)
+* [Upload, encode, and stream videos using .NET](/azure/media-services/latest/stream-files-tutorial-with-api)
+* [What is Video Indexer?](/azure/media-services/latest/stream-files-tutorial-with-api)

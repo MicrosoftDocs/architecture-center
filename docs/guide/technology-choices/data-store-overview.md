@@ -11,9 +11,7 @@ ms.subservice: reference-architecture
 
 # Understand data store models
 
-Modern business systems manage increasingly large volumes of heterogeneous data. A single data store is usually not the best approach. Instead, it's often better to store different types of data in different data stores, each focused on a specific workload or usage pattern. The term *polyglot persistence* refers to solutions that use a mix of data store technologies. Therefore, it's important to understand the main storage models and their tradeoffs.
-
-This heterogeneity means that a single data store is usually not the best approach. Instead, it's often better to store different types of data in different data stores, each focused toward a specific workload or usage pattern. The term *polyglot persistence* is used to describe solutions that use a mix of data store technologies.
+Modern business systems manage increasingly large volumes of heterogeneous data. This heterogeneity means that a single data store is usually not the best approach. Instead, it's often better to store different types of data in different data stores, each focused toward a specific workload or usage pattern. The term *polyglot persistence* is used to describe solutions that use a mix of data store technologies. Therefore, it's important to understand the main storage models and their tradeoffs.
 
 Selecting the right data store for your requirements is a key design decision. There are literally hundreds of implementations to choose from among SQL and NoSQL databases. Data stores are often categorized by how they structure data and the types of operations they support. This article describes several of the most common storage models. Note that a particular data store technology may support multiple storage models. For example, a relational database management systems (RDBMS) may also support key/value or graph storage. In fact, there is a general trend for so-called *multi-model* support, where a single database system supports several models. But it's still useful to understand the different models at a high level.
 
@@ -366,12 +364,13 @@ Aided with this understanding of different data storage models, the next step is
 [sql-db]: https://azure.microsoft.com/services/sql-database
 [sql-dw]: https://azure.microsoft.com/services/sql-data-warehouse/
 [time-series]: https://azure.microsoft.com/services/time-series-insights/
-[sqlserver]: https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver15
+[sqlserver]: /sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver15
 [hdinsight]: https://azure.microsoft.com/services/hdinsight/
 [databricks]: https://azure.microsoft.com/free/databricks/
-[analysissvc]: https://docs.microsoft.com/azure/analysis-services/analysis-services-overview
-[datalakegen2]: https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction
+[analysissvc]: /azure/analysis-services/analysis-services-overview
+[datalakegen2]: /azure/storage/blobs/data-lake-storage-introduction
 [prq]: https://parquet.apache.org/documentation/latest/
 [orc]: https://orc.apache.org/docs/
-[synapseexternal]: https://docs.microsoft.com/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool
+[synapseexternal]: /azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool
 [cassandra]: https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction
+

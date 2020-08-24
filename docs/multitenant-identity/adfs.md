@@ -54,7 +54,7 @@ For an example of using WS-Federation with ASP.NET 4, see the [active-directory-
 
 ## Limitations
 
-By default, the relying party application receives only a fixed set of claims available in the id_token, shown in the following table. With AD FS 2016, you can customize the id_token in OpenID Connect scenarios. For more information, see [Custom ID Tokens in AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/development/customize-id-token-ad-fs-2016).
+By default, the relying party application receives only a fixed set of claims available in the id_token, shown in the following table. With AD FS 2016, you can customize the id_token in OpenID Connect scenarios. For more information, see [Custom ID Tokens in AD FS](/windows-server/identity/ad-fs/development/customize-id-token-ad-fs-2016).
 
 | Claim | Description |
 | --- | --- |
@@ -187,16 +187,16 @@ The customer must do the following:
 
 <!-- links -->
 
-[Azure AD Connect]: https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity
-[federation trust]: https://technet.microsoft.com/library/cc770993(v=ws.11).aspx
-[account partner]: https://technet.microsoft.com/library/cc731141(v=ws.11).aspx
-[resource partner]: https://technet.microsoft.com/library/cc731141(v=ws.11).aspx
-[Authentication instant]: https://msdn.microsoft.com/library/system.security.claims.claimtypes.authenticationinstant%28v=vs.110%29.aspx
+[Azure AD Connect]: /azure/active-directory/hybrid/whatis-hybrid-identity
+[federation trust]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770993(v=ws.11)
+[account partner]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731141(v=ws.11)
+[resource partner]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731141(v=ws.11)
+[Authentication instant]: /dotnet/api/system.security.claims.claimtypes.authenticationinstant?view=netcore-3.1
 [Expiration time]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25#section-4.1.
-[Name identifier]: https://msdn.microsoft.com/library/system.security.claims.claimtypes.nameidentifier(v=vs.110).aspx
-[active-directory-on-azure]: https://msdn.microsoft.com/library/azure/jj156090.aspx
+[Name identifier]: /dotnet/api/system.security.claims.claimtypes.nameidentifier?view=netcore-3.1
+[active-directory-on-azure]: /windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100
 [blog post]: https://www.cloudidentity.com/blog/2015/08/21/openid-connect-web-sign-on-with-adfs-in-windows-server-2016-tp3
-[Customizing the AD FS Sign-in Pages]: https://technet.microsoft.com/library/dn280950.aspx
+[Customizing the AD FS Sign-in Pages]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
 [client assertion]: ./client-assertion.md
 [active-directory-dotnet-webapp-wsfederation]: https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation

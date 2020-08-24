@@ -316,9 +316,9 @@ First, find or develop a simulator that can simulate agents, sensors, and the en
 
 ![Simulink model for steel beam manufacturing process](../media/machine-teaching-4-4-3.png)
 
-Use the [Bonsai](https://docs.microsoft.com/bonsai/) machine teaching service in the Microsoft Autonomous Systems Platform to build a machine teaching plan into a model, train the model against the simulator, and deploy the trained AI system to the real production facility.
+Use the [Bonsai](/bonsai/) machine teaching service in the Microsoft Autonomous Systems Platform to build a machine teaching plan into a model, train the model against the simulator, and deploy the trained AI system to the real production facility.
 
-[Inkling](https://docs.microsoft.com/bonsai/inkling/) is a purpose-specific language to formally describe machine teaching plans. In Bonsai, you can use Inkling to deconstruct the problem into schema:
+[Inkling](/bonsai/inkling/) is a purpose-specific language to formally describe machine teaching plans. In Bonsai, you can use Inkling to deconstruct the problem into schema:
 
 ![Define machine state and control action in Inkling](../media/machine-teaching-4-4-4.png)
 
@@ -340,7 +340,7 @@ In the sample Cartpole project in Bonsai, the goal is to teach a pole to remain 
 
 Applying a force to the cart controls the system. The supported agent actions are to push the cart to the left or the right. The program provides a positive reward for every time step that the pole remains upright. The episode ends when the pole is over 15 degrees from vertical, or the cart moves more than a predefined number of units from the center.
 
-The example uses [Inkling](https://docs.microsoft.com/bonsai/inkling/) language to write the machine teaching program, and the provided Cartpole simulator to speed and improve the training.
+The example uses [Inkling](/bonsai/inkling/) language to write the machine teaching program, and the provided Cartpole simulator to speed and improve the training.
 
 ![Inkling code and Cartpole simulator](../media/cartpole.png)
 
@@ -349,7 +349,7 @@ The following Bonsai screenshot shows a Cartpole training, with **Goal satisfact
 ![Bonsai dashboard showing the Cartpole training example](../media/bonsai.png)
 
 For more information about the Cartpole example or to try it yourself, see:
-- [Quickstart: Balance a pole with AI (Cartpole)](https://docs.microsoft.com/bonsai/quickstart/cartpole/)
+- [Quickstart: Balance a pole with AI (Cartpole)](/bonsai/quickstart/cartpole/)
 - [Learn how you can teach an AI agent to balance a pole](https://blogs.microsoft.com/ai-for-business/cartpole-demo/)
 
 #### Oil drilling
@@ -371,7 +371,7 @@ For more information and a demo of this solution, see [Motion control: Horizonta
 - [Microsoft broadens availability of autonomous systems tools for engineers and developers](https://blogs.microsoft.com/ai-for-business/build-bonsai-public-preview/)
 - [Innovation space: Autonomous systems (Video)](https://www.youtube.com/watch?v=3hSAFtWcui8&feature=youtu.be)
 - [Microsoft The AI Blog](https://blogs.microsoft.com/ai/)
-- [Bonsai documentation](https://docs.microsoft.com/bonsai/)
+- [Bonsai documentation](/bonsai/)
 - [Microsoft AirSim on GitHub](https://github.com/Microsoft/AirSim)
 - [Aerial Informatics and Robotics Platform (AirSim)](https://www.microsoft.com/en-us/research/project/aerial-informatics-robotics-platform/)
 - [Gazebo](http://gazebosim.org/)

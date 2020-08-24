@@ -53,21 +53,24 @@ then working to retrofit any gaps over time as you mature your security program.
 We recommend evaluating the following considerations when prioritizing which to
 follow first:
 
-- **High business impact and highly exposed systems:** These include systems with direct intrinsic value as well as the systems that provide attackers a path to them. For more information, see [Identify and classify business critical applications](https://docs.microsoft.com/azure/architecture/security/applications-services#identify-and-classify-business-critical-applications).
+- **High business impact and highly exposed systems:** These include systems with direct intrinsic value as well as the systems that provide attackers a path to them. For more information, see [Identify and classify business critical applications](./applications-services.md#identify-and-classify-business-critical-applications).
 
 - **Easiest to implement mitigations:** Identify quick wins by prioritizing the best practices, which your organization can execute quickly because you already have the required skills, tools, and knowledge to do it (for example, implementing a Web App Firewall (WAF) to protect a legacy application). Be careful not to exclusively use (or overuse) this short-term prioritization method. Doing so can increase your risk by preventing your program from growing and leaving critical risks exposed for extended periods.
 
-Microsoft has provided some prioritized lists of security initiatives to help organizations start with these decisions based on our experience with threats and mitigation initiatives in our own environments and across our customers. See [Module 4a](https://docs.microsoft.com/office365/securitycompliance/ciso-workshop-module-4a)
+Microsoft has provided some prioritized lists of security initiatives to help organizations start with these decisions based on our experience with threats and mitigation initiatives in our own environments and across our customers. See [Module 4a](/office365/securitycompliance/ciso-workshop-module-4a)
 of the [Microsoft CISO Workshop](https://aka.ms/cisoworkshop).
-
 
 ## Operationalize Azure Secure Score
 
-Assign stakeholders to use [Secure Score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls)  in Azure Security Center to monitor risk profile and continuously improve security posture.
+Assign stakeholders to use [Secure Score](/azure/security-center/secure-score-security-controls)  in Azure Security Center to monitor risk profile and continuously improve security posture.
 This will help you continuously improve your security posture by rapidly identifying and remediating common security hygiene risks, which can significantly reduce your organization's risk. 
 Set up a regular cadence (typically monthly) to review Azure secure score and plan initiatives with specific improvement goals. You should also look into gamifying the activity if possible to increase engagement and focus from the responsible teams (e.g. creating a friendly competition on who increased their score more).
 
-**NOTE:** Security posture management is an emerging function, this may be a single dedicated team or the responsibility may be taken on by one or more existing teams described below. See LINK TO ORGANIZATIONAL FUNCTION for more details. 
+
+**NOTE:** Security posture management is an emerging function, this may be a single dedicated team or the responsibility may be taken on by one or more existing teams described below. 
+
+<!--See LINK TO ORGANIZATIONAL FUNCTION for more details. -->
+
 
 ### Monitor Secure Score
 
@@ -105,8 +108,7 @@ Set up a regular cadence (typically monthly) to review Azure secure score and pl
 **NOTE:** Note that in the DevOps model, some application teams may be responsible for their own application resources.
 
 
-
-
+![GitHub](../../_images/github.png) The [Azure Secure Score sample](https://github.com/mspnp/samples/tree/master/Security/AzureSecureScoreSample) shows how to get your Azure Secure Score for a subscription by calling the Azure Security Center REST API. The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time.
 
 ## Manage connected tenants
 
@@ -278,7 +280,7 @@ mitigations, and advise organizational stakeholders who accept the risk. See
 compliance with external (or internal) regulations, standards, and security
 policy, assign appropriate permission to those roles. The roles and
 permissions you choose will depend on the organizational culture and
-expectations of the policy program. See [Microsoft Cloud Adoption Framework for Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/security-baseline).
+expectations of the policy program. See [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/govern/security-baseline).
 
 **Central IT operations across all resources** – Grant permissions to the
 central IT department (often the infrastructure team) to create, modify, and
@@ -320,7 +322,7 @@ mitigations, and advise organizational stakeholders who accept the risk. See
 compliance with external (or internal) regulations, standards, and security
 policy assign appropriate permission to those roles. The roles and
 permissions you choose will depend on the organizational culture and
-expectations of the policy program. See [Microsoft Cloud Adoption Framework for Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/security-baseline).
+expectations of the policy program. See [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/govern/security-baseline).
 
 **IT Operations across all resources** – Grant permission to create, modify,
 and delete resources. The purpose of the segment (and resulting permissions)
@@ -424,7 +426,7 @@ updates to virtual machines.
 Attackers constantly scan public cloud IP ranges for open management ports and
 attempt “easy” attacks like common passwords and unpatched vulnerabilities.
 
-Enable [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-system-updates)
+Enable [Azure Security Center](/azure/security-center/security-center-apply-system-updates)
 to identify missing security updates & apply them.
 
 [Local Admin Password Solution (LAPS)](https://www.microsoft.com/download/details.aspx?id=46899) or a third-party Privileged Access Management can set strong local admin passwords and just in time access to them.
@@ -446,7 +448,7 @@ For Azure, you can enforce policies by,
         through a centralized group that evaluates exception requests and makes
         sure appropriate controls are applied.
 
--   **Identify and remediate** exposed virtual machines by using the [Azure Security Center](https://docs.microsoft.com/azure/security-center/)
+-   **Identify and remediate** exposed virtual machines by using the [Azure Security Center](/azure/security-center/)
     network visualization to quickly identify internet exposed resources.
 
 -   **Restrict management ports** (RDP, SSH) using [Just in Time
@@ -455,7 +457,7 @@ For Azure, you can enforce policies by,
 
 
 
-One way of managing VMs in the virtual network is by using [Azure Bastion](/azure/bastion/). This service allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. To see a reference architecture that uses Bastion, see [Network DMZ between Azure and an on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
+One way of managing VMs in the virtual network is by using [Azure Bastion](/azure/bastion/). This service allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. To see a reference architecture that uses Bastion, see [Network DMZ between Azure and an on-premises datacenter](../../reference-architectures/dmz/secure-vnet-dmz.md).
 
 ## Assign incident notification contact
 
@@ -475,7 +477,7 @@ via an internal process)
 Regularly review roles that are assigned privileges with a business-critical impact. 
 
 Set up a recurring review pattern to ensure that accounts are removed from permissions as roles change.
-You can conduct the review manually or through an automated process by using tools such as [Azure AD access reviews](https://docs.microsoft.com/azure/active-directory/governance/create-access-review).
+You can conduct the review manually or through an automated process by using tools such as [Azure AD access reviews](/azure/active-directory/governance/create-access-review).
 
 ## Discover and remediate common risks
 
@@ -487,14 +489,14 @@ overall risk to your organization by increasing cost to attackers. When you
 remove cheap and well-established attack vectors, attackers are forced to
 acquire and use advanced or untested attack methods.
 
-[Azure Secure Score](https://docs.microsoft.com/azure/security-center/security-center-secure-score)
+[Azure Secure Score](/azure/security-center/security-center-secure-score)
 in Azure Security Center monitors the security posture of machines, networks,
 storage and data services, and applications to discover potential security
 issues (internet connected VMs, or missing security updates, missing endpoint
 protection or encryption, deviations from baseline security configurations,
 missing Web Application Firewall (WAF), and more). You should enable this
 capability (no additional cost), review the findings, and follow the included
-[recommendations](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
+[recommendations](/azure/security-center/security-center-recommendations)
 to plan and execute technical remediations starting with the highest priority
 items.
 
@@ -514,7 +516,7 @@ business initiatives, protecting information, and so on.
 
 Utilize the Azure Blueprint service to rapidly and consistently deploy
 application environments that are compliant with your organization’s policies
-and external regulations. [Azure Blueprint Service](https://docs.microsoft.com/azure/governance/blueprints/)
+and external regulations. [Azure Blueprint Service](/azure/governance/blueprints/)
 automates deployment of environments including RBAC roles, policies, resources
 (VM/Net/Storage/etc.), and more. Azure Blueprints builds on Microsoft’s
 significant investment into the Azure Resource Manager to standardize
@@ -522,7 +524,7 @@ resource deployment in Azure and enable resource deployment and governance based
 on a desired-state approach. You can use built in configurations in Azure
 Blueprint, make your own, or just use Resource Manager scripts for smaller scope.
 
-Several [Security and Compliance Blueprints](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview) [samples](https://docs.microsoft.com/azure/governance/blueprints/samples/)
+Several [Security and Compliance Blueprints](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview) [samples](/azure/governance/blueprints/samples/)
 are available to use as a starting template.
 
 ## Evaluate security using benchmarks
@@ -586,19 +588,19 @@ There are two places where you review reported risk events:
 
 - **Azure AD reporting** - Risk events are part of Azure AD's security
     reports. For more information, see the [users at risk security
-    report](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk) and
+    report](/azure/active-directory/reports-monitoring/concept-user-at-risk) and
     the [risky sign-ins security
-    report](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins).
+    report](/azure/active-directory/reports-monitoring/concept-risky-sign-ins).
 
 - **Azure AD Identity Protection** - Risk events are also part of the
     reporting capabilities of [Azure Active Directory Identity
-    Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection).
+    Protection](/azure/active-directory/active-directory-identityprotection).
 
-In addition, you can use the [Identity Protection risk events API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) to
+In addition, you can use the [Identity Protection risk events API](/graph/api/resources/identityriskevent?view=graph-rest-beta) to
 gain programmatic access to security detections using Microsoft Graph.
 
 Remediate these risks by manually addressing each reported account or by setting
-up a [user risk policy](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)
+up a [user risk policy](/azure/active-directory/identity-protection/howto-user-risk-policy)
 to require a password change for these high risk events.
 
 ## Penetration testing
@@ -631,7 +633,7 @@ Here are ways to reduce your risk:
 
 - Restrict or Disable use of these protocols by following guidance for
     [SMB](https://support.microsoft.com/help/2696547/detect-enable-disable-smbv1-smbv2-smbv3-in-windows-and-windows-server),
-    [NTLM](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain),
+    [NTLM](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain),
     [WDigest](https://support.microsoft.com/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a)
 
 We recommend implementing changes using pilot or other testing method to
@@ -651,7 +653,7 @@ as required:
 
 - **Dedicated Hardware Security Modules (HSMs)**  
     [Dedicated Hardware Security Modules (HSMs) may help meet regulatory or
-    security requirements](https://docs.microsoft.com/azure/dedicated-hsm/).
+    security requirements](/azure/dedicated-hsm/).
 
 - **Confidential Computing**  
     [Confidential Computing may help meet regulatory or security requirements](https://azure.microsoft.com/blog/azure-confidential-computing/).

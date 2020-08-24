@@ -43,19 +43,19 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
 * [Key Vault](https://azure.microsoft.com/services/key-vault): Safeguard and maintain control of keys and other secrets
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
 * [Azure Monitor](https://azure.microsoft.com/services/monitor): Full observability into your applications, infrastructure, and network
-* [Machine Learning](https://docs.microsoft.com/azure/machine-learning): Easily build, deploy, and manage predictive analytics solutions
+* [Machine Learning](/azure/machine-learning): Easily build, deploy, and manage predictive analytics solutions
 * [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded): Embed fully interactive, stunning data visualizations in your applications
 
 ## Next steps
 
-* [Azure Data Factory V2 Preview Documentation](https://docs.microsoft.com/azure/data-factory)
-* [Data Lake Store Documentation](https://docs.microsoft.com/azure/data-lake-store)
-* [Get started with Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide)
-* [Web Apps overview](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
-* [Azure Security Center Documentation](https://docs.microsoft.com/azure/security-center)
-* [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad)
-* [What is Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
-* [Application Insights Documentation](https://docs.microsoft.com/azure/application-insights)
-* [Azure Monitor Documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics)
-* [Azure Machine Learning Documentation](https://docs.microsoft.com/azure/machine-learning)
-* [Power BI Embedded Documentation](https://docs.microsoft.com/azure/power-bi-embedded)
+* [Azure Data Factory V2 Preview Documentation](/azure/data-factory)
+* [Data Lake Store Documentation](/azure/data-lake-store)
+* [Get started with Azure](/azure/guides/developer/azure-developer-guide)
+* [Web Apps overview](/azure/app-service/app-service-web-overview)
+* [Azure Security Center Documentation](/azure/security-center)
+* [Get started with Azure AD](/azure/active-directory/get-started-azure-ad)
+* [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)
+* [Application Insights Documentation](/azure/application-insights)
+* [Azure Monitor Documentation](/azure/monitoring-and-diagnostics)
+* [Azure Machine Learning Documentation](/azure/machine-learning)
+* [Power BI Embedded Documentation](/azure/power-bi-embedded)

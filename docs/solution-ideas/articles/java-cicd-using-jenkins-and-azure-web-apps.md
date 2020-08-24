@@ -46,10 +46,10 @@ Azure App Service is a fast and simple way to create web apps using Java, Node, 
 
 ## Next steps
 
-* [Set up continuous integration and deployment to Azure Web Apps with Jenkins](https://docs.microsoft.com/azure/jenkins/java-deploy-webapp-tutorial)
-* [Use the Azure Container Agents plug-in for Jenkins for dynamic build agents](https://docs.microsoft.com/azure/jenkins/azure-container-agents-plugin-run-container-as-an-agent)
-* [Build a Java and MySQL web app in Azure](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-java-mysql)
-* [Performance monitoring with Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-detect-triage-diagnose)
+* [Set up continuous integration and deployment to Azure Web Apps with Jenkins](/azure/jenkins/java-deploy-webapp-tutorial)
+* [Use the Azure Container Agents plug-in for Jenkins for dynamic build agents](/azure/jenkins/azure-container-agents-plugin-run-container-as-an-agent)
+* [Build a Java and MySQL web app in Azure](/azure/app-service/app-service-web-tutorial-java-mysql)
+* [Performance monitoring with Application Insights](/azure/application-insights/app-insights-detect-triage-diagnose)
 * [Get the Azure Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack)
 
 ## Deploy to Azure
