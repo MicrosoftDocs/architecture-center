@@ -22,7 +22,7 @@ This example demonstrates how you can deploy portals that automate manual or pap
 
 ## Architecture
 
-![](../media/custom-business-processes.png)
+![Architecture Diagram](../media/custom-business-processes.png)
 
 ## Data Flow
 

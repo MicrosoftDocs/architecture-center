@@ -22,7 +22,7 @@ This example scenario demonstrates how you can accelerate frontend and business 
 
 ## Architecture
 
-![](../media/front-end.png)
+![Architecture Diagram](../media/front-end.png)
 
 ## Data Flow
 

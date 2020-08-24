@@ -21,7 +21,7 @@ This example shows how you can modernize your legacy systems that cannot support
 
 ## Architecture
 
-![](../media/lob.png)
+![Architecture Diagram](../media/lob.png)
 
 ## Data Flow
 
