@@ -1065,6 +1065,12 @@ items:
         href: reference-architectures/enterprise-integration/queues-events.md
       - name: Publishing internal APIs to external users
         href: example-scenario/apps/publish-internal-apis-externally.md
+      - name: Web and Mobile front-ends
+        href: solution-ideas/articles/front-end.md
+      - name: Custom Business Processes
+        href: solution-ideas/articles/custom-business-processes.md
+      - name: Line of Business Extension
+        href: solution-ideas/articles/lob.md
   - name: Internet of Things
     items:
     - name: Architectures
