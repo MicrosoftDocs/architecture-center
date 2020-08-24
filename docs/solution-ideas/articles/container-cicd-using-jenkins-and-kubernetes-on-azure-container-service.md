@@ -48,10 +48,10 @@ By setting up a continuous build to produce your container images and orchestrat
 
 ## Next steps
 
-* [Integrating Jenkins with Azure Container Service and Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-jenkins)
-* [Pushing Docker images to Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli)
-* [Connect existing Node.js to Cosmos DB using the MongoDB connector](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-nodejs)
-* [Monitor your Azure services using Grafana](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-send-to-grafana)
+* [Integrating Jenkins with Azure Container Service and Kubernetes](/azure/container-service/kubernetes/container-service-kubernetes-jenkins)
+* [Pushing Docker images to Azure Container Registry](/azure/container-registry/container-registry-get-started-docker-cli)
+* [Connect existing Node.js to Cosmos DB using the MongoDB connector](/azure/cosmos-db/create-mongodb-nodejs)
+* [Monitor your Azure services using Grafana](/azure/monitoring-and-diagnostics/monitor-send-to-grafana)
 * [Get the Azure Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack)
 
 ## Deploy to Azure

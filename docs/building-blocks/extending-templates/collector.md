@@ -328,6 +328,6 @@ az deployment group create -g <resource-group-name> \
 <!-- links -->
 
 [objects-as-parameters]: ./objects-as-parameters.md
-[nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
-[cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest
+[nsg]: /azure/virtual-network/virtual-networks-nsg
+[cli]: /cli/azure/?view=azure-cli-latest
 [github]: https://github.com/mspnp/template-examples

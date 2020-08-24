@@ -30,7 +30,7 @@ This article covers the following Azure services that support the R language:
 
 |Service                                                          |Description                                                                       |
 |-----------------------------------------------------------------|----------------------------------------------------------------------------------|
-|[Azure Machine Learning Server](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server)|enterprise software for data science, providing R and Python interpreters
+|[Azure Machine Learning Server](/machine-learning-server/rebranding-microsoft-r-server)|enterprise software for data science, providing R and Python interpreters
 |[Data Science Virtual Machine](#data-science-virtual-machine)    |a customized VM to use as a data science workstation or as a custom compute target|
 |[ML Services on HDInsight](#ml-services-on-hdinsight)            |cluster-based system for running R analyses on large datasets across many nodes   |
 |[Azure Databricks](#azure-databricks)                            |collaborative Spark environment that supports R and other languages               |
@@ -42,10 +42,10 @@ This article covers the following Azure services that support the R language:
 
 ## Data Science Virtual Machine
 
-The [Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) (DSVM) is a customized VM image on Microsoft’s Azure cloud platform built specifically for doing data science. It has many popular data science tools, including:
+The [Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview) (DSVM) is a customized VM image on Microsoft’s Azure cloud platform built specifically for doing data science. It has many popular data science tools, including:
 
 - [Microsoft R Open](https://mran.microsoft.com/open/)
-- [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
+- [Microsoft Machine Learning Server](/machine-learning-server/what-is-machine-learning-server)
 - [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop)
 - [RStudio Server](https://www.rstudio.com/products/rstudio/#Server)
 
@@ -61,17 +61,17 @@ The DSVM can be particularly useful to small teams of R developers.  Instead of 
 
 In addition to being used as a workstation, the DSVM is also used as an elastically scalable compute platform for R projects. Using the [`AzureDSVM`](https://github.com/Azure/AzureDSVM) R package, you can programmatically control the creation and deletion of DSVM instances.  You can form the instances into a cluster and deploy a distributed analysis to be performed in the cloud.  This entire process can be controlled by R code running on your local workstation.
 
-To learn more about the DSVM, see [Introduction to Azure Data Science Virtual Machine for Linux and Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview).
+To learn more about the DSVM, see [Introduction to Azure Data Science Virtual Machine for Linux and Windows](/azure/machine-learning/data-science-virtual-machine/overview).
 
 ## ML Services on HDInsight
 
-[Microsoft ML Services](https://docs.microsoft.com/azure/hdinsight/r-server/r-server-overview) provide data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight.  This solution provides the latest capabilities for R-based analytics on datasets of virtually any size, loaded to either Azure Blob or Data Lake storage.
+[Microsoft ML Services](/azure/hdinsight/r-server/r-server-overview) provide data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight.  This solution provides the latest capabilities for R-based analytics on datasets of virtually any size, loaded to either Azure Blob or Data Lake storage.
 
-This is an enterprise-grade solution that allows you to scale your R code across a cluster.  By using functions in Microsoft's [`RevoScaleR`](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler) package, your R scripts on HDInsight can run data processing functions in parallel across many nodes in a cluster.  This allows R to crunch data on a much larger scale than is possible with single-threaded R running on a workstation.
+This is an enterprise-grade solution that allows you to scale your R code across a cluster.  By using functions in Microsoft's [`RevoScaleR`](/machine-learning-server/r-reference/revoscaler/revoscaler) package, your R scripts on HDInsight can run data processing functions in parallel across many nodes in a cluster.  This allows R to crunch data on a much larger scale than is possible with single-threaded R running on a workstation.
 
 This ability to scale makes ML Services on HDInsight a great option for R developers with massive data sets.  It provides a flexible and scalable platform for running your R scripts in the cloud.
 
-For a walk-through on creating an ML Services cluster, see [Get started with ML Services on Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/r-server/r-server-get-started).
+For a walk-through on creating an ML Services cluster, see [Get started with ML Services on Azure HDInsight](/azure/hdinsight/r-server/r-server-get-started).
 
 ## Azure Databricks
 
@@ -81,13 +81,13 @@ The collaboration in Databricks is enabled by the platform's notebook system.  U
 
 Since Databricks is built on Spark and has a strong focus on collaboration, the platform is often used by teams of data scientists that work together on complex analyses of large data sets.  Because the notebooks in Databricks support other languages in addition to R, it is especially useful for teams where analysts use different languages for their primary work.
 
-The article [What is Azure Databricks?](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks) can provide more details about the platform and help you get started.
+The article [What is Azure Databricks?](/azure/azure-databricks/what-is-azure-databricks) can provide more details about the platform and help you get started.
 
 ## Azure Machine Learning
 
-[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/) can be used for any kind of machine learning, from classical machine learning to deep learning, supervised and unsupervised learning. Whether you prefer to write Python or R code or zero-code/low-code options such as the designer, you can build, train and track highly accurate machine learning and deep-learning models in an Azure Machine Learning Workspace.
+[Azure Machine Learning](/azure/machine-learning/) can be used for any kind of machine learning, from classical machine learning to deep learning, supervised and unsupervised learning. Whether you prefer to write Python or R code or zero-code/low-code options such as the designer, you can build, train and track highly accurate machine learning and deep-learning models in an Azure Machine Learning Workspace.
 
-Start training on your local machine and then scale out to the cloud. [Train your first model in R](https://docs.microsoft.com/azure/machine-learning/service/tutorial-1st-r-experiment) with Azure Machine Learning today.
+Start training on your local machine and then scale out to the cloud. [Train your first model in R](/azure/machine-learning/service/tutorial-1st-r-experiment) with Azure Machine Learning today.
 
 ## <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio (classic)
 
@@ -111,21 +111,21 @@ A third option is to use the [Azure Distributed Data Engineering Toolkit](https:
 
 [Azure Notebooks](https://notebooks.azure.com) is a low-cost, low-friction method for R developers who prefer working with notebooks to bring their code to Azure.  It is a free service for anyone to develop and run code in their browser using [Jupyter](https://jupyter.org/), which is an open-source project that enables combing markdown prose, executable code, and graphics onto a single canvas.
 
-The free service tier of Azure Notebooks is a viable option for small-scale projects, as it limits each notebook's process to 4 GB of memory and 1 GB data sets. If you need compute and data power beyond these limitations, however, you can run notebooks in a Data Science Virtual Machine instance. For more information, see [Manage and configure Azure Notebooks projects - Compute tier](https://docs.microsoft.com/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
+The free service tier of Azure Notebooks is a viable option for small-scale projects, as it limits each notebook's process to 4 GB of memory and 1 GB data sets. If you need compute and data power beyond these limitations, however, you can run notebooks in a Data Science Virtual Machine instance. For more information, see [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## Azure SQL Database
 
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) is Microsoft's intelligent, fully managed relational cloud database service.  It allows you to use the full power of SQL Server without any hassle of setting up the infrastructure.  This includes [Machine Learning Services in SQL Server](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning?view=sql-server-2017), which is one of the more recent additions to SQL.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) is Microsoft's intelligent, fully managed relational cloud database service.  It allows you to use the full power of SQL Server without any hassle of setting up the infrastructure.  This includes [Machine Learning Services in SQL Server](/sql/advanced-analytics/what-is-sql-server-machine-learning?view=sql-server-2017), which is one of the more recent additions to SQL.
 
 This feature offers an embedded, predictive analytics and data science engine that can execute R code within a SQL Server database as stored procedures, as T-SQL scripts containing R statements, or as R code containing T-SQL.  Instead of extracting data from the database and loading it into the R environment, you load your R code directly into the database and let it run right alongside the data.
 
-While Machine Learning Services has been part of on-premises SQL Server since 2016, it is relatively new to Azure SQL Database.  It is currently in [limited preview](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#azure-sql-database-roadmap) but will continue to evolve.
+While Machine Learning Services has been part of on-premises SQL Server since 2016, it is relatively new to Azure SQL Database.  It is currently in [limited preview](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#azure-sql-database-roadmap) but will continue to evolve.
 
 ### Next steps
 
 - [Running your R code on Azure with mrsdeploy](https://blog.revolutionanalytics.com/2017/03/running-your-r-code-azure.html)
-- [Machine Learning Server in the Cloud](https://docs.microsoft.com/machine-learning-server/install/machine-learning-server-in-the-cloud)
-- [Additional Resources for Machine Learning Server and Microsoft R](https://docs.microsoft.com/machine-learning-server/resources-more)
+- [Machine Learning Server in the Cloud](/machine-learning-server/install/machine-learning-server-in-the-cloud)
+- [Additional Resources for Machine Learning Server and Microsoft R](/machine-learning-server/resources-more)
 - [R on Azure](https://github.com/yueguoguo/r-on-azure): an overview of packages, tools, and case studies for using R with Azure
 
 ---

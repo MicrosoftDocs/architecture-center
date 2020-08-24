@@ -40,7 +40,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/anomaly-dete
 
 ## Next steps
 
-* [Service Bus Documentation](https://docs.microsoft.com/azure/service-bus)
-* [Azure Databricks Documentation](https://docs.microsoft.com/azure/azure-databricks)
-* [Power BI Documentation](https://docs.microsoft.com/power-bi)
-* [Storage Documentation](https://docs.microsoft.com/azure/storage)
+* [Service Bus Documentation](/azure/service-bus)
+* [Azure Databricks Documentation](/azure/azure-databricks)
+* [Power BI Documentation](/power-bi)
+* [Storage Documentation](/azure/storage)

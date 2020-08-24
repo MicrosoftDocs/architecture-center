@@ -54,7 +54,7 @@ This pattern might not be suitable for:
 
 ## Example
 
-On Azure, this pattern can be implemented using Azure Service Bus [message sessions](https://docs.microsoft.com/azure/service-bus-messaging/message-sessions). For the consumers, you can use either Logic Apps with the [Service Bus peek-lock connector](https://docs.microsoft.com/azure/connectors/connectors-create-api-servicebus) or Azure Functions with the [Service Bus trigger](https://docs.microsoft.com/azure/azure-functions/functions-bindings-service-bus).
+On Azure, this pattern can be implemented using Azure Service Bus [message sessions](/azure/service-bus-messaging/message-sessions). For the consumers, you can use either Logic Apps with the [Service Bus peek-lock connector](/azure/connectors/connectors-create-api-servicebus) or Azure Functions with the [Service Bus trigger](/azure/azure-functions/functions-bindings-service-bus).
 
 For the previous order-tracking example, process each ledger message in the order it's received, and send each transaction to another queue where the category is set to the order ID. A transaction will never span multiple orders in this scenario, so consumers process each category in parallel but FIFO within the category.
 
@@ -68,7 +68,7 @@ The ledger processor takes care of:
 2. Setting the session ID of the message to match the order ID.
 3. Sending each ledger transaction to a secondary queue with the session ID set to the order ID.
 
-The consumers listen to the secondary queue where they process all messages with matching order IDs *in order* from the queue. Consumers use [peek-lock](https://docs.microsoft.com/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock) mode.
+The consumers listen to the secondary queue where they process all messages with matching order IDs *in order* from the queue. Consumers use [peek-lock](/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock) mode.
 
 When considering scalability, the ledger queue is a primary bottleneck. Different transactions posted to the ledger could reference the same order ID. However, messages can fan out *after* the ledger to the number of orders in a serverless environment.
 
@@ -76,6 +76,6 @@ When considering scalability, the ledger queue is a primary bottleneck. Differen
 
 The following information may be relevant when implementing this pattern:
 
-- [Message sessions: first in, first out (FIFO)](https://docs.microsoft.com/azure/service-bus-messaging/message-sessions)
-- [Peek-Lock Message (Non-Destructive Read)](https://docs.microsoft.com/rest/api/servicebus/peek-lock-message-non-destructive-read)
-- [In order delivery of correlated messages in Logic Apps by using Service Bus sessions](https://blogs.msdn.microsoft.com/logicapps/2017/05/02/in-order-delivery-of-correlated-messages-in-logic-apps-by-using-service-bus-sessions/) (MSDN blog)
+- [Message sessions: first in, first out (FIFO)](/azure/service-bus-messaging/message-sessions)
+- [Peek-Lock Message (Non-Destructive Read)](/rest/api/servicebus/peek-lock-message-non-destructive-read)
+- [In order delivery of correlated messages in Logic Apps by using Service Bus sessions](/archive/blogs/logicapps/in-order-delivery-of-correlated-messages-in-logic-apps-by-using-service-bus-sessions) (MSDN blog)

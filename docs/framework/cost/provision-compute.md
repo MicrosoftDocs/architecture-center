@@ -2,7 +2,7 @@
 title: Compute
 description: Describes cost tradeoffs for compute services
 author:  v-aangie
-ms.date: 08/12/2020
+ms.date: 08/13/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -11,7 +11,7 @@ ms.custom:
 
 # Compute
 
-*Compute* refers to the hosting model for the computing resources that your application runs on. Whether you’re hosting model is Infrastructure as a Service (IaaS), Platform as a Service (PaaS), or Function as a service (FaaS), each resource requires your evaluation to understand the tradeoffs that can be made that impact your cost. To learn more about hosting models, see [Understand the hosting models](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree#understand-the-hosting-models).
+*Compute* refers to the hosting model for the computing resources that your application runs on. Whether you’re hosting model is Infrastructure as a Service (IaaS), Platform as a Service (PaaS), or Function as a service (FaaS), each resource requires your evaluation to understand the tradeoffs that can be made that impact your cost. To learn more about hosting models, read [Understand the hosting models](../../guide/technology-choices/compute-decision-tree.md#understand-the-hosting-models).
 
 - **Infrastructure-as-a-Service** (IaaS) lets you provision individual virtual machines (VMs) along with the associated networking and storage components. Then you deploy whatever software and applications you want onto those VMs. This model is the closest to a traditional on-premises environment, except that Microsoft manages the infrastructure. You still manage the individual VMs.
 
@@ -22,7 +22,7 @@ ms.custom:
 **What are the cost implications to consider for choosing a hosting model?**
 ***
 
-If your application can be broken down into short pieces of code, a FaaS hosting model might be the best choice. You’re charged only for the time it takes to execute your code. For example, [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) is a FaaS service that processes events with serverless code. Azure Functions allows you to run short pieces of code (called functions) without worrying about application infrastructure. Use one of the three Azure Functions pricing plans to fit your need. To learn more about the pricing plans, see [How much does Functions cost?](https://docs.microsoft.com/azure/azure-functions/functions-overview#pricing)
+If your application can be broken down into short pieces of code, a FaaS hosting model might be the best choice. You’re charged only for the time it takes to execute your code. For example, [Azure Functions](/azure/azure-functions/functions-overview) is a FaaS service that processes events with serverless code. Azure Functions allows you to run short pieces of code (called functions) without worrying about application infrastructure. Use one of the three Azure Functions pricing plans to fit your need. To learn more about the pricing plans, see [How much does Functions cost?](/azure/azure-functions/functions-overview#pricing)
 
 If you want to deploy a larger or more complex application, PaaS may be the better choice. With PaaS, your application is always running, as opposed to FaaS, where your code is executed only when needed. Since more resources are used with PaaS, the price increases.
 
@@ -31,12 +31,12 @@ If you are migrating your infrastructure from on-premises to Azure, IaaS will gr
 **What are the main cost drivers for Azure services?**
 ***
 
-You will be charged differently for each service depending on your region, licensing plan (e.g., [Azure Hybrid Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)), number and type of instances you need, operating system, lifespan, and other parameters required by the service. Assess the need for each compute service by using the flowchart in [Choose a candidate service](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree#understand-the-basic-features). Consider the tradeoffs that will impact your cost by creating different estimates using the Pricing Calculator. If your application consists of multiple workloads, we recommend that you evaluate each workload separately. See [Consider limits and costs](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree#consider-limits-and-cost) to perform a more detailed evaluation on service limits, cost, SLAs, and regional availability.
+You will be charged differently for each service depending on your region, licensing plan (e.g., [Azure Hybrid Benefit for Windows Server](/azure/virtual-machines/windows/hybrid-use-benefit-licensing)), number and type of instances you need, operating system, lifespan, and other parameters required by the service. Assess the need for each compute service by using the flowchart in [Choose a candidate service](../../guide/technology-choices/compute-decision-tree.md#understand-the-basic-features). Consider the tradeoffs that will impact your cost by creating different estimates using the Pricing Calculator. If your application consists of multiple workloads, we recommend that you evaluate each workload separately. See [Consider limits and costs](../../guide/technology-choices/compute-decision-tree.md#consider-limits-and-cost) to perform a more detailed evaluation on service limits, cost, SLAs, and regional availability.
 
 **Are there payment options for Virtual Machines (VMs) to help meet my budget?**
 ***
 
-The best choice is driven by the business requirements of your workload. If you have higher SLA requirements, it will increase overall costs. You will likely need more VMs to ensure uptime and connectivity. Other factors that will impact cost are region, operating system, and the number of instances you choose. Your cost also depends on the workload life span. See [Virtual machines](https://docs.microsoft.com/azure/architecture/framework/cost/optimize-vm) and [Use Spot VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms) for more details.
+The best choice is driven by the business requirements of your workload. If you have higher SLA requirements, it will increase overall costs. You will likely need more VMs to ensure uptime and connectivity. Other factors that will impact cost are region, operating system, and the number of instances you choose. Your cost also depends on the workload life span. See [Virtual machines](./optimize-vm.md) and [Use Spot VMs in Azure](/azure/virtual-machines/windows/spot-vms) for more details.
 
 - **Pay as you go** lets you pay for compute capacity by the second, with no long-term commitment or upfront payments. This option allows you to increase or decrease compute capacity on demand. It is appropriate for applications with short-term, spiky, or unpredictable workloads that cannot be interrupted. You can also start or stop usage at any time, resulting in paying only for what you use.
 
@@ -46,12 +46,12 @@ The best choice is driven by the business requirements of your workload. If you 
 
 - **Dev-Test pricing** offers discounted rates on Azure to support your ongoing development and testing. Dev-Test allows you to quickly create consistent development and test environments through a scalable, on-demand infrastructure. This will allow you to spin up what you need, when you need it, and explore scenarios before going into production. To learn more about Azure Dev-Test reduced rates, see [Azure Dev/Test Pricing](https://azure.microsoft.com/pricing/dev-test/).
 
-For details on available sizes and options for the Azure VMs you can use to run your apps and workloads, see [Sizes for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/sizes). For details on specific Azure VM types, see [Virtual Machine series](https://azure.microsoft.com/pricing/details/virtual-machines/series/).
+For details on available sizes and options for the Azure VMs you can use to run your apps and workloads, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes). For details on specific Azure VM types, see [Virtual Machine series](https://azure.microsoft.com/pricing/details/virtual-machines/series/).
 
 **Do I pay extra to run large-scale parallel and high-performance computing (HPC) batch jobs?**
 ***
 
-Use [Azure Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview) to run large-scale parallel and HPC batch jobs in Azure. You can save on VM cost because multiple apps can run on one VM. Configure your workload with either the Low-priority tier (the cheapest option) or the Standard tier (provides better CPU performance). There is no cost for the Azure Batch service. Charges accrue for the underlying resources that run your batch workloads.
+Use [Azure Batch](/azure/batch/batch-technical-overview) to run large-scale parallel and HPC batch jobs in Azure. You can save on VM cost because multiple apps can run on one VM. Configure your workload with either the Low-priority tier (the cheapest option) or the Standard tier (provides better CPU performance). There is no cost for the Azure Batch service. Charges accrue for the underlying resources that run your batch workloads.
 
 ## Use PaaS as an alternative to buying VMs
 
@@ -102,7 +102,7 @@ Use the Pricing Calculator to create your total cost estimate. After you run you
 
 ## Next steps
 
-- [Provisioning cloud resources to optimize cost](https://docs.microsoft.com/azure/architecture/framework/cost/provision-checklist)
-- [Virtual Machines documentation](https://docs.microsoft.com/azure/virtual-machines/)
+- [Provisioning cloud resources to optimize cost](./provision-checklist.md)
+- [Virtual Machines documentation](/azure/virtual-machines/)
 - [VM payment options](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#a-series)
 - [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)

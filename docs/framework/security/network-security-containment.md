@@ -55,7 +55,7 @@ the same level of network management and security knowledge and sophistication,
 organizations benefit from leveraging a centralized network team’s expertise and
 tooling.
 
-[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+[Azure Security Center](/azure/security-center/security-center-network-recommendations)
 can be used to help centralize the management of network security.
 
 ## Align network segmentation with enterprise segmentation strategy
@@ -72,7 +72,7 @@ through automation.
 
 Please compare images in [Network security and containment](./governance.md#enterprise-segmentation-strategy).
 
-![](images/ref-entp-design-az-network-security.png)
+![Diagram shows a reference enterprise design for Azure network security in a hybrid cloud infrastructure.](images/ref-entp-design-az-network-security.png)
 
 ## Evolve security beyond network controls
 
@@ -175,7 +175,7 @@ and monitoring:
 - Cloud Service Provider Native Controls ([Azure
     Firewall](https://azure.microsoft.com/services/azure-firewall/) + [Web
     Application Firewall
-    (WAF)](https://docs.microsoft.com/azure/application-gateway/waf-overview))
+    (WAF)](/azure/application-gateway/waf-overview))
 
 - Partner Virtual Network Appliances (Firewall and WAF Vendors available in
     [Azure
@@ -242,7 +242,7 @@ However, the exception to this is if you want to use security groups only for
 network logging. We do not recommend this, but it is an option if you have
 another network access control solution in place.
 
-[Azure Virtual Network subnets](https://docs.microsoft.com/office365/enterprise/designing-networking-for-microsoft-azure-iaas) can be designed in this way.
+[Azure Virtual Network subnets](https://almbok.com/office365/microsoft_cloud_it_architecture_resources) can be designed in this way.
 
 ## Mitigate DDoS attacks
 
@@ -270,7 +270,12 @@ We recommend that you adopt the advance protection for any services where
 downtime will have negative impact on the business.
 
 An example of advanced DDoS protection is the [Azure DDoS Protection
-Service](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+Service](/azure/virtual-network/ddos-protection-overview).
+
+The [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.md) reference architecture uses DDoS Protection Standard because this option:
+- Uses adaptive tuning, based on the application's network traffic patterns, to detect threats. 
+- Guarantees 100% SLA. 
+- Can be cost effective. For example, during a DDoS attack, the first set of attacks cause  the provisioned resources to scale out. For a resource such as a virtual machine scale set, 10 machines can grow to 100, increasing overall costs. With Standard protection, you don't have to worry about the cost of the scaled resources because Azure will provide the cost credit. 
 
 ## Decide upon an internet ingress/egress policy
 
@@ -300,7 +305,7 @@ better for an enterprise deployment as it removes hops that add load, latency,
 and cost.
 
 We recommend that you avoid [forced
-tunneling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling)
+tunneling](/azure/vpn-gateway/vpn-gateway-about-forced-tunneling)
 for the reasons noted above.
 
 ## Enable enhanced network visibility
@@ -318,12 +323,12 @@ significantly reduce false positive alerts.
 
 Examples of network logs that provide visibility include:
 
-- Security group logs – [flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- Security group logs – [flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
     and diagnostic logs
 
-- [Web application firewall logs](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
+- [Web application firewall logs](/azure/application-gateway/application-gateway-diagnostics)
 
-- [Virtual network taps](https://docs.microsoft.com/azure/virtual-network/virtual-network-tap-overview)
+- [Virtual network taps](/azure/virtual-network/virtual-network-tap-overview)
     and their equivalents
 
-- [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
+- [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview)

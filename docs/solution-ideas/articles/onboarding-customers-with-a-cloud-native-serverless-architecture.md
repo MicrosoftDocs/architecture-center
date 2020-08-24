@@ -37,6 +37,6 @@ This serverless architecture enables you to build and run applications without h
 ## Next Steps
 
 - [Decide which compute option to use for your apps](../../guide/technology-choices/compute-decision-tree.md)
-- [Learn to build Serverless apps](https://docs.microsoft.com/azure/azure-functions)
+- [Learn to build Serverless apps](/azure/azure-functions)
 - [Learn how you can use machine learning](/azure/machine-learning/how-to-enable-virtual-network)
-- [Infuse intelligence into your apps with Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
+- [Infuse intelligence into your apps with Cognitive Services](/azure/cognitive-services)
