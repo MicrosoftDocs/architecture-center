@@ -326,6 +326,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 <ul class="grid">
 
 [!INCLUDE [Azure IoT reference architecture](../../includes/cards/iot.md)]
+[!INCLUDE [Condition Monitoring for Industrial IoT](../../includes/cards/condition-monitoring.md)]
 [!INCLUDE [COVID-19 Safe Solutions with IoT Edge](../../includes/cards/cctv-mask-detection.md)]
 [!INCLUDE [Cognizant Safe Buildings with IoT and Azure](../../includes/cards/safe-buildings.md)]
 [!INCLUDE [Contactless IoT interfaces with Azure intelligent edge](../../includes/cards/contactless-interfaces.md)]
@@ -333,6 +334,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [IoT Connected Platform for COVID-19 detection and prevention](../../includes/cards/iot-connected-platform.md)]
 [!INCLUDE [IoT and data analytics](../../includes/cards/big-data-with-iot.md)]
 [!INCLUDE [IoT using Cosmos DB](../../includes/cards/iot-using-cosmos-db.md)]
+[!INCLUDE [Predictive Maintenance for Industrial IoT](../../includes/cards/iot-predictive-maintenance.md)]
 [!INCLUDE [Process real-time vehicle data using IoT](../../includes/cards/realtime-analytics-vehicle-iot.md)]
 [!INCLUDE [Secure your IoT SaaS app with the Microsoft identity platform](../../includes/cards/iot-aad.md)]
 
