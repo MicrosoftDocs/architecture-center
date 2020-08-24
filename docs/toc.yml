@@ -1114,7 +1114,7 @@ items:
       - name: Attestation, authentication, and provisioning
         href: example-scenario/iot/attestation-provisioning.md 
       - name: Field and cloud edge gateways
-        href: example-scenario/iot/field-and-cloud-edge-gateways.md        
+        href: example-scenario/iot/field-cloud-edge-gateways.md        
       - name: Application-to-device commands
         href: example-scenario/iot/cloud-to-device.md
       - name: Builders, developers, and operators
