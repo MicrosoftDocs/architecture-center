@@ -88,7 +88,7 @@ There are several options for updating Windows Virtual Desktop desktops. Deployi
 
 Numbers in the following sections are approximate, based on a variety of large customer deployments, and may change over time.
 
-- You cannot publish more than 50 applications per application group.
+You can't publish more than 50 applications per application group.
 
 ### Azure limitations
 
