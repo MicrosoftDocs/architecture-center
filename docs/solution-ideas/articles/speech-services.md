@@ -16,9 +16,9 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/speech-servi
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-With Speech Services, it's easy to transcribe every call. Index the transcription for [full-text search](https://docs.microsoft.com/azure/search/search-what-is-azure-search), or apply [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/Text-Analytics) to detect sentiment, language, and key phrases for insights. If your call center recordings involve specialized terminology, such as product names or IT jargon, create a custom [language model](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-language-model) to teach Speech Services the vocabulary. A custom [acoustic model](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-acoustic-models) helps Speech Services understand speakers even with background noise or poor phone connections.
+With Speech Services, it's easy to transcribe every call. Index the transcription for [full-text search](/azure/search/search-what-is-azure-search), or apply [Text Analytics](/azure/cognitive-services/Text-Analytics) to detect sentiment, language, and key phrases for insights. If your call center recordings involve specialized terminology, such as product names or IT jargon, create a custom [language model](/azure/cognitive-services/speech-service/how-to-customize-language-model) to teach Speech Services the vocabulary. A custom [acoustic model](/azure/cognitive-services/speech-service/how-to-customize-acoustic-models) helps Speech Services understand speakers even with background noise or poor phone connections.
 
-For more information, read how [batch transcription](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription) works with Speech Services.
+For more information, read how [batch transcription](/azure/cognitive-services/speech-service/batch-transcription) works with Speech Services.
 
 ## Architecture
 

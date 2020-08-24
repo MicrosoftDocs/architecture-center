@@ -25,7 +25,7 @@ This solution is built on managed services including Virtual Machines, Storage, 
 
 The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
 
-[Batch documentation](https://docs.microsoft.com/azure/batch)
+[Batch documentation](/azure/batch)
 
 [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
 
@@ -54,5 +54,5 @@ The links to the right provide documentation on deploying and managing the Azure
 
 ## Next steps
 
-* [Quickstart: Upload, download, and list blobs using the Azure portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-* [Quickstart: Run your first Batch job in the Azure portal](https://docs.microsoft.com/azure/batch/quick-create-portal)
+* [Quickstart: Upload, download, and list blobs using the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal)
+* [Quickstart: Run your first Batch job in the Azure portal](/azure/batch/quick-create-portal)

@@ -46,6 +46,6 @@ For more detailed guidance, see [Data partitioning][data-partitioning-guidance].
 
 <!-- links -->
 
-[azure-limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits
+[azure-limits]: /azure/azure-subscription-service-limits
 [data-partitioning-guidance]: ../../best-practices/data-partitioning.md
 [sharding]: ../../patterns/sharding.md

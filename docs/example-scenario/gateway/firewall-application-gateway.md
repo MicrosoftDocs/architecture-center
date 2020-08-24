@@ -148,7 +148,7 @@ Outbound flows from the VMs to the public internet go through Azure Firewall, as
 
 This design lets Azure Firewall filter and discard malicious traffic before it reaches the Application Gateway. Another benefit of this design is that the application gets the same public IP address for both inbound and outbound traffic.
 
-A downside of this design is that the application can't see the original source IP address of the web traffic, because Azure Firewall SNATs the packets as they come in to the virtual network.
+A downside of this design is that the application can't see the original source IP address of the web traffic, because Azure Firewall SNATs the packets as they come in to the virtual network. A workaround is to use Azure Front Door in front of the firewall to inject the client's IP address in the client request before it enters the virtual network.
 
 ![Application Gateway after Azure Firewall](./images/design5_500.png)
 
@@ -229,6 +229,8 @@ When using Application Gateway and Azure Firewall together to protect an AKS clu
 
 In some situations, you can simplify virtual network design by replacing Application Gateway with a decentralized Azure Front Door. Most of the designs described in this document are still valid, except for the option of placing Azure Firewall in front of Azure Front Door.
 
+An interesting use case is using Azure Firewall in front of Application Gateway in your virtual network. As described earlier, the `X-Forwarded-For` header contains the firewall's IP address, not the client's IP address. A workaround is to use Azure Front Door in front of the firewall to inject the client's IP address in the client request before it enters the virtual network.
+
 For more information about the differences between the two services, or when to use each one, see [Frequently Asked Questions for Azure Front Door][afd-vs-appgw].
 
 ## Other network virtual appliances
@@ -239,30 +241,30 @@ Microsoft products aren't the only choice to implement web application firewall 
 - Azure-managed NVAs like Application Gateway and Azure Firewall reduce complexity, compared to NVAs where users need to handle scalability and resiliency across multiple appliances.
 - When using NVAs in Azure, use *active-active* and *autoscaling* setups, so these appliances aren't a bottleneck for applications running in the virtual network.
 
-[azfw-overview]: https://docs.microsoft.com/azure/firewall/overview
-[azfw-docs]: https://docs.microsoft.com/azure/firewall/
-[azfw-dnat]: https://docs.microsoft.com/azure/firewall/tutorial-firewall-dnat
-[azfw-snat]: https://docs.microsoft.com/azure/firewall/snat-private-range
-[azfw-issues]: https://docs.microsoft.com/azure/firewall/overview#known-issues
-[appgw-overview]: https://docs.microsoft.com/azure/application-gateway/overview
-[appgw-docs]: https://docs.microsoft.com/azure/application-gateway/
-[waf-docs]: https://docs.microsoft.com/azure/web-application-firewall/
-[appgw-apim]: https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
-[api-gws]: https://docs.microsoft.com/azure/architecture/microservices/design/gateway
-[agic_overview]: https://docs.microsoft.com/azure/application-gateway/ingress-controller-overview
-[apim-overview]: https://docs.microsoft.com/azure/api-management/api-management-key-concepts
-[aks-overview]: https://docs.microsoft.com/azure/aks/intro-kubernetes
-[aks-egress]: https://docs.microsoft.com/azure/aks/limit-egress-traffic
-[afd-overview]: https://docs.microsoft.com/azure/frontdoor/front-door-overview
-[afd-vs-appgw]: https://docs.microsoft.com/azure/frontdoor/front-door-faq#what-is-the-difference-between-azure-front-door-and-azure-application-gateway
-[appgw-networking]: https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works
+[azfw-overview]: /azure/firewall/overview
+[azfw-docs]: /azure/firewall/
+[azfw-dnat]: /azure/firewall/tutorial-firewall-dnat
+[azfw-snat]: /azure/firewall/snat-private-range
+[azfw-issues]: /azure/firewall/overview#known-issues
+[appgw-overview]: /azure/application-gateway/overview
+[appgw-docs]: /azure/application-gateway/
+[waf-docs]: /azure/web-application-firewall/
+[appgw-apim]: /azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
+[api-gws]: ../../microservices/design/gateway.md
+[agic_overview]: /azure/application-gateway/ingress-controller-overview
+[apim-overview]: /azure/api-management/api-management-key-concepts
+[aks-overview]: /azure/aks/intro-kubernetes
+[aks-egress]: /azure/aks/limit-egress-traffic
+[afd-overview]: /azure/frontdoor/front-door-overview
+[afd-vs-appgw]: /azure/frontdoor/front-door-faq#what-is-the-difference-between-azure-front-door-and-azure-application-gateway
+[appgw-networking]: /azure/application-gateway/how-application-gateway-works
 [azure-virtual-network]: https://azure.microsoft.com/services/virtual-network/
 [web-application-firewall]: https://azure.microsoft.com/services/web-application-firewall/
-[nat]: https://docs.microsoft.com/azure/virtual-network/nat-overview
+[nat]: /azure/virtual-network/nat-overview
 [expressroute]: https://azure.microsoft.com/services/expressroute/
 [apim]: https://azure.microsoft.com/services/api-management/
 [app-gws]: https://microservices.io/patterns/apigateway.html
 [frontdoor]: https://azure.microsoft.com/services/frontdoor/
-[nsgs]: https://docs.microsoft.com/azure/virtual-network/security-overview
-[azfw-defaultroute]: https://docs.microsoft.com/azure/firewall/forced-tunneling
+[nsgs]: /azure/virtual-network/security-overview
+[azfw-defaultroute]: /azure/firewall/forced-tunneling
 [appgw-defaultroute]:https://docs.microsoft.com/azure/application-gateway/configuration-overview#azure-virtual-network-and-dedicated-subnet

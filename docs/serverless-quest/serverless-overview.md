@@ -12,7 +12,7 @@ ms.custom:
 ---
 # Serverless Functions overview
 
-*Serverless* architecture evolves cloud platforms toward pure cloud-native code by abstracting code from the infrastructure that it needs to run. [Azure Functions](https://docs.microsoft.com/azure/azure-functions) is a serverless compute option that supports *functions*, small pieces of code that do single things.
+*Serverless* architecture evolves cloud platforms toward pure cloud-native code by abstracting code from the infrastructure that it needs to run. [Azure Functions](/azure/azure-functions) is a serverless compute option that supports *functions*, small pieces of code that do single things.
 
 Benefits of using serverless architectures with Functions applications include:
 
@@ -49,6 +49,5 @@ Successful implementation of serverless technologies with Azure Functions requir
 
 ## Related resources
 - To learn more about serverless technology, see the [Azure serverless documentation](https://azure.microsoft.com/solutions/serverless/).
-- To learn more about Azure Functions, see the [Azure Functions documentation](https://docs.microsoft.com/azure/azure-functions/).
+- To learn more about Azure Functions, see the [Azure Functions documentation](/azure/azure-functions/).
 - For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree.md).
-

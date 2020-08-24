@@ -31,7 +31,7 @@ In multiservices architectures:
 - *Isolation* guarantees that concurrent transactions produce the same data state that sequentially executed transactions would have produced.
 - *Durability* ensures that committed transactions remain committed even in case of system failure or power outage.
 
-A [database-per-microservice](https://docs.microsoft.com/dotnet/architecture/cloud-native/distributed-data#database-per-microservice-why) model provides many benefits for microservices architectures. Encapsulating domain data lets each service use its best data store type and schema, scale its own data store as necessary, and be insulated from other services' failures. However, ensuring data consistency across service-specific databases poses challenges.
+A [database-per-microservice](/dotnet/architecture/cloud-native/distributed-data#database-per-microservice-why) model provides many benefits for microservices architectures. Encapsulating domain data lets each service use its best data store type and schema, scale its own data store as necessary, and be insulated from other services' failures. However, ensuring data consistency across service-specific databases poses challenges.
 
 Distributed transactions like the [two-phase commit (2PC)](https://en.wikipedia.org/wiki/Two-phase_commit_protocol) protocol require all participants in a transaction to commit or roll back before the transaction can proceed. However some participant implementations, such as NoSQL databases and message brokering, don't support this model.
 
@@ -131,14 +131,13 @@ The saga pattern is less suitable for:
 
 The following patterns might also be useful when implementing this pattern:
 
-- [Choreography](https://docs.microsoft.com/azure/architecture/patterns/choreography) has each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control.
-- [Compensating transactions](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction) undo work performed by a series of steps, and eventually define a consistent operation if one or more steps fail. Cloud-hosted applications that implement complex business processes and workflows often follow this *eventual consistency model*.
-- [Retry](https://docs.microsoft.com/azure/architecture/patterns/retry) lets an application handle transient failures when it tries to connect to a service or network resource, by transparently retrying the failed operation. Retry can improve the stability of the application.
-- [Circuit breaker](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) handles faults that take a variable amount of time to recover from, when connecting to a remote service or resource. Circuit breaker can improve the stability and resiliency of an application.
-- [Health endpoint monitoring](https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring) implements functional checks in an application that external tools can access through exposed endpoints at regular intervals. Health endpoint monitoring can help verify that applications and services are performing correctly.
+- [Choreography](../../patterns/choreography.md) has each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control.
+- [Compensating transactions](../../patterns/compensating-transaction.md) undo work performed by a series of steps, and eventually define a consistent operation if one or more steps fail. Cloud-hosted applications that implement complex business processes and workflows often follow this *eventual consistency model*.
+- [Retry](../../patterns/retry.md) lets an application handle transient failures when it tries to connect to a service or network resource, by transparently retrying the failed operation. Retry can improve the stability of the application.
+- [Circuit breaker](../../patterns/circuit-breaker.md) handles faults that take a variable amount of time to recover from, when connecting to a remote service or resource. Circuit breaker can improve the stability and resiliency of an application.
+- [Health endpoint monitoring](../../patterns/health-endpoint-monitoring.md) implements functional checks in an application that external tools can access through exposed endpoints at regular intervals. Health endpoint monitoring can help verify that applications and services are performing correctly.
 
 ## Related resources
 
-- [Distributed data](https://docs.microsoft.com/dotnet/architecture/cloud-native/distributed-data)
+- [Distributed data](/dotnet/architecture/cloud-native/distributed-data)
 - Richardson, Chris. 2018: *Microservices Patterns*. Manning Publications.
-

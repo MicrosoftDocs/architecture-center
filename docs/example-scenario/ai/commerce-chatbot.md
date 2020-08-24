@@ -160,22 +160,22 @@ For a set of guided tutorials for the Azure Bot Service, see the [tutorial secti
 
 <!-- links -->
 
-[aadb2c-docs]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
-[aad-docs]: https://docs.microsoft.com/azure/active-directory
-[appinsights-docs]: https://docs.microsoft.com/azure/application-insights/app-insights-overview
-[appservice-docs]: https://docs.microsoft.com/azure/app-service
+[aadb2c-docs]: /azure/active-directory-b2c/active-directory-b2c-overview
+[aad-docs]: /azure/active-directory
+[appinsights-docs]: /azure/application-insights/app-insights-overview
+[appservice-docs]: /azure/app-service
 [architecture]: ./media/architecture-commerce-chatbot.png
 [autoscaling]: ../../best-practices/auto-scaling.md
-[botservice-docs]: https://docs.microsoft.com/azure/bot-service
-[cognitive-docs]: https://docs.microsoft.com/azure/cognitive-services
-[security]: https://docs.microsoft.com/azure/security
-[scalability]: https://docs.microsoft.com/azure/architecture/framework/scalability/performance-efficiency
-[sqlavailability-docs]: https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview#availability-capabilities
-[sqldatabase-docs]: https://docs.microsoft.com/azure/sql-database
-[sqlsecurity-docs]: https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance
-[qna-maker]: https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview
-[speech-api]: https://docs.microsoft.com/azure/cognitive-services/speech/home
-[translator]: https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview
+[botservice-docs]: /azure/bot-service
+[cognitive-docs]: /azure/cognitive-services
+[security]: /azure/security
+[scalability]: ../../framework/scalability/performance-efficiency.md
+[sqlavailability-docs]: /azure/sql-database/sql-database-technical-overview#availability-capabilities
+[sqldatabase-docs]: /azure/sql-database
+[sqlsecurity-docs]: /azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance
+[qna-maker]: /azure/cognitive-services/QnAMaker/Overview/overview
+[speech-api]: /azure/cognitive-services/speech/home
+[translator]: /azure/cognitive-services/translator/translator-info-overview
 
 [small-pricing]: https://azure.com/e/dce05b6184904c50b38e1a8654f726b6
 [medium-pricing]: https://azure.com/e/304d17106afc480dbc414f9726078a03
