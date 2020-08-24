@@ -4,9 +4,8 @@ titleSuffix: Azure Solution Ideas
 description: Interactive Analytics with Azure Data Explorer focuses on its integration with the rest of the data platform ecosystem.
 author: orspod
 ms.date: 08/11/2020
-ms.topic: solution-ideas
 ms.service: architecture-center
-ms.subservice: solution-ideas
+ms.subservice: solution-idea
 ms.custom:
 - fcp
 ---
