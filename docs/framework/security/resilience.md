@@ -40,7 +40,7 @@ faces. The functions of the [NIST](https://www.nist.gov/cyberframework) map well
     primary control (for example, assuming network controls will fail and implementing
     endpoint and data security protections)
 
-- **Detect/Respond/Recovery –** Stay vigilant so that when attackers do get
+- **Detect/Respond/Recover –** Stay vigilant so that when attackers do get
     access to systems and data, you can rapidly detect them and restore normal
     operations and security assurances
 
