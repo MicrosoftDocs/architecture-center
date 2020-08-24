@@ -11,4 +11,7 @@ ms.custom: fasttrack-edit
 
 # Configure infrastructure
 
+#### Next steps
 
+> [!div class="nextstepaction"]
+> [Automate operational tasks](./automation-tasks.md)
