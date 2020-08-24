@@ -1071,12 +1071,14 @@ items:
       items:
       - name: IoT reference architecture
         href: reference-architectures/iot.md
+      - name: Condition Monitoring
+        href: solution-ideas/articles/condition-monitoring.md
       - name: IoT and data analytics
         href: example-scenario/data/big-data-with-iot.md
-      - name: IoT devices
-        href: solution-ideas/articles/iot-devices.md
       - name: IoT using Cosmos DB
         href: solution-ideas/articles/iot-using-cosmos-db.md
+      - name: Predictive Maintenance for Industrial IoT
+        href: solution-ideas/articles/iot-predictive-maintenance.md
       - name: IoT Connected Platform
         href: solution-ideas/articles/iot-connected-platform.md
       - name: Contactless IoT interfaces
@@ -1095,8 +1097,8 @@ items:
         href: solution-ideas/articles/safe-buildings.md
       - name: Secure access to IoT apps with Azure AD
         href: example-scenario/iot-aad/iot-aad.md
-      - name: Telemetry Analytics
-        href: ./reference-architectures/iot.md
+      - name: Voice assistants and IoT devices
+        href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.md
     - name: Industrial IoT Analytics
       items:
       - name: Architecture
@@ -1107,16 +1109,20 @@ items:
         href: guide/iiot-guidance/iiot-data.md
       - name: Considerations
         href: guide/iiot-guidance/iiot-considerations.md
-    - name: IoT solutions
+    - name: IoT concepts
       items:
-      - name: Events, insights, and actions
+      - name: Introduction to IoT solutions
         href: example-scenario/iot/introduction-to-solutions.md
-      - name: Builders, developers, and operators
-        href: example-scenario/iot/builders-developers-operators.md
       - name: Devices, platform, and applications
         href: example-scenario/iot/devices-platform-application.md
+      - name: Attestation, authentication, and provisioning
+        href: example-scenario/iot/attestation-provisioning.md 
+      - name: Field and cloud edge gateways
+        href: example-scenario/iot/field-cloud-edge-gateways.md        
       - name: Application-to-device commands
         href: example-scenario/iot/cloud-to-device.md
+      - name: Builders, developers, and operators
+        href: example-scenario/iot/builders-developers-operators.md
       - name: Solution scaling with application stamps
         href: example-scenario/iot/application-stamps.md
   - name: Management and Governance
