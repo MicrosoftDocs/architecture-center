@@ -1,7 +1,7 @@
 ---
 title: Defect prevention with predictive maintenance
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Learn how to use Azure Machine Learning to predict failures before they happen with real-time assembly line data.
 ms.custom: acom-architecture, manufacturing control, quality control process, anomaly-detection, manufacturing quality control, 'https://azure.microsoft.com/solutions/architecture/defect-prevention-with-predictive-maintenance/'
@@ -36,8 +36,8 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](h
 
 ## Next steps
 
-* [Learn more about Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction)
-* [Learn more about Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
+* [Learn more about Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
+* [Learn more about Event Hubs](/azure/event-hubs/event-hubs-what-is-event-hubs)
 * [Learn more about Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
-* [Learn more about Synapse Analytics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
+* [Learn more about Synapse Analytics](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)

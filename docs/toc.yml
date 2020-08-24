@@ -1,6 +1,6 @@
 items:
 - name: Azure Architecture Center
-  href: /azure/architecture/
+  href: ./index.yml
 - name: Architecture icons
   href: icons/index.md
 - name: Browse all Architectures
@@ -56,7 +56,13 @@ items:
     - name: Choose a compute service
       href: guide/technology-choices/compute-decision-tree.md
     - name: Choose a data store
-      href: guide/technology-choices/data-store-overview.md
+      items:
+      - name: Understand data store models
+        href: guide/technology-choices/data-store-overview.md
+      - name: Select a data store
+        href: guide/technology-choices/data-store-decision-tree.md
+      - name: Criteria for choosing a data store
+        href: guide/technology-choices/data-store-considerations.md
     - name: Choose a load balancing service
       href: guide/technology-choices/load-balancing-overview.md
     - name: Choose a messaging service
@@ -170,6 +176,8 @@ items:
     href: framework/index.md
   - name: Cost Optimization
     items:
+    - name: About
+      href: framework/cost/index.yml
     - name: Principles
       href: framework/cost/overview.md
     - name: Design
@@ -200,6 +208,8 @@ items:
           href: framework/cost/provision-ai-ml.md
         - name: Big data
           href: framework/cost/provision-analytics.md
+        - name: Compute
+          href: framework/cost/provision-compute.md
         - name: Data stores
           href: framework/cost/provision-datastores.md
         - name: Networking
@@ -227,6 +237,8 @@ items:
         href: framework/cost/optimize-reserved.md
       - name: VM instances
         href: framework/cost/optimize-vm.md
+      - name: Caching 
+        href: framework/cost/optimize-cache.md
     - name: Tradeoffs
       href: framework/cost/tradeoffs.md
   - name: Operational Excellence
@@ -726,8 +738,6 @@ items:
           href: data-guide/scenarios/data-lake.md
         - name: Data storage
           href: data-guide/technology-choices/data-storage.md
-        - name: Data store comparison
-          href: guide/technology-choices/data-store-comparison.md
         - name: Pipeline orchestration
           href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
         - name: Real-time message ingestion
@@ -1063,8 +1073,6 @@ items:
         href: reference-architectures/iot.md
       - name: IoT and data analytics
         href: example-scenario/data/big-data-with-iot.md
-      - name: IoT devices
-        href: solution-ideas/articles/iot-devices.md
       - name: IoT using Cosmos DB
         href: solution-ideas/articles/iot-using-cosmos-db.md
       - name: IoT Connected Platform
@@ -1075,6 +1083,8 @@ items:
         href: solution-ideas/articles/cctv-mask-detection.md
       - name: Lighting and disinfection system
         href: solution-ideas/articles/uven-disinfection.md
+      - name: Light and power for emerging markets
+        href: solution-ideas/articles/iot-power-management.md
       - name: Predictive maintenance with IoT
         href: example-scenario/predictive-maintenance/iot-predictive-maintenance.md
       - name: Process real-time vehicle data using IoT
@@ -1083,8 +1093,8 @@ items:
         href: solution-ideas/articles/safe-buildings.md
       - name: Secure access to IoT apps with Azure AD
         href: example-scenario/iot-aad/iot-aad.md
-      - name: Telemetry Analytics
-        href: solution-ideas/articles/telemetry-analytics.md
+      - name: Voice assistants and IoT devices
+        href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.md
     - name: Industrial IoT Analytics
       items:
       - name: Architecture
@@ -1095,16 +1105,20 @@ items:
         href: guide/iiot-guidance/iiot-data.md
       - name: Considerations
         href: guide/iiot-guidance/iiot-considerations.md
-    - name: IoT solutions
+    - name: IoT concepts
       items:
-      - name: Events, insights, and actions
+      - name: Introduction to IoT solutions
         href: example-scenario/iot/introduction-to-solutions.md
-      - name: Builders, developers, and operators
-        href: example-scenario/iot/builders-developers-operators.md
       - name: Devices, platform, and applications
         href: example-scenario/iot/devices-platform-application.md
+      - name: Attestation, authentication, and provisioning
+        href: example-scenario/iot/attestation-provisioning.md 
+      - name: Field and cloud edge gateways
+        href: example-scenario/iot/field-and-cloud-edge-gateways.md        
       - name: Application-to-device commands
         href: example-scenario/iot/cloud-to-device.md
+      - name: Builders, developers, and operators
+        href: example-scenario/iot/builders-developers-operators.md
       - name: Solution scaling with application stamps
         href: example-scenario/iot/application-stamps.md
   - name: Management and Governance
@@ -1114,7 +1128,7 @@ items:
       - name: Archive on-premises data to cloud
         href: solution-ideas/articles/backup-archive-on-premises.md
       - name: Back up cloud applications
-        href: solution-ideas/articles/backup-archive-cloud-application.md
+        href: /azure/backup/guidance-best-practices
       - name: Back up on-premises applications
         href: solution-ideas/articles/backup-archive-on-premises-applications.md
       - name: Centralize app configuration and security
@@ -1151,6 +1165,14 @@ items:
       items:
       - name: Adding modern front-ends to legacy apps
         href: solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.md
+      - name: Banking system
+        items:
+        - name: Banking cloud transformation
+          href: example-scenario/banking/banking-system-cloud-transformation.md
+        - name: Patterns and implementations
+          href: example-scenario/banking/patterns-and-implementations.md
+        - name: JMeter implementation reference
+          href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.md
       - name: Lift and shift LOB apps
         href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md
       - name: Lift and shift with AKS
@@ -1334,4 +1356,4 @@ items:
       - name: Dynamics Business Central as a Service on Azure
         href: solution-ideas/articles/business-central.md
 - name: Cloud Adoption Framework
-  href: https://docs.microsoft.com/azure/cloud-adoption-framework
+  href: /azure/cloud-adoption-framework

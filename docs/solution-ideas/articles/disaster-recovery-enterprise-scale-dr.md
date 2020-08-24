@@ -1,7 +1,7 @@
 ---
 title: Enterprise-scale disaster recovery
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: A large enterprise architecture for SharePoint, Dynamics CRM, and Linux web servers hosted on an on-premises datacenter with failover to Azure infrastructure.
 ms.custom: acom-architecture, bcdr, 'https://azure.microsoft.com/solutions/architecture/disaster-recovery-enterprise-scale-dr/'
@@ -37,9 +37,9 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 
 ## Next steps
 
-* [Configure Failover routing method](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method)
-* [How does Azure Site Recovery work?](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)
-* [Introduction to Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)
-* [Integrating your on-premises identities with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect)
-* [Create a VNet with a Site-to-Site connection using the Azure portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+* [Configure Failover routing method](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method)
+* [How does Azure Site Recovery work?](/azure/site-recovery/site-recovery-overview)
+* [Introduction to Microsoft Azure Storage](/azure/storage/common/storage-introduction)
+* [Integrating your on-premises identities with Azure Active Directory](/azure/active-directory/hybrid/whatis-azure-ad-connect)
+* [Create a VNet with a Site-to-Site connection using the Azure portal](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
 * [Designing your network infrastructure for disaster recovery](https://gallery.technet.microsoft.com/Designing-Your-Network-a849fa98)

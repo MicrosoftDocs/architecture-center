@@ -113,7 +113,7 @@ Another consideration is security. Unlike VPN Gateway traffic, ExpressRoute conn
 
 For both services, inbound transfers are free and outbound transfers are billed per the billing zone. 
 
-For more information, see [Choose a solution for connecting an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/).
+For more information, see [Choose a solution for connecting an on-premises network to Azure](../../reference-architectures/hybrid-networking/index.md).
 
 This [blog post](https://azure.microsoft.com/blog/expressroute-or-virtual-network-vpn-whats-right-for-me/) provides a comparison of the two services.
 
@@ -147,5 +147,3 @@ The main cost driver is outbound data transfer. ExpressRoute is more cost-effect
 For pricing details, see:
 - [Azure VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/)
 - [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/)
-
-

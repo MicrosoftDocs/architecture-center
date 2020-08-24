@@ -64,7 +64,7 @@ over storage resources.
 
 We recommend that you use an identity-based option for storage access control.
 
-An example of this is [Azure Active Directory Authentication to Azure blob and queue services](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory).
+An example of this is [Azure Active Directory Authentication to Azure blob and queue services](/rest/api/storageservices/authenticate-with-azure-active-directory).
 
 ## Encrypt virtual disk files
 
@@ -86,7 +86,7 @@ they will not be able to because of the encryption.
 
 We recommend that you enable virtual disk encryption. For information about how to encrypt Windows VM disks, see [Quickstart: Create and encrypt a Windows VM with the Azure CLI](/azure/virtual-machines/windows/disk-encryption-cli-quickstart).
 
-An example of virtual disk encryption is [Azure Disk Encryption](https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss).
+An example of virtual disk encryption is [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss).
 
 
 
@@ -103,7 +103,7 @@ by the cloud service provider.
 We recommend that for each service that supports service provider encryption
 that you enable that option.
 
-An example of service-specific service provider encryption is [Azure Storage Service encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+An example of service-specific service provider encryption is [Azure Storage Service encryption](/azure/storage/common/storage-service-encryption).
 
 ## Encrypt data in transit
 
@@ -117,7 +117,5 @@ infrastructure by using either a virtual private network (VPN)
 or [ExpressRoute](/azure/expressroute/). For
 more information, see  these articles: 
 
-- [Extending on-premises data solutions to the cloud](/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud)
+- [Extending on-premises data solutions to the cloud](../../data-guide/scenarios/hybrid-on-premises-and-cloud.md)
 - [Configure a Point-to-Site VPN connection to a VNet using native Azure certificate authentication: Azure portal](/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#architecture)
-
-

@@ -103,7 +103,7 @@ Jenkins can scale to support very large workloads. For elastic builds, do not ru
 
 - Use the [Azure VM Agents][vm-agent] plugin to create Jenkins agents that run in Azure VMs. This plugin enables elastic scale-out for agents and can use distinct types of virtual machines. You can select a different base image from Azure Marketplace or use a custom image. For details about how the Jenkins agents scale, see [Architecting for Scale][scale] in the Jenkins documentation.
 
-- Use the [Azure Container Agents][container-agents] plugin to run a container as an agent in either [Azure Container Service with Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/), or [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/).
+- Use the [Azure Container Agents][container-agents] plugin to run a container as an agent in either [Azure Container Service with Kubernetes](/azure/container-service/kubernetes/), or [Azure Container Instances](/azure/container-instances/).
 
 Virtual machines generally cost more to scale than containers. To use containers for scaling, however, your build process must run with containers.
 
@@ -225,48 +225,48 @@ You may wish to review the following [Azure example scenario](/azure/architectur
 <!-- links -->
 
 [acs]: https://aka.ms/azjenkinsacs
-[ad-sp]: https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications
+[ad-sp]: /azure/active-directory/develop/active-directory-integrating-applications
 [app-service]: https://plugins.jenkins.io/azure-app-service
-[azure-ad]: https://docs.microsoft.com/azure/active-directory
-[azure-market]: https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview
+[azure-ad]: /azure/active-directory
+[azure-market]: /azure/developer/jenkins/deploy-to-azure-app-service-using-plugin
 [best-practices]: https://jenkins.io/doc/book/architecting-for-scale
-[blob]: https://docs.microsoft.com/azure/storage/common/storage-java-jenkins-continuous-integration-solution
+[blob]: /azure/storage/common/storage-java-jenkins-continuous-integration-solution
 [configure-azure-ad]: https://plugins.jenkins.io/azure-ad
 [configure-agent]: https://plugins.jenkins.io/azure-vm-agents
 [configure-credential]: https://plugins.jenkins.io/azure-credentials
 [configure-storage]: https://plugins.jenkins.io/windows-azure-storage
 [container-agents]: https://aka.ms/azcontaineragent
-[create-jenkins]: https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template
-[create-metric]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal
+[create-jenkins]: /azure/jenkins/install-jenkins-solution-template
+[create-metric]: /azure/monitoring-and-diagnostics/insights-alerts-portal
 [disaster]: https://github.com/Azure/jenkins/tree/master/disaster_recovery
 [functions]: https://aka.ms/azjenkinsfunctions
 [index]: https://plugins.jenkins.io
 [jenkins-best]: https://wiki.jenkins.io/display/JENKINS/Jenkins+Best+Practices
-[jenkins-on-azure]: https://docs.microsoft.com/azure/jenkins
-[key-vault]: https://docs.microsoft.com/azure/key-vault
-[managed-disk]: https://docs.microsoft.com/azure/virtual-machines/linux/managed-disks-overview
+[jenkins-on-azure]: /azure/jenkins
+[key-vault]: /azure/key-vault
+[managed-disk]: /azure/virtual-machines/linux/managed-disks-overview
 [matrix]: https://plugins.jenkins.io/matrix-auth
-[monitor]: https://docs.microsoft.com/azure/monitoring-and-diagnostics
+[monitor]: /azure/monitoring-and-diagnostics
 [monitoring-diag]: ../../best-practices/monitoring.md
 [multi-primary]: https://jenkins.io/doc/book/architecting-for-scale
 [nginx]: https://www.digitalocean.com/community/tutorials/how-to-create-an-ssl-certificate-on-nginx-for-ubuntu-14-04
-[nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
-[quick-start]: https://docs.microsoft.com/azure/security-center/security-center-get-started
-[port443]: https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal
-[premium]: https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage
-[rbac]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
-[rg]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
+[nsg]: /azure/virtual-network/virtual-networks-nsg
+[quick-start]: /azure/security-center/security-center-get-started
+[port443]: /azure/virtual-machines/windows/nsg-quickstart-portal
+[premium]: /azure/virtual-machines/linux/premium-storage
+[rbac]: /azure/active-directory/role-based-access-control-what-is
+[rg]: /azure/azure-resource-manager/resource-group-overview
 [scale]: https://jenkins.io/doc/book/architecting-for-scale
-[scale-agent]: https://docs.microsoft.com/azure/jenkins/jenkins-azure-vm-agents
+[scale-agent]: /azure/jenkins/jenkins-azure-vm-agents
 [selection-guide]: https://jenkins.io/doc/book/hardware-recommendations
-[service-principal]: https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects
+[service-principal]: /azure/active-directory/develop/active-directory-application-objects
 [secure-jenkins]: https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure
-[security-center]: https://docs.microsoft.com/azure/security-center/security-center-intro
-[sizes-linux]: https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+[security-center]: /azure/security-center/security-center-intro
+[sizes-linux]: /azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
 [solution]: https://azure.microsoft.com/blog/announcing-the-solution-template-for-jenkins-on-azure
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [storage-plugin]: https://wiki.jenkins.io/display/JENKINS/Windows+Azure+Storage+Plugin
-[subnet]: https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet
+[subnet]: /azure/virtual-network/virtual-network-manage-subnet
 [vm-agent]: https://wiki.jenkins.io/display/JENKINS/Azure+VM+Agents+plugin
-[vnet]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
+[vnet]: /azure/virtual-network/virtual-networks-overview
 [0]: ./media/architecture-jenkins.png

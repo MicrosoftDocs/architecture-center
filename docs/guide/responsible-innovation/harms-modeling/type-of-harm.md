@@ -151,7 +151,7 @@ Use the Harms Model you developed to guide your product development work:
 - Develop and validate hypothesis for addressing the areas you identified as having the highest potential for harm.
 - Integrate the insights into your decisions throughout the technology development process: data collection and model training, system architecture, user experience design, product documentation, feedback loops, and communication capabilities and limitations of the technology. 
 - Explore [Community Jury](../community-jury/index.md).
-- Assess and mitigate unfairness using Azure Machine Learning and the open-source [FairLearn package](https://docs.microsoft.com/azure/machine-learning/concept-fairness-ml).
+- Assess and mitigate unfairness using Azure Machine Learning and the open-source [FairLearn package](/azure/machine-learning/concept-fairness-ml).
  
 Other Responsible AI tools:
 

@@ -1,7 +1,7 @@
 ---
 title: Web application monitoring on Azure
-description: Monitor a web application hosted in Azure App Service.
-author: adamboeglin
+description: Learn about the monitoring services and a dataflow model for use with multiple data sources. Many monitoring tools and services work with Azure deployments.
+author: doodlemania2
 ms.date: 12/12/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -43,7 +43,7 @@ This scenario uses a managed Azure environment to host an application and data t
 
 ### Components
 
-- [Azure App Service](https://docs.microsoft.com/azure/app-service/) is a PaaS service for building and hosting apps in managed virtual machines. The underlying compute infrastructures on which your apps run is managed for you. App Service provides monitoring of resource usage quotas and app metrics, logging of diagnostic information, and alerts based on metrics. Even better, you can use Application Insights to create [availability tests][availability-tests] for testing your application from different regions.
+- [Azure App Service](/azure/app-service/) is a PaaS service for building and hosting apps in managed virtual machines. The underlying compute infrastructures on which your apps run is managed for you. App Service provides monitoring of resource usage quotas and app metrics, logging of diagnostic information, and alerts based on metrics. Even better, you can use Application Insights to create [availability tests][availability-tests] for testing your application from different regions.
 - [Application Insights][application-insights] is an extensible Application Performance Management (APM) service for developers and supports multiple platforms. It monitors the application, detects application anomalies such as poor performance and failures, and sends telemetry to the Azure portal. Application Insights can also be used for logging, distributed tracing, and custom application metrics.
 - [Azure Monitor][azure-monitor] provides base-level infrastructure [metrics and logs][metrics] for most services in Azure. You can interact with the metrics in several ways, including charting them in Azure portal, accessing them through the REST API, or querying them using PowerShell or CLI. Azure Monitor also offers its data directly into [Log Analytics and other services], where you can query and combine it with data from other sources on premises or in the cloud.
 - [Log Analytics][log-analytics] helps correlate the usage and performance data collected by Application Insights with configuration and performance data across the Azure resources that support the app. This scenario uses the [Azure Log Analytics agent][Azure Log Analytics agent] to push SQL Server audit logs into Log Analytics. You can write queries and view data in the Log Analytics blade of the Azure portal.
@@ -60,7 +60,7 @@ Like Application Insights, Log Analytics provides tools for [analyzing data acro
 
 Both Application Insights and Log Analytics use [Azure Log Analytics Query Language][Azure Log Analytics Query Language]. You can also use [cross-resource queries](https://azure.microsoft.com/blog/query-across-resources) to analyze the telemetry gathered by Application Insights and Log Analytics in a single query.
 
-Azure Monitor, Application Insights, and Log Analytics all send [alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-alerts). For example, Azure Monitor alerts on platform-level metrics such as CPU utilization, while Application Insights alerts on application-level metrics such as server response time. Azure Monitor alerts on new events in the Azure Activity Log, while Log Analytics can issue alerts about metrics or event data for the services configured to use it. [Unified alerts in Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts) is a new, unified alerting experience in Azure that uses a different taxonomy.
+Azure Monitor, Application Insights, and Log Analytics all send [alerts](/azure/monitoring-and-diagnostics/monitoring-overview-alerts). For example, Azure Monitor alerts on platform-level metrics such as CPU utilization, while Application Insights alerts on application-level metrics such as server response time. Azure Monitor alerts on new events in the Azure Activity Log, while Log Analytics can issue alerts about metrics or event data for the services configured to use it. [Unified alerts in Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts) is a new, unified alerting experience in Azure that uses a different taxonomy.
 
 
 #### Alternatives
@@ -94,8 +94,8 @@ The following security considerations may also apply:
 - Consider data retention. For example, Application Insights retains telemetry data for 90 days. Archive data you want access to for longer periods using Microsoft Power BI, Continuous Export, or the REST API. Storage rates apply.
 - Limit access to Azure resources to control access to data and who can view telemetry from a specific application. To help lock down access to monitoring telemetry, see [Resources, roles, and access control in Application Insights][Resources, roles, and access control in Application Insights].
 - Consider whether to control read/write access in application code to prevent users from adding version or tag markers that limit data ingestion from the application. With Application Insights, there is no control over individual data items once they are sent to a resource, so if a user has access to any data, they have access to all data in an individual resource.
-- Add [governance](https://docs.microsoft.com/azure/security/governance-in-azure) mechanisms to enforce policy or cost controls over Azure resources if needed. For example, use Log Analytics for security-related monitoring such as policies and role-based access control, or use [Azure Policy](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) to create, assign and, manage policy definitions.
-- To monitor potential security issues and get a central view of the security state of your Azure resources, consider using [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro).
+- Add [governance](/azure/security/governance-in-azure) mechanisms to enforce policy or cost controls over Azure resources if needed. For example, use Log Analytics for security-related monitoring such as policies and role-based access control, or use [Azure Policy](/azure/azure-policy/azure-policy-introduction) to create, assign and, manage policy definitions.
+- To monitor potential security issues and get a central view of the security state of your Azure resources, consider using [Azure Security Center](/azure/security-center/security-center-intro).
 
 ## Cost considerations
 
@@ -130,40 +130,40 @@ Check out these resources designed to help you get started with your own monitor
 <!-- links -->
 
 [aaf-cost]: ../../framework/cost/overview.md
-[availability-tests]: https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability
-[application-insights]: https://docs.microsoft.com/azure/application-insights/app-insights-overview
-[azure-monitor]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor
-[metrics]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics
-[Log Analytics and other services]: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage
-[log-analytics]: https://docs.microsoft.com/azure/log-analytics/log-analytics-overview
-[Azure Log Analytics agent]: https://blogs.msdn.microsoft.com/sqlsecurity/2017/12/28/azure-log-analytics-oms-agent-now-collects-sql-server-audit-logs
+[availability-tests]: /azure/application-insights/app-insights-monitor-web-app-availability
+[application-insights]: /azure/application-insights/app-insights-overview
+[azure-monitor]: /azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor
+[metrics]: /azure/monitoring-and-diagnostics/monitoring-supported-metrics
+[Log Analytics and other services]: /azure/log-analytics/log-analytics-azure-storage
+[log-analytics]: /azure/log-analytics/log-analytics-overview
+[Azure Log Analytics agent]: /archive/blogs/sqlsecurity/azure-log-analytics-oms-agent-now-collects-sql-server-audit-logs
 [application-insights-pricing]: https://azure.microsoft.com/pricing/details/application-insights
-[Application Insights SDKs]: https://docs.microsoft.com/azure/application-insights/app-insights-asp-net
+[Application Insights SDKs]: /azure/application-insights/app-insights-asp-net
 [Application Insights Status Monitor]: https://azure.microsoft.com/updates/application-insights-status-monitor-and-sdk-updated
-[analyzing data across sources]: https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards
-[sending proactive alerts]: https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts
-[the Azure portal]: https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-dashboards
-[Azure Log Analytics Query Language]: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
+[analyzing data across sources]: /azure/log-analytics/log-analytics-dashboards
+[sending proactive alerts]: /azure/log-analytics/log-analytics-alerts
+[the Azure portal]: /azure/log-analytics/log-analytics-tutorial-dashboards
+[Azure Log Analytics Query Language]: /azure/azure-monitor/log-query/get-started-queries
 [cross-resource queries]: https://azure.microsoft.com/blog/query-across-resources
-[alerts]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-alerts
-[Alerts (Preview)]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts
+[alerts]: /azure/monitoring-and-diagnostics/monitoring-overview-alerts
+[Alerts (Preview)]: /azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts
 [Azure Monitor Data Source For Grafana]: https://grafana.com/plugins/grafana-azure-monitor-datasource
-[Azure Automation]: https://docs.microsoft.com/azure/automation/automation-intro
+[Azure Automation]: /azure/automation/automation-intro
 [ITSM solutions]: https://azure.microsoft.com/blog/itsm-connector-for-azure-is-now-generally-available
-[management solution]: https://docs.microsoft.com/azure/monitoring/monitoring-solutions
+[management solution]: /azure/monitoring/monitoring-solutions
 [SLA]: https://azure.microsoft.com/support/legal/sla/app-service/v1_4
-[monitor its availability]: https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability
-[Resources, roles, and access control in Application Insights]: https://docs.microsoft.com/azure/application-insights/app-insights-resources-roles-access-control
-[basic metrics]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics
+[monitor its availability]: /azure/application-insights/app-insights-monitor-web-app-availability
+[Resources, roles, and access control in Application Insights]: /azure/application-insights/app-insights-resources-roles-access-control
+[basic metrics]: /azure/monitoring-and-diagnostics/monitoring-supported-metrics
 [pricing]: https://azure.microsoft.com/pricing/calculator
-[Sampling in Application Insights]: https://docs.microsoft.com/azure/application-insights/app-insights-sampling
-[Live Metrics Stream]: https://docs.microsoft.com/azure/application-insights/app-insights-live-stream
+[Sampling in Application Insights]: /azure/application-insights/app-insights-sampling
+[Live Metrics Stream]: /azure/application-insights/app-insights-live-stream
 [Basic web application reference architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.md#scalability-considerations
-[Start monitoring your ASP.NET Web Application]: https://docs.microsoft.com/azure/application-insights/quick-monitor-portal
-[Collect data about Azure Virtual Machines]: https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm
-[Monitoring Azure applications and resources]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview
-[Find and diagnose run-time exceptions with Azure Application Insights]: https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions
+[Start monitoring your ASP.NET Web Application]: /azure/application-insights/quick-monitor-portal
+[Collect data about Azure Virtual Machines]: /azure/log-analytics/log-analytics-quick-collect-azurevm
+[Monitoring Azure applications and resources]: /azure/monitoring-and-diagnostics/monitoring-overview
+[Find and diagnose run-time exceptions with Azure Application Insights]: /azure/application-insights/app-insights-tutorial-runtime-exceptions
 [data-dog]: https://www.datadoghq.com/blog/azure-monitoring-enhancements
-[app-insights-limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits#application-insights
-[message-filtering]: https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling
-[message-sampling]: https://docs.microsoft.com/azure/application-insights/app-insights-sampling
+[app-insights-limits]: /azure/azure-subscription-service-limits#application-insights
+[message-filtering]: /azure/application-insights/app-insights-api-filtering-sampling
+[message-sampling]: /azure/application-insights/app-insights-sampling

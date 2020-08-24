@@ -1,8 +1,8 @@
 ---
 title: Comparing AWS and Azure regions and zones
 description: A comparison of the regions and zones between Azure and AWS
-author: adamboeglin
-ms.date: 05/21/2020
+author: doodlemania2
+ms.date: 08/12/2020
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -29,9 +29,9 @@ The following table summarizes each option.
 
 ## Availability sets
 
-To protect against localized hardware failures, such as a disk or network switch failing, deploy two or more VMs in an availability set. An availability set consists of two or more *fault domains* that share a common power source and network switch. VMs in an availability set are distributed across the fault domains, so if a hardware failure affects one fault domain, network traffic can still be routed to the VMs in the other fault domains. For more information about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
+To protect against localized hardware failures, such as a disk or network switch failing, deploy two or more VMs in an availability set. An availability set consists of two or more *fault domains* that share a common power source and network switch. VMs in an availability set are distributed across the fault domains, so if a hardware failure affects one fault domain, network traffic can still be routed to the VMs in the other fault domains. For more information about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](/azure/virtual-machines/windows/manage-availability).
 
-When VM instances are added to availability sets, they are also assigned an [update domain](https://docs.microsoft.com/azure/virtual-machines/linux/manage-availability). An update domain is a group of VMs that are set for planned maintenance events at the same time. Distributing VMs across multiple update domains ensures that planned update and patching events affect only a subset of these VMs at any given time.
+When VM instances are added to availability sets, they are also assigned an [update domain](/azure/virtual-machines/linux/manage-availability). An update domain is a group of VMs that are set for planned maintenance events at the same time. Distributing VMs across multiple update domains ensures that planned update and patching events affect only a subset of these VMs at any given time.
 
 Availability sets should be organized by the instance's role in your application to ensure one instance in each role is operational. For example, in a three-tier web application, create separate availability sets for the front-end, application, and data tiers.
 
@@ -39,27 +39,27 @@ Availability sets should be organized by the instance's role in your application
 
 ## Availability zones
 
-An [Availability Zone](https://docs.microsoft.com/azure/availability-zones/az-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures.
+An [Availability Zone](/azure/availability-zones/az-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures.
 
 ## Paired regions
 
-To protect an application against a regional outage, you can deploy the application across multiple regions, using [Azure Traffic Manager][traffic-manager] to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair][paired-regions]. With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
+To protect an application against a regional outage, you can deploy the application across multiple regions, using [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager) to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair][paired-regions]. With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
 
 Unlike Availability Zones, which are physically separate datacenters but may be in relatively nearby geographic areas, paired regions are typically separated by at least 300 miles. This design ensures that large-scale disasters only affect one of the regions in the pair. Neighboring pairs can be set to sync database and storage service data, and are configured so that platform updates are rolled out to only one region in the pair at a time.
 
-Azure [geo-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs) is automatically backed up to the appropriate paired region. For all other resources, creating a fully redundant solution using paired regions means creating a full copy of your solution in both regions.
+Azure [geo-redundant storage](/azure/storage/common/storage-redundancy-grs) is automatically backed up to the appropriate paired region. For all other resources, creating a fully redundant solution using paired regions means creating a full copy of your solution in both regions.
 
 ## See also
 
-- [Regions for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/regions)
+- [Regions for virtual machines in Azure](/azure/virtual-machines/linux/regions)
 
-- [Availability options for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/availability)
+- [Availability options for virtual machines in Azure](/azure/virtual-machines/linux/availability)
 
 - [High availability for Azure applications](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.md)
 
 - [Failure and disaster recovery for Azure applications](../framework/resiliency/backup-and-recovery.md)
 
-- [Planned maintenance for Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates)
+- [Planned maintenance for Linux virtual machines in Azure](/azure/virtual-machines/linux/maintenance-and-updates)
 
 
-[paired-regions]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions
+[paired-regions]: /azure/best-practices-availability-paired-regions

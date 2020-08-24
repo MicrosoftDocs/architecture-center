@@ -777,37 +777,6 @@
         },
         {
             "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-backup-archive-cloud-application-'",
-                "acom-architecture",
-                "all-items",
-                "bcdr",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/backup-archive-cloud-application.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/backup-archive-cloud-application",
-            "word_count": 173,
-            "read_time": "1 min read",
-            "Title": "Back up cloud applications and data to cloud",
-            "MetaDescription": "Back up data and applications running in Azure to another Azure location by using Azure Backup or a partner solution.",
-            "category": [
-                "management-and-governance",
-                "hybrid"
-            ],
-            "image": "/azure/architecture/solution-ideas/media/backup-archive-cloud-application.png",
-            "imagepath": "C:\\Users\\adboegli\\Git\\architecture-center-pr\\docs\\solution-ideas\\media\\backup-archive-cloud-application.png",
-            "publish_date": "12/16/2019",
-            "components": [
-                "<p><a href=\"https://azure.microsoft.com/services/backup\">Azure Backup</a> service runs on the cloud and holds the recovery points, enforces policies, and enables you to manage data and application protection. You don't need to create or manage an Azure Blob storage account when using <a href=\"https://azure.microsoft.com/services/backup\">Azure Backup</a>.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/storage/blobs\">Blob Storage</a>: Blob storage that partner solutions such as Commvault connect to for backing up data and applications. You need to create and manage Azure Blob storage when using partner solutions.</p>"
-            ],
-            "Summary": "<p>Back up data and applications running in Azure to another Azure location by using Azure Backup or a partner solution.</p>\n<p>This solution is built on the Azure managed services: <a href=\"https://azure.microsoft.com/services/backup\">Azure Backup</a> and <a href=\"https://azure.microsoft.com/services/storage/blobs\">Blob Storage</a>. These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.</p>",
-            "name": "backup-archive-cloud-application",
-            "popularity": 157,
-            "topic": "Management and Governance"
-        },
-        {
-            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-backup-archive-on-premises-applications-'",
                 "acom-architecture",
                 "all-items",

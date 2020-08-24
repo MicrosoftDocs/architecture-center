@@ -1,7 +1,7 @@
 ---
 title: Loan ChargeOff Prediction with Azure HDInsight Spark Clusters
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Using Azure HDInsight R Server, a lending institution can leverage machine learning predictive analytics to predict the likelihood of loans getting charged off and run a report on the analytics result stored in HDFS and hive tables.
 ms.custom: acom-architecture, artificial intelligence, finance, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters/'
@@ -48,4 +48,4 @@ Power BI also presents visual summaries of the loan payments and chargeoff predi
 
 This solution template walks through the end-to-end process of how to develop predict analytics using a set of simulated loan history data to predict loan chargeoff risk. The data contains information like loan holder demographic data, loan amount, contractual loan duration and loan payment history. The solution template also includes a set of R scripts that perform data processing, feature engineering, and several different algorithms to train the data, and finally select the best performant model to score the data to produce probability score for each loan. The solution also include scripts to deploy the model as a web service (on the edge node) and consuming the web service remotely with Microsoft R Server on Azure HDInsight Spark clusters.
 
-Data scientists who are testing this solution can work with the provided R code from the browser-based Open Source Edition of RStudio Server that runs on the Edge Node of the Azure HDInsight Spark cluster. By [setting the compute context](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-compute-contexts) the user can decide where the computation will be performed: locally on the edge node, or distributed across the nodes in the Spark cluster. All the R code can also be found in public GitHub repository. Have fun!
+Data scientists who are testing this solution can work with the provided R code from the browser-based Open Source Edition of RStudio Server that runs on the Edge Node of the Azure HDInsight Spark cluster. By [setting the compute context](/azure/hdinsight/hdinsight-hadoop-r-server-compute-contexts) the user can decide where the computation will be performed: locally on the edge node, or distributed across the nodes in the Spark cluster. All the R code can also be found in public GitHub repository. Have fun!
