@@ -1283,7 +1283,6 @@ items:
         href: example-scenario/newcastle/virtual-network-integration.md
       - name: Virtual Network security options
         href: example-scenario/gateway/firewall-application-gateway.md
-Virtual network 
   - name: Storage
     items:
     - name: Architectures
