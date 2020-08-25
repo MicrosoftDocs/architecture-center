@@ -270,9 +270,9 @@ For more information, see the Operational Excellence section in [Microsoft Azure
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault
 [azure-monitor]: https://azure.microsoft.com/services/monitor/
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
-[cassandra-in-azure]: https://academy.datastax.com/resources/deployment-guide-azure
+[cassandra-in-azure]: https://downloads.datastax.com/#enterprise
 [cassandra-consistency]: https://docs.datastax.com/en/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html
-[cassandra-replication]: https://academy.datastax.com/planet-cassandra/data-replication-in-nosql-databases-explained
+[cassandra-replication]: http://highscalability.com/blog/2012/7/9/data-replication-in-nosql-databases.html
 [cassandra-consistency-usage]: https://medium.com/@foundev/cassandra-how-many-nodes-are-talked-to-with-quorum-also-should-i-use-it-98074e75d7d5#.b4pb4alb2
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
