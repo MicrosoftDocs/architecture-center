@@ -1279,8 +1279,11 @@ items:
         href: example-scenario/secrets/secure-refresh-tokens.md
       - name: Securely managed web apps
         href: example-scenario/apps/fully-managed-secure-apps.md
+      - name: Virtual network integrated microservices
+        href: example-scenario/newcastle/virtual-network-integration.md
       - name: Virtual Network security options
         href: example-scenario/gateway/firewall-application-gateway.md
+Virtual network 
   - name: Storage
     items:
     - name: Architectures
