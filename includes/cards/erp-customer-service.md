@@ -11,7 +11,7 @@
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/erp-customer-service">
-            <p>Deliver highly scalable customer service and ERP apps with Azure SQL and Azure Cosmos DB</p>
+            <p>Deliver highly scalable customer service and ERP apps</p>
         </a>
         <ul class="card-content-metadata">
             <li>6/26/2020</li>

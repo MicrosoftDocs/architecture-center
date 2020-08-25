@@ -5,7 +5,8 @@ author: maggsl
 ms.date: 06/16/2020
 ms.topic: article
 ms.service: architecture-center
-ms.category: solutions
+ms.category: 
+    - solutions
 ms.subservice: reference-architecture
 ms.custom: high-availability, fcp
 ---

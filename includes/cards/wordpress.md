@@ -17,7 +17,7 @@
             <li>9/18/2018</li>
             <li>5 min read</li>
         </ul>
-        <p class="card-content-description">Build a highly scalable and secure WordPress website for media events.</p>
+        <p class="card-content-description">This example shows a highly scalable and secure installation of WordPress. The scenario was used for a large convention and scaled to meet spike traffic.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

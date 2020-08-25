@@ -17,7 +17,7 @@
             <li>9/14/2018</li>
             <li>6 min read</li>
         </ul>
-        <p class="card-content-description">Provide a world-class search experience in an e-commerce application.</p>
+        <p class="card-content-description">This example scenario shows how using Azure Search can dramatically increase the relevance of search results for your e-commerce customers.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

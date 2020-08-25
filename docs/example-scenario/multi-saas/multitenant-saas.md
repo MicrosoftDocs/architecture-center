@@ -6,6 +6,8 @@ ms.author: pnp
 ms.date: 07/16/2020
 ms.topic: example-scenario
 ms.service: architecture-center
+ms.category: 
+    - identity
 ms.custom: fcp
 ---
 
