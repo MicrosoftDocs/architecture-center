@@ -13,7 +13,7 @@ ms.custom:
 
 Most cloud workloads adopt the *polyglot* persistence approach. Instead of using one data store service, a mix of technologies is used. You can achieve optimal cost benefit from using this approach.
 
-Each Azure data store has a different billing model. To establish a total cost estimate, first, identify the business transactions and their requirements. Then, break each transaction into operations. Lastly, [identify a data store appropriate for the type of data](#guidelines-identify-a-data-store-appropriate-for-the-type-of-data). Do this for each workload separately.
+Each Azure data store has a different billing model. To establish a total cost estimate, first, [identify the business transactions and their requirements](#guidelines-identify-the-business-transactions-and-their-requirements). Then, [break each transaction into operations](#guidelines-break-each-transaction-into-operations). Lastly, [identify a data store appropriate for the type of data](#guidelines-identify-a-data-store-appropriate-for-the-type-of-data). Do this for each workload separately.
 
 Let's take an example of an e-commerce application. It needs to store data for transactions such as orders, payments, and billing. The data structure is predetermined and not expected to change frequently. Data integrity and consistency are crucial. There's a need to store product catalogs, social media posts, and product reviews. In some cases, the data is unstructured, and is likely to change over time. Media files must be stored and data must be stored for auditing purposes.
 
