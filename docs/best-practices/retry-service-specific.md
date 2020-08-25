@@ -859,9 +859,7 @@ using (var db = new BloggingContext())
 
 ## Azure Storage
 
-Azure Storage services include table and blob storage, files, and storage queues.
-
-NOTE: As of version 9.4.0, the library has been split into multiple parts and replaced:  See Microsoft.Azure.Storage.Blob, Microsoft.Azure.Storage.File, Microsoft.Azure.Storage.Queue, and Microsoft.Azure.Storage.Common.
+Azure Storage services include blob storage, files, and storage queues.
 
 ### Blobs, Queues and Files
 
@@ -920,7 +918,8 @@ namespace RetryCodeSamples
 
 ### Table Support
 
-Table support has been moved to Azure.Cosmos, see [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) for more information.
+> [!NOTE]
+> WindowsAzure.Storage Nuget Package has been deprecated. For Azure table support, see [Microsoft.Azure.Cosmos.Table Nuget Package](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)
 
 ### Retry mechanism
 
