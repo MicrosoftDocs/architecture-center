@@ -896,7 +896,8 @@ namespace RetryCodeSamples
 
                     GeoRedundantSecondaryUri = new Uri("https://...")
                     // If the GeoRedundantSecondaryUri property is set, the secondary Uri will be used for GET or HEAD requests during retries.
-                    // If the status of the response from the secondary Uri is a 404, then subsequent retries for the request will not use the // secondary Uri again, as this indicates that the resource may not have propagated there yet.
+                    // If the status of the response from the secondary Uri is a 404, then subsequent retries for the request will not use the
+                    // secondary Uri again, as this indicates that the resource may not have propagated there yet.
                     // Otherwise, subsequent retries will alternate back and forth between primary and secondary Uri.
                 };
 
@@ -906,7 +907,8 @@ namespace RetryCodeSamples
                 string accountKey = "storage account key";
 
                 // Create a client object for the Queue service, including QueueClientOptions.
-                QueueServiceClient serviceClient = new QueueServiceClient(queueServiceUri, new StorageSharedKeyCredential(accountName, accountKey), queueClientOptions);
+                QueueServiceClient serviceClient = new QueueServiceClient(queueServiceUri, new StorageSharedKeyCredential(accountName, 
+                accountKey), queueClientOptions);
 
                 CancellationTokenSource source = new CancellationTokenSource();
                 CancellationToken cancellationToken = source.Token;
