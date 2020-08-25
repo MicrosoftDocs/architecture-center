@@ -93,7 +93,7 @@ The following table shows the default settings for the `RetryOptions` class.
 ### Example
 
 ```csharp
-DocumentClient client = new DocumentClient(new Uri(endpoint), authKey); ;
+DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 var options = client.ConnectionPolicy.RetryOptions;
 options.MaxRetryAttemptsOnThrottledRequests = 5;
 options.MaxRetryWaitTimeInSeconds = 15;
@@ -861,11 +861,68 @@ using (var db = new BloggingContext())
 
 Azure Storage services include table and blob storage, files, and storage queues.
 
+NOTE: As of version 9.4.0, the library has been split into multiple parts and replaced:  See Microsoft.Azure.Storage.Blob, Microsoft.Azure.Storage.File, Microsoft.Azure.Storage.Queue, and Microsoft.Azure.Storage.Common.
+
+### Blobs, Queues and Files
+
+ClientOptions Class is the base type for all client option types, exposes various common client options like Diagnostics, Retry, Transport. To provide the client configuration options for connecting to Azure Queue, Blob and File Storage you must use the corresponding derived type. 
+
+In the next example you use the QueueClientOptions class (derived from ClientOptions) to configure a client to connect to Azure Queue Service. The Retry property is the set of options that can be specified to influence how retry attempts are made, and how a failure is eligible to be retried.
+
+```csharp
+using System;
+using System.Threading;
+using Azure.Core;
+using Azure.Storage;
+using Azure.Storage.Queues;
+using Azure.Storage.Queues.Models;
+
+namespace RetryCodeSamples
+{
+    class AzureStorageCodeSamples {
+
+        public async static Task Samples() {
+
+               // Provide the client configuration options for connecting to Azure Queue Storage
+                QueueClientOptions queueClientOptions = new QueueClientOptions()
+                {
+                    Retry = {
+                    Delay = TimeSpan.FromSeconds(2),     //The delay between retry attempts for a fixed approach or the delay on which to base 
+                                                         //calculaions for a backoff-based approach
+                    MaxRetries = 5,                      //The maximum number of retry attempts before giving up
+                    Mode = RetryMode.Exponential,        //The approach to use for calculating retry delays
+                    MaxDelay = TimeSpan.FromSeconds(10)  //The maximum permissible delay between retry attempts
+                    },
+
+                    GeoRedundantSecondaryUri = new Uri("https://...")
+                    // If the GeoRedundantSecondaryUri property is set, the secondary Uri will be used for GET or HEAD requests during retries.
+                    // If the status of the response from the secondary Uri is a 404, then subsequent retries for the request will not use the // secondary Uri again, as this indicates that the resource may not have propagated there yet.
+                    // Otherwise, subsequent retries will alternate back and forth between primary and secondary Uri.
+                };
+
+
+                Uri queueServiceUri = new Uri("https://storageaccount.queue.core.windows.net/");
+                string accountName = "Storage account name";
+                string accountKey = "storage account key";
+
+                // Create a client object for the Queue service, including QueueClientOptions.
+                QueueServiceClient serviceClient = new QueueServiceClient(queueServiceUri, new StorageSharedKeyCredential(accountName, accountKey), queueClientOptions);
+
+                CancellationTokenSource source = new CancellationTokenSource();
+                CancellationToken cancellationToken = source.Token;
+
+                // Return an async collection of queues in the storage account.
+                var queues = serviceClient.GetQueuesAsync(QueueTraits.None, null, cancellationToken);
+```
+
+
+### Table Support
+
+Table support has been moved to Azure.Cosmos, see [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) for more information.
+
 ### Retry mechanism
 
 Retries occur at the individual REST operation level and are an integral part of the client API implementation. The client storage SDK uses classes that implement the [IExtendedRetryPolicy Interface](/dotnet/api/microsoft.azure.storage.retrypolicies.iextendedretrypolicy).
-
-There are different implementations of the interface. Storage clients can choose from policies designed for accessing tables, blobs, and queues. Each implementation uses a different retry strategy that essentially defines the retry interval and other details.
 
 The built-in classes provide support for linear (constant delay) and exponential with randomization retry intervals. There is also a no retry policy for use when another process is handling retries at a higher level. However, you can implement your own retry classes if you have specific requirements not provided by the built-in classes.
 
@@ -874,9 +931,6 @@ Alternate retries switch between primary and secondary storage service location 
 ### Policy configuration
 
 Retry policies are configured programmatically. A typical procedure is to create and populate a **TableRequestOptions**, **BlobRequestOptions**, **FileRequestOptions**, or **QueueRequestOptions** instance.
-
-> [!NOTE]
-> The examples below utilize **version 11** of the Azure Storage SDK.  We are tracking updates to utilize the latest version on our backlog. The retry settings for version 12 of the SDK are found on the [`ClientOptions` class](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core#configuring-service-clients-using-clientoptions).
 
 ```csharp
 TableRequestOptions interactiveRequestOption = new TableRequestOptions()
@@ -983,9 +1037,7 @@ The following code example shows how to create two **TableRequestOptions** insta
 ```csharp
 using System;
 using System.Threading.Tasks;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.RetryPolicies;
-using Microsoft.WindowsAzure.Storage.Table;
+using Microsoft.Azure.Cosmos.Table;
 
 namespace RetryCodeSamples
 {
