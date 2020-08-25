@@ -31,11 +31,15 @@ This pattern is already being used by Microsoft customers to track user activity
 
 ## Components
 
-1. [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/)
-2. [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)
-3. [Kafka on HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction)
-4. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
-5. [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/)
-6. [Azure Data Explorer Dashboards](https://docs.microsoft.com/azure/data-explorer/azure-data-explorer-dashboards)
-7. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
-8. [Azure SQL DB](https://azure.microsoft.com/services/sql-database/)
+1. [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/): Fully managed, real-time data ingestion service that’s simple, trusted, and scalable.
+2. [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/): Managed service to enable bi-directional communication between IoT devices and Azure.
+3. [Kafka on HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction): Easy, cost-effective, enterprise-grade service for open source analytics with Apache Kafka.
+4. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/): Hybrid data integration service that simplifies ETL at scale.
+5. [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/): Fast, fully managed and highly scalable data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more.
+6. [Azure Data Explorer Dashboards](https://docs.microsoft.com/azure/data-explorer/azure-data-explorer-dashboards): Natively export Kusto queries that were explored in the Web UI to optimized dashboards. 
+7. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Fully managed fast NoSQL database service for modern app development with open APIs for any scale.
+8. [Azure SQL DB](https://azure.microsoft.com/services/sql-database/): Build apps that scale with the pace of your business with managed and intelligent SQL in the cloud.
+
+## Next steps
+
+For more information, see [Azure Data Explorer documentation](https://docs.microsoft.com/azure/data-explorer/).

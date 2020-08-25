@@ -25,7 +25,11 @@ This architecture pattern demonstrates low-latency high throughput ingestion for
 
 ## Components
 
-1. [Azure Storage Azure Data Explorer connector](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-grid)
-2. [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/)
-3. [Azure Data Explorer Dashboards](https://docs.microsoft.com/azure/data-explorer/azure-data-explorer-dashboards)
-4. [Azure Logic Apps Azure Data Explorer connector](https://docs.microsoft.com/azure/data-explorer/kusto/tools/logicapps)
+1. [Azure Storage Azure Data Explorer connector](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-grid): Continuous ingestion from Azure Storage (Blob storage and ADLSv2) with Azure Event Grid subscription to stream these notifications to Azure Data Explorer.
+2. [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/): Fast, fully managed and highly scalable data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more.
+3. [Azure Data Explorer Dashboards](https://docs.microsoft.com/azure/data-explorer/azure-data-explorer-dashboards): Natively export Kusto queries that were explored in the Web UI to optimized dashboards. 
+4. [Azure Logic Apps Azure Data Explorer connector](https://docs.microsoft.com/azure/data-explorer/kusto/tools/logicapps): Run Kusto queries and commands automatically as part of a scheduled or triggered task.
+
+## Next steps
+
+For more information, see [Azure Data Explorer documentation](https://docs.microsoft.com/azure/data-explorer/).
