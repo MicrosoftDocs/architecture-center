@@ -620,6 +620,18 @@ items:
         href: reference-architectures/data/stream-processing-stream-analytics.md
       - name: Tiering applications & data for analytics
         href: solution-ideas/articles/tiered-data-for-analytics.md
+      - name: Analyze with Azure Data Explorer
+        items:
+        - name: Big Data analytics
+          href: solution-ideas/articles/bigdata-adx.md
+        - name: Content Delivery Network analytics
+          href: solution-ideas/articles/cdn-adx.md
+        - name: Interactive analytics
+          href: solution-ideas/articles/interactive-adx.md
+        - name: IoT telemetry analytics
+          href: solution-ideas/articles/iot-adx.md
+        - name: End-to-end monitoring solution
+          href: solution-ideas/articles/monitoring-adx.md
   - name: Blockchain
     items:
     - name: Architectures
