@@ -59,7 +59,7 @@ The system is publicly accessible only through the single managed APIM endpoint.
 APIM allows for easy integration with different authentication mechanisms. The current solution requires a subscription key, but you could also use Azure Active Directory to secure the APIM endpoint.
 
 #### Virtual network
-To avoid exposing APIs and functions publicly, [Azure Virtual Networks] restrict network access for APIs and functions to only specific IP addresses or subnets. Both API Management and Azure Functions support access restriction and deployment in virtual networks.
+To avoid exposing APIs and functions publicly, [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) restricts network access for APIs and functions to only specific IP addresses or subnets. Both API Management and Azure Functions support access restriction and deployment in virtual networks.
 
 Function apps can restrict IPv4, IPv6, and virtual network subnet access. By default, a function app allows all access, but once you add one or more address or subnet restrictions, the app denies all other network traffic.
 
@@ -102,14 +102,14 @@ The current solution uses Terraform for most of the key rotation tasks. You can 
 In this solution, APIM and the function apps use an Azure [system-assigned managed service identity (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/) to access the Key Vault keys and strings. The MSI has the following GET permissions:
 
 - APIM can get the host key of the Patient API function app.
-- The Patient API function app can get the Audit API host key and its Cosmos DB connection string.
-- The Audit API function app can get its Cosmos DB connection string.
+- The Patient API function app can get the Audit API host key and the Cosmos DB connection string for its data store.
+- The Audit API function app can get the Cosmos DB connection string for its data store.
 
 ## Components
 
 The solution uses the following components:
 
-- [Azure API Management (APIM)](https://azure.microsoft.com/services/api-management/) is a hybrid, multi-cloud platform for managing APIs across all environments. In this solution, APIM controls internal and third-party access to the Patient API that allows reading and/or writing data. APIM allows for easy integration with different authentication mechanisms. For more information, see [Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
+- [Azure API Management (APIM)](https://azure.microsoft.com/services/api-management/) is a hybrid, multi-cloud platform for managing APIs across all environments. In this solution, APIM controls internal and third-party access to the Patient API that allows reading and/or writing data. APIM allows for easy integration with different authentication mechanisms.
 
 - [Azure Functions](/azure/azure-functions/functions-overview) is a serverless compute platform that handles small, event-driven pieces of code. The cloud infrastructure provides the necessary updated servers to run the functions at scale. The current solution uses a set of two Azure Functions API microservices that create and manage operations for patient test results and auditing records.
 
@@ -145,16 +145,16 @@ You can also use a system like Azure DevOps or GitHub Actions to automate deploy
 
 ### Locust load testing
 
-To gauge API performance, you can run load testing against the APIs with the included [Locust load test](https://github.com/mspnp/vnet-integrated-serverless-microservices/tree/main/src/LoadTest). [Locust](https://locust.io/) is an open-source load testing tool, and the tests are written in Python. You can run the load tests locally, or remotely in an Azure Kubernetes Service (AKS) cluster. The tests perform a variety of operations against the APIM endpoint, and verify behaviors against success and failure criteria.
+To gauge API performance, you can run load testing against the APIs with the included [Locust load tests](https://github.com/mspnp/vnet-integrated-serverless-microservices/tree/main/src/LoadTest). [Locust](https://locust.io/) is an open-source load testing tool, and the tests are written in Python. You can run the load tests locally, or remotely in an Azure Kubernetes Service (AKS) cluster. The tests perform a variety of operations against the APIM endpoint, and verify behaviors against success and failure criteria.
 
 ## Next steps
 - [Use Azure API Management with microservices deployed in Azure Kubernetes Service](/azure/api-management/api-management-kubernetes)
-- [API Management access restriction policies](/azure/api-management/api-management-access-restriction-policies)
 - [How to use Azure API Management with virtual networks](/azure/api-management/api-management-using-with-vnet)
-- [Azure Functions networking options](/azure/azure-functions/functions-networking-options)
 - [How to use managed identities for App Service and Azure Functions](/azure/app-service/overview-managed-identity)
 - [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references)
 
 ## Related resources
 - [APIs and microservices e-book](https://azure.microsoft.com/mediahandler/files/resourcefiles/apis-microservices-ebook/Azure_API-Microservices_eBook.pdf)
+- [API Management access restriction policies](/azure/api-management/api-management-access-restriction-policies)
+- [Azure Functions networking options](/azure/azure-functions/functions-networking-options)
 
