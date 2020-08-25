@@ -1,15 +1,15 @@
 ---
-title: Cost drivers for big data architectures
+title: Big data cost estimates
 description: Describes tier, SKU choices for analytics services
 author:  PageWriter-MSFT
-ms.date: 05/14/2020
+ms.date: 08/24/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom: 
 ---
 
-# Cost for big data analytics
+# Big data analytics cost estimates
 
 Most big data workloads are designed to do:
 
