@@ -871,6 +871,7 @@ In the next example, you use the QueueClientOptions class (derived from ClientOp
 using System;
 using System.Threading;
 using Azure.Core;
+using Azure.Identity;
 using Azure.Storage;
 using Azure.Storage.Queues;
 using Azure.Storage.Queues.Models;
@@ -905,8 +906,7 @@ namespace RetryCodeSamples
                 string accountKey = "storage account key";
 
                 // Create a client object for the Queue service, including QueueClientOptions.
-                QueueServiceClient serviceClient = new QueueServiceClient(queueServiceUri, new StorageSharedKeyCredential(accountName, 
-                accountKey), queueClientOptions);
+                QueueServiceClient serviceClient = new QueueServiceClient(queueServiceUri, new DefaultAzureCredential(), queueClientOptions);
 
                 CancellationTokenSource source = new CancellationTokenSource();
                 CancellationToken cancellationToken = source.Token;
