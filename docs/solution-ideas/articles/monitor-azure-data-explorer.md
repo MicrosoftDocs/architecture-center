@@ -20,7 +20,7 @@ This architecture pattern demonstrates a hybrid end-to-end monitoring solution i
 
 1. Combine features provided by Azure Sentinel and Azure Monitor with Azure Data Explorer to build a flexible and cost-optimized end-to-end monitoring solution. 
 Below are some examples:
-   1. Use Azure Sentinel as a SIEM and SOAR component in the overall monitoring solution where you can ingest security logs from firewalls, security center, and so on. SIEM is short for *security information and event anagement*, whereas SOAR is short for *security orchestration, automation and response*.
+   1. Use Azure Sentinel as a SIEM and SOAR component in the overall monitoring solution where you can ingest security logs from firewalls, security center, and so on. SIEM is short for *security information and event management*, whereas SOAR is short for *security orchestration, automation and response*.
    1. Use Azure Monitor’s native capabilities for IT asset monitoring, dashboarding, and alerting so you can ingest logs from VMs, services, and so on.
    1. Use Azure Data Explorer for full flexibility and control in all aspects for all types of logs in the following scenarios:  
      1. No *out of the box* features provided by Azure Sentinel and Azure Monitor SaaS solutions such as application trace logs.
