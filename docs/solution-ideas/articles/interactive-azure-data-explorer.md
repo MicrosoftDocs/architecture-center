@@ -16,7 +16,7 @@ This architecture pattern demonstrates interactive analytics with Azure Data Exp
 
 This pattern is already being used by Microsoft customers to track user activity, manage user profiles and user segmentation scenarios. For example, [global software company Episerver uses Azure Data Explorer to gain enhanced consumer insight](https://customers.microsoft.com/story/817285-episerver-professional-services-azure-sweden).
 
-:::image type="content" source="../media/interactive-adx.png" alt-text="Interactive Analytics with Azure Data Explorer":::
+:::image type="content" source="../media/interactive-azure-data-explorer.png" alt-text="Interactive analytics with Azure Data Explorer" lightbox="../media/interactive-azure-data-explorer.png":::
 
 ## Data flow 
 

@@ -16,7 +16,7 @@ This architecture pattern demonstrates big data analytics over large volumes of 
 
 This pattern is already being used by Microsoft customers. For example, the Singapore-based ride-hailing company, Grab, implemented real-time analytics over a huge amount of data collected from their taxi and food delivery services as well as merchant partner apps. The [team from Grab presented their solution at MS Ignite in this video (20:30 onwards)](https://myignite.techcommunity.microsoft.com/sessions/81060?source=sessions). Using this pattern, Grab processed more than a trillion events per day.
 
-:::image type="content" source="../media/bigdata-adx.png" alt-text="![Big data analytics with Azure Data Explorer](../images/bigdata-adx.png)":::
+:::image type="content" source="../media/big-data-azure-data-explorer.png" alt-text="Big data analytics with Azure Data Explorer" lightbox="../media/big-data-azure-data-explorer.png":::
 
 ## Data flow
  

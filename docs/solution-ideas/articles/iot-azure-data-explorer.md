@@ -16,7 +16,7 @@ This architecture pattern demonstrates near real-time analytics over fast flowin
 
 This architecture is already being used by Microsoft customers for IoT device telemetry analytics. For example, [Bosch uses this to combine real-time road conditions with weather data for safer autonomous driving](https://customers.microsoft.com/story/816933-bosch-automotive-azure-germany).
 
-:::image type="content" source="../media/iot-adx.png" alt-text="![IoT telemetry analytics with Azure Data Explorer](../images/iot-adx.png)":::
+:::image type="content" source="../media/iot-azure-data-explorer.png" alt-text="IoT telemetry analytics with Azure Data Explorer" lightbox="../media/iot-azure-data-explorer.png":::
 
 ## Data flow
  

@@ -1,5 +1,5 @@
 ---
-title: Analytics for Content Delivery Network
+title: Content Delivery Network analytics
 titleSuffix: Azure Solution Ideas
 description: Content Delivery Network Analytics with Azure Data Explorer demonstrates low-latency high throughput ingestion for large volumes of Content Delivery Network (CDN) logs for building near real-time analytics dashboards.
 author: orspod
@@ -12,9 +12,9 @@ ms.custom:
 
 # Content Delivery Network analytics with Azure Data Explorer
 
-This architecture pattern demonstrates low-latency high throughput ingestion for large volumes of Content Delivery Network (CDN) logs for building near real-time analytics dashboards. 
+This architecture pattern demonstrates low-latency high throughput ingestion for large volumes of Content Delivery Network (CDN) logs for building near real-time analytics dashboards.
 
-:::image type="content" source="../media/cdn-adx.png" alt-text="![Content delivery network analytics with Azure Data Explorer](../images/cdn-adx.png)":::
+:::image type="content" source="../media/content-delivery-network-azure-data-explorer.png" alt-text="Content delivery network analytics with Azure Data Explorer" lightbox="../media/content-delivery-network-azure-data-explorer.png":::
 
 ## Data flow 
 

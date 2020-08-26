@@ -14,19 +14,19 @@ ms.custom:
 
 This architecture pattern demonstrates a hybrid end-to-end monitoring solution integrated with Azure Sentinel and Azure Monitor for ingesting streamed and batched logs from diverse sources, on-premises or any cloud, within an enterprise ecosystem. 
 
-:::image type="content" source="../media/monitor-adx.png" alt-text="![Monitoring solution with Azure Data Explorer](../images/monitor-adx.png)":::
+:::image type="content" source="../media/monitor-azure-data-explorer.png" alt-text="Monitoring solution with Azure Data Explorer" lightbox="../media/monitor-azure-data-explorer.png":::
 
 ## Key features of this architecture pattern
 
 1. Combine features provided by Azure Sentinel and Azure Monitor with Azure Data Explorer to build a flexible and cost-optimized end-to-end monitoring solution. 
 Below are some examples:
-   1. Use Azure Sentinel as a SIEM and SOAR component in the overall monitoring solution where you can ingest security logs from firewalls, security center, and so on. SIEM is short for *security information and event management*, whereas SOAR is short for *security orchestration, automation and response*.
-   1. Use Azure Monitor’s native capabilities for IT asset monitoring, dashboarding, and alerting so you can ingest logs from VMs, services, and so on.
-   1. Use Azure Data Explorer for full flexibility and control in all aspects for all types of logs in the following scenarios:  
-     1. No *out of the box* features provided by Azure Sentinel and Azure Monitor SaaS solutions such as application trace logs.
-     1. Greater flexibility for building quick and easy near-real-time analytics dashboards, granular role-based access control, [time series analysis](https://docs.microsoft.com/azure/data-explorer/time-series-analysis), pattern recognition, [anomaly detection and forecasting](https://docs.microsoft.com/azure/data-explorer/anomaly-detection), and [machine learning](https://docs.microsoft.com/azure/data-explorer/machine-learning-clustering). Azure Data Explorer is also well integrated with ML services such as Databricks and Azure Machine Learning. This integration allows you to build models using other tools and services and export ML models to Azure Data Explorer for scoring data.  
-     1. Longer data retention is required in cost effective manner.
-     1. Centralized repository is required for different types of logs. Azure Data Explorer, as a unified big data analytics platform, allows you to build advanced analytics scenarios.
+   * Use Azure Sentinel as a SIEM and SOAR component in the overall monitoring solution where you can ingest security logs from firewalls, security center, and so on. SIEM is short for *security information and event management*, whereas SOAR is short for *security orchestration, automation and response*.
+   * Use Azure Monitor’s native capabilities for IT asset monitoring, dashboarding, and alerting so you can ingest logs from VMs, services, and so on.
+   * Use Azure Data Explorer for full flexibility and control in all aspects for all types of logs in the following scenarios:  
+     * No *out of the box* features provided by Azure Sentinel and Azure Monitor SaaS solutions such as application trace logs.
+     * Greater flexibility for building quick and easy near-real-time analytics dashboards, granular role-based access control, [time series analysis](https://docs.microsoft.com/azure/data-explorer/time-series-analysis), pattern recognition, [anomaly detection and forecasting](https://docs.microsoft.com/azure/data-explorer/anomaly-detection), and [machine learning](https://docs.microsoft.com/azure/data-explorer/machine-learning-clustering). Azure Data Explorer is also well integrated with ML services such as Databricks and Azure Machine Learning. This integration allows you to build models using other tools and services and export ML models to Azure Data Explorer for scoring data.  
+     * Longer data retention is required in cost effective manner.
+     * Centralized repository is required for different types of logs. Azure Data Explorer, as a unified big data analytics platform, allows you to build advanced analytics scenarios.
 1. Query across different products without moving data using the [Azure Data Explorer proxy](https://docs.microsoft.com/azure/data-explorer/query-monitor-data) feature to analyze data from Azure Sentinel, Azure Monitor, and Azure Data Explorer in a single query.
 1. To ingest logs with low latency and high throughput from on-premises or any other cloud, use native Azure Data Explorer connectors such as [Logstash](https://docs.microsoft.com/azure/data-explorer/ingest-data-logstash), [Azure Event Hub](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-hub), or [Kafka](https://docs.microsoft.com/azure/data-explorer/ingest-data-kafka).
 1. Alternatively, ingest data through Azure Storage (Blob or ADLS Gen2) using Apache [Nifi](https://nifi.apache.org/), [Fluentd](https://www.fluentd.org/), or [Fluentbit](https://fluentbit.io/) connectors. Then use [Azure Event Grid](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-grid) to trigger the ingestion pipeline to Azure Data Explorer. 
