@@ -1,5 +1,5 @@
 ---
-title: Azure Data Explorer Monitoring
+title: Azure Data Explorer monitoring
 titleSuffix: Azure Solution Ideas
 description: End-to-end monitoring solution with Azure Data Explorer demonstrates a hybrid monitoring solution integrated with Azure Sentinel and Azure Monitor for ingesting streaming and batched logs from diverse sources within an enterprise ecosystem. 
 author: orspod
@@ -14,13 +14,13 @@ ms.custom:
 
 This architecture pattern demonstrates a hybrid end-to-end monitoring solution integrated with Azure Sentinel and Azure Monitor for ingesting streamed and batched logs from diverse sources, on-premises or any cloud, within an enterprise ecosystem. 
 
-:::image type="content" source="../media/monitoring-adx.png" alt-text="![Monitoring solution with Azure Data Explorer](../images/monitoring-adx.png)":::
+:::image type="content" source="../media/monitor-adx.png" alt-text="![Monitoring solution with Azure Data Explorer](../images/monitor-adx.png)":::
 
 ## Key features of this architecture pattern
 
 1. Combine features provided by Azure Sentinel and Azure Monitor with Azure Data Explorer to build a flexible and cost-optimized end-to-end monitoring solution. 
 Below are some examples:
-   1. Use Azure Sentinel as a SIEM and SOAR component in the overall monitoring solution where you can ingest security logs from firewalls, security center, and so on. SIEM is short for *security information and event anagement*, whereas SOAR is short for *security orchestration, automation and response*.
+   1. Use Azure Sentinel as a SIEM and SOAR component in the overall monitoring solution where you can ingest security logs from firewalls, security center, and so on. SIEM is short for *security information and event management*, whereas SOAR is short for *security orchestration, automation and response*.
    1. Use Azure Monitor’s native capabilities for IT asset monitoring, dashboarding, and alerting so you can ingest logs from VMs, services, and so on.
    1. Use Azure Data Explorer for full flexibility and control in all aspects for all types of logs in the following scenarios:  
      1. No *out of the box* features provided by Azure Sentinel and Azure Monitor SaaS solutions such as application trace logs.
@@ -37,13 +37,13 @@ Below are some examples:
 
 ## Components
 
-1. [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/): Fully managed, real-time data ingestion service that’s simple, trusted, and scalable.
-2. [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/): Managed service to enable bi-directional communication between IoT devices and Azure.
-3. [Kafka on HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction): Easy, cost-effective, enterprise-grade service for open source analytics with Apache Kafka. 
-4. [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/): Fast, fully managed and highly scalable data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more.
-5. [Azure Data Explorer Dashboards](https://docs.microsoft.com/azure/data-explorer/azure-data-explorer-dashboards): Natively export Kusto queries that were explored in the Web UI to optimized dashboards. 
-6. [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/): Intelligent security analytics for your entire enterprise.
-7. [Azure Monitor](https://azure.microsoft.com/services/monitor/): Full observability into your applications, infrastructure, and network
+- [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/): Fully managed, real-time data ingestion service that’s simple, trusted, and scalable.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/): Managed service to enable bi-directional communication between IoT devices and Azure.
+- [Kafka on HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction): Easy, cost-effective, enterprise-grade service for open source analytics with Apache Kafka. 
+- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/): Fast, fully managed and highly scalable data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more.
+- [Azure Data Explorer Dashboards](https://docs.microsoft.com/azure/data-explorer/azure-data-explorer-dashboards): Natively export Kusto queries that were explored in the Web UI to optimized dashboards. 
+- [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/): Intelligent security analytics for your entire enterprise.
+- [Azure Monitor](https://azure.microsoft.com/services/monitor/): Full observability into your applications, infrastructure, and network
 
 ## Next steps
 

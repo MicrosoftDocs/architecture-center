@@ -1,5 +1,5 @@
 ---
-title: IoT Analytics with Azure Data Explorer
+title: IoT analytics with Azure Data Explorer
 titleSuffix: Azure Solution Ideas
 description: IoT Telemetry Analytics with Azure Data Explorer demonstrates near real-time analytics over fast flowing, high volume, wide variety of streaming data from IoT devices.
 author: orspod
@@ -14,7 +14,7 @@ ms.custom:
 
 This architecture pattern demonstrates near real-time analytics over fast flowing, high volume streaming data from IoT devices, sensors, connected buildings and vehicles, and so on. It focuses on integration of Azure Data Explorer with other IoT services to cater to both operational and analytical workloads using Cosmos DB and Azure Data Explorer. 
 
-This architecture is already being used by Microsoft customers for IoT device telemetry analytics. For example, [Bosch uses this to combine real-time road conditions with weather data for safer autonomous driving](https://customers.microsoft.com/en-us/story/816933-bosch-automotive-azure-germany).
+This architecture is already being used by Microsoft customers for IoT device telemetry analytics. For example, [Bosch uses this to combine real-time road conditions with weather data for safer autonomous driving](https://customers.microsoft.com/story/816933-bosch-automotive-azure-germany).
 
 :::image type="content" source="../media/iot-adx.png" alt-text="![IoT telemetry analytics with Azure Data Explorer](../images/iot-adx.png)":::
 
@@ -37,13 +37,13 @@ As this pattern serves both operational and analytical use cases, data can eithe
 
 ## Components
 
-1. [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/): Fully managed, real-time data ingestion service that’s simple, trusted, and scalable.
-2. [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/): Managed service to enable bi-directional communication between IoT devices and Azure.
-3. [Kafka on HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction): Easy, cost-effective, enterprise-grade service for open source analytics with Apache Kafka. 
-4. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Fully managed fast NoSQL database service for modern app development with open APIs for any scale.
-5. [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/): Fast, fully managed and highly scalable data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more.
-6. [Azure Data Explorer Dashboards](https://docs.microsoft.com/azure/data-explorer/azure-data-explorer-dashboards): Natively export Kusto queries that were explored in the Web UI to optimized dashboards. 
-7. [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/): Create next-generation IoT solutions that model the real world.
+- [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/): Fully managed, real-time data ingestion service that’s simple, trusted, and scalable.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/): Managed service to enable bi-directional communication between IoT devices and Azure.
+- [Kafka on HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction): Easy, cost-effective, enterprise-grade service for open source analytics with Apache Kafka. 
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Fully managed fast NoSQL database service for modern app development with open APIs for any scale.
+- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/): Fast, fully managed and highly scalable data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more.
+- [Azure Data Explorer Dashboards](https://docs.microsoft.com/azure/data-explorer/azure-data-explorer-dashboards): Natively export Kusto queries that were explored in the Web UI to optimized dashboards. 
+- [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/): Create next-generation IoT solutions that model the real world.
 
 ## Next steps
 
