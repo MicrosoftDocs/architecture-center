@@ -14,7 +14,7 @@ ms.custom:
 
 This architecture pattern demonstrates a hybrid end-to-end monitoring solution integrated with Azure Sentinel and Azure Monitor for ingesting streamed and batched logs from diverse sources, on-premises or any cloud, within an enterprise ecosystem. 
 
-:::image type="content" source="../media/monitor-azure-data-explorer.png" alt-text="![Monitoring solution with Azure Data Explorer](../images/monitor-azure-data-explorer.png)":::
+:::image type="content" source="../media/monitor-adx.png" alt-text="![Monitoring solution with Azure Data Explorer](../images/monitor-adx.png)":::
 
 ## Key features of this architecture pattern
 
