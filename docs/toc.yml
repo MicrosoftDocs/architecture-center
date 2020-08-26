@@ -622,16 +622,16 @@ items:
         href: solution-ideas/articles/tiered-data-for-analytics.md
       - name: Analyze with Azure Data Explorer
         items:
-        - name: Big Data analytics
-          href: solution-ideas/articles/bigdata-adx.md
+        - name: Big data analytics
+          href: solution-ideas/articles/big-data-azure-data-explorer.md
         - name: Content Delivery Network analytics
-          href: solution-ideas/articles/cdn-adx.md
+          href: solution-ideas/articles/content-delivery-network-azure-data-explorer.md
         - name: Interactive analytics
-          href: solution-ideas/articles/interactive-adx.md
+          href: solution-ideas/articles/interactive-azure-data-explorer.md
         - name: IoT telemetry analytics
-          href: solution-ideas/articles/iot-adx.md
+          href: solution-ideas/articles/iot-azure-data-explorer.md
         - name: End-to-end monitoring solution
-          href: solution-ideas/articles/monitoring-adx.md
+          href: solution-ideas/articles/monitor-azure-data-explorer.md
   - name: Blockchain
     items:
     - name: Architectures
@@ -844,6 +844,8 @@ items:
         href: solution-ideas/articles/streaming-using-hdinsight.md
       - name: Windows N-tier applications
         href: reference-architectures/n-tier/n-tier-sql-server.md
+      - name: Big data analytics
+        href: solution-ideas/articles/big-data-azure-data-explorer.md
   - name: Developer Options
     items:
     - name: Microservices
@@ -1105,6 +1107,8 @@ items:
         href: example-scenario/iot-aad/iot-aad.md
       - name: Telemetry Analytics
         href: solution-ideas/articles/telemetry-analytics.md
+      - name: Analytics with Azure Data Explorer
+        href: solution-ideas/articles/iot-azure-data-explorer.md
     - name: Industrial IoT Analytics
       items:
       - name: Architecture
