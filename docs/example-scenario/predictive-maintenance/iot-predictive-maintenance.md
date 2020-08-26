@@ -8,7 +8,9 @@ ms.service: architecture-center
 ms.subservice: example-scenario
 ms.category: 
     - iot
-ms.custom: fcp
+ms.custom: 
+    - fcp
+    - cse
 ---
 
 # Predictive maintenance with the intelligent IoT Edge
