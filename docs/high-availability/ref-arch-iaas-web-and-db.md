@@ -37,27 +37,27 @@ The application gateway is zone-redundant and is not impacted by the failure of 
 
 Spreading resources across Availability Zones also protects an application from planned maintenance. When VMs are distributed across three Availability Zones, effectively they are spread across three update domains. The Azure platform recognizes this distribution across update domains to ensure that VMs in different zones are not updated at the same time.
 
-By replicating VMs across Availability Zones, you can protect your applications and data from a zonal failure. This allows Azure to support the industry best 99.99% VM uptime service-level agreement (SLA). See [Building solutions for high availability using Availability Zones](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability).
+By replicating VMs across Availability Zones, you can protect your applications and data from a zonal failure. This allows Azure to support the industry best 99.99% VM uptime service-level agreement (SLA). See [Building solutions for high availability using Availability Zones](./building-solutions-for-high-availability.md).
 
 The architecture has the following components.
 
 ### General
 
-- **Resource group**. [Resource groups](https://docs.microsoft.com/azure/azure-resource-manager/management/overview#resource-groups) are used to group Azure resources so  they can be managed by lifetime, owner, or other criteria.
+- **Resource group**. [Resource groups](/azure/azure-resource-manager/management/overview#resource-groups) are used to group Azure resources so  they can be managed by lifetime, owner, or other criteria.
 
-- **Availability Zones**. [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) are physical locations within an Azure region. Each zone consists of one or more datacenters with independent power, cooling, and networking. By placing VMs across zones, the application becomes resilient to failures within a zone.
+- **Availability Zones**. [Availability Zones](/azure/availability-zones/az-overview#availability-zones) are physical locations within an Azure region. Each zone consists of one or more datacenters with independent power, cooling, and networking. By placing VMs across zones, the application becomes resilient to failures within a zone.
 
 ### Networking and load balancing
 
 - **Virtual network and subnets**. Every Azure VM is deployed into a virtual network (VNet) that can be segmented into subnets. Create a separate subnet for each tier.
 
-- **Azure Application Gateway**. Azure [Application Gateway](https://docs.microsoft.com/azure/application-gateway/) is a layer 7 load balancer. In this architecture, a zone-redundant application gateway routes HTTP requests to the web front end. Application Gateway also provides a [Web Application Firewall](https://docs.microsoft.com/azure/application-gateway/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities. The v2 SKU of Application Gateway supports cross-zone redundancy. A single Application Gateway deployment can run multiple instances of the gateway. For production workloads, run at least two instances. For more information, see [Autoscaling and Zone-redundant Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) and [How does Application Gateway support high availability and scalability?](https://docs.microsoft.com/azure/application-gateway/application-gateway-faq#how-does-application-gateway-support-high-availability-and-scalability).
+- **Azure Application Gateway**. Azure [Application Gateway](/azure/application-gateway/) is a layer 7 load balancer. In this architecture, a zone-redundant application gateway routes HTTP requests to the web front end. Application Gateway also provides a [Web Application Firewall](/azure/application-gateway/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities. The v2 SKU of Application Gateway supports cross-zone redundancy. A single Application Gateway deployment can run multiple instances of the gateway. For production workloads, run at least two instances. For more information, see [Autoscaling and Zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant) and [How does Application Gateway support high availability and scalability?](/azure/application-gateway/application-gateway-faq#how-does-application-gateway-support-high-availability-and-scalability).
 
-- **Azure Load Balancer**. Azure Load Balancer is a layer 5 load balancer. In this architecture, a zone-redundant [Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) directs network traffic from the web tier to SQL Server. Because a zone-redundant load balancer is not pinned to a specific zone, the application will continue to distribute the network traffic in the case of a zonal failure. A zone-redundant load balancer is used to provide availability in the case the active SQL Server becomes unavailable. The Standard SKU of Azure Load Balancer supports cross-zone redundancy. For more information, see [Standard Load Balancer and Availability Zones](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
+- **Azure Load Balancer**. Azure Load Balancer is a layer 4 load balancer. In this architecture, a zone-redundant [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) directs network traffic from the web tier to SQL Server. Because a zone-redundant load balancer is not pinned to a specific zone, the application will continue to distribute the network traffic in the case of a zonal failure. A zone-redundant load balancer is used to provide availability in the case the active SQL Server becomes unavailable. The Standard SKU of Azure Load Balancer supports cross-zone redundancy. For more information, see [Standard Load Balancer and Availability Zones](/azure/load-balancer/load-balancer-standard-availability-zones).
 
-- **Network security groups (NSGs)**. A [network security group](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) is used to restrict network traffic within the virtual network. In this architecture, the web tier only accepts traffic from the public IP endpoint. Additionally, the database tier does not accept traffic from any subnet other than the web-tier subnet.
+- **Network security groups (NSGs)**. A [network security group](/azure/virtual-network/virtual-networks-nsg) is used to restrict network traffic within the virtual network. In this architecture, the web tier only accepts traffic from the public IP endpoint. Additionally, the database tier does not accept traffic from any subnet other than the web-tier subnet.
 
-- **DDoS protection**. The Azure platform provides protection against distributed denial of service (DDoS) attacks. For additional protection, we recommend using [DDoS Protection Standard](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview), which has enhanced DDoS mitigation features. See [Security considerations](#ddos-protection).
+- **DDoS protection**. The Azure platform provides protection against distributed denial of service (DDoS) attacks. For additional protection, we recommend using [DDoS Protection Standard](/azure/virtual-network/ddos-protection-overview), which has enhanced DDoS mitigation features. See [Security considerations](#ddos-protection).
 
 - **Bastion**. [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to the VMs within the VNet. This provides access while limiting the exposed public IP addresses of the VMs with the VNet. Azure Bastion provides a cost-effective alternative to a **provisioned** VM to provide access to  all VMs within the same virtual network.
 
@@ -67,15 +67,15 @@ The architecture has the following components.
 
 - **Cloud Witness**. A failover cluster requires more than half of its nodes to be running, which is known as having quorum. If the cluster has just two nodes, a network partition could cause each node to think it's the primary node. In that case, you need a witness to break ties and establish quorum. A witness is a resource such as a shared disk that can act as a tie breaker to establish quorum. Cloud Witness is a type of witness that uses Azure Blob Storage. The Azure Blob Storage must use Zone Redundant Storage (ZRS) to not be impacted by zonal failure.
 
-    To learn more about the concept of quorum, see [Understanding cluster and  pool quorum](https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum). For more information about Cloud Witness, see [Deploy a Cloud Witness for a Failover Cluster](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).
+    To learn more about the concept of quorum, see [Understanding cluster and  pool quorum](/windows-server/storage/storage-spaces/understand-quorum). For more information about Cloud Witness, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness).
 
 ## Recommendations
 
 Your requirements might differ from the architecture described here. Use these recommendations as a starting point.
 
-For recommendations on configuring the VMs, see [Run a Windows VM on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm).
+For recommendations on configuring the VMs, see [Run a Windows VM on Azure](../reference-architectures/n-tier/windows-vm.md).
 
-For more information about designing virtual networks and subnets, see [Plan and design Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+For more information about designing virtual networks and subnets, see [Plan and design Azure Virtual Networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 
 ### Network security groups
 
@@ -92,11 +92,11 @@ Create rules 2 – 3 with higher priority than the first rule, so they override 
 ### SQL Server Always On availability groups
 
 We recommend [Always On availability
-groups](https://msdn.microsoft.com/library/hh510230.aspx) for Microsoft SQL Server high availability. Other tiers connect to the database through an [availability group listener](https://msdn.microsoft.com/library/hh213417.aspx). The listener enables a SQL client to connect without knowing the name of the physical instance of SQL Server. VMs that access the database must be joined to the domain. The client (in this case, another tier) uses DNS to resolve the listener's virtual network name into IP addresses.
+groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15) for Microsoft SQL Server high availability. Other tiers connect to the database through an [availability group listener](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15). The listener enables a SQL client to connect without knowing the name of the physical instance of SQL Server. VMs that access the database must be joined to the domain. The client (in this case, another tier) uses DNS to resolve the listener's virtual network name into IP addresses.
 
 Configure the SQL Server Always On availability group as follows:
 
-- Create a Windows Server Failover Clustering (WSFC) cluster, a SQL Server Always On availability group, and a primary replica. For more information, see [Getting Started with Always On availability groups](https://msdn.microsoft.com/library/gg509118.aspx).
+- Create a Windows Server Failover Clustering (WSFC) cluster, a SQL Server Always On availability group, and a primary replica. For more information, see [Getting Started with Always On availability groups](/sql/database-engine/availability-groups/windows/getting-started-with-always-on-availability-groups-sql-server?view=sql-server-ver15).
 
 - Create an internal load balancer with a static private IP address.
 
@@ -107,17 +107,17 @@ Configure the SQL Server Always On availability group as follows:
 > [!NOTE]
 > When floating IP is enabled, the front-end port number must be the same as the back-end port number in the load balancer rule.
 
-When a SQL client tries to connect, the load balancer routes the connection request to the primary replica. If there is a failover to another replica, the load balancer automatically routes new requests to a new primary replica. For more information, see [Configure a load balancer for an availability group on Azure SQL Server VMs](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener).
+When a SQL client tries to connect, the load balancer routes the connection request to the primary replica. If there is a failover to another replica, the load balancer automatically routes new requests to a new primary replica. For more information, see [Configure a load balancer for an availability group on Azure SQL Server VMs](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener).
 
 During a failover, existing client connections are closed. After the failover completes, new connections will be routed to the new primary replica.
 
-If your application makes significantly more reads than writes, you can offload some of the read-only queries to a secondary replica. See [Connect to a read-only replica](https://technet.microsoft.com/library/hh213417.aspx#ConnectToSecondary).
+If your application makes significantly more reads than writes, you can offload some of the read-only queries to a secondary replica. See [Connect to a read-only replica](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15#ConnectToSecondary).
 
-Test your deployment by [forcing a manual failover](https://msdn.microsoft.com/library/ff877957.aspx) of the availability group.
+Test your deployment by [forcing a manual failover](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15) of the availability group.
 
 ## Availability considerations
 
-Availability Zones provide high resilience within a single region. If you need even higher availability, consider replicating the application across two regions, using Azure Traffic Manager for failover. For more information, see [Run an N-tier application in multiple Azure regions for high availability](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server).
+Availability Zones provide high resilience within a single region. If you need even higher availability, consider replicating the application across two regions, using Azure Traffic Manager for failover. For more information, see [Run an N-tier application in multiple Azure regions for high availability](../reference-architectures/n-tier/multi-region-sql-server.md).
 
 Not all regions support Availability Zones, and not all VM sizes are supported in all zones. Run the following Azure CLI command to find the supported zones for each VM size within a region:
 
@@ -128,7 +128,7 @@ az vm list-skus --resource-type virtualMachines --zone false --location
 \--query "[].{Name:name, Zones:locationInfo[].zones[] \| join(','\@)}" -o tabl
 ~~~
 
-Virtual machine scale sets automatically use placement groups, which act as an implicit availability set. For more information about placement groups, see [Working with large virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups).
+Virtual machine scale sets automatically use placement groups, which act as an implicit availability set. For more information about placement groups, see [Working with large virtual machine scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups).
 
 ### Health probes
 
@@ -144,11 +144,11 @@ HTTP probes send an HTTP GET request to a specified path and listen for an HTTP 
 
 For more information about health probes, see:
 
-- [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
+- [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview)
 
-- [Application Gateway health monitoring overview](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview)
+- [Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
 
-For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring).
+For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md).
 
 ## Cost considerations
 
@@ -170,35 +170,35 @@ For SQL server VMs pricing options, see [SQL VMs pricing](https://www.microsoft.
 
 You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
 
-For more information, see the cost section in [Azure Architecture Framework](https://docs.microsoft.com/azure/architecture/framework/cost/overview).
+For more information, see the cost section in [Azure Architecture Framework](../framework/cost/overview.md).
 
 ### Azure Application Gateway
 
 The Application Gateway should be provisioned with the v2 SKU and can span multiple Availability Zones. With the v2 SKU, the pricing model is driven by consumption and has two components: Hourly fixed price and a consumption-based cost.
 
-For more information, see the pricing section in [Autoscaling and Zone-redundant Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing).
+For more information, see the pricing section in [Autoscaling and Zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing).
 
 ## Security considerations
 
-Virtual networks are a traffic isolation boundary in Azure. By default, VMs in one virtual network can't communicate directly with VMs in a different virtual network. However, you can explicitly connect virtual networks by using [virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+Virtual networks are a traffic isolation boundary in Azure. By default, VMs in one virtual network can't communicate directly with VMs in a different virtual network. However, you can explicitly connect virtual networks by using [virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
 
 ### Network security groups
 
-Use [network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSGs) to restrict traffic to and from the internet. For more information, see [Microsoft cloud services and network security](https://docs.microsoft.com/azure/best-practices-network-security).
+Use [network security groups](/azure/virtual-network/virtual-networks-nsg) (NSGs) to restrict traffic to and from the internet. For more information, see [Microsoft cloud services and network security](/azure/best-practices-network-security).
 
 ### DMZ
 
-Consider adding a network virtual appliance (NVA) to create a DMZ between the internet and the Azure virtual network. NVA is a generic term for a virtual appliance that can perform network-related tasks, such as firewall, packet inspection, auditing, and custom routing. For more information, see [Network DMZ between Azure and an on-premises datacenter](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
+Consider adding a network virtual appliance (NVA) to create a DMZ between the internet and the Azure virtual network. NVA is a generic term for a virtual appliance that can perform network-related tasks, such as firewall, packet inspection, auditing, and custom routing. For more information, see [Network DMZ between Azure and an on-premises datacenter](../reference-architectures/dmz/secure-vnet-dmz.md).
 
 ### Encryption
 
-Encrypt sensitive data at rest and use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) to manage the database encryption keys. Key Vault can store encryption keys in hardware security modules (HSMs). For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure). It's also recommended to store application secrets, such as database connection strings, in Key Vault.
+Encrypt sensitive data at rest and use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) to manage the database encryption keys. Key Vault can store encryption keys in hardware security modules (HSMs). For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure). It's also recommended to store application secrets, such as database connection strings, in Key Vault.
 
 ### DDoS protection
 
-The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure. Although basic DDoS protection is automatically enabled, we recommend using [DDoS Protection Standard](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
-Standard protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. Standard protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](https://docs.microsoft.com/azure/security/azure-ddos-best-practices).
+The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure. Although basic DDoS protection is automatically enabled, we recommend using [DDoS Protection Standard](/azure/virtual-network/ddos-protection-overview).
+Standard protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. Standard protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/azure-ddos-best-practices).
 
 ## Next steps
 
-- [Microsoft Learn module: Tour the N-tier architecture style](https://docs.microsoft.com/learn/modules/n-tier-architecture/)
+- [Microsoft Learn module: Tour the N-tier architecture style](/learn/modules/n-tier-architecture/)

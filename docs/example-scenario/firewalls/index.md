@@ -94,4 +94,4 @@ While not in the drawing, it would make sense for Subnet-B/C/D/Gateway to also i
 
 In short, the way you treat firewalls in your on-premises (physical/VLAN-based) networks, with as many interfaces (virtual or physical) is not the same as you would in Azure. If necessary you still can (to some degree), but there are better ways to ensure you can minimize fail-over downtime; have active-active implementations and *clean* routing tables.
 
-More information on using load balancers as *gateways* for all traffic can be found on [High availability ports overview](https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview).
+More information on using load balancers as *gateways* for all traffic can be found on [High availability ports overview](/azure/load-balancer/load-balancer-ha-ports-overview).

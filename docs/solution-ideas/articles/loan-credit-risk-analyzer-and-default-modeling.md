@@ -30,12 +30,12 @@ Data-driven credit-risk modeling reduces the number of loans offered to borrower
 
 ## Components
 
-* [SQL Server R Services](https://docs.microsoft.com/sql/machine-learning/r/sql-server-r-services?view=sql-server-2016): SQL Server stores the lender and borrower data. R-based analytics provide training and predicted models, as well as predicted results for consumption.
+* [SQL Server R Services](/sql/machine-learning/r/sql-server-r-services?view=sql-server-2016): SQL Server stores the lender and borrower data. R-based analytics provide training and predicted models, as well as predicted results for consumption.
 * [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
 * [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
 
 ## Next steps
 
-* [Get started with SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/getting-started-with-sql-server-r-services)
+* [Get started with SQL Server R Services](/sql/advanced-analytics/r/getting-started-with-sql-server-r-services)
 * [Learn more about Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started)

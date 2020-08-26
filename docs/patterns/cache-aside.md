@@ -118,7 +118,7 @@ public async Task<MyEntity> GetMyEntityAsync(int id)
 }
 ```
 
-> The examples use Azure Cache for Redis to access the store and retrieve information from the cache. For more information, see [Using Azure Cache for Redis](https://docs.microsoft.com/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache) and [How to create a Web App with Azure Cache for Redis](https://docs.microsoft.com/azure/redis-cache/cache-web-app-howto).
+> The examples use Azure Cache for Redis to access the store and retrieve information from the cache. For more information, see [Using Azure Cache for Redis](/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache) and [How to create a Web App with Azure Cache for Redis](/azure/redis-cache/cache-web-app-howto).
 
 The `UpdateEntityAsync` method shown below demonstrates how to invalidate an object in the cache when the value is changed by the application. The code updates the original data store and then removes the cached item from the cache.
 
@@ -145,4 +145,4 @@ The following information may be relevant when implementing this pattern:
 
 - [Caching Guidance](../best-practices/caching.md). Provides additional information on how you can cache data in a cloud solution, and the issues that you should consider when you implement a cache.
 
-- [Data Consistency Primer](https://msdn.microsoft.com/library/dn589800.aspx). Cloud applications typically use data that's spread across data stores. Managing and maintaining data consistency in this environment is a critical aspect of the system, particularly the concurrency and availability issues that can arise. This primer describes issues about consistency across distributed data, and summarizes how an application can implement eventual consistency to maintain the availability of data.
+- [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). Cloud applications typically use data that's spread across data stores. Managing and maintaining data consistency in this environment is a critical aspect of the system, particularly the concurrency and availability issues that can arise. This primer describes issues about consistency across distributed data, and summarizes how an application can implement eventual consistency to maintain the availability of data.

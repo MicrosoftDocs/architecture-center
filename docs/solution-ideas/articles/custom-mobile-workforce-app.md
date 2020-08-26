@@ -66,10 +66,10 @@ The links to the right provide documentation on deploying and managing the Azure
 
 ## Next steps
 
-* [Visual Studio Documentation](https://docs.microsoft.com/visualstudio)
-* [Xamarin Documentation](https://docs.microsoft.com/xamarin)
-* [Visual Studio App Center](https://docs.microsoft.com/appcenter)
+* [Visual Studio Documentation](/visualstudio)
+* [Xamarin Documentation](/xamarin)
+* [Visual Studio App Center](/appcenter)
 * [App Service](https://azure.microsoft.com/services/app-service)
-* [Application Insights Documentation](https://docs.microsoft.com/azure/application-insights)
-* [API Management documentation](https://docs.microsoft.com/azure/api-management)
-* [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory)
+* [Application Insights Documentation](/azure/application-insights)
+* [API Management documentation](/azure/api-management)
+* [Azure Active Directory Documentation](/azure/active-directory)

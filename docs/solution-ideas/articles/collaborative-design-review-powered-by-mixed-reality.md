@@ -44,6 +44,6 @@ Businesses and teams across industries have to spend time and money on design re
 
 ## Next steps
 
-* [Azure Active Directory documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
-* [Blob Storage documentation](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows)
-* [Azure Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet)
+* [Azure Active Directory documentation](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [Blob Storage documentation](/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows)
+* [Azure Cosmos DB documentation](/azure/cosmos-db/create-sql-api-dotnet)

@@ -44,7 +44,7 @@ Note: This doesn't apply to Azure Stack deployments that are disconnected from t
 
 ## Next steps
 
-* [Virtual Network](https://docs.microsoft.com/azure/virtual-network)
-* [VPN Gateway Documentation](https://docs.microsoft.com/azure/vpn-gateway)
+* [Virtual Network](/azure/virtual-network)
+* [VPN Gateway Documentation](/azure/vpn-gateway)
 * [Virtual Machines Overview](https://azure.microsoft.com/services/virtual-machines)
-* [Azure Stack User Documentation](https://docs.microsoft.com/azure/azure-stack/user)
+* [Azure Stack User Documentation](/azure/azure-stack/user)

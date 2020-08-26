@@ -14,9 +14,9 @@ ms.subservice: cloud-fundamentals
 
 The Azure equivalents of the two Elastic Load Balancing services are:
 
-- [Load Balancer](https://azure.microsoft.com/documentation/articles/load-balancer-overview): provides the same capabilities as the AWS Classic Load Balancer, allowing you to distribute traffic for multiple VMs at the network level. It also provides failover capability.
+- [Load Balancer](/azure/load-balancer/load-balancer-overview): provides the same capabilities as the AWS Classic Load Balancer, allowing you to distribute traffic for multiple VMs at the network level. It also provides failover capability.
 
-- [Application Gateway](https://azure.microsoft.com/documentation/articles/application-gateway-introduction): offers application-level rule-based routing comparable to the AWS Application Load Balancer.
+- [Application Gateway](/azure/application-gateway/overview): offers application-level rule-based routing comparable to the AWS Application Load Balancer.
 
 ## Route 53, Azure DNS, and Azure Traffic Manager
 
@@ -29,7 +29,7 @@ In AWS, Route 53 provides both DNS name management and DNS-level traffic routing
 ## Direct Connect and Azure ExpressRoute
 
 Azure provides similar site-to-site dedicated connections through its
-[ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute) service. ExpressRoute allows you to connect your local network directly to Azure resources using a dedicated private network connection. Azure also offers more conventional [site-to-site VPN connections](https://azure.microsoft.com/documentation/articles/vpn-gateway-howto-site-to-site-resource-manager-portal) at a lower cost.
+[ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute) service. ExpressRoute allows you to connect your local network directly to Azure resources using a dedicated private network connection. Azure also offers more conventional [site-to-site VPN connections](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) at a lower cost.
 
 ## Network service comparison
 
@@ -37,8 +37,8 @@ Azure provides similar site-to-site dedicated connections through its
 
 ## See also
 
-- [Create a virtual network using the Azure portal](https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal)
+- [Create a virtual network using the Azure portal](/azure/virtual-network/quick-create-portal)
 
-- [Plan and design Azure Virtual Networks](https://azure.microsoft.com/documentation/articles/virtual-network-vnet-plan-design-arm)
+- [Plan and design Azure Virtual Networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm)
 
-- [Azure Network Security Best Practices](https://azure.microsoft.com/documentation/articles/azure-security-network-security-best-practices)
+- [Azure Network Security Best Practices](/azure/security/fundamentals/network-best-practices)

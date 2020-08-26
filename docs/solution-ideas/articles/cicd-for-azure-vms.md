@@ -49,7 +49,7 @@ Azure DevOps provides the CI/CD pipeline, starting with a Git repository for man
 
 ## Next steps
 
-* [Use Azure DevOps to Deploy to a Windows Virtual Machine](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups)
-* [Use Azure DevOps to manage a virtual machine in Azure DevTest Labs](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/deploy-provision-devtest-lab)
-* [Performance monitoring with Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-detect-triage-diagnose)
-* [Git on Azure DevOps](https://docs.microsoft.com/vsts/git/gitquickstart?tabs=visual-studio)
+* [Use Azure DevOps to Deploy to a Windows Virtual Machine](/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups)
+* [Use Azure DevOps to manage a virtual machine in Azure DevTest Labs](/vsts/build-release/apps/cd/azure/deploy-provision-devtest-lab)
+* [Performance monitoring with Application Insights](/azure/application-insights/app-insights-detect-triage-diagnose)
+* [Git on Azure DevOps](/vsts/git/gitquickstart?tabs=visual-studio)

@@ -40,8 +40,8 @@ Azure with Azure Stack enables organizations to make technology placement decisi
 
 ## Next steps
 
-* [Virtual Network documentation](https://docs.microsoft.com/azure/virtual-network)
-* [VPN Gateway documentation](https://docs.microsoft.com/azure/vpn-gateway)
-* [Azure SQL Database documentation](https://docs.microsoft.com/azure/sql-database)
-* [Azure Functions documentation](https://docs.microsoft.com/azure/azure-functions)
-* [Azure Stack documentation](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-staged-data-analytics)
+* [Virtual Network documentation](/azure/virtual-network)
+* [VPN Gateway documentation](/azure/vpn-gateway)
+* [Azure SQL Database documentation](/azure/sql-database)
+* [Azure Functions documentation](/azure/azure-functions)
+* [Azure Stack documentation](/azure/azure-stack/user/azure-stack-solution-staged-data-analytics)
