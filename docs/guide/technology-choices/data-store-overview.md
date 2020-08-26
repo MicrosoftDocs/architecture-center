@@ -72,8 +72,9 @@ A single key/value store can be extremely scalable, as the data store can easily
 
 ### Azure services
 
-- [Azure Cosmos DB][cosmos-db]
+- [Azure Cosmos DB SQL API][cosmos-db], [etcd API][cosmos-etcd], and [Table API][cosmos-table]
 - [Azure Cache for Redis][redis]
+- [Azure Table Storage][table-storage-classic]
 
 ### Workload
 
@@ -105,7 +106,7 @@ Typically, a document contains the data for single entity, such as a customer or
 
 ### Azure service
 
-- [Azure Cosmos DB][cosmos-db]
+- [Azure Cosmos DB SQL API][cosmos-db]
 
 ### Workload
 
@@ -372,5 +373,7 @@ Aided with this understanding of different data storage models, the next step is
 [prq]: https://parquet.apache.org/documentation/latest/
 [orc]: https://orc.apache.org/docs/
 [synapseexternal]: /azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool
-[cassandra]: https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction
-
+[cassandra]: /azure/cosmos-db/cassandra-introduction
+[table-storage-classic]: /azure/cosmos-db/table-storage-overview
+[cosmos-etcd]: /azure/cosmos-db/etcd-api-introduction
+[cosmos-table]: /azure/cosmos-db/table-introduction
