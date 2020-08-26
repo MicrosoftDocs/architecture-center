@@ -17,7 +17,7 @@
             <li>9/12/2018</li>
             <li>5 min read</li>
         </ul>
-        <p class="card-content-description">Run an SAP production deployment in Azure using an Oracle database.</p>
+        <p class="card-content-description">This example demonstrates a SAP deployment on virtual machines on Azure, along with a High Availability Oracle database.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

@@ -42,7 +42,7 @@ This article advances the zero-trust, adaptive security approach to IDaaS, empha
 
 ## Architecture
 
-![Azure AD related security capabilities](architecture.png)
+![Azure AD related security capabilities](./media/architecture.png)
 
 1. *Credential management* controls authentication.
 1. *Provisioning* and *entitlement management* define the access package, assign users to resources, and push data for *attestation*.

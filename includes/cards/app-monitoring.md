@@ -17,7 +17,7 @@
             <li>12/12/2018</li>
             <li>7 min read</li>
         </ul>
-        <p class="card-content-description">Monitor a web application hosted in Azure App Service.</p>
+        <p class="card-content-description">Learn about the monitoring services and a dataflow model for use with multiple data sources. Many monitoring tools and services work with Azure deployments.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

@@ -8,6 +8,8 @@ ms.date: 7/31/2020
 ms.topic: overview
 ms.service: architecture-center
 ms.subservice: example-scenario
+ms.category: 
+    - management-and-governance
 ms.custom: fcp
 ---
 
