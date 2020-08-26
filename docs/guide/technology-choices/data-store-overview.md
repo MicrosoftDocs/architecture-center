@@ -72,7 +72,7 @@ A single key/value store can be extremely scalable, as the data store can easily
 
 ### Azure services
 
-- [Azure Cosmos DB SQL API][cosmos-db], [etcd API][cosmos-etcd], and [Table API][cosmos-table]
+- [Azure Cosmos DB Table API][cosmos-table], [etcd API][cosmos-etcd], and [SQL API][cosmos-sql-key-value]
 - [Azure Cache for Redis][redis]
 - [Azure Table Storage][table-storage-classic]
 
@@ -375,5 +375,6 @@ Aided with this understanding of different data storage models, the next step is
 [synapseexternal]: /azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool
 [cassandra]: /azure/cosmos-db/cassandra-introduction
 [table-storage-classic]: /azure/cosmos-db/table-storage-overview
+[cosmos-sql-key-value]: /azure/cosmos-db/sql-query-getting-started
 [cosmos-etcd]: /azure/cosmos-db/etcd-api-introduction
 [cosmos-table]: /azure/cosmos-db/table-introduction
