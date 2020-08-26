@@ -45,7 +45,7 @@ Bedrock helps you with these use cases:
 
 ## Architecture
 
-![Diagram showing Bedrock architecture. A GitOps workflow driven by HLD scripts in a Git repository, executed in an automated process through Azure Pipelines, with the deployment of resources monitored by the Spektate dashboard.](./media/fig010.png)
+![Diagram showing Bedrock architecture. A GitOps workflow driven by HLD scripts in a Git repository, executed in an automated process through Azure Pipelines, with the deployment of resources monitored by the Spektate dashboard.](./media/figure-010.png)
 
 1. High-Level Definition (HLD) files maintained in a Git repository drive the Bedrock GitOps workflow.
 2. A Git pull request (PR) initiates the process, and based on a specific HLD script from the repo, the [Azure Pipeline](https://azure.microsoft.com/services/devops/pipelines/) automation processes the HLD script through [Fabrikate](#fabrikate) to generate the required YAML manifest files and stores them in the manifest repo.
@@ -87,7 +87,7 @@ Bedrock takes advantage of the following aspects of GitOps:
 
 The following image shows how these aspects all interact.
 
-![Diagram showing how the aspects of GitOps interact within Bedrock. Cloud Environment images are pulled via Flux into an Azure container registry and YAML manifests are pulled into a Git manifest repository. The kubectl is not used to apply changes.](./media/fig004.png)
+![Diagram showing how the aspects of GitOps interact within Bedrock. Cloud Environment images are pulled via Flux into an Azure container registry and YAML manifests are pulled into a Git manifest repository. The kubectl is not used to apply changes.](./media/figure-004.png)
 
 ### Terraform
 
@@ -116,13 +116,13 @@ Fabrikate simplifies the front end of the GitOps workflow by using templating to
 
 The following diagram shows the integration of Fabrikate into the GitOps workflow.
 
-![Diagram showing how Fabrikate fits into a GitOps workflow by building a new deployment definition that is output in YAML, stored in Git, and applied via Flux.](./media/fig006.png)
+![Diagram showing how Fabrikate fits into a GitOps workflow by building a new deployment definition that is output in YAML, stored in Git, and applied via Flux.](./media/figure-006.png)
 
 For example, Fabrikate allows you to write DRY resource definitions (used for dry-run deployments) and configurations for multiple environments while taking advantage of the broad Helm chart ecosystem. These special purpose HLD scripts become shareable components that both simplify and support making deployments more auditable.
 
 The following example shows how to specify some common resources in a sample HLD script.
 
-![Image showing how to specify some common resources in a HLD script. Arrows indicate resources such as Fluentd logs, Prometheus/Grafana monitoring, and Jaeger distributed tracing, among others.](./media/fig007.png)
+![Image showing how to specify some common resources in a HLD script. Arrows indicate resources such as Fluentd logs, Prometheus/Grafana monitoring, and Jaeger distributed tracing, among others.](./media/figure-007.png)
 
 ### Spektate
 
@@ -134,7 +134,7 @@ Spektate provides views into the current status of any change in the system. The
 
 The following screenshot shows a view of Bedrock deployments in the Spektate dashboard.
 
-![Screenshot showing a list of Bedrock deployments in the Spektate dashboard with status information for each deployment.](./media/fig011.png)
+![Screenshot showing a list of Bedrock deployments in the Spektate dashboard with status information for each deployment.](./media/figure-011.png)
 
 Spektate includes:
 
@@ -148,7 +148,7 @@ For example, developers and SREs need a comprehensive view of deployment status 
 
 The following diagram shows how Spektate and the Bedrock CLI integrate with the GitOps workflow.
 
-![Diagram showing how Spektate and the Bedrock CLI integrate with the GitOps workflow to monitor, store, and report system data.](./media/fig009.png)
+![Diagram showing how Spektate and the Bedrock CLI integrate with the GitOps workflow to monitor, store, and report system data.](./media/figure-009.png)
 
 Bedrock accommodates the deployment of additional tools to handle special monitoring needs that the Spektate dashboard cannot fulfill. For more information, see [Extend Bedrock](#extend-bedrock).
 
@@ -166,7 +166,7 @@ Flux provides these benefits to Bedrock:
 
 Flux is most useful when used as a deployment tool at the end of a CD pipeline. Flux makes sure that your new container images and config changes propagate to the cluster, as shown in the following diagram.
 
-![Diagram showing how Flux works in a CD pipeline to propagate new container images and config changes.](./media/fig005.png)
+![Diagram showing how Flux works in a CD pipeline to propagate new container images and config changes.](./media/figure-005.png)
 
 ### Helm
 
@@ -180,7 +180,7 @@ The system cloud infrastructure and deployed services require management, and ma
 
 [Bedrock CLI](https://github.com/microsoft/bedrock-cli) is a command-line tool unique to Bedrock that facilitates automation in three key areas: infrastructure management, service management, and introspection using the Spektate dashboard.
 
-![Diagram showing how automation commands are sent through the Bedrock CLI for service introspection, service management, and cloud infrastructure management monitored by Spektate and reported on the Spektate dashboard.](./media/fig008.png)
+![Diagram showing how automation commands are sent through the Bedrock CLI for service introspection, service management, and cloud infrastructure management monitored by Spektate and reported on the Spektate dashboard.](./media/figure-008.png)
 
 ## Considerations
 
@@ -192,7 +192,7 @@ While the core of Bedrock is a significant productivity improvement for dealing 
 
 For example, in the use case shown in the following diagram, [Prometheus](https://prometheus.io/docs/introduction/overview/) and [Grafana](https://grafana.com/docs/grafana-cloud/grafana/) are added to the deployment for additional monitoring and metrics collection.  
 
-![Diagram showing how Bedrock is extended to include metrics monitoring in addition to Flux, by adding tools like Prometheus and Grafana.](./media/fig012.png)
+![Diagram showing how Bedrock is extended to include metrics monitoring in addition to Flux, by adding tools like Prometheus and Grafana.](./media/figure-012.png)
 
 In this case, Prometheus is considered a dial-tone for Kubernetes clusters. Also, Prometheus/Grafana can work in-cluster, aggregated by [Azure Monitor](https://azure.microsoft.com/services/monitor/) for multiple clusters.
 
@@ -264,7 +264,7 @@ Kubernetes uses manifests (typically written in YAML) to specify a set of resour
 
 The following image shows a sample Kubernetes manifest written in YAML.
 
-![Image showing a typical YAML manifest with arrows highlighting the specifications for the number of pods and the docker image.](./media/fig002.png)
+![Image showing a typical YAML manifest with arrows highlighting the specifications for the number of pods and the docker image.](./media/figure-002.png)
 
 Because Bedrock provides a simple method for defining and automating a deployment, you can plan for abnormal situations and execute fixes quickly just by selecting the correct preconfigured deployment. This level of preplanning makes Bedrock useful in supporting:
 
@@ -276,7 +276,7 @@ Because Bedrock provides a simple method for defining and automating a deploymen
 
 The following diagram shows a normal Bedrock deployment:
 
-![Diagram showing how a normal Bedrock deployment across two regions.](./media/fig013.png)
+![Diagram showing how a normal Bedrock deployment across two regions.](./media/figure-013.png)
 
 ### Test deployments
 
