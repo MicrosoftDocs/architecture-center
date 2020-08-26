@@ -6,6 +6,8 @@ ms.date: 07/28/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
+ms.category: 
+    - iot
 ms.custom: fcp
 ---
 

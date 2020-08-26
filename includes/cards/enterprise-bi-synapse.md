@@ -17,7 +17,7 @@
             <li>11/20/2019</li>
             <li>12 min read</li>
         </ul>
-        <p class="card-content-description">Use Azure to gain business insights from relational data stored on-premises.</p>
+        <p class="card-content-description">See an extract, load, and transform pipeline that moves data from an on-premises SQL Server database into Azure Synapse and transforms the data for analysis.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

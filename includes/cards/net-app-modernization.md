@@ -11,7 +11,7 @@
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/net-app-modernization">
-            <p>Modernize .NET applications with Azure SQL DB and Azure App Service</p>
+            <p>Modernize .NET applications</p>
         </a>
         <ul class="card-content-metadata">
             <li>6/26/2020</li>

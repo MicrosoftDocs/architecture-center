@@ -17,7 +17,7 @@
             <li>7/05/2018</li>
             <li>4 min read</li>
         </ul>
-        <p class="card-content-description">Build image processing into your Azure applications.</p>
+        <p class="card-content-description">Learn how to build image processing into your applications by using Azure services such as the Computer Vision API and Azure Functions.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

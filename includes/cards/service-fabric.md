@@ -17,7 +17,7 @@
             <li>6/13/2019</li>
             <li>22 min read</li>
         </ul>
-        <p class="card-content-description">Deploy a microservices architecture on Azure Service Fabric</p>
+        <p class="card-content-description">Use this reference architecture to see microservices deployed to Azure Service Fabric. This cluster configuration can be a starting point for most deployments.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

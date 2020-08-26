@@ -17,7 +17,7 @@
             <li>9/13/2018</li>
             <li>5 min read</li>
         </ul>
-        <p class="card-content-description">Use Azure API Management to modernize a legacy web application.</p>
+        <p class="card-content-description">In this scenario, an e-commerce company in the travel industry migrates a legacy web application by using Azure API Management.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

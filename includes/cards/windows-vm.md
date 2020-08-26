@@ -17,7 +17,7 @@
             <li>12/13/2018</li>
             <li>7 min read</li>
         </ul>
-        <p class="card-content-description">Best practices for running a Windows virtual machine on Azure.</p>
+        <p class="card-content-description">Learn the best practices for running a Windows virtual machine on Azure, which requires some additional components, including networking and storage resources.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

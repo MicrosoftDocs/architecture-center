@@ -17,7 +17,7 @@
             <li>3/10/2020</li>
             <li>7 min read</li>
         </ul>
-        <p class="card-content-description">Ingest and process real-time vehicle data using IoT.</p>
+        <p class="card-content-description">This example builds a real-time data ingestion/processing pipeline to ingest and process messages from IoT devices into a big data analytic platform in Azure.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

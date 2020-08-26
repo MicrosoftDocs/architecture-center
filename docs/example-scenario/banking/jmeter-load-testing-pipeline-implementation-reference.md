@@ -7,6 +7,8 @@ ms.date: 8/11/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
+ms.category: 
+    - devops
 ms.custom: fcp
 ---
 
