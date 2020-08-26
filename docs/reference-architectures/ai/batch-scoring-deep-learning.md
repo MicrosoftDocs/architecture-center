@@ -141,15 +141,15 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 
 <!-- links -->
 
-[aml-compute]: https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target
-[aml-pipeline]: https://docs.microsoft.com/azure/machine-learning/service/concept-ml-pipelines
-[amls]: https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml
-[blob-storage]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
+[aml-compute]: /azure/machine-learning/service/concept-compute-target
+[aml-pipeline]: /azure/machine-learning/service/concept-ml-pipelines
+[amls]: /azure/machine-learning/service/overview-what-is-azure-ml
+[blob-storage]: /azure/storage/blobs/storage-blobs-introduction
 [deployment]: https://github.com/Azure/Batch-Scoring-Deep-Learning-Models-With-AML
 [deployment2]: https://github.com/Azure/Batch-Scoring-Deep-Learning-Models-With-AKS
 [ffmpeg]: https://www.ffmpeg.org
 [image-style-transfer]: https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Gatys_Image_Style_Transfer_CVPR_2016_paper.pdf
-[logic-apps]: https://docs.microsoft.com/azure/logic-apps
+[logic-apps]: /azure/logic-apps
 [source-video]: https://happypathspublic.blob.core.windows.net/videos/orangutan.mp4
-[storage-security]: https://docs.microsoft.com/azure/storage/common/storage-security-guide
-[virtual-network]: https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-virtual-network
+[storage-security]: /azure/storage/common/storage-security-guide
+[virtual-network]: /azure/machine-learning/service/how-to-enable-virtual-network

@@ -43,9 +43,9 @@ Azure is a world-class cloud for hosting virtual machines running Windows or Lin
 
 ## Next steps
 
-* [Use Terraform to create a Virtual Machine Scale Set from a Packer customer VM image](https://docs.microsoft.com/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl)
-* [Use Terraform to plan and create a Virtual Machine Scale Set with Managed Disk](https://docs.microsoft.com/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl)
-* [Use Log Analytics to collect data from Linux computers](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-linux-computer)
+* [Use Terraform to create a Virtual Machine Scale Set from a Packer customer VM image](/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl)
+* [Use Terraform to plan and create a Virtual Machine Scale Set with Managed Disk](/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl)
+* [Use Log Analytics to collect data from Linux computers](/azure/log-analytics/log-analytics-quick-collect-linux-computer)
 * [Get the Azure Extensions Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack)
 
 ## Deploy to Azure

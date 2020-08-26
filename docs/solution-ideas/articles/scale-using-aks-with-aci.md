@@ -30,4 +30,3 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
 1. Container images are pulled from the Azure Container Registry
 1. AKS virtual node, a Virtual Kubelet implementation, provisions pods inside ACI from AKS when traffic comes in spikes.
 1. AKS and ACI containers write to shared data store
-''

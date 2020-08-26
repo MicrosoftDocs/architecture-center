@@ -255,7 +255,7 @@ static readonly Dictionary<OperationAuthorizationRequirement, Func<List<UserPerm
 
 [Tailspin]: ./tailspin.md
 [Application roles]: ./app-roles.md
-[policies]: https://docs.microsoft.com/aspnet/core/security/authorization/policies
+[policies]: /aspnet/core/security/authorization/policies
 [reference implementation]: ./tailspin.md
 [Configuring the authentication middleware]: ./authenticate.md#configure-the-auth-middleware
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance

@@ -38,7 +38,7 @@ applications
 Securing an application requires security assurances for three different
 component types:
 
-- **Application Code:** This is the logic that defines the custom application that you write. The security of this code is the application owners’ responsibility in all generations of application architecture including any open-source snippets or components included in the code. Securing the code requires identifying and mitigating risks from the design and implementation of the application as well as assessing supply chain risk of included components. Note that the evolution of applications into [microservices architectures](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview-microservices) will break various aspects of application code into smaller services vs. a single monolithic codebase.
+- **Application Code:** This is the logic that defines the custom application that you write. The security of this code is the application owners’ responsibility in all generations of application architecture including any open-source snippets or components included in the code. Securing the code requires identifying and mitigating risks from the design and implementation of the application as well as assessing supply chain risk of included components. Note that the evolution of applications into [microservices architectures](/azure/service-fabric/service-fabric-overview-microservices) will break various aspects of application code into smaller services vs. a single monolithic codebase.
 
 - **Application Services:** These are the various standardized components that the application uses such as databases, identity providers, event hubs, IoT device management, and so on. For cloud services this is a shared responsibility:
 
@@ -187,9 +187,9 @@ security impact:
     complex to develop and critically important to security assurances. Avoid
     using homegrown authentication solutions and favor mature capabilities like
     Azure Active Directory ([Azure
-    AD](https://docs.microsoft.com/azure/active-directory/)), [Azure AD
-    B2B](https://docs.microsoft.com/azure/active-directory/b2b/), [Azure
-    AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/), or
+    AD](/azure/active-directory/)), [Azure AD
+    B2B](/azure/active-directory/b2b/), [Azure
+    AD B2C](/azure/active-directory-b2c/), or
     third-party solutions to authenticate and grant permission to users, partners,
     customers, applications, services, and other entities.
 
@@ -205,7 +205,7 @@ security impact:
     directly handling keys (see [Prefer Identity Authentication over Keys](#prefer-identity-authentication-over-keys)).
     For situations where accessing services that require access to keys,
     leverage a key management service like [Azure Key
-    Vault](https://docs.microsoft.com/azure/key-vault/) or AWS [Key
+    Vault](/azure/key-vault/) or AWS [Key
     Management Service](https://aws.amazon.com/kms/) to manage and secure these
     keys rather than attempting to safely handle keys in application code. You
     can use [CredScan](https://secdevtools.azurewebsites.net/helpcredscan.html)
@@ -249,18 +249,18 @@ managing identity systems and few (if any) people actively managing key security
 systems.
 
 For services that offer the Azure AD authentication like [Azure
-Storage](https://docs.microsoft.com/azure/storage/common/storage-security-attributes),
+Storage](/azure/storage/common/storage-security-attributes),
 [Azure App
-Service](https://docs.microsoft.com/azure/app-service/app-service-security-attributes),
+Service](/azure/app-service/app-service-security-attributes),
 [Azure
-Backup](https://docs.microsoft.com/azure/backup/backup-security-attributes),
+Backup](/azure/backup/backup-security-attributes),
 use it for authentication and authorization. To further simplify using
 identities for developers, you can also take advantage of [managed
-identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/)
+identities](/azure/active-directory/managed-identities-azure-resources/)
 to assign identities to resources like VMs and App Services so that developers
 don’t have to manage identities within the application.
 
-For multitenant best practices, see [Manage identity in multitenant applications](https://docs.microsoft.com/azure/architecture/multitenant-identity/).
+For multitenant best practices, see [Manage identity in multitenant applications](../../multitenant-identity/index.md).
 
 ## Bottom-up approach to reduce security bug volume and impact
 
@@ -283,7 +283,7 @@ Mitigating application risk is achieved by integrating security practices and
 tools into the development lifecycle, often called a secure development
 lifecycle (SDL or SDLC). Microsoft has published a number of recommendations in
 a whitepaper entitled [Develop Secure Apps on
-Azure](https://docs.microsoft.com/azure/security/abstract-develop-secure-apps)
+Azure](/azure/security/abstract-develop-secure-apps)
 based on Microsoft’s [Security Development
 Lifecycle](https://www.microsoft.com/SDL) to mitigate common risks with input
 and output validation, perform fuzz testing, attack surface reviews, and more.

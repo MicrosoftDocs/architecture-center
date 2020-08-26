@@ -14,7 +14,7 @@ ms.subservice: reference-architecture
 
 # Azure Industrial IoT Analytics Guidance
 
-This article series shows a recommended architecture for an Industrial IoT (IIoT) *analytics solution* on Azure using [PaaS (Platform as a service)](https://azure.microsoft.com/overview/what-is-paas/) components. [Industrial IoT or IIoT](https://docs.microsoft.com/azure/iot-accelerators/overview-iot-industrial) is the application of *Internet of Things* in the manufacturing industry.
+This article series shows a recommended architecture for an Industrial IoT (IIoT) *analytics solution* on Azure using [PaaS (Platform as a service)](https://azure.microsoft.com/overview/what-is-paas/) components. [Industrial IoT or IIoT](/azure/iot-accelerators/overview-iot-industrial) is the application of *Internet of Things* in the manufacturing industry.
 
 An IIoT analytics solution can be used to build a variety of applications that provide:
 
@@ -58,7 +58,7 @@ In some cases, the data from SCADA systems is forwarded and centralized in an ME
 
 Frequently, industrial equipment and SCADA systems are in a closed Process Control Network (PCN), behind one or more firewalls, with no direct access to the internet. Historians often contain industrial data from multiple facilities and are located outside of a PCN. So, connecting to a historian is often the path of least resistance, rather than connecting to a SCADA, MES, or PLC. If a historian is not available, then connecting to an MES or SCADA system would be the next logical choice.
 
-The connection to the historian, MES, or SCADA system will depend on what protocols are available on that system. Many systems now include Industry 4.0 standards such as OPC UA. Older systems may only support legacy protocols such as Modbus, ODBC, or SOAP. If so, you will most likely require a [protocol translation](https://docs.microsoft.com/samples/azure-samples/azure-iotedge-opc-flattener/azure-iot-edge-protocol-translation-sample/) software running on an *intelligent edge* device.
+The connection to the historian, MES, or SCADA system will depend on what protocols are available on that system. Many systems now include Industry 4.0 standards such as OPC UA. Older systems may only support legacy protocols such as Modbus, ODBC, or SOAP. If so, you will most likely require a [protocol translation](/samples/azure-samples/azure-iotedge-opc-flattener/azure-iot-edge-protocol-translation-sample/) software running on an *intelligent edge* device.
 
 ## Intelligent Edge
 
@@ -66,23 +66,23 @@ Intelligent edge devices perform some data processing on the device itself or on
 
 ### Azure IoT Edge
 
-To connect industrial equipment and systems to the cloud, we recommend using [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/about-iot-edge) as the field gateway for:
+To connect industrial equipment and systems to the cloud, we recommend using [Azure IoT Edge](/azure/iot-edge/about-iot-edge) as the field gateway for:
 
 - Protocol and identity translation;
 - Edge processing and analytics; and
 - Adhering to network security policies (ISA 95, ISA 99).
 
-Azure IoT Edge is a free, [open source](https://github.com/Azure/iotedge) field gateway software that runs on a variety of [supported hardware](https://docs.microsoft.com/azure/iot-edge/support) devices or a virtual machine.
+Azure IoT Edge is a free, [open source](https://github.com/Azure/iotedge) field gateway software that runs on a variety of [supported hardware](/azure/iot-edge/support) devices or a virtual machine.
 
 IoT Edge allows you to run edge workloads as Docker container modules. The modules can be developed in several languages, with SDKs provided for Python, Node.js, C#, Java and C.  Prebuilt Azure IoT Edge modules from Microsoft and third-party partners are available from the [Azure IoT Edge Marketplace](https://azure.microsoft.com/blog/publish-your-azure-iot-edge-modules-in-azure-marketplace/).
 
-Real-time industrial data is encrypted and streamed through Azure IoT Edge to [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) using AMQP 1.0 or MQTT 3.1.1 protocols.  IoT Edge can operate in offline or intermittent network conditions providing **_store and forward_** capabilities.
+Real-time industrial data is encrypted and streamed through Azure IoT Edge to [Azure IoT Hub](/azure/iot-hub/about-iot-hub) using AMQP 1.0 or MQTT 3.1.1 protocols.  IoT Edge can operate in offline or intermittent network conditions providing **_store and forward_** capabilities.
 
 [![Azure IoT Edge device](./images/iot-edge.png)](./images/iot-edge.png#lightbox)
 
 There are two system modules provided as part of IoT Edge runtime.
 
-- The **EdgeAgent** module is responsible for pulling down the container orchestration specification (manifest) from the cloud, so that it knows which modules to run.  Module configuration is provided as part of the [module twin](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins).
+- The **EdgeAgent** module is responsible for pulling down the container orchestration specification (manifest) from the cloud, so that it knows which modules to run.  Module configuration is provided as part of the [module twin](/azure/iot-hub/iot-hub-devguide-module-twins).
 - The **EdgeHub** module manages the communication from the device to Azure IoT Hub, as well as the inter-module communication. Messages are routed from one module to the next using JSON configuration.
 
 [Azure IoT Edge automatic deployments](https://azure.microsoft.com/blog/new-enhancements-for-azure-iot-edge-automatic-deployments/) can be used to specify a standing configuration for new or existing devices. This provides a single location for deployment configuration across thousands of Azure IoT Edge devices.  
@@ -94,9 +94,9 @@ A number of third-party [IoT Edge gateway devices](https://catalog.azureiotsolut
 
 ## Gateway Patterns
 
-There are [three patterns for connecting your devices](https://docs.microsoft.com/azure/iot-edge/iot-edge-as-gateway) to Azure via an IoT Edge field gateway (or virtual machine):
+There are [three patterns for connecting your devices](/azure/iot-edge/iot-edge-as-gateway) to Azure via an IoT Edge field gateway (or virtual machine):
 
-1. **Transparent** - Devices already have the capability to send messages to IoT Hub using AMQP or MQTT.  Instead of sending the messages directly to the hub, they instead send the messages to IoT Edge, which in turn passes them on to IoT Hub.  Each device has an [identity](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry) and [device twin](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) in Azure IoT Hub.
+1. **Transparent** - Devices already have the capability to send messages to IoT Hub using AMQP or MQTT.  Instead of sending the messages directly to the hub, they instead send the messages to IoT Edge, which in turn passes them on to IoT Hub.  Each device has an [identity](/azure/iot-hub/iot-hub-devguide-identity-registry) and [device twin](/azure/iot-hub/iot-hub-devguide-device-twins) in Azure IoT Hub.
 
 1. **Protocol Translation** - Also known as an opaque gateway pattern.  This pattern is often used to connect older brownfield equipment (for example, Modbus) to Azure. Modules are deployed to Azure IoT Edge to perform the protocol conversion. Devices must provide a unique identifier to the gateway.
 
@@ -104,7 +104,7 @@ There are [three patterns for connecting your devices](https://docs.microsoft.co
 
 Although you can use any of these patterns in your IIoT Analytics Solution, your choice will be driven by which protocol is installed on your industrial systems. For example, if your SCADA system supports ethernet/IP, you will need to use a protocol translation software to convert ethernet/IP to MQTT or AMQP. See the [Connecting to Historians section](#connecting-to-historians) for additional guidance.
 
-IoT Edge gateways can be provisioned at scale using the [Azure IoT Hub Device Provisioning Service (DPS)](https://docs.microsoft.com/azure/iot-dps/about-iot-dps). DPS is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention, enabling customers to provision millions of devices in a secure and scalable manner.
+IoT Edge gateways can be provisioned at scale using the [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps/about-iot-dps). DPS is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention, enabling customers to provision millions of devices in a secure and scalable manner.
 
 ## OPC UA
 
@@ -114,9 +114,9 @@ Industry and domain-specific *Information Models* can be created based on the OP
 
 Microsoft has developed open source [Azure Industrial IoT](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/readme.md) components, based on OPC UA, which implement identity translation pattern:
 
-- [OPC Twin](https://docs.microsoft.com/azure/iot-accelerators/overview-opc-twin) consists of microservices and an Azure IoT Edge module to connect the cloud and the factory network. OPC Twin provides discovery, registration, and synchronous remote control of industrial devices through REST APIs.
-- [OPC Publisher](https://docs.microsoft.com/azure/iot-accelerators/overview-opc-publisher) is an Azure IoT Edge module that connects to existing OPC UA servers and publishes telemetry data from OPC UA servers in OPC UA PubSub format, in both JSON and binary.
-- [OPC Vault](https://docs.microsoft.com/azure/iot-accelerators/overview-opc-vault) is a microservice that can configure, register, and manage certificate lifecycle for OPC UA server and client applications in the cloud.
+- [OPC Twin](/azure/iot-accelerators/overview-opc-twin) consists of microservices and an Azure IoT Edge module to connect the cloud and the factory network. OPC Twin provides discovery, registration, and synchronous remote control of industrial devices through REST APIs.
+- [OPC Publisher](/azure/iot-accelerators/overview-opc-publisher) is an Azure IoT Edge module that connects to existing OPC UA servers and publishes telemetry data from OPC UA servers in OPC UA PubSub format, in both JSON and binary.
+- [OPC Vault](/azure/iot-accelerators/overview-opc-vault) is a microservice that can configure, register, and manage certificate lifecycle for OPC UA server and client applications in the cloud.
 - [Discovery Services](https://azure.github.io/Industrial-IoT/modules/discovery.html) is an Azure IoT Edge module that supports network scanning and OPC UA discovery.
 
 The Microsoft Azure IIoT solution also contains a number of services, REST APIs, deployment scripts, and configuration tools that you can integrate into your IIoT analytics solution. These are open source and available on [GitHub](https://azure.github.io/Industrial-IoT/).
@@ -159,7 +159,7 @@ Once real time data streaming has been established between your historian and Az
 
 A cloud gateway provides a cloud hub for devices and field gateways to connect securely to the cloud and send data. It also provides device management capabilities. For the cloud gateway, we recommend Azure IoT Hub. IoT Hub is a hosted cloud service that ingests events from devices and IoT Edge gateways. IoT Hub provides secure connectivity, event ingestion, bidirectional communication, and device management. When IoT Hub is combined with the Azure Industrial IoT components, you can control your industrial devices using cloud-based REST APIs.
 
-IoT Hub supports the following [protocols](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols):
+IoT Hub supports the following [protocols](/azure/iot-hub/iot-hub-devguide-protocols):
 
 - MQTT 3.1.1,
 - MQTT over WebSockets,
@@ -167,8 +167,8 @@ IoT Hub supports the following [protocols](https://docs.microsoft.com/azure/iot-
 - AMQP over WebSockets, and
 - HTTPS.
 
-If the industrial device or system supports any of these protocols, it can send data directly to IoT Hub. In most industrial environments, this is not permissible because of PCN firewalls and network security policies (ISA 95, ISA 99). In such cases, an Azure IoT Edge field gateway can be installed in a [DMZ](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz) between the PCN and the Internet.
+If the industrial device or system supports any of these protocols, it can send data directly to IoT Hub. In most industrial environments, this is not permissible because of PCN firewalls and network security policies (ISA 95, ISA 99). In such cases, an Azure IoT Edge field gateway can be installed in a [DMZ](../../reference-architectures/dmz/secure-vnet-dmz.md) between the PCN and the Internet.
 
 ## Next steps
 
-To learn the services recommended for this architecture, continue reading the series with [Services in an IIoT analytics solution](./iiot-services.md). 
+To learn the services recommended for this architecture, continue reading the series with [Services in an IIoT analytics solution](./iiot-services.md).

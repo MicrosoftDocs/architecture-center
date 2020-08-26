@@ -42,5 +42,5 @@ This NetWeaver on SQL Server application solution illustrates how a user request
 
 ## Next steps
 
-* [SAP Certifications for Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
-* [Premium Storage: high-performance storage for Azure Virtual Machine workloads](https://docs.microsoft.com/azure/storage/storage-premium-storage)
+* [SAP Certifications for Azure](/azure/virtual-machines/workloads/sap/sap-certifications)
+* [Premium Storage: high-performance storage for Azure Virtual Machine workloads](/azure/storage/storage-premium-storage)

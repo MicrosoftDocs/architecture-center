@@ -43,7 +43,7 @@ Azure levels of management scope
 
 Azure services can be purchased using several pricing options, depending on your organization's size and needs. See the [pricing overview](https://azure.microsoft.com/pricing) page for details.
 
-[Azure subscriptions](https://docs.microsoft.com/azure/virtual-machines/linux/infrastructure-example) are a grouping of resources with an assigned owner responsible for billing and permissions management.
+[Azure subscriptions](/azure/virtual-machines/linux/infrastructure-example) are a grouping of resources with an assigned owner responsible for billing and permissions management.
 
 Subscriptions are assigned three types of administrator accounts:
 
@@ -53,34 +53,34 @@ Subscriptions are assigned three types of administrator accounts:
 
 Below the subscription level user roles and individual permissions can also be assigned to specific resources. In Azure, all user accounts are associated with either a Microsoft Account or Organizational Account (an account managed through an Azure Active Directory).
 
-Subscriptions have default service quotas and limits. For a full list of these limits, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits). These limits can be increased up to the maximum by [filing a support request in the management portal](https://blogs.msdn.microsoft.com/girishp/2015/09/20/increasing-core-quota-limits-in-azure).
+Subscriptions have default service quotas and limits. For a full list of these limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits). These limits can be increased up to the maximum by [filing a support request in the management portal](/archive/blogs/girishp/increasing-core-quota-limits-in-azure).
 
 ### See also
 
-- [How to add or change Azure administrator roles](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator)
-- [How to download your Azure billing invoice and daily usage data](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date)
+- [How to add or change Azure administrator roles](/azure/billing/billing-add-change-azure-subscription-administrator)
+- [How to download your Azure billing invoice and daily usage data](/azure/billing/billing-download-azure-invoice-daily-usage-date)
 
 ## Resource management
 
 The term "resource" in Azure means any compute instance, storage object, networking device, or other entity you can create or configure within the platform.
 
-Azure resources are deployed and managed using one of two models: [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), or the older Azure [classic deployment model](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model). Any new resources are created using the Resource Manager model.
+Azure resources are deployed and managed using one of two models: [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview), or the older Azure [classic deployment model](/azure/azure-resource-manager/resource-manager-deployment-model). Any new resources are created using the Resource Manager model.
 
 ### Resource groups
 
 Azure additionally has an entity called "resource groups" that organize resources such as VMs, storage, and virtual networking devices. An Azure resource is always associated with one resource group. A resource created in one resource group can be moved to another group but can only be in one resource group at a time. Resource groups are the fundamental grouping used by Azure Resource Manager.
 
-Resources can also be organized using [tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags). Tags are key-value pairs that allow you to group resources across your subscription irrespective of resource group membership.
+Resources can also be organized using [tags](/azure/azure-resource-manager/resource-group-using-tags). Tags are key-value pairs that allow you to group resources across your subscription irrespective of resource group membership.
 
 ### Management interfaces
 
 Azure offers several ways to manage your resources:
 
-- [Web interface](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal). The Azure portal provides a full web-based management interface for Azure resources.
-- [REST API](https://docs.microsoft.com/rest/api). The Azure Resource Manager REST API provides programmatic access to most of the features available in the Azure portal.
-- [Command Line](https://docs.microsoft.com/azure/azure-resource-manager/cli-azure-resource-manager). The Azure CLI provides a command-line interface capable of creating and managing Azure resources. The Azure CLI is available for [Windows, Linux, and Mac OS](https://docs.microsoft.com/cli/azure).
-- [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/powershell-azure-resource-manager). The Azure modules for PowerShell allow you to execute automated management tasks using a script. PowerShell is available for [Windows, Linux, and Mac OS](https://github.com/PowerShell/PowerShell).
-- [Templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates). Azure Resource Manager templates provide JSON template-based resource management capabilities.
+- [Web interface](/azure/azure-resource-manager/resource-group-portal). The Azure portal provides a full web-based management interface for Azure resources.
+- [REST API](/rest/api). The Azure Resource Manager REST API provides programmatic access to most of the features available in the Azure portal.
+- [Command Line](/azure/azure-resource-manager/cli-azure-resource-manager). The Azure CLI provides a command-line interface capable of creating and managing Azure resources. The Azure CLI is available for [Windows, Linux, and Mac OS](/cli/azure).
+- [PowerShell](/azure/azure-resource-manager/powershell-azure-resource-manager). The Azure modules for PowerShell allow you to execute automated management tasks using a script. PowerShell is available for [Windows, Linux, and Mac OS](https://github.com/PowerShell/PowerShell).
+- [Templates](/azure/azure-resource-manager/resource-group-authoring-templates). Azure Resource Manager templates provide JSON template-based resource management capabilities.
 
 In each of these interfaces, the resource group is central to how Azure resources get created, deployed, or modified.
 
@@ -88,7 +88,7 @@ In addition, many third-party management tools like [Hashicorp's Terraform](http
 
 ### See also
 
-- [Azure resource group guidelines](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)
+- [Azure resource group guidelines](/azure/azure-resource-manager/resource-group-overview#resource-groups)
 
 ## Regions and zones (high availability)
 
@@ -109,9 +109,9 @@ The following table summarizes each option.
 
 ### **Availability sets**
 
-To protect against localized hardware failures, such as a disk or network switch failing, deploy two or more VMs in an availability set. An availability set consists of two or more _fault domains_ that share a common power source and network switch. VMs in an availability set are distributed across the fault domains, so if a hardware failure affects one fault domain, network traffic can still be routed the VMs in the other fault domains. For more information about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
+To protect against localized hardware failures, such as a disk or network switch failing, deploy two or more VMs in an availability set. An availability set consists of two or more _fault domains_ that share a common power source and network switch. VMs in an availability set are distributed across the fault domains, so if a hardware failure affects one fault domain, network traffic can still be routed the VMs in the other fault domains. For more information about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](/azure/virtual-machines/windows/manage-availability).
 
-When VM instances are added to availability sets, they are also assigned an [update domain](https://docs.microsoft.com/azure/virtual-machines/linux/manage-availability). An update domain is a group of VMs that are set for planned maintenance events at the same time. Distributing VMs across multiple update domains ensures that planned update and patching events affect only a subset of these VMs at any given time.
+When VM instances are added to availability sets, they are also assigned an [update domain](/azure/virtual-machines/linux/manage-availability). An update domain is a group of VMs that are set for planned maintenance events at the same time. Distributing VMs across multiple update domains ensures that planned update and patching events affect only a subset of these VMs at any given time.
 
 Availability sets should be organized by the instance's role in your application to ensure one instance in each role is operational. For example, in a three-tier web application, create separate availability sets for the front-end, application, and data tiers.
 
@@ -121,7 +121,7 @@ Availability sets
 
 ### Availability zones
 
-Like GCP, Azure regions can have Availability zones. An [Availability Zone](https://docs.microsoft.com/azure/availability-zones/az-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures.
+Like GCP, Azure regions can have Availability zones. An [Availability Zone](/azure/availability-zones/az-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures.
 
 ![Diagram showing a zone redundant virtual machine deployment with a Region that contains three zones with a subnet that crosses all three zones.](./images/availability_zones.png)
 
@@ -129,11 +129,11 @@ Zone redundant VM deployment on Azure
 
 ### Paired regions
 
-To protect an application against a regional outage, you can deploy the application across multiple regions, using [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager) to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair](https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions). With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
+To protect an application against a regional outage, you can deploy the application across multiple regions, using [Azure Traffic Manager](/azure/traffic-manager) to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair](/azure/best-practices-availability-paired-regions). With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
 
 Unlike Availability Zones, which are physically separate datacenters but may be in relatively nearby geographic areas, paired regions are typically separated by at least 300 miles. This design ensures that large-scale disasters only affect one of the regions in the pair. Neighboring pairs can be set to sync database and storage service data, and are configured so that platform updates are rolled out to only one region in the pair at a time.
 
-Azure [geo-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs) is automatically backed up to the appropriate paired region. For all other resources, creating a fully redundant solution using paired regions means creating a full copy of your solution in both regions.
+Azure [geo-redundant storage](/azure/storage/common/storage-redundancy-grs) is automatically backed up to the appropriate paired region. For all other resources, creating a fully redundant solution using paired regions means creating a full copy of your solution in both regions.
 
 ![Diagram shows region pairs in Azure, where Geography contains a Region Pair, which contains two Regions, which each contain Datacenters.](./images/region_pairs.png)
 
@@ -141,11 +141,11 @@ Region Pairs in Azure
 
 ### See also
 
-- [Regions for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/regions)
-- [Availability options for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/availability)
-- [High availability for Azure applications](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
-- [Failure and disaster recovery for Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery)
-- [Planned maintenance for Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates)
+- [Regions for virtual machines in Azure](/azure/virtual-machines/linux/regions)
+- [Availability options for virtual machines in Azure](/azure/virtual-machines/linux/availability)
+- [High availability for Azure applications](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.md)
+- [Failure and disaster recovery for Azure applications](../framework/resiliency/backup-and-recovery.md)
+- [Planned maintenance for Linux virtual machines in Azure](/azure/virtual-machines/linux/maintenance-and-updates)
 
 ## Services
 
@@ -157,4 +157,4 @@ Not all Azure products and services are available in all regions. Consult the [P
 
 - [Get started with Azure](https://azure.microsoft.com/get-started)
 - [Azure solution architectures](https://azure.microsoft.com/solutions/architecture)
-- [Azure Reference Architectures](https://azure.microsoft.com/documentation/articles/guidance-architecture)
+- [Azure Reference Architectures](../browse/index.md)
