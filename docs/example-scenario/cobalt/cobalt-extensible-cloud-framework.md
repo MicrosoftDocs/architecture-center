@@ -10,7 +10,9 @@ ms.service: architecture-center
 ms.subservice: example-scenario
 ms.category: 
     - management-and-governance
-ms.custom: fcp
+ms.custom: 
+    - fcp
+    - cse
 ---
 
 # Use Cobalt to create an extensible cloud framework
