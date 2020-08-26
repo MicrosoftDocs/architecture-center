@@ -9,7 +9,9 @@ ms.service: architecture-center
 ms.subservice: example-scenario
 ms.category: 
     - databases
-ms.custom: fcp
+ms.custom: 
+    - fcp
+    - cse
 ---
 
 # DataOps for the modern data warehouse
