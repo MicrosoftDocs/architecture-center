@@ -2,7 +2,7 @@
 title: Compute
 description: Describes cost tradeoffs for compute services
 author:  v-aangie
-ms.date: 08/27/2020
+ms.date: 08/26/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
