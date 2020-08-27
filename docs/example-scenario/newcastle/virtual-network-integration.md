@@ -70,7 +70,7 @@ The solution uses the following components:
 - You can replace the Cosmos DB endpoint in this solution with another MongoDB service without changing the code.
 - For additional [Cosmos DB security](/azure/cosmos-db/database-security), you can lock down traffic from the Cosmos DB databases to the function apps.
 - Components such as Cosmos DB can send telemetry to [Azure Monitor](/azure/azure-monitor/overview), where it can be correlated with the telemetry from Application Insights.
-- Inatead of Terraform, you can use the Azure portal or Azure CLI for [Key Vault key rotation](/samples/azure-samples/serverless-keyvault-secret-rotation-handling/handling-keyvault-secret-rotation-changes-utilized-by-an-azure-function/) tasks.
+- Instead of Terraform, you can use the Azure portal or Azure CLI for [Key Vault key rotation](/samples/azure-samples/serverless-keyvault-secret-rotation-handling/handling-keyvault-secret-rotation-changes-utilized-by-an-azure-function/) tasks.
 - Instead of Terraform, you can use a system like [Azure DevOps](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions](https://docs.github.com/actions) to automate solution deployment.
 - For higher availability, this solution can be deployed to multiple regions. [Set Cosmos DB to multi-master](/azure/cosmos-db/how-to-multi-master), and use the built-in [APIM multi-region support](/azure/api-management/api-management-howto-deploy-multi-region). The Azure Function apps can then be deployed to [paired regions](/azure/best-practices-availability-paired-regions).
 
