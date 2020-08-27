@@ -13,7 +13,7 @@ ms.custom:
 
 # Multiple AD forests architecture with Windows Virtual Desktop
 
-Many organizations desire to leverage Windows Virtual Desktop (WVD) and create environments with multiple on-premises Active Directory forests. This article expands on the architecture described in the [WVD at enterprise scale article](./windows-virtual-desktop.md) and helps understand how multiple domains and WVD can be integrated in a workload.
+Many organizations desire to leverage Windows Virtual Desktop (WVD) and create environments with multiple on-premises Active Directory forests. This article expands on the architecture described in the [WVD at enterprise scale article](./windows-virtual-desktop.md) and helps understand how multiple domains and WVD can be integrated in a workload, using [Active Directory Domain Services or AD DS](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 The following are some relevant use cases for this architecture:
 
@@ -22,7 +22,8 @@ The following are some relevant use cases for this architecture:
 - Use of on-premises GPO infrastructure with Azure WVD.
 
 > [!NOTE]
-  > For using Azure Active Directory Domain Services (AAD DS) in multiple forests, and for developing a *minimum viable product* (MVP) and a *proof of concept* (POC) for such a use case, refer to the [solution idea for multiple forests with AAD DS](./multi-forest-w-AADDS.md).
+  > The terms AD DS and AAD DS are distinct, in that, AD DS is the on-premises Active Directory Domain Services, whereas AAD DS is the corresponding counterpart that is controlled by the Azure cloud. This article caters to the customer-managed AD DS.
+  > This [solution idea for multiple forests with AAD DS](./multi-forest-w-AADDS.md) discusses this architecture when using the cloud-managed [Azure Active Directory Domain Services (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/overview) in the WVD multiple forests architecture.
 
 ## Architecture
 
@@ -35,17 +36,17 @@ The following are some relevant use cases for this architecture:
 This architecture diagram shows a typical scenario that involves the following:
 
 - Azure AD tenant is available for the new company named as `NewCompanyAB.onmicrosoft.com`.
-- [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity) syncs users from on-premises AAD DS to AAD. (TBD: does this matter here since we are directing to the solution idea?)
-- Different Azure subscriptions for company A and company B are available as *Shared Services Subscription*. (TBD: can we point to a link here?)
-- [Azure hub-spoke architecture with shared services hub vNet](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is implemented already. (TBD: is this correct inference?)
-- Complex hybrid on-premises Active Directory environments are present with two or more AD (TBD: is AAD? we should be consistent in the abbreviations) forests. Domains live in separate forests. For example, *companyA.local with UPN suffix companyA.com*, *companyB.local with UPN suffix CompanyB.com*, and additional *UPN* suffix newcompanyAB. (TBD: as a newbie, I didn't get this. Should we provide more links or context here?)
+- [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity) syncs users from on-premises AD DS to Azure Active Directory (AAD).
+- Each of the company A and company B has a separate Azure subscription. They also have a [shared services subscription](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/initial-subscriptions#shared-services-subscription) referred to as the *Subscription 1* in the above diagram.
+- [An Azure hub-spoke architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is implemented with a shared services hub virtual network (VNet).
+- Complex hybrid on-premises Active Directory environments are present with two or more AD forests. Domains live in separate forests, each with a different [UPN suffix](https://docs.microsoft.com/microsoft-365/enterprise/prepare-a-non-routable-domain-for-directory-synchronization?view=o365-worldwide#add-upn-suffixes-and-update-your-users-to-them). For example, *companyA.local* with the UPN suffix companyA.com, *companyB.local* with the UPN suffix CompanyB.com, and an additional UPN suffix *newcompanyAB.com*.
 - Domain controllers for both forests are located on-premises and in Azure.
 - Verified domains are present in Azure for CompanyA.com, CompanyB.com, and NewCompanyAB.com.
 - Group Policy (GPO) and legacy authentication such as [Kerberos](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-authentication-overview), [NTLM](https://docs.microsoft.com/windows-server/security/kerberos/ntlm-overview), and [LDAP](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) are used.
 - Azure environments that still have dependency on-premises infrastructure, private connectivity ([Site-to-site VPN or Azure ExpressRoute](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)) is set up between on-premises and Azure.
 - The [WVD environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup) consists of a WVD workspace, Azure subscription for each business unit, and two host pools per workspace.
 - The WVD session hosts are joined to domain controllers in Azure, that is, companyA session hosts join the companyA.local domain, and CompanyB session hosts join the CompanyB.local domain.
-- Separate Azure Storage accounts leverage [Azure Files for FSLogix profiles](https://docs.microsoft.com/azure/virtual-desktop/FSLogix-containers-azure-files). Azure Files domain joins the corresponding domains for companyA.local and companyB.local. (TBD: I changed from *corresponding domain* to *corresponding domains*, is this correct? Does the AF domain join both the domains?)
+- Azure Storage accounts can leverage [Azure Files for FSLogix profiles](https://docs.microsoft.com/azure/virtual-desktop/FSLogix-containers-azure-files). One account is created per company domain (that is, companyA.local and companyB.local), and joined to the corresponding domain.
 
 ## Components
 
@@ -57,7 +58,7 @@ Additionally, the following components are also used in this architecture:
 
 - **Azure subscriptions, WVD workspaces and host pools:** Multiple subscriptions, WVD workspaces, and host pools can be leveraged for administration boundaries and business requirements.
 
-## Data Flow
+## Data flow
 
 In this architecture, the identity flow works as follows.
 
@@ -79,21 +80,21 @@ Keep in mind the following considerations while designing your workload based on
 - To extend GPO infrastructure for WVD, the on-premises domain controllers should sync to the Azure IaaS domain controllers.
 - Extending the GPO infrastructure to Azure IaaS domain controllers requires private connectivity.
 
-### Network and Connectivity
+### Network and connectivity
 
-- The *Landing Zone* (TBD: can we point to a link for this term?) is [Azure hub-spoke architecture with shared services hub vNet](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) for domain controllers. (TBD: I don't understand this statement)
+- The domain controllers are shared components, so they need to be deployed in a shared services hub VNet in this [hub-spoke architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 - WVD session hosts join the domain controller in Azure over their respective hub-spoke vNet peering.
 
 ### Azure Storage
 
-The following design considerations apply to user profile containers, cloud cache containers, and MSIX packages: (TBD: MSIX??)
+The following design considerations apply to user profile containers, cloud cache containers, and [MSIX](https://docs.microsoft.com/windows/msix/overview) packages:
 
-- Both [Azure Files and NetApp files](https://docs.microsoft.com/azure/virtual-desktop/store-FSLogix-profile#azure-platform-details) can be used in this scenario. Choose the right solution based on factors such as expected performance, cost, and so on. (TBD: does this make sense?)
+- Both [Azure Files and NetApp files](https://docs.microsoft.com/azure/virtual-desktop/store-FSLogix-profile#azure-platform-details) can be used in this scenario. Choose the right solution based on factors such as expected performance, cost, and so on.
 - Both Azure Storage accounts and NetApp files present the same limitation of being able to join to one single AD DS at a time. In these cases, multiple Azure Storage accounts or NetApp instances will be required.
 
 ### Azure Active Directory
 
-In case of scenarios with users in multiple on-premises Active Directory forests, only one Azure AD Connect sync server connected to the same Azure AD Tenant is supported. An exception to this is an AD Connect used in staging mode. (TBD: restructured, does this make sense?)
+In scenarios with users in multiple on-premises Active Directory forests, only one Azure AD Connect sync server is connected to the Azure AD tenant. An exception to this is an AD Connect used in staging mode.
 
 ![WVD Multiple AD Forests design considerations](images/wvd-multiple-forests.png)
 

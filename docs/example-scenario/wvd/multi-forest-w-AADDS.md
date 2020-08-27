@@ -13,7 +13,7 @@ ms.custom:
 
 # Multiple WVD forests using Azure Active Directory Domain Services
 
-This solution idea shows how you can deploy WVD rapidly in a *minimum viable product* (MVP) or a *proof of concept* (PoC) environment with the use of Azure Active Directory Domain Services (AAD DS). Use this idea to extend on-premises multi-forest AD DS (TBD: What is the difference between AD DS and AAD DS?) identities to Azure without private connectivity and support for [legacy authentication](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest).
+This solution idea shows how you can deploy WVD rapidly in a *minimum viable product* (MVP) or a *proof of concept* (PoC) environment with the use of Azure Active Directory Domain Services (AAD DS). Use this idea to extend on-premises multi-forest AD DS identities to Azure without private connectivity and support for [legacy authentication](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest).
 
 This solution idea also applies to mergers and acquisitions, organization re-branding, and multiple on-premises identities requirements.
 
@@ -25,12 +25,12 @@ This solution idea also applies to mergers and acquisitions, organization re-bra
 
 *Download the <a href="images/WVD-two-forest-to-Azure-AADDS-No-Private-Connectivity.vsdx" download> Visio</a> diagram of this architecture.*
 
-## Data Flow
+## Data flow
 
-The following steps describe the identity (TBD: or data? ) flow in this architecture:
+The following steps show how the data flows in this architecture in the form of identity.
 
-1. Complex hybrid on-premises Active Directory environments are present, with two or more AD forests. Domains live in separate forests. For example, *companyA.local* with UPN suffix *companyA.com*, *companyB.local* with UPN suffix *CompanyB.com*, and additional UPN suffix *newcompanyAB*.
-1. Instead of any Azure IaaS domain controllers (TBD: Can we point to something that will explain what an IaaS domain controller is?), two domain controllers provided by [AAD DS](https://docs.microsoft.com/azure/active-directory-domain-services/overview) are used.
+1. Complex hybrid on-premises Active Directory environments are present, with two or more AD forests. Domains live in separate forests, with distint UPN suffices. For example, *companyA.local* with UPN suffix *companyA.com*, *companyB.local* with UPN suffix *CompanyB.com*, and an additional UPN suffix *newcompanyAB.com*.
+1. Instead of using customer-managed domain controllers whether on-premises or on Azure (that is, Azure IaaS domain controllers), [the two cloud-managed domain controllers provided by AAD DS](https://docs.microsoft.com/azure/active-directory-domain-services/overview#how-does-azure-ad-ds-work) are used.
 1. Azure AD Connect syncs users from both CompanyA.com and CompanyB.com to the Azure AD tenant (NewCompanyAB.onmicrosoft.com). The user account is represented only once in AAD and private connectivity is not used.
 1. Users then sync from AAD to the managed AAD DS as a one-way sync.
 1. A custom and *routable* AAD DS domain name is created (aadds.newcompanyAB.com). The newcompanyAB.com is a registered domain to support LDAP certificates. It is generally recommended not to use non-routable domain names (such as, contoso.local) as it can cause issues with DNS resolution.
@@ -45,7 +45,7 @@ The following steps describe the identity (TBD: or data? ) flow in this architec
 >
 > 1. For Group Policy requirements in AAD DS, you can [install Group Policy Management tools](https://docs.microsoft.com/azure/active-directory-domain-services/manage-group-policy#before-you-begin) on a Windows Server virtual machine that is joined to AAD DS.
 > 2. To extend GPO infrastructure for WVD from the on-premises domain controllers, manual export and import to AAD DS is required.  
-> 3. Custom ADMX templates are not supported in AAD DS, so the FSLogix ADMX templates should not be used. Instead, FSLogix settings should be set in the Group Policy Preferences, windows registry or scripts. (TBD: restructured, still makes sense?)
+> 3. Custom [ADMX templates](https://docs.microsoft.com/microsoft-edge/deploy/managing-group-policy-admx-files) are not supported in AAD DS, so the FSLogix ADMX templates should not be used. Instead, FSLogix settings should be set in the Group Policy Preferences, windows registry or scripts.
 >
 
 ## Next steps
