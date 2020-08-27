@@ -606,7 +606,7 @@ items:
         href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.md
       - name: Hybrid big data with HDInsight
         href: solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.md
-      - name: End-to-end monitoring solution with Azure Data Explorer
+      - name: Monitoring solution with Azure Data Explorer
         href: solution-ideas/articles/monitor-azure-data-explorer.md
       - name: ETL using HDInsight
         href: solution-ideas/articles/extract-transform-and-load-using-hdinsight.md
