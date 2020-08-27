@@ -88,9 +88,12 @@ There are several options for updating Windows Virtual Desktop desktops. Deployi
 
 ## Considerations
 
-Numbers in the following sections are approximate, based on a variety of large customer deployments, and may change over time.
+Numbers in the following sections are approximate. The numbers are based on a variety of large customer deployments, and they might change over time.
 
-You can't publish more than 50 applications per application group.
+Also, note that:
+
+- You can't create more than 50 application groups per single Azure AD tenant.
+- We recommend that you don't publish more than 50 applications per application group. 
 
 ### Azure limitations
 
@@ -123,5 +126,6 @@ Architect your Windows Virtual Desktop solution to realize cost savings. Here ar
 
 ## Next steps
 
+- Use the new [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to automate the deployment of your Windows Virtual Desktop environment. These ARM templates support only Azure Resource Manager Windows Virtual Desktop objects. These ARM templates don't support Windows Virtual Desktop (classic). 
 - [Windows Virtual Desktop partner integrations](https://aka.ms/wvdpartner) lists approved Windows Virtual Desktop partner providers and independent software vendors.
 - Use the resources at [Windows_10_VDI_Optimize](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) to help optimize performance in a Windows 10 Enterprise VDI environment.
