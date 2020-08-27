@@ -9,7 +9,9 @@ ms.service: architecture-center
 ms.subservice: example-scenario
 ms.category: 
     - devops
-ms.custom: fcp
+ms.custom: 
+    - fcp
+    - cse
 ---
 
 # JMeter implementation reference for load testing pipeline solution
