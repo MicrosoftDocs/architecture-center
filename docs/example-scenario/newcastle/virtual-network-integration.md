@@ -67,8 +67,8 @@ In this solution, the function apps allow interactions only within their own vir
 
 The solution uses [regional virtual network integration](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#regional-virtual-network-integration) to deploy APIM and the function apps in the same virtual network in the same Azure region. There are two important considerations for using regional virtual network integration:
 
-- You need an Azure Premium subscription to have both regional virtual network integration and scalability.
-- Since you deploy the function apps in a subnet of the virtual network, you need to configure the IP address allow list in the subnet.
+- You need to use Azure Functions Premium to have both regional virtual network integration and scalability.
+- Since you deploy the function apps in a subnet of the virtual network, you can configure access restrictions on the function app to allow traffic from other subnets in the virtual network.
 
 #### Access keys
 You can call APIM and function apps without using access keys. However, disabling the access keys isn't good security practice, so all components in this solution require keys for access.
@@ -81,7 +81,7 @@ You can call APIM and function apps without using access keys. However, disablin
 #### Key Vault storage
 Although it's possible to keep keys and connection strings in the application settings, it's not good practice, because anyone who can access the app can access the keys and strings. The best practice, especially for production environments, is to keep the keys and strings in Azure Key Vault, and use the Key Vault references to call the apps.
 
-APIM uses an advanced inbound policy to cache the Patient API host key for better performance. For subsequent attempts, APIM looks for the key in its cache first.
+APIM uses an inbound policy to cache the Patient API host key for better performance. For subsequent attempts, APIM looks for the key in its cache first.
 
 - APIM retrieves the Patient API host key from Key Vault, caches it, and puts it into an HTTP header when calling the Patient API function app.
 - The Patient API function app retrieves the Audit API host key from Key Vault and puts it into an HTTP header when calling the Audit API function app.
@@ -99,7 +99,7 @@ Key rotation involves updating several settings:
 The current solution uses Terraform for most of the key rotation tasks. You can also use the Azure portal or Azure CLI to rotate the keys. For more information, see [Key rotation pattern with Terraform](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/docs/key_rotation.md).
 
 #### Managed identity
-In this solution, APIM and the function apps use an Azure [system-assigned managed service identity (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/) to access the Key Vault keys and strings. The MSI has the following GET permissions:
+In this solution, APIM and the function apps use an Azure [system-assigned managed service identity (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/) to access the Key Vault secrets. Key Vault has the following individual access policies for each service's managed identity:
 
 - APIM can get the host key of the Patient API function app.
 - The Patient API function app can get the Audit API host key and the Cosmos DB connection string for its data store.
@@ -115,9 +115,9 @@ The solution uses the following components:
 
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) provides an isolated and highly-secure application environment by restricting network access to only specific IP addresses or subnets. Both APIM and Azure Functions support access restriction and deployment in virtual networks. The solution uses [regional virtual network integration](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#regional-virtual-network-integration) to deploy both function apps in the same virtual network in the same region.
 
-- [Azure Key Vault](/azure/key-vault/general/overview) lets you centrally store, encrypt, and manage access to keys, secrets, certificates, and connection strings. This solution maintains the Azure Functions service keys and Azure Cosmos DB connection strings in a Key Vault that only specified identities can access.
+- [Azure Key Vault](/azure/key-vault/general/overview) lets you centrally store, encrypt, and manage access to keys, secrets, certificates, and connection strings. This solution maintains the Azure Functions host keys and Azure Cosmos DB connection strings in a Key Vault that only specified identities can access.
 
-- [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) is a fully managed serverless database with instant, automatic scaling. In the current solution, both microservices store data in Cosmos DB, using the [MongoDB Node.js driver](https://mongodb.github.io/node-mongodb-native/). The services don't share data, and you can deploy each service to its own independent database. You can replace the Cosmos DB endpoint with another MongoDB service without changing the code.
+- [Azure Cosmos DB](/azure/cosmos-db/mongodb-introduction) is a fully managed serverless database with instant, automatic scaling. In the current solution, both microservices store data in Cosmos DB, using the [MongoDB Node.js driver](https://mongodb.github.io/node-mongodb-native/). The services don't share data, and you can deploy each service to its own independent database. You can replace the Cosmos DB endpoint with another MongoDB service without changing the code.
 
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview), a feature of [Azure Monitor](/azure/azure-monitor/overview), monitors applications to detect performance anomalies. APIM and the Azure Functions runtime have built-in support for Application Insights to generate and correlate a wide variety of telemetry, including standard application output. The function apps use the Application Insights Node.js SDK to manually track dependencies and other custom telemetry.
   
@@ -125,7 +125,7 @@ The solution uses the following components:
   
   Application Insights telemetry can feed into a wider Azure Monitor workspace. Components like Cosmos DB can send telemetry to Azure Monitor, which correlates it with telemetry from Application Insights.
   
-  For more information about distributed telemetry tracing, see [Distributed telemetry](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/docs/distributed_telemetry.md).
+  For more information about the distributed telemetry tracing in this solution, see [Distributed telemetry](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/docs/distributed_telemetry.md).
 
 ## Deploy the solution
 
@@ -139,7 +139,7 @@ Both APIs have a full suite of automated integration and unit tests to help prev
 
 The code project's [/env](https://github.com/mspnp/vnet-integrated-serverless-microservices/tree/main/env) folder includes scripts and templates for [Terraform](https://www.terraform.io/) deployment. Terraform deploys APIM and the function apps, and configures them to use the deployed Application Insights instance. Terraform also provisions all resources and configurations, including networking lockdown and the access key security pattern.
 
-The deployment [README](https://github.com/mspnp/vnet-integrated-serverless-microservices/tree/main/env) explains how to deploy the Terraform environment in your own Azure subscription. The  `/env` folder also includes a [dev container](https://github.com/mspnp/vnet-integrated-serverless-microservices/tree/main/env/.devcontainer) for Terraform deployment.
+The deployment [README](https://github.com/mspnp/vnet-integrated-serverless-microservices/tree/main/env) explains how to deploy the Terraform environment in your own Azure subscription. The  `/env` folder also includes a [dev container](https://github.com/mspnp/vnet-integrated-serverless-microservices/tree/main/env/.devcontainer) that has all the prerequisites installed for Terraform deployment.
 
 You can also use a system like Azure DevOps or GitHub Actions to automate deployment.
 
