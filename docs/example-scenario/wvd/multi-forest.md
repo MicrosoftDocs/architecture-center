@@ -22,8 +22,8 @@ The following are some relevant use cases for this architecture:
 - Use of on-premises GPO infrastructure with Azure WVD.
 
 > [!NOTE]
-  > The terms AD DS and AAD DS are distinct, in that, AD DS is the on-premises Active Directory Domain Services, whereas AAD DS is the corresponding counterpart that is controlled by the Azure cloud. This article caters to the customer-managed AD DS.
-  > This [solution idea for multiple forests with AAD DS](./multi-forest-w-AADDS.md) discusses this architecture when using the cloud-managed [Azure Active Directory Domain Services (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/overview) in the WVD multiple forests architecture.
+  > The terms AD DS and AAD DS are distinct. AD DS is an on-premises service, whereas AAD DS or [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/overview) is the corresponding counterpart managed by Azure. This article caters to the customer-managed AD DS.
+  > This [solution idea for multiple forests with AAD DS](./multi-forest-w-AADDS.md) discusses this architecture when using the cloud-managed AAD DS in the WVD multiple forests architecture.
 
 ## Architecture
 
