@@ -11,7 +11,7 @@ ms.category:
   - security
 ms.subservice: solution-idea
 ms.author: v-jenkir
-social_image_url: /azure/architecture/solution-ideas/media/devsecops-in-github.png
+social_image_url: /azure/architecture/solution-ideas/media/devsecops-in-github-data-flow.png
 ---
 
 # DevSecOps in GitHub
@@ -44,8 +44,8 @@ GitHub DevSecOps installations cover a verity of security scenarios. Possibiliti
 
 ## Architecture
 
-![Architecture Diagram](../media/devsecops-in-github.png)
-*Download an [SVG](../media/devsecops-in-github.svg) of this architecture.*
+![Architecture diagram highlighting the security checks that run in various GitHub and Azure components in a GitHub DevSecOps environment.](../media/devsecops-in-github-data-flow.png)
+*Download an [.svg](https://github.com/fmigacz/devsecops-architecture/tree/master/media/devsecops-in-github.svg) of this architecture.*
 
 1. Developers accessing GitHub resources are redirected to Azure AD for authentication using the SAML protocol. The organization enforces Single Sign-On (SSO) using FIDO2 strong authentication with the Microsoft Authenticator app.
 1. Developers begin working on tasks in Codespaces. Organized into containers, these pre-built development environments provide correctly configured IDEs that are equipped with required security scanning extensions.
@@ -58,37 +58,36 @@ GitHub DevSecOps installations cover a verity of security scenarios. Possibiliti
 
 ## Components
 
-* [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) is a multi-tenant, cloud-based identity and access management service that controls access to Azure and other cloud apps like M365 and GitHub.
-* [GitHub](https://docs.github.com/en/github) provides a code-hosting platform that developers can use for collaborating on both open source and innersource projects.
-* [Codespaces](https://docs.github.com/en/github/developing-online-with-codespaces/about-codespaces) is an online development environment. Hosted by GitHub and powered by Visual Studio Code, this tool provides a complete development solution in the cloud.
-* GitHub Security works to eliminate vulnerabilities in repositories.
-  * Code scanning inspects code for known vulnerabilities and coding errors at scheduled times or after certain events occur (like a commit or a push).
-  * [Vulnerability management](https://docs.github.com/en/github/managing-security-vulnerabilities) - when known vulnerabilities occur in your code (or in software packages your code uses), GitHub can raise an alert to the project, create a new branch with updated code, and trigger a pull request to fix the vulnerability.
-  * [GitHub Dependabot](https://docs.github.com/en/github/administering-a-repository/about-github-dependabot) is an automated agent that checks for outdated packages and applications. Dependabot can update software dependencies or vulnerabilities to newer versions.
+- [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) is a multi-tenant, cloud-based identity and access management service that controls access to Azure and other cloud apps like M365 and GitHub.
+- [GitHub](https://docs.github.com/en/github) provides a code-hosting platform that developers can use for collaborating on both open source and innersource projects.
+- [Codespaces](https://docs.github.com/en/github/developing-online-with-codespaces/about-codespaces) is an online development environment. Hosted by GitHub and powered by Visual Studio Code, this tool provides a complete development solution in the cloud.
+- GitHub Security works to eliminate vulnerabilities in repositories.
+
+  - [Code scanning](https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) inspects code for known vulnerabilities and coding errors. These checks automatically run at scheduled times or after certain events occur, like commits or pushes, and use [CodeQl](https://securitylab.github.com/tools/codeql), a code analysis platform that improves upon traditional analyzers by treating code as data.
+  - [GitHub Dependabot](https://docs.github.com/en/github/administering-a-repository/about-github-dependabot) checks for outdated or vulnerable packages and applications. This automated agent updates software, replacing out-of-date or insecure dependencies with newer versions.
+  - [Vulnerability management](https://docs.github.com/en/github/managing-security-vulnerabilities) identifies and updates known vulnerabilities in code and in software packages the code uses. It performs checks whenever the following events occur:
+
+    - A new vulnerability enters the [GitHub Advisory Database](https://docs.github.com/en/github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database).
+    - A new vulnerability notification appears from the third-party service [WhiteSource](https://resources.whitesourcesoftware.com/blog-whitesource/github-security-updates).
+    - A repository's dependencies change (for instance, when a project switches from .NET to .NET Core).
+    
+    When GitHub identifies a *vulnerability*, it initiates the following data flow:
+    ![Architecture diagram illustrating the chain of events that the identification of a vulnerability triggers, including alerts, upgrades, and deployment.](../media/devsecops-in-github-vulnerability-management-data-flow.png)
+    *Download an [.svg](https://github.com/fmigacz/devsecops-architecture/tree/master/media/devsecops-in-github-vulnerability-management.svg) of this diagram.*
+
+    1. GitHub sends an email alert to the organization owners and repository administrators.
+    1. GitHub Dependabot, a DevOps bot agent, automatically performs the following three tasks:
+       1. Create a new branch in the repository.
+       1. Upgrade the necessary dependencies to the minimum possible secure version needed to avoid the vulnerability.
+       1. Create a pull request (PR) with the upgraded dependency.
+    1. When the PR is approved, the new branch merges with the base branch.
+    1. The merged branch triggers GitHub Actions to perform CI/CD tasks.
+    1. GitHub deploys the new app version to a test or staging environment.
+
 * [GitHub Actions](https://docs.github.com/en/actions/getting-started-with-github-actions/about-github-actions) are custom workflows that provide continuous integration (CI) and continuous deployment (CD) capabilities directly in your code repository.
 * [Azure Policy](/azure/governance/policy/overview) helps you manage and prevent IT issues with policy definitions that can enforce rules for your cloud resources.
 * [Azure Security Center](/azure/security-center/security-center-intro) provides unified security management and advanced threat protection across hybrid cloud workloads.
 * [Azure Monitor](/azure/azure-monitor/overview) collects and analyzes app telemetry (performance metrics, activity logs, etc.), and can identify conditions that require an alert to be sent to a human or another app.
-
-## Vulnerability Management
-
-GitHub security will attempt to identify and update any vulnerable dependencies in a repository. It will check whenever the following events occur:
-* A new vulnerability is entered into the [GitHub Advisory Database](https://docs.github.com/en/github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database).
-* A new vulnerability notification appears from the third-party service, [WhiteSource](https://resources.whitesourcesoftware.com/blog-whitesource/github-security-updates).
-* A repository's dependencies change (e.g., changing a project from .NET to .NET Core).
-
-A *vulnerability*, when identified, causes the following data flow:
-![Data Flow Diagram](../media/devsecops-in-github-vulnerability-management.png)
-*Download an [SVG](../media/devsecops-in-github-vulnerability-management.svg) of this diagram.*
-
-1. An email alert is sent to the organization owners and repository admins
-1. GitHub Dependabot, a DevOps bot agent, will perform the following three (3) tasks automatically:
-1. Create a new branch in the repository
-1. Upgrade the necessary dependencies to the minimum possible secure version needed to avoid the vulnerability
-1. Create a Pull Request (PR) with the upgraded dependency
-1. When the PR is approved, the new branch is merged with the base branch
-1. The merged branch triggers GitHub Actions to perform its CI/CD tasks
-1. The CI/CD tasks are performed and the new app version is deployed to a Test or Staging environment 
 
 ## Tenets of the Azure Well-Architected Framework
 The [Azure Well-Architected Framework](azure/architecture/framework/) is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
