@@ -20,7 +20,7 @@ Starting with the first steps of development, DevSecOps adheres to security best
 
 With numerous security capabilities, GitHub offers tools that support every part of a DevSecOps workflow.
 
-- Browser-based IDEs that support security extensions yet require minimal configuration.
+- Browser-based IDEs with built-in security extensions.
 - Continuous monitoring of security advisories and replacement of vulnerable dependencies.
 - Agents that maintain dependency trees and update out-of-date packages.
 - Search capabilities that scan source code for vulnerabilities.
@@ -30,12 +30,13 @@ With numerous security capabilities, GitHub offers tools that support every part
 
 Combined with the monitoring and evaluation power of Azure, these features provide a superb service for building secure cloud solutions.
 
-## Use cases
+## Potential use cases
 
 GitHub DevSecOps installations cover a verity of security scenarios. Possibilities include the following:
-- Development teams that want to take advantage of a preconfigured development environment that is equiped with required security scanning extensions.
+
+- Development teams that want to take advantage of pre-configured environments that offer security capabilities.
 - Team leaders who rely on having up-to-date, prioritized security reports at their fingertips, delivered with detailed information on affected code and suggested fixes.
-- Streamlined organizations that need new, uncompromised tokens automatically secured when service tokens are left exposed in code.
+- Streamlined organizations that need systems to automatically procure new, uncompromised security devices when service tokens are left exposed in code.
 - Developers with no time to sift through dependencies, who instead need tools that automate the tasks of tracking vulnerabilities and available upgrades.
 - Administrators who count on the deployment process stopping automatically when risks are identified.
 - Teams that could benefit from automatic upgrades when newer or more secure versions of external libraries become available.
@@ -47,23 +48,23 @@ GitHub DevSecOps installations cover a verity of security scenarios. Possibiliti
 *Download an [SVG](../media/devsecops-in-github.svg) of this architecture.*
 
 1. Developers accessing GitHub resources are redirected to Azure AD for authentication using the SAML protocol. The organization enforces Single Sign-On (SSO) using FIDO2 strong authentication with the Microsoft Authenticator app.
-1. Developers access a Codespace (a pre-built development environment) to begin working on tasks. Organized into containers, Codespaces contain correctly configured IDEs that are pre-installed with required security scanning extensions.
-1. When new code is committed, GitHub Actions scans the code to quickly and automatically find vulnerabilities and coding errors.
-1. Pull requests trigger code builds and automated testing through GitHub Actions. Secrets and credentials are encrypted at rest and obfuscated in log entries.
-1. GitHub Actions deploys build artifacts to App Service while making changes to other cloud resources like service endpoints.  
-1. Azure Policy evaluates Azure resources in deployment and potentially denies releases, modifies cloud resources, or creates warning events in activity logs.
-1. Azure Security Center identifies attacks targeting applications running in deployed projects.
-1. Continuous monitoring with Azure Monitor can revert (rollback) to a previous commit based on monitoring data.
+1. Developers begin working on tasks in Codespaces. Organized into containers, these pre-built development environments provide correctly configured IDEs that are equipped with required security scanning extensions.
+1. When new code is committed, GitHub Actions automatically scans the code to quickly find vulnerabilities and coding errors.
+1. Pull requests trigger code builds and automated testing through GitHub Actions. GitHub encrypts secrets and credentials at rest and obfuscates these entries in logs.
+1. GitHub Actions deploys build artifacts to App Service while making changes to other cloud resources, such as service endpoints.  
+1. Azure Policy evaluates Azure resources that are in deployment and potentially denies releases, modifies cloud resources, or creates warning events in activity logs.
+1. Azure Security Center identifies attacks targeting applications that are running in deployed projects.
+1. Azure Monitor continuously tracks and evaluates app behavior. When conditions arise that pose risks to security or stability, this service reverts changes by rolling code back to previous commits.
 
 ## Components
 
-* [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) is a multi-tenant, cloud-based identity and access management service, controlling access to Azure and other cloud apps like M365 and GitHub.
-* [GitHub](https://docs.github.com/en/github) is where developers can collaborate with open source communities and within your organization (innersource).
-* [Codespaces](https://docs.github.com/en/github/developing-online-with-codespaces/about-codespaces) is an online development environment, hosted by GitHub and powered by Visual Studio Code, that allows you to develop entirely in the cloud.
-* GitHub Security
+* [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) is a multi-tenant, cloud-based identity and access management service that controls access to Azure and other cloud apps like M365 and GitHub.
+* [GitHub](https://docs.github.com/en/github) provides a code-hosting platform that developers can use for collaborating on both open source and innersource projects.
+* [Codespaces](https://docs.github.com/en/github/developing-online-with-codespaces/about-codespaces) is an online development environment. Hosted by GitHub and powered by Visual Studio Code, this tool provides a complete development solution in the cloud.
+* GitHub Security works to eliminate vulnerabilities in repositories.
+  * Code scanning inspects code for known vulnerabilities and coding errors at scheduled times or after certain events occur (like a commit or a push).
   * [Vulnerability management](https://docs.github.com/en/github/managing-security-vulnerabilities) - when known vulnerabilities occur in your code (or in software packages your code uses), GitHub can raise an alert to the project, create a new branch with updated code, and trigger a pull request to fix the vulnerability.
   * [GitHub Dependabot](https://docs.github.com/en/github/administering-a-repository/about-github-dependabot) is an automated agent that checks for outdated packages and applications. Dependabot can update software dependencies or vulnerabilities to newer versions.
-  * Code scanning - will inspect code for known vulnerabilities and coding errors at scheduled times or after certain events occur (like a commit or a push).
 * [GitHub Actions](https://docs.github.com/en/actions/getting-started-with-github-actions/about-github-actions) are custom workflows that provide continuous integration (CI) and continuous deployment (CD) capabilities directly in your code repository.
 * [Azure Policy](/azure/governance/policy/overview) helps you manage and prevent IT issues with policy definitions that can enforce rules for your cloud resources.
 * [Azure Security Center](/azure/security-center/security-center-intro) provides unified security management and advanced threat protection across hybrid cloud workloads.
