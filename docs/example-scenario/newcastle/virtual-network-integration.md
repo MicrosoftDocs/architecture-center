@@ -3,7 +3,7 @@ title: Virtual network integrated serverless microservices
 titleSuffix: Azure Example Scenarios
 description: Learn about an end-to-end solution for health records management that uses Azure Functions microservices integrated with other services via a virtual network.
 author: hannesne
-ms.date: 08/25/2020
+ms.date: 08/27/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -12,22 +12,23 @@ ms.custom: fcp
 
 # Virtual network integrated microservices
 
-This article describes an integrated solution for patient records management. A health organization needs to digitally store large amounts of highly-sensitive patient medical test data in the cloud. Internal and third-party systems must be able to securely read and write the data through an application programming interface (API). All interactions with the data must be recorded in an audit register.
+This article describes an integrated solution for patient records management. A health organization needs to digitally store large amounts of highly sensitive patient medical test data in the cloud. Internal and third-party systems must be able to securely read and write the data through an application programming interface (API). All interactions with the data must be recorded in an audit register.
 
 In the Azure solution, [Azure API Management (APIM)](https://azure.microsoft.com/services/api-management/) controls access to the API through a single managed endpoint. The application backend consists of two interdependent [Azure Functions](https://azure.microsoft.com/services/functions/) microservice apps that create and manage patient records and audit records. APIM and the two function apps access each other through a locked-down [virtual network](https://azure.microsoft.com/services/virtual-network/).
 
-Each function app stores its data in an independent [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) database. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) securely holds all keys, secrets, and connection strings associated with the apps and databases. Application Insights telemetry and Azure Monitor centralize logging across the system.
-
-This article and the [associated code project](https://github.com/mspnp/vnet-integrated-serverless-microservices) distill the example scenario down to the main technical components, to serve as a scaffold for specific implementations. The solution automates all code and infrastructure deployments with [Terraform](https://www.terraform.io/), and includes automated integration, unit, and load testing.
+This article and the [associated code project](https://github.com/mspnp/vnet-integrated-serverless-microservices) distill the example scenario down to the main technical components, to serve as scaffolding for specific implementations. The solution automates all code and infrastructure deployments with [Terraform](https://www.terraform.io/), and includes automated integration, unit, and load testing.
 
 ## Potential use cases
 
-- Highly-sensitive data that requires access from designated external endpoints
+- Highly sensitive data that requires access from designated external endpoints
 - Interdependent microservice apps that need to be integrated with common access and security
+- Data access operations that require secure auditing
 
 ## Architecture
 
 APIM controls internal and third-party access to a set of API microservices built on Azure Functions. The **Patient API** provides *create, read, update, and delete (CRUD)* operations for patients and their test results. The **Audit API** function app provides operations to create auditing entries. 
+
+Each function app stores its data in an independent [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) database. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) securely holds all keys, secrets, and connection strings associated with the apps and databases. Application Insights telemetry and Azure Monitor centralize logging across the system.
 
 The following diagram shows the patient record creation request flow:
 
@@ -39,7 +40,6 @@ The following diagram shows the patient record creation request flow:
 1. The **Audit API** `CreateAuditRecord` function creates the audit record in Cosmos DB, and returns a success response to the **Patient API** `CreatePatient` function.
 1. The `CreatePatient` function creates the patient document in Cosmos DB, and returns a success response to APIM.
 1. The outside services and clients receive the success response from APIM.
-1. Application Insights distributed telemetry centralizes logging along the whole request pipeline.
 
 ### Security
 
@@ -59,7 +59,7 @@ The system is publicly accessible only through the single managed APIM endpoint.
 APIM allows for easy integration with different authentication mechanisms. The current solution requires a subscription key, but you could also use Azure Active Directory to secure the APIM endpoint.
 
 #### Virtual network
-To avoid exposing APIs and functions publicly, [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) restricts network access for APIs and functions to only specific IP addresses or subnets. Both API Management and Azure Functions support access restriction and deployment in virtual networks.
+To avoid exposing APIs and functions publicly, [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) restricts network access for APIs and functions to specific IP addresses or subnets. Both API Management and Azure Functions support access restriction and deployment in virtual networks.
 
 Function apps can restrict IPv4, IPv6, and virtual network subnet access. By default, a function app allows all access, but once you add one or more address or subnet restrictions, the app denies all other network traffic.
 
@@ -73,19 +73,19 @@ The solution uses [regional virtual network integration](https://docs.microsoft.
 #### Access keys
 You can call APIM and function apps without using access keys. However, disabling the access keys isn't good security practice, so all components in this solution require keys for access.
 
-- Accessing APIM requires a subscription key, so users need to include `Ocp-Apim-Subscription-Key` in the HTTP header. Alternatively, you could use Azure Active Directory to secure the APIM endpoint without needing to manage subscription keys in APIM.
+- Accessing APIM requires a subscription key, so users need to include `Ocp-Apim-Subscription-Key` in HTTP headers. Alternatively, you could use Azure Active Directory to secure the APIM endpoint without needing to manage subscription keys in APIM.
 - All functions in the Patient API function app require an API access key, so APIM must include `x-functions-key` in the HTTP header when calling the Patient API.
 - Calling `CreateAuditRecord` in the Audit API function app requires an API access key, so Patient API needs to include `x-functions-key` in the HTTP header when calling the `CreateAuditRecord` function.
 - Both Functions apps use Cosmos DB as their data store, so they must use connection strings to access the Cosmos DB databases.
 
 #### Key Vault storage
-Although it's possible to keep keys and connection strings in the application settings, it's not good practice, because anyone who can access the app can access the keys and strings. The best practice, especially for production environments, is to keep the keys and strings in Azure Key Vault, and use the Key Vault references to call the apps.
+Although it's possible to keep access keys and connection strings in the application settings, it's not good practice, because anyone who can access the app can see the keys and strings. The best practice, especially for production environments, is to keep the keys and strings in Azure Key Vault, and use the Key Vault references to call the apps.
 
-APIM uses an inbound policy to cache the Patient API host key for better performance. For subsequent attempts, APIM looks for the key in its cache first.
+APIM uses an inbound policy to cache the Patient API host key for improved performance. For subsequent attempts, APIM looks for the key in its cache first.
 
 - APIM retrieves the Patient API host key from Key Vault, caches it, and puts it into an HTTP header when calling the Patient API function app.
 - The Patient API function app retrieves the Audit API host key from Key Vault and puts it into an HTTP header when calling the Audit API function app.
-- The Azure Function runtime validates the key in the HTTP header on incoming requests.
+- The Azure Function runtime validates the keys in the HTTP headers on incoming requests.
 
 #### Key rotation
 Rotating Key Vault keys helps make the system more secure. You can automatically rotate keys periodically, or you can rotate keys manually or on demand in case of leakage.
@@ -113,15 +113,17 @@ The solution uses the following components:
 
 - [Azure Functions](/azure/azure-functions/functions-overview) is a serverless compute platform that handles small, event-driven pieces of code. The cloud infrastructure provides the necessary updated servers to run the functions at scale. The current solution uses a set of two Azure Functions API microservices that create and manage operations for patient test results and auditing records.
 
-- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) provides an isolated and highly-secure application environment by restricting network access to only specific IP addresses or subnets. Both APIM and Azure Functions support access restriction and deployment in virtual networks. The solution uses [regional virtual network integration](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#regional-virtual-network-integration) to deploy both function apps in the same virtual network in the same region.
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) provides an isolated and highly secure application environment by restricting network access to specific IP addresses or subnets. Both APIM and Azure Functions support access restriction and deployment in virtual networks. The solution uses [regional virtual network integration](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#regional-virtual-network-integration) to deploy both function apps in the same virtual network in the same region.
 
-- [Azure Key Vault](/azure/key-vault/general/overview) lets you centrally store, encrypt, and manage access to keys, secrets, certificates, and connection strings. This solution maintains the Azure Functions host keys and Azure Cosmos DB connection strings in a Key Vault that only specified identities can access.
+- [Azure Key Vault](/azure/key-vault/general/overview) lets you centrally store, encrypt, and manage access to keys, certificates, and connection strings. This solution maintains the Azure Functions host keys and Azure Cosmos DB connection strings in a Key Vault that only specified identities can access.
 
 - [Azure Cosmos DB](/azure/cosmos-db/mongodb-introduction) is a fully managed serverless database with instant, automatic scaling. In the current solution, both microservices store data in Cosmos DB, using the [MongoDB Node.js driver](https://mongodb.github.io/node-mongodb-native/). The services don't share data, and you can deploy each service to its own independent database. You can replace the Cosmos DB endpoint with another MongoDB service without changing the code.
 
-- [Application Insights](/azure/azure-monitor/app/app-insights-overview), a feature of [Azure Monitor](/azure/azure-monitor/overview), monitors applications to detect performance anomalies. APIM and the Azure Functions runtime have built-in support for Application Insights to generate and correlate a wide variety of telemetry, including standard application output. The function apps use the Application Insights Node.js SDK to manually track dependencies and other custom telemetry.
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview), a feature of [Azure Monitor](/azure/azure-monitor/overview), reports on application performance, usage, availability, and behavior to detect and help diagnose anomalies.
   
-  Failures in microservices based architecture are often distributed over a variety of components, and can't be diagnosed by looking at the services in isolation. The ability to correlate telemetry across components is vital to diagnosing these issues. Application Insights telemetry centralizes logging along the whole request pipeline. The telemetry shares a common operation ID, allowing correlation across components.
+  Failures in microservices-based architecture are often distributed over a variety of components, and can't be diagnosed by looking at the services in isolation. The ability to correlate telemetry across components is vital to diagnosing these issues. Application Insights telemetry centralizes logging along the whole request pipeline to detect performance anomalies. The telemetry shares a common operation ID, allowing correlation across components.
+  
+  APIM and the Azure Functions runtime have built-in support for Application Insights to generate and correlate a wide variety of telemetry, including standard application output. The function apps use the Application Insights Node.js SDK to manually track dependencies and other custom telemetry.
   
   Application Insights telemetry can feed into a wider Azure Monitor workspace. Components like Cosmos DB can send telemetry to Azure Monitor, which correlates it with telemetry from Application Insights.
   
@@ -131,7 +133,7 @@ The solution uses the following components:
 
 The source code for this solution is at [Azure VNet-Integrated Serverless Microservices](https://github.com/mspnp/vnet-integrated-serverless-microservices).
 
-The [Typescript](https://www.typescriptlang.org/) source code for the [PatientTest API](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/src/PatientTestsApi/readme.md) and the [Audit API](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/src/AuditApi/readme.md) are in the `/src` folder. Each API's source includes a [dev container](https://code.visualstudio.com/docs/remote/containers) that has all the prerequisites installed, to help you get going quicker.
+The [Typescript](https://www.typescriptlang.org/) source code for the [PatientTest API](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/src/PatientTestsApi/readme.md) and the [Audit API](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/src/AuditApi/readme.md) are in the `/src` folder. Each API's source includes a [dev container](https://code.visualstudio.com/docs/remote/containers) that has all the prerequisites installed, to help you get going quickly.
 
 Both APIs have a full suite of automated integration and unit tests to help prevent regressions when you make changes. The project is also configured for *linting* with ESLint, to maintain code styles and help guard against unintentional errors. The services' respective README files contain information on how to run the tests and linting.
 
