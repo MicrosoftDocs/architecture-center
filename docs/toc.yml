@@ -588,6 +588,10 @@ items:
         href: solution-ideas/articles/application-integration-using-event-grid.md
       - name: Automated enterprise BI
         href: reference-architectures/data/enterprise-bi-adf.md
+      - name: Big data analytics with Azure Data Explorer
+        href: solution-ideas/articles/big-data-azure-data-explorer.md
+      - name: Content Delivery Network analytics
+        href: solution-ideas/articles/content-delivery-network-azure-data-explorer.md
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.md
       - name: Demand forecasting
@@ -602,8 +606,14 @@ items:
         href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.md
       - name: Hybrid big data with HDInsight
         href: solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.md
+      - name: End-to-end monitoring solution with Azure Data Explorer
+        href: solution-ideas/articles/monitor-azure-data-explorer.md
       - name: ETL using HDInsight
         href: solution-ideas/articles/extract-transform-and-load-using-hdinsight.md
+      - name: Interactive analytics with Azure Data Explorer
+        href: solution-ideas/articles/interactive-azure-data-explorer.md
+      - name: IoT telemetry analytics with Azure Data Explorer
+        href: solution-ideas/articles/iot-azure-data-explorer.md
       - name: Interactive price analytics
         href: solution-ideas/articles/interactive-price-analytics.md
       - name: Mass ingestion of news feeds on Azure
@@ -622,18 +632,6 @@ items:
         href: reference-architectures/data/stream-processing-stream-analytics.md
       - name: Tiering applications & data for analytics
         href: solution-ideas/articles/tiered-data-for-analytics.md
-      - name: Analyze with Azure Data Explorer
-        items:
-        - name: Big data analytics
-          href: solution-ideas/articles/big-data-azure-data-explorer.md
-        - name: Content Delivery Network analytics
-          href: solution-ideas/articles/content-delivery-network-azure-data-explorer.md
-        - name: Interactive analytics
-          href: solution-ideas/articles/interactive-azure-data-explorer.md
-        - name: IoT telemetry analytics
-          href: solution-ideas/articles/iot-azure-data-explorer.md
-        - name: End-to-end monitoring solution
-          href: solution-ideas/articles/monitor-azure-data-explorer.md
   - name: Blockchain
     items:
     - name: Architectures
@@ -1121,7 +1119,7 @@ items:
         href: example-scenario/iot-aad/iot-aad.md
       - name: Voice assistants and IoT devices
         href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.md
-      - name: Analytics with Azure Data Explorer
+      - name: IoT using Azure Data Explorer
         href: solution-ideas/articles/iot-azure-data-explorer.md
     - name: Industrial IoT Analytics
       items:
