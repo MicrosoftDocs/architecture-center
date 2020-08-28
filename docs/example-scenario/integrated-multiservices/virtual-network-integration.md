@@ -35,13 +35,13 @@ Each function app stores its data in an independent [Azure Cosmos DB](https://az
 
 The following diagram shows the patient record creation request flow:
 
-![Diagram showing virtual network integrated microservices.](./media/vnet-microservices.png)
+![Diagram showing virtual network integrated microservices.](./media/virtual-network-microservices.png)
 
 1. Outside services and clients make a POST request to APIM, with a data body that includes patient information.
 1. APIM calls the `CreatePatient` function in the **Patient API** with the given patient information.
 1. The `CreatePatient` function in **Patient API** calls the `CreateAuditRecord` function in the **Audit API** function app to create an audit record.
-1. The **Audit API** `CreateAuditRecord` function creates the audit record in Cosmos DB, and returns a success response to the **Patient API** `CreatePatient` function.
-1. The `CreatePatient` function creates the patient document in Cosmos DB, and returns a success response to APIM.
+1. The **Audit API** `CreateAuditRecord` function creates the audit record in Azure Cosmos DB, and returns a success response to the **Patient API** `CreatePatient` function.
+1. The `CreatePatient` function creates the patient document in Azure Cosmos DB, and returns a success response to APIM.
 1. The outside services and clients receive the success response from APIM.
 
 ## Components
@@ -56,7 +56,7 @@ The solution uses the following components:
 
 - [Azure Key Vault](/azure/key-vault/general/overview) centrally stores, encrypts, and manages access to keys, certificates, and connection strings. This solution maintains the Azure Functions host keys and Azure Cosmos DB connection strings in a Key Vault that only specified identities can access.
 
-- [Azure Cosmos DB](/azure/cosmos-db/mongodb-introduction) is a fully managed serverless database with instant, automatic scaling. In the current solution, both microservices store data in Cosmos DB, using the [MongoDB Node.js driver](https://mongodb.github.io/node-mongodb-native/). The services don't share data, and you can deploy each service to its own independent database.
+- [Azure Cosmos DB](/azure/cosmos-db/mongodb-introduction) is a fully managed serverless database with instant, automatic scaling. In the current solution, both microservices store data in Azure Cosmos DB, using the [MongoDB Node.js driver](https://mongodb.github.io/node-mongodb-native/). The services don't share data, and you can deploy each service to its own independent database.
 
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview), a feature of [Azure Monitor](/azure/azure-monitor/overview), reports on application performance, usage, availability, and behavior to detect and help diagnose anomalies.
   
@@ -70,12 +70,12 @@ The solution uses the following components:
 
 - The current solution requires a subscription key to access the APIM endpoint, but you can also use [Azure Active Directory (Azure AD) authentication](/azure/active-directory/authentication/overview-authentication).
 - In addition to requiring API access keys, you can use Azure Functions' built-in [App Service authentication](/azure/app-service/configure-authentication-provider-aad) to enable Azure AD authorization for the APIs' managed identities.
-- You can replace the Cosmos DB endpoint in this solution with another MongoDB service without changing the code.
-- For additional [Cosmos DB security](/azure/cosmos-db/database-security), you can lock down traffic from the Cosmos DB databases to the function apps.
-- Components such as Cosmos DB can send telemetry to [Azure Monitor](/azure/azure-monitor/overview), where it can be correlated with the telemetry from Application Insights.
+- You can replace the Azure Cosmos DB endpoint in this solution with another MongoDB service without changing the code.
+- For additional [Azure Cosmos DB security](/azure/cosmos-db/database-security), you can lock down traffic from the Azure Cosmos DB databases to the function apps.
+- Components such as Azure Cosmos DB can send telemetry to [Azure Monitor](/azure/azure-monitor/overview), where it can be correlated with the telemetry from Application Insights.
 - Instead of Terraform, you can use the Azure portal or Azure CLI for [Key Vault key rotation](/samples/azure-samples/serverless-keyvault-secret-rotation-handling/handling-keyvault-secret-rotation-changes-utilized-by-an-azure-function/) tasks.
 - Instead of Terraform, you can use a system like [Azure DevOps](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions](https://docs.github.com/actions) to automate solution deployment.
-- For higher availability, this solution can be deployed to multiple regions. [Set Cosmos DB to multi-master](/azure/cosmos-db/how-to-multi-master), use APIM's built-in [multi-region support](/azure/api-management/api-management-howto-deploy-multi-region), and deploy the Azure Function apps to [paired regions](/azure/best-practices-availability-paired-regions).
+- For higher availability, this solution can be deployed to multiple regions. [Set Azure Cosmos DB to multi-master](/azure/cosmos-db/how-to-multi-master), use APIM's built-in [multi-region support](/azure/api-management/api-management-howto-deploy-multi-region), and deploy the Azure Function apps to [paired regions](/azure/best-practices-availability-paired-regions).
 
 ## Considerations
 
