@@ -16,7 +16,7 @@ social_image_url: /azure/architecture/solution-ideas/media/devsecops-in-github-d
 
 # DevSecOps in GitHub
 
-Starting with the first steps of development, DevSecOps adheres to security best practices. By using a shift-left strategy, DevSecOps shifts the focus on security away from auditing at the end and toward development in the beginning.
+Starting with the first steps of development, DevSecOps adheres to security best practices. By using a shift-left strategy, DevSecOps points the focus on security away from auditing at the end and toward development in the beginning.
 
 With numerous security capabilities, GitHub offers tools that support every part of a DevSecOps workflow.
 
@@ -68,7 +68,7 @@ GitHub DevSecOps installations cover a verity of security scenarios. Possibiliti
 - [Azure Monitor](/azure/azure-monitor/overview) collects and analyzes app telemetry, such as performance metrics and activity logs. When this service identifies irregular conditions, it alerts apps and personnel.
 - GitHub Security works to eliminate vulnerabilities in repositories in multiple ways:
 
-  - [Code scanning](https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) inspects code for known vulnerabilities and coding errors. As an example, if a developer leaves a database connection string exposed in code, this feature discovers the secret, verifies its validity with the database, and initiates the steps needed to secure an uncompromised string. These checks automatically run at scheduled times or after certain events occur, like commits or pushes, and use [CodeQl](https://securitylab.github.com/tools/codeql), a code analysis platform that improves upon traditional analyzers by treating code as data.
+  - [Code scanning](https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) inspects code for known vulnerabilities and coding errors. As an example, if a developer leaves a database connection string exposed in code, this feature discovers the secret, verifies its validity with the database, and initiates the steps needed to secure an uncompromised string. These checks automatically run at scheduled times or after certain events occur, like commits or pushes, and use CodeQL, a code analysis platform that improves upon traditional analyzers by treating code as data.
   - [GitHub Dependabot](https://docs.github.com/en/github/administering-a-repository/about-github-dependabot) checks for outdated or vulnerable packages and applications. This automated agent updates software, replacing out-of-date or insecure dependencies with newer versions. For instance, if Dependabot determines that an open-source library that your project uses does not encrypt sensitive cleartext before storing that information in a database, Dependabot creates a PR that upgrades the library to a version that encrypts the information.
   - [Vulnerability management](https://docs.github.com/en/github/managing-security-vulnerabilities) identifies and updates known vulnerabilities in code and in software packages that the code uses. It performs checks whenever the following events occur:
 
@@ -97,7 +97,7 @@ GitHub DevSecOps installations cover a verity of security scenarios. Possibiliti
 ## Considerations
 Consider the following points when deciding how to implement this pattern:
 
-- You can augment the code-scanning capabilities of GitHub by adding [third-party code-scanning tools](https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) that produce [Static Analysis Results Interchange Format (SARIF)](https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning) files. GitHub then creates alerts when those tools identify potential security issues.
+- You can augment the code-scanning capabilities of GitHub by adding [third-party code-scanning tools](https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) that produce Static Analysis Results Interchange Format (SARIF) files. GitHub then creates alerts when those tools identify potential security issues.
 - One concern with DevSecOps is that code scans can generate noisy results filled with false positives, leading to the following types of problems:
   - Developers can waste time investigating nonexistent problems.
   - Addressing security issues often interrupts workflow.
@@ -134,4 +134,10 @@ The [Azure Well-Architected Framework](azure/architecture/framework/) provides a
 * Scan your code using the CodeQL analysis engine. CodeQL can discover potential vulnerabilities and coding errors on a schedule, and/or when events occur (like a commit or a pull request). See [About code scanning](https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning).
 * Dependabot security updates remove a lot risk from using known exploits in your projects. Make sure to configure them, see [Configuring GitHub Dependabot security updates](https://docs.github.com/en/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates).
 
+## Related resources
 
+- [DevSecOps in Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure)
+- [Training materials, tools, and other resoureces on GitHub DevSecOps](https://github.com/devsecops/awesome-devsecops)
+- [Tips for getting started with GitHub DevSecOps](https://resources.github.com/whitepapers/Architects-guide-to-DevOps/)
+- [CodeQL](https://securitylab.github.com/tools/codeql)
+- [SARIF files](https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning)
