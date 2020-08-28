@@ -18,7 +18,7 @@ This pattern is already being used by Microsoft customers to track user activity
 
 :::image type="content" source="../media/interactive-azure-data-explorer.png" alt-text="Interactive analytics with Azure Data Explorer" lightbox="../media/interactive-azure-data-explorer.png":::
 
-## Data flow 
+## Data flow
 
 1. Raw structured, semi-structured, and unstructured (free text) data such as, any type of logs, business events, and user activities can be ingested into Azure Data Explorer from various sources. Ingest the data in streaming or batch mode using various methods.
 1. Ingest data into Azure Data Explorer with low-latency and high-throughput using its connectors for [Azure Data Factory](https://docs.microsoft.com/azure/data-explorer/data-factory-integration), [Azure Event Hub](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-hub), [Azure IoT Hub](https://docs.microsoft.com/azure/data-explorer/ingest-data-iot-hub), [Kafka](https://docs.microsoft.com/azure/data-explorer/ingest-data-kafka), and so on. Instead, ingest data through Azure Storage (Blob or ADLS Gen2), which uses [Azure Event Grid](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-grid) and triggers the ingestion pipeline to Azure Data Explorer. You can also continuously export data to Azure Storage in compressed, partitioned parquet format and seamlessly query that data as detailed in [continuous data export overview](https://docs.microsoft.com/azure/data-explorer/kusto/management/data-export/continuous-data-export).
