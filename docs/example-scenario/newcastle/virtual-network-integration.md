@@ -14,15 +14,18 @@ ms.custom: fcp
 
 This article describes an integrated solution for patient records management. A health organization needs to digitally store large amounts of highly sensitive patient medical test data in the cloud. Internal and third-party systems must be able to securely read and write the data through an application programming interface (API). All interactions with the data must be recorded in an audit register.
 
-In the Azure solution, [Azure API Management (APIM)](https://azure.microsoft.com/services/api-management/) controls access to the API through a single managed endpoint. The application backend consists of two interdependent [Azure Functions](https://azure.microsoft.com/services/functions/) microservice apps that create and manage patient records and audit records. APIM and the two function apps access each other through a locked-down [virtual network](https://azure.microsoft.com/services/virtual-network/).
+In this Azure solution, [Azure API Management (APIM)](https://azure.microsoft.com/services/api-management/) controls access to the API through a single managed endpoint. The application backend consists of two interdependent [Azure Functions](https://azure.microsoft.com/services/functions/) microservice apps that create and manage patient records and audit records. APIM and the two function apps access each other through a locked-down [virtual network](https://azure.microsoft.com/services/virtual-network/).
+
+Some benefits of serverless applications like Azure Functions are the cost savings and flexibility of using only necessary compute resources, rather than paying up front for dedicated servers. This solution lets Azure Functions use virtual network access restrictions for security, without incurring the cost and operational overhead of full [Azure App Service Environments (ASEs)](/azure/app-service/environment/network-info).
 
 This article and the [associated code project](https://github.com/mspnp/vnet-integrated-serverless-microservices) distill the example scenario down to the main technical components, to serve as scaffolding for specific implementations. The solution automates all code and infrastructure deployments with [Terraform](https://www.terraform.io/), and includes automated integration, unit, and load testing.
 
 ## Potential use cases
 
-- Highly sensitive data that requires access from designated external endpoints
-- Interdependent microservice apps that need to be integrated with common access and security
-- Data access operations that require secure auditing
+- Access highly sensitive data from designated external endpoints.
+- Implement secure auditing for data access operations.
+- Integrate interdependent microservices apps with common access and security.
+- Use virtual network security features while taking advantage of serverless cost savings and flexibility.
 
 ## Architecture
 
@@ -72,7 +75,7 @@ The solution uses the following components:
 - Components such as Cosmos DB can send telemetry to [Azure Monitor](/azure/azure-monitor/overview), where it can be correlated with the telemetry from Application Insights.
 - Instead of Terraform, you can use the Azure portal or Azure CLI for [Key Vault key rotation](/samples/azure-samples/serverless-keyvault-secret-rotation-handling/handling-keyvault-secret-rotation-changes-utilized-by-an-azure-function/) tasks.
 - Instead of Terraform, you can use a system like [Azure DevOps](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions](https://docs.github.com/actions) to automate solution deployment.
-- For higher availability, this solution can be deployed to multiple regions. [Set Cosmos DB to multi-master](/azure/cosmos-db/how-to-multi-master), and use the built-in [APIM multi-region support](/azure/api-management/api-management-howto-deploy-multi-region). The Azure Function apps can then be deployed to [paired regions](/azure/best-practices-availability-paired-regions).
+- For higher availability, this solution can be deployed to multiple regions. [Set Cosmos DB to multi-master](/azure/cosmos-db/how-to-multi-master), use APIM's built-in [multi-region support](/azure/api-management/api-management-howto-deploy-multi-region), and deploy the Azure Function apps to [paired regions](/azure/best-practices-availability-paired-regions).
 
 ## Considerations
 
@@ -93,7 +96,7 @@ For more details about the security pattern for this solution, see [Security pat
 #### API gateway management
 The system is publicly accessible only through the single managed APIM endpoint. The APIM subnet restricts incoming traffic to specified gateway node IP addresses.
 
-APIM allows for easy integration with different authentication mechanisms. The current solution requires a subscription key, but you could also use Azure Active Directory to secure the APIM endpoint.
+APIM allows for easy integration with different authentication mechanisms. The current solution requires a subscription key, but you could also use Azure Active Directory to secure the APIM endpoint without needing to manage subscription keys in APIM.
 
 #### Virtual network
 To avoid exposing APIs and functions publicly, [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) restricts network access for APIs and functions to specific IP addresses or subnets. Both API Management and Azure Functions support access restriction and deployment in virtual networks.
@@ -102,24 +105,24 @@ Function apps can restrict IPv4, IPv6, and virtual network subnet access. By def
 
 In this solution, the function apps allow interactions only within their own virtual network. The Patient API allows calls from the APIM subnet by adding the APIM subnet to its access restriction allow list. The Audit API allows communication with the Patient API by adding the Patient API subnet to its access restriction allow list. The APIs reject traffic from other sources.
 
-The solution uses [regional virtual network integration](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#regional-virtual-network-integration) to deploy APIM and the function apps in the same virtual network in the same Azure region. There are several important considerations for using regional virtual network integration:
+The solution uses [regional virtual network integration](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#regional-virtual-network-integration) to deploy APIM and the function apps in the same virtual network and Azure region. There are several important considerations for using regional virtual network integration:
 
-- You need to use Azure Functions Premium SKU to have both regional virtual network integration and scalability.
+- You need to use the [Azure Functions Premium SKU](https://azure.microsoft.com/pricing/details/functions/) to have both regional virtual network integration and scalability.
 - Since you deploy the function apps in a subnet of the virtual network, you configure the function apps' access restrictions to allow traffic from other subnets in the virtual network.
 - Regional virtual network integration only limits outbound traffic from the Azure Function to the virtual network. Inbound traffic is still routed outside of the virtual network, although limited by the app's access list.
 
-Only [App Service Environments](/azure/app-service/environment/network-info) offer complete network-level virtual network isolation. ASEs can require considerably more expense and effort than Azure Functions that support regional virtual network integration, and ASE scaling is less elastic.
+Only [App Service Environments](/azure/app-service/environment/network-info) offer complete network-level virtual network isolation. ASEs can require considerably more expense and effort to implement than Azure Functions that support regional virtual network integration. ASE scaling is also less elastic.
 
 #### Access keys
 You can call APIM and function apps without using access keys. However, disabling the access keys isn't good security practice, so all components in this solution require keys for access.
 
-- Accessing APIM requires a subscription key, so users need to include `Ocp-Apim-Subscription-Key` in HTTP headers. Alternatively, you could use Azure Active Directory to secure the APIM endpoint without needing to manage subscription keys in APIM.
+- Accessing APIM requires a subscription key, so users need to include `Ocp-Apim-Subscription-Key` in HTTP headers.
 - All functions in the Patient API function app require an API access key, so APIM must include `x-functions-key` in the HTTP header when calling the Patient API.
 - Calling `CreateAuditRecord` in the Audit API function app requires an API access key, so Patient API needs to include `x-functions-key` in the HTTP header when calling the `CreateAuditRecord` function.
 - Both Functions apps use Cosmos DB as their data store, so they must use connection strings to access the Cosmos DB databases.
 
 #### Key Vault storage
-Although it's possible to keep access keys and connection strings in the application settings, it's not good practice, because anyone who can access the app can see the keys and strings. The best practice, especially for production environments, is to keep the keys and strings in Azure Key Vault, and use the Key Vault references to call the apps.
+Although it's possible to keep access keys and connection strings in the application settings, it's not good practice, because anyone who can access the app can see the keys and strings. The best practice, especially for production environments, is to keep the keys and strings in Azure Key Vault, and use the Key Vault references to call the apps. Key Vault allows access only to specified managed identities.
 
 APIM uses an inbound policy to cache the Patient API host key for improved performance. For subsequent attempts, APIM looks for the key in its cache first.
 
@@ -147,7 +150,7 @@ In this solution, APIM and the function apps use Azure [system-assigned managed 
 
 ### Cost
 
-One of the primary benefits of serverless applications like Azure Functions is the cost savings of paying only for consumption, rather than paying up front for servers. Virtual network support requires the [Azure Functions Premium plan](https://azure.microsoft.com/pricing/details/functions/), at additional charge. Azure Functions Premium has support for regional virtual network integration, while still supporting dynamic scaling. The Azure Functions Premium SKU includes virtual network integration on APIM.
+One of the primary benefits of serverless applications like Azure Functions is the cost savings of paying only for consumption, rather than paying up front for dedicated servers. Virtual network support requires the [Azure Functions Premium](https://azure.microsoft.com/pricing/details/functions/) plan, at additional charge. Azure Functions Premium has support for regional virtual network integration, while still supporting dynamic scaling. The Azure Functions Premium SKU includes virtual network integration on APIM.
 
 For details and pricing calculator, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
