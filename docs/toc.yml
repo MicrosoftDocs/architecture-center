@@ -1003,9 +1003,9 @@ items:
         items:
         - name: Windows Virtual Desktop for enterprises
           href: example-scenario/wvd/windows-virtual-desktop.md
-        - name: Multiple AD forests
+        - name: Multiple Active Directory forests
           href: example-scenario/wvd/multi-forest.md
-        - name: Multiple forests with AAD DS
+        - name: Multiple forests with Azure AD DS
           href: example-scenario/wvd/multi-forest-w-AADDS.md
   - name: Identity
     items:
