@@ -13,7 +13,7 @@ ms.custom:
 
 # Multiple AD forests architecture with Windows Virtual Desktop
 
-Many organizations desire to leverage Windows Virtual Desktop (WVD) and create environments with multiple on-premises Active Directory forests. This article expands on the architecture described in the [WVD at enterprise scale article](./windows-virtual-desktop.md) and helps understand how multiple domains and WVD can be integrated in a workload, using [Active Directory Domain Services or AD DS](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+Many organizations desire to leverage Windows Virtual Desktop (WVD) and create environments with multiple on-premises Active Directory forests. This article expands on the architecture described in the [WVD at enterprise scale article](./windows-virtual-desktop.md) and helps understand how multiple domains and WVD can be integrated in a workload, using [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 The following are some relevant use cases for this architecture:
 
@@ -22,8 +22,8 @@ The following are some relevant use cases for this architecture:
 - Use of on-premises GPO infrastructure with Azure WVD.
 
 > [!NOTE]
-  > The terms AD DS and AAD DS are distinct. AD DS is an on-premises service, whereas AAD DS or [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/overview) is the corresponding counterpart managed by Azure. This article caters to the customer-managed AD DS.
-  > This [solution idea for multiple forests with AAD DS](./multi-forest-w-AADDS.md) discusses this architecture when using the cloud-managed AAD DS in the WVD multiple forests architecture.
+  > Active Directory Domain Services (AD DS) is a self-managed, on-premises component in many hybrid environments, whereas Azure Active Directory Domain Services (AAD DS) provides managed domain services with a subset of fully-compatible traditional AD DS features such as domain join, group policy, *LDAP*, and *Kerberos*/*NTLM* authentication. Read a detailed comparison of these components in [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions).
+  > The solution idea [Multiple WVD forests using Azure Active Directory Domain Services](./multi-forest-w-AADDS.md) discusses this architecture using the cloud-managed [AAD DS](https://docs.microsoft.com/azure/active-directory-domain-services/overview).
 
 ## Architecture
 
@@ -44,7 +44,7 @@ This architecture diagram shows a typical scenario that involves the following:
 - Verified domains are present in Azure for CompanyA.com, CompanyB.com, and NewCompanyAB.com.
 - Group Policy (GPO) and legacy authentication such as [Kerberos](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-authentication-overview), [NTLM](https://docs.microsoft.com/windows-server/security/kerberos/ntlm-overview), and [LDAP](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) are used.
 - Azure environments that still have dependency on-premises infrastructure, private connectivity ([Site-to-site VPN or Azure ExpressRoute](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)) is set up between on-premises and Azure.
-- The [WVD environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup) consists of a WVD workspace, Azure subscription for each business unit, and two host pools per workspace.
+- The [WVD environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup) consists of a WVD workspace for each business unit, and two host pools per workspace.
 - The WVD session hosts are joined to domain controllers in Azure, that is, companyA session hosts join the companyA.local domain, and CompanyB session hosts join the CompanyB.local domain.
 - Azure Storage accounts can leverage [Azure Files for FSLogix profiles](https://docs.microsoft.com/azure/virtual-desktop/FSLogix-containers-azure-files). One account is created per company domain (that is, companyA.local and companyB.local), and joined to the corresponding domain.
 
@@ -63,8 +63,8 @@ Additionally, the following components are also used in this architecture:
 In this architecture, the identity flow works as follows.
 
 1. Azure AD Connect syncs users from both CompanyA.com and CompanyB.com to Azure AD tenant (NewCompanyAB.onmicrosoft.com).
-2. Host pools and app groups are created in the respective subscriptions and spoke virtual networks.
-3. Workspaces and users are assigned to the app groups.
+2. Host pools, workspaces, and app groups are created in the respective subscriptions and spoke virtual networks.
+3. Users are assigned to the app groups.
 4. WVD session hosts in the host pools join the domains CompanyA.com and CompanyB.com using the domain controllers in Azure.  
 5. Users sign in using either the [WVD Desktop](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-10#install-the-windows-desktop-client) or a [web client](https://docs.microsoft.com/azure/virtual-desktop/connect-web) with the corresponding format: user@NewCompanyA.com, user@CompanyB.com, or user@NewCompanyAB.com, depending on the UPN suffix configured.
 6. Users are presented with their respective virtual desktops or apps. For example, users in CompanyA will be presented with virtual desktops or apps in Workspace A, host pool 1 or 2.
