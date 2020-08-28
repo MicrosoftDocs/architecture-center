@@ -1,5 +1,5 @@
 ---
-title: Multiple forests with AD DS and AAD
+title: Multiple forests with AD DS and Azure AD
 titleSuffix: Azure Example Scenarios
 description: This article describes an example workload of creating multiple AD forests with Windows Virtual Desktop.
 author: GitHubAlias
@@ -17,13 +17,13 @@ Many organizations desire to leverage Windows Virtual Desktop (WVD) and create e
 
 The following are some relevant use cases for this architecture:
 
-- Mergers and acquisitions, organization re-branding, and multiple on-premises identities.
-- [Complex on-premises active directory environments (multi-forest, multi-domains, GPO requirements and legacy authentication)](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest).
+- Mergers and acquisitions, organization rebranding, and multiple on-premises identities.
+- [Complex on-premises active directory environments (multi-forest, multi-domains, group policy (or GPO) requirements, and legacy authentication)](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest).
 - Use of on-premises GPO infrastructure with Azure WVD.
 
 > [!NOTE]
-  > Active Directory Domain Services (AD DS) is a self-managed, on-premises component in many hybrid environments, whereas Azure Active Directory Domain Services (AAD DS) provides managed domain services with a subset of fully-compatible traditional AD DS features such as domain join, group policy, *LDAP*, and *Kerberos*/*NTLM* authentication. Read a detailed comparison of these components in [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions). </br>
-  > The solution idea [Multiple WVD forests using Azure Active Directory Domain Services](./multi-forest-w-AADDS.md) discusses this architecture using the cloud-managed [AAD DS](https://docs.microsoft.com/azure/active-directory-domain-services/overview).
+  > Active Directory Domain Services (AD DS) is a self-managed, on-premises component in many hybrid environments, whereas Azure Active Directory Domain Services (Azure AD DS) provides managed domain services with a subset of fully-compatible traditional AD DS features such as domain join, group policy, *LDAP*, and *Kerberos*/*NTLM* authentication. Read a detailed comparison of these components in [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions). </br>
+  > The solution idea [Multiple WVD forests using Azure Active Directory Domain Services](./multi-forest-w-AADDS.md) discusses this architecture using the cloud-managed [Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/overview).
 
 ## Architecture
 
@@ -36,7 +36,7 @@ The following are some relevant use cases for this architecture:
 This architecture diagram shows a typical scenario that involves the following:
 
 - Azure AD tenant is available for the new company named as `NewCompanyAB.onmicrosoft.com`.
-- [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity) syncs users from on-premises AD DS to Azure Active Directory (AAD).
+- [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity) syncs users from on-premises AD DS to Azure Active Directory (Azure AD).
 - Each of the company A and company B has a separate Azure subscription. They also have a [shared services subscription](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/initial-subscriptions#shared-services-subscription) referred to as the *Subscription 1* in the above diagram.
 - [An Azure hub-spoke architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is implemented with a shared services hub virtual network (VNet).
 - Complex hybrid on-premises Active Directory environments are present with two or more AD forests. Domains live in separate forests, each with a different [UPN suffix](https://docs.microsoft.com/microsoft-365/enterprise/prepare-a-non-routable-domain-for-directory-synchronization?view=o365-worldwide#add-upn-suffixes-and-update-your-users-to-them). For example, *companyA.local* with the UPN suffix companyA.com, *companyB.local* with the UPN suffix CompanyB.com, and an additional UPN suffix *newcompanyAB.com*.
@@ -50,13 +50,13 @@ This architecture diagram shows a typical scenario that involves the following:
 
 ## Components
 
-This architectures uses the same [components](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop#components-you-manage) as listed in [WVD at enterprise scale Architecture](./windows-virtual-desktop.md).
+This architecture uses the same [components](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop#components-you-manage) as listed in [WVD at enterprise scale Architecture](./windows-virtual-desktop.md).
 
 Additionally, the following components are also used in this architecture:
 
 - **Azure AD connect in staging mode:** [Staging server for Azure AD Connect topologies](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies#staging-server) provides additional redundancy for the Azure AD connect instance.
 
-- **Azure subscriptions, WVD workspaces and host pools:** Multiple subscriptions, WVD workspaces, and host pools can be leveraged for administration boundaries and business requirements.
+- **Azure subscriptions, WVD workspaces, and host pools:** Multiple subscriptions, WVD workspaces, and host pools can be leveraged for administration boundaries and business requirements.
 
 ## Data flow
 
@@ -101,16 +101,16 @@ In scenarios with users in multiple on-premises Active Directory forests, only o
 The following identity topologies are supported:
 
 - Multiple on-premises Active Directory forests.  
-- One or more resource forest trusts all account forests.
+- One or more resource forests trust all account forests.
 - A full mesh topology allows users and resources to be in any forest. Commonly, there are two-way trusts between the forests.
 
 For more details, read the [Staging server section of Azure AD Connect topologies](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies#staging-server).
 
 ## Next steps
 
-For more information, refer to these articles:
+For more information, see these articles:
 
 - [Azure AD Connect topology](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies).
 - [Compare different Identity options: Self-managed Active Directory Domain Services (AD DS), Azure Active Directory (Azure AD), and Azure Active Directory Domain Services (Azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions).
-- [Solution idea Multi forest with AAD DS](./multi-forest-w-AADDS.md).
+- [Solution idea Multi forest with Azure AD DS](./multi-forest-w-AADDS.md).
 - [Windows Virtual Desktop Documentation](https://docs.microsoft.com/azure/virtual-desktop/).
