@@ -67,11 +67,11 @@ The Bonsai platform runs on Azure and charges resource costs to your Azure subsc
 
 ### Inkling
 
-[Inkling](https://docs.microsoft.com/bonsai/inkling/) is a declarative, statically-typed programming language for training AI in Bonsai. Inkling abstracts away the dynamic AI algorithms that require expertise in machine learning, enabling more developers to program AI. An Inkling file defines *concepts* necessary to teach the AI, and *curriculum*, or methods for teaching the concepts.
+[Inkling](/bonsai/inkling/) is a declarative, statically-typed programming language for training AI in Bonsai. Inkling abstracts away the dynamic AI algorithms that require expertise in machine learning, enabling more developers to program AI. An Inkling file defines *concepts* necessary to teach the AI, and *curriculum*, or methods for teaching the concepts.
 
 ![Inkling example](../media/inkling.png)
 
-For more information about Inkling, see the [Inkling programming language reference](https://docs.microsoft.com/bonsai/inkling/).
+For more information about Inkling, see the [Inkling programming language reference](/bonsai/inkling/).
 
 ### Training engine
 
@@ -91,7 +91,7 @@ The Cartpole sample has a pole attached by an unactivated joint to a cart, which
 
 The pole starts upright, and the goal is to keep it upright while keeping the cart on the track. Every time interval that the pole remains upright generates a reward. A training episode ends when the pole is over 15 degrees from vertical, or the cart moves more than a predefined number of units from the center.
 
-The sample uses [Inkling](https://docs.microsoft.com/bonsai/inkling/) language to write the machine teaching program, and the provided Cartpole simulator to speed and improve the training.
+The sample uses [Inkling](/bonsai/inkling/) language to write the machine teaching program, and the provided Cartpole simulator to speed and improve the training.
 
 ![Inkling code and Cartpole simulator](../media/cartpole.png)
 
@@ -100,7 +100,7 @@ The following Bonsai screenshot shows Cartpole training progress, with **Goal sa
 ![Bonsai dashboard showing the Cartpole training example](../media/bonsai.png)
 
 For more information about the cartpole example or to try it yourself, see:
-- [Quickstart: Balance a pole with AI (Cartpole)](https://docs.microsoft.com/bonsai/quickstart/cartpole/)
+- [Quickstart: Balance a pole with AI (Cartpole)](/bonsai/quickstart/cartpole/)
 - [Learn how you can teach an AI agent to balance a pole](https://blogs.microsoft.com/ai-for-business/cartpole-demo/)
 
 ## Simulators
@@ -142,5 +142,5 @@ You can use an [Azure Resource Manager (ARM) template](https://github.com/micros
 - [Autonomy for industrial control systems](https://www.microsoft.com/ai/autonomous-systems-solutions)
 - [Innovation space: Autonomous systems (Video)](https://www.youtube.com/watch?v=3hSAFtWcui8&feature=youtu.be)
 - [Microsoft The AI Blog](https://blogs.microsoft.com/ai/)
-- [Bonsai documentation](https://docs.microsoft.com/bonsai/)
+- [Bonsai documentation](/bonsai/)
 - [Aerial Informatics and Robotics Platform (AirSim)](https://www.microsoft.com/en-us/research/project/aerial-informatics-robotics-platform/)

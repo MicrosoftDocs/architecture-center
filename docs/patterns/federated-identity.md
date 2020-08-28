@@ -1,7 +1,7 @@
 ---
 title: Federated Identity pattern
 titleSuffix: Cloud Design Patterns
-description: Delegate authentication to an external identity provider.
+description: Use the Federated Identity design pattern to delegate authentication to an external identity provider.
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
@@ -86,7 +86,7 @@ Tenants won't need to remember separate credentials to access the application, a
 ## Related guidance
 
 - [Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
-- [Active Directory Domain Services](https://msdn.microsoft.com/library/bb897402.aspx)
-- [Active Directory Federation Services](https://msdn.microsoft.com/library/bb897402.aspx)
+- [Active Directory Domain Services](/previous-versions/windows/server-2008/bb897402(v=msdn.10))
+- [Active Directory Federation Services](/previous-versions/windows/server-2008/bb897402(v=msdn.10))
 - [Identity management for multitenant applications in Microsoft Azure](../multitenant-identity/index.md)
-- [Multitenant Applications in Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications)
+- [Multitenant Applications in Azure](/azure/dotnet-develop-multitenant-applications)

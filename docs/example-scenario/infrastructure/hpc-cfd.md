@@ -1,7 +1,7 @@
 ---
 title: Running CFD simulations
 titleSuffix: Azure Example Scenarios
-description: Execute computational fluid dynamics (CFD) simulations on Azure.
+description: Learn about running Computational Fluid Dynamics simulations using Azure. Create, manage, and optimize clusters using Azure CycleCloud.
 author: mikewarr
 ms.date: 09/20/2018
 ms.category:
@@ -55,8 +55,8 @@ This diagram shows a high-level overview of a typical hybrid design providing jo
 - [Avere vFXT on Azure][avere] is used to provide an enterprise-scale clustered file system built for the cloud.
 - [Azure Virtual Machines (VMs)][vms] are used to create a static set of compute instances.
 - [Virtual machine scale sets][vmss] provide a group of identical VMs capable of being scaled up or down by Azure CycleCloud.
-- [Azure Storage accounts](https://docs.microsoft.com/azure/storage/common/storage-introduction) are used for synchronization and data retention.
-- [Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) enable many types of Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
+- [Azure Storage accounts](/azure/storage/common/storage-introduction) are used for synchronization and data retention.
+- [Virtual Networks](/azure/virtual-network/virtual-networks-overview) enable many types of Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
 
 ### Alternatives
 
@@ -120,18 +120,18 @@ Once you've deployed the sample, learn more about [Azure CycleCloud][cyclecloud]
 
 <!-- links -->
 [architecture]: ./media/architecture-hpc-cfd.png
-[security]: https://docs.microsoft.com/azure/security
-[vmss]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview
-[cyclecloud]: https://docs.microsoft.com/azure/cyclecloud
-[rdma]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances
-[vms]: https://docs.microsoft.com/azure/virtual-machines
-[batch]: https://docs.microsoft.com/azure/batch
+[security]: /azure/security
+[vmss]: /azure/virtual-machine-scale-sets/overview
+[cyclecloud]: /azure/cyclecloud
+[rdma]: /azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances
+[vms]: /azure/virtual-machines
+[batch]: /azure/batch
 [avere]: https://github.com/Azure/Avere/blob/master/README.md
-[cycle-svcprin]: https://docs.microsoft.com/azure/cyclecloud/quickstart-install-cyclecloud#service-principal
-[cycle-ssh]: https://docs.microsoft.com/azure/cyclecloud/quickstart-install-cyclecloud#ssh-keypair
-[cycle-login]: https://docs.microsoft.com/azure/cyclecloud/quickstart-install-cyclecloud#log-into-the-cyclecloud-application-server
-[cycle-create]: https://docs.microsoft.com/azure/cyclecloud/quickstart-create-and-run-cluster
-[rdma]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances
-[rdma-custom]: https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances
+[cycle-svcprin]: /azure/cyclecloud/quickstart-install-cyclecloud#service-principal
+[cycle-ssh]: /azure/cyclecloud/quickstart-install-cyclecloud#ssh-keypair
+[cycle-login]: /azure/cyclecloud/quickstart-install-cyclecloud#log-into-the-cyclecloud-application-server
+[cycle-create]: /azure/cyclecloud/quickstart-create-and-run-cluster
+[rdma]: /azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances
+[rdma-custom]: /azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances
 [pricing]: https://azure.com/e/53030a04a2ab47a289156e2377a4247a
-[cycle-scale]: https://docs.microsoft.com/azure/cyclecloud/autoscale
+[cycle-scale]: /azure/cyclecloud/autoscale

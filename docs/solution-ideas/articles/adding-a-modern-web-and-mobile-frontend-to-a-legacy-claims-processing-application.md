@@ -1,7 +1,7 @@
 ---
 title: Adding a mobile front-end to a legacy app
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: The solution demonstrates modernizing an existing application by consolidating data from multiple business systems into one place and surfacing it through web and mobile frontends. This is targeted at improving employee productivity and to enable faster decision making.
 ms.custom: acom-architecture, line of business app, lob app, lift and shift cloud strategy, cloud migration, cloud innovation, lift and shift solution, lift and shift strategy, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application/'
@@ -40,5 +40,5 @@ This line-of-business application solution consolidates data from multiple busin
 
 ## Next steps
 
-* [Running SAP on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json)
-* [Running SQL server in Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal)
+* [Running SAP on Azure](/azure/virtual-machines/workloads/sap/get-started?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Running SQL server in Azure](/azure/sql-database/sql-database-get-started-portal)

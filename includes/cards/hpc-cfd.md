@@ -17,7 +17,7 @@
             <li>9/20/2018</li>
             <li>5 min read</li>
         </ul>
-        <p class="card-content-description">Execute computational fluid dynamics (CFD) simulations on Azure.</p>
+        <p class="card-content-description">Learn about running Computational Fluid Dynamics simulations using Azure. Create, manage, and optimize clusters using Azure CycleCloud.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

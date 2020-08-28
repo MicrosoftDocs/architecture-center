@@ -1,7 +1,7 @@
 ---
 title: Interactive querying with HDInsight
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Perform fast, interactive SQL queries at scale over structured or unstructured data with Apache Hive LLAP.
 ms.custom: acom-architecture, analytics, HDInsight, Data Lake Storage, Data Factory, 'https://azure.microsoft.com/solutions/architecture/interactive-querying-with-hdinsight/'

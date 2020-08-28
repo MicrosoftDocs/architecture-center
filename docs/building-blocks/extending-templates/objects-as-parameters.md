@@ -312,7 +312,7 @@ An example template is available on [GitHub][github]. To deploy the template, cl
 git clone https://github.com/mspnp/template-examples.git
 cd template-examples/example3-object-param
 az group create --location <location> --name <resource-group-name>
-az group deployment create -g <resource-group-name> \
+az deployment group create -g <resource-group-name> \
     --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example3-object-param/deploy.json \
     --parameters deploy.parameters.json
 ```
@@ -323,10 +323,10 @@ az group deployment create -g <resource-group-name> \
 
 <!-- links -->
 
-[azure-resource-manager-authoring-templates]: https://docs.microsoft.com/azure/azure-resource-manager/templates/template-syntax
-[azure-resource-manager-create-template]: https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template
-[azure-resource-manager-create-multiple-instances]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-multiple
-[azure-resource-manager-functions]: https://docs.microsoft.com/azure/azure-resource-manager/templates/template-functions-deployment#parameters
-[nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
-[cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest
+[azure-resource-manager-authoring-templates]: /azure/azure-resource-manager/templates/template-syntax
+[azure-resource-manager-create-template]: /azure/azure-resource-manager/templates/template-tutorial-create-first-template
+[azure-resource-manager-create-multiple-instances]: /azure/azure-resource-manager/resource-group-create-multiple
+[azure-resource-manager-functions]: /azure/azure-resource-manager/templates/template-functions-deployment#parameters
+[nsg]: /azure/virtual-network/virtual-networks-nsg
+[cli]: /cli/azure/?view=azure-cli-latest
 [github]: https://github.com/mspnp/template-examples

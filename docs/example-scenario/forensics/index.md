@@ -105,7 +105,7 @@ For example, if a legal team needs a preserved virtual hard drive (VHD) transfer
 Azure provides services to all customers to monitor and alert on anomalies involving their subscription and its resources. These services include:
 - [Azure Sentinel](https://aka.ms/azure-sentinel)
 - [Azure Security Center (ASC)](https://aka.ms/asc)
-- [Azure Storage Advanced Threat Protection (ATP)](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
+- [Azure Storage Advanced Threat Protection (ATP)](/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
 
 ### Regional store
 
@@ -175,7 +175,6 @@ For more information about Azure data-protection features, see:
 - [Immutable Storage - Legal Hold Policy](/azure/storage/blobs/storage-blob-immutable-storage#legal-holds)
 
 For more information about Azure logging and auditing features, see:
-- [Azure security logging and auditing](https://docs.microsoft.com/azure/security/fundamentals/log-audit)
-- [Azure Storage analytics logging](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Azure security logging and auditing](/azure/security/fundamentals/log-audit)
+- [Azure Storage analytics logging](/azure/storage/common/storage-analytics-logging)
 - [Azure platform logs in a Log Analytics workspace in Azure Monitor](/azure/azure-monitor/platform/resource-logs-collect-workspace)
-

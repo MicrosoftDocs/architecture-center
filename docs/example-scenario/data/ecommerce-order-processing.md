@@ -1,7 +1,7 @@
 ---
 title: Scalable order processing
 titleSuffix: Azure Example Scenarios
-description: Build a highly scalable order processing pipeline using Azure Cosmos DB.
+description: This example demonstrates a highly scalable, resilient architecture for online order processing, using managed Azure services such as Cosmos DB and HDInsight.
 author: alexbuckgit
 ms.date: 07/10/2018
 ms.category:
@@ -47,8 +47,8 @@ This architecture details key components of an order processing pipeline. The da
 
 ### Components
 
-- [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) is Microsoft's globally distributed, multi-model database that enables your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive service level agreements (SLAs). This scenario uses Cosmos DB for event stream storage and snapshot storage, and leverages [Cosmos DB's Change Feed][docs-cosmos-db-change-feed] features to provide data consistency and fault recovery.
-- [Apache Kafka on HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction) is a managed service implementation of Apache Kafka, an open-source distributed streaming platform for building real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, for publishing and subscribing to named data streams. This scenario uses Kafka to process incoming as well as downstream events in the order processing pipeline.
+- [Cosmos DB](/azure/cosmos-db/introduction) is Microsoft's globally distributed, multi-model database that enables your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive service level agreements (SLAs). This scenario uses Cosmos DB for event stream storage and snapshot storage, and leverages [Cosmos DB's Change Feed][docs-cosmos-db-change-feed] features to provide data consistency and fault recovery.
+- [Apache Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is a managed service implementation of Apache Kafka, an open-source distributed streaming platform for building real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, for publishing and subscribing to named data streams. This scenario uses Kafka to process incoming as well as downstream events in the order processing pipeline.
 
 ## Considerations
 
@@ -60,20 +60,20 @@ Microservices have become a popular architectural style for building cloud appli
 
 This scenario's event sourcing approach allows system components to be loosely coupled and deployed independently of one another. Cosmos DB offers [high availability][docs-cosmos-db-regional-failover] and helps organization manage the tradeoffs associated with consistency, availability, and performance, all with [corresponding guarantees][docs-cosmos-db-guarantees]. Apache Kafka on HDInsight is also designed for [high availability][docs-kafka-high-availability].
 
-Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview). Event Hubs and Stream Analytics are both integrated with Azure Monitor.
+Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](/azure/monitoring-and-diagnostics/monitoring-overview). Event Hubs and Stream Analytics are both integrated with Azure Monitor.
 
 For other availability considerations, see the [availability checklist][availability].
 
 ### Scalability
 
-Kafka on HDInsight allows [configuration of storage and scalability](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-scalability) for Kafka clusters. Cosmos DB provides fast, predictable performance and [scales seamlessly](https://docs.microsoft.com/azure/cosmos-db/partition-data) as your application grows.
+Kafka on HDInsight allows [configuration of storage and scalability](/azure/hdinsight/kafka/apache-kafka-scalability) for Kafka clusters. Cosmos DB provides fast, predictable performance and [scales seamlessly](/azure/cosmos-db/partition-data) as your application grows.
 The event sourcing microservices-based architecture of this scenario also makes it easier to scale your system and expand its functionality.
 
 For other scalability considerations, see the [performance efficiency checklist][scalability] available in the Azure Architecture Center.
 
 ### Security
 
-The [Cosmos DB security model](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data) authenticates users and provides access to its data and resources. For more information, see [Cosmos DB database security](https://docs.microsoft.com/azure/cosmos-db/database-security).
+The [Cosmos DB security model](/azure/cosmos-db/secure-access-to-data) authenticates users and provides access to its data and resources. For more information, see [Cosmos DB database security](/azure/cosmos-db/database-security).
 
 For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
@@ -85,7 +85,7 @@ The event sourcing architecture and associated technologies in this example scen
 
 To examine the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how pricing would change for your particular scenario, change the appropriate variables to match your expected data volume. For this scenario, the example pricing includes only Cosmos DB and a Kafka cluster for processing events raised from the Cosmos DB Change Feed. Event processors and microservices for originating systems and other downstream systems are not included, and their cost is highly dependent on the quantity and scale of these services as well as the technologies chosen for implementing them.
 
-The currency of Azure Cosmos DB is the request unit (RU). With request units, you don't need to reserve read/write capacities or provision CPU, memory, and IOPS. Azure Cosmos DB supports various APIs that have different operations, ranging from simple reads and writes to complex graph queries. Because not all requests are equal, requests are assigned a normalized quantity of request units based on the amount of computation required to serve the request. The number of request units required by your solution is dependent on data element size and the number of database read and write operations per second. For more information, see [Request units in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/request-units). These estimated prices are based on Cosmos DB running in two Azure regions.
+The currency of Azure Cosmos DB is the request unit (RU). With request units, you don't need to reserve read/write capacities or provision CPU, memory, and IOPS. Azure Cosmos DB supports various APIs that have different operations, ranging from simple reads and writes to complex graph queries. Because not all requests are equal, requests are assigned a normalized quantity of request units based on the amount of computation required to serve the request. The number of request units required by your solution is dependent on data element size and the number of database read and write operations per second. For more information, see [Request units in Azure Cosmos DB](/azure/cosmos-db/request-units). These estimated prices are based on Cosmos DB running in two Azure regions.
 
 We have provided three sample cost profiles based on amount of activity you expect:
 
@@ -113,12 +113,12 @@ Other related resources include:
 [small-pricing]: https://azure.com/e/3d43949ffbb945a88cc0a126dc3a0e6e
 [medium-pricing]: https://azure.com/e/1f1e7bf2a6ad4f7799581211f4369b9b
 [large-pricing]: https://azure.com/e/75207172ece94cf6b5fb354a2252b333
-[docs-cosmos-db-change-feed]: https://docs.microsoft.com/azure/cosmos-db/change-feed
-[docs-cosmos-db-regional-failover]: https://docs.microsoft.com/azure/cosmos-db/regional-failover
-[docs-cosmos-db-guarantees]: https://docs.microsoft.com/azure/cosmos-db/high-availability#slas-for-availability
-[docs-cosmos-db-use-cases]: https://docs.microsoft.com/azure/cosmos-db/use-cases
-[docs-kafka-high-availability]: https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-high-availability
+[docs-cosmos-db-change-feed]: /azure/cosmos-db/change-feed
+[docs-cosmos-db-regional-failover]: /azure/cosmos-db/regional-failover
+[docs-cosmos-db-guarantees]: /azure/cosmos-db/high-availability#slas-for-availability
+[docs-cosmos-db-use-cases]: /azure/cosmos-db/use-cases
+[docs-kafka-high-availability]: /azure/hdinsight/kafka/apache-kafka-high-availability
 [availability]: ../../framework/resiliency/overview.md
-[scalability]: ../../checklist/performance-efficiency.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [resiliency]: ../../patterns/category/resiliency.md
-[security]: https://docs.microsoft.com/azure/security
+[security]: /azure/security

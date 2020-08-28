@@ -1,7 +1,7 @@
 ---
 title: Serverless Computing Solution for LOB Apps
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: The solution demonstrates a business process for customer onboarding. This serverless architecture enables you to build and run applications without having to worry about the underlying infrastructure and the associated management and maintenance. By using it, you can dramatically improve developer productivity.
 ms.custom: acom-architecture, line of business app, lob app, lift and shift cloud strategy, cloud migration, cloud innovation, lift and shift solution, lift and shift strategy, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/onboarding-customers-with-a-cloud-native-serverless-architecture/'
@@ -37,6 +37,6 @@ This serverless architecture enables you to build and run applications without h
 ## Next Steps
 
 - [Decide which compute option to use for your apps](../../guide/technology-choices/compute-decision-tree.md)
-- [Learn to build Serverless apps](https://docs.microsoft.com/azure/azure-functions)
+- [Learn to build Serverless apps](/azure/azure-functions)
 - [Learn how you can use machine learning](/azure/machine-learning/how-to-enable-virtual-network)
-- [Infuse intelligence into your apps with Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
+- [Infuse intelligence into your apps with Cognitive Services](/azure/cognitive-services)

@@ -1,7 +1,7 @@
 ---
 title: Running Oracle Databases on Azure
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: This solution architecture illustrates a canonical architecture to achieve high availability for your Oracle Database Enterprise Edition in Azure.
 ms.custom: acom-architecture, data, Oracle, Oracle Database, Oracle DB, Oracle on Azure, Oracle DB architecture, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/reference-architecture-for-oracle-database-on-azure/'

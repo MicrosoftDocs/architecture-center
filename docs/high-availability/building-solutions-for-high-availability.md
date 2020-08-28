@@ -10,7 +10,7 @@ ms.category:
   - management-and-governance
   - solutions
 ms.subservice: reference-architecture
-ms.custom: high-availability
+ms.custom: high-availability,fasttrack-edit
 ---
 
 <!-- cSpell:ignore lbrader -->
@@ -48,7 +48,7 @@ Zones to protect from single points of failure.
 
 For additional information on Availability Zones, including service support by
 region and pricing, refer to [What are Availability Zones in
-Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview)
+Azure?](/azure/availability-zones/az-overview)
 in Microsoft Azure Documentation.
 
 ## Delivering reliability in Azure
@@ -154,7 +154,7 @@ traffic effectively across resources in the different Availability Zones. For
 information on how Availability Zones apply to the load balancer resources for
 both zonal and zone-redundant resources, refer to [Standard Load Balancer and
 Availability
-Zones](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
+Zones](/azure/load-balancer/load-balancer-standard-availability-zones).
 
 The following is a summary of the zonal (Z) and zone-redundant (ZR) Azure
 services.
@@ -177,7 +177,7 @@ services.
 
 - **Virtual machine scale sets (Z, ZR)**
 
-- **Azure App Service (Z)**
+- **Azure App Service Environments (Z)**
 
 **Containers**
 
@@ -248,7 +248,6 @@ services.
 - **Standard IP address (ZR)**
 
 - **Azure Traffic Analytics (ZR)**
-
        </td> 
     </tr> 
 </table>
@@ -258,7 +257,7 @@ Dv3-series, ESv3-series, Ev3-series, F-series, FS-series, FSv2-series, M-series.
 
 For a list of Azure services that support Availability Zones, per Azure region,
 refer to the [Availability Zones
-documentation](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region).
+documentation](/azure/availability-zones/az-overview#services-support-by-region).
 
 ## SLA offered by Availability Zones
 
@@ -278,7 +277,7 @@ of Availability Sets can increase the level of SLA to 99.95% by protecting a set
 of VMs, ensuring they will not all be on the same hardware. Within a region, VM
 workloads can be distributed across Availability Zones to increase the SLA to
 99.99%. For more information, refer to [Availability options for VMs in
-Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability).
+Azure](/azure/virtual-machines/availability).
 
 Every organization has unique requirements, and you should design your
 applications to best meet your complex business needs. Defining a target SLA

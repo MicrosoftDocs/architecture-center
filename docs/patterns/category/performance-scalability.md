@@ -1,7 +1,7 @@
 ---
 title: Performance and Scalability patterns
 titleSuffix: Cloud Design Patterns
-description: Performance is an indication of the responsiveness of a system to execute any action within a given time interval, while scalability is ability of a system either to handle increases in load without impact on performance or for the available resources to be readily increased. Cloud applications typically encounter variable workloads and peaks in activity. Predicting these, especially in a multi-tenant scenario, is almost impossible. Instead, applications should be able to scale out within limits to meet peaks in demand, and scale in when demand decreases. Scalability concerns not just compute instances, but other elements such as data storage, messaging infrastructure, and more.
+description: Use these performance and scalability patterns to address variable workloads and peaks in activity for cloud applications.
 keywords: design pattern
 author: dragon119
 ms.date: 08/27/2019
@@ -21,6 +21,7 @@ Performance is an indication of the responsiveness of a system to execute any ac
 | [Choreography](../choreography.md) | Have each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control. |
 |                      [CQRS](../cqrs.md)                      |                           Segregate operations that read data from operations that update data by using separate interfaces.                           |
 |            [Event Sourcing](../event-sourcing.md)            |                     Use an append-only store to record the full series of events that describe actions taken on data in a domain.                      |
+|         [Deployment Stamps](../deployment-stamp.md)          |                                      Deploy multiple independent copies of application components, including data stores.                              |
 | [Geodes](../geodes.md) | Deploy backend services into a set of geographical nodes, each of which can service any client request in any region. |
 |               [Index Table](../index-table.md)               |                                Create indexes over the fields in data stores that are frequently referenced by queries.                                |
 |         [Materialized View](../materialized-view.md)         |       Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations.        |

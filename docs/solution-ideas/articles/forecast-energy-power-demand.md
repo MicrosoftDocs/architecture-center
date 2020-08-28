@@ -1,7 +1,7 @@
 ---
 title: Forecast Energy and Power Demand
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Learn how Microsoft Azure can help accurately forecast spikes in demand for energy products and services to give your company a competitive advantage.
 ms.custom: acom-architecture, energy demand, power forecast, energy forecast, ai-ml, 'https://azure.microsoft.com/solutions/architecture/forecast-energy-power-demand/'
@@ -37,9 +37,9 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](h
 
 ## Next steps
 
-* [Learn more about Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction)
-* [Learn more about Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
+* [Learn more about Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
+* [Learn more about Event Hubs](/azure/event-hubs/event-hubs-what-is-event-hubs)
 * [Learn more about Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
-* [Learn more about SQL Database](https://docs.microsoft.com/azure/sql-database)
-* [Learn more about Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-introduction)
+* [Learn more about SQL Database](/azure/sql-database)
+* [Learn more about Data Factory](/azure/data-factory/data-factory-introduction)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)

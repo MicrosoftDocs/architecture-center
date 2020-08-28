@@ -1,6 +1,6 @@
 ---
 title: Deploy AD DS in an Azure virtual network
-description: Deploy Active Directory Domain Services (AD DS) in an Azure virtual network.
+description: Use this reference architecture to extend an on-premises Active Directory domain to Azure to provide distributed authentication services.
 author: telmosampaio
 ms.date: 05/02/2018
 ms.topic: reference-architecture
@@ -140,7 +140,7 @@ A deployment for this architecture is available on [GitHub][github]. The entire 
 
 1. Clone, fork, or download the zip file for the [GitHub repository](https://github.com/mspnp/identity-reference-architectures).
 
-2. Install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+2. Install [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 3. Install the [Azure building blocks](https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks) npm package.
 
@@ -214,31 +214,31 @@ After deployment completes, you can test connectivity from the simulated on-prem
 [adds-resource-forest]: ./adds-forest.md
 [adfs]: ./adfs.md
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
-[dsc-overview]: https://docs.microsoft.com/powershell/scripting/dsc/overview/overview?view=powershell-7
-[ad-ds-operations-masters]: https://technet.microsoft.com/library/cc779716(v=ws.10).aspx
-[ad-ds-ports]: https://technet.microsoft.com/library/dd772723(v=ws.11).aspx
+[dsc-overview]: /powershell/scripting/dsc/overview/overview?view=powershell-7
+[ad-ds-operations-masters]: /previous-versions/windows/it-pro/windows-server-2003/cc779716(v=ws.10)
+[ad-ds-ports]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)
 
-[arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
-[availability-set]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-availability-set
-[azure-expressroute]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[availability-set]: /azure/virtual-machines/windows/tutorial-availability-sets
+[azure-expressroute]: /azure/expressroute/expressroute-introduction
 [azure-monitor]: https://azure.microsoft.com/services/monitor
-[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
-[az-pipelines]: https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops
+[az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[az-pipelines]: /azure/devops/pipelines/?view=azure-devops
 
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
-[availability-set]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-availability-set
-[azure-expressroute]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
+[availability-set]: /azure/virtual-machines/windows/tutorial-availability-sets
+[azure-expressroute]: /azure/expressroute/expressroute-introduction
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway
 
-[azure-vpn-gateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
+[azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [capacity-planning-for-adds]: https://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
 [considerations]: ./index.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [GitHub]: https://github.com/mspnp/identity-reference-architectures/tree/master/adds-extend-domain
 [microsoft_systems_center]: https://www.microsoft.com/download/details.aspx?id=50013
-[monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx
+[monitoring_ad]: /previous-versions/windows/it-pro/windows-2000-server/bb727046(v=technet.10)
 [security-considerations]: #security-considerations
-[set-a-static-ip-address]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-pportal
-[standby-operations-masters]: https://technet.microsoft.com/library/cc794737(v=ws.10).aspx
+[set-a-static-ip-address]: /azure/virtual-network/virtual-networks-static-private-ip-arm-pportal
+[standby-operations-masters]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794737(v=ws.10)
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
-[vm-windows-sizes]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes
+[vm-windows-sizes]: /azure/virtual-machines/sizes

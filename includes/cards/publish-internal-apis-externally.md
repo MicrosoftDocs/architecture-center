@@ -17,7 +17,7 @@
             <li>3/12/2019</li>
             <li>8 min read</li>
         </ul>
-        <p class="card-content-description">Use Azure API Management to modernize and expose intranet legacy web APIs.</p>
+        <p class="card-content-description">In this scenario, an organization consolidates multiple APIs internally using Azure API Management deployed inside a Virtual Network.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

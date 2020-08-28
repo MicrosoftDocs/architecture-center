@@ -1,7 +1,7 @@
 ---
 title: Instant IoT data streaming with AKS
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 04/17/2020
 description: Ingest and analyze high volumes of IoT data and generate real-time recommendations
 ms.custom: acom-architecture

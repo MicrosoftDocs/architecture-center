@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>8/14/2019</li>
-            <li>7 min read</li>
+            <li>8 min read</li>
         </ul>
         <p class="card-content-description">Recommended architecture for a highly available web application running in multiple regions in Azure.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

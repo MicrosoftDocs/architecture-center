@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>12/16/2019</li>
-            <li>3 min read</li>
+            <li>2 min read</li>
         </ul>
         <p class="card-content-description">Explore transfer learning, convolutional neural networks, and gradient-boosting decision tree algorithms.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

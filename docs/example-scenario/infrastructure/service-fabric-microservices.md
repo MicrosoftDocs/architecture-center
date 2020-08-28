@@ -1,7 +1,7 @@
 ---
 title: Using Service Fabric to decompose applications
 titleSuffix: Azure Example Scenarios
-description: Decompose a large monolithic application into microservices.
+description: Learn about Azure Service Fabric as a platform for decomposing an unwieldy monolithic application into multiple, manageable microservices.
 author: timomta
 ms.date: 09/20/2018
 ms.category:
@@ -19,7 +19,7 @@ social_image_url: /azure/architecture/example-scenario/infrastructure/media/arch
 
 # Using Service Fabric to decompose monolithic applications
 
-In this example scenario, we walk through an approach using [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) as a platform for decomposing an unwieldy monolithic application. Here we consider an iterative approach to decomposing an IIS/ASP.NET web site into an application composed of multiple, manageable microservices.
+In this example scenario, we walk through an approach using [Service Fabric](/azure/service-fabric/service-fabric-overview) as a platform for decomposing an unwieldy monolithic application. Here we consider an iterative approach to decomposing an IIS/ASP.NET web site into an application composed of multiple, manageable microservices.
 
 Moving from a monolithic architecture to a microservice architecture provides the following benefits:
 
@@ -48,7 +48,7 @@ Using Service Fabric as the hosting platform, we can convert a large IIS web sit
 In the picture above, we decomposed all the parts of a large IIS application into:
 
 - A routing or gateway service that accepts incoming browser requests, parses them to determine what service should handle them, and forwards the request to that service.
-- Four ASP.NET Core applications that were formally virtual directories under the single IIS site running as ASP.NET applications. The applications were separated into their own independent microservices. The effect is that they can be changed, versioned, and upgraded separately. In this example, we rewrote each application using .Net Core and ASP.NET Core. These were written as [Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction) so they can natively access the full Service Fabric platform capabilities and benefits (communication services, health reports, notifications, etc.).
+- Four ASP.NET Core applications that were formally virtual directories under the single IIS site running as ASP.NET applications. The applications were separated into their own independent microservices. The effect is that they can be changed, versioned, and upgraded separately. In this example, we rewrote each application using .Net Core and ASP.NET Core. These were written as [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction) so they can natively access the full Service Fabric platform capabilities and benefits (communication services, health reports, notifications, etc.).
 - A Windows service called *Indexing Service*, placed in a Windows container so that it no longer makes direct changes to registry of the underlying server, but can run self-contained and be deployed with all its dependencies as a single unit.
 - An Archive service, which is just an executable that runs according to a schedule and performs some tasks for the sites. It is hosted directly as a stand-alone executable because we determined it does what it needs to do without modification and it is not worth the investment to change.
 
@@ -62,25 +62,25 @@ To get to this final, decomposed application, we used an iterative approach. We 
 
 ![Monolithic Architecture Diagram](./media/architecture-service-fabric-monolith.png)
 
-On the first development iteration, the IIS site and its virtual directories placed in a [Windows Container](https://docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview). Doing this allows the site to remain operational, but not tightly bound to the underlying server node OS. The container is run and orchestrated by the underlying Service Fabric node, but the node does not have to have any state that the site is dependent on (registry entries, files, etc.). All of those items are in the container. We have also placed the Indexing service in a Windows Container for the same reasons. The containers can be deployed, versioned, and scaled independently. Finally, we hosted the Archive Service a simple [stand-alone executable file](https://docs.microsoft.com/azure/service-fabric/service-fabric-guest-executables-introduction) since it is a self-contained .exe with no special requirements.
+On the first development iteration, the IIS site and its virtual directories placed in a [Windows Container](/azure/service-fabric/service-fabric-containers-overview). Doing this allows the site to remain operational, but not tightly bound to the underlying server node OS. The container is run and orchestrated by the underlying Service Fabric node, but the node does not have to have any state that the site is dependent on (registry entries, files, etc.). All of those items are in the container. We have also placed the Indexing service in a Windows Container for the same reasons. The containers can be deployed, versioned, and scaled independently. Finally, we hosted the Archive Service a simple [stand-alone executable file](/azure/service-fabric/service-fabric-guest-executables-introduction) since it is a self-contained .exe with no special requirements.
 
 The picture below shows how our large web site is now partially decomposed into independent units and ready to be decomposed more as time allows.
 
 ![Architecture diagram showing partial decomposition](./media/architecture-service-fabric-midway.png)
 
-Further development focuses on separating the single large Default Web site container pictured above. Each of the virtual directory ASP.NET apps is removed from the container one at a time and ported to ASP.NET Core [reliable services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction).
+Further development focuses on separating the single large Default Web site container pictured above. Each of the virtual directory ASP.NET apps is removed from the container one at a time and ported to ASP.NET Core [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction).
 
 Once each of the virtual directories has been factored out, the Default Web site is written as an ASP.NET Core reliable service, which accepts incoming browser requests and routes them to the correct ASP.NET application.
 
 ### Availability, Scalability, and Security
 
-Service Fabric is [capable of supporting various forms of microservices](https://docs.microsoft.com/azure/service-fabric/service-fabric-choose-framework) while keeping calls between them on the same cluster fast and simple. Service Fabric is a [fault tolerant](https://docs.microsoft.com/azure/service-fabric/service-fabric-availability-services), self-healing cluster that can run containers, executables, and even has a native API for writing microservices directly to it (the 'Reliable Services' referred to above). The platform facilitates rolling upgrades and versioning of each microservice. You can tell the platform to run more or fewer of any given microservice distributed across the Service Fabric cluster in order to [scale](https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-scalability) in or out only the microservices you need.
+Service Fabric is [capable of supporting various forms of microservices](/azure/service-fabric/service-fabric-choose-framework) while keeping calls between them on the same cluster fast and simple. Service Fabric is a [fault tolerant](/azure/service-fabric/service-fabric-availability-services), self-healing cluster that can run containers, executables, and even has a native API for writing microservices directly to it (the 'Reliable Services' referred to above). The platform facilitates rolling upgrades and versioning of each microservice. You can tell the platform to run more or fewer of any given microservice distributed across the Service Fabric cluster in order to [scale](/azure/service-fabric/service-fabric-concepts-scalability) in or out only the microservices you need.
 
 Service Fabric is a cluster built on an infrastructure of virtual (or physical) nodes, which have networking, storage, and an operating system. As such, it has a set of administrative, maintenance, and monitoring tasks.
 
 You'll also want to consider governance and control of the cluster. Just as you would not want people arbitrarily deploying databases to your production database server, neither would you want people deploying applications to the Service Fabric cluster without some oversight.
 
-Service Fabric is capable of hosting many different [application scenarios](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-scenarios), take some time to see which ones apply to your scenario.
+Service Fabric is capable of hosting many different [application scenarios](/azure/service-fabric/service-fabric-application-scenarios), take some time to see which ones apply to your scenario.
 
 ## Pricing
 
@@ -92,20 +92,20 @@ To get an idea of cost, we have created an example using some default values for
 
 ## Next steps
 
-Take some time to familiarize yourself with the platform by going through the [documentation](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) and reviewing the many different [application scenarios](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-scenarios) for Service Fabric. The documentation will tell you what a cluster consists of, what it can run on, software architecture, and maintenance for it.
+Take some time to familiarize yourself with the platform by going through the [documentation](/azure/service-fabric/service-fabric-overview) and reviewing the many different [application scenarios](/azure/service-fabric/service-fabric-application-scenarios) for Service Fabric. The documentation will tell you what a cluster consists of, what it can run on, software architecture, and maintenance for it.
 
-To see a demonstration of Service Fabric for an existing .NET application, deploy the Service Fabric [quickstart](https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-dotnet).
+To see a demonstration of Service Fabric for an existing .NET application, deploy the Service Fabric [quickstart](/azure/service-fabric/service-fabric-quickstart-dotnet).
 
 From the standpoint of your current application, begin to think about its different functions. Choose one of them and think through how you can separate only that function from the whole. Take it one discrete, understandable, piece at a time.
 
 ## Related resources
 
 - [Building Microservices on Azure](../../microservices/index.md)
-- [Service Fabric Overview](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
-- [Service Fabric Programming Model](https://docs.microsoft.com/azure/service-fabric/service-fabric-choose-framework)
-- [Service Fabric Availability](https://docs.microsoft.com/azure/service-fabric/service-fabric-availability-services)
-- [Scaling Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-scalability)
-- [Hosting Containers in Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview)
-- [Hosting Stand-Alone Executables in Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-guest-executables-introduction)
-- [Service Fabric Native Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction)
-- [Service Fabric Application Scenarios](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-scenarios)
+- [Service Fabric Overview](/azure/service-fabric/service-fabric-overview)
+- [Service Fabric Programming Model](/azure/service-fabric/service-fabric-choose-framework)
+- [Service Fabric Availability](/azure/service-fabric/service-fabric-availability-services)
+- [Scaling Service Fabric](/azure/service-fabric/service-fabric-concepts-scalability)
+- [Hosting Containers in Service Fabric](/azure/service-fabric/service-fabric-containers-overview)
+- [Hosting Stand-Alone Executables in Service Fabric](/azure/service-fabric/service-fabric-guest-executables-introduction)
+- [Service Fabric Native Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction)
+- [Service Fabric Application Scenarios](/azure/service-fabric/service-fabric-application-scenarios)

@@ -1,7 +1,7 @@
 ---
 title: Caching guidance
 titleSuffix: Best practices for cloud applications
-description: Guidance on caching to improve performance and scalability.
+description: Learn how caching can improve the performance and scalability of a system by copying frequently accessed data to fast storage close to the application.
 author: dragon119
 ms.date: 05/24/2017
 ms.topic: best-practice
@@ -156,7 +156,7 @@ To support large caches that hold relatively long-lived data, some cache service
 
 To reduce the latency that's associated with writing to multiple destinations, the replication to the secondary server might occur asynchronously when data is written to the cache on the primary server. This approach leads to the possibility that some cached information might be lost in the event of a failure, but the proportion of this data should be small compared to the overall size of the cache.
 
-If a shared cache is large, it might be beneficial to partition the cached data across nodes to reduce the chances of contention and improve scalability. Many shared caches support the ability to dynamically add (and remove) nodes and rebalance the data across partitions. This approach might involve clustering, in which the collection of nodes is presented to client applications as a seamless, single cache. Internally, however, the data is dispersed between nodes following a predefined distribution strategy that balances the load evenly. For more information about possible partitioning strategies, see [Data partitioning guidance](https://msdn.microsoft.com/library/dn589795.aspx).
+If a shared cache is large, it might be beneficial to partition the cached data across nodes to reduce the chances of contention and improve scalability. Many shared caches support the ability to dynamically add (and remove) nodes and rebalance the data across partitions. This approach might involve clustering, in which the collection of nodes is presented to client applications as a seamless, single cache. Internally, however, the data is dispersed between nodes following a predefined distribution strategy that balances the load evenly. For more information about possible partitioning strategies, see [Data partitioning guidance](/previous-versions/msp-n-p/dn589795(v=pandp.10)).
 
 Clustering can also increase the availability of the cache. If a node fails, the remainder of the cache is still accessible. Clustering is frequently used in conjunction with replication and failover. Each node can be replicated, and the replica can be quickly brought online if the node fails.
 
@@ -170,7 +170,7 @@ For the cache-aside pattern to work, the instance of the application that popula
 
 One instance of an application could modify a data item and invalidate the cached version of that item. Another instance of the application might attempt to read this item from a cache, which causes a cache-miss, so it reads the data from the data store and adds it to the cache. However, if the data store has not been fully synchronized with the other replicas, the application instance could read and populate the cache with the old value.
 
-For more information about handling data consistency, see the [Data consistency primer](https://msdn.microsoft.com/library/dn589800.aspx).
+For more information about handling data consistency, see the [Data consistency primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)).
 
 ### Protect cached data
 
@@ -195,7 +195,7 @@ You must also protect the data as it flows in and out of the cache. To do this, 
 
 ## Considerations for implementing caching in Azure
 
-[Azure Cache for Redis](https://docs.microsoft.com/azure/redis-cache) is an implementation of the open source Redis cache that runs as a service in an Azure datacenter. It provides a caching service that can be accessed from any Azure application, whether the application is implemented as a cloud service, a website, or inside an Azure virtual machine. Caches can be shared by client applications that have the appropriate access key.
+[Azure Cache for Redis](/azure/redis-cache) is an implementation of the open source Redis cache that runs as a service in an Azure datacenter. It provides a caching service that can be accessed from any Azure application, whether the application is implemented as a cloud service, a website, or inside an Azure virtual machine. Caches can be shared by client applications that have the appropriate access key.
 
 Azure Cache for Redis is a high-performance caching solution that provides availability, scalability and security. It typically runs as a service spread across one or more dedicated machines. It attempts to store as much information as it can in memory to ensure fast access. This architecture is intended to provide low latency and high throughput by reducing the need to perform slow I/O operations.
 
@@ -290,12 +290,12 @@ Using the session state provider with Azure Cache for Redis delivers several ben
 - Supporting controlled, concurrent access to the same session state data for multiple readers and a single writer.
 - Using compression to save memory and improve network performance.
 
-For more information, see [ASP.NET session state provider for Azure Cache for Redis](https://docs.microsoft.com/azure/redis-cache/cache-aspnet-session-state-provider).
+For more information, see [ASP.NET session state provider for Azure Cache for Redis](/azure/redis-cache/cache-aspnet-session-state-provider).
 
 > [!NOTE]
 > Do not use the session state provider for Azure Cache for Redis with ASP.NET applications that run outside of the Azure environment. The latency of accessing the cache from outside of Azure can eliminate the performance benefits of caching data.
 
-Similarly, the output cache provider for Azure Cache for Redis enables you to save the HTTP responses generated by an ASP.NET web application. Using the output cache provider with Azure Cache for Redis can improve the response times of applications that render complex HTML output. Application instances that generate similar responses can use the shared output fragments in the cache rather than generating this HTML output afresh. For more information, see [ASP.NET output cache provider for Azure Cache for Redis](https://docs.microsoft.com/azure/redis-cache/cache-aspnet-output-cache-provider).
+Similarly, the output cache provider for Azure Cache for Redis enables you to save the HTTP responses generated by an ASP.NET web application. Using the output cache provider with Azure Cache for Redis can improve the response times of applications that render complex HTML output. Application instances that generate similar responses can use the shared output fragments in the cache rather than generating this HTML output afresh. For more information, see [ASP.NET output cache provider for Azure Cache for Redis](/azure/redis-cache/cache-aspnet-output-cache-provider).
 
 ## Building a custom Redis cache
 
@@ -303,7 +303,7 @@ Azure Cache for Redis acts as a façade to the underlying Redis servers. If you 
 
 This is a potentially complex process because you might need to create several VMs to act as primary and subordinate nodes if you want to implement replication. Furthermore, if you wish to create a cluster, then you need multiple primaries and subordinate servers. A minimal clustered replication topology that provides a high degree of availability and scalability comprises at least six VMs organized as three pairs of primary/subordinate servers (a cluster must contain at least three primary nodes).
 
-Each primary/subordinate pair should be located close together to minimize latency. However, each set of pairs can be running in different Azure datacenters located in different regions, if you wish to locate cached data close to the applications that are most likely to use it. For an example of building and configuring a Redis node running as an Azure VM, see [Running Redis on a CentOS Linux VM in Azure](https://blogs.msdn.microsoft.com/tconte/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure).
+Each primary/subordinate pair should be located close together to minimize latency. However, each set of pairs can be running in different Azure datacenters located in different regions, if you wish to locate cached data close to the applications that are most likely to use it. For an example of building and configuring a Redis node running as an Azure VM, see [Running Redis on a CentOS Linux VM in Azure](/archive/blogs/tconte/running-redis-on-a-centos-linux-vm-in-windows-azure).
 
 > [!NOTE]
 > If you implement your own Redis cache in this way, you are responsible for monitoring, managing, and securing the service.
@@ -338,7 +338,7 @@ You can specify the connection parameters, such as the address of the Redis host
 
 After you have connected to the Redis server, you can obtain a handle on the Redis database that acts as the cache. The Redis connection provides the `GetDatabase` method to do this. You can then retrieve items from the cache and store data in the cache by using the `StringGet` and `StringSet` methods. These methods expect a key as a parameter, and return the item either in the cache that has a matching value (`StringGet`) or add the item to the cache with this key (`StringSet`).
 
-Depending on the location of the Redis server, many operations might incur some latency while a request is transmitted to the server and a response is returned to the client. The StackExchange library provides asynchronous versions of many of the methods that it exposes to help client applications remain responsive. These methods support the [Task-based Asynchronous pattern](https://docs.microsoft.com/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap) in the .NET Framework.
+Depending on the location of the Redis server, many operations might incur some latency while a request is transmitted to the server and a response is returned to the client. The StackExchange library provides asynchronous versions of many of the methods that it exposes to help client applications remain responsive. These methods support the [Task-based Asynchronous pattern](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap) in the .NET Framework.
 
 The following code snippet shows a method named `RetrieveItem`. It illustrates an implementation of the cache-aside pattern based on Redis and the StackExchange library. The method takes a string key value and attempts to retrieve the corresponding item from the Redis cache by calling the `StringGetAsync` method (the asynchronous version of `StringGet`).
 
@@ -478,7 +478,7 @@ var customer1 = cache.Wait(task1);
 var customer2 = cache.Wait(task2);
 ```
 
-For additional information on writing client applications that can the Azure Cache for Redis, see the [Azure Cache for Redis documentation](https://docs.microsoft.com/azure/azure-cache-for-redis). More information is also available at [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/Basics.md).
+For additional information on writing client applications that can the Azure Cache for Redis, see the [Azure Cache for Redis documentation](/azure/azure-cache-for-redis). More information is also available at [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/Basics.md).
 
 The page [Pipelines and multiplexers](https://stackexchange.github.io/StackExchange.Redis/PipelinesMultiplexers) on the same website provides more information about asynchronous operations and pipelining with Redis and the StackExchange library.
 
@@ -900,9 +900,9 @@ The following patterns might also be relevant to your scenario when you implemen
 
 ## More information
 
-- [Azure Cache for Redis documentation](https://docs.microsoft.com/azure/azure-cache-for-redis)
-- [Azure Cache for Redis FAQ](https://docs.microsoft.com/azure/redis-cache/cache-faq)
-- [Task-based Asynchronous pattern](https://docs.microsoft.com/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap)
+- [Azure Cache for Redis documentation](/azure/azure-cache-for-redis)
+- [Azure Cache for Redis FAQ](/azure/redis-cache/cache-faq)
+- [Task-based Asynchronous pattern](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap)
 - [Redis documentation](https://redis.io/documentation)
 - [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis)
-- [Data partitioning guide](https://msdn.microsoft.com/library/dn589795.aspx)
+- [Data partitioning guide](/previous-versions/msp-n-p/dn589795(v=pandp.10))

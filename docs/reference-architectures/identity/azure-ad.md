@@ -2,7 +2,7 @@
 title: Integrate on-premises AD domains with Azure AD
 titleSuffix: Azure Reference Architectures
 description: Implement a secure hybrid network architecture using Azure Active Directory (Azure AD).
-author: adamboeglin
+author: doodlemania2
 ms.date: 08/28/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -121,7 +121,7 @@ For more information about these topologies, see [Topologies for Azure AD Connec
 
 By default, the Azure AD Connect sync server configures password hash synchronization between the on-premises domain and Azure AD, and the Azure AD service assumes that users authenticate by providing the same password that they use on-premises. For many organizations, this is appropriate, but you should consider your organization's existing policies and infrastructure. For example:
 
-- The security policy of your organization may prohibit synchronizing password hashes to the cloud. In this case, your organization should consider [pass-through authentication](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
+- The security policy of your organization may prohibit synchronizing password hashes to the cloud. In this case, your organization should consider [pass-through authentication](/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
 - You might require that users experience seamless single sign-on (SSO) when accessing cloud resources from domain-joined machines on the corporate network.
 - Your organization might already have Active Directory Federation Services (AD FS) or a third-party federation provider deployed. You can configure Azure AD to use this infrastructure to implement authentication and SSO rather than by using password information held in the cloud.
 
@@ -239,32 +239,32 @@ A deployment for a reference architecture that implements these recommendations 
 [aaf-cost]: ../../framework/cost/overview.md
 [implementing-a-multi-tier-architecture-on-Azure]: ../n-tier/n-tier-sql-server.md#cost-considerations
 
-[aad-agent-installation]: https://docs.microsoft.com/azure/active-directory/active-directory-aadconnect-health-agent-install
-[aad-application-proxy]: https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable
-[aad-conditional-access]: https://docs.microsoft.com/azure/active-directory//active-directory-conditional-access
-[aad-connect-sync-default-rules]: https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration
-[aad-connect-sync-operational-tasks]: https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-operations
+[aad-agent-installation]: /azure/active-directory/active-directory-aadconnect-health-agent-install
+[aad-application-proxy]: /azure/active-directory/active-directory-application-proxy-enable
+[aad-conditional-access]: /azure/active-directory//active-directory-conditional-access
+[aad-connect-sync-default-rules]: /azure/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration
+[aad-connect-sync-operational-tasks]: /azure/active-directory/hybrid/how-to-connect-sync-operations
 [aad-dynamic-memberships]: https://youtu.be/Tdiz2JqCl9Q
-[aad-dynamic-membership-rules]: https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-groups-with-advanced-rules
-[aad-filtering]: https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering
-[aad-health]: https://docs.microsoft.com/azure/active-directory/active-directory-aadconnect-health-sync
-[aad-health-adds]: https://docs.microsoft.com/azure/active-directory/active-directory-aadconnect-health-adds
-[aad-health-adfs]: https://docs.microsoft.com/azure/active-directory/active-directory-aadconnect-health-adfs
-[aad-identity-protection]: https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection
-[aad-password-management]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-customize
-[aad-powershell]: https://msdn.microsoft.com/library/azure/mt757189.aspx
-[aad-reporting-guide]: https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide
+[aad-dynamic-membership-rules]: /azure/active-directory/active-directory-accessmanagement-groups-with-advanced-rules
+[aad-filtering]: /azure/active-directory/hybrid/how-to-connect-sync-configure-filtering
+[aad-health]: /azure/active-directory/active-directory-aadconnect-health-sync
+[aad-health-adds]: /azure/active-directory/active-directory-aadconnect-health-adds
+[aad-health-adfs]: /azure/active-directory/active-directory-aadconnect-health-adfs
+[aad-identity-protection]: /azure/active-directory/active-directory-identityprotection
+[aad-password-management]: /azure/active-directory/active-directory-passwords-customize
+[aad-powershell]: /powershell/module/azuread/?view=azureadps-2.0
+[aad-reporting-guide]: /azure/active-directory/active-directory-reporting-guide
 [aad-scalability]: https://blogs.technet.microsoft.com/enterprisemobility/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-distributed-cloud-directory
-[aad-sync-best-practices]: https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration
-[aad-sync-disaster-recovery]: https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-operations#disaster-recovery
-[aad-sync-requirements]: https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements
-[aad-topologies]: https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies
-[aad-user-sign-in]: https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin
+[aad-sync-best-practices]: /azure/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration
+[aad-sync-disaster-recovery]: /azure/active-directory/hybrid/how-to-connect-sync-operations#disaster-recovery
+[aad-sync-requirements]: /azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements
+[aad-topologies]: /azure/active-directory/hybrid/plan-connect-topologies
+[aad-user-sign-in]: /azure/active-directory/hybrid/plan-connect-user-signin
 [AAF-devops]: ../../framework/devops/overview.md
-[azure-active-directory]: https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview
-[azure-ad-connect]: https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity
+[azure-active-directory]: /azure/active-directory-domain-services/active-directory-ds-overview
+[azure-ad-connect]: /azure/active-directory/hybrid/whatis-hybrid-identity
 [Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory
-[azure-multifactor-authentication]: https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication
+[azure-multifactor-authentication]: /azure/multi-factor-authentication/multi-factor-authentication
 [considerations]: ./index.md
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx

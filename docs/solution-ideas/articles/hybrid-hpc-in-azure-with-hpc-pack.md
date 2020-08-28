@@ -1,7 +1,7 @@
 ---
 title: Hybrid HPC in Azure with HPC Pack
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Get a hybrid high performance computing solution built with Windows Server technology. Use Azure HPC Pack to create a hybrid HPC environment.
 ms.custom: acom-architecture, hybrid hpc, hpc pack, azure hpc pack, interactive-diagram, hybrid-infrastructure, hpc, 'https://azure.microsoft.com/solutions/architecture/hybrid-hpc-in-azure-with-hpc-pack/'
@@ -25,7 +25,7 @@ The links to the right provide documentation on deploying and managing the Azure
 
 [Documentation Home Page](https://technet.microsoft.com/library/cc514029\(v=ws.11\).aspx)
 
-[HPC Pack Azure Deployment Options](https://docs.microsoft.com/azure/virtual-machines/windows/hpcpack-cluster-options)
+[HPC Pack Azure Deployment Options](/azure/virtual-machines/windows/hpcpack-cluster-options)
 
 ## Architecture
 
@@ -49,5 +49,5 @@ The links to the right provide documentation on deploying and managing the Azure
 
 ## Next steps
 
-* [Create a Windows virtual machine with the Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
-* [Set up a hybrid high performance computing (HPC) cluster with Microsoft HPC Pack and on-demand Azure compute nodes](https://docs.microsoft.com/azure/cloud-services/cloud-services-setup-hybrid-hpcpack-cluster)
+* [Create a Windows virtual machine with the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
+* [Set up a hybrid high performance computing (HPC) cluster with Microsoft HPC Pack and on-demand Azure compute nodes](/azure/cloud-services/cloud-services-setup-hybrid-hpcpack-cluster)
