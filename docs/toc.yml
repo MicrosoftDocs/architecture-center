@@ -1127,6 +1127,8 @@ items:
         href: example-scenario/iot/analyze-and-optimize-loop.md        
       - name: Measure and control loops
         href: example-scenario/iot/measure-and-control-loop.md
+      - name: Monitor and manage loops
+        href: example-scenario/iot/monitor-and-manage-loop.md
   - name: Management and Governance
     items:
     - name: Architectures
