@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop at enterprise scale
+title: Windows Virtual Desktop for the enterprise
 titleSuffix: Azure Example Scenarios
 description: Explore Windows Virtual Desktop, and learn to build virtual desktop infrastructure solutions at enterprise scale.
 author: doodlemania2
@@ -12,7 +12,7 @@ ms.category:
 ms.custom:
 - fcp
 ---
-# Windows Virtual Desktop at enterprise scale
+# Windows Virtual Desktop for the enterprise
 
 [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) is a desktop and application virtualization service that runs in the Azure cloud. This article helps Desktop Infrastructure Architects, Cloud Architects, Desktop Administrators, or System Administrators explore Windows Virtual Desktop and build virtualized desktop infrastructure (VDI) solutions at enterprise scale. Enterprise-scale solutions generally cover 1,000 virtual desktops and above.
 
