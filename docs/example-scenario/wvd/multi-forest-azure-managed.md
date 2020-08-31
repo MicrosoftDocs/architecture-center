@@ -2,8 +2,8 @@
 title: Multiple forests with AD DS, Azure AD, and Azure AD DS
 titleSuffix: Azure Example Scenarios
 description: This is a solution idea that builds on the multiple forests using Windows Virtual Desktop, using Azure Active Directory Domain Services or Azure AD DS.
-author: GitHubAlias
-ms.date: 08/12/2020
+author: nehalineogi
+ms.date: 08/31/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
