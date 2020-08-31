@@ -14,11 +14,11 @@ ms.custom: fcp
 
 Magento is an open-source e-commerce platform written in PHP. This reference architecture shows Magento deployed to Azure Kubernetes Service (AKS), and describes common best practices for hosting Magento on Azure.
 
-![Diagram showing Magento deployed in Azure Kubernetes Service with other Azure components.](../_images/magento/magento-architecture.png)
-
 ## Architecture
 
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) is responsible for deploying the Kubernetes cluster. AKS deploys Varnish, Magento, and [Elasticsearch](https://www.elastic.co/elasticsearch/) as different *Pods*.
+![Diagram showing Magento deployed in Azure Kubernetes Service with other Azure components.](../_images/magento/magento-architecture.png)
+
+- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) is responsible for deploying the Kubernetes cluster. AKS deploys Varnish, Magento, and [Elasticsearch](https://www.elastic.co/elasticsearch/) as different *pods*.
 - AKS creates a [virtual network](https://azure.microsoft.com/services/virtual-network/) to deploy the agent nodes into. Create the virtual network first to set up subnet configuration, private link, and egress restriction.
 - [Varnish](https://varnish-cache.org/intro/index.html#intro) cache accelerator acts as a full-page cache.
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) stores transaction data like orders and catalogs. Version 8.0 is recommended.
@@ -39,7 +39,7 @@ Built-in user authorization.
 
 Configure a [private link](https://azure.microsoft.com/services/private-link/) for MySQL so that the traffic between clients and MySQL isn't exposed to the public internet. For more information, see [What is Azure Private Link](/azure/private-link/private-link-overview).
 
-### Role based access control (RBAC)
+### Role-based access control (RBAC)
 
 Kubernetes and Azure both have mechanisms for *role-based access control (RBAC)*:
 
@@ -100,11 +100,11 @@ Here are some ways to optimize scalability for this architecture:
 
 Consider these ways to optimize availability for this architecture:
 
-- Use health probes. Kubernetes defines two types of health probe. Customize them accordingly to tell if a pod is in good health.
+- Use health probes. Kubernetes defines two types of health probe. Customize them to tell if a pod is in good health.
   - *Readiness probe* tells Kubernetes whether the pod is ready to accept requests.
   - *Liveness probe* tells Kubernetes whether a pod should be removed and a new instance started.
 
-- Consider zones or multi-regions. Consider deploying the app to multiple regions or zones for higher availability. Make sure all services and deployed components such as the AKS cluster and the Redis cache are co-located in the same region, to avoid unnecessary latency between services.
+- Consider zones or multi-regions. Consider deploying the app to multiple regions or zones for higher availability. Make sure all services and deployed components such as the AKS cluster and the Redis cache are colocated in the same region, to avoid unnecessary latency between services.
 
 - Define resource constraints. Resource contention can affect the availability of a service. Define resource constraints for containers, so that no single container can overwhelm the cluster memory and CPU resources. For non-container resources, such as threads or network connections, consider using the [Bulkhead pattern](/azure/architecture/patterns/bulkhead) to isolate resources.
   
