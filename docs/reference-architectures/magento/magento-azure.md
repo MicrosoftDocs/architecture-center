@@ -14,7 +14,7 @@ ms.custom: fcp
 
 Magento is an open-source e-commerce platform written in PHP. This reference architecture shows Magento deployed to Azure Kubernetes Service (AKS), and describes common best practices for hosting Magento on Azure.
 
-![Diagram showing Magento deployed in Azure Kubernetes Service with other Azure components.](../_images/magento-architecture.png)
+![Diagram showing Magento deployed in Azure Kubernetes Service with other Azure components.](../_images/magento/magento-architecture.png)
 
 ## Architecture
 
@@ -126,7 +126,7 @@ Here are some operational considerations for this architecture:
 
 Azure Monitor provides key metrics for all Azure services, including container metrics from AKS. Create a dashboard to show all metrics at one place.
 
-![Screenshot of an Azure Monitor monitoring dashboard.](../_images/monitor-dashboard.png)
+![Screenshot of an Azure Monitor monitoring dashboard.](../_images/magento/monitor-dashboard.png)
 
 Another monitoring option is to use Grafana dashboard:
 
@@ -134,7 +134,7 @@ Another monitoring option is to use Grafana dashboard:
 
 Use [Magento Performance Toolkit](https://github.com/magento/magento2/tree/2.4/setup/performance-toolkit) for performance testing. The toolkit uses [Apache JMeter](https://jmeter.apache.org/) to simulate customer behaviors like signing in, browsing products, and checking out.
 
-![Screenshot of a the Magento Performance Toolkit.](../_images/jmeter.png)
+![Screenshot of a the Magento Performance Toolkit.](../_images/magento/jmeter.png)
 
 ## Deploy the solution
 
