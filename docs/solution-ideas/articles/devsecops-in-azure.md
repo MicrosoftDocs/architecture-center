@@ -23,17 +23,17 @@ Security is a prime concern for business that are storing any sort of custom or 
 
 ## Data flow
 
-1. Azure Active Directory (AD) can be configured as the identity provider for GitHub. Multi-factor authentication can be enabled for extra security
-2. Developers commit to GitHub Enterprise, driven by work items and bugs tracked with Azure Boards
-3. GitHub Enterprise can integrate automatic security and dependency scanning through GitHub Advanced Security and GitHub Open Source Security
-4. Pull Requests trigger CI builds and automated testing in Azure Pipelines
-5. The CI build in Azure Pipelines generates a Docker container image that is stored to Azure Container Registry, which is to be used at release time by Azure Kubernetes Service
-6. A release on Azure Pipelines integrates the Terraform tool, managing both the cloud infrastructure as code, provisioning resources such as Azure Kubernetes Service, Application Gateway, and Azure Cosmos DB
-7. Azure Pipelines enable Continuous Delivery (CD) to Azure Kubernetes Service, by accessing the Container Registry through a secure service connection
-8. Azure Policy can be applied to Azure Pipelines to enforce post-deployment gateways, and can be applied directly to the AKS engine for policy enforcement
-9. Azure Key Vault is used to securely inject secrets and credentials into an application at runtime, abstracting sensitive information away from developers
-10. End users can authenticate with Azure AD B2C, required to use MFA for extra security, and be routed through an Application Gateway which can load balance and protect core services
-11. Continuous monitoring with Azure Monitor extends to release pipelines to gate or rollback releases based on monitoring data. Azure Monitor also ingests security logs and can alert on suspicious activity
+1. Azure Active Directory (AD) can be configured as the identity provider for GitHub. Multi-factor authentication can be enabled for extra security.
+2. Developers commit to GitHub Enterprise, driven by work items and bugs tracked with Azure Boards.
+3. GitHub Enterprise can integrate automatic security and dependency scanning through GitHub Advanced Security and GitHub Open Source Security.
+4. Pull Requests trigger CI builds and automated testing in Azure Pipelines.
+5. The CI build in Azure Pipelines generates a Docker container image that is stored to Azure Container Registry, which is to be used at release time by Azure Kubernetes Service.
+6. A release on Azure Pipelines integrates the Terraform tool, managing both the cloud infrastructure as code, provisioning resources such as Azure Kubernetes Service, Application Gateway, and Azure Cosmos DB.
+7. Azure Pipelines enable Continuous Delivery (CD) to Azure Kubernetes Service, by accessing the Container Registry through a secure service connection.
+8. Azure Policy can be applied to Azure Pipelines to enforce post-deployment gateways, and can be applied directly to the AKS engine for policy enforcement.
+9. Azure Key Vault is used to securely inject secrets and credentials into an application at runtime, abstracting sensitive information away from developers.
+10. End users can authenticate with Azure AD B2C, required to use MFA for extra security, and be routed through an Application Gateway which can load balance and protect core services.
+11. Continuous monitoring with Azure Monitor extends to release pipelines to gate or rollback releases based on monitoring data. Azure Monitor also ingests security logs and can alert on suspicious activity.
 
 ## Components
 
@@ -50,3 +50,7 @@ Security is a prime concern for business that are storing any sort of custom or 
 * [Azure Application Gateway](/azure/application-gateway/ingress-controller-overview) is a Layer-7 load balancer with support for advanced routing rules and a Web Application Firewall (WAF).
 * Using [Azure Monitor](/azure/azure-monitor/overview) lets you get insights on the availability and performance of your application and infrastructure. It also gives you access to signals to monitor your solution's health and spot abnormal activity early.
 * Using [Azure AD B2C](/azure/active-directory-b2c/overview) you can provide identity services to consumers (end-users) of your application, even if they're not part of your organization.
+
+## Related resources
+
+* [DevSecOps in GitHub](/azure/architecture/solution-ideas/articles/devsecops-in-github)
