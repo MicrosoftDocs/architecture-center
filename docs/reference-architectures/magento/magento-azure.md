@@ -2,7 +2,7 @@
 title: Magento e-commerce platform in Azure
 titleSuffix: Azure Reference Architectures
 description: See a reference architecture for deploying Magento e-commerce platform to Azure Kubernetes Service (AKS), and considerations for hosting Magento on Azure.
-author: GitHubAlias
+author: doodlemania2
 ms.date: 09/01/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -75,7 +75,7 @@ Here are some ways to optimize scalability for this architecture:
   
   opcache.validate\_timestamps=0
   
-```
+  ```
 - Turn off `product count` from layered navigation to reduce the utilization if MySQL is consuming too much CPU.
   
   `/var/www/html/magento2/bin/magento config:set -vvv catalog/layered_navigation/display_product_count 0`
