@@ -1006,7 +1006,7 @@ items:
         - name: Multiple Active Directory forests
           href: example-scenario/wvd/multi-forest.md
         - name: Multiple forests with Azure AD DS
-          href: example-scenario/wvd/multi-forest-w-AADDS.md
+          href: example-scenario/wvd/multi-forest-azure-managed.md
   - name: Identity
     items:
     - name: Guides
