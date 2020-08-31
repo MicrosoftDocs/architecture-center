@@ -23,13 +23,11 @@ The following are some relevant use cases for this architecture:
 
 > [!NOTE]
   > Active Directory Domain Services (AD DS) is a self-managed, on-premises component in many hybrid environments, whereas Azure Active Directory Domain Services (Azure AD DS) provides managed domain services with a subset of fully-compatible traditional AD DS features such as domain join, group policy, *LDAP*, and *Kerberos*/*NTLM* authentication. Read a detailed comparison of these components in [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions). </br>
-  > The solution idea [Multiple WVD forests using Azure Active Directory Domain Services](./multi-forest-w-AADDS.md) discusses this architecture using the cloud-managed [Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/overview).
+  > The solution idea [Multiple WVD forests using Azure Active Directory Domain Services](./multi-forest-azure-managed.md) discusses this architecture using the cloud-managed [Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/overview).
 
 ## Architecture
 
-![WVD Multiple AD Forests architecture diagram](images/WVD-two-forest-hybrid-Azure.png)
-
-*Download the <a href="images/WVD-two-forest-hybrid-Azure.vsdx" download>Visio</a> diagram of this architecture*
+![WVD Multiple AD Forests architecture diagram](images/two-forest-hybrid.png)
 
 ## Scenario
 
@@ -96,7 +94,7 @@ The following design considerations apply to user profile containers, cloud cach
 
 In scenarios with users in multiple on-premises Active Directory forests, only one Azure AD Connect sync server is connected to the Azure AD tenant. An exception to this is an AD Connect used in staging mode.
 
-![WVD Multiple AD Forests design considerations](images/wvd-multiple-forests.png)
+![WVD Multiple AD Forests design considerations](images/multiple-forests.png)
 
 The following identity topologies are supported:
 
@@ -112,5 +110,5 @@ For more information, see these articles:
 
 - [Azure AD Connect topology](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies).
 - [Compare different Identity options: Self-managed Active Directory Domain Services (AD DS), Azure Active Directory (Azure AD), and Azure Active Directory Domain Services (Azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions).
-- [Solution idea Multi forest with Azure AD DS](./multi-forest-w-AADDS.md).
+- [Solution idea Multi forest with Azure AD DS](./multi-forest-azure-managed.md).
 - [Windows Virtual Desktop Documentation](https://docs.microsoft.com/azure/virtual-desktop/).
