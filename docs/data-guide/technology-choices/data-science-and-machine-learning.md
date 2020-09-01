@@ -1,8 +1,8 @@
 ---
-title: Choosing a machine learning technology
+title: Compare Microsoft machine learning products
 description: Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.
 author: doodlemania2
-ms.date: 07/30/2020
+ms.date: 09/01/2020
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -10,31 +10,31 @@ ms.subservice: cloud-fundamentals
 
 <!-- markdownlint-disable MD026 -->
 
-# What are the machine learning products at Microsoft?
+# Compare the machine learning products and technologies from Microsoft
 
-In this article, you learn about the machine learning offerings at Microsoft. Compare these options and choose what will help you build your machine learning solutions most effectively.
+Learn about the machine learning products and technologies from Microsoft. Compare options to help you choose how to build, deploy, and manage your machine learning solutions most effectively.
 
-## Cloud-based options
+## Cloud-based machine learning products
 
 The following options are available for machine learning in the Azure cloud.
 
 | Cloud&nbsp;options | What it is | What you can do with it |
 |-|-|-|
-| [Azure&nbsp;Machine&nbsp;Learning](#azure-machine-learning) | Cloud-based: Managed cloud service for machine learning  | Train, deploy, and manage models in Azure using Python and CLI |
-| [Azure&nbsp;Cognitive&nbsp;Services](#azure-cognitive-services) | Cloud-based: Pre-built AI capabilities made available through REST APIs and SDK. Does not require machine learning and data science expertise.  | Build intelligent applications quickly using standard programming languages   |
-| [Azure SQL Managed Instance Machine Learning Services](#sql-machine-learning) | Cloud-based machine learning in SQL | Train and deploy models inside Azure SQL Managed Instance |
-| [Machine learning in Azure Synapse Analytics](#sql-machine-learning) | Cloud-based analytics service with machine learning | Train and deploy models inside Azure SQL Managed Instance |
-| [Machine learning and AI with ONNX in Azure SQL Edge](#sql-machine-learning) | Cloud-based machine learning in SQL on IoT | Train and deploy models inside Azure SQL Edge |
-| [Azure Databricks](#azure-databricks) | Spark-based analytics platform | Build and deploy models and data workflows |
+| [Azure&nbsp;Machine&nbsp;Learning](#azure-machine-learning) | Managed platform for machine learning  | Use a pretained model. Or, train, deploy, and manage models on Azure using Python and CLI |
+| [Azure&nbsp;Cognitive&nbsp;Services](#azure-cognitive-services) | Pre-built AI capabilities implemented through REST APIs and SDKs  | Build intelligent applications quickly using standard programming languages. Doesn't require machine learning and data science expertise   |
+| [Azure SQL Managed Instance Machine Learning Services](#sql-machine-learning) | In-database machine learning for SQL | Train and deploy models inside Azure SQL Managed Instance |
+| [Machine learning in Azure Synapse Analytics](#sql-machine-learning) | Analytics service with machine learning | Train and deploy models inside Azure SQL Managed Instance |
+| [Machine learning and AI with ONNX in Azure SQL Edge](#sql-machine-learning) | Machine learning in SQL on IoT | Train and deploy models inside Azure SQL Edge |
+| [Azure Databricks](#azure-databricks) | Apache Spark-based analytics platform | Build and deploy models and data workflows using integrations with open source machine learning libraries and the [MLFlow](https://docs.microsoft.com/azure/databricks/applications/mlflow/) platform. |
 
-## On-premises options
+## On-premises machine learning products
 
 The following options are available for machine learning on-premises. On-premises servers can also run in a virtual machine in the cloud.
 
 | On-premises&nbsp;options | What it is | What you can do with it |
 |-|-|-|
-| [SQL Server Machine Learning Services](#sql-machine-learning) | On-premises machine learning in SQL | Train and deploy models inside SQL Server |
-| [Machine Learning Services on SQL Server Big Data Clusters](#sql-machine-learning) | On-premises machine learning in Big Data Clusters | Train and deploy models on SQL Server Big Data Clusters|
+| [SQL Server Machine Learning Services](#sql-machine-learning) | In-database machine learning for SQL | Train and deploy models inside SQL Server |
+| [Machine Learning Services on SQL Server Big Data Clusters](#sql-machine-learning) | Machine learning in Big Data Clusters | Train and deploy models on SQL Server Big Data Clusters |
 
 ## Development platforms and tools
 
