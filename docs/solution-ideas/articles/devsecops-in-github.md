@@ -16,7 +16,7 @@ social_image_url: /azure/architecture/solution-ideas/media/devsecops-in-github-d
 
 # DevSecOps in GitHub
 
-Starting with the first steps of development, DevSecOps adheres to security best practices. By using a [shift-left](https://devops.com/devops-shift-left-avoid-failure/#:~:text=The%20term%20%E2%80%9Cshift%20left%E2%80%9D%20refers,testing%20earlier%20than%20ever%20before) strategy, DevSecOps redirects the security focus. Instead of pointing toward auditing at the end, the security spotlight shifts to development in the beginning. This [fail fast](https://whatis.techtarget.com/definition/fail-fast) approach helps to identify and resolve problems early on, when they're easy to fix, and produces more robust code.
+Starting with the first steps of development, DevSecOps adheres to security best practices. By using a [shift-left](https://devops.com/devops-shift-left-avoid-failure/#:~:text=The%20term%20%E2%80%9Cshift%20left%E2%80%9D%20refers,testing%20earlier%20than%20ever%20before) strategy, DevSecOps redirects the security focus. Instead of pointing toward auditing at the end, the security spotlight shifts to development in the beginning. [Failing fast](https://whatis.techtarget.com/definition/fail-fast) helps to identify and resolve problems early on, when they're easy to fix. This approach also produces more robust code.
 
 With many security capabilities, GitHub offers tools that support every part of a DevSecOps workflow:
 
@@ -32,7 +32,7 @@ Combined with the monitoring and evaluation power of Azure, these features provi
 
 ## Potential use cases
 
-GitHub DevSecOps installations cover a variety of security scenarios. Possibilities include the following cases:
+GitHub DevSecOps installations cover many security scenarios. Possibilities include the following cases:
 
 - Development teams that want to take advantage of pre-configured environments that offer security capabilities.
 - Team leaders who rely on having up-to-date, prioritized security reports at their fingertips, along with details on affected code and suggested fixes.
@@ -69,8 +69,8 @@ GitHub DevSecOps installations cover a variety of security scenarios. Possibilit
 - GitHub Security works to eliminate vulnerabilities in repositories in multiple ways:
 
   - [Code scanning](https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) inspects code for known vulnerabilities and coding errors. As an example, if a developer leaves a database connection string exposed in code, this feature discovers the secret. After verifying its validity with the database, GitHub starts the process of obtaining an uncompromised string. These checks use CodeQL, a code analysis platform that improves upon traditional analyzers by treating code as data. Scans automatically run at scheduled times or after certain events occur, like commits or pushes.
-  - [GitHub Dependabot](https://docs.github.com/en/github/administering-a-repository/about-github-dependabot) checks for outdated or vulnerable packages and applications. This automated agent updates software, replacing out-of-date or insecure dependencies with newer, secure versions. For instance, Dependabot might determine that an open-source library that your project uses doesn't encrypt sensitive cleartext that it stores in a database. Dependabot then creates a PR that upgrades the library to a version that encrypts the data.
-  - [Vulnerability management](https://docs.github.com/en/github/managing-security-vulnerabilities) identifies and updates known vulnerabilities in code and in software packages that the code uses. It performs checks whenever the following events occur:
+  - [GitHub Dependabot](https://docs.github.com/en/github/administering-a-repository/about-github-dependabot) checks for outdated or vulnerable packages and applications. This automated agent updates software, replacing out-of-date or insecure dependencies with newer, secure versions. For instance, if your project uses an open-source library, Dependabot would examine that library. Suppose the library doesn't encrypt sensitive cleartext that it stores in a database. In this case, Dependabot would create a PR to upgrade the library to a version that encrypts the data.
+  - [Vulnerability management](https://docs.github.com/en/github/managing-security-vulnerabilities) identifies and updates known vulnerabilities in code and in software packages that the code uses. It runs checks whenever the following events occur:
 
     - A repository's dependencies change (for instance, when a project switches from .NET to .NET Core).
     - A notification appears from [WhiteSource](https://www.whitesourcesoftware.com/). This third-party service tracks vulnerabilities by continuously scanning open-source repositories.
@@ -138,7 +138,7 @@ The [Azure Well-Architected Framework](/azure/architecture/framework/) provides 
 ### Security
 
 - Using self-hosted Actions runners for public repositories isn't advised. A malicious user could join your repo and create a PR that runs unsafe code on computers in your network. GitHub-hosted runners remove this risk.
-- Scan your code using the CodeQL analysis engine. CodeQL can discover potential vulnerabilities and coding errors. It can run both on a schedule and when events occur, such as commits or PRs. See [About code scanning](https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning).
+- Scan your code using the CodeQL analysis engine. CodeQL can discover potential vulnerabilities and coding errors. It can run both on a schedule and when events occur, such as a commit or a PR creation. See [About code scanning](https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning).
 - Make sure to [configure Dependabot security updates](https://docs.github.com/en/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates), which can remove known threats from projects.
 
 ## Related resources
