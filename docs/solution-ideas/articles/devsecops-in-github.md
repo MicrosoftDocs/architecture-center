@@ -1,8 +1,8 @@
 ---
 title: DevSecOps in GitHub
 titleSuffix: Azure Solution Ideas
-author: JKirsch1
-ms.date: 08/31/2020
+author: fmigacz
+ms.date: 09/01/2020
 description: Learn how GitHub tools make security practices an integral part of DevOps while maintaining efficiency. See how to use these tools within an Azure framework.
 ms.custom: fcp
 ms.service: architecture-center
@@ -10,7 +10,7 @@ ms.category:
   - devops
   - security
 ms.subservice: solution-idea
-ms.author: v-jenkir
+ms.author: fmigacz
 social_image_url: /azure/architecture/solution-ideas/media/devsecops-in-github-data-flow.png
 ---
 
@@ -35,9 +35,9 @@ Combined with the monitoring and evaluation power of Azure, these features provi
 GitHub DevSecOps installations cover a verity of security scenarios. Possibilities include the following cases:
 
 - Development teams that want to take advantage of pre-configured environments that offer security capabilities.
-- Team leaders who rely on having up-to-date, prioritized security reports at their fingertips, delivered with detailed information on affected code and suggested fixes.
+- Team leaders who rely on having up-to-date, prioritized security reports at their fingertips, along with detailed information on affected code and suggested fixes.
 - Streamlined organizations that need systems to automatically acquire new, uncompromised security devices when secrets are left exposed in code.
-- Developers with no time to sift through dependencies, who instead need tools that automate the tasks of tracking vulnerabilities and available upgrades.
+- Developers with no time to sift through dependencies, who instead need tools that automate the task of tracking vulnerabilities and upgrades.
 - Administrators who count on the deployment process stopping automatically when risks are identified.
 - Teams that could benefit from automatic upgrades when newer or more secure versions of external libraries become available.
 - Developers who need code reverted when packages that they use violate at-rest encryption and potentially leak sensitive information.
@@ -52,7 +52,7 @@ GitHub DevSecOps installations cover a verity of security scenarios. Possibiliti
 1. When developers commit new code, GitHub Actions automatically scan the code to quickly find vulnerabilities and coding errors.
 1. Pull requests trigger code builds and automated testing through GitHub Actions. GitHub encrypts secrets and credentials at rest and obfuscates these entries in logs.
 1. GitHub Actions deploy build artifacts to App Service while making changes to other cloud resources, such as service endpoints.  
-1. Azure Policy evaluates Azure resources that are in deployment. It then potentially denies releases, modifies cloud resources, or creates warning events in activity logs.
+1. Azure Policy evaluates Azure resources that are in deployment. Defined policies then potentially deny releases, modify cloud resources, or create warning events in activity logs.
 1. Azure Security Center identifies attacks targeting applications that are running in deployed projects.
 1. Azure Monitor continuously tracks and evaluates app behavior. When conditions arise that pose risks to security or stability, this service reverts changes by rolling code back to previous commits.
 
@@ -68,7 +68,7 @@ GitHub DevSecOps installations cover a verity of security scenarios. Possibiliti
 - [Azure Monitor](/azure/azure-monitor/overview) collects and analyzes app telemetry, such as performance metrics and activity logs. When this service identifies irregular conditions, it alerts apps and personnel.
 - GitHub Security works to eliminate vulnerabilities in repositories in multiple ways:
 
-  - [Code scanning](https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) inspects code for known vulnerabilities and coding errors. As an example, if a developer leaves a database connection string exposed in code, this feature discovers the secret. After verifying its validity with the database, GitHub initiates the steps needed to secure an uncompromised string. These checks use CodeQL, a code analysis platform that improves upon traditional analyzers by treating code as data. They automatically run at scheduled times or after certain events occur, like commits or pushes.
+  - [Code scanning](https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) inspects code for known vulnerabilities and coding errors. As an example, if a developer leaves a database connection string exposed in code, this feature discovers the secret. After verifying its validity with the database, GitHub initiates the steps needed to secure an uncompromised string. These checks use CodeQL, a code analysis platform that improves upon traditional analyzers by treating code as data. Scans automatically run at scheduled times or after certain events occur, like commits or pushes.
   - [GitHub Dependabot](https://docs.github.com/en/github/administering-a-repository/about-github-dependabot) checks for outdated or vulnerable packages and applications. This automated agent updates software, replacing out-of-date or insecure dependencies with newer, secure versions. For instance, Dependabot might determine that an open-source library that your project uses does not encrypt sensitive cleartext before storing that information in a database. Dependabot then creates a PR that upgrades the library to a version that encrypts the information.
   - [Vulnerability management](https://docs.github.com/en/github/managing-security-vulnerabilities) identifies and updates known vulnerabilities in code and in software packages that the code uses. It performs checks whenever the following events occur:
 
@@ -95,6 +95,7 @@ GitHub DevSecOps installations cover a verity of security scenarios. Possibiliti
   1. GitHub Actions deploy the new app version to a test or staging environment.
 
 ## Considerations
+
 Consider the following points when deciding how to implement this pattern:
 
 - You can augment the code-scanning capabilities of GitHub by adding [third-party code-scanning tools](https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) that produce Static Analysis Results Interchange Format (SARIF) files. GitHub then creates alerts when those tools identify potential security issues.
@@ -113,16 +114,17 @@ Consider the following points when deciding how to implement this pattern:
 
 
 ## Tenets of the Azure Well-Architected Framework
-The [Azure Well-Architected Framework](azure/architecture/framework/) provides a set of guiding tenets that can improve the quality of workloads. These tenets emphasize five pillars of architectural excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security. Recommendations in the following sections provide tips for keeping GitHub DevSecOps solutions aligned with these principles.
+
+The [Azure Well-Architected Framework](azure/architecture/framework/) provides a set of guiding tenets that can improve the quality of workloads. These tenets emphasize five pillars of architectural excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security. The following recommendations help to keep GitHub DevSecOps solutions aligned with these principles.
 
 ### Cost Optimization
 
-- GitHub bills customers for GitHub Actions by the minute. In addition, the choice of operating system that hosts Actions jobs affects the per-minute consumption rate and per-minute cost. Wherever possible, choose Linux to host Actions. See [About billing for GitHub Actions](https://docs.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions).
+- GitHub bills customers for GitHub Actions by the minute. In addition, the choice of operating system that hosts Actions jobs affects the per-minute consumption rate and per-minute cost. Wherever possible, choose Linux to host Actions. See [About billing for GitHub actions](https://docs.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions).
 
 ### Operational Excellence
 
-- Run automated tests and maintenance in environments that use vulnerability management capabilities. These features change your code and its dependencies on your behalf, but automated testing will identify issues with these changes.
-- Take advantage of Azure Policy features, which can do more than just deny deployments and log compliance issues. They can also modify resources, making them compliant, even if they aren't deployed that way. For example, if you try to deploy a storage account in Azure that uses HTTP, Azure Policy can automatically change the deployment and force the storage account to use HTTPS.
+- Run automated tests and maintenance in environments that use vulnerability management capabilities, since these capabilities change code and its dependencies on your behalf. Automated testing identifies any issues that result from these changes.
+- Take advantage of Azure Policy features. Besides denying deployments and logging compliance issues, these policies can also modify resources, making them compliant, even if they aren't deployed that way. For example, if you try to deploy a storage account in Azure that uses HTTP, Azure Policy can automatically change the deployment and force the storage account to use HTTPS.
 - Azure Resource Manager uses JSON templates to describe the resources involved in deployment. Teams can also manage these template documents by using DevOps tools, like version control, code collaboration, and CI/CD workflows.
 
 ### Performance Efficiency
