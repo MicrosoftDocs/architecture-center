@@ -12,7 +12,7 @@ ms.subservice: cloud-fundamentals
 
 # Compare the machine learning products and technologies from Microsoft
 
-Learn about the machine learning products and technologies from Microsoft. Compare options to help you choose how to build, deploy, and manage your machine learning solutions most effectively.
+Learn about the machine learning products and technologies from Microsoft. Compare options to help you choose how to most effectively build, deploy, and manage your machine learning solutions.
 
 ## Cloud-based machine learning products
 
