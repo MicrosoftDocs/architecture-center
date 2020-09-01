@@ -11,11 +11,11 @@
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/webapps">
-            <p>Build web and mobile applications with Azure Database for MySQL, Azure Cosmos DB, and Azure Cache for Redis</p>
+            <p>Build web and mobile applications</p>
         </a>
         <ul class="card-content-metadata">
             <li>6/24/2020</li>
-            <li>3 min read</li>
+            <li>2 min read</li>
         </ul>
         <p class="card-content-description">The reference architecture below is inspired by HSBC’s digital payment platform, PayMe for Business.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

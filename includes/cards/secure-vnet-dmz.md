@@ -17,7 +17,7 @@
             <li>1/07/2020</li>
             <li>9 min read</li>
         </ul>
-        <p class="card-content-description">Implement a secure hybrid network architecture in Azure.</p>
+        <p class="card-content-description">See a secure hybrid network that extends an on-premises network to Azure with a perimeter network between the on-premises network and an Azure virtual network.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

@@ -17,7 +17,7 @@
             <li>12/08/2018</li>
             <li>7 min read</li>
         </ul>
-        <p class="card-content-description">Deploy network virtual appliances with high availability.</p>
+        <p class="card-content-description">Learn how to deploy network virtual appliances for high availability in Azure. This article includes example architectures for ingress, egress, and both.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

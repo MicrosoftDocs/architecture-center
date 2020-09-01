@@ -588,6 +588,10 @@ items:
         href: solution-ideas/articles/application-integration-using-event-grid.md
       - name: Automated enterprise BI
         href: reference-architectures/data/enterprise-bi-adf.md
+      - name: Big data analytics with Azure Data Explorer
+        href: solution-ideas/articles/big-data-azure-data-explorer.md
+      - name: Content Delivery Network analytics
+        href: solution-ideas/articles/content-delivery-network-azure-data-explorer.md
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.md
       - name: Demand forecasting
@@ -602,8 +606,14 @@ items:
         href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.md
       - name: Hybrid big data with HDInsight
         href: solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.md
+      - name: Monitoring solution with Azure Data Explorer
+        href: solution-ideas/articles/monitor-azure-data-explorer.md
       - name: ETL using HDInsight
         href: solution-ideas/articles/extract-transform-and-load-using-hdinsight.md
+      - name: Interactive analytics with Azure Data Explorer
+        href: solution-ideas/articles/interactive-azure-data-explorer.md
+      - name: IoT telemetry analytics with Azure Data Explorer
+        href: solution-ideas/articles/iot-azure-data-explorer.md
       - name: Interactive price analytics
         href: solution-ideas/articles/interactive-price-analytics.md
       - name: Mass ingestion of news feeds on Azure
@@ -834,6 +844,7 @@ items:
         href: solution-ideas/articles/streaming-using-hdinsight.md
       - name: Windows N-tier applications
         href: reference-architectures/n-tier/n-tier-sql-server.md
+
   - name: Developer Options
     items:
     - name: Microservices
@@ -874,6 +885,8 @@ items:
             href: microservices/ci-cd.md
           - name: CI/CD for microservices on Kubernetes
             href: microservices/ci-cd-kubernetes.md
+          - name: Automated Kubernetes deployments with Bedrock
+            href: example-scenario/bedrock/bedrock-automated-deployments.md
         - name: Migrate to a microservices architecture
           items:
           - name: Migrate a monolith application to microservices
@@ -912,6 +925,8 @@ items:
         href: serverless-quest/functions-app-security.md
     - name: Architectures
       items:
+      - name: Big data analytics with Azure Data Explorer
+        href: solution-ideas/articles/big-data-azure-data-explorer.md
       - name: CI/CD pipeline using Azure DevOps
         href: example-scenario/apps/devops-dotnet-webapp.md
       - name: Event-based cloud automation
@@ -1011,8 +1026,14 @@ items:
 
       - name: Troubleshoot a hybrid VPN connection
         href: reference-architectures/hybrid-networking/troubleshoot-vpn.md
-      - name: Windows Virtual Desktop for enterprises
-        href: example-scenario/wvd/windows-virtual-desktop.md
+      - name: Connect using Windows Virtual Desktop
+        items:
+        - name: Windows Virtual Desktop for enterprises
+          href: example-scenario/wvd/windows-virtual-desktop.md
+        - name: Multiple Active Directory forests
+          href: example-scenario/wvd/multi-forest.md
+        - name: Multiple forests with Azure AD DS
+          href: example-scenario/wvd/multi-forest-azure-managed.md
   - name: Identity
     items:
     - name: Guides
@@ -1067,6 +1088,12 @@ items:
         href: reference-architectures/enterprise-integration/queues-events.md
       - name: Publishing internal APIs to external users
         href: example-scenario/apps/publish-internal-apis-externally.md
+      - name: Web and Mobile front-ends
+        href: solution-ideas/articles/front-end.md
+      - name: Custom Business Processes
+        href: solution-ideas/articles/custom-business-processes.md
+      - name: Line of Business Extension
+        href: solution-ideas/articles/lob.md
   - name: Internet of Things
     items:
     - name: Architectures
@@ -1101,6 +1128,8 @@ items:
         href: example-scenario/iot-aad/iot-aad.md
       - name: Voice assistants and IoT devices
         href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.md
+      - name: IoT using Azure Data Explorer
+        href: solution-ideas/articles/iot-azure-data-explorer.md
     - name: Industrial IoT Analytics
       items:
       - name: Architecture
@@ -1287,6 +1316,8 @@ items:
         href: example-scenario/secrets/secure-refresh-tokens.md
       - name: Securely managed web apps
         href: example-scenario/apps/fully-managed-secure-apps.md
+      - name: Virtual network integrated microservices
+        href: example-scenario/integrated-multiservices/virtual-network-integration.md
       - name: Virtual Network security options
         href: example-scenario/gateway/firewall-application-gateway.md
   - name: Storage

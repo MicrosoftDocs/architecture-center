@@ -17,7 +17,7 @@
             <li>10/03/2019</li>
             <li>7 min read</li>
         </ul>
-        <p class="card-content-description">Improve scalability in a web application running in Microsoft Azure.</p>
+        <p class="card-content-description">Use the proven practices in this reference architecture to improve scalability and performance in an Azure App Service web application..</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

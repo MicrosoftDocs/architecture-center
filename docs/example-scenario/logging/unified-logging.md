@@ -7,6 +7,8 @@ ms.date: 07/13/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
+ms.category: 
+    - devops
 ms.custom:
   - fcp
 ---
@@ -47,7 +49,7 @@ Several Azure services and strategies can help automate and manage effective log
 
 The following architecture uses Azure services to build a unified logging and monitoring system.
 
-![Diagram of Azure architecture for PaaS microservices applications](paas-tracing-logging.png)
+![Diagram of Azure architecture for PaaS microservices applications](./media/paas-tracing-logging.png)
 
 1. The application emits events from both the API and the user interface to Event Hubs and Application Insights.
 1. Application Insights queries short-term logging, tracing, and monitoring data.
@@ -58,7 +60,7 @@ The following architecture uses Azure services to build a unified logging and mo
 
 For applications that use Azure VMs, the following infrastructure-as-a-service (IaaS) architecture includes Azure Monitor to monitor the performance and health of the VMs that run the application.
 
-![Diagram of Azure architecture for Iaas applications that use VMs](iaas-tracing-logging.png)
+![Diagram of Azure architecture for Iaas applications that use VMs](./media/iaas-tracing-logging.png)
 
 ## Components
 

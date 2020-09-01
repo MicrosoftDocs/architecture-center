@@ -7,7 +7,8 @@ ms.date: 08/17/2020
 ms.custom: fcp
 ms.service: architecture-center
 ms.subservice: solution-idea
-ms.category: iot
+ms.category: 
+    - iot
 ---
 
 # Light, power, and internet for emerging markets

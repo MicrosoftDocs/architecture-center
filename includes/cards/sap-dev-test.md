@@ -17,7 +17,7 @@
             <li>7/11/2018</li>
             <li>4 min read</li>
         </ul>
-        <p class="card-content-description">Build a dev/test environment for SAP workloads.</p>
+        <p class="card-content-description">Learn how to establish a dev/test environment for SAP NetWeaver on Azure. This architecture is designed for non-production environments.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

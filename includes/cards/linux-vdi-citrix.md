@@ -17,7 +17,7 @@
             <li>9/12/2018</li>
             <li>5 min read</li>
         </ul>
-        <p class="card-content-description">Build a VDI environment for Linux Desktops using Citrix on Azure.</p>
+        <p class="card-content-description">Learn about Virtual Desktop Infrastructure. This example uses a Citrix-based solution for Linux desktops on Azure.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

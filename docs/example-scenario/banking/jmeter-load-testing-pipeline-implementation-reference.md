@@ -7,7 +7,11 @@ ms.date: 8/11/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom: fcp
+ms.category: 
+    - devops
+ms.custom: 
+    - fcp
+    - cse
 ---
 
 # JMeter implementation reference for load testing pipeline solution
