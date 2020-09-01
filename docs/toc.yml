@@ -844,8 +844,7 @@ items:
         href: solution-ideas/articles/streaming-using-hdinsight.md
       - name: Windows N-tier applications
         href: reference-architectures/n-tier/n-tier-sql-server.md
-      - name: Big data analytics
-        href: solution-ideas/articles/big-data-azure-data-explorer.md
+
   - name: Developer Options
     items:
     - name: Microservices
@@ -926,6 +925,8 @@ items:
         href: serverless-quest/functions-app-security.md
     - name: Architectures
       items:
+      - name: Big data analytics with Azure Data Explorer
+        href: solution-ideas/articles/big-data-azure-data-explorer.md
       - name: CI/CD pipeline using Azure DevOps
         href: example-scenario/apps/devops-dotnet-webapp.md
       - name: Event-based cloud automation
