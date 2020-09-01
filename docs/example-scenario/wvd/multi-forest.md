@@ -13,7 +13,7 @@ ms.custom:
 
 # Multiple AD forests architecture with Windows Virtual Desktop
 
-Many organizations desire to leverage Windows Virtual Desktop (WVD) and create environments with multiple on-premises Active Directory forests. This article expands on the architecture described in the [WVD at enterprise scale article](./windows-virtual-desktop.md) and helps understand how multiple domains and WVD can be integrated in a workload, using [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+Many organizations desire to leverage Windows Virtual Desktop (WVD) and create environments with multiple on-premises Active Directory forests. This article expands on the architecture described in the [WVD at enterprise scale article](./windows-virtual-desktop.md) and helps hybrid organizations with multiple on-premises [Active Directory domains](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) integrate with Azure WVD.
 
 The following are some relevant use cases for this architecture:
 
@@ -23,7 +23,7 @@ The following are some relevant use cases for this architecture:
 
 > [!NOTE]
   > Active Directory Domain Services (AD DS) is a self-managed, on-premises component in many hybrid environments, whereas Azure Active Directory Domain Services (Azure AD DS) provides managed domain services with a subset of fully-compatible traditional AD DS features such as domain join, group policy, *LDAP*, and *Kerberos*/*NTLM* authentication. Read a detailed comparison of these components in [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions). </br>
-  > The solution idea [Multiple WVD forests using Azure Active Directory Domain Services](./multi-forest-azure-managed.md) discusses this architecture using the cloud-managed [Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/overview).
+  > There is a separate solution idea for using [Multiple AD forests with Windows Virtual Desktop and AAD DS](./multi-forest-azure-managed.md) (Azure managed instance).
 
 ## Architecture
 
@@ -35,9 +35,9 @@ This architecture diagram shows a typical scenario that involves the following:
 
 - Azure AD tenant is available for the new company named as `NewCompanyAB.onmicrosoft.com`.
 - [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity) syncs users from on-premises AD DS to Azure Active Directory (Azure AD).
-- Each of the company A and company B has a separate Azure subscription. They also have a [shared services subscription](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/initial-subscriptions#shared-services-subscription) referred to as the *Subscription 1* in the above diagram.
+- Each of the company A and company B has a separate Azure subscription. There is a [shared services subscription](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/initial-subscriptions#shared-services-subscription) referred to as the *Subscription 1* in the above diagram.
 - [An Azure hub-spoke architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is implemented with a shared services hub virtual network (VNet).
-- Complex hybrid on-premises Active Directory environments are present with two or more AD forests. Domains live in separate forests, each with a different [UPN suffix](https://docs.microsoft.com/microsoft-365/enterprise/prepare-a-non-routable-domain-for-directory-synchronization?view=o365-worldwide#add-upn-suffixes-and-update-your-users-to-them). For example, *companyA.local* with the UPN suffix companyA.com, *companyB.local* with the UPN suffix CompanyB.com, and an additional UPN suffix *newcompanyAB.com*.
+- Complex hybrid on-premises Active Directory environments are present with two or more AD forests. Domains live in separate forests, each with a different [UPN suffix](https://docs.microsoft.com/microsoft-365/enterprise/prepare-a-non-routable-domain-for-directory-synchronization?view=o365-worldwide#add-upn-suffixes-and-update-your-users-to-them). For example, *companyA.local* with the UPN suffix companyA.com, *companyB.local* with the UPN suffix CompanyB.com, and an optional UPN suffix *newcompanyAB.com* in either or both domains.
 - Domain controllers for both forests are located on-premises and in Azure.
 - Verified domains are present in Azure for CompanyA.com, CompanyB.com, and NewCompanyAB.com.
 - Group Policy (GPO) and legacy authentication such as [Kerberos](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-authentication-overview), [NTLM](https://docs.microsoft.com/windows-server/security/kerberos/ntlm-overview), and [LDAP](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) are used.
@@ -109,6 +109,7 @@ For more details, read the [Staging server section of Azure AD Connect topologie
 For more information, see these articles:
 
 - [Azure AD Connect topology](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies).
+- [AD DS to AAD synchronization](https://docs.microsoft.com/azure/active-directory-domain-services/synchronization)
 - [Compare different Identity options: Self-managed Active Directory Domain Services (AD DS), Azure Active Directory (Azure AD), and Azure Active Directory Domain Services (Azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions).
 - [Solution idea Multi forest with Azure AD DS](./multi-forest-azure-managed.md).
 - [Windows Virtual Desktop Documentation](https://docs.microsoft.com/azure/virtual-desktop/).
