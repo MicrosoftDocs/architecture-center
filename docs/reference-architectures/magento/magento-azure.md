@@ -43,7 +43,7 @@ Kubernetes and Azure both have mechanisms for *role-based access control (RBAC)*
 
 - Azure RBAC controls access to resources in Azure, including the ability to create new Azure resources. RBAC can assign permissions to users, groups, or *service principals*. A service principal is a security identity used by applications.
 
-- Kubernetes RBAC controls permissions to the the Kubernetes API. For example, creating pods and listing pods are actions that RBAC can authorize to users.
+- Kubernetes RBAC controls permissions to the Kubernetes API. For example, creating pods and listing pods are actions that RBAC can authorize to users.
   
   To assign Kubernetes permissions to users, you create *roles* and *role bindings*:
   - A *Role* is a set of permissions that apply within a namespace. Permissions are defined as verbs like get, update, create, or delete, on resources like pods or deployments.
@@ -71,9 +71,9 @@ Here are some ways to optimize scalability for this architecture:
   ```
   opcache.enable=1
   
-  opcache.save\_comments=1
+  opcache.save_comments=1
   
-  opcache.validate\_timestamps=0
+  opcache.validate_timestamps=0
   
   ```
 - If MySQL is consuming too much CPU, turn off `product count` from layered navigation to reduce the utilization.
@@ -90,7 +90,7 @@ Here are some ways to optimize scalability for this architecture:
   
   `CustomLog /dev/null common`
 
-- To avoid unnecessary performance degradation, disable the Azure Cache for Redis option to persist its stored data. For more information, see [How to configure data persistence for a Premium Azure Cache for Redis](/azure/azure-cache-for-redis/cache-how-to-premium-persistence).
+- To avoid unnecessary performance degradation, disable the Azure Cache for Redis option to persist stored data. For more information, see [How to configure data persistence for a Premium Azure Cache for Redis](/azure/azure-cache-for-redis/cache-how-to-premium-persistence).
 
 - Turn off the PHP-FPM access log by commenting out the `access.log` setting in all PHP-FPM configurations.
 
@@ -120,7 +120,7 @@ Here are some operational considerations for this architecture:
 
 - If the build server stores configuration settings to the backend MySQL database, deploy the server into the same virtual network subnet that MySQL is connected to via service endpoint. In this architecture, MySQL doesn't expose a public endpoint.
 
-- Deploy via container registry. Use ACR to store the private Docker images that are deployed to the cluster. AKS can authenticate with ACR by using its Azure AD identity. AKS doesn't require ACR, and can use other container registries like Docker Hub.
+- Use ACR or another container registry like Docker Hub to store the private Docker images that are deployed to the cluster. AKS can authenticate with ACR by using its Azure AD identity.
 
 ### Monitoring
 
