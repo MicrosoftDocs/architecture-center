@@ -253,7 +253,7 @@ items:
         href: framework/devops/app-design.md
       - name: Cloud computing capabilities
         href: framework/devops/app-design.md
-      - name: Application architecture
+      - name: Architectural components
         href: framework/devops/app-design.md
       - name: Culture
         href: framework/devops/app-design.md
@@ -276,8 +276,6 @@ items:
       - name: Overview
         href: framework/devops/app-design.md
       - name: Application development
-        href: framework/devops/app-design.md
-      - name: Source control
         href: framework/devops/app-design.md
       - name: Continuous integration
         href: framework/devops/app-design.md
