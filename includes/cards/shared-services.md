@@ -17,7 +17,7 @@
             <li>8/19/2019</li>
             <li>6 min read</li>
         </ul>
-        <p class="card-content-description">Implement a hub-spoke network topology with shared services in Azure.</p>
+        <p class="card-content-description">Learn how to implement shared services in a hub-spoke topology in Azure, building on another reference architecture for hub-spoke topology.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

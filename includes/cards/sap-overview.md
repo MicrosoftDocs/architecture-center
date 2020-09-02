@@ -17,7 +17,7 @@
             <li>6/10/2020</li>
             <li>11 min read</li>
         </ul>
-        <p class="card-content-description">This guide is based on the Azure Architecture Framework, but the recommendations are specific to deployments of SAP solutions.</p>
+        <p class="card-content-description">This guide is based on the Microsoft Azure Well-Architected Framework, but the recommendations are specific to deployments of SAP solutions.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

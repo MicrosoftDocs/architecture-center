@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop at enterprise scale
+title: Windows Virtual Desktop for the enterprise
 titleSuffix: Azure Example Scenarios
 description: Explore Windows Virtual Desktop, and learn to build virtual desktop infrastructure solutions at enterprise scale.
 author: doodlemania2
@@ -7,10 +7,12 @@ ms.date: 07/16/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
+ms.category: 
+    - windows-virtual-desktop
 ms.custom:
 - fcp
 ---
-# Windows Virtual Desktop at enterprise scale
+# Windows Virtual Desktop for the enterprise
 
 [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) is a desktop and application virtualization service that runs in the Azure cloud. This article helps Desktop Infrastructure Architects, Cloud Architects, Desktop Administrators, or System Administrators explore Windows Virtual Desktop and build virtualized desktop infrastructure (VDI) solutions at enterprise scale. Enterprise-scale solutions generally cover 1,000 virtual desktops and above.
 
@@ -86,7 +88,12 @@ There are several options for updating Windows Virtual Desktop desktops. Deployi
 
 ## Considerations
 
-Numbers in the following sections are approximate, based on a variety of large customer deployments, and may change over time.
+Numbers in the following sections are approximate. The numbers are based on a variety of large customer deployments, and they might change over time.
+
+Also, note that:
+
+- You can't create more than 50 application groups per single Azure AD tenant.
+- We recommend that you don't publish more than 50 applications per application group. 
 
 ### Azure limitations
 
@@ -119,5 +126,7 @@ Architect your Windows Virtual Desktop solution to realize cost savings. Here ar
 
 ## Next steps
 
+- Use the new [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to automate the deployment of your Windows Virtual Desktop environment. These ARM templates support only Azure Resource Manager Windows Virtual Desktop objects. These ARM templates don't support Windows Virtual Desktop (classic). 
+- For multiple AD forests architecture, read [Multiple AD Forests Architecture in Windows Virtual Desktop](./multi-forest.md).
 - [Windows Virtual Desktop partner integrations](https://aka.ms/wvdpartner) lists approved Windows Virtual Desktop partner providers and independent software vendors.
 - Use the resources at [Windows_10_VDI_Optimize](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) to help optimize performance in a Windows 10 Enterprise VDI environment.

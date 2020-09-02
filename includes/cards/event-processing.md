@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>10/16/2018</li>
-            <li>6 min read</li>
+            <li>7 min read</li>
         </ul>
         <p class="card-content-description">Reference architecture for serverless event ingestion and processing using Azure Functions.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

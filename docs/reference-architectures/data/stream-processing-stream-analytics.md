@@ -124,26 +124,22 @@ The next step joins the two input streams to select matching records from each s
 
 ```sql
 Step3 AS (
-  SELECT
-         tr.Medallion,
-         tr.HackLicense,
-         tr.VendorId,
-         tr.PickupTime,
-         tr.TripDistanceInMiles,
+  SELECT tr.TripDistanceInMiles,
          tf.TipAmount
     FROM [Step1] tr
     PARTITION BY PartitionId
     JOIN [Step2] tf PARTITION BY PartitionId
-      ON tr.Medallion = tf.Medallion
-     AND tr.HackLicense = tf.HackLicense
-     AND tr.VendorId = tf.VendorId
+      ON tr.PartitionId = tf.PartitionId
      AND tr.PickupTime = tf.PickupTime
-     AND tr.PartitionId = tf.PartitionId
      AND DATEDIFF(minute, tr, tf) BETWEEN 0 AND 15
 )
 ```
 
-This query joins records on a set of fields that uniquely identify matching records (Medallion, HackLicense, VendorId, and PickupTime). The `JOIN` statement also includes the partition ID. As mentioned, this takes advantage of the fact that matching records always have the same partition ID in this scenario.
+This query joins records on a set of fields that uniquely identify matching records (`PartitionId` and `PickupTime`).
+
+> [!NOTE]
+> We want the `TaxiRide` and `TaxiFare` streams to be joined by the unique combination of  `Medallion`, `HackLicense`, `VendorId` and `PickupTime`. In this case the `PartitionId` covers the `Medallion`, `HackLicense` and `VendorId` fields, but this should not be taken as generally the case.
+
 
 In Stream Analytics, joins are *temporal*, meaning records are joined within a particular window of time. Otherwise, the job might need to wait indefinitely for a match. The [DATEDIFF](/stream-analytics-query/join-azure-stream-analytics) function specifies how far two matching records can be separated in time for a match.
 

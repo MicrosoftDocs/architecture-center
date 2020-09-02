@@ -7,7 +7,11 @@ ms.date: 07/14/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom: fcp
+ms.category: 
+    - databases
+ms.custom: 
+    - fcp
+    - cse
 ---
 
 # DataOps for the modern data warehouse

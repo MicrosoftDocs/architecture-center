@@ -17,7 +17,7 @@
             <li>5/09/2019</li>
             <li>8 min read</li>
         </ul>
-        <p class="card-content-description">Securely deploy an expense application to Azure App Service Environment.</p>
+        <p class="card-content-description">Learn about deploying secure applications using the Azure App Service Environment, the Azure Application Gateway service, and Web Application Firewall.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

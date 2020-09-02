@@ -7,10 +7,10 @@ ms.date: 07/21/2020
 ms.topic: design-pattern
 ms.service: architecture-center
 ms.category:
-  - microservices
   - databases
   - event-driven
   - transactions
+  - microservices
 ms.subservice: cloud-fundamentals
 ms.custom: fcp
 ---

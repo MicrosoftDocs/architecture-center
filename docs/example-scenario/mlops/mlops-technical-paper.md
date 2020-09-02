@@ -6,7 +6,9 @@ ms.author: pnp
 ms.date: 06/01/2020
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom: fcp
+ms.custom: 
+    - fcp
+    - cse
 ms.category:
     - developer-tools
     - hybrid

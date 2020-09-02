@@ -17,7 +17,7 @@
             <li>12/06/2018</li>
             <li>5 min read</li>
         </ul>
-        <p class="card-content-description">Build and release a .NET app to Azure Web Apps using Azure DevOps.</p>
+        <p class="card-content-description">This architecture and design guidance example is a continuous integration and deployment pipeline for a two-tier .NET web application to the Azure App Service.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>
