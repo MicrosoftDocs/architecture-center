@@ -217,7 +217,7 @@ items:
           items:
             - name: Cost for networking services
               href: framework/cost/provision-networking-services.md
-          name: Web apps    
+        - name: Web apps    
           href: framework/cost/provision-webapps.md                      
     - name: Monitor
       items: 

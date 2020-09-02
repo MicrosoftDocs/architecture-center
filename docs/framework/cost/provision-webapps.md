@@ -46,7 +46,7 @@ For pricing details, see [API Management Pricing](https://azure.microsoft.com/pr
 
 ## Content Delivery Network (CDN) cost
 
-If you want to offer users optimal online content delivery, use Content Delivery Network (CDN) in your workload. The data size being used has the most significant impact on cost, so you'll want to choose based on your business requirements. Purchasing data in increments of TB is significantly higher than purchasing data in increments of GB.
+If you want to offer users optimal online content delivery, use CDN in your workload. The data size being used has the most significant impact on cost, so you'll want to choose based on your business requirements. Purchasing data in increments of TB is significantly higher than purchasing data in increments of GB.
 
 The provider you choose also can impact cost. Choose Microsoft as the provider to get the lowest cost.
 
