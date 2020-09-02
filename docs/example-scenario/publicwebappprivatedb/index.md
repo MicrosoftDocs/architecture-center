@@ -140,7 +140,7 @@ Assuming you've already created an App Service web app and deployed a SQL Databa
 
 A slightly more advanced version of this scenario is available as an [Azure Resource Manager QuickStart Template](https://azure.microsoft.com/resources/templates/301-web-app-regional-vnet-private-endpoint-sql-storage/), where not only a SQL Database but also a Storage Account is accessed from a web app over a private endpoint. Furthermore, these private endpoints are exposed in a different VNet from the App Service integrated VNet, to demonstrate that this solution also works across peered VNets.
 
-![Architecture diagram](https://github.com/Azure/azure-quickstart-templates/raw/master/301-web-app-regional-vnet-private-endpoint-sql-storage/images/solution-architecture.png "Solution Architecture from QuickStart Template")
+![Architecture diagram from QuickStart Template](https://github.com/Azure/azure-quickstart-templates/raw/master/301-web-app-regional-vnet-private-endpoint-sql-storage/images/solution-architecture.png "Solution Architecture from QuickStart Template")
 
 ## Pricing
 
