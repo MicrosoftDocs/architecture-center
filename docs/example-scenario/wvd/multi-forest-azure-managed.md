@@ -11,9 +11,9 @@ ms.custom:
 - fcp
 ---
 
-# Multiple AD forests with Windows Virtual Desktop and AAD DS
+# Multiple AD forests with Windows Virtual Desktop and Azure AD DS
 
-This solution idea shows how you can deploy WVD rapidly in a *minimum viable product* (MVP) or a *proof of concept* (PoC) environment with the use of Azure Active Directory Domain Services (AAD DS). Use this idea to extend on-premises multi-forest AD DS identities to Azure without private connectivity and also support [legacy authentication](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest).
+This solution idea shows how you can deploy WVD rapidly in a *minimum viable product* (MVP) or a *proof of concept* (PoC) environment with the use of Azure Active Directory Domain Services ([Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/overview)). Use this idea to extend on-premises multi-forest AD DS identities to Azure without private connectivity and also support [legacy authentication](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest).
 
 This solution idea also applies to mergers and acquisitions, organization rebranding, and multiple on-premises identities requirements.
 
