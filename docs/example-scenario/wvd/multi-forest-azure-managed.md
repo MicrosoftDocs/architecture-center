@@ -11,9 +11,9 @@ ms.custom:
 - fcp
 ---
 
-# Multiple WVD forests using Azure Active Directory Domain Services
+# Multiple AD forests with Windows Virtual Desktop and Azure AD DS
 
-This solution idea shows how you can deploy WVD rapidly in a *minimum viable product* (MVP) or a *proof of concept* (PoC) environment with the use of Azure Active Directory Domain Services (Azure AD DS). Use this idea to extend on-premises multi-forest AD DS identities to Azure without private connectivity and support for [legacy authentication](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest).
+This solution idea shows how you can deploy WVD rapidly in a *minimum viable product* (MVP) or a *proof of concept* (PoC) environment with the use of Azure Active Directory Domain Services ([Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/overview)). Use this idea to extend on-premises multi-forest AD DS identities to Azure without private connectivity and also support [legacy authentication](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest).
 
 This solution idea also applies to mergers and acquisitions, organization rebranding, and multiple on-premises identities requirements.
 
@@ -27,7 +27,7 @@ This solution idea also applies to mergers and acquisitions, organization rebran
 
 The following steps show how the data flows in this architecture in the form of identity.
 
-1. Complex hybrid on-premises Active Directory environments are present, with two or more AD forests. Domains live in separate forests, with distinct UPN suffices. For example, *companyA.local* with UPN suffix *companyA.com*, *companyB.local* with UPN suffix *CompanyB.com*, and an additional UPN suffix *newcompanyAB.com*.
+1. Complex hybrid on-premises Active Directory environments are present, with two or more AD forests. Domains live in separate forests, with distinct UPN suffixes. For example, *companyA.local* with UPN suffix *companyA.com*, *companyB.local* with UPN suffix *CompanyB.com*, and an additional UPN suffix *newcompanyAB.com*.
 1. Instead of using customer-managed domain controllers whether on-premises or on Azure (that is, Azure IaaS domain controllers), [the two cloud-managed domain controllers provided by Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/overview#how-does-azure-ad-ds-work) are used.
 1. Azure AD Connect syncs users from both CompanyA.com and CompanyB.com to the Azure AD tenant (NewCompanyAB.onmicrosoft.com). The user account is represented only once in Azure AD and private connectivity is not used.
 1. Users then sync from Azure AD to the managed Azure AD DS as a one-way sync.

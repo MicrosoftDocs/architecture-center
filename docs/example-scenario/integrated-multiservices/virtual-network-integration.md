@@ -108,7 +108,7 @@ In this solution, the function apps allow interactions only within their own vir
 The solution uses [regional virtual network integration](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#regional-virtual-network-integration) to integrate APIM and the function apps with the same virtual network and Azure region. There are several important considerations for using regional virtual network integration:
 
 - You need to use the [Azure Functions Premium SKU](https://azure.microsoft.com/pricing/details/functions/) to have both regional virtual network integration and scalability.
-- You need to use the [APIM Developer or Premium SKU](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#availability) to enable VNET connectivity
+- You need to use the [APIM Developer or Premium SKU](/azure/api-management/api-management-using-with-vnet#availability) to enable VNET connectivity
 - Since you deploy the function apps in a subnet of the virtual network, you configure the function apps' access restrictions to allow traffic from other subnets in the virtual network.
 - Regional virtual network integration only limits outbound traffic from the Azure Function to the virtual network. Inbound traffic is still routed outside of the virtual network, although limited by the app's access list.
 
