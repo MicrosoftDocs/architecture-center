@@ -500,7 +500,7 @@ items:
         href: solution-ideas/articles/contract-management.md
       - name: Customer churn prediction
         href: solution-ideas/articles/customer-churn-prediction.md
-      - name: Customer Feedback
+      - name: Customer feedback
         href: solution-ideas/articles/customer-feedback-and-analytics.md
       - name: Defect prevention
         href: solution-ideas/articles/defect-prevention-with-predictive-maintenance.md

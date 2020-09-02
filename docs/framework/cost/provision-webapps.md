@@ -72,6 +72,6 @@ For pricing details, see [Azure SignalR Service pricing](https://azure.microsoft
 
 ## Notification Hubs cost
 
-To broadcast push notifications to millions of users at once, or tailor notifications to individual users, use Notification Hubs. Pricing is based on number of pushes. The Free tier is a good starting point for exploring push capabilities but is not recommended for production apps. If you require more pushes and features such as scheduled pushes or multi-tenancy, you can buy additional pushes per million for a fee. See [Push notifications with Azure Notification Hubs: Frequently asked questions](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-faq) for more information.
+To broadcast push notifications to millions of users at once, or tailor notifications to individual users, use Notification Hubs. Pricing is based on number of pushes. The Free tier is a good starting point for exploring push capabilities but is not recommended for production apps. If you require more pushes and features such as scheduled pushes or multi-tenancy, you can buy additional pushes per million for a fee.
 
-For pricing details, see [Notification Hubs pricing](https://azure.microsoft.com/pricing/details/notification-hubs/).
+See [Push notifications with Azure Notification Hubs: Frequently asked questions](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-faq) for more information. For pricing details, see [Notification Hubs pricing](https://azure.microsoft.com/pricing/details/notification-hubs/).
