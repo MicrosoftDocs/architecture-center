@@ -132,6 +132,7 @@ The [Azure Well-Architected Framework](/azure/architecture/framework/) provides 
 - Azure Resource Manager uses JSON templates to describe the resources involved in deployment. Teams can also manage these template documents by using DevOps tools, like version control, code collaboration, and CI/CD workflows.
 
 
+
 ### Performance Efficiency
 
 - GitHub *runners* are the computers that host CI/CD jobs. For long-running or complex Actions, consider hosting your own runners so that you can choose computers with powerful processing capabilities and ample memory. See [About self-hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners).
