@@ -44,7 +44,9 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 
 ## Architecture
 
-![Architecture diagram highlighting the security checks that run in various GitHub and Azure components in a GitHub DevSecOps environment.](../media/devsecops-in-github-data-flow.png)
+:::image type="complex" source="../media/devsecops-in-github-data-flow.png" alt-text="Architecture diagram highlighting the security checks that run in various GitHub and Azure components in a GitHub DevSecOps environment.":::
+   Architecture diagram highlighting security checks that run in a GitHub DevSecOps environment. Azure AD authenticates developers; Codespaces run security scans; GitHub Actions test security and encrypt sensitive data; Azure Policy, Azure Security Center, and Azure Monitor evaluate deployed software for risks.
+:::image-end:::
 *Download an [.svg](https://github.com/fmigacz/devsecops-architecture/tree/master/media/devsecops-in-github.svg) of this architecture.*
 
 1. When developers access GitHub resources, GitHub redirects them to Azure Active Directory (Azure AD) for SAML authentication. This service offers single sign-on and uses the Microsoft Authenticator app for FIDO2 strong authentication.
@@ -59,7 +61,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 ## Components
 
 - [Azure AD](/azure/active-directory/fundamentals/active-directory-whatis) is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps like M365 and GitHub.
-- [GitHub](https://docs.github.com/en/github) provides a code-hosting platform that developers can use for collaborating on both open-source and innersource projects.
+- [GitHub](https://docs.github.com/en/github) provides a code-hosting platform that developers can use for collaborating on both open-source and inner-source projects.
 - [Codespaces](https://docs.github.com/en/github/developing-online-with-codespaces/about-codespaces) is an online development environment. Hosted by GitHub and powered by Visual Studio Code, this tool provides a complete development solution in the cloud.
 - [GitHub Actions](https://docs.github.com/en/actions/getting-started-with-github-actions/about-github-actions) are custom workflows that provide continuous integration (CI) and continuous deployment (CD) capabilities directly in repositories.
 - [App Service](https://azure.microsoft.com/services/app-service/) provides a framework for building, deploying, and scaling web apps. This platform offers built-in infrastructure maintenance, security patching, and scaling.
@@ -82,7 +84,9 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
       - [PHP Security Advisories Database](https://github.com/FriendsOfPHP/security-advisories): References to known security vulnerabilities in PHP projects and libraries.  
   
   When GitHub identifies a *vulnerability*, it takes the steps illustrated in the following diagram.
-  ![Architecture diagram illustrating the chain of events that the identification of a vulnerability triggers, including alerts, upgrades, and deployment.](../media/devsecops-in-github-vulnerability-management-data-flow.png)
+  :::image type="complex" source="../media/devsecops-in-github-vulnerability-management-data-flow.png" alt-text="Architecture diagram illustrating the chain of events that the identification of a vulnerability triggers, including alerts, upgrades, and deployment.":::
+     Architecture diagram illustrating the following chain of events in a GitHub DevSecOps implementation. GitHub identifies a vulnerability and sends an email alert. Dependabot creates a branch, updates the vulnerability source, and creates a PR. The branch merges. GitHub Actions deploy the new app.
+  :::image-end:::
   *Download an [.svg](../media/devsecops-in-github-vulnerability-management-data-flow.svg) of this diagram.*
 
   1. GitHub sends an email alert to the organization owners and repository administrators.
@@ -105,7 +109,7 @@ Consider the following points when deciding how to implement this pattern:
   - Having lost trust in security tools because of the inaccuracies, developers ignore results.  
 
   GitHub DevSecOps solves these problems by integrating security into the software lifecycle in the following ways:
-  - Employing tools like CodeSpaces that embed scanning checks in IDEs, meaning developers use them in familiar environments.
+  - Employing tools like Codespaces that embed scanning checks in IDEs, meaning developers use them in familiar environments.
   - Making security checks a regular part of code reviews instead of an afterthought.
   - Putting developers in charge of high-precision scans but leaving noisier checks to security teams.
 - Project managers on tight schedules may worry that adding security measures will delay development. However, GitHub DevSecOps implementations often observe the opposite:
