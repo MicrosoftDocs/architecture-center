@@ -51,6 +51,7 @@ The following steps show how the data flows in this architecture in the form of 
 For more information, see these articles:
 
 - [Multiple AD forests architecture with Windows Virtual Desktop](./multi-forest.md).
+- [Windows Virtual Desktop for enterprises](./windows-virtual-desktop.md)
 - [Azure AD Connect Topology](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies).
 - [Compare different Identity options: Self-managed Active Directory Domain Services (AD DS), Azure Active Directory (Azure AD), and Azure Active Directory Domain Services (Azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions).
 - [Windows Virtual Desktop Documentation](https://docs.microsoft.com/azure/virtual-desktop/).
