@@ -52,8 +52,8 @@ Security is a prime concern for business that are storing any sort of custom or 
 * [Azure Application Gateway](/azure/application-gateway/ingress-controller-overview) is a Layer-7 load balancer with support for advanced routing rules and a Web Application Firewall (WAF).
 * Using [Azure Monitor](/azure/azure-monitor/overview) lets you get insights on the availability and performance of your application and infrastructure. It also gives you access to signals to monitor your solution's health and spot abnormal activity early.
 * Using [Azure AD B2C](/azure/active-directory-b2c/overview) you can provide identity services to consumers (end-users) of your application, even if they're not part of your organization.
-* Using [Azure Security Center](/azure/security-center/container-security) you can supply threat and vulnerability management for your deployed container based solution.
 
 ## Related resources
 
-* [DevSecOps in GitHub](/azure/architecture/solution-ideas/articles/devsecops-in-github)
+* Using [Azure Security Center](/azure/security-center/container-security) you can supply threat and vulnerability management for your deployed container based solution.
+* [DevSecOps in GitHub](/azure/architecture/solution-ideas/articles/devsecops-in-github).
