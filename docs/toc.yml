@@ -216,7 +216,9 @@ items:
           href: framework/cost/provision-networking.md
           items:
             - name: Cost for networking services
-              href: framework/cost/provision-networking-services.md                   
+              href: framework/cost/provision-networking-services.md
+        - name: Web apps    
+          href: framework/cost/provision-webapps.md                      
     - name: Monitor
       items: 
       - name: Checklist
@@ -498,7 +500,7 @@ items:
         href: solution-ideas/articles/contract-management.md
       - name: Customer churn prediction
         href: solution-ideas/articles/customer-churn-prediction.md
-      - name: Customer Feedback
+      - name: Customer feedback
         href: solution-ideas/articles/customer-feedback-and-analytics.md
       - name: Defect prevention
         href: solution-ideas/articles/defect-prevention-with-predictive-maintenance.md
@@ -926,6 +928,8 @@ items:
         href: serverless-quest/functions-app-security.md
     - name: Architectures
       items:
+      - name: Big data analytics with Azure Data Explorer
+        href: solution-ideas/articles/big-data-azure-data-explorer.md
       - name: CI/CD pipeline using Azure DevOps
         href: example-scenario/apps/devops-dotnet-webapp.md
       - name: Event-based cloud automation
