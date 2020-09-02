@@ -778,6 +778,8 @@ items:
         href: best-practices/cassandra.md
       - name: Azure data platform
         href: example-scenario/dataplate2e/data-platform-end-to-end.md
+      - name: Big data analytics with Azure Data Explorer
+        href: solution-ideas/articles/big-data-azure-data-explorer.md
       - name: Campaign optimization with HDInsight Spark
         href: solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.md
       - name: Campaign optimization with SQL Server
@@ -844,8 +846,6 @@ items:
         href: solution-ideas/articles/streaming-using-hdinsight.md
       - name: Windows N-tier applications
         href: reference-architectures/n-tier/n-tier-sql-server.md
-      - name: Big data analytics
-        href: solution-ideas/articles/big-data-azure-data-explorer.md
   - name: Developer Options
     items:
     - name: Microservices
