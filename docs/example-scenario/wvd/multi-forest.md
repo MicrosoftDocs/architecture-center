@@ -109,6 +109,7 @@ For more details, read the [Staging server section of Azure AD Connect topologie
 For more information, see these articles:
 
 - [Azure AD Connect topology](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies).
+- [Windows Virtual Desktop for the enterprise article](./windows-virtual-desktop.md)
 - [Compare different Identity options: Self-managed Active Directory Domain Services (AD DS), Azure Active Directory (Azure AD), and Azure Active Directory Domain Services (Azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions).
 - [Solution idea Multi forest with Azure AD DS](./multi-forest-azure-managed.md).
 - [Windows Virtual Desktop Documentation](https://docs.microsoft.com/azure/virtual-desktop/).
