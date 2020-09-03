@@ -52,6 +52,8 @@ This architecture consists of the following components. Some applications may no
 
 **User management** restricts which users or groups can perform actions on devices, such as upgrading firmware. It also defines capabilities for users in applications. We recommend using [Azure Active Directory](/azure/active-directory/) to authenticate and authorize users.
 
+**Security monitoring** [Azure Security Center for IoT](/azure/asc-for-iot/overview) provides an end-to-end security solution for IoT workloads and simplifies their protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat detection and response across workloads from leaf devices through Edge as well as up through the clouds.
+
 ## Scalability considerations
 
 An IoT application should be built as discrete services that can scale independently. Consider the following scalability points:
