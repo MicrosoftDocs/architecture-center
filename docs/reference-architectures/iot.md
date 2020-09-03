@@ -19,10 +19,9 @@ This reference architecture shows a recommended architecture for IoT application
 
 IoT applications can be described as **things** (devices) sending data that generates **insights**. These insights generate **actions** to improve a business or process. An example is an engine (the thing) sending temperature data. This data is used to evaluate whether the engine is performing as expected (the insight). The insight is used to proactively prioritize the maintenance schedule for the engine (the action).
 
-This reference architecture uses Azure PaaS (platform-as-a-service) components. Other options for building IoT solutions on Azure include:
+This reference architecture uses Azure PaaS (platform-as-a-service) components. Another recommended option for building IoT solutions on Azure is:
 
 - [Azure IoT Central](/azure/iot-central/). IoT Central is a fully managed SaaS (software-as-a-service) solution. It abstracts the technical choices and lets you focus on your solution exclusively. This simplicity comes with a tradeoff in being less customizable than a PaaS-based solution.
-- Using OSS components such as the SMACK stack (Spark, Mesos, Akka, Cassandra, Kafka) deployed on Azure VMs. This approach offers a great deal of control but is more complex.
 
 At a high level, there are two ways to process telemetry data, hot path and cold path. The difference has to do with requirements for latency and data access.
 
