@@ -17,3 +17,8 @@ ms.subservice: well-architected
 ## Azure deployment script resource
 
 ## Open source software
+
+#### Next steps
+
+> [!div class="nextstepaction"]
+> [Automate operational tasks](./automation-tasks.md)
