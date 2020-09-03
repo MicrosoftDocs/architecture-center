@@ -12,7 +12,7 @@ ms.custom: fcp
 
 # Monitor and manage loops
 
-An Internet-of-Things (IoT) *monitor and manage loop (MML)* is a supervisory system that continually monitors a physical system controlled by a set of networked IoT devices. The monitor and manage loop makes sure the system is within the tolerable range of the desired state setpoint, and issues commands to control the system.
+An Internet-of-Things (IoT) *monitor and manage loop* is a supervisory system that continually monitors a physical system controlled by a set of networked IoT devices. The monitor and manage loop makes sure the system is within the tolerable range of the desired state setpoint, and issues commands to control the system.
 
 This article provides an overview of monitor and manage process loop architecture, characteristics, and components.
 
@@ -31,7 +31,7 @@ Some example scenarios for monitor and manage loops include:
 
 ## Architecture
 
-![Monitor and Manage Loop](./media/monitor-manage-loop.png)
+![Monitor and Manage Loop](./media/monitor-and-manage.svg)
 
 The IoT manage and monitor loop is a supervisory system that ensures that the system operates within operational thresholds. Multiple devices in a system must act in concert to achieve and stay within the tolerable range of the desired state. The manage and monitor loop observes and correlates hot telemetry signal trends from multiple devices to deduce current state. Logic combines these trends with warm time series history and enterprise system signals to compute new insights. The monitor and manage loop then pushes the insights through a rules engine to generate actuator commands or create alarms as necessary.
 

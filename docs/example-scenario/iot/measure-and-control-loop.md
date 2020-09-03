@@ -28,7 +28,7 @@ Examples of measure and control loops in action include:
 - Solar panels: Adjust solar panel angle as the sun moves over the horizon to maximize the power generated.
 
 ## Architecture
-![Measure and control loop in the context of a regulatory control.](./media/measure-control-loop.png)
+![Measure and control loop in the context of a regulatory control.](./media/measure-and-control.svg)
 
 A measure and control loop is scoped as a single device abstraction composed of sensors, actuators, and a controller. These loops may integrate with [analyze and optimize loops](analyze-and-optimize-loop.md) and [monitor and manage loops](monitor-and-manage-loop.md) that operate in a much larger context.
 
@@ -42,7 +42,7 @@ A measure and control loop has the following characteristics:
 - Doesn't depend on any external systems to ensure low cycle time and operational autonomy.
 - May emit telemetry to be used by supervisory systems.
 - For sensor metrics and actuator commands, uses field bus protocols like Modbus, RS485, EtherCAT, and SERCOS.
-- May integrate with supervisory systems like MMLs through IoT Hub protocols like HTTP, MQTT, and AMQP.
+- May integrate with supervisory systems like monitor and manage loops through IoT Hub protocols like HTTP, MQTT, and AMQP.
 
 ## Components
 An IoT *thing* (device) is composed of sensors, actuators, and a controller. All three components work in concert to make sure that the device is operating in its environment as expected. Example devices include wind turbines, washing machines, car washes, and gas storage tanks. Example setpoints include safe RPM of a wind turbine, safe temperature and pressure of a gas tank, and safe distance for auto unlock of a smart door lock.
