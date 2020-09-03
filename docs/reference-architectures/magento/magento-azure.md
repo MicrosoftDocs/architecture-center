@@ -48,10 +48,16 @@ Kubernetes and Azure both have mechanisms for *role-based access control (RBAC)*
 AKS integrates the Azure and Kubernetes RBAC mechanisms. To assign AKS permissions to users, create *roles* and *role bindings*:
 
 - A role is a set of permissions that apply within a namespace. Permissions are defined as verbs like get, update, create, or delete, on resources like pods or deployments.
+  
 - Role binding assigns users or groups to roles.
+  
 - A *ClusterRole* object defines a role that applies to the entire AKS cluster, across all namespaces. To assign users or groups to a ClusterRole, create a *ClusterRoleBinding*.
   
-When you create the AKS cluster, you can configure it to use Azure AD for user authentication. For details on how to set up Azure AD integration, see [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad). For more information about cluster roles and Azure AD identities, see [Use Kubernetes RBAC with Azure AD](/azure/aks/azure-ad-rbac).
+When you create the AKS cluster, you can configure it to use Azure AD for user authentication.
+
+- For details on how to set up Azure AD integration, see [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad).
+  
+- For more information about controlling access to cluster resources using RBAC and Azure AD identities, see [Use Kubernetes RBAC with Azure AD](/azure/aks/azure-ad-rbac).
 
 ## Scalability considerations
 
