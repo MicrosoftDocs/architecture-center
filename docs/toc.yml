@@ -244,7 +244,7 @@ items:
   - name: Operational Excellence
     items:
     - name: Overview
-      href: framework/devops/overview.md
+      href: framework/operational-excilence/overview.md
     - name: Contributing factors
       items:
       - name: Checklist
@@ -260,15 +260,15 @@ items:
     - name: Automation
       items:
       - name: Checklist
-        href: framework/devops/automation-checklist.md
+        href: framework/operational-excilence/automation-checklist.md
       - name: Overview
-        href: framework/devops/automation-introduction.md
+        href: framework/operational-excilence/automation-overview.md
       - name: Repeatable infrastructure
-        href: framework/devops/automation-infrastructure.md
+        href: framework/operational-excilence/automation-infrastructure.md
       - name: Configure infrastructure
-        href: framework/devops/automation-configuration.md
+        href: framework/operational-excilence/automation-configuration.md
       - name: Automate operational tasks
-        href: framework/devops/automation-tasks.md
+        href: framework/operational-excilence/automation-tasks.md
     - name: Release engineering 
       items:
       - name: Checklist
