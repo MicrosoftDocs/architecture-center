@@ -198,7 +198,7 @@ For more information, see [Logic Apps pricing](https://azure.microsoft.com/prici
 
 For cold path storage, Azure Blob Storage is the most cost-effective option.
 
-For warm path storage, consider using Azure Cosmos DB or Azure SQL Database. For more information, see [Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/) or [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
+For warm path storage, consider using Azure Cosmos DB. For more information, see [Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 
 ## Next steps
