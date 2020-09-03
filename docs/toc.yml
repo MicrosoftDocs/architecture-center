@@ -1121,11 +1121,11 @@ items:
         href: example-scenario/iot/builders-developers-operators.md
     - name: IoT patterns
       items:        
-      - name: Measure and control loops
+      - name: Measure and control loop
         href: example-scenario/iot/measure-and-control-loop.md
-      - name: Monitor and manage loops
+      - name: Monitor and manage loop
         href: example-scenario/iot/monitor-and-manage-loop.md
-      - name: Analyze and optimize loops
+      - name: Analyze and optimize loop
         href: example-scenario/iot/analyze-and-optimize-loop.md
       - name: Solution scaling with application stamps
         href: example-scenario/iot/application-stamps.md
