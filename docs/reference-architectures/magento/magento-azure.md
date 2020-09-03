@@ -22,12 +22,12 @@ Magento is an open-source e-commerce platform written in PHP. This reference arc
 - AKS creates a [virtual network](https://azure.microsoft.com/services/virtual-network/) to deploy the agent nodes. Create the virtual network in advance to set up subnet configuration, private link, and egress restriction.
 - [Varnish HTTP Cache](https://varnish-cache.org/intro/index.html#intro) installs in front of the HTTP servers to act as a full-page cache.
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) stores transaction data like orders and catalogs. Version 8.0 is recommended.
-- [Azure Files Premium SKU](https://azure.microsoft.com/services/storage/files/) or an equivalent *network-attached storage (NAS)* system stores media files like product images, Magento needs a Kubernetes-compatible file system that can mount a volume in *ReadWriteMany* mode, like Azure Files Premium, SoftNAS, [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), or GlusterFS. The current solution uses SoftNAS.
+- [Azure Files Premium](https://azure.microsoft.com/services/storage/files/) or an equivalent *network-attached storage (NAS)* system stores media files like product images, Magento needs a Kubernetes-compatible file system that can mount a volume in *ReadWriteMany* mode, like Azure Files Premium, SoftNAS, [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), or GlusterFS. The current solution uses SoftNAS.
 - A [content delivery network (CDN)](https://azure.microsoft.com/services/cdn/) serves static content like CSS, JavaScript, and images. Serving content through a CDN minimizes network latency between users and the datacenter. A CDN can remove significant load from NAS by caching and serving static content.
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) stores session data. Premium SKU allows placing caches into the same virtual network with other components, to improve performance and restrict access through topology and access policies.
-- AKS uses [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) identity to create and manage other Azure resources like Azure load balancers, user authentication, role-based access control, and managed identity.
+- AKS uses an [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) identity to create and manage other Azure resources like Azure load balancers, user authentication, role-based access control, and managed identity.
 - [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/) stores the private [Docker](https://www.docker.com/) images that are deployed to the AKS cluster. You can use other container registries like Docker Hub. Note that the default Magento install writes some secrets to the image.
-- [Azure Monitor](https://azure.microsoft.com/services/monitor/) collects and stores metrics and logs, including platform metrics for Azure services and application telemetry. Azure Monitor integrates with AKS to collect controller, node, and container metrics, container logs, and master node logs.
+- [Azure Monitor](https://azure.microsoft.com/services/monitor/) collects and stores metrics and logs, including Azure service platform metrics and application telemetry. Azure Monitor integrates with AKS to collect controller, node, and container metrics, and container and master node logs.
 
 ## Security considerations
 
@@ -41,25 +41,25 @@ Here are some security considerations for this architecture:
 
 Kubernetes and Azure both have mechanisms for *role-based access control (RBAC)*.
 
-- Azure RBAC controls access to resources in Azure, including the ability to create new Azure resources. RBAC can assign permissions to users, groups, or *service principals*. A service principal is a security identity used by applications.
+- Azure RBAC controls access to Azure resources, including the ability to create resources. RBAC can assign permissions to users, groups, or *service principals*, which are security identities used by applications.
 
 - Kubernetes RBAC controls permissions to the Kubernetes API. For example, creating pods and listing pods are actions that RBAC can authorize to users.
 
-AKS integrates the Azure and Kubernetes RBAC mechanisms. When you create an AKS cluster, you can configure it to use Azure AD for user authentication. For details on how to set up Azure AD integration, see [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad).
+AKS integrates the Azure and Kubernetes RBAC mechanisms. To assign AKS permissions to users, create *roles* and *role bindings*:
 
-To assign Kubernetes permissions to users, create *roles* and *role bindings*:
-
-- A *Role* is a set of permissions that apply within a namespace. Permissions are defined as verbs like get, update, create, or delete, on resources like pods or deployments.
-- *RoleBinding* assigns users or groups to a role.
-- A *ClusterRole* object is like a role but applies to the entire cluster, across all namespaces. To assign users or groups to a ClusterRole, create a *ClusterRoleBinding*.
+- A role is a set of permissions that apply within a namespace. Permissions are defined as verbs like get, update, create, or delete, on resources like pods or deployments.
+- Role binding assigns users or groups to roles.
+- A *ClusterRole* object defines a role that applies to the entire AKS cluster, across all namespaces. To assign users or groups to a ClusterRole, create a *ClusterRoleBinding*.
   
+When you create the AKS cluster, you can configure it to use Azure AD for user authentication. For details on how to set up Azure AD integration, see [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad). For more information about cluster roles and Azure AD identities, see [Use Kubernetes RBAC with Azure AD](/azure/aks/azure-ad-rbac).
+
 ## Scalability considerations
 
 Here are some ways to optimize scalability for this architecture:
 
 ### Media and static files
 
-- Adequately provision Azure Files or another NAS system. Magento can store thousands of media files such as product images. Be sure to provision the Azure Files or other NAS product with sufficient *input/output operations per second (IOPS)* to handle capacity.
+- Adequately provision Azure Files or another NAS system. Magento can store thousands of media files such as product images. Be sure to provision the Azure Files or other NAS product with sufficient *input/output operations per second (IOPS)* to handle demand.
 
 - Minimize the size of static content such as HTML, CSS, and JavaScript. [Minification](https://devdocs.magento.com/cloud/deploy/static-content-deployment.html#minify-content) can reduce bandwidth costs and provide a more responsive experience for users.
 
@@ -80,7 +80,9 @@ Here are some ways to optimize scalability for this architecture:
   Make sure the following directives are set and uncommented in *php.ini*:
   
   `opcache.enable=1`
+  
   `opcache.save_comments=1`
+  
   `opcache.validate_timestamps=0`
   
 - To avoid unnecessary performance degradation, disable the Azure Cache for Redis option to persist stored data. For more information, see [How to configure data persistence for a Premium Azure Cache for Redis](/azure/azure-cache-for-redis/cache-how-to-premium-persistence).
@@ -91,7 +93,7 @@ Here are some ways to optimize scalability for this architecture:
 
 Limit access logging, to avoid performance issues and prevent exposing sensitive data like client IP addresses.
 
-- Use the following command to limit Varnish logging to error-level:
+- Use the following Varnish command to limit logging to error-level:
   
   `varnishd -s malloc,1G -a :80 -f /etc/varnish/magento.vcl && varnishlog -q "RespStatus >= 400 or BerespStatus >= 400"`
 
